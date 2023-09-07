@@ -59748,7 +59748,7 @@
       "type": "float",
       "traits": {
         "smithy.api#range": {
-          "min": 0.0
+          "min": 0
         }
       }
     },

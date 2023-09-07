@@ -45,22 +45,26 @@
       }
     },
     "com.amazonaws.iotsecuretunneling#ClientMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SOURCE",
-            "name": "SOURCE"
-          },
-          {
-            "value": "DESTINATION",
-            "name": "DESTINATION"
-          },
-          {
-            "value": "ALL",
-            "name": "ALL"
+      "type": "enum",
+      "members": {
+        "SOURCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SOURCE"
           }
-        ]
+        },
+        "DESTINATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DESTINATION"
+          }
+        },
+        "ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL"
+          }
+        }
       }
     },
     "com.amazonaws.iotsecuretunneling#CloseTunnel": {
@@ -77,7 +81,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>\n\t\t\trequest is received, we close the WebSocket connections between the client and proxy\n\t\t\tserver so no data can be transmitted.</p>\n\t\t       <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">CloseTunnel</a> action.</p>",
+        "smithy.api#documentation": "<p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>\n\t\t\trequest is received, we close the WebSocket connections between the client and proxy\n\t\t\tserver so no data can be transmitted.</p>\n         <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">CloseTunnel</a> action.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/tunnels/{tunnelId}",
@@ -104,11 +108,17 @@
             "smithy.api#httpQuery": "delete"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iotsecuretunneling#CloseTunnelResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.iotsecuretunneling#ConnectionState": {
       "type": "structure",
@@ -131,18 +141,20 @@
       }
     },
     "com.amazonaws.iotsecuretunneling#ConnectionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CONNECTED",
-            "name": "CONNECTED"
-          },
-          {
-            "value": "DISCONNECTED",
-            "name": "DISCONNECTED"
+      "type": "enum",
+      "members": {
+        "CONNECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONNECTED"
           }
-        ]
+        },
+        "DISCONNECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISCONNECTED"
+          }
+        }
       }
     },
     "com.amazonaws.iotsecuretunneling#DateType": {
@@ -168,7 +180,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets information about a tunnel identified by the unique tunnel id.</p>\n\t\t       <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeTunnel</a> action.</p>",
+        "smithy.api#documentation": "<p>Gets information about a tunnel identified by the unique tunnel id.</p>\n         <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeTunnel</a> action.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/tunnels/{tunnelId}",
@@ -187,6 +199,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iotsecuretunneling#DescribeTunnelResponse": {
@@ -198,6 +213,9 @@
             "smithy.api#documentation": "<p>The tunnel being described.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iotsecuretunneling#Description": {
@@ -271,7 +289,7 @@
           "name": "IoTSecuredTunneling"
         },
         "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<fullname>IoT Secure Tunneling</fullname>\n\t\t       <p>IoT Secure Tunneling creates remote connections to devices deployed in the\n\t\t\tfield.</p>\n\t\t       <p>For more information about how IoT Secure Tunneling works, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html\">IoT\n\t\t\t\tSecure Tunneling</a>.</p>",
+        "smithy.api#documentation": "<fullname>IoT Secure Tunneling</fullname>\n         <p>IoT Secure Tunneling creates remote connections to devices deployed in the\n\t\t\tfield.</p>\n         <p>For more information about how IoT Secure Tunneling works, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html\">IoT\n\t\t\t\tSecure Tunneling</a>.</p>",
         "smithy.api#title": "AWS IoT Secure Tunneling",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
@@ -307,13 +325,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -321,21 +338,69 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [
                     {
-                      "fn": "parseURL",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
                         }
                       ],
-                      "assign": "url"
+                      "assign": "PartitionResult"
                     }
                   ],
                   "type": "tree",
@@ -350,13 +415,17 @@
                             },
                             true
                           ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
                       "type": "tree",
                       "rules": [
                         {
@@ -364,195 +433,88 @@
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseDualStack"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
-                            },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://api.tunneling.iot-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
                           "type": "tree",
                           "rules": [
                             {
-                              "conditions": [
-                                {
-                                  "fn": "stringEquals",
-                                  "argv": [
-                                    "aws",
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "name"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
+                              "conditions": [],
                               "endpoint": {
-                                "url": "https://api.tunneling.iot-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://api.tunneling.iot-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
                               "type": "endpoint"
-                            },
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
                             {
-                              "conditions": [
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
                                 {
-                                  "fn": "stringEquals",
+                                  "fn": "getAttr",
                                   "argv": [
-                                    "aws-us-gov",
                                     {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "name"
-                                      ]
-                                    }
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
                                   ]
                                 }
-                              ],
-                              "endpoint": {
-                                "url": "https://api.tunneling.iot-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            },
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
                             {
                               "conditions": [],
                               "endpoint": {
@@ -563,692 +525,99 @@
                               "type": "endpoint"
                             }
                           ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
                         }
                       ]
                     },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
                     {
                       "conditions": [
                         {
                           "fn": "booleanEquals",
                           "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
+                              "ref": "UseDualStack"
+                            },
+                            true
                           ]
                         }
                       ],
                       "type": "tree",
                       "rules": [
                         {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://api.tunneling.iot.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://api.tunneling.iot.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
                       ]
                     },
                     {
                       "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
+                      "endpoint": {
+                        "url": "https://api.tunneling.iot.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
                   ]
-                },
-                {
-                  "conditions": [],
-                  "endpoint": {
-                    "url": "https://api.tunneling.iot.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
                 }
               ]
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ap-south-1.api.aws"
+                  "url": "https://api.tunneling.iot.ap-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1260,307 +629,34 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.me-south-1.api.aws"
+                  "url": "https://api.tunneling.iot.ap-northeast-2.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.me-south-1.amazonaws.com"
+                  "url": "https://api.tunneling.iot.ap-south-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ap-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.ap-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.us-gov-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.us-gov-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1572,47 +668,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1624,95 +681,125 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.us-iso-east-1.c2s.ic.gov"
+                  "url": "https://api.tunneling.iot.ca-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://api.tunneling.iot.us-iso-east-1.c2s.ic.gov"
+                  "url": "https://api.tunneling.iot-fips.ca-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ca-central-1",
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.us-east-1.api.aws"
+                  "url": "https://api.tunneling.iot.eu-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.us-east-1.amazonaws.com"
+                  "url": "https://api.tunneling.iot.eu-north-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://api.tunneling.iot.us-east-1.api.aws"
+                  "url": "https://api.tunneling.iot.eu-west-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1724,47 +811,21 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.us-east-2.api.aws"
+                  "url": "https://api.tunneling.iot-fips.us-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://api.tunneling.iot.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1776,47 +837,112 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                  "url": "https://api.tunneling.iot-fips.us-east-2.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-east-2",
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://api.tunneling.iot-fips.cn-northwest-1.amazonaws.com.cn"
+                  "url": "https://api.tunneling.iot.us-west-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://api.tunneling.iot.cn-northwest-1.api.amazonwebservices.com.cn"
+                  "url": "https://api.tunneling.iot-fips.us-west-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1828,8 +954,173 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://api.tunneling.iot.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1839,8 +1130,8 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1852,8 +1143,8 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1863,8 +1154,8 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1876,12 +1167,12 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -1889,8 +1180,21 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1901,8 +1205,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1913,9 +1217,15 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -1973,6 +1283,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iotsecuretunneling#ListTagsForResourceResponse": {
@@ -1984,6 +1297,9 @@
             "smithy.api#documentation": "<p>The tags for the specified resource.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iotsecuretunneling#ListTunnels": {
@@ -1995,7 +1311,7 @@
         "target": "com.amazonaws.iotsecuretunneling#ListTunnelsResponse"
       },
       "traits": {
-        "smithy.api#documentation": "<p>List all tunnels for an Amazon Web Services account. Tunnels are listed by creation time in\n\t\t\tdescending order, newer tunnels will be listed before older tunnels.</p>\n\t\t       <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListTunnels</a> action.</p>",
+        "smithy.api#documentation": "<p>List all tunnels for an Amazon Web Services account. Tunnels are listed by creation time in\n\t\t\tdescending order, newer tunnels will be listed before older tunnels.</p>\n         <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListTunnels</a> action.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/tunnels",
@@ -2033,6 +1349,9 @@
             "smithy.api#httpQuery": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iotsecuretunneling#ListTunnelsResponse": {
@@ -2050,6 +1369,9 @@
             "smithy.api#documentation": "<p>The token to use to get the next set of results, or null if there are no additional\n\t\t\tresults.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iotsecuretunneling#MaxResults": {
@@ -2082,7 +1404,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new tunnel, and returns two client access tokens for clients to use to\n\t\t\tconnect to the IoT Secure Tunneling proxy server.</p>\n\t\t       <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">OpenTunnel</a> action.</p>",
+        "smithy.api#documentation": "<p>Creates a new tunnel, and returns two client access tokens for clients to use to\n\t\t\tconnect to the IoT Secure Tunneling proxy server.</p>\n         <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">OpenTunnel</a> action.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/tunnels",
@@ -2117,6 +1439,9 @@
             "smithy.api#documentation": "<p>Timeout configuration for a tunnel.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iotsecuretunneling#OpenTunnelResponse": {
@@ -2146,6 +1471,9 @@
             "smithy.api#documentation": "<p>The access token the destination local proxy uses to connect to IoT Secure\n\t\t\tTunneling.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iotsecuretunneling#ResourceNotFoundException": {
@@ -2179,7 +1507,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Revokes the current client access token (CAT) and returns new CAT for clients to\n\t\t\tuse when reconnecting to secure tunneling to access the same tunnel.</p>\n\t\t       <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">RotateTunnelAccessToken</a> action.</p>\n\t\t       <note>\n\t\t\t         <p>Rotating the CAT doesn't extend the tunnel duration. For example, say the tunnel\n\t\t\t\tduration is 12 hours and the tunnel has already been open for 4 hours. When you\n\t\t\t\trotate the access tokens, the new tokens that are generated can only be used for the\n\t\t\t\tremaining 8 hours.</p>\n\t\t       </note>",
+        "smithy.api#documentation": "<p>Revokes the current client access token (CAT) and returns new CAT for clients to\n\t\t\tuse when reconnecting to secure tunneling to access the same tunnel.</p>\n         <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">RotateTunnelAccessToken</a> action.</p>\n         <note>\n            <p>Rotating the CAT doesn't extend the tunnel duration. For example, say the tunnel\n\t\t\t\tduration is 12 hours and the tunnel has already been open for 4 hours. When you\n\t\t\t\trotate the access tokens, the new tokens that are generated can only be used for the\n\t\t\t\tremaining 8 hours.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/tunnel/{tunnelId}/rotate",
@@ -2208,6 +1536,9 @@
         "destinationConfig": {
           "target": "com.amazonaws.iotsecuretunneling#DestinationConfig"
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iotsecuretunneling#RotateTunnelAccessTokenResponse": {
@@ -2231,6 +1562,9 @@
             "smithy.api#documentation": "<p>The client access token that the destination local proxy uses to connect to IoT\n\t\t\tSecure Tunneling.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iotsecuretunneling#Service": {
@@ -2349,11 +1683,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iotsecuretunneling#TagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.iotsecuretunneling#TagValue": {
       "type": "string",
@@ -2490,18 +1830,20 @@
       }
     },
     "com.amazonaws.iotsecuretunneling#TunnelStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OPEN",
-            "name": "OPEN"
-          },
-          {
-            "value": "CLOSED",
-            "name": "CLOSED"
+      "type": "enum",
+      "members": {
+        "OPEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPEN"
           }
-        ]
+        },
+        "CLOSED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLOSED"
+          }
+        }
       }
     },
     "com.amazonaws.iotsecuretunneling#TunnelSummary": {
@@ -2593,11 +1935,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iotsecuretunneling#UntagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     }
   }
 }

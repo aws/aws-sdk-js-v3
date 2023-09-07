@@ -359,6 +359,7 @@
           "arnNamespace": "cognito-idp",
           "cloudFormationName": "Cognito",
           "cloudTrailEventSource": "cognitoidentityprovider.amazonaws.com",
+          "docId": "cognito-idp-2016-04-18",
           "endpointPrefix": "cognito-idp"
         },
         "aws.auth#sigv4": {
@@ -1715,8 +1716,8 @@
                   }
                 ],
                 "Enabled": true,
-                "UserCreateDate": 1.689980857949e9,
-                "UserLastModifiedDate": 1.689980857949e9,
+                "UserCreateDate": 1689980857.949,
+                "UserLastModifiedDate": 1689980857.949,
                 "UserStatus": "FORCE_CHANGE_PASSWORD",
                 "Username": "testuser"
               }
@@ -5694,7 +5695,7 @@
                 "AliasAttributes": ["email"],
                 "Arn": "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_EXAMPLE",
                 "AutoVerifiedAttributes": ["email"],
-                "CreationDate": 1.689721665239e9,
+                "CreationDate": 1689721665.239,
                 "DeletionProtection": "ACTIVE",
                 "DeviceConfiguration": {
                   "ChallengeRequiredOnNewDevice": true,
@@ -5731,7 +5732,7 @@
                   "UserMigration": "arn:aws:lambda:us-east-1:123456789012:function:MyFunction",
                   "VerifyAuthChallengeResponse": "arn:aws:lambda:us-east-1:123456789012:function:MyFunction"
                 },
-                "LastModifiedDate": 1.689721665239e9,
+                "LastModifiedDate": 1689721665.239,
                 "MfaConfiguration": "OPTIONAL",
                 "Name": "my-test-user-pool",
                 "Policies": {
@@ -6092,7 +6093,7 @@
                 "ClientId": "26cb2c60kq7nbmas7rbme9b6pp",
                 "ClientName": "my-test-app-client",
                 "ClientSecret": "13ka4h7u28d9oo44tqpq9djqsfvhvu8rk4d2ighvpu0k8fj1c2r9",
-                "CreationDate": 1.689885426107e9,
+                "CreationDate": 1689885426.107,
                 "DefaultRedirectURI": "https://example.com",
                 "EnablePropagateAdditionalUserContextData": false,
                 "EnableTokenRevocation": true,
@@ -6102,7 +6103,7 @@
                   "ALLOW_REFRESH_TOKEN_AUTH"
                 ],
                 "IdTokenValidity": 6,
-                "LastModifiedDate": 1.689885426107e9,
+                "LastModifiedDate": 1689885426.107,
                 "LogoutURLs": ["https://example.com/logout"],
                 "PreventUserExistenceErrors": "ENABLED",
                 "ReadAttributes": ["address", "preferred_username", "email"],
@@ -10677,8 +10678,8 @@
                     }
                   ],
                   "Enabled": true,
-                  "UserCreateDate": 1.682955829578e9,
-                  "UserLastModifiedDate": 1.68903018163e9,
+                  "UserCreateDate": 1682955829.578,
+                  "UserLastModifiedDate": 1689030181.63,
                   "UserStatus": "CONFIRMED",
                   "Username": "testuser"
                 },
@@ -10694,8 +10695,8 @@
                     }
                   ],
                   "Enabled": true,
-                  "UserCreateDate": 1.684427979201e9,
-                  "UserLastModifiedDate": 1.684427979201e9,
+                  "UserCreateDate": 1684427979.201,
+                  "UserLastModifiedDate": 1684427979.201,
                   "UserStatus": "UNCONFIRMED",
                   "Username": "testuser2"
                 },
@@ -10711,8 +10712,8 @@
                     }
                   ],
                   "Enabled": true,
-                  "UserCreateDate": 1.684427823641e9,
-                  "UserLastModifiedDate": 1.684427823641e9,
+                  "UserCreateDate": 1684427823.641,
+                  "UserLastModifiedDate": 1684427823.641,
                   "UserStatus": "UNCONFIRMED",
                   "Username": "testuser3@example.com"
                 }

@@ -154,6 +154,7 @@
           "arnNamespace": "ce",
           "cloudFormationName": "CostExplorer",
           "cloudTrailEventSource": "costexplorer.amazonaws.com",
+          "docId": "ce-2017-10-25",
           "endpointPrefix": "ce"
         },
         "aws.auth#sigv4": {
@@ -6137,7 +6138,7 @@
       "type": "double",
       "traits": {
         "smithy.api#range": {
-          "min": 0.0
+          "min": 0
         }
       }
     },

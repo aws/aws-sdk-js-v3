@@ -91,7 +91,7 @@
     "com.amazonaws.iotjobsdataplane#DescribeJobExecutionJobId": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "[a-zA-Z0-9_-]+|^\\$next"
+        "smithy.api#pattern": "^[a-zA-Z0-9_-]+|^\\$next$"
       }
     },
     "com.amazonaws.iotjobsdataplane#DescribeJobExecutionRequest": {
@@ -127,6 +127,9 @@
             "smithy.api#httpQuery": "executionNumber"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iotjobsdataplane#DescribeJobExecutionResponse": {
@@ -138,6 +141,9 @@
             "smithy.api#documentation": "<p>Contains data about a job execution.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iotjobsdataplane#DetailsKey": {
@@ -147,7 +153,7 @@
           "min": 1,
           "max": 128
         },
-        "smithy.api#pattern": "[a-zA-Z0-9:_-]+"
+        "smithy.api#pattern": "^[a-zA-Z0-9:_-]+$"
       }
     },
     "com.amazonaws.iotjobsdataplane#DetailsMap": {
@@ -166,7 +172,7 @@
           "min": 1,
           "max": 1024
         },
-        "smithy.api#pattern": "[^\\p{C}]*+"
+        "smithy.api#pattern": "^[^\\p{C}]*+$"
       }
     },
     "com.amazonaws.iotjobsdataplane#ExecutionNumber": {
@@ -220,6 +226,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iotjobsdataplane#GetPendingJobExecutionsResponse": {
@@ -237,6 +246,9 @@
             "smithy.api#documentation": "<p>A list of JobExecutionSummary objects with status QUEUED.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iotjobsdataplane#IncludeExecutionState": {
@@ -297,6 +309,7 @@
           "arnNamespace": "iot-jobs-data",
           "cloudFormationName": "IoTJobsDataPlane",
           "cloudTrailEventSource": "iotjobsdataplane.amazonaws.com",
+          "docId": "iot-jobs-data-2017-09-29",
           "endpointPrefix": "data.jobs.iot"
         },
         "aws.auth#sigv4": {
@@ -339,13 +352,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -353,21 +365,69 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [
                     {
-                      "fn": "parseURL",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
                         }
                       ],
-                      "assign": "url"
+                      "assign": "PartitionResult"
                     }
                   ],
                   "type": "tree",
@@ -382,13 +442,17 @@
                             },
                             true
                           ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
                       "type": "tree",
                       "rules": [
                         {
@@ -396,143 +460,86 @@
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseDualStack"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://data.jobs.iot-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
-                        },
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
                         {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
+                            true
                           ]
                         }
                       ],
                       "type": "tree",
                       "rules": [
                         {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://data.jobs.iot-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
+                          "conditions": [
                             {
-                              "fn": "getAttr",
+                              "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
                               ]
                             }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
+                          ],
                           "type": "tree",
                           "rules": [
                             {
@@ -545,692 +552,99 @@
                               "type": "endpoint"
                             }
                           ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
                         }
                       ]
                     },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
                     {
                       "conditions": [
                         {
                           "fn": "booleanEquals",
                           "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
+                              "ref": "UseDualStack"
+                            },
+                            true
                           ]
                         }
                       ],
                       "type": "tree",
                       "rules": [
                         {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://data.jobs.iot.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://data.jobs.iot.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
                       ]
                     },
                     {
                       "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
+                      "endpoint": {
+                        "url": "https://data.jobs.iot.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
                   ]
-                },
-                {
-                  "conditions": [],
-                  "endpoint": {
-                    "url": "https://data.jobs.iot.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
                 }
               ]
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ap-south-1.api.aws"
+                  "url": "https://data.jobs.iot.ap-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1242,307 +656,34 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://data.jobs.iot-fips.me-south-1.api.aws"
+                  "url": "https://data.jobs.iot.ap-northeast-2.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://data.jobs.iot-fips.me-south-1.amazonaws.com"
+                  "url": "https://data.jobs.iot.ap-south-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ap-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.ap-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.us-gov-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.us-gov-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1554,47 +695,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1606,95 +708,125 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://data.jobs.iot-fips.us-iso-east-1.c2s.ic.gov"
+                  "url": "https://data.jobs.iot.ca-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://data.jobs.iot.us-iso-east-1.c2s.ic.gov"
+                  "url": "https://data.jobs.iot-fips.ca-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ca-central-1",
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://data.jobs.iot-fips.us-east-1.api.aws"
+                  "url": "https://data.jobs.iot.eu-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://data.jobs.iot-fips.us-east-1.amazonaws.com"
+                  "url": "https://data.jobs.iot.eu-north-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://data.jobs.iot.us-east-1.api.aws"
+                  "url": "https://data.jobs.iot.eu-west-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1706,47 +838,21 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://data.jobs.iot-fips.us-east-2.api.aws"
+                  "url": "https://data.jobs.iot-fips.us-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot-fips.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://data.jobs.iot.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1758,47 +864,112 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://data.jobs.iot-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                  "url": "https://data.jobs.iot-fips.us-east-2.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-east-2",
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://data.jobs.iot-fips.cn-northwest-1.amazonaws.com.cn"
+                  "url": "https://data.jobs.iot.us-west-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://data.jobs.iot.cn-northwest-1.api.amazonwebservices.com.cn"
+                  "url": "https://data.jobs.iot-fips.us-west-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1810,8 +981,173 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://data.jobs.iot.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1821,8 +1157,8 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1834,8 +1170,8 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1845,8 +1181,8 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1858,12 +1194,12 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -1871,8 +1207,21 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1883,8 +1232,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1895,9 +1244,15 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -2019,42 +1374,56 @@
       }
     },
     "com.amazonaws.iotjobsdataplane#JobExecutionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "QUEUED",
-            "name": "QUEUED"
-          },
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "SUCCEEDED",
-            "name": "SUCCEEDED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "TIMED_OUT",
-            "name": "TIMED_OUT"
-          },
-          {
-            "value": "REJECTED",
-            "name": "REJECTED"
-          },
-          {
-            "value": "REMOVED",
-            "name": "REMOVED"
-          },
-          {
-            "value": "CANCELED",
-            "name": "CANCELED"
+      "type": "enum",
+      "members": {
+        "QUEUED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "QUEUED"
           }
-        ]
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCEEDED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "TIMED_OUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TIMED_OUT"
+          }
+        },
+        "REJECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REJECTED"
+          }
+        },
+        "REMOVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REMOVED"
+          }
+        },
+        "CANCELED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELED"
+          }
+        }
       }
     },
     "com.amazonaws.iotjobsdataplane#JobExecutionSummary": {
@@ -2117,7 +1486,7 @@
           "min": 1,
           "max": 64
         },
-        "smithy.api#pattern": "[a-zA-Z0-9_-]+"
+        "smithy.api#pattern": "^[a-zA-Z0-9_-]+$"
       }
     },
     "com.amazonaws.iotjobsdataplane#LastUpdatedAt": {
@@ -2221,6 +1590,9 @@
             "smithy.api#documentation": "<p>Specifies the amount of time this device has to finish execution of this job. If the job \n           execution status is not set to a terminal state before this timer expires, or before the \n           timer is reset (by calling <code>UpdateJobExecution</code>, setting the status to\n           <code>IN_PROGRESS</code> and specifying a new timeout value in field <code>stepTimeoutInMinutes</code>) \n           the job execution status will be automatically set to <code>TIMED_OUT</code>.  Note that setting \n           this timeout has no effect on that job execution timeout which may have been specified when \n           the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iotjobsdataplane#StartNextPendingJobExecutionResponse": {
@@ -2232,6 +1604,9 @@
             "smithy.api#documentation": "<p>A JobExecution object.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iotjobsdataplane#StartedAt": {
@@ -2260,7 +1635,7 @@
           "min": 1,
           "max": 128
         },
-        "smithy.api#pattern": "[a-zA-Z0-9:_-]+"
+        "smithy.api#pattern": "^[a-zA-Z0-9:_-]+$"
       }
     },
     "com.amazonaws.iotjobsdataplane#ThrottlingException": {
@@ -2384,6 +1759,9 @@
             "smithy.api#documentation": "<p>Optional. A number that identifies a particular job execution on a particular device.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iotjobsdataplane#UpdateJobExecutionResponse": {
@@ -2401,6 +1779,9 @@
             "smithy.api#documentation": "<p>The contents of the Job Documents.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iotjobsdataplane#VersionNumber": {

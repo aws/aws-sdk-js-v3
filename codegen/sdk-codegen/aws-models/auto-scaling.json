@@ -1277,6 +1277,7 @@
           "arnNamespace": "autoscaling",
           "cloudFormationName": "AutoScaling",
           "cloudTrailEventSource": "autoscaling.amazonaws.com",
+          "docId": "autoscaling-2011-01-01",
           "endpointPrefix": "autoscaling"
         },
         "aws.auth#sigv4": {
@@ -5680,8 +5681,8 @@
             "input": {
               "AutoScalingGroupName": "my-auto-scaling-group",
               "PolicyName": "my-step-scale-out-policy",
-              "BreachThreshold": 50.0,
-              "MetricValue": 59.0
+              "BreachThreshold": 50,
+              "MetricValue": 59
             }
           }
         ]
@@ -8511,7 +8512,7 @@
               "PolicyName": "alb1000-target-tracking-scaling-policy",
               "PolicyType": "TargetTrackingScaling",
               "TargetTrackingConfiguration": {
-                "TargetValue": 1000.0,
+                "TargetValue": 1000,
                 "PredefinedMetricSpecification": {
                   "PredefinedMetricType": "ALBRequestCountPerTarget",
                   "ResourceLabel": "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff"

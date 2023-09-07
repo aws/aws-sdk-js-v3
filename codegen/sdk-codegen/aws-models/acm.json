@@ -98,6 +98,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#Arn": {
@@ -413,13 +416,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -427,21 +429,69 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [
                     {
-                      "fn": "parseURL",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
                         }
                       ],
-                      "assign": "url"
+                      "assign": "PartitionResult"
                     }
                   ],
                   "type": "tree",
@@ -456,13 +506,17 @@
                             },
                             true
                           ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
                       "type": "tree",
                       "rules": [
                         {
@@ -470,143 +524,86 @@
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseDualStack"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://acm-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
-                        },
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
                         {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
+                            true
                           ]
                         }
                       ],
                       "type": "tree",
                       "rules": [
                         {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://acm-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
+                          "conditions": [
                             {
-                              "fn": "getAttr",
+                              "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
                               ]
                             }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
+                          ],
                           "type": "tree",
                           "rules": [
                             {
@@ -628,7 +625,7 @@
                                 }
                               ],
                               "endpoint": {
-                                "url": "https://acm.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://acm.{Region}.amazonaws.com",
                                 "properties": {},
                                 "headers": {}
                               },
@@ -644,742 +641,88 @@
                               "type": "endpoint"
                             }
                           ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
                         }
                       ]
                     },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
                     {
                       "conditions": [
                         {
                           "fn": "booleanEquals",
                           "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
+                              "ref": "UseDualStack"
+                            },
+                            true
                           ]
                         }
                       ],
                       "type": "tree",
                       "rules": [
                         {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://acm.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://acm.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
                       ]
                     },
                     {
                       "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
+                      "endpoint": {
+                        "url": "https://acm.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
                   ]
-                },
-                {
-                  "conditions": [],
-                  "endpoint": {
-                    "url": "https://acm.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
                 }
               ]
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
         "smithy.rules#endpointTests": {
           "testCases": [
-            {
-              "documentation": "For region ap-south-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ap-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ap-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.me-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.me-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.me-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.me-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ca-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ca-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ca-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ca-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.us-iso-west-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-iso-west-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-central-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-central-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-central-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-central-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "af-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.af-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "af-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "af-south-1",
-                "UseDualStack": true
-              }
-            },
             {
               "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
@@ -1388,516 +731,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "af-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-north-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-north-1.api.aws"
-                }
-              },
-              "params": {
                 "UseFIPS": false,
-                "Region": "eu-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-north-1",
                 "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-northeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-northeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ap-northeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ap-northeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "sa-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "sa-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "sa-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "sa-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-east-1",
-                "UseDualStack": true
               }
             },
             {
@@ -1908,152 +744,61 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "ap-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "cn-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "cn-north-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
                 "UseFIPS": false,
-                "Region": "cn-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "cn-north-1",
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://acm-fips.us-gov-west-1.api.aws"
+                  "url": "https://acm.ap-northeast-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-west-1",
+                "Region": "ap-northeast-1",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://acm.us-gov-west-1.api.aws"
+                  "url": "https://acm.ap-northeast-2.amazonaws.com"
                 }
               },
               "params": {
+                "Region": "ap-northeast-2",
                 "UseFIPS": false,
-                "Region": "us-gov-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-west-1",
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://acm-fips.ap-southeast-1.api.aws"
+                  "url": "https://acm.ap-northeast-3.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-1",
+                "Region": "ap-northeast-3",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://acm.ap-southeast-1.api.aws"
+                  "url": "https://acm.ap-south-1.amazonaws.com"
                 }
               },
               "params": {
+                "Region": "ap-south-1",
                 "UseFIPS": false,
-                "Region": "ap-southeast-1",
-                "UseDualStack": true
+                "UseDualStack": false
               }
             },
             {
@@ -2064,48 +809,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
                 "UseFIPS": false,
-                "Region": "ap-southeast-2",
-                "UseDualStack": true
+                "UseDualStack": false
               }
             },
             {
@@ -2116,96 +822,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
                 "UseFIPS": false,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-east-1",
                 "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-southeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-southeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.ap-southeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-3",
-                "UseDualStack": true
               }
             },
             {
@@ -2216,60 +835,242 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "ap-southeast-3",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://acm-fips.ap-southeast-4.api.aws"
+                  "url": "https://acm.ca-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-4",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.ap-southeast-4.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-4",
+                "Region": "ca-central-1",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack enabled",
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://acm.ap-southeast-4.api.aws"
+                  "url": "https://acm-fips.ca-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-4",
-                "UseDualStack": true
+                "Region": "ca-central-1",
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack disabled",
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://acm.ap-southeast-4.amazonaws.com"
+                  "url": "https://acm.eu-central-1.amazonaws.com"
                 }
               },
               "params": {
+                "Region": "eu-central-1",
                 "UseFIPS": false,
-                "Region": "ap-southeast-4",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": true,
                 "UseDualStack": false
               }
             },
@@ -2281,22 +1082,9 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-1",
-                "UseDualStack": false
               }
             },
             {
@@ -2307,113 +1095,22 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
                 "UseFIPS": false,
-                "Region": "us-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-2",
                 "UseDualStack": true
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://acm-fips.us-east-2.amazonaws.com"
+                  "url": "https://acm.cn-north-1.amazonaws.com.cn"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "us-east-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-east-2.api.aws"
-                }
-              },
-              "params": {
+                "Region": "cn-north-1",
                 "UseFIPS": false,
-                "Region": "us-east-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-east-2",
                 "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.cn-northwest-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "cn-northwest-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm-fips.cn-northwest-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "cn-northwest-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://acm.cn-northwest-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "cn-northwest-1",
-                "UseDualStack": true
               }
             },
             {
@@ -2424,8 +1121,160 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "cn-northwest-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://acm.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
@@ -2435,8 +1284,8 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-isob-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true
               }
             },
@@ -2448,8 +1297,8 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-isob-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false
               }
             },
@@ -2459,8 +1308,8 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-isob-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true
               }
             },
@@ -2472,13 +1321,27 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-isob-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -2486,7 +1349,6 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
@@ -2497,8 +1359,8 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
@@ -2509,10 +1371,16 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -2803,6 +1671,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#DescribeCertificate": {
@@ -2878,6 +1749,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#DescribeCertificateResponse": {
@@ -2889,6 +1763,9 @@
             "smithy.api#documentation": "<p>Metadata about an ACM certificate.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.acm#DomainList": {
@@ -2967,7 +1844,7 @@
         "ResourceRecord": {
           "target": "com.amazonaws.acm#ResourceRecord",
           "traits": {
-            "smithy.api#documentation": "<p>Contains the CNAME record that you add to your DNS database for domain validation. For\n      more information, see <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html\">Use DNS to Validate Domain Ownership</a>.</p>\n         <p>Note: The CNAME information that you need does not include the name of your domain. If you\n      include\u2028 your domain name in the DNS database CNAME record, validation fails.\u2028 For example, if\n      the name is \"_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com\", only\n      \"_a79865eb4cd1a6ab990a45779b4e0b96\" must be used.</p>"
+            "smithy.api#documentation": "<p>Contains the CNAME record that you add to your DNS database for domain validation. For\n      more information, see <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html\">Use DNS to Validate Domain Ownership</a>.</p>\n         <p>Note: The CNAME information that you need does not include the name of your domain. If you\n      include  your domain name in the DNS database CNAME record, validation fails.  For example, if\n      the name is \"_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com\", only\n      \"_a79865eb4cd1a6ab990a45779b4e0b96\" must be used.</p>"
           }
         },
         "ValidationMethod": {
@@ -3081,6 +1958,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#ExportCertificateResponse": {
@@ -3104,6 +1984,9 @@
             "smithy.api#documentation": "<p>The encrypted private key associated with the public key in the certificate. The key is\n      output in PKCS #8 format and is base64 PEM-encoded. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.acm#ExtendedKeyUsage": {
@@ -3383,6 +2266,9 @@
             "smithy.api#documentation": "<p>Expiration events configuration options associated with the Amazon Web Services account.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.acm#GetCertificate": {
@@ -3418,6 +2304,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#GetCertificateResponse": {
@@ -3435,6 +2324,9 @@
             "smithy.api#documentation": "<p>Certificates forming the requested certificate's chain of trust. The chain consists of the\n      certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.\n    </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.acm#IdempotencyToken": {
@@ -3517,6 +2409,9 @@
             "smithy.api#documentation": "<p>One or more resource tags to associate with the imported certificate. </p>\n         <p>Note: You cannot apply tags when reimporting a certificate.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#ImportCertificateResponse": {
@@ -3528,6 +2423,9 @@
             "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name\n        (ARN)</a> of the imported certificate.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.acm#InUseList": {
@@ -3841,6 +2739,9 @@
             "smithy.api#documentation": "<p>Specifies the order of sorted results. If you specify <code>SortOrder</code>, you must\n      also specify <code>SortBy</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#ListCertificatesResponse": {
@@ -3858,6 +2759,9 @@
             "smithy.api#documentation": "<p>A list of ACM certificates.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.acm#ListTagsForCertificate": {
@@ -3890,6 +2794,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#ListTagsForCertificateResponse": {
@@ -3901,6 +2808,9 @@
             "smithy.api#documentation": "<p>The key-value pairs that define the applied tags.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.acm#MaxItems": {
@@ -4016,6 +2926,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#RecordType": {
@@ -4078,6 +2991,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#RenewCertificate": {
@@ -4110,6 +3026,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#RenewalEligibility": {
@@ -4286,6 +3205,9 @@
             "smithy.api#documentation": "<p>Specifies the algorithm of the public and private key pair that your certificate uses to\n      encrypt data. RSA is the default key algorithm for ACM certificates. Elliptic Curve Digital\n      Signature Algorithm (ECDSA) keys are smaller, offering security comparable to RSA keys but\n      with greater computing efficiency. However, ECDSA is not supported by all network clients.\n      Some AWS services may require RSA keys, or only support ECDSA keys of a particular size, while\n      others allow the use of either RSA and ECDSA keys to ensure that compatibility is not broken.\n      Check the requirements for the AWS service where you plan to deploy your certificate.</p>\n         <p>Default: RSA_2048</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#RequestCertificateResponse": {
@@ -4297,6 +3219,9 @@
             "smithy.api#documentation": "<p>String that contains the ARN of the issued certificate. This must be of the form:</p>\n         <p>\n            <code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>\n         </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.acm#RequestInProgressException": {
@@ -4361,6 +3286,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#ResourceInUseException": {
@@ -4655,6 +3583,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.acm#ValidationEmailList": {
