@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.408.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.407.0...v3.408.0) (2023-09-07)
+
+
+### Bug Fixes
+
+* **s3-presigned-post:** ensure unique conditions in policy ([#5184](https://github.com/aws/aws-sdk-js-v3/issues/5184)) ([3f8b581](https://github.com/aws/aws-sdk-js-v3/commit/3f8b581af7c0c8146c5b111f92ba6a024310c525))
+
+
+### Features
+
+* **client-simspaceweaver:** BucketName and ObjectKey are now required for the S3Location data type. BucketName is now required for the S3Destination data type. ([ae379b4](https://github.com/aws/aws-sdk-js-v3/commit/ae379b4604b7057416ca45a16f6add12e57f9a8a))
+* **clients:** update client endpoints as of 2023-09-07 ([12dbc5a](https://github.com/aws/aws-sdk-js-v3/commit/12dbc5a68e87bbfcfbe7e82b3dc913608665c67a))
+* **region-config-provider:** add region-config-provider package ([#5156](https://github.com/aws/aws-sdk-js-v3/issues/5156)) ([d80f48c](https://github.com/aws/aws-sdk-js-v3/commit/d80f48c2b50c048b4b9d556210f9bf1bd779ed52))
+
+
+
+
+
 # [3.407.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.406.0...v3.407.0) (2023-09-06)
 
 

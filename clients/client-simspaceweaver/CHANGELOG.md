@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.408.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.407.0...v3.408.0) (2023-09-07)
+
+
+### Features
+
+* **client-simspaceweaver:** BucketName and ObjectKey are now required for the S3Location data type. BucketName is now required for the S3Destination data type. ([ae379b4](https://github.com/aws/aws-sdk-js-v3/commit/ae379b4604b7057416ca45a16f6add12e57f9a8a))
+
+
+
+
+
 # [3.405.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.404.0...v3.405.0) (2023-09-01)
 
 **Note:** Version bump only for package @aws-sdk/client-simspaceweaver
