@@ -101,7 +101,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * const input = { // CreateSnapshotInput
  *   Simulation: "STRING_VALUE", // required
  *   Destination: { // S3Destination
- *     BucketName: "STRING_VALUE",
+ *     BucketName: "STRING_VALUE", // required
  *     ObjectKeyPrefix: "STRING_VALUE",
  *   },
  * };
