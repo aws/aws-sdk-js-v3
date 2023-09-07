@@ -61,7 +61,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * //       },
  * //     },
  * //     arn: "STRING_VALUE",
- * //     status: "STRING_VALUE",
+ * //     status: "CREATING" || "ACTIVE" || "DELETING",
  * //     retentionPeriod: { // RetentionPeriod
  * //       unlimited: true || false,
  * //       numberOfDays: Number("int"),

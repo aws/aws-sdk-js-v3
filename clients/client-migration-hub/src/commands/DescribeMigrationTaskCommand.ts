@@ -54,14 +54,14 @@ export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTas
  * //     ProgressUpdateStream: "STRING_VALUE",
  * //     MigrationTaskName: "STRING_VALUE",
  * //     Task: { // Task
- * //       Status: "STRING_VALUE", // required
+ * //       Status: "NOT_STARTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED", // required
  * //       StatusDetail: "STRING_VALUE",
  * //       ProgressPercent: Number("int"),
  * //     },
  * //     UpdateDateTime: new Date("TIMESTAMP"),
  * //     ResourceAttributeList: [ // LatestResourceAttributeList
  * //       { // ResourceAttribute
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "IPV4_ADDRESS" || "IPV6_ADDRESS" || "MAC_ADDRESS" || "FQDN" || "VM_MANAGER_ID" || "VM_MANAGED_OBJECT_REFERENCE" || "VM_NAME" || "VM_PATH" || "BIOS_ID" || "MOTHERBOARD_SERIAL_NUMBER", // required
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],

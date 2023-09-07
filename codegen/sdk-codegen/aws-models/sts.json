@@ -2292,7 +2292,10 @@
                   "Value": "12345"
                 }
               ],
-              "TransitiveTagKeys": ["Project", "Cost-Center"],
+              "TransitiveTagKeys": [
+                "Project",
+                "Cost-Center"
+              ],
               "ExternalId": "123ABC"
             },
             "output": {

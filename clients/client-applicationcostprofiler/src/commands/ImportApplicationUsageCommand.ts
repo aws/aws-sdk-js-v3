@@ -54,7 +54,7 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  *   sourceS3Location: { // SourceS3Location
  *     bucket: "STRING_VALUE", // required
  *     key: "STRING_VALUE", // required
- *     region: "STRING_VALUE",
+ *     region: "ap-east-1" || "me-south-1" || "eu-south-1" || "af-south-1",
  *   },
  * };
  * const command = new ImportApplicationUsageCommand(input);

@@ -1934,7 +1934,10 @@
                 {
                   "Name": "STATUS",
                   "Condition": "IN",
-                  "Values": ["PENDING", "SUCCESS"]
+                  "Values": [
+                    "PENDING",
+                    "SUCCESS"
+                  ]
                 }
               ]
             },
@@ -4830,7 +4833,10 @@
             "documentation": "This example removes the \"Department\" and \"Project\" tags from a resource.",
             "input": {
               "ResourceARN": "arn:aws:servicediscovery:us-east-1:123456789012:namespace/ns-ylexjili4cdxy3xm",
-              "TagKeys": ["Project", "Department"]
+              "TagKeys": [
+                "Project",
+                "Department"
+              ]
             },
             "output": {}
           }

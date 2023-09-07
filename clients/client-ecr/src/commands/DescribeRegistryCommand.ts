@@ -62,7 +62,7 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * //         repositoryFilters: [ // RepositoryFilterList
  * //           { // RepositoryFilter
  * //             filter: "STRING_VALUE", // required
- * //             filterType: "STRING_VALUE", // required
+ * //             filterType: "PREFIX_MATCH", // required
  * //           },
  * //         ],
  * //       },

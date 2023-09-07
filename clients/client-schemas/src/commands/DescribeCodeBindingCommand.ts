@@ -55,7 +55,7 @@ export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingRes
  * //   CreationDate: new Date("TIMESTAMP"),
  * //   LastModified: new Date("TIMESTAMP"),
  * //   SchemaVersion: "STRING_VALUE",
- * //   Status: "STRING_VALUE",
+ * //   Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED",
  * // };
  *
  * ```

@@ -56,7 +56,7 @@ export interface AssociateWebsiteAuthorizationProviderCommandOutput
  * const client = new WorkLinkClient(config);
  * const input = { // AssociateWebsiteAuthorizationProviderRequest
  *   FleetArn: "STRING_VALUE", // required
- *   AuthorizationProviderType: "STRING_VALUE", // required
+ *   AuthorizationProviderType: "SAML", // required
  *   DomainName: "STRING_VALUE",
  * };
  * const command = new AssociateWebsiteAuthorizationProviderCommand(input);

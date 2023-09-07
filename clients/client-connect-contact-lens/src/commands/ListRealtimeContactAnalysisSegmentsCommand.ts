@@ -73,7 +73,7 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
  * //         Content: "STRING_VALUE", // required
  * //         BeginOffsetMillis: Number("int"), // required
  * //         EndOffsetMillis: Number("int"), // required
- * //         Sentiment: "STRING_VALUE", // required
+ * //         Sentiment: "POSITIVE" || "NEUTRAL" || "NEGATIVE", // required
  * //         IssuesDetected: [ // IssuesDetected
  * //           { // IssueDetected
  * //             CharacterOffsets: { // CharacterOffsets

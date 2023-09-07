@@ -53,7 +53,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *     CustomRedirectDomain: "STRING_VALUE", // required
  *   },
  *   DeliveryOptions: { // DeliveryOptions
- *     TlsPolicy: "STRING_VALUE",
+ *     TlsPolicy: "REQUIRE" || "OPTIONAL",
  *     SendingPoolName: "STRING_VALUE",
  *   },
  *   ReputationOptions: { // ReputationOptions

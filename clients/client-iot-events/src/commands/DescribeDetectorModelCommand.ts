@@ -71,14 +71,14 @@ export interface DescribeDetectorModelCommandOutput extends DescribeDetectorMode
  * //                       targetArn: "STRING_VALUE", // required
  * //                       payload: { // Payload
  * //                         contentExpression: "STRING_VALUE", // required
- * //                         type: "STRING_VALUE", // required
+ * //                         type: "STRING" || "JSON", // required
  * //                       },
  * //                     },
  * //                     iotTopicPublish: { // IotTopicPublishAction
  * //                       mqttTopic: "STRING_VALUE", // required
  * //                       payload: {
  * //                         contentExpression: "STRING_VALUE", // required
- * //                         type: "STRING_VALUE", // required
+ * //                         type: "STRING" || "JSON", // required
  * //                       },
  * //                     },
  * //                     setTimer: { // SetTimerAction
@@ -96,14 +96,14 @@ export interface DescribeDetectorModelCommandOutput extends DescribeDetectorMode
  * //                       functionArn: "STRING_VALUE", // required
  * //                       payload: {
  * //                         contentExpression: "STRING_VALUE", // required
- * //                         type: "STRING_VALUE", // required
+ * //                         type: "STRING" || "JSON", // required
  * //                       },
  * //                     },
  * //                     iotEvents: { // IotEventsAction
  * //                       inputName: "STRING_VALUE", // required
  * //                       payload: {
  * //                         contentExpression: "STRING_VALUE", // required
- * //                         type: "STRING_VALUE", // required
+ * //                         type: "STRING" || "JSON", // required
  * //                       },
  * //                     },
  * //                     sqs: { // SqsAction
@@ -111,7 +111,7 @@ export interface DescribeDetectorModelCommandOutput extends DescribeDetectorMode
  * //                       useBase64: true || false,
  * //                       payload: {
  * //                         contentExpression: "STRING_VALUE", // required
- * //                         type: "STRING_VALUE", // required
+ * //                         type: "STRING" || "JSON", // required
  * //                       },
  * //                     },
  * //                     firehose: { // FirehoseAction
@@ -434,9 +434,9 @@ export interface DescribeDetectorModelCommandOutput extends DescribeDetectorMode
  * //       roleArn: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"),
  * //       lastUpdateTime: new Date("TIMESTAMP"),
- * //       status: "STRING_VALUE",
+ * //       status: "ACTIVE" || "ACTIVATING" || "INACTIVE" || "DEPRECATED" || "DRAFT" || "PAUSED" || "FAILED",
  * //       key: "STRING_VALUE",
- * //       evaluationMethod: "STRING_VALUE",
+ * //       evaluationMethod: "BATCH" || "SERIAL",
  * //     },
  * //   },
  * // };

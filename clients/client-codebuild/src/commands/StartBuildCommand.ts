@@ -47,7 +47,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *   projectName: "STRING_VALUE", // required
  *   secondarySourcesOverride: [ // ProjectSources
  *     { // ProjectSource
- *       type: "STRING_VALUE", // required
+ *       type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  *       location: "STRING_VALUE",
  *       gitCloneDepth: Number("int"),
  *       gitSubmodulesConfig: { // GitSubmodulesConfig
@@ -55,7 +55,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *       },
  *       buildspec: "STRING_VALUE",
  *       auth: { // SourceAuth
- *         type: "STRING_VALUE", // required
+ *         type: "OAUTH", // required
  *         resource: "STRING_VALUE",
  *       },
  *       reportBuildStatus: true || false,
@@ -75,42 +75,42 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *   ],
  *   sourceVersion: "STRING_VALUE",
  *   artifactsOverride: { // ProjectArtifacts
- *     type: "STRING_VALUE", // required
+ *     type: "CODEPIPELINE" || "S3" || "NO_ARTIFACTS", // required
  *     location: "STRING_VALUE",
  *     path: "STRING_VALUE",
- *     namespaceType: "STRING_VALUE",
+ *     namespaceType: "NONE" || "BUILD_ID",
  *     name: "STRING_VALUE",
- *     packaging: "STRING_VALUE",
+ *     packaging: "NONE" || "ZIP",
  *     overrideArtifactName: true || false,
  *     encryptionDisabled: true || false,
  *     artifactIdentifier: "STRING_VALUE",
- *     bucketOwnerAccess: "STRING_VALUE",
+ *     bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  *   },
  *   secondaryArtifactsOverride: [ // ProjectArtifactsList
  *     {
- *       type: "STRING_VALUE", // required
+ *       type: "CODEPIPELINE" || "S3" || "NO_ARTIFACTS", // required
  *       location: "STRING_VALUE",
  *       path: "STRING_VALUE",
- *       namespaceType: "STRING_VALUE",
+ *       namespaceType: "NONE" || "BUILD_ID",
  *       name: "STRING_VALUE",
- *       packaging: "STRING_VALUE",
+ *       packaging: "NONE" || "ZIP",
  *       overrideArtifactName: true || false,
  *       encryptionDisabled: true || false,
  *       artifactIdentifier: "STRING_VALUE",
- *       bucketOwnerAccess: "STRING_VALUE",
+ *       bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  *     },
  *   ],
  *   environmentVariablesOverride: [ // EnvironmentVariables
  *     { // EnvironmentVariable
  *       name: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
- *       type: "STRING_VALUE",
+ *       type: "PLAINTEXT" || "PARAMETER_STORE" || "SECRETS_MANAGER",
  *     },
  *   ],
- *   sourceTypeOverride: "STRING_VALUE",
+ *   sourceTypeOverride: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE",
  *   sourceLocationOverride: "STRING_VALUE",
  *   sourceAuthOverride: {
- *     type: "STRING_VALUE", // required
+ *     type: "OAUTH", // required
  *     resource: "STRING_VALUE",
  *   },
  *   gitCloneDepthOverride: Number("int"),
@@ -124,15 +124,15 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *     context: "STRING_VALUE",
  *     targetUrl: "STRING_VALUE",
  *   },
- *   environmentTypeOverride: "STRING_VALUE",
+ *   environmentTypeOverride: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER",
  *   imageOverride: "STRING_VALUE",
- *   computeTypeOverride: "STRING_VALUE",
+ *   computeTypeOverride: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_2XLARGE",
  *   certificateOverride: "STRING_VALUE",
  *   cacheOverride: { // ProjectCache
- *     type: "STRING_VALUE", // required
+ *     type: "NO_CACHE" || "S3" || "LOCAL", // required
  *     location: "STRING_VALUE",
  *     modes: [ // ProjectCacheModes
- *       "STRING_VALUE",
+ *       "LOCAL_DOCKER_LAYER_CACHE" || "LOCAL_SOURCE_CACHE" || "LOCAL_CUSTOM_CACHE",
  *     ],
  *   },
  *   serviceRoleOverride: "STRING_VALUE",
@@ -143,22 +143,22 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *   idempotencyToken: "STRING_VALUE",
  *   logsConfigOverride: { // LogsConfig
  *     cloudWatchLogs: { // CloudWatchLogsConfig
- *       status: "STRING_VALUE", // required
+ *       status: "ENABLED" || "DISABLED", // required
  *       groupName: "STRING_VALUE",
  *       streamName: "STRING_VALUE",
  *     },
  *     s3Logs: { // S3LogsConfig
- *       status: "STRING_VALUE", // required
+ *       status: "ENABLED" || "DISABLED", // required
  *       location: "STRING_VALUE",
  *       encryptionDisabled: true || false,
- *       bucketOwnerAccess: "STRING_VALUE",
+ *       bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  *     },
  *   },
  *   registryCredentialOverride: { // RegistryCredential
  *     credential: "STRING_VALUE", // required
- *     credentialProvider: "STRING_VALUE", // required
+ *     credentialProvider: "SECRETS_MANAGER", // required
  *   },
- *   imagePullCredentialsTypeOverride: "STRING_VALUE",
+ *   imagePullCredentialsTypeOverride: "CODEBUILD" || "SERVICE_ROLE",
  *   debugSessionEnabled: true || false,
  * };
  * const command = new StartBuildCommand(input);
@@ -171,14 +171,14 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //     startTime: new Date("TIMESTAMP"),
  * //     endTime: new Date("TIMESTAMP"),
  * //     currentPhase: "STRING_VALUE",
- * //     buildStatus: "STRING_VALUE",
+ * //     buildStatus: "SUCCEEDED" || "FAILED" || "FAULT" || "TIMED_OUT" || "IN_PROGRESS" || "STOPPED",
  * //     sourceVersion: "STRING_VALUE",
  * //     resolvedSourceVersion: "STRING_VALUE",
  * //     projectName: "STRING_VALUE",
  * //     phases: [ // BuildPhases
  * //       { // BuildPhase
- * //         phaseType: "STRING_VALUE",
- * //         phaseStatus: "STRING_VALUE",
+ * //         phaseType: "SUBMITTED" || "QUEUED" || "PROVISIONING" || "DOWNLOAD_SOURCE" || "INSTALL" || "PRE_BUILD" || "BUILD" || "POST_BUILD" || "UPLOAD_ARTIFACTS" || "FINALIZING" || "COMPLETED",
+ * //         phaseStatus: "SUCCEEDED" || "FAILED" || "FAULT" || "TIMED_OUT" || "IN_PROGRESS" || "STOPPED",
  * //         startTime: new Date("TIMESTAMP"),
  * //         endTime: new Date("TIMESTAMP"),
  * //         durationInSeconds: Number("long"),
@@ -191,7 +191,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //       },
  * //     ],
  * //     source: { // ProjectSource
- * //       type: "STRING_VALUE", // required
+ * //       type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //       location: "STRING_VALUE",
  * //       gitCloneDepth: Number("int"),
  * //       gitSubmodulesConfig: { // GitSubmodulesConfig
@@ -199,7 +199,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //       },
  * //       buildspec: "STRING_VALUE",
  * //       auth: { // SourceAuth
- * //         type: "STRING_VALUE", // required
+ * //         type: "OAUTH", // required
  * //         resource: "STRING_VALUE",
  * //       },
  * //       reportBuildStatus: true || false,
@@ -212,7 +212,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //     },
  * //     secondarySources: [ // ProjectSources
  * //       {
- * //         type: "STRING_VALUE", // required
+ * //         type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //         location: "STRING_VALUE",
  * //         gitCloneDepth: Number("int"),
  * //         gitSubmodulesConfig: {
@@ -220,7 +220,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //         },
  * //         buildspec: "STRING_VALUE",
  * //         auth: {
- * //           type: "STRING_VALUE", // required
+ * //           type: "OAUTH", // required
  * //           resource: "STRING_VALUE",
  * //         },
  * //         reportBuildStatus: true || false,
@@ -245,7 +245,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //       overrideArtifactName: true || false,
  * //       encryptionDisabled: true || false,
  * //       artifactIdentifier: "STRING_VALUE",
- * //       bucketOwnerAccess: "STRING_VALUE",
+ * //       bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  * //     },
  * //     secondaryArtifacts: [ // BuildArtifactsList
  * //       {
@@ -255,34 +255,34 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //         overrideArtifactName: true || false,
  * //         encryptionDisabled: true || false,
  * //         artifactIdentifier: "STRING_VALUE",
- * //         bucketOwnerAccess: "STRING_VALUE",
+ * //         bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  * //       },
  * //     ],
  * //     cache: { // ProjectCache
- * //       type: "STRING_VALUE", // required
+ * //       type: "NO_CACHE" || "S3" || "LOCAL", // required
  * //       location: "STRING_VALUE",
  * //       modes: [ // ProjectCacheModes
- * //         "STRING_VALUE",
+ * //         "LOCAL_DOCKER_LAYER_CACHE" || "LOCAL_SOURCE_CACHE" || "LOCAL_CUSTOM_CACHE",
  * //       ],
  * //     },
  * //     environment: { // ProjectEnvironment
- * //       type: "STRING_VALUE", // required
+ * //       type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER", // required
  * //       image: "STRING_VALUE", // required
- * //       computeType: "STRING_VALUE", // required
+ * //       computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_2XLARGE", // required
  * //       environmentVariables: [ // EnvironmentVariables
  * //         { // EnvironmentVariable
  * //           name: "STRING_VALUE", // required
  * //           value: "STRING_VALUE", // required
- * //           type: "STRING_VALUE",
+ * //           type: "PLAINTEXT" || "PARAMETER_STORE" || "SECRETS_MANAGER",
  * //         },
  * //       ],
  * //       privilegedMode: true || false,
  * //       certificate: "STRING_VALUE",
  * //       registryCredential: { // RegistryCredential
  * //         credential: "STRING_VALUE", // required
- * //         credentialProvider: "STRING_VALUE", // required
+ * //         credentialProvider: "SECRETS_MANAGER", // required
  * //       },
- * //       imagePullCredentialsType: "STRING_VALUE",
+ * //       imagePullCredentialsType: "CODEBUILD" || "SERVICE_ROLE",
  * //     },
  * //     serviceRole: "STRING_VALUE",
  * //     logs: { // LogsLocation
@@ -293,15 +293,15 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //       cloudWatchLogsArn: "STRING_VALUE",
  * //       s3LogsArn: "STRING_VALUE",
  * //       cloudWatchLogs: { // CloudWatchLogsConfig
- * //         status: "STRING_VALUE", // required
+ * //         status: "ENABLED" || "DISABLED", // required
  * //         groupName: "STRING_VALUE",
  * //         streamName: "STRING_VALUE",
  * //       },
  * //       s3Logs: { // S3LogsConfig
- * //         status: "STRING_VALUE", // required
+ * //         status: "ENABLED" || "DISABLED", // required
  * //         location: "STRING_VALUE",
  * //         encryptionDisabled: true || false,
- * //         bucketOwnerAccess: "STRING_VALUE",
+ * //         bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  * //       },
  * //     },
  * //     timeoutInMinutes: Number("int"),
@@ -333,7 +333,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //     ],
  * //     fileSystemLocations: [ // ProjectFileSystemLocations
  * //       { // ProjectFileSystemLocation
- * //         type: "STRING_VALUE",
+ * //         type: "EFS",
  * //         location: "STRING_VALUE",
  * //         mountPoint: "STRING_VALUE",
  * //         identifier: "STRING_VALUE",

@@ -3144,7 +3144,11 @@
             "x-amzn-platform-id",
             "x-amzn-trace-id"
           ],
-          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id"],
+          "additionalExposedHeaders": [
+            "x-amzn-errortype",
+            "x-amzn-requestid",
+            "x-amzn-trace-id"
+          ],
           "maxAge": 86400
         },
         "smithy.api#documentation": "<p>Provides APIs for creating and managing SageMaker geospatial resources.</p>",

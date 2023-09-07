@@ -41,9 +41,9 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
 /**
  * @public
  * <p>Applies one or more tags to the specified resources. Note the following:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Not all resources can have tags. For a list of services with resources that
+ *                <p>Not all resources can have tags. For a list of services with resources that
  *                     support tagging using this operation, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services that support the
  *                         Resource Groups Tagging API</a>. If the resource doesn't yet support
  *                     this operation, the resource's service might support tagging using its own API
@@ -51,41 +51,41 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  *                     service.</p>
  *             </li>
  *             <li>
- *                 <p>Each resource can have up to 50 tags. For other limits, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag Naming and Usage Conventions</a> in the <i>Amazon Web Services General
+ *                <p>Each resource can have up to 50 tags. For other limits, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag Naming and Usage Conventions</a> in the <i>Amazon Web Services General
  *                         Reference.</i>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>You can only tag resources that are located in the specified Amazon Web Services Region for
+ *                <p>You can only tag resources that are located in the specified Amazon Web Services Region for
  *                     the Amazon Web Services account.</p>
  *             </li>
  *             <li>
- *                 <p>To add tags to a resource, you need the necessary permissions for the service
+ *                <p>To add tags to a resource, you need the necessary permissions for the service
  *                     that the resource belongs to as well as permissions for adding tags. For more
  *                     information, see the documentation for each service.</p>
  *             </li>
  *          </ul>
- *         <important>
+ *          <important>
  *             <p>Do not store personally identifiable information (PII) or other confidential or
  *                 sensitive information in tags. We use tags to provide you with billing and
  *                 administration services. Tags are not intended to be used for private or sensitive
  *                 data.</p>
- *         </important>
- *         <p>
+ *          </important>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
- *         <p>In addition to the <code>tag:TagResources</code> permission required by this
+ *          <p>In addition to the <code>tag:TagResources</code> permission required by this
  *             operation, you must also have the tagging permission defined by the service that created
  *             the resource. For example, to tag an Amazon EC2 instance using the <code>TagResources</code>
  *             operation, you must have both of the following permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>tag:TagResource</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>ec2:CreateTags</code>
  *                </p>
  *             </li>
@@ -110,7 +110,7 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  * //   FailedResourcesMap: { // FailedResourcesMap
  * //     "<keys>": { // FailureInfo
  * //       StatusCode: Number("int"),
- * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorCode: "InternalServiceException" || "InvalidParameterException",
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
  * //   },
@@ -130,21 +130,21 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>This error indicates one of the following:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>A parameter is missing.</p>
+ *                <p>A parameter is missing.</p>
  *             </li>
  *             <li>
- *                 <p>A malformed string was supplied for the request parameter.</p>
+ *                <p>A malformed string was supplied for the request parameter.</p>
  *             </li>
  *             <li>
- *                 <p>An out-of-range value was supplied for the request parameter.</p>
+ *                <p>An out-of-range value was supplied for the request parameter.</p>
  *             </li>
  *             <li>
- *                 <p>The target ID is invalid, unsupported, or doesn't exist.</p>
+ *                <p>The target ID is invalid, unsupported, or doesn't exist.</p>
  *             </li>
  *             <li>
- *                 <p>You can't access the Amazon S3 bucket for report storage. For more information, see
+ *                <p>You can't access the Amazon S3 bucket for report storage. For more information, see
  *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report">Additional Requirements for Organization-wide Tag Compliance
  *                         Reports</a> in the <i>Organizations User Guide.</i>
  *                </p>

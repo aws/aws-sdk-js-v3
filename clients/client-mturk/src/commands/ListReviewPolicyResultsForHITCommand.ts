@@ -57,7 +57,7 @@ export interface ListReviewPolicyResultsForHITCommandOutput
  * const input = { // ListReviewPolicyResultsForHITRequest
  *   HITId: "STRING_VALUE", // required
  *   PolicyLevels: [ // ReviewPolicyLevelList
- *     "STRING_VALUE",
+ *     "Assignment" || "HIT",
  *   ],
  *   RetrieveActions: true || false,
  *   RetrieveResults: true || false,
@@ -123,7 +123,7 @@ export interface ListReviewPolicyResultsForHITCommandOutput
  * //         ActionName: "STRING_VALUE",
  * //         TargetId: "STRING_VALUE",
  * //         TargetType: "STRING_VALUE",
- * //         Status: "STRING_VALUE",
+ * //         Status: "Intended" || "Succeeded" || "Failed" || "Cancelled",
  * //         CompleteTime: new Date("TIMESTAMP"),
  * //         Result: "STRING_VALUE",
  * //         ErrorCode: "STRING_VALUE",
@@ -147,7 +147,7 @@ export interface ListReviewPolicyResultsForHITCommandOutput
  * //         ActionName: "STRING_VALUE",
  * //         TargetId: "STRING_VALUE",
  * //         TargetType: "STRING_VALUE",
- * //         Status: "STRING_VALUE",
+ * //         Status: "Intended" || "Succeeded" || "Failed" || "Cancelled",
  * //         CompleteTime: new Date("TIMESTAMP"),
  * //         Result: "STRING_VALUE",
  * //         ErrorCode: "STRING_VALUE",

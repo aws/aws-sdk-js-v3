@@ -59,7 +59,7 @@ export interface ListPermissionGroupsByUserCommandOutput extends ListPermissionG
  * //     { // PermissionGroupByUser
  * //       permissionGroupId: "STRING_VALUE",
  * //       name: "STRING_VALUE",
- * //       membershipStatus: "STRING_VALUE",
+ * //       membershipStatus: "ADDITION_IN_PROGRESS" || "ADDITION_SUCCESS" || "REMOVAL_IN_PROGRESS",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

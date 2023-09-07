@@ -6,24 +6,25 @@ import { RuleSetObject } from "@smithy/types";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/backup-gateway.json */
 
-const q="fn",
-r="argv",
-s="ref";
-const a=true,
-b=false,
-c="String",
-d="PartitionResult",
-e="tree",
-f="error",
-g="endpoint",
-h={"required":true,"default":false,"type":"Boolean"},
-i={[s]:"Endpoint"},
-j={[q]:"booleanEquals",[r]:[{[s]:"UseFIPS"},true]},
-k={[q]:"booleanEquals",[r]:[{[s]:"UseDualStack"},true]},
-l={},
-m={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:d},"supportsFIPS"]}]},
-n={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:d},"supportsDualStack"]}]},
+const q="required",
+r="fn",
+s="argv",
+t="ref";
+const a="isSet",
+b="tree",
+c="error",
+d="endpoint",
+e="PartitionResult",
+f={[q]:false,"type":"String"},
+g={[q]:true,"default":false,"type":"Boolean"},
+h={[t]:"Endpoint"},
+i={[r]:"booleanEquals",[s]:[{[t]:"UseFIPS"},true]},
+j={[r]:"booleanEquals",[s]:[{[t]:"UseDualStack"},true]},
+k={},
+l={[r]:"booleanEquals",[s]:[true,{[r]:"getAttr",[s]:[{[t]:e},"supportsFIPS"]}]},
+m={[r]:"booleanEquals",[s]:[true,{[r]:"getAttr",[s]:[{[t]:e},"supportsDualStack"]}]},
+n=[i],
 o=[j],
-p=[k];
-const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:h,UseFIPS:h,Endpoint:{required:b,type:c}},rules:[{conditions:[{[q]:"aws.partition",[r]:[{[s]:"Region"}],assign:d}],type:e,rules:[{conditions:[{[q]:"isSet",[r]:[i]}],type:e,rules:[{conditions:o,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:p,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:i,properties:l,headers:l},type:g}]}]},{conditions:[j,k],type:e,rules:[{conditions:[m,n],type:e,rules:[{endpoint:{url:"https://backup-gateway-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:g}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:o,type:e,rules:[{conditions:[m],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://backup-gateway-fips.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:p,type:e,rules:[{conditions:[n],type:e,rules:[{endpoint:{url:"https://backup-gateway.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:g}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{endpoint:{url:"https://backup-gateway.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:g}]}]};
+p=[{[t]:"Region"}];
+const _data={version:"1.0",parameters:{Region:f,UseDualStack:g,UseFIPS:g,Endpoint:f},rules:[{conditions:[{[r]:a,[s]:[h]}],type:b,rules:[{conditions:n,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{conditions:o,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:h,properties:k,headers:k},type:d}]},{conditions:[{[r]:a,[s]:p}],type:b,rules:[{conditions:[{[r]:"aws.partition",[s]:p,assign:e}],type:b,rules:[{conditions:[i,j],type:b,rules:[{conditions:[l,m],type:b,rules:[{endpoint:{url:"https://backup-gateway-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:k,headers:k},type:d}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:n,type:b,rules:[{conditions:[l],type:b,rules:[{endpoint:{url:"https://backup-gateway-fips.{Region}.{PartitionResult#dnsSuffix}",properties:k,headers:k},type:d}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:o,type:b,rules:[{conditions:[m],type:b,rules:[{endpoint:{url:"https://backup-gateway.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:k,headers:k},type:d}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{endpoint:{url:"https://backup-gateway.{Region}.{PartitionResult#dnsSuffix}",properties:k,headers:k},type:d}]}]},{error:"Invalid Configuration: Missing Region",type:c}]};
 export const ruleSet: RuleSetObject = _data;

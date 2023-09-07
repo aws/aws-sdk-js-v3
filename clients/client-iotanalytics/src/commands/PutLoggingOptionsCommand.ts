@@ -50,7 +50,7 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  * const input = { // PutLoggingOptionsRequest
  *   loggingOptions: { // LoggingOptions
  *     roleArn: "STRING_VALUE", // required
- *     level: "STRING_VALUE", // required
+ *     level: "ERROR", // required
  *     enabled: true || false, // required
  *   },
  * };

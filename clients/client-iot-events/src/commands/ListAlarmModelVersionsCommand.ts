@@ -60,7 +60,7 @@ export interface ListAlarmModelVersionsCommandOutput extends ListAlarmModelVersi
  * //       roleArn: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"),
  * //       lastUpdateTime: new Date("TIMESTAMP"),
- * //       status: "STRING_VALUE",
+ * //       status: "ACTIVE" || "ACTIVATING" || "INACTIVE" || "FAILED",
  * //       statusMessage: "STRING_VALUE",
  * //     },
  * //   ],

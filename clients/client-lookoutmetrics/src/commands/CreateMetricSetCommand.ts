@@ -50,7 +50,7 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  *   MetricList: [ // MetricList // required
  *     { // Metric
  *       MetricName: "STRING_VALUE", // required
- *       AggregationFunction: "STRING_VALUE", // required
+ *       AggregationFunction: "AVG" || "SUM", // required
  *       Namespace: "STRING_VALUE",
  *     },
  *   ],
@@ -62,7 +62,7 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  *   DimensionList: [ // DimensionList
  *     "STRING_VALUE",
  *   ],
- *   MetricSetFrequency: "STRING_VALUE",
+ *   MetricSetFrequency: "P1D" || "PT1H" || "PT10M" || "PT5M",
  *   MetricSource: { // MetricSource
  *     S3SourceConfig: { // S3SourceConfig
  *       RoleArn: "STRING_VALUE",
@@ -74,7 +74,7 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  *       ],
  *       FileFormatDescriptor: { // FileFormatDescriptor
  *         CsvFormatDescriptor: { // CsvFormatDescriptor
- *           FileCompression: "STRING_VALUE",
+ *           FileCompression: "NONE" || "GZIP",
  *           Charset: "STRING_VALUE",
  *           ContainsHeader: true || false,
  *           Delimiter: "STRING_VALUE",
@@ -84,7 +84,7 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  *           QuoteSymbol: "STRING_VALUE",
  *         },
  *         JsonFormatDescriptor: { // JsonFormatDescriptor
- *           FileCompression: "STRING_VALUE",
+ *           FileCompression: "NONE" || "GZIP",
  *           Charset: "STRING_VALUE",
  *         },
  *       },
@@ -155,7 +155,7 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  *       FilterList: [ // FilterList
  *         { // Filter
  *           DimensionValue: "STRING_VALUE",
- *           FilterOperation: "STRING_VALUE",
+ *           FilterOperation: "EQUALS",
  *         },
  *       ],
  *     },

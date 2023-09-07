@@ -2660,7 +2660,10 @@
             "title": "GetIdentityDkimAttributes",
             "documentation": "The following example retrieves the Amazon SES Easy DKIM attributes for a list of identities:",
             "input": {
-              "Identities": ["example.com", "user@example.com"]
+              "Identities": [
+                "example.com",
+                "user@example.com"
+              ]
             },
             "output": {
               "DkimAttributes": {
@@ -2730,7 +2733,9 @@
             "title": "GetIdentityMailFromDomainAttributes",
             "documentation": "The following example returns the custom MAIL FROM attributes for an identity:",
             "input": {
-              "Identities": ["example.com"]
+              "Identities": [
+                "example.com"
+              ]
             },
             "output": {
               "MailFromDomainAttributes": {
@@ -2792,7 +2797,9 @@
             "title": "GetIdentityNotificationAttributes",
             "documentation": "The following example returns the notification attributes for an identity:",
             "input": {
-              "Identities": ["example.com"]
+              "Identities": [
+                "example.com"
+              ]
             },
             "output": {
               "NotificationAttributes": {
@@ -2859,7 +2866,9 @@
             "documentation": "The following example returns a sending authorization policy for an identity:",
             "input": {
               "Identity": "example.com",
-              "PolicyNames": ["MyPolicy"]
+              "PolicyNames": [
+                "MyPolicy"
+              ]
             },
             "output": {
               "Policies": {
@@ -2924,7 +2933,9 @@
             "title": "GetIdentityVerificationAttributes",
             "documentation": "The following example returns the verification status and the verification token for a domain identity:",
             "input": {
-              "Identities": ["example.com"]
+              "Identities": [
+                "example.com"
+              ]
             },
             "output": {
               "VerificationAttributes": {
@@ -3799,7 +3810,9 @@
               "MaxItems": 123
             },
             "output": {
-              "Identities": ["user@example.com"],
+              "Identities": [
+                "user@example.com"
+              ],
               "NextToken": ""
             }
           }
@@ -3879,7 +3892,9 @@
               "Identity": "example.com"
             },
             "output": {
-              "PolicyNames": ["MyPolicy"]
+              "PolicyNames": [
+                "MyPolicy"
+              ]
             }
           }
         ]
@@ -4102,7 +4117,10 @@
             "title": "ListVerifiedEmailAddresses",
             "documentation": "The following example lists all email addresses that have been submitted for verification with Amazon SES:",
             "output": {
-              "VerifiedEmailAddresses": ["user1@example.com", "user2@example.com"]
+              "VerifiedEmailAddresses": [
+                "user1@example.com",
+                "user2@example.com"
+              ]
             }
           }
         ]
@@ -4831,7 +4849,10 @@
             "documentation": "The following example reorders the receipt rules within a receipt rule set:",
             "input": {
               "RuleSetName": "MyRuleSet",
-              "RuleNames": ["MyRule", "MyOtherRule"]
+              "RuleNames": [
+                "MyRule",
+                "MyOtherRule"
+              ]
             }
           }
         ]
@@ -5400,8 +5421,13 @@
             "input": {
               "Source": "sender@example.com",
               "Destination": {
-                "ToAddresses": ["recipient1@example.com", "recipient2@example.com"],
-                "CcAddresses": ["recipient3@example.com"],
+                "ToAddresses": [
+                  "recipient1@example.com",
+                  "recipient2@example.com"
+                ],
+                "CcAddresses": [
+                  "recipient3@example.com"
+                ],
                 "BccAddresses": []
               },
               "Message": {

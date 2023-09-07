@@ -216,7 +216,9 @@
                 },
                 {
                   "fn": "aws.partition",
-                  "argv": ["us-west-2"],
+                  "argv": [
+                    "us-west-2"
+                  ],
                   "assign": "PartitionResult"
                 }
               ],

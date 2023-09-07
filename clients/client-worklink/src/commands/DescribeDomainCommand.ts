@@ -55,7 +55,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //   DomainName: "STRING_VALUE",
  * //   DisplayName: "STRING_VALUE",
  * //   CreatedTime: new Date("TIMESTAMP"),
- * //   DomainStatus: "STRING_VALUE",
+ * //   DomainStatus: "PENDING_VALIDATION" || "ASSOCIATING" || "ACTIVE" || "INACTIVE" || "DISASSOCIATING" || "DISASSOCIATED" || "FAILED_TO_ASSOCIATE" || "FAILED_TO_DISASSOCIATE",
  * //   AcmCertificateArn: "STRING_VALUE",
  * // };
  *

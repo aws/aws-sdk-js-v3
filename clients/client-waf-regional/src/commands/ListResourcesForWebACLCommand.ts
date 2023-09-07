@@ -53,7 +53,7 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * const client = new WAFRegionalClient(config);
  * const input = { // ListResourcesForWebACLRequest
  *   WebACLId: "STRING_VALUE", // required
- *   ResourceType: "STRING_VALUE",
+ *   ResourceType: "APPLICATION_LOAD_BALANCER" || "API_GATEWAY",
  * };
  * const command = new ListResourcesForWebACLCommand(input);
  * const response = await client.send(command);

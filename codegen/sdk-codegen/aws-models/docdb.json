@@ -4661,7 +4661,9 @@
           "items": "DBInstances",
           "pageSize": "MaxRecords"
         },
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "DBInstanceAvailable": {
             "acceptors": [

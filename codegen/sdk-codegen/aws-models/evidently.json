@@ -62,7 +62,9 @@
           "uri": "/projects/{project}/evaluations",
           "code": 200
         },
-        "smithy.api#tags": ["dataplane"]
+        "smithy.api#tags": [
+          "dataplane"
+        ]
       }
     },
     "com.amazonaws.evidently#BatchEvaluateFeatureRequest": {
@@ -1045,7 +1047,9 @@
           "uri": "/projects/{project}/evaluations/{feature}",
           "code": 200
         },
-        "smithy.api#tags": ["dataplane"]
+        "smithy.api#tags": [
+          "dataplane"
+        ]
       }
     },
     "com.amazonaws.evidently#EvaluateFeatureRequest": {
@@ -4904,7 +4908,9 @@
           "uri": "/events/projects/{project}",
           "code": 200
         },
-        "smithy.api#tags": ["dataplane"]
+        "smithy.api#tags": [
+          "dataplane"
+        ]
       }
     },
     "com.amazonaws.evidently#PutProjectEventsRequest": {

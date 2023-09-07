@@ -54,13 +54,13 @@ export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer 
  *   Data: "STREAMING_BLOB_VALUE", // required
  *   Length: Number("long"), // required
  *   Checksum: "STRING_VALUE", // required
- *   ChecksumAlgorithm: "STRING_VALUE", // required
+ *   ChecksumAlgorithm: "SHA256", // required
  * };
  * const command = new PutChunkCommand(input);
  * const response = await client.send(command);
  * // { // PutChunkOutput
  * //   ChunkChecksum: "STRING_VALUE", // required
- * //   ChunkChecksumAlgorithm: "STRING_VALUE", // required
+ * //   ChunkChecksumAlgorithm: "SHA256", // required
  * // };
  *
  * ```

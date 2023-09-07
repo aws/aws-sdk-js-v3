@@ -12,10 +12,8 @@ AWS SDK for JavaScript StorageGateway Client for Node.js, Browser and React Nati
 with cloud-based storage to provide seamless and secure integration between an
 organization's on-premises IT environment and the Amazon Web Services storage
 infrastructure. The service enables you to securely upload data to the Amazon Web Services Cloud for cost effective backup and rapid disaster recovery.</p>
-
 <p>Use the following links to get started using the <i>Storage Gateway
 Service API Reference</i>:</p>
-
 <ul>
 <li>
 <p>
@@ -43,7 +41,6 @@ endpoints and quotas</a>: Provides a list of each Amazon Web Services Region
 and the endpoints available for use with Storage Gateway.</p>
 </li>
 </ul>
-
 <note>
 <p>Storage Gateway resource IDs are in uppercase. When you use these resource IDs
 with the Amazon EC2 API, EC2 expects resource IDs in lowercase. You must change
@@ -52,7 +49,6 @@ Gateway the ID for a volume might be <code>vol-AA22BB012345DAF670</code>. When y
 this ID with the EC2 API, you must change it to <code>vol-aa22bb012345daf670</code>.
 Otherwise, the EC2 API might not behave as expected.</p>
 </note>
-
 <important>
 <p>IDs for Storage Gateway volumes and Amazon EBS snapshots created from gateway
 volumes are changing to a longer format. Starting in December 2016, all new volumes and
@@ -60,16 +56,12 @@ snapshots will be created with a 17-character string. Starting in April 2016, yo
 be able to use these longer IDs so you can test your systems with the new format. For
 more information, see <a href="http://aws.amazon.com/ec2/faqs/#longer-ids">Longer EC2 and
 EBS resource IDs</a>.</p>
-
 <p>For example, a volume Amazon Resource Name (ARN) with the longer volume ID format
 looks like the following:</p>
-
 <p>
 <code>arn:aws:storagegateway:us-west-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABBCCDDEEFFG</code>.</p>
-
 <p>A snapshot ID with the longer ID format looks like the following:
 <code>snap-78e226633445566ee</code>.</p>
-
 <p>For more information, see <a href="http://forums.aws.amazon.com/ann.jspa?annID=3557">Announcement:
 Heads-up – Longer Storage Gateway volume and snapshot IDs coming in
 2016</a>.</p>

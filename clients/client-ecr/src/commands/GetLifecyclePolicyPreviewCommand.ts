@@ -56,7 +56,7 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   filter: { // LifecyclePolicyPreviewFilter
- *     tagStatus: "STRING_VALUE",
+ *     tagStatus: "TAGGED" || "UNTAGGED" || "ANY",
  *   },
  * };
  * const command = new GetLifecyclePolicyPreviewCommand(input);
@@ -65,7 +65,7 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * //   registryId: "STRING_VALUE",
  * //   repositoryName: "STRING_VALUE",
  * //   lifecyclePolicyText: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "IN_PROGRESS" || "COMPLETE" || "EXPIRED" || "FAILED",
  * //   nextToken: "STRING_VALUE",
  * //   previewResults: [ // LifecyclePolicyPreviewResultList
  * //     { // LifecyclePolicyPreviewResult
@@ -75,7 +75,7 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * //       imageDigest: "STRING_VALUE",
  * //       imagePushedAt: new Date("TIMESTAMP"),
  * //       action: { // LifecyclePolicyRuleAction
- * //         type: "STRING_VALUE",
+ * //         type: "EXPIRE",
  * //       },
  * //       appliedRulePriority: Number("int"),
  * //     },

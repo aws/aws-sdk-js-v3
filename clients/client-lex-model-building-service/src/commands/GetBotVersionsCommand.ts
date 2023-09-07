@@ -69,7 +69,7 @@ export interface GetBotVersionsCommandOutput extends GetBotVersionsResponse, __M
  * //     { // BotMetadata
  * //       name: "STRING_VALUE",
  * //       description: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "BUILDING" || "READY" || "READY_BASIC_TESTING" || "FAILED" || "NOT_BUILT",
  * //       lastUpdatedDate: new Date("TIMESTAMP"),
  * //       createdDate: new Date("TIMESTAMP"),
  * //       version: "STRING_VALUE",

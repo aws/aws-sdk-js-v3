@@ -568,7 +568,11 @@
             "Access-Control-Allow-Methods",
             "Access-Control-Allow-Origin"
           ],
-          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id"]
+          "additionalExposedHeaders": [
+            "x-amzn-errortype",
+            "x-amzn-requestid",
+            "x-amzn-trace-id"
+          ]
         },
         "smithy.api#documentation": "<p>With License Manager, you can create user-based subscriptions to utilize licensed software with\n      a per user subscription fee on Amazon EC2 instances.</p>",
         "smithy.api#title": "AWS License Manager User Subscriptions",

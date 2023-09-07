@@ -94,7 +94,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *   ArtifactS3Location: "STRING_VALUE",
  *   ArtifactConfig: { // ArtifactConfigInput
  *     S3Encryption: { // S3EncryptionConfig
- *       EncryptionMode: "STRING_VALUE",
+ *       EncryptionMode: "SSE_S3" || "SSE_KMS",
  *       KmsKeyArn: "STRING_VALUE",
  *     },
  *   },

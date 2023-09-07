@@ -72,7 +72,7 @@ export interface GetQualificationScoreCommandOutput extends GetQualificationScor
  * //       Country: "STRING_VALUE", // required
  * //       Subdivision: "STRING_VALUE",
  * //     },
- * //     Status: "STRING_VALUE",
+ * //     Status: "Granted" || "Revoked",
  * //   },
  * // };
  *

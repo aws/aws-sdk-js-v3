@@ -3542,7 +3542,9 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
-          "additionalAllowedHeaders": ["content-type"],
+          "additionalAllowedHeaders": [
+            "content-type"
+          ],
           "additionalExposedHeaders": [
             "date",
             "x-amz-apigw-id",

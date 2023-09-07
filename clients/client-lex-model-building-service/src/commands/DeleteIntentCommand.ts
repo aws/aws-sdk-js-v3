@@ -55,7 +55,6 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  *         again, repeat until the intent has no references and the call to
  *           <code>DeleteIntent</code> is successful. </p>
  *          </note>
- *
  *          <p> This operation requires permission for the
  *         <code>lex:DeleteIntent</code> action. </p>
  * @example

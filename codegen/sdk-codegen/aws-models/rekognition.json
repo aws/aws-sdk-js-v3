@@ -144,12 +144,16 @@
             "output": {
               "UnsuccessfulFaceAssociations": [
                 {
-                  "Reasons": ["LOW_MATCH_CONFIDENCE"],
+                  "Reasons": [
+                    "LOW_MATCH_CONFIDENCE"
+                  ],
                   "FaceId": "f5817d37-94f6-4335-bfee-6cf79a3d806e",
                   "Confidence": 0.9375374913215637
                 },
                 {
-                  "Reasons": ["ASSOCIATED_TO_A_DIFFERENT_USER"],
+                  "Reasons": [
+                    "ASSOCIATED_TO_A_DIFFERENT_USER"
+                  ],
                   "FaceId": "851cb847-dccc-4fea-9309-9f4805967855",
                   "UserId": "demoUser2"
                 }
@@ -2591,10 +2595,14 @@
             "documentation": "This operation deletes one or more faces from a Rekognition collection.",
             "input": {
               "CollectionId": "myphotos",
-              "FaceIds": ["ff43d742-0c13-5d16-a3e8-03d3f58e980b"]
+              "FaceIds": [
+                "ff43d742-0c13-5d16-a3e8-03d3f58e980b"
+              ]
             },
             "output": {
-              "DeletedFaces": ["ff43d742-0c13-5d16-a3e8-03d3f58e980b"]
+              "DeletedFaces": [
+                "ff43d742-0c13-5d16-a3e8-03d3f58e980b"
+              ]
             }
           }
         ]
@@ -4451,7 +4459,10 @@
             "input": {
               "CollectionId": "MyCollection",
               "UserId": "DemoUser",
-              "FaceIds": ["f5817d37-94f6-4335-bfee-6cf79a3d806e", "c92265d4-5f9c-43af-a58e-12be0ce02bc3"],
+              "FaceIds": [
+                "f5817d37-94f6-4335-bfee-6cf79a3d806e",
+                "c92265d4-5f9c-43af-a58e-12be0ce02bc3"
+              ],
               "ClientRequestToken": "550e8400-e29b-41d4-a716-446655440003"
             },
             "output": {
@@ -4463,7 +4474,9 @@
               ],
               "UnsuccessfulFaceDisassociations": [
                 {
-                  "Reasons": ["ASSOCIATED_TO_A_DIFFERENT_USER"],
+                  "Reasons": [
+                    "ASSOCIATED_TO_A_DIFFERENT_USER"
+                  ],
                   "FaceId": "f5817d37-94f6-4335-bfee-6cf79a3d806e",
                   "UserId": "demoUser1"
                 }
@@ -7983,7 +7996,9 @@
             "title": "To list the collections",
             "documentation": "This operation returns a list of Rekognition collections.",
             "output": {
-              "CollectionIds": ["myphotos"]
+              "CollectionIds": [
+                "myphotos"
+              ]
             }
           }
         ],
@@ -8086,7 +8101,9 @@
             "documentation": "Lists the JSON line entries in an Amazon Rekognition Custom Labels dataset.",
             "input": {
               "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-proj-2/dataset/train/1690564858106",
-              "ContainsLabels": ["camellia"],
+              "ContainsLabels": [
+                "camellia"
+              ],
               "Labeled": true,
               "SourceRefContains": "camellia4.jpg",
               "HasErrors": true,
@@ -11984,7 +12001,9 @@
                       "Height": 0.0682177022099495
                     }
                   },
-                  "Reasons": ["FACE_NOT_LARGEST"]
+                  "Reasons": [
+                    "FACE_NOT_LARGEST"
+                  ]
                 },
                 {
                   "FaceDetails": {
@@ -11995,7 +12014,9 @@
                       "Height": 0.06347997486591339
                     }
                   },
-                  "Reasons": ["FACE_NOT_LARGEST"]
+                  "Reasons": [
+                    "FACE_NOT_LARGEST"
+                  ]
                 }
               ]
             }

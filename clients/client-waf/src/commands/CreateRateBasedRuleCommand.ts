@@ -139,7 +139,7 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  * const input = { // CreateRateBasedRuleRequest
  *   Name: "STRING_VALUE", // required
  *   MetricName: "STRING_VALUE", // required
- *   RateKey: "STRING_VALUE", // required
+ *   RateKey: "IP", // required
  *   RateLimit: Number("long"), // required
  *   ChangeToken: "STRING_VALUE", // required
  *   Tags: [ // TagList
@@ -159,11 +159,11 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  * //     MatchPredicates: [ // Predicates // required
  * //       { // Predicate
  * //         Negated: true || false, // required
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "IPMatch" || "ByteMatch" || "SqlInjectionMatch" || "GeoMatch" || "SizeConstraint" || "XssMatch" || "RegexMatch", // required
  * //         DataId: "STRING_VALUE", // required
  * //       },
  * //     ],
- * //     RateKey: "STRING_VALUE", // required
+ * //     RateKey: "IP", // required
  * //     RateLimit: Number("long"), // required
  * //   },
  * //   ChangeToken: "STRING_VALUE",

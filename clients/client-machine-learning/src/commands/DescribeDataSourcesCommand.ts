@@ -44,7 +44,7 @@ export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOut
  * // const { MachineLearningClient, DescribeDataSourcesCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // DescribeDataSourcesInput
- *   FilterVariable: "STRING_VALUE",
+ *   FilterVariable: "CreatedAt" || "LastUpdatedAt" || "Status" || "Name" || "DataLocationS3" || "IAMUser",
  *   EQ: "STRING_VALUE",
  *   GT: "STRING_VALUE",
  *   LT: "STRING_VALUE",
@@ -52,7 +52,7 @@ export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOut
  *   LE: "STRING_VALUE",
  *   NE: "STRING_VALUE",
  *   Prefix: "STRING_VALUE",
- *   SortOrder: "STRING_VALUE",
+ *   SortOrder: "asc" || "dsc",
  *   NextToken: "STRING_VALUE",
  *   Limit: Number("int"),
  * };
@@ -70,7 +70,7 @@ export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOut
  * //       DataSizeInBytes: Number("long"),
  * //       NumberOfFiles: Number("long"),
  * //       Name: "STRING_VALUE",
- * //       Status: "STRING_VALUE",
+ * //       Status: "PENDING" || "INPROGRESS" || "FAILED" || "COMPLETED" || "DELETED",
  * //       Message: "STRING_VALUE",
  * //       RedshiftMetadata: { // RedshiftMetadata
  * //         RedshiftDatabase: { // RedshiftDatabase

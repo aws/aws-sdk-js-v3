@@ -392,8 +392,18 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
-          "additionalAllowedHeaders": ["content-type", "x-amz-content-sha256", "x-amz-user-agent", "x-amzn-trace-id"],
-          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id", "x-amz-apigw-id"]
+          "additionalAllowedHeaders": [
+            "content-type",
+            "x-amz-content-sha256",
+            "x-amz-user-agent",
+            "x-amzn-trace-id"
+          ],
+          "additionalExposedHeaders": [
+            "x-amzn-errortype",
+            "x-amzn-requestid",
+            "x-amzn-trace-id",
+            "x-amz-apigw-id"
+          ]
         },
         "smithy.api#documentation": "<p>The Application Migration Service service.</p>",
         "smithy.api#title": "Application Migration Service",

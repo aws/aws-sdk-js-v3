@@ -821,7 +821,10 @@
             "input": {
               "KeyId": "arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab",
               "GranteePrincipal": "arn:aws:iam::111122223333:role/ExampleRole",
-              "Operations": ["Encrypt", "Decrypt"]
+              "Operations": [
+                "Encrypt",
+                "Decrypt"
+              ]
             },
             "output": {
               "GrantToken": "AQpAM2RhZTk1MGMyNTk2ZmZmMzEyYWVhOWViN2I1MWM4Mzc0MWFiYjc0ZDE1ODkyNGFlNTIzODZhMzgyZjBlNGY3NiKIAgEBAgB4Pa6VDCWW__MSrqnre1HIN0Grt00ViSSuUjhqOC8OT3YAAADfMIHcBgkqhkiG9w0BBwaggc4wgcsCAQAwgcUGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMmqLyBTAegIn9XlK5AgEQgIGXZQjkBcl1dykDdqZBUQ6L1OfUivQy7JVYO2-ZJP7m6f1g8GzV47HX5phdtONAP7K_HQIflcgpkoCqd_fUnE114mSmiagWkbQ5sqAVV3ov-VeqgrvMe5ZFEWLMSluvBAqdjHEdMIkHMlhlj4ENZbzBfo9Wxk8b8SnwP4kc4gGivedzFXo-dwN8fxjjq_ZZ9JFOj2ijIbj5FyogDCN0drOfi8RORSEuCEmPvjFRMFAwcmwFkN2NPp89amA",
@@ -3460,7 +3463,10 @@
               "PublicKey": "<binary data>",
               "CustomerMasterKeySpec": "RSA_4096",
               "KeyUsage": "ENCRYPT_DECRYPT",
-              "EncryptionAlgorithms": ["RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256"]
+              "EncryptionAlgorithms": [
+                "RSAES_OAEP_SHA_1",
+                "RSAES_OAEP_SHA_256"
+              ]
             }
           }
         ]
@@ -4844,7 +4850,9 @@
               "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
             },
             "output": {
-              "PolicyNames": ["default"],
+              "PolicyNames": [
+                "default"
+              ],
               "Truncated": false
             }
           }
@@ -5826,7 +5834,9 @@
                 "KeyUsage": "ENCRYPT_DECRYPT",
                 "Origin": "AWS_KMS",
                 "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
-                "EncryptionAlgorithms": ["SYMMETRIC_DEFAULT"]
+                "EncryptionAlgorithms": [
+                  "SYMMETRIC_DEFAULT"
+                ]
               },
               "ReplicaPolicy": "{\n  \"Version\" : \"2012-10-17\",\n  \"Id\" : \"key-default-1\",...}",
               "ReplicaTags": []
@@ -7955,7 +7965,10 @@
             "documentation": "The following example removes tags from a KMS key.",
             "input": {
               "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
-              "TagKeys": ["Purpose", "CostCenter"]
+              "TagKeys": [
+                "Purpose",
+                "CostCenter"
+              ]
             }
           }
         ]

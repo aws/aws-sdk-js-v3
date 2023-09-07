@@ -50,12 +50,12 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  *   previewToken: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   locale: "STRING_VALUE",
+ *   locale: "EN_US",
  * };
  * const command = new GetExclusionsPreviewCommand(input);
  * const response = await client.send(command);
  * // { // GetExclusionsPreviewResponse
- * //   previewStatus: "STRING_VALUE", // required
+ * //   previewStatus: "WORK_IN_PROGRESS" || "COMPLETED", // required
  * //   exclusionPreviews: [ // ExclusionPreviewList
  * //     { // ExclusionPreview
  * //       title: "STRING_VALUE", // required
@@ -63,7 +63,7 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  * //       recommendation: "STRING_VALUE", // required
  * //       scopes: [ // ScopeList // required
  * //         { // Scope
- * //           key: "STRING_VALUE",
+ * //           key: "INSTANCE_ID" || "RULES_PACKAGE_ARN",
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],

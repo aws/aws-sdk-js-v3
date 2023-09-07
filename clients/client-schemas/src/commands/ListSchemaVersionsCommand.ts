@@ -58,7 +58,7 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * //       SchemaArn: "STRING_VALUE",
  * //       SchemaName: "STRING_VALUE",
  * //       SchemaVersion: "STRING_VALUE",
- * //       Type: "STRING_VALUE",
+ * //       Type: "OpenApi3" || "JSONSchemaDraft4",
  * //     },
  * //   ],
  * // };

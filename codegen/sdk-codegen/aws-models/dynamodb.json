@@ -7361,7 +7361,12 @@
             "title": "To list tables",
             "documentation": "This example lists all of the tables associated with the current AWS account and endpoint.",
             "output": {
-              "TableNames": ["Forum", "ProductCatalog", "Reply", "Thread"]
+              "TableNames": [
+                "Forum",
+                "ProductCatalog",
+                "Reply",
+                "Thread"
+              ]
             }
           }
         ],
@@ -8289,7 +8294,9 @@
           "items": "Items",
           "pageSize": "Limit"
         },
-        "smithy.api#suppress": ["PaginatedTrait"]
+        "smithy.api#suppress": [
+          "PaginatedTrait"
+        ]
       }
     },
     "com.amazonaws.dynamodb#QueryInput": {
@@ -9767,7 +9774,9 @@
           "items": "Items",
           "pageSize": "Limit"
         },
-        "smithy.api#suppress": ["PaginatedTrait"]
+        "smithy.api#suppress": [
+          "PaginatedTrait"
+        ]
       }
     },
     "com.amazonaws.dynamodb#ScanInput": {

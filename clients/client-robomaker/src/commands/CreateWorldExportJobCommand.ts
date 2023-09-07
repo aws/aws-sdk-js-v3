@@ -61,9 +61,9 @@ export interface CreateWorldExportJobCommandOutput extends CreateWorldExportJobR
  * const response = await client.send(command);
  * // { // CreateWorldExportJobResponse
  * //   arn: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "Pending" || "Running" || "Completed" || "Failed" || "Canceling" || "Canceled",
  * //   createdAt: new Date("TIMESTAMP"),
- * //   failureCode: "STRING_VALUE",
+ * //   failureCode: "InternalServiceError" || "LimitExceeded" || "ResourceNotFound" || "RequestThrottled" || "InvalidInput" || "AccessDenied",
  * //   clientRequestToken: "STRING_VALUE",
  * //   outputLocation: { // OutputLocation
  * //     s3Bucket: "STRING_VALUE",

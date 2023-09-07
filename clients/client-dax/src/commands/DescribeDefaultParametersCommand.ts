@@ -55,7 +55,7 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  * //   Parameters: [ // ParameterList
  * //     { // Parameter
  * //       ParameterName: "STRING_VALUE",
- * //       ParameterType: "STRING_VALUE",
+ * //       ParameterType: "DEFAULT" || "NODE_TYPE_SPECIFIC",
  * //       ParameterValue: "STRING_VALUE",
  * //       NodeTypeSpecificValues: [ // NodeTypeSpecificValueList
  * //         { // NodeTypeSpecificValue
@@ -67,8 +67,8 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  * //       Source: "STRING_VALUE",
  * //       DataType: "STRING_VALUE",
  * //       AllowedValues: "STRING_VALUE",
- * //       IsModifiable: "STRING_VALUE",
- * //       ChangeType: "STRING_VALUE",
+ * //       IsModifiable: "TRUE" || "FALSE" || "CONDITIONAL",
+ * //       ChangeType: "IMMEDIATE" || "REQUIRES_REBOOT",
  * //     },
  * //   ],
  * // };

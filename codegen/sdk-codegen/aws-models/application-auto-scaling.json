@@ -4004,7 +4004,9 @@
             "documentation": "This example removes the tag pair with the key name \"environment\" from the scalable target specified by its ARN.",
             "input": {
               "ResourceARN": "arn:aws:application-autoscaling:us-west-2:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123",
-              "TagKeys": ["environment"]
+              "TagKeys": [
+                "environment"
+              ]
             },
             "output": {}
           }

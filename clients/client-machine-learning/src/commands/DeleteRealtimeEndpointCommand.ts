@@ -54,7 +54,7 @@ export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpo
  * //     PeakRequestsPerSecond: Number("int"),
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     EndpointUrl: "STRING_VALUE",
- * //     EndpointStatus: "STRING_VALUE",
+ * //     EndpointStatus: "NONE" || "READY" || "UPDATING" || "FAILED",
  * //   },
  * // };
  *

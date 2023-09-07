@@ -352,7 +352,9 @@
             "aws.cloudformation#cfnExcludeProperty": {},
             "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. If not provided, the Amazon Web Services\n            SDK populates this field. For more information about idempotency, see\n            <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#suppress": ["UnstableTrait"]
+            "smithy.api#suppress": [
+              "UnstableTrait"
+            ]
           }
         },
         "Tags": {
@@ -360,7 +362,9 @@
           "traits": {
             "aws.cloudformation#cfnMutability": "full",
             "smithy.api#documentation": "<p>A list of tags you want added to the domain.</p>",
-            "smithy.api#suppress": ["UnstableTrait"]
+            "smithy.api#suppress": [
+              "UnstableTrait"
+            ]
           }
         }
       }
@@ -714,7 +718,9 @@
           "traits": {
             "aws.cloudformation#cfnExcludeProperty": {},
             "smithy.api#documentation": "<p>Information about the specified domain.</p>",
-            "smithy.api#suppress": ["UnstableTrait"]
+            "smithy.api#suppress": [
+              "UnstableTrait"
+            ]
           }
         }
       }
@@ -1206,7 +1212,9 @@
         "aws.cloudformation#cfnResource": {
           "name": "Domain"
         },
-        "smithy.api#suppress": ["UnstableTrait"]
+        "smithy.api#suppress": [
+          "UnstableTrait"
+        ]
       }
     },
     "com.amazonaws.voiceid#DomainStatus": {

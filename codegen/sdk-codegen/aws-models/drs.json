@@ -663,7 +663,10 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": ["ec2:DescribeVpcs", "ec2:DescribeInstances"],
+        "aws.iam#requiredActions": [
+          "ec2:DescribeVpcs",
+          "ec2:DescribeInstances"
+        ],
         "smithy.api#documentation": "<p>Create a new Source Network resource for a provided VPC ID.</p>",
         "smithy.api#http": {
           "uri": "/CreateSourceNetwork",
@@ -1694,7 +1697,10 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": ["ec2:DescribeInstances", "drs:DescribeSourceServers"],
+        "aws.iam#requiredActions": [
+          "ec2:DescribeInstances",
+          "drs:DescribeSourceServers"
+        ],
         "smithy.api#documentation": "<p>Lists all Recovery Instances or multiple Recovery Instances by ID.</p>",
         "smithy.api#http": {
           "uri": "/DescribeRecoveryInstances",
@@ -2485,8 +2491,18 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
-          "additionalAllowedHeaders": ["Content-Type", "X-Amz-Content-Sha256", "X-Amz-User-Agent", "X-Amzn-Trace-Id"],
-          "additionalExposedHeaders": ["X-Amzn-Errortype", "X-Amzn-Requestid", "X-Amzn-Trace-Id", "X-Amz-Apigw-Id"]
+          "additionalAllowedHeaders": [
+            "Content-Type",
+            "X-Amz-Content-Sha256",
+            "X-Amz-User-Agent",
+            "X-Amzn-Trace-Id"
+          ],
+          "additionalExposedHeaders": [
+            "X-Amzn-Errortype",
+            "X-Amzn-Requestid",
+            "X-Amzn-Trace-Id",
+            "X-Amz-Apigw-Id"
+          ]
         },
         "smithy.api#documentation": "<p>AWS Elastic Disaster Recovery Service.</p>",
         "smithy.api#title": "Elastic Disaster Recovery Service",
@@ -3423,7 +3439,11 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": ["s3:GetBucketLocation", "s3:PutObject", "s3:GetObject"],
+        "aws.iam#requiredActions": [
+          "s3:GetBucketLocation",
+          "s3:PutObject",
+          "s3:GetObject"
+        ],
         "smithy.api#documentation": "<p>Export the Source Network CloudFormation template to an S3 bucket.</p>",
         "smithy.api#http": {
           "uri": "/ExportSourceNetworkCfnTemplate",
@@ -4248,7 +4268,9 @@
         "aws.api#arn": {
           "template": "job/{jobID}"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag"
+        ],
         "aws.iam#disableConditionKeyInference": {}
       }
     },
@@ -5776,7 +5798,10 @@
         "aws.api#arn": {
           "template": "recovery-instance/{recoveryInstanceID}"
         },
-        "aws.iam#conditionKeys": ["drs:EC2InstanceARN", "aws:ResourceTag"],
+        "aws.iam#conditionKeys": [
+          "drs:EC2InstanceARN",
+          "aws:ResourceTag"
+        ],
         "aws.iam#disableConditionKeyInference": {}
       }
     },
@@ -6338,7 +6363,9 @@
         "aws.api#arn": {
           "template": "replication-configuration-template/{replicationConfigurationTemplateID}"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag"
+        ],
         "aws.iam#disableConditionKeyInference": {}
       }
     },
@@ -6804,7 +6831,9 @@
         "aws.api#arn": {
           "template": "source-network/{sourceNetworkID}"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag"
+        ],
         "aws.iam#disableConditionKeyInference": {}
       }
     },
@@ -7044,7 +7073,9 @@
         "aws.api#arn": {
           "template": "source-server/{sourceServerID}"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag"
+        ],
         "aws.iam#disableConditionKeyInference": {}
       }
     },

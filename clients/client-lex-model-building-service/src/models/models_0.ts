@@ -568,8 +568,6 @@ export type FulfillmentActivityType = (typeof FulfillmentActivityType)[keyof typ
  *       primarily to presentation. If you need to update the logic, you only
  *       update the Lambda function; you don't need to upgrade your client
  *       application. </p>
- *
- *
  *          <p>Consider the following examples:</p>
  *          <ul>
  *             <li>
@@ -2078,7 +2076,6 @@ export interface BotChannelAssociation {
    *          <note>
    *             <p>Currently, Amazon Lex supports associations with Facebook and Slack,
    *         and Twilio.</p>
-   *
    *          </note>
    */
   botName?: string;
@@ -4008,7 +4005,6 @@ export interface PutBotRequest {
    * @public
    * <p> Specifies the target locale for the bot. Any intent used in the
    *       bot must be compatible with the locale of the bot. </p>
-   *
    *          <p>The default is <code>en-US</code>.</p>
    */
   locale: Locale | string | undefined;
@@ -4480,7 +4476,6 @@ export interface PutIntentRequest {
    * <p>An array of utterances (strings) that a user might say to signal
    *       the intent. For example, "I want \{PizzaSize\} pizza", "Order \{Quantity\}
    *       \{PizzaSize\} pizzas". </p>
-   *
    *          <p>In each utterance, a slot name is enclosed in curly braces.
    *     </p>
    */
@@ -4540,7 +4535,6 @@ export interface PutIntentRequest {
    *           prompt again.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>The <code>followUpPrompt</code> field and the
    *         <code>conclusionStatement</code> field are mutually exclusive. You can
    *       specify only one. </p>

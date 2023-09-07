@@ -38,18 +38,15 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  * @public
  * <p>Creates a cached volume on a specified cached volume gateway. This operation is only
  *          supported in the cached volume gateway type.</p>
- *
  *          <note>
  *             <p>Cache storage must be allocated to the gateway before you can create a cached volume.
  *             Use the <a>AddCache</a> operation to add cache storage to a gateway.</p>
  *          </note>
- *
  *          <p>In the request, you must specify the gateway, size of the volume in bytes, the iSCSI
  *          target name, an IP address on which to expose the target, and a unique client token. In
  *          response, the gateway creates the volume and returns information about it. This information
  *          includes the volume Amazon Resource Name (ARN), its size, and the iSCSI target ARN that
  *          initiators can use to connect to the volume target.</p>
- *
  *          <p>Optionally, you can provide the ARN for an existing volume as the
  *             <code>SourceVolumeARN</code> for this cached volume, which creates an exact copy of the
  *          existing volume’s latest recovery point. The <code>VolumeSizeInBytes</code> value must be

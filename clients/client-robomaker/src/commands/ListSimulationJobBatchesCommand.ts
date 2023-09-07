@@ -64,7 +64,7 @@ export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJob
  * //       arn: "STRING_VALUE",
  * //       lastUpdatedAt: new Date("TIMESTAMP"),
  * //       createdAt: new Date("TIMESTAMP"),
- * //       status: "STRING_VALUE",
+ * //       status: "Pending" || "InProgress" || "Failed" || "Completed" || "Canceled" || "Canceling" || "Completing" || "TimingOut" || "TimedOut",
  * //       failedRequestCount: Number("int"),
  * //       pendingRequestCount: Number("int"),
  * //       createdRequestCount: Number("int"),

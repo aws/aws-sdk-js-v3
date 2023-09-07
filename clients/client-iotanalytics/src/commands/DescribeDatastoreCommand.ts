@@ -67,7 +67,7 @@ export interface DescribeDatastoreCommandOutput extends DescribeDatastoreRespons
  * //       },
  * //     },
  * //     arn: "STRING_VALUE",
- * //     status: "STRING_VALUE",
+ * //     status: "CREATING" || "ACTIVE" || "DELETING",
  * //     retentionPeriod: { // RetentionPeriod
  * //       unlimited: true || false,
  * //       numberOfDays: Number("int"),

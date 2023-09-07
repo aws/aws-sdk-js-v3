@@ -102,10 +102,10 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  *   ChangeToken: "STRING_VALUE", // required
  *   Updates: [ // RuleUpdates // required
  *     { // RuleUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: "INSERT" || "DELETE", // required
  *       Predicate: { // Predicate
  *         Negated: true || false, // required
- *         Type: "STRING_VALUE", // required
+ *         Type: "IPMatch" || "ByteMatch" || "SqlInjectionMatch" || "GeoMatch" || "SizeConstraint" || "XssMatch" || "RegexMatch", // required
  *         DataId: "STRING_VALUE", // required
  *       },
  *     },

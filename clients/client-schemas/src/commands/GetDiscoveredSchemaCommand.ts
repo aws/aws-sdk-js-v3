@@ -47,7 +47,7 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
  *   Events: [ // __listOfGetDiscoveredSchemaVersionItemInput // required
  *     "STRING_VALUE",
  *   ],
- *   Type: "STRING_VALUE", // required
+ *   Type: "OpenApi3" || "JSONSchemaDraft4", // required
  * };
  * const command = new GetDiscoveredSchemaCommand(input);
  * const response = await client.send(command);

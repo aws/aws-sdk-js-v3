@@ -67,11 +67,11 @@ export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAsso
  * //   botAlias: "STRING_VALUE",
  * //   botName: "STRING_VALUE",
  * //   createdDate: new Date("TIMESTAMP"),
- * //   type: "STRING_VALUE",
+ * //   type: "Facebook" || "Slack" || "Twilio-Sms" || "Kik",
  * //   botConfiguration: { // ChannelConfigurationMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   status: "STRING_VALUE",
+ * //   status: "IN_PROGRESS" || "CREATED" || "FAILED",
  * //   failureReason: "STRING_VALUE",
  * // };
  *

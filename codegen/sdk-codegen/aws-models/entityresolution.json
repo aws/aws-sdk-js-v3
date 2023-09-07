@@ -73,7 +73,11 @@
             "x-amzn-platform-id",
             "x-amzn-trace-id"
           ],
-          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id"],
+          "additionalExposedHeaders": [
+            "x-amzn-errortype",
+            "x-amzn-requestid",
+            "x-amzn-trace-id"
+          ],
           "maxAge": 86400
         },
         "smithy.api#documentation": "<p>Welcome to the <i>AWS Entity Resolution API Reference</i>.</p>\n         <p>AWS Entity Resolution is an AWS service that provides pre-configured entity resolution capabilities \n         that enable developers and analysts at advertising and marketing companies to build an accurate and \n        complete view of their consumers.</p>\n         <p>\n         With AWS Entity Resolution, you have the ability to match source records containing consumer identifiers, \n         such as name, email address, and phone number. This holds true even when these records have incomplete or \n         conflicting identifiers. For example, AWS Entity Resolution can effectively match a source record from a \n         customer relationship management (CRM) system, which includes account information like first name, last name, \n         postal address, phone number, and email address, with a source record from a marketing system containing \n         campaign information, such as username and email address.</p>\n         <p>To learn more about AWS Entity Resolution concepts, procedures, and best practices, see the\n         <a href=\"https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html\">AWS Entity Resolution \n            User Guide</a>.</p>",

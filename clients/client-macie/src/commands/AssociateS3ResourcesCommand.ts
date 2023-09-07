@@ -54,8 +54,8 @@ export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesR
  *       bucketName: "STRING_VALUE", // required
  *       prefix: "STRING_VALUE",
  *       classificationType: { // ClassificationType
- *         oneTime: "STRING_VALUE", // required
- *         continuous: "STRING_VALUE", // required
+ *         oneTime: "FULL" || "NONE", // required
+ *         continuous: "FULL", // required
  *       },
  *     },
  *   ],

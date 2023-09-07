@@ -52,7 +52,7 @@ export interface UpdateRecordsCommandOutput extends UpdateRecordsResponse, __Met
  *   DeviceId: "STRING_VALUE",
  *   RecordPatches: [ // RecordPatchList
  *     { // RecordPatch
- *       Op: "STRING_VALUE", // required
+ *       Op: "replace" || "remove", // required
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *       SyncCount: Number("long"), // required

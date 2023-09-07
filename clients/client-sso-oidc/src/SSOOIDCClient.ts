@@ -275,7 +275,6 @@ export interface SSOOIDCClientResolvedConfig extends SSOOIDCClientResolvedConfig
  *             Guide</i>.</p>
  *             </li>
  *          </ul>
- *
  *          <p>For general information about IAM Identity Center, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">What is
  *         IAM Identity Center?</a> in the <i>IAM Identity Center User Guide</i>.</p>
  */

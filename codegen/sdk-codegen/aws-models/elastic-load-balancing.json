@@ -165,7 +165,9 @@
             "title": "To add tags to a load balancer",
             "documentation": "This example adds two tags to the specified load balancer.",
             "input": {
-              "LoadBalancerNames": ["my-load-balancer"],
+              "LoadBalancerNames": [
+                "my-load-balancer"
+              ],
               "Tags": [
                 {
                   "Key": "project",
@@ -317,10 +319,14 @@
             "documentation": "This example associates a security group with the specified load balancer in a VPC.",
             "input": {
               "LoadBalancerName": "my-load-balancer",
-              "SecurityGroups": ["sg-fc448899"]
+              "SecurityGroups": [
+                "sg-fc448899"
+              ]
             },
             "output": {
-              "SecurityGroups": ["sg-fc448899"]
+              "SecurityGroups": [
+                "sg-fc448899"
+              ]
             }
           }
         ]
@@ -394,10 +400,15 @@
             "documentation": "This example adds the specified subnet to the set of configured subnets for the specified load balancer.",
             "input": {
               "LoadBalancerName": "my-load-balancer",
-              "Subnets": ["subnet-0ecac448"]
+              "Subnets": [
+                "subnet-0ecac448"
+              ]
             },
             "output": {
-              "Subnets": ["subnet-15aaab61", "subnet-0ecac448"]
+              "Subnets": [
+                "subnet-15aaab61",
+                "subnet-0ecac448"
+              ]
             }
           }
         ]
@@ -917,8 +928,12 @@
                   "InstancePort": 80
                 }
               ],
-              "Subnets": ["subnet-15aaab61"],
-              "SecurityGroups": ["sg-a61988c3"]
+              "Subnets": [
+                "subnet-15aaab61"
+              ],
+              "SecurityGroups": [
+                "sg-a61988c3"
+              ]
             },
             "output": {
               "DNSName": "my-load-balancer-1234567890.us-west-2.elb.amazonaws.com"
@@ -1222,7 +1237,9 @@
             "documentation": "This example deletes the listener for the specified port from the specified load balancer.",
             "input": {
               "LoadBalancerName": "my-load-balancer",
-              "LoadBalancerPorts": [80]
+              "LoadBalancerPorts": [
+                80
+              ]
             }
           }
         ]
@@ -1568,7 +1585,9 @@
             }
           }
         ],
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "AnyInstanceInService": {
             "acceptors": [
@@ -1731,7 +1750,9 @@
             "documentation": "This example describes the specified policy associated with the specified load balancer.",
             "input": {
               "LoadBalancerName": "my-load-balancer",
-              "PolicyNames": ["my-authentication-policy"]
+              "PolicyNames": [
+                "my-authentication-policy"
+              ]
             },
             "output": {
               "PolicyDescriptions": [
@@ -1807,7 +1828,9 @@
             "title": "To describe a load balancer policy type defined by Elastic Load Balancing",
             "documentation": "This example describes the specified load balancer policy type.",
             "input": {
-              "PolicyTypeNames": ["ProxyProtocolPolicyType"]
+              "PolicyTypeNames": [
+                "ProxyProtocolPolicyType"
+              ]
             },
             "output": {
               "PolicyTypeDescriptions": [
@@ -1881,12 +1904,16 @@
             "title": "To describe one of your load balancers",
             "documentation": "This example describes the specified load balancer.",
             "input": {
-              "LoadBalancerNames": ["my-load-balancer"]
+              "LoadBalancerNames": [
+                "my-load-balancer"
+              ]
             },
             "output": {
               "LoadBalancerDescriptions": [
                 {
-                  "Subnets": ["subnet-15aaab61"],
+                  "Subnets": [
+                    "subnet-15aaab61"
+                  ],
                   "CanonicalHostedZoneNameID": "Z3DZXE0EXAMPLE",
                   "CanonicalHostedZoneName": "my-load-balancer-1234567890.us-west-2.elb.amazonaws.com",
                   "ListenerDescriptions": [
@@ -1907,7 +1934,9 @@
                         "Protocol": "HTTPS",
                         "InstanceProtocol": "HTTPS"
                       },
-                      "PolicyNames": ["ELBSecurityPolicy-2015-03"]
+                      "PolicyNames": [
+                        "ELBSecurityPolicy-2015-03"
+                      ]
                     }
                   ],
                   "HealthCheck": {
@@ -1921,7 +1950,9 @@
                   "BackendServerDescriptions": [
                     {
                       "InstancePort": 80,
-                      "PolicyNames": ["my-ProxyProtocol-policy"]
+                      "PolicyNames": [
+                        "my-ProxyProtocol-policy"
+                      ]
                     }
                   ],
                   "Instances": [
@@ -1933,7 +1964,9 @@
                     }
                   ],
                   "DNSName": "my-load-balancer-1234567890.us-west-2.elb.amazonaws.com",
-                  "SecurityGroups": ["sg-a61988c3"],
+                  "SecurityGroups": [
+                    "sg-a61988c3"
+                  ],
                   "Policies": {
                     "LBCookieStickinessPolicies": [
                       {
@@ -1952,7 +1985,9 @@
                   },
                   "LoadBalancerName": "my-load-balancer",
                   "CreatedTime": "2015-03-19T03:24:02.650Z",
-                  "AvailabilityZones": ["us-west-2a"],
+                  "AvailabilityZones": [
+                    "us-west-2a"
+                  ],
                   "Scheme": "internet-facing",
                   "SourceSecurityGroup": {
                     "OwnerAlias": "123456789012",
@@ -1990,7 +2025,9 @@
             "title": "To describe the tags for a load balancer",
             "documentation": "This example describes the tags for the specified load balancer.",
             "input": {
-              "LoadBalancerNames": ["my-load-balancer"]
+              "LoadBalancerNames": [
+                "my-load-balancer"
+              ]
             },
             "output": {
               "TagDescriptions": [
@@ -2071,10 +2108,14 @@
             "documentation": "This example detaches the specified load balancer from the specified subnet.",
             "input": {
               "LoadBalancerName": "my-load-balancer",
-              "Subnets": ["subnet-0ecac448"]
+              "Subnets": [
+                "subnet-0ecac448"
+              ]
             },
             "output": {
-              "Subnets": ["subnet-15aaab61"]
+              "Subnets": [
+                "subnet-15aaab61"
+              ]
             }
           }
         ]
@@ -2142,10 +2183,14 @@
             "documentation": "This example removes the specified Availability Zone from the set of Availability Zones for the specified load balancer.",
             "input": {
               "LoadBalancerName": "my-load-balancer",
-              "AvailabilityZones": ["us-west-2a"]
+              "AvailabilityZones": [
+                "us-west-2a"
+              ]
             },
             "output": {
-              "AvailabilityZones": ["us-west-2b"]
+              "AvailabilityZones": [
+                "us-west-2b"
+              ]
             }
           }
         ]
@@ -3369,10 +3414,15 @@
             "documentation": "This example adds the specified Availability Zone to the specified load balancer.",
             "input": {
               "LoadBalancerName": "my-load-balancer",
-              "AvailabilityZones": ["us-west-2b"]
+              "AvailabilityZones": [
+                "us-west-2b"
+              ]
             },
             "output": {
-              "AvailabilityZones": ["us-west-2a", "us-west-2b"]
+              "AvailabilityZones": [
+                "us-west-2a",
+                "us-west-2b"
+              ]
             }
           }
         ]
@@ -4476,7 +4526,9 @@
             "title": "To remove tags from a load balancer",
             "documentation": "This example removes the specified tag from the specified load balancer.",
             "input": {
-              "LoadBalancerNames": ["my-load-balancer"],
+              "LoadBalancerNames": [
+                "my-load-balancer"
+              ],
               "Tags": [
                 {
                   "Key": "project"
@@ -4646,7 +4698,9 @@
             "input": {
               "LoadBalancerName": "my-load-balancer",
               "InstancePort": 80,
-              "PolicyNames": ["my-ProxyProtocol-policy"]
+              "PolicyNames": [
+                "my-ProxyProtocol-policy"
+              ]
             }
           }
         ]
@@ -4721,7 +4775,9 @@
             "input": {
               "LoadBalancerName": "my-load-balancer",
               "LoadBalancerPort": 80,
-              "PolicyNames": ["my-SSLNegotiation-policy"]
+              "PolicyNames": [
+                "my-SSLNegotiation-policy"
+              ]
             }
           }
         ]

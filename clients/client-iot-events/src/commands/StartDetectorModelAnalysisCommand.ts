@@ -65,14 +65,14 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                     targetArn: "STRING_VALUE", // required
  *                     payload: { // Payload
  *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       type: "STRING" || "JSON", // required
  *                     },
  *                   },
  *                   iotTopicPublish: { // IotTopicPublishAction
  *                     mqttTopic: "STRING_VALUE", // required
  *                     payload: {
  *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       type: "STRING" || "JSON", // required
  *                     },
  *                   },
  *                   setTimer: { // SetTimerAction
@@ -90,14 +90,14 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                     functionArn: "STRING_VALUE", // required
  *                     payload: {
  *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       type: "STRING" || "JSON", // required
  *                     },
  *                   },
  *                   iotEvents: { // IotEventsAction
  *                     inputName: "STRING_VALUE", // required
  *                     payload: {
  *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       type: "STRING" || "JSON", // required
  *                     },
  *                   },
  *                   sqs: { // SqsAction
@@ -105,7 +105,7 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                     useBase64: true || false,
  *                     payload: {
  *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       type: "STRING" || "JSON", // required
  *                     },
  *                   },
  *                   firehose: { // FirehoseAction

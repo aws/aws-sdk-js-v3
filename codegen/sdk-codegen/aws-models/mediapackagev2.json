@@ -98,7 +98,9 @@
         "aws.api#arn": {
           "template": "channelGroup/{ChannelGroupName}"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "smithy.api#documentation": "Represents a channel group that facilitates the grouping of multiple channels"
       }
@@ -227,7 +229,9 @@
         "aws.api#arn": {
           "template": "channelGroup/{ChannelGroupName}/channel/{ChannelName}"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "smithy.api#documentation": "Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints"
       }
@@ -347,7 +351,10 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create a channel in a channel group",
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Create a channel to start receiving content streams. The channel represents the input to MediaPackage for incoming live content from an encoder such as AWS Elemental MediaLive. The channel receives content, and after packaging it, outputs it through an origin endpoint to downstream devices (such as video players or CDNs) that request the content. You can create only one channel with each request. We recommend that you spread out channels between channel groups, such as putting redundant channels in the same AWS Region in different channel groups.</p>",
         "smithy.api#examples": [
           {
@@ -425,7 +432,10 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create a channel group",
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Create a channel group to group your channels and origin endpoints. A channel group is the top-level resource that consists of channels and origin endpoints that are associated with it and that provides predictable URLs for stream delivery. All channels and origin endpoints within the channel group are guaranteed to share the DNS. You can create only one channel group with each request. </p>",
         "smithy.api#examples": [
           {
@@ -785,7 +795,10 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create an origin endpoint for a channel",
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>The endpoint is attached to a channel, and represents the output of the live content. You can associate multiple endpoints to a single channel. Each endpoint gives players and downstream CDNs (such as Amazon CloudFront) access to the content for playback. Content can't be served from a channel until it has an endpoint. You can create only one endpoint with each request. </p>",
         "smithy.api#examples": [
           {
@@ -804,7 +817,10 @@
                 "IncludeIframeOnlyStreams": true,
                 "TsIncludeDvbSubtitles": true,
                 "Scte": {
-                  "ScteFilter": ["SPLICE_INSERT", "BREAK"]
+                  "ScteFilter": [
+                    "SPLICE_INSERT",
+                    "BREAK"
+                  ]
                 },
                 "Encryption": {
                   "ConstantInitializationVector": "A382A901F3C1F7718512266CFFBB0B7E",
@@ -818,7 +834,9 @@
                       "PresetSpeke20Video": "SHARED"
                     },
                     "ResourceId": "ResourceId",
-                    "DrmSystems": ["CLEAR_KEY_AES_128"],
+                    "DrmSystems": [
+                      "CLEAR_KEY_AES_128"
+                    ],
                     "RoleArn": "arn:aws:iam::123456789012:role/empRole",
                     "Url": "https://foo.com"
                   }
@@ -886,7 +904,10 @@
                 "IncludeIframeOnlyStreams": true,
                 "TsIncludeDvbSubtitles": true,
                 "Scte": {
-                  "ScteFilter": ["SPLICE_INSERT", "BREAK"]
+                  "ScteFilter": [
+                    "SPLICE_INSERT",
+                    "BREAK"
+                  ]
                 },
                 "Encryption": {
                   "ConstantInitializationVector": "A382A901F3C1F7718512266CFFBB0B7E",
@@ -900,7 +921,9 @@
                       "PresetSpeke20Video": "SHARED"
                     },
                     "ResourceId": "ResourceId",
-                    "DrmSystems": ["CLEAR_KEY_AES_128"],
+                    "DrmSystems": [
+                      "CLEAR_KEY_AES_128"
+                    ],
                     "RoleArn": "arn:aws:iam::123456789012:role/empRole",
                     "Url": "https://foo.com"
                   }
@@ -969,7 +992,10 @@
                 "SegmentName": "segmentName",
                 "IncludeIframeOnlyStreams": true,
                 "Scte": {
-                  "ScteFilter": ["SPLICE_INSERT", "BREAK"]
+                  "ScteFilter": [
+                    "SPLICE_INSERT",
+                    "BREAK"
+                  ]
                 },
                 "Encryption": {
                   "ConstantInitializationVector": "A382A901F3C1F7718512266CFFBB0B9F",
@@ -983,7 +1009,10 @@
                       "PresetSpeke20Video": "PRESET_VIDEO_1"
                     },
                     "ResourceId": "ResourceId",
-                    "DrmSystems": ["PLAYREADY", "WIDEVINE"],
+                    "DrmSystems": [
+                      "PLAYREADY",
+                      "WIDEVINE"
+                    ],
                     "RoleArn": "arn:aws:iam::123456789012:role/empRole",
                     "Url": "https://foo.com"
                   }
@@ -1048,7 +1077,10 @@
                 "SegmentName": "segmentName",
                 "IncludeIframeOnlyStreams": true,
                 "Scte": {
-                  "ScteFilter": ["SPLICE_INSERT", "BREAK"]
+                  "ScteFilter": [
+                    "SPLICE_INSERT",
+                    "BREAK"
+                  ]
                 },
                 "Encryption": {
                   "ConstantInitializationVector": "A382A901F3C1F7718512266CFFBB0B9F",
@@ -1062,7 +1094,10 @@
                       "PresetSpeke20Video": "PRESET_VIDEO_1"
                     },
                     "ResourceId": "ResourceId",
-                    "DrmSystems": ["PLAYREADY", "WIDEVINE"],
+                    "DrmSystems": [
+                      "PLAYREADY",
+                      "WIDEVINE"
+                    ],
                     "RoleArn": "arn:aws:iam::123456789012:role/empRole",
                     "Url": "https://foo.com"
                   }
@@ -2345,7 +2380,10 @@
                 "IncludeIframeOnlyStreams": true,
                 "TsIncludeDvbSubtitles": true,
                 "Scte": {
-                  "ScteFilter": ["SPLICE_INSERT", "BREAK"]
+                  "ScteFilter": [
+                    "SPLICE_INSERT",
+                    "BREAK"
+                  ]
                 },
                 "Encryption": {
                   "ConstantInitializationVector": "A382A901F3C1F7718512266CFFBB0B7E",
@@ -2359,7 +2397,9 @@
                       "PresetSpeke20Video": "SHARED"
                     },
                     "ResourceId": "ResourceId",
-                    "DrmSystems": ["CLEAR_KEY_AES_128"],
+                    "DrmSystems": [
+                      "CLEAR_KEY_AES_128"
+                    ],
                     "RoleArn": "arn:aws:iam::123456789012:role/empRole",
                     "Url": "https://foo.com"
                   }
@@ -3415,7 +3455,9 @@
         "aws.api#arn": {
           "template": "channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "smithy.api#documentation": "Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront"
       }
@@ -4042,7 +4084,10 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to add specified tags to the specified resource",
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Assigns one of more tags (key-value pairs) to the specified MediaPackage resource.</p>\n         <p>Tags can help you organize and categorize your resources. You can also use them to scope user \n         permissions, by granting a user permission to access or change only resources with certain tag values.\n         You can use the TagResource operation with a resource that already has tags. If you specify a new tag \n         key for the resource, this tag is appended to the list of tags associated with the resource. If you \n         specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag.</p>",
         "smithy.api#examples": [
           {
@@ -4136,14 +4181,19 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to remove the specified tags from the specified resource",
-        "aws.iam#conditionKeys": ["aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Removes one or more tags from the specified resource.</p>",
         "smithy.api#examples": [
           {
             "title": "Remove tags from a resource",
             "input": {
               "ResourceArn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel",
-              "TagKeys": ["key3", "key4"]
+              "TagKeys": [
+                "key3",
+                "key4"
+              ]
             },
             "output": {}
           }
@@ -4529,7 +4579,9 @@
                 "IncludeIframeOnlyStreams": false,
                 "TsIncludeDvbSubtitles": false,
                 "Scte": {
-                  "ScteFilter": ["SPLICE_INSERT"]
+                  "ScteFilter": [
+                    "SPLICE_INSERT"
+                  ]
                 },
                 "Encryption": {
                   "ConstantInitializationVector": "A382A901F3C1F7718512266CFFBB0B7E",
@@ -4543,7 +4595,9 @@
                       "PresetSpeke20Video": "SHARED"
                     },
                     "ResourceId": "ResourceId",
-                    "DrmSystems": ["CLEAR_KEY_AES_128"],
+                    "DrmSystems": [
+                      "CLEAR_KEY_AES_128"
+                    ],
                     "RoleArn": "arn:aws:iam::123456789012:role/empRole",
                     "Url": "https://foo.com"
                   }
@@ -4607,7 +4661,9 @@
                 "IncludeIframeOnlyStreams": false,
                 "TsIncludeDvbSubtitles": false,
                 "Scte": {
-                  "ScteFilter": ["SPLICE_INSERT"]
+                  "ScteFilter": [
+                    "SPLICE_INSERT"
+                  ]
                 },
                 "Encryption": {
                   "ConstantInitializationVector": "A382A901F3C1F7718512266CFFBB0B7E",
@@ -4621,7 +4677,9 @@
                       "PresetSpeke20Video": "SHARED"
                     },
                     "ResourceId": "ResourceId",
-                    "DrmSystems": ["CLEAR_KEY_AES_128"],
+                    "DrmSystems": [
+                      "CLEAR_KEY_AES_128"
+                    ],
                     "RoleArn": "arn:aws:iam::123456789012:role/empRole",
                     "Url": "https://foo.com"
                   }
@@ -5128,7 +5186,12 @@
             "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys"
           }
         },
-        "aws.iam#supportedPrincipalTypes": ["Root", "IAMUser", "IAMRole", "FederatedUser"],
+        "aws.iam#supportedPrincipalTypes": [
+          "Root",
+          "IAMUser",
+          "IAMRole",
+          "FederatedUser"
+        ],
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
           "additionalAllowedHeaders": [

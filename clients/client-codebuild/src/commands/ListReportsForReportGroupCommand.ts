@@ -48,10 +48,10 @@ export interface ListReportsForReportGroupCommandOutput extends ListReportsForRe
  * const input = { // ListReportsForReportGroupInput
  *   reportGroupArn: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
- *   sortOrder: "STRING_VALUE",
+ *   sortOrder: "ASCENDING" || "DESCENDING",
  *   maxResults: Number("int"),
  *   filter: { // ReportFilter
- *     status: "STRING_VALUE",
+ *     status: "GENERATING" || "SUCCEEDED" || "FAILED" || "INCOMPLETE" || "DELETING",
  *   },
  * };
  * const command = new ListReportsForReportGroupCommand(input);

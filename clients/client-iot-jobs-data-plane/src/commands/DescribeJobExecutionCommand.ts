@@ -55,7 +55,7 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * //   execution: { // JobExecution
  * //     jobId: "STRING_VALUE",
  * //     thingName: "STRING_VALUE",
- * //     status: "STRING_VALUE",
+ * //     status: "QUEUED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "REJECTED" || "REMOVED" || "CANCELED",
  * //     statusDetails: { // DetailsMap
  * //       "<keys>": "STRING_VALUE",
  * //     },

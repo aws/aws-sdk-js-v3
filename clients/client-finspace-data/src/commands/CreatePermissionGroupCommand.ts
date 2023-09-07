@@ -51,7 +51,7 @@ export interface CreatePermissionGroupCommandOutput extends CreatePermissionGrou
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   applicationPermissions: [ // ApplicationPermissionList // required
- *     "STRING_VALUE",
+ *     "CreateDataset" || "ManageClusters" || "ManageUsersAndGroups" || "ManageAttributeSets" || "ViewAuditData" || "AccessNotebooks" || "GetTemporaryCredentials",
  *   ],
  *   clientToken: "STRING_VALUE",
  * };

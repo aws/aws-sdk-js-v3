@@ -78,7 +78,6 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *          <p>If <a>PutRecordBatch</a> throws <code>ServiceUnavailableException</code>,
  *          back off and retry. If the exception persists, it is possible that the throughput limits
  *          have been exceeded for the delivery stream.</p>
- *
  *          <p>Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they
  *          are added to a delivery stream as it attempts to send the records to the destination. If
  *          the destination is unreachable for more than 24 hours, the data is no longer

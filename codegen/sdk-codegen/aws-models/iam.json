@@ -2997,8 +2997,12 @@
             "title": "To create an instance profile",
             "documentation": "The following example defines a new OIDC provider in IAM with a client ID of my-application-id and pointing at the server with a URL of https://server.example.com.",
             "input": {
-              "ClientIDList": ["my-application-id"],
-              "ThumbprintList": ["3768084dfb3d2b68b7897bf5f565da8efEXAMPLE"],
+              "ClientIDList": [
+                "my-application-id"
+              ],
+              "ThumbprintList": [
+                "3768084dfb3d2b68b7897bf5f565da8efEXAMPLE"
+              ],
               "Url": "https://server.example.com"
             },
             "output": {
@@ -6699,7 +6703,9 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Retrieves information about the specified managed policy, including the policy's\n            default version and the total number of IAM users, groups, and roles to which the\n            policy is attached. To retrieve the list of the specific users, groups, and roles that\n            the policy is attached to, use <a>ListEntitiesForPolicy</a>. This operation\n            returns metadata about the policy. To retrieve the actual policy document for a specific\n            version of the policy, use <a>GetPolicyVersion</a>.</p>\n         <p>This operation retrieves information about managed policies. To retrieve information\n            about an inline policy that is embedded with an IAM user, group, or role, use <a>GetUserPolicy</a>, <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a>.</p>\n         <p>For more information about policies, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html\">Managed policies and inline\n                policies</a> in the <i>IAM User Guide</i>.</p>",
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "PolicyExists": {
             "acceptors": [
@@ -6853,7 +6859,9 @@
             }
           }
         ],
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "RoleExists": {
             "acceptors": [
@@ -7542,7 +7550,9 @@
             }
           }
         ],
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "UserExists": {
             "acceptors": [
@@ -8063,7 +8073,9 @@
             "title": "To list account aliases",
             "documentation": "The following command lists the aliases for the current account.",
             "output": {
-              "AccountAliases": ["exmaple-corporation"]
+              "AccountAliases": [
+                "exmaple-corporation"
+              ]
             }
           }
         ],
@@ -8533,7 +8545,10 @@
               "GroupName": "Admins"
             },
             "output": {
-              "PolicyNames": ["AdminRoot", "KeyPolicy"]
+              "PolicyNames": [
+                "AdminRoot",
+                "KeyPolicy"
+              ]
             }
           }
         ],
@@ -9395,7 +9410,10 @@
             "documentation": "The following operation lists policies that allow ExampleUser01 to access IAM or EC2.",
             "input": {
               "Arn": "arn:aws:iam::123456789012:user/ExampleUser01",
-              "ServiceNamespaces": ["iam", "ec2"]
+              "ServiceNamespaces": [
+                "iam",
+                "ec2"
+              ]
             },
             "output": {
               "IsTruncated": false,
@@ -14182,7 +14200,9 @@
             "documentation": "The following example shows how to remove a tag with the key 'Dept' from a role named 'taggedrole'.",
             "input": {
               "RoleName": "taggedrole",
-              "TagKeys": ["Dept"]
+              "TagKeys": [
+                "Dept"
+              ]
             }
           }
         ]
@@ -14333,7 +14353,9 @@
             "documentation": "The following example shows how to remove tags that are attached to a user named 'anika'.",
             "input": {
               "UserName": "anika",
-              "TagKeys": ["Dept"]
+              "TagKeys": [
+                "Dept"
+              ]
             }
           }
         ]

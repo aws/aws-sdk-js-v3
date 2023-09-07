@@ -57,7 +57,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //   applicationName: "STRING_VALUE", // required
  * //   applicationDescription: "STRING_VALUE",
  * //   applicationUrl: "STRING_VALUE", // required
- * //   applicationState: "STRING_VALUE", // required
+ * //   applicationState: "CREATING" || "DELETING" || "ACTIVE" || "CREATE_FAILED" || "DELETE_FAILED", // required
  * //   applicationCreationDate: Number("long"), // required
  * //   applicationLastUpdateDate: Number("long"), // required
  * //   roleArn: "STRING_VALUE", // required

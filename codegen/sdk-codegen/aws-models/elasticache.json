@@ -3717,7 +3717,11 @@
             "input": {
               "CacheSubnetGroupName": "my-sn-grp2",
               "CacheSubnetGroupDescription": "Sample subnet group",
-              "SubnetIds": ["subnet-6f28c982", "subnet-bcd382f3", "subnet-845b3e7c0"]
+              "SubnetIds": [
+                "subnet-6f28c982",
+                "subnet-bcd382f3",
+                "subnet-845b3e7c0"
+              ]
             },
             "output": {
               "CacheSubnetGroup": {
@@ -3955,7 +3959,11 @@
                 "ReplicationGroupId": "my-redis-rg",
                 "AutomaticFailover": "enabling",
                 "SnapshottingClusterId": "my-redis-rg-002",
-                "MemberClusters": ["my-redis-rg-001", "my-redis-rg-002", "my-redis-rg-003"],
+                "MemberClusters": [
+                  "my-redis-rg-001",
+                  "my-redis-rg-002",
+                  "my-redis-rg-003"
+                ],
                 "PendingModifiedValues": {}
               }
             }
@@ -5416,7 +5424,9 @@
           "items": "CacheClusters",
           "pageSize": "MaxRecords"
         },
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "CacheClusterAvailable": {
             "documentation": "Wait until ElastiCache cluster is available.",
@@ -10203,7 +10213,9 @@
             "documentation": "Modifies an existing ElastiCache subnet group.",
             "input": {
               "CacheSubnetGroupName": "my-sn-grp",
-              "SubnetIds": ["subnet-bcde2345"]
+              "SubnetIds": [
+                "subnet-bcde2345"
+              ]
             },
             "output": {
               "CacheSubnetGroup": {
@@ -10494,7 +10506,11 @@
                 "ReplicationGroupId": "my-redis-rg",
                 "AutomaticFailover": "enabled",
                 "SnapshottingClusterId": "my-redis-rg-002",
-                "MemberClusters": ["my-redis-rg-001", "my-redis-rg-002", "my-redis-rg-003"],
+                "MemberClusters": [
+                  "my-redis-rg-001",
+                  "my-redis-rg-002",
+                  "my-redis-rg-003"
+                ],
                 "PendingModifiedValues": {}
               }
             }
@@ -11975,7 +11991,10 @@
             "documentation": "Reboots the specified nodes in the names cluster.",
             "input": {
               "CacheClusterId": "custom-mem1-4  ",
-              "CacheNodeIdsToReboot": ["0001", "0002"]
+              "CacheNodeIdsToReboot": [
+                "0001",
+                "0002"
+              ]
             },
             "output": {
               "CacheCluster": {
@@ -12170,7 +12189,11 @@
             "documentation": "Removes tags identified by a list of tag keys from the list of tags on the specified resource.",
             "input": {
               "ResourceName": "arn:aws:elasticache:us-east-1:1234567890:cluster:my-mem-cluster",
-              "TagKeys": ["A", "C", "E"]
+              "TagKeys": [
+                "A",
+                "C",
+                "E"
+              ]
             },
             "output": {
               "TagList": [

@@ -59,7 +59,7 @@ export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsR
  * //   summaries: [ // FlowExecutionSummaries
  * //     { // FlowExecutionSummary
  * //       flowExecutionId: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "RUNNING" || "ABORTED" || "SUCCEEDED" || "FAILED",
  * //       systemInstanceId: "STRING_VALUE",
  * //       flowTemplateId: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),

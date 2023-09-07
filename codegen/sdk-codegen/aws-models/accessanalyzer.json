@@ -3840,7 +3840,9 @@
           "items": "findings"
         },
         "smithy.api#readonly": {},
-        "smithy.api#suppress": ["HttpMethodSemantics"]
+        "smithy.api#suppress": [
+          "HttpMethodSemantics"
+        ]
       }
     },
     "com.amazonaws.accessanalyzer#ListAccessPreviewFindingsRequest": {
@@ -4018,7 +4020,9 @@
           "items": "analyzedResources"
         },
         "smithy.api#readonly": {},
-        "smithy.api#suppress": ["HttpMethodSemantics"]
+        "smithy.api#suppress": [
+          "HttpMethodSemantics"
+        ]
       }
     },
     "com.amazonaws.accessanalyzer#ListAnalyzedResourcesRequest": {
@@ -4282,7 +4286,9 @@
           "items": "findings"
         },
         "smithy.api#readonly": {},
-        "smithy.api#suppress": ["HttpMethodSemantics"]
+        "smithy.api#suppress": [
+          "HttpMethodSemantics"
+        ]
       }
     },
     "com.amazonaws.accessanalyzer#ListFindingsRequest": {
@@ -5906,7 +5912,9 @@
           "items": "findings"
         },
         "smithy.api#readonly": {},
-        "smithy.api#suppress": ["HttpMethodSemantics"]
+        "smithy.api#suppress": [
+          "HttpMethodSemantics"
+        ]
       }
     },
     "com.amazonaws.accessanalyzer#ValidatePolicyFinding": {

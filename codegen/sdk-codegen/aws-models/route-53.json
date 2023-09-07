@@ -2154,7 +2154,9 @@
                   "Value": "4938"
                 }
               ],
-              "RemoveTagKeys": ["Nadir"]
+              "RemoveTagKeys": [
+                "Nadir"
+              ]
             },
             "output": {}
           }

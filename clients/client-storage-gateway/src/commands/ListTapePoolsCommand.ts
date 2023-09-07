@@ -39,7 +39,6 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  * <p>Lists custom tape pools. You specify custom tape pools to list by specifying one or more
  *          custom tape pool Amazon Resource Names (ARNs). If you don't specify a custom tape pool ARN,
  *          the operation lists all custom tape pools.</p>
- *
  *          <p>This operation supports pagination. You can optionally specify the <code>Limit</code>
  *          parameter in the body to limit the number of tape pools in the response. If the number of
  *          tape pools returned in the response is truncated, the response includes a
@@ -65,10 +64,10 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  * //     { // PoolInfo
  * //       PoolARN: "STRING_VALUE",
  * //       PoolName: "STRING_VALUE",
- * //       StorageClass: "STRING_VALUE",
- * //       RetentionLockType: "STRING_VALUE",
+ * //       StorageClass: "DEEP_ARCHIVE" || "GLACIER",
+ * //       RetentionLockType: "COMPLIANCE" || "GOVERNANCE" || "NONE",
  * //       RetentionLockTimeInDays: Number("int"),
- * //       PoolStatus: "STRING_VALUE",
+ * //       PoolStatus: "ACTIVE" || "DELETED",
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

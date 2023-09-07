@@ -47,8 +47,8 @@ export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoverage
  *   reportArn: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   sortOrder: "STRING_VALUE",
- *   sortBy: "STRING_VALUE",
+ *   sortOrder: "ASCENDING" || "DESCENDING",
+ *   sortBy: "LINE_COVERAGE_PERCENTAGE" || "FILE_PATH",
  *   minLineCoveragePercentage: Number("double"),
  *   maxLineCoveragePercentage: Number("double"),
  * };

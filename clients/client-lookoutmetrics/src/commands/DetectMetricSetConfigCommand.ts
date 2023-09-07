@@ -75,7 +75,7 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  * //           "STRING_VALUE",
  * //         ],
  * //       },
- * //       Confidence: "STRING_VALUE",
+ * //       Confidence: "HIGH" || "LOW" || "NONE",
  * //       Message: "STRING_VALUE",
  * //     },
  * //     MetricSetFrequency: {
@@ -93,7 +93,7 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  * //           "STRING_VALUE",
  * //         ],
  * //       },
- * //       Confidence: "STRING_VALUE",
+ * //       Confidence: "HIGH" || "LOW" || "NONE",
  * //       Message: "STRING_VALUE",
  * //     },
  * //     MetricSource: { // DetectedMetricSource
@@ -115,7 +115,7 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  * //                   "STRING_VALUE",
  * //                 ],
  * //               },
- * //               Confidence: "STRING_VALUE",
+ * //               Confidence: "HIGH" || "LOW" || "NONE",
  * //               Message: "STRING_VALUE",
  * //             },
  * //             Charset: {
@@ -133,7 +133,7 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  * //                   "STRING_VALUE",
  * //                 ],
  * //               },
- * //               Confidence: "STRING_VALUE",
+ * //               Confidence: "HIGH" || "LOW" || "NONE",
  * //               Message: "STRING_VALUE",
  * //             },
  * //             ContainsHeader: {
@@ -151,7 +151,7 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  * //                   "STRING_VALUE",
  * //                 ],
  * //               },
- * //               Confidence: "STRING_VALUE",
+ * //               Confidence: "HIGH" || "LOW" || "NONE",
  * //               Message: "STRING_VALUE",
  * //             },
  * //             Delimiter: "<DetectedField>",

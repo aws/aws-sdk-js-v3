@@ -57,7 +57,7 @@ export interface DescribeAvailabilityMonitorTestCommandOutput
  * const response = await client.send(command);
  * // { // DescribeAvailabilityMonitorTestOutput
  * //   GatewayARN: "STRING_VALUE",
- * //   Status: "STRING_VALUE",
+ * //   Status: "COMPLETE" || "FAILED" || "PENDING",
  * //   StartTime: new Date("TIMESTAMP"),
  * // };
  *

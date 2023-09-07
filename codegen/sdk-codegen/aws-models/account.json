@@ -48,7 +48,9 @@
           "outputToken": "NextToken",
           "pageSize": "MaxResults"
         },
-        "smithy.api#suppress": ["EventSource"],
+        "smithy.api#suppress": [
+          "EventSource"
+        ],
         "smithy.api#title": "AWS Account",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
@@ -1326,7 +1328,9 @@
           "code": 200
         },
         "smithy.api#readonly": {},
-        "smithy.api#suppress": ["HttpMethodSemantics"]
+        "smithy.api#suppress": [
+          "HttpMethodSemantics"
+        ]
       }
     },
     "com.amazonaws.account#GetAlternateContactRequest": {
@@ -1397,7 +1401,9 @@
           "code": 200
         },
         "smithy.api#readonly": {},
-        "smithy.api#suppress": ["HttpMethodSemantics"]
+        "smithy.api#suppress": [
+          "HttpMethodSemantics"
+        ]
       }
     },
     "com.amazonaws.account#GetContactInformationRequest": {
@@ -1458,7 +1464,9 @@
           "code": 200
         },
         "smithy.api#readonly": {},
-        "smithy.api#suppress": ["HttpMethodSemantics"]
+        "smithy.api#suppress": [
+          "HttpMethodSemantics"
+        ]
       }
     },
     "com.amazonaws.account#GetRegionOptStatusRequest": {
@@ -1555,7 +1563,9 @@
           "items": "Regions"
         },
         "smithy.api#readonly": {},
-        "smithy.api#suppress": ["HttpMethodSemantics"]
+        "smithy.api#suppress": [
+          "HttpMethodSemantics"
+        ]
       }
     },
     "com.amazonaws.account#ListRegionsRequest": {

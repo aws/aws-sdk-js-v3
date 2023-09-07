@@ -56,7 +56,7 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
  * //   messages: [ // FlowExecutionMessages
  * //     { // FlowExecutionMessage
  * //       messageId: "STRING_VALUE",
- * //       eventType: "STRING_VALUE",
+ * //       eventType: "EXECUTION_STARTED" || "EXECUTION_FAILED" || "EXECUTION_ABORTED" || "EXECUTION_SUCCEEDED" || "STEP_STARTED" || "STEP_FAILED" || "STEP_SUCCEEDED" || "ACTIVITY_SCHEDULED" || "ACTIVITY_STARTED" || "ACTIVITY_FAILED" || "ACTIVITY_SUCCEEDED" || "START_FLOW_EXECUTION_TASK" || "SCHEDULE_NEXT_READY_STEPS_TASK" || "THING_ACTION_TASK" || "THING_ACTION_TASK_FAILED" || "THING_ACTION_TASK_SUCCEEDED" || "ACKNOWLEDGE_TASK_MESSAGE",
  * //       timestamp: new Date("TIMESTAMP"),
  * //       payload: "STRING_VALUE",
  * //     },

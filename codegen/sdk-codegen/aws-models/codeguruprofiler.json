@@ -531,7 +531,11 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
-          "additionalAllowedHeaders": ["X-Amz-Content-Sha256", "X-Amz-User-Agent", "Content-Type"]
+          "additionalAllowedHeaders": [
+            "X-Amz-Content-Sha256",
+            "X-Amz-User-Agent",
+            "Content-Type"
+          ]
         },
         "smithy.api#documentation": "<p>\n          This section provides documentation for the Amazon CodeGuru Profiler API operations.\n      </p>\n         <p>\n         Amazon CodeGuru Profiler collects runtime performance data from your live applications, and provides\n         recommendations that can help you fine-tune your application performance. Using machine learning\n         algorithms, CodeGuru Profiler can help you find your most expensive lines of code and suggest ways you can\n         improve efficiency and remove CPU bottlenecks.\n      </p>\n         <p>\n         Amazon CodeGuru Profiler provides different visualizations of profiling data to help you identify what code is\n         running on the CPU, see how much time is consumed, and suggest ways to reduce CPU utilization.\n      </p>\n         <note>\n            <p>Amazon CodeGuru Profiler currently supports applications written in all Java virtual machine (JVM)\n            languages and Python. While CodeGuru Profiler supports both visualizations and recommendations for applications\n            written in Java, it can also generate visualizations and a subset of recommendations for\n            applications written in other JVM languages and Python.</p>\n         </note>\n         <p>\n         For more information, see <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-ug/what-is-codeguru-profiler.html\">What is Amazon CodeGuru Profiler</a> in \n         the <i>Amazon CodeGuru Profiler User Guide</i>.\n      </p>",
         "smithy.api#title": "Amazon CodeGuru Profiler",
@@ -1211,7 +1215,9 @@
           "uri": "/profilingGroups/{profilingGroupName}/configureAgent",
           "code": 200
         },
-        "smithy.api#tags": ["dataplane"]
+        "smithy.api#tags": [
+          "dataplane"
+        ]
       }
     },
     "com.amazonaws.codeguruprofiler#ConfigureAgentRequest": {
@@ -2795,7 +2801,9 @@
           "uri": "/profilingGroups/{profilingGroupName}/agentProfile",
           "code": 204
         },
-        "smithy.api#tags": ["dataplane"]
+        "smithy.api#tags": [
+          "dataplane"
+        ]
       }
     },
     "com.amazonaws.codeguruprofiler#PostAgentProfileRequest": {

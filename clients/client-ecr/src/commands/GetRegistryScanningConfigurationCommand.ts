@@ -54,14 +54,14 @@ export interface GetRegistryScanningConfigurationCommandOutput
  * // { // GetRegistryScanningConfigurationResponse
  * //   registryId: "STRING_VALUE",
  * //   scanningConfiguration: { // RegistryScanningConfiguration
- * //     scanType: "STRING_VALUE",
+ * //     scanType: "BASIC" || "ENHANCED",
  * //     rules: [ // RegistryScanningRuleList
  * //       { // RegistryScanningRule
- * //         scanFrequency: "STRING_VALUE", // required
+ * //         scanFrequency: "SCAN_ON_PUSH" || "CONTINUOUS_SCAN" || "MANUAL", // required
  * //         repositoryFilters: [ // ScanningRepositoryFilterList // required
  * //           { // ScanningRepositoryFilter
  * //             filter: "STRING_VALUE", // required
- * //             filterType: "STRING_VALUE", // required
+ * //             filterType: "WILDCARD", // required
  * //           },
  * //         ],
  * //       },

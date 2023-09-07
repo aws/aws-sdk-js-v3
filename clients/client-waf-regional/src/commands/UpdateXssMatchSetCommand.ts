@@ -99,13 +99,13 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  *   ChangeToken: "STRING_VALUE", // required
  *   Updates: [ // XssMatchSetUpdates // required
  *     { // XssMatchSetUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: "INSERT" || "DELETE", // required
  *       XssMatchTuple: { // XssMatchTuple
  *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
+ *           Type: "URI" || "QUERY_STRING" || "HEADER" || "METHOD" || "BODY" || "SINGLE_QUERY_ARG" || "ALL_QUERY_ARGS", // required
  *           Data: "STRING_VALUE",
  *         },
- *         TextTransformation: "STRING_VALUE", // required
+ *         TextTransformation: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE", // required
  *       },
  *     },
  *   ],

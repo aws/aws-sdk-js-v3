@@ -65,8 +65,13 @@
           "name": "lex"
         },
         "aws.protocols#restJson1": {
-          "http": ["http/1.1", "h2"],
-          "eventStreamHttp": ["h2"]
+          "http": [
+            "http/1.1",
+            "h2"
+          ],
+          "eventStreamHttp": [
+            "h2"
+          ]
         },
         "smithy.api#documentation": "<p>This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.</p>",
         "smithy.api#title": "Amazon Lex Runtime V2",
@@ -2412,7 +2417,9 @@
       ],
       "traits": {
         "aws.auth#unsignedPayload": {},
-        "smithy.api#auth": ["aws.auth#sigv4"],
+        "smithy.api#auth": [
+          "aws.auth#sigv4"
+        ],
         "smithy.api#documentation": "<p>Sends user input to Amazon Lex V2. You can send text or speech. Clients use\n         this API to send text and audio requests to Amazon Lex V2 at runtime. Amazon Lex V2\n         interprets the user input using the machine learning model built for\n         the bot.</p>\n         <p>The following request fields must be compressed with gzip and then\n         base64 encoded before you send them to Amazon Lex V2. </p>\n         <ul>\n            <li>\n               <p>requestAttributes</p>\n            </li>\n            <li>\n               <p>sessionState</p>\n            </li>\n         </ul>\n         <p>The following response fields are compressed using gzip and then\n         base64 encoded by Amazon Lex V2. Before you can use these fields, you must\n         decode and decompress them. </p>\n         <ul>\n            <li>\n               <p>inputTranscript</p>\n            </li>\n            <li>\n               <p>interpretations</p>\n            </li>\n            <li>\n               <p>messages</p>\n            </li>\n            <li>\n               <p>requestAttributes</p>\n            </li>\n            <li>\n               <p>sessionState</p>\n            </li>\n         </ul>\n         <p>The example contains a Java application that compresses and encodes\n         a Java object to send to Amazon Lex V2, and a second that decodes and\n         decompresses a response from Amazon Lex V2.</p>\n         <p>If the optional post-fulfillment response is specified, the messages\n         are returned as follows. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html\">PostFulfillmentStatusSpecification</a>.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Success message</b> - Returned if\n               the Lambda function completes successfully and the intent state is\n               fulfilled or ready fulfillment if the message is present.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Failed message</b> - The failed\n               message is returned if the Lambda function throws an exception or\n               if the Lambda function returns a failed intent state without a\n               message.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Timeout message</b> - If you\n               don't configure a timeout message and a timeout, and the Lambda\n               function doesn't return within 30 seconds, the timeout message is\n               returned. If you configure a timeout, the timeout message is\n               returned when the period times out. </p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html\">Completion message</a>.</p>",
         "smithy.api#http": {
           "method": "POST",

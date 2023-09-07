@@ -61,12 +61,12 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * //       repositoryName: "STRING_VALUE",
  * //       repositoryUri: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
- * //       imageTagMutability: "STRING_VALUE",
+ * //       imageTagMutability: "MUTABLE" || "IMMUTABLE",
  * //       imageScanningConfiguration: { // ImageScanningConfiguration
  * //         scanOnPush: true || false,
  * //       },
  * //       encryptionConfiguration: { // EncryptionConfiguration
- * //         encryptionType: "STRING_VALUE", // required
+ * //         encryptionType: "AES256" || "KMS", // required
  * //         kmsKey: "STRING_VALUE",
  * //       },
  * //     },

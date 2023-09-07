@@ -68,7 +68,7 @@ export interface DescribeImageReplicationStatusCommandOutput
  * //     { // ImageReplicationStatus
  * //       region: "STRING_VALUE",
  * //       registryId: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "IN_PROGRESS" || "COMPLETE" || "FAILED",
  * //       failureCode: "STRING_VALUE",
  * //     },
  * //   ],

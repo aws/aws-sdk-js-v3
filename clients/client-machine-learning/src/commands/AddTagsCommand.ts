@@ -53,13 +53,13 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *     },
  *   ],
  *   ResourceId: "STRING_VALUE", // required
- *   ResourceType: "STRING_VALUE", // required
+ *   ResourceType: "BatchPrediction" || "DataSource" || "Evaluation" || "MLModel", // required
  * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
  * // { // AddTagsOutput
  * //   ResourceId: "STRING_VALUE",
- * //   ResourceType: "STRING_VALUE",
+ * //   ResourceType: "BatchPrediction" || "DataSource" || "Evaluation" || "MLModel",
  * // };
  *
  * ```

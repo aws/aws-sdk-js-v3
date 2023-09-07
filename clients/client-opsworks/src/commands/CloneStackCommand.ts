@@ -74,7 +74,7 @@ export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBea
  *   UseCustomCookbooks: true || false,
  *   UseOpsworksSecurityGroups: true || false,
  *   CustomCookbooksSource: { // Source
- *     Type: "STRING_VALUE",
+ *     Type: "git" || "svn" || "archive" || "s3",
  *     Url: "STRING_VALUE",
  *     Username: "STRING_VALUE",
  *     Password: "STRING_VALUE",
@@ -86,7 +86,7 @@ export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBea
  *   CloneAppIds: [ // Strings
  *     "STRING_VALUE",
  *   ],
- *   DefaultRootDeviceType: "STRING_VALUE",
+ *   DefaultRootDeviceType: "ebs" || "instance-store",
  *   AgentVersion: "STRING_VALUE",
  * };
  * const command = new CloneStackCommand(input);

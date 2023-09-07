@@ -57,14 +57,14 @@ export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsO
  * //     { // ReportGroup
  * //       arn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
- * //       type: "STRING_VALUE",
+ * //       type: "TEST" || "CODE_COVERAGE",
  * //       exportConfig: { // ReportExportConfig
- * //         exportConfigType: "STRING_VALUE",
+ * //         exportConfigType: "S3" || "NO_EXPORT",
  * //         s3Destination: { // S3ReportExportConfig
  * //           bucket: "STRING_VALUE",
  * //           bucketOwner: "STRING_VALUE",
  * //           path: "STRING_VALUE",
- * //           packaging: "STRING_VALUE",
+ * //           packaging: "ZIP" || "NONE",
  * //           encryptionKey: "STRING_VALUE",
  * //           encryptionDisabled: true || false,
  * //         },
@@ -77,7 +77,7 @@ export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsO
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
- * //       status: "STRING_VALUE",
+ * //       status: "ACTIVE" || "DELETING",
  * //     },
  * //   ],
  * //   reportGroupsNotFound: [ // ReportGroupArns

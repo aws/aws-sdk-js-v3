@@ -71,7 +71,7 @@ export interface UpdateStackCommandOutput extends __MetadataBearer {}
  *   },
  *   UseCustomCookbooks: true || false,
  *   CustomCookbooksSource: { // Source
- *     Type: "STRING_VALUE",
+ *     Type: "git" || "svn" || "archive" || "s3",
  *     Url: "STRING_VALUE",
  *     Username: "STRING_VALUE",
  *     Password: "STRING_VALUE",
@@ -79,7 +79,7 @@ export interface UpdateStackCommandOutput extends __MetadataBearer {}
  *     Revision: "STRING_VALUE",
  *   },
  *   DefaultSshKeyName: "STRING_VALUE",
- *   DefaultRootDeviceType: "STRING_VALUE",
+ *   DefaultRootDeviceType: "ebs" || "instance-store",
  *   UseOpsworksSecurityGroups: true || false,
  *   AgentVersion: "STRING_VALUE",
  * };

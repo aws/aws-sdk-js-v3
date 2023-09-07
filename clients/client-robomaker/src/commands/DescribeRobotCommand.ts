@@ -57,10 +57,10 @@ export interface DescribeRobotCommandOutput extends DescribeRobotResponse, __Met
  * //   arn: "STRING_VALUE",
  * //   name: "STRING_VALUE",
  * //   fleetArn: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "Available" || "Registered" || "PendingNewDeployment" || "Deploying" || "Failed" || "InSync" || "NoResponse",
  * //   greengrassGroupId: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
- * //   architecture: "STRING_VALUE",
+ * //   architecture: "X86_64" || "ARM64" || "ARMHF",
  * //   lastDeploymentJob: "STRING_VALUE",
  * //   lastDeploymentTime: new Date("TIMESTAMP"),
  * //   tags: { // TagMap

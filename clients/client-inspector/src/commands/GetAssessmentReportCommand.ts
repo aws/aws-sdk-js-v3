@@ -46,13 +46,13 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  * const client = new InspectorClient(config);
  * const input = { // GetAssessmentReportRequest
  *   assessmentRunArn: "STRING_VALUE", // required
- *   reportFileFormat: "STRING_VALUE", // required
- *   reportType: "STRING_VALUE", // required
+ *   reportFileFormat: "HTML" || "PDF", // required
+ *   reportType: "FINDING" || "FULL", // required
  * };
  * const command = new GetAssessmentReportCommand(input);
  * const response = await client.send(command);
  * // { // GetAssessmentReportResponse
- * //   status: "STRING_VALUE", // required
+ * //   status: "WORK_IN_PROGRESS" || "FAILED" || "COMPLETED", // required
  * //   url: "STRING_VALUE",
  * // };
  *

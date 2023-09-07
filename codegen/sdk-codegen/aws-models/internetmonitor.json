@@ -105,7 +105,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: VPCs,\n\t\t\tNetwork Load Balancers (NLBs), Amazon CloudFront distributions, and Amazon WorkSpaces directories. Internet Monitor then publishes internet measurements from Amazon Web Services \n\t\t\tthat are specific to the <i>city-networks</i>. That is, the locations and ASNs (typically internet service providers or ISPs),\n\t\t\twhere clients access your application. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html\">Using Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User \n\t\t\t\t\tGuide</i>.</p>\n         <p>When you create a monitor, you choose the percentage of traffic that you want to monitor. You can also set a maximum limit for the \n\t\t\tnumber of city-networks where client traffic is monitored, that caps the total traffic that Internet Monitor monitors. A city-network \n\t\t\tmaximum is the limit of city-networks, but you only pay for the number of city-networks that are actually monitored. You can update your monitor\n\t\t\tat any time to change the percentage of traffic to monitor or the city-networks maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html\">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>",
         "smithy.api#http": {
           "uri": "/v20210603/Monitors",
@@ -917,10 +920,18 @@
             "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys"
           }
         },
-        "aws.iam#supportedPrincipalTypes": ["Root", "IAMUser", "IAMRole", "FederatedUser"],
+        "aws.iam#supportedPrincipalTypes": [
+          "Root",
+          "IAMUser",
+          "IAMRole",
+          "FederatedUser"
+        ],
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
-          "additionalAllowedHeaders": ["Content-Type", "X-Amz-Requested-Operation"]
+          "additionalAllowedHeaders": [
+            "Content-Type",
+            "X-Amz-Requested-Operation"
+          ]
         },
         "smithy.api#documentation": "<p>Amazon CloudWatch Internet Monitor provides visibility into how internet issues impact the performance and availability \n\t\t\tbetween your applications hosted on Amazon Web Services and your end users. It can reduce the time it takes for you to diagnose \n\t\t\tinternet issues from days to minutes. Internet Monitor uses the connectivity data that Amazon Web Services captures from its global \n\t\t\tnetworking footprint to calculate a baseline of performance and availability for internet traffic. This \n\t\t\tis the same data that Amazon Web Services uses to monitor internet uptime and availability. With those measurements \n\t\t\tas a baseline, Internet Monitor raises awareness for you when there are significant problems for your \n\t\t\tend users in the different geographic locations where your application runs.</p>\n         <p>Internet Monitor publishes internet measurements to CloudWatch Logs and CloudWatch Metrics, \n\t\t\tto easily support using CloudWatch tools with health information for geographies and networks specific to your application.\n\t\t\tInternet Monitor sends health events to Amazon EventBridge so that you can set up notifications. If an issue is caused by the Amazon Web Services network, \n\t\t\tyou also automatically receive an Amazon Web Services Health Dashboard notification with the steps that Amazon Web Services is taking to mitigate the problem.</p>\n         <p>To use Internet Monitor, you create a <i>monitor</i> and associate your application's resources \n\t\t\twith it - VPCs, NLBs, CloudFront distributions, or WorkSpaces directories - so Internet Monitor can determine \n\t\t\twhere your application's internet traffic is. Internet Monitor then provides internet measurements from Amazon Web Services that are specific to \n\t\t\tthe locations and ASNs (typically, internet service providers or ISPs) that communicate with your application.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html\">Using Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User Guide</i>.</p>",
         "smithy.api#title": "Amazon CloudWatch Internet Monitor",
@@ -1778,7 +1789,9 @@
         "aws.cloudformation#cfnResource": {
           "name": "Monitor"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {}
       }
     },
@@ -2040,7 +2053,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Adds a tag to a resource. Tags are supported only for monitors in Amazon CloudWatch Internet Monitor. You can add a maximum of 50 tags in Internet Monitor.</p>\n         <p>A minimum of one tag is required for this call. It returns an error if you use the <code>TagResource</code> request with 0 tags.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -2177,7 +2193,9 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Removes a tag from a resource.</p>",
         "smithy.api#http": {
           "method": "DELETE",

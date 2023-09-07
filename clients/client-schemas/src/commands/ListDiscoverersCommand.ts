@@ -57,7 +57,7 @@ export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, _
  * //       DiscovererArn: "STRING_VALUE",
  * //       DiscovererId: "STRING_VALUE",
  * //       SourceArn: "STRING_VALUE",
- * //       State: "STRING_VALUE",
+ * //       State: "STARTED" || "STOPPED",
  * //       CrossAccount: true || false,
  * //       Tags: { // Tags
  * //         "<keys>": "STRING_VALUE",

@@ -64,7 +64,7 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * //     Predicates: [ // Predicates // required
  * //       { // Predicate
  * //         Negated: true || false, // required
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "IPMatch" || "ByteMatch" || "SqlInjectionMatch" || "GeoMatch" || "SizeConstraint" || "XssMatch" || "RegexMatch", // required
  * //         DataId: "STRING_VALUE", // required
  * //       },
  * //     ],

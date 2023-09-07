@@ -55,7 +55,7 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  * //     AssignmentId: "STRING_VALUE",
  * //     WorkerId: "STRING_VALUE",
  * //     HITId: "STRING_VALUE",
- * //     AssignmentStatus: "STRING_VALUE",
+ * //     AssignmentStatus: "Submitted" || "Approved" || "Rejected",
  * //     AutoApprovalTime: new Date("TIMESTAMP"),
  * //     AcceptTime: new Date("TIMESTAMP"),
  * //     SubmitTime: new Date("TIMESTAMP"),
@@ -75,7 +75,7 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  * //     Description: "STRING_VALUE",
  * //     Question: "STRING_VALUE",
  * //     Keywords: "STRING_VALUE",
- * //     HITStatus: "STRING_VALUE",
+ * //     HITStatus: "Assignable" || "Unassignable" || "Reviewable" || "Reviewing" || "Disposed",
  * //     MaxAssignments: Number("int"),
  * //     Reward: "STRING_VALUE",
  * //     AutoApprovalDelayInSeconds: Number("long"),
@@ -85,7 +85,7 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  * //     QualificationRequirements: [ // QualificationRequirementList
  * //       { // QualificationRequirement
  * //         QualificationTypeId: "STRING_VALUE", // required
- * //         Comparator: "STRING_VALUE", // required
+ * //         Comparator: "LessThan" || "LessThanOrEqualTo" || "GreaterThan" || "GreaterThanOrEqualTo" || "EqualTo" || "NotEqualTo" || "Exists" || "DoesNotExist" || "In" || "NotIn", // required
  * //         IntegerValues: [ // IntegerList
  * //           Number("int"),
  * //         ],
@@ -96,10 +96,10 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  * //           },
  * //         ],
  * //         RequiredToPreview: true || false,
- * //         ActionsGuarded: "STRING_VALUE",
+ * //         ActionsGuarded: "Accept" || "PreviewAndAccept" || "DiscoverPreviewAndAccept",
  * //       },
  * //     ],
- * //     HITReviewStatus: "STRING_VALUE",
+ * //     HITReviewStatus: "NotReviewed" || "MarkedForReview" || "ReviewedAppropriate" || "ReviewedInappropriate",
  * //     NumberOfAssignmentsPending: Number("int"),
  * //     NumberOfAssignmentsAvailable: Number("int"),
  * //     NumberOfAssignmentsCompleted: Number("int"),

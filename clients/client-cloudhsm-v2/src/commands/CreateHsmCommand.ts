@@ -59,7 +59,7 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * //     EniId: "STRING_VALUE",
  * //     EniIp: "STRING_VALUE",
  * //     HsmId: "STRING_VALUE", // required
- * //     State: "STRING_VALUE",
+ * //     State: "CREATE_IN_PROGRESS" || "ACTIVE" || "DEGRADED" || "DELETE_IN_PROGRESS" || "DELETED",
  * //     StateMessage: "STRING_VALUE",
  * //   },
  * // };

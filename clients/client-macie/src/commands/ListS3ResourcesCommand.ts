@@ -60,8 +60,8 @@ export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __M
  * //       bucketName: "STRING_VALUE", // required
  * //       prefix: "STRING_VALUE",
  * //       classificationType: { // ClassificationType
- * //         oneTime: "STRING_VALUE", // required
- * //         continuous: "STRING_VALUE", // required
+ * //         oneTime: "FULL" || "NONE", // required
+ * //         continuous: "FULL", // required
  * //       },
  * //     },
  * //   ],

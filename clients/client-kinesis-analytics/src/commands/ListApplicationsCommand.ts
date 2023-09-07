@@ -70,7 +70,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * //     { // ApplicationSummary
  * //       ApplicationName: "STRING_VALUE", // required
  * //       ApplicationARN: "STRING_VALUE", // required
- * //       ApplicationStatus: "STRING_VALUE", // required
+ * //       ApplicationStatus: "DELETING" || "STARTING" || "STOPPING" || "READY" || "RUNNING" || "UPDATING", // required
  * //     },
  * //   ],
  * //   HasMoreApplications: true || false, // required

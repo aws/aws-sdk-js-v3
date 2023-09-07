@@ -56,20 +56,20 @@ export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __M
  * //   reports: [ // Reports
  * //     { // Report
  * //       arn: "STRING_VALUE",
- * //       type: "STRING_VALUE",
+ * //       type: "TEST" || "CODE_COVERAGE",
  * //       name: "STRING_VALUE",
  * //       reportGroupArn: "STRING_VALUE",
  * //       executionId: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "GENERATING" || "SUCCEEDED" || "FAILED" || "INCOMPLETE" || "DELETING",
  * //       created: new Date("TIMESTAMP"),
  * //       expired: new Date("TIMESTAMP"),
  * //       exportConfig: { // ReportExportConfig
- * //         exportConfigType: "STRING_VALUE",
+ * //         exportConfigType: "S3" || "NO_EXPORT",
  * //         s3Destination: { // S3ReportExportConfig
  * //           bucket: "STRING_VALUE",
  * //           bucketOwner: "STRING_VALUE",
  * //           path: "STRING_VALUE",
- * //           packaging: "STRING_VALUE",
+ * //           packaging: "ZIP" || "NONE",
  * //           encryptionKey: "STRING_VALUE",
  * //           encryptionDisabled: true || false,
  * //         },

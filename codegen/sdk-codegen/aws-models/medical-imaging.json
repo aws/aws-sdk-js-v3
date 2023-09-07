@@ -1090,7 +1090,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Create a data store.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -1642,7 +1645,9 @@
         "aws.api#arn": {
           "template": "datastore/{datastoreId}"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {}
       }
     },
@@ -2510,7 +2515,9 @@
         "aws.api#arn": {
           "template": "datastore/{datastoreId}/imageset/{imageSetId}"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {}
       }
     },
@@ -3597,7 +3604,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Adds a user-specifed key and value tag to a medical imaging resource.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -3702,7 +3712,9 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Removes tags from a medical imaging resource.</p>",
         "smithy.api#http": {
           "method": "DELETE",

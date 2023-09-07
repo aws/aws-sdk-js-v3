@@ -105,7 +105,11 @@
             "x-amzn-platform-id",
             "x-amzn-trace-id"
           ],
-          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id"],
+          "additionalExposedHeaders": [
+            "x-amzn-errortype",
+            "x-amzn-requestid",
+            "x-amzn-trace-id"
+          ],
           "maxAge": 86400
         },
         "smithy.api#documentation": "<p>The new Amazon Elastic DocumentDB service endpoint.</p>",

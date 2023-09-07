@@ -57,7 +57,7 @@ export interface GetQualificationTypeCommandOutput extends GetQualificationTypeR
  * //     Name: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
  * //     Keywords: "STRING_VALUE",
- * //     QualificationTypeStatus: "STRING_VALUE",
+ * //     QualificationTypeStatus: "Active" || "Inactive",
  * //     Test: "STRING_VALUE",
  * //     TestDurationInSeconds: Number("long"),
  * //     AnswerKey: "STRING_VALUE",

@@ -37,7 +37,7 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
 /**
  * @public
  * <p>Gets a list of names for one or more on-premises instances.</p>
- *         <p>Unless otherwise specified, both registered and deregistered on-premises instance
+ *          <p>Unless otherwise specified, both registered and deregistered on-premises instance
  *             names are listed. To list only registered or deregistered on-premises instance names,
  *             use the registration status parameter.</p>
  * @example

@@ -57,7 +57,7 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  * const client = new IoTThingsGraphClient(config);
  * const input = { // UploadEntityDefinitionsRequest
  *   document: { // DefinitionDocument
- *     language: "STRING_VALUE", // required
+ *     language: "GRAPHQL", // required
  *     text: "STRING_VALUE", // required
  *   },
  *   syncWithPublicNamespace: true || false,

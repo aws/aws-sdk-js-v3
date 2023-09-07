@@ -64,7 +64,7 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  * // { // NotifyWorkersResponse
  * //   NotifyWorkersFailureStatuses: [ // NotifyWorkersFailureStatusList
  * //     { // NotifyWorkersFailureStatus
- * //       NotifyWorkersFailureCode: "STRING_VALUE",
+ * //       NotifyWorkersFailureCode: "SoftFailure" || "HardFailure",
  * //       NotifyWorkersFailureMessage: "STRING_VALUE",
  * //       WorkerId: "STRING_VALUE",
  * //     },

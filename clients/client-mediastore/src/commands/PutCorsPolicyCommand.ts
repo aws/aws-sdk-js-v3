@@ -61,7 +61,7 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  *         "STRING_VALUE",
  *       ],
  *       AllowedMethods: [ // AllowedMethods
- *         "STRING_VALUE",
+ *         "PUT" || "GET" || "DELETE" || "HEAD",
  *       ],
  *       AllowedHeaders: [ // AllowedHeaders // required
  *         "STRING_VALUE",

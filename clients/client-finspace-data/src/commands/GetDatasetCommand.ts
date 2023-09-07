@@ -52,7 +52,7 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  * //   datasetId: "STRING_VALUE",
  * //   datasetArn: "STRING_VALUE",
  * //   datasetTitle: "STRING_VALUE",
- * //   kind: "STRING_VALUE",
+ * //   kind: "TABULAR" || "NON_TABULAR",
  * //   datasetDescription: "STRING_VALUE",
  * //   createTime: Number("long"),
  * //   lastModifiedTime: Number("long"),
@@ -60,7 +60,7 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  * //     tabularSchemaConfig: { // SchemaDefinition
  * //       columns: [ // ColumnList
  * //         { // ColumnDefinition
- * //           dataType: "STRING_VALUE",
+ * //           dataType: "STRING" || "CHAR" || "INTEGER" || "TINYINT" || "SMALLINT" || "BIGINT" || "FLOAT" || "DOUBLE" || "DATE" || "DATETIME" || "BOOLEAN" || "BINARY",
  * //           columnName: "STRING_VALUE",
  * //           columnDescription: "STRING_VALUE",
  * //         },
@@ -71,7 +71,7 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  * //     },
  * //   },
  * //   alias: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "PENDING" || "FAILED" || "SUCCESS" || "RUNNING",
  * // };
  *
  * ```

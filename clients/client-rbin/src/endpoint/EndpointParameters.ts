@@ -27,7 +27,7 @@ export const resolveClientEndpointParameters = <T>(
 };
 
 export interface EndpointParameters extends __EndpointParameters {
-  Region: string;
+  Region?: string;
   UseDualStack?: boolean;
   UseFIPS?: boolean;
   Endpoint?: string;

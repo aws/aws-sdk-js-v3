@@ -54,7 +54,6 @@ export interface DeleteBotCommandOutput extends __MetadataBearer {}
  *       delete the alias. If you get the same exception again, delete the
  *       referring alias until the <code>DeleteBot</code> operation is
  *       successful.</p>
- *
  *          <p>This operation requires permissions for the
  *         <code>lex:DeleteBot</code> action.</p>
  * @example

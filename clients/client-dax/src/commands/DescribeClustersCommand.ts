@@ -118,9 +118,9 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * //         ],
  * //       },
  * //       SSEDescription: { // SSEDescription
- * //         Status: "STRING_VALUE",
+ * //         Status: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED",
  * //       },
- * //       ClusterEndpointEncryptionType: "STRING_VALUE",
+ * //       ClusterEndpointEncryptionType: "NONE" || "TLS",
  * //     },
  * //   ],
  * // };

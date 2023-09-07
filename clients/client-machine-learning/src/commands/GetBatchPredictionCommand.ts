@@ -58,7 +58,7 @@ export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutpu
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   LastUpdatedAt: new Date("TIMESTAMP"),
  * //   Name: "STRING_VALUE",
- * //   Status: "STRING_VALUE",
+ * //   Status: "PENDING" || "INPROGRESS" || "FAILED" || "COMPLETED" || "DELETED",
  * //   OutputUri: "STRING_VALUE",
  * //   LogUri: "STRING_VALUE",
  * //   Message: "STRING_VALUE",

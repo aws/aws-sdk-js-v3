@@ -55,7 +55,7 @@ export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, _
  * //       SuggesterName: "STRING_VALUE", // required
  * //       DocumentSuggesterOptions: { // DocumentSuggesterOptions
  * //         SourceField: "STRING_VALUE", // required
- * //         FuzzyMatching: "STRING_VALUE",
+ * //         FuzzyMatching: "none" || "low" || "high",
  * //         SortExpression: "STRING_VALUE",
  * //       },
  * //     },
@@ -63,7 +63,7 @@ export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, _
  * //       CreationDate: new Date("TIMESTAMP"), // required
  * //       UpdateDate: new Date("TIMESTAMP"), // required
  * //       UpdateVersion: Number("int"),
- * //       State: "STRING_VALUE", // required
+ * //       State: "RequiresIndexDocuments" || "Processing" || "Active" || "FailedToValidate", // required
  * //       PendingDeletion: true || false,
  * //     },
  * //   },

@@ -2913,7 +2913,9 @@
           "items": "results"
         },
         "smithy.api#readonly": {},
-        "smithy.api#suppress": ["HttpMethodSemantics"]
+        "smithy.api#suppress": [
+          "HttpMethodSemantics"
+        ]
       }
     },
     "com.amazonaws.wisdom#QueryAssistantRequest": {

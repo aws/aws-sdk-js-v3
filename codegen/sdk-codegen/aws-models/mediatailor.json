@@ -3009,7 +3009,9 @@
           "pageSize": "MaxResults"
         },
         "smithy.api#readonly": {},
-        "smithy.api#suppress": ["HttpMethodSemantics"]
+        "smithy.api#suppress": [
+          "HttpMethodSemantics"
+        ]
       }
     },
     "com.amazonaws.mediatailor#ListPrefetchSchedulesRequest": {

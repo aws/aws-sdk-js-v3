@@ -1755,7 +1755,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Creates a reference store.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -2022,7 +2025,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Creates a sequence store.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -10318,7 +10324,12 @@
             "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys"
           }
         },
-        "aws.iam#supportedPrincipalTypes": ["Root", "IAMUser", "IAMRole", "FederatedUser"],
+        "aws.iam#supportedPrincipalTypes": [
+          "Root",
+          "IAMUser",
+          "IAMRole",
+          "FederatedUser"
+        ],
         "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>This is the <i>AWS HealthOmics API Reference</i>. For an introduction to the service, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/\">What is AWS HealthOmics?</a> in the\n      <i>AWS HealthOmics User Guide</i>.</p>",
         "smithy.api#title": "Amazon Omics",
@@ -11622,7 +11633,9 @@
         "aws.cloudformation#cfnResource": {
           "name": "ReadSet"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "readSet"
@@ -12054,7 +12067,9 @@
         "aws.cloudformation#cfnResource": {
           "name": "Reference"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "reference"
@@ -12244,7 +12259,9 @@
         "aws.cloudformation#cfnResource": {
           "name": "ReferenceStore"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "referenceStore"
@@ -12525,7 +12542,9 @@
         "aws.cloudformation#cfnResource": {
           "name": "RunGroup"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "runGroup"
@@ -12739,7 +12758,9 @@
         "aws.api#arn": {
           "template": "run/{id}"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "run"
@@ -13198,7 +13219,9 @@
         "aws.cloudformation#cfnResource": {
           "name": "SequenceStore"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "sequenceStore"
@@ -16454,7 +16477,9 @@
         "aws.cloudformation#cfnResource": {
           "name": "Workflow"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "workflow"

@@ -74,7 +74,7 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * //   batchUpdateDetectorErrorEntries: [ // BatchUpdateDetectorErrorEntries
  * //     { // BatchUpdateDetectorErrorEntry
  * //       messageId: "STRING_VALUE",
- * //       errorCode: "STRING_VALUE",
+ * //       errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "InternalFailureException" || "ServiceUnavailableException" || "ThrottlingException",
  * //       errorMessage: "STRING_VALUE",
  * //     },
  * //   ],

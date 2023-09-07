@@ -56,7 +56,7 @@ export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabili
  * //       CreationDate: new Date("TIMESTAMP"), // required
  * //       UpdateDate: new Date("TIMESTAMP"), // required
  * //       UpdateVersion: Number("int"),
- * //       State: "STRING_VALUE", // required
+ * //       State: "RequiresIndexDocuments" || "Processing" || "Active" || "FailedToValidate", // required
  * //       PendingDeletion: true || false,
  * //     },
  * //   },

@@ -4169,7 +4169,11 @@
                   },
                   "priority": 1,
                   "slotTypeVersion": "$LATEST",
-                  "sampleUtterances": ["Get me a {Type} pizza.", "A {Type} pizza please.", "I'd like a {Type} pizza."],
+                  "sampleUtterances": [
+                    "Get me a {Type} pizza.",
+                    "A {Type} pizza please.",
+                    "I'd like a {Type} pizza."
+                  ],
                   "description": "The type of pizza to order."
                 },
                 {
@@ -4191,7 +4195,10 @@
                   },
                   "priority": 2,
                   "slotTypeVersion": "$LATEST",
-                  "sampleUtterances": ["Make it a {Crust} crust.", "I'd like a {Crust} crust."],
+                  "sampleUtterances": [
+                    "Make it a {Crust} crust.",
+                    "I'd like a {Crust} crust."
+                  ],
                   "description": "The type of pizza crust to order."
                 },
                 {
@@ -4213,7 +4220,10 @@
                   },
                   "priority": 3,
                   "slotTypeVersion": "$LATEST",
-                  "sampleUtterances": ["Make it {Sauce} sauce.", "I'd like {Sauce} sauce."],
+                  "sampleUtterances": [
+                    "Make it {Sauce} sauce.",
+                    "I'd like {Sauce} sauce."
+                  ],
                   "description": "The type of sauce to use on the pizza."
                 }
               ],
@@ -6777,7 +6787,11 @@
                     "maxAttempts": 1
                   },
                   "priority": 1,
-                  "sampleUtterances": ["Get me a {Type} pizza.", "A {Type} pizza please.", "I'd like a {Type} pizza."]
+                  "sampleUtterances": [
+                    "Get me a {Type} pizza.",
+                    "A {Type} pizza please.",
+                    "I'd like a {Type} pizza."
+                  ]
                 },
                 {
                   "name": "Crust",
@@ -6799,7 +6813,10 @@
                     "maxAttempts": 1
                   },
                   "priority": 2,
-                  "sampleUtterances": ["Make it a {Crust} crust.", "I'd like a {Crust} crust."]
+                  "sampleUtterances": [
+                    "Make it a {Crust} crust.",
+                    "I'd like a {Crust} crust."
+                  ]
                 },
                 {
                   "name": "Sauce",
@@ -6821,7 +6838,10 @@
                     "maxAttempts": 1
                   },
                   "priority": 3,
-                  "sampleUtterances": ["Make it {Sauce} sauce.", "I'd like {Sauce} sauce."]
+                  "sampleUtterances": [
+                    "Make it {Sauce} sauce.",
+                    "I'd like {Sauce} sauce."
+                  ]
                 }
               ],
               "sampleUtterances": [
@@ -6934,7 +6954,10 @@
                   },
                   "priority": 3,
                   "slotTypeVersion": "$LATEST",
-                  "sampleUtterances": ["Make it {Sauce} sauce.", "I'd like {Sauce} sauce."],
+                  "sampleUtterances": [
+                    "Make it {Sauce} sauce.",
+                    "I'd like {Sauce} sauce."
+                  ],
                   "description": "The type of sauce to use on the pizza."
                 },
                 {
@@ -6960,7 +6983,11 @@
                   },
                   "priority": 1,
                   "slotTypeVersion": "$LATEST",
-                  "sampleUtterances": ["Get me a {Type} pizza.", "A {Type} pizza please.", "I'd like a {Type} pizza."],
+                  "sampleUtterances": [
+                    "Get me a {Type} pizza.",
+                    "A {Type} pizza please.",
+                    "I'd like a {Type} pizza."
+                  ],
                   "description": "The type of pizza to order."
                 },
                 {
@@ -6982,7 +7009,10 @@
                   },
                   "priority": 2,
                   "slotTypeVersion": "$LATEST",
-                  "sampleUtterances": ["Make it a {Crust} crust.", "I'd like a {Crust} crust."],
+                  "sampleUtterances": [
+                    "Make it a {Crust} crust.",
+                    "I'd like a {Crust} crust."
+                  ],
                   "description": "The type of pizza crust to order."
                 }
               ],

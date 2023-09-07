@@ -1752,7 +1752,11 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
-          "additionalAllowedHeaders": ["X-Api-Key", "Content-Type", "Content-Length"]
+          "additionalAllowedHeaders": [
+            "X-Api-Key",
+            "Content-Type",
+            "Content-Length"
+          ]
         },
         "smithy.api#documentation": "<p/>",
         "smithy.api#title": "Managed Streaming for Kafka Connect",

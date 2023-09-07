@@ -5840,7 +5840,9 @@
           "items": "Clusters",
           "pageSize": "MaxRecords"
         },
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "ClusterAvailable": {
             "acceptors": [

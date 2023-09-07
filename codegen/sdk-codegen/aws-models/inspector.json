@@ -1556,7 +1556,9 @@
               "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX",
               "assessmentTemplateName": "ExampleAssessmentTemplate",
               "durationInSeconds": 180,
-              "rulesPackageArns": ["arn:aws:inspector:us-west-2:758058086616:rulespackage/0-11B9DBXp"],
+              "rulesPackageArns": [
+                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-11B9DBXp"
+              ],
               "userAttributesForFindings": [
                 {
                   "key": "Example",
@@ -2357,7 +2359,9 @@
             "title": "Describe rules packages",
             "documentation": "Describes the rules packages that are specified by the ARNs of the rules packages.",
             "input": {
-              "rulesPackageArns": ["arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"]
+              "rulesPackageArns": [
+                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"
+              ]
             },
             "output": {
               "rulesPackages": [
@@ -5251,7 +5255,9 @@
               "maxResults": 123
             },
             "output": {
-              "assessmentTargetArns": ["arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"],
+              "assessmentTargetArns": [
+                "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
+              ],
               "nextToken": "1"
             }
           }
@@ -5339,7 +5345,9 @@
             "title": "List assessment templates",
             "documentation": "Lists the assessment templates that correspond to the assessment targets that are specified by the ARNs of the assessment targets.",
             "input": {
-              "assessmentTargetArns": ["arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"],
+              "assessmentTargetArns": [
+                "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
+              ],
               "maxResults": 123
             },
             "output": {
@@ -6354,7 +6362,9 @@
               "findingArns": [
                 "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-8l1VIE0D/run/0-Z02cjjug/finding/0-T8yM9mEU"
               ],
-              "attributeKeys": ["key=Example,value=example"]
+              "attributeKeys": [
+                "key=Example,value=example"
+              ]
             },
             "output": {
               "failedItems": {}

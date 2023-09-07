@@ -58,7 +58,7 @@ export interface DescribeBundleCommandOutput extends DescribeBundleResult, __Met
  * //     description: "STRING_VALUE",
  * //     iconUrl: "STRING_VALUE",
  * //     availablePlatforms: [ // Platforms
- * //       "STRING_VALUE",
+ * //       "OSX" || "WINDOWS" || "LINUX" || "OBJC" || "SWIFT" || "ANDROID" || "JAVASCRIPT",
  * //     ],
  * //   },
  * // };

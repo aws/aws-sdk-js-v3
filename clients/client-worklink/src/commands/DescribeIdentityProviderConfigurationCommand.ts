@@ -60,7 +60,7 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
  * const command = new DescribeIdentityProviderConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // DescribeIdentityProviderConfigurationResponse
- * //   IdentityProviderType: "STRING_VALUE",
+ * //   IdentityProviderType: "SAML",
  * //   ServiceProviderSamlMetadata: "STRING_VALUE",
  * //   IdentityProviderSamlMetadata: "STRING_VALUE",
  * // };

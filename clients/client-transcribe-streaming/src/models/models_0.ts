@@ -1100,7 +1100,7 @@ export interface MedicalEntity {
   /**
    * @public
    * <p>The confidence score associated with the identified PHI entity in your audio.</p>
-   *         <p>Confidence scores are values between 0 and 1. A larger value indicates a higher
+   *          <p>Confidence scores are values between 0 and 1. A larger value indicates a higher
    *             probability that the identified entity correctly matches the entity spoken in your
    *             media.</p>
    */
@@ -1141,7 +1141,7 @@ export interface MedicalItem {
   /**
    * @public
    * <p>The confidence score associated with a word or phrase in your transcript.</p>
-   *         <p>Confidence scores are values between 0 and 1. A larger value indicates a higher
+   *          <p>Confidence scores are values between 0 and 1. A larger value indicates a higher
    *             probability that the identified item correctly matches the item spoken in your
    *             media.</p>
    */
@@ -1200,7 +1200,7 @@ export type MedicalContentIdentificationType =
  * @public
  * <p>The <code>Result</code> associated with a
  *             <code></code>.</p>
- *         <p>Contains a set of transcription results from one or more audio segments, along with
+ *          <p>Contains a set of transcription results from one or more audio segments, along with
  *             additional information per your request parameters. This can include information relating to
  *             alternative transcriptions, channel identification, partial result stabilization, language
  *             identification, and other transcription-related data.</p>
@@ -1227,7 +1227,7 @@ export interface MedicalResult {
   /**
    * @public
    * <p>Indicates if the segment is complete.</p>
-   *         <p>If <code>IsPartial</code> is <code>true</code>, the segment is not complete. If
+   *          <p>If <code>IsPartial</code> is <code>true</code>, the segment is not complete. If
    *                 <code>IsPartial</code> is <code>false</code>, the segment is complete.</p>
    */
   IsPartial?: boolean;
@@ -1251,7 +1251,7 @@ export interface MedicalResult {
  * @public
  * <p>The <code>MedicalTranscript</code> associated with a
  *             <code></code>.</p>
- *         <p>
+ *          <p>
  *             <code>MedicalTranscript</code> contains <code>Results</code>, which contains a set of
  *             transcription results from one or more audio segments, along with additional information per your
  *             request parameters.</p>
@@ -1271,7 +1271,7 @@ export interface MedicalTranscript {
  * @public
  * <p>The <code>MedicalTranscriptEvent</code> associated with a
  *             <code>MedicalTranscriptResultStream</code>.</p>
- *         <p>Contains a set of transcription results from one or more audio segments, along with additional
+ *          <p>Contains a set of transcription results from one or more audio segments, along with additional
  *             information per your request parameters.</p>
  */
 export interface MedicalTranscriptEvent {
@@ -1306,7 +1306,7 @@ export namespace MedicalTranscriptResultStream {
    * @public
    * <p>The <code>MedicalTranscriptEvent</code> associated with a
    *             <code>MedicalTranscriptResultStream</code>.</p>
-   *         <p>Contains a set of transcription results from one or more audio segments, along with
+   *          <p>Contains a set of transcription results from one or more audio segments, along with
    *             additional information per your request parameters. This can include information relating to
    *             alternative transcriptions, channel identification, partial result stabilization, language
    *             identification, and other transcription-related data.</p>
@@ -1823,9 +1823,9 @@ export interface StartMedicalStreamTranscriptionRequest {
   /**
    * @public
    * <p>Specify the language code that represents the language spoken in your audio.</p>
-   *         <important>
+   *          <important>
    *             <p>Amazon Transcribe Medical only supports US English (<code>en-US</code>).</p>
-   *         </important>
+   *          </important>
    */
   LanguageCode: LanguageCode | string | undefined;
 
@@ -1840,19 +1840,19 @@ export interface StartMedicalStreamTranscriptionRequest {
   /**
    * @public
    * <p>Specify the encoding used for the input audio. Supported formats are:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>FLAC</p>
+   *                <p>FLAC</p>
    *             </li>
    *             <li>
-   *                 <p>OPUS-encoded audio in an Ogg container</p>
+   *                <p>OPUS-encoded audio in an Ogg container</p>
    *             </li>
    *             <li>
-   *                 <p>PCM (only signed 16-bit little-endian audio formats, which does not include
+   *                <p>PCM (only signed 16-bit little-endian audio formats, which does not include
    *                     WAV)</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a>.</p>
    */
   MediaEncoding: MediaEncoding | string | undefined;
 
@@ -1881,7 +1881,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    * @public
    * <p>Enables speaker partitioning (diarization) in your transcription output. Speaker
    *             partitioning labels the speech from individual speakers in your media file.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers (diarization)</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers (diarization)</a>.</p>
    */
   ShowSpeakerLabel?: boolean;
 
@@ -1890,7 +1890,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    * <p>Specify a name for your transcription session. If you don't include this parameter in
    *             your request, Amazon Transcribe Medical generates an ID and returns it in the
    *             response.</p>
-   *         <p>You can use a session ID to retry a streaming session.</p>
+   *          <p>You can use a session ID to retry a streaming session.</p>
    */
   SessionId?: string;
 
@@ -1905,11 +1905,11 @@ export interface StartMedicalStreamTranscriptionRequest {
   /**
    * @public
    * <p>Enables channel identification in multi-channel audio.</p>
-   *         <p>Channel identification transcribes the audio on each channel independently, then appends
+   *          <p>Channel identification transcribes the audio on each channel independently, then appends
    *             the output for each channel into one transcript.</p>
-   *         <p>If you have multi-channel audio and do not enable channel identification, your audio is
+   *          <p>If you have multi-channel audio and do not enable channel identification, your audio is
    *             transcribed in a continuous manner and your transcript is not separated by channel.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel audio</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel audio</a>.</p>
    */
   EnableChannelIdentification?: boolean;
 
@@ -1923,9 +1923,9 @@ export interface StartMedicalStreamTranscriptionRequest {
   /**
    * @public
    * <p>Labels all personal health information (PHI) identified in your transcript.</p>
-   *         <p>Content identification is performed at the segment level; PHI is flagged upon complete
+   *          <p>Content identification is performed at the segment level; PHI is flagged upon complete
    *             transcription of an audio segment.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html">Identifying personal health information (PHI) in a
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html">Identifying personal health information (PHI) in a
    *             transcription</a>.</p>
    */
   ContentIdentificationType?: MedicalContentIdentificationType | string;

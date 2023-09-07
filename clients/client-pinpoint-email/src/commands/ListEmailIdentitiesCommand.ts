@@ -54,7 +54,7 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  * // { // ListEmailIdentitiesResponse
  * //   EmailIdentities: [ // IdentityInfoList
  * //     { // IdentityInfo
- * //       IdentityType: "STRING_VALUE",
+ * //       IdentityType: "EMAIL_ADDRESS" || "DOMAIN" || "MANAGED_DOMAIN",
  * //       IdentityName: "STRING_VALUE",
  * //       SendingEnabled: true || false,
  * //     },

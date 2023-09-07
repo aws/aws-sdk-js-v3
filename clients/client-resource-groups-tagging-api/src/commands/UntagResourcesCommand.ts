@@ -44,35 +44,34 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  *             the action removes both that key and its associated value. The operation succeeds even
  *             if you attempt to remove tags from a resource that were already removed. Note the
  *             following:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>To remove tags from a resource, you need the necessary permissions for the
+ *                <p>To remove tags from a resource, you need the necessary permissions for the
  *                     service that the resource belongs to as well as permissions for removing tags.
  *                     For more information, see the documentation for the service whose resource you
  *                     want to untag.</p>
  *             </li>
  *             <li>
- *                 <p>You can only tag resources that are located in the specified Amazon Web Services Region for
+ *                <p>You can only tag resources that are located in the specified Amazon Web Services Region for
  *                     the calling Amazon Web Services account.</p>
  *             </li>
  *          </ul>
- *
- *         <p>
+ *          <p>
  *             <b>Minimum permissions</b>
  *          </p>
- *         <p>In addition to the <code>tag:UntagResources</code> permission required by this
+ *          <p>In addition to the <code>tag:UntagResources</code> permission required by this
  *             operation, you must also have the remove tags permission defined by the service that
  *             created the resource. For example, to remove the tags from an Amazon EC2 instance using the
  *                 <code>UntagResources</code> operation, you must have both of the following
  *             permissions:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>tag:UntagResource</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>ec2:DeleteTags</code>
  *                </p>
  *             </li>
@@ -97,7 +96,7 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  * //   FailedResourcesMap: { // FailedResourcesMap
  * //     "<keys>": { // FailureInfo
  * //       StatusCode: Number("int"),
- * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorCode: "InternalServiceException" || "InvalidParameterException",
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
  * //   },
@@ -117,21 +116,21 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>This error indicates one of the following:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>A parameter is missing.</p>
+ *                <p>A parameter is missing.</p>
  *             </li>
  *             <li>
- *                 <p>A malformed string was supplied for the request parameter.</p>
+ *                <p>A malformed string was supplied for the request parameter.</p>
  *             </li>
  *             <li>
- *                 <p>An out-of-range value was supplied for the request parameter.</p>
+ *                <p>An out-of-range value was supplied for the request parameter.</p>
  *             </li>
  *             <li>
- *                 <p>The target ID is invalid, unsupported, or doesn't exist.</p>
+ *                <p>The target ID is invalid, unsupported, or doesn't exist.</p>
  *             </li>
  *             <li>
- *                 <p>You can't access the Amazon S3 bucket for report storage. For more information, see
+ *                <p>You can't access the Amazon S3 bucket for report storage. For more information, see
  *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report">Additional Requirements for Organization-wide Tag Compliance
  *                         Reports</a> in the <i>Organizations User Guide.</i>
  *                </p>

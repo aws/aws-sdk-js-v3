@@ -10424,7 +10424,9 @@
             "documentation": "This operation untags an Amazon FSx resource.",
             "input": {
               "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0498eed5fe91001ec",
-              "TagKeys": ["Name"]
+              "TagKeys": [
+                "Name"
+              ]
             }
           }
         ],

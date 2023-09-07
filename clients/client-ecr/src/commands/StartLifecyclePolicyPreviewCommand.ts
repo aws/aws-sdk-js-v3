@@ -57,7 +57,7 @@ export interface StartLifecyclePolicyPreviewCommandOutput
  * //   registryId: "STRING_VALUE",
  * //   repositoryName: "STRING_VALUE",
  * //   lifecyclePolicyText: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "IN_PROGRESS" || "COMPLETE" || "EXPIRED" || "FAILED",
  * // };
  *
  * ```

@@ -67,8 +67,8 @@ export interface ListRobotApplicationsCommandOutput extends ListRobotApplication
  * //       version: "STRING_VALUE",
  * //       lastUpdatedAt: new Date("TIMESTAMP"),
  * //       robotSoftwareSuite: { // RobotSoftwareSuite
- * //         name: "STRING_VALUE",
- * //         version: "STRING_VALUE",
+ * //         name: "ROS" || "ROS2" || "General",
+ * //         version: "Kinetic" || "Melodic" || "Dashing" || "Foxy",
  * //       },
  * //     },
  * //   ],

@@ -1458,7 +1458,9 @@
       ],
       "traits": {
         "aws.auth#unsignedPayload": {},
-        "smithy.api#auth": ["aws.auth#sigv4"],
+        "smithy.api#auth": [
+          "aws.auth#sigv4"
+        ],
         "smithy.api#documentation": "Complete upload",
         "smithy.api#http": {
           "method": "PUT",
@@ -1617,7 +1619,9 @@
       ],
       "traits": {
         "aws.auth#unsignedPayload": {},
-        "smithy.api#auth": ["aws.auth#sigv4"],
+        "smithy.api#auth": [
+          "aws.auth#sigv4"
+        ],
         "smithy.api#documentation": "Upload chunk.",
         "smithy.api#http": {
           "method": "PUT",
@@ -1750,7 +1754,9 @@
       ],
       "traits": {
         "aws.auth#unsignedPayload": {},
-        "smithy.api#auth": ["aws.auth#sigv4"],
+        "smithy.api#auth": [
+          "aws.auth#sigv4"
+        ],
         "smithy.api#documentation": "Upload object that can store object metadata String and data blob in single API call using inline chunk field.",
         "smithy.api#http": {
           "method": "PUT",

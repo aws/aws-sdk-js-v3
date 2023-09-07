@@ -56,16 +56,16 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *   InlineChunkChecksum: "STRING_VALUE",
  *   InlineChunkChecksumAlgorithm: "STRING_VALUE",
  *   ObjectChecksum: "STRING_VALUE",
- *   ObjectChecksumAlgorithm: "STRING_VALUE",
+ *   ObjectChecksumAlgorithm: "SUMMARY",
  *   ThrowOnDuplicate: true || false,
  * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
  * // { // PutObjectOutput
  * //   InlineChunkChecksum: "STRING_VALUE", // required
- * //   InlineChunkChecksumAlgorithm: "STRING_VALUE", // required
+ * //   InlineChunkChecksumAlgorithm: "SHA256", // required
  * //   ObjectChecksum: "STRING_VALUE", // required
- * //   ObjectChecksumAlgorithm: "STRING_VALUE", // required
+ * //   ObjectChecksumAlgorithm: "SUMMARY", // required
  * // };
  *
  * ```

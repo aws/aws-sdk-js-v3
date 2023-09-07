@@ -57,13 +57,13 @@ export interface GetIdentityPoolRolesCommandOutput extends GetIdentityPoolRolesR
  * //   },
  * //   RoleMappings: { // RoleMappingMap
  * //     "<keys>": { // RoleMapping
- * //       Type: "STRING_VALUE", // required
- * //       AmbiguousRoleResolution: "STRING_VALUE",
+ * //       Type: "Token" || "Rules", // required
+ * //       AmbiguousRoleResolution: "AuthenticatedRole" || "Deny",
  * //       RulesConfiguration: { // RulesConfigurationType
  * //         Rules: [ // MappingRulesList // required
  * //           { // MappingRule
  * //             Claim: "STRING_VALUE", // required
- * //             MatchType: "STRING_VALUE", // required
+ * //             MatchType: "Equals" || "Contains" || "StartsWith" || "NotEqual", // required
  * //             Value: "STRING_VALUE", // required
  * //             RoleARN: "STRING_VALUE", // required
  * //           },

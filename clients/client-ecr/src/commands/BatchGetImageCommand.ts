@@ -38,7 +38,7 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * @public
  * <p>Gets detailed information for an image. Images are specified with either an
  *                 <code>imageTag</code> or <code>imageDigest</code>.</p>
- *         <p>When an image is pulled, the BatchGetImage API is called once to retrieve the image
+ *          <p>When an image is pulled, the BatchGetImage API is called once to retrieve the image
  *             manifest.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,7 +80,7 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * //         imageDigest: "STRING_VALUE",
  * //         imageTag: "STRING_VALUE",
  * //       },
- * //       failureCode: "STRING_VALUE",
+ * //       failureCode: "InvalidImageDigest" || "InvalidImageTag" || "ImageTagDoesNotMatchDigest" || "ImageNotFound" || "MissingDigestAndTag" || "ImageReferencedByManifestList" || "KmsError",
  * //       failureReason: "STRING_VALUE",
  * //     },
  * //   ],

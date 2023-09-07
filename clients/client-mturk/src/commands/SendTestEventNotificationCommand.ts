@@ -52,13 +52,13 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  * const input = { // SendTestEventNotificationRequest
  *   Notification: { // NotificationSpecification
  *     Destination: "STRING_VALUE", // required
- *     Transport: "STRING_VALUE", // required
+ *     Transport: "Email" || "SQS" || "SNS", // required
  *     Version: "STRING_VALUE", // required
  *     EventTypes: [ // EventTypeList // required
- *       "STRING_VALUE",
+ *       "AssignmentAccepted" || "AssignmentAbandoned" || "AssignmentReturned" || "AssignmentSubmitted" || "AssignmentRejected" || "AssignmentApproved" || "HITCreated" || "HITExpired" || "HITReviewable" || "HITExtended" || "HITDisposed" || "Ping",
  *     ],
  *   },
- *   TestEventType: "STRING_VALUE", // required
+ *   TestEventType: "AssignmentAccepted" || "AssignmentAbandoned" || "AssignmentReturned" || "AssignmentSubmitted" || "AssignmentRejected" || "AssignmentApproved" || "HITCreated" || "HITExpired" || "HITReviewable" || "HITExtended" || "HITDisposed" || "Ping", // required
  * };
  * const command = new SendTestEventNotificationCommand(input);
  * const response = await client.send(command);

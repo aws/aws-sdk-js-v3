@@ -57,7 +57,7 @@ export interface DescribeHumanLoopCommandOutput extends DescribeHumanLoopRespons
  * //   CreationTime: new Date("TIMESTAMP"), // required
  * //   FailureReason: "STRING_VALUE",
  * //   FailureCode: "STRING_VALUE",
- * //   HumanLoopStatus: "STRING_VALUE", // required
+ * //   HumanLoopStatus: "InProgress" || "Failed" || "Completed" || "Stopped" || "Stopping", // required
  * //   HumanLoopName: "STRING_VALUE", // required
  * //   HumanLoopArn: "STRING_VALUE", // required
  * //   FlowDefinitionArn: "STRING_VALUE", // required

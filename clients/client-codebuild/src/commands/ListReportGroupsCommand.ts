@@ -46,8 +46,8 @@ export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, _
  * // const { CodeBuildClient, ListReportGroupsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // ListReportGroupsInput
- *   sortOrder: "STRING_VALUE",
- *   sortBy: "STRING_VALUE",
+ *   sortOrder: "ASCENDING" || "DESCENDING",
+ *   sortBy: "NAME" || "CREATED_TIME" || "LAST_MODIFIED_TIME",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

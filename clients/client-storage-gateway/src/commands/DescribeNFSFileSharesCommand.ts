@@ -70,7 +70,7 @@ export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileShare
  * //       Role: "STRING_VALUE",
  * //       LocationARN: "STRING_VALUE",
  * //       DefaultStorageClass: "STRING_VALUE",
- * //       ObjectACL: "STRING_VALUE",
+ * //       ObjectACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control" || "aws-exec-read",
  * //       ClientList: [ // FileShareClientList
  * //         "STRING_VALUE",
  * //       ],

@@ -46,10 +46,10 @@ export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatche
  * const input = { // ListBuildBatchesForProjectInput
  *   projectName: "STRING_VALUE",
  *   filter: { // BuildBatchFilter
- *     status: "STRING_VALUE",
+ *     status: "SUCCEEDED" || "FAILED" || "FAULT" || "TIMED_OUT" || "IN_PROGRESS" || "STOPPED",
  *   },
  *   maxResults: Number("int"),
- *   sortOrder: "STRING_VALUE",
+ *   sortOrder: "ASCENDING" || "DESCENDING",
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new ListBuildBatchesForProjectCommand(input);

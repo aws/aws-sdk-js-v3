@@ -60,7 +60,7 @@ export interface BatchDisableAlarmCommandOutput extends BatchDisableAlarmRespons
  * //   errorEntries: [ // BatchAlarmActionErrorEntries
  * //     { // BatchAlarmActionErrorEntry
  * //       requestId: "STRING_VALUE",
- * //       errorCode: "STRING_VALUE",
+ * //       errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "InternalFailureException" || "ServiceUnavailableException" || "ThrottlingException",
  * //       errorMessage: "STRING_VALUE",
  * //     },
  * //   ],

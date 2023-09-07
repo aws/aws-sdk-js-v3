@@ -43,7 +43,6 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
  * @public
  * <p>Lists the automatic tape creation policies for a gateway. If there are no automatic tape
  *          creation policies for the gateway, it returns an empty list.</p>
- *
  *          <p>This operation is only supported for tape gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

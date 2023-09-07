@@ -59,13 +59,13 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  *   filterGroups: [ // FilterGroups
  *     [ // FilterGroup
  *       { // WebhookFilter
- *         type: "STRING_VALUE", // required
+ *         type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE", // required
  *         pattern: "STRING_VALUE", // required
  *         excludeMatchedPattern: true || false,
  *       },
  *     ],
  *   ],
- *   buildType: "STRING_VALUE",
+ *   buildType: "BUILD" || "BUILD_BATCH",
  * };
  * const command = new CreateWebhookCommand(input);
  * const response = await client.send(command);
@@ -78,13 +78,13 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * //     filterGroups: [ // FilterGroups
  * //       [ // FilterGroup
  * //         { // WebhookFilter
- * //           type: "STRING_VALUE", // required
+ * //           type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE", // required
  * //           pattern: "STRING_VALUE", // required
  * //           excludeMatchedPattern: true || false,
  * //         },
  * //       ],
  * //     ],
- * //     buildType: "STRING_VALUE",
+ * //     buildType: "BUILD" || "BUILD_BATCH",
  * //     lastModifiedSecret: new Date("TIMESTAMP"),
  * //   },
  * // };

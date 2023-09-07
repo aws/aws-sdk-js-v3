@@ -54,10 +54,10 @@ export interface ListCuratedEnvironmentImagesCommandOutput
  * // { // ListCuratedEnvironmentImagesOutput
  * //   platforms: [ // EnvironmentPlatforms
  * //     { // EnvironmentPlatform
- * //       platform: "STRING_VALUE",
+ * //       platform: "DEBIAN" || "AMAZON_LINUX" || "UBUNTU" || "WINDOWS_SERVER",
  * //       languages: [ // EnvironmentLanguages
  * //         { // EnvironmentLanguage
- * //           language: "STRING_VALUE",
+ * //           language: "JAVA" || "PYTHON" || "NODE_JS" || "RUBY" || "GOLANG" || "DOCKER" || "ANDROID" || "DOTNET" || "BASE" || "PHP",
  * //           images: [ // EnvironmentImages
  * //             { // EnvironmentImage
  * //               name: "STRING_VALUE",

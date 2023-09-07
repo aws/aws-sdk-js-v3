@@ -63,7 +63,7 @@ export interface ListWorldGenerationJobsCommandOutput extends ListWorldGeneratio
  * //       arn: "STRING_VALUE",
  * //       template: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
- * //       status: "STRING_VALUE",
+ * //       status: "Pending" || "Running" || "Completed" || "Failed" || "PartialFailed" || "Canceling" || "Canceled",
  * //       worldCount: { // WorldCount
  * //         floorplanCount: Number("int"),
  * //         interiorCountPerFloorplan: Number("int"),

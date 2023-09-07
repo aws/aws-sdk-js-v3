@@ -2350,14 +2350,26 @@
               "state": "ENABLED",
               "type": "MANAGED",
               "computeResources": {
-                "subnets": ["subnet-220c0e0a", "subnet-1a95556d", "subnet-978f6dce"],
+                "subnets": [
+                  "subnet-220c0e0a",
+                  "subnet-1a95556d",
+                  "subnet-978f6dce"
+                ],
                 "tags": {
                   "Name": "Batch Instance - C4OnDemand"
                 },
                 "desiredvCpus": 48,
                 "minvCpus": 0,
-                "instanceTypes": ["c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge"],
-                "securityGroupIds": ["sg-cf5093b2"],
+                "instanceTypes": [
+                  "c4.large",
+                  "c4.xlarge",
+                  "c4.2xlarge",
+                  "c4.4xlarge",
+                  "c4.8xlarge"
+                ],
+                "securityGroupIds": [
+                  "sg-cf5093b2"
+                ],
                 "instanceRole": "ecsInstanceRole",
                 "maxvCpus": 128,
                 "type": "EC2",
@@ -2892,7 +2904,9 @@
             "title": "To describe a compute environment",
             "documentation": "This example describes the P2OnDemand compute environment.",
             "input": {
-              "computeEnvironments": ["P2OnDemand"]
+              "computeEnvironments": [
+                "P2OnDemand"
+              ]
             },
             "output": {
               "computeEnvironments": [
@@ -2909,9 +2923,17 @@
                     "minvCpus": 0,
                     "maxvCpus": 128,
                     "desiredvCpus": 48,
-                    "instanceTypes": ["p2"],
-                    "subnets": ["subnet-220c0e0a", "subnet-1a95556d", "subnet-978f6dce"],
-                    "securityGroupIds": ["sg-cf5093b2"],
+                    "instanceTypes": [
+                      "p2"
+                    ],
+                    "subnets": [
+                      "subnet-220c0e0a",
+                      "subnet-1a95556d",
+                      "subnet-978f6dce"
+                    ],
+                    "securityGroupIds": [
+                      "sg-cf5093b2"
+                    ],
                     "ec2KeyPair": "id_rsa",
                     "instanceRole": "ecsInstanceRole",
                     "tags": {
@@ -3029,7 +3051,10 @@
                         "value": "1"
                       }
                     ],
-                    "command": ["sleep", "60"],
+                    "command": [
+                      "sleep",
+                      "60"
+                    ],
                     "volumes": [],
                     "environment": [],
                     "mountPoints": [],
@@ -3135,7 +3160,9 @@
             "title": "To describe a job queue",
             "documentation": "This example describes the HighPriority job queue.",
             "input": {
-              "jobQueues": ["HighPriority"]
+              "jobQueues": [
+                "HighPriority"
+              ]
             },
             "output": {
               "jobQueues": [
@@ -3240,7 +3267,9 @@
             "title": "To describe a specific job",
             "documentation": "This example describes a job with the specified job ID.",
             "input": {
-              "jobs": ["24fa2d7a-64c4-49d2-8b47-f8da4fbde8e9"]
+              "jobs": [
+                "24fa2d7a-64c4-49d2-8b47-f8da4fbde8e9"
+              ]
             },
             "output": {
               "jobs": [
@@ -3259,7 +3288,10 @@
                     "image": "busybox",
                     "vcpus": 1,
                     "memory": 128,
-                    "command": ["sleep", "60"],
+                    "command": [
+                      "sleep",
+                      "60"
+                    ],
                     "volumes": [],
                     "environment": [],
                     "mountPoints": [],
@@ -5812,7 +5844,10 @@
             "input": {
               "containerProperties": {
                 "image": "busybox",
-                "command": ["sleep", "10"],
+                "command": [
+                  "sleep",
+                  "10"
+                ],
                 "resourceRequirements": [
                   {
                     "type": "MEMORY",
@@ -6651,7 +6686,9 @@
             "documentation": "This demonstrates calling the UntagResource action.",
             "input": {
               "resourceArn": "arn:aws:batch:us-east-1:123456789012:job-definition/sleep30:1",
-              "tagKeys": ["Stage"]
+              "tagKeys": [
+                "Stage"
+              ]
             },
             "output": {}
           }

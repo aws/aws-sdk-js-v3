@@ -64,7 +64,6 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
  *                   </code>. </p>
  *             </li>
  *          </ul>
- *
  *          <p>Before you delete a canary, you might want to use <code>GetCanary</code> to display
  *          the information about this canary. Make
  *          note of the information returned by this operation so that you can delete these resources

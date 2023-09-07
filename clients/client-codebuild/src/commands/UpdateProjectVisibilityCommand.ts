@@ -82,7 +82,7 @@ export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisib
  * const client = new CodeBuildClient(config);
  * const input = { // UpdateProjectVisibilityInput
  *   projectArn: "STRING_VALUE", // required
- *   projectVisibility: "STRING_VALUE", // required
+ *   projectVisibility: "PUBLIC_READ" || "PRIVATE", // required
  *   resourceAccessRole: "STRING_VALUE",
  * };
  * const command = new UpdateProjectVisibilityCommand(input);
@@ -90,7 +90,7 @@ export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisib
  * // { // UpdateProjectVisibilityOutput
  * //   projectArn: "STRING_VALUE",
  * //   publicProjectAlias: "STRING_VALUE",
- * //   projectVisibility: "STRING_VALUE",
+ * //   projectVisibility: "PUBLIC_READ" || "PRIVATE",
  * // };
  *
  * ```

@@ -48,7 +48,7 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  * const client = new MigrationHubClient(config);
  * const input = { // NotifyApplicationStateRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   Status: "STRING_VALUE", // required
+ *   Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETED", // required
  *   UpdateDateTime: new Date("TIMESTAMP"),
  *   DryRun: true || false,
  * };

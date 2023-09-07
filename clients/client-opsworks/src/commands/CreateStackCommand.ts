@@ -73,7 +73,7 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *   UseCustomCookbooks: true || false,
  *   UseOpsworksSecurityGroups: true || false,
  *   CustomCookbooksSource: { // Source
- *     Type: "STRING_VALUE",
+ *     Type: "git" || "svn" || "archive" || "s3",
  *     Url: "STRING_VALUE",
  *     Username: "STRING_VALUE",
  *     Password: "STRING_VALUE",
@@ -81,7 +81,7 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *     Revision: "STRING_VALUE",
  *   },
  *   DefaultSshKeyName: "STRING_VALUE",
- *   DefaultRootDeviceType: "STRING_VALUE",
+ *   DefaultRootDeviceType: "ebs" || "instance-store",
  *   AgentVersion: "STRING_VALUE",
  * };
  * const command = new CreateStackCommand(input);

@@ -46,7 +46,7 @@ export interface UpdateScheduledQueryCommandOutput extends __MetadataBearer {}
  * const client = new TimestreamQueryClient(config);
  * const input = { // UpdateScheduledQueryRequest
  *   ScheduledQueryArn: "STRING_VALUE", // required
- *   State: "STRING_VALUE", // required
+ *   State: "ENABLED" || "DISABLED", // required
  * };
  * const command = new UpdateScheduledQueryCommand(input);
  * const response = await client.send(command);

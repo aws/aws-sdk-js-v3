@@ -61,7 +61,7 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  * //   MetricList: [ // MetricList
  * //     { // Metric
  * //       MetricName: "STRING_VALUE", // required
- * //       AggregationFunction: "STRING_VALUE", // required
+ * //       AggregationFunction: "AVG" || "SUM", // required
  * //       Namespace: "STRING_VALUE",
  * //     },
  * //   ],
@@ -72,7 +72,7 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  * //   DimensionList: [ // DimensionList
  * //     "STRING_VALUE",
  * //   ],
- * //   MetricSetFrequency: "STRING_VALUE",
+ * //   MetricSetFrequency: "P1D" || "PT1H" || "PT10M" || "PT5M",
  * //   Timezone: "STRING_VALUE",
  * //   MetricSource: { // MetricSource
  * //     S3SourceConfig: { // S3SourceConfig
@@ -85,7 +85,7 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  * //       ],
  * //       FileFormatDescriptor: { // FileFormatDescriptor
  * //         CsvFormatDescriptor: { // CsvFormatDescriptor
- * //           FileCompression: "STRING_VALUE",
+ * //           FileCompression: "NONE" || "GZIP",
  * //           Charset: "STRING_VALUE",
  * //           ContainsHeader: true || false,
  * //           Delimiter: "STRING_VALUE",
@@ -95,7 +95,7 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  * //           QuoteSymbol: "STRING_VALUE",
  * //         },
  * //         JsonFormatDescriptor: { // JsonFormatDescriptor
- * //           FileCompression: "STRING_VALUE",
+ * //           FileCompression: "NONE" || "GZIP",
  * //           Charset: "STRING_VALUE",
  * //         },
  * //       },
@@ -162,7 +162,7 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  * //       FilterList: [ // FilterList
  * //         { // Filter
  * //           DimensionValue: "STRING_VALUE",
- * //           FilterOperation: "STRING_VALUE",
+ * //           FilterOperation: "EQUALS",
  * //         },
  * //       ],
  * //     },

@@ -55,10 +55,10 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * const response = await client.send(command);
  * // { // GetImportResponse
  * //   name: "STRING_VALUE",
- * //   resourceType: "STRING_VALUE",
- * //   mergeStrategy: "STRING_VALUE",
+ * //   resourceType: "BOT" || "INTENT" || "SLOT_TYPE",
+ * //   mergeStrategy: "OVERWRITE_LATEST" || "FAIL_ON_CONFLICT",
  * //   importId: "STRING_VALUE",
- * //   importStatus: "STRING_VALUE",
+ * //   importStatus: "IN_PROGRESS" || "COMPLETE" || "FAILED",
  * //   failureReason: [ // StringList
  * //     "STRING_VALUE",
  * //   ],

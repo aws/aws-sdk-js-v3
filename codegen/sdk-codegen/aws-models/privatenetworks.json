@@ -1085,7 +1085,11 @@
             "x-amzn-platform-id",
             "x-amzn-trace-id"
           ],
-          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id"],
+          "additionalExposedHeaders": [
+            "x-amzn-errortype",
+            "x-amzn-requestid",
+            "x-amzn-trace-id"
+          ],
           "maxAge": 86400
         },
         "smithy.api#documentation": "<p>Amazon Web Services Private 5G is a managed service that makes it easy to deploy, operate, and scale\n            your own private mobile network at your on-premises location. Private 5G provides the\n            pre-configured hardware and software for mobile networks, helps automate setup, and\n            scales capacity on demand to support additional devices as needed.</p>",
