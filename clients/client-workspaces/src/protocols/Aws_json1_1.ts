@@ -5403,6 +5403,10 @@ const de_DescribeWorkspaceSnapshotsResult = (
 
 // de_DnsIpAddresses omitted.
 
+// de_ErrorDetails omitted.
+
+// de_ErrorDetailsList omitted.
+
 // de_FailedCreateStandbyWorkspacesRequest omitted.
 
 // de_FailedCreateStandbyWorkspacesRequestList omitted.
@@ -5626,6 +5630,7 @@ const de_WorkspaceImage = (output: any, context: __SerdeContext): WorkspaceImage
     Created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
     ErrorCode: __expectString,
+    ErrorDetails: _json,
     ErrorMessage: __expectString,
     ImageId: __expectString,
     Name: __expectString,

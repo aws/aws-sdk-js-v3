@@ -3270,6 +3270,64 @@ export interface DescribeWorkspaceImagesRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const WorkspaceImageErrorDetailCode = {
+  ADDITIONAL_DRIVES_ATTACHED: "AdditionalDrivesAttached",
+  ANTI_VIRUS_INSTALLED: "AntiVirusInstalled",
+  AUTO_LOGON_ENABLED: "AutoLogonEnabled",
+  AUTO_MOUNT_DISABLED: "AutoMountDisabled",
+  AZURE_DOMAIN_JOINED: "AzureDomainJoined",
+  DHCP_DISABLED: "DHCPDisabled",
+  DISK_FREE_SPACE: "DiskFreeSpace",
+  DISK_SIZE_EXCEEDED: "DiskSizeExceeded",
+  DOMAIN_JOINED: "DomainJoined",
+  FIREWALL_ENABLED: "FirewallEnabled",
+  INCOMPATIBLE_PARTITIONING: "IncompatiblePartitioning",
+  IN_PLACE_UPGRADE: "InPlaceUpgrade",
+  MULTIPLE_BOOT_PARTITION: "MultipleBootPartition",
+  OFFICE_INSTALLED: "OfficeInstalled",
+  OS_NOT_SUPPORTED: "OSNotSupported",
+  OUTDATED_POWERSHELL_VERSION: "OutdatedPowershellVersion",
+  PCOIP_AGENT_INSTALLED: "PCoIPAgentInstalled",
+  PENDING_REBOOT: "PendingReboot",
+  REALTIME_UNIVERSAL_DISABLED: "RealTimeUniversalDisabled",
+  SIXTY_FOUR_BIT_OS: "Requires64BitOS",
+  UEFI_NOT_SUPPORTED: "UEFINotSupported",
+  VMWARE_TOOLS_INSTALLED: "VMWareToolsInstalled",
+  WINDOWS_UPDATES_ENABLED: "WindowsUpdatesEnabled",
+  WORKSPACES_BYOL_ACCOUNT_DISABLED: "WorkspacesBYOLAccountDisabled",
+  WORKSPACES_BYOL_ACCOUNT_NOT_FOUND: "WorkspacesBYOLAccountNotFound",
+  ZERO_REARM_COUNT: "ZeroRearmCount",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspaceImageErrorDetailCode =
+  (typeof WorkspaceImageErrorDetailCode)[keyof typeof WorkspaceImageErrorDetailCode];
+
+/**
+ * @public
+ * <p>Provides in-depth details about the error. These details include the
+ *          possible causes of the errors and troubleshooting information.</p>
+ */
+export interface ErrorDetails {
+  /**
+   * @public
+   * <p>Indicates the error code returned.</p>
+   */
+  ErrorCode?: WorkspaceImageErrorDetailCode | string;
+
+  /**
+   * @public
+   * <p>The text of the error message related the error code.</p>
+   */
+  ErrorMessage?: string;
+}
+
+/**
+ * @public
  * <p>Describes whether a WorkSpace image needs to be updated with the latest drivers and
  *          other components required by Amazon WorkSpaces.</p>
  *          <note>
@@ -3366,6 +3424,12 @@ export interface WorkspaceImage {
    * <p>The updates (if any) that are available for the specified image.</p>
    */
   Updates?: UpdateResult;
+
+  /**
+   * @public
+   * <p>The details of the error returned for the image.</p>
+   */
+  ErrorDetails?: ErrorDetails[];
 }
 
 /**
