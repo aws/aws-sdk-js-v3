@@ -2196,7 +2196,7 @@
                 "OwnerId": "123456789012",
                 "Lifecycle": "COPYING",
                 "Type": "USER_INITIATED",
-                "CreationTime": 1617954808.068,
+                "CreationTime": 1.617954808068e9,
                 "KmsKeyId": "arn:aws:fsx:us-east-1:012345678912:key/d1234e22-543a-12b7-a98f-e12c2b54001a",
                 "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:backup/backup-0a3364eded1014b28",
                 "Tags": [
@@ -3193,7 +3193,7 @@
         "WindowsConfiguration": {
           "target": "com.amazonaws.fsx#CreateFileSystemWindowsConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The Microsoft Windows configuration for the file system that's being created. </p>"
+            "smithy.api#documentation": "<p>The Microsoft Windows configuration for the file system that's being created.</p>"
           }
         },
         "LustreConfiguration": {
@@ -3205,7 +3205,7 @@
         "FileSystemTypeVersion": {
           "target": "com.amazonaws.fsx#FileSystemTypeVersion",
           "traits": {
-            "smithy.api#documentation": "<p>(Optional) For FSx for Lustre file systems, sets the Lustre version\n            for the file system that you're creating. Valid values are <code>2.10</code>, \n            <code>2.12</code>m and <code>2.15</code>:</p>\n         <ul>\n            <li>\n               <p>2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.</p>\n            </li>\n            <li>\n               <p>2.12 and 2.15 are supported by all Lustre deployment types. <code>2.12</code>\n                or <code>2.15</code> is required when setting FSx for Lustre <code>DeploymentType</code>\n                to <code>PERSISTENT_2</code>.</p>\n            </li>\n         </ul>\n         <p>Default value = <code>2.10</code>, except when <code>DeploymentType</code> is set to \n            <code>PERSISTENT_2</code>, then the default is <code>2.12</code>.</p>\n         <note>\n            <p>If you set <code>FileSystemTypeVersion</code> to <code>2.10</code> for a   \n            <code>PERSISTENT_2</code> Lustre deployment type, the <code>CreateFileSystem</code> \n            operation fails.</p>\n         </note>"
+            "smithy.api#documentation": "<p>(Optional) For FSx for Lustre file systems, sets the Lustre version\n            for the file system that you're creating. Valid values are <code>2.10</code>, \n            <code>2.12</code>, and <code>2.15</code>:</p>\n         <ul>\n            <li>\n               <p>2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.</p>\n            </li>\n            <li>\n               <p>2.12 and 2.15 are supported by all Lustre deployment types. <code>2.12</code>\n                or <code>2.15</code> is required when setting FSx for Lustre <code>DeploymentType</code>\n                to <code>PERSISTENT_2</code>.</p>\n            </li>\n         </ul>\n         <p>Default value = <code>2.10</code>, except when <code>DeploymentType</code> is set to \n            <code>PERSISTENT_2</code>, then the default is <code>2.12</code>.</p>\n         <note>\n            <p>If you set <code>FileSystemTypeVersion</code> to <code>2.10</code> for a   \n            <code>PERSISTENT_2</code> Lustre deployment type, the <code>CreateFileSystem</code> \n            operation fails.</p>\n         </note>"
           }
         },
         "OpenZFSConfiguration": {
@@ -4253,7 +4253,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A description of the data repository task.</p>\n         <ul>\n            <li>\n               <p>You use import and export data repository tasks to perform\n                bulk transfer operations between an Amazon FSx for Lustre file system\n                and a linked data repository.</p>\n            </li>\n            <li>\n               <p>You use release data repository tasks to release have been exported\n                to a linked S3 bucketed files from your Amazon FSx for Lustre file system.</p>\n            </li>\n            <li>\n               <p>An Amazon File Cache resource uses a task to automatically\n                release files from the cache.</p>\n            </li>\n         </ul>\n         <p>To learn more about data repository tasks, see \n            <a href=\"https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html\">Data Repository Tasks</a>. \n            </p>"
+        "smithy.api#documentation": "<p>A description of the data repository task.</p>\n         <ul>\n            <li>\n               <p>You use import and export data repository tasks to perform\n                bulk transfer operations between an Amazon FSx for Lustre file system\n                and a linked data repository.</p>\n            </li>\n            <li>\n               <p>You use release data repository tasks to release files that have been exported\n                to a linked S3 bucket from your Amazon FSx for Lustre file system.</p>\n            </li>\n            <li>\n               <p>An Amazon File Cache resource uses a task to automatically\n                release files from the cache.</p>\n            </li>\n         </ul>\n         <p>To learn more about data repository tasks, see \n            <a href=\"https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html\">Data Repository Tasks</a>. \n            </p>"
       }
     },
     "com.amazonaws.fsx#DataRepositoryTaskEnded": {
@@ -6764,7 +6764,7 @@
         "FileSystemTypeVersion": {
           "target": "com.amazonaws.fsx#FileSystemTypeVersion",
           "traits": {
-            "smithy.api#documentation": "<p>The Lustre version of the Amazon FSx for Lustre file system, which\n            is <code>2.10</code>, <code>2.12</code>, or <code>2.15</code>.</p>"
+            "smithy.api#documentation": "<p>The Lustre version of the Amazon FSx for Lustre file system, which\n            can be <code>2.10</code>, <code>2.12</code>, or <code>2.15</code>.</p>"
           }
         },
         "OpenZFSConfiguration": {
@@ -8324,7 +8324,7 @@
         "DeploymentType": {
           "target": "com.amazonaws.fsx#OpenZFSDeploymentType",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the file-system deployment type. Amazon FSx for OpenZFS supports  <code>MULTI_AZ_1</code>, <code>SINGLE_AZ_1</code>, and <code>SINGLE_AZ_2</code>.</p>"
+            "smithy.api#documentation": "<p>Specifies the file-system deployment type. Amazon FSx for OpenZFS supports\u2028 <code>MULTI_AZ_1</code>, <code>SINGLE_AZ_1</code>, and <code>SINGLE_AZ_2</code>.</p>"
           }
         },
         "ThroughputCapacity": {
@@ -10424,9 +10424,7 @@
             "documentation": "This operation untags an Amazon FSx resource.",
             "input": {
               "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0498eed5fe91001ec",
-              "TagKeys": [
-                "Name"
-              ]
+              "TagKeys": ["Name"]
             }
           }
         ],
@@ -10785,7 +10783,7 @@
         "ThroughputCapacity": {
           "target": "com.amazonaws.fsx#MegabytesPerSecond",
           "traits": {
-            "smithy.api#documentation": "<p>The throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second  (MB/s). Valid values depend on the DeploymentType you choose, as follows:</p>\n         <ul>\n            <li>\n               <p>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640,\n                1280, 2560, 3840, 5120, 7680, or 10240 MBps.</p>\n            </li>\n            <li>\n               <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second\u2028 (MB/s). Valid values depend on the DeploymentType you choose, as follows:</p>\n         <ul>\n            <li>\n               <p>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640,\n                1280, 2560, 3840, 5120, 7680, or 10240 MBps.</p>\n            </li>\n            <li>\n               <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>\n            </li>\n         </ul>"
           }
         },
         "WeeklyMaintenanceStartTime": {
