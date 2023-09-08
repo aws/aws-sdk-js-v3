@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { MarketplaceCommerceAnalyticsExtensionConfiguration } from "./extensionConfiguration";
@@ -7,7 +8,7 @@ import { MarketplaceCommerceAnalyticsExtensionConfiguration } from "./extensionC
  * @public
  */
 export interface RuntimeExtension {
-  configure(clientConfiguration: MarketplaceCommerceAnalyticsExtensionConfiguration): void;
+  configure(extensionConfiguration: MarketplaceCommerceAnalyticsExtensionConfiguration): void;
 }
 
 /**
@@ -25,6 +26,7 @@ const asPartial = <T extends Partial<MarketplaceCommerceAnalyticsExtensionConfig
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
   const extensionConfiguration: MarketplaceCommerceAnalyticsExtensionConfiguration = {
     ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
   };
 
   extensions.forEach((extension) => extension.configure(extensionConfiguration));
@@ -32,5 +34,6 @@ export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: Runtime
   return {
     ...runtimeConfig,
     ...resolveDefaultRuntimeConfig(extensionConfiguration),
+    ...resolveHttpHandlerRuntimeConfig(extensionConfiguration),
   };
 };

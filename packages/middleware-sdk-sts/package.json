@@ -23,7 +23,7 @@
   "dependencies": {
     "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/types": "*",
-    "@smithy/types": "^2.2.2",
+    "@smithy/types": "^2.3.0",
     "tslib": "^2.5.0"
   },
   "engines": {

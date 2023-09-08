@@ -66,12 +66,12 @@ const EVENTS: XhrHttpHandlerEvents = {
  * An implementation of HttpHandler that uses XMLHttpRequest, which is
  * traditionally associated with browsers.
  */
-export class XhrHttpHandler extends EventEmitter implements HttpHandler {
+export class XhrHttpHandler extends EventEmitter implements HttpHandler<XhrHttpHandlerOptions> {
   public static readonly EVENTS: XhrHttpHandlerEvents = EVENTS;
   public static readonly ERROR_IDENTIFIER = "XHR_HTTP_HANDLER_ERROR";
 
   private config?: XhrHttpHandlerOptions;
-  private readonly configProvider: Promise<XhrHttpHandlerOptions>;
+  private configProvider: Promise<XhrHttpHandlerOptions>;
 
   public constructor(options?: XhrHttpHandlerOptions | Provider<XhrHttpHandlerOptions>) {
     super();
@@ -81,6 +81,18 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler {
       this.config = options ?? {};
       this.configProvider = Promise.resolve(this.config);
     }
+  }
+
+  updateHttpClientConfig(key: keyof XhrHttpHandlerOptions, value: XhrHttpHandlerOptions[typeof key]): void {
+    this.config = undefined;
+    this.configProvider = this.configProvider.then((config) => {
+      config[key] = value;
+      return config;
+    });
+  }
+
+  httpHandlerConfigs(): XhrHttpHandlerOptions {
+    return this.config ?? {};
   }
 
   public destroy(): void {

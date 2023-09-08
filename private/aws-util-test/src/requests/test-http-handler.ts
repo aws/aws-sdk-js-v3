@@ -129,6 +129,12 @@ export class TestHttpHandler implements HttpHandler {
     (this.client as any).send = this.originalSend as any;
   }
 
+  updateHttpClientConfig(key: never, value: never): void {}
+
+  httpHandlerConfigs() {
+    return {};
+  }
+
   private check(matcher?: Matcher, observed?: any) {
     if (matcher === undefined) {
       return;

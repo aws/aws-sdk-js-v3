@@ -1,7 +1,8 @@
 // smithy-typescript generated code
+import { HttpHandlerExtensionConfiguration } from "@smithy/protocol-http";
 import { DefaultExtensionConfiguration } from "@smithy/types";
 
 /**
  * @internal
  */
-export interface IAMExtensionConfiguration extends DefaultExtensionConfiguration {}
+export interface IAMExtensionConfiguration extends HttpHandlerExtensionConfiguration, DefaultExtensionConfiguration {}
