@@ -1,10 +1,12 @@
 import { HeadObjectCommand, S3, S3Client, S3ServiceException } from "@aws-sdk/client-s3";
-import { HttpResponse } from "@smithy/protocol-http";
+import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
 import { RequestHandlerOutput } from "@smithy/types";
 import { ConfiguredRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
 import { Readable } from "stream";
 
-class MockRequestHandler {
+const MOCK_REGION = "us-west-2";
+
+class MockRequestHandler implements HttpHandler {
   async handle() {
     return {
       response: new HttpResponse({
@@ -12,6 +14,10 @@ class MockRequestHandler {
         body: Buffer.from(""),
       }),
     };
+  }
+  updateHttpClientConfig(key: never, value: never): void {}
+  httpHandlerConfigs() {
+    return {};
   }
 }
 
@@ -38,7 +44,10 @@ describe("util-retry integration tests", () => {
     const client = new S3Client({
       requestHandler: {
         handle: () => Promise.resolve(mockSuccess),
+        updateHttpClientConfig: () => {},
+        httpHandlerConfigs: () => ({}),
       },
+      region: MOCK_REGION,
     });
     expect(await client.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
     const response = await client.send(headObjectCommand);
@@ -56,7 +65,10 @@ describe("util-retry integration tests", () => {
     const client = new S3Client({
       requestHandler: {
         handle: mockHandle,
+        httpHandlerConfigs: () => ({}),
+        updateHttpClientConfig: () => {},
       },
+      region: MOCK_REGION,
     });
     expect(await client.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
     const response = await client.send(headObjectCommand);
@@ -81,7 +93,10 @@ describe("util-retry integration tests", () => {
     const client = new S3Client({
       requestHandler: {
         handle: () => Promise.resolve(mockThrottled),
+        httpHandlerConfigs: () => ({}),
+        updateHttpClientConfig: () => {},
       },
+      region: MOCK_REGION,
     });
     expect(await client.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
     try {
@@ -109,6 +124,7 @@ describe("util-retry integration tests", () => {
     const s3 = new S3({
       requestHandler: new MockRequestHandler(),
       retryStrategy,
+      region: MOCK_REGION,
     });
 
     expect(retryStrategy.getCapacity()).toEqual(expectedInitialCapacity);
