@@ -36,7 +36,7 @@ export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssig
 
 /**
  * @public
- * <p>Assigns access to a principal for a specified AWS account using a specified
+ * <p>Assigns access to a principal for a specified Amazon Web Services account using a specified
  *       permission set.</p>
  *          <note>
  *             <p>The term <i>principal</i> here refers to a user or group that is defined
