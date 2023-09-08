@@ -56,7 +56,7 @@ export interface DescribeAlertCommandOutput extends DescribeAlertResponse, __Met
  * //       SNSConfiguration: { // SNSConfiguration
  * //         RoleArn: "STRING_VALUE", // required
  * //         SnsTopicArn: "STRING_VALUE", // required
- * //         SnsFormat: "STRING_VALUE",
+ * //         SnsFormat: "LONG_TEXT" || "SHORT_TEXT" || "JSON",
  * //       },
  * //       LambdaConfiguration: { // LambdaConfiguration
  * //         RoleArn: "STRING_VALUE", // required
@@ -68,8 +68,8 @@ export interface DescribeAlertCommandOutput extends DescribeAlertResponse, __Met
  * //     AnomalyDetectorArn: "STRING_VALUE",
  * //     AlertName: "STRING_VALUE",
  * //     AlertSensitivityThreshold: Number("int"),
- * //     AlertType: "STRING_VALUE",
- * //     AlertStatus: "STRING_VALUE",
+ * //     AlertType: "SNS" || "LAMBDA",
+ * //     AlertStatus: "ACTIVE" || "INACTIVE",
  * //     LastModificationTime: new Date("TIMESTAMP"),
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     AlertFilters: { // AlertFilters

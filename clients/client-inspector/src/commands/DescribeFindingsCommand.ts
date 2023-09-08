@@ -47,7 +47,7 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  *   findingArns: [ // BatchDescribeArnList // required
  *     "STRING_VALUE",
  *   ],
- *   locale: "STRING_VALUE",
+ *   locale: "EN_US",
  * };
  * const command = new DescribeFindingsCommand(input);
  * const response = await client.send(command);
@@ -62,7 +62,7 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  * //         assessmentRunArn: "STRING_VALUE",
  * //         rulesPackageArn: "STRING_VALUE",
  * //       },
- * //       assetType: "STRING_VALUE",
+ * //       assetType: "ec2-instance",
  * //       assetAttributes: { // AssetAttributes
  * //         schemaVersion: Number("int"), // required
  * //         agentId: "STRING_VALUE",
@@ -109,7 +109,7 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  * //       title: "STRING_VALUE",
  * //       description: "STRING_VALUE",
  * //       recommendation: "STRING_VALUE",
- * //       severity: "STRING_VALUE",
+ * //       severity: "Low" || "Medium" || "High" || "Informational" || "Undefined",
  * //       numericSeverity: Number("double"),
  * //       confidence: Number("int"),
  * //       indicatorOfCompromise: true || false,
@@ -131,7 +131,7 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  * //   ],
  * //   failedItems: { // FailedItems // required
  * //     "<keys>": { // FailedItemDetails
- * //       failureCode: "STRING_VALUE", // required
+ * //       failureCode: "INVALID_ARN" || "DUPLICATE_ARN" || "ITEM_DOES_NOT_EXIST" || "ACCESS_DENIED" || "LIMIT_EXCEEDED" || "INTERNAL_ERROR", // required
  * //       retryable: true || false, // required
  * //     },
  * //   },

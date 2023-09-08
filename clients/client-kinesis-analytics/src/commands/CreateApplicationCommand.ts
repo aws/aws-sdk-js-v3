@@ -94,7 +94,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *       },
  *       InputSchema: { // SourceSchema
  *         RecordFormat: { // RecordFormat
- *           RecordFormatType: "STRING_VALUE", // required
+ *           RecordFormatType: "JSON" || "CSV", // required
  *           MappingParameters: { // MappingParameters
  *             JSONMappingParameters: { // JSONMappingParameters
  *               RecordRowPath: "STRING_VALUE", // required
@@ -132,7 +132,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *         RoleARN: "STRING_VALUE", // required
  *       },
  *       DestinationSchema: { // DestinationSchema
- *         RecordFormatType: "STRING_VALUE", // required
+ *         RecordFormatType: "JSON" || "CSV", // required
  *       },
  *     },
  *   ],
@@ -156,7 +156,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * //   ApplicationSummary: { // ApplicationSummary
  * //     ApplicationName: "STRING_VALUE", // required
  * //     ApplicationARN: "STRING_VALUE", // required
- * //     ApplicationStatus: "STRING_VALUE", // required
+ * //     ApplicationStatus: "DELETING" || "STARTING" || "STOPPING" || "READY" || "RUNNING" || "UPDATING", // required
  * //   },
  * // };
  *

@@ -64,7 +64,7 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * //     ],
  * //     RedactedFields: [ // RedactedFields
  * //       { // FieldToMatch
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "URI" || "QUERY_STRING" || "HEADER" || "METHOD" || "BODY" || "SINGLE_QUERY_ARG" || "ALL_QUERY_ARGS", // required
  * //         Data: "STRING_VALUE",
  * //       },
  * //     ],

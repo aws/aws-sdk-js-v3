@@ -25,7 +25,7 @@ export const resolveClientEndpointParameters = <T>(
 };
 
 export interface EndpointParameters extends __EndpointParameters {
-  Region: string;
+  Region?: string;
   UseFIPS?: boolean;
   Endpoint?: string;
 }

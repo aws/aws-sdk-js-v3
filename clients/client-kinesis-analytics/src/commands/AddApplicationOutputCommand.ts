@@ -80,7 +80,7 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  *       RoleARN: "STRING_VALUE", // required
  *     },
  *     DestinationSchema: { // DestinationSchema
- *       RecordFormatType: "STRING_VALUE", // required
+ *       RecordFormatType: "JSON" || "CSV", // required
  *     },
  *   },
  * };

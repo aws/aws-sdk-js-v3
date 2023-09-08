@@ -40,7 +40,6 @@ export interface DescribeModelPackagingJobCommandOutput extends DescribeModelPac
  * </p>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:DescribeModelPackagingJob</code> operation.</p>
- *
  *          <p>For more information, see
  *          <i>Using your Amazon Lookout for Vision model on an edge device</i> in the  Amazon Lookout for Vision Developer Guide. </p>
  * @example

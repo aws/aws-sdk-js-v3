@@ -47,10 +47,10 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  *             would like to receive usage data in your seller reports. The sections below explain the
  *             behavior of <code>RegisterUsage</code>. <code>RegisterUsage</code> performs two primary
  *             functions: metering and entitlement.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
- *                     <i>Entitlement</i>: <code>RegisterUsage</code> allows you to
+ *                <p>
+ *                   <i>Entitlement</i>: <code>RegisterUsage</code> allows you to
  *                     verify that the customer running your paid software is subscribed to your
  *                     product on AWS Marketplace, enabling you to guard against unauthorized use. Your
  *                     container image that integrates with <code>RegisterUsage</code> is only required
@@ -64,8 +64,8 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  *                     running.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <i>Metering</i>: <code>RegisterUsage</code> meters software use
+ *                <p>
+ *                   <i>Metering</i>: <code>RegisterUsage</code> meters software use
  *                     per ECS task, per hour, or per pod for Amazon EKS with usage prorated to the
  *                     second. A minimum of 1 minute of usage applies to tasks that are short lived.
  *                     For example, if a customer has a 10 node Amazon ECS or Amazon EKS cluster and a

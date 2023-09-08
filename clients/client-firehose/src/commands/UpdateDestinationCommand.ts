@@ -41,7 +41,6 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
 /**
  * @public
  * <p>Updates the specified destination of the specified delivery stream.</p>
- *
  *          <p>Use this operation to change the destination type (for example, to replace the Amazon
  *          S3 destination with Amazon Redshift) or change the parameters associated with a destination
  *          (for example, to change the bucket name of the Amazon S3 destination). The update might not
@@ -58,7 +57,6 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *          <p>If the destination type is not the same, for example, changing the destination from
  *          Amazon S3 to Amazon Redshift, Kinesis Data Firehose does not merge any parameters. In this
  *          case, all parameters must be specified.</p>
- *
  *          <p>Kinesis Data Firehose uses <code>CurrentDeliveryStreamVersionId</code> to avoid race
  *          conditions and conflicting merges. This is a required field, and the service updates the
  *          configuration only if the existing configuration has a version ID that matches. After the

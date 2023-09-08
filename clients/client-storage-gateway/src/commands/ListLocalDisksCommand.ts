@@ -38,7 +38,6 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  * @public
  * <p>Returns a list of the gateway's local disks. To specify which gateway to describe,
  *          you use the Amazon Resource Name (ARN) of the gateway in the body of the request.</p>
- *
  *          <p>The request returns a list of all disks, specifying which are configured as working
  *          storage, cache storage, or stored volume or not configured at all. The response includes a
  *             <code>DiskStatus</code> field. This field can have a value of present (the disk is

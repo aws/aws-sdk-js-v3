@@ -73,7 +73,7 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  *   MigrationTaskName: "STRING_VALUE", // required
  *   ResourceAttributeList: [ // ResourceAttributeList // required
  *     { // ResourceAttribute
- *       Type: "STRING_VALUE", // required
+ *       Type: "IPV4_ADDRESS" || "IPV6_ADDRESS" || "MAC_ADDRESS" || "FQDN" || "VM_MANAGER_ID" || "VM_MANAGED_OBJECT_REFERENCE" || "VM_NAME" || "VM_PATH" || "BIOS_ID" || "MOTHERBOARD_SERIAL_NUMBER", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],

@@ -53,7 +53,7 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  * const client = new MTurkClient(config);
  * const input = { // ListWorkersWithQualificationTypeRequest
  *   QualificationTypeId: "STRING_VALUE", // required
- *   Status: "STRING_VALUE",
+ *   Status: "Granted" || "Revoked",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
@@ -72,7 +72,7 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  * //         Country: "STRING_VALUE", // required
  * //         Subdivision: "STRING_VALUE",
  * //       },
- * //       Status: "STRING_VALUE",
+ * //       Status: "Granted" || "Revoked",
  * //     },
  * //   ],
  * // };

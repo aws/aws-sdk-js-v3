@@ -86,7 +86,7 @@ export interface AutoBranchCreationConfig {
   /**
    * @public
    * <p>Enables performance mode for the branch.</p>
-   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at
+   *          <p>Performance mode optimizes for faster hosting performance by keeping content cached at
    *             the edge for a longer interval. When performance mode is enabled, hosting configuration
    *             or code changes can take up to 10 minutes to roll out. </p>
    */
@@ -131,29 +131,28 @@ export interface CustomRule {
   /**
    * @public
    * <p> The status code for a URL rewrite or redirect rule. </p>
-   *
-   *         <dl>
+   *          <dl>
    *             <dt>200</dt>
    *             <dd>
-   *                     <p>Represents a 200 rewrite rule.</p>
-   *                 </dd>
+   *                <p>Represents a 200 rewrite rule.</p>
+   *             </dd>
    *             <dt>301</dt>
    *             <dd>
-   *                     <p>Represents a 301 (moved pemanently) redirect rule. This and all future
+   *                <p>Represents a 301 (moved pemanently) redirect rule. This and all future
    *                         requests should be directed to the target URL. </p>
-   *                 </dd>
+   *             </dd>
    *             <dt>302</dt>
    *             <dd>
-   *                     <p>Represents a 302 temporary redirect rule.</p>
-   *                 </dd>
+   *                <p>Represents a 302 temporary redirect rule.</p>
+   *             </dd>
    *             <dt>404</dt>
    *             <dd>
-   *                     <p>Represents a 404 redirect rule.</p>
-   *                 </dd>
+   *                <p>Represents a 404 redirect rule.</p>
+   *             </dd>
    *             <dt>404-200</dt>
    *             <dd>
-   *                     <p>Represents a 404 rewrite rule.</p>
-   *                 </dd>
+   *                <p>Represents a 404 rewrite rule.</p>
+   *             </dd>
    *          </dl>
    */
   status?: string;
@@ -223,12 +222,12 @@ export interface CreateAppRequest {
    * <p>The OAuth token for a third-party source control system for an Amplify app. The OAuth
    *             token is used to create a webhook and a read-only deploy key using SSH cloning. The
    *             OAuth token is not stored.</p>
-   *         <p>Use <code>oauthToken</code> for repository providers other than GitHub, such as
+   *          <p>Use <code>oauthToken</code> for repository providers other than GitHub, such as
    *             Bitbucket or CodeCommit. To authorize access to GitHub as your repository provider, use
    *                 <code>accessToken</code>.</p>
-   *         <p>You must specify either <code>oauthToken</code> or <code>accessToken</code> when you
+   *          <p>You must specify either <code>oauthToken</code> or <code>accessToken</code> when you
    *             create a new app.</p>
-   *         <p>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
+   *          <p>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
    *             with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub
    *             App. For more information, see <a href="https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth">Migrating an existing OAuth app to the Amplify GitHub App</a> in the
    *                 <i>Amplify User Guide</i> .</p>
@@ -240,11 +239,11 @@ export interface CreateAppRequest {
    * <p>The personal access token for a GitHub repository for an Amplify app. The personal
    *             access token is used to authorize access to a GitHub repository using the Amplify GitHub
    *             App. The token is not stored.</p>
-   *         <p>Use <code>accessToken</code> for GitHub repositories only. To authorize access to a
+   *          <p>Use <code>accessToken</code> for GitHub repositories only. To authorize access to a
    *             repository provider such as Bitbucket or CodeCommit, use <code>oauthToken</code>.</p>
-   *         <p>You must specify either <code>accessToken</code> or <code>oauthToken</code> when you
+   *          <p>You must specify either <code>accessToken</code> or <code>oauthToken</code> when you
    *             create a new app.</p>
-   *         <p>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
+   *          <p>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
    *             with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub
    *             App. For more information, see <a href="https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth">Migrating an existing OAuth app to the Amplify GitHub App</a> in the
    *                 <i>Amplify User Guide</i> .</p>
@@ -529,8 +528,8 @@ export interface App {
    * @public
    * <note>
    *             <p>This is for internal use.</p>
-   *         </note>
-   *         <p>The Amplify service uses this parameter to specify the authentication protocol to use to access
+   *          </note>
+   *          <p>The Amplify service uses this parameter to specify the authentication protocol to use to access
    *             the Git repository for an Amplify app. Amplify specifies <code>TOKEN</code> for a GitHub
    *             repository, <code>SIGV4</code> for an Amazon Web Services CodeCommit repository, and
    *                 <code>SSH</code> for GitLab and Bitbucket repositories.</p>
@@ -807,7 +806,7 @@ export interface CreateBranchRequest {
   /**
    * @public
    * <p>Enables performance mode for the branch.</p>
-   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at
+   *          <p>Performance mode optimizes for faster hosting performance by keeping content cached at
    *             the edge for a longer interval. When performance mode is enabled, hosting configuration
    *             or code changes can take up to 10 minutes to roll out. </p>
    */
@@ -961,7 +960,7 @@ export interface Branch {
   /**
    * @public
    * <p>Enables performance mode for the branch.</p>
-   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at
+   *          <p>Performance mode optimizes for faster hosting performance by keeping content cached at
    *             the edge for a longer interval. When performance mode is enabled, hosting configuration
    *             or code changes can take up to 10 minutes to roll out. </p>
    */
@@ -2688,13 +2687,13 @@ export interface UpdateAppRequest {
    * <p>The OAuth token for a third-party source control system for an Amplify app. The OAuth
    *             token is used to create a webhook and a read-only deploy key using SSH cloning. The
    *             OAuth token is not stored.</p>
-   *         <p>Use <code>oauthToken</code> for repository providers other than GitHub, such as
+   *          <p>Use <code>oauthToken</code> for repository providers other than GitHub, such as
    *             Bitbucket or CodeCommit.</p>
-   *         <p>To authorize access to GitHub as your repository provider, use
+   *          <p>To authorize access to GitHub as your repository provider, use
    *                 <code>accessToken</code>.</p>
-   *         <p>You must specify either <code>oauthToken</code> or <code>accessToken</code> when you
+   *          <p>You must specify either <code>oauthToken</code> or <code>accessToken</code> when you
    *             update an app.</p>
-   *         <p>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
+   *          <p>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
    *             with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub
    *             App. For more information, see <a href="https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth">Migrating an existing OAuth app to the Amplify GitHub App</a> in the
    *                 <i>Amplify User Guide</i> .</p>
@@ -2706,11 +2705,11 @@ export interface UpdateAppRequest {
    * <p>The personal access token for a GitHub repository for an Amplify app. The personal
    *             access token is used to authorize access to a GitHub repository using the Amplify GitHub
    *             App. The token is not stored.</p>
-   *         <p>Use <code>accessToken</code> for GitHub repositories only. To authorize access to a
+   *          <p>Use <code>accessToken</code> for GitHub repositories only. To authorize access to a
    *             repository provider such as Bitbucket or CodeCommit, use <code>oauthToken</code>.</p>
-   *         <p>You must specify either <code>accessToken</code> or <code>oauthToken</code> when you
+   *          <p>You must specify either <code>accessToken</code> or <code>oauthToken</code> when you
    *             update an app.</p>
-   *         <p>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
+   *          <p>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work
    *             with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub
    *             App. For more information, see <a href="https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth">Migrating an existing OAuth app to the Amplify GitHub App</a> in the
    *                 <i>Amplify User Guide</i> .</p>
@@ -2800,7 +2799,7 @@ export interface UpdateBranchRequest {
   /**
    * @public
    * <p>Enables performance mode for the branch.</p>
-   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at
+   *          <p>Performance mode optimizes for faster hosting performance by keeping content cached at
    *             the edge for a longer interval. When performance mode is enabled, hosting configuration
    *             or code changes can take up to 10 minutes to roll out. </p>
    */

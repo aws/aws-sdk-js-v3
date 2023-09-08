@@ -55,7 +55,7 @@ export interface ListProtectionsCommandOutput extends ListProtectionsResponse, _
  *       "STRING_VALUE",
  *     ],
  *     ResourceTypes: [ // ProtectedResourceTypeFilters
- *       "STRING_VALUE",
+ *       "CLOUDFRONT_DISTRIBUTION" || "ROUTE_53_HOSTED_ZONE" || "ELASTIC_IP_ALLOCATION" || "CLASSIC_LOAD_BALANCER" || "APPLICATION_LOAD_BALANCER" || "GLOBAL_ACCELERATOR",
  *     ],
  *   },
  * };
@@ -72,7 +72,7 @@ export interface ListProtectionsCommandOutput extends ListProtectionsResponse, _
  * //       ],
  * //       ProtectionArn: "STRING_VALUE",
  * //       ApplicationLayerAutomaticResponseConfiguration: { // ApplicationLayerAutomaticResponseConfiguration
- * //         Status: "STRING_VALUE", // required
+ * //         Status: "ENABLED" || "DISABLED", // required
  * //         Action: { // ResponseAction
  * //           Block: {},
  * //           Count: {},

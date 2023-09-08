@@ -54,7 +54,7 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  * const command = new InitializeClusterCommand(input);
  * const response = await client.send(command);
  * // { // InitializeClusterResponse
- * //   State: "STRING_VALUE",
+ * //   State: "CREATE_IN_PROGRESS" || "UNINITIALIZED" || "INITIALIZE_IN_PROGRESS" || "INITIALIZED" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DEGRADED",
  * //   StateMessage: "STRING_VALUE",
  * // };
  *

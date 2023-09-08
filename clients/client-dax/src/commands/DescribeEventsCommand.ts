@@ -49,7 +49,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * const client = new DAXClient(config);
  * const input = { // DescribeEventsRequest
  *   SourceName: "STRING_VALUE",
- *   SourceType: "STRING_VALUE",
+ *   SourceType: "CLUSTER" || "PARAMETER_GROUP" || "SUBNET_GROUP",
  *   StartTime: new Date("TIMESTAMP"),
  *   EndTime: new Date("TIMESTAMP"),
  *   Duration: Number("int"),
@@ -63,7 +63,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * //   Events: [ // EventList
  * //     { // Event
  * //       SourceName: "STRING_VALUE",
- * //       SourceType: "STRING_VALUE",
+ * //       SourceType: "CLUSTER" || "PARAMETER_GROUP" || "SUBNET_GROUP",
  * //       Message: "STRING_VALUE",
  * //       Date: new Date("TIMESTAMP"),
  * //     },

@@ -71,7 +71,7 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *       DimensionMappings: [ // DimensionMappingList // required
  *         { // DimensionMapping
  *           Name: "STRING_VALUE", // required
- *           DimensionValueType: "STRING_VALUE", // required
+ *           DimensionValueType: "VARCHAR", // required
  *         },
  *       ],
  *       MultiMeasureMappings: { // MultiMeasureMappings
@@ -80,7 +80,7 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *           { // MultiMeasureAttributeMapping
  *             SourceColumn: "STRING_VALUE", // required
  *             TargetMultiMeasureAttributeName: "STRING_VALUE",
- *             MeasureValueType: "STRING_VALUE", // required
+ *             MeasureValueType: "BIGINT" || "BOOLEAN" || "DOUBLE" || "VARCHAR" || "TIMESTAMP", // required
  *           },
  *         ],
  *       },
@@ -89,12 +89,12 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *           MeasureName: "STRING_VALUE",
  *           SourceColumn: "STRING_VALUE",
  *           TargetMeasureName: "STRING_VALUE",
- *           MeasureValueType: "STRING_VALUE", // required
+ *           MeasureValueType: "BIGINT" || "BOOLEAN" || "DOUBLE" || "VARCHAR" || "MULTI", // required
  *           MultiMeasureAttributeMappings: [
  *             {
  *               SourceColumn: "STRING_VALUE", // required
  *               TargetMultiMeasureAttributeName: "STRING_VALUE",
- *               MeasureValueType: "STRING_VALUE", // required
+ *               MeasureValueType: "BIGINT" || "BOOLEAN" || "DOUBLE" || "VARCHAR" || "TIMESTAMP", // required
  *             },
  *           ],
  *         },
@@ -115,7 +115,7 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *     S3Configuration: { // S3Configuration
  *       BucketName: "STRING_VALUE", // required
  *       ObjectKeyPrefix: "STRING_VALUE",
- *       EncryptionOption: "STRING_VALUE",
+ *       EncryptionOption: "SSE_S3" || "SSE_KMS",
  *     },
  *   },
  * };

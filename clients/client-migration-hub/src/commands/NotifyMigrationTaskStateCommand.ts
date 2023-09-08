@@ -64,7 +64,7 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  *   ProgressUpdateStream: "STRING_VALUE", // required
  *   MigrationTaskName: "STRING_VALUE", // required
  *   Task: { // Task
- *     Status: "STRING_VALUE", // required
+ *     Status: "NOT_STARTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED", // required
  *     StatusDetail: "STRING_VALUE",
  *     ProgressPercent: Number("int"),
  *   },

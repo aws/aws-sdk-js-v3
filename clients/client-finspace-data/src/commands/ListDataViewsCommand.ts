@@ -64,14 +64,14 @@ export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __Met
  * //       sortColumns: [ // SortColumnList
  * //         "STRING_VALUE",
  * //       ],
- * //       status: "STRING_VALUE",
+ * //       status: "RUNNING" || "STARTING" || "FAILED" || "CANCELLED" || "TIMEOUT" || "SUCCESS" || "PENDING" || "FAILED_CLEANUP_FAILED",
  * //       errorInfo: { // DataViewErrorInfo
  * //         errorMessage: "STRING_VALUE",
- * //         errorCategory: "STRING_VALUE",
+ * //         errorCategory: "VALIDATION" || "SERVICE_QUOTA_EXCEEDED" || "ACCESS_DENIED" || "RESOURCE_NOT_FOUND" || "THROTTLING" || "INTERNAL_SERVICE_EXCEPTION" || "CANCELLED" || "USER_RECOVERABLE",
  * //       },
  * //       destinationTypeProperties: { // DataViewDestinationTypeParams
  * //         destinationType: "STRING_VALUE", // required
- * //         s3DestinationExportFileFormat: "STRING_VALUE",
+ * //         s3DestinationExportFileFormat: "PARQUET" || "DELIMITED_TEXT",
  * //         s3DestinationExportFileFormatOptions: { // S3DestinationFormatOptions
  * //           "<keys>": "STRING_VALUE",
  * //         },

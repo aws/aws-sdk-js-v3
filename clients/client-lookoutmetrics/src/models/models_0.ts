@@ -2534,7 +2534,7 @@ export type RelationshipType = (typeof RelationshipType)[keyof typeof Relationsh
  * @public
  * <p>Aggregated details about the measures contributing to the anomaly group, and the measures
  *             potentially impacted by the anomaly group.</p>
- *         <p></p>
+ *          <p></p>
  */
 export interface InterMetricImpactDetails {
   /**

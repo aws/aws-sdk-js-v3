@@ -51,7 +51,7 @@ export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __M
  *   CreationTimeAfter: new Date("TIMESTAMP"),
  *   CreationTimeBefore: new Date("TIMESTAMP"),
  *   FlowDefinitionArn: "STRING_VALUE", // required
- *   SortOrder: "STRING_VALUE",
+ *   SortOrder: "Ascending" || "Descending",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
@@ -61,7 +61,7 @@ export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __M
  * //   HumanLoopSummaries: [ // HumanLoopSummaries // required
  * //     { // HumanLoopSummary
  * //       HumanLoopName: "STRING_VALUE",
- * //       HumanLoopStatus: "STRING_VALUE",
+ * //       HumanLoopStatus: "InProgress" || "Failed" || "Completed" || "Stopped" || "Stopping",
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       FailureReason: "STRING_VALUE",
  * //       FlowDefinitionArn: "STRING_VALUE",

@@ -70,7 +70,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * //           image: "STRING_VALUE", // required
  * //           executionRoleArn: "STRING_VALUE", // required
  * //           resourceConfiguration: { // ResourceConfiguration
- * //             computeType: "STRING_VALUE", // required
+ * //             computeType: "ACU_1" || "ACU_2", // required
  * //             volumeSizeInGB: Number("int"), // required
  * //           },
  * //           variables: [ // Variables
@@ -119,7 +119,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * //         },
  * //       },
  * //     ],
- * //     status: "STRING_VALUE",
+ * //     status: "CREATING" || "ACTIVE" || "DELETING",
  * //     creationTime: new Date("TIMESTAMP"),
  * //     lastUpdateTime: new Date("TIMESTAMP"),
  * //     retentionPeriod: { // RetentionPeriod

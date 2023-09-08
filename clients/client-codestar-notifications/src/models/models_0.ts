@@ -170,10 +170,10 @@ export interface CreateNotificationRuleRequest {
    *             the request cannot be repeated with a changed parameter. If a request with the same
    *             parameters is received and a token is included, the request returns information about
    *             the initial request that used that token.</p>
-   *         <note>
+   *          <note>
    *             <p>The Amazon Web Services SDKs prepopulate client request tokens. If you are using an Amazon Web Services SDK, an
    *                 idempotency token is created for you.</p>
-   *         </note>
+   *          </note>
    */
   ClientRequestToken?: string;
 

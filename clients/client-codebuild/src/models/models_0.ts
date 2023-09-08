@@ -187,24 +187,24 @@ export interface BuildArtifacts {
   /**
    * @public
    * <p>The SHA-256 hash of the build artifact.</p>
-   *         <p>You can use this hash along with a checksum tool to confirm file integrity and
+   *          <p>You can use this hash along with a checksum tool to confirm file integrity and
    *             authenticity.</p>
-   *         <note>
+   *          <note>
    *             <p>This value is available only if the build project's <code>packaging</code> value
    *                 is set to <code>ZIP</code>.</p>
-   *         </note>
+   *          </note>
    */
   sha256sum?: string;
 
   /**
    * @public
    * <p>The MD5 hash of the build artifact.</p>
-   *         <p>You can use this hash along with a checksum tool to confirm file integrity and
+   *          <p>You can use this hash along with a checksum tool to confirm file integrity and
    *             authenticity.</p>
-   *         <note>
+   *          <note>
    *             <p>This value is available only if the build project's <code>packaging</code> value
    *                 is set to <code>ZIP</code>.</p>
-   *         </note>
+   *          </note>
    */
   md5sum?: string;
 
@@ -235,40 +235,40 @@ export interface BuildArtifacts {
    *             Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has
    *             access to these objects. This property allows you to give the bucket owner access to
    *             these objects.</p>
-   *         <note>
+   *          <note>
    *             <p>To use this property, your CodeBuild service role must have the
    *                     <code>s3:PutBucketAcl</code> permission. This permission allows CodeBuild to modify
    *                 the access control list for the bucket.</p>
-   *         </note>
-   *         <p>This property can be one of the following values:</p>
+   *          </note>
+   *          <p>This property can be one of the following values:</p>
    *          <dl>
    *             <dt>NONE</dt>
    *             <dd>
-   *                 <p>The bucket owner does not have access to the objects. This is the
+   *                <p>The bucket owner does not have access to the objects. This is the
    *                         default.</p>
    *             </dd>
    *             <dt>READ_ONLY</dt>
    *             <dd>
-   *               <p>The bucket owner has read-only access to the objects. The uploading account
+   *                <p>The bucket owner has read-only access to the objects. The uploading account
    *                         retains ownership of the objects.</p>
    *             </dd>
    *             <dt>FULL</dt>
    *             <dd>
-   *               <p>The bucket owner has full access to the objects. Object ownership is determined
+   *                <p>The bucket owner has full access to the objects. Object ownership is determined
    *                         by the following criteria:</p>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>If the bucket is configured with the <b>Bucket
+   *                      <p>If the bucket is configured with the <b>Bucket
    *                                     owner preferred</b> setting, the bucket owner owns the
    *                                 objects. The uploading account will have object access as specified
    *                                 by the bucket's policy.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>Otherwise, the uploading account retains ownership of the
+   *                      <p>Otherwise, the uploading account retains ownership of the
    *                                 objects.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                     <p>For more information about Amazon S3 object ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of uploaded objects using S3
+   *                <p>For more information about Amazon S3 object ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of uploaded objects using S3
    *                             Object Ownership</a> in the <i>Amazon Simple Storage Service User
    *                         Guide</i>.</p>
    *             </dd>
@@ -425,31 +425,31 @@ export interface BuildSummary {
   /**
    * @public
    * <p>The status of the build group.</p>
-   *         <dl>
+   *          <dl>
    *             <dt>FAILED</dt>
    *             <dd>
-   *                     <p>The build group failed.</p>
-   *                 </dd>
+   *                <p>The build group failed.</p>
+   *             </dd>
    *             <dt>FAULT</dt>
    *             <dd>
-   *                     <p>The build group faulted.</p>
-   *                 </dd>
+   *                <p>The build group faulted.</p>
+   *             </dd>
    *             <dt>IN_PROGRESS</dt>
    *             <dd>
-   *                     <p>The build group is still in progress.</p>
-   *                 </dd>
+   *                <p>The build group is still in progress.</p>
+   *             </dd>
    *             <dt>STOPPED</dt>
    *             <dd>
-   *                     <p>The build group stopped.</p>
-   *                 </dd>
+   *                <p>The build group stopped.</p>
+   *             </dd>
    *             <dt>SUCCEEDED</dt>
    *             <dd>
-   *                     <p>The build group succeeded.</p>
-   *                 </dd>
+   *                <p>The build group succeeded.</p>
+   *             </dd>
    *             <dt>TIMED_OUT</dt>
    *             <dd>
-   *                     <p>The build group timed out.</p>
-   *                 </dd>
+   *                <p>The build group timed out.</p>
+   *             </dd>
    *          </dl>
    */
   buildStatus?: StatusType | string;
@@ -548,17 +548,17 @@ export interface ProjectCache {
   /**
    * @public
    * <p>The type of cache used by the build project. Valid values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NO_CACHE</code>: The build project does not use any cache.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>S3</code>: The build project reads and writes from and to S3.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LOCAL</code>: The build project stores a cache locally on a build host
    *                     that is only available to that build host.</p>
    *             </li>
@@ -569,13 +569,13 @@ export interface ProjectCache {
   /**
    * @public
    * <p>Information about the cache location: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NO_CACHE</code> or <code>LOCAL</code>: This value is ignored.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>S3</code>: This is the S3 bucket name/prefix.</p>
    *             </li>
    *          </ul>
@@ -587,60 +587,60 @@ export interface ProjectCache {
    * <p>An array of strings that specify the local cache modes. You can use one or more local
    *             cache modes at the same time. This is only used for <code>LOCAL</code> cache
    *             types.</p>
-   *         <p>Possible values are:</p>
-   *         <dl>
+   *          <p>Possible values are:</p>
+   *          <dl>
    *             <dt>LOCAL_SOURCE_CACHE</dt>
    *             <dd>
-   *                     <p>Caches Git metadata for primary and secondary sources. After the cache is
+   *                <p>Caches Git metadata for primary and secondary sources. After the cache is
    *                         created, subsequent builds pull only the change between commits. This mode
    *                         is a good choice for projects with a clean working directory and a source
    *                         that is a large Git repository. If you choose this option and your project
    *                         does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the
    *                         option is ignored. </p>
-   *                 </dd>
+   *             </dd>
    *             <dt>LOCAL_DOCKER_LAYER_CACHE</dt>
    *             <dd>
-   *                     <p>Caches existing Docker layers. This mode is a good choice for projects
+   *                <p>Caches existing Docker layers. This mode is a good choice for projects
    *                         that build or pull large Docker images. It can prevent the performance
    *                         issues caused by pulling large Docker images down from the network. </p>
-   *                     <note>
-   *                         <ul>
+   *                <note>
+   *                   <ul>
    *                      <li>
-   *                                 <p>You can use a Docker layer cache in the Linux environment
+   *                         <p>You can use a Docker layer cache in the Linux environment
    *                                     only. </p>
-   *                             </li>
+   *                      </li>
    *                      <li>
-   *                                 <p>The <code>privileged</code> flag must be set so that your
+   *                         <p>The <code>privileged</code> flag must be set so that your
    *                                     project has the required Docker permissions. </p>
-   *                             </li>
+   *                      </li>
    *                      <li>
-   *                                 <p>You should consider the security implications before you use a
+   *                         <p>You should consider the security implications before you use a
    *                                     Docker layer cache. </p>
-   *                             </li>
+   *                      </li>
    *                   </ul>
-   *                     </note>
-   *                 </dd>
+   *                </note>
+   *             </dd>
    *             <dt>LOCAL_CUSTOM_CACHE</dt>
    *             <dd>
-   *                     <p>Caches directories you specify in the buildspec file. This mode is a good
+   *                <p>Caches directories you specify in the buildspec file. This mode is a good
    *                         choice if your build scenario is not suited to one of the other three local
    *                         cache modes. If you use a custom cache: </p>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>Only directories can be specified for caching. You cannot specify
+   *                      <p>Only directories can be specified for caching. You cannot specify
    *                                 individual files. </p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>Symlinks are used to reference cached directories. </p>
-   *                         </li>
+   *                      <p>Symlinks are used to reference cached directories. </p>
+   *                   </li>
    *                   <li>
-   *                             <p>Cached directories are linked to your build before it downloads
+   *                      <p>Cached directories are linked to your build before it downloads
    *                                 its project sources. Cached items are overridden if a source item
    *                                 has the same name. Directories are specified using cache paths in
    *                                 the buildspec file. </p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *          </dl>
    */
   modes?: (CacheMode | string)[];
@@ -691,35 +691,35 @@ export interface EnvironmentVariable {
   /**
    * @public
    * <p>The value of the environment variable.</p>
-   *         <important>
+   *          <important>
    *             <p>We strongly discourage the use of <code>PLAINTEXT</code> environment variables to
    *                 store sensitive values, especially Amazon Web Services secret key IDs and secret access keys.
    *                     <code>PLAINTEXT</code> environment variables can be displayed in plain text
    *                 using the CodeBuild console and the CLI. For sensitive values, we recommend you use an
    *                 environment variable of type <code>PARAMETER_STORE</code> or
    *                     <code>SECRETS_MANAGER</code>. </p>
-   *         </important>
+   *          </important>
    */
   value: string | undefined;
 
   /**
    * @public
    * <p>The type of environment variable. Valid values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PARAMETER_STORE</code>: An environment variable stored in Systems Manager
    *                     Parameter Store. To learn how to specify a parameter store environment variable,
    *                     see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store">env/parameter-store</a> in the
    *                     <i>CodeBuild User Guide</i>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PLAINTEXT</code>: An environment variable in plain text format. This is
    *                     the default value.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SECRETS_MANAGER</code>: An environment variable stored in Secrets Manager. To learn how to specify a secrets manager environment variable, see
    *                         <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager">env/secrets-manager</a> in the
    *                     <i>CodeBuild User Guide</i>.</p>
@@ -760,27 +760,27 @@ export type CredentialProviderType = (typeof CredentialProviderType)[keyof typeo
  * @public
  * <p> Information about credentials that provide access to a private Docker registry. When
  *             this is set: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
- *                     <code>imagePullCredentialsType</code> must be set to <code>SERVICE_ROLE</code>.
+ *                <p>
+ *                   <code>imagePullCredentialsType</code> must be set to <code>SERVICE_ROLE</code>.
  *                 </p>
  *             </li>
  *             <li>
- *                 <p> images cannot be curated or an Amazon ECR image.</p>
+ *                <p> images cannot be curated or an Amazon ECR image.</p>
  *             </li>
  *          </ul>
- *         <p> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-private-registry.html">Private Registry with
+ *          <p> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-private-registry.html">Private Registry with
  *                 Secrets Manager Sample for CodeBuild</a>. </p>
  */
 export interface RegistryCredential {
   /**
    * @public
    * <p> The Amazon Resource Name (ARN) or name of credentials created using Secrets Manager. </p>
-   *         <note>
+   *          <note>
    *             <p> The <code>credential</code> can use the name of the credentials only if they
    *                 exist in your current Amazon Web Services Region. </p>
-   *         </note>
+   *          </note>
    */
   credential: string | undefined;
 
@@ -817,15 +817,15 @@ export interface ProjectEnvironment {
   /**
    * @public
    * <p>The type of build environment to use for related builds.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The environment type <code>ARM_CONTAINER</code> is available only in regions
+   *                <p>The environment type <code>ARM_CONTAINER</code> is available only in regions
    *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
    *                     Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Sydney), and
    *                     EU (Frankfurt).</p>
    *             </li>
    *             <li>
-   *                 <p>The environment type <code>LINUX_CONTAINER</code> with compute type
+   *                <p>The environment type <code>LINUX_CONTAINER</code> with compute type
    *                         <code>build.general1.2xlarge</code> is available only in regions
    *                     US East (N. Virginia), US East (Ohio), US West (Oregon),
    *                     Canada (Central), EU (Ireland), EU (London),
@@ -834,7 +834,7 @@ export interface ProjectEnvironment {
    *                     China (Ningxia).</p>
    *             </li>
    *             <li>
-   *                 <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in
+   *                <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in
    *                     regions US East (N. Virginia), US East (Ohio), US West (Oregon),
    *                     Canada (Central), EU (Ireland), EU (London),
    *                     EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),
@@ -842,15 +842,15 @@ export interface ProjectEnvironment {
    *                     China (Ningxia).</p>
    *             </li>
    *          </ul>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The environment types <code>WINDOWS_CONTAINER</code> and
+   *                <p>The environment types <code>WINDOWS_CONTAINER</code> and
    *                         <code>WINDOWS_SERVER_2019_CONTAINER</code> are available only in regions
    *                     US East (N. Virginia), US East (Ohio), US West (Oregon), and
    *                     EU (Ireland).</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build environment compute types</a> in the <i>CodeBuild
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build environment compute types</a> in the <i>CodeBuild
    *                 user guide</i>.</p>
    */
   type: EnvironmentType | string | undefined;
@@ -859,20 +859,20 @@ export interface ProjectEnvironment {
    * @public
    * <p>The image tag or image digest that identifies the Docker image to use for this build
    *             project. Use the following formats:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For an image tag: <code><registry>/<repository>:<tag></code>. For
+   *                <p>For an image tag: <code><registry>/<repository>:<tag></code>. For
    *                     example, in the Docker repository that CodeBuild uses to manage its Docker
    *                     images, this would be <code>aws/codebuild/standard:4.0</code>. </p>
    *             </li>
    *             <li>
-   *                 <p>For an image digest: <code><registry>/<repository>@<digest></code>.
+   *                <p>For an image digest: <code><registry>/<repository>@<digest></code>.
    *                     For example, to specify an image with the digest
    *                     "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use
    *                         <code><registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf</code>.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html">Docker images provided by CodeBuild</a> in the <i>CodeBuild user
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html">Docker images provided by CodeBuild</a> in the <i>CodeBuild user
    *                 guide</i>.</p>
    */
   image: string | undefined;
@@ -881,47 +881,47 @@ export interface ProjectEnvironment {
    * @public
    * <p>Information about the compute resources the build project uses. Available values
    *             include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>BUILD_GENERAL1_SMALL</code>: Use up to 3 GB memory and 2 vCPUs for
    *                     builds.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>BUILD_GENERAL1_MEDIUM</code>: Use up to 7 GB memory and 4 vCPUs for
    *                     builds.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GB memory and 8 vCPUs for
    *                     builds, depending on your environment type.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 145 GB memory, 72 vCPUs, and
    *                     824 GB of SSD storage for builds. This compute type supports Docker images up to
    *                     100 GB uncompressed.</p>
    *             </li>
    *          </ul>
-   *         <p> If you use <code>BUILD_GENERAL1_LARGE</code>: </p>
-   *         <ul>
+   *          <p> If you use <code>BUILD_GENERAL1_LARGE</code>: </p>
+   *          <ul>
    *             <li>
-   *                 <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 15 GB
+   *                <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 15 GB
    *                     memory and 8 vCPUs for builds. </p>
    *             </li>
    *             <li>
-   *                 <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255
+   *                <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255
    *                     GB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</p>
    *             </li>
    *             <li>
-   *                 <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GB
+   *                <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GB
    *                     memory and 8 vCPUs on ARM-based processors for builds.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build Environment
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build Environment
    *                 Compute Types</a> in the <i>CodeBuild User Guide.</i>
-   *         </p>
+   *          </p>
    */
   computeType: ComputeType | string | undefined;
 
@@ -937,24 +937,24 @@ export interface ProjectEnvironment {
    * <p>Enables running the Docker daemon inside a Docker container. Set to true only if the
    *             build project is used to build Docker images. Otherwise, a build that attempts to
    *             interact with the Docker daemon fails. The default setting is <code>false</code>.</p>
-   *         <p>You can initialize the Docker daemon during the install phase of your build by adding
+   *          <p>You can initialize the Docker daemon during the install phase of your build by adding
    *             one of the following sets of commands to the install phase of your buildspec
    *             file:</p>
-   *         <p>If the operating system's base image is Ubuntu Linux:</p>
-   *         <p>
-   *             <code>- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&</code>
-   *         </p>
-   *         <p>
-   *             <code>- timeout 15 sh -c "until docker info; do echo .; sleep 1; done"</code>
-   *         </p>
-   *         <p>If the operating system's base image is Alpine Linux and the previous command does not
-   *             work, add the <code>-t</code> argument to <code>timeout</code>:</p>
-   *         <p>
+   *          <p>If the operating system's base image is Ubuntu Linux:</p>
+   *          <p>
    *             <code>- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&</code>
    *          </p>
-   *         <p>
+   *          <p>
+   *             <code>- timeout 15 sh -c "until docker info; do echo .; sleep 1; done"</code>
+   *          </p>
+   *          <p>If the operating system's base image is Alpine Linux and the previous command does not
+   *             work, add the <code>-t</code> argument to <code>timeout</code>:</p>
+   *          <p>
+   *             <code>- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&</code>
+   *          </p>
+   *          <p>
    *             <code>- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"</code>
-   *         </p>
+   *          </p>
    */
   privilegedMode?: boolean;
 
@@ -976,19 +976,19 @@ export interface ProjectEnvironment {
    * @public
    * <p> The type of credentials CodeBuild uses to pull images in your build. There are two valid
    *             values: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>CODEBUILD</code> specifies that CodeBuild uses its own credentials.
+   *                <p>
+   *                   <code>CODEBUILD</code> specifies that CodeBuild uses its own credentials.
    *                     This requires that you modify your ECR repository policy to trust CodeBuild service principal. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>SERVICE_ROLE</code> specifies that CodeBuild uses your build project's service
+   *                <p>
+   *                   <code>SERVICE_ROLE</code> specifies that CodeBuild uses your build project's service
    *                     role. </p>
    *             </li>
    *          </ul>
-   *         <p> When you use a cross-account or private registry image, you must use SERVICE_ROLE
+   *          <p> When you use a cross-account or private registry image, you must use SERVICE_ROLE
    *             credentials. When you use an CodeBuild curated image, you must use CODEBUILD credentials.
    *         </p>
    */
@@ -1013,7 +1013,7 @@ export type FileSystemType = (typeof FileSystemType)[keyof typeof FileSystemType
  * <p> Information about a file system created by Amazon Elastic File System (EFS). For more
  *             information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html">What Is
  *                 Amazon Elastic File System?</a>
- *         </p>
+ *          </p>
  */
 export interface ProjectFileSystemLocation {
   /**
@@ -1031,7 +1031,7 @@ export interface ProjectFileSystemLocation {
    *             file system is <code>fs-abcd1234.efs.us-west-2.amazonaws.com</code>, and its mount
    *             directory is <code>my-efs-mount-directory</code>, then the <code>location</code> is
    *                 <code>fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory</code>. </p>
-   *         <p>The directory path in the format <code>efs-dns-name:/directory-path</code> is
+   *          <p>The directory path in the format <code>efs-dns-name:/directory-path</code> is
    *             optional. If you do not specify a directory path, the location is only the DNS name and
    *             CodeBuild mounts the entire file system. </p>
    */
@@ -1050,7 +1050,7 @@ export interface ProjectFileSystemLocation {
    *                 <code>CODEBUILD_</code>. For example, if you specify <code>my_efs</code> for
    *                 <code>identifier</code>, a new environment variable is create named
    *                 <code>CODEBUILD_MY_EFS</code>. </p>
-   *         <p> The <code>identifier</code> is used to mount your file system. </p>
+   *          <p> The <code>identifier</code> is used to mount your file system. </p>
    */
   identifier?: string;
 
@@ -1087,13 +1087,13 @@ export interface CloudWatchLogsConfig {
   /**
    * @public
    * <p>The current status of the logs in CloudWatch Logs for a build project. Valid values are:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ENABLED</code>: CloudWatch Logs are enabled for this build project.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DISABLED</code>: CloudWatch Logs are not enabled for this build project.</p>
    *             </li>
    *          </ul>
@@ -1123,13 +1123,13 @@ export interface S3LogsConfig {
   /**
    * @public
    * <p>The current status of the S3 build logs. Valid values are:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ENABLED</code>: S3 build logs are enabled for this build project.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DISABLED</code>: S3 build logs are not enabled for this build
    *                     project.</p>
    *             </li>
@@ -1159,40 +1159,40 @@ export interface S3LogsConfig {
    *             Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has
    *             access to these objects. This property allows you to give the bucket owner access to
    *             these objects.</p>
-   *         <note>
+   *          <note>
    *             <p>To use this property, your CodeBuild service role must have the
    *                     <code>s3:PutBucketAcl</code> permission. This permission allows CodeBuild to modify
    *                 the access control list for the bucket.</p>
-   *         </note>
-   *         <p>This property can be one of the following values:</p>
+   *          </note>
+   *          <p>This property can be one of the following values:</p>
    *          <dl>
    *             <dt>NONE</dt>
    *             <dd>
-   *                 <p>The bucket owner does not have access to the objects. This is the
+   *                <p>The bucket owner does not have access to the objects. This is the
    *                         default.</p>
    *             </dd>
    *             <dt>READ_ONLY</dt>
    *             <dd>
-   *               <p>The bucket owner has read-only access to the objects. The uploading account
+   *                <p>The bucket owner has read-only access to the objects. The uploading account
    *                         retains ownership of the objects.</p>
    *             </dd>
    *             <dt>FULL</dt>
    *             <dd>
-   *               <p>The bucket owner has full access to the objects. Object ownership is determined
+   *                <p>The bucket owner has full access to the objects. Object ownership is determined
    *                         by the following criteria:</p>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>If the bucket is configured with the <b>Bucket
+   *                      <p>If the bucket is configured with the <b>Bucket
    *                                     owner preferred</b> setting, the bucket owner owns the
    *                                 objects. The uploading account will have object access as specified
    *                                 by the bucket's policy.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>Otherwise, the uploading account retains ownership of the
+   *                      <p>Otherwise, the uploading account retains ownership of the
    *                                 objects.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                     <p>For more information about Amazon S3 object ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of uploaded objects using S3
+   *                <p>For more information about Amazon S3 object ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of uploaded objects using S3
    *                             Object Ownership</a> in the <i>Amazon Simple Storage Service User
    *                         Guide</i>.</p>
    *             </dd>
@@ -1268,36 +1268,36 @@ export interface BuildBatchPhase {
   /**
    * @public
    * <p>The name of the batch build phase. Valid values include:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>COMBINE_ARTIFACTS</dt>
    *             <dd>
-   *                     <p>Build output artifacts are being combined and uploaded to the output
+   *                <p>Build output artifacts are being combined and uploaded to the output
    *                         location.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>DOWNLOAD_BATCHSPEC</dt>
    *             <dd>
-   *                     <p>The batch build specification is being downloaded.</p>
-   *                 </dd>
+   *                <p>The batch build specification is being downloaded.</p>
+   *             </dd>
    *             <dt>FAILED</dt>
    *             <dd>
-   *                     <p>One or more of the builds failed.</p>
-   *                 </dd>
+   *                <p>One or more of the builds failed.</p>
+   *             </dd>
    *             <dt>IN_PROGRESS</dt>
    *             <dd>
-   *                     <p>The batch build is in progress.</p>
-   *                 </dd>
+   *                <p>The batch build is in progress.</p>
+   *             </dd>
    *             <dt>STOPPED</dt>
    *             <dd>
-   *                     <p>The batch build was stopped.</p>
-   *                 </dd>
+   *                <p>The batch build was stopped.</p>
+   *             </dd>
    *             <dt>SUBMITTED</dt>
    *             <dd>
-   *                     <p>The btach build has been submitted.</p>
-   *                 </dd>
+   *                <p>The btach build has been submitted.</p>
+   *             </dd>
    *             <dt>SUCCEEDED</dt>
    *             <dd>
-   *                     <p>The batch build succeeded.</p>
-   *                 </dd>
+   *                <p>The batch build succeeded.</p>
+   *             </dd>
    *          </dl>
    */
   phaseType?: BuildBatchPhaseType | string;
@@ -1305,31 +1305,31 @@ export interface BuildBatchPhase {
   /**
    * @public
    * <p>The current status of the batch build phase. Valid values include:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>FAILED</dt>
    *             <dd>
-   *                     <p>The build phase failed.</p>
-   *                 </dd>
+   *                <p>The build phase failed.</p>
+   *             </dd>
    *             <dt>FAULT</dt>
    *             <dd>
-   *                     <p>The build phase faulted.</p>
-   *                 </dd>
+   *                <p>The build phase faulted.</p>
+   *             </dd>
    *             <dt>IN_PROGRESS</dt>
    *             <dd>
-   *                     <p>The build phase is still in progress.</p>
-   *                 </dd>
+   *                <p>The build phase is still in progress.</p>
+   *             </dd>
    *             <dt>STOPPED</dt>
    *             <dd>
-   *                     <p>The build phase stopped.</p>
-   *                 </dd>
+   *                <p>The build phase stopped.</p>
+   *             </dd>
    *             <dt>SUCCEEDED</dt>
    *             <dd>
-   *                     <p>The build phase succeeded.</p>
-   *                 </dd>
+   *                <p>The build phase succeeded.</p>
+   *             </dd>
    *             <dt>TIMED_OUT</dt>
    *             <dd>
-   *                     <p>The build phase timed out.</p>
-   *                 </dd>
+   *                <p>The build phase timed out.</p>
+   *             </dd>
    *          </dl>
    */
   phaseStatus?: StatusType | string;
@@ -1378,7 +1378,7 @@ export type SourceAuthType = (typeof SourceAuthType)[keyof typeof SourceAuthType
  * @public
  * <p>Information about the authorization settings for CodeBuild to access the source code to be
  *             built.</p>
- *         <p>This information is for the CodeBuild console's use only. Your code should not get or set
+ *          <p>This information is for the CodeBuild console's use only. Your code should not get or set
  *             this information directly.</p>
  */
 export interface SourceAuth {
@@ -1386,8 +1386,8 @@ export interface SourceAuth {
    * @public
    * <note>
    *             <p> This data type is deprecated and is no longer accurate or used. </p>
-   *         </note>
-   *         <p>The authorization type to use. The only valid value is <code>OAUTH</code>, which
+   *          </note>
+   *          <p>The authorization type to use. The only valid value is <code>OAUTH</code>, which
    *             represents the OAuth authorization type.</p>
    */
   type: SourceAuthType | string | undefined;
@@ -1409,17 +1409,17 @@ export interface BuildStatusConfig {
    * @public
    * <p>Specifies the context of the build status CodeBuild sends to the source provider. The
    *             usage of this parameter depends on the source provider.</p>
-   *         <dl>
+   *          <dl>
    *             <dt>Bitbucket</dt>
    *             <dd>
-   *                     <p>This parameter is used for the <code>name</code> parameter in the
+   *                <p>This parameter is used for the <code>name</code> parameter in the
    *                         Bitbucket commit status. For more information, see <a href="https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build">build</a> in the Bitbucket API documentation.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>GitHub/GitHub Enterprise Server</dt>
    *             <dd>
-   *                     <p>This parameter is used for the <code>context</code> parameter in the
+   *                <p>This parameter is used for the <code>context</code> parameter in the
    *                         GitHub commit status. For more information, see <a href="https://developer.github.com/v3/repos/statuses/#create-a-commit-status">Create a commit status</a> in the GitHub developer guide.</p>
-   *                 </dd>
+   *             </dd>
    *          </dl>
    */
   context?: string;
@@ -1428,17 +1428,17 @@ export interface BuildStatusConfig {
    * @public
    * <p>Specifies the target url of the build status CodeBuild sends to the source provider. The
    *             usage of this parameter depends on the source provider.</p>
-   *         <dl>
+   *          <dl>
    *             <dt>Bitbucket</dt>
    *             <dd>
-   *                     <p>This parameter is used for the <code>url</code> parameter in the Bitbucket
+   *                <p>This parameter is used for the <code>url</code> parameter in the Bitbucket
    *                         commit status. For more information, see <a href="https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build">build</a> in the Bitbucket API documentation.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>GitHub/GitHub Enterprise Server</dt>
    *             <dd>
-   *                     <p>This parameter is used for the <code>target_url</code> parameter in the
+   *                <p>This parameter is used for the <code>target_url</code> parameter in the
    *                         GitHub commit status. For more information, see <a href="https://developer.github.com/v3/repos/statuses/#create-a-commit-status">Create a commit status</a> in the GitHub developer guide.</p>
-   *                 </dd>
+   *             </dd>
    *          </dl>
    */
   targetUrl?: string;
@@ -1485,36 +1485,36 @@ export interface ProjectSource {
    * @public
    * <p>The type of repository that contains the source code to be built. Valid values
    *             include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>BITBUCKET</code>: The source code is in a Bitbucket repository.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CODECOMMIT</code>: The source code is in an CodeCommit repository.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CODEPIPELINE</code>: The source code settings are specified in the
    *                     source action of a pipeline in CodePipeline.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>GITHUB</code>: The source code is in a GitHub or GitHub Enterprise Cloud
    *                     repository.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>GITHUB_ENTERPRISE</code>: The source code is in a GitHub Enterprise
    *                     Server repository.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NO_SOURCE</code>: The project does not have input source code.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>S3</code>: The source code is in an Amazon S3 bucket.</p>
    *             </li>
    *          </ul>
@@ -1525,33 +1525,33 @@ export interface ProjectSource {
    * @public
    * <p>Information about the location of the source code to be built. Valid values
    *             include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For source code settings that are specified in the source action of a pipeline
+   *                <p>For source code settings that are specified in the source action of a pipeline
    *                     in CodePipeline, <code>location</code> should not be specified. If it is specified,
    *                     CodePipeline ignores it. This is because CodePipeline uses the settings in a pipeline's source
    *                     action instead of this value.</p>
    *             </li>
    *             <li>
-   *                 <p>For source code in an CodeCommit repository, the HTTPS clone URL to the repository
+   *                <p>For source code in an CodeCommit repository, the HTTPS clone URL to the repository
    *                     that contains the source code and the buildspec file (for example,
    *                         <code>https://git-codecommit.<region-ID>.amazonaws.com/v1/repos/<repo-name></code>).</p>
    *             </li>
    *             <li>
-   *                 <p>For source code in an Amazon S3 input bucket, one of the following. </p>
-   *                 <ul>
+   *                <p>For source code in an Amazon S3 input bucket, one of the following. </p>
+   *                <ul>
    *                   <li>
-   *                         <p>The path to the ZIP file that contains the source code (for example,
+   *                      <p>The path to the ZIP file that contains the source code (for example,
    *                                 <code><bucket-name>/<path>/<object-name>.zip</code>). </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>The path to the folder that contains the source code (for example,
+   *                      <p>The path to the folder that contains the source code (for example,
    *                                 <code><bucket-name>/<path-to-source-code>/<folder>/</code>). </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>For source code in a GitHub repository, the HTTPS clone URL to the repository
+   *                <p>For source code in a GitHub repository, the HTTPS clone URL to the repository
    *                     that contains the source and the buildspec file. You must connect your Amazon Web Services account
    *                     to your GitHub account. Use the CodeBuild console to start creating a build
    *                     project. When you use the console to connect (or reconnect) with GitHub, on the
@@ -1565,7 +1565,7 @@ export interface ProjectSource {
    *                         <code>OAUTH</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>For source code in a Bitbucket repository, the HTTPS clone URL to the
+   *                <p>For source code in a Bitbucket repository, the HTTPS clone URL to the
    *                     repository that contains the source and the buildspec file. You must connect
    *                     your Amazon Web Services account to your Bitbucket account. Use the CodeBuild console to start
    *                     creating a build project. When you use the console to connect (or reconnect)
@@ -1578,7 +1578,7 @@ export interface ProjectSource {
    *                         <code>OAUTH</code>.</p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *           If you specify <code>CODEPIPELINE</code> for the <code>Type</code> property, don't specify this
    *           property. For all of the other types, you must specify <code>Location</code>.
    *        </p>
@@ -1600,7 +1600,7 @@ export interface ProjectSource {
   /**
    * @public
    * <p>The buildspec file declaration to use for the builds in this build project.</p>
-   *         <p> If this value is set, it can be either an inline buildspec definition, the path to an
+   *          <p> If this value is set, it can be either an inline buildspec definition, the path to an
    *             alternate buildspec file relative to the value of the built-in
    *                 <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket.
    *             The bucket must be in the same Amazon Web Services Region as the build project. Specify the buildspec
@@ -1615,7 +1615,7 @@ export interface ProjectSource {
    * @public
    * <p>Information about the authorization settings for CodeBuild to access the source code to be
    *             built.</p>
-   *         <p>This information is for the CodeBuild console's use only. Your code should not get or set
+   *          <p>This information is for the CodeBuild console's use only. Your code should not get or set
    *             this information directly.</p>
    */
   auth?: SourceAuth;
@@ -1626,11 +1626,11 @@ export interface ProjectSource {
    *             provider. This option is valid only when your source provider is GitHub, GitHub
    *             Enterprise, or Bitbucket. If this is set and you use a different source provider, an
    *             <code>invalidInputException</code> is thrown. </p>
-   *             <p>To be able to report the build status to the source provider, the user associated with the source provider must
+   *          <p>To be able to report the build status to the source provider, the user associated with the source provider must
    * have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p>
-   *             <p>The status of a build triggered by a webhook is always reported to your source
+   *          <p>The status of a build triggered by a webhook is always reported to your source
    *                 provider. </p>
-   *             <p>If your project's builds are triggered by a webhook, you must push a
+   *          <p>If your project's builds are triggered by a webhook, you must push a
    *               new commit to the repo for a change to this property to take
    *               effect.</p>
    */
@@ -1678,10 +1678,10 @@ export interface ProjectSourceVersion {
    *           of:</p>
    *          <ul>
    *             <li>
-   *               <p>For CodeCommit: the commit ID, branch, or Git tag to use.</p>
+   *                <p>For CodeCommit: the commit ID, branch, or Git tag to use.</p>
    *             </li>
    *             <li>
-   *               <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that
+   *                <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that
    *                   corresponds to the version of the source code you want to build. If a pull
    *                   request ID is specified, it must use the format <code>pr/pull-request-ID</code>
    *                   (for example, <code>pr/25</code>). If a branch name is specified, the branch's
@@ -1689,13 +1689,13 @@ export interface ProjectSourceVersion {
    *                   used.</p>
    *             </li>
    *             <li>
-   *               <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the
+   *                <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the
    *                   version of the source code you want to build. If a branch name is specified, the
    *                   branch's HEAD commit ID is used. If not specified, the default branch's HEAD
    *                   commit ID is used.</p>
    *             </li>
    *             <li>
-   *               <p>For Amazon S3: the version ID of the object that represents the build input ZIP
+   *                <p>For Amazon S3: the version ID of the object that represents the build input ZIP
    *                   file to use.</p>
    *             </li>
    *          </ul>
@@ -1779,15 +1779,15 @@ export interface BuildBatch {
   /**
    * @public
    * <p>The identifier of the resolved version of this batch build's source code.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID.</p>
+   *                <p>For CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID.</p>
    *             </li>
    *             <li>
-   *                 <p>For CodePipeline, the source revision provided by CodePipeline.</p>
+   *                <p>For CodePipeline, the source revision provided by CodePipeline.</p>
    *             </li>
    *             <li>
-   *                 <p>For Amazon S3, this does not apply.</p>
+   *                <p>For Amazon S3, this does not apply.</p>
    *             </li>
    *          </ul>
    */
@@ -1910,16 +1910,16 @@ export interface BuildBatch {
   /**
    * @public
    * <p>The entity that started the batch build. Valid values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If CodePipeline started the build, the pipeline's name (for example,
+   *                <p>If CodePipeline started the build, the pipeline's name (for example,
    *                         <code>codepipeline/my-demo-pipeline</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>If an IAM user started the build, the user's name.</p>
+   *                <p>If an IAM user started the build, the user's name.</p>
    *             </li>
    *             <li>
-   *                 <p>If the Jenkins plugin for CodeBuild started the build, the string
+   *                <p>If the Jenkins plugin for CodeBuild started the build, the string
    *                         <code>CodeBuild-Jenkins-Plugin</code>.</p>
    *             </li>
    *          </ul>
@@ -1936,11 +1936,11 @@ export interface BuildBatch {
    * @public
    * <p>The Key Management Service customer master key (CMK) to be used for encrypting the batch build output
    *             artifacts.</p>
-   *         <note>
+   *          <note>
    *             <p>You can use a cross-account KMS key to encrypt the build output artifacts if your
    *                 service role has permission to that key. </p>
-   *         </note>
-   *         <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
+   *          </note>
+   *          <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
    *             the format <code>alias/<alias-name></code>).</p>
    */
   encryptionKey?: string;
@@ -2038,10 +2038,10 @@ export interface DebugSession {
 /**
  * @public
  * <p>Contains information about an exported environment variable. </p>
- *         <p>Exported environment variables are used in conjunction with CodePipeline to export
+ *          <p>Exported environment variables are used in conjunction with CodePipeline to export
  *   environment variables from the current build stage to subsequent stages in the pipeline.
  *   For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-variables.html">Working with variables</a> in the <i>CodePipeline User Guide</i>.</p>
- *         <note>
+ *          <note>
  *             <p> During a build, the value of a variable is available starting with the
  *                   <code>install</code> phase. It can be updated between the start of the
  *                   <code>install</code> phase and the end of the <code>post_build</code> phase.
@@ -2170,52 +2170,52 @@ export interface BuildPhase {
   /**
    * @public
    * <p>The name of the build phase. Valid values include:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>BUILD</dt>
    *             <dd>
-   *                     <p>Core build activities typically occur in this build phase.</p>
-   *                 </dd>
+   *                <p>Core build activities typically occur in this build phase.</p>
+   *             </dd>
    *             <dt>COMPLETED</dt>
    *             <dd>
-   *                     <p>The build has been completed.</p>
-   *                 </dd>
+   *                <p>The build has been completed.</p>
+   *             </dd>
    *             <dt>DOWNLOAD_SOURCE</dt>
    *             <dd>
-   *                     <p>Source code is being downloaded in this build phase.</p>
-   *                 </dd>
+   *                <p>Source code is being downloaded in this build phase.</p>
+   *             </dd>
    *             <dt>FINALIZING</dt>
    *             <dd>
-   *                     <p>The build process is completing in this build phase.</p>
-   *                 </dd>
+   *                <p>The build process is completing in this build phase.</p>
+   *             </dd>
    *             <dt>INSTALL</dt>
    *             <dd>
-   *                     <p>Installation activities typically occur in this build phase.</p>
-   *                 </dd>
+   *                <p>Installation activities typically occur in this build phase.</p>
+   *             </dd>
    *             <dt>POST_BUILD</dt>
    *             <dd>
-   *                     <p>Post-build activities typically occur in this build phase.</p>
-   *                 </dd>
+   *                <p>Post-build activities typically occur in this build phase.</p>
+   *             </dd>
    *             <dt>PRE_BUILD</dt>
    *             <dd>
-   *                     <p>Pre-build activities typically occur in this build phase.</p>
-   *                 </dd>
+   *                <p>Pre-build activities typically occur in this build phase.</p>
+   *             </dd>
    *             <dt>PROVISIONING</dt>
    *             <dd>
-   *                     <p>The build environment is being set up.</p>
-   *                 </dd>
+   *                <p>The build environment is being set up.</p>
+   *             </dd>
    *             <dt>QUEUED</dt>
    *             <dd>
-   *                     <p>The build has been submitted and is queued behind other submitted
+   *                <p>The build has been submitted and is queued behind other submitted
    *                         builds.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>SUBMITTED</dt>
    *             <dd>
-   *                     <p>The build has been submitted.</p>
-   *                 </dd>
+   *                <p>The build has been submitted.</p>
+   *             </dd>
    *             <dt>UPLOAD_ARTIFACTS</dt>
    *             <dd>
-   *                     <p>Build output artifacts are being uploaded to the output location.</p>
-   *                 </dd>
+   *                <p>Build output artifacts are being uploaded to the output location.</p>
+   *             </dd>
    *          </dl>
    */
   phaseType?: BuildPhaseType | string;
@@ -2223,31 +2223,31 @@ export interface BuildPhase {
   /**
    * @public
    * <p>The current status of the build phase. Valid values include:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>FAILED</dt>
    *             <dd>
-   *                     <p>The build phase failed.</p>
-   *                 </dd>
+   *                <p>The build phase failed.</p>
+   *             </dd>
    *             <dt>FAULT</dt>
    *             <dd>
-   *                     <p>The build phase faulted.</p>
-   *                 </dd>
+   *                <p>The build phase faulted.</p>
+   *             </dd>
    *             <dt>IN_PROGRESS</dt>
    *             <dd>
-   *                     <p>The build phase is still in progress.</p>
-   *                 </dd>
+   *                <p>The build phase is still in progress.</p>
+   *             </dd>
    *             <dt>STOPPED</dt>
    *             <dd>
-   *                     <p>The build phase stopped.</p>
-   *                 </dd>
+   *                <p>The build phase stopped.</p>
+   *             </dd>
    *             <dt>SUCCEEDED</dt>
    *             <dd>
-   *                     <p>The build phase succeeded.</p>
-   *                 </dd>
+   *                <p>The build phase succeeded.</p>
+   *             </dd>
    *             <dt>TIMED_OUT</dt>
    *             <dd>
-   *                     <p>The build phase timed out.</p>
-   *                 </dd>
+   *                <p>The build phase timed out.</p>
+   *             </dd>
    *          </dl>
    */
   phaseStatus?: StatusType | string;
@@ -2326,29 +2326,29 @@ export interface Build {
   /**
    * @public
    * <p>The current status of the build. Valid values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code>: The build failed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAULT</code>: The build faulted.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>IN_PROGRESS</code>: The build is still in progress.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STOPPED</code>: The build stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCEEDED</code>: The build succeeded.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TIMED_OUT</code>: The build timed out.</p>
    *             </li>
    *          </ul>
@@ -2360,7 +2360,7 @@ export interface Build {
    * <p>Any version identifier for the version of the source code to be built. If
    *                 <code>sourceVersion</code> is specified at the project level, then this
    *                 <code>sourceVersion</code> (at the build level) takes precedence. </p>
-   *         <p> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample
+   *          <p> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample
    *                 with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>
    */
   sourceVersion?: string;
@@ -2368,15 +2368,15 @@ export interface Build {
   /**
    * @public
    * <p> An identifier for the version of this build's source code. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p> For CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID. </p>
+   *                <p> For CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID. </p>
    *             </li>
    *             <li>
-   *                 <p> For CodePipeline, the source revision provided by CodePipeline. </p>
+   *                <p> For CodePipeline, the source revision provided by CodePipeline. </p>
    *             </li>
    *             <li>
-   *                 <p> For Amazon S3, this does not apply. </p>
+   *                <p> For Amazon S3, this does not apply. </p>
    *             </li>
    *          </ul>
    */
@@ -2411,12 +2411,12 @@ export interface Build {
    * @public
    * <p> An array of <code>ProjectSourceVersion</code> objects. Each
    *                 <code>ProjectSourceVersion</code> must be one of: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For CodeCommit: the commit ID, branch, or Git tag to use.</p>
+   *                <p>For CodeCommit: the commit ID, branch, or Git tag to use.</p>
    *             </li>
    *             <li>
-   *                 <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that
+   *                <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that
    *                     corresponds to the version of the source code you want to build. If a pull
    *                     request ID is specified, it must use the format <code>pr/pull-request-ID</code>
    *                     (for example, <code>pr/25</code>). If a branch name is specified, the branch's
@@ -2424,13 +2424,13 @@ export interface Build {
    *                     used.</p>
    *             </li>
    *             <li>
-   *                 <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the
+   *                <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the
    *                     version of the source code you want to build. If a branch name is specified, the
    *                     branch's HEAD commit ID is used. If not specified, the default branch's HEAD
    *                     commit ID is used.</p>
    *             </li>
    *             <li>
-   *                 <p>For Amazon S3: the version ID of the object that represents the build input ZIP
+   *                <p>For Amazon S3: the version ID of the object that represents the build input ZIP
    *                     file to use.</p>
    *             </li>
    *          </ul>
@@ -2495,17 +2495,17 @@ export interface Build {
   /**
    * @public
    * <p>The entity that started the build. Valid values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If CodePipeline started the build, the pipeline's name (for example,
+   *                <p>If CodePipeline started the build, the pipeline's name (for example,
    *                         <code>codepipeline/my-demo-pipeline</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>If an IAM user started the build, the user's name (for example,
+   *                <p>If an IAM user started the build, the user's name (for example,
    *                         <code>MyUserName</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>If the Jenkins plugin for CodeBuild started the build, the string
+   *                <p>If the Jenkins plugin for CodeBuild started the build, the string
    *                         <code>CodeBuild-Jenkins-Plugin</code>.</p>
    *             </li>
    *          </ul>
@@ -2531,11 +2531,11 @@ export interface Build {
    * @public
    * <p>The Key Management Service customer master key (CMK) to be used for encrypting the build output
    *             artifacts.</p>
-   *         <note>
+   *          <note>
    *             <p> You can use a cross-account KMS key to encrypt the build output artifacts if your
    *                 service role has permission to that key. </p>
-   *         </note>
-   *         <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
+   *          </note>
+   *          <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
    *             the format <code>alias/<alias-name></code>).</p>
    */
   encryptionKey?: string;
@@ -2543,7 +2543,7 @@ export interface Build {
   /**
    * @public
    * <p>A list of exported environment variables for this build.</p>
-   *         <p>Exported environment variables are used in conjunction with CodePipeline to export
+   *          <p>Exported environment variables are used in conjunction with CodePipeline to export
    *   environment variables from the current build stage to subsequent stages in the pipeline.
    *   For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-variables.html">Working with variables</a> in the <i>CodePipeline User Guide</i>.</p>
    */
@@ -2616,23 +2616,23 @@ export interface ProjectArtifacts {
   /**
    * @public
    * <p>The type of build output artifact. Valid values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CODEPIPELINE</code>: The build project has build output generated
    *                     through CodePipeline. </p>
-   *                 <note>
-   *                     <p>The <code>CODEPIPELINE</code> type is not supported for
+   *                <note>
+   *                   <p>The <code>CODEPIPELINE</code> type is not supported for
    *                             <code>secondaryArtifacts</code>.</p>
-   *                 </note>
+   *                </note>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NO_ARTIFACTS</code>: The build project does not produce any build
    *                     output.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>S3</code>: The build project stores build output in Amazon S3.</p>
    *             </li>
    *          </ul>
@@ -2642,18 +2642,18 @@ export interface ProjectArtifacts {
   /**
    * @public
    * <p>Information about the build output artifact location:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
+   *                <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
    *                     value if specified. This is because CodePipeline manages its build output locations
    *                     instead of CodeBuild.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
+   *                <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
    *                     ignored if specified, because no build output is produced.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>S3</code>, this is the name of the output
+   *                <p>If <code>type</code> is set to <code>S3</code>, this is the name of the output
    *                     bucket.</p>
    *             </li>
    *          </ul>
@@ -2664,23 +2664,23 @@ export interface ProjectArtifacts {
    * @public
    * <p>Along with <code>namespaceType</code> and <code>name</code>, the pattern that CodeBuild
    *             uses to name and store the output artifact:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
+   *                <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
    *                     value if specified. This is because CodePipeline manages its build output names instead
    *                     of CodeBuild.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
+   *                <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
    *                     ignored if specified, because no build output is produced.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>S3</code>, this is the path to the output
+   *                <p>If <code>type</code> is set to <code>S3</code>, this is the path to the output
    *                     artifact. If <code>path</code> is not specified, <code>path</code> is not
    *                     used.</p>
    *             </li>
    *          </ul>
-   *         <p>For example, if <code>path</code> is set to <code>MyArtifacts</code>,
+   *          <p>For example, if <code>path</code> is set to <code>MyArtifacts</code>,
    *                 <code>namespaceType</code> is set to <code>NONE</code>, and <code>name</code> is set
    *             to <code>MyArtifact.zip</code>, the output artifact is stored in the output bucket at
    *                 <code>MyArtifacts/MyArtifact.zip</code>.</p>
@@ -2691,33 +2691,33 @@ export interface ProjectArtifacts {
    * @public
    * <p>Along with <code>path</code> and <code>name</code>, the pattern that CodeBuild uses to
    *             determine the name and location to store the output artifact:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
+   *                <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
    *                     value if specified. This is because CodePipeline manages its build output names instead
    *                     of CodeBuild.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
+   *                <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
    *                     ignored if specified, because no build output is produced.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>S3</code>, valid values include:</p>
-   *                 <ul>
+   *                <p>If <code>type</code> is set to <code>S3</code>, valid values include:</p>
+   *                <ul>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>BUILD_ID</code>: Include the build ID in the location of the
    *                             build output artifact.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>NONE</code>: Do not include the build ID. This is the default if
    *                                 <code>namespaceType</code> is not specified.</p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
-   *         <p>For example, if <code>path</code> is set to <code>MyArtifacts</code>,
+   *          <p>For example, if <code>path</code> is set to <code>MyArtifacts</code>,
    *                 <code>namespaceType</code> is set to <code>BUILD_ID</code>, and <code>name</code> is
    *             set to <code>MyArtifact.zip</code>, the output artifact is stored in
    *                 <code>MyArtifacts/<build-ID>/MyArtifact.zip</code>.</p>
@@ -2728,37 +2728,37 @@ export interface ProjectArtifacts {
    * @public
    * <p>Along with <code>path</code> and <code>namespaceType</code>, the pattern that CodeBuild
    *             uses to name and store the output artifact:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
+   *                <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
    *                     value if specified. This is because CodePipeline manages its build output names instead
    *                     of CodeBuild.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
+   *                <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
    *                     ignored if specified, because no build output is produced.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>S3</code>, this is the name of the output
+   *                <p>If <code>type</code> is set to <code>S3</code>, this is the name of the output
    *                     artifact object. If you set the name to be a forward slash ("/"), the artifact
    *                     is stored in the root of the output bucket.</p>
    *             </li>
    *          </ul>
-   *         <p>For example:</p>
-   *         <ul>
+   *          <p>For example:</p>
+   *          <ul>
    *             <li>
-   *                 <p> If <code>path</code> is set to <code>MyArtifacts</code>,
+   *                <p> If <code>path</code> is set to <code>MyArtifacts</code>,
    *                         <code>namespaceType</code> is set to <code>BUILD_ID</code>, and
    *                         <code>name</code> is set to <code>MyArtifact.zip</code>, then the output
    *                     artifact is stored in <code>MyArtifacts/<build-ID>/MyArtifact.zip</code>. </p>
    *             </li>
    *             <li>
-   *                 <p> If <code>path</code> is empty, <code>namespaceType</code> is set to
+   *                <p> If <code>path</code> is empty, <code>namespaceType</code> is set to
    *                         <code>NONE</code>, and <code>name</code> is set to "<code>/</code>", the
    *                     output artifact is stored in the root of the output bucket. </p>
    *             </li>
    *             <li>
-   *                 <p> If <code>path</code> is set to <code>MyArtifacts</code>,
+   *                <p> If <code>path</code> is set to <code>MyArtifacts</code>,
    *                         <code>namespaceType</code> is set to <code>BUILD_ID</code>, and
    *                         <code>name</code> is set to "<code>/</code>", the output artifact is stored
    *                     in <code>MyArtifacts/<build-ID></code>. </p>
@@ -2770,30 +2770,30 @@ export interface ProjectArtifacts {
   /**
    * @public
    * <p>The type of build output artifact to create:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
+   *                <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
    *                     value if specified. This is because CodePipeline manages its build output artifacts
    *                     instead of CodeBuild.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
+   *                <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
    *                     ignored if specified, because no build output is produced.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>S3</code>, valid values include:</p>
-   *                 <ul>
+   *                <p>If <code>type</code> is set to <code>S3</code>, valid values include:</p>
+   *                <ul>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>NONE</code>: CodeBuild creates in the output bucket a folder that
    *                             contains the build output. This is the default if <code>packaging</code>
    *                             is not specified.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>ZIP</code>: CodeBuild creates in the output bucket a ZIP file that
    *                             contains the build output.</p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
@@ -2829,40 +2829,40 @@ export interface ProjectArtifacts {
    *             Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has
    *             access to these objects. This property allows you to give the bucket owner access to
    *             these objects.</p>
-   *         <note>
+   *          <note>
    *             <p>To use this property, your CodeBuild service role must have the
    *                     <code>s3:PutBucketAcl</code> permission. This permission allows CodeBuild to modify
    *                 the access control list for the bucket.</p>
-   *         </note>
-   *         <p>This property can be one of the following values:</p>
+   *          </note>
+   *          <p>This property can be one of the following values:</p>
    *          <dl>
    *             <dt>NONE</dt>
    *             <dd>
-   *                 <p>The bucket owner does not have access to the objects. This is the
+   *                <p>The bucket owner does not have access to the objects. This is the
    *                         default.</p>
    *             </dd>
    *             <dt>READ_ONLY</dt>
    *             <dd>
-   *               <p>The bucket owner has read-only access to the objects. The uploading account
+   *                <p>The bucket owner has read-only access to the objects. The uploading account
    *                         retains ownership of the objects.</p>
    *             </dd>
    *             <dt>FULL</dt>
    *             <dd>
-   *               <p>The bucket owner has full access to the objects. Object ownership is determined
+   *                <p>The bucket owner has full access to the objects. Object ownership is determined
    *                         by the following criteria:</p>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>If the bucket is configured with the <b>Bucket
+   *                      <p>If the bucket is configured with the <b>Bucket
    *                                     owner preferred</b> setting, the bucket owner owns the
    *                                 objects. The uploading account will have object access as specified
    *                                 by the bucket's policy.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>Otherwise, the uploading account retains ownership of the
+   *                      <p>Otherwise, the uploading account retains ownership of the
    *                                 objects.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                     <p>For more information about Amazon S3 object ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of uploaded objects using S3
+   *                <p>For more information about Amazon S3 object ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of uploaded objects using S3
    *                             Object Ownership</a> in the <i>Amazon Simple Storage Service User
    *                         Guide</i>.</p>
    *             </dd>
@@ -2908,7 +2908,7 @@ export type ProjectVisibilityType = (typeof ProjectVisibilityType)[keyof typeof 
 /**
  * @public
  * <p>A tag, consisting of a key and a value.</p>
- *         <p>This tag is available for use by Amazon Web Services services that support tags in CodeBuild.</p>
+ *          <p>This tag is available for use by Amazon Web Services services that support tags in CodeBuild.</p>
  */
 export interface Tag {
   /**
@@ -2966,12 +2966,12 @@ export interface WebhookFilter {
    * <p> The type of webhook filter. There are six webhook filter types: <code>EVENT</code>,
    *                 <code>ACTOR_ACCOUNT_ID</code>, <code>HEAD_REF</code>, <code>BASE_REF</code>,
    *                 <code>FILE_PATH</code>, and <code>COMMIT_MESSAGE</code>. </p>
-   *         <dl>
+   *          <dl>
    *             <dt>
    *                EVENT
    *             </dt>
    *             <dd>
-   *                     <p> A webhook event triggers a build when the provided <code>pattern</code>
+   *                <p> A webhook event triggers a build when the provided <code>pattern</code>
    *                         matches one of five event types: <code>PUSH</code>,
    *                             <code>PULL_REQUEST_CREATED</code>, <code>PULL_REQUEST_UPDATED</code>,
    *                             <code>PULL_REQUEST_REOPENED</code>, and
@@ -2979,63 +2979,63 @@ export interface WebhookFilter {
    *                         specified as a comma-separated string. For example, <code>PUSH,
    *                             PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED</code> filters all push, pull
    *                         request created, and pull request updated events. </p>
-   *                     <note>
-   *                         <p> The <code>PULL_REQUEST_REOPENED</code> works with GitHub and GitHub
+   *                <note>
+   *                   <p> The <code>PULL_REQUEST_REOPENED</code> works with GitHub and GitHub
    *                             Enterprise only. </p>
-   *                     </note>
-   *                 </dd>
+   *                </note>
+   *             </dd>
    *             <dt>
    *                ACTOR_ACCOUNT_ID
    *             </dt>
    *             <dd>
-   *                     <p> A webhook event triggers a build when a GitHub, GitHub Enterprise, or
+   *                <p> A webhook event triggers a build when a GitHub, GitHub Enterprise, or
    *                         Bitbucket account ID matches the regular expression <code>pattern</code>.
    *                     </p>
-   *                 </dd>
+   *             </dd>
    *             <dt>
    *                HEAD_REF
    *             </dt>
    *             <dd>
-   *                     <p> A webhook event triggers a build when the head reference matches the
+   *                <p> A webhook event triggers a build when the head reference matches the
    *                         regular expression <code>pattern</code>. For example,
    *                             <code>refs/heads/branch-name</code> and <code>refs/tags/tag-name</code>. </p>
-   *                     <p> Works with GitHub and GitHub Enterprise push, GitHub and GitHub
+   *                <p> Works with GitHub and GitHub Enterprise push, GitHub and GitHub
    *                         Enterprise pull request, Bitbucket push, and Bitbucket pull request events.
    *                     </p>
-   *                 </dd>
+   *             </dd>
    *             <dt>
    *                BASE_REF
    *             </dt>
    *             <dd>
-   *                     <p> A webhook event triggers a build when the base reference matches the
+   *                <p> A webhook event triggers a build when the base reference matches the
    *                         regular expression <code>pattern</code>. For example,
    *                             <code>refs/heads/branch-name</code>. </p>
-   *                     <note>
-   *                         <p> Works with pull request events only. </p>
-   *                     </note>
-   *                 </dd>
+   *                <note>
+   *                   <p> Works with pull request events only. </p>
+   *                </note>
+   *             </dd>
    *             <dt>
    *                FILE_PATH
    *             </dt>
    *             <dd>
-   *                     <p> A webhook triggers a build when the path of a changed file matches the
+   *                <p> A webhook triggers a build when the path of a changed file matches the
    *                         regular expression <code>pattern</code>. </p>
-   *                     <note>
-   *                         <p> Works with GitHub and Bitbucket events push and pull requests events.
+   *                <note>
+   *                   <p> Works with GitHub and Bitbucket events push and pull requests events.
    *                             Also works with GitHub Enterprise push events, but does not work with
    *                             GitHub Enterprise pull request events. </p>
-   *                     </note>
-   *                 </dd>
+   *                </note>
+   *             </dd>
    *             <dt>COMMIT_MESSAGE</dt>
    *             <dd>
-   *                     <p>A webhook triggers a build when the head commit message matches the
+   *                <p>A webhook triggers a build when the head commit message matches the
    *                         regular expression <code>pattern</code>.</p>
-   *                     <note>
-   *                         <p> Works with GitHub and Bitbucket events push and pull requests events.
+   *                <note>
+   *                   <p> Works with GitHub and Bitbucket events push and pull requests events.
    *                             Also works with GitHub Enterprise push events, but does not work with
    *                             GitHub Enterprise pull request events. </p>
-   *                     </note>
-   *                 </dd>
+   *                </note>
+   *             </dd>
    *          </dl>
    */
   type: WebhookFilterType | string | undefined;
@@ -3046,7 +3046,7 @@ export interface WebhookFilter {
    *             string that specifies one or more events. For example, the webhook filter <code>PUSH,
    *                 PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED</code> allows all push, pull request
    *             created, and pull request updated events to trigger a build. </p>
-   *         <p> For a <code>WebHookFilter</code> that uses any of the other filter types, a regular
+   *          <p> For a <code>WebHookFilter</code> that uses any of the other filter types, a regular
    *             expression pattern. For example, a <code>WebHookFilter</code> that uses
    *                 <code>HEAD_REF</code> for its <code>type</code> and the pattern
    *                 <code>^refs/heads/</code> triggers a build when the head reference is a branch with
@@ -3341,7 +3341,6 @@ export interface Project {
   /**
    * @public
    * <p>Specifies the visibility of the project's builds. Possible values are:</p>
-   *
    *          <dl>
    *             <dt>PUBLIC_READ</dt>
    *             <dd>
@@ -3454,15 +3453,15 @@ export interface S3ReportExportConfig {
   /**
    * @public
    * <p> The type of build output artifact to create. Valid values include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>NONE</code>: CodeBuild creates the raw data in the output bucket. This
+   *                <p>
+   *                   <code>NONE</code>: CodeBuild creates the raw data in the output bucket. This
    *                     is the default if packaging is not specified. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>ZIP</code>: CodeBuild creates a ZIP file with the raw data in the
+   *                <p>
+   *                   <code>ZIP</code>: CodeBuild creates a ZIP file with the raw data in the
    *                     output bucket. </p>
    *             </li>
    *          </ul>
@@ -3490,14 +3489,14 @@ export interface ReportExportConfig {
   /**
    * @public
    * <p> The export configuration type. Valid values are: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>S3</code>: The report results are exported to an S3 bucket. </p>
+   *                <p>
+   *                   <code>S3</code>: The report results are exported to an S3 bucket. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>NO_EXPORT</code>: The report results are not exported. </p>
+   *                <p>
+   *                   <code>NO_EXPORT</code>: The report results are not exported. </p>
    *             </li>
    *          </ul>
    */
@@ -3599,7 +3598,7 @@ export interface ReportGroup {
   /**
    * @public
    * <p>A list of tag key and value pairs associated with this report group. </p>
-   *         <p>These tags are available for use by Amazon Web Services services that support CodeBuild report group
+   *          <p>These tags are available for use by Amazon Web Services services that support CodeBuild report group
    *       tags.</p>
    */
   tags?: Tag[];
@@ -3659,9 +3658,9 @@ export interface BatchGetReportsInput {
 /**
  * @public
  * <p>Contains a summary of a code coverage report.</p>
- *         <p>Line coverage measures how many statements your tests cover. A statement is a single
+ *          <p>Line coverage measures how many statements your tests cover. A statement is a single
  *       instruction, not including comments, conditionals, etc.</p>
- *         <p>Branch coverage determines if your tests cover every possible branch of a control
+ *          <p>Branch coverage determines if your tests cover every possible branch of a control
  *     structure, such as an <code>if</code> or <code>case</code> statement.</p>
  */
 export interface CodeCoverageReportSummary {
@@ -4451,15 +4450,15 @@ export interface DescribeCodeCoveragesInput {
   /**
    * @public
    * <p>Specifies how the results are sorted. Possible values are:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>FILE_PATH</dt>
    *             <dd>
-   *                     <p>The results are sorted by file path.</p>
-   *                 </dd>
+   *                <p>The results are sorted by file path.</p>
+   *             </dd>
    *             <dt>LINE_COVERAGE_PERCENTAGE</dt>
    *             <dd>
-   *                     <p>The results are sorted by the percentage of lines that are covered.</p>
-   *                 </dd>
+   *                <p>The results are sorted by the percentage of lines that are covered.</p>
+   *             </dd>
    *          </dl>
    */
   sortBy?: ReportCodeCoverageSortByType | string;
@@ -4480,9 +4479,9 @@ export interface DescribeCodeCoveragesInput {
 /**
  * @public
  * <p>Contains code coverage report information.</p>
- *         <p>Line coverage measures how many statements your tests cover. A statement is a single
+ *          <p>Line coverage measures how many statements your tests cover. A statement is a single
  *       instruction, not including comments, conditionals, etc.</p>
- *         <p>Branch coverage determines if your tests cover every possible branch of a control
+ *          <p>Branch coverage determines if your tests cover every possible branch of a control
  *     structure, such as an <code>if</code> or <code>case</code> statement.</p>
  */
 export interface CodeCoverage {
@@ -4575,29 +4574,29 @@ export interface TestCaseFilter {
    * @public
    * <p>The status used to filter test cases. A <code>TestCaseFilter</code> can have one
    *             status. Valid values are:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCEEDED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ERROR</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SKIPPED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>UNKNOWN</code>
    *                </p>
    *             </li>
@@ -4776,7 +4775,7 @@ export interface GetReportGroupTrendInput {
    * @public
    * <p>The number of reports to analyze. This operation always retrieves the most recent
    *             reports.</p>
-   *         <p>If this parameter is omitted, the most recent 100 reports are analyzed.</p>
+   *          <p>If this parameter is omitted, the most recent 100 reports are analyzed.</p>
    */
   numOfReports?: number;
 
@@ -4786,61 +4785,61 @@ export interface GetReportGroupTrendInput {
    *          <dl>
    *             <dt>Test reports:</dt>
    *             <dd>
-   *                     <dl>
+   *                <dl>
    *                   <dt>DURATION</dt>
    *                   <dd>
-   *                                 <p>Accumulate the test run times for the specified
+   *                      <p>Accumulate the test run times for the specified
    *                                     reports.</p>
-   *                             </dd>
+   *                   </dd>
    *                   <dt>PASS_RATE</dt>
    *                   <dd>
-   *                                 <p>Accumulate the percentage of tests that passed for the
+   *                      <p>Accumulate the percentage of tests that passed for the
    *                                     specified test reports.</p>
-   *                             </dd>
+   *                   </dd>
    *                   <dt>TOTAL</dt>
    *                   <dd>
-   *                                 <p>Accumulate the total number of tests for the specified test
+   *                      <p>Accumulate the total number of tests for the specified test
    *                                     reports.</p>
-   *                             </dd>
+   *                   </dd>
    *                </dl>
-   *                 </dd>
+   *             </dd>
    *          </dl>
    *          <dl>
    *             <dt>Code coverage reports:</dt>
    *             <dd>
-   *                     <dl>
+   *                <dl>
    *                   <dt>BRANCH_COVERAGE</dt>
    *                   <dd>
-   *                                 <p>Accumulate the branch coverage percentages for the specified
+   *                      <p>Accumulate the branch coverage percentages for the specified
    *                                     test reports.</p>
-   *                             </dd>
+   *                   </dd>
    *                   <dt>BRANCHES_COVERED</dt>
    *                   <dd>
-   *                                 <p>Accumulate the branches covered values for the specified test
+   *                      <p>Accumulate the branches covered values for the specified test
    *                                     reports.</p>
-   *                             </dd>
+   *                   </dd>
    *                   <dt>BRANCHES_MISSED</dt>
    *                   <dd>
-   *                                 <p>Accumulate the branches missed values for the specified test
+   *                      <p>Accumulate the branches missed values for the specified test
    *                                     reports.</p>
-   *                             </dd>
+   *                   </dd>
    *                   <dt>LINE_COVERAGE</dt>
    *                   <dd>
-   *                                 <p>Accumulate the line coverage percentages for the specified
+   *                      <p>Accumulate the line coverage percentages for the specified
    *                                     test reports.</p>
-   *                             </dd>
+   *                   </dd>
    *                   <dt>LINES_COVERED</dt>
    *                   <dd>
-   *                                 <p>Accumulate the lines covered values for the specified test
+   *                      <p>Accumulate the lines covered values for the specified test
    *                                     reports.</p>
-   *                             </dd>
+   *                   </dd>
    *                   <dt>LINES_MISSED</dt>
    *                   <dd>
-   *                                 <p>Accumulate the lines not covered values for the specified test
+   *                      <p>Accumulate the lines not covered values for the specified test
    *                                     reports.</p>
-   *                             </dd>
+   *                   </dd>
    *                </dl>
-   *                 </dd>
+   *             </dd>
    *          </dl>
    */
   trendField: ReportGroupTrendFieldType | string | undefined;
@@ -5095,14 +5094,14 @@ export interface ListBuildBatchesForProjectInput {
   /**
    * @public
    * <p>Specifies the sort order of the returned items. Valid values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ASCENDING</code>: List the batch build identifiers in ascending order by
    *                     identifier.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DESCENDING</code>: List the batch build identifiers in descending order
    *                     by identifier.</p>
    *             </li>
@@ -5145,14 +5144,14 @@ export interface ListBuildsInput {
   /**
    * @public
    * <p>The order to list build IDs. Valid values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ASCENDING</code>: List the build IDs in ascending order by build
    *                     ID.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DESCENDING</code>: List the build IDs in descending order by build
    *                     ID.</p>
    *             </li>
@@ -5206,18 +5205,18 @@ export interface ListBuildsForProjectInput {
    * @public
    * <p>The order to sort the results in. The results are sorted by build number, not the build
    *             identifier. If this is not specified, the results are sorted in descending order.</p>
-   *         <p>Valid values include:</p>
-   *         <ul>
+   *          <p>Valid values include:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ASCENDING</code>: List the build identifiers in ascending order, by build number.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DESCENDING</code>: List the build identifiers in descending order, by build number.</p>
    *             </li>
    *          </ul>
-   *         <p>If the project has more than 100 builds, setting the sort order will result in an
+   *          <p>If the project has more than 100 builds, setting the sort order will result in an
    *             error. </p>
    */
   sortOrder?: SortOrderType | string;
@@ -5395,23 +5394,23 @@ export interface ListProjectsInput {
   /**
    * @public
    * <p>The criterion to be used to list build project names. Valid values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATED_TIME</code>: List based on when each build project was
    *                     created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LAST_MODIFIED_TIME</code>: List based on when information about each
    *                     build project was last changed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NAME</code>: List based on each build project's name.</p>
    *             </li>
    *          </ul>
-   *         <p>Use <code>sortOrder</code> to specify in what order to list the build project names
+   *          <p>Use <code>sortOrder</code> to specify in what order to list the build project names
    *             based on the preceding criteria.</p>
    */
   sortBy?: ProjectSortByType | string;
@@ -5419,17 +5418,17 @@ export interface ListProjectsInput {
   /**
    * @public
    * <p>The order in which to list build projects. Valid values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ASCENDING</code>: List in ascending order.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DESCENDING</code>: List in descending order.</p>
    *             </li>
    *          </ul>
-   *         <p>Use <code>sortBy</code> to specify the criterion to be used to list build project
+   *          <p>Use <code>sortBy</code> to specify the criterion to be used to list build project
    *             names.</p>
    */
   sortOrder?: SortOrderType | string;
@@ -5754,14 +5753,14 @@ export interface ListSharedProjectsInput {
    * @public
    * <p> The criterion to be used to list build projects shared with the current Amazon Web Services account
    *             or user. Valid values include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ARN</code>: List based on the ARN. </p>
+   *                <p>
+   *                   <code>ARN</code>: List based on the ARN. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>MODIFIED_TIME</code>: List based on when information about the shared
+   *                <p>
+   *                   <code>MODIFIED_TIME</code>: List based on when information about the shared
    *                     project was last changed. </p>
    *             </li>
    *          </ul>
@@ -5771,13 +5770,13 @@ export interface ListSharedProjectsInput {
   /**
    * @public
    * <p>The order in which to list shared build projects. Valid values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ASCENDING</code>: List in ascending order.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DESCENDING</code>: List in descending order.</p>
    *             </li>
    *          </ul>
@@ -5834,13 +5833,13 @@ export interface ListSharedReportGroupsInput {
   /**
    * @public
    * <p>The order in which to list shared report groups. Valid values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ASCENDING</code>: List in ascending order.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DESCENDING</code>: List in descending order.</p>
    *             </li>
    *          </ul>
@@ -5851,14 +5850,14 @@ export interface ListSharedReportGroupsInput {
    * @public
    * <p> The criterion to be used to list report groups shared with the current Amazon Web Services account or
    *             user. Valid values include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ARN</code>: List based on the ARN. </p>
+   *                <p>
+   *                   <code>ARN</code>: List based on the ARN. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>MODIFIED_TIME</code>: List based on when information about the shared
+   *                <p>
+   *                   <code>MODIFIED_TIME</code>: List based on when information about the shared
    *                     report group was last changed. </p>
    *             </li>
    *          </ul>
@@ -6097,36 +6096,36 @@ export interface StartBuildInput {
    * <p>The version of the build input to be built, for this build only. If not specified,
    *             the latest version is used. If specified, the contents depends on the source
    *             provider:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>CodeCommit</dt>
    *             <dd>
-   *                     <p>The commit ID, branch, or Git tag to use.</p>
-   *                 </dd>
+   *                <p>The commit ID, branch, or Git tag to use.</p>
+   *             </dd>
    *             <dt>GitHub</dt>
    *             <dd>
-   *                     <p>The commit ID, pull request ID, branch name, or tag name that corresponds
+   *                <p>The commit ID, pull request ID, branch name, or tag name that corresponds
    *                         to the version of the source code you want to build. If a pull request ID is
    *                         specified, it must use the format <code>pr/pull-request-ID</code> (for
    *                         example <code>pr/25</code>). If a branch name is specified, the branch's
    *                         HEAD commit ID is used. If not specified, the default branch's HEAD commit
    *                         ID is used.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>Bitbucket</dt>
    *             <dd>
-   *                     <p>The commit ID, branch name, or tag name that corresponds to the version of
+   *                <p>The commit ID, branch name, or tag name that corresponds to the version of
    *                         the source code you want to build. If a branch name is specified, the
    *                         branch's HEAD commit ID is used. If not specified, the default branch's HEAD
    *                         commit ID is used.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>Amazon S3</dt>
    *             <dd>
-   *                     <p>The version ID of the object that represents the build input ZIP file to
+   *                <p>The version ID of the object that represents the build input ZIP file to
    *                         use.</p>
-   *                 </dd>
+   *             </dd>
    *          </dl>
-   *         <p>If <code>sourceVersion</code> is specified at the project level, then this
+   *          <p>If <code>sourceVersion</code> is specified at the project level, then this
    *             <code>sourceVersion</code> (at the build level) takes precedence. </p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample
    *             with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>
    */
   sourceVersion?: string;
@@ -6191,7 +6190,7 @@ export interface StartBuildInput {
    * @public
    * <p>A buildspec file declaration that overrides, for this build only, the latest one
    *             already defined in the build project.</p>
-   *         <p> If this value is set, it can be either an inline buildspec definition, the path to an
+   *          <p> If this value is set, it can be either an inline buildspec definition, the path to an
    *             alternate buildspec file relative to the value of the built-in
    *                 <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket.
    *             The bucket must be in the same Amazon Web Services Region as the build project. Specify the buildspec
@@ -6216,12 +6215,12 @@ export interface StartBuildInput {
    * <p> Set to true to report to your source provider the status of a build's start and
    *             completion. If you use this option with a source provider other than GitHub, GitHub
    *             Enterprise, or Bitbucket, an <code>invalidInputException</code> is thrown. </p>
-   *             <p>To be able to report the build status to the source provider, the user associated with the source provider must
+   *          <p>To be able to report the build status to the source provider, the user associated with the source provider must
    * have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p>
-   *         <note>
+   *          <note>
    *             <p> The status of a build triggered by a webhook is always reported to your source
    *                 provider. </p>
-   *         </note>
+   *          </note>
    */
   reportBuildStatusOverride?: boolean;
 
@@ -6299,11 +6298,11 @@ export interface StartBuildInput {
    * @public
    * <p>The Key Management Service customer master key (CMK) that overrides the one specified in the build
    *             project. The CMK key encrypts the build output artifacts.</p>
-   *         <note>
+   *          <note>
    *             <p> You can use a cross-account KMS key to encrypt the build output artifacts if your
    *                 service role has permission to that key. </p>
-   *         </note>
-   *         <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
+   *          </note>
+   *          <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
    *             the format <code>alias/<alias-name></code>).</p>
    */
   encryptionKeyOverride?: string;
@@ -6334,18 +6333,18 @@ export interface StartBuildInput {
    * @public
    * <p>The type of credentials CodeBuild uses to pull images in your build. There are two valid
    *             values: </p>
-   *         <dl>
+   *          <dl>
    *             <dt>CODEBUILD</dt>
    *             <dd>
-   *                     <p>Specifies that CodeBuild uses its own credentials. This requires that you
+   *                <p>Specifies that CodeBuild uses its own credentials. This requires that you
    *                         modify your ECR repository policy to trust CodeBuild's service principal.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>SERVICE_ROLE</dt>
    *             <dd>
-   *                     <p>Specifies that CodeBuild uses your build project's service role. </p>
-   *                 </dd>
+   *                <p>Specifies that CodeBuild uses your build project's service role. </p>
+   *             </dd>
    *          </dl>
-   *         <p>When using a cross-account or private registry image, you must use
+   *          <p>When using a cross-account or private registry image, you must use
    *             <code>SERVICE_ROLE</code> credentials. When using an CodeBuild curated image,
    *             you must use <code>CODEBUILD</code> credentials. </p>
    */
@@ -6399,32 +6398,32 @@ export interface StartBuildBatchInput {
    * <p>The version of the batch build input to be built, for this build only. If not specified,
    *             the latest version is used. If specified, the contents depends on the source
    *             provider:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>CodeCommit</dt>
    *             <dd>
-   *                     <p>The commit ID, branch, or Git tag to use.</p>
-   *                 </dd>
+   *                <p>The commit ID, branch, or Git tag to use.</p>
+   *             </dd>
    *             <dt>GitHub</dt>
    *             <dd>
-   *                     <p>The commit ID, pull request ID, branch name, or tag name that corresponds
+   *                <p>The commit ID, pull request ID, branch name, or tag name that corresponds
    *                         to the version of the source code you want to build. If a pull request ID is
    *                         specified, it must use the format <code>pr/pull-request-ID</code> (for
    *                         example <code>pr/25</code>). If a branch name is specified, the branch's
    *                         HEAD commit ID is used. If not specified, the default branch's HEAD commit
    *                         ID is used.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>Bitbucket</dt>
    *             <dd>
-   *                     <p>The commit ID, branch name, or tag name that corresponds to the version of
+   *                <p>The commit ID, branch name, or tag name that corresponds to the version of
    *                         the source code you want to build. If a branch name is specified, the
    *                         branch's HEAD commit ID is used. If not specified, the default branch's HEAD
    *                         commit ID is used.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>Amazon S3</dt>
    *             <dd>
-   *                     <p>The version ID of the object that represents the build input ZIP file to
+   *                <p>The version ID of the object that represents the build input ZIP file to
    *                         use.</p>
-   *                 </dd>
+   *             </dd>
    *          </dl>
    *          <p>If <code>sourceVersion</code> is specified at the project level, then this
    *                 <code>sourceVersion</code> (at the build level) takes precedence. </p>
@@ -6626,16 +6625,16 @@ export interface StartBuildBatchInput {
    * @public
    * <p>The type of credentials CodeBuild uses to pull images in your batch build. There are two valid
    *         values: </p>
-   *         <dl>
+   *          <dl>
    *             <dt>CODEBUILD</dt>
    *             <dd>
-   *                     <p>Specifies that CodeBuild uses its own credentials. This requires that you
+   *                <p>Specifies that CodeBuild uses its own credentials. This requires that you
    *                         modify your ECR repository policy to trust CodeBuild's service principal.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>SERVICE_ROLE</dt>
    *             <dd>
-   *                     <p>Specifies that CodeBuild uses your build project's service role. </p>
-   *                 </dd>
+   *                <p>Specifies that CodeBuild uses your build project's service role. </p>
+   *             </dd>
    *          </dl>
    *          <p>When using a cross-account or private registry image, you must use
    *                 <code>SERVICE_ROLE</code> credentials. When using an CodeBuild curated image,
@@ -6926,7 +6925,6 @@ export interface UpdateProjectVisibilityInput {
   /**
    * @public
    * <p>Specifies the visibility of the project's builds. Possible values are:</p>
-   *
    *          <dl>
    *             <dt>PUBLIC_READ</dt>
    *             <dd>
@@ -6967,7 +6965,6 @@ export interface UpdateProjectVisibilityOutput {
   /**
    * @public
    * <p>Specifies the visibility of the project's builds. Possible values are:</p>
-   *
    *          <dl>
    *             <dt>PUBLIC_READ</dt>
    *             <dd>

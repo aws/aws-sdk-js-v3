@@ -55,7 +55,7 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
  *   },
  *   DataAttributes: { // HumanLoopDataAttributes
  *     ContentClassifiers: [ // ContentClassifiers // required
- *       "STRING_VALUE",
+ *       "FreeOfPersonallyIdentifiableInformation" || "FreeOfAdultContent",
  *     ],
  *   },
  * };

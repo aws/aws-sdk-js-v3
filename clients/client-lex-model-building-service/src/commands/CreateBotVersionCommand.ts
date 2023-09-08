@@ -77,7 +77,7 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  * //   clarificationPrompt: { // Prompt
  * //     messages: [ // MessageList // required
  * //       { // Message
- * //         contentType: "STRING_VALUE", // required
+ * //         contentType: "PlainText" || "SSML" || "CustomPayload", // required
  * //         content: "STRING_VALUE", // required
  * //         groupNumber: Number("int"),
  * //       },
@@ -88,14 +88,14 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  * //   abortStatement: { // Statement
  * //     messages: [ // required
  * //       {
- * //         contentType: "STRING_VALUE", // required
+ * //         contentType: "PlainText" || "SSML" || "CustomPayload", // required
  * //         content: "STRING_VALUE", // required
  * //         groupNumber: Number("int"),
  * //       },
  * //     ],
  * //     responseCard: "STRING_VALUE",
  * //   },
- * //   status: "STRING_VALUE",
+ * //   status: "BUILDING" || "READY" || "READY_BASIC_TESTING" || "FAILED" || "NOT_BUILT",
  * //   failureReason: "STRING_VALUE",
  * //   lastUpdatedDate: new Date("TIMESTAMP"),
  * //   createdDate: new Date("TIMESTAMP"),
@@ -103,7 +103,7 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  * //   voiceId: "STRING_VALUE",
  * //   checksum: "STRING_VALUE",
  * //   version: "STRING_VALUE",
- * //   locale: "STRING_VALUE",
+ * //   locale: "de-DE" || "en-AU" || "en-GB" || "en-IN" || "en-US" || "es-419" || "es-ES" || "es-US" || "fr-FR" || "fr-CA" || "it-IT" || "ja-JP" || "ko-KR",
  * //   childDirected: true || false,
  * //   enableModelImprovements: true || false,
  * //   detectSentiment: true || false,

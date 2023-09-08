@@ -73,7 +73,7 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  * const command = new GetChangeTokenStatusCommand(input);
  * const response = await client.send(command);
  * // { // GetChangeTokenStatusResponse
- * //   ChangeTokenStatus: "STRING_VALUE",
+ * //   ChangeTokenStatus: "PROVISIONED" || "PENDING" || "INSYNC",
  * // };
  *
  * ```

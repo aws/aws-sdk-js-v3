@@ -474,6 +474,7 @@
           "arnNamespace": "dms",
           "cloudFormationName": "DMS",
           "cloudTrailEventSource": "databasemigrationservice.amazonaws.com",
+          "docId": "dms-2016-01-01",
           "endpointPrefix": "dms"
         },
         "aws.auth#sigv4": {
@@ -3560,7 +3561,10 @@
             "input": {
               "ReplicationSubnetGroupIdentifier": "us-west-2ab-vpc-215ds366",
               "ReplicationSubnetGroupDescription": "US West subnet group",
-              "SubnetIds": ["subnet-e145356n", "subnet-58f79200"],
+              "SubnetIds": [
+                "subnet-e145356n",
+                "subnet-58f79200"
+              ],
               "Tags": [
                 {
                   "Key": "Acount",
@@ -5231,7 +5235,10 @@
               "Filters": [
                 {
                   "Name": "string",
-                  "Values": ["string", "string"]
+                  "Values": [
+                    "string",
+                    "string"
+                  ]
                 }
               ],
               "MaxRecords": 123,
@@ -5319,7 +5326,10 @@
               "Filters": [
                 {
                   "Name": "string",
-                  "Values": ["string", "string"]
+                  "Values": [
+                    "string",
+                    "string"
+                  ]
                 }
               ],
               "MaxRecords": 123,
@@ -5627,7 +5637,10 @@
               "Filters": [
                 {
                   "Name": "string",
-                  "Values": ["string", "string"]
+                  "Values": [
+                    "string",
+                    "string"
+                  ]
                 }
               ],
               "MaxRecords": 123,
@@ -5717,7 +5730,10 @@
               "Filters": [
                 {
                   "Name": "string",
-                  "Values": ["string", "string"]
+                  "Values": [
+                    "string",
+                    "string"
+                  ]
                 }
               ],
               "MaxRecords": 123,
@@ -7546,7 +7562,10 @@
               "Filters": [
                 {
                   "Name": "string",
-                  "Values": ["string", "string"]
+                  "Values": [
+                    "string",
+                    "string"
+                  ]
                 }
               ],
               "MaxRecords": 123,
@@ -7716,7 +7735,10 @@
               "Filters": [
                 {
                   "Name": "string",
-                  "Values": ["string", "string"]
+                  "Values": [
+                    "string",
+                    "string"
+                  ]
                 }
               ],
               "MaxRecords": 123,
@@ -8108,7 +8130,10 @@
               "Filters": [
                 {
                   "Name": "string",
-                  "Values": ["string", "string"]
+                  "Values": [
+                    "string",
+                    "string"
+                  ]
                 }
               ],
               "MaxRecords": 123,

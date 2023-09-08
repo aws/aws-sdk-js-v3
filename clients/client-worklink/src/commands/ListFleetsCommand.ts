@@ -60,7 +60,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * //       FleetName: "STRING_VALUE",
  * //       DisplayName: "STRING_VALUE",
  * //       CompanyCode: "STRING_VALUE",
- * //       FleetStatus: "STRING_VALUE",
+ * //       FleetStatus: "CREATING" || "ACTIVE" || "DELETING" || "DELETED" || "FAILED_TO_CREATE" || "FAILED_TO_DELETE",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },

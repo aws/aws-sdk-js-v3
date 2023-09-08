@@ -3,7 +3,7 @@
 /**
  * <fullname>Amazon Timestream Query
  *         </fullname>
- *         <p></p>
+ *          <p></p>
  *
  * @packageDocumentation
  */

@@ -53,7 +53,11 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}", "oam:ResourceTypes"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "oam:ResourceTypes"
+        ],
         "smithy.api#documentation": "<p>Creates a link between a source account and a sink that you have created in a monitoring account.</p>\n        <p>Before you create a link, you must create a sink in the monitoring account and create a\n            sink policy in that account. The sink policy must permit the source account to link to it. You\n            can grant permission to source accounts by granting permission to an entire organization or to\n            individual accounts.</p>\n        <p>For more information, see\n            <a href=\"https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html\">CreateSink</a> and\n            <a href=\"https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html\">PutSinkPolicy</a>.</p>\n        <p>Each monitoring account can be linked to as many as 100,000 source accounts.</p>\n        <p>Each source account can be linked to as many as five monitoring accounts.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -172,7 +176,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Use this to create a <i>sink</i> in the current account, so that it can be\n            used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that\n            represents an attachment point in a monitoring account. Source accounts can link to the sink\n            to send observability data.</p>\n        <p>After you create a sink, you must create a sink policy that allows source accounts to attach to it.\n            For more information, see <a href=\"https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html\">PutSinkPolicy</a>.</p>\n        <p>Each account can contain one sink. If you delete a sink, you can then create a new one in that account.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -256,7 +263,9 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Deletes a link between a monitoring account sink and a source account. You must run this operation\n            in the source account.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -312,7 +321,9 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Deletes a sink. You must delete all links to a sink before you can delete that sink.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -365,7 +376,9 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Returns complete information about one link.</p>\n        <p>To use this operation, provide the link ARN. To retrieve a list of link ARNs, use <a href=\"https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html\">ListLinks</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -462,7 +475,9 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Returns complete information about one monitoring account sink.</p>\n        <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href=\"https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html\">ListSinks</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -541,7 +556,9 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Returns the current sink policy attached to this sink. The sink policy specifies what\n            accounts can attach to this sink as source accounts, and what types of data they can share.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -663,7 +680,9 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Returns a list of source account links that are linked to this monitoring account sink.</p>\n        <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href=\"https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html\">ListSinks</a>.</p>\n        <p>To find a list of links for one source account, use <a href=\"https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html\">ListLinks</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -676,7 +695,9 @@
           "items": "Items"
         },
         "smithy.api#readonly": {},
-        "smithy.api#tags": ["dataplane"]
+        "smithy.api#tags": [
+          "dataplane"
+        ]
       }
     },
     "com.amazonaws.oam#ListAttachedLinksInput": {
@@ -1118,7 +1139,9 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Creates or updates the resource policy that grants permissions to source\n            accounts to link to the monitoring account sink. When you create a sink policy, you can grant\n            permissions to all accounts in an organization or to individual accounts.</p>\n        <p>You can also use a sink policy to limit the types of data that is shared. The three types that\n            you can allow or deny are:</p>\n        <ul>\n            <li>\n               <p>\n                  <b>Metrics</b> - Specify with\n                <code>AWS::CloudWatch::Metric</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <b>Log groups</b> - Specify with <code>AWS::Logs::LogGroup</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <b>Traces</b> - Specify with <code>AWS::XRay::Trace</code>\n               </p>\n            </li>\n         </ul>\n        <p>See the examples in this section to see how to specify permitted source accounts and data types.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -1332,7 +1355,10 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to tag a resource",
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the specified resource.\n            Both sinks and links can be tagged. </p>\n        <p>Tags can help you organize and categorize your resources. You can also use them to scope user\n            permissions by granting a user\n            permission to access or change only resources with certain tag values.</p>\n        <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>\n        <p>You can use the <code>TagResource</code> action with a resource that already has tags. If you specify a new tag key for the alarm,\n            this tag is appended to the list of tags associated\n            with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces\n            the previous value for that tag.</p>\n        <p>You can associate as many as 50 tags with a resource.</p>\n        <important>\n            <p>Unlike tagging permissions in other Amazon Web Services services, to tag or untag links and\n            sinks you must have the <code>oam:ResourceTag</code> permission. The\n            <code>iam:ResourceTag</code> permission does not allow you to tag and untag links and\n            sinks.</p>\n         </important>",
         "smithy.api#http": {
           "method": "PUT",
@@ -1412,7 +1438,9 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to untag a resource",
-        "aws.iam#conditionKeys": ["aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Removes one or more tags from the specified resource.</p>\n        <important>\n            <p>Unlike tagging permissions in other Amazon Web Services services, to tag or untag links and\n            sinks you must have the <code>oam:ResourceTag</code> permission. The\n            <code>iam:TagResource</code> permission does not allow you to tag and untag links and\n            sinks.</p>\n         </important>",
         "smithy.api#http": {
           "method": "DELETE",
@@ -1475,7 +1503,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}", "oam:ResourceTypes"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "oam:ResourceTypes"
+        ],
         "smithy.api#documentation": "<p>Use this operation to change what types of data are shared from a source account to its linked\n            monitoring account sink. You can't change the sink or change the monitoring account with this operation.</p>\n        <p>To update the list of tags associated with the sink, use\n            <a href=\"https://docs.aws.amazon.com/OAM/latest/APIReference/API_TagResource.html\">TagResource</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -1649,10 +1680,18 @@
             "externalDocumentation": "${DocHomeURL}oam/latest/apireference/api_createlink.html#api_createlink_requestsyntax"
           }
         },
-        "aws.iam#supportedPrincipalTypes": ["Root", "IAMUser", "IAMRole", "FederatedUser"],
+        "aws.iam#supportedPrincipalTypes": [
+          "Root",
+          "IAMUser",
+          "IAMRole",
+          "FederatedUser"
+        ],
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
-          "additionalAllowedHeaders": ["Content-Type", "X-Amz-Requested-Operation"]
+          "additionalAllowedHeaders": [
+            "Content-Type",
+            "X-Amz-Requested-Operation"
+          ]
         },
         "smithy.api#documentation": "<p>Use Amazon CloudWatch Observability Access Manager to create and manage links between source accounts and\n            monitoring accounts by using <i>CloudWatch cross-account observability</i>. With\n            CloudWatch cross-account observability, you can monitor and troubleshoot applications that span\n            multiple accounts within a Region. Seamlessly search, visualize, and analyze your metrics,\n            logs, and traces in any of the linked accounts without account boundaries.</p>\n\n        <p>Set up one or more Amazon Web Services accounts as <i>monitoring\n            accounts</i> and link them with multiple <i>source accounts</i>. A\n            monitoring account is a central Amazon Web Services account that can view and interact with\n            observability data generated from source accounts. A source account is an individual Amazon Web Services account that generates observability data for the resources that reside in it.\n            Source accounts share their observability data with the monitoring account. The shared\n            observability data can include metrics in Amazon CloudWatch, logs in Amazon CloudWatch Logs, and traces in X-Ray.</p>",
         "smithy.api#title": "CloudWatch Observability Access Manager",
@@ -1661,7 +1700,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": true,
+              "required": false,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -1690,13 +1729,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -1704,23 +1742,20 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
                   "type": "tree",
                   "rules": [
                     {
@@ -1729,19 +1764,201 @@
                           "fn": "booleanEquals",
                           "argv": [
                             {
-                              "ref": "UseFIPS"
+                              "ref": "UseDualStack"
                             },
                             true
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
                       "type": "error"
                     },
                     {
                       "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
                       "type": "tree",
                       "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://oam-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://oam-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
                         {
                           "conditions": [
                             {
@@ -1754,212 +1971,75 @@
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://oam.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
                             }
                           ]
                         },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://oam-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
+                          "type": "tree",
+                          "rules": [
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://oam.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
                             }
                           ]
                         }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://oam-fips.{Region}.{PartitionResult#dnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
                       ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://oam.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
                     }
                   ]
                 },
                 {
                   "conditions": [],
-                  "endpoint": {
-                    "url": "https://oam.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
                 }
               ]
             }
@@ -1968,158 +2048,6 @@
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://oam-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "Region": "us-gov-east-1",
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://oam-fips.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "Region": "us-gov-east-1",
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://oam.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "Region": "us-gov-east-1",
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://oam.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "Region": "us-gov-east-1",
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://oam-fips.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "Region": "cn-north-1",
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://oam-fips.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "Region": "cn-north-1",
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://oam.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "Region": "cn-north-1",
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://oam.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "Region": "cn-north-1",
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "UseDualStack": true,
-                "Region": "us-iso-east-1",
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://oam-fips.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "Region": "us-iso-east-1",
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "UseDualStack": true,
-                "Region": "us-iso-east-1",
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://oam.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "Region": "us-iso-east-1",
-                "UseFIPS": false
-              }
-            },
-            {
               "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
@@ -2127,9 +2055,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "Region": "us-east-1",
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -2140,9 +2068,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "Region": "us-east-1",
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -2153,9 +2081,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "Region": "us-east-1",
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -2166,9 +2094,161 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "Region": "us-east-1",
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://oam-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://oam-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://oam.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://oam.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://oam-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://oam-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://oam.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://oam.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://oam-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://oam.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2177,9 +2257,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "UseDualStack": true,
                 "Region": "us-isob-east-1",
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -2190,9 +2270,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "Region": "us-isob-east-1",
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -2201,9 +2281,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "UseDualStack": true,
                 "Region": "us-isob-east-1",
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -2214,22 +2294,35 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "Region": "us-isob-east-1",
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "Region": "us-east-1",
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2239,9 +2332,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": false,
                 "Region": "us-east-1",
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2251,10 +2344,16 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": true,
                 "Region": "us-east-1",
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],

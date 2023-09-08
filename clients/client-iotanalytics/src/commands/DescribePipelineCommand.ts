@@ -120,7 +120,7 @@ export interface DescribePipelineCommandOutput extends DescribePipelineResponse,
  * //     reprocessingSummaries: [ // ReprocessingSummaries
  * //       { // ReprocessingSummary
  * //         id: "STRING_VALUE",
- * //         status: "STRING_VALUE",
+ * //         status: "RUNNING" || "SUCCEEDED" || "CANCELLED" || "FAILED",
  * //         creationTime: new Date("TIMESTAMP"),
  * //       },
  * //     ],

@@ -138,7 +138,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                     .orElse("key");
             writer.write("const keyNode = $L.withName($S);", keyTarget.accept(getMemberVisitor("key")), keyName);
             // Add @xmlNamespace value of the key member.
-            AwsProtocolUtils.writeXmlNamespace(context, keyMember, "workingNode");
+            AwsProtocolUtils.writeXmlNamespace(context, keyMember, "keyNode");
             writer.write("entryNode.addChildNode(keyNode);");
 
             // Prepare the value's node.

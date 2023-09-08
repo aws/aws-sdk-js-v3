@@ -63,7 +63,7 @@ export interface DescribeAnomalyDetectionExecutionsCommandOutput
  * //   ExecutionList: [ // ExecutionList
  * //     { // ExecutionStatus
  * //       Timestamp: "STRING_VALUE",
- * //       Status: "STRING_VALUE",
+ * //       Status: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "FAILED_TO_SCHEDULE",
  * //       FailureReason: "STRING_VALUE",
  * //     },
  * //   ],

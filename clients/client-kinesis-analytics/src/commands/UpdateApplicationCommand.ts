@@ -76,7 +76,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *         },
  *         InputSchemaUpdate: { // InputSchemaUpdate
  *           RecordFormatUpdate: { // RecordFormat
- *             RecordFormatType: "STRING_VALUE", // required
+ *             RecordFormatType: "JSON" || "CSV", // required
  *             MappingParameters: { // MappingParameters
  *               JSONMappingParameters: { // JSONMappingParameters
  *                 RecordRowPath: "STRING_VALUE", // required
@@ -119,7 +119,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *           RoleARNUpdate: "STRING_VALUE",
  *         },
  *         DestinationSchemaUpdate: { // DestinationSchema
- *           RecordFormatType: "STRING_VALUE", // required
+ *           RecordFormatType: "JSON" || "CSV", // required
  *         },
  *       },
  *     ],
@@ -134,7 +134,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *         },
  *         ReferenceSchemaUpdate: { // SourceSchema
  *           RecordFormat: {
- *             RecordFormatType: "STRING_VALUE", // required
+ *             RecordFormatType: "JSON" || "CSV", // required
  *             MappingParameters: {
  *               JSONMappingParameters: {
  *                 RecordRowPath: "STRING_VALUE", // required

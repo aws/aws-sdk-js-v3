@@ -38,10 +38,8 @@ export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __Met
  * @public
  * <p>Disables a tape gateway when the gateway is no longer functioning. For example, if your
  *          gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.</p>
- *
  *          <p>Use this operation for a tape gateway that is not reachable or not functioning. This
  *          operation is only supported in the tape gateway type.</p>
- *
  *          <important>
  *             <p>After a gateway is disabled, it cannot be enabled.</p>
  *          </important>

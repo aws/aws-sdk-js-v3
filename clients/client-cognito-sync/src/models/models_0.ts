@@ -608,8 +608,17 @@ export interface GetIdentityPoolConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export type StreamingStatus = "DISABLED" | "ENABLED";
+export const StreamingStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingStatus = (typeof StreamingStatus)[keyof typeof StreamingStatus];
 
 /**
  * @public
@@ -990,8 +999,19 @@ export class InvalidConfigurationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export type Platform = "ADM" | "APNS" | "APNS_SANDBOX" | "GCM";
+export const Platform = {
+  ADM: "ADM",
+  APNS: "APNS",
+  APNS_SANDBOX: "APNS_SANDBOX",
+  GCM: "GCM",
+} as const;
+
+/**
+ * @public
+ */
+export type Platform = (typeof Platform)[keyof typeof Platform];
 
 /**
  * @public
@@ -1261,8 +1281,17 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export type Operation = "remove" | "replace";
+export const Operation = {
+  remove: "remove",
+  replace: "replace",
+} as const;
+
+/**
+ * @public
+ */
+export type Operation = (typeof Operation)[keyof typeof Operation];
 
 /**
  * @public

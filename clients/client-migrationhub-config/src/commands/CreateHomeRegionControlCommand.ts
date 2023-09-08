@@ -50,7 +50,7 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
  * const input = { // CreateHomeRegionControlRequest
  *   HomeRegion: "STRING_VALUE", // required
  *   Target: { // Target
- *     Type: "STRING_VALUE", // required
+ *     Type: "ACCOUNT", // required
  *     Id: "STRING_VALUE",
  *   },
  *   DryRun: true || false,
@@ -62,7 +62,7 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
  * //     ControlId: "STRING_VALUE",
  * //     HomeRegion: "STRING_VALUE",
  * //     Target: { // Target
- * //       Type: "STRING_VALUE", // required
+ * //       Type: "ACCOUNT", // required
  * //       Id: "STRING_VALUE",
  * //     },
  * //     RequestedTime: new Date("TIMESTAMP"),

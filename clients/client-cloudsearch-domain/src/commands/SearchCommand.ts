@@ -64,7 +64,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  *   partial: true || false,
  *   query: "STRING_VALUE", // required
  *   queryOptions: "STRING_VALUE",
- *   queryParser: "STRING_VALUE",
+ *   queryParser: "simple" || "structured" || "lucene" || "dismax",
  *   return: "STRING_VALUE",
  *   size: Number("long"),
  *   sort: "STRING_VALUE",

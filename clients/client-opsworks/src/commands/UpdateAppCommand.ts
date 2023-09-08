@@ -59,9 +59,9 @@ export interface UpdateAppCommandOutput extends __MetadataBearer {}
  *       DatabaseName: "STRING_VALUE",
  *     },
  *   ],
- *   Type: "STRING_VALUE",
+ *   Type: "aws-flow-ruby" || "java" || "rails" || "php" || "nodejs" || "static" || "other",
  *   AppSource: { // Source
- *     Type: "STRING_VALUE",
+ *     Type: "git" || "svn" || "archive" || "s3",
  *     Url: "STRING_VALUE",
  *     Username: "STRING_VALUE",
  *     Password: "STRING_VALUE",

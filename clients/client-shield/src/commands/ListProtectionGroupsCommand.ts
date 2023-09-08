@@ -52,13 +52,13 @@ export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsR
  *       "STRING_VALUE",
  *     ],
  *     Patterns: [ // ProtectionGroupPatternFilters
- *       "STRING_VALUE",
+ *       "ALL" || "ARBITRARY" || "BY_RESOURCE_TYPE",
  *     ],
  *     ResourceTypes: [ // ProtectedResourceTypeFilters
- *       "STRING_VALUE",
+ *       "CLOUDFRONT_DISTRIBUTION" || "ROUTE_53_HOSTED_ZONE" || "ELASTIC_IP_ALLOCATION" || "CLASSIC_LOAD_BALANCER" || "APPLICATION_LOAD_BALANCER" || "GLOBAL_ACCELERATOR",
  *     ],
  *     Aggregations: [ // ProtectionGroupAggregationFilters
- *       "STRING_VALUE",
+ *       "SUM" || "MEAN" || "MAX",
  *     ],
  *   },
  * };
@@ -68,9 +68,9 @@ export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsR
  * //   ProtectionGroups: [ // ProtectionGroups // required
  * //     { // ProtectionGroup
  * //       ProtectionGroupId: "STRING_VALUE", // required
- * //       Aggregation: "STRING_VALUE", // required
- * //       Pattern: "STRING_VALUE", // required
- * //       ResourceType: "STRING_VALUE",
+ * //       Aggregation: "SUM" || "MEAN" || "MAX", // required
+ * //       Pattern: "ALL" || "ARBITRARY" || "BY_RESOURCE_TYPE", // required
+ * //       ResourceType: "CLOUDFRONT_DISTRIBUTION" || "ROUTE_53_HOSTED_ZONE" || "ELASTIC_IP_ALLOCATION" || "CLASSIC_LOAD_BALANCER" || "APPLICATION_LOAD_BALANCER" || "GLOBAL_ACCELERATOR",
  * //       Members: [ // ProtectionGroupMembers // required
  * //         "STRING_VALUE",
  * //       ],

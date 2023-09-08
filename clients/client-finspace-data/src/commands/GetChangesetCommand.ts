@@ -53,7 +53,7 @@ export interface GetChangesetCommandOutput extends GetChangesetResponse, __Metad
  * //   changesetId: "STRING_VALUE",
  * //   changesetArn: "STRING_VALUE",
  * //   datasetId: "STRING_VALUE",
- * //   changeType: "STRING_VALUE",
+ * //   changeType: "REPLACE" || "APPEND" || "MODIFY",
  * //   sourceParams: { // SourceParams
  * //     "<keys>": "STRING_VALUE",
  * //   },
@@ -61,10 +61,10 @@ export interface GetChangesetCommandOutput extends GetChangesetResponse, __Metad
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   createTime: Number("long"),
- * //   status: "STRING_VALUE",
+ * //   status: "PENDING" || "FAILED" || "SUCCESS" || "RUNNING" || "STOP_REQUESTED",
  * //   errorInfo: { // ChangesetErrorInfo
  * //     errorMessage: "STRING_VALUE",
- * //     errorCategory: "STRING_VALUE",
+ * //     errorCategory: "VALIDATION" || "SERVICE_QUOTA_EXCEEDED" || "ACCESS_DENIED" || "RESOURCE_NOT_FOUND" || "THROTTLING" || "INTERNAL_SERVICE_EXCEPTION" || "CANCELLED" || "USER_RECOVERABLE",
  * //   },
  * //   activeUntilTimestamp: Number("long"),
  * //   activeFromTimestamp: Number("long"),

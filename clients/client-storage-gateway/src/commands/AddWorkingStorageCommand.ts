@@ -40,12 +40,10 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  *          operation is only supported in the stored volume gateway type. This operation is deprecated
  *          in cached volume API version 20120630. Use <a>AddUploadBuffer</a>
  *          instead.</p>
- *
  *          <note>
  *             <p>Working storage is also referred to as upload buffer. You can also use the <a>AddUploadBuffer</a> operation to add upload buffer to a stored volume
  *             gateway.</p>
  *          </note>
- *
  *          <p>In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to
  *          add working storage, and one or more disk IDs that you want to configure as working
  *          storage.</p>

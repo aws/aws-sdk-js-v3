@@ -56,10 +56,10 @@ export interface GetCellReadinessSummaryCommandOutput extends GetCellReadinessSu
  * const response = await client.send(command);
  * // { // GetCellReadinessSummaryResponse
  * //   NextToken: "STRING_VALUE",
- * //   Readiness: "STRING_VALUE",
+ * //   Readiness: "READY" || "NOT_READY" || "UNKNOWN" || "NOT_AUTHORIZED",
  * //   ReadinessChecks: [ // __listOfReadinessCheckSummary
  * //     { // ReadinessCheckSummary
- * //       Readiness: "STRING_VALUE",
+ * //       Readiness: "READY" || "NOT_READY" || "UNKNOWN" || "NOT_AUTHORIZED",
  * //       ReadinessCheckName: "STRING_VALUE",
  * //     },
  * //   ],

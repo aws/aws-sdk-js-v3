@@ -48,12 +48,12 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  *              along with the
  *                 <code>CustomerAWSAccountId</code> and
  *             <code>ProductCode</code>.</p>
- *         <note>
+ *          <note>
  *             <p>The API needs to called from the seller account id used to publish the SaaS
  *                 application to successfully resolve the token.</p>
  *             <p>For an example of using <code>ResolveCustomer</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-resolvecustomer-example"> ResolveCustomer code example</a> in the <i>AWS Marketplace Seller
  *                     Guide</i>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

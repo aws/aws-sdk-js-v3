@@ -1453,7 +1453,6 @@ export interface ElasticsearchDestinationConfiguration {
    *             for <code>DescribeDomain</code>, <code>DescribeDomains</code>, and
    *             <code>DescribeDomainConfig</code> after assuming the role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
    *                Amazon Web Services Service Namespaces</a>.</p>
-   *
    *          <p>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</p>
    */
   DomainARN?: string;
@@ -1476,7 +1475,6 @@ export interface ElasticsearchDestinationConfiguration {
    * <p>The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per
    *          index. If you try to specify a new type for an existing index that already has another
    *          type, Kinesis Data Firehose returns an error during run time.</p>
-   *
    *          <p>For Elasticsearch 7.x, don't specify a <code>TypeName</code>.</p>
    */
   TypeName?: string;
@@ -2709,7 +2707,6 @@ export interface CreateDeliveryStreamInput {
    *          distinguish the delivery stream. For more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
    *             Cost Allocation Tags</a> in the Amazon Web Services Billing and Cost Management User
    *          Guide.</p>
-   *
    *          <p>You can specify up to 50 tags when creating a delivery stream.</p>
    */
   Tags?: Tag[];
@@ -3009,7 +3006,6 @@ export interface ElasticsearchDestinationDescription {
    * @public
    * <p>The ARN of the Amazon ES domain. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
    *             Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
-   *
    *          <p>Kinesis Data Firehose uses either <code>ClusterEndpoint</code> or <code>DomainARN</code>
    *          to send data to Amazon ES.</p>
    */
@@ -3675,7 +3671,6 @@ export interface ElasticsearchDestinationUpdate {
    *             <code>DescribeDomainConfig</code> after assuming the IAM role specified in
    *             <code>RoleARN</code>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
    *                Amazon Web Services Service Namespaces</a>.</p>
-   *
    *          <p>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</p>
    */
   DomainARN?: string;
@@ -3698,7 +3693,6 @@ export interface ElasticsearchDestinationUpdate {
    * <p>The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per
    *          index. If you try to specify a new type for an existing index that already has another
    *          type, Kinesis Data Firehose returns an error during runtime.</p>
-   *
    *          <p>If you upgrade Elasticsearch from 6.x to 7.x and don’t update your delivery stream,
    *          Kinesis Data Firehose still delivers data to Elasticsearch with the old index name and type
    *          name. If you want to update your delivery stream with a new index name, provide an empty

@@ -90,7 +90,7 @@ export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __M
  * const input = { // RegisterDeviceRequest
  *   IdentityPoolId: "STRING_VALUE", // required
  *   IdentityId: "STRING_VALUE", // required
- *   Platform: "STRING_VALUE", // required
+ *   Platform: "APNS" || "APNS_SANDBOX" || "GCM" || "ADM", // required
  *   Token: "STRING_VALUE", // required
  * };
  * const command = new RegisterDeviceCommand(input);

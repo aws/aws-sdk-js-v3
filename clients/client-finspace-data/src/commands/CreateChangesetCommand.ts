@@ -46,7 +46,7 @@ export interface CreateChangesetCommandOutput extends CreateChangesetResponse, _
  * const input = { // CreateChangesetRequest
  *   clientToken: "STRING_VALUE",
  *   datasetId: "STRING_VALUE", // required
- *   changeType: "STRING_VALUE", // required
+ *   changeType: "REPLACE" || "APPEND" || "MODIFY", // required
  *   sourceParams: { // SourceParams // required
  *     "<keys>": "STRING_VALUE",
  *   },

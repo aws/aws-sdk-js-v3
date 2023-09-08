@@ -60,7 +60,7 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  *     { // InputConfiguration
  *       Id: "STRING_VALUE", // required
  *       InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
- *         InputStartingPosition: "STRING_VALUE",
+ *         InputStartingPosition: "NOW" || "TRIM_HORIZON" || "LAST_STOPPED_POINT",
  *       },
  *     },
  *   ],

@@ -51,9 +51,9 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * const response = await client.send(command);
  * // { // DeleteClusterResponse
  * //   Cluster: { // Cluster
- * //     BackupPolicy: "STRING_VALUE",
+ * //     BackupPolicy: "DEFAULT",
  * //     BackupRetentionPolicy: { // BackupRetentionPolicy
- * //       Type: "STRING_VALUE",
+ * //       Type: "DAYS",
  * //       Value: "STRING_VALUE",
  * //     },
  * //     ClusterId: "STRING_VALUE",
@@ -66,7 +66,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //         EniId: "STRING_VALUE",
  * //         EniIp: "STRING_VALUE",
  * //         HsmId: "STRING_VALUE", // required
- * //         State: "STRING_VALUE",
+ * //         State: "CREATE_IN_PROGRESS" || "ACTIVE" || "DEGRADED" || "DELETE_IN_PROGRESS" || "DELETED",
  * //         StateMessage: "STRING_VALUE",
  * //       },
  * //     ],
@@ -74,7 +74,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //     PreCoPassword: "STRING_VALUE",
  * //     SecurityGroup: "STRING_VALUE",
  * //     SourceBackupId: "STRING_VALUE",
- * //     State: "STRING_VALUE",
+ * //     State: "CREATE_IN_PROGRESS" || "UNINITIALIZED" || "INITIALIZE_IN_PROGRESS" || "INITIALIZED" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DEGRADED",
  * //     StateMessage: "STRING_VALUE",
  * //     SubnetMapping: { // ExternalSubnetMapping
  * //       "<keys>": "STRING_VALUE",

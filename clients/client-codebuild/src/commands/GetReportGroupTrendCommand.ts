@@ -46,7 +46,7 @@ export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOut
  * const input = { // GetReportGroupTrendInput
  *   reportGroupArn: "STRING_VALUE", // required
  *   numOfReports: Number("int"),
- *   trendField: "STRING_VALUE", // required
+ *   trendField: "PASS_RATE" || "DURATION" || "TOTAL" || "LINE_COVERAGE" || "LINES_COVERED" || "LINES_MISSED" || "BRANCH_COVERAGE" || "BRANCHES_COVERED" || "BRANCHES_MISSED", // required
  * };
  * const command = new GetReportGroupTrendCommand(input);
  * const response = await client.send(command);

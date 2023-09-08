@@ -63,7 +63,7 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  * const input = { // GetIceServerConfigRequest
  *   ChannelARN: "STRING_VALUE", // required
  *   ClientId: "STRING_VALUE",
- *   Service: "STRING_VALUE",
+ *   Service: "TURN",
  *   Username: "STRING_VALUE",
  * };
  * const command = new GetIceServerConfigCommand(input);

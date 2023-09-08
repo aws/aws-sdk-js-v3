@@ -57,7 +57,7 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * //       inputArn: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"),
  * //       lastUpdateTime: new Date("TIMESTAMP"),
- * //       status: "STRING_VALUE",
+ * //       status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

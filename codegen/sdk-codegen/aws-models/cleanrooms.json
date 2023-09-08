@@ -41,7 +41,12 @@
         "aws.auth#sigv4": {
           "name": "cleanrooms"
         },
-        "aws.iam#supportedPrincipalTypes": ["Root", "IAMUser", "IAMRole", "FederatedUser"],
+        "aws.iam#supportedPrincipalTypes": [
+          "Root",
+          "IAMUser",
+          "IAMRole",
+          "FederatedUser"
+        ],
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
           "additionalAllowedHeaders": [
@@ -52,7 +57,11 @@
             "x-amzn-platform-id",
             "x-amzn-trace-id"
           ],
-          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id"],
+          "additionalExposedHeaders": [
+            "x-amzn-errortype",
+            "x-amzn-requestid",
+            "x-amzn-trace-id"
+          ],
           "maxAge": 86400
         },
         "smithy.api#documentation": "<p>Welcome to the <i>Clean Rooms API Reference</i>.</p>\n         <p>Clean Rooms is an Amazon Web Services service that helps multiple parties to join\n         their data together in a secure collaboration workspace. In the collaboration, members who\n         can query and receive results can get insights into the collective datasets without either\n         party getting access to the other party's raw data.</p>\n         <p>To learn more about Clean Rooms concepts, procedures, and best practices, see the\n            <a href=\"https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html\">Clean Rooms User Guide</a>.</p>\n         <p>To learn more about SQL commands, functions, and conditions supported in Clean Rooms, see the\n            <a href=\"https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html\">Clean Rooms SQL Reference</a>.</p>",
@@ -3251,7 +3260,9 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to link a configured table with a collaboration by creating a new association",
-        "aws.iam#requiredActions": ["iam:PassRole"],
+        "aws.iam#requiredActions": [
+          "iam:PassRole"
+        ],
         "smithy.api#documentation": "<p>Creates a configured table association. A configured table association links a\n         configured table with a collaboration.</p>",
         "smithy.api#http": {
           "code": 200,
@@ -7111,7 +7122,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Tags a resource.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -7210,7 +7224,9 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Removes a tag or list of tags from a resource.</p>",
         "smithy.api#http": {
           "method": "DELETE",
@@ -7543,7 +7559,9 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to update a configured table association",
-        "aws.iam#requiredActions": ["iam:PassRole"],
+        "aws.iam#requiredActions": [
+          "iam:PassRole"
+        ],
         "smithy.api#documentation": "<p>Updates a configured table association.</p>",
         "smithy.api#http": {
           "code": 200,

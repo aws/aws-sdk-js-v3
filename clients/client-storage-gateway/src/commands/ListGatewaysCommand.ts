@@ -39,11 +39,9 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * <p>Lists gateways owned by an Amazon Web Services account in an Amazon Web Services Region
  *          specified in the request. The returned list is ordered by gateway Amazon Resource Name
  *          (ARN).</p>
- *
  *          <p>By default, the operation returns a maximum of 100 gateways. This operation supports
  *          pagination that allows you to optionally reduce the number of gateways returned in a
  *          response.</p>
- *
  *          <p>If you have more gateways than are returned in a response (that is, the response returns
  *          only a truncated list of your gateways), the response contains a marker that you can
  *          specify in your next request to fetch the next page of gateways.</p>
@@ -69,7 +67,7 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * //       GatewayName: "STRING_VALUE",
  * //       Ec2InstanceId: "STRING_VALUE",
  * //       Ec2InstanceRegion: "STRING_VALUE",
- * //       HostEnvironment: "STRING_VALUE",
+ * //       HostEnvironment: "VMWARE" || "HYPER-V" || "EC2" || "KVM" || "OTHER" || "SNOWBALL",
  * //       HostEnvironmentId: "STRING_VALUE",
  * //     },
  * //   ],

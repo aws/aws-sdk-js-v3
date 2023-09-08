@@ -51,7 +51,7 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Type: "STRING_VALUE", // required
+ *   Type: "OpenApi3" || "JSONSchemaDraft4", // required
  * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);

@@ -40,24 +40,24 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  *             works with all compute types and should be used instead of the deprecated
  *                 <code>BatchGetDeploymentInstances</code>. The maximum number of targets that can be
  *             returned is 25.</p>
- *         <p> The type of targets returned depends on the deployment's compute platform or
+ *          <p> The type of targets returned depends on the deployment's compute platform or
  *             deployment method: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
- *                     <b>EC2/On-premises</b>: Information about Amazon EC2 instance targets. </p>
+ *                <p>
+ *                   <b>EC2/On-premises</b>: Information about Amazon EC2 instance targets. </p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>Lambda</b>: Information about
+ *                <p>
+ *                   <b>Lambda</b>: Information about
  *                         Lambda functions targets. </p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>Amazon ECS</b>: Information about Amazon ECS service targets. </p>
+ *                <p>
+ *                   <b>Amazon ECS</b>: Information about Amazon ECS service targets. </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>CloudFormation</b>: Information about
  *                     targets of blue/green deployments initiated by a CloudFormation stack
  *                     update.</p>

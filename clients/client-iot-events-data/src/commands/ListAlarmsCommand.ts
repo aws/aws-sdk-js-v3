@@ -57,7 +57,7 @@ export interface ListAlarmsCommandOutput extends ListAlarmsResponse, __MetadataB
  * //       alarmModelName: "STRING_VALUE",
  * //       alarmModelVersion: "STRING_VALUE",
  * //       keyValue: "STRING_VALUE",
- * //       stateName: "STRING_VALUE",
+ * //       stateName: "DISABLED" || "NORMAL" || "ACTIVE" || "ACKNOWLEDGED" || "SNOOZE_DISABLED" || "LATCHED",
  * //       creationTime: new Date("TIMESTAMP"),
  * //       lastUpdateTime: new Date("TIMESTAMP"),
  * //     },

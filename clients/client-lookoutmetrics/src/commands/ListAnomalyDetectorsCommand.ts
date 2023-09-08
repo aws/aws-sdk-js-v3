@@ -59,7 +59,7 @@ export interface ListAnomalyDetectorsCommandOutput extends ListAnomalyDetectorsR
  * //       AnomalyDetectorDescription: "STRING_VALUE",
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       LastModificationTime: new Date("TIMESTAMP"),
- * //       Status: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "ACTIVATING" || "DELETING" || "FAILED" || "INACTIVE" || "LEARNING" || "BACK_TEST_ACTIVATING" || "BACK_TEST_ACTIVE" || "BACK_TEST_COMPLETE" || "DEACTIVATED" || "DEACTIVATING",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },

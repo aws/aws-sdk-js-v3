@@ -45,10 +45,10 @@ export interface ListBuildBatchesCommandOutput extends ListBuildBatchesOutput, _
  * const client = new CodeBuildClient(config);
  * const input = { // ListBuildBatchesInput
  *   filter: { // BuildBatchFilter
- *     status: "STRING_VALUE",
+ *     status: "SUCCEEDED" || "FAILED" || "FAULT" || "TIMED_OUT" || "IN_PROGRESS" || "STOPPED",
  *   },
  *   maxResults: Number("int"),
- *   sortOrder: "STRING_VALUE",
+ *   sortOrder: "ASCENDING" || "DESCENDING",
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new ListBuildBatchesCommand(input);

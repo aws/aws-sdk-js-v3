@@ -63,7 +63,7 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
  * // { // GetDeliverabilityDashboardOptionsResponse
  * //   DashboardEnabled: true || false, // required
  * //   SubscriptionExpiryDate: new Date("TIMESTAMP"),
- * //   AccountStatus: "STRING_VALUE",
+ * //   AccountStatus: "ACTIVE" || "PENDING_EXPIRATION" || "DISABLED",
  * //   ActiveSubscribedDomains: [ // DomainDeliverabilityTrackingOptions
  * //     { // DomainDeliverabilityTrackingOption
  * //       Domain: "STRING_VALUE",

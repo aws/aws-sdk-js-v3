@@ -59,7 +59,7 @@ export interface DescribeProtectionCommandOutput extends DescribeProtectionRespo
  * //     ],
  * //     ProtectionArn: "STRING_VALUE",
  * //     ApplicationLayerAutomaticResponseConfiguration: { // ApplicationLayerAutomaticResponseConfiguration
- * //       Status: "STRING_VALUE", // required
+ * //       Status: "ENABLED" || "DISABLED", // required
  * //       Action: { // ResponseAction
  * //         Block: {},
  * //         Count: {},

@@ -59,7 +59,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  *     "STRING_VALUE",
  *   ],
  *   Command: { // DeploymentCommand
- *     Name: "STRING_VALUE", // required
+ *     Name: "install_dependencies" || "update_dependencies" || "update_custom_cookbooks" || "execute_recipes" || "configure" || "setup" || "deploy" || "rollback" || "start" || "stop" || "restart" || "undeploy", // required
  *     Args: { // DeploymentCommandArgs
  *       "<keys>": [
  *         "STRING_VALUE",

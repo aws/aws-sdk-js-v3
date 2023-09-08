@@ -40,7 +40,6 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  *          (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names
  *          (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes in both
  *          your VTL and VTS.</p>
- *
  *          <p>This operation supports pagination. By default, the operation returns a maximum of up to
  *          100 tapes. You can optionally specify the <code>Limit</code> parameter in the body to limit
  *          the number of tapes in the response. If the number of tapes returned in the response is

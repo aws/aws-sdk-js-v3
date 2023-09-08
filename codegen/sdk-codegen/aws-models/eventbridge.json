@@ -333,7 +333,9 @@
                                 {
                                   "name": "sigv4a",
                                   "signingName": "events",
-                                  "signingRegionSet": ["*"]
+                                  "signingRegionSet": [
+                                    "*"
+                                  ]
                                 }
                               ]
                             },
@@ -384,7 +386,9 @@
                                         {
                                           "name": "sigv4a",
                                           "signingName": "events",
-                                          "signingRegionSet": ["*"]
+                                          "signingRegionSet": [
+                                            "*"
+                                          ]
                                         }
                                       ]
                                     },
@@ -410,7 +414,9 @@
                                 {
                                   "name": "sigv4a",
                                   "signingName": "events",
-                                  "signingRegionSet": ["*"]
+                                  "signingRegionSet": [
+                                    "*"
+                                  ]
                                 }
                               ]
                             },
@@ -1439,7 +1445,9 @@
                       {
                         "signingName": "events",
                         "name": "sigv4a",
-                        "signingRegionSet": ["*"]
+                        "signingRegionSet": [
+                          "*"
+                        ]
                       }
                     ]
                   },
@@ -1528,7 +1536,9 @@
                       {
                         "signingName": "events",
                         "name": "sigv4a",
-                        "signingRegionSet": ["*"]
+                        "signingRegionSet": [
+                          "*"
+                        ]
                       }
                     ]
                   },
@@ -1551,7 +1561,9 @@
                       {
                         "signingName": "events",
                         "name": "sigv4a",
-                        "signingRegionSet": ["*"]
+                        "signingRegionSet": [
+                          "*"
+                        ]
                       }
                     ]
                   },

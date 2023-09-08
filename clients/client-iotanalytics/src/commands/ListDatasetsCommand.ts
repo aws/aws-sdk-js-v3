@@ -53,7 +53,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * //   datasetSummaries: [ // DatasetSummaries
  * //     { // DatasetSummary
  * //       datasetName: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "CREATING" || "ACTIVE" || "DELETING",
  * //       creationTime: new Date("TIMESTAMP"),
  * //       lastUpdateTime: new Date("TIMESTAMP"),
  * //       triggers: [ // DatasetTriggers
@@ -69,7 +69,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * //       actions: [ // DatasetActionSummaries
  * //         { // DatasetActionSummary
  * //           actionName: "STRING_VALUE",
- * //           actionType: "STRING_VALUE",
+ * //           actionType: "QUERY" || "CONTAINER",
  * //         },
  * //       ],
  * //     },

@@ -109,7 +109,7 @@ export interface SetIdentityPoolConfigurationCommandOutput
  *   CognitoStreams: { // CognitoStreams
  *     StreamName: "STRING_VALUE",
  *     RoleArn: "STRING_VALUE",
- *     StreamingStatus: "STRING_VALUE",
+ *     StreamingStatus: "ENABLED" || "DISABLED",
  *   },
  * };
  * const command = new SetIdentityPoolConfigurationCommand(input);
@@ -125,7 +125,7 @@ export interface SetIdentityPoolConfigurationCommandOutput
  * //   CognitoStreams: { // CognitoStreams
  * //     StreamName: "STRING_VALUE",
  * //     RoleArn: "STRING_VALUE",
- * //     StreamingStatus: "STRING_VALUE",
+ * //     StreamingStatus: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *

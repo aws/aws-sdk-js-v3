@@ -63,7 +63,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  *   EventDestination: { // EventDestinationDefinition
  *     Enabled: true || false,
  *     MatchingEventTypes: [ // EventTypes
- *       "STRING_VALUE",
+ *       "SEND" || "REJECT" || "BOUNCE" || "COMPLAINT" || "DELIVERY" || "OPEN" || "CLICK" || "RENDERING_FAILURE",
  *     ],
  *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
  *       IamRoleArn: "STRING_VALUE", // required
@@ -73,7 +73,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  *       DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
  *         { // CloudWatchDimensionConfiguration
  *           DimensionName: "STRING_VALUE", // required
- *           DimensionValueSource: "STRING_VALUE", // required
+ *           DimensionValueSource: "MESSAGE_TAG" || "EMAIL_HEADER" || "LINK_TAG", // required
  *           DefaultDimensionValue: "STRING_VALUE", // required
  *         },
  *       ],

@@ -6,24 +6,28 @@ import { RuleSetObject } from "@smithy/types";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/marketplace-metering.json */
 
-const p="required",
-q="fn",
-r="argv",
-s="ref";
-const a="PartitionResult",
+const t="required",
+u="fn",
+v="argv",
+w="ref";
+const a="isSet",
 b="tree",
 c="error",
 d="endpoint",
-e={[p]:false,"type":"String"},
-f={[p]:true,"default":false,"type":"Boolean"},
-g={[s]:"Endpoint"},
-h={[q]:"booleanEquals",[r]:[{[s]:"UseFIPS"},true]},
-i={[q]:"booleanEquals",[r]:[{[s]:"UseDualStack"},true]},
-j={},
-k={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsFIPS"]}]},
-l={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsDualStack"]}]},
-m=[g],
-n=[h],
-o=[i];
-const _data={version:"1.0",parameters:{Region:e,UseDualStack:f,UseFIPS:f,Endpoint:e},rules:[{conditions:[{[q]:"aws.partition",[r]:[{[s]:"Region"}],assign:a}],type:b,rules:[{conditions:[{[q]:"isSet",[r]:m},{[q]:"parseURL",[r]:m,assign:"url"}],type:b,rules:[{conditions:n,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{type:b,rules:[{conditions:o,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:g,properties:j,headers:j},type:d}]}]},{conditions:[h,i],type:b,rules:[{conditions:[k,l],type:b,rules:[{endpoint:{url:"https://metering.marketplace-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:n,type:b,rules:[{conditions:[k],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://metering.marketplace-fips.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:o,type:b,rules:[{conditions:[l],type:b,rules:[{endpoint:{url:"https://metering.marketplace.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{endpoint:{url:"https://metering.marketplace.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]}]};
+e="PartitionResult",
+f="stringEquals",
+g={[t]:false,"type":"String"},
+h={[t]:true,"default":false,"type":"Boolean"},
+i={[w]:"Endpoint"},
+j={[u]:"booleanEquals",[v]:[{[w]:"UseFIPS"},true]},
+k={[u]:"booleanEquals",[v]:[{[w]:"UseDualStack"},true]},
+l={},
+m={[u]:"booleanEquals",[v]:[true,{[u]:"getAttr",[v]:[{[w]:e},"supportsFIPS"]}]},
+n={[u]:"booleanEquals",[v]:[true,{[u]:"getAttr",[v]:[{[w]:e},"supportsDualStack"]}]},
+o={[u]:"getAttr",[v]:[{[w]:e},"name"]},
+p={"url":"https://metering.marketplace.{Region}.amazonaws.com","properties":{},"headers":{}},
+q=[j],
+r=[k],
+s=[{[w]:"Region"}];
+const _data={version:"1.0",parameters:{Region:g,UseDualStack:h,UseFIPS:h,Endpoint:g},rules:[{conditions:[{[u]:a,[v]:[i]}],type:b,rules:[{conditions:q,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{conditions:r,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:i,properties:l,headers:l},type:d}]},{conditions:[{[u]:a,[v]:s}],type:b,rules:[{conditions:[{[u]:"aws.partition",[v]:s,assign:e}],type:b,rules:[{conditions:[j,k],type:b,rules:[{conditions:[m,n],type:b,rules:[{endpoint:{url:"https://metering.marketplace-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:d}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:q,type:b,rules:[{conditions:[m],type:b,rules:[{endpoint:{url:"https://metering.marketplace-fips.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:d}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:r,type:b,rules:[{conditions:[n],type:b,rules:[{endpoint:{url:"https://metering.marketplace.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:d}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{conditions:[{[u]:f,[v]:["aws",o]}],endpoint:p,type:d},{conditions:[{[u]:f,[v]:["aws-us-gov",o]}],endpoint:p,type:d},{endpoint:{url:"https://metering.marketplace.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:d}]}]},{error:"Invalid Configuration: Missing Region",type:c}]};
 export const ruleSet: RuleSetObject = _data;

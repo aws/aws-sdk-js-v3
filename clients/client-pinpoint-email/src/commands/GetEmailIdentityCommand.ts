@@ -51,20 +51,20 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * const command = new GetEmailIdentityCommand(input);
  * const response = await client.send(command);
  * // { // GetEmailIdentityResponse
- * //   IdentityType: "STRING_VALUE",
+ * //   IdentityType: "EMAIL_ADDRESS" || "DOMAIN" || "MANAGED_DOMAIN",
  * //   FeedbackForwardingStatus: true || false,
  * //   VerifiedForSendingStatus: true || false,
  * //   DkimAttributes: { // DkimAttributes
  * //     SigningEnabled: true || false,
- * //     Status: "STRING_VALUE",
+ * //     Status: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE" || "NOT_STARTED",
  * //     Tokens: [ // DnsTokenList
  * //       "STRING_VALUE",
  * //     ],
  * //   },
  * //   MailFromAttributes: { // MailFromAttributes
  * //     MailFromDomain: "STRING_VALUE", // required
- * //     MailFromDomainStatus: "STRING_VALUE", // required
- * //     BehaviorOnMxFailure: "STRING_VALUE", // required
+ * //     MailFromDomainStatus: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE", // required
+ * //     BehaviorOnMxFailure: "USE_DEFAULT_VALUE" || "REJECT_MESSAGE", // required
  * //   },
  * //   Tags: [ // TagList
  * //     { // Tag

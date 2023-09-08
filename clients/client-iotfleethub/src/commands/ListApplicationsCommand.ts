@@ -60,7 +60,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * //       applicationUrl: "STRING_VALUE", // required
  * //       applicationCreationDate: Number("long"),
  * //       applicationLastUpdateDate: Number("long"),
- * //       applicationState: "STRING_VALUE",
+ * //       applicationState: "CREATING" || "DELETING" || "ACTIVE" || "CREATE_FAILED" || "DELETE_FAILED",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

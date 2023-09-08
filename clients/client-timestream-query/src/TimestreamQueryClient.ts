@@ -321,7 +321,7 @@ export interface TimestreamQueryClientResolvedConfig extends TimestreamQueryClie
  * @public
  * <fullname>Amazon Timestream Query
  *         </fullname>
- *         <p></p>
+ *          <p></p>
  */
 export class TimestreamQueryClient extends __Client<
   __HttpHandlerOptions,

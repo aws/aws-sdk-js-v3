@@ -76,7 +76,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //   Backup: { // Backup
  * //     BackupArn: "STRING_VALUE",
  * //     BackupId: "STRING_VALUE",
- * //     BackupType: "STRING_VALUE",
+ * //     BackupType: "AUTOMATED" || "MANUAL",
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
@@ -95,7 +95,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //     ],
  * //     ServerName: "STRING_VALUE",
  * //     ServiceRoleArn: "STRING_VALUE",
- * //     Status: "STRING_VALUE",
+ * //     Status: "IN_PROGRESS" || "OK" || "FAILED" || "DELETING",
  * //     StatusDescription: "STRING_VALUE",
  * //     SubnetIds: [
  * //       "STRING_VALUE",

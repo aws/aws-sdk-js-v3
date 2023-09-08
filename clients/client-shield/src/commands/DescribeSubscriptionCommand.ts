@@ -51,14 +51,14 @@ export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionR
  * //     StartTime: new Date("TIMESTAMP"),
  * //     EndTime: new Date("TIMESTAMP"),
  * //     TimeCommitmentInSeconds: Number("long"),
- * //     AutoRenew: "STRING_VALUE",
+ * //     AutoRenew: "ENABLED" || "DISABLED",
  * //     Limits: [ // Limits
  * //       { // Limit
  * //         Type: "STRING_VALUE",
  * //         Max: Number("long"),
  * //       },
  * //     ],
- * //     ProactiveEngagementStatus: "STRING_VALUE",
+ * //     ProactiveEngagementStatus: "ENABLED" || "DISABLED" || "PENDING",
  * //     SubscriptionLimits: { // SubscriptionLimits
  * //       ProtectionLimits: { // ProtectionLimits
  * //         ProtectedResourceTypeLimits: [ // required

@@ -58,7 +58,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *   },
  *   maxJobDurationInSeconds: Number("long"), // required
  *   iamRole: "STRING_VALUE", // required
- *   failureBehavior: "STRING_VALUE",
+ *   failureBehavior: "Fail" || "Continue",
  *   robotApplications: [ // RobotApplicationConfigs
  *     { // RobotApplicationConfig
  *       application: "STRING_VALUE", // required
@@ -87,7 +87,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *         { // UploadConfiguration
  *           name: "STRING_VALUE", // required
  *           path: "STRING_VALUE", // required
- *           uploadBehavior: "STRING_VALUE", // required
+ *           uploadBehavior: "UPLOAD_ON_TERMINATE" || "UPLOAD_ROLLING_AUTO_REMOVE", // required
  *         },
  *       ],
  *       useDefaultUploadConfigurations: true || false,
@@ -97,7 +97,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *           name: "STRING_VALUE", // required
  *           command: "STRING_VALUE", // required
  *           streamOutputToCloudWatch: true || false,
- *           exitBehavior: "STRING_VALUE",
+ *           exitBehavior: "FAIL" || "RESTART",
  *         },
  *       ],
  *       useDefaultTools: true || false,
@@ -131,7 +131,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *         {
  *           name: "STRING_VALUE", // required
  *           path: "STRING_VALUE", // required
- *           uploadBehavior: "STRING_VALUE", // required
+ *           uploadBehavior: "UPLOAD_ON_TERMINATE" || "UPLOAD_ROLLING_AUTO_REMOVE", // required
  *         },
  *       ],
  *       worldConfigs: [ // WorldConfigs
@@ -146,7 +146,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *           name: "STRING_VALUE", // required
  *           command: "STRING_VALUE", // required
  *           streamOutputToCloudWatch: true || false,
- *           exitBehavior: "STRING_VALUE",
+ *           exitBehavior: "FAIL" || "RESTART",
  *         },
  *       ],
  *       useDefaultTools: true || false,
@@ -159,7 +159,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *       s3Keys: [ // S3KeysOrPrefixes // required
  *         "STRING_VALUE",
  *       ],
- *       type: "STRING_VALUE",
+ *       type: "Prefix" || "Archive" || "File",
  *       destination: "STRING_VALUE",
  *     },
  *   ],
@@ -177,7 +177,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *   },
  *   compute: { // Compute
  *     simulationUnitLimit: Number("int"),
- *     computeType: "STRING_VALUE",
+ *     computeType: "CPU" || "GPU_AND_CPU",
  *     gpuUnitLimit: Number("int"),
  *   },
  * };
@@ -185,11 +185,11 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * const response = await client.send(command);
  * // { // CreateSimulationJobResponse
  * //   arn: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "Pending" || "Preparing" || "Running" || "Restarting" || "Completed" || "Failed" || "RunningFailed" || "Terminating" || "Terminated" || "Canceled",
  * //   lastStartedAt: new Date("TIMESTAMP"),
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
- * //   failureBehavior: "STRING_VALUE",
- * //   failureCode: "STRING_VALUE",
+ * //   failureBehavior: "Fail" || "Continue",
+ * //   failureCode: "InternalServiceError" || "RobotApplicationCrash" || "SimulationApplicationCrash" || "RobotApplicationHealthCheckFailure" || "SimulationApplicationHealthCheckFailure" || "BadPermissionsRobotApplication" || "BadPermissionsSimulationApplication" || "BadPermissionsS3Object" || "BadPermissionsS3Output" || "BadPermissionsCloudwatchLogs" || "SubnetIpLimitExceeded" || "ENILimitExceeded" || "BadPermissionsUserCredentials" || "InvalidBundleRobotApplication" || "InvalidBundleSimulationApplication" || "InvalidS3Resource" || "ThrottlingError" || "LimitExceeded" || "MismatchedEtag" || "RobotApplicationVersionMismatchedEtag" || "SimulationApplicationVersionMismatchedEtag" || "ResourceNotFound" || "RequestThrottled" || "BatchTimedOut" || "BatchCanceled" || "InvalidInput" || "WrongRegionS3Bucket" || "WrongRegionS3Output" || "WrongRegionRobotApplication" || "WrongRegionSimulationApplication" || "UploadContentMismatchError",
  * //   clientRequestToken: "STRING_VALUE",
  * //   outputLocation: { // OutputLocation
  * //     s3Bucket: "STRING_VALUE",
@@ -229,7 +229,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * //         { // UploadConfiguration
  * //           name: "STRING_VALUE", // required
  * //           path: "STRING_VALUE", // required
- * //           uploadBehavior: "STRING_VALUE", // required
+ * //           uploadBehavior: "UPLOAD_ON_TERMINATE" || "UPLOAD_ROLLING_AUTO_REMOVE", // required
  * //         },
  * //       ],
  * //       useDefaultUploadConfigurations: true || false,
@@ -239,7 +239,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * //           name: "STRING_VALUE", // required
  * //           command: "STRING_VALUE", // required
  * //           streamOutputToCloudWatch: true || false,
- * //           exitBehavior: "STRING_VALUE",
+ * //           exitBehavior: "FAIL" || "RESTART",
  * //         },
  * //       ],
  * //       useDefaultTools: true || false,
@@ -273,7 +273,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * //         {
  * //           name: "STRING_VALUE", // required
  * //           path: "STRING_VALUE", // required
- * //           uploadBehavior: "STRING_VALUE", // required
+ * //           uploadBehavior: "UPLOAD_ON_TERMINATE" || "UPLOAD_ROLLING_AUTO_REMOVE", // required
  * //         },
  * //       ],
  * //       worldConfigs: [ // WorldConfigs
@@ -288,7 +288,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * //           name: "STRING_VALUE", // required
  * //           command: "STRING_VALUE", // required
  * //           streamOutputToCloudWatch: true || false,
- * //           exitBehavior: "STRING_VALUE",
+ * //           exitBehavior: "FAIL" || "RESTART",
  * //         },
  * //       ],
  * //       useDefaultTools: true || false,
@@ -304,7 +304,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * //           etag: "STRING_VALUE",
  * //         },
  * //       ],
- * //       type: "STRING_VALUE",
+ * //       type: "Prefix" || "Archive" || "File",
  * //       destination: "STRING_VALUE",
  * //     },
  * //   ],
@@ -323,7 +323,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * //   },
  * //   compute: { // ComputeResponse
  * //     simulationUnitLimit: Number("int"),
- * //     computeType: "STRING_VALUE",
+ * //     computeType: "CPU" || "GPU_AND_CPU",
  * //     gpuUnitLimit: Number("int"),
  * //   },
  * // };

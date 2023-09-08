@@ -49,7 +49,7 @@ export interface UpdateDomainEndpointOptionsCommandOutput
  *   DomainName: "STRING_VALUE", // required
  *   DomainEndpointOptions: { // DomainEndpointOptions
  *     EnforceHTTPS: true || false,
- *     TLSSecurityPolicy: "STRING_VALUE",
+ *     TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07",
  *   },
  * };
  * const command = new UpdateDomainEndpointOptionsCommand(input);
@@ -58,13 +58,13 @@ export interface UpdateDomainEndpointOptionsCommandOutput
  * //   DomainEndpointOptions: { // DomainEndpointOptionsStatus
  * //     Options: { // DomainEndpointOptions
  * //       EnforceHTTPS: true || false,
- * //       TLSSecurityPolicy: "STRING_VALUE",
+ * //       TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07",
  * //     },
  * //     Status: { // OptionStatus
  * //       CreationDate: new Date("TIMESTAMP"), // required
  * //       UpdateDate: new Date("TIMESTAMP"), // required
  * //       UpdateVersion: Number("int"),
- * //       State: "STRING_VALUE", // required
+ * //       State: "RequiresIndexDocuments" || "Processing" || "Active" || "FailedToValidate", // required
  * //       PendingDeletion: true || false,
  * //     },
  * //   },

@@ -56,7 +56,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * //   Devices: [ // DeviceSummaryList
  * //     { // DeviceSummary
  * //       DeviceId: "STRING_VALUE",
- * //       DeviceStatus: "STRING_VALUE",
+ * //       DeviceStatus: "ACTIVE" || "SIGNED_OUT",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

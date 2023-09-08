@@ -70,12 +70,12 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
  * //       Priority: Number("int"), // required
  * //       RuleId: "STRING_VALUE", // required
  * //       Action: { // WafAction
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "BLOCK" || "ALLOW" || "COUNT", // required
  * //       },
  * //       OverrideAction: { // WafOverrideAction
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "NONE" || "COUNT", // required
  * //       },
- * //       Type: "STRING_VALUE",
+ * //       Type: "REGULAR" || "RATE_BASED" || "GROUP",
  * //       ExcludedRules: [ // ExcludedRules
  * //         { // ExcludedRule
  * //           RuleId: "STRING_VALUE", // required

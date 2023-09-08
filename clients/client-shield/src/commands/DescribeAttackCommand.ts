@@ -54,7 +54,7 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  * //     ResourceArn: "STRING_VALUE",
  * //     SubResources: [ // SubResourceSummaryList
  * //       { // SubResourceSummary
- * //         Type: "STRING_VALUE",
+ * //         Type: "IP" || "URL",
  * //         Id: "STRING_VALUE",
  * //         AttackVectors: [ // SummarizedAttackVectorList
  * //           { // SummarizedAttackVector
@@ -88,15 +88,15 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  * //     AttackCounters: "<SummarizedCounterList>",
  * //     AttackProperties: [ // AttackProperties
  * //       { // AttackProperty
- * //         AttackLayer: "STRING_VALUE",
- * //         AttackPropertyIdentifier: "STRING_VALUE",
+ * //         AttackLayer: "NETWORK" || "APPLICATION",
+ * //         AttackPropertyIdentifier: "DESTINATION_URL" || "REFERRER" || "SOURCE_ASN" || "SOURCE_COUNTRY" || "SOURCE_IP_ADDRESS" || "SOURCE_USER_AGENT" || "WORDPRESS_PINGBACK_REFLECTOR" || "WORDPRESS_PINGBACK_SOURCE",
  * //         TopContributors: [ // TopContributors
  * //           { // Contributor
  * //             Name: "STRING_VALUE",
  * //             Value: Number("long"),
  * //           },
  * //         ],
- * //         Unit: "STRING_VALUE",
+ * //         Unit: "BITS" || "BYTES" || "PACKETS" || "REQUESTS",
  * //         Total: Number("long"),
  * //       },
  * //     ],

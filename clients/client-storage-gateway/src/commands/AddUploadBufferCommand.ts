@@ -39,7 +39,6 @@ export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __M
  * <p>Configures one or more gateway local disks as upload buffer for a specified gateway.
  *          This operation is supported for the stored volume, cached volume, and tape gateway
  *          types.</p>
- *
  *          <p>In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to
  *          add upload buffer, and one or more disk IDs that you want to configure as upload
  *          buffer.</p>

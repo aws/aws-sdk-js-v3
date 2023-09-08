@@ -84,7 +84,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * //       UseCustomCookbooks: true || false,
  * //       UseOpsworksSecurityGroups: true || false,
  * //       CustomCookbooksSource: { // Source
- * //         Type: "STRING_VALUE",
+ * //         Type: "git" || "svn" || "archive" || "s3",
  * //         Url: "STRING_VALUE",
  * //         Username: "STRING_VALUE",
  * //         Password: "STRING_VALUE",
@@ -93,7 +93,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * //       },
  * //       DefaultSshKeyName: "STRING_VALUE",
  * //       CreatedAt: "STRING_VALUE",
- * //       DefaultRootDeviceType: "STRING_VALUE",
+ * //       DefaultRootDeviceType: "ebs" || "instance-store",
  * //       AgentVersion: "STRING_VALUE",
  * //     },
  * //   ],

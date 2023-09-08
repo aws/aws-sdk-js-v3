@@ -58,7 +58,7 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  * //       topicArn: "STRING_VALUE", // required
  * //       eventSubscriptions: [ // EventSubscriptionList // required
  * //         { // EventSubscription
- * //           event: "STRING_VALUE", // required
+ * //           event: "ASSESSMENT_RUN_STARTED" || "ASSESSMENT_RUN_COMPLETED" || "ASSESSMENT_RUN_STATE_CHANGED" || "FINDING_REPORTED" || "OTHER", // required
  * //           subscribedAt: new Date("TIMESTAMP"), // required
  * //         },
  * //       ],

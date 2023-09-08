@@ -62,7 +62,7 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * //     Name: "STRING_VALUE",
  * //     IPSetDescriptors: [ // IPSetDescriptors // required
  * //       { // IPSetDescriptor
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "IPV4" || "IPV6", // required
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],

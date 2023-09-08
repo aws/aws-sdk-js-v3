@@ -56,7 +56,7 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  * //       inputArn: "STRING_VALUE", // required
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       lastUpdateTime: new Date("TIMESTAMP"), // required
- * //       status: "STRING_VALUE", // required
+ * //       status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING", // required
  * //     },
  * //     inputDefinition: { // InputDefinition
  * //       attributes: [ // Attributes // required

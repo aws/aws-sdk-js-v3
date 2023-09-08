@@ -61,7 +61,7 @@ export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsRes
  * //   worldExportJobSummaries: [ // WorldExportJobSummaries // required
  * //     { // WorldExportJobSummary
  * //       arn: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "Pending" || "Running" || "Completed" || "Failed" || "Canceling" || "Canceled",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       worlds: [ // Arns
  * //         "STRING_VALUE",

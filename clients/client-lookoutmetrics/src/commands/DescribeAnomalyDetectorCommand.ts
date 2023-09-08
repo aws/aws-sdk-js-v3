@@ -55,14 +55,14 @@ export interface DescribeAnomalyDetectorCommandOutput extends DescribeAnomalyDet
  * //   AnomalyDetectorName: "STRING_VALUE",
  * //   AnomalyDetectorDescription: "STRING_VALUE",
  * //   AnomalyDetectorConfig: { // AnomalyDetectorConfigSummary
- * //     AnomalyDetectorFrequency: "STRING_VALUE",
+ * //     AnomalyDetectorFrequency: "P1D" || "PT1H" || "PT10M" || "PT5M",
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModificationTime: new Date("TIMESTAMP"),
- * //   Status: "STRING_VALUE",
+ * //   Status: "ACTIVE" || "ACTIVATING" || "DELETING" || "FAILED" || "INACTIVE" || "LEARNING" || "BACK_TEST_ACTIVATING" || "BACK_TEST_ACTIVE" || "BACK_TEST_COMPLETE" || "DEACTIVATED" || "DEACTIVATING",
  * //   FailureReason: "STRING_VALUE",
  * //   KmsKeyArn: "STRING_VALUE",
- * //   FailureType: "STRING_VALUE",
+ * //   FailureType: "ACTIVATION_FAILURE" || "BACK_TEST_ACTIVATION_FAILURE" || "DELETION_FAILURE" || "DEACTIVATION_FAILURE",
  * // };
  *
  * ```

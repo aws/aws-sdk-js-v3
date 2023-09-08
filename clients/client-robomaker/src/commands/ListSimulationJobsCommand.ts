@@ -64,7 +64,7 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  * //       arn: "STRING_VALUE",
  * //       lastUpdatedAt: new Date("TIMESTAMP"),
  * //       name: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "Pending" || "Preparing" || "Running" || "Restarting" || "Completed" || "Failed" || "RunningFailed" || "Terminating" || "Terminated" || "Canceled",
  * //       simulationApplicationNames: [ // SimulationApplicationNames
  * //         "STRING_VALUE",
  * //       ],
@@ -74,7 +74,7 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  * //       dataSourceNames: [ // DataSourceNames
  * //         "STRING_VALUE",
  * //       ],
- * //       computeType: "STRING_VALUE",
+ * //       computeType: "CPU" || "GPU_AND_CPU",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

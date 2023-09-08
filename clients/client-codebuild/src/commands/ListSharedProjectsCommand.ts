@@ -44,8 +44,8 @@ export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutpu
  * // const { CodeBuildClient, ListSharedProjectsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // ListSharedProjectsInput
- *   sortBy: "STRING_VALUE",
- *   sortOrder: "STRING_VALUE",
+ *   sortBy: "ARN" || "MODIFIED_TIME",
+ *   sortOrder: "ASCENDING" || "DESCENDING",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

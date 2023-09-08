@@ -64,14 +64,14 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
  *                     targetArn: "STRING_VALUE", // required
  *                     payload: { // Payload
  *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       type: "STRING" || "JSON", // required
  *                     },
  *                   },
  *                   iotTopicPublish: { // IotTopicPublishAction
  *                     mqttTopic: "STRING_VALUE", // required
  *                     payload: {
  *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       type: "STRING" || "JSON", // required
  *                     },
  *                   },
  *                   setTimer: { // SetTimerAction
@@ -89,14 +89,14 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
  *                     functionArn: "STRING_VALUE", // required
  *                     payload: {
  *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       type: "STRING" || "JSON", // required
  *                     },
  *                   },
  *                   iotEvents: { // IotEventsAction
  *                     inputName: "STRING_VALUE", // required
  *                     payload: {
  *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       type: "STRING" || "JSON", // required
  *                     },
  *                   },
  *                   sqs: { // SqsAction
@@ -104,7 +104,7 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
  *                     useBase64: true || false,
  *                     payload: {
  *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
+ *                       type: "STRING" || "JSON", // required
  *                     },
  *                   },
  *                   firehose: { // FirehoseAction
@@ -428,7 +428,7 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
- *   evaluationMethod: "STRING_VALUE",
+ *   evaluationMethod: "BATCH" || "SERIAL",
  * };
  * const command = new CreateDetectorModelCommand(input);
  * const response = await client.send(command);
@@ -441,9 +441,9 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
  * //     roleArn: "STRING_VALUE",
  * //     creationTime: new Date("TIMESTAMP"),
  * //     lastUpdateTime: new Date("TIMESTAMP"),
- * //     status: "STRING_VALUE",
+ * //     status: "ACTIVE" || "ACTIVATING" || "INACTIVE" || "DEPRECATED" || "DRAFT" || "PAUSED" || "FAILED",
  * //     key: "STRING_VALUE",
- * //     evaluationMethod: "STRING_VALUE",
+ * //     evaluationMethod: "BATCH" || "SERIAL",
  * //   },
  * // };
  *

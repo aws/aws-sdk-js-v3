@@ -41,7 +41,6 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
 /**
  * @public
  * <p>Creates a Kinesis Data Firehose delivery stream.</p>
- *
  *          <p>By default, you can create up to 50 delivery streams per Amazon Web Services
  *          Region.</p>
  *          <p>This is an asynchronous operation that immediately returns. The initial status of the
@@ -80,7 +79,6 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *          boundaries might be such that the size is a little over or under the configured buffering
  *          size. By default, no encryption is performed. We strongly recommend that you enable
  *          encryption to ensure secure data storage in Amazon S3.</p>
- *
  *          <p>A few notes about Amazon Redshift as a destination:</p>
  *          <ul>
  *             <li>
@@ -89,7 +87,6 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *                   <code>COPY</code> syntax to load data into an Amazon Redshift table. This is
  *                specified in the <code>RedshiftDestinationConfiguration.S3Configuration</code>
  *                parameter.</p>
- *
  *             </li>
  *             <li>
  *                <p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be
@@ -101,7 +98,6 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *                <p>We strongly recommend that you use the user name and password you provide
  *                exclusively with Kinesis Data Firehose, and that the permissions for the account are
  *                restricted for Amazon Redshift <code>INSERT</code> permissions.</p>
- *
  *             </li>
  *          </ul>
  *          <p>Kinesis Data Firehose assumes the IAM role that is configured as part of the

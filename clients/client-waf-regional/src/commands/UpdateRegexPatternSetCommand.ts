@@ -94,7 +94,7 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  *   RegexPatternSetId: "STRING_VALUE", // required
  *   Updates: [ // RegexPatternSetUpdates // required
  *     { // RegexPatternSetUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: "INSERT" || "DELETE", // required
  *       RegexPatternString: "STRING_VALUE", // required
  *     },
  *   ],

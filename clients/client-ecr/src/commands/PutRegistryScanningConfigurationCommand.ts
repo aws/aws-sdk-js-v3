@@ -49,14 +49,14 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * // const { ECRClient, PutRegistryScanningConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // PutRegistryScanningConfigurationRequest
- *   scanType: "STRING_VALUE",
+ *   scanType: "BASIC" || "ENHANCED",
  *   rules: [ // RegistryScanningRuleList
  *     { // RegistryScanningRule
- *       scanFrequency: "STRING_VALUE", // required
+ *       scanFrequency: "SCAN_ON_PUSH" || "CONTINUOUS_SCAN" || "MANUAL", // required
  *       repositoryFilters: [ // ScanningRepositoryFilterList // required
  *         { // ScanningRepositoryFilter
  *           filter: "STRING_VALUE", // required
- *           filterType: "STRING_VALUE", // required
+ *           filterType: "WILDCARD", // required
  *         },
  *       ],
  *     },
@@ -66,14 +66,14 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * const response = await client.send(command);
  * // { // PutRegistryScanningConfigurationResponse
  * //   registryScanningConfiguration: { // RegistryScanningConfiguration
- * //     scanType: "STRING_VALUE",
+ * //     scanType: "BASIC" || "ENHANCED",
  * //     rules: [ // RegistryScanningRuleList
  * //       { // RegistryScanningRule
- * //         scanFrequency: "STRING_VALUE", // required
+ * //         scanFrequency: "SCAN_ON_PUSH" || "CONTINUOUS_SCAN" || "MANUAL", // required
  * //         repositoryFilters: [ // ScanningRepositoryFilterList // required
  * //           { // ScanningRepositoryFilter
  * //             filter: "STRING_VALUE", // required
- * //             filterType: "STRING_VALUE", // required
+ * //             filterType: "WILDCARD", // required
  * //           },
  * //         ],
  * //       },

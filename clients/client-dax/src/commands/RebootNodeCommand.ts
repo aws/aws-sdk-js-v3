@@ -107,9 +107,9 @@ export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataB
  * //       ],
  * //     },
  * //     SSEDescription: { // SSEDescription
- * //       Status: "STRING_VALUE",
+ * //       Status: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED",
  * //     },
- * //     ClusterEndpointEncryptionType: "STRING_VALUE",
+ * //     ClusterEndpointEncryptionType: "NONE" || "TLS",
  * //   },
  * // };
  *

@@ -64,7 +64,7 @@ export interface GetObjectMetadataCommandOutput
  * //   MetadataBlob: "STREAMING_BLOB_VALUE",
  * //   MetadataBlobLength: Number("long"),
  * //   MetadataBlobChecksum: "STRING_VALUE",
- * //   MetadataBlobChecksumAlgorithm: "STRING_VALUE",
+ * //   MetadataBlobChecksumAlgorithm: "SHA256",
  * // };
  *
  * ```

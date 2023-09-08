@@ -45,8 +45,8 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * // const { CodeBuildClient, ListProjectsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // ListProjectsInput
- *   sortBy: "STRING_VALUE",
- *   sortOrder: "STRING_VALUE",
+ *   sortBy: "NAME" || "CREATED_TIME" || "LAST_MODIFIED_TIME",
+ *   sortOrder: "ASCENDING" || "DESCENDING",
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new ListProjectsCommand(input);

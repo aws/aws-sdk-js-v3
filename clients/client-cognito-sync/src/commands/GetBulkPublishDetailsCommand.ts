@@ -52,7 +52,7 @@ export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetail
  * //   IdentityPoolId: "STRING_VALUE",
  * //   BulkPublishStartTime: new Date("TIMESTAMP"),
  * //   BulkPublishCompleteTime: new Date("TIMESTAMP"),
- * //   BulkPublishStatus: "STRING_VALUE",
+ * //   BulkPublishStatus: "NOT_STARTED" || "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
  * //   FailureMessage: "STRING_VALUE",
  * // };
  *

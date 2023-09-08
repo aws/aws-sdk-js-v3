@@ -48,7 +48,7 @@ export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateR
  * const input = { // UpdateSystemTemplateRequest
  *   id: "STRING_VALUE", // required
  *   definition: { // DefinitionDocument
- *     language: "STRING_VALUE", // required
+ *     language: "GRAPHQL", // required
  *     text: "STRING_VALUE", // required
  *   },
  *   compatibleNamespaceVersion: Number("long"),

@@ -62,7 +62,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * //   DataSizeInBytes: Number("long"),
  * //   NumberOfFiles: Number("long"),
  * //   Name: "STRING_VALUE",
- * //   Status: "STRING_VALUE",
+ * //   Status: "PENDING" || "INPROGRESS" || "FAILED" || "COMPLETED" || "DELETED",
  * //   LogUri: "STRING_VALUE",
  * //   Message: "STRING_VALUE",
  * //   RedshiftMetadata: { // RedshiftMetadata

@@ -52,9 +52,9 @@ export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOut
  * // { // DescribeSMBSettingsOutput
  * //   GatewayARN: "STRING_VALUE",
  * //   DomainName: "STRING_VALUE",
- * //   ActiveDirectoryStatus: "STRING_VALUE",
+ * //   ActiveDirectoryStatus: "ACCESS_DENIED" || "DETACHED" || "JOINED" || "JOINING" || "NETWORK_ERROR" || "TIMEOUT" || "UNKNOWN_ERROR",
  * //   SMBGuestPasswordSet: true || false,
- * //   SMBSecurityStrategy: "STRING_VALUE",
+ * //   SMBSecurityStrategy: "ClientSpecified" || "MandatorySigning" || "MandatoryEncryption",
  * //   FileSharesVisible: true || false,
  * //   SMBLocalGroups: { // SMBLocalGroups
  * //     GatewayAdmins: [ // UserList

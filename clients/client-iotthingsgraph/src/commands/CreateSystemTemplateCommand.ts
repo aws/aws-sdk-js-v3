@@ -48,7 +48,7 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  * const client = new IoTThingsGraphClient(config);
  * const input = { // CreateSystemTemplateRequest
  *   definition: { // DefinitionDocument
- *     language: "STRING_VALUE", // required
+ *     language: "GRAPHQL", // required
  *     text: "STRING_VALUE", // required
  *   },
  *   compatibleNamespaceVersion: Number("long"),

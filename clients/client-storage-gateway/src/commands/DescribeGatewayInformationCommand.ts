@@ -76,13 +76,13 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  * //   ],
  * //   VPCEndpoint: "STRING_VALUE",
  * //   CloudWatchLogGroupARN: "STRING_VALUE",
- * //   HostEnvironment: "STRING_VALUE",
+ * //   HostEnvironment: "VMWARE" || "HYPER-V" || "EC2" || "KVM" || "OTHER" || "SNOWBALL",
  * //   EndpointType: "STRING_VALUE",
  * //   SoftwareUpdatesEndDate: "STRING_VALUE",
  * //   DeprecationDate: "STRING_VALUE",
- * //   GatewayCapacity: "STRING_VALUE",
+ * //   GatewayCapacity: "Small" || "Medium" || "Large",
  * //   SupportedGatewayCapacities: [ // SupportedGatewayCapacities
- * //     "STRING_VALUE",
+ * //     "Small" || "Medium" || "Large",
  * //   ],
  * //   HostEnvironmentId: "STRING_VALUE",
  * // };

@@ -46,7 +46,7 @@ export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __M
  * const input = { // PutMetricPolicyInput
  *   ContainerName: "STRING_VALUE", // required
  *   MetricPolicy: { // MetricPolicy
- *     ContainerLevelMetrics: "STRING_VALUE", // required
+ *     ContainerLevelMetrics: "ENABLED" || "DISABLED", // required
  *     MetricPolicyRules: [ // MetricPolicyRules
  *       { // MetricPolicyRule
  *         ObjectGroup: "STRING_VALUE", // required

@@ -51,7 +51,7 @@ export interface UpdateAlertCommandOutput extends UpdateAlertResponse, __Metadat
  *     SNSConfiguration: { // SNSConfiguration
  *       RoleArn: "STRING_VALUE", // required
  *       SnsTopicArn: "STRING_VALUE", // required
- *       SnsFormat: "STRING_VALUE",
+ *       SnsFormat: "LONG_TEXT" || "SHORT_TEXT" || "JSON",
  *     },
  *     LambdaConfiguration: { // LambdaConfiguration
  *       RoleArn: "STRING_VALUE", // required

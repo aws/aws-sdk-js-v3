@@ -64,7 +64,7 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       ARN: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
- * //       Status: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "CREATING" || "DELETING",
  * //       AccessLoggingEnabled: true || false,
  * //     },
  * //   ],

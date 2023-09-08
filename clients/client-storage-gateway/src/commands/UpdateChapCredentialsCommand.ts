@@ -44,7 +44,6 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  *          specified iSCSI target. By default, a gateway does not have CHAP enabled; however, for
  *          added security, you might use it. This operation is supported in the volume and tape
  *          gateway types.</p>
- *
  *          <important>
  *             <p>When you update CHAP credentials, all existing connections on the target are closed
  *             and initiators must reconnect with the new credentials.</p>

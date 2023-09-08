@@ -46,7 +46,7 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * const client = new InspectorClient(config);
  * const input = { // UnsubscribeFromEventRequest
  *   resourceArn: "STRING_VALUE", // required
- *   event: "STRING_VALUE", // required
+ *   event: "ASSESSMENT_RUN_STARTED" || "ASSESSMENT_RUN_COMPLETED" || "ASSESSMENT_RUN_STATE_CHANGED" || "FINDING_REPORTED" || "OTHER", // required
  *   topicArn: "STRING_VALUE", // required
  * };
  * const command = new UnsubscribeFromEventCommand(input);

@@ -72,7 +72,7 @@ export interface GetScreenDataCommandOutput extends GetScreenDataResult, __Metad
  * //       headers: [ // ResultHeader // required
  * //         { // ColumnMetadata
  * //           name: "STRING_VALUE", // required
- * //           format: "STRING_VALUE", // required
+ * //           format: "AUTO" || "NUMBER" || "CURRENCY" || "DATE" || "TIME" || "DATE_TIME" || "PERCENTAGE" || "TEXT" || "ACCOUNTING" || "CONTACT" || "ROWLINK" || "ROWSET", // required
  * //         },
  * //       ],
  * //       rows: [ // ResultRows // required
@@ -80,7 +80,7 @@ export interface GetScreenDataCommandOutput extends GetScreenDataResult, __Metad
  * //           rowId: "STRING_VALUE",
  * //           dataItems: [ // DataItems // required
  * //             { // DataItem
- * //               overrideFormat: "STRING_VALUE",
+ * //               overrideFormat: "AUTO" || "NUMBER" || "CURRENCY" || "DATE" || "TIME" || "DATE_TIME" || "PERCENTAGE" || "TEXT" || "ACCOUNTING" || "CONTACT" || "ROWLINK" || "ROWSET",
  * //               rawValue: "STRING_VALUE",
  * //               formattedValue: "STRING_VALUE",
  * //             },

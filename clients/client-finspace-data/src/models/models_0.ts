@@ -325,7 +325,6 @@ export interface CreateChangesetRequest {
    *                   <code>XML</code> – XML source file format.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>Here is an example of how you could specify the <code>formatParams</code>:</p>
    *          <p>
    *             <code>
@@ -3073,7 +3072,6 @@ export interface UpdateChangesetRequest {
    *                   <code>XML</code> – XML source file format.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>Here is an example of how you could specify the <code>formatParams</code>:</p>
    *          <p>
    *             <code>

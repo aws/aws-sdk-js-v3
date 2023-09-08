@@ -93,7 +93,7 @@ export interface CreateDeliverabilityTestReportCommandOutput
  * const response = await client.send(command);
  * // { // CreateDeliverabilityTestReportResponse
  * //   ReportId: "STRING_VALUE", // required
- * //   DeliverabilityTestStatus: "STRING_VALUE", // required
+ * //   DeliverabilityTestStatus: "IN_PROGRESS" || "COMPLETED", // required
  * // };
  *
  * ```

@@ -104,9 +104,9 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //       ],
  * //     },
  * //     SSEDescription: { // SSEDescription
- * //       Status: "STRING_VALUE",
+ * //       Status: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED",
  * //     },
- * //     ClusterEndpointEncryptionType: "STRING_VALUE",
+ * //     ClusterEndpointEncryptionType: "NONE" || "TLS",
  * //   },
  * // };
  *

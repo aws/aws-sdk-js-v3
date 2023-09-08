@@ -46,7 +46,7 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * const input = { // UpdateJobExecutionRequest
  *   jobId: "STRING_VALUE", // required
  *   thingName: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
+ *   status: "QUEUED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "REJECTED" || "REMOVED" || "CANCELED", // required
  *   statusDetails: { // DetailsMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -60,7 +60,7 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * const response = await client.send(command);
  * // { // UpdateJobExecutionResponse
  * //   executionState: { // JobExecutionState
- * //     status: "STRING_VALUE",
+ * //     status: "QUEUED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "REJECTED" || "REMOVED" || "CANCELED",
  * //     statusDetails: { // DetailsMap
  * //       "<keys>": "STRING_VALUE",
  * //     },

@@ -57,10 +57,10 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  * const input = { // GetScalingPlanResourceForecastDataRequest
  *   ScalingPlanName: "STRING_VALUE", // required
  *   ScalingPlanVersion: Number("long"), // required
- *   ServiceNamespace: "STRING_VALUE", // required
+ *   ServiceNamespace: "autoscaling" || "ecs" || "ec2" || "rds" || "dynamodb", // required
  *   ResourceId: "STRING_VALUE", // required
- *   ScalableDimension: "STRING_VALUE", // required
- *   ForecastDataType: "STRING_VALUE", // required
+ *   ScalableDimension: "autoscaling:autoScalingGroup:DesiredCapacity" || "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "rds:cluster:ReadReplicaCount" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits", // required
+ *   ForecastDataType: "CapacityForecast" || "LoadForecast" || "ScheduledActionMinCapacity" || "ScheduledActionMaxCapacity", // required
  *   StartTime: new Date("TIMESTAMP"), // required
  *   EndTime: new Date("TIMESTAMP"), // required
  * };

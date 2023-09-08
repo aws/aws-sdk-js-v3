@@ -2482,7 +2482,9 @@
         },
         "aws.cloudformation#cfnResource": {
           "name": "Permission",
-          "additionalSchemas": ["com.amazonaws.grafana#UpdatePermissionsResponse"]
+          "additionalSchemas": [
+            "com.amazonaws.grafana#UpdatePermissionsResponse"
+          ]
         }
       }
     },

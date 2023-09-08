@@ -970,7 +970,10 @@
             "documentation": "This example creates an Internet-facing load balancer and enables the Availability Zones for the specified subnets.",
             "input": {
               "Name": "my-load-balancer",
-              "Subnets": ["subnet-b7d581c0", "subnet-8360a9e7"]
+              "Subnets": [
+                "subnet-b7d581c0",
+                "subnet-8360a9e7"
+              ]
             },
             "output": {
               "LoadBalancers": [
@@ -981,7 +984,9 @@
                     "Code": "provisioning"
                   },
                   "DNSName": "my-load-balancer-424835706.us-west-2.elb.amazonaws.com",
-                  "SecurityGroups": ["sg-5943793c"],
+                  "SecurityGroups": [
+                    "sg-5943793c"
+                  ],
                   "LoadBalancerName": "my-load-balancer",
                   "CreatedTime": "2016-03-25T21:26:12.920Z",
                   "Scheme": "internet-facing",
@@ -1147,7 +1152,9 @@
               "Conditions": [
                 {
                   "Field": "path-pattern",
-                  "Values": ["/img/*"]
+                  "Values": [
+                    "/img/*"
+                  ]
                 }
               ],
               "Priority": 10,
@@ -1165,7 +1172,9 @@
                   "Conditions": [
                     {
                       "Field": "path-pattern",
-                      "Values": ["/img/*"]
+                      "Values": [
+                        "/img/*"
+                      ]
                     }
                   ],
                   "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee",
@@ -2044,7 +2053,9 @@
                     "Code": "active"
                   },
                   "DNSName": "my-load-balancer-424835706.us-west-2.elb.amazonaws.com",
-                  "SecurityGroups": ["sg-5943793c"],
+                  "SecurityGroups": [
+                    "sg-5943793c"
+                  ],
                   "LoadBalancerName": "my-load-balancer",
                   "CreatedTime": "2016-03-25T21:26:12.920Z",
                   "Scheme": "internet-facing",
@@ -2070,7 +2081,9 @@
           "outputToken": "NextMarker",
           "items": "LoadBalancers"
         },
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "LoadBalancerAvailable": {
             "acceptors": [
@@ -2233,7 +2246,9 @@
                   "Conditions": [
                     {
                       "Field": "path-pattern",
-                      "Values": ["/img/*"]
+                      "Values": [
+                        "/img/*"
+                      ]
                     }
                   ],
                   "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee",
@@ -2323,12 +2338,18 @@
             "title": "To describe a policy used for SSL negotiation",
             "documentation": "This example describes the specified policy used for SSL negotiation.",
             "input": {
-              "Names": ["ELBSecurityPolicy-2015-05"]
+              "Names": [
+                "ELBSecurityPolicy-2015-05"
+              ]
             },
             "output": {
               "SslPolicies": [
                 {
-                  "SslProtocols": ["TLSv1", "TLSv1.1", "TLSv1.2"],
+                  "SslProtocols": [
+                    "TLSv1",
+                    "TLSv1.1",
+                    "TLSv1.2"
+                  ],
                   "Ciphers": [
                     {
                       "Priority": 1,
@@ -2798,7 +2819,9 @@
             }
           }
         ],
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "TargetDeregistered": {
             "acceptors": [
@@ -5210,7 +5233,9 @@
               "Conditions": [
                 {
                   "Field": "path-pattern",
-                  "Values": ["/images/*"]
+                  "Values": [
+                    "/images/*"
+                  ]
                 }
               ]
             },
@@ -5221,7 +5246,9 @@
                   "Conditions": [
                     {
                       "Field": "path-pattern",
-                      "Values": ["/images/*"]
+                      "Values": [
+                        "/images/*"
+                      ]
                     }
                   ],
                   "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee",
@@ -5936,7 +5963,10 @@
               "ResourceArns": [
                 "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
               ],
-              "TagKeys": ["project", "department"]
+              "TagKeys": [
+                "project",
+                "department"
+              ]
             }
           }
         ]
@@ -6290,7 +6320,9 @@
                   "Conditions": [
                     {
                       "Field": "path-pattern",
-                      "Values": ["/img/*"]
+                      "Values": [
+                        "/img/*"
+                      ]
                     }
                   ],
                   "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/1291d13826f405c3",
@@ -6364,10 +6396,14 @@
             "documentation": "This example associates the specified security group with the specified load balancer.",
             "input": {
               "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
-              "SecurityGroups": ["sg-5943793c"]
+              "SecurityGroups": [
+                "sg-5943793c"
+              ]
             },
             "output": {
-              "SecurityGroupIds": ["sg-5943793c"]
+              "SecurityGroupIds": [
+                "sg-5943793c"
+              ]
             }
           }
         ]
@@ -6457,7 +6493,10 @@
             "documentation": "This example enables the Availability Zones for the specified subnets for the specified load balancer.",
             "input": {
               "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
-              "Subnets": ["subnet-8360a9e7", "subnet-b7d581c0"]
+              "Subnets": [
+                "subnet-8360a9e7",
+                "subnet-b7d581c0"
+              ]
             },
             "output": {
               "AvailabilityZones": [

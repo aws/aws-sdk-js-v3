@@ -52,7 +52,7 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  *   ControlId: "STRING_VALUE",
  *   HomeRegion: "STRING_VALUE",
  *   Target: { // Target
- *     Type: "STRING_VALUE", // required
+ *     Type: "ACCOUNT", // required
  *     Id: "STRING_VALUE",
  *   },
  *   MaxResults: Number("int"),
@@ -66,7 +66,7 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  * //       ControlId: "STRING_VALUE",
  * //       HomeRegion: "STRING_VALUE",
  * //       Target: { // Target
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "ACCOUNT", // required
  * //         Id: "STRING_VALUE",
  * //       },
  * //       RequestedTime: new Date("TIMESTAMP"),

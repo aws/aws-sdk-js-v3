@@ -54,7 +54,7 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  *     ],
  *     FileFormatDescriptor: { // FileFormatDescriptor
  *       CsvFormatDescriptor: { // CsvFormatDescriptor
- *         FileCompression: "STRING_VALUE",
+ *         FileCompression: "NONE" || "GZIP",
  *         Charset: "STRING_VALUE",
  *         ContainsHeader: true || false,
  *         Delimiter: "STRING_VALUE",
@@ -64,7 +64,7 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  *         QuoteSymbol: "STRING_VALUE",
  *       },
  *       JsonFormatDescriptor: { // JsonFormatDescriptor
- *         FileCompression: "STRING_VALUE",
+ *         FileCompression: "NONE" || "GZIP",
  *         Charset: "STRING_VALUE",
  *       },
  *     },

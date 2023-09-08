@@ -47,7 +47,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   source: { // ProjectSource
- *     type: "STRING_VALUE", // required
+ *     type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  *     location: "STRING_VALUE",
  *     gitCloneDepth: Number("int"),
  *     gitSubmodulesConfig: { // GitSubmodulesConfig
@@ -55,7 +55,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *     },
  *     buildspec: "STRING_VALUE",
  *     auth: { // SourceAuth
- *       type: "STRING_VALUE", // required
+ *       type: "OAUTH", // required
  *       resource: "STRING_VALUE",
  *     },
  *     reportBuildStatus: true || false,
@@ -68,7 +68,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *   },
  *   secondarySources: [ // ProjectSources
  *     {
- *       type: "STRING_VALUE", // required
+ *       type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  *       location: "STRING_VALUE",
  *       gitCloneDepth: Number("int"),
  *       gitSubmodulesConfig: {
@@ -76,7 +76,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *       },
  *       buildspec: "STRING_VALUE",
  *       auth: {
- *         type: "STRING_VALUE", // required
+ *         type: "OAUTH", // required
  *         resource: "STRING_VALUE",
  *       },
  *       reportBuildStatus: true || false,
@@ -96,56 +96,56 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *     },
  *   ],
  *   artifacts: { // ProjectArtifacts
- *     type: "STRING_VALUE", // required
+ *     type: "CODEPIPELINE" || "S3" || "NO_ARTIFACTS", // required
  *     location: "STRING_VALUE",
  *     path: "STRING_VALUE",
- *     namespaceType: "STRING_VALUE",
+ *     namespaceType: "NONE" || "BUILD_ID",
  *     name: "STRING_VALUE",
- *     packaging: "STRING_VALUE",
+ *     packaging: "NONE" || "ZIP",
  *     overrideArtifactName: true || false,
  *     encryptionDisabled: true || false,
  *     artifactIdentifier: "STRING_VALUE",
- *     bucketOwnerAccess: "STRING_VALUE",
+ *     bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  *   },
  *   secondaryArtifacts: [ // ProjectArtifactsList
  *     {
- *       type: "STRING_VALUE", // required
+ *       type: "CODEPIPELINE" || "S3" || "NO_ARTIFACTS", // required
  *       location: "STRING_VALUE",
  *       path: "STRING_VALUE",
- *       namespaceType: "STRING_VALUE",
+ *       namespaceType: "NONE" || "BUILD_ID",
  *       name: "STRING_VALUE",
- *       packaging: "STRING_VALUE",
+ *       packaging: "NONE" || "ZIP",
  *       overrideArtifactName: true || false,
  *       encryptionDisabled: true || false,
  *       artifactIdentifier: "STRING_VALUE",
- *       bucketOwnerAccess: "STRING_VALUE",
+ *       bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  *     },
  *   ],
  *   cache: { // ProjectCache
- *     type: "STRING_VALUE", // required
+ *     type: "NO_CACHE" || "S3" || "LOCAL", // required
  *     location: "STRING_VALUE",
  *     modes: [ // ProjectCacheModes
- *       "STRING_VALUE",
+ *       "LOCAL_DOCKER_LAYER_CACHE" || "LOCAL_SOURCE_CACHE" || "LOCAL_CUSTOM_CACHE",
  *     ],
  *   },
  *   environment: { // ProjectEnvironment
- *     type: "STRING_VALUE", // required
+ *     type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER", // required
  *     image: "STRING_VALUE", // required
- *     computeType: "STRING_VALUE", // required
+ *     computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_2XLARGE", // required
  *     environmentVariables: [ // EnvironmentVariables
  *       { // EnvironmentVariable
  *         name: "STRING_VALUE", // required
  *         value: "STRING_VALUE", // required
- *         type: "STRING_VALUE",
+ *         type: "PLAINTEXT" || "PARAMETER_STORE" || "SECRETS_MANAGER",
  *       },
  *     ],
  *     privilegedMode: true || false,
  *     certificate: "STRING_VALUE",
  *     registryCredential: { // RegistryCredential
  *       credential: "STRING_VALUE", // required
- *       credentialProvider: "STRING_VALUE", // required
+ *       credentialProvider: "SECRETS_MANAGER", // required
  *     },
- *     imagePullCredentialsType: "STRING_VALUE",
+ *     imagePullCredentialsType: "CODEBUILD" || "SERVICE_ROLE",
  *   },
  *   serviceRole: "STRING_VALUE", // required
  *   timeoutInMinutes: Number("int"),
@@ -169,20 +169,20 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *   badgeEnabled: true || false,
  *   logsConfig: { // LogsConfig
  *     cloudWatchLogs: { // CloudWatchLogsConfig
- *       status: "STRING_VALUE", // required
+ *       status: "ENABLED" || "DISABLED", // required
  *       groupName: "STRING_VALUE",
  *       streamName: "STRING_VALUE",
  *     },
  *     s3Logs: { // S3LogsConfig
- *       status: "STRING_VALUE", // required
+ *       status: "ENABLED" || "DISABLED", // required
  *       location: "STRING_VALUE",
  *       encryptionDisabled: true || false,
- *       bucketOwnerAccess: "STRING_VALUE",
+ *       bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  *     },
  *   },
  *   fileSystemLocations: [ // ProjectFileSystemLocations
  *     { // ProjectFileSystemLocation
- *       type: "STRING_VALUE",
+ *       type: "EFS",
  *       location: "STRING_VALUE",
  *       mountPoint: "STRING_VALUE",
  *       identifier: "STRING_VALUE",
@@ -199,7 +199,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *       ],
  *     },
  *     timeoutInMins: Number("int"),
- *     batchReportMode: "STRING_VALUE",
+ *     batchReportMode: "REPORT_INDIVIDUAL_BUILDS" || "REPORT_AGGREGATED_BATCH",
  *   },
  *   concurrentBuildLimit: Number("int"),
  * };
@@ -211,7 +211,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //     arn: "STRING_VALUE",
  * //     description: "STRING_VALUE",
  * //     source: { // ProjectSource
- * //       type: "STRING_VALUE", // required
+ * //       type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //       location: "STRING_VALUE",
  * //       gitCloneDepth: Number("int"),
  * //       gitSubmodulesConfig: { // GitSubmodulesConfig
@@ -219,7 +219,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //       },
  * //       buildspec: "STRING_VALUE",
  * //       auth: { // SourceAuth
- * //         type: "STRING_VALUE", // required
+ * //         type: "OAUTH", // required
  * //         resource: "STRING_VALUE",
  * //       },
  * //       reportBuildStatus: true || false,
@@ -232,7 +232,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //     },
  * //     secondarySources: [ // ProjectSources
  * //       {
- * //         type: "STRING_VALUE", // required
+ * //         type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //         location: "STRING_VALUE",
  * //         gitCloneDepth: Number("int"),
  * //         gitSubmodulesConfig: {
@@ -240,7 +240,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //         },
  * //         buildspec: "STRING_VALUE",
  * //         auth: {
- * //           type: "STRING_VALUE", // required
+ * //           type: "OAUTH", // required
  * //           resource: "STRING_VALUE",
  * //         },
  * //         reportBuildStatus: true || false,
@@ -260,56 +260,56 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //       },
  * //     ],
  * //     artifacts: { // ProjectArtifacts
- * //       type: "STRING_VALUE", // required
+ * //       type: "CODEPIPELINE" || "S3" || "NO_ARTIFACTS", // required
  * //       location: "STRING_VALUE",
  * //       path: "STRING_VALUE",
- * //       namespaceType: "STRING_VALUE",
+ * //       namespaceType: "NONE" || "BUILD_ID",
  * //       name: "STRING_VALUE",
- * //       packaging: "STRING_VALUE",
+ * //       packaging: "NONE" || "ZIP",
  * //       overrideArtifactName: true || false,
  * //       encryptionDisabled: true || false,
  * //       artifactIdentifier: "STRING_VALUE",
- * //       bucketOwnerAccess: "STRING_VALUE",
+ * //       bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  * //     },
  * //     secondaryArtifacts: [ // ProjectArtifactsList
  * //       {
- * //         type: "STRING_VALUE", // required
+ * //         type: "CODEPIPELINE" || "S3" || "NO_ARTIFACTS", // required
  * //         location: "STRING_VALUE",
  * //         path: "STRING_VALUE",
- * //         namespaceType: "STRING_VALUE",
+ * //         namespaceType: "NONE" || "BUILD_ID",
  * //         name: "STRING_VALUE",
- * //         packaging: "STRING_VALUE",
+ * //         packaging: "NONE" || "ZIP",
  * //         overrideArtifactName: true || false,
  * //         encryptionDisabled: true || false,
  * //         artifactIdentifier: "STRING_VALUE",
- * //         bucketOwnerAccess: "STRING_VALUE",
+ * //         bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  * //       },
  * //     ],
  * //     cache: { // ProjectCache
- * //       type: "STRING_VALUE", // required
+ * //       type: "NO_CACHE" || "S3" || "LOCAL", // required
  * //       location: "STRING_VALUE",
  * //       modes: [ // ProjectCacheModes
- * //         "STRING_VALUE",
+ * //         "LOCAL_DOCKER_LAYER_CACHE" || "LOCAL_SOURCE_CACHE" || "LOCAL_CUSTOM_CACHE",
  * //       ],
  * //     },
  * //     environment: { // ProjectEnvironment
- * //       type: "STRING_VALUE", // required
+ * //       type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER", // required
  * //       image: "STRING_VALUE", // required
- * //       computeType: "STRING_VALUE", // required
+ * //       computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_2XLARGE", // required
  * //       environmentVariables: [ // EnvironmentVariables
  * //         { // EnvironmentVariable
  * //           name: "STRING_VALUE", // required
  * //           value: "STRING_VALUE", // required
- * //           type: "STRING_VALUE",
+ * //           type: "PLAINTEXT" || "PARAMETER_STORE" || "SECRETS_MANAGER",
  * //         },
  * //       ],
  * //       privilegedMode: true || false,
  * //       certificate: "STRING_VALUE",
  * //       registryCredential: { // RegistryCredential
  * //         credential: "STRING_VALUE", // required
- * //         credentialProvider: "STRING_VALUE", // required
+ * //         credentialProvider: "SECRETS_MANAGER", // required
  * //       },
- * //       imagePullCredentialsType: "STRING_VALUE",
+ * //       imagePullCredentialsType: "CODEBUILD" || "SERVICE_ROLE",
  * //     },
  * //     serviceRole: "STRING_VALUE",
  * //     timeoutInMinutes: Number("int"),
@@ -331,13 +331,13 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //       filterGroups: [ // FilterGroups
  * //         [ // FilterGroup
  * //           { // WebhookFilter
- * //             type: "STRING_VALUE", // required
+ * //             type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE", // required
  * //             pattern: "STRING_VALUE", // required
  * //             excludeMatchedPattern: true || false,
  * //           },
  * //         ],
  * //       ],
- * //       buildType: "STRING_VALUE",
+ * //       buildType: "BUILD" || "BUILD_BATCH",
  * //       lastModifiedSecret: new Date("TIMESTAMP"),
  * //     },
  * //     vpcConfig: { // VpcConfig
@@ -355,20 +355,20 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //     },
  * //     logsConfig: { // LogsConfig
  * //       cloudWatchLogs: { // CloudWatchLogsConfig
- * //         status: "STRING_VALUE", // required
+ * //         status: "ENABLED" || "DISABLED", // required
  * //         groupName: "STRING_VALUE",
  * //         streamName: "STRING_VALUE",
  * //       },
  * //       s3Logs: { // S3LogsConfig
- * //         status: "STRING_VALUE", // required
+ * //         status: "ENABLED" || "DISABLED", // required
  * //         location: "STRING_VALUE",
  * //         encryptionDisabled: true || false,
- * //         bucketOwnerAccess: "STRING_VALUE",
+ * //         bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  * //       },
  * //     },
  * //     fileSystemLocations: [ // ProjectFileSystemLocations
  * //       { // ProjectFileSystemLocation
- * //         type: "STRING_VALUE",
+ * //         type: "EFS",
  * //         location: "STRING_VALUE",
  * //         mountPoint: "STRING_VALUE",
  * //         identifier: "STRING_VALUE",
@@ -385,10 +385,10 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //         ],
  * //       },
  * //       timeoutInMins: Number("int"),
- * //       batchReportMode: "STRING_VALUE",
+ * //       batchReportMode: "REPORT_INDIVIDUAL_BUILDS" || "REPORT_AGGREGATED_BATCH",
  * //     },
  * //     concurrentBuildLimit: Number("int"),
- * //     projectVisibility: "STRING_VALUE",
+ * //     projectVisibility: "PUBLIC_READ" || "PRIVATE",
  * //     publicProjectAlias: "STRING_VALUE",
  * //     resourceAccessRole: "STRING_VALUE",
  * //   },

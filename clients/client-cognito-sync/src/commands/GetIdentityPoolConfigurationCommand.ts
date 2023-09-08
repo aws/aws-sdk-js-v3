@@ -110,7 +110,7 @@ export interface GetIdentityPoolConfigurationCommandOutput
  * //   CognitoStreams: { // CognitoStreams
  * //     StreamName: "STRING_VALUE",
  * //     RoleArn: "STRING_VALUE",
- * //     StreamingStatus: "STRING_VALUE",
+ * //     StreamingStatus: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *

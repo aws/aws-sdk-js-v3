@@ -38,14 +38,12 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * @public
  * <p>Updates the gateway virtual machine (VM) software. The request immediately triggers the
  *          software update.</p>
- *
  *          <note>
  *             <p>When you make this request, you get a <code>200 OK</code> success response
  *             immediately. However, it might take some time for the update to complete. You can call
  *                <a>DescribeGatewayInformation</a> to verify the gateway is in the
  *                <code>STATE_RUNNING</code> state.</p>
  *          </note>
- *
  *          <important>
  *             <p>A software update forces a system restart of your gateway. You can minimize the
  *             chance of any disruption to your applications by increasing your iSCSI Initiators'

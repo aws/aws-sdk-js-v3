@@ -42,7 +42,7 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  * @public
  * <p>List all tunnels for an Amazon Web Services account. Tunnels are listed by creation time in
  * 			descending order, newer tunnels will be listed before older tunnels.</p>
- * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTunnels</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTunnels</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,7 +61,7 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  * //     { // TunnelSummary
  * //       tunnelId: "STRING_VALUE",
  * //       tunnelArn: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "OPEN" || "CLOSED",
  * //       description: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       lastUpdatedAt: new Date("TIMESTAMP"),

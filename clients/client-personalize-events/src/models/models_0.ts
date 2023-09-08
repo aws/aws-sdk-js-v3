@@ -79,7 +79,6 @@ export interface Event {
    *       user rates a movie on your site, other than movie ID (<code>itemId</code>) and rating (<code>eventValue</code>)
    *       , you might also send the number of movie ratings made by the user.</p>
    *          <p>Each item in the map consists of a key-value pair. For example,</p>
-   *
    *          <p>
    *             <code>\{"numberOfRatings": "12"\}</code>
    *          </p>

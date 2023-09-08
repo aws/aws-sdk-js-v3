@@ -40,7 +40,6 @@ export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutpu
  *          Storage Gateway, a file share is a file system mount point backed by Amazon S3
  *          cloud storage. Storage Gateway exposes file shares using an NFS interface. This operation
  *          is only supported for S3 File Gateways.</p>
- *
  *          <important>
  *             <p>S3 File gateway requires Security Token Service (Amazon Web Services STS) to be
  *             activated to enable you to create a file share. Make sure Amazon Web Services STS is
@@ -49,7 +48,6 @@ export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutpu
  *             it. For information about how to activate Amazon Web Services STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
  *                deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
  *                   <i>Identity and Access Management User Guide</i>.</p>
- *
  *             <p>S3 File Gateways do not support creating hard or symbolic links on a file
  *             share.</p>
  *          </important>
@@ -73,7 +71,7 @@ export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutpu
  *   Role: "STRING_VALUE", // required
  *   LocationARN: "STRING_VALUE", // required
  *   DefaultStorageClass: "STRING_VALUE",
- *   ObjectACL: "STRING_VALUE",
+ *   ObjectACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control" || "aws-exec-read",
  *   ClientList: [ // FileShareClientList
  *     "STRING_VALUE",
  *   ],

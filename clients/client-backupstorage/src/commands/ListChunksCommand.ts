@@ -57,7 +57,7 @@ export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBea
  * //       Index: Number("long"), // required
  * //       Length: Number("long"), // required
  * //       Checksum: "STRING_VALUE", // required
- * //       ChecksumAlgorithm: "STRING_VALUE", // required
+ * //       ChecksumAlgorithm: "SHA256", // required
  * //       ChunkToken: "STRING_VALUE", // required
  * //     },
  * //   ],

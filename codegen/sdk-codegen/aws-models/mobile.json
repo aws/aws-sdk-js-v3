@@ -112,13 +112,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -126,21 +125,69 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [
                     {
-                      "fn": "parseURL",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
                         }
                       ],
-                      "assign": "url"
+                      "assign": "PartitionResult"
                     }
                   ],
                   "type": "tree",
@@ -155,13 +202,17 @@
                             },
                             true
                           ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
                       "type": "tree",
                       "rules": [
                         {
@@ -169,228 +220,434 @@
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseDualStack"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://mobile-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
-                        },
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
                         {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
+                            true
                           ]
                         }
                       ],
                       "type": "tree",
                       "rules": [
                         {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://mobile-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://mobile-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
                         }
                       ]
                     },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
                     {
                       "conditions": [
                         {
                           "fn": "booleanEquals",
                           "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
+                              "ref": "UseDualStack"
+                            },
+                            true
                           ]
                         }
                       ],
                       "type": "tree",
                       "rules": [
                         {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://mobile-fips.{Region}.{PartitionResult#dnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
+                          "conditions": [
                             {
-                              "fn": "getAttr",
+                              "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://mobile.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
                           ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
+                        },
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://mobile.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
                       ]
                     },
                     {
                       "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
+                      "endpoint": {
+                        "url": "https://mobile.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
                   ]
-                },
-                {
-                  "conditions": [],
-                  "endpoint": {
-                    "url": "https://mobile.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
                 }
               ]
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://mobile.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -398,8 +655,21 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -410,8 +680,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -422,9 +692,15 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -629,7 +905,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Request structure used to request a project be created.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Request structure used to request a project be created.\n        </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mobile#CreateProjectResult": {
@@ -643,7 +920,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Result structure used in response to a request to create a project.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Result structure used in response to a request to create a project.\n        </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mobile#Date": {
@@ -696,7 +974,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Request structure used to request a project be deleted.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Request structure used to request a project be deleted.\n        </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mobile#DeleteProjectResult": {
@@ -716,7 +995,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Result structure used in response to request to delete a project.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Result structure used in response to request to delete a project.\n        </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mobile#DescribeBundle": {
@@ -769,7 +1049,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Request structure to request the details of a specific bundle.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Request structure to request the details of a specific bundle.\n        </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mobile#DescribeBundleResult": {
@@ -783,7 +1064,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Result structure contains the details of the bundle.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Result structure contains the details of the bundle.\n        </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mobile#DescribeProject": {
@@ -844,7 +1126,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Request structure used to request details about a project.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Request structure used to request details about a project.\n        </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mobile#DescribeProjectResult": {
@@ -855,7 +1138,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Result structure used for requests of project details.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Result structure used for requests of project details.\n        </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mobile#DownloadUrl": {
@@ -934,7 +1218,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Request structure used to request generation of custom SDK and tool packages\n            required to integrate mobile web or app clients with backed AWS resources.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Request structure used to request generation of custom SDK and tool packages\n            required to integrate mobile web or app clients with backed AWS resources.\n        </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mobile#ExportBundleResult": {
@@ -948,7 +1233,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Result structure which contains link to download custom-generated SDK and\n            tool packages used to integrate mobile web or app clients with backed\n            AWS resources.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Result structure which contains link to download custom-generated SDK and\n            tool packages used to integrate mobile web or app clients with backed\n            AWS resources.\n        </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mobile#ExportProject": {
@@ -1001,7 +1287,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Request structure used in requests to export project configuration details.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Request structure used in requests to export project configuration details.\n        </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mobile#ExportProjectResult": {
@@ -1027,7 +1314,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Result structure used for requests to export project configuration details.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Result structure used for requests to export project configuration details.\n        </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mobile#Feature": {
@@ -1133,7 +1421,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Request structure to request all available bundles.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Request structure to request all available bundles.\n        </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mobile#ListBundlesResult": {
@@ -1153,7 +1442,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Result structure contains a list of all available bundles with details.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Result structure contains a list of all available bundles with details.\n        </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mobile#ListProjects": {
@@ -1215,7 +1505,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Request structure used to request projects list in AWS Mobile Hub.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Request structure used to request projects list in AWS Mobile Hub.\n        </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mobile#ListProjectsResult": {
@@ -1229,7 +1520,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Result structure used for requests to list projects in AWS Mobile Hub.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Result structure used for requests to list projects in AWS Mobile Hub.\n        </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.mobile#MaxResults": {
@@ -1259,39 +1551,53 @@
       }
     },
     "com.amazonaws.mobile#Platform": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>\n            Developer desktop or target mobile app or website platform.\n        </p>",
-        "smithy.api#enum": [
-          {
-            "value": "OSX",
-            "name": "OSX"
-          },
-          {
-            "value": "WINDOWS",
-            "name": "WINDOWS"
-          },
-          {
-            "value": "LINUX",
-            "name": "LINUX"
-          },
-          {
-            "value": "OBJC",
-            "name": "OBJC"
-          },
-          {
-            "value": "SWIFT",
-            "name": "SWIFT"
-          },
-          {
-            "value": "ANDROID",
-            "name": "ANDROID"
-          },
-          {
-            "value": "JAVASCRIPT",
-            "name": "JAVASCRIPT"
+      "type": "enum",
+      "members": {
+        "OSX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OSX"
           }
-        ]
+        },
+        "WINDOWS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WINDOWS"
+          }
+        },
+        "LINUX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LINUX"
+          }
+        },
+        "OBJC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OBJC"
+          }
+        },
+        "SWIFT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SWIFT"
+          }
+        },
+        "ANDROID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ANDROID"
+          }
+        },
+        "JAVASCRIPT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JAVASCRIPT"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Developer desktop or target mobile app or website platform.\n        </p>"
       }
     },
     "com.amazonaws.mobile#Platforms": {
@@ -1363,23 +1669,29 @@
       }
     },
     "com.amazonaws.mobile#ProjectState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>\n            Synchronization state for a project.\n        </p>",
-        "smithy.api#enum": [
-          {
-            "value": "NORMAL",
-            "name": "NORMAL"
-          },
-          {
-            "value": "SYNCING",
-            "name": "SYNCING"
-          },
-          {
-            "value": "IMPORTING",
-            "name": "IMPORTING"
+      "type": "enum",
+      "members": {
+        "NORMAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NORMAL"
           }
-        ]
+        },
+        "SYNCING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SYNCING"
+          }
+        },
+        "IMPORTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMPORTING"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Synchronization state for a project.\n        </p>"
       }
     },
     "com.amazonaws.mobile#ProjectSummaries": {
@@ -1587,7 +1899,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Request structure used for requests to update project configuration.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Request structure used for requests to update project configuration.\n        </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.mobile#UpdateProjectResult": {
@@ -1601,7 +1914,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            Result structure used for requests to updated project configuration.\n        </p>"
+        "smithy.api#documentation": "<p>\n            Result structure used for requests to updated project configuration.\n        </p>",
+        "smithy.api#output": {}
       }
     }
   }

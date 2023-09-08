@@ -68,7 +68,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   SSESpecification: { // SSESpecification
  *     Enabled: true || false, // required
  *   },
- *   ClusterEndpointEncryptionType: "STRING_VALUE",
+ *   ClusterEndpointEncryptionType: "NONE" || "TLS",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -124,9 +124,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //       ],
  * //     },
  * //     SSEDescription: { // SSEDescription
- * //       Status: "STRING_VALUE",
+ * //       Status: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED",
  * //     },
- * //     ClusterEndpointEncryptionType: "STRING_VALUE",
+ * //     ClusterEndpointEncryptionType: "NONE" || "TLS",
  * //   },
  * // };
  *

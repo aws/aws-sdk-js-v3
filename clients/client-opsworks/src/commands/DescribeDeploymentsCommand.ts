@@ -72,7 +72,7 @@ export interface DescribeDeploymentsCommandOutput extends DescribeDeploymentsRes
  * //       IamUserArn: "STRING_VALUE",
  * //       Comment: "STRING_VALUE",
  * //       Command: { // DeploymentCommand
- * //         Name: "STRING_VALUE", // required
+ * //         Name: "install_dependencies" || "update_dependencies" || "update_custom_cookbooks" || "execute_recipes" || "configure" || "setup" || "deploy" || "rollback" || "start" || "stop" || "restart" || "undeploy", // required
  * //         Args: { // DeploymentCommandArgs
  * //           "<keys>": [ // Strings
  * //             "STRING_VALUE",

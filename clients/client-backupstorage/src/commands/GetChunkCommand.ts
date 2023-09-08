@@ -57,7 +57,7 @@ export interface GetChunkCommandOutput extends Omit<GetChunkOutput, "Data">, __M
  * //   Data: "STREAMING_BLOB_VALUE", // required
  * //   Length: Number("long"), // required
  * //   Checksum: "STRING_VALUE", // required
- * //   ChecksumAlgorithm: "STRING_VALUE", // required
+ * //   ChecksumAlgorithm: "SHA256", // required
  * // };
  *
  * ```

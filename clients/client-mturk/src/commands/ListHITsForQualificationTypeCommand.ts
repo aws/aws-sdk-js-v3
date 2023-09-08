@@ -74,7 +74,7 @@ export interface ListHITsForQualificationTypeCommandOutput
  * //       Description: "STRING_VALUE",
  * //       Question: "STRING_VALUE",
  * //       Keywords: "STRING_VALUE",
- * //       HITStatus: "STRING_VALUE",
+ * //       HITStatus: "Assignable" || "Unassignable" || "Reviewable" || "Reviewing" || "Disposed",
  * //       MaxAssignments: Number("int"),
  * //       Reward: "STRING_VALUE",
  * //       AutoApprovalDelayInSeconds: Number("long"),
@@ -84,7 +84,7 @@ export interface ListHITsForQualificationTypeCommandOutput
  * //       QualificationRequirements: [ // QualificationRequirementList
  * //         { // QualificationRequirement
  * //           QualificationTypeId: "STRING_VALUE", // required
- * //           Comparator: "STRING_VALUE", // required
+ * //           Comparator: "LessThan" || "LessThanOrEqualTo" || "GreaterThan" || "GreaterThanOrEqualTo" || "EqualTo" || "NotEqualTo" || "Exists" || "DoesNotExist" || "In" || "NotIn", // required
  * //           IntegerValues: [ // IntegerList
  * //             Number("int"),
  * //           ],
@@ -95,10 +95,10 @@ export interface ListHITsForQualificationTypeCommandOutput
  * //             },
  * //           ],
  * //           RequiredToPreview: true || false,
- * //           ActionsGuarded: "STRING_VALUE",
+ * //           ActionsGuarded: "Accept" || "PreviewAndAccept" || "DiscoverPreviewAndAccept",
  * //         },
  * //       ],
- * //       HITReviewStatus: "STRING_VALUE",
+ * //       HITReviewStatus: "NotReviewed" || "MarkedForReview" || "ReviewedAppropriate" || "ReviewedInappropriate",
  * //       NumberOfAssignmentsPending: Number("int"),
  * //       NumberOfAssignmentsAvailable: Number("int"),
  * //       NumberOfAssignmentsCompleted: Number("int"),

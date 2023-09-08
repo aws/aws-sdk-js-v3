@@ -67,11 +67,11 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  * //           },
  * //         },
  * //       },
- * //       status: "STRING_VALUE",
+ * //       status: "CREATING" || "ACTIVE" || "DELETING",
  * //       creationTime: new Date("TIMESTAMP"),
  * //       lastUpdateTime: new Date("TIMESTAMP"),
  * //       lastMessageArrivalTime: new Date("TIMESTAMP"),
- * //       fileFormatType: "STRING_VALUE",
+ * //       fileFormatType: "JSON" || "PARQUET",
  * //       datastorePartitions: { // DatastorePartitions
  * //         partitions: [ // Partitions
  * //           { // DatastorePartition

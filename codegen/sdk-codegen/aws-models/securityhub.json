@@ -19845,7 +19845,9 @@
             "title": "To disable one or more security standards",
             "documentation": "The following example disables a security standard in Security Hub.",
             "input": {
-              "StandardsSubscriptionArns": ["arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"]
+              "StandardsSubscriptionArns": [
+                "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
+              ]
             },
             "output": {
               "StandardsSubscriptions": [
@@ -20171,7 +20173,10 @@
             "title": "To get security control details ",
             "documentation": "The following example gets details for the specified controls in the current AWS account and AWS Region.",
             "input": {
-              "SecurityControlIds": ["ACM.1", "APIGateway.1"]
+              "SecurityControlIds": [
+                "ACM.1",
+                "APIGateway.1"
+              ]
             },
             "output": {
               "SecurityControls": [
@@ -20346,7 +20351,9 @@
                       "Label": "LOW",
                       "Original": "10"
                     },
-                    "Types": ["Software and Configuration Checks/Vulnerabilities/CVE"]
+                    "Types": [
+                      "Software and Configuration Checks/Vulnerabilities/CVE"
+                    ]
                   },
                   "GeneratorId": "TestGeneratorId",
                   "Id": "Id1",
@@ -20579,7 +20586,9 @@
               "VerificationState": "TRUE_POSITIVE",
               "Confidence": 80,
               "Criticality": 80,
-              "Types": ["Software and Configuration Checks/Vulnerabilities/CVE"],
+              "Types": [
+                "Software and Configuration Checks/Vulnerabilities/CVE"
+              ],
               "UserDefinedFields": {
                 "reviewedByCio": "true"
               },
@@ -21528,13 +21537,19 @@
             "documentation": "The following example creates a finding aggregator. This is required to enable cross-Region aggregation.",
             "input": {
               "RegionLinkingMode": "SPECIFIED_REGIONS",
-              "Regions": ["us-west-1", "us-west-2"]
+              "Regions": [
+                "us-west-1",
+                "us-west-2"
+              ]
             },
             "output": {
               "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:222222222222:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
               "FindingAggregationRegion": "us-east-1",
               "RegionLinkingMode": "SPECIFIED_REGIONS",
-              "Regions": ["us-west-1", "us-west-2"]
+              "Regions": [
+                "us-west-1",
+                "us-west-2"
+              ]
             }
           }
         ],
@@ -22013,7 +22028,10 @@
             "title": "To decline invitation to become a member account",
             "documentation": "The following example declines an invitation from the Security Hub administrator account to become a member account. The invited account makes the request.",
             "input": {
-              "AccountIds": ["123456789012", "111122223333"]
+              "AccountIds": [
+                "123456789012",
+                "111122223333"
+              ]
             },
             "output": {
               "UnprocessedAccounts": []
@@ -22308,7 +22326,9 @@
             "title": "To delete a custom insight",
             "documentation": "The following example deletes an invitation sent by the Security Hub administrator account to a prospective member account. This operation is used only for invitations sent to accounts that aren't part of an organization. Organization accounts don't receive invitations.",
             "input": {
-              "AccountIds": ["123456789012"]
+              "AccountIds": [
+                "123456789012"
+              ]
             },
             "output": {
               "UnprocessedAccounts": []
@@ -22383,7 +22403,10 @@
             "title": "To delete a member account",
             "documentation": "The following example deletes the specified member account from Security Hub. This operation can be used to delete member accounts that are part of an organization or that were invited manually.",
             "input": {
-              "AccountIds": ["123456789111", "123456789222"]
+              "AccountIds": [
+                "123456789111",
+                "123456789222"
+              ]
             },
             "output": {
               "UnprocessedAccounts": []
@@ -22455,7 +22478,9 @@
             "title": "To return custom action targets",
             "documentation": "The following example returns a list of custom action targets. You use custom actions on findings and insights in Security Hub to trigger target actions in Amazon CloudWatch Events.",
             "input": {
-              "ActionTargetArns": ["arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation"]
+              "ActionTargetArns": [
+                "arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation"
+              ]
             },
             "output": {
               "ActionTargets": [
@@ -22750,7 +22775,9 @@
                     "Endpoint Forensics",
                     "Network Forensics"
                   ],
-                  "IntegrationTypes": ["SEND_FINDINGS_TO_SECURITY_HUB"],
+                  "IntegrationTypes": [
+                    "SEND_FINDINGS_TO_SECURITY_HUB"
+                  ],
                   "MarketplaceUrl": "https://aws.amazon.com/marketplace/seller-profile?id=a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
                   "ActivationUrl": "https://falcon.crowdstrike.com/support/documentation",
                   "ProductSubscriptionResourcePolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"123456789333\"},\"Action\":[\"securityhub:BatchImportFindings\"],\"Resource\":\"arn:aws:securityhub:us-west-1:123456789012:product-subscription/crowdstrike/crowdstrike-falcon\",\"Condition\":{\"StringEquals\":{\"securityhub:TargetAccount\":\"123456789012\"}}},{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"123456789012\"},\"Action\":[\"securityhub:BatchImportFindings\"],\"Resource\":\"arn:aws:securityhub:us-west-1:123456789333:product/crowdstrike/crowdstrike-falcon\",\"Condition\":{\"StringEquals\":{\"securityhub:TargetAccount\":\"123456789012\"}}}]}"
@@ -23339,7 +23366,10 @@
             "title": "To disassociate member accounts from administrator account",
             "documentation": "The following example dissociates the specified member accounts from the associated administrator account.",
             "input": {
-              "AccountIds": ["123456789012", "111122223333"]
+              "AccountIds": [
+                "123456789012",
+                "111122223333"
+              ]
             }
           }
         ],
@@ -24106,7 +24136,9 @@
             "title": "To return a list of enabled standards",
             "documentation": "The following example returns a list of Security Hub standards that are currently enabled in your account.  ",
             "input": {
-              "StandardsSubscriptionArns": ["arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"]
+              "StandardsSubscriptionArns": [
+                "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
+              ]
             },
             "output": {
               "StandardsSubscriptions": [
@@ -24221,7 +24253,10 @@
               "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
               "FindingAggregationRegion": "us-east-1",
               "RegionLinkingMode": "SPECIFIED_REGIONS",
-              "Regions": ["us-west-1", "us-west-2"]
+              "Regions": [
+                "us-west-1",
+                "us-west-2"
+              ]
             }
           }
         ],
@@ -24426,7 +24461,9 @@
                   "Region": "us-east-2",
                   "GeneratorId": "security-control/CloudTrail.2",
                   "AwsAccountId": "123456789012",
-                  "Types": ["Software and Configuration Checks/Industry and Regulatory Standards"],
+                  "Types": [
+                    "Software and Configuration Checks/Industry and Regulatory Standards"
+                  ],
                   "FirstObservedAt": "2022-10-06T02:18:23.076Z",
                   "LastObservedAt": "2022-10-28T16:10:06.956Z",
                   "CreatedAt": "2022-10-06T02:18:23.076Z",
@@ -24496,7 +24533,9 @@
                       "Label": "MEDIUM",
                       "Original": "MEDIUM"
                     },
-                    "Types": ["Software and Configuration Checks/Industry and Regulatory Standards"]
+                    "Types": [
+                      "Software and Configuration Checks/Industry and Regulatory Standards"
+                    ]
                   }
                 }
               ]
@@ -25287,7 +25326,10 @@
             "title": "To invite accounts to become members",
             "documentation": "The following example invites the specified AWS accounts to become member accounts associated with the calling Security Hub administrator account. You only use this operation to invite accounts that don't belong to an AWS Organizations organization.",
             "input": {
-              "AccountIds": ["111122223333", "444455556666"]
+              "AccountIds": [
+                "111122223333",
+                "444455556666"
+              ]
             },
             "output": {
               "UnprocessedAccounts": []
@@ -31686,7 +31728,9 @@
             "documentation": "The following example removes the 'Department' tag from the specified resource.",
             "input": {
               "ResourceArn": "arn:aws:securityhub:us-west-1:123456789012:hub/default",
-              "TagKeys": ["Department"]
+              "TagKeys": [
+                "Department"
+              ]
             }
           }
         ],
@@ -31913,13 +31957,19 @@
             "input": {
               "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
               "RegionLinkingMode": "SPECIFIED_REGIONS",
-              "Regions": ["us-west-1", "us-west-2"]
+              "Regions": [
+                "us-west-1",
+                "us-west-2"
+              ]
             },
             "output": {
               "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
               "FindingAggregationRegion": "us-east-1",
               "RegionLinkingMode": "SPECIFIED_REGIONS",
-              "Regions": ["us-west-1", "us-west-2"]
+              "Regions": [
+                "us-west-1",
+                "us-west-2"
+              ]
             }
           }
         ],

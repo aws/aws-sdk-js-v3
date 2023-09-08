@@ -50,9 +50,9 @@ export interface DescribeWorldExportJobCommandOutput extends DescribeWorldExport
  * const response = await client.send(command);
  * // { // DescribeWorldExportJobResponse
  * //   arn: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "Pending" || "Running" || "Completed" || "Failed" || "Canceling" || "Canceled",
  * //   createdAt: new Date("TIMESTAMP"),
- * //   failureCode: "STRING_VALUE",
+ * //   failureCode: "InternalServiceError" || "LimitExceeded" || "ResourceNotFound" || "RequestThrottled" || "InvalidInput" || "AccessDenied",
  * //   failureReason: "STRING_VALUE",
  * //   clientRequestToken: "STRING_VALUE",
  * //   worlds: [ // Arns

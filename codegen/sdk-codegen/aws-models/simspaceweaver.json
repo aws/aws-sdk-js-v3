@@ -1101,7 +1101,12 @@
             "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys"
           }
         },
-        "aws.iam#supportedPrincipalTypes": ["Root", "IAMUser", "IAMRole", "FederatedUser"],
+        "aws.iam#supportedPrincipalTypes": [
+          "Root",
+          "IAMUser",
+          "IAMRole",
+          "FederatedUser"
+        ],
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
           "additionalAllowedHeaders": [
@@ -1858,7 +1863,9 @@
         "aws.api#arn": {
           "template": "simulation/{SimulationName}"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "smithy.api#documentation": "Represents a simulation"
       }
@@ -2313,7 +2320,10 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to start a simulation",
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Starts a simulation with the given name. You must choose to start your\n         simulation from a schema or from a snapshot.\n         For more information about the schema, see the <a href=\"https://docs.aws.amazon.com/simspaceweaver/latest/userguide/schema-reference.html\">schema reference</a> \n   in the <i>SimSpace Weaver User Guide</i>.\n         For more information about snapshots, see <a href=\"https://docs.aws.amazon.com/simspaceweaver/latest/userguide/working-with_snapshots.html\">Snapshots</a>\n   in the <i>SimSpace Weaver User Guide</i>.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -2630,7 +2640,10 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to tag a resource",
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Adds tags to a SimSpace Weaver resource. For more information about tags, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the\n   <i>Amazon Web Services General Reference</i>.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -2736,7 +2749,9 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to untag a resource",
-        "aws.iam#conditionKeys": ["aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Removes tags from a SimSpace Weaver resource. For more information about tags, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the\n   <i>Amazon Web Services General Reference</i>.</p>",
         "smithy.api#http": {
           "method": "DELETE",

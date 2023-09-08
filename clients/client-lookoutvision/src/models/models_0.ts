@@ -535,7 +535,7 @@ export interface CreateModelRequest {
    *          <p>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using inserts a value for you.
    *             This prevents retries after a network error from starting multiple training jobs. You'll need to
    *             provide your own value for other use cases. </p>
-   *         <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
+   *          <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
    *        value for <code>ClientToken</code> is considered a new call to <code>CreateModel</code>. An idempotency
    *        token is active for 8 hours.</p>
    */
@@ -874,7 +874,6 @@ export interface DeleteModelRequest {
    *          <p>If you don't supply a value for ClientToken, the AWS SDK you are using inserts a value for you.
    *          This prevents retries after a network error from making multiple model deletion requests. You'll need to
    *          provide your own value for other use cases. </p>
-   *
    *          <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
    *        value for <code>ClientToken</code> is considered a new call to <code>DeleteModel</code>. An idempotency
    *        token is active for 8 hours.</p>
@@ -1235,8 +1234,6 @@ export interface GreengrassConfiguration {
    * <p>Additional compiler options for the Greengrass component. Currently,
    *    only NVIDIA Graphics Processing Units (GPU) and CPU accelerators are supported.
    *    If you specify <code>TargetDevice</code>, don't specify <code>CompilerOptions</code>.</p>
-   *
-   *
    *          <p>For more information, see
    *       <i>Compiler options</i> in the  Amazon Lookout for Vision Developer Guide. </p>
    */
@@ -2004,7 +2001,6 @@ export interface StartModelRequest {
    *          <p>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using inserts a value for you.
    *          This prevents retries after a network error from making multiple start requests. You'll need to
    *          provide your own value for other use cases. </p>
-   *
    *          <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
    *          value for <code>ClientToken</code> is considered a new call to <code>StartModel</code>. An idempotency
    *          token is active for 8 hours.

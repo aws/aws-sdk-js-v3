@@ -68,11 +68,11 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * const command = new CreateEmailIdentityCommand(input);
  * const response = await client.send(command);
  * // { // CreateEmailIdentityResponse
- * //   IdentityType: "STRING_VALUE",
+ * //   IdentityType: "EMAIL_ADDRESS" || "DOMAIN" || "MANAGED_DOMAIN",
  * //   VerifiedForSendingStatus: true || false,
  * //   DkimAttributes: { // DkimAttributes
  * //     SigningEnabled: true || false,
- * //     Status: "STRING_VALUE",
+ * //     Status: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE" || "NOT_STARTED",
  * //     Tokens: [ // DnsTokenList
  * //       "STRING_VALUE",
  * //     ],

@@ -52,7 +52,7 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);
  * // { // DescribeDeviceResponse
- * //   Status: "STRING_VALUE",
+ * //   Status: "ACTIVE" || "SIGNED_OUT",
  * //   Model: "STRING_VALUE",
  * //   Manufacturer: "STRING_VALUE",
  * //   OperatingSystem: "STRING_VALUE",

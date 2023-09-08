@@ -47,14 +47,14 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  *   clientToken: "STRING_VALUE",
  *   datasetId: "STRING_VALUE", // required
  *   datasetTitle: "STRING_VALUE", // required
- *   kind: "STRING_VALUE", // required
+ *   kind: "TABULAR" || "NON_TABULAR", // required
  *   datasetDescription: "STRING_VALUE",
  *   alias: "STRING_VALUE",
  *   schemaDefinition: { // SchemaUnion
  *     tabularSchemaConfig: { // SchemaDefinition
  *       columns: [ // ColumnList
  *         { // ColumnDefinition
- *           dataType: "STRING_VALUE",
+ *           dataType: "STRING" || "CHAR" || "INTEGER" || "TINYINT" || "SMALLINT" || "BIGINT" || "FLOAT" || "DOUBLE" || "DATE" || "DATETIME" || "BOOLEAN" || "BINARY",
  *           columnName: "STRING_VALUE",
  *           columnDescription: "STRING_VALUE",
  *         },

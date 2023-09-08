@@ -46,7 +46,7 @@ export class AccessDeniedForDependencyException extends __BaseException {
 /**
  * @public
  * <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Block</code> action. </p>
- *             <p>This is only used in the context of the <code>ResponseAction</code> setting. </p>
+ *          <p>This is only used in the context of the <code>ResponseAction</code> setting. </p>
  *          <p>JSON specification: <code>"Block": \{\}</code>
  *          </p>
  */
@@ -55,7 +55,7 @@ export interface BlockAction {}
 /**
  * @public
  * <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Count</code> action. </p>
- *             <p>This is only used in the context of the <code>ResponseAction</code> setting. </p>
+ *          <p>This is only used in the context of the <code>ResponseAction</code> setting. </p>
  *          <p>JSON specification: <code>"Count": \{\}</code>
  *          </p>
  */
@@ -351,7 +351,7 @@ export interface AssociateDRTRoleRequest {
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) of the role the SRT will use to access your Amazon Web Services account.</p>
-   * 	        <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a> managed policy to this role.  For more information see <a href=" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Attaching and Detaching IAM Policies</a>.</p>
+   *          <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a> managed policy to this role.  For more information see <a href=" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Attaching and Detaching IAM Policies</a>.</p>
    */
   RoleArn: string | undefined;
 }
@@ -795,7 +795,7 @@ export interface AttackVectorDescription {
   /**
    * @public
    * <p>The attack type. Valid values:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>UDP_TRAFFIC</p>
    *             </li>
@@ -1792,9 +1792,9 @@ export interface ListAttacksRequest {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    *          <p>On your first call to a list operation, leave this setting empty.</p>
    */
   NextToken?: string;
@@ -1824,9 +1824,9 @@ export interface ListAttacksResponse {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
 }
@@ -1890,9 +1890,9 @@ export interface ListProtectionGroupsRequest {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    *          <p>On your first call to a list operation, leave this setting empty.</p>
    */
   NextToken?: string;
@@ -1928,9 +1928,9 @@ export interface ListProtectionGroupsResponse {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
 }
@@ -1968,9 +1968,9 @@ export interface ListProtectionsRequest {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    *          <p>On your first call to a list operation, leave this setting empty.</p>
    */
   NextToken?: string;
@@ -2006,9 +2006,9 @@ export interface ListProtectionsResponse {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
 }
@@ -2028,9 +2028,9 @@ export interface ListResourcesInProtectionGroupRequest {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    *          <p>On your first call to a list operation, leave this setting empty.</p>
    */
   NextToken?: string;
@@ -2060,9 +2060,9 @@ export interface ListResourcesInProtectionGroupResponse {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
 }

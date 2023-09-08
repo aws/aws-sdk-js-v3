@@ -66,7 +66,7 @@ export interface ListTableRowsCommandOutput extends ListTableRowsResult, __Metad
  * //       cells: [ // Cells // required
  * //         { // Cell
  * //           formula: "STRING_VALUE",
- * //           format: "STRING_VALUE",
+ * //           format: "AUTO" || "NUMBER" || "CURRENCY" || "DATE" || "TIME" || "DATE_TIME" || "PERCENTAGE" || "TEXT" || "ACCOUNTING" || "CONTACT" || "ROWLINK" || "ROWSET",
  * //           rawValue: "STRING_VALUE",
  * //           formattedValue: "STRING_VALUE",
  * //           formattedValues: [ // FormattedValuesList

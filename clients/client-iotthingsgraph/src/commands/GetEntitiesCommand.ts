@@ -89,10 +89,10 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  * //     { // EntityDescription
  * //       id: "STRING_VALUE",
  * //       arn: "STRING_VALUE",
- * //       type: "STRING_VALUE",
+ * //       type: "DEVICE" || "SERVICE" || "DEVICE_MODEL" || "CAPABILITY" || "STATE" || "ACTION" || "EVENT" || "PROPERTY" || "MAPPING" || "ENUM",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       definition: { // DefinitionDocument
- * //         language: "STRING_VALUE", // required
+ * //         language: "GRAPHQL", // required
  * //         text: "STRING_VALUE", // required
  * //       },
  * //     },

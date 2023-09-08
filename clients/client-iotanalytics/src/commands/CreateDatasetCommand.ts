@@ -67,7 +67,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *         image: "STRING_VALUE", // required
  *         executionRoleArn: "STRING_VALUE", // required
  *         resourceConfiguration: { // ResourceConfiguration
- *           computeType: "STRING_VALUE", // required
+ *           computeType: "ACU_1" || "ACU_2", // required
  *           volumeSizeInGB: Number("int"), // required
  *         },
  *         variables: [ // Variables

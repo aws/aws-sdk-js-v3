@@ -127,17 +127,17 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *   ChangeToken: "STRING_VALUE", // required
  *   Updates: [ // WebACLUpdates
  *     { // WebACLUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: "INSERT" || "DELETE", // required
  *       ActivatedRule: { // ActivatedRule
  *         Priority: Number("int"), // required
  *         RuleId: "STRING_VALUE", // required
  *         Action: { // WafAction
- *           Type: "STRING_VALUE", // required
+ *           Type: "BLOCK" || "ALLOW" || "COUNT", // required
  *         },
  *         OverrideAction: { // WafOverrideAction
- *           Type: "STRING_VALUE", // required
+ *           Type: "NONE" || "COUNT", // required
  *         },
- *         Type: "STRING_VALUE",
+ *         Type: "REGULAR" || "RATE_BASED" || "GROUP",
  *         ExcludedRules: [ // ExcludedRules
  *           { // ExcludedRule
  *             RuleId: "STRING_VALUE", // required
@@ -147,7 +147,7 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *     },
  *   ],
  *   DefaultAction: {
- *     Type: "STRING_VALUE", // required
+ *     Type: "BLOCK" || "ALLOW" || "COUNT", // required
  *   },
  * };
  * const command = new UpdateWebACLCommand(input);

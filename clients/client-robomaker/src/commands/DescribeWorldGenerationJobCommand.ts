@@ -50,9 +50,9 @@ export interface DescribeWorldGenerationJobCommandOutput extends DescribeWorldGe
  * const response = await client.send(command);
  * // { // DescribeWorldGenerationJobResponse
  * //   arn: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "Pending" || "Running" || "Completed" || "Failed" || "PartialFailed" || "Canceling" || "Canceled",
  * //   createdAt: new Date("TIMESTAMP"),
- * //   failureCode: "STRING_VALUE",
+ * //   failureCode: "InternalServiceError" || "LimitExceeded" || "ResourceNotFound" || "RequestThrottled" || "InvalidInput" || "AllWorldGenerationFailed",
  * //   failureReason: "STRING_VALUE",
  * //   clientRequestToken: "STRING_VALUE",
  * //   template: "STRING_VALUE",
@@ -69,7 +69,7 @@ export interface DescribeWorldGenerationJobCommandOutput extends DescribeWorldGe
  * //       totalFailureCount: Number("int"),
  * //       failures: [ // WorldFailures
  * //         { // WorldFailure
- * //           failureCode: "STRING_VALUE",
+ * //           failureCode: "InternalServiceError" || "LimitExceeded" || "ResourceNotFound" || "RequestThrottled" || "InvalidInput" || "AllWorldGenerationFailed",
  * //           sampleFailureReason: "STRING_VALUE",
  * //           failureCount: Number("int"),
  * //         },

@@ -121,9 +121,9 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  *   ChangeToken: "STRING_VALUE", // required
  *   Updates: [ // IPSetUpdates // required
  *     { // IPSetUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: "INSERT" || "DELETE", // required
  *       IPSetDescriptor: { // IPSetDescriptor
- *         Type: "STRING_VALUE", // required
+ *         Type: "IPV4" || "IPV6", // required
  *         Value: "STRING_VALUE", // required
  *       },
  *     },

@@ -38,9 +38,9 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  * @public
  * <p>Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You can
  *             only get URLs for image layers that are referenced in an image.</p>
- *         <p>When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer
+ *          <p>When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer
  *             that is not already cached.</p>
- *         <note>
+ *          <note>
  *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
  *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
  *          </note>

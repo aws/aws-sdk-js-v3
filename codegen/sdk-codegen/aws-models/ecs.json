@@ -4422,7 +4422,9 @@
             "title": "To describe a cluster",
             "documentation": "This example provides a description of the specified cluster in your default region.",
             "input": {
-              "clusters": ["default"]
+              "clusters": [
+                "default"
+              ]
             },
             "output": {
               "clusters": [
@@ -4508,7 +4510,9 @@
             "documentation": "This example provides a description of the specified container instance in your default region, using the container instance UUID as an identifier.",
             "input": {
               "cluster": "default",
-              "containerInstances": ["f2756532-8f13-4d53-87c9-aed50dc94cd7"]
+              "containerInstances": [
+                "f2756532-8f13-4d53-87c9-aed50dc94cd7"
+              ]
             },
             "output": {
               "failures": [],
@@ -4517,14 +4521,14 @@
                   "status": "ACTIVE",
                   "registeredResources": [
                     {
-                      "doubleValue": 0.0,
+                      "doubleValue": 0,
                       "type": "INTEGER",
                       "longValue": 0,
                       "integerValue": 2048,
                       "name": "CPU"
                     },
                     {
-                      "doubleValue": 0.0,
+                      "doubleValue": 0,
                       "type": "INTEGER",
                       "longValue": 0,
                       "integerValue": 3768,
@@ -4533,8 +4537,13 @@
                     {
                       "name": "PORTS",
                       "longValue": 0,
-                      "doubleValue": 0.0,
-                      "stringSetValue": ["2376", "22", "51678", "2375"],
+                      "doubleValue": 0,
+                      "stringSetValue": [
+                        "2376",
+                        "22",
+                        "51678",
+                        "2375"
+                      ],
                       "type": "STRINGSET",
                       "integerValue": 0
                     }
@@ -4545,14 +4554,14 @@
                   "pendingTasksCount": 0,
                   "remainingResources": [
                     {
-                      "doubleValue": 0.0,
+                      "doubleValue": 0,
                       "type": "INTEGER",
                       "longValue": 0,
                       "integerValue": 1948,
                       "name": "CPU"
                     },
                     {
-                      "doubleValue": 0.0,
+                      "doubleValue": 0,
                       "type": "INTEGER",
                       "longValue": 0,
                       "integerValue": 3668,
@@ -4561,8 +4570,14 @@
                     {
                       "name": "PORTS",
                       "longValue": 0,
-                      "doubleValue": 0.0,
-                      "stringSetValue": ["2376", "22", "80", "51678", "2375"],
+                      "doubleValue": 0,
+                      "stringSetValue": [
+                        "2376",
+                        "22",
+                        "80",
+                        "51678",
+                        "2375"
+                      ],
                       "type": "STRINGSET",
                       "integerValue": 0
                     }
@@ -4651,7 +4666,9 @@
             "title": "To describe a service",
             "documentation": "This example provides descriptive information about the service named ``ecs-simple-service``.",
             "input": {
-              "services": ["ecs-simple-service"]
+              "services": [
+                "ecs-simple-service"
+              ]
             },
             "output": {
               "failures": [],
@@ -4852,7 +4869,9 @@
                   {
                     "mountPoints": [],
                     "name": "wordpress",
-                    "links": ["mysql"],
+                    "links": [
+                      "mysql"
+                    ],
                     "image": "wordpress",
                     "cpu": 10,
                     "environment": [],
@@ -5053,7 +5072,9 @@
             "title": "To describe a task",
             "documentation": "This example provides a description of the specified task, using the task UUID as an identifier.",
             "input": {
-              "tasks": ["c5cba4eb-5dad-405e-96db-71ef8eefe6a8"]
+              "tasks": [
+                "c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
+              ]
             },
             "output": {
               "failures": [],
@@ -5929,7 +5950,9 @@
             "documentation": "In this example, we get the protection status for a single task.",
             "input": {
               "cluster": "test-task-protection",
-              "tasks": ["b8b1cf532d0e46ba8d44a40d1de16772"]
+              "tasks": [
+                "b8b1cf532d0e46ba8d44a40d1de16772"
+              ]
             },
             "output": {
               "protectedTasks": [
@@ -6823,7 +6846,9 @@
             "title": "To list the services in a cluster",
             "documentation": "This example lists the services running in the default cluster for an account.",
             "output": {
-              "serviceArns": ["arn:aws:ecs:us-east-1:012345678910:service/my-http-service"]
+              "serviceArns": [
+                "arn:aws:ecs:us-east-1:012345678910:service/my-http-service"
+              ]
             }
           }
         ],
@@ -7070,7 +7095,12 @@
             "title": "To list your registered task definition families",
             "documentation": "This example lists all of your registered task definition families.",
             "output": {
-              "families": ["node-js-app", "web-timer", "hpcc", "hpcc-c4-8xlarge"]
+              "families": [
+                "node-js-app",
+                "web-timer",
+                "hpcc",
+                "hpcc-c4-8xlarge"
+              ]
             }
           }
         ],
@@ -8694,7 +8724,10 @@
                   "name": "sleep",
                   "image": "busybox",
                   "cpu": 10,
-                  "command": ["sleep", "360"],
+                  "command": [
+                    "sleep",
+                    "360"
+                  ],
                   "memory": 10,
                   "essential": true
                 }
@@ -8713,7 +8746,10 @@
                     "image": "busybox",
                     "cpu": 10,
                     "portMappings": [],
-                    "command": ["sleep", "360"],
+                    "command": [
+                      "sleep",
+                      "360"
+                    ],
                     "memory": 10,
                     "essential": true,
                     "volumesFrom": []
@@ -11625,7 +11661,9 @@
             "documentation": "This example deletes the 'team' tag from the 'dev' cluster.",
             "input": {
               "resourceArn": "arn:aws:ecs:region:aws_account_id:cluster/dev",
-              "tagKeys": ["team"]
+              "tagKeys": [
+                "team"
+              ]
             },
             "output": {}
           }
@@ -12324,7 +12362,9 @@
             "documentation": "This example enables scale-in protection for a task for 60 minutes.",
             "input": {
               "cluster": "test-task-protection",
-              "tasks": ["b8b1cf532d0e46ba8d44a40d1de16772"],
+              "tasks": [
+                "b8b1cf532d0e46ba8d44a40d1de16772"
+              ],
               "protectionEnabled": true,
               "expiresInMinutes": 60
             },

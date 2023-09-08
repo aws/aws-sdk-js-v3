@@ -47,11 +47,11 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * const client = new IoTThingsGraphClient(config);
  * const input = { // SearchEntitiesRequest
  *   entityTypes: [ // EntityTypes // required
- *     "STRING_VALUE",
+ *     "DEVICE" || "SERVICE" || "DEVICE_MODEL" || "CAPABILITY" || "STATE" || "ACTION" || "EVENT" || "PROPERTY" || "MAPPING" || "ENUM",
  *   ],
  *   filters: [ // EntityFilters
  *     { // EntityFilter
- *       name: "STRING_VALUE",
+ *       name: "NAME" || "NAMESPACE" || "SEMANTIC_TYPE_PATH" || "REFERENCED_ENTITY_ID",
  *       value: [ // EntityFilterValues
  *         "STRING_VALUE",
  *       ],
@@ -68,10 +68,10 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * //     { // EntityDescription
  * //       id: "STRING_VALUE",
  * //       arn: "STRING_VALUE",
- * //       type: "STRING_VALUE",
+ * //       type: "DEVICE" || "SERVICE" || "DEVICE_MODEL" || "CAPABILITY" || "STATE" || "ACTION" || "EVENT" || "PROPERTY" || "MAPPING" || "ENUM",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       definition: { // DefinitionDocument
- * //         language: "STRING_VALUE", // required
+ * //         language: "GRAPHQL", // required
  * //         text: "STRING_VALUE", // required
  * //       },
  * //     },

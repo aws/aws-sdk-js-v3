@@ -62,7 +62,7 @@ export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __Met
  * //         { // SearchSchemaVersionSummary
  * //           CreatedDate: new Date("TIMESTAMP"),
  * //           SchemaVersion: "STRING_VALUE",
- * //           Type: "STRING_VALUE",
+ * //           Type: "OpenApi3" || "JSONSchemaDraft4",
  * //         },
  * //       ],
  * //     },

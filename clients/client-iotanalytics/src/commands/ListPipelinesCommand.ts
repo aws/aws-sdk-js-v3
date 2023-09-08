@@ -56,7 +56,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * //       reprocessingSummaries: [ // ReprocessingSummaries
  * //         { // ReprocessingSummary
  * //           id: "STRING_VALUE",
- * //           status: "STRING_VALUE",
+ * //           status: "RUNNING" || "SUCCEEDED" || "CANCELLED" || "FAILED",
  * //           creationTime: new Date("TIMESTAMP"),
  * //         },
  * //       ],
