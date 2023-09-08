@@ -1,5 +1,5 @@
 import { Lambda } from "@aws-sdk/client-lambda";
-import { HttpResponse } from "@smithy/protocol-http";
+import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
 import { HttpRequest as IHttpRequest } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { fromUtf8 } from "@smithy/util-utf8";
@@ -66,7 +66,7 @@ describe("util-stream", () => {
       path: "/2015-03-31/functions/echo/invocations",
     });
 
-    lambda.config.requestHandler = new (class {
+    lambda.config.requestHandler = new (class implements HttpHandler {
       async handle(request: IHttpRequest) {
         return {
           response: new HttpResponse({
@@ -74,6 +74,10 @@ describe("util-stream", () => {
             body: typeof request.body === "string" ? fromUtf8(request.body) : Uint8Array.from(request.body),
           }),
         };
+      }
+      updateHttpClientConfig(key: never, value: never): void {}
+      httpHandlerConfigs() {
+        return {};
       }
     })();
 
