@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.409.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.408.0...v3.409.0) (2023-09-08)
+
+
+### Features
+
+* **client-workspaces:** A new field "ErrorDetails" will be added to the output of "DescribeWorkspaceImages" API call. This field provides in-depth details about the error occurred during image import process. These details include the possible causes of the errors and troubleshooting information. ([ddc2901](https://github.com/aws/aws-sdk-js-v3/commit/ddc29019bc716badb4e7928dcb1c88668b749c43))
+
+
+
+
+
 # [3.408.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.407.0...v3.408.0) (2023-09-07)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

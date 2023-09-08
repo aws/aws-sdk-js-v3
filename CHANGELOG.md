@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.409.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.408.0...v3.409.0) (2023-09-08)
+
+
+### Bug Fixes
+
+* **middleware-bucket-endpoint:** move @smithy/node-config-provider to deps ([#5196](https://github.com/aws/aws-sdk-js-v3/issues/5196)) ([932bdfa](https://github.com/aws/aws-sdk-js-v3/commit/932bdfa8e6fecc22f6f4985b338fe3645f4a5b86))
+
+
+### Features
+
+* **client-sagemaker:** Autopilot APIs will now support holiday featurization for Timeseries models. The models will now hold holiday metadata and should be able to accommodate holiday effect during inference. ([ee36843](https://github.com/aws/aws-sdk-js-v3/commit/ee368433c443948c536c59f4b3b9c6d95e8858cf))
+* **client-sso-admin:** Content updates to IAM Identity Center API for China Regions. ([5816674](https://github.com/aws/aws-sdk-js-v3/commit/5816674576955ef9f3556780e858c22bb3917ef3))
+* **client-workspaces:** A new field "ErrorDetails" will be added to the output of "DescribeWorkspaceImages" API call. This field provides in-depth details about the error occurred during image import process. These details include the possible causes of the errors and troubleshooting information. ([ddc2901](https://github.com/aws/aws-sdk-js-v3/commit/ddc29019bc716badb4e7928dcb1c88668b749c43))
+* **clients:** update client endpoints as of 2023-09-08 ([8fe3e6f](https://github.com/aws/aws-sdk-js-v3/commit/8fe3e6f2027ca88555212dc0064ade47284d1008))
+
+
+
+
+
 # [3.408.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.407.0...v3.408.0) (2023-09-07)
 
 
