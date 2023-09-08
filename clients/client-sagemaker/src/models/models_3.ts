@@ -69,7 +69,6 @@ import {
   ModelPackageValidationSpecification,
   MonitoringScheduleConfig,
   MonitoringType,
-  ParallelismConfiguration,
   RecommendationJobType,
   ResourceLimits,
   SourceAlgorithmSpecification,
@@ -102,7 +101,6 @@ import {
   FeatureGroupSortBy,
   FeatureGroupSortOrder,
   FeatureGroupStatus,
-  FeatureGroupSummary,
   FeatureParameter,
   FlowDefinitionStatus,
   HubContentStatus,
@@ -126,9 +124,9 @@ import {
   MonitoringExecutionSummary,
   NotebookInstanceStatus,
   ObjectiveStatusCounters,
+  OfflineStoreStatus,
   OfflineStoreStatusValue,
   PipelineExecutionStatus,
-  PipelineStatus,
   ProcessingJobStatus,
   ProjectStatus,
   RecommendationJobStatus,
@@ -147,6 +145,48 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>The name, ARN, <code>CreationTime</code>, <code>FeatureGroup</code> values,
+ *             <code>LastUpdatedTime</code> and <code>EnableOnlineStorage</code> status of a
+ *             <code>FeatureGroup</code>.</p>
+ */
+export interface FeatureGroupSummary {
+  /**
+   * @public
+   * <p>The name of <code>FeatureGroup</code>.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * @public
+   * <p>Unique identifier for the <code>FeatureGroup</code>.</p>
+   */
+  FeatureGroupArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A timestamp indicating the time of creation time of the
+   *          <code>FeatureGroup</code>.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The status of a FeatureGroup. The status can be any of the following:
+   *             <code>Creating</code>, <code>Created</code>, <code>CreateFail</code>,
+   *             <code>Deleting</code> or <code>DetailFail</code>. </p>
+   */
+  FeatureGroupStatus?: FeatureGroupStatus | string;
+
+  /**
+   * @public
+   * <p>Notifies you if replicating data into the <code>OfflineStore</code> has failed. Returns
+   *          either: <code>Active</code> or <code>Blocked</code>.</p>
+   */
+  OfflineStoreStatus?: OfflineStoreStatus;
+}
 
 /**
  * @public
@@ -10714,92 +10754,6 @@ export interface Parent {
    * <p>The name of the experiment.</p>
    */
   ExperimentName?: string;
-}
-
-/**
- * @public
- * <p>A SageMaker Model Building Pipeline instance.</p>
- */
-export interface Pipeline {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
-   */
-  PipelineArn?: string;
-
-  /**
-   * @public
-   * <p>The name of the pipeline.</p>
-   */
-  PipelineName?: string;
-
-  /**
-   * @public
-   * <p>The display name of the pipeline.</p>
-   */
-  PipelineDisplayName?: string;
-
-  /**
-   * @public
-   * <p>The description of the pipeline.</p>
-   */
-  PipelineDescription?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the role that created the pipeline.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * @public
-   * <p>The status of the pipeline.</p>
-   */
-  PipelineStatus?: PipelineStatus | string;
-
-  /**
-   * @public
-   * <p>The creation time of the pipeline.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>The time that the pipeline was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The time when the pipeline was last run.</p>
-   */
-  LastRunTime?: Date;
-
-  /**
-   * @public
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>The parallelism configuration applied to the pipeline.</p>
-   */
-  ParallelismConfiguration?: ParallelismConfiguration;
-
-  /**
-   * @public
-   * <p>A list of tags that apply to the pipeline.</p>
-   */
-  Tags?: Tag[];
 }
 
 /**

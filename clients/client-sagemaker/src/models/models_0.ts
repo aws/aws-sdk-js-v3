@@ -5925,6 +5925,22 @@ export interface TextClassificationJobConfig {
 
 /**
  * @public
+ * <p>Stores the holiday featurization attributes applicable to each item of time-series
+ *          datasets during the training of a forecasting model. This allows the model to identify
+ *          patterns associated with specific holidays.</p>
+ */
+export interface HolidayConfigAttributes {
+  /**
+   * @public
+   * <p>The country code for the holiday calendar.</p>
+   *          <p>For the list of public holiday calendars supported by AutoML job V2, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/holidays.html#holidays-country-codes">Country Codes</a>. Use the country code corresponding to the country of your
+   *          choice.</p>
+   */
+  CountryCode?: string;
+}
+
+/**
+ * @public
  * <p>The collection of components that defines the time-series.</p>
  */
 export interface TimeSeriesConfig {
@@ -6041,11 +6057,6 @@ export interface TimeSeriesTransformations {
  * @public
  * <p>The collection of settings used by an AutoML job V2 for the time-series forecasting
  *          problem type.</p>
- *          <note>
- *             <p>The <code>TimeSeriesForecastingJobConfig</code> problem type is only available in
- *             private beta. Contact Amazon Web Services Support or your account manager to learn more
- *             about access privileges.</p>
- *          </note>
  */
 export interface TimeSeriesForecastingJobConfig {
   /**
@@ -6126,8 +6137,8 @@ export interface TimeSeriesForecastingJobConfig {
    * <p>The quantiles used to train the model for forecasts at a specified quantile. You can
    *          specify quantiles from <code>0.01</code> (p1) to <code>0.99</code> (p99), by increments of
    *          0.01 or higher. Up to five forecast quantiles can be specified. When
-   *             <code>ForecastQuantiles</code> is not provided, the AutoML job uses the quantiles
-   *             p10, p50, and p90 as default.</p>
+   *             <code>ForecastQuantiles</code> is not provided, the AutoML job uses the quantiles p10,
+   *          p50, and p90 as default.</p>
    */
   ForecastQuantiles?: string[];
 
@@ -6143,6 +6154,13 @@ export interface TimeSeriesForecastingJobConfig {
    * <p>The collection of components that defines the time-series.</p>
    */
   TimeSeriesConfig: TimeSeriesConfig | undefined;
+
+  /**
+   * @public
+   * <p>The collection of holiday featurization attributes used to incorporate national holiday
+   *          information into your forecasting model.</p>
+   */
+  HolidayConfig?: HolidayConfigAttributes[];
 }
 
 /**
@@ -6204,11 +6222,6 @@ export namespace AutoMLProblemTypeConfig {
    * @public
    * <p>Settings used to configure an AutoML job V2 for a time-series forecasting problem
    *          type.</p>
-   *          <note>
-   *             <p>The <code>TimeSeriesForecastingJobConfig</code> problem type is only available in
-   *             private beta. Contact Amazon Web Services Support or your account manager to learn more
-   *             about access privileges.</p>
-   *          </note>
    */
   export interface TimeSeriesForecastingJobConfigMember {
     ImageClassificationJobConfig?: never;
@@ -11494,34 +11507,4 @@ export interface KernelGatewayAppSettings {
    *          </note>
    */
   LifecycleConfigArns?: string[];
-}
-
-/**
- * @public
- * <p>A collection of settings that apply to spaces created in the Domain.</p>
- */
-export interface DefaultSpaceSettings {
-  /**
-   * @public
-   * <p>The ARN of the execution role for the space.</p>
-   */
-  ExecutionRole?: string;
-
-  /**
-   * @public
-   * <p>The security group IDs for the Amazon Virtual Private Cloud that the space uses for communication.</p>
-   */
-  SecurityGroups?: string[];
-
-  /**
-   * @public
-   * <p>The JupyterServer app settings.</p>
-   */
-  JupyterServerAppSettings?: JupyterServerAppSettings;
-
-  /**
-   * @public
-   * <p>The KernelGateway app settings.</p>
-   */
-  KernelGatewayAppSettings?: KernelGatewayAppSettings;
 }

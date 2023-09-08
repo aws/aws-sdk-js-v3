@@ -10,7 +10,6 @@ import {
   BooleanOperator,
   Channel,
   CheckpointConfig,
-  DefaultSpaceSettings,
   EdgeOutputConfig,
   KernelGatewayImageConfig,
   MetadataProperties,
@@ -29,6 +28,7 @@ import {
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
+  DefaultSpaceSettings,
   DeploymentConfig,
   ExperimentConfig,
   FeatureDefinition,
@@ -85,6 +85,7 @@ import {
   ModelArtifacts,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
+  PipelineStatus,
   ProcessingJobStatus,
   ProjectStatus,
   SecondaryStatus,
@@ -115,10 +116,95 @@ import {
   OnlineStoreConfigUpdate,
   Parameter,
   Parent,
-  Pipeline,
   ResourceType,
   TransformJob,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>A SageMaker Model Building Pipeline instance.</p>
+ */
+export interface Pipeline {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   */
+  PipelineArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the pipeline.</p>
+   */
+  PipelineName?: string;
+
+  /**
+   * @public
+   * <p>The display name of the pipeline.</p>
+   */
+  PipelineDisplayName?: string;
+
+  /**
+   * @public
+   * <p>The description of the pipeline.</p>
+   */
+  PipelineDescription?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the role that created the pipeline.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * @public
+   * <p>The status of the pipeline.</p>
+   */
+  PipelineStatus?: PipelineStatus | string;
+
+  /**
+   * @public
+   * <p>The creation time of the pipeline.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The time that the pipeline was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The time when the pipeline was last run.</p>
+   */
+  LastRunTime?: Date;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>The parallelism configuration applied to the pipeline.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
+
+  /**
+   * @public
+   * <p>A list of tags that apply to the pipeline.</p>
+   */
+  Tags?: Tag[];
+}
 
 /**
  * @public

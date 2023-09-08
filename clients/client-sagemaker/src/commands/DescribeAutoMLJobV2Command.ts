@@ -142,6 +142,11 @@ export interface DescribeAutoMLJobV2CommandOutput extends DescribeAutoMLJobV2Res
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       HolidayConfig: [ // HolidayConfig
+ * //         { // HolidayConfigAttributes
+ * //           CountryCode: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"), // required

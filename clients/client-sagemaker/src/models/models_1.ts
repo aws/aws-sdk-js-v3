@@ -41,7 +41,6 @@ import {
   ContinuousParameterRange,
   ConvergenceDetected,
   CustomImage,
-  DefaultSpaceSettings,
   EdgeOutputConfig,
   EndpointInput,
   HyperParameterScalingType,
@@ -77,6 +76,36 @@ import {
   TransformResources,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>A collection of settings that apply to spaces created in the Domain.</p>
+ */
+export interface DefaultSpaceSettings {
+  /**
+   * @public
+   * <p>The ARN of the execution role for the space.</p>
+   */
+  ExecutionRole?: string;
+
+  /**
+   * @public
+   * <p>The security group IDs for the Amazon Virtual Private Cloud that the space uses for communication.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * @public
+   * <p>The JupyterServer app settings.</p>
+   */
+  JupyterServerAppSettings?: JupyterServerAppSettings;
+
+  /**
+   * @public
+   * <p>The KernelGateway app settings.</p>
+   */
+  KernelGatewayAppSettings?: KernelGatewayAppSettings;
+}
 
 /**
  * @public
@@ -11736,17 +11765,6 @@ export interface DeleteEndpointConfigInput {
    * <p>The name of the endpoint configuration that you want to delete.</p>
    */
   EndpointConfigName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteExperimentRequest {
-  /**
-   * @public
-   * <p>The name of the experiment to delete.</p>
-   */
-  ExperimentName: string | undefined;
 }
 
 /**
