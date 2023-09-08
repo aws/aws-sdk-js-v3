@@ -51,7 +51,7 @@
     "@smithy/property-provider": "^2.0.0",
     "@smithy/protocol-http": "^3.0.2",
     "@smithy/shared-ini-file-loader": "^2.0.6",
-    "@smithy/smithy-client": "^2.1.2",
+    "@smithy/smithy-client": "^2.1.3",
     "@smithy/types": "^2.3.0",
     "@smithy/url-parser": "^2.0.6",
     "@smithy/util-base64": "^2.0.0",

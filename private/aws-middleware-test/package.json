@@ -27,7 +27,7 @@
     "@aws-sdk/client-xray": "*",
     "@smithy/protocol-http": "^3.0.2",
     "@smithy/types": "^2.3.0",
-    "@smithy/util-stream": "^2.0.8",
+    "@smithy/util-stream": "^2.0.9",
     "@smithy/util-utf8": "^2.0.0",
     "tslib": "^2.5.0"
   },
