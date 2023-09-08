@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { ChimeSDKMediaPipelinesExtensionConfiguration } from "./extensionConfiguration";
@@ -7,7 +8,7 @@ import { ChimeSDKMediaPipelinesExtensionConfiguration } from "./extensionConfigu
  * @public
  */
 export interface RuntimeExtension {
-  configure(clientConfiguration: ChimeSDKMediaPipelinesExtensionConfiguration): void;
+  configure(extensionConfiguration: ChimeSDKMediaPipelinesExtensionConfiguration): void;
 }
 
 /**
@@ -25,6 +26,7 @@ const asPartial = <T extends Partial<ChimeSDKMediaPipelinesExtensionConfiguratio
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
   const extensionConfiguration: ChimeSDKMediaPipelinesExtensionConfiguration = {
     ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
   };
 
   extensions.forEach((extension) => extension.configure(extensionConfiguration));
@@ -32,5 +34,6 @@ export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: Runtime
   return {
     ...runtimeConfig,
     ...resolveDefaultRuntimeConfig(extensionConfiguration),
+    ...resolveHttpHandlerRuntimeConfig(extensionConfiguration),
   };
 };

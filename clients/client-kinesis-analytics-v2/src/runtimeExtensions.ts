@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { KinesisAnalyticsV2ExtensionConfiguration } from "./extensionConfiguration";
@@ -7,7 +8,7 @@ import { KinesisAnalyticsV2ExtensionConfiguration } from "./extensionConfigurati
  * @public
  */
 export interface RuntimeExtension {
-  configure(clientConfiguration: KinesisAnalyticsV2ExtensionConfiguration): void;
+  configure(extensionConfiguration: KinesisAnalyticsV2ExtensionConfiguration): void;
 }
 
 /**
@@ -25,6 +26,7 @@ const asPartial = <T extends Partial<KinesisAnalyticsV2ExtensionConfiguration>>(
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
   const extensionConfiguration: KinesisAnalyticsV2ExtensionConfiguration = {
     ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
   };
 
   extensions.forEach((extension) => extension.configure(extensionConfiguration));
@@ -32,5 +34,6 @@ export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: Runtime
   return {
     ...runtimeConfig,
     ...resolveDefaultRuntimeConfig(extensionConfiguration),
+    ...resolveHttpHandlerRuntimeConfig(extensionConfiguration),
   };
 };
