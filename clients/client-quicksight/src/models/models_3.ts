@@ -17,7 +17,6 @@ import {
   AnalysisSearchFilter,
   AnalysisSummary,
   AnonymousUserEmbeddingExperienceConfiguration,
-  AnonymousUserSnapshotJobResult,
   DashboardVisualId,
   FilterOperator,
   SnapshotFile,
@@ -26,6 +25,7 @@ import {
 import {
   _Parameters,
   _ParametersFilterSensitiveLog,
+  AnonymousUserSnapshotJobResult,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportFormat,
   AssetBundleExportJobError,
@@ -50,11 +50,9 @@ import {
   DashboardVersionSummary,
   DataSet,
   DataSetConfiguration,
+  DataSetFilterAttribute,
   DataSetFilterSensitiveLog,
-  DataSetRefreshProperties,
-  DataSetSearchFilter,
-  DataSetSummary,
-  DataSourceErrorInfoType,
+  DataSetImportMode,
   DataSourceParameters,
   DataSourceType,
   FolderType,
@@ -62,10 +60,12 @@ import {
   GroupMember,
   IdentityStore,
   IngestionStatus,
+  LookbackWindowSizeUnit,
   MemberType,
   NamespaceStatus,
   RefreshSchedule,
   ResourcePermission,
+  RowLevelPermissionDataSet,
   SharingModel,
   SslProperties,
   Tag,
@@ -80,6 +80,202 @@ import {
   VPCConnectionResourceStatus,
 } from "./models_2";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>The lookback window setup of an incremental refresh configuration.</p>
+ */
+export interface LookbackWindow {
+  /**
+   * @public
+   * <p>The name of the lookback window column.</p>
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * @public
+   * <p>The lookback window column size.</p>
+   */
+  Size: number | undefined;
+
+  /**
+   * @public
+   * <p>The size unit that is used for the lookback window column. Valid values for this structure are <code>HOUR</code>, <code>DAY</code>, and <code>WEEK</code>.</p>
+   */
+  SizeUnit: LookbackWindowSizeUnit | string | undefined;
+}
+
+/**
+ * @public
+ * <p>The incremental refresh configuration for a dataset.</p>
+ */
+export interface IncrementalRefresh {
+  /**
+   * @public
+   * <p>The lookback window setup for an incremental refresh configuration.</p>
+   */
+  LookbackWindow: LookbackWindow | undefined;
+}
+
+/**
+ * @public
+ * <p>The refresh configuration of a dataset.</p>
+ */
+export interface RefreshConfiguration {
+  /**
+   * @public
+   * <p>The incremental refresh for the dataset.</p>
+   */
+  IncrementalRefresh: IncrementalRefresh | undefined;
+}
+
+/**
+ * @public
+ * <p>The refresh properties of a dataset.</p>
+ */
+export interface DataSetRefreshProperties {
+  /**
+   * @public
+   * <p>The refresh configuration for a dataset.</p>
+   */
+  RefreshConfiguration: RefreshConfiguration | undefined;
+}
+
+/**
+ * @public
+ * <p>A filter that you apply when searching for datasets.</p>
+ */
+export interface DataSetSearchFilter {
+  /**
+   * @public
+   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and <code>"StringLike"</code>.</p>
+   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose datasets you want to search in the <code>"Value"</code> field. For example, <code>"Name":"QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east- 1:1:user/default/UserName1"</code>.</p>
+   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the datasets you are searching for. For example, <code>"Name":"DATASET_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASET_NAME</code>.</p>
+   */
+  Operator: FilterOperator | string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
+   *             "QUICKSIGHT_OWNER"</code>.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the dataset owners or viewers are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners of the dataset are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as the only owner of the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners if the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners or viewers of the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DATASET_NAME</code>: Any datasets whose names have a substring match to this value will be returned.</p>
+   *             </li>
+   *          </ul>
+   */
+  Name: DataSetFilterAttribute | string | undefined;
+
+  /**
+   * @public
+   * <p>The value of the named item, in this case <code>QUICKSIGHT_OWNER</code>, that you want
+   *             to use as a filter, for example, <code>"Value":
+   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Dataset summary.</p>
+ */
+export interface DataSetSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the dataset.</p>
+   */
+  DataSetId?: string;
+
+  /**
+   * @public
+   * <p>A display name for the dataset.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The time that this dataset was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time that this dataset was updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>A value that indicates whether you want to import the data into SPICE.</p>
+   */
+  ImportMode?: DataSetImportMode | string;
+
+  /**
+   * @public
+   * <p>The row-level security configuration for the dataset.</p>
+   */
+  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
+
+  /**
+   * @public
+   * <p>Whether or not the row level permission tags are applied.</p>
+   */
+  RowLevelPermissionTagConfigurationApplied?: boolean;
+
+  /**
+   * @public
+   * <p>A value that indicates if the dataset has column level permission configured.</p>
+   */
+  ColumnLevelPermissionRulesApplied?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceErrorInfoType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  CONFLICT: "CONFLICT",
+  COPY_SOURCE_NOT_FOUND: "COPY_SOURCE_NOT_FOUND",
+  ENGINE_VERSION_NOT_SUPPORTED: "ENGINE_VERSION_NOT_SUPPORTED",
+  GENERIC_SQL_FAILURE: "GENERIC_SQL_FAILURE",
+  TIMEOUT: "TIMEOUT",
+  UNKNOWN: "UNKNOWN",
+  UNKNOWN_HOST: "UNKNOWN_HOST",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceErrorInfoType = (typeof DataSourceErrorInfoType)[keyof typeof DataSourceErrorInfoType];
 
 /**
  * @public
@@ -8959,175 +9155,6 @@ export interface StartDashboardSnapshotJobResponse {
    * <p>The HTTP status of the request</p>
    */
   Status?: number;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * @public
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-   */
-  Tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The keys of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateAccountCustomizationRequest {
-  /**
-   * @public
-   * <p>The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations
-   *             for.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The namespace that you want to update Amazon QuickSight customizations for.</p>
-   */
-  Namespace?: string;
-
-  /**
-   * @public
-   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
-   */
-  AccountCustomization: AccountCustomization | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateAccountCustomizationResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the updated customization for this Amazon Web Services account.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations
-   *             for.</p>
-   */
-  AwsAccountId?: string;
-
-  /**
-   * @public
-   * <p>The namespace associated with the customization that you're updating.</p>
-   */
-  Namespace?: string;
-
-  /**
-   * @public
-   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
-   */
-  AccountCustomization?: AccountCustomization;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateAccountSettingsRequest {
-  /**
-   * @public
-   * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight settings that you want to
-   *             list.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The default namespace for this Amazon Web Services account. Currently, the default is
-   *                 <code>default</code>. IAM users that
-   *             register for the first time with Amazon QuickSight provide an email address that becomes
-   *             associated with the default namespace.
-   *         </p>
-   */
-  DefaultNamespace: string | undefined;
-
-  /**
-   * @public
-   * <p>The email address that you want Amazon QuickSight to send notifications to regarding your
-   *             Amazon Web Services account or Amazon QuickSight subscription.</p>
-   */
-  NotificationEmail?: string;
-
-  /**
-   * @public
-   * <p>A boolean value that determines whether or not an Amazon QuickSight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubscription</code> request. A <code>False</code> value will allow the account to be deleted.</p>
-   */
-  TerminationProtectionEnabled?: boolean;
 }
 
 /**

@@ -26,14 +26,123 @@ import {
 import {
   AnalysisDefinition,
   AnalysisSourceEntity,
-  AssetBundleExportJobAnalysisOverrideProperties,
-  AssetBundleExportJobDashboardOverrideProperties,
-  AssetBundleExportJobDataSetPropertyToOverride,
   DataSetReference,
   FilterOperator,
   SheetDefinition,
+  SnapshotFile,
+  SnapshotJobS3Result,
+  SnapshotJobS3ResultFilterSensitiveLog,
 } from "./models_1";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>A structure that contains information on the generated snapshot file groups.</p>
+ */
+export interface SnapshotJobResultFileGroup {
+  /**
+   * @public
+   * <p> A list of <code>SnapshotFile</code> objects.</p>
+   */
+  Files?: SnapshotFile[];
+
+  /**
+   * @public
+   * <p> A list of <code>SnapshotJobS3Result</code> objects.</p>
+   */
+  S3Results?: SnapshotJobS3Result[];
+}
+
+/**
+ * @public
+ * <p>A structure that contains the file groups that are requested for the artifact generation in a <code>StartDashboardSnapshotJob</code> API call.
+ *         </p>
+ */
+export interface AnonymousUserSnapshotJobResult {
+  /**
+   * @public
+   * <p>A list of <code>SnapshotJobResultFileGroup</code> objects that contain information on the files that are requested during a <code>StartDashboardSnapshotJob</code> API call. If the job succeeds, these objects contain the location where the snapshot artifacts are stored. If the job fails, the objects contain information about the error that caused the job to fail.</p>
+   */
+  FileGroups?: SnapshotJobResultFileGroup[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobAnalysisPropertyToOverride = {
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobAnalysisPropertyToOverride =
+  (typeof AssetBundleExportJobAnalysisPropertyToOverride)[keyof typeof AssetBundleExportJobAnalysisPropertyToOverride];
+
+/**
+ * @public
+ * <p>Controls how a specific <code>Analysis</code> resource is parameterized in the returned CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobAnalysisOverrideProperties {
+  /**
+   * @public
+   * <p>The ARN of the specific <code>Analysis</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>Analysis</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobAnalysisPropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobDashboardPropertyToOverride = {
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobDashboardPropertyToOverride =
+  (typeof AssetBundleExportJobDashboardPropertyToOverride)[keyof typeof AssetBundleExportJobDashboardPropertyToOverride];
+
+/**
+ * @public
+ * <p>Controls how a specific <code>Dashboard</code> resource is parameterized in the returned CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobDashboardOverrideProperties {
+  /**
+   * @public
+   * <p>The ARN of the specific <code>Dashboard</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>Dashboard</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobDashboardPropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobDataSetPropertyToOverride = {
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobDataSetPropertyToOverride =
+  (typeof AssetBundleExportJobDataSetPropertyToOverride)[keyof typeof AssetBundleExportJobDataSetPropertyToOverride];
 
 /**
  * @public
@@ -9142,200 +9251,19 @@ export const LookbackWindowSizeUnit = {
 export type LookbackWindowSizeUnit = (typeof LookbackWindowSizeUnit)[keyof typeof LookbackWindowSizeUnit];
 
 /**
- * @public
- * <p>The lookback window setup of an incremental refresh configuration.</p>
+ * @internal
  */
-export interface LookbackWindow {
-  /**
-   * @public
-   * <p>The name of the lookback window column.</p>
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * @public
-   * <p>The lookback window column size.</p>
-   */
-  Size: number | undefined;
-
-  /**
-   * @public
-   * <p>The size unit that is used for the lookback window column. Valid values for this structure are <code>HOUR</code>, <code>DAY</code>, and <code>WEEK</code>.</p>
-   */
-  SizeUnit: LookbackWindowSizeUnit | string | undefined;
-}
+export const SnapshotJobResultFileGroupFilterSensitiveLog = (obj: SnapshotJobResultFileGroup): any => ({
+  ...obj,
+  ...(obj.S3Results && { S3Results: obj.S3Results.map((item) => SnapshotJobS3ResultFilterSensitiveLog(item)) }),
+});
 
 /**
- * @public
- * <p>The incremental refresh configuration for a dataset.</p>
+ * @internal
  */
-export interface IncrementalRefresh {
-  /**
-   * @public
-   * <p>The lookback window setup for an incremental refresh configuration.</p>
-   */
-  LookbackWindow: LookbackWindow | undefined;
-}
-
-/**
- * @public
- * <p>The refresh configuration of a dataset.</p>
- */
-export interface RefreshConfiguration {
-  /**
-   * @public
-   * <p>The incremental refresh for the dataset.</p>
-   */
-  IncrementalRefresh: IncrementalRefresh | undefined;
-}
-
-/**
- * @public
- * <p>The refresh properties of a dataset.</p>
- */
-export interface DataSetRefreshProperties {
-  /**
-   * @public
-   * <p>The refresh configuration for a dataset.</p>
-   */
-  RefreshConfiguration: RefreshConfiguration | undefined;
-}
-
-/**
- * @public
- * <p>A filter that you apply when searching for datasets.</p>
- */
-export interface DataSetSearchFilter {
-  /**
-   * @public
-   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and <code>"StringLike"</code>.</p>
-   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose datasets you want to search in the <code>"Value"</code> field. For example, <code>"Name":"QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east- 1:1:user/default/UserName1"</code>.</p>
-   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the datasets you are searching for. For example, <code>"Name":"DATASET_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASET_NAME</code>.</p>
-   */
-  Operator: FilterOperator | string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
-   *             "QUICKSIGHT_OWNER"</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the dataset owners or viewers are returned. Implicit permissions from folders or groups are considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners of the dataset are returned. Implicit permissions from folders or groups are considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as the only owner of the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners if the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners or viewers of the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DATASET_NAME</code>: Any datasets whose names have a substring match to this value will be returned.</p>
-   *             </li>
-   *          </ul>
-   */
-  Name: DataSetFilterAttribute | string | undefined;
-
-  /**
-   * @public
-   * <p>The value of the named item, in this case <code>QUICKSIGHT_OWNER</code>, that you want
-   *             to use as a filter, for example, <code>"Value":
-   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
-   */
-  Value: string | undefined;
-}
-
-/**
- * @public
- * <p>Dataset summary.</p>
- */
-export interface DataSetSummary {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The ID of the dataset.</p>
-   */
-  DataSetId?: string;
-
-  /**
-   * @public
-   * <p>A display name for the dataset.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The time that this dataset was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * @public
-   * <p>The last time that this dataset was updated.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * @public
-   * <p>A value that indicates whether you want to import the data into SPICE.</p>
-   */
-  ImportMode?: DataSetImportMode | string;
-
-  /**
-   * @public
-   * <p>The row-level security configuration for the dataset.</p>
-   */
-  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
-
-  /**
-   * @public
-   * <p>Whether or not the row level permission tags are applied.</p>
-   */
-  RowLevelPermissionTagConfigurationApplied?: boolean;
-
-  /**
-   * @public
-   * <p>A value that indicates if the dataset has column level permission configured.</p>
-   */
-  ColumnLevelPermissionRulesApplied?: boolean;
-}
-
-/**
- * @public
- * @enum
- */
-export const DataSourceErrorInfoType = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  CONFLICT: "CONFLICT",
-  COPY_SOURCE_NOT_FOUND: "COPY_SOURCE_NOT_FOUND",
-  ENGINE_VERSION_NOT_SUPPORTED: "ENGINE_VERSION_NOT_SUPPORTED",
-  GENERIC_SQL_FAILURE: "GENERIC_SQL_FAILURE",
-  TIMEOUT: "TIMEOUT",
-  UNKNOWN: "UNKNOWN",
-  UNKNOWN_HOST: "UNKNOWN_HOST",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceErrorInfoType = (typeof DataSourceErrorInfoType)[keyof typeof DataSourceErrorInfoType];
+export const AnonymousUserSnapshotJobResultFilterSensitiveLog = (obj: AnonymousUserSnapshotJobResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
