@@ -153,12 +153,14 @@ import {
   RejectInputDeviceTransferCommandOutput,
 } from "./commands/RejectInputDeviceTransferCommand";
 import { StartChannelCommandInput, StartChannelCommandOutput } from "./commands/StartChannelCommand";
+import { StartInputDeviceCommandInput, StartInputDeviceCommandOutput } from "./commands/StartInputDeviceCommand";
 import {
   StartInputDeviceMaintenanceWindowCommandInput,
   StartInputDeviceMaintenanceWindowCommandOutput,
 } from "./commands/StartInputDeviceMaintenanceWindowCommand";
 import { StartMultiplexCommandInput, StartMultiplexCommandOutput } from "./commands/StartMultiplexCommand";
 import { StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand";
+import { StopInputDeviceCommandInput, StopInputDeviceCommandOutput } from "./commands/StopInputDeviceCommand";
 import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "./commands/StopMultiplexCommand";
 import {
   TransferInputDeviceCommandInput,
@@ -245,9 +247,11 @@ export type ServiceInputTypes =
   | RebootInputDeviceCommandInput
   | RejectInputDeviceTransferCommandInput
   | StartChannelCommandInput
+  | StartInputDeviceCommandInput
   | StartInputDeviceMaintenanceWindowCommandInput
   | StartMultiplexCommandInput
   | StopChannelCommandInput
+  | StopInputDeviceCommandInput
   | StopMultiplexCommandInput
   | TransferInputDeviceCommandInput
   | UpdateAccountConfigurationCommandInput
@@ -312,9 +316,11 @@ export type ServiceOutputTypes =
   | RebootInputDeviceCommandOutput
   | RejectInputDeviceTransferCommandOutput
   | StartChannelCommandOutput
+  | StartInputDeviceCommandOutput
   | StartInputDeviceMaintenanceWindowCommandOutput
   | StartMultiplexCommandOutput
   | StopChannelCommandOutput
+  | StopInputDeviceCommandOutput
   | StopMultiplexCommandOutput
   | TransferInputDeviceCommandOutput
   | UpdateAccountConfigurationCommandOutput

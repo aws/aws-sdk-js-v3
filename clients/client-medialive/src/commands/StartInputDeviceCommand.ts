@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { ListOfferingsRequest, ListOfferingsResponse } from "../models/models_2";
-import { de_ListOfferingsCommand, se_ListOfferingsCommand } from "../protocols/Aws_restJson1";
+import { StartInputDeviceRequest, StartInputDeviceResponse } from "../models/models_2";
+import { de_StartInputDeviceCommand, se_StartInputDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,75 +24,38 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListOfferingsCommand}.
+ * The input for {@link StartInputDeviceCommand}.
  */
-export interface ListOfferingsCommandInput extends ListOfferingsRequest {}
+export interface StartInputDeviceCommandInput extends StartInputDeviceRequest {}
 /**
  * @public
  *
- * The output of {@link ListOfferingsCommand}.
+ * The output of {@link StartInputDeviceCommand}.
  */
-export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __MetadataBearer {}
+export interface StartInputDeviceCommandOutput extends StartInputDeviceResponse, __MetadataBearer {}
 
 /**
  * @public
- * List offerings available for purchase.
+ * Start an input device that is attached to a MediaConnect flow. (There is no need to start a device that is attached to a MediaLive input; MediaLive starts the device when the channel starts.)
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, ListOfferingsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, ListOfferingsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, StartInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, StartInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = { // ListOfferingsRequest
- *   ChannelClass: "STRING_VALUE",
- *   ChannelConfiguration: "STRING_VALUE",
- *   Codec: "STRING_VALUE",
- *   Duration: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   MaximumBitrate: "STRING_VALUE",
- *   MaximumFramerate: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Resolution: "STRING_VALUE",
- *   ResourceType: "STRING_VALUE",
- *   SpecialFeature: "STRING_VALUE",
- *   VideoQuality: "STRING_VALUE",
+ * const input = { // StartInputDeviceRequest
+ *   InputDeviceId: "STRING_VALUE", // required
  * };
- * const command = new ListOfferingsCommand(input);
+ * const command = new StartInputDeviceCommand(input);
  * const response = await client.send(command);
- * // { // ListOfferingsResponse
- * //   NextToken: "STRING_VALUE",
- * //   Offerings: [ // __listOfOffering
- * //     { // Offering
- * //       Arn: "STRING_VALUE",
- * //       CurrencyCode: "STRING_VALUE",
- * //       Duration: Number("int"),
- * //       DurationUnits: "MONTHS",
- * //       FixedPrice: Number("double"),
- * //       OfferingDescription: "STRING_VALUE",
- * //       OfferingId: "STRING_VALUE",
- * //       OfferingType: "NO_UPFRONT",
- * //       Region: "STRING_VALUE",
- * //       ResourceSpecification: { // ReservationResourceSpecification
- * //         ChannelClass: "STANDARD" || "SINGLE_PIPELINE",
- * //         Codec: "MPEG2" || "AVC" || "HEVC" || "AUDIO" || "LINK",
- * //         MaximumBitrate: "MAX_10_MBPS" || "MAX_20_MBPS" || "MAX_50_MBPS",
- * //         MaximumFramerate: "MAX_30_FPS" || "MAX_60_FPS",
- * //         Resolution: "SD" || "HD" || "FHD" || "UHD",
- * //         ResourceType: "INPUT" || "OUTPUT" || "MULTIPLEX" || "CHANNEL",
- * //         SpecialFeature: "ADVANCED_AUDIO" || "AUDIO_NORMALIZATION" || "MGHD" || "MGUHD",
- * //         VideoQuality: "STANDARD" || "ENHANCED" || "PREMIUM",
- * //       },
- * //       UsagePrice: Number("double"),
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListOfferingsCommandInput - {@link ListOfferingsCommandInput}
- * @returns {@link ListOfferingsCommandOutput}
- * @see {@link ListOfferingsCommandInput} for command's `input` shape.
- * @see {@link ListOfferingsCommandOutput} for command's `response` shape.
+ * @param StartInputDeviceCommandInput - {@link StartInputDeviceCommandInput}
+ * @returns {@link StartInputDeviceCommandOutput}
+ * @see {@link StartInputDeviceCommandInput} for command's `input` shape.
+ * @see {@link StartInputDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  * @throws {@link BadGatewayException} (server fault)
@@ -110,16 +73,22 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __Met
  * @throws {@link InternalServerErrorException} (server fault)
  *  Placeholder documentation for InternalServerErrorException
  *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  Placeholder documentation for UnprocessableEntityException
  *
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
-export class ListOfferingsCommand extends $Command<
-  ListOfferingsCommandInput,
-  ListOfferingsCommandOutput,
+export class StartInputDeviceCommand extends $Command<
+  StartInputDeviceCommandInput,
+  StartInputDeviceCommandOutput,
   MediaLiveClientResolvedConfig
 > {
   // Start section: command_properties
@@ -137,7 +106,7 @@ export class ListOfferingsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListOfferingsCommandInput) {
+  constructor(readonly input: StartInputDeviceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -150,15 +119,17 @@ export class ListOfferingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListOfferingsCommandInput, ListOfferingsCommandOutput> {
+  ): Handler<StartInputDeviceCommandInput, StartInputDeviceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListOfferingsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartInputDeviceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MediaLiveClient";
-    const commandName = "ListOfferingsCommand";
+    const commandName = "StartInputDeviceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -177,15 +148,15 @@ export class ListOfferingsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListOfferingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListOfferingsCommand(input, context);
+  private serialize(input: StartInputDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_StartInputDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOfferingsCommandOutput> {
-    return de_ListOfferingsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInputDeviceCommandOutput> {
+    return de_StartInputDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

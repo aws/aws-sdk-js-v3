@@ -4059,6 +4059,21 @@ export interface InputDeviceNetworkSettings {
  * @public
  * @enum
  */
+export const InputDeviceOutputType = {
+  MEDIACONNECT_FLOW: "MEDIACONNECT_FLOW",
+  MEDIALIVE_INPUT: "MEDIALIVE_INPUT",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type InputDeviceOutputType = (typeof InputDeviceOutputType)[keyof typeof InputDeviceOutputType];
+
+/**
+ * @public
+ * @enum
+ */
 export const InputDeviceType = {
   HD: "HD",
   UHD: "UHD",
@@ -4068,6 +4083,50 @@ export const InputDeviceType = {
  * @public
  */
 export type InputDeviceType = (typeof InputDeviceType)[keyof typeof InputDeviceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputDeviceCodec = {
+  AVC: "AVC",
+  HEVC: "HEVC",
+} as const;
+
+/**
+ * @public
+ */
+export type InputDeviceCodec = (typeof InputDeviceCodec)[keyof typeof InputDeviceCodec];
+
+/**
+ * @public
+ * Information about the MediaConnect flow attached to the device.
+ */
+export interface InputDeviceMediaConnectSettings {
+  /**
+   * @public
+   * The ARN of the MediaConnect flow.
+   */
+  FlowArn?: string;
+
+  /**
+   * @public
+   * The ARN for the role that MediaLive assumes to access the attached flow and secret.
+   */
+  RoleArn?: string;
+
+  /**
+   * @public
+   * The ARN of the secret used to encrypt the stream.
+   */
+  SecretArn?: string;
+
+  /**
+   * @public
+   * The name of the MediaConnect flow source.
+   */
+  SourceName?: string;
+}
 
 /**
  * @public
@@ -4127,6 +4186,18 @@ export interface InputDeviceUhdSettings {
    * The Link device's buffer size (latency) in milliseconds (ms). You can specify this value.
    */
   LatencyMs?: number;
+
+  /**
+   * @public
+   * The codec for the video that the device produces.
+   */
+  Codec?: InputDeviceCodec | string;
+
+  /**
+   * @public
+   * Information about the MediaConnect flow attached to the device. Returned only if the outputType is MEDIACONNECT_FLOW.
+   */
+  MediaconnectSettings?: InputDeviceMediaConnectSettings;
 }
 
 /**
@@ -4217,6 +4288,18 @@ export interface InputDeviceSummary {
    * The Availability Zone associated with this input device.
    */
   AvailabilityZone?: string;
+
+  /**
+   * @public
+   * An array of the ARNs for the MediaLive inputs attached to the device. Returned only if the outputType is MEDIALIVE_INPUT.
+   */
+  MedialiveInputArns?: string[];
+
+  /**
+   * @public
+   * The output attachment type of the input device. Specifies MEDIACONNECT_FLOW if this device is the source for a MediaConnect flow. Specifies MEDIALIVE_INPUT if this device is the source for a MediaLive input.
+   */
+  OutputType?: InputDeviceOutputType | string;
 }
 
 /**
@@ -6656,47 +6739,3 @@ export const HlsIvInManifest = {
  * @public
  */
 export type HlsIvInManifest = (typeof HlsIvInManifest)[keyof typeof HlsIvInManifest];
-
-/**
- * @public
- * @enum
- */
-export const HlsIvSource = {
-  EXPLICIT: "EXPLICIT",
-  FOLLOWS_SEGMENT_NUMBER: "FOLLOWS_SEGMENT_NUMBER",
-} as const;
-
-/**
- * @public
- */
-export type HlsIvSource = (typeof HlsIvSource)[keyof typeof HlsIvSource];
-
-/**
- * @public
- * Static Key Settings
- */
-export interface StaticKeySettings {
-  /**
-   * @public
-   * The URL of the license server used for protecting content.
-   */
-  KeyProviderServer?: InputLocation;
-
-  /**
-   * @public
-   * Static key value as a 32 character hexadecimal string.
-   */
-  StaticKeyValue: string | undefined;
-}
-
-/**
- * @public
- * Key Provider Settings
- */
-export interface KeyProviderSettings {
-  /**
-   * @public
-   * Static Key Settings
-   */
-  StaticKeySettings?: StaticKeySettings;
-}
