@@ -51,8 +51,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * // { // ListTagsForResourceResponse
  * //   tags: [ // TagList
  * //     { // Tag
- * //       Key: "STRING_VALUE",
- * //       Value: "STRING_VALUE",
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
  * //     },
  * //   ],
  * // };

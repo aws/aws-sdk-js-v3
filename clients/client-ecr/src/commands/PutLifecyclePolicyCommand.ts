@@ -77,6 +77,9 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyRespo
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this request.</p>
+ *
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *

@@ -1994,7 +1994,7 @@
         "repositoryName": {
           "target": "com.amazonaws.ecr#RepositoryName",
           "traits": {
-            "smithy.api#documentation": "<p>The name to use for the repository. The repository name may be specified on its own\n            (such as <code>nginx-web-app</code>) or it can be prepended with a namespace to group\n            the repository into a category (such as <code>project-a/nginx-web-app</code>).</p>",
+            "smithy.api#documentation": "<p>The name to use for the repository. The repository name may be specified on its own\n            (such as <code>nginx-web-app</code>) or it can be prepended with a namespace to group\n            the repository into a category (such as <code>project-a/nginx-web-app</code>).</p>\n         <p>The repository name must start with a letter and can only contain lowercase letters,\n            numbers, hyphens, underscores, and forward slashes.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2171,6 +2171,9 @@
         },
         {
           "target": "com.amazonaws.ecr#ServerException"
+        },
+        {
+          "target": "com.amazonaws.ecr#ValidationException"
         }
       ],
       "traits": {
@@ -3505,6 +3508,9 @@
         },
         {
           "target": "com.amazonaws.ecr#ServerException"
+        },
+        {
+          "target": "com.amazonaws.ecr#ValidationException"
         }
       ],
       "traits": {
@@ -3531,6 +3537,9 @@
         },
         {
           "target": "com.amazonaws.ecr#ServerException"
+        },
+        {
+          "target": "com.amazonaws.ecr#ValidationException"
         }
       ],
       "traits": {
@@ -3596,13 +3605,13 @@
         "nextToken": {
           "target": "com.amazonaws.ecr#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>nextToken</code> value returned from a previous paginated \n                <code>GetLifecyclePolicyPreviewRequest</code> request where <code>maxResults</code>\n            was used and the  results exceeded the value of that parameter. Pagination continues\n            from the end of the  previous results that returned the <code>nextToken</code> value.\n            This value is  <code>null</code> when there are no more results to return. This option\n            cannot be used when you specify images with <code>imageIds</code>.</p>"
+            "smithy.api#documentation": "<p>The <code>nextToken</code> value returned from a previous paginated\u2028\n                <code>GetLifecyclePolicyPreviewRequest</code> request where <code>maxResults</code>\n            was used and the\u2028 results exceeded the value of that parameter. Pagination continues\n            from the end of the\u2028 previous results that returned the <code>nextToken</code> value.\n            This value is\u2028 <code>null</code> when there are no more results to return. This option\n            cannot be used when you specify images with <code>imageIds</code>.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.ecr#LifecyclePreviewMaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of repository results returned by\n                <code>GetLifecyclePolicyPreviewRequest</code> in  paginated output. When this\n            parameter is used, <code>GetLifecyclePolicyPreviewRequest</code> only returns \n                <code>maxResults</code> results in a single page along with a\n            <code>nextToken</code>  response element. The remaining results of the initial request\n            can be seen by sending  another <code>GetLifecyclePolicyPreviewRequest</code> request\n            with the returned <code>nextToken</code>  value. This value can be between\n            1 and 1000. If this  parameter is not used, then\n                <code>GetLifecyclePolicyPreviewRequest</code> returns up to  100\n            results and a <code>nextToken</code> value, if  applicable. This option cannot be used\n            when you specify images with <code>imageIds</code>.</p>"
+            "smithy.api#documentation": "<p>The maximum number of repository results returned by\n                <code>GetLifecyclePolicyPreviewRequest</code> in\u2028 paginated output. When this\n            parameter is used, <code>GetLifecyclePolicyPreviewRequest</code> only returns\u2028\n                <code>maxResults</code> results in a single page along with a\n            <code>nextToken</code>\u2028 response element. The remaining results of the initial request\n            can be seen by sending\u2028 another <code>GetLifecyclePolicyPreviewRequest</code> request\n            with the returned <code>nextToken</code>\u2028 value. This value can be between\n            1 and 1000. If this\u2028 parameter is not used, then\n                <code>GetLifecyclePolicyPreviewRequest</code> returns up to\u2028 100\n            results and a <code>nextToken</code> value, if\u2028 applicable. This option cannot be used\n            when you specify images with <code>imageIds</code>.</p>"
           }
         },
         "filter": {
@@ -5669,6 +5678,9 @@
         },
         {
           "target": "com.amazonaws.ecr#ServerException"
+        },
+        {
+          "target": "com.amazonaws.ecr#ValidationException"
         }
       ],
       "traits": {
@@ -5681,7 +5693,7 @@
         "registryId": {
           "target": "com.amazonaws.ecr#RegistryId",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Web Services account ID associated with the registry that contains the repository. If you\n            do  not specify a registry, the default registry is assumed.</p>"
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID associated with the registry that contains the repository. If you\n            do\u2028 not specify a registry, the default registry is assumed.</p>"
           }
         },
         "repositoryName": {
@@ -6006,7 +6018,7 @@
         "scanFrequency": {
           "target": "com.amazonaws.ecr#ScanFrequency",
           "traits": {
-            "smithy.api#documentation": "<p>The frequency that scans are performed at for a private registry. When the\n                <code>ENHANCED</code> scan type is specified, the supported scan frequencies are\n                <code>CONTINUOUS_SCAN</code> and <code>SCAN_ON_PUSH</code>. When the\n                <code>BASIC</code> scan type is specified, the <code>SCAN_ON_PUSH</code> and\n                <code>MANUAL</code> scan frequencies are supported.</p>",
+            "smithy.api#documentation": "<p>The frequency that scans are performed at for a private registry. When the\n                <code>ENHANCED</code> scan type is specified, the supported scan frequencies are\n                <code>CONTINUOUS_SCAN</code> and <code>SCAN_ON_PUSH</code>. When the\n                <code>BASIC</code> scan type is specified, the <code>SCAN_ON_PUSH</code> scan\n            frequency is supported. If scan on push is not specified, then the <code>MANUAL</code>\n            scan frequency is set by default.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6174,7 +6186,7 @@
         "repositoryArn": {
           "target": "com.amazonaws.ecr#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the\n    repository, Amazon Web Services account ID of the repository owner, repository namespace, and repository name.\n    For example, <code>arn:aws:ecr:region:012345678910:repository/test</code>.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the\n    repository, Amazon Web Services account ID of the repository owner, repository namespace, and repository name.\n    For example, <code>arn:aws:ecr:region:012345678910:repository-namespace/repository-name</code>.</p>"
           }
         },
         "registryId": {
@@ -6255,7 +6267,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The filter settings used with image replication. Specifying a repository filter to a\n            replication rule provides a method for controlling which repositories in a private\n            registry are replicated. If no repository filter is specified, all images in the\n            repository are replicated.</p>"
+        "smithy.api#documentation": "<p>The filter settings used with image replication. Specifying a repository filter to a\n            replication rule provides a method for controlling which repositories in a private\n            registry are replicated. If no filters are added, the contents of all repositories are\n            replicated.</p>"
       }
     },
     "com.amazonaws.ecr#RepositoryFilterList": {
@@ -6956,6 +6968,9 @@
         },
         {
           "target": "com.amazonaws.ecr#ServerException"
+        },
+        {
+          "target": "com.amazonaws.ecr#ValidationException"
         }
       ],
       "traits": {
@@ -7030,13 +7045,15 @@
         "Key": {
           "target": "com.amazonaws.ecr#TagKey",
           "traits": {
-            "smithy.api#documentation": "<p>One part of a key-value pair that make up a tag. A <code>key</code> is a general label\n            that acts like a category for more specific tag values.</p>"
+            "smithy.api#documentation": "<p>One part of a key-value pair that make up a tag. A <code>key</code> is a general label\n            that acts like a category for more specific tag values.</p>",
+            "smithy.api#required": {}
           }
         },
         "Value": {
           "target": "com.amazonaws.ecr#TagValue",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>value</code> acts as a descriptor within a tag category (key).</p>"
+            "smithy.api#documentation": "<p>A <code>value</code> acts as a descriptor within a tag category (key).</p>",
+            "smithy.api#required": {}
           }
         }
       },

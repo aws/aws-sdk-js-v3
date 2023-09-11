@@ -962,13 +962,13 @@ export interface Tag {
    * <p>One part of a key-value pair that make up a tag. A <code>key</code> is a general label
    *             that acts like a category for more specific tag values.</p>
    */
-  Key?: string;
+  Key: string | undefined;
 
   /**
    * @public
    * <p>A <code>value</code> acts as a descriptor within a tag category (key).</p>
    */
-  Value?: string;
+  Value: string | undefined;
 }
 
 /**
@@ -987,6 +987,8 @@ export interface CreateRepositoryRequest {
    * <p>The name to use for the repository. The repository name may be specified on its own
    *             (such as <code>nginx-web-app</code>) or it can be prepended with a namespace to group
    *             the repository into a category (such as <code>project-a/nginx-web-app</code>).</p>
+   *          <p>The repository name must start with a letter and can only contain lowercase letters,
+   *             numbers, hyphens, underscores, and forward slashes.</p>
    */
   repositoryName: string | undefined;
 
@@ -1032,7 +1034,7 @@ export interface Repository {
    * @public
    * <p>The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the
    *     repository, Amazon Web Services account ID of the repository owner, repository namespace, and repository name.
-   *     For example, <code>arn:aws:ecr:region:012345678910:repository/test</code>.</p>
+   *     For example, <code>arn:aws:ecr:region:012345678910:repository-namespace/repository-name</code>.</p>
    */
   repositoryArn?: string;
 
@@ -2626,8 +2628,8 @@ export type RepositoryFilterType = (typeof RepositoryFilterType)[keyof typeof Re
  * @public
  * <p>The filter settings used with image replication. Specifying a repository filter to a
  *             replication rule provides a method for controlling which repositories in a private
- *             registry are replicated. If no repository filter is specified, all images in the
- *             repository are replicated.</p>
+ *             registry are replicated. If no filters are added, the contents of all repositories are
+ *             replicated.</p>
  */
 export interface RepositoryFilter {
   /**
@@ -3224,8 +3226,9 @@ export interface RegistryScanningRule {
    * <p>The frequency that scans are performed at for a private registry. When the
    *                 <code>ENHANCED</code> scan type is specified, the supported scan frequencies are
    *                 <code>CONTINUOUS_SCAN</code> and <code>SCAN_ON_PUSH</code>. When the
-   *                 <code>BASIC</code> scan type is specified, the <code>SCAN_ON_PUSH</code> and
-   *                 <code>MANUAL</code> scan frequencies are supported.</p>
+   *                 <code>BASIC</code> scan type is specified, the <code>SCAN_ON_PUSH</code> scan
+   *             frequency is supported. If scan on push is not specified, then the <code>MANUAL</code>
+   *             scan frequency is set by default.</p>
    */
   scanFrequency: ScanFrequency | string | undefined;
 

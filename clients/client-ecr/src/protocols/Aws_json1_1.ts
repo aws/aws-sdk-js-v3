@@ -1239,6 +1239,9 @@ const de_DeleteLifecyclePolicyCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ecr#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1957,6 +1960,9 @@ const de_GetLifecyclePolicyCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ecr#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2012,6 +2018,9 @@ const de_GetLifecyclePolicyPreviewCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ecr#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2565,6 +2574,9 @@ const de_PutLifecyclePolicyCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ecr#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2895,6 +2907,9 @@ const de_StartLifecyclePolicyPreviewCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ecr#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

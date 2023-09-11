@@ -48,8 +48,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *   resourceArn: "STRING_VALUE", // required
  *   tags: [ // TagList // required
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  * };
