@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
+
+
+### Features
+
+* **client-quicksight:** This release launches new updates to QuickSight KPI visuals - support for sparklines, new templated layout and new targets for conditional formatting rules. ([12e1529](https://github.com/aws/aws-sdk-js-v3/commit/12e15298ffda884e48dce911262601e382394c27))
+
+
+
+
+
 # [3.409.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.408.0...v3.409.0) (2023-09-08)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

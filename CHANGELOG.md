@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
+
+
+### Features
+
+* **client-ecr:** This release will have ValidationException be thrown from ECR LifecyclePolicy APIs in regions LifecyclePolicy is not supported, this includes existing Amazon Dedicated Cloud (ADC) regions. This release will also change Tag: TagValue and Tag: TagKey to required. ([c885d48](https://github.com/aws/aws-sdk-js-v3/commit/c885d48ffba3ac93f26b5f42f8fa590fbf251fcf))
+* **client-medialive:** AWS Elemental Link now supports attaching a Link UHD device to a MediaConnect flow. ([29e9aba](https://github.com/aws/aws-sdk-js-v3/commit/29e9aba17cf814ad0ce4c8662e786dc70e419daa))
+* **client-quicksight:** This release launches new updates to QuickSight KPI visuals - support for sparklines, new templated layout and new targets for conditional formatting rules. ([12e1529](https://github.com/aws/aws-sdk-js-v3/commit/12e15298ffda884e48dce911262601e382394c27))
+* **experimentalIdentityAndAuth:** customize `[@aws](https://github.com/aws).auth#sigv4` identity providers for the AWS SDK ([#5179](https://github.com/aws/aws-sdk-js-v3/issues/5179)) ([53ef8f9](https://github.com/aws/aws-sdk-js-v3/commit/53ef8f9627788c9b1eb45fe86d24779ab67e222f)), closes [aws.auth#sigv4](https://github.com/aws.auth/issues/sigv4) [aws.auth#sigv4](https://github.com/aws.auth/issues/sigv4) [aws.auth#sigv4](https://github.com/aws.auth/issues/sigv4)
+* **experimentalIdentityAndAuth:** customize `[@http](https://github.com/http)BearerAuth` identity providers ([#5169](https://github.com/aws/aws-sdk-js-v3/issues/5169)) ([4e65c3e](https://github.com/aws/aws-sdk-js-v3/commit/4e65c3ee0d9182a1613110d1586d0eb73c36885a))
+
+
+
+
+
 # [3.409.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.408.0...v3.409.0) (2023-09-08)
 
 
