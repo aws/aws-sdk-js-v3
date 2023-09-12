@@ -258,6 +258,14 @@ export interface RetrieveResultItem {
    *             or the source URI (<code>_source_uri</code>) of the document.</p>
    */
   DocumentAttributes?: DocumentAttribute[];
+
+  /**
+   * @public
+   * <p>The confidence score bucket for a retrieved passage result. The confidence
+   *             bucket provides a relative ranking that indicates how confident Amazon Kendra
+   *             is that the response is relevant to the query.</p>
+   */
+  ScoreAttributes?: ScoreAttributes;
 }
 
 /**
@@ -954,7 +962,7 @@ export interface UpdateThesaurusRequest {
 
 /**
  * @public
- * <p>Information about a document attribute. You can use document attributes as
+ * <p>Information about a document attribute or field. You can use document attributes as
  *          facets.</p>
  *          <p>For example, the document attribute or facet "Department" includes the values "HR",
  *          "Engineering", and "Accounting". You can display these values in the search results so that
@@ -994,26 +1002,26 @@ export interface Facet {
 
 /**
  * @public
- * <p>Provides the count of documents that match a particular attribute when doing a faceted
- *          search.</p>
+ * <p>Provides the count of documents that match a particular document attribute or
+ *          field when doing a faceted search.</p>
  */
 export interface DocumentAttributeValueCountPair {
   /**
    * @public
-   * <p>The value of the attribute. For example, "HR".</p>
+   * <p>The value of the attribute/field. For example, "HR".</p>
    */
   DocumentAttributeValue?: DocumentAttributeValue;
 
   /**
    * @public
-   * <p>The number of documents in the response that have the attribute value for the
-   *          key.</p>
+   * <p>The number of documents in the response that have the attribute/field value for
+   *          the key.</p>
    */
   Count?: number;
 
   /**
    * @public
-   * <p>Contains the results of a document attribute that is a nested facet. A
+   * <p>Contains the results of a document attribute/field that is a nested facet. A
    *             <code>FacetResult</code> contains the counts for each facet nested within a
    *          facet.</p>
    *          <p>For example, the document attribute or facet "Department" includes a value called
@@ -1057,98 +1065,121 @@ export interface FacetResult {
 
 /**
  * @public
- * <p>Provides filtering the query results based on document attributes or metadata
- *          fields.</p>
- *          <p>When you use the <code>AndAllFilters</code> or <code>OrAllFilters</code>, filters you
- *          can use 2 layers under the first attribute filter. For example, you can use:</p>
+ * <p>Filters the search results based on document attributes or fields.</p>
+ *          <p>You can filter results using attributes for your particular documents.
+ *          The attributes must exist in your index. For example, if your documents
+ *          include the custom attribute "Department", you can filter documents that
+ *          belong to the "HR" department. You would use the <code>EqualsTo</code>
+ *          operation to filter results or documents with "Department" equals to "HR".</p>
+ *          <p>You can use <code>AndAllFilters</code> and <code>AndOrFilters</code> in
+ *          combination with each other or with other operations such as <code>EqualsTo</code>.
+ *          For example:</p>
  *          <p>
- *             <code><AndAllFilters></code>
+ *             <code>AndAllFilters</code>
  *          </p>
- *          <ol>
+ *          <ul>
  *             <li>
  *                <p>
- *                   <code> <OrAllFilters></code>
- *                </p>
+ *                   <code>EqualsTo</code>: "Department", "HR"</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code> <EqualsTo></code>
+ *                   <code>AndOrFilters</code>
  *                </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>ContainsAny</code>: "Project Name", ["new hires", "new hiring"]</p>
+ *                   </li>
+ *                </ul>
  *             </li>
- *          </ol>
- *          <p>If you use more than 2 layers, you receive a <code>ValidationException</code> exception
- *          with the message "<code>AttributeFilter</code> cannot have a depth of more than 2."</p>
- *          <p>If you use more than 10 attribute filters in a given list for <code>AndAllFilters</code>
- *          or <code>OrAllFilters</code>, you receive a <code>ValidationException</code> with the
- *          message "<code>AttributeFilter</code> cannot have a length of more than 10".</p>
+ *          </ul>
+ *          <p>This example filters results or documents that belong to the HR department
+ *          <i>and</i> belong to projects that contain "new hires"
+ *          <i>or</i> "new hiring" in the project name (must use
+ *          <code>ContainAny</code> with <code>StringListValue</code>). This example is
+ *          filtering with a depth of 2.</p>
+ *          <p>You cannot filter more than a depth of 2, otherwise you receive a
+ *          <code>ValidationException</code> exception with the message "AttributeFilter
+ *          cannot have a depth of more than 2." Also, if you use more than 10 attribute
+ *          filters in a given list for <code>AndAllFilters</code> or <code>OrAllFilters</code>,
+ *          you receive a <code>ValidationException</code> with the message "AttributeFilter
+ *          cannot have a length of more than 10".</p>
+ *          <p>For examples of using <code>AttributeFilter</code>, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering">Using
+ *          document attributes to filter search results</a>.</p>
  */
 export interface AttributeFilter {
   /**
    * @public
-   * <p>Performs a logical <code>AND</code> operation on all supplied filters.</p>
+   * <p>Performs a logical <code>AND</code> operation on all filters that you specify.</p>
    */
   AndAllFilters?: AttributeFilter[];
 
   /**
    * @public
-   * <p>Performs a logical <code>OR</code> operation on all supplied filters.</p>
+   * <p>Performs a logical <code>OR</code> operation on all filters that you specify.</p>
    */
   OrAllFilters?: AttributeFilter[];
 
   /**
    * @public
-   * <p>Performs a logical <code>NOT</code> operation on all supplied filters.</p>
+   * <p>Performs a logical <code>NOT</code> operation on all filters that you specify.</p>
    */
   NotFilter?: AttributeFilter;
 
   /**
    * @public
-   * <p>Performs an equals operation on two document attributes or metadata fields.</p>
+   * <p>Performs an equals operation on document attributes/fields and their values.</p>
    */
   EqualsTo?: DocumentAttribute;
 
   /**
    * @public
-   * <p>Returns true when a document contains all of the specified document attributes or
-   *          metadata fields. This filter is only applicable to <code>StringListValue</code>
-   *          metadata.</p>
+   * <p>Returns true when a document contains all of the specified document attributes/fields.
+   *          This filter is only applicable to <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">StringListValue</a>.</p>
    */
   ContainsAll?: DocumentAttribute;
 
   /**
    * @public
-   * <p>Returns true when a document contains any of the specified document attributes or
-   *          metadata fields. This filter is only applicable to <code>StringListValue</code>
-   *          metadata.</p>
+   * <p>Returns true when a document contains any of the specified document attributes/fields.
+   *          This filter is only applicable to <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">StringListValue</a>.</p>
    */
   ContainsAny?: DocumentAttribute;
 
   /**
    * @public
-   * <p>Performs a greater than operation on two document attributes or metadata fields. Use
-   *          with a document attribute of type <code>Date</code> or <code>Long</code>.</p>
+   * <p>Performs a greater than operation on document attributes/fields and their
+   *          values. Use with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
+   *             type</a>
+   *             <code>Date</code> or <code>Long</code>.</p>
    */
   GreaterThan?: DocumentAttribute;
 
   /**
    * @public
-   * <p>Performs a greater or equals than operation on two document attributes or metadata
-   *          fields. Use with a document attribute of type <code>Date</code> or
-   *          <code>Long</code>.</p>
+   * <p>Performs a greater or equals than operation on document attributes/fields and
+   *          their values. Use with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
+   *             type</a>
+   *             <code>Date</code> or <code>Long</code>.</p>
    */
   GreaterThanOrEquals?: DocumentAttribute;
 
   /**
    * @public
-   * <p>Performs a less than operation on two document attributes or metadata fields. Use with a
-   *          document attribute of type <code>Date</code> or <code>Long</code>.</p>
+   * <p>Performs a less than operation on document attributes/fields and their values.
+   *          Use with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
+   *             type</a>
+   *             <code>Date</code> or <code>Long</code>.</p>
    */
   LessThan?: DocumentAttribute;
 
   /**
    * @public
-   * <p>Performs a less than or equals operation on two document attributes or metadata fields.
-   *          Use with a document attribute of type <code>Date</code> or <code>Long</code>.</p>
+   * <p>Performs a less than or equals operation on document attributes/fields and
+   *          their values. Use with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
+   *             type</a>
+   *             <code>Date</code> or <code>Long</code>.</p>
    */
   LessThanOrEquals?: DocumentAttribute;
 }

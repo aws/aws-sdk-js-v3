@@ -39,6 +39,9 @@ export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSync
  * <p>Starts a synchronization job for a data source connector. If a synchronization job is
  *       already in progress, Amazon Kendra returns a <code>ResourceInUseException</code>
  *       exception.</p>
+ *          <p>Re-syncing your data source with your index after modifying, adding, or deleting
+ *       documents from your data source respository could take up to an hour or more, depending on
+ *       the number of documents to sync.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
