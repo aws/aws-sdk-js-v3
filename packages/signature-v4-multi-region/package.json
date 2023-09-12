@@ -15,10 +15,10 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "browser": {
-    "@aws-sdk/signature-v4-crt": false
+    "./dist-es/load-crt": "./dist-es/load-crt.browser"
   },
   "react-native": {
-    "@aws-sdk/signature-v4-crt": false
+    "./dist-es/load-crt": "./dist-es/load-crt.browser"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -33,21 +33,12 @@
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@aws-sdk/signature-v4-crt": "*",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
     "typedoc": "0.23.23",
     "typescript": "~4.9.5"
-  },
-  "peerDependencies": {
-    "@aws-sdk/signature-v4-crt": "^3.118.0"
-  },
-  "peerDependenciesMeta": {
-    "@aws-sdk/signature-v4-crt": {
-      "optional": true
-    }
   },
   "engines": {
     "node": ">=14.0.0"
