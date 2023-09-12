@@ -333,9 +333,7 @@
                                 {
                                   "name": "sigv4a",
                                   "signingName": "events",
-                                  "signingRegionSet": [
-                                    "*"
-                                  ]
+                                  "signingRegionSet": ["*"]
                                 }
                               ]
                             },
@@ -386,9 +384,7 @@
                                         {
                                           "name": "sigv4a",
                                           "signingName": "events",
-                                          "signingRegionSet": [
-                                            "*"
-                                          ]
+                                          "signingRegionSet": ["*"]
                                         }
                                       ]
                                     },
@@ -414,9 +410,7 @@
                                 {
                                   "name": "sigv4a",
                                   "signingName": "events",
-                                  "signingRegionSet": [
-                                    "*"
-                                  ]
+                                  "signingRegionSet": ["*"]
                                 }
                               ]
                             },
@@ -1445,9 +1439,7 @@
                       {
                         "signingName": "events",
                         "name": "sigv4a",
-                        "signingRegionSet": [
-                          "*"
-                        ]
+                        "signingRegionSet": ["*"]
                       }
                     ]
                   },
@@ -1536,9 +1528,7 @@
                       {
                         "signingName": "events",
                         "name": "sigv4a",
-                        "signingRegionSet": [
-                          "*"
-                        ]
+                        "signingRegionSet": ["*"]
                       }
                     ]
                   },
@@ -1561,9 +1551,7 @@
                       {
                         "signingName": "events",
                         "name": "sigv4a",
-                        "signingRegionSet": [
-                          "*"
-                        ]
+                        "signingRegionSet": ["*"]
                       }
                     ]
                   },
@@ -2010,6 +1998,17 @@
         "smithy.api#pattern": "^[ \\t]*[^\\x00-\\x1F:\\x7F]+([ \\t]+[^\\x00-\\x1F:\\x7F]+)*[ \\t]*$"
       }
     },
+    "com.amazonaws.eventbridge#AuthHeaderParametersSensitive": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[ \\t]*[^\\x00-\\x1F:\\x7F]+([ \\t]+[^\\x00-\\x1F:\\x7F]+)*[ \\t]*$",
+        "smithy.api#sensitive": {}
+      }
+    },
     "com.amazonaws.eventbridge#AwsVpcConfiguration": {
       "type": "structure",
       "members": {
@@ -2444,7 +2443,7 @@
           }
         },
         "Value": {
-          "target": "com.amazonaws.eventbridge#String",
+          "target": "com.amazonaws.eventbridge#SensitiveString",
           "traits": {
             "smithy.api#documentation": "<p>The value associated with the key.</p>"
           }
@@ -2493,7 +2492,7 @@
           }
         },
         "Value": {
-          "target": "com.amazonaws.eventbridge#HeaderValue",
+          "target": "com.amazonaws.eventbridge#HeaderValueSensitive",
           "traits": {
             "smithy.api#documentation": "<p>The value associated with the key.</p>"
           }
@@ -2637,7 +2636,7 @@
           }
         },
         "Value": {
-          "target": "com.amazonaws.eventbridge#QueryStringValue",
+          "target": "com.amazonaws.eventbridge#QueryStringValueSensitive",
           "traits": {
             "smithy.api#documentation": "<p>The value associated with the key for the query string parameter.</p>"
           }
@@ -2973,7 +2972,7 @@
           }
         },
         "ApiKeyValue": {
-          "target": "com.amazonaws.eventbridge#AuthHeaderParameters",
+          "target": "com.amazonaws.eventbridge#AuthHeaderParametersSensitive",
           "traits": {
             "smithy.api#documentation": "<p>The value for the API key to use for authorization.</p>",
             "smithy.api#required": {}
@@ -3027,7 +3026,7 @@
           }
         },
         "Password": {
-          "target": "com.amazonaws.eventbridge#AuthHeaderParameters",
+          "target": "com.amazonaws.eventbridge#AuthHeaderParametersSensitive",
           "traits": {
             "smithy.api#documentation": "<p>The password associated with the user name to use for Basic authorization.</p>",
             "smithy.api#required": {}
@@ -3049,7 +3048,7 @@
           }
         },
         "ClientSecret": {
-          "target": "com.amazonaws.eventbridge#AuthHeaderParameters",
+          "target": "com.amazonaws.eventbridge#AuthHeaderParametersSensitive",
           "traits": {
             "smithy.api#documentation": "<p>The client secret associated with the client ID to use for OAuth authorization for the\n      connection.</p>",
             "smithy.api#required": {}
@@ -5461,6 +5460,17 @@
         "smithy.api#pattern": "^[ \\t]*[\\x20-\\x7E]+([ \\t]+[\\x20-\\x7E]+)*[ \\t]*$"
       }
     },
+    "com.amazonaws.eventbridge#HeaderValueSensitive": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[ \\t]*[\\x20-\\x7E]+([ \\t]+[\\x20-\\x7E]+)*[ \\t]*$",
+        "smithy.api#sensitive": {}
+      }
+    },
     "com.amazonaws.eventbridge#HealthCheck": {
       "type": "string",
       "traits": {
@@ -7556,6 +7566,17 @@
         "smithy.api#pattern": "^[^\\x00-\\x09\\x0B\\x0C\\x0E-\\x1F\\x7F]+$"
       }
     },
+    "com.amazonaws.eventbridge#QueryStringValueSensitive": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[^\\x00-\\x09\\x0B\\x0C\\x0E-\\x1F\\x7F]+$",
+        "smithy.api#sensitive": {}
+      }
+    },
     "com.amazonaws.eventbridge#RedshiftDataParameters": {
       "type": "structure",
       "members": {
@@ -8392,6 +8413,12 @@
           "max": 2048
         },
         "smithy.api#pattern": "^arn:aws([a-z]|\\-)*:secretsmanager:([a-z]|\\d|\\-)*:([0-9]{12})?:secret:[\\/_+=\\.@\\-A-Za-z0-9]+$"
+      }
+    },
+    "com.amazonaws.eventbridge#SensitiveString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.eventbridge#Sql": {
@@ -9236,7 +9263,7 @@
           }
         },
         "ApiKeyValue": {
-          "target": "com.amazonaws.eventbridge#AuthHeaderParameters",
+          "target": "com.amazonaws.eventbridge#AuthHeaderParametersSensitive",
           "traits": {
             "smithy.api#documentation": "<p>The value associated with teh API key to use for authorization.</p>"
           }
@@ -9288,7 +9315,7 @@
           }
         },
         "Password": {
-          "target": "com.amazonaws.eventbridge#AuthHeaderParameters",
+          "target": "com.amazonaws.eventbridge#AuthHeaderParametersSensitive",
           "traits": {
             "smithy.api#documentation": "<p>The password associated with the user name to use for Basic authorization.</p>"
           }
@@ -9308,7 +9335,7 @@
           }
         },
         "ClientSecret": {
-          "target": "com.amazonaws.eventbridge#AuthHeaderParameters",
+          "target": "com.amazonaws.eventbridge#AuthHeaderParametersSensitive",
           "traits": {
             "smithy.api#documentation": "<p>The client secret assciated with the client ID to use for OAuth authorization.</p>"
           }

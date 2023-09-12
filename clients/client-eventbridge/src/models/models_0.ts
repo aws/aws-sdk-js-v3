@@ -5241,6 +5241,155 @@ export interface UpdateEndpointResponse {
 /**
  * @internal
  */
+export const CreateConnectionApiKeyAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionApiKeyAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ApiKeyValue && { ApiKeyValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionBasicAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionBasicAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionBodyParameterFilterSensitiveLog = (obj: ConnectionBodyParameter): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionHeaderParameterFilterSensitiveLog = (obj: ConnectionHeaderParameter): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionQueryStringParameterFilterSensitiveLog = (obj: ConnectionQueryStringParameter): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionHttpParametersFilterSensitiveLog = (obj: ConnectionHttpParameters): any => ({
+  ...obj,
+  ...(obj.HeaderParameters && {
+    HeaderParameters: obj.HeaderParameters.map((item) => ConnectionHeaderParameterFilterSensitiveLog(item)),
+  }),
+  ...(obj.QueryStringParameters && {
+    QueryStringParameters: obj.QueryStringParameters.map((item) =>
+      ConnectionQueryStringParameterFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.BodyParameters && {
+    BodyParameters: obj.BodyParameters.map((item) => ConnectionBodyParameterFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionOAuthClientRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionOAuthClientRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionOAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionOAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ClientParameters && {
+    ClientParameters: CreateConnectionOAuthClientRequestParametersFilterSensitiveLog(obj.ClientParameters),
+  }),
+  ...(obj.OAuthHttpParameters && {
+    OAuthHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.OAuthHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.BasicAuthParameters && {
+    BasicAuthParameters: CreateConnectionBasicAuthRequestParametersFilterSensitiveLog(obj.BasicAuthParameters),
+  }),
+  ...(obj.OAuthParameters && {
+    OAuthParameters: CreateConnectionOAuthRequestParametersFilterSensitiveLog(obj.OAuthParameters),
+  }),
+  ...(obj.ApiKeyAuthParameters && {
+    ApiKeyAuthParameters: CreateConnectionApiKeyAuthRequestParametersFilterSensitiveLog(obj.ApiKeyAuthParameters),
+  }),
+  ...(obj.InvocationHttpParameters && {
+    InvocationHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.InvocationHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionRequestFilterSensitiveLog = (obj: CreateConnectionRequest): any => ({
+  ...obj,
+  ...(obj.AuthParameters && {
+    AuthParameters: CreateConnectionAuthRequestParametersFilterSensitiveLog(obj.AuthParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionOAuthResponseParametersFilterSensitiveLog = (obj: ConnectionOAuthResponseParameters): any => ({
+  ...obj,
+  ...(obj.OAuthHttpParameters && {
+    OAuthHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.OAuthHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionAuthResponseParametersFilterSensitiveLog = (obj: ConnectionAuthResponseParameters): any => ({
+  ...obj,
+  ...(obj.OAuthParameters && {
+    OAuthParameters: ConnectionOAuthResponseParametersFilterSensitiveLog(obj.OAuthParameters),
+  }),
+  ...(obj.InvocationHttpParameters && {
+    InvocationHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.InvocationHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectionResponseFilterSensitiveLog = (obj: DescribeConnectionResponse): any => ({
+  ...obj,
+  ...(obj.AuthParameters && { AuthParameters: ConnectionAuthResponseParametersFilterSensitiveLog(obj.AuthParameters) }),
+});
+
+/**
+ * @internal
+ */
 export const RedshiftDataParametersFilterSensitiveLog = (obj: RedshiftDataParameters): any => ({
   ...obj,
   ...(obj.Sql && { Sql: SENSITIVE_STRING }),
@@ -5271,4 +5420,80 @@ export const ListTargetsByRuleResponseFilterSensitiveLog = (obj: ListTargetsByRu
 export const PutTargetsRequestFilterSensitiveLog = (obj: PutTargetsRequest): any => ({
   ...obj,
   ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionApiKeyAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionApiKeyAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ApiKeyValue && { ApiKeyValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionBasicAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionBasicAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionOAuthClientRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionOAuthClientRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionOAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionOAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ClientParameters && {
+    ClientParameters: UpdateConnectionOAuthClientRequestParametersFilterSensitiveLog(obj.ClientParameters),
+  }),
+  ...(obj.OAuthHttpParameters && {
+    OAuthHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.OAuthHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.BasicAuthParameters && {
+    BasicAuthParameters: UpdateConnectionBasicAuthRequestParametersFilterSensitiveLog(obj.BasicAuthParameters),
+  }),
+  ...(obj.OAuthParameters && {
+    OAuthParameters: UpdateConnectionOAuthRequestParametersFilterSensitiveLog(obj.OAuthParameters),
+  }),
+  ...(obj.ApiKeyAuthParameters && {
+    ApiKeyAuthParameters: UpdateConnectionApiKeyAuthRequestParametersFilterSensitiveLog(obj.ApiKeyAuthParameters),
+  }),
+  ...(obj.InvocationHttpParameters && {
+    InvocationHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.InvocationHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionRequestFilterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
+  ...obj,
+  ...(obj.AuthParameters && {
+    AuthParameters: UpdateConnectionAuthRequestParametersFilterSensitiveLog(obj.AuthParameters),
+  }),
 });
