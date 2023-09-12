@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetVpnConnectionDeviceTypesRequest, GetVpnConnectionDeviceTypesResult } from "../models/models_5";
+import { GetVpnConnectionDeviceTypesRequest, GetVpnConnectionDeviceTypesResult } from "../models/models_6";
 import { de_GetVpnConnectionDeviceTypesCommand, se_GetVpnConnectionDeviceTypesCommand } from "../protocols/Aws_ec2";
 
 /**

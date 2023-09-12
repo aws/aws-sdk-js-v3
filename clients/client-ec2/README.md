@@ -3215,6 +3215,14 @@ DisableFastSnapshotRestores
 </details>
 <details>
 <summary>
+DisableImageBlockPublicAccess
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/disableimageblockpublicaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/disableimageblockpublicaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/disableimageblockpublicaccesscommandoutput.html)
+
+</details>
+<details>
+<summary>
 DisableImageDeprecation
 </summary>
 
@@ -3423,6 +3431,14 @@ EnableFastSnapshotRestores
 </details>
 <details>
 <summary>
+EnableImageBlockPublicAccess
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/enableimageblockpublicaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/enableimageblockpublicaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/enableimageblockpublicaccesscommandoutput.html)
+
+</details>
+<details>
+<summary>
 EnableImageDeprecation
 </summary>
 
@@ -3627,6 +3643,14 @@ GetHostReservationPurchasePreview
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/gethostreservationpurchasepreviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/gethostreservationpurchasepreviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/gethostreservationpurchasepreviewcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetImageBlockPublicAccessState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/getimageblockpublicaccessstatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getimageblockpublicaccessstatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getimageblockpublicaccessstatecommandoutput.html)
 
 </details>
 <details>

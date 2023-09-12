@@ -1268,6 +1268,10 @@ import {
   DisableFastSnapshotRestoresCommandOutput,
 } from "../commands/DisableFastSnapshotRestoresCommand";
 import {
+  DisableImageBlockPublicAccessCommandInput,
+  DisableImageBlockPublicAccessCommandOutput,
+} from "../commands/DisableImageBlockPublicAccessCommand";
+import {
   DisableImageDeprecationCommandInput,
   DisableImageDeprecationCommandOutput,
 } from "../commands/DisableImageDeprecationCommand";
@@ -1369,6 +1373,10 @@ import {
   EnableFastSnapshotRestoresCommandOutput,
 } from "../commands/EnableFastSnapshotRestoresCommand";
 import {
+  EnableImageBlockPublicAccessCommandInput,
+  EnableImageBlockPublicAccessCommandOutput,
+} from "../commands/EnableImageBlockPublicAccessCommand";
+import {
   EnableImageDeprecationCommandInput,
   EnableImageDeprecationCommandOutput,
 } from "../commands/EnableImageDeprecationCommand";
@@ -1460,6 +1468,10 @@ import {
   GetHostReservationPurchasePreviewCommandInput,
   GetHostReservationPurchasePreviewCommandOutput,
 } from "../commands/GetHostReservationPurchasePreviewCommand";
+import {
+  GetImageBlockPublicAccessStateCommandInput,
+  GetImageBlockPublicAccessStateCommandOutput,
+} from "../commands/GetImageBlockPublicAccessStateCommand";
 import {
   GetInstanceTypesFromInstanceRequirementsCommandInput,
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
@@ -3353,6 +3365,8 @@ import {
   DisableFastSnapshotRestoreStateError,
   DisableFastSnapshotRestoreStateErrorItem,
   DisableFastSnapshotRestoreSuccessItem,
+  DisableImageBlockPublicAccessRequest,
+  DisableImageBlockPublicAccessResult,
   DisableImageDeprecationRequest,
   DisableImageDeprecationResult,
   DisableIpamOrganizationAdminAccountRequest,
@@ -3406,6 +3420,8 @@ import {
   EnableFastSnapshotRestoreStateError,
   EnableFastSnapshotRestoreStateErrorItem,
   EnableFastSnapshotRestoreSuccessItem,
+  EnableImageBlockPublicAccessRequest,
+  EnableImageBlockPublicAccessResult,
   EnableImageDeprecationRequest,
   EnableImageDeprecationResult,
   EnableIpamOrganizationAdminAccountRequest,
@@ -3459,6 +3475,8 @@ import {
   GetGroupsForCapacityReservationResult,
   GetHostReservationPurchasePreviewRequest,
   GetHostReservationPurchasePreviewResult,
+  GetImageBlockPublicAccessStateRequest,
+  GetImageBlockPublicAccessStateResult,
   GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
   GetInstanceUefiDataRequest,
@@ -3513,12 +3531,6 @@ import {
   GetVerifiedAccessEndpointPolicyResult,
   GetVerifiedAccessGroupPolicyRequest,
   GetVerifiedAccessGroupPolicyResult,
-  GetVpnConnectionDeviceSampleConfigurationRequest,
-  GetVpnConnectionDeviceSampleConfigurationResult,
-  GetVpnConnectionDeviceTypesRequest,
-  GetVpnConnectionDeviceTypesResult,
-  GetVpnTunnelReplacementStatusRequest,
-  GetVpnTunnelReplacementStatusResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3531,7 +3543,6 @@ import {
   IpamDiscoveryFailureReason,
   IpamResourceCidr,
   Ipv6CidrAssociation,
-  MaintenanceDetails,
   MetricPoint,
   PrefixListAssociation,
   PrefixListEntry,
@@ -3566,7 +3577,6 @@ import {
   VolumeStatusItem,
   VpcClassicLink,
   VpcEndpointConnection,
-  VpnConnectionDeviceType,
 } from "../models/models_5";
 import {
   BlobAttributeValue,
@@ -3581,6 +3591,12 @@ import {
   EbsInstanceBlockDeviceSpecification,
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
+  GetVpnConnectionDeviceSampleConfigurationRequest,
+  GetVpnConnectionDeviceSampleConfigurationResult,
+  GetVpnConnectionDeviceTypesRequest,
+  GetVpnConnectionDeviceTypesResult,
+  GetVpnTunnelReplacementStatusRequest,
+  GetVpnTunnelReplacementStatusResult,
   HibernationOptionsRequest,
   ImageDiskContainer,
   ImageRecycleBinInfo,
@@ -3600,9 +3616,7 @@ import {
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
-  InstanceMaintenanceOptionsRequest,
   InstanceMarketOptionsRequest,
-  InstanceMetadataOptionsRequest,
   InstanceMonitoring,
   IpamCidrAuthorizationContext,
   LaunchPermissionModifications,
@@ -3614,6 +3628,7 @@ import {
   ListSnapshotsInRecycleBinResult,
   LoadPermissionModifications,
   LoadPermissionRequest,
+  MaintenanceDetails,
   ModifyAddressAttributeRequest,
   ModifyAddressAttributeResult,
   ModifyAvailabilityZoneGroupRequest,
@@ -3748,7 +3763,6 @@ import {
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
-  PrivateDnsNameOptionsRequest,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
   ProvisionIpamPoolCidrRequest,
@@ -3835,11 +3849,6 @@ import {
   RevokeSecurityGroupEgressResult,
   RevokeSecurityGroupIngressRequest,
   RevokeSecurityGroupIngressResult,
-  RunInstancesRequest,
-  ScheduledInstancesBlockDeviceMapping,
-  ScheduledInstancesEbs,
-  ScheduledInstancesIamInstanceProfile,
-  ScheduledInstancesMonitoring,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -3859,13 +3868,22 @@ import {
   VerifiedAccessLogOptions,
   VerifiedAccessLogS3DestinationOptions,
   VolumeDetail,
+  VpnConnectionDeviceType,
 } from "../models/models_6";
 import {
+  InstanceMaintenanceOptionsRequest,
+  InstanceMetadataOptionsRequest,
   InstanceStateChange,
+  PrivateDnsNameOptionsRequest,
+  RunInstancesRequest,
   RunScheduledInstancesRequest,
   RunScheduledInstancesResult,
+  ScheduledInstancesBlockDeviceMapping,
+  ScheduledInstancesEbs,
+  ScheduledInstancesIamInstanceProfile,
   ScheduledInstancesIpv6Address,
   ScheduledInstancesLaunchSpecification,
+  ScheduledInstancesMonitoring,
   ScheduledInstancesNetworkInterface,
   ScheduledInstancesPlacement,
   ScheduledInstancesPrivateIpAddressConfig,
@@ -10250,6 +10268,23 @@ export const se_DisableFastSnapshotRestoresCommand = async (
 };
 
 /**
+ * serializeAws_ec2DisableImageBlockPublicAccessCommand
+ */
+export const se_DisableImageBlockPublicAccessCommand = async (
+  input: DisableImageBlockPublicAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DisableImageBlockPublicAccessRequest(input, context),
+    Action: "DisableImageBlockPublicAccess",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2DisableImageDeprecationCommand
  */
 export const se_DisableImageDeprecationCommand = async (
@@ -10692,6 +10727,23 @@ export const se_EnableFastSnapshotRestoresCommand = async (
 };
 
 /**
+ * serializeAws_ec2EnableImageBlockPublicAccessCommand
+ */
+export const se_EnableImageBlockPublicAccessCommand = async (
+  input: EnableImageBlockPublicAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_EnableImageBlockPublicAccessRequest(input, context),
+    Action: "EnableImageBlockPublicAccess",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2EnableImageDeprecationCommand
  */
 export const se_EnableImageDeprecationCommand = async (
@@ -11128,6 +11180,23 @@ export const se_GetHostReservationPurchasePreviewCommand = async (
   body = buildFormUrlencodedString({
     ...se_GetHostReservationPurchasePreviewRequest(input, context),
     Action: "GetHostReservationPurchasePreview",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetImageBlockPublicAccessStateCommand
+ */
+export const se_GetImageBlockPublicAccessStateCommand = async (
+  input: GetImageBlockPublicAccessStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetImageBlockPublicAccessStateRequest(input, context),
+    Action: "GetImageBlockPublicAccessState",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -28837,6 +28906,46 @@ const de_DisableFastSnapshotRestoresCommandError = async (
 };
 
 /**
+ * deserializeAws_ec2DisableImageBlockPublicAccessCommand
+ */
+export const de_DisableImageBlockPublicAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableImageBlockPublicAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DisableImageBlockPublicAccessCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisableImageBlockPublicAccessResult(data, context);
+  const response: DisableImageBlockPublicAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DisableImageBlockPublicAccessCommandError
+ */
+const de_DisableImageBlockPublicAccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableImageBlockPublicAccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_ec2DisableImageDeprecationCommand
  */
 export const de_DisableImageDeprecationCommand = async (
@@ -29854,6 +29963,46 @@ const de_EnableFastSnapshotRestoresCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableFastSnapshotRestoresCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_ec2EnableImageBlockPublicAccessCommand
+ */
+export const de_EnableImageBlockPublicAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableImageBlockPublicAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_EnableImageBlockPublicAccessCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EnableImageBlockPublicAccessResult(data, context);
+  const response: EnableImageBlockPublicAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2EnableImageBlockPublicAccessCommandError
+ */
+const de_EnableImageBlockPublicAccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableImageBlockPublicAccessCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -30888,6 +31037,46 @@ const de_GetHostReservationPurchasePreviewCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHostReservationPurchasePreviewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_ec2GetImageBlockPublicAccessStateCommand
+ */
+export const de_GetImageBlockPublicAccessStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImageBlockPublicAccessStateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetImageBlockPublicAccessStateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetImageBlockPublicAccessStateResult(data, context);
+  const response: GetImageBlockPublicAccessStateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2GetImageBlockPublicAccessStateCommandError
+ */
+const de_GetImageBlockPublicAccessStateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImageBlockPublicAccessStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -50583,6 +50772,20 @@ const se_DisableFastSnapshotRestoresRequest = (
 };
 
 /**
+ * serializeAws_ec2DisableImageBlockPublicAccessRequest
+ */
+const se_DisableImageBlockPublicAccessRequest = (
+  input: DisableImageBlockPublicAccessRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2DisableImageDeprecationRequest
  */
 const se_DisableImageDeprecationRequest = (input: DisableImageDeprecationRequest, context: __SerdeContext): any => {
@@ -51368,6 +51571,23 @@ const se_EnableFastSnapshotRestoresRequest = (
       const loc = `SourceSnapshotId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2EnableImageBlockPublicAccessRequest
+ */
+const se_EnableImageBlockPublicAccessRequest = (
+  input: EnableImageBlockPublicAccessRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ImageBlockPublicAccessState != null) {
+    entries["ImageBlockPublicAccessState"] = input.ImageBlockPublicAccessState;
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
@@ -52391,6 +52611,20 @@ const se_GetHostReservationPurchasePreviewRequest = (
   }
   if (input.OfferingId != null) {
     entries["OfferingId"] = input.OfferingId;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2GetImageBlockPublicAccessStateRequest
+ */
+const se_GetImageBlockPublicAccessStateRequest = (
+  input: GetImageBlockPublicAccessStateRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -74501,6 +74735,20 @@ const de_DisableFastSnapshotRestoreSuccessSet = (
 };
 
 /**
+ * deserializeAws_ec2DisableImageBlockPublicAccessResult
+ */
+const de_DisableImageBlockPublicAccessResult = (
+  output: any,
+  context: __SerdeContext
+): DisableImageBlockPublicAccessResult => {
+  const contents: any = {};
+  if (output["imageBlockPublicAccessState"] !== undefined) {
+    contents.ImageBlockPublicAccessState = __expectString(output["imageBlockPublicAccessState"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DisableImageDeprecationResult
  */
 const de_DisableImageDeprecationResult = (output: any, context: __SerdeContext): DisableImageDeprecationResult => {
@@ -75486,6 +75734,20 @@ const de_EnableFastSnapshotRestoreSuccessSet = (
     .map((entry: any) => {
       return de_EnableFastSnapshotRestoreSuccessItem(entry, context);
     });
+};
+
+/**
+ * deserializeAws_ec2EnableImageBlockPublicAccessResult
+ */
+const de_EnableImageBlockPublicAccessResult = (
+  output: any,
+  context: __SerdeContext
+): EnableImageBlockPublicAccessResult => {
+  const contents: any = {};
+  if (output["imageBlockPublicAccessState"] !== undefined) {
+    contents.ImageBlockPublicAccessState = __expectString(output["imageBlockPublicAccessState"]);
+  }
+  return contents;
 };
 
 /**
@@ -77025,6 +77287,20 @@ const de_GetHostReservationPurchasePreviewResult = (
   }
   if (output["totalUpfrontPrice"] !== undefined) {
     contents.TotalUpfrontPrice = __expectString(output["totalUpfrontPrice"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2GetImageBlockPublicAccessStateResult
+ */
+const de_GetImageBlockPublicAccessStateResult = (
+  output: any,
+  context: __SerdeContext
+): GetImageBlockPublicAccessStateResult => {
+  const contents: any = {};
+  if (output["imageBlockPublicAccessState"] !== undefined) {
+    contents.ImageBlockPublicAccessState = __expectString(output["imageBlockPublicAccessState"]);
   }
   return contents;
 };

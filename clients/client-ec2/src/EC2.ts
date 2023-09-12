@@ -1824,6 +1824,11 @@ import {
   DisableFastSnapshotRestoresCommandOutput,
 } from "./commands/DisableFastSnapshotRestoresCommand";
 import {
+  DisableImageBlockPublicAccessCommand,
+  DisableImageBlockPublicAccessCommandInput,
+  DisableImageBlockPublicAccessCommandOutput,
+} from "./commands/DisableImageBlockPublicAccessCommand";
+import {
   DisableImageDeprecationCommand,
   DisableImageDeprecationCommandInput,
   DisableImageDeprecationCommandOutput,
@@ -1954,6 +1959,11 @@ import {
   EnableFastSnapshotRestoresCommandOutput,
 } from "./commands/EnableFastSnapshotRestoresCommand";
 import {
+  EnableImageBlockPublicAccessCommand,
+  EnableImageBlockPublicAccessCommandInput,
+  EnableImageBlockPublicAccessCommandOutput,
+} from "./commands/EnableImageBlockPublicAccessCommand";
+import {
   EnableImageDeprecationCommand,
   EnableImageDeprecationCommandInput,
   EnableImageDeprecationCommandOutput,
@@ -2079,6 +2089,11 @@ import {
   GetHostReservationPurchasePreviewCommandInput,
   GetHostReservationPurchasePreviewCommandOutput,
 } from "./commands/GetHostReservationPurchasePreviewCommand";
+import {
+  GetImageBlockPublicAccessStateCommand,
+  GetImageBlockPublicAccessStateCommandInput,
+  GetImageBlockPublicAccessStateCommandOutput,
+} from "./commands/GetImageBlockPublicAccessStateCommand";
 import {
   GetInstanceTypesFromInstanceRequirementsCommand,
   GetInstanceTypesFromInstanceRequirementsCommandInput,
@@ -3284,6 +3299,7 @@ const commands = {
   DisableEbsEncryptionByDefaultCommand,
   DisableFastLaunchCommand,
   DisableFastSnapshotRestoresCommand,
+  DisableImageBlockPublicAccessCommand,
   DisableImageDeprecationCommand,
   DisableIpamOrganizationAdminAccountCommand,
   DisableSerialConsoleAccessCommand,
@@ -3310,6 +3326,7 @@ const commands = {
   EnableEbsEncryptionByDefaultCommand,
   EnableFastLaunchCommand,
   EnableFastSnapshotRestoresCommand,
+  EnableImageBlockPublicAccessCommand,
   EnableImageDeprecationCommand,
   EnableIpamOrganizationAdminAccountCommand,
   EnableReachabilityAnalyzerOrganizationSharingCommand,
@@ -3336,6 +3353,7 @@ const commands = {
   GetFlowLogsIntegrationTemplateCommand,
   GetGroupsForCapacityReservationCommand,
   GetHostReservationPurchasePreviewCommand,
+  GetImageBlockPublicAccessStateCommand,
   GetInstanceTypesFromInstanceRequirementsCommand,
   GetInstanceUefiDataCommand,
   GetIpamAddressHistoryCommand,
@@ -9619,6 +9637,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DisableImageBlockPublicAccessCommand}
+   */
+  disableImageBlockPublicAccess(
+    args: DisableImageBlockPublicAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableImageBlockPublicAccessCommandOutput>;
+  disableImageBlockPublicAccess(
+    args: DisableImageBlockPublicAccessCommandInput,
+    cb: (err: any, data?: DisableImageBlockPublicAccessCommandOutput) => void
+  ): void;
+  disableImageBlockPublicAccess(
+    args: DisableImageBlockPublicAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableImageBlockPublicAccessCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableImageDeprecationCommand}
    */
   disableImageDeprecation(
@@ -10061,6 +10096,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link EnableImageBlockPublicAccessCommand}
+   */
+  enableImageBlockPublicAccess(
+    args: EnableImageBlockPublicAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableImageBlockPublicAccessCommandOutput>;
+  enableImageBlockPublicAccess(
+    args: EnableImageBlockPublicAccessCommandInput,
+    cb: (err: any, data?: EnableImageBlockPublicAccessCommandOutput) => void
+  ): void;
+  enableImageBlockPublicAccess(
+    args: EnableImageBlockPublicAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableImageBlockPublicAccessCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableImageDeprecationCommand}
    */
   enableImageDeprecation(
@@ -10491,6 +10543,23 @@ export interface EC2 {
     args: GetHostReservationPurchasePreviewCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetHostReservationPurchasePreviewCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetImageBlockPublicAccessStateCommand}
+   */
+  getImageBlockPublicAccessState(
+    args: GetImageBlockPublicAccessStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImageBlockPublicAccessStateCommandOutput>;
+  getImageBlockPublicAccessState(
+    args: GetImageBlockPublicAccessStateCommandInput,
+    cb: (err: any, data?: GetImageBlockPublicAccessStateCommandOutput) => void
+  ): void;
+  getImageBlockPublicAccessState(
+    args: GetImageBlockPublicAccessStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImageBlockPublicAccessStateCommandOutput) => void
   ): void;
 
   /**
