@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.411.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.410.0...v3.411.0) (2023-09-12)
+
+
+### Features
+
+* **client-ec2:** This release adds support for restricting public sharing of AMIs through AMI Block Public Access ([0528034](https://github.com/aws/aws-sdk-js-v3/commit/052803455bd5838c040957ed30ae4e24c1384d41))
+
+
+
+
+
 # [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

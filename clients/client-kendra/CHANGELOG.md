@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.411.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.410.0...v3.411.0) (2023-09-12)
+
+
+### Features
+
+* **client-kendra:** Amazon Kendra now supports confidence score buckets for retrieved passage results using the Retrieve API. ([ed2cae6](https://github.com/aws/aws-sdk-js-v3/commit/ed2cae61225f1c3e5af8f9c77d65eb4f7ad6e509))
+
+
+
+
+
 # [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-kendra

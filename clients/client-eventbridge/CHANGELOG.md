@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.411.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.410.0...v3.411.0) (2023-09-12)
+
+
+### Features
+
+* **client-eventbridge:** Adds sensitive trait to various shapes in Jetstream Connections API model. ([fecfd43](https://github.com/aws/aws-sdk-js-v3/commit/fecfd43a4b3d044a46f67078bf77c4453213bae3))
+
+
+
+
+
 # [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-eventbridge
