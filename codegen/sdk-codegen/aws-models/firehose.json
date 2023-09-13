@@ -154,7 +154,7 @@
         "RoleARN": {
           "target": "com.amazonaws.firehose#RoleARN",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS credentials.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials.</p>"
           }
         },
         "CollectionEndpoint": {
@@ -422,6 +422,12 @@
         },
         "VpcConfiguration": {
           "target": "com.amazonaws.firehose#VpcConfiguration"
+        },
+        "DocumentIdOptions": {
+          "target": "com.amazonaws.firehose#DocumentIdOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the method for setting up document ID. The supported methods are Kinesis Data\n         Firehose generated document ID and OpenSearch Service generated document ID.</p>"
+          }
         }
       },
       "traits": {
@@ -496,6 +502,12 @@
         },
         "VpcConfigurationDescription": {
           "target": "com.amazonaws.firehose#VpcConfigurationDescription"
+        },
+        "DocumentIdOptions": {
+          "target": "com.amazonaws.firehose#DocumentIdOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the method for setting up document ID. The supported methods are Kinesis Data\n         Firehose generated document ID and OpenSearch Service generated document ID.</p>"
+          }
         }
       },
       "traits": {
@@ -561,6 +573,12 @@
         },
         "CloudWatchLoggingOptions": {
           "target": "com.amazonaws.firehose#CloudWatchLoggingOptions"
+        },
+        "DocumentIdOptions": {
+          "target": "com.amazonaws.firehose#DocumentIdOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the method for setting up document ID. The supported methods are Kinesis Data\n         Firehose generated document ID and OpenSearch Service generated document ID.</p>"
+          }
         }
       },
       "traits": {
@@ -885,7 +903,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a Kinesis Data Firehose delivery stream.</p>\n         <p>By default, you can create up to 50 delivery streams per Amazon Web Services\n         Region.</p>\n         <p>This is an asynchronous operation that immediately returns. The initial status of the\n         delivery stream is <code>CREATING</code>. After the delivery stream is created, its status\n         is <code>ACTIVE</code> and it now accepts data. If the delivery stream creation fails, the\n         status transitions to <code>CREATING_FAILED</code>. Attempts to send data to a delivery\n         stream that is not in the <code>ACTIVE</code> state cause an exception. To check the state\n         of a delivery stream, use <a>DescribeDeliveryStream</a>.</p>\n         <p>If the status of a delivery stream is <code>CREATING_FAILED</code>, this status\n         doesn't change, and you can't invoke <code>CreateDeliveryStream</code> again on it.\n         However, you can invoke the <a>DeleteDeliveryStream</a> operation to delete\n         it.</p>\n         <p>A Kinesis Data Firehose delivery stream can be configured to receive records directly\n         from providers using <a>PutRecord</a> or <a>PutRecordBatch</a>, or it\n         can be configured to use an existing Kinesis stream as its source. To specify a Kinesis\n         data stream as input, set the <code>DeliveryStreamType</code> parameter to\n            <code>KinesisStreamAsSource</code>, and provide the Kinesis stream Amazon Resource Name\n         (ARN) and role ARN in the <code>KinesisStreamSourceConfiguration</code>\n         parameter.</p>\n         <p>To create a delivery stream with server-side encryption (SSE) enabled, include <a>DeliveryStreamEncryptionConfigurationInput</a> in your request. This is\n         optional. You can also invoke <a>StartDeliveryStreamEncryption</a> to turn on\n         SSE for an existing delivery stream that doesn't have SSE enabled.</p>\n         <p>A delivery stream is configured with a single destination: Amazon S3, Amazon ES,\n         Amazon Redshift, or Splunk. You must specify only one of the following destination\n         configuration parameters: <code>ExtendedS3DestinationConfiguration</code>,\n            <code>S3DestinationConfiguration</code>,\n            <code>ElasticsearchDestinationConfiguration</code>,\n            <code>RedshiftDestinationConfiguration</code>, or\n            <code>SplunkDestinationConfiguration</code>.</p>\n         <p>When you specify <code>S3DestinationConfiguration</code>, you can also provide the\n         following optional values: BufferingHints, <code>EncryptionConfiguration</code>, and\n            <code>CompressionFormat</code>. By default, if no <code>BufferingHints</code> value is\n         provided, Kinesis Data Firehose buffers data up to 5 MB or for 5 minutes, whichever\n         condition is satisfied first. <code>BufferingHints</code> is a hint, so there are some\n         cases where the service cannot adhere to these conditions strictly. For example, record\n         boundaries might be such that the size is a little over or under the configured buffering\n         size. By default, no encryption is performed. We strongly recommend that you enable\n         encryption to ensure secure data storage in Amazon S3.</p>\n         <p>A few notes about Amazon Redshift as a destination:</p>\n         <ul>\n            <li>\n               <p>An Amazon Redshift destination requires an S3 bucket as intermediate location.\n               Kinesis Data Firehose first delivers data to Amazon S3 and then uses\n                  <code>COPY</code> syntax to load data into an Amazon Redshift table. This is\n               specified in the <code>RedshiftDestinationConfiguration.S3Configuration</code>\n               parameter.</p>\n            </li>\n            <li>\n               <p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be\n               specified in <code>RedshiftDestinationConfiguration.S3Configuration</code> because\n               the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket doesn't\n               support these compression formats.</p>\n            </li>\n            <li>\n               <p>We strongly recommend that you use the user name and password you provide\n               exclusively with Kinesis Data Firehose, and that the permissions for the account are\n               restricted for Amazon Redshift <code>INSERT</code> permissions.</p>\n            </li>\n         </ul>\n         <p>Kinesis Data Firehose assumes the IAM role that is configured as part of the\n         destination. The role should allow the Kinesis Data Firehose principal to assume the role,\n         and the role should have permissions that allow the service to deliver the data. For more\n         information, see <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3\">Grant Kinesis Data\n            Firehose Access to an Amazon S3 Destination</a> in the <i>Amazon Kinesis Data\n            Firehose Developer Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates a Kinesis Data Firehose delivery stream.</p>\n         <p>By default, you can create up to 50 delivery streams per Amazon Web Services\n         Region.</p>\n         <p>This is an asynchronous operation that immediately returns. The initial status of the\n         delivery stream is <code>CREATING</code>. After the delivery stream is created, its status\n         is <code>ACTIVE</code> and it now accepts data. If the delivery stream creation fails, the\n         status transitions to <code>CREATING_FAILED</code>. Attempts to send data to a delivery\n         stream that is not in the <code>ACTIVE</code> state cause an exception. To check the state\n         of a delivery stream, use <a>DescribeDeliveryStream</a>.</p>\n         <p>If the status of a delivery stream is <code>CREATING_FAILED</code>, this status\n         doesn't change, and you can't invoke <code>CreateDeliveryStream</code> again on it.\n         However, you can invoke the <a>DeleteDeliveryStream</a> operation to delete\n         it.</p>\n         <p>A Kinesis Data Firehose delivery stream can be configured to receive records directly\n         from providers using <a>PutRecord</a> or <a>PutRecordBatch</a>, or it\n         can be configured to use an existing Kinesis stream as its source. To specify a Kinesis\n         data stream as input, set the <code>DeliveryStreamType</code> parameter to\n            <code>KinesisStreamAsSource</code>, and provide the Kinesis stream Amazon Resource Name\n         (ARN) and role ARN in the <code>KinesisStreamSourceConfiguration</code>\n         parameter.</p>\n         <p>To create a delivery stream with server-side encryption (SSE) enabled, include <a>DeliveryStreamEncryptionConfigurationInput</a> in your request. This is\n         optional. You can also invoke <a>StartDeliveryStreamEncryption</a> to turn on\n         SSE for an existing delivery stream that doesn't have SSE enabled.</p>\n         <p>A delivery stream is configured with a single destination, such as Amazon Simple\n         Storage Service (Amazon S3), Amazon Redshift, Amazon OpenSearch Service, Amazon OpenSearch\n         Serverless, Splunk, and any custom HTTP endpoint or HTTP endpoints owned by or supported by\n         third-party service providers, including Datadog, Dynatrace, LogicMonitor, MongoDB, New\n         Relic, and Sumo Logic. You must specify only one of the following destination configuration\n         parameters: <code>ExtendedS3DestinationConfiguration</code>,\n            <code>S3DestinationConfiguration</code>,\n            <code>ElasticsearchDestinationConfiguration</code>,\n            <code>RedshiftDestinationConfiguration</code>, or\n            <code>SplunkDestinationConfiguration</code>.</p>\n         <p>When you specify <code>S3DestinationConfiguration</code>, you can also provide the\n         following optional values: BufferingHints, <code>EncryptionConfiguration</code>, and\n            <code>CompressionFormat</code>. By default, if no <code>BufferingHints</code> value is\n         provided, Kinesis Data Firehose buffers data up to 5 MB or for 5 minutes, whichever\n         condition is satisfied first. <code>BufferingHints</code> is a hint, so there are some\n         cases where the service cannot adhere to these conditions strictly. For example, record\n         boundaries might be such that the size is a little over or under the configured buffering\n         size. By default, no encryption is performed. We strongly recommend that you enable\n         encryption to ensure secure data storage in Amazon S3.</p>\n         <p>A few notes about Amazon Redshift as a destination:</p>\n         <ul>\n            <li>\n               <p>An Amazon Redshift destination requires an S3 bucket as intermediate location.\n               Kinesis Data Firehose first delivers data to Amazon S3 and then uses\n                  <code>COPY</code> syntax to load data into an Amazon Redshift table. This is\n               specified in the <code>RedshiftDestinationConfiguration.S3Configuration</code>\n               parameter.</p>\n            </li>\n            <li>\n               <p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be\n               specified in <code>RedshiftDestinationConfiguration.S3Configuration</code> because\n               the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket doesn't\n               support these compression formats.</p>\n            </li>\n            <li>\n               <p>We strongly recommend that you use the user name and password you provide\n               exclusively with Kinesis Data Firehose, and that the permissions for the account are\n               restricted for Amazon Redshift <code>INSERT</code> permissions.</p>\n            </li>\n         </ul>\n         <p>Kinesis Data Firehose assumes the IAM role that is configured as part of the\n         destination. The role should allow the Kinesis Data Firehose principal to assume the role,\n         and the role should have permissions that allow the service to deliver the data. For more\n         information, see <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3\">Grant Kinesis Data\n            Firehose Access to an Amazon S3 Destination</a> in the <i>Amazon Kinesis Data\n            Firehose Developer Guide</i>.</p>"
       }
     },
     "com.amazonaws.firehose#CreateDeliveryStreamInput": {
@@ -1049,6 +1067,23 @@
           "max": 512
         },
         "smithy.api#pattern": ".*"
+      }
+    },
+    "com.amazonaws.firehose#DefaultDocumentIdFormat": {
+      "type": "enum",
+      "members": {
+        "FIREHOSE_DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FIREHOSE_DEFAULT"
+          }
+        },
+        "NO_DOCUMENT_ID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NO_DOCUMENT_ID"
+          }
+        }
       }
     },
     "com.amazonaws.firehose#DeleteDeliveryStream": {
@@ -1633,6 +1668,21 @@
         "smithy.api#pattern": "^[a-zA-Z0-9-]+$"
       }
     },
+    "com.amazonaws.firehose#DocumentIdOptions": {
+      "type": "structure",
+      "members": {
+        "DefaultDocumentIdFormat": {
+          "target": "com.amazonaws.firehose#DefaultDocumentIdFormat",
+          "traits": {
+            "smithy.api#documentation": "<p>When the <code>FIREHOSE_DEFAULT</code> option is chosen, Kinesis Data Firehose generates\n         a unique document ID for each record based on a unique internal identifier. The generated\n         document ID is stable across multiple delivery attempts, which helps prevent the same\n         record from being indexed multiple times with different document IDs.</p>\n         <p>When the <code>NO_DOCUMENT_ID</code> option is chosen, Kinesis Data Firehose does not\n         include any document IDs in the requests it sends to the Amazon OpenSearch Service. This\n         causes the Amazon OpenSearch Service domain to generate document IDs. In case of multiple\n         delivery attempts, this may cause the same record to be indexed more than once with\n         different document IDs. This option enables write-heavy operations, such as the ingestion\n         of logs and observability data, to consume less resources in the Amazon OpenSearch Service\n         domain, resulting in improved performance.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Indicates the method for setting up document ID. The supported methods are Kinesis Data\n         Firehose generated document ID and OpenSearch Service generated document ID.</p>\n         <p></p>"
+      }
+    },
     "com.amazonaws.firehose#DynamicPartitioningConfiguration": {
       "type": "structure",
       "members": {
@@ -1782,7 +1832,13 @@
         "VpcConfiguration": {
           "target": "com.amazonaws.firehose#VpcConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The details of the VPC of the Amazon ES destination.</p>"
+            "smithy.api#documentation": "<p>The details of the VPC of the Amazon destination.</p>"
+          }
+        },
+        "DocumentIdOptions": {
+          "target": "com.amazonaws.firehose#DocumentIdOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the method for setting up document ID. The supported methods are Kinesis Data\n         Firehose generated document ID and OpenSearch Service generated document ID.</p>"
           }
         }
       },
@@ -1868,7 +1924,13 @@
         "VpcConfigurationDescription": {
           "target": "com.amazonaws.firehose#VpcConfigurationDescription",
           "traits": {
-            "smithy.api#documentation": "<p>The details of the VPC of the Amazon ES destination.</p>"
+            "smithy.api#documentation": "<p>The details of the VPC of the Amazon OpenSearch or the Amazon OpenSearch Serverless\n         destination.</p>"
+          }
+        },
+        "DocumentIdOptions": {
+          "target": "com.amazonaws.firehose#DocumentIdOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the method for setting up document ID. The supported methods are Kinesis Data\n         Firehose generated document ID and OpenSearch Service generated document ID.</p>"
           }
         }
       },
@@ -1943,6 +2005,12 @@
           "target": "com.amazonaws.firehose#CloudWatchLoggingOptions",
           "traits": {
             "smithy.api#documentation": "<p>The CloudWatch logging options for your delivery stream.</p>"
+          }
+        },
+        "DocumentIdOptions": {
+          "target": "com.amazonaws.firehose#DocumentIdOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the method for setting up document ID. The supported methods are Kinesis Data\n         Firehose generated document ID and OpenSearch Service generated document ID.</p>"
           }
         }
       },
@@ -6126,7 +6194,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the specified destination of the specified delivery stream.</p>\n         <p>Use this operation to change the destination type (for example, to replace the Amazon\n         S3 destination with Amazon Redshift) or change the parameters associated with a destination\n         (for example, to change the bucket name of the Amazon S3 destination). The update might not\n         occur immediately. The target delivery stream remains active while the configurations are\n         updated, so data writes to the delivery stream can continue during this process. The\n         updated configurations are usually effective within a few minutes.</p>\n         <p>Switching between Amazon ES and other services is not supported. For an Amazon ES\n         destination, you can only update to another Amazon ES destination.</p>\n         <p>If the destination type is the same, Kinesis Data Firehose merges the configuration\n         parameters specified with the destination configuration that already exists on the delivery\n         stream. If any of the parameters are not specified in the call, the existing values are\n         retained. For example, in the Amazon S3 destination, if <a>EncryptionConfiguration</a> is not specified, then the existing\n            <code>EncryptionConfiguration</code> is maintained on the destination.</p>\n         <p>If the destination type is not the same, for example, changing the destination from\n         Amazon S3 to Amazon Redshift, Kinesis Data Firehose does not merge any parameters. In this\n         case, all parameters must be specified.</p>\n         <p>Kinesis Data Firehose uses <code>CurrentDeliveryStreamVersionId</code> to avoid race\n         conditions and conflicting merges. This is a required field, and the service updates the\n         configuration only if the existing configuration has a version ID that matches. After the\n         update is applied successfully, the version ID is updated, and can be retrieved using <a>DescribeDeliveryStream</a>. Use the new version ID to set\n            <code>CurrentDeliveryStreamVersionId</code> in the next call.</p>"
+        "smithy.api#documentation": "<p>Updates the specified destination of the specified delivery stream.</p>\n         <p>Use this operation to change the destination type (for example, to replace the Amazon\n         S3 destination with Amazon Redshift) or change the parameters associated with a destination\n         (for example, to change the bucket name of the Amazon S3 destination). The update might not\n         occur immediately. The target delivery stream remains active while the configurations are\n         updated, so data writes to the delivery stream can continue during this process. The\n         updated configurations are usually effective within a few minutes.</p>\n         <p>Switching between Amazon OpenSearch Service and other services is not supported. For\n         an Amazon OpenSearch Service destination, you can only update to another Amazon OpenSearch\n         Service destination.</p>\n         <p>If the destination type is the same, Kinesis Data Firehose merges the configuration\n         parameters specified with the destination configuration that already exists on the delivery\n         stream. If any of the parameters are not specified in the call, the existing values are\n         retained. For example, in the Amazon S3 destination, if <a>EncryptionConfiguration</a> is not specified, then the existing\n            <code>EncryptionConfiguration</code> is maintained on the destination.</p>\n         <p>If the destination type is not the same, for example, changing the destination from\n         Amazon S3 to Amazon Redshift, Kinesis Data Firehose does not merge any parameters. In this\n         case, all parameters must be specified.</p>\n         <p>Kinesis Data Firehose uses <code>CurrentDeliveryStreamVersionId</code> to avoid race\n         conditions and conflicting merges. This is a required field, and the service updates the\n         configuration only if the existing configuration has a version ID that matches. After the\n         update is applied successfully, the version ID is updated, and can be retrieved using <a>DescribeDeliveryStream</a>. Use the new version ID to set\n            <code>CurrentDeliveryStreamVersionId</code> in the next call.</p>"
       }
     },
     "com.amazonaws.firehose#UpdateDestinationInput": {
@@ -6251,7 +6319,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The details of the VPC of the Amazon ES destination.</p>"
+        "smithy.api#documentation": "<p>The details of the VPC of the Amazon OpenSearch or Amazon OpenSearch Serverless\n         destination.</p>"
       }
     },
     "com.amazonaws.firehose#VpcConfigurationDescription": {

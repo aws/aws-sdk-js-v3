@@ -355,6 +355,9 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             ],
  * //             VpcId: "STRING_VALUE", // required
  * //           },
+ * //           DocumentIdOptions: { // DocumentIdOptions
+ * //             DefaultDocumentIdFormat: "FIREHOSE_DEFAULT" || "NO_DOCUMENT_ID", // required
+ * //           },
  * //         },
  * //         AmazonopensearchserviceDestinationDescription: { // AmazonopensearchserviceDestinationDescription
  * //           RoleARN: "STRING_VALUE",
@@ -396,6 +399,9 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //               "STRING_VALUE",
  * //             ],
  * //             VpcId: "STRING_VALUE", // required
+ * //           },
+ * //           DocumentIdOptions: {
+ * //             DefaultDocumentIdFormat: "FIREHOSE_DEFAULT" || "NO_DOCUMENT_ID", // required
  * //           },
  * //         },
  * //         SplunkDestinationDescription: { // SplunkDestinationDescription

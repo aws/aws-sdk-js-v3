@@ -63,9 +63,12 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *          <p>To create a delivery stream with server-side encryption (SSE) enabled, include <a>DeliveryStreamEncryptionConfigurationInput</a> in your request. This is
  *          optional. You can also invoke <a>StartDeliveryStreamEncryption</a> to turn on
  *          SSE for an existing delivery stream that doesn't have SSE enabled.</p>
- *          <p>A delivery stream is configured with a single destination: Amazon S3, Amazon ES,
- *          Amazon Redshift, or Splunk. You must specify only one of the following destination
- *          configuration parameters: <code>ExtendedS3DestinationConfiguration</code>,
+ *          <p>A delivery stream is configured with a single destination, such as Amazon Simple
+ *          Storage Service (Amazon S3), Amazon Redshift, Amazon OpenSearch Service, Amazon OpenSearch
+ *          Serverless, Splunk, and any custom HTTP endpoint or HTTP endpoints owned by or supported by
+ *          third-party service providers, including Datadog, Dynatrace, LogicMonitor, MongoDB, New
+ *          Relic, and Sumo Logic. You must specify only one of the following destination configuration
+ *          parameters: <code>ExtendedS3DestinationConfiguration</code>,
  *             <code>S3DestinationConfiguration</code>,
  *             <code>ElasticsearchDestinationConfiguration</code>,
  *             <code>RedshiftDestinationConfiguration</code>, or
@@ -386,6 +389,9 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     DocumentIdOptions: { // DocumentIdOptions
+ *       DefaultDocumentIdFormat: "FIREHOSE_DEFAULT" || "NO_DOCUMENT_ID", // required
+ *     },
  *   },
  *   AmazonopensearchserviceDestinationConfiguration: { // AmazonopensearchserviceDestinationConfiguration
  *     RoleARN: "STRING_VALUE", // required
@@ -426,6 +432,9 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       SecurityGroupIds: [ // required
  *         "STRING_VALUE",
  *       ],
+ *     },
+ *     DocumentIdOptions: {
+ *       DefaultDocumentIdFormat: "FIREHOSE_DEFAULT" || "NO_DOCUMENT_ID", // required
  *     },
  *   },
  *   SplunkDestinationConfiguration: { // SplunkDestinationConfiguration
