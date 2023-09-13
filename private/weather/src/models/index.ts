@@ -1,1 +1,0 @@
-// smithy-typescript generated code
