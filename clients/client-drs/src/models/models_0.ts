@@ -152,6 +152,204 @@ export interface ParticipatingResource {
 
 /**
  * @public
+ * @enum
+ */
+export const LaunchActionCategory = {
+  CONFIGURATION: "CONFIGURATION",
+  MONITORING: "MONITORING",
+  OTHER: "OTHER",
+  SECURITY: "SECURITY",
+  VALIDATION: "VALIDATION",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchActionCategory = (typeof LaunchActionCategory)[keyof typeof LaunchActionCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchActionParameterType = {
+  DYNAMIC: "DYNAMIC",
+  SSM_STORE: "SSM_STORE",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchActionParameterType = (typeof LaunchActionParameterType)[keyof typeof LaunchActionParameterType];
+
+/**
+ * @public
+ * <p>Launch action parameter.</p>
+ */
+export interface LaunchActionParameter {
+  /**
+   * @public
+   * <p>Value.</p>
+   */
+  value?: string;
+
+  /**
+   * @public
+   * <p>Type.</p>
+   */
+  type?: LaunchActionParameterType | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchActionType = {
+  SSM_AUTOMATION: "SSM_AUTOMATION",
+  SSM_COMMAND: "SSM_COMMAND",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchActionType = (typeof LaunchActionType)[keyof typeof LaunchActionType];
+
+/**
+ * @public
+ * <p>Launch action.</p>
+ */
+export interface LaunchAction {
+  /**
+   * @public
+   * <p>Launch action Id.</p>
+   */
+  actionId?: string;
+
+  /**
+   * @public
+   * <p>Launch action code.</p>
+   */
+  actionCode?: string;
+
+  /**
+   * @public
+   * <p>Launch action type.</p>
+   */
+  type?: LaunchActionType | string;
+
+  /**
+   * @public
+   * <p>Launch action name.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Whether the launch action is active.</p>
+   */
+  active?: boolean;
+
+  /**
+   * @public
+   * <p>Launch action order.</p>
+   */
+  order?: number;
+
+  /**
+   * @public
+   * <p>Launch action version.</p>
+   */
+  actionVersion?: string;
+
+  /**
+   * @public
+   * <p>Whether the launch will not be marked as failed if this action fails.</p>
+   */
+  optional?: boolean;
+
+  /**
+   * @public
+   * <p>Launch action parameters.</p>
+   */
+  parameters?: Record<string, LaunchActionParameter>;
+
+  /**
+   * @public
+   * <p>Launch action description.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>Launch action category.</p>
+   */
+  category?: LaunchActionCategory | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchActionRunStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchActionRunStatus = (typeof LaunchActionRunStatus)[keyof typeof LaunchActionRunStatus];
+
+/**
+ * @public
+ * <p>Launch action run.</p>
+ */
+export interface LaunchActionRun {
+  /**
+   * @public
+   * <p>Action.</p>
+   */
+  action?: LaunchAction;
+
+  /**
+   * @public
+   * <p>Run Id.</p>
+   */
+  runId?: string;
+
+  /**
+   * @public
+   * <p>Run status.</p>
+   */
+  status?: LaunchActionRunStatus | string;
+
+  /**
+   * @public
+   * <p>Failure reason.</p>
+   */
+  failureReason?: string;
+}
+
+/**
+ * @public
+ * <p>Launch actions status.</p>
+ */
+export interface LaunchActionsStatus {
+  /**
+   * @public
+   * <p>Time where the AWS Systems Manager was detected as running on the launched instance.</p>
+   */
+  ssmAgentDiscoveryDatetime?: string;
+
+  /**
+   * @public
+   * <p>List of post launch action status.</p>
+   */
+  runs?: LaunchActionRun[];
+}
+
+/**
+ * @public
  * <p>Represents a server participating in an asynchronous Job.</p>
  */
 export interface ParticipatingServer {
@@ -172,6 +370,12 @@ export interface ParticipatingServer {
    * <p>The launch status of a participating server.</p>
    */
   launchStatus?: LaunchStatus | string;
+
+  /**
+   * @public
+   * <p>The post-launch action runs of a participating server.</p>
+   */
+  launchActionsStatus?: LaunchActionsStatus;
 }
 
 /**
@@ -1387,6 +1591,12 @@ export interface CreateLaunchConfigurationTemplateRequest {
    * <p>S3 bucket ARN to export Source Network templates.</p>
    */
   exportBucketArn?: string;
+
+  /**
+   * @public
+   * <p>Whether we want to activate post-launch actions.</p>
+   */
+  postLaunchEnabled?: boolean;
 }
 
 /**
@@ -1447,6 +1657,12 @@ export interface LaunchConfigurationTemplate {
    * <p>S3 bucket ARN to export Source Network templates.</p>
    */
   exportBucketArn?: string;
+
+  /**
+   * @public
+   * <p>Post-launch actions activated.</p>
+   */
+  postLaunchEnabled?: boolean;
 }
 
 /**
@@ -1816,6 +2032,28 @@ export interface DeleteJobRequest {
  * @public
  */
 export interface DeleteJobResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteLaunchActionRequest {
+  /**
+   * @public
+   * <p>Launch configuration template Id or Source Server Id</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>Launch action Id.</p>
+   */
+  actionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLaunchActionResponse {}
 
 /**
  * @public
@@ -3308,6 +3546,12 @@ export interface UpdateLaunchConfigurationTemplateRequest {
    * <p>S3 bucket ARN to export Source Network templates.</p>
    */
   exportBucketArn?: string;
+
+  /**
+   * @public
+   * <p>Whether we want to activate post-launch actions.</p>
+   */
+  postLaunchEnabled?: boolean;
 }
 
 /**
@@ -3387,6 +3631,64 @@ export interface ListExtensibleSourceServersResponse {
 
 /**
  * @public
+ * <p>Resource launch actions filter.</p>
+ */
+export interface LaunchActionsRequestFilters {
+  /**
+   * @public
+   * <p>Launch actions Ids.</p>
+   */
+  actionIds?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ListLaunchActionsRequest {
+  /**
+   * @public
+   * <p>Launch configuration template Id or Source Server Id</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>Filters to apply when listing resource launch actions.</p>
+   */
+  filters?: LaunchActionsRequestFilters;
+
+  /**
+   * @public
+   * <p>Maximum amount of items to return when listing resource launch actions.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>Next token to use when listing resource launch actions.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListLaunchActionsResponse {
+  /**
+   * @public
+   * <p>List of resource launch actions.</p>
+   */
+  items?: LaunchAction[];
+
+  /**
+   * @public
+   * <p>Next token returned when listing resource launch actions.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
  */
 export interface ListStagingAccountsRequest {
   /**
@@ -3439,6 +3741,154 @@ export interface ListTagsForResourceResponse {
    * <p>The tags of the requested resource.</p>
    */
   tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface PutLaunchActionRequest {
+  /**
+   * @public
+   * <p>Launch configuration template Id or Source Server Id</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>Launch action code.</p>
+   */
+  actionCode: string | undefined;
+
+  /**
+   * @public
+   * <p>Launch action order.</p>
+   */
+  order: number | undefined;
+
+  /**
+   * @public
+   * <p>Launch action Id.</p>
+   */
+  actionId: string | undefined;
+
+  /**
+   * @public
+   * <p>Whether the launch will not be marked as failed if this action fails.</p>
+   */
+  optional: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Whether the launch action is active.</p>
+   */
+  active: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Launch action name.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>Launch action version.</p>
+   */
+  actionVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>Launch action category.</p>
+   */
+  category: LaunchActionCategory | string | undefined;
+
+  /**
+   * @public
+   * <p>Launch action parameters.</p>
+   */
+  parameters?: Record<string, LaunchActionParameter>;
+
+  /**
+   * @public
+   * <p>Launch action description.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface PutLaunchActionResponse {
+  /**
+   * @public
+   * <p>Launch configuration template Id or Source Server Id</p>
+   */
+  resourceId?: string;
+
+  /**
+   * @public
+   * <p>Launch action Id.</p>
+   */
+  actionId?: string;
+
+  /**
+   * @public
+   * <p>Launch action code.</p>
+   */
+  actionCode?: string;
+
+  /**
+   * @public
+   * <p>Launch action type.</p>
+   */
+  type?: LaunchActionType | string;
+
+  /**
+   * @public
+   * <p>Launch action name.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Whether the launch action is active.</p>
+   */
+  active?: boolean;
+
+  /**
+   * @public
+   * <p>Launch action order.</p>
+   */
+  order?: number;
+
+  /**
+   * @public
+   * <p>Launch action version.</p>
+   */
+  actionVersion?: string;
+
+  /**
+   * @public
+   * <p>Whether the launch will not be marked as failed if this action fails.</p>
+   */
+  optional?: boolean;
+
+  /**
+   * @public
+   * <p>Launch action parameters.</p>
+   */
+  parameters?: Record<string, LaunchActionParameter>;
+
+  /**
+   * @public
+   * <p>Launch action description.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>Launch action category.</p>
+   */
+  category?: LaunchActionCategory | string;
 }
 
 /**
@@ -3874,6 +4324,12 @@ export interface LaunchConfiguration {
    * <p>The licensing configuration to be used for this launch configuration.</p>
    */
   licensing?: Licensing;
+
+  /**
+   * @public
+   * <p>Whether we want to activate post-launch actions for the Source Server.</p>
+   */
+  postLaunchEnabled?: boolean;
 }
 
 /**
@@ -4208,6 +4664,12 @@ export interface UpdateLaunchConfigurationRequest {
    * <p>The licensing configuration to be used for this launch configuration.</p>
    */
   licensing?: Licensing;
+
+  /**
+   * @public
+   * <p>Whether we want to enable post-launch actions for the Source Server.</p>
+   */
+  postLaunchEnabled?: boolean;
 }
 
 /**

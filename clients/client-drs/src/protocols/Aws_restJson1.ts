@@ -5,6 +5,7 @@ import {
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
@@ -44,6 +45,7 @@ import {
   CreateSourceNetworkCommandOutput,
 } from "../commands/CreateSourceNetworkCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "../commands/DeleteJobCommand";
+import { DeleteLaunchActionCommandInput, DeleteLaunchActionCommandOutput } from "../commands/DeleteLaunchActionCommand";
 import {
   DeleteLaunchConfigurationTemplateCommandInput,
   DeleteLaunchConfigurationTemplateCommandOutput,
@@ -119,6 +121,7 @@ import {
   ListExtensibleSourceServersCommandInput,
   ListExtensibleSourceServersCommandOutput,
 } from "../commands/ListExtensibleSourceServersCommand";
+import { ListLaunchActionsCommandInput, ListLaunchActionsCommandOutput } from "../commands/ListLaunchActionsCommand";
 import {
   ListStagingAccountsCommandInput,
   ListStagingAccountsCommandOutput,
@@ -127,6 +130,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { PutLaunchActionCommandInput, PutLaunchActionCommandOutput } from "../commands/PutLaunchActionCommand";
 import {
   RetryDataReplicationCommandInput,
   RetryDataReplicationCommandOutput,
@@ -188,6 +192,8 @@ import {
   DescribeSourceNetworksRequestFilters,
   DescribeSourceServersRequestFilters,
   InternalServerException,
+  LaunchActionParameter,
+  LaunchActionsRequestFilters,
   Licensing,
   PITPolicyRule,
   RecoveryLifeCycle,
@@ -285,6 +291,7 @@ export const se_CreateLaunchConfigurationTemplateCommand = async (
       exportBucketArn: [],
       launchDisposition: [],
       licensing: (_) => _json(_),
+      postLaunchEnabled: [],
       tags: (_) => _json(_),
       targetInstanceTypeRightSizingMethod: [],
     })
@@ -392,6 +399,36 @@ export const se_DeleteJobCommand = async (
   body = JSON.stringify(
     take(input, {
       jobID: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteLaunchActionCommand
+ */
+export const se_DeleteLaunchActionCommand = async (
+  input: DeleteLaunchActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteLaunchAction";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      actionId: [],
+      resourceId: [],
     })
   );
   return new __HttpRequest({
@@ -1047,6 +1084,38 @@ export const se_ListExtensibleSourceServersCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListLaunchActionsCommand
+ */
+export const se_ListLaunchActionsCommand = async (
+  input: ListLaunchActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListLaunchActions";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      resourceId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListStagingAccountsCommand
  */
 export const se_ListStagingAccountsCommand = async (
@@ -1090,6 +1159,45 @@ export const se_ListTagsForResourceCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1PutLaunchActionCommand
+ */
+export const se_PutLaunchActionCommand = async (
+  input: PutLaunchActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutLaunchAction";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      actionCode: [],
+      actionId: [],
+      actionVersion: [],
+      active: [],
+      category: [],
+      description: [],
+      name: [],
+      optional: [],
+      order: [],
+      parameters: (_) => _json(_),
+      resourceId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -1538,6 +1646,7 @@ export const se_UpdateLaunchConfigurationCommand = async (
       launchDisposition: [],
       licensing: (_) => _json(_),
       name: [],
+      postLaunchEnabled: [],
       sourceServerID: [],
       targetInstanceTypeRightSizingMethod: [],
     })
@@ -1575,6 +1684,7 @@ export const se_UpdateLaunchConfigurationTemplateCommand = async (
       launchConfigurationTemplateID: [],
       launchDisposition: [],
       licensing: (_) => _json(_),
+      postLaunchEnabled: [],
       targetInstanceTypeRightSizingMethod: [],
     })
   );
@@ -2060,6 +2170,61 @@ const de_DeleteJobCommandError = async (
     case "UninitializedAccountException":
     case "com.amazonaws.drs#UninitializedAccountException":
       throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteLaunchActionCommand
+ */
+export const de_DeleteLaunchActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLaunchActionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteLaunchActionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteLaunchActionCommandError
+ */
+const de_DeleteLaunchActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLaunchActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3081,6 +3246,7 @@ export const de_GetLaunchConfigurationCommand = async (
     launchDisposition: __expectString,
     licensing: _json,
     name: __expectString,
+    postLaunchEnabled: __expectBoolean,
     sourceServerID: __expectString,
     targetInstanceTypeRightSizingMethod: __expectString,
   });
@@ -3311,6 +3477,66 @@ const de_ListExtensibleSourceServersCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListLaunchActionsCommand
+ */
+export const de_ListLaunchActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLaunchActionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListLaunchActionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListLaunchActionsCommandError
+ */
+const de_ListLaunchActionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLaunchActionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.drs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListStagingAccountsCommand
  */
 export const de_ListStagingAccountsCommand = async (
@@ -3416,6 +3642,79 @@ const de_ListTagsForResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.drs#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1PutLaunchActionCommand
+ */
+export const de_PutLaunchActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutLaunchActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PutLaunchActionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    actionCode: __expectString,
+    actionId: __expectString,
+    actionVersion: __expectString,
+    active: __expectBoolean,
+    category: __expectString,
+    description: __expectString,
+    name: __expectString,
+    optional: __expectBoolean,
+    order: __expectInt32,
+    parameters: _json,
+    resourceId: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutLaunchActionCommandError
+ */
+const de_PutLaunchActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutLaunchActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.drs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.drs#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -4284,6 +4583,7 @@ export const de_UpdateLaunchConfigurationCommand = async (
     launchDisposition: __expectString,
     licensing: _json,
     name: __expectString,
+    postLaunchEnabled: __expectBoolean,
     sourceServerID: __expectString,
     targetInstanceTypeRightSizingMethod: __expectString,
   });
@@ -4748,6 +5048,14 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DescribeSourceServersRequestFiltersIDs omitted.
 
+// se_LaunchActionIds omitted.
+
+// se_LaunchActionParameter omitted.
+
+// se_LaunchActionParameters omitted.
+
+// se_LaunchActionsRequestFilters omitted.
+
 // se_LaunchConfigurationTemplateIDs omitted.
 
 // se_Licensing omitted.
@@ -4831,6 +5139,20 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_JobLogs omitted.
 
 // de_JobsList omitted.
+
+// de_LaunchAction omitted.
+
+// de_LaunchActionParameter omitted.
+
+// de_LaunchActionParameters omitted.
+
+// de_LaunchActionRun omitted.
+
+// de_LaunchActionRuns omitted.
+
+// de_LaunchActions omitted.
+
+// de_LaunchActionsStatus omitted.
 
 // de_LaunchConfigurationTemplate omitted.
 

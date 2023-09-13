@@ -29,6 +29,11 @@ import {
 } from "./commands/CreateSourceNetworkCommand";
 import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
+  DeleteLaunchActionCommand,
+  DeleteLaunchActionCommandInput,
+  DeleteLaunchActionCommandOutput,
+} from "./commands/DeleteLaunchActionCommand";
+import {
   DeleteLaunchConfigurationTemplateCommand,
   DeleteLaunchConfigurationTemplateCommandInput,
   DeleteLaunchConfigurationTemplateCommandOutput,
@@ -134,6 +139,11 @@ import {
   ListExtensibleSourceServersCommandOutput,
 } from "./commands/ListExtensibleSourceServersCommand";
 import {
+  ListLaunchActionsCommand,
+  ListLaunchActionsCommandInput,
+  ListLaunchActionsCommandOutput,
+} from "./commands/ListLaunchActionsCommand";
+import {
   ListStagingAccountsCommand,
   ListStagingAccountsCommandInput,
   ListStagingAccountsCommandOutput,
@@ -143,6 +153,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutLaunchActionCommand,
+  PutLaunchActionCommandInput,
+  PutLaunchActionCommandOutput,
+} from "./commands/PutLaunchActionCommand";
 import {
   RetryDataReplicationCommand,
   RetryDataReplicationCommandInput,
@@ -238,6 +253,7 @@ const commands = {
   CreateReplicationConfigurationTemplateCommand,
   CreateSourceNetworkCommand,
   DeleteJobCommand,
+  DeleteLaunchActionCommand,
   DeleteLaunchConfigurationTemplateCommand,
   DeleteRecoveryInstanceCommand,
   DeleteReplicationConfigurationTemplateCommand,
@@ -259,8 +275,10 @@ const commands = {
   GetReplicationConfigurationCommand,
   InitializeServiceCommand,
   ListExtensibleSourceServersCommand,
+  ListLaunchActionsCommand,
   ListStagingAccountsCommand,
   ListTagsForResourceCommand,
+  PutLaunchActionCommand,
   RetryDataReplicationCommand,
   ReverseReplicationCommand,
   StartFailbackLaunchCommand,
@@ -376,6 +394,23 @@ export interface Drs {
     args: DeleteJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLaunchActionCommand}
+   */
+  deleteLaunchAction(
+    args: DeleteLaunchActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLaunchActionCommandOutput>;
+  deleteLaunchAction(
+    args: DeleteLaunchActionCommandInput,
+    cb: (err: any, data?: DeleteLaunchActionCommandOutput) => void
+  ): void;
+  deleteLaunchAction(
+    args: DeleteLaunchActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLaunchActionCommandOutput) => void
   ): void;
 
   /**
@@ -730,6 +765,23 @@ export interface Drs {
   ): void;
 
   /**
+   * @see {@link ListLaunchActionsCommand}
+   */
+  listLaunchActions(
+    args: ListLaunchActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLaunchActionsCommandOutput>;
+  listLaunchActions(
+    args: ListLaunchActionsCommandInput,
+    cb: (err: any, data?: ListLaunchActionsCommandOutput) => void
+  ): void;
+  listLaunchActions(
+    args: ListLaunchActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLaunchActionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListStagingAccountsCommand}
    */
   listStagingAccounts(
@@ -761,6 +813,20 @@ export interface Drs {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutLaunchActionCommand}
+   */
+  putLaunchAction(
+    args: PutLaunchActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutLaunchActionCommandOutput>;
+  putLaunchAction(args: PutLaunchActionCommandInput, cb: (err: any, data?: PutLaunchActionCommandOutput) => void): void;
+  putLaunchAction(
+    args: PutLaunchActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutLaunchActionCommandOutput) => void
   ): void;
 
   /**

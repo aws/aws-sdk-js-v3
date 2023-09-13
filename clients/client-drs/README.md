@@ -253,6 +253,14 @@ DeleteJob
 </details>
 <details>
 <summary>
+DeleteLaunchAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/deletelaunchactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/deletelaunchactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/deletelaunchactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteLaunchConfigurationTemplate
 </summary>
 
@@ -421,6 +429,14 @@ ListExtensibleSourceServers
 </details>
 <details>
 <summary>
+ListLaunchActions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/listlaunchactionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/listlaunchactionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/listlaunchactionscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListStagingAccounts
 </summary>
 
@@ -433,6 +449,14 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutLaunchAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/putlaunchactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/putlaunchactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/putlaunchactioncommandoutput.html)
 
 </details>
 <details>

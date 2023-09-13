@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { GetLaunchConfigurationRequest, LaunchConfiguration } from "../models/models_0";
-import { de_GetLaunchConfigurationCommand, se_GetLaunchConfigurationCommand } from "../protocols/Aws_restJson1";
+import { ListLaunchActionsRequest, ListLaunchActionsResponse } from "../models/models_0";
+import { de_ListLaunchActionsCommand, se_ListLaunchActionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,50 +24,67 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetLaunchConfigurationCommand}.
+ * The input for {@link ListLaunchActionsCommand}.
  */
-export interface GetLaunchConfigurationCommandInput extends GetLaunchConfigurationRequest {}
+export interface ListLaunchActionsCommandInput extends ListLaunchActionsRequest {}
 /**
  * @public
  *
- * The output of {@link GetLaunchConfigurationCommand}.
+ * The output of {@link ListLaunchActionsCommand}.
  */
-export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration, __MetadataBearer {}
+export interface ListLaunchActionsCommandOutput extends ListLaunchActionsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets a LaunchConfiguration, filtered by Source Server IDs.</p>
+ * <p>Lists resource launch actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, GetLaunchConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, GetLaunchConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, ListLaunchActionsCommand } from "@aws-sdk/client-drs"; // ES Modules import
+ * // const { DrsClient, ListLaunchActionsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = { // GetLaunchConfigurationRequest
- *   sourceServerID: "STRING_VALUE", // required
+ * const input = { // ListLaunchActionsRequest
+ *   resourceId: "STRING_VALUE", // required
+ *   filters: { // LaunchActionsRequestFilters
+ *     actionIds: [ // LaunchActionIds
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new GetLaunchConfigurationCommand(input);
+ * const command = new ListLaunchActionsCommand(input);
  * const response = await client.send(command);
- * // { // LaunchConfiguration
- * //   sourceServerID: "STRING_VALUE",
- * //   name: "STRING_VALUE",
- * //   ec2LaunchTemplateID: "STRING_VALUE",
- * //   launchDisposition: "STRING_VALUE",
- * //   targetInstanceTypeRightSizingMethod: "STRING_VALUE",
- * //   copyPrivateIp: true || false,
- * //   copyTags: true || false,
- * //   licensing: { // Licensing
- * //     osByol: true || false,
- * //   },
- * //   postLaunchEnabled: true || false,
+ * // { // ListLaunchActionsResponse
+ * //   items: [ // LaunchActions
+ * //     { // LaunchAction
+ * //       actionId: "STRING_VALUE",
+ * //       actionCode: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       active: true || false,
+ * //       order: Number("int"),
+ * //       actionVersion: "STRING_VALUE",
+ * //       optional: true || false,
+ * //       parameters: { // LaunchActionParameters
+ * //         "<keys>": { // LaunchActionParameter
+ * //           value: "STRING_VALUE",
+ * //           type: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       description: "STRING_VALUE",
+ * //       category: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetLaunchConfigurationCommandInput - {@link GetLaunchConfigurationCommandInput}
- * @returns {@link GetLaunchConfigurationCommandOutput}
- * @see {@link GetLaunchConfigurationCommandInput} for command's `input` shape.
- * @see {@link GetLaunchConfigurationCommandOutput} for command's `response` shape.
+ * @param ListLaunchActionsCommandInput - {@link ListLaunchActionsCommandInput}
+ * @returns {@link ListLaunchActionsCommandOutput}
+ * @see {@link ListLaunchActionsCommandInput} for command's `input` shape.
+ * @see {@link ListLaunchActionsCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -75,6 +92,9 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource for this operation was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request could not be completed because its exceeded the service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -86,9 +106,9 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
-export class GetLaunchConfigurationCommand extends $Command<
-  GetLaunchConfigurationCommandInput,
-  GetLaunchConfigurationCommandOutput,
+export class ListLaunchActionsCommand extends $Command<
+  ListLaunchActionsCommandInput,
+  ListLaunchActionsCommandOutput,
   DrsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -106,7 +126,7 @@ export class GetLaunchConfigurationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetLaunchConfigurationCommandInput) {
+  constructor(readonly input: ListLaunchActionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -119,17 +139,17 @@ export class GetLaunchConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DrsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetLaunchConfigurationCommandInput, GetLaunchConfigurationCommandOutput> {
+  ): Handler<ListLaunchActionsCommandInput, ListLaunchActionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetLaunchConfigurationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListLaunchActionsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "DrsClient";
-    const commandName = "GetLaunchConfigurationCommand";
+    const commandName = "ListLaunchActionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -148,15 +168,15 @@ export class GetLaunchConfigurationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetLaunchConfigurationCommand(input, context);
+  private serialize(input: ListLaunchActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListLaunchActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLaunchConfigurationCommandOutput> {
-    return de_GetLaunchConfigurationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLaunchActionsCommandOutput> {
+    return de_ListLaunchActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

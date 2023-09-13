@@ -65,6 +65,7 @@ export interface CreateLaunchConfigurationTemplateCommandOutput
  *     osByol: true || false,
  *   },
  *   exportBucketArn: "STRING_VALUE",
+ *   postLaunchEnabled: true || false,
  * };
  * const command = new CreateLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -83,6 +84,7 @@ export interface CreateLaunchConfigurationTemplateCommandOutput
  * //       osByol: true || false,
  * //     },
  * //     exportBucketArn: "STRING_VALUE",
+ * //     postLaunchEnabled: true || false,
  * //   },
  * // };
  *
