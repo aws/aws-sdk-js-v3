@@ -77,6 +77,7 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  * //   TraceSummaries: [ // TraceSummaryList
  * //     { // TraceSummary
  * //       Id: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
  * //       Duration: Number("double"),
  * //       ResponseTime: Number("double"),
  * //       HasFault: true || false,

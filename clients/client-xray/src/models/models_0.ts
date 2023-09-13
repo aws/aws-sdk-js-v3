@@ -2722,6 +2722,12 @@ export interface TraceSummary {
 
   /**
    * @public
+   * <p>The start time of a trace, based on the earliest trace segment start time.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
    * <p>The length of time in seconds between the start time of the root segment and the end
    *       time of the last segment that completed.</p>
    */
