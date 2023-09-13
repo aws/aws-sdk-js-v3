@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.412.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.411.0...v3.412.0) (2023-09-13)
+
+
+### Features
+
+* **client-guardduty:** Add `managementType` field to ListCoverage API response. ([1da1226](https://github.com/aws/aws-sdk-js-v3/commit/1da1226370715b77c8c5c13fe4ccf45d64b08910))
+
+
+
+
+
 # [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty

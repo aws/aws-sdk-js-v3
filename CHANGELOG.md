@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.412.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.411.0...v3.412.0) (2023-09-13)
+
+
+### Bug Fixes
+
+* **signature-v4-multi-region:** make conditional require call in node.js only ([#5203](https://github.com/aws/aws-sdk-js-v3/issues/5203)) ([0a68c97](https://github.com/aws/aws-sdk-js-v3/commit/0a68c97cc1c987ff77a0c8c2696252126b1f71e6))
+
+
+### Features
+
+* **client-drs:** Updated existing APIs and added new ones to support using AWS Elastic Disaster Recovery post-launch actions. Added support for new regions. ([6577b34](https://github.com/aws/aws-sdk-js-v3/commit/6577b3432ada03afba6e88ce4cf51deea05f81a7))
+* **client-firehose:** DocumentIdOptions has been added for the Amazon OpenSearch destination. ([f2e4398](https://github.com/aws/aws-sdk-js-v3/commit/f2e4398f4245db64ac4a6a27179ccba566ae52a9))
+* **client-guardduty:** Add `managementType` field to ListCoverage API response. ([1da1226](https://github.com/aws/aws-sdk-js-v3/commit/1da1226370715b77c8c5c13fe4ccf45d64b08910))
+* **client-internetmonitor:** This release updates the Amazon CloudWatch Internet Monitor API domain name. ([5f45618](https://github.com/aws/aws-sdk-js-v3/commit/5f45618a5be74b3098439c78bdb144f4d72bc7dd))
+* **client-xray:** Add StartTime field in GetTraceSummaries API response for each TraceSummary. ([a721414](https://github.com/aws/aws-sdk-js-v3/commit/a721414d5e906348352342bef69f2ef9640aa86d))
+* **clients:** update client endpoints as of 2023-09-13 ([2923641](https://github.com/aws/aws-sdk-js-v3/commit/2923641e96e928ea2a379f6a1776d9086534e1da))
+
+
+
+
+
 # [3.411.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.410.0...v3.411.0) (2023-09-12)
 
 

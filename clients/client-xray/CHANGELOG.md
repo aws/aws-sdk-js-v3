@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.412.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.411.0...v3.412.0) (2023-09-13)
+
+
+### Features
+
+* **client-xray:** Add StartTime field in GetTraceSummaries API response for each TraceSummary. ([a721414](https://github.com/aws/aws-sdk-js-v3/commit/a721414d5e906348352342bef69f2ef9640aa86d))
+
+
+
+
+
 # [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-xray
