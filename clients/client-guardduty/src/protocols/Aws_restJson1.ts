@@ -6697,6 +6697,7 @@ const de_CoverageEksClusterDetails = (output: any, context: __SerdeContext): Cov
     ClusterName: [, __expectString, `clusterName`],
     CompatibleNodes: [, __expectLong, `compatibleNodes`],
     CoveredNodes: [, __expectLong, `coveredNodes`],
+    ManagementType: [, __expectString, `managementType`],
   }) as any;
 };
 

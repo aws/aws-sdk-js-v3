@@ -36,17 +36,17 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
 
 /**
  * @public
- * <p>Disassociates GuardDuty member accounts (from the current administrator account)
- *       specified by the account IDs.</p>
- *          <p>When you disassociate an invited member from a GuardDuty delegated administrator, the member
- *       account details obtained from the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">CreateMembers</a> API,
- *       including the associated email addresses, are retained. This is done so that the delegated
- *       administrator can invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a> API without
- *       the need to invoke the CreateMembers API again. To remove the details associated with a member
- *       account, the delegated administrator must invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a> API. </p>
+ * <p>Disassociates GuardDuty member accounts (from the current administrator account) specified
+ *       by the account IDs.</p>
+ *          <p>When you
+ *       disassociate an invited member from a GuardDuty delegated administrator, the member account details
+ *       obtained from the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">CreateMembers</a> API, including the associated email addresses, are retained. This is
+ *       done so that the delegated administrator can invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a> API without the need to invoke the CreateMembers API again. To
+ *       remove the details associated with a member account, the delegated administrator must invoke the
+ *       <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a> API. </p>
  *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to
  *         <code>ALL</code>, you'll receive an error if you attempt to disassociate a member account
- *       before removing them from your Amazon Web Services organization.</p>
+ *       before removing them from your organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

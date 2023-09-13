@@ -41,7 +41,9 @@ export interface ListOrganizationAdminAccountsCommandOutput
 
 /**
  * @public
- * <p>Lists the accounts configured as GuardDuty delegated administrators.</p>
+ * <p>Lists the accounts configured as GuardDuty delegated administrators.
+ *       Only the organization's management account can run this
+ *       API operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
