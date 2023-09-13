@@ -95,8 +95,8 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * {
  *   "authorizationData": [
  *     {
- *       "authorizationToken": "QVdTOkN...",
- *       "expiresAt": "1470951892432",
+ *       "authorizationToken": "QVdTOkNEXAMPLE",
+ *       "expiresAt": "2022-05-17T06:56:13.652000+00:00",
  *       "proxyEndpoint": "https://012345678901.dkr.ecr.us-west-2.amazonaws.com"
  *     }
  *   ]
