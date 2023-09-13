@@ -81,4 +81,8 @@ operation OnlyCustomAuth {}
 operation OnlyCustomAuthOptional {}
 
 @http(method: "GET", uri: "/SameAsService")
-operation SameAsService {}
+operation SameAsService {
+    output := {
+        service: String
+    }
+}
