@@ -21,8 +21,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/node-config-provider": "^2.0.9",
-    "@smithy/types": "^2.3.0",
+    "@smithy/node-config-provider": "^2.0.10",
+    "@smithy/types": "^2.3.1",
     "@smithy/util-config-provider": "^2.0.0",
     "@smithy/util-middleware": "^2.0.0",
     "tslib": "^2.5.0"
