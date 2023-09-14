@@ -2287,11 +2287,10 @@ export interface CreateStackInput {
 
   /**
    * @public
-   * <p>This deletion policy deletes newly created resources, but retains existing resources, when a stack operation is
-   *     rolled back. This ensures new, empty, and unused resources are deleted, while critical resources and their data are
-   *     retained. <code>RetainExceptOnCreate</code> can be specified for any resource that supports the
-   *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
-   *     DeletionPolicy</a> attribute.</p>
+   * <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly
+   *      created resources marked with a deletion policy of <code>Retain</code>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
    */
   RetainExceptOnCreate?: boolean;
 }
@@ -2834,7 +2833,7 @@ export interface CreateStackSetInput {
    *                      </p>
    *                   </li>
    *                </ul>
-   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/using-iam-template.html#capabilities">Acknowledging IAM Resources in CloudFormation Templates</a>.</p>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in CloudFormation Templates</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2842,11 +2841,11 @@ export interface CreateStackSetInput {
    *                </p>
    *                <p>Some templates reference macros. If your stack set template references one or more macros, you must create the
    *      stack set directly from the processed template, without first reviewing the resulting changes in a change set. To
-   *      create the stack set directly, you must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/template-macros.html">Using CloudFormation Macros to Perform
+   *      create the stack set directly, you must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation Macros to Perform
    *      Custom Processing on Templates</a>.</p>
    *                <important>
    *                   <p>Stack sets with service-managed permissions don't currently support the use of macros in templates. (This
-   *       includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.) Even if you specify this capability for a
+   *       includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.) Even if you specify this capability for a
    *       stack set with service-managed permissions, if you reference a macro in your template the stack set operation will
    *       fail.</p>
    *                </important>
@@ -2871,7 +2870,7 @@ export interface CreateStackSetInput {
    * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role to use to create this stack set.</p>
    *          <p>Specify an IAM role only if you are using customized administrator roles to control which users
-   *    or groups can manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack Set
+   *    or groups can manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack Set
    *    Operations</a> in the <i>CloudFormation User Guide</i>.</p>
    */
   AdministrationRoleARN?: string;
@@ -4981,7 +4980,8 @@ export interface DescribeStacksInput {
    * @public
    * <note>
    *             <p>If you don't pass a parameter to <code>StackName</code>, the API returns a response that describes all
-   *     resources in the account. This requires <code>ListStacks</code> and <code>DescribeStacks</code> permissions.</p>
+   *     resources in the account, which can impact performance. This requires <code>ListStacks</code> and <code>DescribeStacks</code> permissions.</p>
+   *             <p>Consider using the <a>ListStacks</a> API if you're not passing a parameter to <code>StackName</code>.</p>
    *             <p>The IAM policy below can be added to IAM policies when you want to limit
    *     resource-level permissions and avoid returning a response when no parameter is sent in the request:</p>
    *             <p>\{ "Version": "2012-10-17", "Statement": [\{ "Effect": "Deny", "Action": "cloudformation:DescribeStacks",
@@ -5278,11 +5278,10 @@ export interface Stack {
 
   /**
    * @public
-   * <p>This deletion policy deletes newly created resources, but retains existing resources, when a stack operation is
-   *    rolled back. This ensures new, empty, and unused resources are deleted, while critical resources and their data are
-   *    retained. <code>RetainExceptOnCreate</code> can be specified for any resource that supports the
-   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
-   *    DeletionPolicy</a> attribute.</p>
+   * <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly
+   *    created resources marked with a deletion policy of <code>Retain</code>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
    */
   RetainExceptOnCreate?: boolean;
 }
@@ -5573,7 +5572,7 @@ export interface StackSet {
    * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role used to create or update the stack set.</p>
    *          <p>Use customized administrator roles to control which users or groups can manage specific stack sets within the
-   *    same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack Set Operations</a>
+   *    same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack Set Operations</a>
    *    in the <i>CloudFormation User Guide</i>.</p>
    */
   AdministrationRoleARN?: string;
@@ -5815,7 +5814,7 @@ export interface StackSetOperation {
    * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p>
    *          <p>Use customized administrator roles to control which users or groups can manage specific stack sets within the
-   *    same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/stacksets-prereqs.html">Define Permissions for Multiple Administrators</a> in the
+   *    same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define Permissions for Multiple Administrators</a> in the
    *    <i>CloudFormation User Guide</i>.</p>
    */
   AdministrationRoleARN?: string;
@@ -6609,11 +6608,10 @@ export interface ExecuteChangeSetInput {
 
   /**
    * @public
-   * <p>This deletion policy deletes newly created resources, but retains existing resources, when a stack operation is
-   *     rolled back. This ensures new, empty, and unused resources are deleted, while critical resources and their data are
-   *     retained. <code>RetainExceptOnCreate</code> can be specified for any resource that supports the
-   *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
-   *     DeletionPolicy</a> attribute.</p>
+   * <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly
+   *      created resources marked with a deletion policy of <code>Retain</code>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
    */
   RetainExceptOnCreate?: boolean;
 }
@@ -9408,11 +9406,10 @@ export interface RollbackStackInput {
 
   /**
    * @public
-   * <p>This deletion policy deletes newly created resources, but retains existing resources, when a stack operation is
-   *     rolled back. This ensures new, empty, and unused resources are deleted, while critical resources and their data are
-   *     retained. <code>RetainExceptOnCreate</code> can be specified for any resource that supports the
-   *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
-   *     DeletionPolicy</a> attribute.</p>
+   * <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly
+   *      created resources marked with a deletion policy of <code>Retain</code>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
    */
   RetainExceptOnCreate?: boolean;
 }
@@ -9979,11 +9976,10 @@ export interface UpdateStackInput {
 
   /**
    * @public
-   * <p>This deletion policy deletes newly created resources, but retains existing resources, when a stack operation is
-   *   rolled back. This ensures new, empty, and unused resources are deleted, while critical resources and their data are
-   *   retained. <code>RetainExceptOnCreate</code> can be specified for any resource that supports the
-   *   <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
-   *   DeletionPolicy</a> attribute.</p>
+   * <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly
+   *      created resources marked with a deletion policy of <code>Retain</code>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
    */
   RetainExceptOnCreate?: boolean;
 }
@@ -10241,7 +10237,7 @@ export interface UpdateStackSetInput {
    *                      </p>
    *                   </li>
    *                </ul>
-   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/using-iam-template.html#capabilities">Acknowledging IAM Resources in CloudFormation Templates</a>.</p>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in CloudFormation Templates</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10249,11 +10245,11 @@ export interface UpdateStackSetInput {
    *                </p>
    *                <p>Some templates reference macros. If your stack set template references one or more macros, you must update the
    *      stack set directly from the processed template, without first reviewing the resulting changes in a change set. To
-   *      update the stack set directly, you must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/template-macros.html">Using CloudFormation Macros to Perform
+   *      update the stack set directly, you must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation Macros to Perform
    *      Custom Processing on Templates</a>.</p>
    *                <important>
    *                   <p>Stack sets with service-managed permissions do not currently support the use of macros in templates. (This
-   *       includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.) Even if you specify this capability for a
+   *       includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.) Even if you specify this capability for a
    *       stack set with service-managed permissions, if you reference a macro in your template the stack set operation will
    *       fail.</p>
    *                </important>
@@ -10302,7 +10298,7 @@ export interface UpdateStackSetInput {
    * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role to use to update this stack set.</p>
    *          <p>Specify an IAM role only if you are using customized administrator roles to control which users
-   *    or groups can manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/stacksets-prereqs.html">Granting Permissions for Stack Set
+   *    or groups can manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Granting Permissions for Stack Set
    *    Operations</a> in the <i>CloudFormation User Guide</i>.</p>
    *          <p>If you specified a customized administrator role when you created the stack set, you must specify a customized
    *    administrator role, even if it is the same customized administrator role used with this stack set previously.</p>
