@@ -38,6 +38,7 @@
     "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/middleware-ssec": "*",
     "@aws-sdk/middleware-user-agent": "*",
+    "@aws-sdk/region-config-resolver": "*",
     "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-endpoints": "*",
