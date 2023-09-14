@@ -1,5 +1,4 @@
 import { getUserAgentPrefix, partition, setPartitionInfo, useDefaultPartitionInfo } from "./partition";
-import partitions from "./partitions.json";
 
 const MOCK_DEFAULT_PARTITION = {
   id: "aws",
@@ -89,32 +88,29 @@ describe("partition", () => {
   });
 
   it("should allow setting a custom partitions file", async () => {
-    const copy = JSON.parse(JSON.stringify(partitions));
+    const copy = JSON.parse(
+      JSON.stringify({
+        partitions: [MOCK_DEFAULT_PARTITION, MOCK_PARTITION],
+      })
+    );
     setPartitionInfo(copy);
-    const testRegion = "us-test-135";
+    const testRegion = "mock-region-12345";
     copy.partitions[0].regions[testRegion] = {
       description: "not a real region",
     };
     const result = partition(testRegion);
     expect(result).toEqual({
       description: "not a real region",
-      dnsSuffix: "amazonaws.com",
-      dualStackDnsSuffix: "api.aws",
       name: "aws",
-      supportsDualStack: true,
-      supportsFIPS: true,
+      dnsSuffix: "mockDefaultDnsSuffix",
+      dualStackDnsSuffix: "mockDefaultDualStackDnsSuffix",
+      supportsDualStack: false,
+      supportsFIPS: false,
     });
 
     useDefaultPartitionInfo();
     // result is matched by regex, but customization is no longer present.
-    expect(partition(testRegion)).toEqual({
-      description: void 0,
-      dnsSuffix: "amazonaws.com",
-      dualStackDnsSuffix: "api.aws",
-      name: "aws",
-      supportsDualStack: true,
-      supportsFIPS: true,
-    });
+    expect(partition(testRegion)["description"]).not.toBeDefined();
   });
 
   it("should optionally set a user agent prefix", async () => {
