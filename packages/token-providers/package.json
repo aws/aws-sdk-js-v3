@@ -61,6 +61,7 @@
     "@smithy/util-defaults-mode-node": "^2.0.10",
     "@smithy/util-retry": "^2.0.0",
     "@smithy/util-utf8": "^2.0.0",
+    "@smithy/querystring-builder": "^2.0.6",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
