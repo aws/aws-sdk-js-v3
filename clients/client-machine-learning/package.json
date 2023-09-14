@@ -29,6 +29,7 @@
     "@aws-sdk/middleware-sdk-machinelearning": "*",
     "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/middleware-user-agent": "*",
+    "@aws-sdk/region-config-resolver": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-endpoints": "*",
     "@aws-sdk/util-user-agent-browser": "*",

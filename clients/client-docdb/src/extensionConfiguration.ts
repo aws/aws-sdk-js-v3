@@ -1,8 +1,12 @@
 // smithy-typescript generated code
+import { AwsRegionExtensionConfiguration } from "@aws-sdk/types";
 import { HttpHandlerExtensionConfiguration } from "@smithy/protocol-http";
 import { DefaultExtensionConfiguration } from "@smithy/types";
 
 /**
  * @internal
  */
-export interface DocDBExtensionConfiguration extends HttpHandlerExtensionConfiguration, DefaultExtensionConfiguration {}
+export interface DocDBExtensionConfiguration
+  extends HttpHandlerExtensionConfiguration,
+    DefaultExtensionConfiguration,
+    AwsRegionExtensionConfiguration {}

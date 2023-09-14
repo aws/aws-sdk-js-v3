@@ -20,10 +20,12 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSig
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.aws.typescript.codegen.extensions.AwsRegionExtensionConfiguration;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
@@ -31,6 +33,7 @@ import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.extensions.ExtensionConfigurationInterface;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -128,6 +131,11 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         runtimeConfigs.putAll(getDefaultConfig(target, settings, model));
         runtimeConfigs.putAll(getEndpointConfigWriters(target, settings, model));
         return runtimeConfigs;
+    }
+
+    @Override
+    public List<ExtensionConfigurationInterface> getExtensionConfigurationInterfaces() {
+        return List.of(new AwsRegionExtensionConfiguration());
     }
 
     private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(
