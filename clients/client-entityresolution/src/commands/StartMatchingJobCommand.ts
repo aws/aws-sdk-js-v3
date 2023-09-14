@@ -71,12 +71,12 @@ export interface StartMatchingJobCommandOutput extends StartMatchingJobOutput, _
  *          </p>
  *
  * @throws {@link ExceedsLimitException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current AWS Entity Resolution account limits.
+ *  <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits.
  *       The error message describes the limit exceeded. <code>HTTP Status Code: 402</code>
  *          </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Entity Resolution service. <code>HTTP Status Code: 500</code>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. <code>HTTP Status Code: 500</code>
  *          </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -88,7 +88,7 @@ export interface StartMatchingJobCommandOutput extends StartMatchingJobOutput, _
  *          </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by AWS Entity Resolution. <code>HTTP Status Code: 400</code>
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP Status Code: 400</code>
  *          </p>
  *
  * @throws {@link EntityResolutionServiceException}

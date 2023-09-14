@@ -59,18 +59,18 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  *   outputSourceConfig: [ // OutputSourceConfig // required
  *     { // OutputSource
  *       outputS3Path: "STRING_VALUE", // required
+ *       KMSArn: "STRING_VALUE",
  *       output: [ // OutputAttributes // required
  *         { // OutputAttribute
  *           name: "STRING_VALUE", // required
  *           hashed: true || false,
  *         },
  *       ],
- *       KMSArn: "STRING_VALUE",
  *       applyNormalization: true || false,
  *     },
  *   ],
  *   resolutionTechniques: { // ResolutionTechniques
- *     resolutionType: "RULE_MATCHING" || "ML_MATCHING",
+ *     resolutionType: "RULE_MATCHING" || "ML_MATCHING", // required
  *     ruleBasedProperties: { // RuleBasedProperties
  *       rules: [ // RuleList // required
  *         { // Rule
@@ -103,18 +103,18 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  * //   outputSourceConfig: [ // OutputSourceConfig // required
  * //     { // OutputSource
  * //       outputS3Path: "STRING_VALUE", // required
+ * //       KMSArn: "STRING_VALUE",
  * //       output: [ // OutputAttributes // required
  * //         { // OutputAttribute
  * //           name: "STRING_VALUE", // required
  * //           hashed: true || false,
  * //         },
  * //       ],
- * //       KMSArn: "STRING_VALUE",
  * //       applyNormalization: true || false,
  * //     },
  * //   ],
  * //   resolutionTechniques: { // ResolutionTechniques
- * //     resolutionType: "RULE_MATCHING" || "ML_MATCHING",
+ * //     resolutionType: "RULE_MATCHING" || "ML_MATCHING", // required
  * //     ruleBasedProperties: { // RuleBasedProperties
  * //       rules: [ // RuleList // required
  * //         { // Rule
@@ -146,7 +146,7 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  *          </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Entity Resolution service. <code>HTTP Status Code: 500</code>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. <code>HTTP Status Code: 500</code>
  *          </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -158,7 +158,7 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  *          </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by AWS Entity Resolution. <code>HTTP Status Code: 400</code>
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP Status Code: 400</code>
  *          </p>
  *
  * @throws {@link EntityResolutionServiceException}

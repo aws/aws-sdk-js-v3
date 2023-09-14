@@ -4,6 +4,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -1584,6 +1585,8 @@ const de_ExceedsLimitExceptionRes = async (
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
+    quotaName: __expectString,
+    quotaValue: __expectInt32,
   });
   Object.assign(contents, doc);
   const exception = new ExceedsLimitException({

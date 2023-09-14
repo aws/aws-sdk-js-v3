@@ -36,11 +36,11 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
 
 /**
  * @public
- * <p>Assigns one or more tags (key-value pairs) to the specified AWS Entity Resolution
+ * <p>Assigns one or more tags (key-value pairs) to the specified Entity Resolution
  *          resource. Tags can help you organize and categorize your resources. You can also use them
  *          to scope user permissions by granting a user permission to access or change only resources
- *          with certain tag values. In Entity Resolution, <code>SchemaMapping</code>, and
- *             <code>MatchingWorkflow</code> can be tagged. Tags don't have any semantic meaning to AWS
+ *          with certain tag values. In Entity Resolution, <code>SchemaMapping</code> and
+ *             <code>MatchingWorkflow</code> can be tagged. Tags don't have any semantic meaning to Amazon Web Services
  *          and are interpreted strictly as strings of characters. You can use the
  *             <code>TagResource</code> action with a resource that already has tags. If you specify a
  *          new tag key, this tag is appended to the list of tags associated with the resource. If you
@@ -71,7 +71,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Entity Resolution service. <code>HTTP Status Code: 500</code>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. <code>HTTP Status Code: 500</code>
  *          </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -79,7 +79,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *          </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by AWS Entity Resolution. <code>HTTP Status Code: 400</code>
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP Status Code: 400</code>
  *          </p>
  *
  * @throws {@link EntityResolutionServiceException}

@@ -115,9 +115,9 @@ export interface InputSource {
 
 /**
  * @public
- * <p>A list of <code>OutputAttribute</code> objects, each of which have the fields Name and Hashed. Each of
- *          these objects selects a column to be included in the output table, and whether the
- *          values of the column should be hashed.</p>
+ * <p>A list of <code>OutputAttribute</code> objects, each of which have the fields
+ *             <code>Name</code> and <code>Hashed</code>. Each of these objects selects a column to be
+ *          included in the output table, and whether the values of the column should be hashed.</p>
  */
 export interface OutputAttribute {
   /**
@@ -136,9 +136,9 @@ export interface OutputAttribute {
 
 /**
  * @public
- * <p>A list of <code>OutputAttribute</code> objects, each of which have the fields Name and Hashed. Each of
- *          these objects selects a column to be included in the output table, and whether the
- *          values of the column should be hashed.</p>
+ * <p>A list of <code>OutputAttribute</code> objects, each of which have the fields
+ *             <code>Name</code> and <code>Hashed</code>. Each of these objects selects a column to be
+ *          included in the output table, and whether the values of the column should be hashed.</p>
  */
 export interface OutputSource {
   /**
@@ -149,18 +149,18 @@ export interface OutputSource {
 
   /**
    * @public
-   * <p>A list of <code>OutputAttribute</code> objects, each of which have the fields Name and Hashed. Each of
-   *          these objects selects a column to be included in the output table, and whether the
-   *          values of the column should be hashed.</p>
-   */
-  output: OutputAttribute[] | undefined;
-
-  /**
-   * @public
    * <p>Customer KMS ARN for encryption at rest. If not provided, system will use an
    *          Entity Resolution managed KMS key.</p>
    */
   KMSArn?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>OutputAttribute</code> objects, each of which have the fields
+   *             <code>Name</code> and <code>Hashed</code>. Each of these objects selects a column to be
+   *          included in the output table, and whether the values of the column should be hashed.</p>
+   */
+  output: OutputAttribute[] | undefined;
 
   /**
    * @public
@@ -214,34 +214,35 @@ export interface Rule {
 export interface RuleBasedProperties {
   /**
    * @public
-   * <p>A list of Rule objects, each of which have fields <code>RuleName</code> and <code>MatchingKeys</code>.</p>
+   * <p>A list of <code>Rule</code> objects, each of which have fields <code>RuleName</code> and
+   *             <code>MatchingKeys</code>.</p>
    */
   rules: Rule[] | undefined;
 
   /**
    * @public
-   * <p>You can either choose <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code> as the AttributeMatchingModel. When
-   *          choosing <code>MANY_TO_MANY</code>, the system can match attribute across the sub-types of an attribute type. For
-   *          example, if the value of the Email field of Profile A and the value of BusinessEmail field of Profile B matches,
-   *          the two profiles are matched on the Email type. When choosing <code>ONE_TO_ONE</code> the system can only match if
-   *          the sub-types are exact matches. For example, only when the value of the Email field of Profile A and the value of
-   *          the Email field of Profile B matches, the two profiles are matched on the Email type.</p>
+   * <p>The comparison type. You can either choose <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code> as the AttributeMatchingModel. When
+   *          choosing <code>MANY_TO_MANY</code>, the system can match attributes across the sub-types of an attribute type. For
+   *          example, if the value of the <code>Email</code> field of Profile A and the value of <code>BusinessEmail</code> field of Profile B matches,
+   *          the two profiles are matched on the <code>Email</code> type. When choosing <code>ONE_TO_ONE</code> ,the system can only match if
+   *          the sub-types are exact matches. For example, only when the value of the <code>Email</code> field of Profile A and the value of
+   *          the <code>Email</code> field of Profile B matches, the two profiles are matched on the <code>Email</code> type.</p>
    */
   attributeMatchingModel: AttributeMatchingModel | string | undefined;
 }
 
 /**
  * @public
- * <p>An object which defines the <code>resolutionType</code> and the <code>ruleBasedProperties</code>
- *          </p>
+ * <p>An object which defines the <code>resolutionType</code> and the
+ *             <code>ruleBasedProperties</code>.</p>
  */
 export interface ResolutionTechniques {
   /**
    * @public
-   * <p>There are two types of matching, <code>RULE_MATCHING</code> and <code>ML_MATCHING</code>
-   *          </p>
+   * <p>The type of matching. There are two types of matching: <code>RULE_MATCHING</code> and
+   *             <code>ML_MATCHING</code>.</p>
    */
-  resolutionType?: ResolutionType | string;
+  resolutionType: ResolutionType | string | undefined;
 
   /**
    * @public
@@ -283,8 +284,8 @@ export interface CreateMatchingWorkflowInput {
 
   /**
    * @public
-   * <p>An object which defines the <code>resolutionType</code> and the <code>ruleBasedProperties</code>
-   *          </p>
+   * <p>An object which defines the <code>resolutionType</code> and the
+   *             <code>ruleBasedProperties</code>.</p>
    */
   resolutionTechniques: ResolutionTechniques | undefined;
 
@@ -296,7 +297,7 @@ export interface CreateMatchingWorkflowInput {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role
    *          to create resources on your behalf as part of workflow execution.</p>
    */
   roleArn: string | undefined;
@@ -346,8 +347,8 @@ export interface CreateMatchingWorkflowOutput {
 
   /**
    * @public
-   * <p>An object which defines the <code>resolutionType</code> and the <code>ruleBasedProperties</code>
-   *          </p>
+   * <p>An object which defines the <code>resolutionType</code> and the
+   *             <code>ruleBasedProperties</code>.</p>
    */
   resolutionTechniques: ResolutionTechniques | undefined;
 
@@ -359,7 +360,7 @@ export interface CreateMatchingWorkflowOutput {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role
    *          to create resources on your behalf as part of workflow execution.</p>
    */
   roleArn: string | undefined;
@@ -367,13 +368,25 @@ export interface CreateMatchingWorkflowOutput {
 
 /**
  * @public
- * <p>The request was rejected because it attempted to create resources beyond the current AWS Entity Resolution account limits.
+ * <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits.
  *       The error message describes the limit exceeded. <code>HTTP Status Code: 402</code>
  *          </p>
  */
 export class ExceedsLimitException extends __BaseException {
   readonly name: "ExceedsLimitException" = "ExceedsLimitException";
   readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The name of the quota that has been breached.</p>
+   */
+  quotaName?: string;
+
+  /**
+   * @public
+   * <p>The current quota value for the customers.</p>
+   */
+  quotaValue?: number;
+
   /**
    * @internal
    */
@@ -384,12 +397,14 @@ export class ExceedsLimitException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ExceedsLimitException.prototype);
+    this.quotaName = opts.quotaName;
+    this.quotaValue = opts.quotaValue;
   }
 }
 
 /**
  * @public
- * <p>This exception occurs when there is an internal failure in the AWS Entity Resolution service. <code>HTTP Status Code: 500</code>
+ * <p>This exception occurs when there is an internal failure in the Entity Resolution service. <code>HTTP Status Code: 500</code>
  *          </p>
  */
 export class InternalServerException extends __BaseException {
@@ -435,7 +450,7 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
- * <p>The input fails to satisfy the constraints specified by AWS Entity Resolution. <code>HTTP Status Code: 400</code>
+ * <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP Status Code: 400</code>
  *          </p>
  */
 export class ValidationException extends __BaseException {
@@ -517,10 +532,10 @@ export interface SchemaInputAttribute {
    * <p>A key that allows grouping of multiple input attributes into a unified matching group.
    *          For example, let's consider a scenario where the source table contains various addresses,
    *          such as business_address and shipping_address. By assigning the <code>MatchKey</code>
-   *             <i>Address</i>' to both attributes, Entity Resolution will match records
-   *          across these fields to create a consolidated matching group. If no <code>MatchKey</code> is
-   *          specified for a column, it won't be utilized for matching purposes but will still be
-   *          included in the output table.</p>
+   *             <i>Address</i> to both attributes, Entity Resolution will match records across these
+   *          fields to create a consolidated matching group. If no <code>MatchKey</code> is specified
+   *          for a column, it won't be utilized for matching purposes but will still be included in the
+   *          output table.</p>
    */
   matchKey?: string;
 }
@@ -548,7 +563,7 @@ export interface CreateSchemaMappingInput {
    *          to a column the source data table, and contains column name plus additional information
    *          that Entity Resolution uses for matching.</p>
    */
-  mappedInputFields?: SchemaInputAttribute[];
+  mappedInputFields: SchemaInputAttribute[] | undefined;
 
   /**
    * @public
@@ -731,15 +746,15 @@ export interface JobMetrics {
 
   /**
    * @public
-   * <p>The total number of <code>matchID</code>s generated.</p>
+   * <p>The total number of records that did not get processed.</p>
    */
-  matchIDs?: number;
+  recordsNotProcessed?: number;
 
   /**
    * @public
-   * <p>The total number of records that did not get processed,</p>
+   * <p>The total number of <code>matchID</code>s generated.</p>
    */
-  recordsNotProcessed?: number;
+  matchIDs?: number;
 }
 
 /**
@@ -770,8 +785,7 @@ export interface GetMatchingJobOutput {
 
   /**
    * @public
-   * <p>The current status of the job. Either <code>running</code>, <code>succeeded</code>,
-   *          <code>queued</code>, or <code>failed</code>.</p>
+   * <p>The current status of the job.</p>
    */
   status: JobStatus | string | undefined;
 
@@ -850,8 +864,8 @@ export interface GetMatchingWorkflowOutput {
 
   /**
    * @public
-   * <p>An object which defines the <code>resolutionType</code> and the <code>ruleBasedProperties</code>
-   *          </p>
+   * <p>An object which defines the <code>resolutionType</code> and the
+   *             <code>ruleBasedProperties</code>.</p>
    */
   resolutionTechniques: ResolutionTechniques | undefined;
 
@@ -875,7 +889,7 @@ export interface GetMatchingWorkflowOutput {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to access
    *       resources on your behalf.</p>
    */
   roleArn: string | undefined;
@@ -984,8 +998,7 @@ export interface JobSummary {
 
   /**
    * @public
-   * <p>The current status of the job. Either <code>running</code>, <code>succeeded</code>,
-   *          <code>queued</code>, or <code>failed</code>.</p>
+   * <p>The current status of the job.</p>
    */
   status: JobStatus | string | undefined;
 
@@ -1008,7 +1021,7 @@ export interface JobSummary {
 export interface ListMatchingJobsOutput {
   /**
    * @public
-   * <p>A list of JobSummary objects, each of which contain the ID, status, start time, and end time of a job.</p>
+   * <p>A list of <code>JobSummary</code> objects, each of which contain the ID, status, start time, and end time of a job.</p>
    */
   jobs?: JobSummary[];
 
@@ -1272,8 +1285,7 @@ export interface UpdateMatchingWorkflowInput {
 
   /**
    * @public
-   * <p>An object which defines the <code>resolutionType</code> and the <code>ruleBasedProperties</code>
-   *          </p>
+   * <p>An object which defines the <code>resolutionType</code> and the <code>ruleBasedProperties</code>.</p>
    */
   resolutionTechniques: ResolutionTechniques | undefined;
 
@@ -1285,7 +1297,7 @@ export interface UpdateMatchingWorkflowInput {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role
    *          to create resources on your behalf as part of workflow execution.</p>
    */
   roleArn: string | undefined;
@@ -1336,7 +1348,7 @@ export interface UpdateMatchingWorkflowOutput {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role
    *          to create resources on your behalf as part of workflow execution.</p>
    */
   roleArn: string | undefined;

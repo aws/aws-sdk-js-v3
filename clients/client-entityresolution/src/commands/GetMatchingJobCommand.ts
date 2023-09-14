@@ -57,8 +57,8 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  * //   metrics: { // JobMetrics
  * //     inputRecords: Number("int"),
  * //     totalRecordsProcessed: Number("int"),
- * //     matchIDs: Number("int"),
  * //     recordsNotProcessed: Number("int"),
+ * //     matchIDs: Number("int"),
  * //   },
  * //   errorDetails: { // ErrorDetails
  * //     errorMessage: "STRING_VALUE",
@@ -78,7 +78,7 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  *          </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Entity Resolution service. <code>HTTP Status Code: 500</code>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. <code>HTTP Status Code: 500</code>
  *          </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -90,7 +90,7 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  *          </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by AWS Entity Resolution. <code>HTTP Status Code: 400</code>
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP Status Code: 400</code>
  *          </p>
  *
  * @throws {@link EntityResolutionServiceException}

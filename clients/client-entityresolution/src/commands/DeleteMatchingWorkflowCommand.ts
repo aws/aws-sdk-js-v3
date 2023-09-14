@@ -66,7 +66,7 @@ export interface DeleteMatchingWorkflowCommandOutput extends DeleteMatchingWorkf
  *          </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Entity Resolution service. <code>HTTP Status Code: 500</code>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. <code>HTTP Status Code: 500</code>
  *          </p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -74,7 +74,7 @@ export interface DeleteMatchingWorkflowCommandOutput extends DeleteMatchingWorkf
  *          </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by AWS Entity Resolution. <code>HTTP Status Code: 400</code>
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP Status Code: 400</code>
  *          </p>
  *
  * @throws {@link EntityResolutionServiceException}
