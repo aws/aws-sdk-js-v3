@@ -32,6 +32,10 @@ import {
 import { CreateLabelCommandInput, CreateLabelCommandOutput } from "../commands/CreateLabelCommand";
 import { CreateLabelGroupCommandInput, CreateLabelGroupCommandOutput } from "../commands/CreateLabelGroupCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "../commands/CreateModelCommand";
+import {
+  CreateRetrainingSchedulerCommandInput,
+  CreateRetrainingSchedulerCommandOutput,
+} from "../commands/CreateRetrainingSchedulerCommand";
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "../commands/DeleteDatasetCommand";
 import {
   DeleteInferenceSchedulerCommandInput,
@@ -44,6 +48,10 @@ import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "../commands/DeleteResourcePolicyCommand";
+import {
+  DeleteRetrainingSchedulerCommandInput,
+  DeleteRetrainingSchedulerCommandOutput,
+} from "../commands/DeleteRetrainingSchedulerCommand";
 import {
   DescribeDataIngestionJobCommandInput,
   DescribeDataIngestionJobCommandOutput,
@@ -64,6 +72,10 @@ import {
   DescribeResourcePolicyCommandInput,
   DescribeResourcePolicyCommandOutput,
 } from "../commands/DescribeResourcePolicyCommand";
+import {
+  DescribeRetrainingSchedulerCommandInput,
+  DescribeRetrainingSchedulerCommandOutput,
+} from "../commands/DescribeRetrainingSchedulerCommand";
 import { ImportDatasetCommandInput, ImportDatasetCommandOutput } from "../commands/ImportDatasetCommand";
 import { ImportModelVersionCommandInput, ImportModelVersionCommandOutput } from "../commands/ImportModelVersionCommand";
 import {
@@ -88,6 +100,10 @@ import { ListLabelsCommandInput, ListLabelsCommandOutput } from "../commands/Lis
 import { ListModelsCommandInput, ListModelsCommandOutput } from "../commands/ListModelsCommand";
 import { ListModelVersionsCommandInput, ListModelVersionsCommandOutput } from "../commands/ListModelVersionsCommand";
 import {
+  ListRetrainingSchedulersCommandInput,
+  ListRetrainingSchedulersCommandOutput,
+} from "../commands/ListRetrainingSchedulersCommand";
+import {
   ListSensorStatisticsCommandInput,
   ListSensorStatisticsCommandOutput,
 } from "../commands/ListSensorStatisticsCommand";
@@ -105,9 +121,17 @@ import {
   StartInferenceSchedulerCommandOutput,
 } from "../commands/StartInferenceSchedulerCommand";
 import {
+  StartRetrainingSchedulerCommandInput,
+  StartRetrainingSchedulerCommandOutput,
+} from "../commands/StartRetrainingSchedulerCommand";
+import {
   StopInferenceSchedulerCommandInput,
   StopInferenceSchedulerCommandOutput,
 } from "../commands/StopInferenceSchedulerCommand";
+import {
+  StopRetrainingSchedulerCommandInput,
+  StopRetrainingSchedulerCommandOutput,
+} from "../commands/StopRetrainingSchedulerCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -119,6 +143,11 @@ import {
   UpdateInferenceSchedulerCommandOutput,
 } from "../commands/UpdateInferenceSchedulerCommand";
 import { UpdateLabelGroupCommandInput, UpdateLabelGroupCommandOutput } from "../commands/UpdateLabelGroupCommand";
+import { UpdateModelCommandInput, UpdateModelCommandOutput } from "../commands/UpdateModelCommand";
+import {
+  UpdateRetrainingSchedulerCommandInput,
+  UpdateRetrainingSchedulerCommandOutput,
+} from "../commands/UpdateRetrainingSchedulerCommand";
 import { LookoutEquipmentServiceException as __BaseException } from "../models/LookoutEquipmentServiceException";
 import {
   AccessDeniedException,
@@ -129,6 +158,7 @@ import {
   CreateLabelGroupRequest,
   CreateLabelRequest,
   CreateModelRequest,
+  CreateRetrainingSchedulerRequest,
   DataPreProcessingConfiguration,
   DatasetSchema,
   DatasetSummary,
@@ -138,6 +168,7 @@ import {
   DeleteLabelRequest,
   DeleteModelRequest,
   DeleteResourcePolicyRequest,
+  DeleteRetrainingSchedulerRequest,
   DescribeDataIngestionJobRequest,
   DescribeDataIngestionJobResponse,
   DescribeDatasetRequest,
@@ -154,6 +185,8 @@ import {
   DescribeModelVersionResponse,
   DescribeResourcePolicyRequest,
   DescribeResourcePolicyResponse,
+  DescribeRetrainingSchedulerRequest,
+  DescribeRetrainingSchedulerResponse,
   ImportDatasetRequest,
   ImportModelVersionRequest,
   InferenceEventSummary,
@@ -186,6 +219,8 @@ import {
   ListModelsResponse,
   ListModelVersionsRequest,
   ListModelVersionsResponse,
+  ListRetrainingSchedulersRequest,
+  ListRetrainingSchedulersResponse,
   ListSensorStatisticsRequest,
   ListSensorStatisticsResponse,
   ListTagsForResourceRequest,
@@ -193,11 +228,14 @@ import {
   ModelVersionSummary,
   PutResourcePolicyRequest,
   ResourceNotFoundException,
+  RetrainingSchedulerSummary,
   SensorStatisticsSummary,
   ServiceQuotaExceededException,
   StartDataIngestionJobRequest,
   StartInferenceSchedulerRequest,
+  StartRetrainingSchedulerRequest,
   StopInferenceSchedulerRequest,
+  StopRetrainingSchedulerRequest,
   Tag,
   TagResourceRequest,
   ThrottlingException,
@@ -205,6 +243,8 @@ import {
   UpdateActiveModelVersionRequest,
   UpdateInferenceSchedulerRequest,
   UpdateLabelGroupRequest,
+  UpdateModelRequest,
+  UpdateRetrainingSchedulerRequest,
   ValidationException,
 } from "../models/models_0";
 
@@ -270,6 +310,19 @@ export const se_CreateModelCommand = async (
   const headers: __HeaderBag = sharedHeaders("CreateModel");
   let body: any;
   body = JSON.stringify(se_CreateModelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0CreateRetrainingSchedulerCommand
+ */
+export const se_CreateRetrainingSchedulerCommand = async (
+  input: CreateRetrainingSchedulerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateRetrainingScheduler");
+  let body: any;
+  body = JSON.stringify(se_CreateRetrainingSchedulerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -346,6 +399,19 @@ export const se_DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteRetrainingSchedulerCommand
+ */
+export const se_DeleteRetrainingSchedulerCommand = async (
+  input: DeleteRetrainingSchedulerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteRetrainingScheduler");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -450,6 +516,19 @@ export const se_DescribeResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeResourcePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeRetrainingSchedulerCommand
+ */
+export const se_DescribeRetrainingSchedulerCommand = async (
+  input: DescribeRetrainingSchedulerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeRetrainingScheduler");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -599,6 +678,19 @@ export const se_ListModelVersionsCommand = async (
 };
 
 /**
+ * serializeAws_json1_0ListRetrainingSchedulersCommand
+ */
+export const se_ListRetrainingSchedulersCommand = async (
+  input: ListRetrainingSchedulersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListRetrainingSchedulers");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListSensorStatisticsCommand
  */
 export const se_ListSensorStatisticsCommand = async (
@@ -664,6 +756,19 @@ export const se_StartInferenceSchedulerCommand = async (
 };
 
 /**
+ * serializeAws_json1_0StartRetrainingSchedulerCommand
+ */
+export const se_StartRetrainingSchedulerCommand = async (
+  input: StartRetrainingSchedulerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartRetrainingScheduler");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0StopInferenceSchedulerCommand
  */
 export const se_StopInferenceSchedulerCommand = async (
@@ -671,6 +776,19 @@ export const se_StopInferenceSchedulerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopInferenceScheduler");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0StopRetrainingSchedulerCommand
+ */
+export const se_StopRetrainingSchedulerCommand = async (
+  input: StopRetrainingSchedulerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopRetrainingScheduler");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -738,6 +856,32 @@ export const se_UpdateLabelGroupCommand = async (
   const headers: __HeaderBag = sharedHeaders("UpdateLabelGroup");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateModelCommand
+ */
+export const se_UpdateModelCommand = async (
+  input: UpdateModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateModel");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateRetrainingSchedulerCommand
+ */
+export const se_UpdateRetrainingSchedulerCommand = async (
+  input: UpdateRetrainingSchedulerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateRetrainingScheduler");
+  let body: any;
+  body = JSON.stringify(se_UpdateRetrainingSchedulerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1039,6 +1183,67 @@ const de_CreateModelCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lookoutequipment#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0CreateRetrainingSchedulerCommand
+ */
+export const de_CreateRetrainingSchedulerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRetrainingSchedulerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateRetrainingSchedulerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateRetrainingSchedulerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CreateRetrainingSchedulerCommandError
+ */
+const de_CreateRetrainingSchedulerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRetrainingSchedulerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lookoutequipment#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -1369,6 +1574,64 @@ const de_DeleteResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DeleteRetrainingSchedulerCommand
+ */
+export const de_DeleteRetrainingSchedulerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRetrainingSchedulerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteRetrainingSchedulerCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteRetrainingSchedulerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteRetrainingSchedulerCommandError
+ */
+const de_DeleteRetrainingSchedulerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRetrainingSchedulerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1836,6 +2099,64 @@ const de_DescribeResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DescribeRetrainingSchedulerCommand
+ */
+export const de_DescribeRetrainingSchedulerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRetrainingSchedulerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeRetrainingSchedulerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeRetrainingSchedulerResponse(data, context);
+  const response: DescribeRetrainingSchedulerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeRetrainingSchedulerCommandError
+ */
+const de_DescribeRetrainingSchedulerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRetrainingSchedulerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2500,6 +2821,61 @@ const de_ListModelVersionsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0ListRetrainingSchedulersCommand
+ */
+export const de_ListRetrainingSchedulersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRetrainingSchedulersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListRetrainingSchedulersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListRetrainingSchedulersResponse(data, context);
+  const response: ListRetrainingSchedulersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListRetrainingSchedulersCommandError
+ */
+const de_ListRetrainingSchedulersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRetrainingSchedulersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0ListSensorStatisticsCommand
  */
 export const de_ListSensorStatisticsCommand = async (
@@ -2805,6 +3181,67 @@ const de_StartInferenceSchedulerCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0StartRetrainingSchedulerCommand
+ */
+export const de_StartRetrainingSchedulerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRetrainingSchedulerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartRetrainingSchedulerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartRetrainingSchedulerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0StartRetrainingSchedulerCommandError
+ */
+const de_StartRetrainingSchedulerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRetrainingSchedulerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0StopInferenceSchedulerCommand
  */
 export const de_StopInferenceSchedulerCommand = async (
@@ -2831,6 +3268,67 @@ const de_StopInferenceSchedulerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopInferenceSchedulerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0StopRetrainingSchedulerCommand
+ */
+export const de_StopRetrainingSchedulerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopRetrainingSchedulerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StopRetrainingSchedulerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopRetrainingSchedulerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0StopRetrainingSchedulerCommandError
+ */
+const de_StopRetrainingSchedulerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopRetrainingSchedulerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3162,6 +3660,122 @@ const de_UpdateLabelGroupCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0UpdateModelCommand
+ */
+export const de_UpdateModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateModelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateModelCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateModelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateModelCommandError
+ */
+const de_UpdateModelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateModelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0UpdateRetrainingSchedulerCommand
+ */
+export const de_UpdateRetrainingSchedulerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRetrainingSchedulerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateRetrainingSchedulerCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateRetrainingSchedulerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateRetrainingSchedulerCommandError
+ */
+const de_UpdateRetrainingSchedulerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRetrainingSchedulerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0AccessDeniedExceptionRes
  */
 const de_AccessDeniedExceptionRes = async (
@@ -3345,6 +3959,20 @@ const se_CreateModelRequest = (input: CreateModelRequest, context: __SerdeContex
   });
 };
 
+/**
+ * serializeAws_json1_0CreateRetrainingSchedulerRequest
+ */
+const se_CreateRetrainingSchedulerRequest = (input: CreateRetrainingSchedulerRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    LookbackWindow: [],
+    ModelName: [],
+    PromoteMode: [],
+    RetrainingFrequency: [],
+    RetrainingStartDate: (_) => Math.round(_.getTime() / 1000),
+  });
+};
+
 // se_DataPreProcessingConfiguration omitted.
 
 /**
@@ -3368,6 +3996,8 @@ const se_DatasetSchema = (input: DatasetSchema, context: __SerdeContext): any =>
 
 // se_DeleteResourcePolicyRequest omitted.
 
+// se_DeleteRetrainingSchedulerRequest omitted.
+
 // se_DescribeDataIngestionJobRequest omitted.
 
 // se_DescribeDatasetRequest omitted.
@@ -3383,6 +4013,8 @@ const se_DatasetSchema = (input: DatasetSchema, context: __SerdeContext): any =>
 // se_DescribeModelVersionRequest omitted.
 
 // se_DescribeResourcePolicyRequest omitted.
+
+// se_DescribeRetrainingSchedulerRequest omitted.
 
 // se_FaultCodes omitted.
 
@@ -3406,6 +4038,7 @@ const se_ImportModelVersionRequest = (input: ImportModelVersionRequest, context:
   return take(input, {
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DatasetName: [],
+    InferenceDataImportStrategy: [],
     LabelsInputConfiguration: _json,
     ModelName: [],
     RoleArn: [],
@@ -3502,6 +4135,8 @@ const se_ListModelVersionsRequest = (input: ListModelVersionsRequest, context: _
   });
 };
 
+// se_ListRetrainingSchedulersRequest omitted.
+
 // se_ListSensorStatisticsRequest omitted.
 
 // se_ListTagsForResourceRequest omitted.
@@ -3532,7 +4167,11 @@ const se_StartDataIngestionJobRequest = (input: StartDataIngestionJobRequest, co
 
 // se_StartInferenceSchedulerRequest omitted.
 
+// se_StartRetrainingSchedulerRequest omitted.
+
 // se_StopInferenceSchedulerRequest omitted.
+
+// se_StopRetrainingSchedulerRequest omitted.
 
 // se_Tag omitted.
 
@@ -3549,6 +4188,21 @@ const se_StartDataIngestionJobRequest = (input: StartDataIngestionJobRequest, co
 // se_UpdateInferenceSchedulerRequest omitted.
 
 // se_UpdateLabelGroupRequest omitted.
+
+// se_UpdateModelRequest omitted.
+
+/**
+ * serializeAws_json1_0UpdateRetrainingSchedulerRequest
+ */
+const se_UpdateRetrainingSchedulerRequest = (input: UpdateRetrainingSchedulerRequest, context: __SerdeContext): any => {
+  return take(input, {
+    LookbackWindow: [],
+    ModelName: [],
+    PromoteMode: [],
+    RetrainingFrequency: [],
+    RetrainingStartDate: (_) => Math.round(_.getTime() / 1000),
+  });
+};
 
 // de_AccessDeniedException omitted.
 
@@ -3575,6 +4229,8 @@ const de_CountPercent = (output: any, context: __SerdeContext): CountPercent => 
 // de_CreateLabelResponse omitted.
 
 // de_CreateModelResponse omitted.
+
+// de_CreateRetrainingSchedulerResponse omitted.
 
 // de_DataIngestionJobSummaries omitted.
 
@@ -3716,6 +4372,8 @@ const de_DescribeLabelResponse = (output: any, context: __SerdeContext): Describ
  */
 const de_DescribeModelResponse = (output: any, context: __SerdeContext): DescribeModelResponse => {
   return take(output, {
+    AccumulatedInferenceDataEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AccumulatedInferenceDataStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ActiveModelVersion: __expectLong,
     ActiveModelVersionArn: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3729,14 +4387,22 @@ const de_DescribeModelResponse = (output: any, context: __SerdeContext): Describ
     ImportJobStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LabelsInputConfiguration: _json,
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestScheduledRetrainingAvailableDataInDays: __expectInt32,
+    LatestScheduledRetrainingFailedReason: __expectString,
+    LatestScheduledRetrainingModelVersion: __expectLong,
+    LatestScheduledRetrainingStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestScheduledRetrainingStatus: __expectString,
     ModelArn: __expectString,
     ModelMetrics: (_: any) => new __LazyJsonString(_),
     ModelName: __expectString,
     ModelVersionActivatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextScheduledRetrainingStartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     OffCondition: __expectString,
     PreviousActiveModelVersion: __expectLong,
     PreviousActiveModelVersionArn: __expectString,
     PreviousModelVersionActivatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PriorModelMetrics: (_: any) => new __LazyJsonString(_),
+    RetrainingSchedulerStatus: __expectString,
     RoleArn: __expectString,
     Schema: (_: any) => new __LazyJsonString(_),
     ServerSideKmsKeyId: __expectString,
@@ -3754,6 +4420,8 @@ const de_DescribeModelResponse = (output: any, context: __SerdeContext): Describ
  */
 const de_DescribeModelVersionResponse = (output: any, context: __SerdeContext): DescribeModelVersionResponse => {
   return take(output, {
+    AutoPromotionResult: __expectString,
+    AutoPromotionResultReason: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DataPreProcessingConfiguration: _json,
     DatasetArn: __expectString,
@@ -3772,6 +4440,8 @@ const de_DescribeModelVersionResponse = (output: any, context: __SerdeContext): 
     ModelVersion: __expectLong,
     ModelVersionArn: __expectString,
     OffCondition: __expectString,
+    PriorModelMetrics: __expectString,
+    RetrainingAvailableDataInDays: __expectInt32,
     RoleArn: __expectString,
     Schema: __expectString,
     ServerSideKmsKeyId: __expectString,
@@ -3794,6 +4464,26 @@ const de_DescribeResourcePolicyResponse = (output: any, context: __SerdeContext)
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     PolicyRevisionId: __expectString,
     ResourcePolicy: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0DescribeRetrainingSchedulerResponse
+ */
+const de_DescribeRetrainingSchedulerResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeRetrainingSchedulerResponse => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LookbackWindow: __expectString,
+    ModelArn: __expectString,
+    ModelName: __expectString,
+    PromoteMode: __expectString,
+    RetrainingFrequency: __expectString,
+    RetrainingStartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
 
@@ -3858,6 +4548,8 @@ const de_InferenceExecutionSummary = (output: any, context: __SerdeContext): Inf
     InferenceSchedulerName: __expectString,
     ModelArn: __expectString,
     ModelName: __expectString,
+    ModelVersion: __expectLong,
+    ModelVersionArn: __expectString,
     ScheduledStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
   }) as any;
@@ -4025,6 +4717,19 @@ const de_ListModelVersionsResponse = (output: any, context: __SerdeContext): Lis
 // de_ListOfDiscardedFiles omitted.
 
 /**
+ * deserializeAws_json1_0ListRetrainingSchedulersResponse
+ */
+const de_ListRetrainingSchedulersResponse = (
+  output: any,
+  context: __SerdeContext
+): ListRetrainingSchedulersResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    RetrainingSchedulerSummaries: (_: any) => de_RetrainingSchedulerSummaries(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0ListSensorStatisticsResponse
  */
 const de_ListSensorStatisticsResponse = (output: any, context: __SerdeContext): ListSensorStatisticsResponse => {
@@ -4062,8 +4767,13 @@ const de_ModelSummary = (output: any, context: __SerdeContext): ModelSummary => 
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DatasetArn: __expectString,
     DatasetName: __expectString,
+    LatestScheduledRetrainingModelVersion: __expectLong,
+    LatestScheduledRetrainingStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestScheduledRetrainingStatus: __expectString,
     ModelArn: __expectString,
     ModelName: __expectString,
+    NextScheduledRetrainingStartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RetrainingSchedulerStatus: __expectString,
     Status: __expectString,
   }) as any;
 };
@@ -4102,6 +4812,32 @@ const de_ModelVersionSummary = (output: any, context: __SerdeContext): ModelVers
 // de_PutResourcePolicyResponse omitted.
 
 // de_ResourceNotFoundException omitted.
+
+/**
+ * deserializeAws_json1_0RetrainingSchedulerSummaries
+ */
+const de_RetrainingSchedulerSummaries = (output: any, context: __SerdeContext): RetrainingSchedulerSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RetrainingSchedulerSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0RetrainingSchedulerSummary
+ */
+const de_RetrainingSchedulerSummary = (output: any, context: __SerdeContext): RetrainingSchedulerSummary => {
+  return take(output, {
+    LookbackWindow: __expectString,
+    ModelArn: __expectString,
+    ModelName: __expectString,
+    RetrainingFrequency: __expectString,
+    RetrainingStartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
+};
 
 // de_S3Object omitted.
 
@@ -4146,7 +4882,11 @@ const de_SensorStatisticsSummary = (output: any, context: __SerdeContext): Senso
 
 // de_StartInferenceSchedulerResponse omitted.
 
+// de_StartRetrainingSchedulerResponse omitted.
+
 // de_StopInferenceSchedulerResponse omitted.
+
+// de_StopRetrainingSchedulerResponse omitted.
 
 // de_Tag omitted.
 

@@ -36,8 +36,8 @@ export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer 
 
 /**
  * @public
- * <p>Deletes an inference scheduler that has been set up. Already processed output results
- *          are not affected. </p>
+ * <p>Deletes an inference scheduler that has been set up. Prior inference results will not be
+ *          deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,8 +79,8 @@ export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer 
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
- *          related Amazon Web Services service that's being utilized. </p>
+ *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services
+ *          service that's being utilized. </p>
  *
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>

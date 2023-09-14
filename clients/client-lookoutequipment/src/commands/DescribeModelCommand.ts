@@ -36,9 +36,9 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
 
 /**
  * @public
- * <p>Provides a JSON containing the overall information about a specific ML model, including
- *          model name and ARN, dataset, training and evaluation information, status, and so on.
- *       </p>
+ * <p>Provides a JSON containing the overall information about a specific machine learning
+ *          model, including model name and ARN, dataset, training and evaluation information, status,
+ *          and so on. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,6 +89,16 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * //   PreviousActiveModelVersion: Number("long"),
  * //   PreviousActiveModelVersionArn: "STRING_VALUE",
  * //   PreviousModelVersionActivatedAt: new Date("TIMESTAMP"),
+ * //   PriorModelMetrics: "STRING_VALUE",
+ * //   LatestScheduledRetrainingFailedReason: "STRING_VALUE",
+ * //   LatestScheduledRetrainingStatus: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "IMPORT_IN_PROGRESS" || "CANCELED",
+ * //   LatestScheduledRetrainingModelVersion: Number("long"),
+ * //   LatestScheduledRetrainingStartTime: new Date("TIMESTAMP"),
+ * //   LatestScheduledRetrainingAvailableDataInDays: Number("int"),
+ * //   NextScheduledRetrainingStartDate: new Date("TIMESTAMP"),
+ * //   AccumulatedInferenceDataStartTime: new Date("TIMESTAMP"),
+ * //   AccumulatedInferenceDataEndTime: new Date("TIMESTAMP"),
+ * //   RetrainingSchedulerStatus: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
  * // };
  *
  * ```
@@ -115,8 +125,8 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
- *          related Amazon Web Services service that's being utilized. </p>
+ *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services
+ *          service that's being utilized. </p>
  *
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>

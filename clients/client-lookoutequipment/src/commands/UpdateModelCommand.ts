@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { StopInferenceSchedulerRequest, StopInferenceSchedulerResponse } from "../models/models_0";
-import { de_StopInferenceSchedulerCommand, se_StopInferenceSchedulerCommand } from "../protocols/Aws_json1_0";
+import { UpdateModelRequest } from "../models/models_0";
+import { de_UpdateModelCommand, se_UpdateModelCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -24,44 +24,46 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StopInferenceSchedulerCommand}.
+ * The input for {@link UpdateModelCommand}.
  */
-export interface StopInferenceSchedulerCommandInput extends StopInferenceSchedulerRequest {}
+export interface UpdateModelCommandInput extends UpdateModelRequest {}
 /**
  * @public
  *
- * The output of {@link StopInferenceSchedulerCommand}.
+ * The output of {@link UpdateModelCommand}.
  */
-export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedulerResponse, __MetadataBearer {}
+export interface UpdateModelCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Stops an inference scheduler. </p>
+ * <p>Updates a model in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, StopInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, StopInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, UpdateModelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, UpdateModelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = { // StopInferenceSchedulerRequest
- *   InferenceSchedulerName: "STRING_VALUE", // required
+ * const input = { // UpdateModelRequest
+ *   ModelName: "STRING_VALUE", // required
+ *   LabelsInputConfiguration: { // LabelsInputConfiguration
+ *     S3InputConfiguration: { // LabelsS3InputConfiguration
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *     LabelGroupName: "STRING_VALUE",
+ *   },
+ *   RoleArn: "STRING_VALUE",
  * };
- * const command = new StopInferenceSchedulerCommand(input);
+ * const command = new UpdateModelCommand(input);
  * const response = await client.send(command);
- * // { // StopInferenceSchedulerResponse
- * //   ModelArn: "STRING_VALUE",
- * //   ModelName: "STRING_VALUE",
- * //   InferenceSchedulerName: "STRING_VALUE",
- * //   InferenceSchedulerArn: "STRING_VALUE",
- * //   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
- * // };
+ * // {};
  *
  * ```
  *
- * @param StopInferenceSchedulerCommandInput - {@link StopInferenceSchedulerCommandInput}
- * @returns {@link StopInferenceSchedulerCommandOutput}
- * @see {@link StopInferenceSchedulerCommandInput} for command's `input` shape.
- * @see {@link StopInferenceSchedulerCommandOutput} for command's `response` shape.
+ * @param UpdateModelCommandInput - {@link UpdateModelCommandInput}
+ * @returns {@link UpdateModelCommandOutput}
+ * @see {@link UpdateModelCommandInput} for command's `input` shape.
+ * @see {@link UpdateModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -90,10 +92,24 @@ export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedu
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @example Updates a model
+ * ```javascript
+ * //
+ * const input = {
+ *   "LabelsInputConfiguration": {
+ *     "LabelGroupName": "sample-label-group"
+ *   },
+ *   "ModelName": "sample-model"
+ * };
+ * const command = new UpdateModelCommand(input);
+ * await client.send(command);
+ * // example id: updates-a-model-1694020683458
+ * ```
+ *
  */
-export class StopInferenceSchedulerCommand extends $Command<
-  StopInferenceSchedulerCommandInput,
-  StopInferenceSchedulerCommandOutput,
+export class UpdateModelCommand extends $Command<
+  UpdateModelCommandInput,
+  UpdateModelCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
   // Start section: command_properties
@@ -111,7 +127,7 @@ export class StopInferenceSchedulerCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StopInferenceSchedulerCommandInput) {
+  constructor(readonly input: UpdateModelCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -124,17 +140,15 @@ export class StopInferenceSchedulerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LookoutEquipmentClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StopInferenceSchedulerCommandInput, StopInferenceSchedulerCommandOutput> {
+  ): Handler<UpdateModelCommandInput, UpdateModelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StopInferenceSchedulerCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateModelCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LookoutEquipmentClient";
-    const commandName = "StopInferenceSchedulerCommand";
+    const commandName = "UpdateModelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -153,15 +167,15 @@ export class StopInferenceSchedulerCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StopInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StopInferenceSchedulerCommand(input, context);
+  private serialize(input: UpdateModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateModelCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInferenceSchedulerCommandOutput> {
-    return de_StopInferenceSchedulerCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelCommandOutput> {
+    return de_UpdateModelCommand(output, context);
   }
 
   // Start section: command_body_extra

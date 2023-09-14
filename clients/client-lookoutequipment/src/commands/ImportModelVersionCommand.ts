@@ -63,6 +63,7 @@ export interface ImportModelVersionCommandOutput extends ImportModelVersionRespo
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   InferenceDataImportStrategy: "NO_IMPORT" || "ADD_WHEN_EMPTY" || "OVERWRITE",
  * };
  * const command = new ImportModelVersionCommand(input);
  * const response = await client.send(command);
@@ -105,8 +106,8 @@ export interface ImportModelVersionCommandOutput extends ImportModelVersionRespo
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
- *          related Amazon Web Services service that's being utilized. </p>
+ *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services
+ *          service that's being utilized. </p>
  *
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>

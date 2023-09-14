@@ -36,12 +36,12 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
 
 /**
  * @public
- * <p>Creates an ML model for data inference. </p>
+ * <p>Creates a machine learning model for data inference. </p>
  *          <p>A machine-learning (ML) model is a mathematical model that finds patterns in your data.
- *          In Amazon Lookout for Equipment, the model learns the patterns of normal behavior and
- *          detects abnormal behavior that could be potential equipment failure (or maintenance
- *          events). The models are made by analyzing normal data and abnormalities in machine behavior
- *          that have already occurred.</p>
+ *          In Amazon Lookout for Equipment, the model learns the patterns of normal behavior and detects abnormal
+ *          behavior that could be potential equipment failure (or maintenance events). The models are
+ *          made by analyzing normal data and abnormalities in machine behavior that have already
+ *          occurred.</p>
  *          <p>Your model is trained using a portion of the data from your dataset and uses that data
  *          to learn patterns of normal behavior and abnormal patterns that lead to equipment failure.
  *          Another portion of the data is used to evaluate the model's accuracy. </p>
@@ -120,8 +120,8 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
- *          related Amazon Web Services service that's being utilized. </p>
+ *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services
+ *          service that's being utilized. </p>
  *
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>

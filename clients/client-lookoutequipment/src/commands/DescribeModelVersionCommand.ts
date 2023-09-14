@@ -86,6 +86,10 @@ export interface DescribeModelVersionCommandOutput extends DescribeModelVersionR
  * //   ImportJobStartTime: new Date("TIMESTAMP"),
  * //   ImportJobEndTime: new Date("TIMESTAMP"),
  * //   ImportedDataSizeInBytes: Number("long"),
+ * //   PriorModelMetrics: "STRING_VALUE",
+ * //   RetrainingAvailableDataInDays: Number("int"),
+ * //   AutoPromotionResult: "MODEL_PROMOTED" || "MODEL_NOT_PROMOTED" || "RETRAINING_INTERNAL_ERROR" || "RETRAINING_CUSTOMER_ERROR" || "RETRAINING_CANCELLED",
+ * //   AutoPromotionResultReason: "STRING_VALUE",
  * // };
  *
  * ```
@@ -112,8 +116,8 @@ export interface DescribeModelVersionCommandOutput extends DescribeModelVersionR
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
- *          related Amazon Web Services service that's being utilized. </p>
+ *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services
+ *          service that's being utilized. </p>
  *
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>

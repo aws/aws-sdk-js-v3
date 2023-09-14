@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { StopInferenceSchedulerRequest, StopInferenceSchedulerResponse } from "../models/models_0";
-import { de_StopInferenceSchedulerCommand, se_StopInferenceSchedulerCommand } from "../protocols/Aws_json1_0";
+import { UpdateRetrainingSchedulerRequest } from "../models/models_0";
+import { de_UpdateRetrainingSchedulerCommand, se_UpdateRetrainingSchedulerCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -24,44 +24,42 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StopInferenceSchedulerCommand}.
+ * The input for {@link UpdateRetrainingSchedulerCommand}.
  */
-export interface StopInferenceSchedulerCommandInput extends StopInferenceSchedulerRequest {}
+export interface UpdateRetrainingSchedulerCommandInput extends UpdateRetrainingSchedulerRequest {}
 /**
  * @public
  *
- * The output of {@link StopInferenceSchedulerCommand}.
+ * The output of {@link UpdateRetrainingSchedulerCommand}.
  */
-export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedulerResponse, __MetadataBearer {}
+export interface UpdateRetrainingSchedulerCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Stops an inference scheduler. </p>
+ * <p>Updates a retraining scheduler. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, StopInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, StopInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, UpdateRetrainingSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, UpdateRetrainingSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = { // StopInferenceSchedulerRequest
- *   InferenceSchedulerName: "STRING_VALUE", // required
+ * const input = { // UpdateRetrainingSchedulerRequest
+ *   ModelName: "STRING_VALUE", // required
+ *   RetrainingStartDate: new Date("TIMESTAMP"),
+ *   RetrainingFrequency: "STRING_VALUE",
+ *   LookbackWindow: "STRING_VALUE",
+ *   PromoteMode: "MANAGED" || "MANUAL",
  * };
- * const command = new StopInferenceSchedulerCommand(input);
+ * const command = new UpdateRetrainingSchedulerCommand(input);
  * const response = await client.send(command);
- * // { // StopInferenceSchedulerResponse
- * //   ModelArn: "STRING_VALUE",
- * //   ModelName: "STRING_VALUE",
- * //   InferenceSchedulerName: "STRING_VALUE",
- * //   InferenceSchedulerArn: "STRING_VALUE",
- * //   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
- * // };
+ * // {};
  *
  * ```
  *
- * @param StopInferenceSchedulerCommandInput - {@link StopInferenceSchedulerCommandInput}
- * @returns {@link StopInferenceSchedulerCommandOutput}
- * @see {@link StopInferenceSchedulerCommandInput} for command's `input` shape.
- * @see {@link StopInferenceSchedulerCommandOutput} for command's `response` shape.
+ * @param UpdateRetrainingSchedulerCommandInput - {@link UpdateRetrainingSchedulerCommandInput}
+ * @returns {@link UpdateRetrainingSchedulerCommandOutput}
+ * @see {@link UpdateRetrainingSchedulerCommandInput} for command's `input` shape.
+ * @see {@link UpdateRetrainingSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -90,10 +88,23 @@ export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedu
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @example Updates a retraining scheduler
+ * ```javascript
+ * //
+ * const input = {
+ *   "ModelName": "sample-model",
+ *   "RetrainingFrequency": "P1Y",
+ *   "RetrainingStartDate": "2024-01-01T00:00:00Z"
+ * };
+ * const command = new UpdateRetrainingSchedulerCommand(input);
+ * await client.send(command);
+ * // example id: updates-a-retraining-scheduler-1694019840918
+ * ```
+ *
  */
-export class StopInferenceSchedulerCommand extends $Command<
-  StopInferenceSchedulerCommandInput,
-  StopInferenceSchedulerCommandOutput,
+export class UpdateRetrainingSchedulerCommand extends $Command<
+  UpdateRetrainingSchedulerCommandInput,
+  UpdateRetrainingSchedulerCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
   // Start section: command_properties
@@ -111,7 +122,7 @@ export class StopInferenceSchedulerCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StopInferenceSchedulerCommandInput) {
+  constructor(readonly input: UpdateRetrainingSchedulerCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -124,17 +135,17 @@ export class StopInferenceSchedulerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LookoutEquipmentClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StopInferenceSchedulerCommandInput, StopInferenceSchedulerCommandOutput> {
+  ): Handler<UpdateRetrainingSchedulerCommandInput, UpdateRetrainingSchedulerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StopInferenceSchedulerCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateRetrainingSchedulerCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LookoutEquipmentClient";
-    const commandName = "StopInferenceSchedulerCommand";
+    const commandName = "UpdateRetrainingSchedulerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -153,15 +164,18 @@ export class StopInferenceSchedulerCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StopInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StopInferenceSchedulerCommand(input, context);
+  private serialize(input: UpdateRetrainingSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateRetrainingSchedulerCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInferenceSchedulerCommandOutput> {
-    return de_StopInferenceSchedulerCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateRetrainingSchedulerCommandOutput> {
+    return de_UpdateRetrainingSchedulerCommand(output, context);
   }
 
   // Start section: command_body_extra
