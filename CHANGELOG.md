@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.413.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.412.0...v3.413.0) (2023-09-14)
+
+
+### Bug Fixes
+
+* **credential-provider-ini:** add DurationSeconds to assumeRole params ([#4938](https://github.com/aws/aws-sdk-js-v3/issues/4938)) ([915b12d](https://github.com/aws/aws-sdk-js-v3/commit/915b12d8f8a5075c295d0df56224f0c4bc60be1f))
+
+
+### Features
+
+* **client-appstream:** This release introduces multi-session fleets, allowing customers to provision more than one user session on a single fleet instance. ([7b19946](https://github.com/aws/aws-sdk-js-v3/commit/7b1994624410992141200dd36303a1e6e884b62d))
+* **client-entityresolution:** Changed "ResolutionTechniques" and "MappedInputFields" in workflow and schema mapping operations to be required fields. ([f5dd707](https://github.com/aws/aws-sdk-js-v3/commit/f5dd707c33d833b62b5c18349d04ea4026e2dc91))
+* **client-lookoutequipment:** This release adds APIs for the new scheduled retraining feature. ([2b1a63d](https://github.com/aws/aws-sdk-js-v3/commit/2b1a63d60e2e75a7e3c2443a2f72ee3b2bba91d2))
+
+
+
+
+
 # [3.412.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.411.0...v3.412.0) (2023-09-13)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.413.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.412.0...v3.413.0) (2023-09-14)
+
+
+### Features
+
+* **client-entityresolution:** Changed "ResolutionTechniques" and "MappedInputFields" in workflow and schema mapping operations to be required fields. ([f5dd707](https://github.com/aws/aws-sdk-js-v3/commit/f5dd707c33d833b62b5c18349d04ea4026e2dc91))
+
+
+
+
+
 # [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-entityresolution

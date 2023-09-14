@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.413.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.412.0...v3.413.0) (2023-09-14)
+
+
+### Features
+
+* **client-lookoutequipment:** This release adds APIs for the new scheduled retraining feature. ([2b1a63d](https://github.com/aws/aws-sdk-js-v3/commit/2b1a63d60e2e75a7e3c2443a2f72ee3b2bba91d2))
+
+
+
+
+
 # [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-lookoutequipment

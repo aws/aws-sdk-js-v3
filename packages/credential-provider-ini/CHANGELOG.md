@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.413.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.412.0...v3.413.0) (2023-09-14)
+
+
+### Bug Fixes
+
+* **credential-provider-ini:** add DurationSeconds to assumeRole params ([#4938](https://github.com/aws/aws-sdk-js-v3/issues/4938)) ([915b12d](https://github.com/aws/aws-sdk-js-v3/commit/915b12d8f8a5075c295d0df56224f0c4bc60be1f))
+
+
+
+
+
 # [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-ini

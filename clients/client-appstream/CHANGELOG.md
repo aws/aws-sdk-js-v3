@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.413.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.412.0...v3.413.0) (2023-09-14)
+
+
+### Features
+
+* **client-appstream:** This release introduces multi-session fleets, allowing customers to provision more than one user session on a single fleet instance. ([7b19946](https://github.com/aws/aws-sdk-js-v3/commit/7b1994624410992141200dd36303a1e6e884b62d))
+
+
+
+
+
 # [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-appstream
