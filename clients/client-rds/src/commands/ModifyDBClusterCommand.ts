@@ -113,6 +113,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   EngineMode: "STRING_VALUE",
  *   AllowEngineModeChange: true || false,
  *   EnableLocalWriteForwarding: true || false,
+ *   AwsBackupRecoveryPointArn: "STRING_VALUE",
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
@@ -270,6 +271,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //     },
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //   },
  * // };
  *

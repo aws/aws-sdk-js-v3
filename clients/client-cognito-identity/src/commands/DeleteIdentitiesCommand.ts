@@ -57,7 +57,7 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  * //   UnprocessedIdentityIds: [ // UnprocessedIdentityIdList
  * //     { // UnprocessedIdentityId
  * //       IdentityId: "STRING_VALUE",
- * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorCode: "AccessDenied" || "InternalServerError",
  * //     },
  * //   ],
  * // };

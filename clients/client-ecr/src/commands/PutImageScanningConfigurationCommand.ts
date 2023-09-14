@@ -45,8 +45,8 @@ export interface PutImageScanningConfigurationCommandOutput
  *             <p>The <code>PutImageScanningConfiguration</code> API is being deprecated, in favor
  *                 of specifying the image scanning configuration at the registry level. For more
  *                 information, see <a>PutRegistryScanningConfiguration</a>.</p>
- *         </important>
- *         <p>Updates the image scanning configuration for the specified repository.</p>
+ *          </important>
+ *          <p>Updates the image scanning configuration for the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

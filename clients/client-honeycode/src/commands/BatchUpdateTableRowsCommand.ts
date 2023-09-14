@@ -43,7 +43,7 @@ export interface BatchUpdateTableRowsCommandOutput extends BatchUpdateTableRowsR
  * <p>
  *             The BatchUpdateTableRows API allows you to update one or more rows in a table in a workbook.
  *         </p>
- *         <p>
+ *          <p>
  *             You can specify the values to set in some or all of the columns in the table for the specified
  *             rows.
  *             If a column is not explicitly specified in a particular row, then that column will not be updated

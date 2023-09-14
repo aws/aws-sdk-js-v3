@@ -589,6 +589,14 @@ StartChannel
 </details>
 <details>
 <summary>
+StartInputDevice
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/startinputdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/startinputdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/startinputdevicecommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartInputDeviceMaintenanceWindow
 </summary>
 
@@ -609,6 +617,14 @@ StopChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/stopchannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/stopchannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/stopchannelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopInputDevice
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/classes/stopinputdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/stopinputdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medialive/interfaces/stopinputdevicecommandoutput.html)
 
 </details>
 <details>

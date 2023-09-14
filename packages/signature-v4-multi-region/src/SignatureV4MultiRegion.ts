@@ -1,4 +1,3 @@
-import type { CrtSignerV4, CrtSignerV4Init } from "@aws-sdk/signature-v4-crt";
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
 import {
   HttpRequest,
@@ -7,6 +6,9 @@ import {
   RequestSigner,
   RequestSigningArguments,
 } from "@smithy/types";
+
+import { loadCrt } from "./load-crt";
+import { OptionalCrtSignerV4, signatureV4CrtContainer } from "./signature-v4-crt-container";
 
 /**
  * @internal
@@ -26,7 +28,7 @@ export type SignatureV4MultiRegionInit = SignatureV4Init &
  */
 export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
   private readonly sigv4Signer: SignatureV4;
-  private sigv4aSigner?: CrtSignerV4;
+  private sigv4aSigner?: InstanceType<OptionalCrtSignerV4>;
   private readonly signerOptions: SignatureV4MultiRegionInit;
 
   constructor(options: SignatureV4MultiRegionInit) {
@@ -52,11 +54,13 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
     return this.sigv4Signer.presign(originalRequest, options);
   }
 
-  private getSigv4aSigner(): CrtSignerV4 {
+  private getSigv4aSigner(): InstanceType<OptionalCrtSignerV4> {
     if (!this.sigv4aSigner) {
-      let CrtSignerV4: new (options: CrtSignerV4Init & SignatureV4CryptoInit) => CrtSignerV4;
+      let CrtSignerV4: OptionalCrtSignerV4 | null = null;
+
       try {
-        CrtSignerV4 = typeof require === "function" && require("@aws-sdk/signature-v4-crt").CrtSignerV4;
+        loadCrt();
+        CrtSignerV4 = signatureV4CrtContainer.CrtSignerV4;
         if (typeof CrtSignerV4 !== "function") throw new Error();
       } catch (e) {
         e.message =
@@ -65,6 +69,7 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
           "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt";
         throw e;
       }
+
       this.sigv4aSigner = new CrtSignerV4({
         ...this.signerOptions,
         signingAlgorithm: 1,

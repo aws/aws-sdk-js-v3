@@ -72,6 +72,15 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
  *       ],
  *     },
  *     Type: "STRING_VALUE", // required
+ *     LineItemFilters: [ // LineItemFiltersList
+ *       { // LineItemFilter
+ *         Attribute: "STRING_VALUE", // required
+ *         MatchOption: "STRING_VALUE", // required
+ *         Values: [ // LineItemFilterValuesList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
  *   },
  * };
  * const command = new CreateCustomLineItemCommand(input);

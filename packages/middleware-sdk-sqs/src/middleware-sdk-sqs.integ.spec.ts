@@ -1,5 +1,5 @@
 import { SQS } from "@aws-sdk/client-sqs";
-import { HttpResponse } from "@smithy/protocol-http";
+import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
 import crypto from "crypto";
 import { Readable } from "stream";
 
@@ -112,10 +112,14 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on received messages", async () => {
         const client = new SQS({
           region: "us-west-2",
-          requestHandler: new (class {
+          requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
               return handlerResponse((useAwsQuery ? r.XML : r.JSON).receive);
+            }
+            updateHttpClientConfig(key: never, value: never): void {}
+            httpHandlerConfigs() {
+              return {};
             }
           })(),
         });
@@ -130,10 +134,14 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on sent messages", async () => {
         const client = new SQS({
           region: "us-west-2",
-          requestHandler: new (class {
+          requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
               return handlerResponse((useAwsQuery ? r.XML : r.JSON).send);
+            }
+            updateHttpClientConfig(key: never, value: never): void {}
+            httpHandlerConfigs() {
+              return {};
             }
           })(),
         });
@@ -149,10 +157,14 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on batch sent messages", async () => {
         const client = new SQS({
           region: "us-west-2",
-          requestHandler: new (class {
+          requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
               return handlerResponse((useAwsQuery ? r.XML : r.JSON).sendBatch);
+            }
+            updateHttpClientConfig(key: never, value: never): void {}
+            httpHandlerConfigs() {
+              return {};
             }
           })(),
         });
@@ -187,10 +199,14 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on received messages", async () => {
         const client = new SQS({
           region: "us-west-2",
-          requestHandler: new (class {
+          requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
               return handlerResponse((useAwsQuery ? r.XML : r.JSON).receive);
+            }
+            updateHttpClientConfig(key: never, value: never): void {}
+            httpHandlerConfigs() {
+              return {};
             }
           })(),
         });
@@ -208,10 +224,14 @@ describe("middleware-sdk-sqs", () => {
 
       it("runs md5 checksums on sent messages", async () => {
         const client = new SQS({
-          requestHandler: new (class {
+          requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
               return handlerResponse((useAwsQuery ? r.XML : r.JSON).send);
+            }
+            updateHttpClientConfig(key: never, value: never): void {}
+            httpHandlerConfigs() {
+              return {};
             }
           })(),
         });
@@ -231,10 +251,14 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on batch sent messages", async () => {
         const client = new SQS({
           region: "us-west-2",
-          requestHandler: new (class {
+          requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
               return handlerResponse((useAwsQuery ? r.XML : r.JSON).sendBatch);
+            }
+            updateHttpClientConfig(key: never, value: never): void {}
+            httpHandlerConfigs() {
+              return {};
             }
           })(),
         });

@@ -58,7 +58,7 @@ export interface BatchDeleteDetectorCommandOutput extends BatchDeleteDetectorRes
  * //   batchDeleteDetectorErrorEntries: [ // BatchDeleteDetectorErrorEntries
  * //     { // BatchDeleteDetectorErrorEntry
  * //       messageId: "STRING_VALUE",
- * //       errorCode: "STRING_VALUE",
+ * //       errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "InternalFailureException" || "ServiceUnavailableException" || "ThrottlingException",
  * //       errorMessage: "STRING_VALUE",
  * //     },
  * //   ],

@@ -3053,6 +3053,50 @@ export interface SecondaryValueOptions {
 
 /**
  * @public
+ * @enum
+ */
+export const KPISparklineType = {
+  AREA: "AREA",
+  LINE: "LINE",
+} as const;
+
+/**
+ * @public
+ */
+export type KPISparklineType = (typeof KPISparklineType)[keyof typeof KPISparklineType];
+
+/**
+ * @public
+ * <p>The options that determine the visibility, color, type, and tooltip visibility of the sparkline of a KPI visual.</p>
+ */
+export interface KPISparklineOptions {
+  /**
+   * @public
+   * <p>The visibility of the sparkline.</p>
+   */
+  Visibility?: Visibility | string;
+
+  /**
+   * @public
+   * <p>The type of the sparkline.</p>
+   */
+  Type: KPISparklineType | string | undefined;
+
+  /**
+   * @public
+   * <p>The color of the sparkline.</p>
+   */
+  Color?: string;
+
+  /**
+   * @public
+   * <p>The tooltip visibility of the sparkline.</p>
+   */
+  TooltipVisibility?: Visibility | string;
+}
+
+/**
+ * @public
  * <p>The options that determine the presentation of trend arrows in a KPI visual.</p>
  */
 export interface TrendArrowOptions {
@@ -3061,6 +3105,45 @@ export interface TrendArrowOptions {
    * <p>The visibility of the trend arrows.</p>
    */
   Visibility?: Visibility | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const KPIVisualStandardLayoutType = {
+  CLASSIC: "CLASSIC",
+  VERTICAL: "VERTICAL",
+} as const;
+
+/**
+ * @public
+ */
+export type KPIVisualStandardLayoutType =
+  (typeof KPIVisualStandardLayoutType)[keyof typeof KPIVisualStandardLayoutType];
+
+/**
+ * @public
+ * <p>The standard layout of the KPI visual.</p>
+ */
+export interface KPIVisualStandardLayout {
+  /**
+   * @public
+   * <p>The standard layout type.</p>
+   */
+  Type: KPIVisualStandardLayoutType | string | undefined;
+}
+
+/**
+ * @public
+ * <p>The options that determine the layout a KPI visual.</p>
+ */
+export interface KPIVisualLayoutOptions {
+  /**
+   * @public
+   * <p>The standard layout of the KPI visual.</p>
+   */
+  StandardLayout?: KPIVisualStandardLayout;
 }
 
 /**
@@ -3109,6 +3192,18 @@ export interface KPIOptions {
    * <p>The options that determine the secondary value font configuration.</p>
    */
   SecondaryValueFontConfiguration?: FontConfiguration;
+
+  /**
+   * @public
+   * <p>The options that determine the visibility, color, type, and tooltip visibility of the sparkline of a KPI visual.</p>
+   */
+  Sparkline?: KPISparklineOptions;
+
+  /**
+   * @public
+   * <p>The options that determine the layout a KPI visual.</p>
+   */
+  VisualLayoutOptions?: KPIVisualLayoutOptions;
 }
 
 /**
@@ -3145,6 +3240,42 @@ export interface KPIConfiguration {
    * <p>The options that determine the presentation of a KPI visual.</p>
    */
   KPIOptions?: KPIOptions;
+}
+
+/**
+ * @public
+ * <p>The conditional formatting for the actual value of a KPI visual.</p>
+ */
+export interface KPIActualValueConditionalFormatting {
+  /**
+   * @public
+   * <p>The conditional formatting of the actual value's text color.</p>
+   */
+  TextColor?: ConditionalFormattingColor;
+
+  /**
+   * @public
+   * <p>The conditional formatting of the actual value's icon.</p>
+   */
+  Icon?: ConditionalFormattingIcon;
+}
+
+/**
+ * @public
+ * <p>The conditional formatting for the comparison value of a KPI visual.</p>
+ */
+export interface KPIComparisonValueConditionalFormatting {
+  /**
+   * @public
+   * <p>The conditional formatting of the comparison value's text color.</p>
+   */
+  TextColor?: ConditionalFormattingColor;
+
+  /**
+   * @public
+   * <p>The conditional formatting of the comparison value's icon.</p>
+   */
+  Icon?: ConditionalFormattingIcon;
 }
 
 /**
@@ -3193,6 +3324,18 @@ export interface KPIConditionalFormattingOption {
    * <p>The conditional formatting for the progress bar of a KPI visual.</p>
    */
   ProgressBar?: KPIProgressBarConditionalFormatting;
+
+  /**
+   * @public
+   * <p>The conditional formatting for the actual value of a KPI visual.</p>
+   */
+  ActualValue?: KPIActualValueConditionalFormatting;
+
+  /**
+   * @public
+   * <p>The conditional formatting for the comparison value of a KPI visual.</p>
+   */
+  ComparisonValue?: KPIComparisonValueConditionalFormatting;
 }
 
 /**
@@ -7741,115 +7884,6 @@ export interface SnapshotJobS3Result {
 }
 
 /**
- * @public
- * <p>A structure that contains information on the generated snapshot file groups.</p>
- */
-export interface SnapshotJobResultFileGroup {
-  /**
-   * @public
-   * <p> A list of <code>SnapshotFile</code> objects.</p>
-   */
-  Files?: SnapshotFile[];
-
-  /**
-   * @public
-   * <p> A list of <code>SnapshotJobS3Result</code> objects.</p>
-   */
-  S3Results?: SnapshotJobS3Result[];
-}
-
-/**
- * @public
- * <p>A structure that contains the file groups that are requested for the artifact generation in a <code>StartDashboardSnapshotJob</code> API call.
- *         </p>
- */
-export interface AnonymousUserSnapshotJobResult {
-  /**
-   * @public
-   * <p>A list of <code>SnapshotJobResultFileGroup</code> objects that contain information on the files that are requested during a <code>StartDashboardSnapshotJob</code> API call. If the job succeeds, these objects contain the location where the snapshot artifacts are stored. If the job fails, the objects contain information about the error that caused the job to fail.</p>
-   */
-  FileGroups?: SnapshotJobResultFileGroup[];
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetBundleExportJobAnalysisPropertyToOverride = {
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type AssetBundleExportJobAnalysisPropertyToOverride =
-  (typeof AssetBundleExportJobAnalysisPropertyToOverride)[keyof typeof AssetBundleExportJobAnalysisPropertyToOverride];
-
-/**
- * @public
- * <p>Controls how a specific <code>Analysis</code> resource is parameterized in the returned CloudFormation template.</p>
- */
-export interface AssetBundleExportJobAnalysisOverrideProperties {
-  /**
-   * @public
-   * <p>The ARN of the specific <code>Analysis</code> resource whose override properties are configured in this structure.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>Analysis</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-   */
-  Properties: (AssetBundleExportJobAnalysisPropertyToOverride | string)[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetBundleExportJobDashboardPropertyToOverride = {
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type AssetBundleExportJobDashboardPropertyToOverride =
-  (typeof AssetBundleExportJobDashboardPropertyToOverride)[keyof typeof AssetBundleExportJobDashboardPropertyToOverride];
-
-/**
- * @public
- * <p>Controls how a specific <code>Dashboard</code> resource is parameterized in the returned CloudFormation template.</p>
- */
-export interface AssetBundleExportJobDashboardOverrideProperties {
-  /**
-   * @public
-   * <p>The ARN of the specific <code>Dashboard</code> resource whose override properties are configured in this structure.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>Dashboard</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-   */
-  Properties: (AssetBundleExportJobDashboardPropertyToOverride | string)[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetBundleExportJobDataSetPropertyToOverride = {
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type AssetBundleExportJobDataSetPropertyToOverride =
-  (typeof AssetBundleExportJobDataSetPropertyToOverride)[keyof typeof AssetBundleExportJobDataSetPropertyToOverride];
-
-/**
  * @internal
  */
 export const BoxPlotAggregatedFieldWellsFilterSensitiveLog = (obj: BoxPlotAggregatedFieldWells): any => ({
@@ -8447,6 +8481,28 @@ export const KPIConfigurationFilterSensitiveLog = (obj: KPIConfiguration): any =
 /**
  * @internal
  */
+export const KPIActualValueConditionalFormattingFilterSensitiveLog = (
+  obj: KPIActualValueConditionalFormatting
+): any => ({
+  ...obj,
+  ...(obj.TextColor && { TextColor: ConditionalFormattingColorFilterSensitiveLog(obj.TextColor) }),
+  ...(obj.Icon && { Icon: ConditionalFormattingIconFilterSensitiveLog(obj.Icon) }),
+});
+
+/**
+ * @internal
+ */
+export const KPIComparisonValueConditionalFormattingFilterSensitiveLog = (
+  obj: KPIComparisonValueConditionalFormatting
+): any => ({
+  ...obj,
+  ...(obj.TextColor && { TextColor: ConditionalFormattingColorFilterSensitiveLog(obj.TextColor) }),
+  ...(obj.Icon && { Icon: ConditionalFormattingIconFilterSensitiveLog(obj.Icon) }),
+});
+
+/**
+ * @internal
+ */
 export const KPIPrimaryValueConditionalFormattingFilterSensitiveLog = (
   obj: KPIPrimaryValueConditionalFormatting
 ): any => ({
@@ -8472,6 +8528,10 @@ export const KPIConditionalFormattingOptionFilterSensitiveLog = (obj: KPIConditi
   ...obj,
   ...(obj.PrimaryValue && { PrimaryValue: KPIPrimaryValueConditionalFormattingFilterSensitiveLog(obj.PrimaryValue) }),
   ...(obj.ProgressBar && { ProgressBar: KPIProgressBarConditionalFormattingFilterSensitiveLog(obj.ProgressBar) }),
+  ...(obj.ActualValue && { ActualValue: KPIActualValueConditionalFormattingFilterSensitiveLog(obj.ActualValue) }),
+  ...(obj.ComparisonValue && {
+    ComparisonValue: KPIComparisonValueConditionalFormattingFilterSensitiveLog(obj.ComparisonValue),
+  }),
 });
 
 /**
@@ -9054,19 +9114,4 @@ export const AnalysisDefinitionFilterSensitiveLog = (obj: AnalysisDefinition): a
 export const SnapshotJobS3ResultFilterSensitiveLog = (obj: SnapshotJobS3Result): any => ({
   ...obj,
   ...(obj.S3Uri && { S3Uri: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SnapshotJobResultFileGroupFilterSensitiveLog = (obj: SnapshotJobResultFileGroup): any => ({
-  ...obj,
-  ...(obj.S3Results && { S3Results: obj.S3Results.map((item) => SnapshotJobS3ResultFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const AnonymousUserSnapshotJobResultFilterSensitiveLog = (obj: AnonymousUserSnapshotJobResult): any => ({
-  ...obj,
 });

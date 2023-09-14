@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-sqs",
-  "version": "3.398.0",
+  "version": "3.410.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -22,7 +22,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/types": "^2.2.2",
+    "@smithy/types": "^2.3.0",
     "@smithy/util-hex-encoding": "^2.0.0",
     "@smithy/util-utf8": "^2.0.0",
     "tslib": "^2.5.0"

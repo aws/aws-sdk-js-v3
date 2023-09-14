@@ -2,6 +2,55 @@
   "version": "1.0",
   "imports": ["model/echo.smithy"],
   "projections": {
+    "client-experimental-identity-and-auth": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["example.weather#Weather"]
+          }
+        }
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/weather",
+          "packageVersion": "0.0.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "private": true,
+          "experimentalIdentityAndAuth": true
+        }
+      }
+    },
+    "control-experimental-identity-and-auth": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["example.weather#Weather"]
+          }
+        }
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/weather",
+          "packageVersion": "0.0.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "private": true
+        }
+      }
+    },
     "aws-echo-service": {
       "transforms": [
         {

@@ -45,10 +45,10 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * const client = new FinspaceDataClient(config);
  * const input = { // UpdateUserRequest
  *   userId: "STRING_VALUE", // required
- *   type: "STRING_VALUE",
+ *   type: "SUPER_USER" || "APP_USER",
  *   firstName: "STRING_VALUE",
  *   lastName: "STRING_VALUE",
- *   apiAccess: "STRING_VALUE",
+ *   apiAccess: "ENABLED" || "DISABLED",
  *   apiAccessPrincipalArn: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };

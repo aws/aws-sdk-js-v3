@@ -3486,7 +3486,9 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Returns the inputs for the change set and a list of changes that CloudFormation will make if you execute the\n   change set. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html\">Updating Stacks Using Change\n    Sets</a> in the CloudFormation User Guide.</p>",
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "ChangeSetCreateComplete": {
             "documentation": "Wait until change set status is CREATE_COMPLETE.",
@@ -4405,7 +4407,9 @@
           "outputToken": "NextToken",
           "items": "Stacks"
         },
-        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.api#suppress": [
+          "WaitableTraitInvalidErrorType"
+        ],
         "smithy.waiters#waitable": {
           "StackCreateComplete": {
             "documentation": "Wait until stack status is CREATE_COMPLETE.",

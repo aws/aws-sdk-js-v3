@@ -48,7 +48,7 @@ export interface UpdateAnomalyDetectorCommandOutput extends UpdateAnomalyDetecto
  *   KmsKeyArn: "STRING_VALUE",
  *   AnomalyDetectorDescription: "STRING_VALUE",
  *   AnomalyDetectorConfig: { // AnomalyDetectorConfig
- *     AnomalyDetectorFrequency: "STRING_VALUE",
+ *     AnomalyDetectorFrequency: "P1D" || "PT1H" || "PT10M" || "PT5M",
  *   },
  * };
  * const command = new UpdateAnomalyDetectorCommand(input);

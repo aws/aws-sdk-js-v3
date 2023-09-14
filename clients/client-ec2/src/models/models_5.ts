@@ -3105,6 +3105,45 @@ export interface DisableFastSnapshotRestoresResult {
 /**
  * @public
  */
+export interface DisableImageBlockPublicAccessRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageBlockPublicAccessDisabledState = {
+  unblocked: "unblocked",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageBlockPublicAccessDisabledState =
+  (typeof ImageBlockPublicAccessDisabledState)[keyof typeof ImageBlockPublicAccessDisabledState];
+
+/**
+ * @public
+ */
+export interface DisableImageBlockPublicAccessResult {
+  /**
+   * @public
+   * <p>Returns <code>unblocked</code> if the request succeeds; otherwise, it returns an
+   *       error.</p>
+   */
+  ImageBlockPublicAccessState?: ImageBlockPublicAccessDisabledState | string;
+}
+
+/**
+ * @public
+ */
 export interface DisableImageDeprecationRequest {
   /**
    * @public
@@ -4306,6 +4345,53 @@ export interface EnableFastSnapshotRestoresResult {
    * <p>Information about the snapshots for which fast snapshot restores could not be enabled.</p>
    */
   Unsuccessful?: EnableFastSnapshotRestoreErrorItem[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageBlockPublicAccessEnabledState = {
+  block_new_sharing: "block-new-sharing",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageBlockPublicAccessEnabledState =
+  (typeof ImageBlockPublicAccessEnabledState)[keyof typeof ImageBlockPublicAccessEnabledState];
+
+/**
+ * @public
+ */
+export interface EnableImageBlockPublicAccessRequest {
+  /**
+   * @public
+   * <p>Specify <code>block-new-sharing</code> to enable block public access for AMIs at the
+   *       account level in the specified Region. This will block any attempt to publicly share your AMIs
+   *       in the specified Region.</p>
+   */
+  ImageBlockPublicAccessState: ImageBlockPublicAccessEnabledState | string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface EnableImageBlockPublicAccessResult {
+  /**
+   * @public
+   * <p>Returns <code>block-new-sharing</code> if the request succeeds; otherwise, it returns an
+   *       error.</p>
+   */
+  ImageBlockPublicAccessState?: ImageBlockPublicAccessEnabledState | string;
 }
 
 /**
@@ -5908,6 +5994,44 @@ export interface GetHostReservationPurchasePreviewResult {
    * <p>The potential total upfront price. This is billed immediately.</p>
    */
   TotalUpfrontPrice?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetImageBlockPublicAccessStateRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetImageBlockPublicAccessStateResult {
+  /**
+   * @public
+   * <p>The current state of block public access for AMIs at the account level in the specified
+   *       Amazon Web Services Region.</p>
+   *          <p>Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>block-new-sharing</code> - Any attempt to publicly share your AMIs in the
+   *           specified Region is blocked.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unblocked</code> - Your AMIs in the specified Region can be publicly
+   *           shared.</p>
+   *             </li>
+   *          </ul>
+   */
+  ImageBlockPublicAccessState?: string;
 }
 
 /**
@@ -8345,232 +8469,6 @@ export interface GetVerifiedAccessGroupPolicyResult {
 }
 
 /**
- * @public
- */
-export interface GetVpnConnectionDeviceSampleConfigurationRequest {
-  /**
-   * @public
-   * <p>The <code>VpnConnectionId</code> specifies the Site-to-Site VPN connection used for the sample
-   *             configuration.</p>
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * @public
-   * <p>Device identifier provided by the <code>GetVpnConnectionDeviceTypes</code> API.</p>
-   */
-  VpnConnectionDeviceTypeId: string | undefined;
-
-  /**
-   * @public
-   * <p>The IKE version to be used in the sample configuration file for your customer gateway
-   *             device. You can specify one of the following versions: <code>ikev1</code> or
-   *                 <code>ikev2</code>.</p>
-   */
-  InternetKeyExchangeVersion?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetVpnConnectionDeviceSampleConfigurationResult {
-  /**
-   * @public
-   * <p>Sample configuration file for the specified customer gateway device.</p>
-   */
-  VpnConnectionDeviceSampleConfiguration?: string;
-}
-
-/**
- * @public
- */
-export interface GetVpnConnectionDeviceTypesRequest {
-  /**
-   * @public
-   * <p>The maximum number of results returned by <code>GetVpnConnectionDeviceTypes</code> in
-   *             paginated output. When this parameter is used, <code>GetVpnConnectionDeviceTypes</code>
-   *             only returns <code>MaxResults</code> results in a single page along with a
-   *                 <code>NextToken</code> response element. The remaining results of the initial
-   *             request can be seen by sending another <code>GetVpnConnectionDeviceTypes</code> request
-   *             with the returned <code>NextToken</code> value. This value can be between 200 and 1000.
-   *             If this parameter is not used, then <code>GetVpnConnectionDeviceTypes</code> returns all
-   *             results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The <code>NextToken</code> value returned from a previous paginated
-   *                 <code>GetVpnConnectionDeviceTypes</code> request where <code>MaxResults</code> was
-   *             used and the results exceeded the value of that parameter. Pagination continues from the
-   *             end of the previous results that returned the <code>NextToken</code> value. This value
-   *             is null when there are no more results to return. </p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- * <p>List of customer gateway devices that have a sample configuration file available for
- *             use. You can also see the list of device types with sample configuration files available
- *             under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your customer
- *                 gateway device</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
- */
-export interface VpnConnectionDeviceType {
-  /**
-   * @public
-   * <p>Customer gateway device identifier.</p>
-   */
-  VpnConnectionDeviceTypeId?: string;
-
-  /**
-   * @public
-   * <p>Customer gateway device vendor.</p>
-   */
-  Vendor?: string;
-
-  /**
-   * @public
-   * <p>Customer gateway device platform.</p>
-   */
-  Platform?: string;
-
-  /**
-   * @public
-   * <p>Customer gateway device software version.</p>
-   */
-  Software?: string;
-}
-
-/**
- * @public
- */
-export interface GetVpnConnectionDeviceTypesResult {
-  /**
-   * @public
-   * <p>List of customer gateway devices that have a sample configuration file available for
-   *             use.</p>
-   */
-  VpnConnectionDeviceTypes?: VpnConnectionDeviceType[];
-
-  /**
-   * @public
-   * <p>The <code>NextToken</code> value to include in a future
-   *                 <code>GetVpnConnectionDeviceTypes</code> request. When the results of a
-   *                 <code>GetVpnConnectionDeviceTypes</code> request exceed <code>MaxResults</code>,
-   *             this value can be used to retrieve the next page of results. This value is null when
-   *             there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetVpnTunnelReplacementStatusRequest {
-  /**
-   * @public
-   * <p>The ID of the Site-to-Site VPN connection. </p>
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * @public
-   * <p>The external IP address of the VPN tunnel.</p>
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- * <p>Details for Site-to-Site VPN tunnel endpoint maintenance events.</p>
- */
-export interface MaintenanceDetails {
-  /**
-   * @public
-   * <p>Verify existence of a pending maintenance.</p>
-   */
-  PendingMaintenance?: string;
-
-  /**
-   * @public
-   * <p>The timestamp after which Amazon Web Services will automatically apply maintenance.</p>
-   */
-  MaintenanceAutoAppliedAfter?: Date;
-
-  /**
-   * @public
-   * <p>Timestamp of last applied maintenance.</p>
-   */
-  LastMaintenanceApplied?: Date;
-}
-
-/**
- * @public
- */
-export interface GetVpnTunnelReplacementStatusResult {
-  /**
-   * @public
-   * <p>The ID of the Site-to-Site VPN connection. </p>
-   */
-  VpnConnectionId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the transit gateway associated with the VPN connection.</p>
-   */
-  TransitGatewayId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the customer gateway.</p>
-   */
-  CustomerGatewayId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the virtual private gateway.</p>
-   */
-  VpnGatewayId?: string;
-
-  /**
-   * @public
-   * <p>The external IP address of the VPN tunnel.</p>
-   */
-  VpnTunnelOutsideIpAddress?: string;
-
-  /**
-   * @public
-   * <p>Get details of pending tunnel endpoint maintenance.</p>
-   */
-  MaintenanceDetails?: MaintenanceDetails;
-}
-
-/**
  * @internal
  */
 export const DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog = (
@@ -8622,14 +8520,4 @@ export const GetLaunchTemplateDataResultFilterSensitiveLog = (obj: GetLaunchTemp
 export const GetPasswordDataResultFilterSensitiveLog = (obj: GetPasswordDataResult): any => ({
   ...obj,
   ...(obj.PasswordData && { PasswordData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog = (
-  obj: GetVpnConnectionDeviceSampleConfigurationResult
-): any => ({
-  ...obj,
-  ...(obj.VpnConnectionDeviceSampleConfiguration && { VpnConnectionDeviceSampleConfiguration: SENSITIVE_STRING }),
 });

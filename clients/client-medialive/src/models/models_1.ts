@@ -30,17 +30,18 @@ import {
   HlsId3SegmentTaggingState,
   HlsIncompleteSegmentBehavior,
   HlsIvInManifest,
-  HlsIvSource,
   IFrameOnlyPlaylistType,
   Input,
   InputAttachment,
   InputClass,
   InputDestination,
   InputDestinationRequest,
+  InputDeviceCodec,
   InputDeviceConfiguredInput,
   InputDeviceConnectionState,
   InputDeviceHdSettings,
   InputDeviceNetworkSettings,
+  InputDeviceOutputType,
   InputDeviceSettings,
   InputDeviceSummary,
   InputDeviceType,
@@ -57,7 +58,6 @@ import {
   InputType,
   InputWhitelistRule,
   InputWhitelistRuleCidr,
-  KeyProviderSettings,
   LogLevel,
   MaintenanceDay,
   MaintenanceStatus,
@@ -65,10 +65,7 @@ import {
   MediaConnectFlowRequest,
   MultiplexOutputDestination,
   MultiplexProgramPipelineDetail,
-  MultiplexProgramSummary,
   MultiplexState,
-  MultiplexSummary,
-  Offering,
   OfferingDurationUnits,
   OfferingType,
   Output,
@@ -77,6 +74,50 @@ import {
   ReservationResourceSpecification,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsIvSource = {
+  EXPLICIT: "EXPLICIT",
+  FOLLOWS_SEGMENT_NUMBER: "FOLLOWS_SEGMENT_NUMBER",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsIvSource = (typeof HlsIvSource)[keyof typeof HlsIvSource];
+
+/**
+ * @public
+ * Static Key Settings
+ */
+export interface StaticKeySettings {
+  /**
+   * @public
+   * The URL of the license server used for protecting content.
+   */
+  KeyProviderServer?: InputLocation;
+
+  /**
+   * @public
+   * Static key value as a 32 character hexadecimal string.
+   */
+  StaticKeyValue: string | undefined;
+}
+
+/**
+ * @public
+ * Key Provider Settings
+ */
+export interface KeyProviderSettings {
+  /**
+   * @public
+   * Static Key Settings
+   */
+  StaticKeySettings?: StaticKeySettings;
+}
 
 /**
  * @public
@@ -4790,6 +4831,48 @@ export type GlobalConfigurationOutputLockingMode =
 
 /**
  * @public
+ * Epoch Locking Settings
+ */
+export interface EpochLockingSettings {
+  /**
+   * @public
+   * Optional. Enter a value here to use a custom epoch, instead of the standard epoch (which started at 1970-01-01T00:00:00 UTC). Specify the start time of the custom epoch, in YYYY-MM-DDTHH:MM:SS in UTC. The time must be 2000-01-01T00:00:00 or later. Always set the MM:SS portion to 00:00.
+   */
+  CustomEpoch?: string;
+
+  /**
+   * @public
+   * Optional. Enter a time for the jam sync. The default is midnight UTC. When epoch locking is enabled, MediaLive performs a daily jam sync on every output encode to ensure timecodes don’t diverge from the wall clock. The jam sync applies only to encodes with frame rate of 29.97 or 59.94 FPS. To override, enter a time in HH:MM:SS in UTC. Always set the MM:SS portion to 00:00.
+   */
+  JamSyncTime?: string;
+}
+
+/**
+ * @public
+ * Pipeline Locking Settings
+ */
+export interface PipelineLockingSettings {}
+
+/**
+ * @public
+ * Output Locking Settings
+ */
+export interface OutputLockingSettings {
+  /**
+   * @public
+   * Epoch Locking Settings
+   */
+  EpochLockingSettings?: EpochLockingSettings;
+
+  /**
+   * @public
+   * Pipeline Locking Settings
+   */
+  PipelineLockingSettings?: PipelineLockingSettings;
+}
+
+/**
+ * @public
  * @enum
  */
 export const GlobalConfigurationOutputTimingSource = {
@@ -4861,6 +4944,12 @@ export interface GlobalConfiguration {
    * Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
    */
   SupportLowFramerateInputs?: GlobalConfigurationLowFramerateInputs | string;
+
+  /**
+   * @public
+   * Advanced output locking settings
+   */
+  OutputLockingSettings?: OutputLockingSettings;
 }
 
 /**
@@ -6831,6 +6920,18 @@ export interface DescribeInputDeviceResponse {
    * The Availability Zone associated with this input device.
    */
   AvailabilityZone?: string;
+
+  /**
+   * @public
+   * An array of the ARNs for the MediaLive inputs attached to the device. Returned only if the outputType is MEDIALIVE_INPUT.
+   */
+  MedialiveInputArns?: string[];
+
+  /**
+   * @public
+   * The output attachment type of the input device. Specifies MEDIACONNECT_FLOW if this device is the source for a MediaConnect flow. Specifies MEDIALIVE_INPUT if this device is the source for a MediaLive input.
+   */
+  OutputType?: InputDeviceOutputType | string;
 }
 
 /**
@@ -7369,6 +7470,36 @@ export interface DescribeThumbnailsResponse {
 
 /**
  * @public
+ * Parameters required to attach a MediaConnect flow to the device.
+ */
+export interface InputDeviceMediaConnectConfigurableSettings {
+  /**
+   * @public
+   * The ARN of the MediaConnect flow to attach this device to.
+   */
+  FlowArn?: string;
+
+  /**
+   * @public
+   * The ARN for the role that MediaLive assumes to access the attached flow and secret. For more information about how to create this role, see the MediaLive user guide.
+   */
+  RoleArn?: string;
+
+  /**
+   * @public
+   * The ARN for the secret that holds the encryption key to encrypt the content output by the device.
+   */
+  SecretArn?: string;
+
+  /**
+   * @public
+   * The name of the MediaConnect Flow source to stream to.
+   */
+  SourceName?: string;
+}
+
+/**
+ * @public
  * Configurable settings for the input device.
  */
 export interface InputDeviceConfigurableSettings {
@@ -7389,6 +7520,18 @@ export interface InputDeviceConfigurableSettings {
    * The Link device's buffer size (latency) in milliseconds (ms).
    */
   LatencyMs?: number;
+
+  /**
+   * @public
+   * Choose the codec for the video that the device produces. Only UHD devices can specify this parameter.
+   */
+  Codec?: InputDeviceCodec | string;
+
+  /**
+   * @public
+   * To attach this device to a MediaConnect flow, specify these parameters. To detach an existing flow, enter \{\} for the value of mediaconnectSettings. Only UHD devices can specify this parameter.
+   */
+  MediaconnectSettings?: InputDeviceMediaConnectConfigurableSettings;
 }
 
 /**
@@ -7593,246 +7736,6 @@ export interface ListMultiplexesRequest {
    * The token to retrieve the next page of results.
    */
   NextToken?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListMultiplexesResponse
- */
-export interface ListMultiplexesResponse {
-  /**
-   * @public
-   * List of multiplexes.
-   */
-  Multiplexes?: MultiplexSummary[];
-
-  /**
-   * @public
-   * Token for the next ListMultiplexes request.
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListMultiplexProgramsRequest
- */
-export interface ListMultiplexProgramsRequest {
-  /**
-   * @public
-   * The maximum number of items to return.
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * The ID of the multiplex that the programs belong to.
-   */
-  MultiplexId: string | undefined;
-
-  /**
-   * @public
-   * The token to retrieve the next page of results.
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListMultiplexProgramsResponse
- */
-export interface ListMultiplexProgramsResponse {
-  /**
-   * @public
-   * List of multiplex programs.
-   */
-  MultiplexPrograms?: MultiplexProgramSummary[];
-
-  /**
-   * @public
-   * Token for the next ListMultiplexProgram request.
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListOfferingsRequest
- */
-export interface ListOfferingsRequest {
-  /**
-   * @public
-   * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
-   */
-  ChannelClass?: string;
-
-  /**
-   * @public
-   * Filter to offerings that match the configuration of an existing channel, e.g. '2345678' (a channel ID)
-   */
-  ChannelConfiguration?: string;
-
-  /**
-   * @public
-   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', or 'LINK'
-   */
-  Codec?: string;
-
-  /**
-   * @public
-   * Filter by offering duration, e.g. '12'
-   */
-  Duration?: string;
-
-  /**
-   * @public
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
-   */
-  MaximumBitrate?: string;
-
-  /**
-   * @public
-   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
-   */
-  MaximumFramerate?: string;
-
-  /**
-   * @public
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
-   */
-  Resolution?: string;
-
-  /**
-   * @public
-   * Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
-   */
-  ResourceType?: string;
-
-  /**
-   * @public
-   * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
-   */
-  SpecialFeature?: string;
-
-  /**
-   * @public
-   * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
-   */
-  VideoQuality?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListOfferingsResponse
- */
-export interface ListOfferingsResponse {
-  /**
-   * @public
-   * Token to retrieve the next page of results
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * List of offerings
-   */
-  Offerings?: Offering[];
-}
-
-/**
- * @public
- * Placeholder documentation for ListReservationsRequest
- */
-export interface ListReservationsRequest {
-  /**
-   * @public
-   * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
-   */
-  ChannelClass?: string;
-
-  /**
-   * @public
-   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', or 'LINK'
-   */
-  Codec?: string;
-
-  /**
-   * @public
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
-   */
-  MaximumBitrate?: string;
-
-  /**
-   * @public
-   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
-   */
-  MaximumFramerate?: string;
-
-  /**
-   * @public
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
-   */
-  Resolution?: string;
-
-  /**
-   * @public
-   * Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
-   */
-  ResourceType?: string;
-
-  /**
-   * @public
-   * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
-   */
-  SpecialFeature?: string;
-
-  /**
-   * @public
-   * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
-   */
-  VideoQuality?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListReservationsResponse
- */
-export interface ListReservationsResponse {
-  /**
-   * @public
-   * Token to retrieve the next page of results
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * List of reservations
-   */
-  Reservations?: Reservation[];
 }
 
 /**

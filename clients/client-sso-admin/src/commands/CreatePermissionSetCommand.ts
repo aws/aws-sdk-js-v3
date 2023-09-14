@@ -38,7 +38,7 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  * @public
  * <p>Creates a permission set within a specified IAM Identity Center instance.</p>
  *          <note>
- *             <p>To grant users and groups access to AWS account resources, use <code>
+ *             <p>To grant users and groups access to Amazon Web Services account resources, use <code>
  *                   <a>CreateAccountAssignment</a>
  *                </code>.</p>
  *          </note>

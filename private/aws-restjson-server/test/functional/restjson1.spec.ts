@@ -223,6 +223,10 @@ class RequestSerializationTestHandler implements HttpHandler {
   handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.reject(new EXPECTED_REQUEST_SERIALIZATION_ERROR(request));
   }
+  updateHttpClientConfig(key: never, value: never): void {}
+  httpHandlerConfigs() {
+    return {};
+  }
 }
 
 /**
@@ -256,6 +260,10 @@ class ResponseDeserializationTestHandler implements HttpHandler {
         body: Readable.from([this.body]),
       }),
     });
+  }
+  updateHttpClientConfig(key: never, value: never): void {}
+  httpHandlerConfigs() {
+    return {};
   }
 }
 

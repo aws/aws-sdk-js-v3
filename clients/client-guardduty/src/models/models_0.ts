@@ -1379,6 +1379,20 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
+ * @enum
+ */
+export const ManagementType = {
+  AUTO_MANAGED: "AUTO_MANAGED",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ManagementType = (typeof ManagementType)[keyof typeof ManagementType];
+
+/**
+ * @public
  * <p>Information about the EKS cluster that has a coverage status.</p>
  */
 export interface CoverageEksClusterDetails {
@@ -1406,6 +1420,17 @@ export interface CoverageEksClusterDetails {
    * <p>Information about the installed EKS add-on.</p>
    */
   AddonDetails?: AddonDetails;
+
+  /**
+   * @public
+   * <p>Indicates how the Amazon EKS add-on GuardDuty agent is managed for this EKS cluster.</p>
+   *          <p>
+   *             <code>AUTO_MANAGED</code> indicates GuardDuty deploys and manages updates for this resource.</p>
+   *          <p>
+   *             <code>MANUAL</code> indicates that you are responsible to deploy, update, and manage
+   *       the Amazon EKS add-on GuardDuty agent for this resource.</p>
+   */
+  ManagementType?: ManagementType | string;
 }
 
 /**
@@ -1438,6 +1463,7 @@ export const CoverageFilterCriterionKey = {
   ADDON_VERSION: "ADDON_VERSION",
   CLUSTER_NAME: "CLUSTER_NAME",
   COVERAGE_STATUS: "COVERAGE_STATUS",
+  MANAGEMENT_TYPE: "MANAGEMENT_TYPE",
   RESOURCE_TYPE: "RESOURCE_TYPE",
 } as const;
 
@@ -2048,7 +2074,7 @@ export interface CreateFilterRequest {
    *                   </li>
    *                </ul>
    *                <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity">Severity
-   *             levels for GuardDuty findings</a>.</p>
+   *           levels for GuardDuty findings</a>.</p>
    *             </li>
    *             <li>
    *                <p>type</p>
@@ -3531,12 +3557,32 @@ export interface OrganizationAdditionalConfigurationResult {
 
   /**
    * @public
-   * <p>Describes how The status of the additional configuration that are configured for the
-   *       member accounts within the organization.</p>
-   *          <p>If you set <code>AutoEnable</code> to <code>NEW</code>, a feature will be configured for
-   *       only the new accounts when they join the organization.</p>
-   *          <p>If you set <code>AutoEnable</code> to <code>NONE</code>, no feature will be configured for
-   *       the accounts when they join the organization.</p>
+   * <p>Describes the status of the additional configuration that is configured for the
+   *       member accounts within the organization. One of the following
+   *     values is the status for the entire organization:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code>: Indicates that when a new account joins the organization, they will
+   *           have the additional configuration enabled automatically. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>: Indicates that all accounts in the organization have
+   *           the additional configuration
+   *           enabled automatically. This includes <code>NEW</code> accounts that join the organization
+   *           and accounts that may have been suspended or removed from the organization in
+   *           GuardDuty.</p>
+   *                <p>It may take up to 24 hours to update the configuration for all the member accounts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: Indicates that the additional configuration will not be
+   *           automatically enabled for any
+   *           account in the organization. The administrator must manage the additional configuration
+   *           for each account individually.</p>
+   *             </li>
+   *          </ul>
    */
   AutoEnable?: OrgFeatureStatus | string;
 }
@@ -3573,12 +3619,29 @@ export interface OrganizationFeatureConfigurationResult {
 
   /**
    * @public
-   * <p>Describes how The status of the feature that are configured for the member accounts within
+   * <p>Describes the status of the feature that is configured for the member accounts within
    *       the organization.</p>
-   *          <p>If you set <code>AutoEnable</code> to <code>NEW</code>, a feature will be configured for
-   *       only the new accounts when they join the organization.</p>
-   *          <p>If you set <code>AutoEnable</code> to <code>NONE</code>, no feature will be configured for
-   *       the accounts when they join the organization.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code>: Indicates that when a new account joins the organization, they will
+   *           have the feature enabled automatically. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>: Indicates that all accounts in the organization have the feature
+   *           enabled automatically. This includes <code>NEW</code> accounts that join the organization
+   *           and accounts that may have been suspended or removed from the organization in
+   *           GuardDuty.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: Indicates that the feature will not be automatically enabled for any
+   *           account in the organization. In this case, each account will be managed individually
+   *           by the
+   *           administrator.</p>
+   *             </li>
+   *          </ul>
    */
   AutoEnable?: OrgFeatureStatus | string;
 
@@ -3645,7 +3708,7 @@ export interface DescribeOrganizationConfigurationResponse {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ALL</code>: Indicates that all accounts in the Amazon Web Services Organization have GuardDuty
+   *                   <code>ALL</code>: Indicates that all accounts in the organization have GuardDuty
    *           enabled automatically. This includes <code>NEW</code> accounts that join the organization
    *           and accounts that may have been suspended or removed from the organization in
    *           GuardDuty.</p>
@@ -3653,8 +3716,8 @@ export interface DescribeOrganizationConfigurationResponse {
    *             <li>
    *                <p>
    *                   <code>NONE</code>: Indicates that GuardDuty will not be automatically enabled for any
-   *           accounts in the organization. GuardDuty must be managed for each account individually by the
-   *           administrator.</p>
+   *           account in the organization. The administrator must manage GuardDuty for each account in
+   *           the organization individually.</p>
    *             </li>
    *          </ul>
    */
@@ -4716,8 +4779,8 @@ export interface KubernetesUserDetails {
 
   /**
    * @public
-   * <p>Entity that assumes the IAM role when Kubernetes RBAC permissions are assigned to that
-   *       role.</p>
+   * <p>Entity that assumes the IAM role
+   *       when Kubernetes RBAC permissions are assigned to that role.</p>
    */
   SessionName?: string[];
 }
@@ -4838,8 +4901,8 @@ export interface LambdaDetails {
 
   /**
    * @public
-   * <p>The timestamp when the Lambda function was last modified. This field is in the UTC date
-   *       string format <code>(2023-03-22T19:37:20.168Z)</code>.</p>
+   * <p>The timestamp when the Lambda function was last modified. This field is in the UTC date string
+   *       format <code>(2023-03-22T19:37:20.168Z)</code>.</p>
    */
   LastModifiedAt?: Date;
 
@@ -4870,7 +4933,7 @@ export interface LambdaDetails {
   /**
    * @public
    * <p>A list of tags attached to this resource, listed in the format of
-   *         <code>key</code>:<code>value</code> pair.</p>
+   *       <code>key</code>:<code>value</code> pair.</p>
    */
   Tags?: Tag[];
 }
@@ -5325,8 +5388,8 @@ export interface RuntimeContext {
 
   /**
    * @public
-   * <p>The timestamp at which the process modified the current process. The timestamp is in UTC
-   *       date string format.</p>
+   * <p>The timestamp at which the process modified the current process. The timestamp is in UTC date string
+   *       format.</p>
    */
   ModifiedAt?: Date;
 
@@ -5417,15 +5480,14 @@ export interface RuntimeContext {
 
   /**
    * @public
-   * <p>Information about the process that had its memory overwritten by the current
-   *       process.</p>
+   * <p>Information about the process that had its memory overwritten by the current process.</p>
    */
   TargetProcess?: ProcessDetails;
 
   /**
    * @public
-   * <p>Represents the communication protocol associated with the address. For example, the
-   *       address family <code>AF_INET</code> is used for IP version of 4 protocol.</p>
+   * <p>Represents the communication protocol associated with the address. For example, the address
+   *       family <code>AF_INET</code> is used for IP version of 4 protocol.</p>
    */
   AddressFamily?: string;
 
@@ -7483,27 +7545,8 @@ export interface StartMalwareScanRequest {
 export interface StartMalwareScanResponse {
   /**
    * @public
-   * <p>A unique identifier that gets generated when you invoke the API without any error. Each
-   *       malware scan has a corresponding scan ID. Using this scan ID, you can monitor the status of
-   *       your malware scan.</p>
+   * <p>A unique identifier that gets generated when you invoke the API without any error. Each malware scan has
+   *       a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
    */
   ScanId?: string;
-}
-
-/**
- * @public
- */
-export interface StartMonitoringMembersRequest {
-  /**
-   * @public
-   * <p>The unique ID of the detector of the GuardDuty administrator account associated with the
-   *       member accounts to monitor.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>A list of account IDs of the GuardDuty member accounts to start monitoring.</p>
-   */
-  AccountIds: string[] | undefined;
 }

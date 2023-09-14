@@ -3477,6 +3477,7 @@ const de_TraceSummary = (output: any, context: __SerdeContext): TraceSummary => 
     ResponseTimeRootCauses: (_: any) => de_ResponseTimeRootCauses(_, context),
     Revision: __expectInt32,
     ServiceIds: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Users: _json,
   }) as any;
 };

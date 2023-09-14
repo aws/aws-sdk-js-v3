@@ -12,6 +12,7 @@ import {
   InputDeviceConnectionState,
   InputDeviceHdSettings,
   InputDeviceNetworkSettings,
+  InputDeviceOutputType,
   InputDeviceRequest,
   InputDeviceType,
   InputDeviceUhdSettings,
@@ -24,7 +25,10 @@ import {
   MaintenanceStatus,
   MediaConnectFlowRequest,
   MultiplexOutputDestination,
+  MultiplexProgramSummary,
   MultiplexState,
+  MultiplexSummary,
+  Offering,
   OutputDestination,
   VpcOutputSettingsDescription,
 } from "./models_0";
@@ -41,6 +45,246 @@ import {
   RenewalSettings,
   Reservation,
 } from "./models_1";
+
+/**
+ * @public
+ * Placeholder documentation for ListMultiplexesResponse
+ */
+export interface ListMultiplexesResponse {
+  /**
+   * @public
+   * List of multiplexes.
+   */
+  Multiplexes?: MultiplexSummary[];
+
+  /**
+   * @public
+   * Token for the next ListMultiplexes request.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListMultiplexProgramsRequest
+ */
+export interface ListMultiplexProgramsRequest {
+  /**
+   * @public
+   * The maximum number of items to return.
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * The ID of the multiplex that the programs belong to.
+   */
+  MultiplexId: string | undefined;
+
+  /**
+   * @public
+   * The token to retrieve the next page of results.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListMultiplexProgramsResponse
+ */
+export interface ListMultiplexProgramsResponse {
+  /**
+   * @public
+   * List of multiplex programs.
+   */
+  MultiplexPrograms?: MultiplexProgramSummary[];
+
+  /**
+   * @public
+   * Token for the next ListMultiplexProgram request.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListOfferingsRequest
+ */
+export interface ListOfferingsRequest {
+  /**
+   * @public
+   * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
+   */
+  ChannelClass?: string;
+
+  /**
+   * @public
+   * Filter to offerings that match the configuration of an existing channel, e.g. '2345678' (a channel ID)
+   */
+  ChannelConfiguration?: string;
+
+  /**
+   * @public
+   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', or 'LINK'
+   */
+  Codec?: string;
+
+  /**
+   * @public
+   * Filter by offering duration, e.g. '12'
+   */
+  Duration?: string;
+
+  /**
+   * @public
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
+   */
+  MaximumBitrate?: string;
+
+  /**
+   * @public
+   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
+   */
+  MaximumFramerate?: string;
+
+  /**
+   * @public
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
+   */
+  Resolution?: string;
+
+  /**
+   * @public
+   * Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
+   */
+  SpecialFeature?: string;
+
+  /**
+   * @public
+   * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
+   */
+  VideoQuality?: string;
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListOfferingsResponse
+ */
+export interface ListOfferingsResponse {
+  /**
+   * @public
+   * Token to retrieve the next page of results
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * List of offerings
+   */
+  Offerings?: Offering[];
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListReservationsRequest
+ */
+export interface ListReservationsRequest {
+  /**
+   * @public
+   * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
+   */
+  ChannelClass?: string;
+
+  /**
+   * @public
+   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', or 'LINK'
+   */
+  Codec?: string;
+
+  /**
+   * @public
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
+   */
+  MaximumBitrate?: string;
+
+  /**
+   * @public
+   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
+   */
+  MaximumFramerate?: string;
+
+  /**
+   * @public
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
+   */
+  Resolution?: string;
+
+  /**
+   * @public
+   * Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
+   */
+  SpecialFeature?: string;
+
+  /**
+   * @public
+   * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
+   */
+  VideoQuality?: string;
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListReservationsResponse
+ */
+export interface ListReservationsResponse {
+  /**
+   * @public
+   * Token to retrieve the next page of results
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * List of reservations
+   */
+  Reservations?: Reservation[];
+}
 
 /**
  * @public
@@ -336,6 +580,24 @@ export interface StartChannelResponse {
 
 /**
  * @public
+ * Placeholder documentation for StartInputDeviceRequest
+ */
+export interface StartInputDeviceRequest {
+  /**
+   * @public
+   * The unique ID of the input device to reboot. For example, hd-123456789abcdef.
+   */
+  InputDeviceId: string | undefined;
+}
+
+/**
+ * @public
+ * Placeholder documentation for StartInputDeviceResponse
+ */
+export interface StartInputDeviceResponse {}
+
+/**
+ * @public
  * Placeholder documentation for StartInputDeviceMaintenanceWindowRequest
  */
 export interface StartInputDeviceMaintenanceWindowRequest {
@@ -557,6 +819,24 @@ export interface StopChannelResponse {
    */
   Vpc?: VpcOutputSettingsDescription;
 }
+
+/**
+ * @public
+ * Placeholder documentation for StopInputDeviceRequest
+ */
+export interface StopInputDeviceRequest {
+  /**
+   * @public
+   * The unique ID of the input device to reboot. For example, hd-123456789abcdef.
+   */
+  InputDeviceId: string | undefined;
+}
+
+/**
+ * @public
+ * Placeholder documentation for StopInputDeviceResponse
+ */
+export interface StopInputDeviceResponse {}
 
 /**
  * @public
@@ -1004,6 +1284,18 @@ export interface UpdateInputDeviceResponse {
    * The Availability Zone associated with this input device.
    */
   AvailabilityZone?: string;
+
+  /**
+   * @public
+   * An array of the ARNs for the MediaLive inputs attached to the device. Returned only if the outputType is MEDIALIVE_INPUT.
+   */
+  MedialiveInputArns?: string[];
+
+  /**
+   * @public
+   * The output attachment type of the input device. Specifies MEDIACONNECT_FLOW if this device is the source for a MediaConnect flow. Specifies MEDIALIVE_INPUT if this device is the source for a MediaLive input.
+   */
+  OutputType?: InputDeviceOutputType | string;
 }
 
 /**

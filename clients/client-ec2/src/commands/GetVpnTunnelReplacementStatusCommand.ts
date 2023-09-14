@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetVpnTunnelReplacementStatusRequest, GetVpnTunnelReplacementStatusResult } from "../models/models_5";
+import { GetVpnTunnelReplacementStatusRequest, GetVpnTunnelReplacementStatusResult } from "../models/models_6";
 import { de_GetVpnTunnelReplacementStatusCommand, se_GetVpnTunnelReplacementStatusCommand } from "../protocols/Aws_ec2";
 
 /**

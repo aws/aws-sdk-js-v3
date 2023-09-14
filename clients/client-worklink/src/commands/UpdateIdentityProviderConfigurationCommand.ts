@@ -55,7 +55,7 @@ export interface UpdateIdentityProviderConfigurationCommandOutput
  * const client = new WorkLinkClient(config);
  * const input = { // UpdateIdentityProviderConfigurationRequest
  *   FleetArn: "STRING_VALUE", // required
- *   IdentityProviderType: "STRING_VALUE", // required
+ *   IdentityProviderType: "SAML", // required
  *   IdentityProviderSamlMetadata: "STRING_VALUE",
  * };
  * const command = new UpdateIdentityProviderConfigurationCommand(input);

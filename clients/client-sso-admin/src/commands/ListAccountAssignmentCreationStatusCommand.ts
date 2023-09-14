@@ -44,7 +44,7 @@ export interface ListAccountAssignmentCreationStatusCommandOutput
 
 /**
  * @public
- * <p>Lists the status of the AWS account assignment creation requests for a specified IAM Identity Center
+ * <p>Lists the status of the Amazon Web Services account assignment creation requests for a specified IAM Identity Center
  *       instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

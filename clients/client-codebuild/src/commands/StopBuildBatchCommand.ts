@@ -55,14 +55,14 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //     startTime: new Date("TIMESTAMP"),
  * //     endTime: new Date("TIMESTAMP"),
  * //     currentPhase: "STRING_VALUE",
- * //     buildBatchStatus: "STRING_VALUE",
+ * //     buildBatchStatus: "SUCCEEDED" || "FAILED" || "FAULT" || "TIMED_OUT" || "IN_PROGRESS" || "STOPPED",
  * //     sourceVersion: "STRING_VALUE",
  * //     resolvedSourceVersion: "STRING_VALUE",
  * //     projectName: "STRING_VALUE",
  * //     phases: [ // BuildBatchPhases
  * //       { // BuildBatchPhase
- * //         phaseType: "STRING_VALUE",
- * //         phaseStatus: "STRING_VALUE",
+ * //         phaseType: "SUBMITTED" || "DOWNLOAD_BATCHSPEC" || "IN_PROGRESS" || "COMBINE_ARTIFACTS" || "SUCCEEDED" || "FAILED" || "STOPPED",
+ * //         phaseStatus: "SUCCEEDED" || "FAILED" || "FAULT" || "TIMED_OUT" || "IN_PROGRESS" || "STOPPED",
  * //         startTime: new Date("TIMESTAMP"),
  * //         endTime: new Date("TIMESTAMP"),
  * //         durationInSeconds: Number("long"),
@@ -75,7 +75,7 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //       },
  * //     ],
  * //     source: { // ProjectSource
- * //       type: "STRING_VALUE", // required
+ * //       type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //       location: "STRING_VALUE",
  * //       gitCloneDepth: Number("int"),
  * //       gitSubmodulesConfig: { // GitSubmodulesConfig
@@ -83,7 +83,7 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //       },
  * //       buildspec: "STRING_VALUE",
  * //       auth: { // SourceAuth
- * //         type: "STRING_VALUE", // required
+ * //         type: "OAUTH", // required
  * //         resource: "STRING_VALUE",
  * //       },
  * //       reportBuildStatus: true || false,
@@ -96,7 +96,7 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //     },
  * //     secondarySources: [ // ProjectSources
  * //       {
- * //         type: "STRING_VALUE", // required
+ * //         type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //         location: "STRING_VALUE",
  * //         gitCloneDepth: Number("int"),
  * //         gitSubmodulesConfig: {
@@ -104,7 +104,7 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //         },
  * //         buildspec: "STRING_VALUE",
  * //         auth: {
- * //           type: "STRING_VALUE", // required
+ * //           type: "OAUTH", // required
  * //           resource: "STRING_VALUE",
  * //         },
  * //         reportBuildStatus: true || false,
@@ -129,7 +129,7 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //       overrideArtifactName: true || false,
  * //       encryptionDisabled: true || false,
  * //       artifactIdentifier: "STRING_VALUE",
- * //       bucketOwnerAccess: "STRING_VALUE",
+ * //       bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  * //     },
  * //     secondaryArtifacts: [ // BuildArtifactsList
  * //       {
@@ -139,47 +139,47 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //         overrideArtifactName: true || false,
  * //         encryptionDisabled: true || false,
  * //         artifactIdentifier: "STRING_VALUE",
- * //         bucketOwnerAccess: "STRING_VALUE",
+ * //         bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  * //       },
  * //     ],
  * //     cache: { // ProjectCache
- * //       type: "STRING_VALUE", // required
+ * //       type: "NO_CACHE" || "S3" || "LOCAL", // required
  * //       location: "STRING_VALUE",
  * //       modes: [ // ProjectCacheModes
- * //         "STRING_VALUE",
+ * //         "LOCAL_DOCKER_LAYER_CACHE" || "LOCAL_SOURCE_CACHE" || "LOCAL_CUSTOM_CACHE",
  * //       ],
  * //     },
  * //     environment: { // ProjectEnvironment
- * //       type: "STRING_VALUE", // required
+ * //       type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER", // required
  * //       image: "STRING_VALUE", // required
- * //       computeType: "STRING_VALUE", // required
+ * //       computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_2XLARGE", // required
  * //       environmentVariables: [ // EnvironmentVariables
  * //         { // EnvironmentVariable
  * //           name: "STRING_VALUE", // required
  * //           value: "STRING_VALUE", // required
- * //           type: "STRING_VALUE",
+ * //           type: "PLAINTEXT" || "PARAMETER_STORE" || "SECRETS_MANAGER",
  * //         },
  * //       ],
  * //       privilegedMode: true || false,
  * //       certificate: "STRING_VALUE",
  * //       registryCredential: { // RegistryCredential
  * //         credential: "STRING_VALUE", // required
- * //         credentialProvider: "STRING_VALUE", // required
+ * //         credentialProvider: "SECRETS_MANAGER", // required
  * //       },
- * //       imagePullCredentialsType: "STRING_VALUE",
+ * //       imagePullCredentialsType: "CODEBUILD" || "SERVICE_ROLE",
  * //     },
  * //     serviceRole: "STRING_VALUE",
  * //     logConfig: { // LogsConfig
  * //       cloudWatchLogs: { // CloudWatchLogsConfig
- * //         status: "STRING_VALUE", // required
+ * //         status: "ENABLED" || "DISABLED", // required
  * //         groupName: "STRING_VALUE",
  * //         streamName: "STRING_VALUE",
  * //       },
  * //       s3Logs: { // S3LogsConfig
- * //         status: "STRING_VALUE", // required
+ * //         status: "ENABLED" || "DISABLED", // required
  * //         location: "STRING_VALUE",
  * //         encryptionDisabled: true || false,
- * //         bucketOwnerAccess: "STRING_VALUE",
+ * //         bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  * //       },
  * //     },
  * //     buildTimeoutInMinutes: Number("int"),
@@ -199,7 +199,7 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //     buildBatchNumber: Number("long"),
  * //     fileSystemLocations: [ // ProjectFileSystemLocations
  * //       { // ProjectFileSystemLocation
- * //         type: "STRING_VALUE",
+ * //         type: "EFS",
  * //         location: "STRING_VALUE",
  * //         mountPoint: "STRING_VALUE",
  * //         identifier: "STRING_VALUE",
@@ -216,7 +216,7 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //         ],
  * //       },
  * //       timeoutInMins: Number("int"),
- * //       batchReportMode: "STRING_VALUE",
+ * //       batchReportMode: "REPORT_INDIVIDUAL_BUILDS" || "REPORT_AGGREGATED_BATCH",
  * //     },
  * //     buildGroups: [ // BuildGroups
  * //       { // BuildGroup
@@ -228,15 +228,15 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //         currentBuildSummary: { // BuildSummary
  * //           arn: "STRING_VALUE",
  * //           requestedOn: new Date("TIMESTAMP"),
- * //           buildStatus: "STRING_VALUE",
+ * //           buildStatus: "SUCCEEDED" || "FAILED" || "FAULT" || "TIMED_OUT" || "IN_PROGRESS" || "STOPPED",
  * //           primaryArtifact: { // ResolvedArtifact
- * //             type: "STRING_VALUE",
+ * //             type: "CODEPIPELINE" || "S3" || "NO_ARTIFACTS",
  * //             location: "STRING_VALUE",
  * //             identifier: "STRING_VALUE",
  * //           },
  * //           secondaryArtifacts: [ // ResolvedSecondaryArtifacts
  * //             {
- * //               type: "STRING_VALUE",
+ * //               type: "CODEPIPELINE" || "S3" || "NO_ARTIFACTS",
  * //               location: "STRING_VALUE",
  * //               identifier: "STRING_VALUE",
  * //             },
@@ -246,9 +246,9 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //           {
  * //             arn: "STRING_VALUE",
  * //             requestedOn: new Date("TIMESTAMP"),
- * //             buildStatus: "STRING_VALUE",
+ * //             buildStatus: "SUCCEEDED" || "FAILED" || "FAULT" || "TIMED_OUT" || "IN_PROGRESS" || "STOPPED",
  * //             primaryArtifact: {
- * //               type: "STRING_VALUE",
+ * //               type: "CODEPIPELINE" || "S3" || "NO_ARTIFACTS",
  * //               location: "STRING_VALUE",
  * //               identifier: "STRING_VALUE",
  * //             },

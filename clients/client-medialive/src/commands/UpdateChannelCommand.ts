@@ -320,6 +320,13 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *       OutputLockingMode: "EPOCH_LOCKING" || "PIPELINE_LOCKING",
  *       OutputTimingSource: "INPUT_CLOCK" || "SYSTEM_CLOCK",
  *       SupportLowFramerateInputs: "DISABLED" || "ENABLED",
+ *       OutputLockingSettings: { // OutputLockingSettings
+ *         EpochLockingSettings: { // EpochLockingSettings
+ *           CustomEpoch: "STRING_VALUE",
+ *           JamSyncTime: "STRING_VALUE",
+ *         },
+ *         PipelineLockingSettings: {},
+ *       },
  *     },
  *     MotionGraphicsConfiguration: { // MotionGraphicsConfiguration
  *       MotionGraphicsInsertion: "DISABLED" || "ENABLED",
@@ -1308,6 +1315,13 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //         OutputLockingMode: "EPOCH_LOCKING" || "PIPELINE_LOCKING",
  * //         OutputTimingSource: "INPUT_CLOCK" || "SYSTEM_CLOCK",
  * //         SupportLowFramerateInputs: "DISABLED" || "ENABLED",
+ * //         OutputLockingSettings: { // OutputLockingSettings
+ * //           EpochLockingSettings: { // EpochLockingSettings
+ * //             CustomEpoch: "STRING_VALUE",
+ * //             JamSyncTime: "STRING_VALUE",
+ * //           },
+ * //           PipelineLockingSettings: {},
+ * //         },
  * //       },
  * //       MotionGraphicsConfiguration: { // MotionGraphicsConfiguration
  * //         MotionGraphicsInsertion: "DISABLED" || "ENABLED",

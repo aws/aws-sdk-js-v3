@@ -201,8 +201,18 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *         jwtToken: "STRING_VALUE",
  *       },
  *       ServiceNow: { // ServiceNowConnectorProfileCredentials
- *         username: "STRING_VALUE", // required
- *         password: "STRING_VALUE", // required
+ *         username: "STRING_VALUE",
+ *         password: "STRING_VALUE",
+ *         oAuth2Credentials: { // OAuth2Credentials
+ *           clientId: "STRING_VALUE",
+ *           clientSecret: "STRING_VALUE",
+ *           accessToken: "STRING_VALUE",
+ *           refreshToken: "STRING_VALUE",
+ *           oAuthRequest: {
+ *             authCode: "STRING_VALUE",
+ *             redirectUri: "STRING_VALUE",
+ *           },
+ *         },
  *       },
  *       Singular: { // SingularConnectorProfileCredentials
  *         apiKey: "STRING_VALUE", // required
@@ -211,10 +221,7 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *         clientId: "STRING_VALUE", // required
  *         clientSecret: "STRING_VALUE", // required
  *         accessToken: "STRING_VALUE",
- *         oAuthRequest: {
- *           authCode: "STRING_VALUE",
- *           redirectUri: "STRING_VALUE",
- *         },
+ *         oAuthRequest: "<ConnectorOAuthRequest>",
  *       },
  *       Snowflake: { // SnowflakeConnectorProfileCredentials
  *         username: "STRING_VALUE", // required
@@ -252,7 +259,7 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *           username: "STRING_VALUE", // required
  *           password: "STRING_VALUE", // required
  *         },
- *         oauth2: { // OAuth2Credentials
+ *         oauth2: {
  *           clientId: "STRING_VALUE",
  *           clientSecret: "STRING_VALUE",
  *           accessToken: "STRING_VALUE",

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/body-checksum-browser",
-  "version": "3.398.0",
+  "version": "3.410.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -23,8 +23,8 @@
     "@aws-sdk/sha256-tree-hash": "*",
     "@aws-sdk/types": "*",
     "@smithy/chunked-blob-reader": "^2.0.0",
-    "@smithy/protocol-http": "^2.0.5",
-    "@smithy/types": "^2.2.2",
+    "@smithy/protocol-http": "^3.0.2",
+    "@smithy/types": "^2.3.0",
     "@smithy/util-hex-encoding": "^2.0.0",
     "@smithy/util-utf8": "^2.0.0",
     "tslib": "^2.5.0"

@@ -76,7 +76,7 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *     ],
  *     RedactedFields: [ // RedactedFields
  *       { // FieldToMatch
- *         Type: "STRING_VALUE", // required
+ *         Type: "URI" || "QUERY_STRING" || "HEADER" || "METHOD" || "BODY" || "SINGLE_QUERY_ARG" || "ALL_QUERY_ARGS", // required
  *         Data: "STRING_VALUE",
  *       },
  *     ],
@@ -92,7 +92,7 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * //     ],
  * //     RedactedFields: [ // RedactedFields
  * //       { // FieldToMatch
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "URI" || "QUERY_STRING" || "HEADER" || "METHOD" || "BODY" || "SINGLE_QUERY_ARG" || "ALL_QUERY_ARGS", // required
  * //         Data: "STRING_VALUE",
  * //       },
  * //     ],

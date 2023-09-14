@@ -39,7 +39,6 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * <p>Updates a gateway's metadata, which includes the gateway's name and time zone.
  *          To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in
  *          your request.</p>
- *
  *          <note>
  *             <p>For gateways activated after September 2, 2015, the gateway's ARN contains the
  *             gateway ID rather than the gateway name. However, changing the name of the gateway has
@@ -56,7 +55,7 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  *   GatewayName: "STRING_VALUE",
  *   GatewayTimezone: "STRING_VALUE",
  *   CloudWatchLogGroupARN: "STRING_VALUE",
- *   GatewayCapacity: "STRING_VALUE",
+ *   GatewayCapacity: "Small" || "Medium" || "Large",
  * };
  * const command = new UpdateGatewayInformationCommand(input);
  * const response = await client.send(command);

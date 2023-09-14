@@ -50,8 +50,8 @@ export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinit
  * const input = { // UpdateReportDefinitionRequest
  *   reportId: "STRING_VALUE", // required
  *   reportDescription: "STRING_VALUE", // required
- *   reportFrequency: "STRING_VALUE", // required
- *   format: "STRING_VALUE", // required
+ *   reportFrequency: "MONTHLY" || "DAILY" || "ALL", // required
+ *   format: "CSV" || "PARQUET", // required
  *   destinationS3Location: { // S3Location
  *     bucket: "STRING_VALUE", // required
  *     prefix: "STRING_VALUE", // required

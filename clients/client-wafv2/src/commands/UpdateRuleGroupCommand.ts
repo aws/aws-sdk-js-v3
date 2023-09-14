@@ -611,6 +611,7 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *                   },
  *                   AWSManagedRulesBotControlRuleSet: { // AWSManagedRulesBotControlRuleSet
  *                     InspectionLevel: "COMMON" || "TARGETED", // required
+ *                     EnableMachineLearning: true || false,
  *                   },
  *                   AWSManagedRulesATPRuleSet: { // AWSManagedRulesATPRuleSet
  *                     LoginPath: "STRING_VALUE", // required
@@ -827,6 +828,7 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *               PasswordField: "<PasswordField>",
  *               AWSManagedRulesBotControlRuleSet: {
  *                 InspectionLevel: "COMMON" || "TARGETED", // required
+ *                 EnableMachineLearning: true || false,
  *               },
  *               AWSManagedRulesATPRuleSet: {
  *                 LoginPath: "STRING_VALUE", // required

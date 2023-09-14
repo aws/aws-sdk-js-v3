@@ -62,7 +62,7 @@ export interface GetReadinessCheckResourceStatusCommandOutput
  * const response = await client.send(command);
  * // { // GetReadinessCheckResourceStatusResponse
  * //   NextToken: "STRING_VALUE",
- * //   Readiness: "STRING_VALUE",
+ * //   Readiness: "READY" || "NOT_READY" || "UNKNOWN" || "NOT_AUTHORIZED",
  * //   Rules: [ // __listOfRuleResult
  * //     { // RuleResult
  * //       LastCheckedTimestamp: new Date("TIMESTAMP"), // required
@@ -71,7 +71,7 @@ export interface GetReadinessCheckResourceStatusCommandOutput
  * //           MessageText: "STRING_VALUE",
  * //         },
  * //       ],
- * //       Readiness: "STRING_VALUE", // required
+ * //       Readiness: "READY" || "NOT_READY" || "UNKNOWN" || "NOT_AUTHORIZED", // required
  * //       RuleId: "STRING_VALUE", // required
  * //     },
  * //   ],

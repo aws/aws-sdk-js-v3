@@ -56,7 +56,7 @@ export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __M
  *   asOfTimestamp: Number("long"),
  *   destinationTypeParams: { // DataViewDestinationTypeParams
  *     destinationType: "STRING_VALUE", // required
- *     s3DestinationExportFileFormat: "STRING_VALUE",
+ *     s3DestinationExportFileFormat: "PARQUET" || "DELIMITED_TEXT",
  *     s3DestinationExportFileFormatOptions: { // S3DestinationFormatOptions
  *       "<keys>": "STRING_VALUE",
  *     },

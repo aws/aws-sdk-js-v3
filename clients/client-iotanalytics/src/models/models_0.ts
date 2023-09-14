@@ -68,7 +68,7 @@ export interface BatchPutMessageRequest {
    * <p>The list of messages to be sent. Each message has the format: \{ "messageId": "string",
    *          "payload": "string"\}.</p>
    *          <p>The field names of message payloads (data) that you send to IoT Analytics:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Must contain only alphanumeric characters and undescores (_). No other special characters are
    *                allowed.</p>

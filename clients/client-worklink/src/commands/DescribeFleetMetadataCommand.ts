@@ -58,7 +58,7 @@ export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadat
  * //   DisplayName: "STRING_VALUE",
  * //   OptimizeForEndUserLocation: true || false,
  * //   CompanyCode: "STRING_VALUE",
- * //   FleetStatus: "STRING_VALUE",
+ * //   FleetStatus: "CREATING" || "ACTIVE" || "DELETING" || "DELETED" || "FAILED_TO_CREATE" || "FAILED_TO_DELETE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

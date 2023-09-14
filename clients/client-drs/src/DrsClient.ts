@@ -71,6 +71,7 @@ import {
   CreateSourceNetworkCommandOutput,
 } from "./commands/CreateSourceNetworkCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import { DeleteLaunchActionCommandInput, DeleteLaunchActionCommandOutput } from "./commands/DeleteLaunchActionCommand";
 import {
   DeleteLaunchConfigurationTemplateCommandInput,
   DeleteLaunchConfigurationTemplateCommandOutput,
@@ -146,6 +147,7 @@ import {
   ListExtensibleSourceServersCommandInput,
   ListExtensibleSourceServersCommandOutput,
 } from "./commands/ListExtensibleSourceServersCommand";
+import { ListLaunchActionsCommandInput, ListLaunchActionsCommandOutput } from "./commands/ListLaunchActionsCommand";
 import {
   ListStagingAccountsCommandInput,
   ListStagingAccountsCommandOutput,
@@ -154,6 +156,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutLaunchActionCommandInput, PutLaunchActionCommandOutput } from "./commands/PutLaunchActionCommand";
 import {
   RetryDataReplicationCommandInput,
   RetryDataReplicationCommandOutput,
@@ -226,6 +229,7 @@ export type ServiceInputTypes =
   | CreateReplicationConfigurationTemplateCommandInput
   | CreateSourceNetworkCommandInput
   | DeleteJobCommandInput
+  | DeleteLaunchActionCommandInput
   | DeleteLaunchConfigurationTemplateCommandInput
   | DeleteRecoveryInstanceCommandInput
   | DeleteReplicationConfigurationTemplateCommandInput
@@ -247,8 +251,10 @@ export type ServiceInputTypes =
   | GetReplicationConfigurationCommandInput
   | InitializeServiceCommandInput
   | ListExtensibleSourceServersCommandInput
+  | ListLaunchActionsCommandInput
   | ListStagingAccountsCommandInput
   | ListTagsForResourceCommandInput
+  | PutLaunchActionCommandInput
   | RetryDataReplicationCommandInput
   | ReverseReplicationCommandInput
   | StartFailbackLaunchCommandInput
@@ -278,6 +284,7 @@ export type ServiceOutputTypes =
   | CreateReplicationConfigurationTemplateCommandOutput
   | CreateSourceNetworkCommandOutput
   | DeleteJobCommandOutput
+  | DeleteLaunchActionCommandOutput
   | DeleteLaunchConfigurationTemplateCommandOutput
   | DeleteRecoveryInstanceCommandOutput
   | DeleteReplicationConfigurationTemplateCommandOutput
@@ -299,8 +306,10 @@ export type ServiceOutputTypes =
   | GetReplicationConfigurationCommandOutput
   | InitializeServiceCommandOutput
   | ListExtensibleSourceServersCommandOutput
+  | ListLaunchActionsCommandOutput
   | ListStagingAccountsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutLaunchActionCommandOutput
   | RetryDataReplicationCommandOutput
   | ReverseReplicationCommandOutput
   | StartFailbackLaunchCommandOutput

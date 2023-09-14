@@ -897,13 +897,13 @@ import {
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DataSource,
-  DefaultSpaceSettings,
   EdgeOutputConfig,
   EndpointInput,
   FileSystemConfig,
   FileSystemDataSource,
   FinalAutoMLJobObjectiveMetric,
   GitConfig,
+  HolidayConfigAttributes,
   HyperParameterSpecification,
   HyperParameterTuningJobObjective,
   IdentityProviderOAuthSetting,
@@ -1031,6 +1031,7 @@ import {
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
+  DefaultSpaceSettings,
   DeleteActionRequest,
   DeleteAlgorithmInput,
   DeleteAppImageConfigRequest,
@@ -1046,7 +1047,6 @@ import {
   DeleteEdgeDeploymentStageRequest,
   DeleteEndpointConfigInput,
   DeleteEndpointInput,
-  DeleteExperimentRequest,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -1195,6 +1195,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteExperimentRequest,
   DeleteFeatureGroupRequest,
   DeleteFlowDefinitionRequest,
   DeleteHubContentRequest,
@@ -1363,8 +1364,6 @@ import {
   Experiment,
   ExperimentSummary,
   FeatureGroup,
-  FeatureGroupSummary,
-  FeatureMetadata,
   FeatureParameter,
   FinalHyperParameterTuningJobObjectiveMetric,
   HyperParameterTrainingJobSummary,
@@ -1391,6 +1390,8 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  FeatureGroupSummary,
+  FeatureMetadata,
   Filter,
   FlowDefinitionSummary,
   GetDeviceFleetReportRequest,
@@ -1582,8 +1583,6 @@ import {
   NotebookInstanceSummary,
   OnlineStoreConfigUpdate,
   Parameter,
-  Pipeline,
-  PipelineExecution,
   PipelineExecutionStep,
   PipelineExecutionSummary,
   PipelineSummary,
@@ -1604,6 +1603,8 @@ import {
   UserProfileDetails,
 } from "../models/models_3";
 import {
+  Pipeline,
+  PipelineExecution,
   ProcessingJob,
   ProfilerConfigForUpdate,
   Project,
@@ -20168,6 +20169,10 @@ const se_EndpointInput = (input: EndpointInput, context: __SerdeContext): any =>
 
 // se_Groups omitted.
 
+// se_HolidayConfig omitted.
+
+// se_HolidayConfigAttributes omitted.
+
 // se_HookParameters omitted.
 
 // se_HubContentSearchKeywordList omitted.
@@ -23075,6 +23080,8 @@ const de_DeploymentStageStatusSummary = (output: any, context: __SerdeContext): 
   }) as any;
 };
 
+// de_DerivedInformation omitted.
+
 /**
  * deserializeAws_json1_1DescribeActionResponse
  */
@@ -23250,6 +23257,7 @@ const de_DescribeCompilationJobResponse = (output: any, context: __SerdeContext)
     CompilationJobStatus: __expectString,
     CompilationStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DerivedInformation: _json,
     FailureReason: __expectString,
     InferenceImage: __expectString,
     InputConfig: _json,
@@ -24922,6 +24930,10 @@ const de_GetScalingConfigurationRecommendationResponse = (
 // de_GroupingAttributeNames omitted.
 
 // de_Groups omitted.
+
+// de_HolidayConfig omitted.
+
+// de_HolidayConfigAttributes omitted.
 
 // de_HookParameters omitted.
 

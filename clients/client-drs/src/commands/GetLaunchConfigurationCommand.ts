@@ -59,6 +59,7 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * //   licensing: { // Licensing
  * //     osByol: true || false,
  * //   },
+ * //   postLaunchEnabled: true || false,
  * // };
  *
  * ```

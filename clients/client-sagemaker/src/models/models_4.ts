@@ -10,7 +10,6 @@ import {
   BooleanOperator,
   Channel,
   CheckpointConfig,
-  DefaultSpaceSettings,
   EdgeOutputConfig,
   KernelGatewayImageConfig,
   MetadataProperties,
@@ -29,6 +28,7 @@ import {
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
+  DefaultSpaceSettings,
   DeploymentConfig,
   ExperimentConfig,
   FeatureDefinition,
@@ -80,10 +80,12 @@ import {
   Endpoint,
   Experiment,
   FeatureGroup,
-  FeatureMetadata,
   FeatureParameter,
   MetricData,
   ModelArtifacts,
+  PipelineExecutionStatus,
+  PipelineExperimentConfig,
+  PipelineStatus,
   ProcessingJobStatus,
   ProjectStatus,
   SecondaryStatus,
@@ -98,6 +100,7 @@ import {
   Workteam,
 } from "./models_2";
 import {
+  FeatureMetadata,
   Filter,
   GitConfigForUpdate,
   HyperParameterTuningJobSearchEntity,
@@ -113,11 +116,187 @@ import {
   OnlineStoreConfigUpdate,
   Parameter,
   Parent,
-  Pipeline,
-  PipelineExecution,
   ResourceType,
   TransformJob,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>A SageMaker Model Building Pipeline instance.</p>
+ */
+export interface Pipeline {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   */
+  PipelineArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the pipeline.</p>
+   */
+  PipelineName?: string;
+
+  /**
+   * @public
+   * <p>The display name of the pipeline.</p>
+   */
+  PipelineDisplayName?: string;
+
+  /**
+   * @public
+   * <p>The description of the pipeline.</p>
+   */
+  PipelineDescription?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the role that created the pipeline.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * @public
+   * <p>The status of the pipeline.</p>
+   */
+  PipelineStatus?: PipelineStatus | string;
+
+  /**
+   * @public
+   * <p>The creation time of the pipeline.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The time that the pipeline was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The time when the pipeline was last run.</p>
+   */
+  LastRunTime?: Date;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>The parallelism configuration applied to the pipeline.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
+
+  /**
+   * @public
+   * <p>A list of tags that apply to the pipeline.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * <p>An execution of a pipeline.</p>
+ */
+export interface PipelineExecution {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the pipeline that was executed.</p>
+   */
+  PipelineArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+
+  /**
+   * @public
+   * <p>The display name of the pipeline execution.</p>
+   */
+  PipelineExecutionDisplayName?: string;
+
+  /**
+   * @public
+   * <p>The status of the pipeline status.</p>
+   */
+  PipelineExecutionStatus?: PipelineExecutionStatus | string;
+
+  /**
+   * @public
+   * <p>The description of the pipeline execution.</p>
+   */
+  PipelineExecutionDescription?: string;
+
+  /**
+   * @public
+   * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
+   */
+  PipelineExperimentConfig?: PipelineExperimentConfig;
+
+  /**
+   * @public
+   * <p>If the execution failed, a message describing why.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>The creation time of the pipeline execution.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The time that the pipeline execution was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>The parallelism configuration applied to the pipeline execution.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
+
+  /**
+   * @public
+   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
+   */
+  PipelineParameters?: Parameter[];
+
+  /**
+   * @public
+   * <p>The selective execution configuration applied to the pipeline run.</p>
+   */
+  SelectiveExecutionConfig?: SelectiveExecutionConfig;
+}
 
 /**
  * @public

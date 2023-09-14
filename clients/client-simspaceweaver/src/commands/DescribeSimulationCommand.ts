@@ -58,8 +58,8 @@ export interface DescribeSimulationCommandOutput extends DescribeSimulationOutpu
  * //   Status: "STRING_VALUE",
  * //   TargetStatus: "STRING_VALUE",
  * //   SchemaS3Location: { // S3Location
- * //     BucketName: "STRING_VALUE",
- * //     ObjectKey: "STRING_VALUE",
+ * //     BucketName: "STRING_VALUE", // required
+ * //     ObjectKey: "STRING_VALUE", // required
  * //   },
  * //   SchemaError: "STRING_VALUE",
  * //   LoggingConfiguration: { // LoggingConfiguration
@@ -87,8 +87,8 @@ export interface DescribeSimulationCommandOutput extends DescribeSimulationOutpu
  * //   },
  * //   MaximumDuration: "STRING_VALUE",
  * //   SnapshotS3Location: {
- * //     BucketName: "STRING_VALUE",
- * //     ObjectKey: "STRING_VALUE",
+ * //     BucketName: "STRING_VALUE", // required
+ * //     ObjectKey: "STRING_VALUE", // required
  * //   },
  * //   StartError: "STRING_VALUE",
  * // };

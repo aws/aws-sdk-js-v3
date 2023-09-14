@@ -52,7 +52,7 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  * const input = { // ListAnomalyGroupRelatedMetricsRequest
  *   AnomalyDetectorArn: "STRING_VALUE", // required
  *   AnomalyGroupId: "STRING_VALUE", // required
- *   RelationshipTypeFilter: "STRING_VALUE",
+ *   RelationshipTypeFilter: "CAUSE_OF_INPUT_ANOMALY_GROUP" || "EFFECT_OF_INPUT_ANOMALY_GROUP",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -63,7 +63,7 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  * //     { // InterMetricImpactDetails
  * //       MetricName: "STRING_VALUE",
  * //       AnomalyGroupId: "STRING_VALUE",
- * //       RelationshipType: "STRING_VALUE",
+ * //       RelationshipType: "CAUSE_OF_INPUT_ANOMALY_GROUP" || "EFFECT_OF_INPUT_ANOMALY_GROUP",
  * //       ContributionPercentage: Number("double"),
  * //     },
  * //   ],

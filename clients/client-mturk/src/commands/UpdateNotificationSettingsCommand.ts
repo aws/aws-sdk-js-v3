@@ -58,10 +58,10 @@ export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificat
  *   HITTypeId: "STRING_VALUE", // required
  *   Notification: { // NotificationSpecification
  *     Destination: "STRING_VALUE", // required
- *     Transport: "STRING_VALUE", // required
+ *     Transport: "Email" || "SQS" || "SNS", // required
  *     Version: "STRING_VALUE", // required
  *     EventTypes: [ // EventTypeList // required
- *       "STRING_VALUE",
+ *       "AssignmentAccepted" || "AssignmentAbandoned" || "AssignmentReturned" || "AssignmentSubmitted" || "AssignmentRejected" || "AssignmentApproved" || "HITCreated" || "HITExpired" || "HITReviewable" || "HITExtended" || "HITDisposed" || "Ping",
  *     ],
  *   },
  *   Active: true || false,

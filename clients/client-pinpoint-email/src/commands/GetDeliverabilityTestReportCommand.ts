@@ -60,7 +60,7 @@ export interface GetDeliverabilityTestReportCommandOutput
  * //     Subject: "STRING_VALUE",
  * //     FromEmailAddress: "STRING_VALUE",
  * //     CreateDate: new Date("TIMESTAMP"),
- * //     DeliverabilityTestStatus: "STRING_VALUE",
+ * //     DeliverabilityTestStatus: "IN_PROGRESS" || "COMPLETED",
  * //   },
  * //   OverallPlacement: { // PlacementStatistics
  * //     InboxPercentage: Number("double"),

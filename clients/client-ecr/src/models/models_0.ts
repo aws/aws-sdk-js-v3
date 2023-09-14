@@ -325,7 +325,7 @@ export interface BatchGetImageRequest {
   /**
    * @public
    * <p>The accepted media types for the request.</p>
-   *         <p>Valid values: <code>application/vnd.docker.distribution.manifest.v1+json</code> |
+   *          <p>Valid values: <code>application/vnd.docker.distribution.manifest.v1+json</code> |
    *                 <code>application/vnd.docker.distribution.manifest.v2+json</code> |
    *                 <code>application/vnd.oci.image.manifest.v1+json</code>
    *          </p>
@@ -883,11 +883,11 @@ export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType
  * @public
  * <p>The encryption configuration for the repository. This determines how the contents of
  *             your repository are encrypted at rest.</p>
- *         <p>By default, when no encryption configuration is set or the <code>AES256</code>
+ *          <p>By default, when no encryption configuration is set or the <code>AES256</code>
  *             encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption
  *             keys which encrypts your data at rest using an AES-256 encryption algorithm. This does
  *             not require any action on your part.</p>
- *         <p>For more control over the encryption of the contents of your repository, you can use
+ *          <p>For more control over the encryption of the contents of your repository, you can use
  *             server-side encryption with Key Management Service key stored in Key Management Service (KMS) to encrypt your
  *             images. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html">Amazon ECR encryption at
  *                 rest</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
@@ -896,14 +896,14 @@ export interface EncryptionConfiguration {
   /**
    * @public
    * <p>The encryption type to use.</p>
-   *         <p>If you use the <code>KMS</code> encryption type, the contents of the repository will
+   *          <p>If you use the <code>KMS</code> encryption type, the contents of the repository will
    *             be encrypted using server-side encryption with Key Management Service key stored in KMS. When you
    *             use KMS to encrypt your data, you can either use the default Amazon Web Services managed KMS key
    *             for Amazon ECR, or specify your own KMS key, which you already created. For more
    *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting data using server-side
    *                 encryption with an KMS key stored in Key Management Service (SSE-KMS)</a> in the
    *                 <i>Amazon Simple Storage Service Console Developer Guide</i>.</p>
-   *         <p>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
+   *          <p>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
    *             with Amazon S3-managed encryption keys which encrypts the images in the repository using an
    *             AES-256 encryption algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Protecting data using
    *                 server-side encryption with Amazon S3-managed encryption keys (SSE-S3)</a> in the
@@ -962,13 +962,13 @@ export interface Tag {
    * <p>One part of a key-value pair that make up a tag. A <code>key</code> is a general label
    *             that acts like a category for more specific tag values.</p>
    */
-  Key?: string;
+  Key: string | undefined;
 
   /**
    * @public
    * <p>A <code>value</code> acts as a descriptor within a tag category (key).</p>
    */
-  Value?: string;
+  Value: string | undefined;
 }
 
 /**
@@ -987,6 +987,8 @@ export interface CreateRepositoryRequest {
    * <p>The name to use for the repository. The repository name may be specified on its own
    *             (such as <code>nginx-web-app</code>) or it can be prepended with a namespace to group
    *             the repository into a category (such as <code>project-a/nginx-web-app</code>).</p>
+   *          <p>The repository name must start with a letter and can only contain lowercase letters,
+   *             numbers, hyphens, underscores, and forward slashes.</p>
    */
   repositoryName: string | undefined;
 
@@ -1032,7 +1034,7 @@ export interface Repository {
    * @public
    * <p>The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the
    *     repository, Amazon Web Services account ID of the repository owner, repository namespace, and repository name.
-   *     For example, <code>arn:aws:ecr:region:012345678910:repository/test</code>.</p>
+   *     For example, <code>arn:aws:ecr:region:012345678910:repository-namespace/repository-name</code>.</p>
    */
   repositoryArn?: string;
 
@@ -1762,14 +1764,14 @@ export interface ImageDetail {
   /**
    * @public
    * <p>The size, in bytes, of the image in the repository.</p>
-   *         <p>If the image is a manifest list, this will be the max size of all manifests in the
+   *          <p>If the image is a manifest list, this will be the max size of all manifests in the
    *             list.</p>
-   *         <note>
+   *          <note>
    *             <p>Beginning with Docker version 1.9, the Docker client compresses image layers
    *                 before pushing them to a V2 Docker registry. The output of the <code>docker
    *                     images</code> command shows the uncompressed image size, so it may return a
    *                 larger image size than the image sizes returned by <a>DescribeImages</a>.</p>
-   *         </note>
+   *          </note>
    */
   imageSizeInBytes?: number;
 
@@ -1808,14 +1810,14 @@ export interface ImageDetail {
    * @public
    * <p>The date and time, expressed in standard JavaScript date format, when Amazon ECR recorded
    *             the last image pull.</p>
-   *         <note>
+   *          <note>
    *             <p>Amazon ECR refreshes the last image pull timestamp at least once every 24 hours. For
    *                 example, if you pull an image once a day then the <code>lastRecordedPullTime</code>
    *                 timestamp will indicate the exact time that the image was last pulled. However, if
    *                 you pull an image once an hour, because Amazon ECR refreshes the
    *                     <code>lastRecordedPullTime</code> timestamp at least once every 24 hours, the
    *                 result may not be the exact time that the image was last pulled.</p>
-   *         </note>
+   *          </note>
    */
   lastRecordedPullTime?: Date;
 }
@@ -2626,8 +2628,8 @@ export type RepositoryFilterType = (typeof RepositoryFilterType)[keyof typeof Re
  * @public
  * <p>The filter settings used with image replication. Specifying a repository filter to a
  *             replication rule provides a method for controlling which repositories in a private
- *             registry are replicated. If no repository filter is specified, all images in the
- *             repository are replicated.</p>
+ *             registry are replicated. If no filters are added, the contents of all repositories are
+ *             replicated.</p>
  */
 export interface RepositoryFilter {
   /**
@@ -2724,10 +2726,10 @@ export interface DescribeRepositoriesRequest {
    *             the previous results that returned the <code>nextToken</code> value. This value is
    *                 <code>null</code> when there are no more results to return. This option cannot be
    *             used when you specify repositories with <code>repositoryNames</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>This token should be treated as an opaque identifier that is only used to
    *                 retrieve the next items in a list and not for other programmatic purposes.</p>
-   *         </note>
+   *          </note>
    */
   nextToken?: string;
 
@@ -3224,8 +3226,9 @@ export interface RegistryScanningRule {
    * <p>The frequency that scans are performed at for a private registry. When the
    *                 <code>ENHANCED</code> scan type is specified, the supported scan frequencies are
    *                 <code>CONTINUOUS_SCAN</code> and <code>SCAN_ON_PUSH</code>. When the
-   *                 <code>BASIC</code> scan type is specified, the <code>SCAN_ON_PUSH</code> and
-   *                 <code>MANUAL</code> scan frequencies are supported.</p>
+   *                 <code>BASIC</code> scan type is specified, the <code>SCAN_ON_PUSH</code> scan
+   *             frequency is supported. If scan on push is not specified, then the <code>MANUAL</code>
+   *             scan frequency is set by default.</p>
    */
   scanFrequency: ScanFrequency | string | undefined;
 
@@ -3401,10 +3404,10 @@ export interface ListImagesRequest {
    *             results exceeded the value of that parameter. Pagination continues from the end of the
    *             previous results that returned the <code>nextToken</code> value. This value is
    *                 <code>null</code> when there are no more results to return.</p>
-   *         <note>
+   *          <note>
    *             <p>This token should be treated as an opaque identifier that is only used to
    *                 retrieve the next items in a list and not for other programmatic purposes.</p>
-   *         </note>
+   *          </note>
    */
   nextToken?: string;
 
@@ -3798,12 +3801,12 @@ export interface PutRegistryScanningConfigurationRequest {
   /**
    * @public
    * <p>The scanning type to set for the registry.</p>
-   *         <p>When a registry scanning configuration is not defined, by default the
+   *          <p>When a registry scanning configuration is not defined, by default the
    *                 <code>BASIC</code> scan type is used. When basic scanning is used, you may specify
    *             filters to determine which individual repositories, or all repositories, are scanned
    *             when new images are pushed to those repositories. Alternatively, you can do manual scans
    *             of images with basic scanning.</p>
-   *         <p>When the <code>ENHANCED</code> scan type is set, Amazon Inspector provides automated
+   *          <p>When the <code>ENHANCED</code> scan type is set, Amazon Inspector provides automated
    *             vulnerability scanning. You may choose between continuous scanning or scan on push and
    *             you may specify filters to determine which individual repositories, or all repositories,
    *             are scanned.</p>

@@ -88,7 +88,7 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  *       { // Selector
  *         fieldName: "STRING_VALUE",
  *         operator: { // Operator
- *           type: "STRING_VALUE",
+ *           type: "EQ" || "REF_EQ" || "LE" || "GE" || "BETWEEN",
  *           values: [ // stringList
  *             "STRING_VALUE",
  *           ],

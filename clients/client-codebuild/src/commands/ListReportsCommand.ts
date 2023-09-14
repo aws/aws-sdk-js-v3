@@ -46,11 +46,11 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  * // const { CodeBuildClient, ListReportsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const input = { // ListReportsInput
- *   sortOrder: "STRING_VALUE",
+ *   sortOrder: "ASCENDING" || "DESCENDING",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   filter: { // ReportFilter
- *     status: "STRING_VALUE",
+ *     status: "GENERATING" || "SUCCEEDED" || "FAILED" || "INCOMPLETE" || "DELETING",
  *   },
  * };
  * const command = new ListReportsCommand(input);

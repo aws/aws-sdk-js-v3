@@ -48,7 +48,7 @@ export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplate
  * const input = { // SearchSystemTemplatesRequest
  *   filters: [ // SystemTemplateFilters
  *     { // SystemTemplateFilter
- *       name: "STRING_VALUE", // required
+ *       name: "FLOW_TEMPLATE_ID", // required
  *       value: [ // SystemTemplateFilterValues // required
  *         "STRING_VALUE",
  *       ],

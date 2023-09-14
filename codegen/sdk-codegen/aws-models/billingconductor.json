@@ -62,7 +62,9 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
-          "additionalAllowedHeaders": ["X-Api-Key"]
+          "additionalAllowedHeaders": [
+            "X-Api-Key"
+          ]
         },
         "smithy.api#documentation": "<p>Amazon Web Services Billing Conductor is a fully managed service that you can use\n      to customize a <a href=\"https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions\">pro forma</a> version of your billing data each month, to accurately show or chargeback\n      your end customers. Amazon Web Services Billing Conductor doesn't change the way\n      you're billed by Amazon Web Services each month by design. Instead, it provides you with a\n      mechanism to configure, generate, and display rates to certain customers over a given billing\n      period. You can also analyze the difference between the rates you apply to your accounting\n      groupings relative to your actual rates from Amazon Web Services. As a result of your Amazon Web Services Billing Conductor configuration, the payer account can also see the\n      custom rate applied on the billing details page of the <a href=\"https://console.aws.amazon.com/billing\">Amazon Web Services Billing console</a>, or configure a cost and usage report per\n      billing group.</p>\n         <p>This documentation shows how you can configure Amazon Web Services Billing Conductor using its\n      API. For more information about using the <a href=\"https://console.aws.amazon.com/billingconductor/\">Amazon Web Services\n        Billing Conductor</a> user interface, see the <a href=\"https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html\"> Amazon Web Services Billing Conductor User Guide</a>.</p>",
         "smithy.api#title": "AWSBillingConductor",
@@ -126,9 +128,239 @@
                   "type": "error"
                 },
                 {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
                   "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "type": "tree",
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "name"
+                              ]
+                            },
+                            "aws"
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            false
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            false
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://billingconductor.us-east-1.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "billingconductor",
+                              "signingRegion": "us-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://billingconductor-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://billingconductor-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ]
+                    },
                     {
                       "conditions": [
                         {
@@ -141,15 +373,50 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                      "type": "error"
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://billingconductor.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ]
                     },
                     {
                       "conditions": [],
                       "endpoint": {
-                        "url": {
-                          "ref": "Endpoint"
-                        },
+                        "url": "https://billingconductor.{Region}.{PartitionResult#dnsSuffix}",
                         "properties": {},
                         "headers": {}
                       },
@@ -161,309 +428,8 @@
             },
             {
               "conditions": [],
-              "type": "tree",
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "isSet",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "aws.partition",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            }
-                          ],
-                          "assign": "PartitionResult"
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "stringEquals",
-                              "argv": [
-                                {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "name"
-                                  ]
-                                },
-                                "aws"
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                false
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                false
-                              ]
-                            }
-                          ],
-                          "endpoint": {
-                            "url": "https://billingconductor.us-east-1.amazonaws.com",
-                            "properties": {
-                              "authSchemes": [
-                                {
-                                  "name": "sigv4",
-                                  "signingName": "billingconductor",
-                                  "signingRegion": "us-east-1"
-                                }
-                              ]
-                            },
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://billingconductor-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://billingconductor-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS is enabled but this partition does not support FIPS",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://billingconductor.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "DualStack is enabled but this partition does not support DualStack",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://billingconductor.{Region}.{PartitionResult#dnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "error": "Invalid Configuration: Missing Region",
-                  "type": "error"
-                }
-              ]
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
@@ -1358,7 +1324,9 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "smithy.api#documentation": "A billing group is a set of linked account which belong to the same end customer.\nIt can be seen as a virtual consolidated billing family.\n"
       }
@@ -1691,7 +1659,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>\n      Creates a billing group that resembles a consolidated billing family that Amazon Web Services charges, based off of the predefined pricing plan computation.\n    </p>",
         "smithy.api#http": {
           "method": "POST",
@@ -1793,7 +1764,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>\n      Creates a custom line item that can be used to create a one-time fixed charge that can be applied to a single billing group for the current or previous billing period. The one-time fixed charge is either a fee or discount. \n    </p>",
         "smithy.api#http": {
           "method": "POST",
@@ -1923,7 +1897,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Creates a pricing plan that is used for computing Amazon Web Services charges for billing groups.\n    </p>",
         "smithy.api#http": {
           "method": "POST",
@@ -2012,7 +1989,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>\n      Creates a pricing rule can be associated to a pricing plan, or a set of pricing plans.\n    </p>",
         "smithy.api#http": {
           "method": "POST",
@@ -2183,7 +2163,9 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "smithy.api#documentation": "Represents the custom line item\n"
       }
@@ -2288,6 +2270,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The type of the custom line item that indicates whether the charge is a fee or credit.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "LineItemFilters": {
+          "target": "com.amazonaws.billingconductor#LineItemFiltersList",
+          "traits": {
+            "smithy.api#documentation": "<p>A representation of the line item filter.</p>"
           }
         }
       },
@@ -3030,6 +3018,81 @@
         "smithy.api#httpError": 500
       }
     },
+    "com.amazonaws.billingconductor#LineItemFilter": {
+      "type": "structure",
+      "members": {
+        "Attribute": {
+          "target": "com.amazonaws.billingconductor#LineItemFilterAttributeName",
+          "traits": {
+            "smithy.api#documentation": "<p>The attribute of the line item filter. This specifies what attribute that you can filter\n      on.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MatchOption": {
+          "target": "com.amazonaws.billingconductor#MatchOption",
+          "traits": {
+            "smithy.api#documentation": "<p>The match criteria of the line item filter. This parameter specifies whether not to include the resource value from the billing group total cost.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Values": {
+          "target": "com.amazonaws.billingconductor#LineItemFilterValuesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The values of the line item filter. This specifies the values to filter on. Currently, you can only exclude Savings Plan discounts.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A representation of the line item filter for your custom line item. You can use line item filters to include or exclude specific resource values from the billing group's total cost. \n      For example, if you create a custom line item and you want to filter out a value, such as\n      Savings Plan discounts, you can update <code>LineItemFilter</code> to exclude it.</p>"
+      }
+    },
+    "com.amazonaws.billingconductor#LineItemFilterAttributeName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "LINE_ITEM_TYPE",
+            "name": "LINE_ITEM_TYPE"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.billingconductor#LineItemFilterValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "SAVINGS_PLAN_NEGATION",
+            "name": "SAVINGS_PLAN_NEGATION"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.billingconductor#LineItemFilterValuesList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.billingconductor#LineItemFilterValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
+    "com.amazonaws.billingconductor#LineItemFiltersList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.billingconductor#LineItemFilter"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1
+        }
+      }
+    },
     "com.amazonaws.billingconductor#ListAccountAssociations": {
       "type": "operation",
       "input": {
@@ -3390,6 +3453,12 @@
           "traits": {
             "smithy.api#documentation": "<p>\n      The type of the custom line item that indicates whether the charge is a <code>fee</code> or <code>credit</code>.\n    </p>",
             "smithy.api#required": {}
+          }
+        },
+        "LineItemFilters": {
+          "target": "com.amazonaws.billingconductor#LineItemFiltersList",
+          "traits": {
+            "smithy.api#documentation": "<p>A representation of the line item filter.</p>"
           }
         }
       },
@@ -4239,7 +4308,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>\n      A list the tags for a resource.\n    </p>",
         "smithy.api#http": {
           "method": "GET",
@@ -4305,6 +4377,17 @@
     },
     "com.amazonaws.billingconductor#MarginPercentage": {
       "type": "string"
+    },
+    "com.amazonaws.billingconductor#MatchOption": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "NOT_EQUAL",
+            "name": "NOT_EQUAL"
+          }
+        ]
+      }
     },
     "com.amazonaws.billingconductor#MaxBillingGroupResults": {
       "type": "integer",
@@ -4430,7 +4513,9 @@
       ],
       "traits": {
         "aws.cloudformation#cfnResource": {},
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "smithy.api#documentation": "Pricing Plan enables you to customize your billing\ndetails consistent with the usage that accrues\nin each of your billing groups.\n"
       }
@@ -4558,7 +4643,9 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "smithy.api#documentation": "A markup/discount that is defined for a specific set\nof services that can later be associated with a pricing plan.\n"
       }
@@ -4925,7 +5012,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p> Associates the specified tags to a resource with the specified <code>resourceArn</code>.\n      If existing tags on a resource are not specified in the request parameters, they are not\n      changed. </p>",
         "smithy.api#http": {
           "method": "POST",
@@ -5067,7 +5157,10 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>\n      Deletes specified tags from a resource.\n    </p>",
         "smithy.api#http": {
           "method": "DELETE",
@@ -5339,6 +5432,12 @@
           "target": "com.amazonaws.billingconductor#UpdateCustomLineItemPercentageChargeDetails",
           "traits": {
             "smithy.api#documentation": "<p>\n      An <code>UpdateCustomLineItemPercentageChargeDetails</code> that describes the new charge details of a percentage custom line item.\n    </p>"
+          }
+        },
+        "LineItemFilters": {
+          "target": "com.amazonaws.billingconductor#LineItemFiltersList",
+          "traits": {
+            "smithy.api#documentation": "<p>A representation of the line item filter.</p>"
           }
         }
       },

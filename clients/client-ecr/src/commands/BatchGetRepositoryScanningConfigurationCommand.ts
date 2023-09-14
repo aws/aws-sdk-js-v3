@@ -65,11 +65,11 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
  * //       repositoryArn: "STRING_VALUE",
  * //       repositoryName: "STRING_VALUE",
  * //       scanOnPush: true || false,
- * //       scanFrequency: "STRING_VALUE",
+ * //       scanFrequency: "SCAN_ON_PUSH" || "CONTINUOUS_SCAN" || "MANUAL",
  * //       appliedScanFilters: [ // ScanningRepositoryFilterList
  * //         { // ScanningRepositoryFilter
  * //           filter: "STRING_VALUE", // required
- * //           filterType: "STRING_VALUE", // required
+ * //           filterType: "WILDCARD", // required
  * //         },
  * //       ],
  * //     },
@@ -77,7 +77,7 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
  * //   failures: [ // RepositoryScanningConfigurationFailureList
  * //     { // RepositoryScanningConfigurationFailure
  * //       repositoryName: "STRING_VALUE",
- * //       failureCode: "STRING_VALUE",
+ * //       failureCode: "REPOSITORY_NOT_FOUND",
  * //       failureReason: "STRING_VALUE",
  * //     },
  * //   ],

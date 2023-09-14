@@ -43,30 +43,30 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * <p>
  *             <code>BatchMeterUsage</code> is called from a SaaS application listed on AWS
  *             Marketplace to post metering records for a set of customers.</p>
- *         <p>For identical requests, the API is idempotent; requests can be retried with the same
+ *          <p>For identical requests, the API is idempotent; requests can be retried with the same
  *             records or a subset of the input records.</p>
- *         <p>Every request to <code>BatchMeterUsage</code> is for one product. If you need to meter
+ *          <p>Every request to <code>BatchMeterUsage</code> is for one product. If you need to meter
  *             usage for multiple products, you must make multiple calls to
  *                 <code>BatchMeterUsage</code>.</p>
- *         <p>Usage records are expected to be submitted as quickly as possible after the event that
+ *          <p>Usage records are expected to be submitted as quickly as possible after the event that
  *             is being recorded, and are not accepted more than 6 hours after the event.</p>
- *         <p>
+ *          <p>
  *             <code>BatchMeterUsage</code> can process up to 25 <code>UsageRecords</code> at a
  *             time.</p>
- *         <p>A <code>UsageRecord</code> can optionally include multiple usage allocations, to
+ *          <p>A <code>UsageRecord</code> can optionally include multiple usage allocations, to
  *             provide customers with usage data split into buckets by tags that you define (or allow
  *             the customer to define).</p>
- *         <p>
+ *          <p>
  *             <code>BatchMeterUsage</code> returns a list of <code>UsageRecordResult</code> objects,
  *             showing the result for each <code>UsageRecord</code>, as well as a list of
  *                 <code>UnprocessedRecords</code>, indicating errors in the service side that you
  *             should retry.</p>
- *         <p>
+ *          <p>
  *             <code>BatchMeterUsage</code> requests must be less than 1MB in size.</p>
- *         <note>
+ *          <note>
  *             <p>For an example of using <code>BatchMeterUsage</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-batchmeterusage-example"> BatchMeterUsage code example</a> in the <i>AWS Marketplace Seller
  *                     Guide</i>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,7 +118,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * //         ],
  * //       },
  * //       MeteringRecordId: "STRING_VALUE",
- * //       Status: "STRING_VALUE",
+ * //       Status: "Success" || "CustomerNotSubscribed" || "DuplicateRecord",
  * //     },
  * //   ],
  * //   UnprocessedRecords: [ // UsageRecordList
@@ -182,7 +182,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * @throws {@link TimestampOutOfBoundsException} (client fault)
  *  <p>The <code>timestamp</code> value passed in the <code>UsageRecord</code> is out of
  *             allowed range.</p>
- *         <p>For <code>BatchMeterUsage</code>, if any of the records are outside of the allowed
+ *          <p>For <code>BatchMeterUsage</code>, if any of the records are outside of the allowed
  *             range, the entire batch is not processed. You must remove invalid records and try
  *             again.</p>
  *

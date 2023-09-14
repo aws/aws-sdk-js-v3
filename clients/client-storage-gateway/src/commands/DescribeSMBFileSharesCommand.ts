@@ -64,7 +64,7 @@ export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileShare
  * //       Role: "STRING_VALUE",
  * //       LocationARN: "STRING_VALUE",
  * //       DefaultStorageClass: "STRING_VALUE",
- * //       ObjectACL: "STRING_VALUE",
+ * //       ObjectACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control" || "aws-exec-read",
  * //       ReadOnly: true || false,
  * //       GuessMIMETypeEnabled: true || false,
  * //       RequesterPays: true || false,
@@ -81,7 +81,7 @@ export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileShare
  * //       ],
  * //       AuditDestinationARN: "STRING_VALUE",
  * //       Authentication: "STRING_VALUE",
- * //       CaseSensitivity: "STRING_VALUE",
+ * //       CaseSensitivity: "ClientSpecified" || "CaseSensitive",
  * //       Tags: [ // Tags
  * //         { // Tag
  * //           Key: "STRING_VALUE", // required

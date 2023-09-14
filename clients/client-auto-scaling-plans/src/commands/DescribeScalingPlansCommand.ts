@@ -84,15 +84,15 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  * //       },
  * //       ScalingInstructions: [ // ScalingInstructions // required
  * //         { // ScalingInstruction
- * //           ServiceNamespace: "STRING_VALUE", // required
+ * //           ServiceNamespace: "autoscaling" || "ecs" || "ec2" || "rds" || "dynamodb", // required
  * //           ResourceId: "STRING_VALUE", // required
- * //           ScalableDimension: "STRING_VALUE", // required
+ * //           ScalableDimension: "autoscaling:autoScalingGroup:DesiredCapacity" || "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "rds:cluster:ReadReplicaCount" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits", // required
  * //           MinCapacity: Number("int"), // required
  * //           MaxCapacity: Number("int"), // required
  * //           TargetTrackingConfigurations: [ // TargetTrackingConfigurations // required
  * //             { // TargetTrackingConfiguration
  * //               PredefinedScalingMetricSpecification: { // PredefinedScalingMetricSpecification
- * //                 PredefinedScalingMetricType: "STRING_VALUE", // required
+ * //                 PredefinedScalingMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "DynamoDBReadCapacityUtilization" || "DynamoDBWriteCapacityUtilization" || "ECSServiceAverageCPUUtilization" || "ECSServiceAverageMemoryUtilization" || "ALBRequestCountPerTarget" || "RDSReaderAverageCPUUtilization" || "RDSReaderAverageDatabaseConnections" || "EC2SpotFleetRequestAverageCPUUtilization" || "EC2SpotFleetRequestAverageNetworkIn" || "EC2SpotFleetRequestAverageNetworkOut", // required
  * //                 ResourceLabel: "STRING_VALUE",
  * //               },
  * //               CustomizedScalingMetricSpecification: { // CustomizedScalingMetricSpecification
@@ -104,7 +104,7 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  * //                     Value: "STRING_VALUE", // required
  * //                   },
  * //                 ],
- * //                 Statistic: "STRING_VALUE", // required
+ * //                 Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum", // required
  * //                 Unit: "STRING_VALUE",
  * //               },
  * //               TargetValue: Number("double"), // required
@@ -115,7 +115,7 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  * //             },
  * //           ],
  * //           PredefinedLoadMetricSpecification: { // PredefinedLoadMetricSpecification
- * //             PredefinedLoadMetricType: "STRING_VALUE", // required
+ * //             PredefinedLoadMetricType: "ASGTotalCPUUtilization" || "ASGTotalNetworkIn" || "ASGTotalNetworkOut" || "ALBTargetGroupRequestCount", // required
  * //             ResourceLabel: "STRING_VALUE",
  * //           },
  * //           CustomizedLoadMetricSpecification: { // CustomizedLoadMetricSpecification
@@ -127,18 +127,18 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  * //                 Value: "STRING_VALUE", // required
  * //               },
  * //             ],
- * //             Statistic: "STRING_VALUE", // required
+ * //             Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum", // required
  * //             Unit: "STRING_VALUE",
  * //           },
  * //           ScheduledActionBufferTime: Number("int"),
- * //           PredictiveScalingMaxCapacityBehavior: "STRING_VALUE",
+ * //           PredictiveScalingMaxCapacityBehavior: "SetForecastCapacityToMaxCapacity" || "SetMaxCapacityToForecastCapacity" || "SetMaxCapacityAboveForecastCapacity",
  * //           PredictiveScalingMaxCapacityBuffer: Number("int"),
- * //           PredictiveScalingMode: "STRING_VALUE",
- * //           ScalingPolicyUpdateBehavior: "STRING_VALUE",
+ * //           PredictiveScalingMode: "ForecastAndScale" || "ForecastOnly",
+ * //           ScalingPolicyUpdateBehavior: "KeepExternalPolicies" || "ReplaceExternalPolicies",
  * //           DisableDynamicScaling: true || false,
  * //         },
  * //       ],
- * //       StatusCode: "STRING_VALUE", // required
+ * //       StatusCode: "Active" || "ActiveWithProblems" || "CreationInProgress" || "CreationFailed" || "DeletionInProgress" || "DeletionFailed" || "UpdateInProgress" || "UpdateFailed", // required
  * //       StatusMessage: "STRING_VALUE",
  * //       StatusStartTime: new Date("TIMESTAMP"),
  * //       CreationTime: new Date("TIMESTAMP"),

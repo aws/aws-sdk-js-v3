@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-node",
-  "version": "3.405.0",
+  "version": "3.410.0",
   "description": "AWS credential provider that sources credentials from a Node.JS environment. ",
   "engines": {
     "node": ">=14.0.0"
@@ -36,7 +36,7 @@
     "@smithy/credential-provider-imds": "^2.0.0",
     "@smithy/property-provider": "^2.0.0",
     "@smithy/shared-ini-file-loader": "^2.0.6",
-    "@smithy/types": "^2.2.2",
+    "@smithy/types": "^2.3.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

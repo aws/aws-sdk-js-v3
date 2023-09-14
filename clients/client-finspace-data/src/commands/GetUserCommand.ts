@@ -50,12 +50,12 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * const response = await client.send(command);
  * // { // GetUserResponse
  * //   userId: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "CREATING" || "ENABLED" || "DISABLED",
  * //   firstName: "STRING_VALUE",
  * //   lastName: "STRING_VALUE",
  * //   emailAddress: "STRING_VALUE",
- * //   type: "STRING_VALUE",
- * //   apiAccess: "STRING_VALUE",
+ * //   type: "SUPER_USER" || "APP_USER",
+ * //   apiAccess: "ENABLED" || "DISABLED",
  * //   apiAccessPrincipalArn: "STRING_VALUE",
  * //   createTime: Number("long"),
  * //   lastEnabledTime: Number("long"),

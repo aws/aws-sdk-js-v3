@@ -77,6 +77,7 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
  * //         osByol: true || false,
  * //       },
  * //       exportBucketArn: "STRING_VALUE",
+ * //       postLaunchEnabled: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

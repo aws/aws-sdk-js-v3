@@ -10109,6 +10109,9 @@ const de_RestoreDBClusterFromSnapshotCommandError = async (
     case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
+    case "DBSubnetGroupDoesNotCoverEnoughAZs":
+    case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
+      throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
       throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
@@ -16871,6 +16874,9 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   if (input.EnableLocalWriteForwarding != null) {
     entries["EnableLocalWriteForwarding"] = input.EnableLocalWriteForwarding;
   }
+  if (input.AwsBackupRecoveryPointArn != null) {
+    entries["AwsBackupRecoveryPointArn"] = input.AwsBackupRecoveryPointArn;
+  }
   return entries;
 };
 
@@ -20372,6 +20378,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output["LocalWriteForwardingStatus"] !== undefined) {
     contents.LocalWriteForwardingStatus = __expectString(output["LocalWriteForwardingStatus"]);
   }
+  if (output["AwsBackupRecoveryPointArn"] !== undefined) {
+    contents.AwsBackupRecoveryPointArn = __expectString(output["AwsBackupRecoveryPointArn"]);
+  }
   return contents;
 };
 
@@ -20467,6 +20476,9 @@ const de_DBClusterAutomatedBackup = (output: any, context: __SerdeContext): DBCl
   }
   if (output["Iops"] !== undefined) {
     contents.Iops = __strictParseInt32(output["Iops"]) as number;
+  }
+  if (output["AwsBackupRecoveryPointArn"] !== undefined) {
+    contents.AwsBackupRecoveryPointArn = __expectString(output["AwsBackupRecoveryPointArn"]);
   }
   return contents;
 };
@@ -21856,6 +21868,9 @@ const de_DBInstanceAutomatedBackup = (output: any, context: __SerdeContext): DBI
   }
   if (output["StorageThroughput"] !== undefined) {
     contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
+  }
+  if (output["AwsBackupRecoveryPointArn"] !== undefined) {
+    contents.AwsBackupRecoveryPointArn = __expectString(output["AwsBackupRecoveryPointArn"]);
   }
   return contents;
 };

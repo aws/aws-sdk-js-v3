@@ -601,6 +601,7 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *                   },
  *                   AWSManagedRulesBotControlRuleSet: { // AWSManagedRulesBotControlRuleSet
  *                     InspectionLevel: "COMMON" || "TARGETED", // required
+ *                     EnableMachineLearning: true || false,
  *                   },
  *                   AWSManagedRulesATPRuleSet: { // AWSManagedRulesATPRuleSet
  *                     LoginPath: "STRING_VALUE", // required
@@ -817,6 +818,7 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *               PasswordField: "<PasswordField>",
  *               AWSManagedRulesBotControlRuleSet: {
  *                 InspectionLevel: "COMMON" || "TARGETED", // required
+ *                 EnableMachineLearning: true || false,
  *               },
  *               AWSManagedRulesATPRuleSet: {
  *                 LoginPath: "STRING_VALUE", // required

@@ -78,7 +78,7 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  * const input = { // UpdateQualificationTypeRequest
  *   QualificationTypeId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   QualificationTypeStatus: "STRING_VALUE",
+ *   QualificationTypeStatus: "Active" || "Inactive",
  *   Test: "STRING_VALUE",
  *   AnswerKey: "STRING_VALUE",
  *   TestDurationInSeconds: Number("long"),
@@ -95,7 +95,7 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  * //     Name: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
  * //     Keywords: "STRING_VALUE",
- * //     QualificationTypeStatus: "STRING_VALUE",
+ * //     QualificationTypeStatus: "Active" || "Inactive",
  * //     Test: "STRING_VALUE",
  * //     TestDurationInSeconds: Number("long"),
  * //     AnswerKey: "STRING_VALUE",

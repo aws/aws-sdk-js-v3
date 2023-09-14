@@ -60,7 +60,7 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  * const client = new CloudSearchDomainClient(config);
  * const input = { // UploadDocumentsRequest
  *   documents: "STREAMING_BLOB_VALUE", // required
- *   contentType: "STRING_VALUE", // required
+ *   contentType: "application/json" || "application/xml", // required
  * };
  * const command = new UploadDocumentsCommand(input);
  * const response = await client.send(command);

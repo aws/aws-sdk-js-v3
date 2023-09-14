@@ -44,7 +44,7 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  * // const { MachineLearningClient, DescribeMLModelsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // DescribeMLModelsInput
- *   FilterVariable: "STRING_VALUE",
+ *   FilterVariable: "CreatedAt" || "LastUpdatedAt" || "Status" || "Name" || "IAMUser" || "TrainingDataSourceId" || "RealtimeEndpointStatus" || "MLModelType" || "Algorithm" || "TrainingDataURI",
  *   EQ: "STRING_VALUE",
  *   GT: "STRING_VALUE",
  *   LT: "STRING_VALUE",
@@ -52,7 +52,7 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  *   LE: "STRING_VALUE",
  *   NE: "STRING_VALUE",
  *   Prefix: "STRING_VALUE",
- *   SortOrder: "STRING_VALUE",
+ *   SortOrder: "asc" || "dsc",
  *   NextToken: "STRING_VALUE",
  *   Limit: Number("int"),
  * };
@@ -67,20 +67,20 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       LastUpdatedAt: new Date("TIMESTAMP"),
  * //       Name: "STRING_VALUE",
- * //       Status: "STRING_VALUE",
+ * //       Status: "PENDING" || "INPROGRESS" || "FAILED" || "COMPLETED" || "DELETED",
  * //       SizeInBytes: Number("long"),
  * //       EndpointInfo: { // RealtimeEndpointInfo
  * //         PeakRequestsPerSecond: Number("int"),
  * //         CreatedAt: new Date("TIMESTAMP"),
  * //         EndpointUrl: "STRING_VALUE",
- * //         EndpointStatus: "STRING_VALUE",
+ * //         EndpointStatus: "NONE" || "READY" || "UPDATING" || "FAILED",
  * //       },
  * //       TrainingParameters: { // TrainingParameters
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       InputDataLocationS3: "STRING_VALUE",
- * //       Algorithm: "STRING_VALUE",
- * //       MLModelType: "STRING_VALUE",
+ * //       Algorithm: "sgd",
+ * //       MLModelType: "REGRESSION" || "BINARY" || "MULTICLASS",
  * //       ScoreThreshold: Number("float"),
  * //       ScoreThresholdLastUpdatedAt: new Date("TIMESTAMP"),
  * //       Message: "STRING_VALUE",

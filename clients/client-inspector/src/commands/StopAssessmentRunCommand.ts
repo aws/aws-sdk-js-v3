@@ -46,7 +46,7 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * const client = new InspectorClient(config);
  * const input = { // StopAssessmentRunRequest
  *   assessmentRunArn: "STRING_VALUE", // required
- *   stopAction: "STRING_VALUE",
+ *   stopAction: "START_EVALUATION" || "SKIP_EVALUATION",
  * };
  * const command = new StopAssessmentRunCommand(input);
  * const response = await client.send(command);

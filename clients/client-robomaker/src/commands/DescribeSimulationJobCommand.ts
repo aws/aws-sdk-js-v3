@@ -51,11 +51,11 @@ export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJo
  * // { // DescribeSimulationJobResponse
  * //   arn: "STRING_VALUE",
  * //   name: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "Pending" || "Preparing" || "Running" || "Restarting" || "Completed" || "Failed" || "RunningFailed" || "Terminating" || "Terminated" || "Canceled",
  * //   lastStartedAt: new Date("TIMESTAMP"),
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
- * //   failureBehavior: "STRING_VALUE",
- * //   failureCode: "STRING_VALUE",
+ * //   failureBehavior: "Fail" || "Continue",
+ * //   failureCode: "InternalServiceError" || "RobotApplicationCrash" || "SimulationApplicationCrash" || "RobotApplicationHealthCheckFailure" || "SimulationApplicationHealthCheckFailure" || "BadPermissionsRobotApplication" || "BadPermissionsSimulationApplication" || "BadPermissionsS3Object" || "BadPermissionsS3Output" || "BadPermissionsCloudwatchLogs" || "SubnetIpLimitExceeded" || "ENILimitExceeded" || "BadPermissionsUserCredentials" || "InvalidBundleRobotApplication" || "InvalidBundleSimulationApplication" || "InvalidS3Resource" || "ThrottlingError" || "LimitExceeded" || "MismatchedEtag" || "RobotApplicationVersionMismatchedEtag" || "SimulationApplicationVersionMismatchedEtag" || "ResourceNotFound" || "RequestThrottled" || "BatchTimedOut" || "BatchCanceled" || "InvalidInput" || "WrongRegionS3Bucket" || "WrongRegionS3Output" || "WrongRegionRobotApplication" || "WrongRegionSimulationApplication" || "UploadContentMismatchError",
  * //   failureReason: "STRING_VALUE",
  * //   clientRequestToken: "STRING_VALUE",
  * //   outputLocation: { // OutputLocation
@@ -96,7 +96,7 @@ export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJo
  * //         { // UploadConfiguration
  * //           name: "STRING_VALUE", // required
  * //           path: "STRING_VALUE", // required
- * //           uploadBehavior: "STRING_VALUE", // required
+ * //           uploadBehavior: "UPLOAD_ON_TERMINATE" || "UPLOAD_ROLLING_AUTO_REMOVE", // required
  * //         },
  * //       ],
  * //       useDefaultUploadConfigurations: true || false,
@@ -106,7 +106,7 @@ export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJo
  * //           name: "STRING_VALUE", // required
  * //           command: "STRING_VALUE", // required
  * //           streamOutputToCloudWatch: true || false,
- * //           exitBehavior: "STRING_VALUE",
+ * //           exitBehavior: "FAIL" || "RESTART",
  * //         },
  * //       ],
  * //       useDefaultTools: true || false,
@@ -140,7 +140,7 @@ export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJo
  * //         {
  * //           name: "STRING_VALUE", // required
  * //           path: "STRING_VALUE", // required
- * //           uploadBehavior: "STRING_VALUE", // required
+ * //           uploadBehavior: "UPLOAD_ON_TERMINATE" || "UPLOAD_ROLLING_AUTO_REMOVE", // required
  * //         },
  * //       ],
  * //       worldConfigs: [ // WorldConfigs
@@ -155,7 +155,7 @@ export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJo
  * //           name: "STRING_VALUE", // required
  * //           command: "STRING_VALUE", // required
  * //           streamOutputToCloudWatch: true || false,
- * //           exitBehavior: "STRING_VALUE",
+ * //           exitBehavior: "FAIL" || "RESTART",
  * //         },
  * //       ],
  * //       useDefaultTools: true || false,
@@ -171,7 +171,7 @@ export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJo
  * //           etag: "STRING_VALUE",
  * //         },
  * //       ],
- * //       type: "STRING_VALUE",
+ * //       type: "Prefix" || "Archive" || "File",
  * //       destination: "STRING_VALUE",
  * //     },
  * //   ],
@@ -195,7 +195,7 @@ export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJo
  * //   },
  * //   compute: { // ComputeResponse
  * //     simulationUnitLimit: Number("int"),
- * //     computeType: "STRING_VALUE",
+ * //     computeType: "CPU" || "GPU_AND_CPU",
  * //     gpuUnitLimit: Number("int"),
  * //   },
  * // };

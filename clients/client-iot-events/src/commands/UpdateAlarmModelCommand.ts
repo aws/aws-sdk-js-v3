@@ -52,7 +52,7 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  *   alarmRule: { // AlarmRule
  *     simpleRule: { // SimpleRule
  *       inputProperty: "STRING_VALUE", // required
- *       comparisonOperator: "STRING_VALUE", // required
+ *       comparisonOperator: "GREATER" || "GREATER_OR_EQUAL" || "LESS" || "LESS_OR_EQUAL" || "EQUAL" || "NOT_EQUAL", // required
  *       threshold: "STRING_VALUE", // required
  *     },
  *   },
@@ -64,7 +64,7 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  *             functionArn: "STRING_VALUE", // required
  *             payload: { // Payload
  *               contentExpression: "STRING_VALUE", // required
- *               type: "STRING_VALUE", // required
+ *               type: "STRING" || "JSON", // required
  *             },
  *           },
  *         },
@@ -111,28 +111,28 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  *           targetArn: "STRING_VALUE", // required
  *           payload: {
  *             contentExpression: "STRING_VALUE", // required
- *             type: "STRING_VALUE", // required
+ *             type: "STRING" || "JSON", // required
  *           },
  *         },
  *         iotTopicPublish: { // IotTopicPublishAction
  *           mqttTopic: "STRING_VALUE", // required
  *           payload: {
  *             contentExpression: "STRING_VALUE", // required
- *             type: "STRING_VALUE", // required
+ *             type: "STRING" || "JSON", // required
  *           },
  *         },
  *         lambda: {
  *           functionArn: "STRING_VALUE", // required
  *           payload: {
  *             contentExpression: "STRING_VALUE", // required
- *             type: "STRING_VALUE", // required
+ *             type: "STRING" || "JSON", // required
  *           },
  *         },
  *         iotEvents: { // IotEventsAction
  *           inputName: "STRING_VALUE", // required
  *           payload: {
  *             contentExpression: "STRING_VALUE", // required
- *             type: "STRING_VALUE", // required
+ *             type: "STRING" || "JSON", // required
  *           },
  *         },
  *         sqs: { // SqsAction
@@ -199,7 +199,7 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  * //   alarmModelArn: "STRING_VALUE",
  * //   alarmModelVersion: "STRING_VALUE",
  * //   lastUpdateTime: new Date("TIMESTAMP"),
- * //   status: "STRING_VALUE",
+ * //   status: "ACTIVE" || "ACTIVATING" || "INACTIVE" || "FAILED",
  * // };
  *
  * ```

@@ -57,7 +57,7 @@ export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, _
  * //     { // TableColumn
  * //       tableColumnId: "STRING_VALUE",
  * //       tableColumnName: "STRING_VALUE",
- * //       format: "STRING_VALUE",
+ * //       format: "AUTO" || "NUMBER" || "CURRENCY" || "DATE" || "TIME" || "DATE_TIME" || "PERCENTAGE" || "TEXT" || "ACCOUNTING" || "CONTACT" || "ROWLINK" || "ROWSET",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

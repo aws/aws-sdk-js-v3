@@ -49,7 +49,7 @@ export interface ExportBundleCommandOutput extends ExportBundleResult, __Metadat
  * const input = { // ExportBundleRequest
  *   bundleId: "STRING_VALUE", // required
  *   projectId: "STRING_VALUE",
- *   platform: "STRING_VALUE",
+ *   platform: "OSX" || "WINDOWS" || "LINUX" || "OBJC" || "SWIFT" || "ANDROID" || "JAVASCRIPT",
  * };
  * const command = new ExportBundleCommand(input);
  * const response = await client.send(command);

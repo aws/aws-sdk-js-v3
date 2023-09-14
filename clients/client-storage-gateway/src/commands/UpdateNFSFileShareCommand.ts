@@ -38,14 +38,11 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  * @public
  * <p>Updates a Network File System (NFS) file share. This operation is only supported in S3
  *          File Gateways.</p>
- *
  *          <note>
  *             <p>To leave a file share field unchanged, set the corresponding input field to
  *             null.</p>
  *          </note>
- *
  *          <p>Updates the following file share settings:</p>
- *
  *          <ul>
  *             <li>
  *                <p>Default storage class for your S3 bucket</p>
@@ -80,7 +77,7 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  *     OwnerId: Number("long"),
  *   },
  *   DefaultStorageClass: "STRING_VALUE",
- *   ObjectACL: "STRING_VALUE",
+ *   ObjectACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control" || "aws-exec-read",
  *   ClientList: [ // FileShareClientList
  *     "STRING_VALUE",
  *   ],

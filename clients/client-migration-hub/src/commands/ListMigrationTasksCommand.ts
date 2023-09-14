@@ -69,7 +69,7 @@ export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResul
  * //     { // MigrationTaskSummary
  * //       ProgressUpdateStream: "STRING_VALUE",
  * //       MigrationTaskName: "STRING_VALUE",
- * //       Status: "STRING_VALUE",
+ * //       Status: "NOT_STARTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
  * //       ProgressPercent: Number("int"),
  * //       StatusDetail: "STRING_VALUE",
  * //       UpdateDateTime: new Date("TIMESTAMP"),

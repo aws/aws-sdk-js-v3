@@ -56,14 +56,14 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * //       Arn: "STRING_VALUE", // required
  * //       Name: "STRING_VALUE", // required
  * //       CreationTime: new Date("TIMESTAMP"),
- * //       State: "STRING_VALUE", // required
+ * //       State: "ENABLED" || "DISABLED", // required
  * //       PreviousInvocationTime: new Date("TIMESTAMP"),
  * //       NextInvocationTime: new Date("TIMESTAMP"),
  * //       ErrorReportConfiguration: { // ErrorReportConfiguration
  * //         S3Configuration: { // S3Configuration
  * //           BucketName: "STRING_VALUE", // required
  * //           ObjectKeyPrefix: "STRING_VALUE",
- * //           EncryptionOption: "STRING_VALUE",
+ * //           EncryptionOption: "SSE_S3" || "SSE_KMS",
  * //         },
  * //       },
  * //       TargetDestination: { // TargetDestination
@@ -72,7 +72,7 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * //           TableName: "STRING_VALUE",
  * //         },
  * //       },
- * //       LastRunStatus: "STRING_VALUE",
+ * //       LastRunStatus: "AUTO_TRIGGER_SUCCESS" || "AUTO_TRIGGER_FAILURE" || "MANUAL_TRIGGER_SUCCESS" || "MANUAL_TRIGGER_FAILURE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

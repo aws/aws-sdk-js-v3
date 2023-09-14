@@ -219,6 +219,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * //     },
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //   },
  * // };
  *

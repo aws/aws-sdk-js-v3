@@ -67,8 +67,8 @@ export interface GetBotAliasCommandOutput extends GetBotAliasResponse, __Metadat
  * //   conversationLogs: { // ConversationLogsResponse
  * //     logSettings: [ // LogSettingsResponseList
  * //       { // LogSettingsResponse
- * //         logType: "STRING_VALUE",
- * //         destination: "STRING_VALUE",
+ * //         logType: "AUDIO" || "TEXT",
+ * //         destination: "CLOUDWATCH_LOGS" || "S3",
  * //         kmsKeyArn: "STRING_VALUE",
  * //         resourceArn: "STRING_VALUE",
  * //         resourcePrefix: "STRING_VALUE",

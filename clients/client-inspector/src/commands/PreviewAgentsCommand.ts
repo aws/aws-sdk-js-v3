@@ -57,7 +57,7 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * //       hostname: "STRING_VALUE",
  * //       agentId: "STRING_VALUE", // required
  * //       autoScalingGroup: "STRING_VALUE",
- * //       agentHealth: "STRING_VALUE",
+ * //       agentHealth: "HEALTHY" || "UNHEALTHY" || "UNKNOWN",
  * //       agentVersion: "STRING_VALUE",
  * //       operatingSystem: "STRING_VALUE",
  * //       kernelVersion: "STRING_VALUE",

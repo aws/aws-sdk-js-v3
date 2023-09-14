@@ -63,7 +63,7 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  * //   ],
  * //   failedItems: { // FailedItems // required
  * //     "<keys>": { // FailedItemDetails
- * //       failureCode: "STRING_VALUE", // required
+ * //       failureCode: "INVALID_ARN" || "DUPLICATE_ARN" || "ITEM_DOES_NOT_EXIST" || "ACCESS_DENIED" || "LIMIT_EXCEEDED" || "INTERNAL_ERROR", // required
  * //       retryable: true || false, // required
  * //     },
  * //   },

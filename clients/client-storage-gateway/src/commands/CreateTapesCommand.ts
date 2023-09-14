@@ -38,7 +38,6 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  * @public
  * <p>Creates one or more virtual tapes. You write data to the virtual tapes and then archive
  *          the tapes. This operation is only supported in the tape gateway type.</p>
- *
  *          <note>
  *             <p>Cache storage must be allocated to the gateway before you can create virtual tapes.
  *             Use the <a>AddCache</a> operation to add cache storage to a gateway.</p>

@@ -5649,7 +5649,7 @@
                 {
                   "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/333333333333",
                   "JoinedMethod": "INVITED",
-                  "JoinedTimestamp": 1.481835795536e9,
+                  "JoinedTimestamp": 1481835795.536,
                   "Id": "333333333333",
                   "Name": "Development Account",
                   "Email": "juan@example.com",
@@ -5658,7 +5658,7 @@
                 {
                   "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/444444444444",
                   "JoinedMethod": "INVITED",
-                  "JoinedTimestamp": 1.481835812143e9,
+                  "JoinedTimestamp": 1481835812.143,
                   "Id": "444444444444",
                   "Name": "Test Account",
                   "Email": "anika@example.com",
@@ -5910,7 +5910,9 @@
             "title": "To get a list of completed account creation requests made in the organization",
             "documentation": "The following example shows a user requesting a list of only the completed account creation requests made for the current organization:",
             "input": {
-              "States": ["SUCCEEDED"]
+              "States": [
+                "SUCCEEDED"
+              ]
             },
             "output": {
               "CreateAccountStatuses": [

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { IoT1ClickDevicesServiceExtensionConfiguration } from "./extensionConfiguration";
@@ -7,7 +8,7 @@ import { IoT1ClickDevicesServiceExtensionConfiguration } from "./extensionConfig
  * @public
  */
 export interface RuntimeExtension {
-  configure(clientConfiguration: IoT1ClickDevicesServiceExtensionConfiguration): void;
+  configure(extensionConfiguration: IoT1ClickDevicesServiceExtensionConfiguration): void;
 }
 
 /**
@@ -25,6 +26,7 @@ const asPartial = <T extends Partial<IoT1ClickDevicesServiceExtensionConfigurati
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
   const extensionConfiguration: IoT1ClickDevicesServiceExtensionConfiguration = {
     ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
   };
 
   extensions.forEach((extension) => extension.configure(extensionConfiguration));
@@ -32,5 +34,6 @@ export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: Runtime
   return {
     ...runtimeConfig,
     ...resolveDefaultRuntimeConfig(extensionConfiguration),
+    ...resolveHttpHandlerRuntimeConfig(extensionConfiguration),
   };
 };

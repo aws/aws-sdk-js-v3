@@ -3960,8 +3960,8 @@ export interface DataRepositoryTaskStatus {
  *                 and a linked data repository.</p>
  *             </li>
  *             <li>
- *                <p>You use release data repository tasks to release have been exported
- *                 to a linked S3 bucketed files from your Amazon FSx for Lustre file system.</p>
+ *                <p>You use release data repository tasks to release files that have been exported
+ *                 to a linked S3 bucket from your Amazon FSx for Lustre file system.</p>
  *             </li>
  *             <li>
  *                <p>An Amazon File Cache resource uses a task to automatically
@@ -5947,7 +5947,7 @@ export interface CreateFileSystemRequest {
 
   /**
    * @public
-   * <p>The Microsoft Windows configuration for the file system that's being created. </p>
+   * <p>The Microsoft Windows configuration for the file system that's being created.</p>
    */
   WindowsConfiguration?: CreateFileSystemWindowsConfiguration;
 
@@ -5995,7 +5995,7 @@ export interface CreateFileSystemRequest {
    * @public
    * <p>(Optional) For FSx for Lustre file systems, sets the Lustre version
    *             for the file system that you're creating. Valid values are <code>2.10</code>,
-   *             <code>2.12</code>m and <code>2.15</code>:</p>
+   *             <code>2.12</code>, and <code>2.15</code>:</p>
    *          <ul>
    *             <li>
    *                <p>2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.</p>
@@ -10301,7 +10301,7 @@ export interface FileSystem {
   /**
    * @public
    * <p>The Lustre version of the Amazon FSx for Lustre file system, which
-   *             is <code>2.10</code>, <code>2.12</code>, or <code>2.15</code>.</p>
+   *             can be <code>2.10</code>, <code>2.12</code>, or <code>2.15</code>.</p>
    */
   FileSystemTypeVersion?: string;
 

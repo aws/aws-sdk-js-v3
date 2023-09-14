@@ -46,7 +46,6 @@ import {
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
-  DefaultSpaceSettings,
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   GitConfig,
@@ -88,6 +87,7 @@ import {
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
+  DefaultSpaceSettings,
   DeploymentConfig,
   DeviceSelectionConfig,
   DirectInternetAccess,
@@ -175,6 +175,17 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DeleteExperimentRequest {
+  /**
+   * @public
+   * <p>The name of the experiment to delete.</p>
+   */
+  ExperimentName: string | undefined;
+}
 
 /**
  * @public
@@ -798,7 +809,8 @@ export interface EdgeDeploymentStatus {
 
   /**
    * @public
-   * <p>The number of edge devices yet to pick up the deployment in current stage, or in progress.</p>
+   * <p>The number of edge devices yet to pick up the deployment in current stage, or in
+   *             progress.</p>
    */
   EdgeDeploymentPendingInStage: number | undefined;
 
@@ -866,6 +878,20 @@ export interface DeregisterDevicesRequest {
    * <p>The unique IDs of the devices.</p>
    */
   DeviceNames: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Information that SageMaker Neo automatically derived about the model.</p>
+ */
+export interface DerivedInformation {
+  /**
+   * @public
+   * <p>The data input configuration that SageMaker Neo automatically derived for the model.
+   *             When SageMaker Neo derives this information, you don't need to specify the data input
+   *             configuration when you create a compilation job.</p>
+   */
+  DerivedDataInputConfig?: string;
 }
 
 /**
@@ -1747,9 +1773,10 @@ export interface DescribeCompilationJobResponse {
    * @public
    * <p>The time when the model compilation job started the <code>CompilationJob</code>
    *             instances. </p>
-   *          <p>You are billed for the time between this timestamp and the timestamp in the <code>CompilationEndTime</code> field. In Amazon CloudWatch Logs,
-   *             the start time might be later than this time. That's because it takes time to download
-   *             the compilation job, which depends on the size of the compilation job container. </p>
+   *          <p>You are billed for the time between this timestamp and the timestamp in the
+   *                 <code>CompilationEndTime</code> field. In Amazon CloudWatch Logs, the start time might be later
+   *             than this time. That's because it takes time to download the compilation job, which
+   *             depends on the size of the compilation job container. </p>
    */
   CompilationStartTime?: Date;
 
@@ -1771,8 +1798,8 @@ export interface DescribeCompilationJobResponse {
 
   /**
    * @public
-   * <p>The inference image to use when compiling a model.
-   *             Specify an image only if the target device is a cloud instance.</p>
+   * <p>The inference image to use when compiling a model. Specify an image only if the target
+   *             device is a cloud instance.</p>
    */
   InferenceImage?: string;
 
@@ -1812,7 +1839,8 @@ export interface DescribeCompilationJobResponse {
 
   /**
    * @public
-   * <p>Provides a BLAKE2 hash value that identifies the compiled model artifacts in Amazon S3.</p>
+   * <p>Provides a BLAKE2 hash value that identifies the compiled model artifacts in
+   *             Amazon S3.</p>
    */
   ModelDigests?: ModelDigests;
 
@@ -1840,12 +1868,17 @@ export interface DescribeCompilationJobResponse {
 
   /**
    * @public
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your
-   *             compilation job to connect to. Control access to your models by
-   *             configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon
-   *                 Virtual Private Cloud</a>.</p>
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your compilation job
+   *             to connect to. Control access to your models by configuring the VPC. For more
+   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
    */
   VpcConfig?: NeoVpcConfig;
+
+  /**
+   * @public
+   * <p>Information that SageMaker Neo automatically derived about the model.</p>
+   */
+  DerivedInformation?: DerivedInformation;
 }
 
 /**
@@ -2399,7 +2432,8 @@ export interface DescribeEdgeDeploymentPlanRequest {
 
   /**
    * @public
-   * <p>If the edge deployment plan has enough stages to require tokening, then this is the response from the last list of stages returned.</p>
+   * <p>If the edge deployment plan has enough stages to require tokening, then this is the
+   *             response from the last list of stages returned.</p>
    */
   NextToken?: string;
 
@@ -11097,103 +11131,6 @@ export const FeatureGroupSortOrder = {
  * @public
  */
 export type FeatureGroupSortOrder = (typeof FeatureGroupSortOrder)[keyof typeof FeatureGroupSortOrder];
-
-/**
- * @public
- * <p>The name, ARN, <code>CreationTime</code>, <code>FeatureGroup</code> values,
- *             <code>LastUpdatedTime</code> and <code>EnableOnlineStorage</code> status of a
- *             <code>FeatureGroup</code>.</p>
- */
-export interface FeatureGroupSummary {
-  /**
-   * @public
-   * <p>The name of <code>FeatureGroup</code>.</p>
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * @public
-   * <p>Unique identifier for the <code>FeatureGroup</code>.</p>
-   */
-  FeatureGroupArn: string | undefined;
-
-  /**
-   * @public
-   * <p>A timestamp indicating the time of creation time of the
-   *          <code>FeatureGroup</code>.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The status of a FeatureGroup. The status can be any of the following:
-   *             <code>Creating</code>, <code>Created</code>, <code>CreateFail</code>,
-   *             <code>Deleting</code> or <code>DetailFail</code>. </p>
-   */
-  FeatureGroupStatus?: FeatureGroupStatus | string;
-
-  /**
-   * @public
-   * <p>Notifies you if replicating data into the <code>OfflineStore</code> has failed. Returns
-   *          either: <code>Active</code> or <code>Blocked</code>.</p>
-   */
-  OfflineStoreStatus?: OfflineStoreStatus;
-}
-
-/**
- * @public
- * <p>The metadata for a feature. It can either be metadata that you specify, or metadata that
- *          is updated automatically.</p>
- */
-export interface FeatureMetadata {
-  /**
-   * @public
-   * <p>The Amazon Resource Number (ARN) of the feature group.</p>
-   */
-  FeatureGroupArn?: string;
-
-  /**
-   * @public
-   * <p>The name of the feature group containing the feature.</p>
-   */
-  FeatureGroupName?: string;
-
-  /**
-   * @public
-   * <p>The name of feature.</p>
-   */
-  FeatureName?: string;
-
-  /**
-   * @public
-   * <p>The data type of the feature.</p>
-   */
-  FeatureType?: FeatureType | string;
-
-  /**
-   * @public
-   * <p>A timestamp indicating when the feature was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>A timestamp indicating when the feature was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>An optional description that you specify to better describe the feature.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>Optional key-value pairs that you specify to better describe the feature.</p>
-   */
-  Parameters?: FeatureParameter[];
-}
 
 /**
  * @internal

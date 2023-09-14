@@ -186,25 +186,33 @@ export interface AdditionalResultAttribute {
 
 /**
  * @public
- * <p>Maps a column or attribute in the data source to an index field. You must first create the
- *       fields in the index using the <code>UpdateIndex</code> API.</p>
+ * <p>Maps attributes or field names of the documents synced from the data source
+ *       to Amazon Kendra index field names. You can set up field mappings for each
+ *       data source when calling <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateDataSource.html">CreateDataSource</a>
+ *       or <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_UpdateDataSource.html">UpdateDataSource</a> API. To create custom fields, use the <code>UpdateIndex</code>
+ *       API to first create an index field and then map to the data source field. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.</p>
  */
 export interface DataSourceToIndexFieldMapping {
   /**
    * @public
-   * <p>The name of the column or attribute in the data source.</p>
+   * <p>The name of the field in the data source. You must first create the index field
+   *       using the <code>UpdateIndex</code> API.</p>
    */
   DataSourceFieldName: string | undefined;
 
   /**
    * @public
-   * <p>The type of data stored in the column or attribute.</p>
+   * <p>The format for date fields in the data source. If the field specified in
+   *       <code>DataSourceFieldName</code> is a date field, you must specify the date
+   *       format. If the field is not a date field, an exception is thrown.</p>
    */
   DateFieldFormat?: string;
 
   /**
    * @public
-   * <p>The name of the field in the index.</p>
+   * <p>The name of the index field to map to the data source field. The index field type
+   *       must match the data source field type.</p>
    */
   IndexFieldName: string | undefined;
 }
@@ -1760,9 +1768,8 @@ export interface BatchPutDocumentResponse {
    *             validation check. Each document contains an error message that indicates why the
    *             document couldn't be added to the index.</p>
    *          <p>If there was an error adding a document to an index the error is reported in your
-   *                 Amazon Web Services CloudWatch log. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-logs.html">Monitoring Amazon
-   *                 Kendra with Amazon CloudWatch Logs</a>
-   *          </p>
+   *                 Amazon Web Services CloudWatch log. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-logs.html">Monitoring
+   *                     Amazon Kendra with Amazon CloudWatch logs</a>.</p>
    */
   FailedDocuments?: BatchPutDocumentResponseFailedDocument[];
 }
@@ -2640,7 +2647,8 @@ export interface SqlConfiguration {
 
 /**
  * @public
- * <p>Provides the configuration information to connect to a index. </p>
+ * <p>Provides the configuration information to an <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html">Amazon Kendra supported
+ *             database</a>.</p>
  */
 export interface DatabaseConfiguration {
   /**

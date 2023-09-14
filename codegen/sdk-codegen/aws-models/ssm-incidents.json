@@ -50,7 +50,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Web Services Region name to add to the replication set.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "sseKmsKeyId": {
@@ -100,7 +102,9 @@
           "target": "com.amazonaws.ssmincidents#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the automation process.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       },
@@ -144,7 +148,9 @@
       "member": {
         "target": "com.amazonaws.ssmincidents#SnsArn",
         "traits": {
-          "smithy.api#tags": ["logs_investigations"]
+          "smithy.api#tags": [
+            "logs_investigations"
+          ]
         }
       },
       "traits": {
@@ -170,14 +176,18 @@
           "target": "smithy.api#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Before the specified timestamp</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "after": {
           "target": "smithy.api#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>After the specified timestamp.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "equals": {
@@ -277,7 +287,9 @@
           "traits": {
             "smithy.api#documentation": "<p>A token that ensures that the operation is called only once with the specified\n      details.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "tags": {
@@ -346,7 +358,9 @@
           "traits": {
             "smithy.api#documentation": "<p>A token ensuring that the operation is called only once with the specified details.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "name": {
@@ -354,7 +368,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The short format name of the response plan. Can't include spaces.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "displayName": {
@@ -460,7 +476,9 @@
           "traits": {
             "smithy.api#documentation": "<p>A token that ensures that a client calls the action only once with the specified\n      details.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "incidentRecordArn": {
@@ -468,7 +486,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the incident record that the action adds the incident\n      to.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "eventTime": {
@@ -476,7 +496,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The time that the event occurred.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "eventType": {
@@ -484,7 +506,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The type of event. You can create timeline events of type <code>Custom\n      Event</code>.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "eventData": {
@@ -569,7 +593,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the incident record you are deleting.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         }
       }
@@ -586,7 +612,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the Amazon Web Services Region you're deleting from the replication set.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       },
@@ -637,7 +665,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the replication set you're deleting.</p>",
             "smithy.api#httpQuery": "arn",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         }
       }
@@ -688,7 +718,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource you're deleting the policy from.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "policyId": {
@@ -696,7 +728,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the resource policy you're deleting.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigation"]
+            "smithy.api#tags": [
+              "logs_investigation"
+            ]
           }
         }
       }
@@ -745,7 +779,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the response plan.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         }
       }
@@ -794,7 +830,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "eventId": {
@@ -802,7 +840,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the event to update. You can use <code>ListTimelineEvents</code> to find an\n      event's ID.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         }
       }
@@ -818,7 +858,9 @@
           "target": "com.amazonaws.ssmincidents#VariableType",
           "traits": {
             "smithy.api#documentation": "<p>Variable dynamic parameters. A parameter value is determined when an incident is\n      created.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       },
@@ -859,7 +901,9 @@
       "member": {
         "target": "com.amazonaws.ssmincidents#SsmContactsArn",
         "traits": {
-          "smithy.api#tags": ["logs_investigations"]
+          "smithy.api#tags": [
+            "logs_investigations"
+          ]
         }
       },
       "traits": {
@@ -884,14 +928,18 @@
           "target": "com.amazonaws.ssmincidents#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an Amazon Web Services resource referenced in a\n        <code>TimelineEvent</code>.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "relatedItemId": {
           "target": "com.amazonaws.ssmincidents#GeneratedId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of a <code>RelatedItem</code> referenced in a <code>TimelineEvent</code>.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       },
@@ -984,7 +1032,9 @@
               "max": 50
             },
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "condition": {
@@ -1063,7 +1113,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the incident record.</p>",
             "smithy.api#httpQuery": "arn",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         }
       }
@@ -1206,7 +1258,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the replication set you want to retrieve.</p>",
             "smithy.api#httpQuery": "arn",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         }
       }
@@ -1273,21 +1327,27 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the response plan with the attached resource policy.\n    </p>",
             "smithy.api#httpQuery": "resourceArn",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "maxResults": {
           "target": "com.amazonaws.ssmincidents#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of resource policies to display for each page of results.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "nextToken": {
           "target": "com.amazonaws.ssmincidents#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token to continue to the next page of results.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       }
@@ -1354,7 +1414,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the response plan.</p>",
             "smithy.api#httpQuery": "arn",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         }
       }
@@ -1459,7 +1521,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</p>",
             "smithy.api#httpQuery": "incidentRecordArn",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "eventId": {
@@ -1468,7 +1532,9 @@
             "smithy.api#documentation": "<p>The ID of the event. You can get an event's ID when you create it, or by using\n        <code>ListTimelineEvents</code>.</p>",
             "smithy.api#httpQuery": "eventId",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         }
       }
@@ -1603,21 +1669,27 @@
           "traits": {
             "smithy.api#documentation": "<p>The principal that started the incident.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "invokedBy": {
           "target": "com.amazonaws.ssmincidents#ServicePrincipal",
           "traits": {
             "smithy.api#documentation": "<p>The service principal that assumed the role specified in <code>createdBy</code>. If no\n      service principal assumed the role this will be left blank.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "resourceArn": {
           "target": "com.amazonaws.ssmincidents#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The resource that caused the incident to be created.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "source": {
@@ -1625,7 +1697,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The service that started the incident. This can be manually created from Incident Manager,\n      automatically created using an Amazon CloudWatch alarm, or Amazon EventBridge\n      event.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       },
@@ -1758,7 +1832,9 @@
           "target": "com.amazonaws.ssmincidents#DedupeString",
           "traits": {
             "smithy.api#documentation": "<p>Used to stop Incident Manager from creating multiple incident records for the same incident.\n    </p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "notificationTargets": {
@@ -1791,7 +1867,9 @@
       "member": {
         "target": "smithy.api#Integer",
         "traits": {
-          "smithy.api#tags": ["logs_investigations"]
+          "smithy.api#tags": [
+            "logs_investigations"
+          ]
         }
       },
       "traits": {
@@ -1856,7 +1934,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The type of related item. </p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       },
@@ -1914,7 +1994,9 @@
           "target": "com.amazonaws.ssmincidents#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the related item, if the related item is an Amazon\n      resource.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "url": {
@@ -1991,14 +2073,18 @@
           "target": "com.amazonaws.ssmincidents#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results per page.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "nextToken": {
           "target": "com.amazonaws.ssmincidents#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token to continue to the next page of results.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       }
@@ -2067,21 +2153,27 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the incident record containing the listed related\n      items.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "maxResults": {
           "target": "com.amazonaws.ssmincidents#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of related items per page.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "nextToken": {
           "target": "com.amazonaws.ssmincidents#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token to continue to the next page of results.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       }
@@ -2149,14 +2241,18 @@
           "target": "com.amazonaws.ssmincidents#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results per page. </p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "nextToken": {
           "target": "com.amazonaws.ssmincidents#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token to continue to the next page of results.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       }
@@ -2224,14 +2320,18 @@
           "target": "com.amazonaws.ssmincidents#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of response plans per page.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "nextToken": {
           "target": "com.amazonaws.ssmincidents#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token to continue to the next page of results.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       }
@@ -2298,7 +2398,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the response plan.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         }
       }
@@ -2361,7 +2463,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "filters": {
@@ -2374,28 +2478,36 @@
           "target": "com.amazonaws.ssmincidents#TimelineEventSort",
           "traits": {
             "smithy.api#documentation": "<p>Sort timeline events by the specified key value pair.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "sortOrder": {
           "target": "com.amazonaws.ssmincidents#SortOrder",
           "traits": {
             "smithy.api#documentation": "<p>Sorts the order of timeline events by the value specified in the <code>sortBy</code>\n      field.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "maxResults": {
           "target": "com.amazonaws.ssmincidents#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of results per page.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "nextToken": {
           "target": "com.amazonaws.ssmincidents#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token to continue to the next page of results.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       }
@@ -2450,7 +2562,9 @@
           "target": "com.amazonaws.ssmincidents#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the SNS topic.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       },
@@ -2619,7 +2733,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the response plan to add the resource policy to.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "policy": {
@@ -2627,7 +2743,9 @@
           "traits": {
             "smithy.api#documentation": "<p>Details of the resource policy.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         }
       }
@@ -2700,7 +2818,9 @@
       "key": {
         "target": "com.amazonaws.ssmincidents#RegionName",
         "traits": {
-          "smithy.api#tags": ["logs_investigations"]
+          "smithy.api#tags": [
+            "logs_investigations"
+          ]
         }
       },
       "value": {
@@ -3192,7 +3312,12 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
-          "additionalAllowedHeaders": ["content-type", "x-amz-content-sha256", "x-amz-user-agent", "x-amzn-platform-id"]
+          "additionalAllowedHeaders": [
+            "content-type",
+            "x-amz-content-sha256",
+            "x-amz-user-agent",
+            "x-amzn-platform-id"
+          ]
         },
         "smithy.api#documentation": "<p>Systems Manager Incident Manager is an incident management console designed to help users\n      mitigate and recover from incidents affecting their Amazon Web Services-hosted applications. An\n      incident is any unplanned interruption or reduction in quality of services. </p>\n         <p>Incident Manager increases incident resolution by notifying responders of impact,\n      highlighting relevant troubleshooting data, and providing collaboration tools to get services\n      back up and running. To achieve the primary goal of reducing the time-to-resolution of\n      critical incidents, Incident Manager automates response plans and enables responder\n      team escalation. </p>",
         "smithy.api#title": "AWS Systems Manager Incident Manager",
@@ -3256,9 +3381,188 @@
                   "type": "error"
                 },
                 {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
                   "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "type": "tree",
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://ssm-incidents-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://ssm-incidents-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ]
+                    },
                     {
                       "conditions": [
                         {
@@ -3271,15 +3575,50 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                      "type": "error"
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://ssm-incidents.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ]
                     },
                     {
                       "conditions": [],
                       "endpoint": {
-                        "url": {
-                          "ref": "Endpoint"
-                        },
+                        "url": "https://ssm-incidents.{Region}.{PartitionResult#dnsSuffix}",
                         "properties": {},
                         "headers": {}
                       },
@@ -3291,258 +3630,8 @@
             },
             {
               "conditions": [],
-              "type": "tree",
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "isSet",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "aws.partition",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            }
-                          ],
-                          "assign": "PartitionResult"
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://ssm-incidents-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://ssm-incidents-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS is enabled but this partition does not support FIPS",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://ssm-incidents.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "DualStack is enabled but this partition does not support DualStack",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://ssm-incidents.{Region}.{PartitionResult#dnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "error": "Invalid Configuration: Missing Region",
-                  "type": "error"
-                }
-              ]
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
@@ -3556,9 +3645,9 @@
                 }
               },
               "params": {
+                "Region": "ap-northeast-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "ap-northeast-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3569,9 +3658,9 @@
                 }
               },
               "params": {
+                "Region": "ap-northeast-2",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "ap-northeast-2"
+                "UseDualStack": false
               }
             },
             {
@@ -3582,9 +3671,9 @@
                 }
               },
               "params": {
+                "Region": "ap-south-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "ap-south-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3595,9 +3684,9 @@
                 }
               },
               "params": {
+                "Region": "ap-southeast-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "ap-southeast-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3608,9 +3697,9 @@
                 }
               },
               "params": {
+                "Region": "ap-southeast-2",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "ap-southeast-2"
+                "UseDualStack": false
               }
             },
             {
@@ -3621,9 +3710,9 @@
                 }
               },
               "params": {
+                "Region": "ca-central-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "ca-central-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3634,9 +3723,9 @@
                 }
               },
               "params": {
+                "Region": "eu-central-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "eu-central-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3647,9 +3736,9 @@
                 }
               },
               "params": {
+                "Region": "eu-north-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "eu-north-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3660,9 +3749,9 @@
                 }
               },
               "params": {
+                "Region": "eu-west-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "eu-west-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3673,9 +3762,9 @@
                 }
               },
               "params": {
+                "Region": "eu-west-2",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "eu-west-2"
+                "UseDualStack": false
               }
             },
             {
@@ -3686,9 +3775,9 @@
                 }
               },
               "params": {
+                "Region": "eu-west-3",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "eu-west-3"
+                "UseDualStack": false
               }
             },
             {
@@ -3699,9 +3788,9 @@
                 }
               },
               "params": {
+                "Region": "sa-east-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "sa-east-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3712,9 +3801,9 @@
                 }
               },
               "params": {
+                "Region": "us-east-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "us-east-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3725,9 +3814,9 @@
                 }
               },
               "params": {
+                "Region": "us-east-2",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "us-east-2"
+                "UseDualStack": false
               }
             },
             {
@@ -3738,9 +3827,9 @@
                 }
               },
               "params": {
+                "Region": "us-west-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "us-west-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3751,9 +3840,9 @@
                 }
               },
               "params": {
+                "Region": "us-west-2",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "us-west-2"
+                "UseDualStack": false
               }
             },
             {
@@ -3764,9 +3853,9 @@
                 }
               },
               "params": {
+                "Region": "us-east-1",
                 "UseFIPS": true,
-                "UseDualStack": true,
-                "Region": "us-east-1"
+                "UseDualStack": true
               }
             },
             {
@@ -3777,9 +3866,9 @@
                 }
               },
               "params": {
+                "Region": "us-east-1",
                 "UseFIPS": true,
-                "UseDualStack": false,
-                "Region": "us-east-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3790,9 +3879,9 @@
                 }
               },
               "params": {
+                "Region": "us-east-1",
                 "UseFIPS": false,
-                "UseDualStack": true,
-                "Region": "us-east-1"
+                "UseDualStack": true
               }
             },
             {
@@ -3803,9 +3892,9 @@
                 }
               },
               "params": {
+                "Region": "cn-north-1",
                 "UseFIPS": true,
-                "UseDualStack": true,
-                "Region": "cn-north-1"
+                "UseDualStack": true
               }
             },
             {
@@ -3816,9 +3905,9 @@
                 }
               },
               "params": {
+                "Region": "cn-north-1",
                 "UseFIPS": true,
-                "UseDualStack": false,
-                "Region": "cn-north-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3829,9 +3918,9 @@
                 }
               },
               "params": {
+                "Region": "cn-north-1",
                 "UseFIPS": false,
-                "UseDualStack": true,
-                "Region": "cn-north-1"
+                "UseDualStack": true
               }
             },
             {
@@ -3842,9 +3931,9 @@
                 }
               },
               "params": {
+                "Region": "cn-north-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "cn-north-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3855,9 +3944,9 @@
                 }
               },
               "params": {
+                "Region": "us-gov-east-1",
                 "UseFIPS": true,
-                "UseDualStack": true,
-                "Region": "us-gov-east-1"
+                "UseDualStack": true
               }
             },
             {
@@ -3868,9 +3957,9 @@
                 }
               },
               "params": {
+                "Region": "us-gov-east-1",
                 "UseFIPS": true,
-                "UseDualStack": false,
-                "Region": "us-gov-east-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3881,9 +3970,9 @@
                 }
               },
               "params": {
+                "Region": "us-gov-east-1",
                 "UseFIPS": false,
-                "UseDualStack": true,
-                "Region": "us-gov-east-1"
+                "UseDualStack": true
               }
             },
             {
@@ -3894,9 +3983,9 @@
                 }
               },
               "params": {
+                "Region": "us-gov-east-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "us-gov-east-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3905,9 +3994,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "Region": "us-iso-east-1",
                 "UseFIPS": true,
-                "UseDualStack": true,
-                "Region": "us-iso-east-1"
+                "UseDualStack": true
               }
             },
             {
@@ -3918,9 +4007,9 @@
                 }
               },
               "params": {
+                "Region": "us-iso-east-1",
                 "UseFIPS": true,
-                "UseDualStack": false,
-                "Region": "us-iso-east-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3929,9 +4018,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "Region": "us-iso-east-1",
                 "UseFIPS": false,
-                "UseDualStack": true,
-                "Region": "us-iso-east-1"
+                "UseDualStack": true
               }
             },
             {
@@ -3942,9 +4031,9 @@
                 }
               },
               "params": {
+                "Region": "us-iso-east-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "us-iso-east-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3953,9 +4042,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "Region": "us-isob-east-1",
                 "UseFIPS": true,
-                "UseDualStack": true,
-                "Region": "us-isob-east-1"
+                "UseDualStack": true
               }
             },
             {
@@ -3966,9 +4055,9 @@
                 }
               },
               "params": {
+                "Region": "us-isob-east-1",
                 "UseFIPS": true,
-                "UseDualStack": false,
-                "Region": "us-isob-east-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3977,9 +4066,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "Region": "us-isob-east-1",
                 "UseFIPS": false,
-                "UseDualStack": true,
-                "Region": "us-isob-east-1"
+                "UseDualStack": true
               }
             },
             {
@@ -3990,9 +4079,9 @@
                 }
               },
               "params": {
+                "Region": "us-isob-east-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "us-isob-east-1"
+                "UseDualStack": false
               }
             },
             {
@@ -4003,9 +4092,9 @@
                 }
               },
               "params": {
+                "Region": "us-east-1",
                 "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -4028,9 +4117,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
+                "Region": "us-east-1",
                 "UseFIPS": true,
                 "UseDualStack": false,
-                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -4040,9 +4129,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
+                "Region": "us-east-1",
                 "UseFIPS": false,
                 "UseDualStack": true,
-                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -4160,7 +4249,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role that the automation document will assume when\n      running commands.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "documentName": {
@@ -4169,7 +4260,9 @@
             "smithy.api#documentation": "<p>The automation document's name.</p>",
             "smithy.api#pattern": "^[a-zA-Z0-9_\\-.:/]{3,128}$",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "documentVersion": {
@@ -4179,14 +4272,18 @@
             "smithy.api#length": {
               "max": 128
             },
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "targetAccount": {
           "target": "com.amazonaws.ssmincidents#SsmTargetAccount",
           "traits": {
             "smithy.api#documentation": "<p>The account that the automation document will be run in. This can be in either the\n      management account or an application account.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "parameters": {
@@ -4315,7 +4412,9 @@
           "traits": {
             "smithy.api#documentation": "<p>A token ensuring that the operation is called only once with the specified details.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "responsePlanArn": {
@@ -4323,7 +4422,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the response plan that pre-defines summary, chat\n      channels, Amazon SNS topics, runbooks, title, and impact of the incident. </p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "title": {
@@ -4372,7 +4473,9 @@
           "smithy.api#length": {
             "max": 1000
           },
-          "smithy.api#tags": ["logs_investigations"]
+          "smithy.api#tags": [
+            "logs_investigations"
+          ]
         }
       },
       "traits": {
@@ -4408,13 +4511,17 @@
       "key": {
         "target": "com.amazonaws.ssmincidents#TagKey",
         "traits": {
-          "smithy.api#tags": ["logs_investigations"]
+          "smithy.api#tags": [
+            "logs_investigations"
+          ]
         }
       },
       "value": {
         "target": "com.amazonaws.ssmincidents#TagValue",
         "traits": {
-          "smithy.api#tags": ["logs_investigations"]
+          "smithy.api#tags": [
+            "logs_investigations"
+          ]
         }
       },
       "traits": {
@@ -4429,13 +4536,17 @@
       "key": {
         "target": "com.amazonaws.ssmincidents#TagKey",
         "traits": {
-          "smithy.api#tags": ["logs_investigations"]
+          "smithy.api#tags": [
+            "logs_investigations"
+          ]
         }
       },
       "value": {
         "target": "com.amazonaws.ssmincidents#TagValue",
         "traits": {
-          "smithy.api#tags": ["logs_investigations"]
+          "smithy.api#tags": [
+            "logs_investigations"
+          ]
         }
       },
       "traits": {
@@ -4494,7 +4605,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the response plan you're adding the tags to.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "tags": {
@@ -4632,14 +4745,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Identifies the service that sourced the event. All events sourced from within Amazon Web Services begin with \"<code>aws.</code>\" Customer-generated events can have any value here,\n      as long as it doesn't begin with \"<code>aws.</code>\" We recommend the use of Java package-name\n      style reverse domain-name strings. </p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "triggerArn": {
           "target": "com.amazonaws.ssmincidents#Arn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the source that detected the incident.</p>",
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "timestamp": {
@@ -4647,7 +4764,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The time that the incident was detected.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "rawData": {
@@ -4716,7 +4835,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the response plan you're removing a tag from.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "tagKeys": {
@@ -4781,7 +4902,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the replication set to update.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "deletionProtected": {
@@ -4789,7 +4912,9 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies if deletion protection is turned on or off in your account. </p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "clientToken": {
@@ -4797,7 +4922,9 @@
           "traits": {
             "smithy.api#documentation": "<p>A token that ensures that the operation is called only once with the specified\n      details.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       }
@@ -4852,7 +4979,9 @@
           "traits": {
             "smithy.api#documentation": "<p>A token that ensures that a client calls the operation only once with the specified\n      details.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "arn": {
@@ -4860,7 +4989,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the incident record you are updating.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "title": {
@@ -4885,7 +5016,9 @@
           "target": "com.amazonaws.ssmincidents#IncidentRecordStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the incident. Possible statuses are <code>Open</code> or\n        <code>Resolved</code>.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "chatChannel": {
@@ -4952,7 +5085,9 @@
           "traits": {
             "smithy.api#documentation": "<p>A token that ensures that a client calls the operation only once with the specified\n      details.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "incidentRecordArn": {
@@ -4960,7 +5095,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the incident record that contains the related items that\n      you update.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "relatedItemsUpdate": {
@@ -5041,7 +5178,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the replication set you're updating.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "actions": {
@@ -5060,7 +5199,9 @@
           "traits": {
             "smithy.api#documentation": "<p>A token that ensures that the operation is called only once with the specified\n      details.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         }
       }
@@ -5115,7 +5256,9 @@
           "traits": {
             "smithy.api#documentation": "<p>A token ensuring that the operation is called only once with the specified details.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "arn": {
@@ -5123,7 +5266,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the response plan.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "displayName": {
@@ -5154,7 +5299,9 @@
           "target": "com.amazonaws.ssmincidents#DedupeString",
           "traits": {
             "smithy.api#documentation": "<p>The string Incident Manager uses to prevent duplicate incidents from being created by the same\n      incident in the same account.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "incidentTemplateNotificationTargets": {
@@ -5245,7 +5392,9 @@
           "traits": {
             "smithy.api#documentation": "<p>A token that ensures that a client calls the operation only once with the specified\n      details.</p>",
             "smithy.api#idempotencyToken": {},
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "incidentRecordArn": {
@@ -5253,7 +5402,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "eventId": {
@@ -5261,21 +5412,27 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the event to update. You can use <code>ListTimelineEvents</code> to find an\n      event's ID.</p>",
             "smithy.api#required": {},
-            "smithy.api#tags": ["logs_required"]
+            "smithy.api#tags": [
+              "logs_required"
+            ]
           }
         },
         "eventTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time that the event occurred.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "eventType": {
           "target": "com.amazonaws.ssmincidents#TimelineEventType",
           "traits": {
             "smithy.api#documentation": "<p>The type of event. You can update events of type <code>Custom Event</code>.</p>",
-            "smithy.api#tags": ["logs_investigations"]
+            "smithy.api#tags": [
+              "logs_investigations"
+            ]
           }
         },
         "eventData": {

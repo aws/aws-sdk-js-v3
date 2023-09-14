@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.412.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.411.0...v3.412.0) (2023-09-13)
+
+**Note:** Version bump only for package @aws-sdk/client-eventbridge
+
+
+
+
+
+# [3.411.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.410.0...v3.411.0) (2023-09-12)
+
+
+### Features
+
+* **client-eventbridge:** Adds sensitive trait to various shapes in Jetstream Connections API model. ([fecfd43](https://github.com/aws/aws-sdk-js-v3/commit/fecfd43a4b3d044a46f67078bf77c4453213bae3))
+
+
+
+
+
+# [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
+
+**Note:** Version bump only for package @aws-sdk/client-eventbridge
+
+
+
+
+
+# [3.409.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.408.0...v3.409.0) (2023-09-08)
+
+**Note:** Version bump only for package @aws-sdk/client-eventbridge
+
+
+
+
+
+# [3.408.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.407.0...v3.408.0) (2023-09-07)
+
+**Note:** Version bump only for package @aws-sdk/client-eventbridge
+
+
+
+
+
+# [3.406.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.405.0...v3.406.0) (2023-09-05)
+
+
+### Features
+
+* **client-eventbridge:** Improve Endpoint Ruleset test coverage. ([bacf609](https://github.com/aws/aws-sdk-js-v3/commit/bacf60948718083f7a2bc334131f648e342ba8e5))
+
+
+
+
+
 # [3.405.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.404.0...v3.405.0) (2023-09-01)
 
 **Note:** Version bump only for package @aws-sdk/client-eventbridge

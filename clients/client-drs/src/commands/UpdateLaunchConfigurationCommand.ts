@@ -53,6 +53,7 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  *   licensing: { // Licensing
  *     osByol: true || false,
  *   },
+ *   postLaunchEnabled: true || false,
  * };
  * const command = new UpdateLaunchConfigurationCommand(input);
  * const response = await client.send(command);
@@ -67,6 +68,7 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  * //   licensing: { // Licensing
  * //     osByol: true || false,
  * //   },
+ * //   postLaunchEnabled: true || false,
  * // };
  *
  * ```

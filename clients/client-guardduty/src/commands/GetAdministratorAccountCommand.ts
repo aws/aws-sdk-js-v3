@@ -36,8 +36,12 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
 
 /**
  * @public
- * <p>Provides the details for the GuardDuty administrator account associated with the current
+ * <p>Provides the details of the GuardDuty administrator account associated with the current
  *       GuardDuty member account.</p>
+ *          <note>
+ *             <p>If the organization's management account or a delegated administrator runs this API,
+ *     it will return success (<code>HTTP 200</code>) but no content.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

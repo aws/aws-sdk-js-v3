@@ -57,7 +57,7 @@ export interface GetEvaluationCommandOutput extends GetEvaluationOutput, __Metad
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   LastUpdatedAt: new Date("TIMESTAMP"),
  * //   Name: "STRING_VALUE",
- * //   Status: "STRING_VALUE",
+ * //   Status: "PENDING" || "INPROGRESS" || "FAILED" || "COMPLETED" || "DELETED",
  * //   PerformanceMetrics: { // PerformanceMetrics
  * //     Properties: { // PerformanceMetricsProperties
  * //       "<keys>": "STRING_VALUE",

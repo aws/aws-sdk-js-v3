@@ -72,7 +72,7 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  * //   createdDate: new Date("TIMESTAMP"),
  * //   version: "STRING_VALUE",
  * //   checksum: "STRING_VALUE",
- * //   valueSelectionStrategy: "STRING_VALUE",
+ * //   valueSelectionStrategy: "ORIGINAL_VALUE" || "TOP_RESOLUTION",
  * //   parentSlotTypeSignature: "STRING_VALUE",
  * //   slotTypeConfigurations: [ // SlotTypeConfigurations
  * //     { // SlotTypeConfiguration

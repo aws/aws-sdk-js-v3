@@ -68,11 +68,11 @@ export interface UpdateTargetGroupCommandOutput extends UpdateTargetGroupRespons
  * //   name: "STRING_VALUE",
  * //   type: "STRING_VALUE",
  * //   config: { // TargetGroupConfig
- * //     port: Number("int"), // required
- * //     protocol: "STRING_VALUE", // required
+ * //     port: Number("int"),
+ * //     protocol: "STRING_VALUE",
  * //     protocolVersion: "STRING_VALUE",
  * //     ipAddressType: "STRING_VALUE",
- * //     vpcIdentifier: "STRING_VALUE", // required
+ * //     vpcIdentifier: "STRING_VALUE",
  * //     healthCheck: { // HealthCheckConfig
  * //       enabled: true || false,
  * //       protocol: "STRING_VALUE",
@@ -87,6 +87,7 @@ export interface UpdateTargetGroupCommandOutput extends UpdateTargetGroupRespons
  * //         httpCode: "STRING_VALUE",
  * //       },
  * //     },
+ * //     lambdaEventStructureVersion: "STRING_VALUE",
  * //   },
  * //   status: "STRING_VALUE",
  * // };
@@ -98,6 +99,9 @@ export interface UpdateTargetGroupCommandOutput extends UpdateTargetGroupRespons
  * @see {@link UpdateTargetGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The request conflicts with the current state of the resource. Updating or deleting a

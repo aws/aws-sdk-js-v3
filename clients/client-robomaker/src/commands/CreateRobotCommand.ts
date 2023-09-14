@@ -50,7 +50,7 @@ export interface CreateRobotCommandOutput extends CreateRobotResponse, __Metadat
  * const client = new RoboMakerClient(config);
  * const input = { // CreateRobotRequest
  *   name: "STRING_VALUE", // required
- *   architecture: "STRING_VALUE", // required
+ *   architecture: "X86_64" || "ARM64" || "ARMHF", // required
  *   greengrassGroupId: "STRING_VALUE", // required
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -63,7 +63,7 @@ export interface CreateRobotCommandOutput extends CreateRobotResponse, __Metadat
  * //   name: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   greengrassGroupId: "STRING_VALUE",
- * //   architecture: "STRING_VALUE",
+ * //   architecture: "X86_64" || "ARM64" || "ARMHF",
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

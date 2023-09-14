@@ -80,7 +80,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": true,
+              "required": false,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -102,13 +102,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -116,46 +115,56 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
                     }
                   ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
-                        }
-                      ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": {
-                          "ref": "Endpoint"
-                        },
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ]
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
                 },
                 {
                   "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "type": "tree",
                   "rules": [
                     {
@@ -242,7 +251,17 @@
                       ]
                     },
                     {
-                      "conditions": [],
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
                       "type": "tree",
                       "rules": [
                         {
@@ -250,332 +269,61 @@
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseFIPS"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
                               ]
                             }
                           ],
                           "type": "tree",
                           "rules": [
                             {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "endpoint": {
-                                    "url": "https://kendra-ranking-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                    "properties": {},
-                                    "headers": {}
-                                  },
-                                  "type": "endpoint"
-                                }
-                              ]
-                            },
-                            {
                               "conditions": [],
-                              "error": "FIPS is enabled but this partition does not support FIPS",
-                              "type": "error"
+                              "endpoint": {
+                                "url": "https://kendra-ranking-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
                             }
                           ]
                         },
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://kendra-ranking.{Region}.{PartitionResult#dnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
                         }
                       ]
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://kendra-ranking.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
                   ]
                 }
               ]
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
         "smithy.rules#endpointTests": {
           "testCases": [
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking-fips.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ca-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking-fips.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ca-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ca-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ca-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking-fips.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking-fips.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-2",
-                "UseDualStack": false
-              }
-            },
             {
               "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
               "expect": {
@@ -584,22 +332,8 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking-fips.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-1",
-                "UseDualStack": false
+                "UseFIPS": true
               }
             },
             {
@@ -610,78 +344,73 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": true
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://kendra-ranking.us-east-1.api.aws"
+                  "url": "https://kendra-ranking-fips.cn-north-1.api.amazonwebservices.com.cn"
                 }
               },
               "params": {
-                "UseFIPS": false,
+                "Region": "cn-north-1",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kendra-ranking.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kendra-ranking-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kendra-ranking.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking-fips.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking-fips.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking.us-east-2.api.aws"
-                }
-              },
-              "params": {
                 "UseFIPS": false,
-                "Region": "us-east-2",
-                "UseDualStack": true
+                "Endpoint": "https://example.com"
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://kendra-ranking.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-east-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -689,8 +418,6 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-east-1",
-                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -700,10 +427,15 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": false,
+                "UseFIPS": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -854,6 +586,9 @@
             "smithy.api#idempotencyToken": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kendraranking#CreateRescoreExecutionPlanResponse": {
@@ -873,6 +608,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kendraranking#DeleteRescoreExecutionPlan": {
@@ -923,6 +661,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kendraranking#DescribeRescoreExecutionPlan": {
@@ -970,6 +711,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kendraranking#DescribeRescoreExecutionPlanResponse": {
@@ -1029,6 +773,9 @@
             "smithy.api#documentation": "<p>When the <code>Status</code> field value is \n            <code>FAILED</code>, the <code>ErrorMessage</code> field \n            contains a message that explains why.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kendraranking#Description": {
@@ -1226,6 +973,9 @@
             "smithy.api#httpQuery": "maxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kendraranking#ListRescoreExecutionPlansResponse": {
@@ -1243,6 +993,9 @@
             "smithy.api#documentation": "<p>If the response is truncated, Amazon Kendra Intelligent \n            Ranking returns a pagination token in the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kendraranking#ListTagsForResource": {
@@ -1286,7 +1039,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request information for listing tags associated with \n            a rescore execution plan. A rescore execution plan is an \n            Amazon Kendra Intelligent Ranking resource used for \n            provisioning the <code>Rescore</code> API.</p>"
+        "smithy.api#documentation": "<p>The request information for listing tags associated with \n            a rescore execution plan. A rescore execution plan is an \n            Amazon Kendra Intelligent Ranking resource used for \n            provisioning the <code>Rescore</code> API.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kendraranking#ListTagsForResourceResponse": {
@@ -1300,7 +1054,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>If the action is successful, the service sends back an \n            HTTP 200 response.</p>"
+        "smithy.api#documentation": "<p>If the action is successful, the service sends back an \n            HTTP 200 response.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kendraranking#MaxResultsIntegerForListRescoreExecutionPlansRequest": {
@@ -1511,6 +1266,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kendraranking#RescoreResult": {
@@ -1528,6 +1286,9 @@
             "smithy.api#documentation": "<p>A list of result items for documents with new relevancy \n            scores. The results are in descending order.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kendraranking#RescoreResultItem": {
@@ -1712,14 +1473,16 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request information for tagging a rescore execution \n            plan. A rescore execution plan is an Amazon Kendra \n            Intelligent Ranking resource used for provisioning the \n            <code>Rescore</code> API.</p>"
+        "smithy.api#documentation": "<p>The request information for tagging a rescore execution \n            plan. A rescore execution plan is an Amazon Kendra \n            Intelligent Ranking resource used for provisioning the \n            <code>Rescore</code> API.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kendraranking#TagResourceResponse": {
       "type": "structure",
       "members": {},
       "traits": {
-        "smithy.api#documentation": "<p>If the action is successful, the service sends back an \n            HTTP 200 response with an empty HTTP body.</p>"
+        "smithy.api#documentation": "<p>If the action is successful, the service sends back an \n            HTTP 200 response with an empty HTTP body.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kendraranking#TagValue": {
@@ -1815,14 +1578,16 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request information to remove a tag from a rescore \n            execution plan. A rescore execution plan is an \n            Amazon Kendra Intelligent Ranking resource used for\n            provisioning the <code>Rescore</code> API.</p>"
+        "smithy.api#documentation": "<p>The request information to remove a tag from a rescore \n            execution plan. A rescore execution plan is an \n            Amazon Kendra Intelligent Ranking resource used for\n            provisioning the <code>Rescore</code> API.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kendraranking#UntagResourceResponse": {
       "type": "structure",
       "members": {},
       "traits": {
-        "smithy.api#documentation": "<p>If the action is successful, the service sends back an \n            HTTP 200 response with an empty HTTP body.</p>"
+        "smithy.api#documentation": "<p>If the action is successful, the service sends back an \n            HTTP 200 response with an empty HTTP body.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kendraranking#UpdateRescoreExecutionPlan": {
@@ -1894,6 +1659,9 @@
             "smithy.api#documentation": "<p>You can set additional capacity units to meet the needs \n            of your rescore execution plan. You are given a single capacity \n            unit by default. If you want to use the default capacity, you \n            don't set additional capacity units. For more information on the\n            default capacity and additional capacity units, see \n            <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html\">Adjusting capacity</a>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kendraranking#ValidationException": {

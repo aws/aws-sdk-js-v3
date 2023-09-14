@@ -49,13 +49,13 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  *     "STRING_VALUE",
  *   ],
  *   ResourceId: "STRING_VALUE", // required
- *   ResourceType: "STRING_VALUE", // required
+ *   ResourceType: "BatchPrediction" || "DataSource" || "Evaluation" || "MLModel", // required
  * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
  * // { // DeleteTagsOutput
  * //   ResourceId: "STRING_VALUE",
- * //   ResourceType: "STRING_VALUE",
+ * //   ResourceType: "BatchPrediction" || "DataSource" || "Evaluation" || "MLModel",
  * // };
  *
  * ```

@@ -73,6 +73,12 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  * //         UpdateAvailable: true || false,
  * //         Description: "STRING_VALUE",
  * //       },
+ * //       ErrorDetails: [ // ErrorDetailsList
+ * //         { // ErrorDetails
+ * //           ErrorCode: "OutdatedPowershellVersion" || "OfficeInstalled" || "PCoIPAgentInstalled" || "WindowsUpdatesEnabled" || "AutoMountDisabled" || "WorkspacesBYOLAccountNotFound" || "WorkspacesBYOLAccountDisabled" || "DHCPDisabled" || "DiskFreeSpace" || "AdditionalDrivesAttached" || "OSNotSupported" || "DomainJoined" || "AzureDomainJoined" || "FirewallEnabled" || "VMWareToolsInstalled" || "DiskSizeExceeded" || "IncompatiblePartitioning" || "PendingReboot" || "AutoLogonEnabled" || "RealTimeUniversalDisabled" || "MultipleBootPartition" || "Requires64BitOS" || "ZeroRearmCount" || "InPlaceUpgrade" || "AntiVirusInstalled" || "UEFINotSupported",
+ * //           ErrorMessage: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

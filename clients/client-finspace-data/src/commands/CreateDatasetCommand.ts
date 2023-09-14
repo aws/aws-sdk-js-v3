@@ -50,7 +50,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * const input = { // CreateDatasetRequest
  *   clientToken: "STRING_VALUE",
  *   datasetTitle: "STRING_VALUE", // required
- *   kind: "STRING_VALUE", // required
+ *   kind: "TABULAR" || "NON_TABULAR", // required
  *   datasetDescription: "STRING_VALUE",
  *   ownerInfo: { // DatasetOwnerInfo
  *     name: "STRING_VALUE",
@@ -70,7 +70,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *     tabularSchemaConfig: { // SchemaDefinition
  *       columns: [ // ColumnList
  *         { // ColumnDefinition
- *           dataType: "STRING_VALUE",
+ *           dataType: "STRING" || "CHAR" || "INTEGER" || "TINYINT" || "SMALLINT" || "BIGINT" || "FLOAT" || "DOUBLE" || "DATE" || "DATETIME" || "BOOLEAN" || "BINARY",
  *           columnName: "STRING_VALUE",
  *           columnDescription: "STRING_VALUE",
  *         },

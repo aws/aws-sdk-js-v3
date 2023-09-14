@@ -54,7 +54,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * const client = new PinpointEmailClient(config);
  * const input = { // PutConfigurationSetDeliveryOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
- *   TlsPolicy: "STRING_VALUE",
+ *   TlsPolicy: "REQUIRE" || "OPTIONAL",
  *   SendingPoolName: "STRING_VALUE",
  * };
  * const command = new PutConfigurationSetDeliveryOptionsCommand(input);

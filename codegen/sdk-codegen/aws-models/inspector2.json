@@ -1200,14 +1200,23 @@
                       "severity": "Low"
                     }
                   ],
-                  "ttps": ["TA0001", "TA0002"],
-                  "tools": ["Metasploit"],
+                  "ttps": [
+                    "TA0001",
+                    "TA0002"
+                  ],
+                  "tools": [
+                    "Metasploit"
+                  ],
                   "exploitObserved": {
                     "lastSeen": 1688580990,
                     "firstSeen": 1688580800
                   },
-                  "referenceUrls": ["https://nvd.nist.gov/vuln/detail/CVE-2019-20367"],
-                  "cwes": ["cwe-1234"],
+                  "referenceUrls": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2019-20367"
+                  ],
+                  "cwes": [
+                    "cwe-1234"
+                  ],
                   "epssScore": 0.85
                 }
               ],
@@ -3708,8 +3717,8 @@
       "traits": {
         "smithy.api#default": 0,
         "smithy.api#range": {
-          "min": 0.0,
-          "max": 1.0
+          "min": 0,
+          "max": 1
         }
       }
     },
@@ -5812,7 +5821,9 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
-          "additionalAllowedHeaders": ["*"]
+          "additionalAllowedHeaders": [
+            "*"
+          ]
         },
         "smithy.api#documentation": "<p>Amazon Inspector is a vulnerability discovery service that automates continuous scanning for\n         security vulnerabilities within your Amazon EC2 and Amazon ECR environments.</p>",
         "smithy.api#title": "Inspector2",

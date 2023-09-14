@@ -87,11 +87,11 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  * //     SizeConstraints: [ // SizeConstraints // required
  * //       { // SizeConstraint
  * //         FieldToMatch: { // FieldToMatch
- * //           Type: "STRING_VALUE", // required
+ * //           Type: "URI" || "QUERY_STRING" || "HEADER" || "METHOD" || "BODY" || "SINGLE_QUERY_ARG" || "ALL_QUERY_ARGS", // required
  * //           Data: "STRING_VALUE",
  * //         },
- * //         TextTransformation: "STRING_VALUE", // required
- * //         ComparisonOperator: "STRING_VALUE", // required
+ * //         TextTransformation: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE", // required
+ * //         ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
  * //         Size: Number("long"), // required
  * //       },
  * //     ],

@@ -63,11 +63,11 @@ export interface PrepareQueryCommandOutput extends PrepareQueryResponse, __Metad
  * //     { // SelectColumn
  * //       Name: "STRING_VALUE",
  * //       Type: { // Type
- * //         ScalarType: "STRING_VALUE",
+ * //         ScalarType: "VARCHAR" || "BOOLEAN" || "BIGINT" || "DOUBLE" || "TIMESTAMP" || "DATE" || "TIME" || "INTERVAL_DAY_TO_SECOND" || "INTERVAL_YEAR_TO_MONTH" || "UNKNOWN" || "INTEGER",
  * //         ArrayColumnInfo: { // ColumnInfo
  * //           Name: "STRING_VALUE",
  * //           Type: {
- * //             ScalarType: "STRING_VALUE",
+ * //             ScalarType: "VARCHAR" || "BOOLEAN" || "BIGINT" || "DOUBLE" || "TIMESTAMP" || "DATE" || "TIME" || "INTERVAL_DAY_TO_SECOND" || "INTERVAL_YEAR_TO_MONTH" || "UNKNOWN" || "INTEGER",
  * //             ArrayColumnInfo: {
  * //               Name: "STRING_VALUE",
  * //               Type: "<Type>", // required

@@ -199,21 +199,18 @@
         "InvalidInputRecords": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version."
           }
         },
         "RecordsProcessed": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "The total number of group records from the input file that have been processed so far, or attempted."
           }
         },
         "RetryAttempts": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "The total number of deployment attempts that returned a retryable error. For example, a retry is triggered if the attempt to deploy a group returns a throttling error. ''StartBulkDeployment'' retries a group deployment up to five times."
           }
         }
@@ -375,7 +372,6 @@
         "PortNumber": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "The port of the Greengrass core. Usually 8883."
           }
         }
@@ -446,7 +442,6 @@
         "SyncShadow": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "If true, the core's local shadow is automatically synced with the cloud."
           }
         },
@@ -2783,7 +2778,6 @@
         "SyncShadow": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "If true, the device's local shadow will be automatically synced with the cloud."
           }
         },
@@ -3014,21 +3008,18 @@
         "MemorySize": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "The memory size, in KB, which the function requires. This setting is not applicable and should be cleared when you run the Lambda function without containerization."
           }
         },
         "Pinned": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "True if the function is pinned. Pinned means the function is long-lived and starts when the core starts."
           }
         },
         "Timeout": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request."
           }
         },
@@ -3049,7 +3040,6 @@
         "AccessSysfs": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container."
           }
         },
@@ -3161,14 +3151,12 @@
         "Gid": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "The group ID whose permissions are used to run a Lambda function."
           }
         },
         "Uid": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "The user ID whose permissions are used to run a Lambda function."
           }
         }
@@ -5502,7 +5490,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": true,
+              "required": false,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -5531,13 +5519,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -5545,12 +5532,69 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ]
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
                     }
                   ],
                   "type": "tree",
@@ -5565,13 +5609,17 @@
                             },
                             true
                           ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
                       "type": "tree",
                       "rules": [
                         {
@@ -5579,91 +5627,34 @@
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseDualStack"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
-                            },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
                           "type": "tree",
                           "rules": [
                             {
@@ -5676,52 +5667,46 @@
                               "type": "endpoint"
                             }
                           ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
                         }
                       ]
                     },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
                     {
                       "conditions": [
                         {
                           "fn": "booleanEquals",
                           "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
+                              "ref": "UseFIPS"
+                            },
+                            true
                           ]
                         }
                       ],
                       "type": "tree",
                       "rules": [
                         {
-                          "conditions": [],
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
                           "type": "tree",
                           "rules": [
                             {
@@ -5772,52 +5757,46 @@
                               "type": "endpoint"
                             }
                           ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
                         }
                       ]
                     },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
                     {
                       "conditions": [
                         {
                           "fn": "booleanEquals",
                           "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
+                              "ref": "UseDualStack"
+                            },
+                            true
                           ]
                         }
                       ],
                       "type": "tree",
                       "rules": [
                         {
-                          "conditions": [],
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
                           "type": "tree",
                           "rules": [
                             {
@@ -5830,20 +5809,14 @@
                               "type": "endpoint"
                             }
                           ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
                       ]
                     },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "type": "tree",
-                  "rules": [
                     {
                       "conditions": [
                         {
@@ -5862,8 +5835,8 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingRegion": "us-gov-east-1",
-                              "signingName": "greengrass"
+                              "signingName": "greengrass",
+                              "signingRegion": "us-gov-east-1"
                             }
                           ]
                         },
@@ -5889,49 +5862,11 @@
                           "authSchemes": [
                             {
                               "name": "sigv4",
-                              "signingRegion": "us-gov-west-1",
-                              "signingName": "greengrass"
+                              "signingName": "greengrass",
+                              "signingRegion": "us-gov-west-1"
                             }
                           ]
                         },
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "stringEquals",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            },
-                            "us-gov-east-1"
-                          ]
-                        }
-                      ],
-                      "endpoint": {
-                        "url": "https://greengrass.us-gov-east-1.amazonaws.com",
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "stringEquals",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            },
-                            "us-gov-west-1"
-                          ]
-                        }
-                      ],
-                      "endpoint": {
-                        "url": "https://greengrass.us-gov-west-1.amazonaws.com",
-                        "properties": {},
                         "headers": {}
                       },
                       "type": "endpoint"
@@ -5948,37 +5883,16 @@
                   ]
                 }
               ]
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
         "smithy.rules#endpointTests": {
           "testCases": [
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass-fips.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-iso-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-iso-east-1"
-              }
-            },
             {
               "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
               "expect": {
@@ -5987,9 +5901,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "ap-northeast-1",
                 "UseFIPS": false,
-                "Region": "ap-northeast-1"
+                "UseDualStack": false
               }
             },
             {
@@ -6000,100 +5914,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "ap-northeast-2",
                 "UseFIPS": false,
-                "Region": "ap-northeast-2"
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-west-1"
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-west-2"
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-west-2"
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-central-1"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ap-southeast-1"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ap-southeast-2"
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-east-1"
+                "UseDualStack": false
               }
             },
             {
@@ -6104,22 +5927,35 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "ap-south-1",
                 "UseFIPS": false,
-                "Region": "ap-south-1"
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://greengrass.us-east-2.amazonaws.com"
+                  "url": "https://greengrass.ap-southeast-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "ap-southeast-1",
                 "UseFIPS": false,
-                "Region": "us-east-2"
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -6130,9 +5966,87 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "ca-central-1",
                 "UseFIPS": false,
-                "Region": "ca-central-1"
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -6143,9 +6057,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
+                "Region": "us-east-1",
                 "UseFIPS": true,
-                "Region": "us-east-1"
+                "UseDualStack": true
               }
             },
             {
@@ -6156,9 +6070,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "us-east-1",
                 "UseFIPS": true,
-                "Region": "us-east-1"
+                "UseDualStack": false
               }
             },
             {
@@ -6169,157 +6083,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
+                "Region": "us-east-1",
                 "UseFIPS": false,
-                "Region": "us-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-gov-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-gov-west-1"
-              }
-            },
-            {
-              "documentation": "For region dataplane-us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "properties": {
-                    "authSchemes": [
-                      {
-                        "signingName": "greengrass",
-                        "signingRegion": "us-gov-east-1",
-                        "name": "sigv4"
-                      }
-                    ]
-                  },
-                  "url": "https://greengrass-ats.iot.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "dataplane-us-gov-east-1"
-              }
-            },
-            {
-              "documentation": "For region dataplane-us-gov-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "properties": {
-                    "authSchemes": [
-                      {
-                        "signingName": "greengrass",
-                        "signingRegion": "us-gov-west-1",
-                        "name": "sigv4"
-                      }
-                    ]
-                  },
-                  "url": "https://greengrass-ats.iot.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "dataplane-us-gov-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-gov-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-gov-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "us-gov-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "us-gov-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass-fips.us-isob-east-1.sc2s.sgov.gov"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-isob-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://greengrass.us-isob-east-1.sc2s.sgov.gov"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-isob-east-1"
+                "UseDualStack": true
               }
             },
             {
@@ -6330,9 +6096,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "cn-north-1",
                 "UseFIPS": false,
-                "Region": "cn-north-1"
+                "UseDualStack": false
               }
             },
             {
@@ -6343,9 +6109,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
+                "Region": "cn-north-1",
                 "UseFIPS": true,
-                "Region": "cn-north-1"
+                "UseDualStack": true
               }
             },
             {
@@ -6356,9 +6122,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "cn-north-1",
                 "UseFIPS": true,
-                "Region": "cn-north-1"
+                "UseDualStack": false
               }
             },
             {
@@ -6369,22 +6135,253 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
+                "Region": "cn-north-1",
                 "UseFIPS": false,
-                "Region": "cn-north-1"
+                "UseDualStack": true
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For region dataplane-us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "greengrass",
+                        "signingRegion": "us-gov-east-1"
+                      }
+                    ]
+                  },
+                  "url": "https://greengrass-ats.iot.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "dataplane-us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region dataplane-us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "greengrass",
+                        "signingRegion": "us-gov-west-1"
+                      }
+                    ]
+                  },
+                  "url": "https://greengrass-ats.iot.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "dataplane-us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://greengrass.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
                 }
               },
               "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
                 "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -6394,9 +6391,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
                 "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -6406,10 +6403,16 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
                 "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -6493,7 +6496,6 @@
         "AutoAddGroupOwner": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "If true, AWS IoT Greengrass automatically adds the specified Linux OS group owner of the resource to the Lambda process privileges. Thus the Lambda process will have the file access permissions of the added Linux group."
           }
         },
@@ -8013,7 +8015,6 @@
         "Space": {
           "target": "com.amazonaws.greengrass#__integer",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "The amount of file space, in KB, to use if the local file system is used for logging purposes."
           }
         },
@@ -8167,7 +8168,6 @@
         "Force": {
           "target": "com.amazonaws.greengrass#__boolean",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "If true, performs a best-effort only core reset."
           }
         },
@@ -9526,16 +9526,10 @@
       }
     },
     "com.amazonaws.greengrass#__boolean": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#default": false
-      }
+      "type": "boolean"
     },
     "com.amazonaws.greengrass#__integer": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#default": 0
-      }
+      "type": "integer"
     },
     "com.amazonaws.greengrass#__listOfConnectivityInfo": {
       "type": "list",

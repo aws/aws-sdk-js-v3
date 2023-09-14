@@ -62,7 +62,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //     ApplicationName: "STRING_VALUE", // required
  * //     ApplicationDescription: "STRING_VALUE",
  * //     ApplicationARN: "STRING_VALUE", // required
- * //     ApplicationStatus: "STRING_VALUE", // required
+ * //     ApplicationStatus: "DELETING" || "STARTING" || "STOPPING" || "READY" || "RUNNING" || "UPDATING", // required
  * //     CreateTimestamp: new Date("TIMESTAMP"),
  * //     LastUpdateTimestamp: new Date("TIMESTAMP"),
  * //     InputDescriptions: [ // InputDescriptions
@@ -88,7 +88,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //         },
  * //         InputSchema: { // SourceSchema
  * //           RecordFormat: { // RecordFormat
- * //             RecordFormatType: "STRING_VALUE", // required
+ * //             RecordFormatType: "JSON" || "CSV", // required
  * //             MappingParameters: { // MappingParameters
  * //               JSONMappingParameters: { // JSONMappingParameters
  * //                 RecordRowPath: "STRING_VALUE", // required
@@ -112,7 +112,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //           Count: Number("int"),
  * //         },
  * //         InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
- * //           InputStartingPosition: "STRING_VALUE",
+ * //           InputStartingPosition: "NOW" || "TRIM_HORIZON" || "LAST_STOPPED_POINT",
  * //         },
  * //       },
  * //     ],
@@ -133,7 +133,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //           RoleARN: "STRING_VALUE",
  * //         },
  * //         DestinationSchema: { // DestinationSchema
- * //           RecordFormatType: "STRING_VALUE", // required
+ * //           RecordFormatType: "JSON" || "CSV", // required
  * //         },
  * //       },
  * //     ],
@@ -148,7 +148,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //         },
  * //         ReferenceSchema: {
  * //           RecordFormat: {
- * //             RecordFormatType: "STRING_VALUE", // required
+ * //             RecordFormatType: "JSON" || "CSV", // required
  * //             MappingParameters: {
  * //               JSONMappingParameters: {
  * //                 RecordRowPath: "STRING_VALUE", // required

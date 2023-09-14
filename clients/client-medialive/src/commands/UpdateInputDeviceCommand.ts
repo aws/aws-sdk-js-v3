@@ -48,6 +48,13 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  *     ConfiguredInput: "AUTO" || "HDMI" || "SDI",
  *     MaxBitrate: Number("int"),
  *     LatencyMs: Number("int"),
+ *     Codec: "HEVC" || "AVC",
+ *     MediaconnectSettings: { // InputDeviceMediaConnectConfigurableSettings
+ *       FlowArn: "STRING_VALUE",
+ *       RoleArn: "STRING_VALUE",
+ *       SecretArn: "STRING_VALUE",
+ *       SourceName: "STRING_VALUE",
+ *     },
  *   },
  *   InputDeviceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
@@ -55,6 +62,13 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  *     ConfiguredInput: "AUTO" || "HDMI" || "SDI",
  *     MaxBitrate: Number("int"),
  *     LatencyMs: Number("int"),
+ *     Codec: "HEVC" || "AVC",
+ *     MediaconnectSettings: {
+ *       FlowArn: "STRING_VALUE",
+ *       RoleArn: "STRING_VALUE",
+ *       SecretArn: "STRING_VALUE",
+ *       SourceName: "STRING_VALUE",
+ *     },
  *   },
  *   AvailabilityZone: "STRING_VALUE",
  * };
@@ -100,11 +114,22 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  * //     ScanType: "INTERLACED" || "PROGRESSIVE",
  * //     Width: Number("int"),
  * //     LatencyMs: Number("int"),
+ * //     Codec: "HEVC" || "AVC",
+ * //     MediaconnectSettings: { // InputDeviceMediaConnectSettings
+ * //       FlowArn: "STRING_VALUE",
+ * //       RoleArn: "STRING_VALUE",
+ * //       SecretArn: "STRING_VALUE",
+ * //       SourceName: "STRING_VALUE",
+ * //     },
  * //   },
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   AvailabilityZone: "STRING_VALUE",
+ * //   MedialiveInputArns: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   OutputType: "NONE" || "MEDIALIVE_INPUT" || "MEDIACONNECT_FLOW",
  * // };
  *
  * ```

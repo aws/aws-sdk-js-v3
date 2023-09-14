@@ -55,7 +55,7 @@ export interface DescribeAlarmModelCommandOutput extends DescribeAlarmModelRespo
  * //   alarmModelArn: "STRING_VALUE",
  * //   alarmModelVersion: "STRING_VALUE",
  * //   lastUpdateTime: new Date("TIMESTAMP"),
- * //   status: "STRING_VALUE",
+ * //   status: "ACTIVE" || "ACTIVATING" || "INACTIVE" || "FAILED",
  * //   statusMessage: "STRING_VALUE",
  * //   alarmModelName: "STRING_VALUE",
  * //   alarmModelDescription: "STRING_VALUE",
@@ -65,7 +65,7 @@ export interface DescribeAlarmModelCommandOutput extends DescribeAlarmModelRespo
  * //   alarmRule: { // AlarmRule
  * //     simpleRule: { // SimpleRule
  * //       inputProperty: "STRING_VALUE", // required
- * //       comparisonOperator: "STRING_VALUE", // required
+ * //       comparisonOperator: "GREATER" || "GREATER_OR_EQUAL" || "LESS" || "LESS_OR_EQUAL" || "EQUAL" || "NOT_EQUAL", // required
  * //       threshold: "STRING_VALUE", // required
  * //     },
  * //   },
@@ -77,7 +77,7 @@ export interface DescribeAlarmModelCommandOutput extends DescribeAlarmModelRespo
  * //             functionArn: "STRING_VALUE", // required
  * //             payload: { // Payload
  * //               contentExpression: "STRING_VALUE", // required
- * //               type: "STRING_VALUE", // required
+ * //               type: "STRING" || "JSON", // required
  * //             },
  * //           },
  * //         },
@@ -124,28 +124,28 @@ export interface DescribeAlarmModelCommandOutput extends DescribeAlarmModelRespo
  * //           targetArn: "STRING_VALUE", // required
  * //           payload: {
  * //             contentExpression: "STRING_VALUE", // required
- * //             type: "STRING_VALUE", // required
+ * //             type: "STRING" || "JSON", // required
  * //           },
  * //         },
  * //         iotTopicPublish: { // IotTopicPublishAction
  * //           mqttTopic: "STRING_VALUE", // required
  * //           payload: {
  * //             contentExpression: "STRING_VALUE", // required
- * //             type: "STRING_VALUE", // required
+ * //             type: "STRING" || "JSON", // required
  * //           },
  * //         },
  * //         lambda: {
  * //           functionArn: "STRING_VALUE", // required
  * //           payload: {
  * //             contentExpression: "STRING_VALUE", // required
- * //             type: "STRING_VALUE", // required
+ * //             type: "STRING" || "JSON", // required
  * //           },
  * //         },
  * //         iotEvents: { // IotEventsAction
  * //           inputName: "STRING_VALUE", // required
  * //           payload: {
  * //             contentExpression: "STRING_VALUE", // required
- * //             type: "STRING_VALUE", // required
+ * //             type: "STRING" || "JSON", // required
  * //           },
  * //         },
  * //         sqs: { // SqsAction

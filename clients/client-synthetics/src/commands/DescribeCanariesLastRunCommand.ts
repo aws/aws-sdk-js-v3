@@ -37,7 +37,6 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
 /**
  * @public
  * <p>Use this operation to see information from the most recent run of each canary that you have created.</p>
- *
  *          <p>This operation supports resource-level authorization using an IAM policy and
  *          the <code>Names</code> parameter. If you specify the <code>Names</code> parameter, the operation is successful only if you have authorization to view
  *          all the canaries that you specify in your request. If you do not have permission to view any of
@@ -69,9 +68,9 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * //         Id: "STRING_VALUE",
  * //         Name: "STRING_VALUE",
  * //         Status: { // CanaryRunStatus
- * //           State: "STRING_VALUE",
+ * //           State: "RUNNING" || "PASSED" || "FAILED",
  * //           StateReason: "STRING_VALUE",
- * //           StateReasonCode: "STRING_VALUE",
+ * //           StateReasonCode: "CANARY_FAILURE" || "EXECUTION_FAILURE",
  * //         },
  * //         Timeline: { // CanaryRunTimeline
  * //           Started: new Date("TIMESTAMP"),

@@ -57,7 +57,7 @@ export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __Met
  * //   NextMarker: "STRING_VALUE",
  * //   FileShareInfoList: [ // FileShareInfoList
  * //     { // FileShareInfo
- * //       FileShareType: "STRING_VALUE",
+ * //       FileShareType: "NFS" || "SMB",
  * //       FileShareARN: "STRING_VALUE",
  * //       FileShareId: "STRING_VALUE",
  * //       FileShareStatus: "STRING_VALUE",

@@ -6,6 +6,7 @@ import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provi
  */
 export interface ClientInputEndpointParameters {
   region?: string | Provider<string>;
+  useDualstackEndpoint?: boolean | Provider<boolean>;
   useFipsEndpoint?: boolean | Provider<boolean>;
   endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
 }
@@ -19,6 +20,7 @@ export const resolveClientEndpointParameters = <T>(
 ): T & ClientResolvedEndpointParameters => {
   return {
     ...options,
+    useDualstackEndpoint: options.useDualstackEndpoint ?? false,
     useFipsEndpoint: options.useFipsEndpoint ?? false,
     defaultSigningName: "internetmonitor",
   };
@@ -26,6 +28,7 @@ export const resolveClientEndpointParameters = <T>(
 
 export interface EndpointParameters extends __EndpointParameters {
   Region?: string;
+  UseDualStack?: boolean;
   UseFIPS?: boolean;
   Endpoint?: string;
 }

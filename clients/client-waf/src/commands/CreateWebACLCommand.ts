@@ -86,7 +86,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *   Name: "STRING_VALUE", // required
  *   MetricName: "STRING_VALUE", // required
  *   DefaultAction: { // WafAction
- *     Type: "STRING_VALUE", // required
+ *     Type: "BLOCK" || "ALLOW" || "COUNT", // required
  *   },
  *   ChangeToken: "STRING_VALUE", // required
  *   Tags: [ // TagList
@@ -104,19 +104,19 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * //     Name: "STRING_VALUE",
  * //     MetricName: "STRING_VALUE",
  * //     DefaultAction: { // WafAction
- * //       Type: "STRING_VALUE", // required
+ * //       Type: "BLOCK" || "ALLOW" || "COUNT", // required
  * //     },
  * //     Rules: [ // ActivatedRules // required
  * //       { // ActivatedRule
  * //         Priority: Number("int"), // required
  * //         RuleId: "STRING_VALUE", // required
  * //         Action: {
- * //           Type: "STRING_VALUE", // required
+ * //           Type: "BLOCK" || "ALLOW" || "COUNT", // required
  * //         },
  * //         OverrideAction: { // WafOverrideAction
- * //           Type: "STRING_VALUE", // required
+ * //           Type: "NONE" || "COUNT", // required
  * //         },
- * //         Type: "STRING_VALUE",
+ * //         Type: "REGULAR" || "RATE_BASED" || "GROUP",
  * //         ExcludedRules: [ // ExcludedRules
  * //           { // ExcludedRule
  * //             RuleId: "STRING_VALUE", // required

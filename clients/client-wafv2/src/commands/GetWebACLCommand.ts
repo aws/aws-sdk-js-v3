@@ -605,6 +605,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                     },
  * //                     AWSManagedRulesBotControlRuleSet: { // AWSManagedRulesBotControlRuleSet
  * //                       InspectionLevel: "COMMON" || "TARGETED", // required
+ * //                       EnableMachineLearning: true || false,
  * //                     },
  * //                     AWSManagedRulesATPRuleSet: { // AWSManagedRulesATPRuleSet
  * //                       LoginPath: "STRING_VALUE", // required
@@ -813,6 +814,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                 PasswordField: "<PasswordField>",
  * //                 AWSManagedRulesBotControlRuleSet: {
  * //                   InspectionLevel: "COMMON" || "TARGETED", // required
+ * //                   EnableMachineLearning: true || false,
  * //                 },
  * //                 AWSManagedRulesATPRuleSet: {
  * //                   LoginPath: "STRING_VALUE", // required
@@ -1005,6 +1007,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                 PasswordField: "<PasswordField>",
  * //                 AWSManagedRulesBotControlRuleSet: {
  * //                   InspectionLevel: "COMMON" || "TARGETED", // required
+ * //                   EnableMachineLearning: true || false,
  * //                 },
  * //                 AWSManagedRulesATPRuleSet: {
  * //                   LoginPath: "STRING_VALUE", // required
@@ -1120,6 +1123,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                 PasswordField: "<PasswordField>",
  * //                 AWSManagedRulesBotControlRuleSet: {
  * //                   InspectionLevel: "COMMON" || "TARGETED", // required
+ * //                   EnableMachineLearning: true || false,
  * //                 },
  * //                 AWSManagedRulesATPRuleSet: {
  * //                   LoginPath: "STRING_VALUE", // required

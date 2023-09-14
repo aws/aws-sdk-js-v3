@@ -45,13 +45,13 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * const client = new MachineLearningClient(config);
  * const input = { // DescribeTagsInput
  *   ResourceId: "STRING_VALUE", // required
- *   ResourceType: "STRING_VALUE", // required
+ *   ResourceType: "BatchPrediction" || "DataSource" || "Evaluation" || "MLModel", // required
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeTagsOutput
  * //   ResourceId: "STRING_VALUE",
- * //   ResourceType: "STRING_VALUE",
+ * //   ResourceType: "BatchPrediction" || "DataSource" || "Evaluation" || "MLModel",
  * //   Tags: [ // TagList
  * //     { // Tag
  * //       Key: "STRING_VALUE",

@@ -61,7 +61,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //           roleArn: "STRING_VALUE",
  * //         },
  * //       },
- * //       status: "STRING_VALUE",
+ * //       status: "CREATING" || "ACTIVE" || "DELETING",
  * //       creationTime: new Date("TIMESTAMP"),
  * //       lastUpdateTime: new Date("TIMESTAMP"),
  * //       lastMessageArrivalTime: new Date("TIMESTAMP"),

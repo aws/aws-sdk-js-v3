@@ -61,6 +61,15 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  *     Percentage: { // UpdateCustomLineItemPercentageChargeDetails
  *       PercentageValue: Number("double"), // required
  *     },
+ *     LineItemFilters: [ // LineItemFiltersList
+ *       { // LineItemFilter
+ *         Attribute: "STRING_VALUE", // required
+ *         MatchOption: "STRING_VALUE", // required
+ *         Values: [ // LineItemFilterValuesList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
  *   },
  *   BillingPeriodRange: { // CustomLineItemBillingPeriodRange
  *     InclusiveStartBillingPeriod: "STRING_VALUE", // required
@@ -82,6 +91,15 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  * //       PercentageValue: Number("double"), // required
  * //     },
  * //     Type: "STRING_VALUE", // required
+ * //     LineItemFilters: [ // LineItemFiltersList
+ * //       { // LineItemFilter
+ * //         Attribute: "STRING_VALUE", // required
+ * //         MatchOption: "STRING_VALUE", // required
+ * //         Values: [ // LineItemFilterValuesList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
  * //   },
  * //   LastModifiedTime: Number("long"),
  * //   AssociationSize: Number("long"),

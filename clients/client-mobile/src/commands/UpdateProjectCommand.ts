@@ -64,7 +64,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * //     name: "STRING_VALUE",
  * //     projectId: "STRING_VALUE",
  * //     region: "STRING_VALUE",
- * //     state: "STRING_VALUE",
+ * //     state: "NORMAL" || "SYNCING" || "IMPORTING",
  * //     createdDate: new Date("TIMESTAMP"),
  * //     lastUpdatedDate: new Date("TIMESTAMP"),
  * //     consoleUrl: "STRING_VALUE",

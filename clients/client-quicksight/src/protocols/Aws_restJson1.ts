@@ -685,11 +685,6 @@ import {
   ArcAxisDisplayRange,
   ArcConfiguration,
   ArcOptions,
-  AssetBundleExportJobAnalysisOverrideProperties,
-  AssetBundleExportJobAnalysisPropertyToOverride,
-  AssetBundleExportJobDashboardOverrideProperties,
-  AssetBundleExportJobDashboardPropertyToOverride,
-  AssetBundleExportJobDataSetPropertyToOverride,
   BinCountOptions,
   BinWidthOptions,
   BoxPlotAggregatedFieldWells,
@@ -782,6 +777,8 @@ import {
   HistogramVisual,
   InsightConfiguration,
   InsightVisual,
+  KPIActualValueConditionalFormatting,
+  KPIComparisonValueConditionalFormatting,
   KPIConditionalFormatting,
   KPIConditionalFormattingOption,
   KPIConfiguration,
@@ -790,7 +787,10 @@ import {
   KPIPrimaryValueConditionalFormatting,
   KPIProgressBarConditionalFormatting,
   KPISortConfiguration,
+  KPISparklineOptions,
   KPIVisual,
+  KPIVisualLayoutOptions,
+  KPIVisualStandardLayout,
   LineChartAggregatedFieldWells,
   LineChartConfiguration,
   LineChartDefaultSeriesSettings,
@@ -923,7 +923,12 @@ import {
 import {
   _Parameters,
   AssetBundleCloudFormationOverridePropertyConfiguration,
+  AssetBundleExportJobAnalysisOverrideProperties,
+  AssetBundleExportJobAnalysisPropertyToOverride,
+  AssetBundleExportJobDashboardOverrideProperties,
+  AssetBundleExportJobDashboardPropertyToOverride,
   AssetBundleExportJobDataSetOverrideProperties,
+  AssetBundleExportJobDataSetPropertyToOverride,
   AssetBundleExportJobDataSourceOverrideProperties,
   AssetBundleExportJobDataSourcePropertyToOverride,
   AssetBundleExportJobRefreshScheduleOverrideProperties,
@@ -992,10 +997,7 @@ import {
   DataSetConfiguration,
   DatasetMetadata,
   DatasetParameter,
-  DataSetRefreshProperties,
   DataSetSchema,
-  DataSetSearchFilter,
-  DataSetSummary,
   DataSetUsageConfiguration,
   DataSourceCredentials,
   DataSourceParameters,
@@ -1016,7 +1018,6 @@ import {
   Font,
   GeoSpatialColumnGroup,
   GutterStyle,
-  IncrementalRefresh,
   InputColumn,
   IntegerDatasetParameter,
   IntegerDatasetParameterDefaultValues,
@@ -1029,7 +1030,6 @@ import {
   LimitExceededException,
   LogicalTable,
   LogicalTableSource,
-  LookbackWindow,
   ManifestFileLocation,
   MarginStyle,
   MariaDbParameters,
@@ -1048,7 +1048,6 @@ import {
   RangeConstant,
   RdsParameters,
   RedshiftParameters,
-  RefreshConfiguration,
   RefreshFrequency,
   RefreshSchedule,
   RelationalTable,
@@ -1113,6 +1112,9 @@ import {
   VpcConnectionProperties,
 } from "../models/models_2";
 import {
+  DataSetRefreshProperties,
+  DataSetSearchFilter,
+  DataSetSummary,
   DataSource,
   DataSourceSearchFilter,
   DataSourceSummary,
@@ -1122,10 +1124,13 @@ import {
   FolderSummary,
   GroupSearchFilter,
   IdentityTypeNotSupportedException,
+  IncrementalRefresh,
   Ingestion,
   InvalidNextTokenException,
   InvalidRequestException,
+  LookbackWindow,
   QuickSightUserNotFoundException,
+  RefreshConfiguration,
   RegisteredUserConsoleFeatureConfigurations,
   RegisteredUserDashboardEmbeddingConfiguration,
   RegisteredUserDashboardFeatureConfigurations,
@@ -21228,6 +21233,32 @@ const se_InsightVisual = (input: InsightVisual, context: __SerdeContext): any =>
 // se_JoinKeyProperties omitted.
 
 /**
+ * serializeAws_restJson1KPIActualValueConditionalFormatting
+ */
+const se_KPIActualValueConditionalFormatting = (
+  input: KPIActualValueConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Icon: _json,
+    TextColor: (_) => se_ConditionalFormattingColor(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1KPIComparisonValueConditionalFormatting
+ */
+const se_KPIComparisonValueConditionalFormatting = (
+  input: KPIComparisonValueConditionalFormatting,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Icon: _json,
+    TextColor: (_) => se_ConditionalFormattingColor(_, context),
+  });
+};
+
+/**
  * serializeAws_restJson1KPIConditionalFormatting
  */
 const se_KPIConditionalFormatting = (input: KPIConditionalFormatting, context: __SerdeContext): any => {
@@ -21241,6 +21272,8 @@ const se_KPIConditionalFormatting = (input: KPIConditionalFormatting, context: _
  */
 const se_KPIConditionalFormattingOption = (input: KPIConditionalFormattingOption, context: __SerdeContext): any => {
   return take(input, {
+    ActualValue: (_) => se_KPIActualValueConditionalFormatting(_, context),
+    ComparisonValue: (_) => se_KPIComparisonValueConditionalFormatting(_, context),
     PrimaryValue: (_) => se_KPIPrimaryValueConditionalFormatting(_, context),
     ProgressBar: (_) => se_KPIProgressBarConditionalFormatting(_, context),
   });
@@ -21318,6 +21351,8 @@ const se_KPISortConfiguration = (input: KPISortConfiguration, context: __SerdeCo
   });
 };
 
+// se_KPISparklineOptions omitted.
+
 /**
  * serializeAws_restJson1KPIVisual
  */
@@ -21332,6 +21367,10 @@ const se_KPIVisual = (input: KPIVisual, context: __SerdeContext): any => {
     VisualId: [],
   });
 };
+
+// se_KPIVisualLayoutOptions omitted.
+
+// se_KPIVisualStandardLayout omitted.
 
 // se_LabelOptions omitted.
 
@@ -26244,6 +26283,32 @@ const de_InsightVisual = (output: any, context: __SerdeContext): InsightVisual =
 // de_JoinKeyProperties omitted.
 
 /**
+ * deserializeAws_restJson1KPIActualValueConditionalFormatting
+ */
+const de_KPIActualValueConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): KPIActualValueConditionalFormatting => {
+  return take(output, {
+    Icon: _json,
+    TextColor: (_: any) => de_ConditionalFormattingColor(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KPIComparisonValueConditionalFormatting
+ */
+const de_KPIComparisonValueConditionalFormatting = (
+  output: any,
+  context: __SerdeContext
+): KPIComparisonValueConditionalFormatting => {
+  return take(output, {
+    Icon: _json,
+    TextColor: (_: any) => de_ConditionalFormattingColor(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1KPIConditionalFormatting
  */
 const de_KPIConditionalFormatting = (output: any, context: __SerdeContext): KPIConditionalFormatting => {
@@ -26257,6 +26322,8 @@ const de_KPIConditionalFormatting = (output: any, context: __SerdeContext): KPIC
  */
 const de_KPIConditionalFormattingOption = (output: any, context: __SerdeContext): KPIConditionalFormattingOption => {
   return take(output, {
+    ActualValue: (_: any) => de_KPIActualValueConditionalFormatting(_, context),
+    ComparisonValue: (_: any) => de_KPIComparisonValueConditionalFormatting(_, context),
     PrimaryValue: (_: any) => de_KPIPrimaryValueConditionalFormatting(_, context),
     ProgressBar: (_: any) => de_KPIProgressBarConditionalFormatting(_, context),
   }) as any;
@@ -26335,6 +26402,8 @@ const de_KPISortConfiguration = (output: any, context: __SerdeContext): KPISortC
   }) as any;
 };
 
+// de_KPISparklineOptions omitted.
+
 /**
  * deserializeAws_restJson1KPIVisual
  */
@@ -26349,6 +26418,10 @@ const de_KPIVisual = (output: any, context: __SerdeContext): KPIVisual => {
     VisualId: __expectString,
   }) as any;
 };
+
+// de_KPIVisualLayoutOptions omitted.
+
+// de_KPIVisualStandardLayout omitted.
 
 // de_LabelOptions omitted.
 

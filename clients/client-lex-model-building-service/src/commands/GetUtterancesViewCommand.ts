@@ -75,7 +75,7 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  *   botVersions: [ // BotVersions // required
  *     "STRING_VALUE",
  *   ],
- *   statusType: "STRING_VALUE", // required
+ *   statusType: "Detected" || "Missed", // required
  * };
  * const command = new GetUtterancesViewCommand(input);
  * const response = await client.send(command);

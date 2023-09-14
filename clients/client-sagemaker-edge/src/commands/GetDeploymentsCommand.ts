@@ -53,17 +53,17 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResult, __Met
  * //   Deployments: [ // EdgeDeployments
  * //     { // EdgeDeployment
  * //       DeploymentName: "STRING_VALUE",
- * //       Type: "STRING_VALUE",
- * //       FailureHandlingPolicy: "STRING_VALUE",
+ * //       Type: "Model",
+ * //       FailureHandlingPolicy: "ROLLBACK_ON_FAILURE" || "DO_NOTHING",
  * //       Definitions: [ // Definitions
  * //         { // Definition
  * //           ModelHandle: "STRING_VALUE",
  * //           S3Url: "STRING_VALUE",
  * //           Checksum: { // Checksum
- * //             Type: "STRING_VALUE",
+ * //             Type: "SHA1",
  * //             Sum: "STRING_VALUE",
  * //           },
- * //           State: "STRING_VALUE",
+ * //           State: "DEPLOY" || "UNDEPLOY",
  * //         },
  * //       ],
  * //     },

@@ -41,7 +41,6 @@ import {
   ContinuousParameterRange,
   ConvergenceDetected,
   CustomImage,
-  DefaultSpaceSettings,
   EdgeOutputConfig,
   EndpointInput,
   HyperParameterScalingType,
@@ -77,6 +76,36 @@ import {
   TransformResources,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>A collection of settings that apply to spaces created in the Domain.</p>
+ */
+export interface DefaultSpaceSettings {
+  /**
+   * @public
+   * <p>The ARN of the execution role for the space.</p>
+   */
+  ExecutionRole?: string;
+
+  /**
+   * @public
+   * <p>The security group IDs for the Amazon Virtual Private Cloud that the space uses for communication.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * @public
+   * <p>The JupyterServer app settings.</p>
+   */
+  JupyterServerAppSettings?: JupyterServerAppSettings;
+
+  /**
+   * @public
+   * <p>The KernelGateway app settings.</p>
+   */
+  KernelGatewayAppSettings?: KernelGatewayAppSettings;
+}
 
 /**
  * @public
@@ -516,8 +545,9 @@ export type FailureHandlingPolicy = (typeof FailureHandlingPolicy)[keyof typeof 
 export interface EdgeDeploymentConfig {
   /**
    * @public
-   * <p>Toggle that determines whether to rollback to previous configuration if the current deployment fails.
-   *       By default this is turned on. You may turn this off if you want to investigate the errors yourself.</p>
+   * <p>Toggle that determines whether to rollback to previous configuration if the current
+   *             deployment fails. By default this is turned on. You may turn this off if you want to
+   *             investigate the errors yourself.</p>
    */
   FailureHandlingPolicy: FailureHandlingPolicy | string | undefined;
 }
@@ -615,7 +645,8 @@ export interface CreateEdgeDeploymentPlanRequest {
 
   /**
    * @public
-   * <p>List of stages of the edge deployment plan. The number of stages is limited to 10 per deployment.</p>
+   * <p>List of stages of the edge deployment plan. The number of stages is limited to 10 per
+   *             deployment.</p>
    */
   Stages?: DeploymentStage[];
 
@@ -4819,7 +4850,8 @@ export type FlatInvocations = (typeof FlatInvocations)[keyof typeof FlatInvocati
 export interface ModelLatencyThreshold {
   /**
    * @public
-   * <p>The model latency percentile threshold. For custom load tests, specify the value as <code>P95</code>.</p>
+   * <p>The model latency percentile threshold. Acceptable values are <code>P95</code> and <code>P99</code>.
+   *          For custom load tests, specify the value as <code>P95</code>.</p>
    */
   Percentile?: string;
 
@@ -11733,17 +11765,6 @@ export interface DeleteEndpointConfigInput {
    * <p>The name of the endpoint configuration that you want to delete.</p>
    */
   EndpointConfigName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteExperimentRequest {
-  /**
-   * @public
-   * <p>The name of the experiment to delete.</p>
-   */
-  ExperimentName: string | undefined;
 }
 
 /**

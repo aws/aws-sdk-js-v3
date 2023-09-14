@@ -65,7 +65,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  *       IamRoleArn: "STRING_VALUE",
  *     },
  *     MatchingEventTypes: [ // EventTypes
- *       "STRING_VALUE",
+ *       "INITIATED_CALL" || "RINGING" || "ANSWERED" || "COMPLETED_CALL" || "BUSY" || "FAILED" || "NO_ANSWER",
  *     ],
  *     SnsDestination: { // SnsDestination
  *       TopicArn: "STRING_VALUE",

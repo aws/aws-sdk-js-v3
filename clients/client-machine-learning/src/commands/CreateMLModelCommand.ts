@@ -65,7 +65,7 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  * const input = { // CreateMLModelInput
  *   MLModelId: "STRING_VALUE", // required
  *   MLModelName: "STRING_VALUE",
- *   MLModelType: "STRING_VALUE", // required
+ *   MLModelType: "REGRESSION" || "BINARY" || "MULTICLASS", // required
  *   Parameters: { // TrainingParameters
  *     "<keys>": "STRING_VALUE",
  *   },

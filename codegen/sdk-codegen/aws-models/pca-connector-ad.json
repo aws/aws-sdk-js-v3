@@ -3314,7 +3314,11 @@
             "x-amzn-platform-id",
             "x-amzn-trace-id"
           ],
-          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id"],
+          "additionalExposedHeaders": [
+            "x-amzn-errortype",
+            "x-amzn-requestid",
+            "x-amzn-trace-id"
+          ],
           "maxAge": 86400
         },
         "smithy.api#documentation": "<p>Amazon Web Services Private CA Connector for Active Directory creates a connector between Amazon Web Services Private CA and Active Directory (AD) that enables you to\n         provision security certificates for AD signed by a private CA that you own. For more\n         information, see <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/ad-connector.html\">Amazon Web Services Private CA Connector for Active Directory</a>.</p>",

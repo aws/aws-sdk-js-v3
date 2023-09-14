@@ -57,7 +57,7 @@ export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDa
  * const command = new DescribeTableDataImportJobCommand(input);
  * const response = await client.send(command);
  * // { // DescribeTableDataImportJobResult
- * //   jobStatus: "STRING_VALUE", // required
+ * //   jobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED", // required
  * //   message: "STRING_VALUE", // required
  * //   jobMetadata: { // TableDataImportJobMetadata
  * //     submitter: { // ImportJobSubmitter
@@ -77,7 +77,7 @@ export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDa
  * //         delimiter: "STRING_VALUE", // required
  * //         hasHeaderRow: true || false,
  * //         ignoreEmptyRows: true || false,
- * //         dataCharacterEncoding: "STRING_VALUE",
+ * //         dataCharacterEncoding: "UTF-8" || "US-ASCII" || "ISO-8859-1" || "UTF-16BE" || "UTF-16LE" || "UTF-16",
  * //       },
  * //     },
  * //     dataSource: { // ImportDataSource
@@ -86,7 +86,7 @@ export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDa
  * //       },
  * //     },
  * //   },
- * //   errorCode: "STRING_VALUE",
+ * //   errorCode: "ACCESS_DENIED" || "INVALID_URL_ERROR" || "INVALID_IMPORT_OPTIONS_ERROR" || "INVALID_TABLE_ID_ERROR" || "INVALID_TABLE_COLUMN_ID_ERROR" || "TABLE_NOT_FOUND_ERROR" || "FILE_EMPTY_ERROR" || "INVALID_FILE_TYPE_ERROR" || "FILE_PARSING_ERROR" || "FILE_SIZE_LIMIT_ERROR" || "FILE_NOT_FOUND_ERROR" || "UNKNOWN_ERROR" || "RESOURCE_NOT_FOUND_ERROR" || "SYSTEM_LIMIT_ERROR",
  * // };
  *
  * ```

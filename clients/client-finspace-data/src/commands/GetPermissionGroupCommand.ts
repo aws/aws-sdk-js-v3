@@ -58,11 +58,11 @@ export interface GetPermissionGroupCommandOutput extends GetPermissionGroupRespo
  * //     name: "STRING_VALUE",
  * //     description: "STRING_VALUE",
  * //     applicationPermissions: [ // ApplicationPermissionList
- * //       "STRING_VALUE",
+ * //       "CreateDataset" || "ManageClusters" || "ManageUsersAndGroups" || "ManageAttributeSets" || "ViewAuditData" || "AccessNotebooks" || "GetTemporaryCredentials",
  * //     ],
  * //     createTime: Number("long"),
  * //     lastModifiedTime: Number("long"),
- * //     membershipStatus: "STRING_VALUE",
+ * //     membershipStatus: "ADDITION_IN_PROGRESS" || "ADDITION_SUCCESS" || "REMOVAL_IN_PROGRESS",
  * //   },
  * // };
  *

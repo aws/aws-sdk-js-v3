@@ -76,7 +76,7 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  *     },
  *     ReferenceSchema: { // SourceSchema
  *       RecordFormat: { // RecordFormat
- *         RecordFormatType: "STRING_VALUE", // required
+ *         RecordFormatType: "JSON" || "CSV", // required
  *         MappingParameters: { // MappingParameters
  *           JSONMappingParameters: { // JSONMappingParameters
  *             RecordRowPath: "STRING_VALUE", // required

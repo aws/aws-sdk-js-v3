@@ -9674,17 +9674,15 @@ export interface PutAccountSettingRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>0</code> - immediately retire the tasks and patch Fargate </p>
-   *                <p>There is no advanced notification. Your tasks are retired immediately, and Fargate
-   * 					is patched without any notification.</p>
+   *                   <code>0</code> - Amazon Web Services sends the notification, and immediately retires the affected tasks.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>7</code> -wait 7 calendar days to retire the tasks and patch Fargate </p>
+   *                   <code>7</code> - Amazon Web Services sends the notification, and waits 7 calendar days to retire the tasks.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>14</code> - wait 14 calendar days to retire the tasks and patch Fargate </p>
+   *                   <code>14</code> -  Amazon Web Services sends the notification, and waits 14 calendar days to retire the tasks.</p>
    *             </li>
    *          </ul>
    */
@@ -9761,19 +9759,15 @@ export interface PutAccountSettingDefaultRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>0</code> - immediately retire the tasks and patch Fargate </p>
-   *                <p>There is no advanced notification. Your tasks are retired immediately, and
-   * 					Fargate is patched without any notification.</p>
+   *                   <code>0</code> - Amazon Web Services sends the notification, and immediately retires the affected tasks.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>7</code> -wait 7 calendar days to retire the tasks and patch Fargate
-   * 				</p>
+   *                   <code>7</code> - Amazon Web Services sends the notification, and waits 7 calendar days to retire the tasks.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>14</code> - wait 14 calendar days to retire the tasks and patch
-   * 					Fargate </p>
+   *                   <code>14</code> -  Amazon Web Services sends the notification, and waits 14 calendar days to retire the tasks.</p>
    *             </li>
    *          </ul>
    */

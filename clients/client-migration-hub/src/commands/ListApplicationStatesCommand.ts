@@ -58,7 +58,7 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  * //   ApplicationStateList: [ // ApplicationStateList
  * //     { // ApplicationState
  * //       ApplicationId: "STRING_VALUE",
- * //       ApplicationStatus: "STRING_VALUE",
+ * //       ApplicationStatus: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETED",
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],

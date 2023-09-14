@@ -56,9 +56,9 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * //       Id: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Status: { // CanaryRunStatus
- * //         State: "STRING_VALUE",
+ * //         State: "RUNNING" || "PASSED" || "FAILED",
  * //         StateReason: "STRING_VALUE",
- * //         StateReasonCode: "STRING_VALUE",
+ * //         StateReasonCode: "CANARY_FAILURE" || "EXECUTION_FAILURE",
  * //       },
  * //       Timeline: { // CanaryRunTimeline
  * //         Started: new Date("TIMESTAMP"),

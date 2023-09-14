@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
-import { ResourceStatus } from "./models_0";
+import { AccountCustomization, ResourceStatus } from "./models_0";
 import { AnalysisDefinition, AnalysisSourceEntity } from "./models_1";
 import {
   _Parameters,
@@ -28,6 +28,7 @@ import {
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagConfigurationFilterSensitiveLog,
   SslProperties,
+  Tag,
   TemplateAlias,
   TemplateSourceEntity,
   TemplateVersionDefinition,
@@ -40,6 +41,175 @@ import {
   VPCConnectionResourceStatus,
 } from "./models_2";
 import { LinkSharingConfiguration, User, UserRole } from "./models_3";
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The keys of the key-value pairs for the resource tag or tags assigned to the resource.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountCustomizationRequest {
+  /**
+   * @public
+   * <p>The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations
+   *             for.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The namespace that you want to update Amazon QuickSight customizations for.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * @public
+   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
+   */
+  AccountCustomization: AccountCustomization | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountCustomizationResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the updated customization for this Amazon Web Services account.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations
+   *             for.</p>
+   */
+  AwsAccountId?: string;
+
+  /**
+   * @public
+   * <p>The namespace associated with the customization that you're updating.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * @public
+   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
+   */
+  AccountCustomization?: AccountCustomization;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountSettingsRequest {
+  /**
+   * @public
+   * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight settings that you want to
+   *             list.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The default namespace for this Amazon Web Services account. Currently, the default is
+   *                 <code>default</code>. IAM users that
+   *             register for the first time with Amazon QuickSight provide an email address that becomes
+   *             associated with the default namespace.
+   *         </p>
+   */
+  DefaultNamespace: string | undefined;
+
+  /**
+   * @public
+   * <p>The email address that you want Amazon QuickSight to send notifications to regarding your
+   *             Amazon Web Services account or Amazon QuickSight subscription.</p>
+   */
+  NotificationEmail?: string;
+
+  /**
+   * @public
+   * <p>A boolean value that determines whether or not an Amazon QuickSight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubscription</code> request. A <code>False</code> value will allow the account to be deleted.</p>
+   */
+  TerminationProtectionEnabled?: boolean;
+}
 
 /**
  * @public

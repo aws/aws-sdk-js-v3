@@ -1980,7 +1980,7 @@ export interface SourceIpConditionConfig {
  *       following conditions: <code>http-header</code> and <code>query-string</code>. Note that the
  *       value for a condition cannot be empty.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your
- *         Application Load Balancers</a>.</p>
+ *       Application Load Balancers</a>.</p>
  */
 export interface RuleCondition {
   /**
@@ -2839,19 +2839,19 @@ export interface DescribeAccountLimitsInput {
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your
- *             Application Load Balancers</a>
+ *           Application Load Balancers</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Quotas for your
- *             Network Load Balancers</a>
+ *           Network Load Balancers</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html">Quotas for your Gateway
- *             Load Balancers</a>
+ *           Load Balancers</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -3576,8 +3576,8 @@ export interface TargetGroupAttribute {
    *                <p>
    *                   <code>deregistration_delay.connection_termination.enabled</code> - Indicates whether
    *           the load balancer terminates connections at the end of the deregistration timeout. The
-   *           value is <code>true</code> or <code>false</code>. The default is
-   *           <code>false</code>.</p>
+   *           value is <code>true</code> or <code>false</code>. For new UDP/TCP_UDP target groups the
+   *           default is <code>true</code>. Otherwise, the default is <code>false</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3592,6 +3592,12 @@ export interface TargetGroupAttribute {
    *                   <code>proxy_protocol_v2.enabled</code> - Indicates whether Proxy Protocol version 2 is
    *           enabled. The value is <code>true</code> or <code>false</code>. The default is
    *             <code>false</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target_health_state.unhealthy.connection_termination.enabled</code> - Indicates whether
+   *           the load balancer terminates connections to unhealthy targets. The value is <code>true</code>
+   *           or <code>false</code>. The default is <code>true</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The following attributes are supported only by Gateway Load Balancers:</p>

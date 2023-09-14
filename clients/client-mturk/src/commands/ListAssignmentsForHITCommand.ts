@@ -74,7 +74,7 @@ export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHI
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   AssignmentStatuses: [ // AssignmentStatusList
- *     "STRING_VALUE",
+ *     "Submitted" || "Approved" || "Rejected",
  *   ],
  * };
  * const command = new ListAssignmentsForHITCommand(input);
@@ -87,7 +87,7 @@ export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHI
  * //       AssignmentId: "STRING_VALUE",
  * //       WorkerId: "STRING_VALUE",
  * //       HITId: "STRING_VALUE",
- * //       AssignmentStatus: "STRING_VALUE",
+ * //       AssignmentStatus: "Submitted" || "Approved" || "Rejected",
  * //       AutoApprovalTime: new Date("TIMESTAMP"),
  * //       AcceptTime: new Date("TIMESTAMP"),
  * //       SubmitTime: new Date("TIMESTAMP"),

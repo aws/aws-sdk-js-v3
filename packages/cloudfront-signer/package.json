@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/cloudfront-signer",
-  "version": "3.398.0",
+  "version": "3.410.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -21,7 +21,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/url-parser": "^2.0.5"
+    "@smithy/url-parser": "^2.0.6"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

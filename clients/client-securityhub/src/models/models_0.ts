@@ -1477,12 +1477,18 @@ export interface AutomationRulesFindingFilters {
    *          The Amazon Resource Name (ARN) for a third-party product that generated a finding in
    *          Security Hub.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ProductArn?: StringFilter[];
 
   /**
    * @public
    * <p> The Amazon Web Services account ID in which a finding was generated. </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 100 items.
+   *    	</p>
    */
   AwsAccountId?: StringFilter[];
 
@@ -1491,6 +1497,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The product-specific identifier for a finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   Id?: StringFilter[];
 
@@ -1500,6 +1509,9 @@ export interface AutomationRulesFindingFilters {
    *          The identifier for the solution-specific component that
    *          generated a finding.
    *       </p>
+   *          <p>
+   *       		Array Members: Minimum number of 1 item. Maximum number of 100 items.
+   *       	</p>
    */
   GeneratorId?: StringFilter[];
 
@@ -1507,7 +1519,10 @@ export interface AutomationRulesFindingFilters {
    * @public
    * <p> One or more finding types in the format of namespace/category/classifier that classify
    *          a finding. For a list of namespaces, classifiers, and categories, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html">Types
-   *             taxonomy for ASFF</a> in the <i>Security Hub User Guide</i>. </p>
+   *             taxonomy for ASFF</a> in the <i>Security Hub User Guide</i>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   Type?: StringFilter[];
 
@@ -1520,6 +1535,9 @@ export interface AutomationRulesFindingFilters {
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   FirstObservedAt?: DateFilter[];
 
@@ -1532,6 +1550,9 @@ export interface AutomationRulesFindingFilters {
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   LastObservedAt?: DateFilter[];
 
@@ -1543,6 +1564,9 @@ export interface AutomationRulesFindingFilters {
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   CreatedAt?: DateFilter[];
 
@@ -1554,6 +1578,9 @@ export interface AutomationRulesFindingFilters {
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   UpdatedAt?: DateFilter[];
 
@@ -1564,7 +1591,10 @@ export interface AutomationRulesFindingFilters {
    *          scale. A value of <code>0</code> means 0 percent confidence, and a value of
    *             <code>100</code> means 100 percent confidence. For example, a data exfiltration
    *          detection based on a statistical deviation of network traffic has low confidence because an
-   *          actual exfiltration hasn't been verified. For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence">Confidence</a> in the <i>Security Hub User Guide</i>. </p>
+   *          actual exfiltration hasn't been verified. For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence">Confidence</a> in the <i>Security Hub User Guide</i>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   Confidence?: NumberFilter[];
 
@@ -1576,6 +1606,9 @@ export interface AutomationRulesFindingFilters {
    *          only full integers. A score of <code>0</code> means that the underlying resources have no
    *          criticality, and a score of <code>100</code> is reserved for the most critical resources. For
    *       more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality">Criticality</a> in the <i>Security Hub User Guide</i>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   Criticality?: NumberFilter[];
 
@@ -1584,6 +1617,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          A finding's title.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 100 items.
+   *    	</p>
    */
   Title?: StringFilter[];
 
@@ -1592,6 +1628,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          A finding's description.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   Description?: StringFilter[];
 
@@ -1600,6 +1639,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          Provides a URL that links to a page about the current finding in the finding product.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   SourceUrl?: StringFilter[];
 
@@ -1609,6 +1651,9 @@ export interface AutomationRulesFindingFilters {
    *          Provides the name of the product that generated the finding. For
    *          control-based findings, the product name is Security Hub.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ProductName?: StringFilter[];
 
@@ -1618,6 +1663,9 @@ export interface AutomationRulesFindingFilters {
    *          The name of the company for the product that generated the finding.
    *          For control-based findings, the company is Amazon Web Services.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   CompanyName?: StringFilter[];
 
@@ -1626,6 +1674,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The severity value of the finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   SeverityLabel?: StringFilter[];
 
@@ -1634,6 +1685,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The type of resource that the finding pertains to.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ResourceType?: StringFilter[];
 
@@ -1646,6 +1700,9 @@ export interface AutomationRulesFindingFilters {
    *          For non-Amazon Web Services resources, this is a unique identifier that is associated with the
    *          resource.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 100 items.
+   *    	</p>
    */
   ResourceId?: StringFilter[];
 
@@ -1655,6 +1712,9 @@ export interface AutomationRulesFindingFilters {
    *          The partition in which the resource that the finding pertains to is located.
    *          A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one partition.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ResourcePartition?: StringFilter[];
 
@@ -1663,6 +1723,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The Amazon Web Services Region where the resource that a finding pertains to is located.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ResourceRegion?: StringFilter[];
 
@@ -1671,6 +1734,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          A list of Amazon Web Services tags associated with a resource at the time the finding was processed.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ResourceTags?: MapFilter[];
 
@@ -1679,6 +1745,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          Custom fields and values about the resource that a finding pertains to.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ResourceDetailsOther?: MapFilter[];
 
@@ -1688,12 +1757,18 @@ export interface AutomationRulesFindingFilters {
    *          The result of a security check. This field is only used for findings generated
    *          from controls.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ComplianceStatus?: StringFilter[];
 
   /**
    * @public
    * <p> The security control ID for which a finding was generated. Security control IDs are the same across standards.</p>
+   *          <p>
+   *     		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *     	</p>
    */
   ComplianceSecurityControlId?: StringFilter[];
 
@@ -1701,6 +1776,9 @@ export interface AutomationRulesFindingFilters {
    * @public
    * <p>The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of
    *             the Amazon Resource Name (ARN) returned for a standard in the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html">DescribeStandards</a> API response.</p>
+   *          <p>
+   *     		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *     	</p>
    */
   ComplianceAssociatedStandardsId?: StringFilter[];
 
@@ -1709,6 +1787,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          Provides the veracity of a finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   VerificationState?: StringFilter[];
 
@@ -1717,6 +1798,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          Provides information about the status of the investigation into a finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   WorkflowStatus?: StringFilter[];
 
@@ -1725,6 +1809,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          Provides the current state of a finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   RecordState?: StringFilter[];
 
@@ -1733,6 +1820,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The ARN for the product that generated a related finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   RelatedFindingsProductArn?: StringFilter[];
 
@@ -1741,6 +1831,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The product-generated identifier for a related finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   RelatedFindingsId?: StringFilter[];
 
@@ -1749,6 +1842,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The text of a user-defined note that's added to a finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   NoteText?: StringFilter[];
 
@@ -1759,6 +1855,9 @@ export interface AutomationRulesFindingFilters {
    *          <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>. The value cannot contain spaces.
    *          For example, <code>2020-03-22T13:22:13.933Z</code>.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   NoteUpdatedAt?: DateFilter[];
 
@@ -1767,6 +1866,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The principal that created a note.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   NoteUpdatedBy?: StringFilter[];
 
@@ -1775,6 +1877,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *             A list of user-defined name and value string pairs added to a finding.
    *         </p>
+   *          <p>
+   *     		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *     	</p>
    */
   UserDefinedFields?: MapFilter[];
 }

@@ -53,7 +53,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * // { // DeleteBackupResponse
  * //   Backup: { // Backup
  * //     BackupId: "STRING_VALUE", // required
- * //     BackupState: "STRING_VALUE",
+ * //     BackupState: "CREATE_IN_PROGRESS" || "READY" || "DELETED" || "PENDING_DELETION",
  * //     ClusterId: "STRING_VALUE",
  * //     CreateTimestamp: new Date("TIMESTAMP"),
  * //     CopyTimestamp: new Date("TIMESTAMP"),

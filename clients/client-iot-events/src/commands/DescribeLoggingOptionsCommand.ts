@@ -49,7 +49,7 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * // { // DescribeLoggingOptionsResponse
  * //   loggingOptions: { // LoggingOptions
  * //     roleArn: "STRING_VALUE", // required
- * //     level: "STRING_VALUE", // required
+ * //     level: "ERROR" || "INFO" || "DEBUG", // required
  * //     enabled: true || false, // required
  * //     detectorDebugOptions: [ // DetectorDebugOptions
  * //       { // DetectorDebugOption

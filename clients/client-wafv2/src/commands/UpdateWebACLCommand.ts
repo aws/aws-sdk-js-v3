@@ -616,6 +616,7 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *                   },
  *                   AWSManagedRulesBotControlRuleSet: { // AWSManagedRulesBotControlRuleSet
  *                     InspectionLevel: "COMMON" || "TARGETED", // required
+ *                     EnableMachineLearning: true || false,
  *                   },
  *                   AWSManagedRulesATPRuleSet: { // AWSManagedRulesATPRuleSet
  *                     LoginPath: "STRING_VALUE", // required
@@ -824,6 +825,7 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *               PasswordField: "<PasswordField>",
  *               AWSManagedRulesBotControlRuleSet: {
  *                 InspectionLevel: "COMMON" || "TARGETED", // required
+ *                 EnableMachineLearning: true || false,
  *               },
  *               AWSManagedRulesATPRuleSet: {
  *                 LoginPath: "STRING_VALUE", // required

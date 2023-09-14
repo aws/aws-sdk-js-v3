@@ -1,7 +1,10 @@
 // smithy-typescript generated code
+import { HttpHandlerExtensionConfiguration } from "@smithy/protocol-http";
 import { DefaultExtensionConfiguration } from "@smithy/types";
 
 /**
  * @internal
  */
-export interface ComprehendExtensionConfiguration extends DefaultExtensionConfiguration {}
+export interface ComprehendExtensionConfiguration
+  extends HttpHandlerExtensionConfiguration,
+    DefaultExtensionConfiguration {}

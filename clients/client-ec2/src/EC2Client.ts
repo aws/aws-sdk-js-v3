@@ -1294,6 +1294,10 @@ import {
   DisableFastSnapshotRestoresCommandOutput,
 } from "./commands/DisableFastSnapshotRestoresCommand";
 import {
+  DisableImageBlockPublicAccessCommandInput,
+  DisableImageBlockPublicAccessCommandOutput,
+} from "./commands/DisableImageBlockPublicAccessCommand";
+import {
   DisableImageDeprecationCommandInput,
   DisableImageDeprecationCommandOutput,
 } from "./commands/DisableImageDeprecationCommand";
@@ -1395,6 +1399,10 @@ import {
   EnableFastSnapshotRestoresCommandOutput,
 } from "./commands/EnableFastSnapshotRestoresCommand";
 import {
+  EnableImageBlockPublicAccessCommandInput,
+  EnableImageBlockPublicAccessCommandOutput,
+} from "./commands/EnableImageBlockPublicAccessCommand";
+import {
   EnableImageDeprecationCommandInput,
   EnableImageDeprecationCommandOutput,
 } from "./commands/EnableImageDeprecationCommand";
@@ -1486,6 +1494,10 @@ import {
   GetHostReservationPurchasePreviewCommandInput,
   GetHostReservationPurchasePreviewCommandOutput,
 } from "./commands/GetHostReservationPurchasePreviewCommand";
+import {
+  GetImageBlockPublicAccessStateCommandInput,
+  GetImageBlockPublicAccessStateCommandOutput,
+} from "./commands/GetImageBlockPublicAccessStateCommand";
 import {
   GetInstanceTypesFromInstanceRequirementsCommandInput,
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
@@ -2448,6 +2460,7 @@ export type ServiceInputTypes =
   | DisableEbsEncryptionByDefaultCommandInput
   | DisableFastLaunchCommandInput
   | DisableFastSnapshotRestoresCommandInput
+  | DisableImageBlockPublicAccessCommandInput
   | DisableImageDeprecationCommandInput
   | DisableIpamOrganizationAdminAccountCommandInput
   | DisableSerialConsoleAccessCommandInput
@@ -2474,6 +2487,7 @@ export type ServiceInputTypes =
   | EnableEbsEncryptionByDefaultCommandInput
   | EnableFastLaunchCommandInput
   | EnableFastSnapshotRestoresCommandInput
+  | EnableImageBlockPublicAccessCommandInput
   | EnableImageDeprecationCommandInput
   | EnableIpamOrganizationAdminAccountCommandInput
   | EnableReachabilityAnalyzerOrganizationSharingCommandInput
@@ -2500,6 +2514,7 @@ export type ServiceInputTypes =
   | GetFlowLogsIntegrationTemplateCommandInput
   | GetGroupsForCapacityReservationCommandInput
   | GetHostReservationPurchasePreviewCommandInput
+  | GetImageBlockPublicAccessStateCommandInput
   | GetInstanceTypesFromInstanceRequirementsCommandInput
   | GetInstanceUefiDataCommandInput
   | GetIpamAddressHistoryCommandInput
@@ -3047,6 +3062,7 @@ export type ServiceOutputTypes =
   | DisableEbsEncryptionByDefaultCommandOutput
   | DisableFastLaunchCommandOutput
   | DisableFastSnapshotRestoresCommandOutput
+  | DisableImageBlockPublicAccessCommandOutput
   | DisableImageDeprecationCommandOutput
   | DisableIpamOrganizationAdminAccountCommandOutput
   | DisableSerialConsoleAccessCommandOutput
@@ -3073,6 +3089,7 @@ export type ServiceOutputTypes =
   | EnableEbsEncryptionByDefaultCommandOutput
   | EnableFastLaunchCommandOutput
   | EnableFastSnapshotRestoresCommandOutput
+  | EnableImageBlockPublicAccessCommandOutput
   | EnableImageDeprecationCommandOutput
   | EnableIpamOrganizationAdminAccountCommandOutput
   | EnableReachabilityAnalyzerOrganizationSharingCommandOutput
@@ -3099,6 +3116,7 @@ export type ServiceOutputTypes =
   | GetFlowLogsIntegrationTemplateCommandOutput
   | GetGroupsForCapacityReservationCommandOutput
   | GetHostReservationPurchasePreviewCommandOutput
+  | GetImageBlockPublicAccessStateCommandOutput
   | GetInstanceTypesFromInstanceRequirementsCommandOutput
   | GetInstanceUefiDataCommandOutput
   | GetIpamAddressHistoryCommandOutput

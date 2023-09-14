@@ -343,7 +343,8 @@ export interface S3DestinationConfiguration {
 
 /**
  * @public
- * <p>The details of the VPC of the Amazon ES destination.</p>
+ * <p>The details of the VPC of the Amazon OpenSearch or Amazon OpenSearch Serverless
+ *          destination.</p>
  */
 export interface VpcConfiguration {
   /**
@@ -506,7 +507,8 @@ export interface AmazonOpenSearchServerlessDestinationConfiguration {
 
   /**
    * @public
-   * <p>The details of the VPC of the Amazon ES destination.</p>
+   * <p>The details of the VPC of the Amazon OpenSearch or Amazon OpenSearch Serverless
+   *          destination.</p>
    */
   VpcConfiguration?: VpcConfiguration;
 }
@@ -681,7 +683,7 @@ export interface VpcConfigurationDescription {
 export interface AmazonOpenSearchServerlessDestinationDescription {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials.</p>
    */
   RoleARN?: string;
 
@@ -898,6 +900,44 @@ export interface AmazonopensearchserviceBufferingHints {
  * @public
  * @enum
  */
+export const DefaultDocumentIdFormat = {
+  FIREHOSE_DEFAULT: "FIREHOSE_DEFAULT",
+  NO_DOCUMENT_ID: "NO_DOCUMENT_ID",
+} as const;
+
+/**
+ * @public
+ */
+export type DefaultDocumentIdFormat = (typeof DefaultDocumentIdFormat)[keyof typeof DefaultDocumentIdFormat];
+
+/**
+ * @public
+ * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+ *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ *          <p></p>
+ */
+export interface DocumentIdOptions {
+  /**
+   * @public
+   * <p>When the <code>FIREHOSE_DEFAULT</code> option is chosen, Kinesis Data Firehose generates
+   *          a unique document ID for each record based on a unique internal identifier. The generated
+   *          document ID is stable across multiple delivery attempts, which helps prevent the same
+   *          record from being indexed multiple times with different document IDs.</p>
+   *          <p>When the <code>NO_DOCUMENT_ID</code> option is chosen, Kinesis Data Firehose does not
+   *          include any document IDs in the requests it sends to the Amazon OpenSearch Service. This
+   *          causes the Amazon OpenSearch Service domain to generate document IDs. In case of multiple
+   *          delivery attempts, this may cause the same record to be indexed more than once with
+   *          different document IDs. This option enables write-heavy operations, such as the ingestion
+   *          of logs and observability data, to consume less resources in the Amazon OpenSearch Service
+   *          domain, resulting in improved performance.</p>
+   */
+  DefaultDocumentIdFormat: DefaultDocumentIdFormat | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AmazonopensearchserviceIndexRotationPeriod = {
   NoRotation: "NoRotation",
   OneDay: "OneDay",
@@ -1037,9 +1077,17 @@ export interface AmazonopensearchserviceDestinationConfiguration {
 
   /**
    * @public
-   * <p>The details of the VPC of the Amazon ES destination.</p>
+   * <p>The details of the VPC of the Amazon OpenSearch or Amazon OpenSearch Serverless
+   *          destination.</p>
    */
   VpcConfiguration?: VpcConfiguration;
+
+  /**
+   * @public
+   * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+   *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+   */
+  DocumentIdOptions?: DocumentIdOptions;
 }
 
 /**
@@ -1127,6 +1175,13 @@ export interface AmazonopensearchserviceDestinationDescription {
    * <p>The details of the VPC of the Amazon ES destination.</p>
    */
   VpcConfigurationDescription?: VpcConfigurationDescription;
+
+  /**
+   * @public
+   * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+   *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+   */
+  DocumentIdOptions?: DocumentIdOptions;
 }
 
 /**
@@ -1213,6 +1268,13 @@ export interface AmazonopensearchserviceDestinationUpdate {
    * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+   *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+   */
+  DocumentIdOptions?: DocumentIdOptions;
 }
 
 /**
@@ -1453,7 +1515,6 @@ export interface ElasticsearchDestinationConfiguration {
    *             for <code>DescribeDomain</code>, <code>DescribeDomains</code>, and
    *             <code>DescribeDomainConfig</code> after assuming the role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
    *                Amazon Web Services Service Namespaces</a>.</p>
-   *
    *          <p>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</p>
    */
   DomainARN?: string;
@@ -1476,7 +1537,6 @@ export interface ElasticsearchDestinationConfiguration {
    * <p>The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per
    *          index. If you try to specify a new type for an existing index that already has another
    *          type, Kinesis Data Firehose returns an error during run time.</p>
-   *
    *          <p>For Elasticsearch 7.x, don't specify a <code>TypeName</code>.</p>
    */
   TypeName?: string;
@@ -1539,9 +1599,16 @@ export interface ElasticsearchDestinationConfiguration {
 
   /**
    * @public
-   * <p>The details of the VPC of the Amazon ES destination.</p>
+   * <p>The details of the VPC of the Amazon destination.</p>
    */
   VpcConfiguration?: VpcConfiguration;
+
+  /**
+   * @public
+   * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+   *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+   */
+  DocumentIdOptions?: DocumentIdOptions;
 }
 
 /**
@@ -2709,7 +2776,6 @@ export interface CreateDeliveryStreamInput {
    *          distinguish the delivery stream. For more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
    *             Cost Allocation Tags</a> in the Amazon Web Services Billing and Cost Management User
    *          Guide.</p>
-   *
    *          <p>You can specify up to 50 tags when creating a delivery stream.</p>
    */
   Tags?: Tag[];
@@ -3009,7 +3075,6 @@ export interface ElasticsearchDestinationDescription {
    * @public
    * <p>The ARN of the Amazon ES domain. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
    *             Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
-   *
    *          <p>Kinesis Data Firehose uses either <code>ClusterEndpoint</code> or <code>DomainARN</code>
    *          to send data to Amazon ES.</p>
    */
@@ -3081,9 +3146,17 @@ export interface ElasticsearchDestinationDescription {
 
   /**
    * @public
-   * <p>The details of the VPC of the Amazon ES destination.</p>
+   * <p>The details of the VPC of the Amazon OpenSearch or the Amazon OpenSearch Serverless
+   *          destination.</p>
    */
   VpcConfigurationDescription?: VpcConfigurationDescription;
+
+  /**
+   * @public
+   * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+   *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+   */
+  DocumentIdOptions?: DocumentIdOptions;
 }
 
 /**
@@ -3675,7 +3748,6 @@ export interface ElasticsearchDestinationUpdate {
    *             <code>DescribeDomainConfig</code> after assuming the IAM role specified in
    *             <code>RoleARN</code>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
    *                Amazon Web Services Service Namespaces</a>.</p>
-   *
    *          <p>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</p>
    */
   DomainARN?: string;
@@ -3698,7 +3770,6 @@ export interface ElasticsearchDestinationUpdate {
    * <p>The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per
    *          index. If you try to specify a new type for an existing index that already has another
    *          type, Kinesis Data Firehose returns an error during runtime.</p>
-   *
    *          <p>If you upgrade Elasticsearch from 6.x to 7.x and don’t update your delivery stream,
    *          Kinesis Data Firehose still delivers data to Elasticsearch with the old index name and type
    *          name. If you want to update your delivery stream with a new index name, provide an empty
@@ -3746,6 +3817,13 @@ export interface ElasticsearchDestinationUpdate {
    * <p>The CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+   *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+   */
+  DocumentIdOptions?: DocumentIdOptions;
 }
 
 /**

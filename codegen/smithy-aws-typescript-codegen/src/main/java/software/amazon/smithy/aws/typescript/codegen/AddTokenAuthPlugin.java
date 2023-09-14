@@ -20,6 +20,7 @@ import static software.amazon.smithy.typescript.codegen.integration.RuntimeClien
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
 import java.util.List;
+import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
@@ -27,21 +28,30 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Configure clients with Token auth configurations and plugin.
+ *
+ * This is the existing control behavior for `experimentalIdentityAndAuth`.
  */
 @SmithyInternalApi
 public final class AddTokenAuthPlugin implements TypeScriptIntegration {
+
+    /**
+     * Integration should only be used if `experimentalIdentityAndAuth` flag is false.
+     */
+    @Override
+    public boolean matchesSettings(TypeScriptSettings settings) {
+        return !settings.getExperimentalIdentityAndAuth();
+    }
+
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_TOKEN.dependency, "Token", HAS_CONFIG)
                     .servicePredicate((m, s) -> isHttpBearerAuthService(s))
-                    .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                     .build(),
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_TOKEN.dependency, "Token", HAS_MIDDLEWARE)
                     .servicePredicate((m, s) -> isHttpBearerAuthService(s))
-                    .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                     .build()
         );
     }

@@ -68,7 +68,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * //       name: "STRING_VALUE",
  * //       arn: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
- * //       lastDeploymentStatus: "STRING_VALUE",
+ * //       lastDeploymentStatus: "Pending" || "Preparing" || "InProgress" || "Failed" || "Succeeded" || "Canceled",
  * //       lastDeploymentJob: "STRING_VALUE",
  * //       lastDeploymentTime: new Date("TIMESTAMP"),
  * //     },

@@ -945,7 +945,7 @@
                 {
                   "Attributes": {
                     "LanguageCode": "en-US",
-                    "LastModified": 1.478542980117e9,
+                    "LastModified": 1478542980.117,
                     "Alphabet": "ipa",
                     "LexemesCount": 1,
                     "LexiconArn": "arn:aws:polly:us-east-1:123456789012:lexicon/example",
@@ -2654,7 +2654,9 @@
             "title": "To synthesize speech",
             "documentation": "Synthesizes plain text or SSML into a file of human-like speech.",
             "input": {
-              "LexiconNames": ["example"],
+              "LexiconNames": [
+                "example"
+              ],
               "OutputFormat": "mp3",
               "SampleRate": "8000",
               "Text": "All Gaul is divided into three parts",

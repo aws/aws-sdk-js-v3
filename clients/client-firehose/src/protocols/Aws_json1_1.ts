@@ -82,6 +82,7 @@ import {
   DescribeDeliveryStreamOutput,
   Deserializer,
   DestinationDescription,
+  DocumentIdOptions,
   DynamicPartitioningConfiguration,
   ElasticsearchBufferingHints,
   ElasticsearchDestinationConfiguration,
@@ -1107,6 +1108,8 @@ const se_DataFormatConversionConfiguration = (
 
 // se_Deserializer omitted.
 
+// se_DocumentIdOptions omitted.
+
 // se_DynamicPartitioningConfiguration omitted.
 
 // se_ElasticsearchBufferingHints omitted.
@@ -1450,6 +1453,8 @@ const de_DestinationDescriptionList = (output: any, context: __SerdeContext): De
     });
   return retVal;
 };
+
+// de_DocumentIdOptions omitted.
 
 // de_DynamicPartitioningConfiguration omitted.
 

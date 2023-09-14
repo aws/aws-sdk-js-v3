@@ -58,15 +58,15 @@ export interface GetMigrationCommandOutput extends GetMigrationResponse, __Metad
  * //   migrationId: "STRING_VALUE",
  * //   v1BotName: "STRING_VALUE",
  * //   v1BotVersion: "STRING_VALUE",
- * //   v1BotLocale: "STRING_VALUE",
+ * //   v1BotLocale: "de-DE" || "en-AU" || "en-GB" || "en-IN" || "en-US" || "es-419" || "es-ES" || "es-US" || "fr-FR" || "fr-CA" || "it-IT" || "ja-JP" || "ko-KR",
  * //   v2BotId: "STRING_VALUE",
  * //   v2BotRole: "STRING_VALUE",
- * //   migrationStatus: "STRING_VALUE",
- * //   migrationStrategy: "STRING_VALUE",
+ * //   migrationStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ * //   migrationStrategy: "CREATE_NEW" || "UPDATE_EXISTING",
  * //   migrationTimestamp: new Date("TIMESTAMP"),
  * //   alerts: [ // MigrationAlerts
  * //     { // MigrationAlert
- * //       type: "STRING_VALUE",
+ * //       type: "ERROR" || "WARN",
  * //       message: "STRING_VALUE",
  * //       details: [ // MigrationAlertDetails
  * //         "STRING_VALUE",

@@ -3,6 +3,126 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.412.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.411.0...v3.412.0) (2023-09-13)
+
+
+### Bug Fixes
+
+* **signature-v4-multi-region:** make conditional require call in node.js only ([#5203](https://github.com/aws/aws-sdk-js-v3/issues/5203)) ([0a68c97](https://github.com/aws/aws-sdk-js-v3/commit/0a68c97cc1c987ff77a0c8c2696252126b1f71e6))
+
+
+### Features
+
+* **client-drs:** Updated existing APIs and added new ones to support using AWS Elastic Disaster Recovery post-launch actions. Added support for new regions. ([6577b34](https://github.com/aws/aws-sdk-js-v3/commit/6577b3432ada03afba6e88ce4cf51deea05f81a7))
+* **client-firehose:** DocumentIdOptions has been added for the Amazon OpenSearch destination. ([f2e4398](https://github.com/aws/aws-sdk-js-v3/commit/f2e4398f4245db64ac4a6a27179ccba566ae52a9))
+* **client-guardduty:** Add `managementType` field to ListCoverage API response. ([1da1226](https://github.com/aws/aws-sdk-js-v3/commit/1da1226370715b77c8c5c13fe4ccf45d64b08910))
+* **client-internetmonitor:** This release updates the Amazon CloudWatch Internet Monitor API domain name. ([5f45618](https://github.com/aws/aws-sdk-js-v3/commit/5f45618a5be74b3098439c78bdb144f4d72bc7dd))
+* **client-xray:** Add StartTime field in GetTraceSummaries API response for each TraceSummary. ([a721414](https://github.com/aws/aws-sdk-js-v3/commit/a721414d5e906348352342bef69f2ef9640aa86d))
+* **clients:** update client endpoints as of 2023-09-13 ([2923641](https://github.com/aws/aws-sdk-js-v3/commit/2923641e96e928ea2a379f6a1776d9086534e1da))
+
+
+
+
+
+# [3.411.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.410.0...v3.411.0) (2023-09-12)
+
+
+### Features
+
+* **client-ec2:** This release adds support for restricting public sharing of AMIs through AMI Block Public Access ([0528034](https://github.com/aws/aws-sdk-js-v3/commit/052803455bd5838c040957ed30ae4e24c1384d41))
+* **client-eventbridge:** Adds sensitive trait to various shapes in Jetstream Connections API model. ([fecfd43](https://github.com/aws/aws-sdk-js-v3/commit/fecfd43a4b3d044a46f67078bf77c4453213bae3))
+* **client-kendra:** Amazon Kendra now supports confidence score buckets for retrieved passage results using the Retrieve API. ([ed2cae6](https://github.com/aws/aws-sdk-js-v3/commit/ed2cae61225f1c3e5af8f9c77d65eb4f7ad6e509))
+* **clients:** update client endpoints as of 2023-09-12 ([ebf751e](https://github.com/aws/aws-sdk-js-v3/commit/ebf751e4c1553bc9a0ad25a3daad06a88e50f4ca))
+
+
+
+
+
+# [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
+
+
+### Features
+
+* **client-ecr:** This release will have ValidationException be thrown from ECR LifecyclePolicy APIs in regions LifecyclePolicy is not supported, this includes existing Amazon Dedicated Cloud (ADC) regions. This release will also change Tag: TagValue and Tag: TagKey to required. ([c885d48](https://github.com/aws/aws-sdk-js-v3/commit/c885d48ffba3ac93f26b5f42f8fa590fbf251fcf))
+* **client-medialive:** AWS Elemental Link now supports attaching a Link UHD device to a MediaConnect flow. ([29e9aba](https://github.com/aws/aws-sdk-js-v3/commit/29e9aba17cf814ad0ce4c8662e786dc70e419daa))
+* **client-quicksight:** This release launches new updates to QuickSight KPI visuals - support for sparklines, new templated layout and new targets for conditional formatting rules. ([12e1529](https://github.com/aws/aws-sdk-js-v3/commit/12e15298ffda884e48dce911262601e382394c27))
+* **experimentalIdentityAndAuth:** customize `[@aws](https://github.com/aws).auth#sigv4` identity providers for the AWS SDK ([#5179](https://github.com/aws/aws-sdk-js-v3/issues/5179)) ([53ef8f9](https://github.com/aws/aws-sdk-js-v3/commit/53ef8f9627788c9b1eb45fe86d24779ab67e222f)), closes [aws.auth#sigv4](https://github.com/aws.auth/issues/sigv4) [aws.auth#sigv4](https://github.com/aws.auth/issues/sigv4) [aws.auth#sigv4](https://github.com/aws.auth/issues/sigv4)
+* **experimentalIdentityAndAuth:** customize `[@http](https://github.com/http)BearerAuth` identity providers ([#5169](https://github.com/aws/aws-sdk-js-v3/issues/5169)) ([4e65c3e](https://github.com/aws/aws-sdk-js-v3/commit/4e65c3ee0d9182a1613110d1586d0eb73c36885a))
+
+
+
+
+
+# [3.409.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.408.0...v3.409.0) (2023-09-08)
+
+
+### Bug Fixes
+
+* **middleware-bucket-endpoint:** move @smithy/node-config-provider to deps ([#5196](https://github.com/aws/aws-sdk-js-v3/issues/5196)) ([932bdfa](https://github.com/aws/aws-sdk-js-v3/commit/932bdfa8e6fecc22f6f4985b338fe3645f4a5b86))
+
+
+### Features
+
+* **client-sagemaker:** Autopilot APIs will now support holiday featurization for Timeseries models. The models will now hold holiday metadata and should be able to accommodate holiday effect during inference. ([ee36843](https://github.com/aws/aws-sdk-js-v3/commit/ee368433c443948c536c59f4b3b9c6d95e8858cf))
+* **client-sso-admin:** Content updates to IAM Identity Center API for China Regions. ([5816674](https://github.com/aws/aws-sdk-js-v3/commit/5816674576955ef9f3556780e858c22bb3917ef3))
+* **client-workspaces:** A new field "ErrorDetails" will be added to the output of "DescribeWorkspaceImages" API call. This field provides in-depth details about the error occurred during image import process. These details include the possible causes of the errors and troubleshooting information. ([ddc2901](https://github.com/aws/aws-sdk-js-v3/commit/ddc29019bc716badb4e7928dcb1c88668b749c43))
+* **clients:** update client endpoints as of 2023-09-08 ([8fe3e6f](https://github.com/aws/aws-sdk-js-v3/commit/8fe3e6f2027ca88555212dc0064ade47284d1008))
+
+
+
+
+
+# [3.408.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.407.0...v3.408.0) (2023-09-07)
+
+
+### Bug Fixes
+
+* **s3-presigned-post:** ensure unique conditions in policy ([#5184](https://github.com/aws/aws-sdk-js-v3/issues/5184)) ([3f8b581](https://github.com/aws/aws-sdk-js-v3/commit/3f8b581af7c0c8146c5b111f92ba6a024310c525))
+
+
+### Features
+
+* **client-simspaceweaver:** BucketName and ObjectKey are now required for the S3Location data type. BucketName is now required for the S3Destination data type. ([ae379b4](https://github.com/aws/aws-sdk-js-v3/commit/ae379b4604b7057416ca45a16f6add12e57f9a8a))
+* **clients:** update client endpoints as of 2023-09-07 ([12dbc5a](https://github.com/aws/aws-sdk-js-v3/commit/12dbc5a68e87bbfcfbe7e82b3dc913608665c67a))
+* **region-config-provider:** add region-config-provider package ([#5156](https://github.com/aws/aws-sdk-js-v3/issues/5156)) ([d80f48c](https://github.com/aws/aws-sdk-js-v3/commit/d80f48c2b50c048b4b9d556210f9bf1bd779ed52))
+
+
+
+
+
+# [3.407.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.406.0...v3.407.0) (2023-09-06)
+
+
+### Features
+
+* **client-appflow:** Adding OAuth2.0 support for servicenow connector. ([2f9c712](https://github.com/aws/aws-sdk-js-v3/commit/2f9c7120d638d066f0510e1393e42a4baf1204c2))
+* **client-ec2:** This release adds 'outpost' location type to the DescribeInstanceTypeOfferings API, allowing customers that have been allowlisted for outpost to query their offerings in the API. ([fc64a50](https://github.com/aws/aws-sdk-js-v3/commit/fc64a50cab1dc6820ee6b27174c20788305352ed))
+* **client-medialive:** Adds advanced Output Locking options for Epoch Locking: Custom Epoch and Jam Sync Time ([91ec93d](https://github.com/aws/aws-sdk-js-v3/commit/91ec93df6fdc37ec2c91af89186cd934e0e1ed89))
+* **client-wafv2:** The targeted protection level of the Bot Control managed rule group now provides optional, machine-learning analysis of traffic statistics to detect some bot-related activity. You can enable or disable the machine learning functionality through the API. ([3e035e3](https://github.com/aws/aws-sdk-js-v3/commit/3e035e353ed95fbe1bc9b369cbeeaf5b20e6ffb0))
+* **clients:** update client endpoints as of 2023-09-06 ([f72da4a](https://github.com/aws/aws-sdk-js-v3/commit/f72da4a7b927bda6e507f375c06e88787da886c6))
+
+
+
+
+
+# [3.406.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.405.0...v3.406.0) (2023-09-05)
+
+
+### Features
+
+* **client-billingconductor:** This release adds support for line item filtering in for the custom line item resource. ([082f41a](https://github.com/aws/aws-sdk-js-v3/commit/082f41a95ce7a93e90ae530ea9de7d762369961d))
+* **client-compute-optimizer:** This release adds support to provide recommendations for G4dn and P3 instances that use NVIDIA GPUs. ([a872565](https://github.com/aws/aws-sdk-js-v3/commit/a872565f1a067f71749ff6dcb01ac656e697b142))
+* **client-ec2:** Introducing Amazon EC2 C7gd, M7gd, and R7gd Instances with up to 3.8 TB of local NVMe-based SSD block-level storage. These instances are powered by AWS Graviton3 processors, delivering up to 25% better performance over Graviton2-based instances. ([5117dcb](https://github.com/aws/aws-sdk-js-v3/commit/5117dcbba1eb3024a2ba498fb9ad47fbe504069f))
+* **client-eventbridge:** Improve Endpoint Ruleset test coverage. ([bacf609](https://github.com/aws/aws-sdk-js-v3/commit/bacf60948718083f7a2bc334131f648e342ba8e5))
+* **client-rds:** Add support for feature integration with AWS Backup. ([56dc806](https://github.com/aws/aws-sdk-js-v3/commit/56dc806be2dcc99ca345e27d60e7684bb02f763a))
+* **client-sagemaker:** SageMaker Neo now supports data input shape derivation for Pytorch 2.0  and XGBoost compilation job for cloud instance targets. You can skip DataInputConfig field during compilation job creation. You can also access derived information from model in DescribeCompilationJob response. ([159d684](https://github.com/aws/aws-sdk-js-v3/commit/159d684d8a076d37c7951bdaeb0188fa108d0ccd))
+* **client-vpc-lattice:** This release adds Lambda event structure version config support for LAMBDA target groups. It also adds newline support for auth policies. ([bdf3bce](https://github.com/aws/aws-sdk-js-v3/commit/bdf3bce74e6513f171b44daac1a710b829ad6dfe))
+* **clients:** update client endpoints as of 2023-09-05 ([fd588f8](https://github.com/aws/aws-sdk-js-v3/commit/fd588f8cf920ef3c30f72093e4a0ad5d4a0205f9))
+
+
+
+
+
 # [3.405.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.404.0...v3.405.0) (2023-09-01)
 
 

@@ -153,21 +153,21 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  *
  * @throws {@link InvalidAlarmConfigException} (client fault)
  *  <p>The format of the alarm configuration is invalid. Possible causes include:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>The alarm list is null.</p>
+ *                <p>The alarm list is null.</p>
  *             </li>
  *             <li>
- *                 <p>The alarm object is null.</p>
+ *                <p>The alarm object is null.</p>
  *             </li>
  *             <li>
- *                 <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p>
+ *                <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p>
  *             </li>
  *             <li>
- *                 <p>Two alarms with the same name have been specified.</p>
+ *                <p>Two alarms with the same name have been specified.</p>
  *             </li>
  *             <li>
- *                 <p>The alarm configuration is enabled, but the alarm list is empty.</p>
+ *                <p>The alarm configuration is enabled, but the alarm list is empty.</p>
  *             </li>
  *          </ul>
  *
@@ -215,19 +215,19 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  *
  * @throws {@link InvalidTargetInstancesException} (client fault)
  *  <p>The target instance configuration is invalid. Possible causes include:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Configuration data for target instances was entered for an in-place
+ *                <p>Configuration data for target instances was entered for an in-place
  *                     deployment.</p>
  *             </li>
  *             <li>
- *                 <p>The limit of 10 tags for a tag type was exceeded.</p>
+ *                <p>The limit of 10 tags for a tag type was exceeded.</p>
  *             </li>
  *             <li>
- *                 <p>The combined length of the tag names exceeded the limit. </p>
+ *                <p>The combined length of the tag names exceeded the limit. </p>
  *             </li>
  *             <li>
- *                 <p>A specified tag is not currently applied to any instances.</p>
+ *                <p>A specified tag is not currently applied to any instances.</p>
  *             </li>
  *          </ul>
  *

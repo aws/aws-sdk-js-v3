@@ -129,7 +129,7 @@ export interface S3Destination {
    *             configuring, and working with Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User
    *             Guide</i>.</p>
    */
-  BucketName?: string;
+  BucketName: string | undefined;
 
   /**
    * @public
@@ -568,7 +568,7 @@ export interface S3Location {
    *             configuring, and working with Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User
    *             Guide</i>.</p>
    */
-  BucketName?: string;
+  BucketName: string | undefined;
 
   /**
    * @public
@@ -577,7 +577,7 @@ export interface S3Location {
    *             downloading, and working with objects in Amazon S3</a> in the <i>Amazon Simple Storage Service User
    *             Guide</i>.</p>
    */
-  ObjectKey?: string;
+  ObjectKey: string | undefined;
 }
 
 /**

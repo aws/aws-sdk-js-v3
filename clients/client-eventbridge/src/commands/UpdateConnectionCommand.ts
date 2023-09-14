@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { UpdateConnectionRequest, UpdateConnectionResponse } from "../models/models_0";
+import {
+  UpdateConnectionRequest,
+  UpdateConnectionRequestFilterSensitiveLog,
+  UpdateConnectionResponse,
+} from "../models/models_0";
 import { de_UpdateConnectionCommand, se_UpdateConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -195,7 +199,7 @@ export class UpdateConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UpdateConnectionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;

@@ -69,7 +69,7 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * //         IamRoleArn: "STRING_VALUE",
  * //       },
  * //       MatchingEventTypes: [ // EventTypes
- * //         "STRING_VALUE",
+ * //         "INITIATED_CALL" || "RINGING" || "ANSWERED" || "COMPLETED_CALL" || "BUSY" || "FAILED" || "NO_ANSWER",
  * //       ],
  * //       Name: "STRING_VALUE",
  * //       SnsDestination: { // SnsDestination

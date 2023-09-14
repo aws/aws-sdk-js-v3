@@ -59,8 +59,8 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * //       AnomalyDetectorArn: "STRING_VALUE",
  * //       AlertName: "STRING_VALUE",
  * //       AlertSensitivityThreshold: Number("int"),
- * //       AlertType: "STRING_VALUE",
- * //       AlertStatus: "STRING_VALUE",
+ * //       AlertType: "SNS" || "LAMBDA",
+ * //       AlertStatus: "ACTIVE" || "INACTIVE",
  * //       LastModificationTime: new Date("TIMESTAMP"),
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       Tags: { // TagMap

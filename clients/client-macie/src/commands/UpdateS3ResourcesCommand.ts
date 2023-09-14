@@ -54,8 +54,8 @@ export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult,
  *       bucketName: "STRING_VALUE", // required
  *       prefix: "STRING_VALUE",
  *       classificationTypeUpdate: { // ClassificationTypeUpdate
- *         oneTime: "STRING_VALUE",
- *         continuous: "STRING_VALUE",
+ *         oneTime: "FULL" || "NONE",
+ *         continuous: "FULL",
  *       },
  *     },
  *   ],

@@ -75,7 +75,7 @@ export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __Metad
  * const client = new DataPipelineClient(config);
  * const input = { // SetTaskStatusInput
  *   taskId: "STRING_VALUE", // required
- *   taskStatus: "STRING_VALUE", // required
+ *   taskStatus: "FINISHED" || "FAILED" || "FALSE", // required
  *   errorId: "STRING_VALUE",
  *   errorMessage: "STRING_VALUE",
  *   errorStackTrace: "STRING_VALUE",

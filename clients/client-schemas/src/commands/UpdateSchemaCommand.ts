@@ -49,7 +49,7 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  *   Description: "STRING_VALUE",
  *   RegistryName: "STRING_VALUE", // required
  *   SchemaName: "STRING_VALUE", // required
- *   Type: "STRING_VALUE",
+ *   Type: "OpenApi3" || "JSONSchemaDraft4",
  * };
  * const command = new UpdateSchemaCommand(input);
  * const response = await client.send(command);

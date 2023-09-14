@@ -270,6 +270,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //     },
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -300,6 +301,9 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
+ *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
  *  <p>

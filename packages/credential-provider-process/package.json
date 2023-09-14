@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-process",
-  "version": "3.405.0",
+  "version": "3.410.0",
   "description": "AWS credential provider that sources credential_process from ~/.aws/credentials and ~/.aws/config",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -27,7 +27,7 @@
     "@aws-sdk/types": "*",
     "@smithy/property-provider": "^2.0.0",
     "@smithy/shared-ini-file-loader": "^2.0.6",
-    "@smithy/types": "^2.2.2",
+    "@smithy/types": "^2.3.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

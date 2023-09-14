@@ -74,12 +74,10 @@ export interface CreateTokenRequest {
    * @public
    * <p>Supports grant types for the authorization code, refresh token, and device code request.
    *       For device code requests, specify the following value:</p>
-   *
    *          <p>
    *             <code>urn:ietf:params:oauth:grant-type:<i>device_code</i>
    *             </code>
    *          </p>
-   *
    *          <p>For information about how to obtain the device code, see the <a>StartDeviceAuthorization</a> topic.</p>
    */
   grantType: string | undefined;

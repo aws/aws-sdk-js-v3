@@ -139,6 +139,7 @@ export interface CreateEnvironmentEC2Request {
    *          <p>From December 31, 2023, the parameter for Amazon Linux will no longer be available when
    *       you specify an AMI for your instance. Amazon Linux 2 will then become the default AMI, which
    *       is used to launch your instance if no parameter is explicitly defined.</p>
+   *          <p>Since Ubuntu 18.04 has ended standard support as of May 31, 2023, we recommend you choose Ubuntu 22.04.</p>
    *          <p>
    *             <b>AMI aliases </b>
    *          </p>
@@ -156,6 +157,10 @@ export interface CreateEnvironmentEC2Request {
    *             </li>
    *             <li>
    *                <p>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Ubuntu 22.04:  <code>ubuntu-22.04-x86_64</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -178,6 +183,11 @@ export interface CreateEnvironmentEC2Request {
    *             <li>
    *                <p>Ubuntu 18.04:
    *           <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Ubuntu 22.04:
+   *         <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64</code>
    *                </p>
    *             </li>
    *          </ul>

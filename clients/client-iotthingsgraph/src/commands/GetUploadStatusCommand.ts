@@ -52,7 +52,7 @@ export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, _
  * const response = await client.send(command);
  * // { // GetUploadStatusResponse
  * //   uploadId: "STRING_VALUE", // required
- * //   uploadStatus: "STRING_VALUE", // required
+ * //   uploadStatus: "IN_PROGRESS" || "SUCCEEDED" || "FAILED", // required
  * //   namespaceArn: "STRING_VALUE",
  * //   namespaceName: "STRING_VALUE",
  * //   namespaceVersion: Number("long"),

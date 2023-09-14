@@ -58,7 +58,7 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * //       DomainName: "STRING_VALUE", // required
  * //       DisplayName: "STRING_VALUE",
  * //       CreatedTime: new Date("TIMESTAMP"), // required
- * //       DomainStatus: "STRING_VALUE", // required
+ * //       DomainStatus: "PENDING_VALIDATION" || "ASSOCIATING" || "ACTIVE" || "INACTIVE" || "DISASSOCIATING" || "DISASSOCIATED" || "FAILED_TO_ASSOCIATE" || "FAILED_TO_DISASSOCIATE", // required
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

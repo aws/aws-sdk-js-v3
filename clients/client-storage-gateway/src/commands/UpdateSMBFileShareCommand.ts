@@ -38,12 +38,10 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  * @public
  * <p>Updates a Server Message Block (SMB) file share. This operation is only supported for S3
  *          File Gateways.</p>
- *
  *          <note>
  *             <p>To leave a file share field unchanged, set the corresponding input field to
  *             null.</p>
  *          </note>
- *
  *          <important>
  *             <p>File gateways require Security Token Service (Amazon Web Services STS) to be
  *             activated to enable you to create a file share. Make sure that Amazon Web Services STS
@@ -52,7 +50,6 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  *             it. For information about how to activate Amazon Web Services STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
  *                deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
  *                   <i>Identity and Access Management User Guide</i>.</p>
- *
  *             <p>File gateways don't support creating hard or symbolic links on a file
  *             share.</p>
  *          </important>
@@ -67,7 +64,7 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  *   KMSEncrypted: true || false,
  *   KMSKey: "STRING_VALUE",
  *   DefaultStorageClass: "STRING_VALUE",
- *   ObjectACL: "STRING_VALUE",
+ *   ObjectACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control" || "aws-exec-read",
  *   ReadOnly: true || false,
  *   GuessMIMETypeEnabled: true || false,
  *   RequesterPays: true || false,
@@ -83,7 +80,7 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  *     "STRING_VALUE",
  *   ],
  *   AuditDestinationARN: "STRING_VALUE",
- *   CaseSensitivity: "STRING_VALUE",
+ *   CaseSensitivity: "ClientSpecified" || "CaseSensitive",
  *   FileShareName: "STRING_VALUE",
  *   CacheAttributes: { // CacheAttributes
  *     CacheStaleTimeoutInSeconds: Number("int"),

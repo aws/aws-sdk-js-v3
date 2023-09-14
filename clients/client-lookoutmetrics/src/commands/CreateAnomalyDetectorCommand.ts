@@ -47,7 +47,7 @@ export interface CreateAnomalyDetectorCommandOutput extends CreateAnomalyDetecto
  *   AnomalyDetectorName: "STRING_VALUE", // required
  *   AnomalyDetectorDescription: "STRING_VALUE",
  *   AnomalyDetectorConfig: { // AnomalyDetectorConfig
- *     AnomalyDetectorFrequency: "STRING_VALUE",
+ *     AnomalyDetectorFrequency: "P1D" || "PT1H" || "PT10M" || "PT5M",
  *   },
  *   KmsKeyArn: "STRING_VALUE",
  *   Tags: { // TagMap

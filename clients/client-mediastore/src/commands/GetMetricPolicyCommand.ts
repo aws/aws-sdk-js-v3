@@ -50,7 +50,7 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
  * const response = await client.send(command);
  * // { // GetMetricPolicyOutput
  * //   MetricPolicy: { // MetricPolicy
- * //     ContainerLevelMetrics: "STRING_VALUE", // required
+ * //     ContainerLevelMetrics: "ENABLED" || "DISABLED", // required
  * //     MetricPolicyRules: [ // MetricPolicyRules
  * //       { // MetricPolicyRule
  * //         ObjectGroup: "STRING_VALUE", // required

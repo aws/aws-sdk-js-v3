@@ -57,7 +57,7 @@ export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse,
  * // { // GetBuiltinIntentResponse
  * //   signature: "STRING_VALUE",
  * //   supportedLocales: [ // LocaleList
- * //     "STRING_VALUE",
+ * //     "de-DE" || "en-AU" || "en-GB" || "en-IN" || "en-US" || "es-419" || "es-ES" || "es-US" || "fr-FR" || "fr-CA" || "it-IT" || "ja-JP" || "ko-KR",
  * //   ],
  * //   slots: [ // BuiltinIntentSlotList
  * //     { // BuiltinIntentSlot

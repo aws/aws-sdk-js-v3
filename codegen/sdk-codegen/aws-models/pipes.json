@@ -421,7 +421,11 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create a pipe",
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}", "aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Create a pipe. Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -618,7 +622,11 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to delete a pipe",
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}", "aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Delete an existing pipe. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>",
         "smithy.api#http": {
           "method": "DELETE",
@@ -713,7 +721,11 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to describe a pipe",
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}", "aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Get the information about an existing pipe. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>",
         "smithy.api#http": {
           "method": "GET",
@@ -1552,7 +1564,9 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to list the tags for a resource",
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Displays the tags associated with a pipe.</p>",
         "smithy.api#http": {
           "uri": "/tags/{resourceArn}",
@@ -1977,7 +1991,9 @@
         "aws.cloudformation#cfnResource": {
           "name": "Pipe"
         },
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}"
+        ],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "pipe"
@@ -2927,7 +2943,12 @@
             "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag"
           }
         },
-        "aws.iam#supportedPrincipalTypes": ["Root", "IAMUser", "IAMRole", "FederatedUser"],
+        "aws.iam#supportedPrincipalTypes": [
+          "Root",
+          "IAMUser",
+          "IAMRole",
+          "FederatedUser"
+        ],
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
           "origin": "*",
@@ -3312,158 +3333,6 @@
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://pipes-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://pipes-fips.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://pipes.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://pipes.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://pipes-fips.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "cn-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://pipes-fips.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "cn-north-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://pipes.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "cn-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://pipes.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "cn-north-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://pipes-fips.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://pipes.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
               "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
@@ -3471,8 +3340,8 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true
               }
             },
@@ -3484,8 +3353,8 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false
               }
             },
@@ -3497,8 +3366,8 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true
               }
             },
@@ -3510,8 +3379,160 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pipes-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pipes-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pipes.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pipes.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pipes-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pipes-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pipes.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pipes.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pipes-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://pipes.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
@@ -3521,8 +3542,8 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-isob-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true
               }
             },
@@ -3534,8 +3555,8 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-isob-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false
               }
             },
@@ -3545,8 +3566,8 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-isob-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true
               }
             },
@@ -3558,13 +3579,27 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-isob-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -3572,7 +3607,6 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
@@ -3583,8 +3617,8 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
@@ -3595,10 +3629,16 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -4113,7 +4153,11 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to start a pipe",
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}", "aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Start an existing pipe.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -4220,7 +4264,11 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to stop a pipe",
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}", "aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Stop an existing pipe.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -4430,7 +4478,11 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to add tags to a resource",
-        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}", "aws:ResourceTag/${TagKey}"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys",
+          "aws:RequestTag/${TagKey}",
+          "aws:ResourceTag/${TagKey}"
+        ],
         "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the specified pipe. Tags can\n         help you organize and categorize your resources. You can also use them to scope user\n         permissions by granting a user permission to access or change only resources with certain tag\n         values.</p>\n         <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of\n            characters.</p>\n         <p>You can use the <code>TagResource</code> action with a pipe that already has tags. If\n            you specify a new tag key, this tag is appended to the list of tags associated with the\n            pipe. If you specify a tag key that is already associated with the pipe, the new tag\n            value that you specify replaces the previous value for that tag.</p>\n         <p>You can associate as many as 50 tags with a pipe.</p>",
         "smithy.api#http": {
           "uri": "/tags/{resourceArn}",
@@ -4554,7 +4606,9 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to remove the tags for a resource",
-        "aws.iam#conditionKeys": ["aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Removes one or more tags from the specified pipes.</p>",
         "smithy.api#http": {
           "uri": "/tags/{resourceArn}",
@@ -4626,7 +4680,11 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to update a pipe",
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}", "aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#conditionKeys": [
+          "aws:ResourceTag/${TagKey}",
+          "aws:RequestTag/${TagKey}",
+          "aws:TagKeys"
+        ],
         "smithy.api#documentation": "<p>Update an existing pipe. When you call <code>UpdatePipe</code>, only the fields that are included in the request are changed, the rest are unchanged. \n         The exception to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or \n         <code>TargetParameters</code> objects. The fields in these objects are updated atomically as one and override existing values. This is by design and means that \n         if you don't specify an optional field in one of these Parameters objects, that field will be set to its system-default value after the update.</p>\n         <p>For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">\n         Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>",
         "smithy.api#http": {
           "method": "PUT",

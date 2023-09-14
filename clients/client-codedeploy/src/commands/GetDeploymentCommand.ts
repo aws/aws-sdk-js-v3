@@ -37,12 +37,12 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
 /**
  * @public
  * <p>Gets information about a deployment.</p>
- *         <note>
+ *          <note>
  *             <p> The <code>content</code> property of the <code>appSpecContent</code> object in
  *                 the returned revision is always null. Use <code>GetApplicationRevision</code> and
  *                 the <code>sha256</code> property of the returned <code>appSpecContent</code> object
  *                 to get the content of the deployment’s AppSpec file. </p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

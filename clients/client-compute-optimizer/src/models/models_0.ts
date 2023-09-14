@@ -120,6 +120,46 @@ export interface AutoScalingGroupConfiguration {
 
 /**
  * @public
+ * <p>
+ *             Describes the GPU accelerators for the instance type.
+ *         </p>
+ */
+export interface Gpu {
+  /**
+   * @public
+   * <p>
+   *             The number of GPUs for the instance type.
+   *         </p>
+   */
+  gpuCount?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The total size of the memory for the GPU accelerators for the instance type, in MiB.
+   *         </p>
+   */
+  gpuMemorySizeInMiB?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the GPU accelerator settings for the instance type.
+ *         </p>
+ */
+export interface GpuInfo {
+  /**
+   * @public
+   * <p>
+   *             Describes the GPU accelerators for the instance type.
+   *         </p>
+   */
+  gpus?: Gpu[];
+}
+
+/**
+ * @public
  * @enum
  */
 export const CurrentPerformanceRisk = {
@@ -333,6 +373,8 @@ export const MetricName = {
   EBS_READ_OPS_PER_SECOND: "EBS_READ_OPS_PER_SECOND",
   EBS_WRITE_BYTES_PER_SECOND: "EBS_WRITE_BYTES_PER_SECOND",
   EBS_WRITE_OPS_PER_SECOND: "EBS_WRITE_OPS_PER_SECOND",
+  GPU_MEMORY_PERCENTAGE: "GPU_MEMORY_PERCENTAGE",
+  GPU_PERCENTAGE: "GPU_PERCENTAGE",
   MEMORY: "Memory",
   NETWORK_IN_BYTES_PER_SECOND: "NETWORK_IN_BYTES_PER_SECOND",
   NETWORK_OUT_BYTES_PER_SECOND: "NETWORK_OUT_BYTES_PER_SECOND",
@@ -394,6 +436,22 @@ export interface UtilizationMetric {
    *                         the unified CloudWatch agent installed on them. For more information,
    *                         see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory
    *                             Utilization with the CloudWatch Agent</a>.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GPU</code> - The percentage of allocated GPUs that currently run on
+   *                     the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GPU_MEMORY</code> - The percentage of total GPU memory that currently runs on
+   *                     the instance.</p>
+   *                <note>
+   *                   <p>The <code>GPU</code> and <code>GPU_MEMORY</code> metrics are only returned for resources
+   *                         with the unified CloudWatch Agent installed on them. For more information, see
+   *                         <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#nvidia-cw-agent">Enabling NVIDIA GPU
+   *                             utilization with the CloudWatch Agent</a>.</p>
    *                </note>
    *             </li>
    *             <li>
@@ -648,6 +706,14 @@ export interface AutoScalingGroupRecommendationOption {
    *             same CPU architecture.</p>
    */
   migrationEffort?: MigrationEffort | string;
+
+  /**
+   * @public
+   * <p>
+   *             Describes the GPU accelerator settings for the recommended instance type of the Auto Scaling group.
+   *         </p>
+   */
+  instanceGpuInfo?: GpuInfo;
 }
 
 /**
@@ -802,6 +868,14 @@ export interface AutoScalingGroupRecommendation {
    *          </ul>
    */
   inferredWorkloadTypes?: (InferredWorkloadType | string)[];
+
+  /**
+   * @public
+   * <p>
+   *             Describes the GPU accelerator settings for the current instance type of the Auto Scaling group.
+   *         </p>
+   */
+  currentInstanceGpuInfo?: GpuInfo;
 }
 
 /**
@@ -1337,6 +1411,7 @@ export const ExportableAutoScalingGroupField = {
   CURRENT_CONFIGURATION_INSTANCE_TYPE: "CurrentConfigurationInstanceType",
   CURRENT_CONFIGURATION_MAX_SIZE: "CurrentConfigurationMaxSize",
   CURRENT_CONFIGURATION_MIN_SIZE: "CurrentConfigurationMinSize",
+  CURRENT_INSTANCE_GPU_INFO: "CurrentInstanceGpuInfo",
   CURRENT_MEMORY: "CurrentMemory",
   CURRENT_NETWORK: "CurrentNetwork",
   CURRENT_ON_DEMAND_PRICE: "CurrentOnDemandPrice",
@@ -1361,6 +1436,7 @@ export const ExportableAutoScalingGroupField = {
   RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE: "RecommendationOptionsConfigurationMinSize",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_INSTANCE_GPU_INFO: "RecommendationOptionsInstanceGpuInfo",
   RECOMMENDATION_OPTIONS_MEMORY: "RecommendationOptionsMemory",
   RECOMMENDATION_OPTIONS_MIGRATION_EFFORT: "RecommendationOptionsMigrationEffort",
   RECOMMENDATION_OPTIONS_NETWORK: "RecommendationOptionsNetwork",
@@ -1368,6 +1444,10 @@ export const ExportableAutoScalingGroupField = {
   RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: "RecommendationOptionsPerformanceRisk",
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM:
     "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsGpuPercentageMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MEMORY_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsGpuMemoryPercentageMaximum",
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM:
     "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
   RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
@@ -1386,6 +1466,8 @@ export const ExportableAutoScalingGroupField = {
   UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsReadOpsPerSecondMaximum",
   UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
   UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
+  UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM: "UtilizationMetricsGpuMemoryPercentageMaximum",
+  UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM: "UtilizationMetricsGpuPercentageMaximum",
   UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
   UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkInBytesPerSecondMaximum",
   UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
@@ -1812,6 +1894,7 @@ export class LimitExceededException extends __BaseException {
  */
 export const ExportableVolumeField = {
   ACCOUNT_ID: "AccountId",
+  CURRENT_CONFIGURATION_ROOT_VOLUME: "CurrentConfigurationRootVolume",
   CURRENT_CONFIGURATION_VOLUME_BASELINE_IOPS: "CurrentConfigurationVolumeBaselineIOPS",
   CURRENT_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT: "CurrentConfigurationVolumeBaselineThroughput",
   CURRENT_CONFIGURATION_VOLUME_BURST_IOPS: "CurrentConfigurationVolumeBurstIOPS",
@@ -1997,6 +2080,7 @@ export interface ExportEBSVolumeRecommendationsResponse {
  */
 export const ExportableInstanceField = {
   ACCOUNT_ID: "AccountId",
+  CURRENT_INSTANCE_GPU_INFO: "CurrentInstanceGpuInfo",
   CURRENT_INSTANCE_TYPE: "CurrentInstanceType",
   CURRENT_MEMORY: "CurrentMemory",
   CURRENT_NETWORK: "CurrentNetwork",
@@ -2018,6 +2102,7 @@ export const ExportableInstanceField = {
   EXTERNAL_METRIC_STATUS_REASON: "ExternalMetricStatusReason",
   FINDING: "Finding",
   Finding_Reason_Codes: "FindingReasonCodes",
+  IDLE: "Idle",
   INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
   INSTANCE_ARN: "InstanceArn",
   INSTANCE_NAME: "InstanceName",
@@ -2028,6 +2113,7 @@ export const ExportableInstanceField = {
   RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_TYPE: "RecommendationsSourcesRecommendationSourceType",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_INSTANCE_GPU_INFO: "RecommendationOptionsInstanceGpuInfo",
   RECOMMENDATION_OPTIONS_INSTANCE_TYPE: "RecommendationOptionsInstanceType",
   RECOMMENDATION_OPTIONS_MEMORY: "RecommendationOptionsMemory",
   RECOMMENDATION_OPTIONS_MIGRATION_EFFORT: "RecommendationOptionsMigrationEffort",
@@ -2037,6 +2123,10 @@ export const ExportableInstanceField = {
   RECOMMENDATION_OPTIONS_PLATFORM_DIFFERENCES: "RecommendationOptionsPlatformDifferences",
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM:
     "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsGpuMemoryPercentageMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsGpuPercentageMaximum",
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM:
     "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
   RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
@@ -2056,6 +2146,8 @@ export const ExportableInstanceField = {
   UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsReadOpsPerSecondMaximum",
   UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
   UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
+  UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM: "UtilizationMetricsGpuMemoryPercentageMaximum",
+  UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM: "UtilizationMetricsGpuPercentageMaximum",
   UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
   UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkInBytesPerSecondMaximum",
   UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
@@ -3367,6 +3459,10 @@ export const InstanceRecommendationFindingReasonCode = {
   EBS_IOPS_UNDER_PROVISIONED: "EBSIOPSUnderprovisioned",
   EBS_THROUGHPUT_OVER_PROVISIONED: "EBSThroughputOverprovisioned",
   EBS_THROUGHPUT_UNDER_PROVISIONED: "EBSThroughputUnderprovisioned",
+  GPU_MEMORY_OVER_PROVISIONED: "GPUMemoryOverprovisioned",
+  GPU_MEMORY_UNDER_PROVISIONED: "GPUMemoryUnderprovisioned",
+  GPU_OVER_PROVISIONED: "GPUOverprovisioned",
+  GPU_UNDER_PROVISIONED: "GPUUnderprovisioned",
   MEMORY_OVER_PROVISIONED: "MemoryOverprovisioned",
   MEMORY_UNDER_PROVISIONED: "MemoryUnderprovisioned",
   NETWORK_BANDWIDTH_OVER_PROVISIONED: "NetworkBandwidthOverprovisioned",
@@ -3380,6 +3476,20 @@ export const InstanceRecommendationFindingReasonCode = {
  */
 export type InstanceRecommendationFindingReasonCode =
   (typeof InstanceRecommendationFindingReasonCode)[keyof typeof InstanceRecommendationFindingReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceIdle = {
+  FALSE: "False",
+  TRUE: "True",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceIdle = (typeof InstanceIdle)[keyof typeof InstanceIdle];
 
 /**
  * @public
@@ -3589,6 +3699,14 @@ export interface InstanceRecommendationOption {
    *             same CPU architecture.</p>
    */
   migrationEffort?: MigrationEffort | string;
+
+  /**
+   * @public
+   * <p>
+   *             Describes the GPU accelerator settings for the recommended instance type.
+   *         </p>
+   */
+  instanceGpuInfo?: GpuInfo;
 }
 
 /**
@@ -4021,6 +4139,22 @@ export interface InstanceRecommendation {
    *         </p>
    */
   externalMetricStatus?: ExternalMetricStatus;
+
+  /**
+   * @public
+   * <p>
+   *             Describes the GPU accelerator settings for the current instance type.
+   *         </p>
+   */
+  currentInstanceGpuInfo?: GpuInfo;
+
+  /**
+   * @public
+   * <p>
+   *             Describes if an Amazon EC2 instance is idle.
+   *         </p>
+   */
+  idle?: InstanceIdle | string;
 }
 
 /**
@@ -4102,10 +4236,12 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
  *             metric data to determine the performance difference between your current resource and
  *             the recommended option.</p>
  *          <note>
- *             <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected
- *                 utilization metrics returned when you run the <a>GetEC2RecommendationProjectedMetrics</a> action. Additionally, the
- *                     <code>Memory</code> metric is returned only for resources that have the unified
- *                     CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory Utilization with the CloudWatch Agent</a>.</p>
+ *             <p>The <code>Cpu</code>, <code>Memory</code>, <code>GPU</code>, and <code>GPU_MEMORY</code> metrics
+ *                 are the only projected utilization metrics returned when you run the <a>GetEC2RecommendationProjectedMetrics</a> action. Additionally, these
+ *                     metrics are only returned for resources with the unified
+ *                     CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory Utilization with the CloudWatch Agent</a> and
+ *                     <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#nvidia-cw-agent">Enabling NVIDIA GPU
+ *                         utilization with the CloudWatch Agent</a>.</p>
  *          </note>
  */
 export interface ProjectedMetric {
@@ -4123,7 +4259,6 @@ export interface ProjectedMetric {
    *                <p>Depending on the instance type, tools in your operating system can show a
    *                     lower percentage than CloudWatch when the instance is not allocated a full
    *                     processor core.</p>
-   *                <p>Units: Percent</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4133,10 +4268,26 @@ export interface ProjectedMetric {
    *                     the recommendation option.</p>
    *                <p>Units: Percent</p>
    *                <note>
-   *                   <p>The <code>Memory</code> metric is returned only for resources that have
+   *                   <p>The <code>Memory</code> metric is only returned for resources with
    *                         the unified CloudWatch agent installed on them. For more information,
    *                         see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory
    *                             Utilization with the CloudWatch Agent</a>.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GPU</code> - The projected percentage of allocated GPUs if you adjust your
+   *                     configurations to Compute Optimizer's recommendation option.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GPU_MEMORY</code> - The projected percentage of total GPU memory if you adjust your
+   *                     configurations to Compute Optimizer's recommendation option.</p>
+   *                <note>
+   *                   <p>The <code>GPU</code> and <code>GPU_MEMORY</code> metrics are only returned for resources
+   *                         with the unified CloudWatch Agent installed on them. For more information, see
+   *                         <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#nvidia-cw-agent">Enabling NVIDIA GPU
+   *                             utilization with the CloudWatch Agent</a>.</p>
    *                </note>
    *             </li>
    *          </ul>
@@ -6471,7 +6622,7 @@ export interface RecommendationSummary {
    * @public
    * <p>
    *             An array of objects that describes the estimated monthly saving amounts for the instances running on the specified
-   *             <code>inferredWorkloadTypes</code>. The array contains the top three savings opportunites for the instances running
+   *             <code>inferredWorkloadTypes</code>. The array contains the top five savings opportunites for the instances that run
    *             inferred workload types.
    *         </p>
    */

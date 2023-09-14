@@ -61,9 +61,9 @@ export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenera
  * const response = await client.send(command);
  * // { // CreateWorldGenerationJobResponse
  * //   arn: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "Pending" || "Running" || "Completed" || "Failed" || "PartialFailed" || "Canceling" || "Canceled",
  * //   createdAt: new Date("TIMESTAMP"),
- * //   failureCode: "STRING_VALUE",
+ * //   failureCode: "InternalServiceError" || "LimitExceeded" || "ResourceNotFound" || "RequestThrottled" || "InvalidInput" || "AllWorldGenerationFailed",
  * //   clientRequestToken: "STRING_VALUE",
  * //   template: "STRING_VALUE",
  * //   worldCount: { // WorldCount

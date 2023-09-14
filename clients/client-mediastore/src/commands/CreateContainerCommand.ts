@@ -61,7 +61,7 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     ARN: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
- * //     Status: "STRING_VALUE",
+ * //     Status: "ACTIVE" || "CREATING" || "DELETING",
  * //     AccessLoggingEnabled: true || false,
  * //   },
  * // };

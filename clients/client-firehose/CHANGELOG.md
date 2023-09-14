@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.412.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.411.0...v3.412.0) (2023-09-13)
+
+
+### Features
+
+* **client-firehose:** DocumentIdOptions has been added for the Amazon OpenSearch destination. ([f2e4398](https://github.com/aws/aws-sdk-js-v3/commit/f2e4398f4245db64ac4a6a27179ccba566ae52a9))
+
+
+
+
+
+# [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
+
+**Note:** Version bump only for package @aws-sdk/client-firehose
+
+
+
+
+
+# [3.409.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.408.0...v3.409.0) (2023-09-08)
+
+**Note:** Version bump only for package @aws-sdk/client-firehose
+
+
+
+
+
+# [3.408.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.407.0...v3.408.0) (2023-09-07)
+
+**Note:** Version bump only for package @aws-sdk/client-firehose
+
+
+
+
+
 # [3.405.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.404.0...v3.405.0) (2023-09-01)
 
 **Note:** Version bump only for package @aws-sdk/client-firehose

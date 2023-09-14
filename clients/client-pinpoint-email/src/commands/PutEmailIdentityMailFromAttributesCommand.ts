@@ -55,7 +55,7 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
  * const input = { // PutEmailIdentityMailFromAttributesRequest
  *   EmailIdentity: "STRING_VALUE", // required
  *   MailFromDomain: "STRING_VALUE",
- *   BehaviorOnMxFailure: "STRING_VALUE",
+ *   BehaviorOnMxFailure: "USE_DEFAULT_VALUE" || "REJECT_MESSAGE",
  * };
  * const command = new PutEmailIdentityMailFromAttributesCommand(input);
  * const response = await client.send(command);

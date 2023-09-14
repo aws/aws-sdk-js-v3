@@ -55,7 +55,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * //       datasetId: "STRING_VALUE",
  * //       datasetArn: "STRING_VALUE",
  * //       datasetTitle: "STRING_VALUE",
- * //       kind: "STRING_VALUE",
+ * //       kind: "TABULAR" || "NON_TABULAR",
  * //       datasetDescription: "STRING_VALUE",
  * //       ownerInfo: { // DatasetOwnerInfo
  * //         name: "STRING_VALUE",
@@ -68,7 +68,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * //         tabularSchemaConfig: { // SchemaDefinition
  * //           columns: [ // ColumnList
  * //             { // ColumnDefinition
- * //               dataType: "STRING_VALUE",
+ * //               dataType: "STRING" || "CHAR" || "INTEGER" || "TINYINT" || "SMALLINT" || "BIGINT" || "FLOAT" || "DOUBLE" || "DATE" || "DATETIME" || "BOOLEAN" || "BINARY",
  * //               columnName: "STRING_VALUE",
  * //               columnDescription: "STRING_VALUE",
  * //             },

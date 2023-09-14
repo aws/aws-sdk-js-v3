@@ -71,7 +71,6 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *          </ul>
  *          <p>You can specify other optional information in the request, such
  *       as:</p>
- *
  *          <ul>
  *             <li>
  *                <p>A confirmation prompt to ask the user to confirm an intent. For
@@ -111,13 +110,13 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *     { // Slot
  *       name: "STRING_VALUE", // required
  *       description: "STRING_VALUE",
- *       slotConstraint: "STRING_VALUE", // required
+ *       slotConstraint: "Required" || "Optional", // required
  *       slotType: "STRING_VALUE",
  *       slotTypeVersion: "STRING_VALUE",
  *       valueElicitationPrompt: { // Prompt
  *         messages: [ // MessageList // required
  *           { // Message
- *             contentType: "STRING_VALUE", // required
+ *             contentType: "PlainText" || "SSML" || "CustomPayload", // required
  *             content: "STRING_VALUE", // required
  *             groupNumber: Number("int"),
  *           },
@@ -130,7 +129,7 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *         "STRING_VALUE",
  *       ],
  *       responseCard: "STRING_VALUE",
- *       obfuscationSetting: "STRING_VALUE",
+ *       obfuscationSetting: "NONE" || "DEFAULT_OBFUSCATION",
  *       defaultValueSpec: { // SlotDefaultValueSpec
  *         defaultValueList: [ // SlotDefaultValueList // required
  *           { // SlotDefaultValue
@@ -146,7 +145,7 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *   confirmationPrompt: {
  *     messages: [ // required
  *       {
- *         contentType: "STRING_VALUE", // required
+ *         contentType: "PlainText" || "SSML" || "CustomPayload", // required
  *         content: "STRING_VALUE", // required
  *         groupNumber: Number("int"),
  *       },
@@ -157,7 +156,7 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *   rejectionStatement: { // Statement
  *     messages: [ // required
  *       {
- *         contentType: "STRING_VALUE", // required
+ *         contentType: "PlainText" || "SSML" || "CustomPayload", // required
  *         content: "STRING_VALUE", // required
  *         groupNumber: Number("int"),
  *       },
@@ -180,7 +179,7 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *     messageVersion: "STRING_VALUE", // required
  *   },
  *   fulfillmentActivity: { // FulfillmentActivity
- *     type: "STRING_VALUE", // required
+ *     type: "ReturnIntent" || "CodeHook", // required
  *     codeHook: {
  *       uri: "STRING_VALUE", // required
  *       messageVersion: "STRING_VALUE", // required
@@ -216,13 +215,13 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  * //     { // Slot
  * //       name: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
- * //       slotConstraint: "STRING_VALUE", // required
+ * //       slotConstraint: "Required" || "Optional", // required
  * //       slotType: "STRING_VALUE",
  * //       slotTypeVersion: "STRING_VALUE",
  * //       valueElicitationPrompt: { // Prompt
  * //         messages: [ // MessageList // required
  * //           { // Message
- * //             contentType: "STRING_VALUE", // required
+ * //             contentType: "PlainText" || "SSML" || "CustomPayload", // required
  * //             content: "STRING_VALUE", // required
  * //             groupNumber: Number("int"),
  * //           },
@@ -235,7 +234,7 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  * //         "STRING_VALUE",
  * //       ],
  * //       responseCard: "STRING_VALUE",
- * //       obfuscationSetting: "STRING_VALUE",
+ * //       obfuscationSetting: "NONE" || "DEFAULT_OBFUSCATION",
  * //       defaultValueSpec: { // SlotDefaultValueSpec
  * //         defaultValueList: [ // SlotDefaultValueList // required
  * //           { // SlotDefaultValue
@@ -251,7 +250,7 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  * //   confirmationPrompt: {
  * //     messages: [ // required
  * //       {
- * //         contentType: "STRING_VALUE", // required
+ * //         contentType: "PlainText" || "SSML" || "CustomPayload", // required
  * //         content: "STRING_VALUE", // required
  * //         groupNumber: Number("int"),
  * //       },
@@ -262,7 +261,7 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  * //   rejectionStatement: { // Statement
  * //     messages: [ // required
  * //       {
- * //         contentType: "STRING_VALUE", // required
+ * //         contentType: "PlainText" || "SSML" || "CustomPayload", // required
  * //         content: "STRING_VALUE", // required
  * //         groupNumber: Number("int"),
  * //       },
@@ -285,7 +284,7 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  * //     messageVersion: "STRING_VALUE", // required
  * //   },
  * //   fulfillmentActivity: { // FulfillmentActivity
- * //     type: "STRING_VALUE", // required
+ * //     type: "ReturnIntent" || "CodeHook", // required
  * //     codeHook: {
  * //       uri: "STRING_VALUE", // required
  * //       messageVersion: "STRING_VALUE", // required

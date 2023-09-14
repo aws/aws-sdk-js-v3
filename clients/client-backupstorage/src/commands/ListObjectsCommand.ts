@@ -61,7 +61,7 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * //       ChunksCount: Number("long"),
  * //       MetadataString: "STRING_VALUE",
  * //       ObjectChecksum: "STRING_VALUE", // required
- * //       ObjectChecksumAlgorithm: "STRING_VALUE", // required
+ * //       ObjectChecksumAlgorithm: "SUMMARY", // required
  * //       ObjectToken: "STRING_VALUE", // required
  * //     },
  * //   ],

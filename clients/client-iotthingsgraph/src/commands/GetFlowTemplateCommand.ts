@@ -60,7 +60,7 @@ export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, _
  * //       createdAt: new Date("TIMESTAMP"),
  * //     },
  * //     definition: { // DefinitionDocument
- * //       language: "STRING_VALUE", // required
+ * //       language: "GRAPHQL", // required
  * //       text: "STRING_VALUE", // required
  * //     },
  * //     validatedNamespaceVersion: Number("long"),

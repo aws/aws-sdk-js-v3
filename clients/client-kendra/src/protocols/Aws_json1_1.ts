@@ -7380,6 +7380,7 @@ const de_RetrieveResultItem = (output: any, context: __SerdeContext): RetrieveRe
     DocumentTitle: __expectString,
     DocumentURI: __expectString,
     Id: __expectString,
+    ScoreAttributes: _json,
   }) as any;
 };
 

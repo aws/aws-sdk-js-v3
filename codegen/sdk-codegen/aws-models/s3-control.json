@@ -232,6 +232,7 @@
           "arnNamespace": "s3",
           "cloudFormationName": "S3Control",
           "cloudTrailEventSource": "s3control.amazonaws.com",
+          "docId": "s3control-2018-08-20",
           "endpointPrefix": "s3-control"
         },
         "aws.auth#sigv4": {
@@ -1069,7 +1070,9 @@
                                                                               "x-amz-account-id": [
                                                                                 "{accessPointArn#accountId}"
                                                                               ],
-                                                                              "x-amz-outpost-id": ["{outpostId}"]
+                                                                              "x-amz-outpost-id": [
+                                                                                "{outpostId}"
+                                                                              ]
                                                                             }
                                                                           },
                                                                           "type": "endpoint"
@@ -1110,7 +1113,9 @@
                                                                               "x-amz-account-id": [
                                                                                 "{accessPointArn#accountId}"
                                                                               ],
-                                                                              "x-amz-outpost-id": ["{outpostId}"]
+                                                                              "x-amz-outpost-id": [
+                                                                                "{outpostId}"
+                                                                              ]
                                                                             }
                                                                           },
                                                                           "type": "endpoint"
@@ -1133,7 +1138,9 @@
                                                                               "x-amz-account-id": [
                                                                                 "{accessPointArn#accountId}"
                                                                               ],
-                                                                              "x-amz-outpost-id": ["{outpostId}"]
+                                                                              "x-amz-outpost-id": [
+                                                                                "{outpostId}"
+                                                                              ]
                                                                             }
                                                                           },
                                                                           "type": "endpoint"
@@ -1601,7 +1608,9 @@
                                                                               "x-amz-account-id": [
                                                                                 "{bucketArn#accountId}"
                                                                               ],
-                                                                              "x-amz-outpost-id": ["{outpostId}"]
+                                                                              "x-amz-outpost-id": [
+                                                                                "{outpostId}"
+                                                                              ]
                                                                             }
                                                                           },
                                                                           "type": "endpoint"
@@ -1642,7 +1651,9 @@
                                                                               "x-amz-account-id": [
                                                                                 "{bucketArn#accountId}"
                                                                               ],
-                                                                              "x-amz-outpost-id": ["{outpostId}"]
+                                                                              "x-amz-outpost-id": [
+                                                                                "{outpostId}"
+                                                                              ]
                                                                             }
                                                                           },
                                                                           "type": "endpoint"
@@ -1665,7 +1676,9 @@
                                                                               "x-amz-account-id": [
                                                                                 "{bucketArn#accountId}"
                                                                               ],
-                                                                              "x-amz-outpost-id": ["{outpostId}"]
+                                                                              "x-amz-outpost-id": [
+                                                                                "{outpostId}"
+                                                                              ]
                                                                             }
                                                                           },
                                                                           "type": "endpoint"
@@ -2392,8 +2405,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2444,8 +2461,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2496,8 +2517,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2548,8 +2573,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2600,8 +2629,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2652,8 +2685,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2706,8 +2743,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2760,8 +2801,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2812,8 +2857,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2866,8 +2915,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2920,8 +2973,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -2972,8 +3029,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3026,8 +3087,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3414,8 +3479,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3526,8 +3595,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3625,8 +3698,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3819,8 +3896,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3861,8 +3942,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3902,8 +3987,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3943,8 +4032,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -3985,8 +4078,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4040,8 +4137,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4082,8 +4183,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4123,8 +4228,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4164,8 +4273,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4206,8 +4319,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4261,8 +4378,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4303,8 +4424,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4344,8 +4469,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4385,8 +4514,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -4427,8 +4560,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -5199,8 +5336,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -5459,8 +5600,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -5511,8 +5656,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [
@@ -5633,8 +5782,12 @@
               "expect": {
                 "endpoint": {
                   "headers": {
-                    "x-amz-account-id": ["123456789012"],
-                    "x-amz-outpost-id": ["op-01234567890123456"]
+                    "x-amz-account-id": [
+                      "123456789012"
+                    ],
+                    "x-amz-outpost-id": [
+                      "op-01234567890123456"
+                    ]
                   },
                   "properties": {
                     "authSchemes": [

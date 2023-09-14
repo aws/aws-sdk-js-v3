@@ -59,8 +59,8 @@ export interface ListReportDefinitionsCommandOutput extends ListReportDefinition
  * //     { // ReportDefinition
  * //       reportId: "STRING_VALUE",
  * //       reportDescription: "STRING_VALUE",
- * //       reportFrequency: "STRING_VALUE",
- * //       format: "STRING_VALUE",
+ * //       reportFrequency: "MONTHLY" || "DAILY" || "ALL",
+ * //       format: "CSV" || "PARQUET",
  * //       destinationS3Location: { // S3Location
  * //         bucket: "STRING_VALUE", // required
  * //         prefix: "STRING_VALUE", // required

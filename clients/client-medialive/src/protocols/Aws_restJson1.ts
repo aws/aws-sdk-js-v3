@@ -130,12 +130,14 @@ import {
   RejectInputDeviceTransferCommandOutput,
 } from "../commands/RejectInputDeviceTransferCommand";
 import { StartChannelCommandInput, StartChannelCommandOutput } from "../commands/StartChannelCommand";
+import { StartInputDeviceCommandInput, StartInputDeviceCommandOutput } from "../commands/StartInputDeviceCommand";
 import {
   StartInputDeviceMaintenanceWindowCommandInput,
   StartInputDeviceMaintenanceWindowCommandOutput,
 } from "../commands/StartInputDeviceMaintenanceWindowCommand";
 import { StartMultiplexCommandInput, StartMultiplexCommandOutput } from "../commands/StartMultiplexCommand";
 import { StopChannelCommandInput, StopChannelCommandOutput } from "../commands/StopChannelCommand";
+import { StopInputDeviceCommandInput, StopInputDeviceCommandOutput } from "../commands/StopInputDeviceCommand";
 import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "../commands/StopMultiplexCommand";
 import {
   TransferInputDeviceCommandInput,
@@ -237,6 +239,7 @@ import {
   InputDestinationRequest,
   InputDestinationVpc,
   InputDeviceHdSettings,
+  InputDeviceMediaConnectSettings,
   InputDeviceNetworkSettings,
   InputDeviceRequest,
   InputDeviceSettings,
@@ -251,7 +254,6 @@ import {
   InputSpecification,
   InputWhitelistRule,
   InputWhitelistRuleCidr,
-  KeyProviderSettings,
   M2tsSettings,
   M3u8Settings,
   MaintenanceStatus,
@@ -291,7 +293,6 @@ import {
   Scte27SourceSettings,
   SmpteTtDestinationSettings,
   StandardHlsSettings,
-  StaticKeySettings,
   TeletextDestinationSettings,
   TeletextSourceSettings,
   TtmlDestinationSettings,
@@ -324,6 +325,7 @@ import {
   ConflictException,
   DolbyVision81Settings,
   EncoderSettings,
+  EpochLockingSettings,
   Esam,
   FeatureActivations,
   FixedModeScheduleActionStartSettings,
@@ -345,11 +347,13 @@ import {
   ImmediateModeScheduleActionStartSettings,
   InputClippingSettings,
   InputDeviceConfigurableSettings,
+  InputDeviceMediaConnectConfigurableSettings,
   InputLossBehavior,
   InputPrepareScheduleActionSettings,
   InputSwitchScheduleActionSettings,
   InputVpcRequest,
   InternalServerErrorException,
+  KeyProviderSettings,
   MaintenanceCreateSettings,
   MediaPackageGroupSettings,
   MotionGraphicsActivateScheduleActionSettings,
@@ -372,8 +376,10 @@ import {
   NotFoundException,
   OutputGroup,
   OutputGroupSettings,
+  OutputLockingSettings,
   PauseStateScheduleActionSettings,
   PipelineDetail,
+  PipelineLockingSettings,
   PipelinePauseStateSettings,
   Rec601Settings,
   Rec709Settings,
@@ -397,6 +403,7 @@ import {
   StartTimecode,
   StaticImageActivateScheduleActionSettings,
   StaticImageDeactivateScheduleActionSettings,
+  StaticKeySettings,
   StopTimecode,
   TemporalFilterSettings,
   Thumbnail,
@@ -1836,6 +1843,37 @@ export const se_StartChannelCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartInputDeviceCommand
+ */
+export const se_StartInputDeviceCommand = async (
+  input: StartInputDeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputDevices/{InputDeviceId}/start";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "InputDeviceId",
+    () => input.InputDeviceId!,
+    "{InputDeviceId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1StartInputDeviceMaintenanceWindowCommand
  */
 export const se_StartInputDeviceMaintenanceWindowCommand = async (
@@ -1903,6 +1941,37 @@ export const se_StopChannelCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels/{ChannelId}/stop";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StopInputDeviceCommand
+ */
+export const se_StopInputDeviceCommand = async (
+  input: StopInputDeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputDevices/{InputDeviceId}/stop";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "InputDeviceId",
+    () => input.InputDeviceId!,
+    "{InputDeviceId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -4023,8 +4092,10 @@ export const de_DescribeInputDeviceCommand = async (
     HdDeviceSettings: [, (_) => de_InputDeviceHdSettings(_, context), `hdDeviceSettings`],
     Id: [, __expectString, `id`],
     MacAddress: [, __expectString, `macAddress`],
+    MedialiveInputArns: [, _json, `medialiveInputArns`],
     Name: [, __expectString, `name`],
     NetworkSettings: [, (_) => de_InputDeviceNetworkSettings(_, context), `networkSettings`],
+    OutputType: [, __expectString, `outputType`],
     SerialNumber: [, __expectString, `serialNumber`],
     Tags: [, _json, `tags`],
     Type: [, __expectString, `type`],
@@ -5570,6 +5641,70 @@ const de_StartChannelCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartInputDeviceCommand
+ */
+export const de_StartInputDeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInputDeviceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartInputDeviceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartInputDeviceCommandError
+ */
+const de_StartInputDeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInputDeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.medialive#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.medialive#UnprocessableEntityException":
+      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StartInputDeviceMaintenanceWindowCommand
  */
 export const de_StartInputDeviceMaintenanceWindowCommand = async (
@@ -5785,6 +5920,70 @@ const de_StopChannelCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.medialive#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StopInputDeviceCommand
+ */
+export const de_StopInputDeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopInputDeviceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StopInputDeviceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopInputDeviceCommandError
+ */
+const de_StopInputDeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopInputDeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.medialive#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.medialive#UnprocessableEntityException":
+      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -6228,8 +6427,10 @@ export const de_UpdateInputDeviceCommand = async (
     HdDeviceSettings: [, (_) => de_InputDeviceHdSettings(_, context), `hdDeviceSettings`],
     Id: [, __expectString, `id`],
     MacAddress: [, __expectString, `macAddress`],
+    MedialiveInputArns: [, _json, `medialiveInputArns`],
     Name: [, __expectString, `name`],
     NetworkSettings: [, (_) => de_InputDeviceNetworkSettings(_, context), `networkSettings`],
+    OutputType: [, __expectString, `outputType`],
     SerialNumber: [, __expectString, `serialNumber`],
     Tags: [, _json, `tags`],
     Type: [, __expectString, `type`],
@@ -7631,6 +7832,16 @@ const se_EncoderSettings = (input: EncoderSettings, context: __SerdeContext): an
 };
 
 /**
+ * serializeAws_restJson1EpochLockingSettings
+ */
+const se_EpochLockingSettings = (input: EpochLockingSettings, context: __SerdeContext): any => {
+  return take(input, {
+    customEpoch: [, , `CustomEpoch`],
+    jamSyncTime: [, , `JamSyncTime`],
+  });
+};
+
+/**
  * serializeAws_restJson1Esam
  */
 const se_Esam = (input: Esam, context: __SerdeContext): any => {
@@ -7779,6 +7990,7 @@ const se_GlobalConfiguration = (input: GlobalConfiguration, context: __SerdeCont
     inputEndAction: [, , `InputEndAction`],
     inputLossBehavior: [, (_) => se_InputLossBehavior(_, context), `InputLossBehavior`],
     outputLockingMode: [, , `OutputLockingMode`],
+    outputLockingSettings: [, (_) => se_OutputLockingSettings(_, context), `OutputLockingSettings`],
     outputTimingSource: [, , `OutputTimingSource`],
     supportLowFramerateInputs: [, , `SupportLowFramerateInputs`],
   });
@@ -8167,9 +8379,26 @@ const se_InputDestinationRequest = (input: InputDestinationRequest, context: __S
  */
 const se_InputDeviceConfigurableSettings = (input: InputDeviceConfigurableSettings, context: __SerdeContext): any => {
   return take(input, {
+    codec: [, , `Codec`],
     configuredInput: [, , `ConfiguredInput`],
     latencyMs: [, , `LatencyMs`],
     maxBitrate: [, , `MaxBitrate`],
+    mediaconnectSettings: [, (_) => se_InputDeviceMediaConnectConfigurableSettings(_, context), `MediaconnectSettings`],
+  });
+};
+
+/**
+ * serializeAws_restJson1InputDeviceMediaConnectConfigurableSettings
+ */
+const se_InputDeviceMediaConnectConfigurableSettings = (
+  input: InputDeviceMediaConnectConfigurableSettings,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    flowArn: [, , `FlowArn`],
+    roleArn: [, , `RoleArn`],
+    secretArn: [, , `SecretArn`],
+    sourceName: [, , `SourceName`],
   });
 };
 
@@ -8788,6 +9017,16 @@ const se_OutputLocationRef = (input: OutputLocationRef, context: __SerdeContext)
 };
 
 /**
+ * serializeAws_restJson1OutputLockingSettings
+ */
+const se_OutputLockingSettings = (input: OutputLockingSettings, context: __SerdeContext): any => {
+  return take(input, {
+    epochLockingSettings: [, (_) => se_EpochLockingSettings(_, context), `EpochLockingSettings`],
+    pipelineLockingSettings: [, _json, `PipelineLockingSettings`],
+  });
+};
+
+/**
  * serializeAws_restJson1OutputSettings
  */
 const se_OutputSettings = (input: OutputSettings, context: __SerdeContext): any => {
@@ -8813,6 +9052,8 @@ const se_PauseStateScheduleActionSettings = (input: PauseStateScheduleActionSett
     pipelines: [, (_) => se___listOfPipelinePauseStateSettings(_, context), `Pipelines`],
   });
 };
+
+// se_PipelineLockingSettings omitted.
 
 /**
  * serializeAws_restJson1PipelinePauseStateSettings
@@ -10631,6 +10872,16 @@ const de_EncoderSettings = (output: any, context: __SerdeContext): EncoderSettin
 };
 
 /**
+ * deserializeAws_restJson1EpochLockingSettings
+ */
+const de_EpochLockingSettings = (output: any, context: __SerdeContext): EpochLockingSettings => {
+  return take(output, {
+    CustomEpoch: [, __expectString, `customEpoch`],
+    JamSyncTime: [, __expectString, `jamSyncTime`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Esam
  */
 const de_Esam = (output: any, context: __SerdeContext): Esam => {
@@ -10779,6 +11030,7 @@ const de_GlobalConfiguration = (output: any, context: __SerdeContext): GlobalCon
     InputEndAction: [, __expectString, `inputEndAction`],
     InputLossBehavior: [, (_: any) => de_InputLossBehavior(_, context), `inputLossBehavior`],
     OutputLockingMode: [, __expectString, `outputLockingMode`],
+    OutputLockingSettings: [, (_: any) => de_OutputLockingSettings(_, context), `outputLockingSettings`],
     OutputTimingSource: [, __expectString, `outputTimingSource`],
     SupportLowFramerateInputs: [, __expectString, `supportLowFramerateInputs`],
   }) as any;
@@ -11217,6 +11469,18 @@ const de_InputDeviceHdSettings = (output: any, context: __SerdeContext): InputDe
 };
 
 /**
+ * deserializeAws_restJson1InputDeviceMediaConnectSettings
+ */
+const de_InputDeviceMediaConnectSettings = (output: any, context: __SerdeContext): InputDeviceMediaConnectSettings => {
+  return take(output, {
+    FlowArn: [, __expectString, `flowArn`],
+    RoleArn: [, __expectString, `roleArn`],
+    SecretArn: [, __expectString, `secretArn`],
+    SourceName: [, __expectString, `sourceName`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1InputDeviceNetworkSettings
  */
 const de_InputDeviceNetworkSettings = (output: any, context: __SerdeContext): InputDeviceNetworkSettings => {
@@ -11251,8 +11515,10 @@ const de_InputDeviceSummary = (output: any, context: __SerdeContext): InputDevic
     HdDeviceSettings: [, (_: any) => de_InputDeviceHdSettings(_, context), `hdDeviceSettings`],
     Id: [, __expectString, `id`],
     MacAddress: [, __expectString, `macAddress`],
+    MedialiveInputArns: [, _json, `medialiveInputArns`],
     Name: [, __expectString, `name`],
     NetworkSettings: [, (_: any) => de_InputDeviceNetworkSettings(_, context), `networkSettings`],
+    OutputType: [, __expectString, `outputType`],
     SerialNumber: [, __expectString, `serialNumber`],
     Tags: [, _json, `tags`],
     Type: [, __expectString, `type`],
@@ -11266,12 +11532,14 @@ const de_InputDeviceSummary = (output: any, context: __SerdeContext): InputDevic
 const de_InputDeviceUhdSettings = (output: any, context: __SerdeContext): InputDeviceUhdSettings => {
   return take(output, {
     ActiveInput: [, __expectString, `activeInput`],
+    Codec: [, __expectString, `codec`],
     ConfiguredInput: [, __expectString, `configuredInput`],
     DeviceState: [, __expectString, `deviceState`],
     Framerate: [, __limitedParseDouble, `framerate`],
     Height: [, __expectInt32, `height`],
     LatencyMs: [, __expectInt32, `latencyMs`],
     MaxBitrate: [, __expectInt32, `maxBitrate`],
+    MediaconnectSettings: [, (_: any) => de_InputDeviceMediaConnectSettings(_, context), `mediaconnectSettings`],
     ScanType: [, __expectString, `scanType`],
     Width: [, __expectInt32, `width`],
   }) as any;
@@ -12014,6 +12282,16 @@ const de_OutputLocationRef = (output: any, context: __SerdeContext): OutputLocat
 };
 
 /**
+ * deserializeAws_restJson1OutputLockingSettings
+ */
+const de_OutputLockingSettings = (output: any, context: __SerdeContext): OutputLockingSettings => {
+  return take(output, {
+    EpochLockingSettings: [, (_: any) => de_EpochLockingSettings(_, context), `epochLockingSettings`],
+    PipelineLockingSettings: [, _json, `pipelineLockingSettings`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1OutputSettings
  */
 const de_OutputSettings = (output: any, context: __SerdeContext): OutputSettings => {
@@ -12055,6 +12333,8 @@ const de_PipelineDetail = (output: any, context: __SerdeContext): PipelineDetail
     PipelineId: [, __expectString, `pipelineId`],
   }) as any;
 };
+
+// de_PipelineLockingSettings omitted.
 
 /**
  * deserializeAws_restJson1PipelinePauseStateSettings

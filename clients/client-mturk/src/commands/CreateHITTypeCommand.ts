@@ -58,7 +58,7 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  *   QualificationRequirements: [ // QualificationRequirementList
  *     { // QualificationRequirement
  *       QualificationTypeId: "STRING_VALUE", // required
- *       Comparator: "STRING_VALUE", // required
+ *       Comparator: "LessThan" || "LessThanOrEqualTo" || "GreaterThan" || "GreaterThanOrEqualTo" || "EqualTo" || "NotEqualTo" || "Exists" || "DoesNotExist" || "In" || "NotIn", // required
  *       IntegerValues: [ // IntegerList
  *         Number("int"),
  *       ],
@@ -69,7 +69,7 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  *         },
  *       ],
  *       RequiredToPreview: true || false,
- *       ActionsGuarded: "STRING_VALUE",
+ *       ActionsGuarded: "Accept" || "PreviewAndAccept" || "DiscoverPreviewAndAccept",
  *     },
  *   ],
  * };

@@ -58,7 +58,7 @@ export interface GetDatasetContentCommandOutput extends GetDatasetContentRespons
  * //   ],
  * //   timestamp: new Date("TIMESTAMP"),
  * //   status: { // DatasetContentStatus
- * //     state: "STRING_VALUE",
+ * //     state: "CREATING" || "SUCCEEDED" || "FAILED",
  * //     reason: "STRING_VALUE",
  * //   },
  * // };

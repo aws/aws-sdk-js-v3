@@ -64,7 +64,7 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
  * //   WebsiteAuthorizationProviders: [ // WebsiteAuthorizationProvidersSummaryList
  * //     { // WebsiteAuthorizationProviderSummary
  * //       AuthorizationProviderId: "STRING_VALUE",
- * //       AuthorizationProviderType: "STRING_VALUE", // required
+ * //       AuthorizationProviderType: "SAML", // required
  * //       DomainName: "STRING_VALUE",
  * //       CreatedTime: new Date("TIMESTAMP"),
  * //     },

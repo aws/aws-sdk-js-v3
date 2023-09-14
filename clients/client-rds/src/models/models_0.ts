@@ -5898,6 +5898,12 @@ export interface DBCluster {
    *             of enabling it.</p>
    */
   LocalWriteForwardingStatus?: LocalWriteForwardingStatus | string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</p>
+   */
+  AwsBackupRecoveryPointArn?: string;
 }
 
 /**
@@ -12071,6 +12077,12 @@ export interface DBClusterAutomatedBackup {
    *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
    */
   Iops?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</p>
+   */
+  AwsBackupRecoveryPointArn?: string;
 }
 
 /**
@@ -12572,6 +12584,12 @@ export interface DBInstanceAutomatedBackup {
    * <p>Specifies the storage throughput for the automated backup.</p>
    */
   StorageThroughput?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</p>
+   */
+  AwsBackupRecoveryPointArn?: string;
 }
 
 /**

@@ -61,12 +61,12 @@ export interface GetReadinessCheckStatusCommandOutput extends GetReadinessCheckS
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
- * //   Readiness: "STRING_VALUE",
+ * //   Readiness: "READY" || "NOT_READY" || "UNKNOWN" || "NOT_AUTHORIZED",
  * //   Resources: [ // __listOfResourceResult
  * //     { // ResourceResult
  * //       ComponentId: "STRING_VALUE",
  * //       LastCheckedTimestamp: new Date("TIMESTAMP"), // required
- * //       Readiness: "STRING_VALUE", // required
+ * //       Readiness: "READY" || "NOT_READY" || "UNKNOWN" || "NOT_AUTHORIZED", // required
  * //       ResourceArn: "STRING_VALUE",
  * //     },
  * //   ],

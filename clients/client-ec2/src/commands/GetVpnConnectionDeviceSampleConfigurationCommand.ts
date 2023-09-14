@@ -18,7 +18,7 @@ import {
   GetVpnConnectionDeviceSampleConfigurationRequest,
   GetVpnConnectionDeviceSampleConfigurationResult,
   GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   de_GetVpnConnectionDeviceSampleConfigurationCommand,
   se_GetVpnConnectionDeviceSampleConfigurationCommand,

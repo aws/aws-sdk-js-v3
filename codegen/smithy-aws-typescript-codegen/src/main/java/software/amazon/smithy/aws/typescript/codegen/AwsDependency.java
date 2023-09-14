@@ -83,7 +83,10 @@ public enum AwsDependency implements PackageContainer, SymbolDependencyContainer
     FLEXIBLE_CHECKSUMS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-flexible-checksums"),
 
     // Conditionally added when auth trait is present
-    MIDDLEWARE_API_KEY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-api-key");
+    MIDDLEWARE_API_KEY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-api-key"),
+
+    // feat(experimentalIdentityAndAuth): Conditionally added when @httpBearerAuth is used in an AWS service
+    TOKEN_PROVIDERS(NORMAL_DEPENDENCY, "@aws-sdk/token-providers");
 
     public final String packageName;
     public final String version;
@@ -140,4 +143,3 @@ public enum AwsDependency implements PackageContainer, SymbolDependencyContainer
         }
     }
 }
-

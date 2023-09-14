@@ -66,13 +66,26 @@ export const createPresignedPost = async (
 
   // Prepare policies.
   const expiration = new Date(now.valueOf() + Expires * 1000);
-  const conditions: PolicyEntry[] = [
-    ...Conditions,
-    ...Object.entries(fields).map(([k, v]) => ({ [k]: v })),
-    Key.endsWith("${filename}")
-      ? ["starts-with", "$key", Key.substring(0, Key.lastIndexOf("${filename}"))]
-      : { key: Key },
-  ];
+
+  const conditionsSet = new Set<string>();
+
+  for (const condition of Conditions) {
+    const stringifiedCondition = JSON.stringify(condition);
+    conditionsSet.add(stringifiedCondition);
+  }
+
+  for (const [k,v] of Object.entries(fields)) {
+    conditionsSet.add(JSON.stringify({ [k]: v }))
+  }  
+  
+  if (Key.endsWith("${filename}")) {
+    conditionsSet.add(JSON.stringify(["starts-with", "$key", Key.substring(0, Key.lastIndexOf("${filename}"))]));
+  } else {
+    conditionsSet.add(JSON.stringify({ key: Key }));
+  }
+
+  const conditions = Array.from(conditionsSet).map((item) => JSON.parse(item));
+
   const encodedPolicy = base64Encoder(
     utf8Decoder(
       JSON.stringify({

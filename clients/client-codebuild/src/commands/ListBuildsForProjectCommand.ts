@@ -46,7 +46,7 @@ export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectO
  * const client = new CodeBuildClient(config);
  * const input = { // ListBuildsForProjectInput
  *   projectName: "STRING_VALUE", // required
- *   sortOrder: "STRING_VALUE",
+ *   sortOrder: "ASCENDING" || "DESCENDING",
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new ListBuildsForProjectCommand(input);

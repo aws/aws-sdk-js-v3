@@ -40,8 +40,8 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *       if index creation has completed, check the <code>Status</code> field returned from a call to
  *         <code>DescribeIndex</code>. The <code>Status</code> field is set to <code>ACTIVE</code> when
  *       the index is ready to use.</p>
- *          <p>Once the index is active you can index your documents using the
- *         <code>BatchPutDocument</code> API or using one of the supported data sources.</p>
+ *          <p>Once the index is active, you can index your documents using the
+ *         <code>BatchPutDocument</code> API or using one of the supported <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-sources.html">data sources</a>.</p>
  *          <p>For an example of creating an index and data source using the Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting started with Python
  *         SDK</a>. For an example of creating an index and data source using the Java SDK, see
  *         <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java

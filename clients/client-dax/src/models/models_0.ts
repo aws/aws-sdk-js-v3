@@ -419,8 +419,19 @@ export interface SecurityGroupMembership {
 
 /**
  * @public
+ * @enum
  */
-export type SSEStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
+export const SSEStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+} as const;
+
+/**
+ * @public
+ */
+export type SSEStatus = (typeof SSEStatus)[keyof typeof SSEStatus];
 
 /**
  * @public
@@ -1372,13 +1383,32 @@ export interface DescribeDefaultParametersRequest {
 
 /**
  * @public
+ * @enum
  */
-export type ChangeType = "IMMEDIATE" | "REQUIRES_REBOOT";
+export const ChangeType = {
+  IMMEDIATE: "IMMEDIATE",
+  REQUIRES_REBOOT: "REQUIRES_REBOOT",
+} as const;
 
 /**
  * @public
  */
-export type IsModifiable = "CONDITIONAL" | "FALSE" | "TRUE";
+export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IsModifiable = {
+  CONDITIONAL: "CONDITIONAL",
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+} as const;
+
+/**
+ * @public
+ */
+export type IsModifiable = (typeof IsModifiable)[keyof typeof IsModifiable];
 
 /**
  * @public
@@ -1401,8 +1431,17 @@ export interface NodeTypeSpecificValue {
 
 /**
  * @public
+ * @enum
  */
-export type ParameterType = "DEFAULT" | "NODE_TYPE_SPECIFIC";
+export const ParameterType = {
+  DEFAULT: "DEFAULT",
+  NODE_TYPE_SPECIFIC: "NODE_TYPE_SPECIFIC",
+} as const;
+
+/**
+ * @public
+ */
+export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
 
 /**
  * @public
@@ -1494,8 +1533,18 @@ export interface DescribeDefaultParametersResponse {
 
 /**
  * @public
+ * @enum
  */
-export type SourceType = "CLUSTER" | "PARAMETER_GROUP" | "SUBNET_GROUP";
+export const SourceType = {
+  CLUSTER: "CLUSTER",
+  PARAMETER_GROUP: "PARAMETER_GROUP",
+  SUBNET_GROUP: "SUBNET_GROUP",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public

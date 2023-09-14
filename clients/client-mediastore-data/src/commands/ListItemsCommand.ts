@@ -55,7 +55,7 @@ export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBea
  * //   Items: [ // ItemList
  * //     { // Item
  * //       Name: "STRING_VALUE",
- * //       Type: "STRING_VALUE",
+ * //       Type: "OBJECT" || "FOLDER",
  * //       ETag: "STRING_VALUE",
  * //       LastModified: new Date("TIMESTAMP"),
  * //       ContentType: "STRING_VALUE",

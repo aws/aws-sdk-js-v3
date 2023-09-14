@@ -51,8 +51,8 @@ export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDel
  * // { // GetNamespaceDeletionStatusResponse
  * //   namespaceArn: "STRING_VALUE",
  * //   namespaceName: "STRING_VALUE",
- * //   status: "STRING_VALUE",
- * //   errorCode: "STRING_VALUE",
+ * //   status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ * //   errorCode: "VALIDATION_FAILED",
  * //   errorMessage: "STRING_VALUE",
  * // };
  *

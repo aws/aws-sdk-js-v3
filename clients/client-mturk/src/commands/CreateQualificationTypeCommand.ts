@@ -53,7 +53,7 @@ export interface CreateQualificationTypeCommandOutput extends CreateQualificatio
  *   Name: "STRING_VALUE", // required
  *   Keywords: "STRING_VALUE",
  *   Description: "STRING_VALUE", // required
- *   QualificationTypeStatus: "STRING_VALUE", // required
+ *   QualificationTypeStatus: "Active" || "Inactive", // required
  *   RetryDelayInSeconds: Number("long"),
  *   Test: "STRING_VALUE",
  *   AnswerKey: "STRING_VALUE",
@@ -70,7 +70,7 @@ export interface CreateQualificationTypeCommandOutput extends CreateQualificatio
  * //     Name: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
  * //     Keywords: "STRING_VALUE",
- * //     QualificationTypeStatus: "STRING_VALUE",
+ * //     QualificationTypeStatus: "Active" || "Inactive",
  * //     Test: "STRING_VALUE",
  * //     TestDurationInSeconds: Number("long"),
  * //     AnswerKey: "STRING_VALUE",

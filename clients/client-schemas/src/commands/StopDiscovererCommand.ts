@@ -50,7 +50,7 @@ export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __M
  * const response = await client.send(command);
  * // { // StopDiscovererResponse
  * //   DiscovererId: "STRING_VALUE",
- * //   State: "STRING_VALUE",
+ * //   State: "STARTED" || "STOPPED",
  * // };
  *
  * ```

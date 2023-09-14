@@ -48,7 +48,7 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
  * const client = new IoTThingsGraphClient(config);
  * const input = { // DissociateEntityFromThingRequest
  *   thingName: "STRING_VALUE", // required
- *   entityType: "STRING_VALUE", // required
+ *   entityType: "DEVICE" || "SERVICE" || "DEVICE_MODEL" || "CAPABILITY" || "STATE" || "ACTION" || "EVENT" || "PROPERTY" || "MAPPING" || "ENUM", // required
  * };
  * const command = new DissociateEntityFromThingCommand(input);
  * const response = await client.send(command);

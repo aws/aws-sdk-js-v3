@@ -62,7 +62,7 @@ export interface GetDetectorModelAnalysisResultsCommandOutput
  * //   analysisResults: [ // AnalysisResults
  * //     { // AnalysisResult
  * //       type: "STRING_VALUE",
- * //       level: "STRING_VALUE",
+ * //       level: "INFO" || "WARNING" || "ERROR",
  * //       message: "STRING_VALUE",
  * //       locations: [ // AnalysisResultLocations
  * //         { // AnalysisResultLocation

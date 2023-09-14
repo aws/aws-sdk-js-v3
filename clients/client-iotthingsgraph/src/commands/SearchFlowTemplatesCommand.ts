@@ -48,7 +48,7 @@ export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesRes
  * const input = { // SearchFlowTemplatesRequest
  *   filters: [ // FlowTemplateFilters
  *     { // FlowTemplateFilter
- *       name: "STRING_VALUE", // required
+ *       name: "DEVICE_MODEL_ID", // required
  *       value: [ // FlowTemplateFilterValues // required
  *         "STRING_VALUE",
  *       ],

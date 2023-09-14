@@ -49,16 +49,16 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  *   repositoryName: "STRING_VALUE", // required
  *   tags: [ // TagList
  *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   imageTagMutability: "STRING_VALUE",
+ *   imageTagMutability: "MUTABLE" || "IMMUTABLE",
  *   imageScanningConfiguration: { // ImageScanningConfiguration
  *     scanOnPush: true || false,
  *   },
  *   encryptionConfiguration: { // EncryptionConfiguration
- *     encryptionType: "STRING_VALUE", // required
+ *     encryptionType: "AES256" || "KMS", // required
  *     kmsKey: "STRING_VALUE",
  *   },
  * };
@@ -71,12 +71,12 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * //     repositoryName: "STRING_VALUE",
  * //     repositoryUri: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
- * //     imageTagMutability: "STRING_VALUE",
+ * //     imageTagMutability: "MUTABLE" || "IMMUTABLE",
  * //     imageScanningConfiguration: { // ImageScanningConfiguration
  * //       scanOnPush: true || false,
  * //     },
  * //     encryptionConfiguration: { // EncryptionConfiguration
- * //       encryptionType: "STRING_VALUE", // required
+ * //       encryptionType: "AES256" || "KMS", // required
  * //       kmsKey: "STRING_VALUE",
  * //     },
  * //   },

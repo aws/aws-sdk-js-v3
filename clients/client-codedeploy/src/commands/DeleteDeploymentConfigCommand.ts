@@ -37,10 +37,10 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Deletes a deployment configuration.</p>
- *         <note>
+ *          <note>
  *             <p>A deployment configuration cannot be deleted if it is currently in use. Predefined
  *                 configurations cannot be deleted.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

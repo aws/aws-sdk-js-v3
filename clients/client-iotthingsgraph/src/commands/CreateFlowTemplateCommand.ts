@@ -49,7 +49,7 @@ export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateRespo
  * const client = new IoTThingsGraphClient(config);
  * const input = { // CreateFlowTemplateRequest
  *   definition: { // DefinitionDocument
- *     language: "STRING_VALUE", // required
+ *     language: "GRAPHQL", // required
  *     text: "STRING_VALUE", // required
  *   },
  *   compatibleNamespaceVersion: Number("long"),

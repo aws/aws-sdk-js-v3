@@ -98,6 +98,7 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
  * //     ],
  * //     BackupTarget: "STRING_VALUE",
  * //     StorageThroughput: Number("int"),
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //   },
  * // };
  *

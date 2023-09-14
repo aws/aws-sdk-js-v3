@@ -66,11 +66,11 @@ export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse,
  * //     MatchPredicates: [ // Predicates // required
  * //       { // Predicate
  * //         Negated: true || false, // required
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "IPMatch" || "ByteMatch" || "SqlInjectionMatch" || "GeoMatch" || "SizeConstraint" || "XssMatch" || "RegexMatch", // required
  * //         DataId: "STRING_VALUE", // required
  * //       },
  * //     ],
- * //     RateKey: "STRING_VALUE", // required
+ * //     RateKey: "IP", // required
  * //     RateLimit: Number("long"), // required
  * //   },
  * // };

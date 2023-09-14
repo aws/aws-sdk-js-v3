@@ -61,16 +61,16 @@ export interface DescribeScalingPlanResourcesCommandOutput
  * //     { // ScalingPlanResource
  * //       ScalingPlanName: "STRING_VALUE", // required
  * //       ScalingPlanVersion: Number("long"), // required
- * //       ServiceNamespace: "STRING_VALUE", // required
+ * //       ServiceNamespace: "autoscaling" || "ecs" || "ec2" || "rds" || "dynamodb", // required
  * //       ResourceId: "STRING_VALUE", // required
- * //       ScalableDimension: "STRING_VALUE", // required
+ * //       ScalableDimension: "autoscaling:autoScalingGroup:DesiredCapacity" || "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "rds:cluster:ReadReplicaCount" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits", // required
  * //       ScalingPolicies: [ // ScalingPolicies
  * //         { // ScalingPolicy
  * //           PolicyName: "STRING_VALUE", // required
- * //           PolicyType: "STRING_VALUE", // required
+ * //           PolicyType: "TargetTrackingScaling", // required
  * //           TargetTrackingConfiguration: { // TargetTrackingConfiguration
  * //             PredefinedScalingMetricSpecification: { // PredefinedScalingMetricSpecification
- * //               PredefinedScalingMetricType: "STRING_VALUE", // required
+ * //               PredefinedScalingMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "DynamoDBReadCapacityUtilization" || "DynamoDBWriteCapacityUtilization" || "ECSServiceAverageCPUUtilization" || "ECSServiceAverageMemoryUtilization" || "ALBRequestCountPerTarget" || "RDSReaderAverageCPUUtilization" || "RDSReaderAverageDatabaseConnections" || "EC2SpotFleetRequestAverageCPUUtilization" || "EC2SpotFleetRequestAverageNetworkIn" || "EC2SpotFleetRequestAverageNetworkOut", // required
  * //               ResourceLabel: "STRING_VALUE",
  * //             },
  * //             CustomizedScalingMetricSpecification: { // CustomizedScalingMetricSpecification
@@ -82,7 +82,7 @@ export interface DescribeScalingPlanResourcesCommandOutput
  * //                   Value: "STRING_VALUE", // required
  * //                 },
  * //               ],
- * //               Statistic: "STRING_VALUE", // required
+ * //               Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum", // required
  * //               Unit: "STRING_VALUE",
  * //             },
  * //             TargetValue: Number("double"), // required
@@ -93,7 +93,7 @@ export interface DescribeScalingPlanResourcesCommandOutput
  * //           },
  * //         },
  * //       ],
- * //       ScalingStatusCode: "STRING_VALUE", // required
+ * //       ScalingStatusCode: "Inactive" || "PartiallyActive" || "Active", // required
  * //       ScalingStatusMessage: "STRING_VALUE",
  * //     },
  * //   ],

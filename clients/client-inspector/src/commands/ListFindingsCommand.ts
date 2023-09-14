@@ -59,7 +59,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *       "STRING_VALUE",
  *     ],
  *     severities: [ // SeverityList
- *       "STRING_VALUE",
+ *       "Low" || "Medium" || "High" || "Informational" || "Undefined",
  *     ],
  *     rulesPackageArns: [ // FilterRulesPackageArnList
  *       "STRING_VALUE",

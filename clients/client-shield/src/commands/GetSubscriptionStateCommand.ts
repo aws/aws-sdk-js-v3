@@ -47,7 +47,7 @@ export interface GetSubscriptionStateCommandOutput extends GetSubscriptionStateR
  * const command = new GetSubscriptionStateCommand(input);
  * const response = await client.send(command);
  * // { // GetSubscriptionStateResponse
- * //   SubscriptionState: "STRING_VALUE", // required
+ * //   SubscriptionState: "ACTIVE" || "INACTIVE", // required
  * // };
  *
  * ```

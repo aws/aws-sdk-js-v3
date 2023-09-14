@@ -41,8 +41,7 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  *          <p>If
  *             you choose to host your model using Amazon SageMaker hosting services, you can use the resulting
  *             model artifacts as part of the model. You can also use the artifacts with
- *             Amazon Web Services
- *             IoT Greengrass. In that case, deploy them as an ML
+ *                 Amazon Web Services IoT Greengrass. In that case, deploy them as an ML
  *             resource.</p>
  *          <p>In the request body, you provide the following:</p>
  *          <ul>
@@ -65,9 +64,9 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  *             use and costs. The response body contains the
  *                 <code>CompilationJobArn</code>
  *             for the compiled job.</p>
- *          <p>To stop a model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopCompilationJob.html">StopCompilationJob</a>. To get
- *             information about a particular model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html">DescribeCompilationJob</a>. To get information about multiple model
- *             compilation jobs, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html">ListCompilationJobs</a>.</p>
+ *          <p>To stop a model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopCompilationJob.html">StopCompilationJob</a>. To get information about a particular model compilation
+ *             job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html">DescribeCompilationJob</a>. To get information about multiple model compilation
+ *             jobs, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html">ListCompilationJobs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,7 +79,7 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  *   ModelPackageVersionArn: "STRING_VALUE",
  *   InputConfig: { // InputConfig
  *     S3Uri: "STRING_VALUE", // required
- *     DataInputConfig: "STRING_VALUE", // required
+ *     DataInputConfig: "STRING_VALUE",
  *     Framework: "TENSORFLOW" || "KERAS" || "MXNET" || "ONNX" || "PYTORCH" || "XGBOOST" || "TFLITE" || "DARKNET" || "SKLEARN", // required
  *     FrameworkVersion: "STRING_VALUE",
  *   },
