@@ -3153,6 +3153,7 @@ export type RulePublishStatus = (typeof RulePublishStatus)[keyof typeof RulePubl
  */
 export const EventSourceName = {
   OnContactEvaluationSubmit: "OnContactEvaluationSubmit",
+  OnMetricDataUpdate: "OnMetricDataUpdate",
   OnPostCallAnalysisAvailable: "OnPostCallAnalysisAvailable",
   OnPostChatAnalysisAvailable: "OnPostChatAnalysisAvailable",
   OnRealTimeCallAnalysisAvailable: "OnRealTimeCallAnalysisAvailable",

@@ -46,7 +46,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * const input = { // ListRulesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   PublishStatus: "DRAFT" || "PUBLISHED",
- *   EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit",
+ *   EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -58,7 +58,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * //       Name: "STRING_VALUE", // required
  * //       RuleId: "STRING_VALUE", // required
  * //       RuleArn: "STRING_VALUE", // required
- * //       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit", // required
+ * //       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate", // required
  * //       PublishStatus: "DRAFT" || "PUBLISHED", // required
  * //       ActionSummaries: [ // ActionSummaries // required
  * //         { // ActionSummary
