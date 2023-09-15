@@ -1,4 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { NoOpLogger } from "@smithy/smithy-client";
 import {
   FinalizeHandler,
   FinalizeHandlerArguments,
@@ -29,7 +30,7 @@ export function checkContentLengthHeader(): FinalizeRequestMiddleware<any, any> 
       if (HttpRequest.isInstance(request)) {
         if (!request.headers[CONTENT_LENGTH_HEADER]) {
           const message = `Are you using a Stream of unknown length as the Body of a PutObject request? Consider using Upload instead from @aws-sdk/lib-storage.`;
-          if (typeof context?.logger?.warn === "function") {
+          if (typeof context?.logger?.warn === "function" && !(context.logger instanceof NoOpLogger)) {
             context.logger.warn(message);
           } else {
             console.warn(message);
