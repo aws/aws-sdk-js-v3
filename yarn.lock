@@ -93,7 +93,7 @@
     tslib "^1.11.1"
 
 "@aws-sdk/client-sts@file:clients/client-sts":
-  version "3.413.0"
+  version "3.414.0"
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"
@@ -104,6 +104,7 @@
     "@aws-sdk/middleware-sdk-sts" "*"
     "@aws-sdk/middleware-signing" "*"
     "@aws-sdk/middleware-user-agent" "*"
+    "@aws-sdk/region-config-resolver" "*"
     "@aws-sdk/types" "*"
     "@aws-sdk/util-endpoints" "*"
     "@aws-sdk/util-user-agent-browser" "*"

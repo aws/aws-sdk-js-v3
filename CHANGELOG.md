@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.414.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.413.0...v3.414.0) (2023-09-15)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** use console warn if logger is no-op ([#5222](https://github.com/aws/aws-sdk-js-v3/issues/5222)) ([db97698](https://github.com/aws/aws-sdk-js-v3/commit/db976982216262e3366e863e2c8b7eb69269edfb))
+
+
+### Features
+
+* **client-appstream:** This release introduces app block builder, allowing customers to provision a resource to package applications into an app block ([aec538f](https://github.com/aws/aws-sdk-js-v3/commit/aec538fa3126590a0883ba29917f6e265edbbc40))
+* **client-connect:** New rule type (OnMetricDataUpdate) has been added ([69efc92](https://github.com/aws/aws-sdk-js-v3/commit/69efc92627e0590c9caca4f4dcdefaed5323cf13))
+* **client-sagemaker:** This release introduces Skip Model Validation for Model Packages ([c5ed6cc](https://github.com/aws/aws-sdk-js-v3/commit/c5ed6cc13d79ca1dddbdfd6e5ad69f9ed3b45e4e))
+* **clients:** update client endpoints as of 2023-09-15 ([c97bb47](https://github.com/aws/aws-sdk-js-v3/commit/c97bb47d3cf8a5ac24c930c839986dbc157277bd))
+* **region-config:** add aws region runtime extension codegen ([#5157](https://github.com/aws/aws-sdk-js-v3/issues/5157)) ([b9d59e8](https://github.com/aws/aws-sdk-js-v3/commit/b9d59e81696f9628c6502473bb01a2d1a617e928))
+
+
+
+
+
 # [3.413.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.412.0...v3.413.0) (2023-09-14)
 
 
