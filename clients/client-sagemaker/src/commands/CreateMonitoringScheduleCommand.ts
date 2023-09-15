@@ -36,8 +36,8 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
 
 /**
  * @public
- * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to monitor the data
- *          captured for an Amazon SageMaker Endpoint.</p>
+ * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to
+ *          monitor the data captured for an Amazon SageMaker Endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

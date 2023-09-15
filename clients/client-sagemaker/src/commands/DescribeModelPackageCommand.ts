@@ -290,6 +290,7 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //       ],
  * //     },
  * //   ],
+ * //   SkipModelValidation: "All" || "None",
  * // };
  *
  * ```

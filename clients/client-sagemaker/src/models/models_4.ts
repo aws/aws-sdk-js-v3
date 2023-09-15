@@ -115,10 +115,29 @@ import {
   NestedFilters,
   OnlineStoreConfigUpdate,
   Parameter,
-  Parent,
   ResourceType,
   TransformJob,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>The trial that a trial component is associated with and the experiment the trial is part
+ *       of. A component might not be associated with a trial. A component can be associated with
+ *       multiple trials.</p>
+ */
+export interface Parent {
+  /**
+   * @public
+   * <p>The name of the trial.</p>
+   */
+  TrialName?: string;
+
+  /**
+   * @public
+   * <p>The name of the experiment.</p>
+   */
+  ExperimentName?: string;
+}
 
 /**
  * @public
@@ -3199,15 +3218,15 @@ export interface UpdateMonitoringAlertResponse {
 export interface UpdateMonitoringScheduleRequest {
   /**
    * @public
-   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within
-   *          an Amazon Web Services account.</p>
+   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services
+   *    Region within an Amazon Web Services account.</p>
    */
   MonitoringScheduleName: string | undefined;
 
   /**
    * @public
-   * <p>The configuration object that specifies the monitoring schedule and defines the
-   *          monitoring job.</p>
+   * <p>The configuration object that specifies the monitoring schedule and defines the monitoring
+   *    job.</p>
    */
   MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
 }

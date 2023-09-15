@@ -6739,8 +6739,7 @@ export interface MonitoringCsvDatasetFormat {
 export interface MonitoringJsonDatasetFormat {
   /**
    * @public
-   * <p>Indicates if the file should be read as a json object per line.
-   * </p>
+   * <p>Indicates if the file should be read as a JSON object per line. </p>
    */
   Line?: boolean;
 }
@@ -7336,19 +7335,21 @@ export interface CanvasAppSettings {
 
 /**
  * @public
- * <p>Configuration specifying how to treat different headers. If no headers are specified SageMaker
- *          will by default base64 encode when capturing the data.</p>
+ * <p>Configuration specifying how to treat different headers. If no headers are specified
+ *             Amazon SageMaker will by default base64 encode when capturing the data.</p>
  */
 export interface CaptureContentTypeHeader {
   /**
    * @public
-   * <p>The list of all content type headers that SageMaker will treat as CSV and capture accordingly.</p>
+   * <p>The list of all content type headers that Amazon SageMaker will treat as CSV and
+   *          capture accordingly.</p>
    */
   CsvContentTypes?: string[];
 
   /**
    * @public
-   * <p>The list of all content type headers that SageMaker will treat as JSON and capture accordingly.</p>
+   * <p>The list of all content type headers that SageMaker will treat as JSON and
+   *          capture accordingly.</p>
    */
   JsonContentTypes?: string[];
 }
@@ -10835,16 +10836,15 @@ export interface DataQualityAppSpecification {
   /**
    * @public
    * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can
-   *          base64 decode the payload and convert it into a flatted json so that the built-in container
-   *          can use the converted data. Applicable only for the built-in (first party)
-   *          containers.</p>
+   *    base64 decode the payload and convert it into a flattened JSON so that the built-in container can use
+   *    the converted data. Applicable only for the built-in (first party) containers.</p>
    */
   RecordPreprocessorSourceUri?: string;
 
   /**
    * @public
-   * <p>An Amazon S3 URI to a script that is called after analysis has been performed.
-   *          Applicable only for the built-in (first party) containers.</p>
+   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable
+   *    only for the built-in (first party) containers.</p>
    */
   PostAnalyticsProcessorSourceUri?: string;
 
@@ -10881,9 +10881,9 @@ export interface MonitoringStatisticsResource {
 
 /**
  * @public
- * <p>Configuration for monitoring constraints and monitoring statistics. These baseline
- *          resources are compared against the results of the current job from the series of jobs
- *          scheduled to collect data periodically.</p>
+ * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are
+ *    compared against the results of the current job from the series of jobs scheduled to collect data
+ *    periodically.</p>
  */
 export interface DataQualityBaselineConfig {
   /**
@@ -10934,8 +10934,8 @@ export interface EndpointInput {
 
   /**
    * @public
-   * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
-   *          Defaults to <code>FullyReplicated</code>
+   * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an
+   *             Amazon S3 key. Defaults to <code>FullyReplicated</code>
    *          </p>
    */
   S3DataDistributionType?: ProcessingS3DataDistributionType | string;
@@ -11022,15 +11022,16 @@ export type ProcessingS3UploadMode = (typeof ProcessingS3UploadMode)[keyof typeo
 export interface MonitoringS3Output {
   /**
    * @public
-   * <p>A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a
-   *          monitoring job.</p>
+   * <p>A URI that identifies the Amazon S3 storage location where Amazon SageMaker
+   *          saves the results of a monitoring job.</p>
    */
   S3Uri: string | undefined;
 
   /**
    * @public
-   * <p>The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a
-   *          monitoring job. LocalPath is an absolute path for the output data.</p>
+   * <p>The local path to the Amazon S3 storage location where Amazon SageMaker
+   *          saves the results of a monitoring job. LocalPath is an absolute path for the output
+   *          data.</p>
    */
   LocalPath: string | undefined;
 
@@ -11049,7 +11050,8 @@ export interface MonitoringS3Output {
 export interface MonitoringOutput {
   /**
    * @public
-   * <p>The Amazon S3 storage location where the results of a monitoring job are saved.</p>
+   * <p>The Amazon S3 storage location where the results of a monitoring job are
+   *          saved.</p>
    */
   S3Output: MonitoringS3Output | undefined;
 }
@@ -11068,8 +11070,8 @@ export interface MonitoringOutputConfig {
 
   /**
    * @public
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the model
-   *          artifacts at rest using Amazon S3 server-side encryption.</p>
+   * <p>The Key Management Service (KMS) key that Amazon SageMaker uses to
+   *          encrypt the model artifacts at rest using Amazon S3 server-side encryption.</p>
    */
   KmsKeyId?: string;
 }
@@ -11157,9 +11159,9 @@ export interface MonitoringClusterConfig {
 
   /**
    * @public
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data
-   *          on the storage volume attached to the ML compute instance(s) that run the model monitoring
-   *          job.</p>
+   * <p>The Key Management Service (KMS) key that Amazon SageMaker uses to
+   *          encrypt data on the storage volume attached to the ML compute instance(s) that run the
+   *          model monitoring job.</p>
    */
   VolumeKmsKeyId?: string;
 }
@@ -11215,9 +11217,10 @@ export interface MonitoringStoppingCondition {
    * @public
    * <p>The maximum runtime allowed in seconds.</p>
    *          <note>
-   *             <p>The <code>MaxRuntimeInSeconds</code> cannot exceed the frequency of the job. For data quality and
-   *             model explainability, this can be up to 3600 seconds for an hourly schedule. For model
-   *             bias and model quality hourly schedules, this can be up to 1800 seconds.</p>
+   *             <p>The <code>MaxRuntimeInSeconds</code> cannot exceed the frequency of the job. For data
+   *             quality and model explainability, this can be up to 3600 seconds for an hourly schedule.
+   *             For model bias and model quality hourly schedules, this can be up to 1800
+   *             seconds.</p>
    *          </note>
    */
   MaxRuntimeInSeconds: number | undefined;
@@ -11272,8 +11275,8 @@ export interface CreateDataQualityJobDefinitionRequest {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   *    assume to perform tasks on your behalf.</p>
    */
   RoleArn: string | undefined;
 
@@ -11285,8 +11288,9 @@ export interface CreateDataQualityJobDefinitionRequest {
 
   /**
    * @public
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *             User Guide</i>.</p>
+   * <p>(Optional) An array of key-value pairs. For more information, see
+   *    <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">
+   *    Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
    */
   Tags?: Tag[];
 }

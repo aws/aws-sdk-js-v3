@@ -862,8 +862,8 @@ export interface DataCaptureConfig {
 
   /**
    * @public
-   * <p>The percentage of requests SageMaker will capture. A lower value is recommended for
-   *          Endpoints with high traffic.</p>
+   * <p>The percentage of requests SageMaker will capture. A lower value is recommended
+   *          for Endpoints with high traffic.</p>
    */
   InitialSamplingPercentage: number | undefined;
 
@@ -875,8 +875,9 @@ export interface DataCaptureConfig {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker uses to encrypt the
-   *           captured data at rest using Amazon S3 server-side encryption.</p>
+   * <p>The Amazon Resource Name (ARN) of an Key Management Service key that SageMaker
+   *          uses to encrypt the captured data at rest using Amazon S3 server-side
+   *          encryption.</p>
    *          <p>The KmsKeyId can be any of the following formats: </p>
    *          <ul>
    *             <li>
@@ -885,7 +886,7 @@ export interface DataCaptureConfig {
    *             </li>
    *             <li>
    *                <p>Key ARN:
-   *                <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                   <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
    *                </p>
    *             </li>
    *             <li>
@@ -903,15 +904,15 @@ export interface DataCaptureConfig {
 
   /**
    * @public
-   * <p>Specifies data Model Monitor will capture. You can configure whether to
-   *          collect only input, only output, or both</p>
+   * <p>Specifies data Model Monitor will capture. You can configure whether to collect only
+   *          input, only output, or both</p>
    */
   CaptureOptions: CaptureOption[] | undefined;
 
   /**
    * @public
-   * <p>Configuration specifying how to treat different headers. If no headers are specified SageMaker will
-   *          by default base64 encode when capturing the data.</p>
+   * <p>Configuration specifying how to treat different headers. If no headers are specified
+   *             SageMaker will by default base64 encode when capturing the data.</p>
    */
   CaptureContentTypeHeader?: CaptureContentTypeHeader;
 }
@@ -3939,8 +3940,8 @@ export interface InferenceExperimentDataStorageConfig {
 
   /**
    * @public
-   * <p>Configuration specifying how to treat different headers. If no headers are specified SageMaker
-   *          will by default base64 encode when capturing the data.</p>
+   * <p>Configuration specifying how to treat different headers. If no headers are specified
+   *             Amazon SageMaker will by default base64 encode when capturing the data.</p>
    */
   ContentType?: CaptureContentTypeHeader;
 }
@@ -7258,8 +7259,8 @@ export interface ModelBiasAppSpecification {
   /**
    * @public
    * <p>JSON formatted S3 file that defines bias parameters. For more information on this JSON
-   *          configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-bias-parameters.html">Configure bias
-   *          parameters</a>.</p>
+   *          configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-bias-parameters.html">Configure
+   *             bias parameters</a>.</p>
    */
   ConfigUri: string | undefined;
 
@@ -7330,8 +7331,8 @@ export interface ModelBiasJobInput {
 export interface CreateModelBiasJobDefinitionRequest {
   /**
    * @public
-   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services Region in the
-   *          Amazon Web Services account.</p>
+   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services
+   *    Region in the Amazon Web Services account.</p>
    */
   JobDefinitionName: string | undefined;
 
@@ -7373,8 +7374,8 @@ export interface CreateModelBiasJobDefinitionRequest {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   *    assume to perform tasks on your behalf.</p>
    */
   RoleArn: string | undefined;
 
@@ -7386,8 +7387,9 @@ export interface CreateModelBiasJobDefinitionRequest {
 
   /**
    * @public
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *             User Guide</i>.</p>
+   * <p>(Optional) An array of key-value pairs. For more information, see
+   *    <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">
+   *    Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -7565,9 +7567,8 @@ export interface ModelExplainabilityAppSpecification {
 
   /**
    * @public
-   * <p>JSON formatted S3 file that defines explainability parameters. For more information on
-   *          this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-model-explainability-parameters.html">Configure model
-   *             explainability parameters</a>.</p>
+   * <p>JSON formatted Amazon S3 file that defines explainability parameters. For more
+   *          information on this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-model-explainability-parameters.html">Configure model explainability parameters</a>.</p>
    */
   ConfigUri: string | undefined;
 
@@ -7621,7 +7622,7 @@ export interface CreateModelExplainabilityJobDefinitionRequest {
   /**
    * @public
    * <p> The name of the model explainability job definition. The name must be unique within an
-   *          Amazon Web Services Region in the Amazon Web Services account.</p>
+   *             Amazon Web Services Region in the Amazon Web Services account.</p>
    */
   JobDefinitionName: string | undefined;
 
@@ -7633,8 +7634,7 @@ export interface CreateModelExplainabilityJobDefinitionRequest {
 
   /**
    * @public
-   * <p>Configures the model explainability job to run a specified Docker container
-   *          image.</p>
+   * <p>Configures the model explainability job to run a specified Docker container image.</p>
    */
   ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecification | undefined;
 
@@ -7664,8 +7664,8 @@ export interface CreateModelExplainabilityJobDefinitionRequest {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   *    assume to perform tasks on your behalf.</p>
    */
   RoleArn: string | undefined;
 
@@ -7677,8 +7677,9 @@ export interface CreateModelExplainabilityJobDefinitionRequest {
 
   /**
    * @public
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *             User Guide</i>.</p>
+   * <p>(Optional) An array of key-value pairs. For more information, see
+   *    <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">
+   *    Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -7912,6 +7913,20 @@ export interface ModelMetrics {
    */
   Explainability?: Explainability;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const SkipModelValidation = {
+  ALL: "All",
+  NONE: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type SkipModelValidation = (typeof SkipModelValidation)[keyof typeof SkipModelValidation];
 
 /**
  * @public
@@ -8149,6 +8164,12 @@ export interface CreateModelPackageInput {
    *     compiled artifacts. </p>
    */
   AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[];
+
+  /**
+   * @public
+   * <p>Indicates if you want to skip model validation.</p>
+   */
+  SkipModelValidation?: SkipModelValidation | string;
 }
 
 /**
@@ -8239,16 +8260,15 @@ export interface ModelQualityAppSpecification {
   /**
    * @public
    * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can
-   *          base64 decode the payload and convert it into a flatted json so that the built-in container
-   *          can use the converted data. Applicable only for the built-in (first party)
-   *          containers.</p>
+   *    base64 decode the payload and convert it into a flattened JSON so that the built-in container can use
+   *    the converted data. Applicable only for the built-in (first party) containers.</p>
    */
   RecordPreprocessorSourceUri?: string;
 
   /**
    * @public
-   * <p>An Amazon S3 URI to a script that is called after analysis has been performed.
-   *          Applicable only for the built-in (first party) containers.</p>
+   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable
+   *    only for the built-in (first party) containers.</p>
    */
   PostAnalyticsProcessorSourceUri?: string;
 
@@ -8267,9 +8287,9 @@ export interface ModelQualityAppSpecification {
 
 /**
  * @public
- * <p>Configuration for monitoring constraints and monitoring statistics. These baseline
- *          resources are compared against the results of the current job from the series of jobs
- *          scheduled to collect data periodically.</p>
+ * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are
+ *    compared against the results of the current job from the series of jobs scheduled to collect data
+ *    periodically.</p>
  */
 export interface ModelQualityBaselineConfig {
   /**
@@ -8287,7 +8307,7 @@ export interface ModelQualityBaselineConfig {
 
 /**
  * @public
- * <p>The input for the model quality monitoring job. Currently endponts are supported for
+ * <p>The input for the model quality monitoring job. Currently endpoints are supported for
  *          input for model quality monitoring jobs.</p>
  */
 export interface ModelQualityJobInput {
@@ -8358,8 +8378,8 @@ export interface CreateModelQualityJobDefinitionRequest {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   *    assume to perform tasks on your behalf.</p>
    */
   RoleArn: string | undefined;
 
@@ -8371,8 +8391,9 @@ export interface CreateModelQualityJobDefinitionRequest {
 
   /**
    * @public
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *             User Guide</i>.</p>
+   * <p>(Optional) An array of key-value pairs. For more information, see
+   *    <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">
+   *    Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -8390,9 +8411,9 @@ export interface CreateModelQualityJobDefinitionResponse {
 
 /**
  * @public
- * <p>Configuration for monitoring constraints and monitoring statistics. These baseline
- *          resources are compared against the results of the current job from the series of jobs
- *          scheduled to collect data periodically.</p>
+ * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are
+ *    compared against the results of the current job from the series of jobs scheduled to collect data
+ *    periodically.</p>
  */
 export interface MonitoringBaselineConfig {
   /**
@@ -8410,8 +8431,8 @@ export interface MonitoringBaselineConfig {
 
   /**
    * @public
-   * <p>The baseline statistics file in Amazon S3 that the current monitoring job should be
-   *          validated against.</p>
+   * <p>The baseline statistics file in Amazon S3 that the current monitoring job should
+   *          be validated against.</p>
    */
   StatisticsResource?: MonitoringStatisticsResource;
 }
@@ -8442,16 +8463,15 @@ export interface MonitoringAppSpecification {
   /**
    * @public
    * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can
-   *          base64 decode the payload and convert it into a flatted json so that the built-in container
-   *          can use the converted data. Applicable only for the built-in (first party)
-   *          containers.</p>
+   *    base64 decode the payload and convert it into a flattened JSON so that the built-in container can use
+   *    the converted data. Applicable only for the built-in (first party) containers.</p>
    */
   RecordPreprocessorSourceUri?: string;
 
   /**
    * @public
-   * <p>An Amazon S3 URI to a script that is called after analysis has been performed.
-   *          Applicable only for the built-in (first party) containers.</p>
+   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable
+   *    only for the built-in (first party) containers.</p>
    */
   PostAnalyticsProcessorSourceUri?: string;
 }
@@ -8520,15 +8540,13 @@ export interface MonitoringJobDefinition {
 
   /**
    * @public
-   * <p>The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker
-   *          Endpoint.</p>
+   * <p>The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.</p>
    */
   MonitoringInputs: MonitoringInput[] | undefined;
 
   /**
    * @public
-   * <p>The array of outputs from the monitoring job to be uploaded to Amazon Simple Storage
-   *          Service (Amazon S3).</p>
+   * <p>The array of outputs from the monitoring job to be uploaded to Amazon S3.</p>
    */
   MonitoringOutputConfig: MonitoringOutputConfig | undefined;
 
@@ -8565,8 +8583,8 @@ export interface MonitoringJobDefinition {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on
-   *          your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   *    assume to perform tasks on your behalf.</p>
    */
   RoleArn: string | undefined;
 }
@@ -8689,22 +8707,22 @@ export interface MonitoringScheduleConfig {
 export interface CreateMonitoringScheduleRequest {
   /**
    * @public
-   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within
-   *          an Amazon Web Services account.</p>
+   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services
+   *    Region within an Amazon Web Services account.</p>
    */
   MonitoringScheduleName: string | undefined;
 
   /**
    * @public
-   * <p>The configuration object that specifies the monitoring schedule and defines the
-   *          monitoring job.</p>
+   * <p>The configuration object that specifies the monitoring schedule and defines the monitoring
+   *    job.</p>
    */
   MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
 
   /**
    * @public
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href=" https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *             User Guide</i>.</p>
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href=" https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost
+   *             Management User Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -11754,17 +11772,6 @@ export interface DeleteEndpointInput {
    * <p>The name of the endpoint that you want to delete.</p>
    */
   EndpointName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteEndpointConfigInput {
-  /**
-   * @public
-   * <p>The name of the endpoint configuration that you want to delete.</p>
-   */
-  EndpointConfigName: string | undefined;
 }
 
 /**

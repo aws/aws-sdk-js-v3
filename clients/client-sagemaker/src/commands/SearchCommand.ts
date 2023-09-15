@@ -1276,6 +1276,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             Constraints: "<MetricsSource>",
  * //           },
  * //         },
+ * //         SkipModelValidation: "All" || "None",
  * //       },
  * //       ModelPackageGroup: { // ModelPackageGroup
  * //         ModelPackageGroupName: "STRING_VALUE",

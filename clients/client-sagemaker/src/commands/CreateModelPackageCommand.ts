@@ -266,6 +266,7 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *       ],
  *     },
  *   ],
+ *   SkipModelValidation: "All" || "None",
  * };
  * const command = new CreateModelPackageCommand(input);
  * const response = await client.send(command);
