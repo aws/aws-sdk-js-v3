@@ -1,3 +1,5 @@
+import { NoOpLogger } from "@smithy/smithy-client";
+
 import { checkContentLengthHeader } from "./check-content-length-header";
 
 describe("checkContentLengthHeaderMiddleware", () => {
@@ -15,6 +17,28 @@ describe("checkContentLengthHeaderMiddleware", () => {
 
   it("warns if uploading a payload of unknown length", async () => {
     const handler = checkContentLengthHeader()(mockNextHandler, {});
+
+    await handler({
+      request: {
+        method: null,
+        protocol: null,
+        hostname: null,
+        path: null,
+        query: {},
+        headers: {},
+      },
+      input: {},
+    });
+
+    expect(spy).toHaveBeenCalledWith(
+      "Are you using a Stream of unknown length as the Body of a PutObject request? Consider using Upload instead from @aws-sdk/lib-storage."
+    );
+  });
+
+  it("warns with console if logger is the default NoOpLogger", async () => {
+    const handler = checkContentLengthHeader()(mockNextHandler, {
+      logger: new NoOpLogger(),
+    });
 
     await handler({
       request: {
