@@ -7,7 +7,6 @@ import {
   RequestSigningArguments,
 } from "@smithy/types";
 
-import { loadCrt } from "./load-crt";
 import { OptionalCrtSignerV4, signatureV4CrtContainer } from "./signature-v4-crt-container";
 
 /**
@@ -59,12 +58,14 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
       let CrtSignerV4: OptionalCrtSignerV4 | null = null;
 
       try {
-        loadCrt();
         CrtSignerV4 = signatureV4CrtContainer.CrtSignerV4;
         if (typeof CrtSignerV4 !== "function") throw new Error();
       } catch (e) {
         e.message =
-          `${e.message}\nPlease check if you have installed "@aws-sdk/signature-v4-crt" package explicitly. \n` +
+          `${e.message}\n` +
+          `Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly. \n` +
+          `You must also register the package by calling [require("@aws-sdk/signature-v4-crt");] ` +
+          `or an ESM equivalent such as [import "@aws-sdk/signature-v4-crt";]. \n` +
           "For more information please go to " +
           "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt";
         throw e;

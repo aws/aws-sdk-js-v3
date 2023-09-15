@@ -562,8 +562,11 @@ If the required AWS Common Runtime components are not installed you will receive
 ```console
 Cannot find module '@aws-sdk/signature-v4-crt'
 ...
-Please check if you have installed "@aws-sdk/signature-v4-crt" package explicitly.
-For more information please go to https://github.com/aws/aws-sdk-js-v3#known-issues
+Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly.
+You must also register the package by calling [require("@aws-sdk/signature-v4-crt");]
+or an ESM equivalent such as [import "@aws-sdk/signature-v4-crt";].
+For more information please go to
+https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt"
 ```
 
 indicating that the required dependency is missing to use the associated functionality. To install this dependency follow
@@ -583,6 +586,17 @@ If you are using Yarn:
 ```console
 yarn add @aws-sdk/signature-v4-crt
 ```
+
+Additionally, load the signature-v4-crt package by importing it.
+
+```js
+require("@aws-sdk/signature-v4-crt");
+// or ESM
+import "@aws-sdk/signature-v4-crt";
+```
+
+Only the import statement is needed. The implementation then registers itself with `@aws-sdk/signature-v4-multi-region`
+and becomes available for its use. You do not need to use any imported objects directly.
 
 #### Related issues
 
