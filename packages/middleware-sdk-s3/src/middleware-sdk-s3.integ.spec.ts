@@ -33,8 +33,12 @@ describe("middleware-sdk-s3", () => {
     it("warns on input streams of unknown length", async () => {
       const client = new S3({
         region: "us-west-2",
-        logger: Object.assign(new NoOpLogger(), {
+        logger: Object.assign({
+          trace: jest.fn(),
+          debug: jest.fn(),
+          info: jest.fn(),
           warn: jest.fn(),
+          error: jest.fn(),
         }),
       });
 
