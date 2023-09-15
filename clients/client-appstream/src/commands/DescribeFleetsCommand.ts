@@ -67,10 +67,6 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //         Running: Number("int"),
  * //         InUse: Number("int"),
  * //         Available: Number("int"),
- * //         DesiredUserSessions: Number("int"),
- * //         AvailableUserSessions: Number("int"),
- * //         ActiveUserSessions: Number("int"),
- * //         ActualUserSessions: Number("int"),
  * //       },
  * //       MaxUserDurationInSeconds: Number("int"),
  * //       DisconnectTimeoutInSeconds: Number("int"),
@@ -107,7 +103,6 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //         S3Bucket: "STRING_VALUE", // required
  * //         S3Key: "STRING_VALUE",
  * //       },
- * //       MaxSessionsPerInstance: Number("int"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

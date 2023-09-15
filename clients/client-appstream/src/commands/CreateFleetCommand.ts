@@ -50,8 +50,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *   InstanceType: "STRING_VALUE", // required
  *   FleetType: "ALWAYS_ON" || "ON_DEMAND" || "ELASTIC",
  *   ComputeCapacity: { // ComputeCapacity
- *     DesiredInstances: Number("int"),
- *     DesiredSessions: Number("int"),
+ *     DesiredInstances: Number("int"), // required
  *   },
  *   VpcConfig: { // VpcConfig
  *     SubnetIds: [ // SubnetIdList
@@ -85,7 +84,6 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Key: "STRING_VALUE",
  *   },
- *   MaxSessionsPerInstance: Number("int"),
  * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
@@ -104,10 +102,6 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //       Running: Number("int"),
  * //       InUse: Number("int"),
  * //       Available: Number("int"),
- * //       DesiredUserSessions: Number("int"),
- * //       AvailableUserSessions: Number("int"),
- * //       ActiveUserSessions: Number("int"),
- * //       ActualUserSessions: Number("int"),
  * //     },
  * //     MaxUserDurationInSeconds: Number("int"),
  * //     DisconnectTimeoutInSeconds: Number("int"),
@@ -144,7 +138,6 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //       S3Bucket: "STRING_VALUE", // required
  * //       S3Key: "STRING_VALUE",
  * //     },
- * //     MaxSessionsPerInstance: Number("int"),
  * //   },
  * // };
  *

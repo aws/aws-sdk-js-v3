@@ -70,8 +70,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  *   Name: "STRING_VALUE",
  *   InstanceType: "STRING_VALUE",
  *   ComputeCapacity: { // ComputeCapacity
- *     DesiredInstances: Number("int"),
- *     DesiredSessions: Number("int"),
+ *     DesiredInstances: Number("int"), // required
  *   },
  *   VpcConfig: { // VpcConfig
  *     SubnetIds: [ // SubnetIdList
@@ -93,7 +92,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  *   },
  *   IdleDisconnectTimeoutInSeconds: Number("int"),
  *   AttributesToDelete: [ // FleetAttributes
- *     "VPC_CONFIGURATION" || "VPC_CONFIGURATION_SECURITY_GROUP_IDS" || "DOMAIN_JOIN_INFO" || "IAM_ROLE_ARN" || "USB_DEVICE_FILTER_STRINGS" || "SESSION_SCRIPT_S3_LOCATION" || "MAX_SESSIONS_PER_INSTANCE",
+ *     "VPC_CONFIGURATION" || "VPC_CONFIGURATION_SECURITY_GROUP_IDS" || "DOMAIN_JOIN_INFO" || "IAM_ROLE_ARN" || "USB_DEVICE_FILTER_STRINGS" || "SESSION_SCRIPT_S3_LOCATION",
  *   ],
  *   IamRoleArn: "STRING_VALUE",
  *   StreamView: "APP" || "DESKTOP",
@@ -106,7 +105,6 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Key: "STRING_VALUE",
  *   },
- *   MaxSessionsPerInstance: Number("int"),
  * };
  * const command = new UpdateFleetCommand(input);
  * const response = await client.send(command);
@@ -125,10 +123,6 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  * //       Running: Number("int"),
  * //       InUse: Number("int"),
  * //       Available: Number("int"),
- * //       DesiredUserSessions: Number("int"),
- * //       AvailableUserSessions: Number("int"),
- * //       ActiveUserSessions: Number("int"),
- * //       ActualUserSessions: Number("int"),
  * //     },
  * //     MaxUserDurationInSeconds: Number("int"),
  * //     DisconnectTimeoutInSeconds: Number("int"),
@@ -165,7 +159,6 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  * //       S3Bucket: "STRING_VALUE", // required
  * //       S3Key: "STRING_VALUE",
  * //     },
- * //     MaxSessionsPerInstance: Number("int"),
  * //   },
  * // };
  *

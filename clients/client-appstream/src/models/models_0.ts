@@ -1224,14 +1224,7 @@ export interface ComputeCapacity {
    * @public
    * <p>The desired number of streaming instances.</p>
    */
-  DesiredInstances?: number;
-
-  /**
-   * @public
-   * <p>The desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.</p>
-   *          <p>When you create a fleet, you must set either the DesiredSessions or DesiredInstances attribute, based on the type of fleet you create. You can’t define both attributes or leave both attributes blank.</p>
-   */
-  DesiredSessions?: number;
+  DesiredInstances: number | undefined;
 }
 
 /**
@@ -1263,36 +1256,6 @@ export interface ComputeCapacityStatus {
    *             sessions.</p>
    */
   Available?: number;
-
-  /**
-   * @public
-   * <p>The total number of sessions slots that are either running or pending. This represents the total number of concurrent streaming sessions your fleet can support in a steady state.</p>
-   *          <p>DesiredUserSessionCapacity = ActualUserSessionCapacity + PendingUserSessionCapacity</p>
-   *          <p>This only applies to multi-session fleets.</p>
-   */
-  DesiredUserSessions?: number;
-
-  /**
-   * @public
-   * <p>The number of idle session slots currently available for user sessions.</p>
-   *          <p>AvailableUserSessionCapacity = ActualUserSessionCapacity - ActiveUserSessions</p>
-   *          <p>This only applies to multi-session fleets.</p>
-   */
-  AvailableUserSessions?: number;
-
-  /**
-   * @public
-   * <p>The number of user sessions currently being used for streaming sessions. This only applies to multi-session fleets.</p>
-   */
-  ActiveUserSessions?: number;
-
-  /**
-   * @public
-   * <p>The total number of session slots that are available for streaming or are currently streaming.</p>
-   *          <p>ActualUserSessionCapacity = AvailableUserSessionCapacity + ActiveUserSessions</p>
-   *          <p>This only applies to multi-session fleets.</p>
-   */
-  ActualUserSessions?: number;
 }
 
 /**
@@ -2246,7 +2209,7 @@ export interface CreateFleetRequest {
   /**
    * @public
    * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
-   *          <p>Specify a value between 600 and 432000.</p>
+   *          <p>Specify a value between 600 and 360000.</p>
    */
   MaxUserDurationInSeconds?: number;
 
@@ -2349,12 +2312,6 @@ export interface CreateFleetRequest {
    * <p>The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets.</p>
    */
   SessionScriptS3Location?: S3Location;
-
-  /**
-   * @public
-   * <p>The maximum number of user sessions on an instance. This only applies to multi-session fleets.</p>
-   */
-  MaxSessionsPerInstance?: number;
 }
 
 /**
@@ -2670,12 +2627,6 @@ export interface Fleet {
    * <p>The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets.</p>
    */
   SessionScriptS3Location?: S3Location;
-
-  /**
-   * @public
-   * <p>The maximum number of user sessions on an instance. This only applies to multi-session fleets.</p>
-   */
-  MaxSessionsPerInstance?: number;
 }
 
 /**
@@ -4733,12 +4684,6 @@ export interface DescribeSessionsRequest {
    *             The default is to authenticate users using a streaming URL.</p>
    */
   AuthenticationType?: AuthenticationType | string;
-
-  /**
-   * @public
-   * <p>The identifier for the instance hosting the session.</p>
-   */
-  InstanceId?: string;
 }
 
 /**
@@ -4835,12 +4780,6 @@ export interface Session {
    * <p>The network details for the streaming session.</p>
    */
   NetworkAccessConfiguration?: NetworkAccessConfiguration;
-
-  /**
-   * @public
-   * <p>The identifier for the instance hosting the session.</p>
-   */
-  InstanceId?: string;
 }
 
 /**
@@ -5345,7 +5284,6 @@ export interface ExpireSessionResult {}
 export const FleetAttribute = {
   DOMAIN_JOIN_INFO: "DOMAIN_JOIN_INFO",
   IAM_ROLE_ARN: "IAM_ROLE_ARN",
-  MAX_SESSIONS_PER_INSTANCE: "MAX_SESSIONS_PER_INSTANCE",
   SESSION_SCRIPT_S3_LOCATION: "SESSION_SCRIPT_S3_LOCATION",
   USB_DEVICE_FILTER_STRINGS: "USB_DEVICE_FILTER_STRINGS",
   VPC_CONFIGURATION: "VPC_CONFIGURATION",
@@ -6204,12 +6142,6 @@ export interface UpdateFleetRequest {
    * <p>The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets. </p>
    */
   SessionScriptS3Location?: S3Location;
-
-  /**
-   * @public
-   * <p>The maximum number of user sessions on an instance. This only applies to multi-session fleets.</p>
-   */
-  MaxSessionsPerInstance?: number;
 }
 
 /**

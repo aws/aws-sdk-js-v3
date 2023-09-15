@@ -52,7 +52,6 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  *   NextToken: "STRING_VALUE",
  *   Limit: Number("int"),
  *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD",
- *   InstanceId: "STRING_VALUE",
  * };
  * const command = new DescribeSessionsCommand(input);
  * const response = await client.send(command);
@@ -72,7 +71,6 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  * //         EniPrivateIpAddress: "STRING_VALUE",
  * //         EniId: "STRING_VALUE",
  * //       },
- * //       InstanceId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
