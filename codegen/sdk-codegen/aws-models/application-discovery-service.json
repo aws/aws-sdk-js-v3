@@ -969,7 +969,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Network details about the host where the agent/collector resides.</p>"
+        "smithy.api#documentation": "<p>Network details about the host where the agent/collector resides.</p>",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.applicationdiscoveryservice#AgentNetworkInfoList": {
@@ -4515,8 +4516,8 @@
       "type": "double",
       "traits": {
         "smithy.api#range": {
-          "min": 0,
-          "max": 100
+          "min": 0.0,
+          "max": 100.0
         }
       }
     },

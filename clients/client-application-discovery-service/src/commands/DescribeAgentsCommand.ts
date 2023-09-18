@@ -18,7 +18,11 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { DescribeAgentsRequest, DescribeAgentsResponse } from "../models/models_0";
+import {
+  DescribeAgentsRequest,
+  DescribeAgentsResponse,
+  DescribeAgentsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_DescribeAgentsCommand, se_DescribeAgentsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -168,7 +172,7 @@ export class DescribeAgentsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeAgentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
