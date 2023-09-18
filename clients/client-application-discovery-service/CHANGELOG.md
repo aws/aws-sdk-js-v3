@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.415.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.414.0...v3.415.0) (2023-09-18)
+
+
+### Features
+
+* **client-application-discovery-service:** Add sensitive protection for customer information ([b4f1bba](https://github.com/aws/aws-sdk-js-v3/commit/b4f1bba7c5818c063caa02197888e97c6f95c363))
+
+
+
+
+
 # [3.414.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.413.0...v3.414.0) (2023-09-15)
 
 

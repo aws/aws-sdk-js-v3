@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.415.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.414.0...v3.415.0) (2023-09-18)
+
+
+### Bug Fixes
+
+* move devDeps into deps ([#5223](https://github.com/aws/aws-sdk-js-v3/issues/5223)) ([4afa515](https://github.com/aws/aws-sdk-js-v3/commit/4afa515408f212fca3e09dfd06960223c7d36ea8))
+* **util-dynamodb:** update dependency version ([#5228](https://github.com/aws/aws-sdk-js-v3/issues/5228)) ([40be7ad](https://github.com/aws/aws-sdk-js-v3/commit/40be7ad63ff239f44b9a0d266dcc9471bf0a576a))
+
+
+### Features
+
+* **client-application-discovery-service:** Add sensitive protection for customer information ([b4f1bba](https://github.com/aws/aws-sdk-js-v3/commit/b4f1bba7c5818c063caa02197888e97c6f95c363))
+* **client-workmail:** This release includes four new APIs UpdateUser, UpdateGroup, ListGroupsForEntity and DescribeEntity, along with RemoteUsers and some enhancements to existing APIs. ([1e90e46](https://github.com/aws/aws-sdk-js-v3/commit/1e90e468dc6d7aac46307e16d4a08908a13e7cb5))
+
+
+
+
+
 # [3.414.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.413.0...v3.414.0) (2023-09-15)
 
 
