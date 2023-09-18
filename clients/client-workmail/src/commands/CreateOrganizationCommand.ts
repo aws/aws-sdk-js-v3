@@ -57,7 +57,7 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  *   ClientToken: "STRING_VALUE",
  *   Domains: [ // Domains
  *     { // Domain
- *       DomainName: "STRING_VALUE",
+ *       DomainName: "STRING_VALUE", // required
  *       HostedZoneId: "STRING_VALUE",
  *     },
  *   ],

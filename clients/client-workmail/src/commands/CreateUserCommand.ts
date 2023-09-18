@@ -47,7 +47,11 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *   OrganizationId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE", // required
- *   Password: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE",
+ *   Role: "USER" || "RESOURCE" || "SYSTEM_USER" || "REMOTE_USER",
+ *   FirstName: "STRING_VALUE",
+ *   LastName: "STRING_VALUE",
+ *   HiddenFromGlobalAddressList: true || false,
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);

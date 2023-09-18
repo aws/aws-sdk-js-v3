@@ -66,6 +66,9 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
  *  <p>The identifier supplied for the user, group, or resource does not exist in your
  *          organization.</p>
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
  * @throws {@link OrganizationNotFoundException} (client fault)
  *  <p>An operation received a valid organization identifier that either doesn't belong or
  *          exist in the system.</p>

@@ -54,6 +54,9 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  *     AutoDeclineRecurringRequests: true || false,
  *     AutoDeclineConflictingRequests: true || false,
  *   },
+ *   Description: "STRING_VALUE",
+ *   Type: "ROOM" || "EQUIPMENT",
+ *   HiddenFromGlobalAddressList: true || false,
  * };
  * const command = new UpdateResourceCommand(input);
  * const response = await client.send(command);
@@ -87,6 +90,9 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  *          auto-respond to requests or have at least one delegate associated that can do so on its
  *          behalf.</p>
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
  * @throws {@link MailDomainNotFoundException} (client fault)
  *  <p>The domain specified is not found in your organization.</p>
  *
@@ -104,6 +110,9 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * @throws {@link OrganizationStateException} (client fault)
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>You can't perform a write operation against a read-only directory.</p>
  *
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>

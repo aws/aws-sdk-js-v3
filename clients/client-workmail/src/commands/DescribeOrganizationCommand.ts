@@ -59,6 +59,8 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * //   CompletedDate: new Date("TIMESTAMP"),
  * //   ErrorMessage: "STRING_VALUE",
  * //   ARN: "STRING_VALUE",
+ * //   MigrationAdmin: "STRING_VALUE",
+ * //   InteroperabilityEnabled: true || false,
  * // };
  *
  * ```

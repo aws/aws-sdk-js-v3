@@ -47,6 +47,7 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  *   ClientToken: "STRING_VALUE",
  *   OrganizationId: "STRING_VALUE", // required
  *   DeleteDirectory: true || false, // required
+ *   ForceDelete: true || false,
  * };
  * const command = new DeleteOrganizationCommand(input);
  * const response = await client.send(command);

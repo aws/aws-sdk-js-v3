@@ -119,6 +119,11 @@ import {
   DescribeEmailMonitoringConfigurationCommandOutput,
 } from "./commands/DescribeEmailMonitoringConfigurationCommand";
 import {
+  DescribeEntityCommand,
+  DescribeEntityCommandInput,
+  DescribeEntityCommandOutput,
+} from "./commands/DescribeEntityCommand";
+import {
   DescribeGroupCommand,
   DescribeGroupCommandInput,
   DescribeGroupCommandOutput,
@@ -215,6 +220,11 @@ import {
   ListGroupMembersCommandOutput,
 } from "./commands/ListGroupMembersCommand";
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
+import {
+  ListGroupsForEntityCommand,
+  ListGroupsForEntityCommandInput,
+  ListGroupsForEntityCommandOutput,
+} from "./commands/ListGroupsForEntityCommand";
 import {
   ListImpersonationRolesCommand,
   ListImpersonationRolesCommandInput,
@@ -337,6 +347,7 @@ import {
   UpdateDefaultMailDomainCommandInput,
   UpdateDefaultMailDomainCommandOutput,
 } from "./commands/UpdateDefaultMailDomainCommand";
+import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateImpersonationRoleCommand,
   UpdateImpersonationRoleCommandInput,
@@ -362,6 +373,7 @@ import {
   UpdateResourceCommandInput,
   UpdateResourceCommandOutput,
 } from "./commands/UpdateResourceCommand";
+import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { WorkMailClient, WorkMailClientConfig } from "./WorkMailClient";
 
 const commands = {
@@ -393,6 +405,7 @@ const commands = {
   DeregisterFromWorkMailCommand,
   DeregisterMailDomainCommand,
   DescribeEmailMonitoringConfigurationCommand,
+  DescribeEntityCommand,
   DescribeGroupCommand,
   DescribeInboundDmarcSettingsCommand,
   DescribeMailboxExportJobCommand,
@@ -414,6 +427,7 @@ const commands = {
   ListAvailabilityConfigurationsCommand,
   ListGroupMembersCommand,
   ListGroupsCommand,
+  ListGroupsForEntityCommand,
   ListImpersonationRolesCommand,
   ListMailboxExportJobsCommand,
   ListMailboxPermissionsCommand,
@@ -440,11 +454,13 @@ const commands = {
   UntagResourceCommand,
   UpdateAvailabilityConfigurationCommand,
   UpdateDefaultMailDomainCommand,
+  UpdateGroupCommand,
   UpdateImpersonationRoleCommand,
   UpdateMailboxQuotaCommand,
   UpdateMobileDeviceAccessRuleCommand,
   UpdatePrimaryEmailAddressCommand,
   UpdateResourceCommand,
+  UpdateUserCommand,
 };
 
 export interface WorkMail {
@@ -883,6 +899,20 @@ export interface WorkMail {
   ): void;
 
   /**
+   * @see {@link DescribeEntityCommand}
+   */
+  describeEntity(
+    args: DescribeEntityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEntityCommandOutput>;
+  describeEntity(args: DescribeEntityCommandInput, cb: (err: any, data?: DescribeEntityCommandOutput) => void): void;
+  describeEntity(
+    args: DescribeEntityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEntityCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeGroupCommand}
    */
   describeGroup(args: DescribeGroupCommandInput, options?: __HttpHandlerOptions): Promise<DescribeGroupCommandOutput>;
@@ -1207,6 +1237,23 @@ export interface WorkMail {
     args: ListGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGroupsForEntityCommand}
+   */
+  listGroupsForEntity(
+    args: ListGroupsForEntityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupsForEntityCommandOutput>;
+  listGroupsForEntity(
+    args: ListGroupsForEntityCommandInput,
+    cb: (err: any, data?: ListGroupsForEntityCommandOutput) => void
+  ): void;
+  listGroupsForEntity(
+    args: ListGroupsForEntityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroupsForEntityCommandOutput) => void
   ): void;
 
   /**
@@ -1619,6 +1666,17 @@ export interface WorkMail {
   ): void;
 
   /**
+   * @see {@link UpdateGroupCommand}
+   */
+  updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
+  updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
+  updateGroup(
+    args: UpdateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateImpersonationRoleCommand}
    */
   updateImpersonationRole(
@@ -1698,6 +1756,17 @@ export interface WorkMail {
     args: UpdateResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateUserCommand}
+   */
+  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
+  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
 }
 

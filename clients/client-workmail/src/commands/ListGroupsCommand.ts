@@ -47,6 +47,11 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  *   OrganizationId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   Filters: { // ListGroupsFilters
+ *     NamePrefix: "STRING_VALUE",
+ *     PrimaryEmailPrefix: "STRING_VALUE",
+ *     State: "ENABLED" || "DISABLED" || "DELETED",
+ *   },
  * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);

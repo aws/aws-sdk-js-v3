@@ -56,6 +56,7 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * //   State: "ENABLED" || "DISABLED" || "DELETED",
  * //   EnabledDate: new Date("TIMESTAMP"),
  * //   DisabledDate: new Date("TIMESTAMP"),
+ * //   HiddenFromGlobalAddressList: true || false,
  * // };
  *
  * ```

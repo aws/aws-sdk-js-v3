@@ -47,6 +47,11 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  *   OrganizationId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   Filters: { // ListResourcesFilters
+ *     NamePrefix: "STRING_VALUE",
+ *     PrimaryEmailPrefix: "STRING_VALUE",
+ *     State: "ENABLED" || "DISABLED" || "DELETED",
+ *   },
  * };
  * const command = new ListResourcesCommand(input);
  * const response = await client.send(command);
@@ -60,6 +65,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * //       State: "ENABLED" || "DISABLED" || "DELETED",
  * //       EnabledDate: new Date("TIMESTAMP"),
  * //       DisabledDate: new Date("TIMESTAMP"),
+ * //       Description: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -83,6 +89,9 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * @throws {@link OrganizationStateException} (client fault)
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>You can't perform a write operation against a read-only directory.</p>
  *
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>

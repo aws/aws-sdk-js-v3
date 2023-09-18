@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { ListUsersRequest, ListUsersResponse } from "../models/models_0";
+import { ListUsersRequest, ListUsersRequestFilterSensitiveLog, ListUsersResponse } from "../models/models_0";
 import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -47,6 +47,12 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *   OrganizationId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   Filters: { // ListUsersFilters
+ *     UsernamePrefix: "STRING_VALUE",
+ *     DisplayNamePrefix: "STRING_VALUE",
+ *     PrimaryEmailPrefix: "STRING_VALUE",
+ *     State: "ENABLED" || "DISABLED" || "DELETED",
+ *   },
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
@@ -58,7 +64,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * //       Name: "STRING_VALUE",
  * //       DisplayName: "STRING_VALUE",
  * //       State: "ENABLED" || "DISABLED" || "DELETED",
- * //       UserRole: "USER" || "RESOURCE" || "SYSTEM_USER",
+ * //       UserRole: "USER" || "RESOURCE" || "SYSTEM_USER" || "REMOTE_USER",
  * //       EnabledDate: new Date("TIMESTAMP"),
  * //       DisabledDate: new Date("TIMESTAMP"),
  * //     },
@@ -135,7 +141,7 @@ export class ListUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: ListUsersRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;

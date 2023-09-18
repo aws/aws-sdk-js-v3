@@ -4,6 +4,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -103,6 +104,7 @@ import {
   DescribeEmailMonitoringConfigurationCommandInput,
   DescribeEmailMonitoringConfigurationCommandOutput,
 } from "../commands/DescribeEmailMonitoringConfigurationCommand";
+import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "../commands/DescribeEntityCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "../commands/DescribeGroupCommand";
 import {
   DescribeInboundDmarcSettingsCommandInput,
@@ -163,6 +165,10 @@ import {
 } from "../commands/ListAvailabilityConfigurationsCommand";
 import { ListGroupMembersCommandInput, ListGroupMembersCommandOutput } from "../commands/ListGroupMembersCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
+import {
+  ListGroupsForEntityCommandInput,
+  ListGroupsForEntityCommandOutput,
+} from "../commands/ListGroupsForEntityCommand";
 import {
   ListImpersonationRolesCommandInput,
   ListImpersonationRolesCommandOutput,
@@ -237,6 +243,7 @@ import {
   UpdateDefaultMailDomainCommandInput,
   UpdateDefaultMailDomainCommandOutput,
 } from "../commands/UpdateDefaultMailDomainCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "../commands/UpdateGroupCommand";
 import {
   UpdateImpersonationRoleCommandInput,
   UpdateImpersonationRoleCommandOutput,
@@ -251,6 +258,7 @@ import {
   UpdatePrimaryEmailAddressCommandOutput,
 } from "../commands/UpdatePrimaryEmailAddressCommand";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "../commands/UpdateResourceCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
 import {
   AccessControlRule,
   AssociateDelegateToResourceRequest,
@@ -283,6 +291,7 @@ import {
   DeregisterFromWorkMailRequest,
   DeregisterMailDomainRequest,
   DescribeEmailMonitoringConfigurationRequest,
+  DescribeEntityRequest,
   DescribeGroupRequest,
   DescribeGroupResponse,
   DescribeInboundDmarcSettingsRequest,
@@ -333,6 +342,9 @@ import {
   ListAvailabilityConfigurationsResponse,
   ListGroupMembersRequest,
   ListGroupMembersResponse,
+  ListGroupsFilters,
+  ListGroupsForEntityFilters,
+  ListGroupsForEntityRequest,
   ListGroupsRequest,
   ListGroupsResponse,
   ListImpersonationRolesRequest,
@@ -347,9 +359,11 @@ import {
   ListMobileDeviceAccessRulesResponse,
   ListOrganizationsRequest,
   ListResourceDelegatesRequest,
+  ListResourcesFilters,
   ListResourcesRequest,
   ListResourcesResponse,
   ListTagsForResourceRequest,
+  ListUsersFilters,
   ListUsersRequest,
   ListUsersResponse,
   MailboxExportJob,
@@ -384,11 +398,13 @@ import {
   UntagResourceRequest,
   UpdateAvailabilityConfigurationRequest,
   UpdateDefaultMailDomainRequest,
+  UpdateGroupRequest,
   UpdateImpersonationRoleRequest,
   UpdateMailboxQuotaRequest,
   UpdateMobileDeviceAccessRuleRequest,
   UpdatePrimaryEmailAddressRequest,
   UpdateResourceRequest,
+  UpdateUserRequest,
   User,
 } from "../models/models_0";
 import { WorkMailServiceException as __BaseException } from "../models/WorkMailServiceException";
@@ -758,6 +774,19 @@ export const se_DescribeEmailMonitoringConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeEntityCommand
+ */
+export const se_DescribeEntityCommand = async (
+  input: DescribeEntityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeEntity");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeGroupCommand
  */
 export const se_DescribeGroupCommand = async (
@@ -1025,6 +1054,19 @@ export const se_ListGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListGroups");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListGroupsForEntityCommand
+ */
+export const se_ListGroupsForEntityCommand = async (
+  input: ListGroupsForEntityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListGroupsForEntity");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1369,6 +1411,19 @@ export const se_UpdateDefaultMailDomainCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateGroupCommand
+ */
+export const se_UpdateGroupCommand = async (
+  input: UpdateGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateGroup");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UpdateImpersonationRoleCommand
  */
 export const se_UpdateImpersonationRoleCommand = async (
@@ -1434,6 +1489,19 @@ export const se_UpdateResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateUserCommand
+ */
+export const se_UpdateUserCommand = async (
+  input: UpdateUserCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateUser");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * deserializeAws_json1_1AssociateDelegateToResourceCommand
  */
 export const de_AssociateDelegateToResourceCommand = async (
@@ -1481,6 +1549,9 @@ const de_AssociateDelegateToResourceCommandError = async (
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
       throw await de_OrganizationStateExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2091,6 +2162,9 @@ const de_CreateResourceCommandError = async (
     case "ReservedNameException":
     case "com.amazonaws.workmail#ReservedNameException":
       throw await de_ReservedNameExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2757,6 +2831,9 @@ const de_DeleteResourceCommandError = async (
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
       throw await de_OrganizationStateExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3055,6 +3132,61 @@ const de_DescribeEmailMonitoringConfigurationCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeEntityCommand
+ */
+export const de_DescribeEntityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEntityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeEntityCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeEntityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEntityCommandError
+ */
+const de_DescribeEntityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEntityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DescribeGroupCommand
  */
 export const de_DescribeGroupCommand = async (
@@ -3307,6 +3439,9 @@ const de_DescribeResourceCommandError = async (
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
       throw await de_OrganizationStateExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3420,6 +3555,9 @@ const de_DisassociateDelegateFromResourceCommandError = async (
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
       throw await de_OrganizationStateExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3762,6 +3900,9 @@ const de_GetMailboxDetailsCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
       throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
       throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
@@ -4213,6 +4354,64 @@ const de_ListGroupsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListGroupsForEntityCommand
+ */
+export const de_ListGroupsForEntityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGroupsForEntityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListGroupsForEntityCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListGroupsForEntityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListGroupsForEntityCommandError
+ */
+const de_ListGroupsForEntityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGroupsForEntityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ListImpersonationRolesCommand
  */
 export const de_ListImpersonationRolesCommand = async (
@@ -4624,6 +4823,9 @@ const de_ListResourceDelegatesCommandError = async (
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
       throw await de_OrganizationStateExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4676,6 +4878,9 @@ const de_ListResourcesCommandError = async (
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
       throw await de_OrganizationStateExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5415,6 +5620,9 @@ const de_TagResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
       throw await de_OrganizationStateExceptionRes(parsedOutput, context);
@@ -5638,6 +5846,67 @@ const de_UpdateDefaultMailDomainCommandError = async (
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
       throw await de_OrganizationStateExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateGroupCommand
+ */
+export const de_UpdateGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateGroupCommandError
+ */
+const de_UpdateGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5949,6 +6218,9 @@ const de_UpdateResourceCommandError = async (
     case "InvalidConfigurationException":
     case "com.amazonaws.workmail#InvalidConfigurationException":
       throw await de_InvalidConfigurationExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MailDomainNotFoundException":
     case "com.amazonaws.workmail#MailDomainNotFoundException":
       throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
@@ -5964,6 +6236,76 @@ const de_UpdateResourceCommandError = async (
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
       throw await de_OrganizationStateExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateUserCommand
+ */
+export const de_UpdateUserCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateUserCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateUserCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateUserCommandError
+ */
+const de_UpdateUserCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DirectoryServiceAuthenticationFailedException":
+    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
+      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
+    case "DirectoryUnavailableException":
+    case "com.amazonaws.workmail#DirectoryUnavailableException":
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.workmail#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -6448,6 +6790,7 @@ const se_DeleteOrganizationRequest = (input: DeleteOrganizationRequest, context:
   return take(input, {
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DeleteDirectory: [],
+    ForceDelete: [],
     OrganizationId: [],
   });
 };
@@ -6463,6 +6806,8 @@ const se_DeleteOrganizationRequest = (input: DeleteOrganizationRequest, context:
 // se_DeregisterMailDomainRequest omitted.
 
 // se_DescribeEmailMonitoringConfigurationRequest omitted.
+
+// se_DescribeEntityRequest omitted.
 
 // se_DescribeGroupRequest omitted.
 
@@ -6532,6 +6877,12 @@ const se_DeleteOrganizationRequest = (input: DeleteOrganizationRequest, context:
 
 // se_ListGroupMembersRequest omitted.
 
+// se_ListGroupsFilters omitted.
+
+// se_ListGroupsForEntityFilters omitted.
+
+// se_ListGroupsForEntityRequest omitted.
+
 // se_ListGroupsRequest omitted.
 
 // se_ListImpersonationRolesRequest omitted.
@@ -6550,9 +6901,13 @@ const se_DeleteOrganizationRequest = (input: DeleteOrganizationRequest, context:
 
 // se_ListResourceDelegatesRequest omitted.
 
+// se_ListResourcesFilters omitted.
+
 // se_ListResourcesRequest omitted.
 
 // se_ListTagsForResourceRequest omitted.
+
+// se_ListUsersFilters omitted.
 
 // se_ListUsersRequest omitted.
 
@@ -6619,6 +6974,8 @@ const se_StartMailboxExportJobRequest = (input: StartMailboxExportJobRequest, co
 
 // se_UpdateDefaultMailDomainRequest omitted.
 
+// se_UpdateGroupRequest omitted.
+
 // se_UpdateImpersonationRoleRequest omitted.
 
 // se_UpdateMailboxQuotaRequest omitted.
@@ -6628,6 +6985,8 @@ const se_StartMailboxExportJobRequest = (input: StartMailboxExportJobRequest, co
 // se_UpdatePrimaryEmailAddressRequest omitted.
 
 // se_UpdateResourceRequest omitted.
+
+// se_UpdateUserRequest omitted.
 
 // se_UserIdList omitted.
 
@@ -6756,6 +7115,8 @@ const de_AvailabilityConfigurationList = (output: any, context: __SerdeContext):
 
 // de_DescribeEmailMonitoringConfigurationResponse omitted.
 
+// de_DescribeEntityResponse omitted.
+
 /**
  * deserializeAws_json1_1DescribeGroupResponse
  */
@@ -6765,6 +7126,7 @@ const de_DescribeGroupResponse = (output: any, context: __SerdeContext): Describ
     Email: __expectString,
     EnabledDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     GroupId: __expectString,
+    HiddenFromGlobalAddressList: __expectBoolean,
     Name: __expectString,
     State: __expectString,
   }) as any;
@@ -6807,6 +7169,8 @@ const de_DescribeOrganizationResponse = (output: any, context: __SerdeContext): 
     DirectoryId: __expectString,
     DirectoryType: __expectString,
     ErrorMessage: __expectString,
+    InteroperabilityEnabled: __expectBoolean,
+    MigrationAdmin: __expectString,
     OrganizationId: __expectString,
     State: __expectString,
   }) as any;
@@ -6818,9 +7182,11 @@ const de_DescribeOrganizationResponse = (output: any, context: __SerdeContext): 
 const de_DescribeResourceResponse = (output: any, context: __SerdeContext): DescribeResourceResponse => {
   return take(output, {
     BookingOptions: _json,
+    Description: __expectString,
     DisabledDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Email: __expectString,
     EnabledDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HiddenFromGlobalAddressList: __expectBoolean,
     Name: __expectString,
     ResourceId: __expectString,
     State: __expectString,
@@ -6833,14 +7199,29 @@ const de_DescribeResourceResponse = (output: any, context: __SerdeContext): Desc
  */
 const de_DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
   return take(output, {
+    City: __expectString,
+    Company: __expectString,
+    Country: __expectString,
+    Department: __expectString,
     DisabledDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DisplayName: __expectString,
     Email: __expectString,
     EnabledDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FirstName: __expectString,
+    HiddenFromGlobalAddressList: __expectBoolean,
+    Initials: __expectString,
+    JobTitle: __expectString,
+    LastName: __expectString,
+    MailboxDeprovisionedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MailboxProvisionedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    Office: __expectString,
     State: __expectString,
+    Street: __expectString,
+    Telephone: __expectString,
     UserId: __expectString,
     UserRole: __expectString,
+    ZipCode: __expectString,
   }) as any;
 };
 
@@ -6943,6 +7324,10 @@ const de_Group = (output: any, context: __SerdeContext): Group => {
     State: __expectString,
   }) as any;
 };
+
+// de_GroupIdentifier omitted.
+
+// de_GroupIdentifiers omitted.
 
 /**
  * deserializeAws_json1_1Groups
@@ -7050,6 +7435,8 @@ const de_ListGroupMembersResponse = (output: any, context: __SerdeContext): List
     NextToken: __expectString,
   }) as any;
 };
+
+// de_ListGroupsForEntityResponse omitted.
 
 /**
  * deserializeAws_json1_1ListGroupsResponse
@@ -7296,6 +7683,7 @@ const de_MobileDeviceAccessRulesList = (output: any, context: __SerdeContext): M
  */
 const de_Resource = (output: any, context: __SerdeContext): Resource => {
   return take(output, {
+    Description: __expectString,
     DisabledDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Email: __expectString,
     EnabledDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -7344,6 +7732,8 @@ const de_Resources = (output: any, context: __SerdeContext): Resource[] => {
 
 // de_UpdateDefaultMailDomainResponse omitted.
 
+// de_UpdateGroupResponse omitted.
+
 // de_UpdateImpersonationRoleResponse omitted.
 
 // de_UpdateMailboxQuotaResponse omitted.
@@ -7353,6 +7743,8 @@ const de_Resources = (output: any, context: __SerdeContext): Resource[] => {
 // de_UpdatePrimaryEmailAddressResponse omitted.
 
 // de_UpdateResourceResponse omitted.
+
+// de_UpdateUserResponse omitted.
 
 /**
  * deserializeAws_json1_1User

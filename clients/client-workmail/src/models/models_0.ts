@@ -132,12 +132,36 @@ export interface AssociateDelegateToResourceRequest {
   /**
    * @public
    * <p>The resource for which members (users or groups) are associated.</p>
+   *          <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Resource ID: r-0123456789a0123456789b0123456789</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: resource@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Resource name: resource</p>
+   *             </li>
+   *          </ul>
    */
   ResourceId: string | undefined;
 
   /**
    * @public
    * <p>The member (user or group) to associate to the resource.</p>
+   *          <p>The entity ID can accept <i>UserId or GroupID</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Entity: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: entity@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Entity: entity</p>
+   *             </li>
+   *          </ul>
    */
   EntityId: string | undefined;
 }
@@ -263,6 +287,28 @@ export class OrganizationStateException extends __BaseException {
 
 /**
  * @public
+ * <p>You can't perform a write operation against a read-only directory.</p>
+ */
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  */
 export interface AssociateMemberToGroupRequest {
   /**
@@ -274,12 +320,36 @@ export interface AssociateMemberToGroupRequest {
   /**
    * @public
    * <p>The group to which the member (user or group) is associated.</p>
+   *          <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: group@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Group name: group</p>
+   *             </li>
+   *          </ul>
    */
   GroupId: string | undefined;
 
   /**
    * @public
    * <p>The member (user or group) to associate to the group.</p>
+   *          <p>The member ID can accept <i>UserID or GroupId</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Member: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: member@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Member name: member</p>
+   *             </li>
+   *          </ul>
    */
   MemberId: string | undefined;
 }
@@ -329,28 +399,6 @@ export class DirectoryUnavailableException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, DirectoryUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * <p>You can't perform a write operation against a read-only directory.</p>
- */
-export class UnsupportedOperationException extends __BaseException {
-  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
-    super({
-      name: "UnsupportedOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -774,6 +822,12 @@ export interface CreateGroupRequest {
    * <p>The name of the group.</p>
    */
   Name: string | undefined;
+
+  /**
+   * @public
+   * <p>If this parameter is enabled, the group will be hidden from the address book.</p>
+   */
+  HiddenFromGlobalAddressList?: boolean;
 }
 
 /**
@@ -1038,7 +1092,7 @@ export interface Domain {
    * @public
    * <p>The fully qualified domain name.</p>
    */
-  DomainName?: string;
+  DomainName: string | undefined;
 
   /**
    * @public
@@ -1160,6 +1214,18 @@ export interface CreateResourceRequest {
    *             <code>room</code>.</p>
    */
   Type: ResourceType | string | undefined;
+
+  /**
+   * @public
+   * <p>Resource description.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>If this parameter is enabled, the resource will be hidden from the address book.</p>
+   */
+  HiddenFromGlobalAddressList?: boolean;
 }
 
 /**
@@ -1172,6 +1238,22 @@ export interface CreateResourceResponse {
    */
   ResourceId?: string;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const UserRole = {
+  REMOTE_USER: "REMOTE_USER",
+  RESOURCE: "RESOURCE",
+  SYSTEM_USER: "SYSTEM_USER",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type UserRole = (typeof UserRole)[keyof typeof UserRole];
 
 /**
  * @public
@@ -1199,7 +1281,32 @@ export interface CreateUserRequest {
    * @public
    * <p>The password for the new user.</p>
    */
-  Password: string | undefined;
+  Password?: string;
+
+  /**
+   * @public
+   * <p>The role of the new user.</p>
+   *          <p>You cannot pass <i>SYSTEM_USER</i> or <i>RESOURCE</i> role in a single request. When a user role is not selected, the default role of <i>USER</i> is selected.</p>
+   */
+  Role?: UserRole | string;
+
+  /**
+   * @public
+   * <p>The first name of the new user.</p>
+   */
+  FirstName?: string;
+
+  /**
+   * @public
+   * <p>The last name of the new user. </p>
+   */
+  LastName?: string;
+
+  /**
+   * @public
+   * <p>If this parameter is enabled, the user will be hidden from the address book.</p>
+   */
+  HiddenFromGlobalAddressList?: boolean;
 }
 
 /**
@@ -1372,6 +1479,15 @@ export interface DeleteGroupRequest {
   /**
    * @public
    * <p>The identifier of the group to be deleted.</p>
+   *          <p>The identifier can be the <i>GroupId</i>, or <i>Groupname</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Group name: group</p>
+   *             </li>
+   *          </ul>
    */
   GroupId: string | undefined;
 }
@@ -1416,14 +1532,37 @@ export interface DeleteMailboxPermissionsRequest {
 
   /**
    * @public
-   * <p>The identifier of the member (user or group) that owns the mailbox.</p>
+   * <p>The identifier of the entity that owns the mailbox.</p>
+   *          <p>The identifier can be <i>UserId or Group Id</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: entity@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Entity name: entity</p>
+   *             </li>
+   *          </ul>
    */
   EntityId: string | undefined;
 
   /**
    * @public
-   * <p>The identifier of the member (user or group) for which to delete granted
-   *          permissions.</p>
+   * <p>The identifier of the entity for which to delete granted permissions.</p>
+   *          <p>The identifier can be <i>UserId, ResourceID, or Group Id</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Grantee ID: 12345678-1234-1234-1234-123456789012,r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: grantee@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Grantee name: grantee</p>
+   *             </li>
+   *          </ul>
    */
   GranteeId: string | undefined;
 }
@@ -1518,6 +1657,12 @@ export interface DeleteOrganizationRequest {
    * <p>If true, deletes the AWS Directory Service directory associated with the organization.</p>
    */
   DeleteDirectory: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Deletes a WorkMail organization even if the organization has enabled users.</p>
+   */
+  ForceDelete?: boolean;
 }
 
 /**
@@ -1551,6 +1696,15 @@ export interface DeleteResourceRequest {
   /**
    * @public
    * <p>The identifier of the resource to be deleted.</p>
+   *          <p>The identifier can accept <i>ResourceId</i>, or <i>Resourcename</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Resource ID: r-0123456789a0123456789b0123456789</p>
+   *             </li>
+   *             <li>
+   *                <p>Resource name: resource</p>
+   *             </li>
+   *          </ul>
    */
   ResourceId: string | undefined;
 }
@@ -1595,6 +1749,15 @@ export interface DeleteUserRequest {
   /**
    * @public
    * <p>The identifier of the user to be deleted.</p>
+   *          <p>The identifier can be the <i>UserId</i> or <i>Username</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>User name: user</p>
+   *             </li>
+   *          </ul>
    */
   UserId: string | undefined;
 }
@@ -1616,7 +1779,19 @@ export interface DeregisterFromWorkMailRequest {
 
   /**
    * @public
-   * <p>The identifier for the member (user or group) to be updated.</p>
+   * <p>The identifier for the member to be updated.</p>
+   *          <p>The identifier can be <i>UserId, ResourceId, or Group Id</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: entity@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Entity name: entity</p>
+   *             </li>
+   *          </ul>
    */
   EntityId: string | undefined;
 }
@@ -1724,6 +1899,61 @@ export interface DescribeEmailMonitoringConfigurationResponse {
 /**
  * @public
  */
+export interface DescribeEntityRequest {
+  /**
+   * @public
+   * <p>The identifier for the organization under which the entity exists.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The email under which the entity exists.</p>
+   */
+  Email: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EntityType = {
+  GROUP: "GROUP",
+  RESOURCE: "RESOURCE",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type EntityType = (typeof EntityType)[keyof typeof EntityType];
+
+/**
+ * @public
+ */
+export interface DescribeEntityResponse {
+  /**
+   * @public
+   * <p>The entity ID under which the entity exists.</p>
+   */
+  EntityId?: string;
+
+  /**
+   * @public
+   * <p>Username, GroupName, or ResourceName based on entity type.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>Entity type.</p>
+   */
+  Type?: EntityType | string;
+}
+
+/**
+ * @public
+ */
 export interface DescribeGroupRequest {
   /**
    * @public
@@ -1734,6 +1964,18 @@ export interface DescribeGroupRequest {
   /**
    * @public
    * <p>The identifier for the group to be described.</p>
+   *          <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: group@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Group name: group</p>
+   *             </li>
+   *          </ul>
    */
   GroupId: string | undefined;
 }
@@ -1795,6 +2037,12 @@ export interface DescribeGroupResponse {
    *          format.</p>
    */
   DisabledDate?: Date;
+
+  /**
+   * @public
+   * <p>If the value is set to <i>true</i>, the group is hidden from the address book.</p>
+   */
+  HiddenFromGlobalAddressList?: boolean;
 }
 
 /**
@@ -2002,6 +2250,18 @@ export interface DescribeOrganizationResponse {
    * <p>The Amazon Resource Name (ARN) of the organization.</p>
    */
   ARN?: string;
+
+  /**
+   * @public
+   * <p>The user ID of the migration admin if migration is enabled for the organization.</p>
+   */
+  MigrationAdmin?: string;
+
+  /**
+   * @public
+   * <p>Indicates if interoperability is enabled for this organization.</p>
+   */
+  InteroperabilityEnabled?: boolean;
 }
 
 /**
@@ -2018,6 +2278,18 @@ export interface DescribeResourceRequest {
   /**
    * @public
    * <p>The identifier of the resource to be described.</p>
+   *          <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Resource ID: r-0123456789a0123456789b0123456789</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: resource@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Resource name: resource</p>
+   *             </li>
+   *          </ul>
    */
   ResourceId: string | undefined;
 }
@@ -2076,6 +2348,18 @@ export interface DescribeResourceResponse {
    *          format.</p>
    */
   DisabledDate?: Date;
+
+  /**
+   * @public
+   * <p>Description of the resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>If enabled, the resource is hidden from the global address list.</p>
+   */
+  HiddenFromGlobalAddressList?: boolean;
 }
 
 /**
@@ -2091,24 +2375,22 @@ export interface DescribeUserRequest {
   /**
    * @public
    * <p>The identifier for the user to be described.</p>
+   *          <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: user@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>User name: user</p>
+   *             </li>
+   *          </ul>
+   *          <p></p>
    */
   UserId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UserRole = {
-  RESOURCE: "RESOURCE",
-  SYSTEM_USER: "SYSTEM_USER",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type UserRole = (typeof UserRole)[keyof typeof UserRole];
 
 /**
  * @public
@@ -2151,7 +2433,7 @@ export interface DescribeUserResponse {
    *          enabled, resources are imported into WorkMail as users. Because different WorkMail
    *          organizations rely on different directory types, administrators can distinguish between an
    *          unregistered user (account is disabled and has a user role) and the directory
-   *          administrators. The values are USER, RESOURCE, and SYSTEM_USER.</p>
+   *          administrators. The values are USER, RESOURCE, SYSTEM_USER, and REMOTE_USER.</p>
    */
   UserRole?: UserRole | string;
 
@@ -2168,6 +2450,96 @@ export interface DescribeUserResponse {
    *          time format.</p>
    */
   DisabledDate?: Date;
+
+  /**
+   * @public
+   * <p>The date when the mailbox was created for the user.</p>
+   */
+  MailboxProvisionedDate?: Date;
+
+  /**
+   * @public
+   * <p>The date when the mailbox was removed for the user.</p>
+   */
+  MailboxDeprovisionedDate?: Date;
+
+  /**
+   * @public
+   * <p>First name of the user.</p>
+   */
+  FirstName?: string;
+
+  /**
+   * @public
+   * <p>Last name of the user.</p>
+   */
+  LastName?: string;
+
+  /**
+   * @public
+   * <p>If enabled, the user is hidden from the global address list.</p>
+   */
+  HiddenFromGlobalAddressList?: boolean;
+
+  /**
+   * @public
+   * <p>Initials of the user.</p>
+   */
+  Initials?: string;
+
+  /**
+   * @public
+   * <p>User's contact number.</p>
+   */
+  Telephone?: string;
+
+  /**
+   * @public
+   * <p>Street where the user is located.</p>
+   */
+  Street?: string;
+
+  /**
+   * @public
+   * <p>Job title of the user.</p>
+   */
+  JobTitle?: string;
+
+  /**
+   * @public
+   * <p>City where the user is located.</p>
+   */
+  City?: string;
+
+  /**
+   * @public
+   * <p>Company of the user.</p>
+   */
+  Company?: string;
+
+  /**
+   * @public
+   * <p>Zip code of the user.</p>
+   */
+  ZipCode?: string;
+
+  /**
+   * @public
+   * <p>Department of the user.</p>
+   */
+  Department?: string;
+
+  /**
+   * @public
+   * <p>Country where the user is located.</p>
+   */
+  Country?: string;
+
+  /**
+   * @public
+   * <p>Office where the user is located.</p>
+   */
+  Office?: string;
 }
 
 /**
@@ -2184,6 +2556,18 @@ export interface DisassociateDelegateFromResourceRequest {
    * @public
    * <p>The identifier of the resource from which delegates' set members are removed.
    *       </p>
+   *          <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Resource ID: r-0123456789a0123456789b0123456789</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: resource@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Resource name: resource</p>
+   *             </li>
+   *          </ul>
    */
   ResourceId: string | undefined;
 
@@ -2191,6 +2575,18 @@ export interface DisassociateDelegateFromResourceRequest {
    * @public
    * <p>The identifier for the member (user, group) to be removed from the resource's
    *          delegates.</p>
+   *          <p>The entity ID can accept <i>UserId or GroupID</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Entity: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: entity@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Entity: entity</p>
+   *             </li>
+   *          </ul>
    */
   EntityId: string | undefined;
 }
@@ -2213,12 +2609,36 @@ export interface DisassociateMemberFromGroupRequest {
   /**
    * @public
    * <p>The identifier for the group from which members are removed.</p>
+   *          <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: group@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Group name: group</p>
+   *             </li>
+   *          </ul>
    */
   GroupId: string | undefined;
 
   /**
    * @public
-   * <p>The identifier for the member to be removed to the group.</p>
+   * <p>The identifier for the member to be removed from the group.</p>
+   *          <p>The member ID can accept <i>UserID or GroupId</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Member ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: member@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Member name: member</p>
+   *             </li>
+   *          </ul>
    */
   MemberId: string | undefined;
 }
@@ -2602,6 +3022,18 @@ export interface GetMailboxDetailsRequest {
   /**
    * @public
    * <p>The identifier for the user whose mailbox details are being requested.</p>
+   *          <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: user@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>User name: user</p>
+   *             </li>
+   *          </ul>
    */
   UserId: string | undefined;
 }
@@ -2869,6 +3301,24 @@ export interface Group {
 
 /**
  * @public
+ * <p>The identifier that contains the Group ID and name of a group.</p>
+ */
+export interface GroupIdentifier {
+  /**
+   * @public
+   * <p>Group ID that matched the group.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * @public
+   * <p>Group name that matched the group.</p>
+   */
+  GroupName?: string;
+}
+
+/**
+ * @public
  * <p>An impersonation role for the given WorkMail organization.</p>
  */
 export interface ImpersonationRole {
@@ -3113,6 +3563,18 @@ export interface ListGroupMembersRequest {
    * @public
    * <p>The identifier for the group to which the members (users or groups) are
    *          associated.</p>
+   *          <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: group@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Group name: group</p>
+   *             </li>
+   *          </ul>
    */
   GroupId: string | undefined;
 
@@ -3192,6 +3654,30 @@ export interface ListGroupMembersResponse {
 
 /**
  * @public
+ * <p> Filtering options for <i>ListGroups</i> operation. This is only used as input to Operation.</p>
+ */
+export interface ListGroupsFilters {
+  /**
+   * @public
+   * <p>Filters only groups with the provided name prefix.</p>
+   */
+  NamePrefix?: string;
+
+  /**
+   * @public
+   * <p>Filters only groups with the provided primary email prefix.</p>
+   */
+  PrimaryEmailPrefix?: string;
+
+  /**
+   * @public
+   * <p>Filters only groups with the provided state.</p>
+   */
+  State?: EntityState | string;
+}
+
+/**
+ * @public
  */
 export interface ListGroupsRequest {
   /**
@@ -3212,6 +3698,12 @@ export interface ListGroupsRequest {
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
+
+  /**
+   * @public
+   * <p>Limit the search results based on the filter criteria. Only one filter per request is supported.</p>
+   */
+  Filters?: ListGroupsFilters;
 }
 
 /**
@@ -3228,6 +3720,82 @@ export interface ListGroupsResponse {
    * @public
    * <p>The token to use to retrieve the next page of results. The value is "null" when there
    *          are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p> Filtering options for <i>ListGroupsForEntity</i> operation. This is only used as input to Operation.</p>
+ */
+export interface ListGroupsForEntityFilters {
+  /**
+   * @public
+   * <p>Filters only group names that start with the provided name prefix.</p>
+   */
+  GroupNamePrefix?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupsForEntityRequest {
+  /**
+   * @public
+   * <p>The identifier for the organization under which the entity exists.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier for the entity.</p>
+   *          <p>The entity ID can accept <i>UserId or GroupID</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: entity@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Entity name: entity</p>
+   *             </li>
+   *          </ul>
+   */
+  EntityId: string | undefined;
+
+  /**
+   * @public
+   * <p>Limit the search results based on the filter criteria.</p>
+   */
+  Filters?: ListGroupsForEntityFilters;
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupsForEntityResponse {
+  /**
+   * @public
+   * <p>The overview of groups in an organization.</p>
+   */
+  Groups?: GroupIdentifier[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.</p>
    */
   NextToken?: string;
 }
@@ -3327,8 +3895,20 @@ export interface ListMailboxPermissionsRequest {
 
   /**
    * @public
-   * <p>The identifier of the user, group, or resource for which to list mailbox
+   * <p>The identifier of the user, or resource for which to list mailbox
    *          permissions.</p>
+   *          <p>The entity ID can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: entity@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Entity name: entity</p>
+   *             </li>
+   *          </ul>
    */
   EntityId: string | undefined;
 
@@ -3777,6 +4357,18 @@ export interface ListResourceDelegatesRequest {
   /**
    * @public
    * <p>The identifier for the resource whose delegates are listed.</p>
+   *          <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Resource ID: r-0123456789a0123456789b0123456789</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: resource@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Resource name: resource</p>
+   *             </li>
+   *          </ul>
    */
   ResourceId: string | undefined;
 
@@ -3815,6 +4407,30 @@ export interface ListResourceDelegatesResponse {
 
 /**
  * @public
+ * <p>Filtering options for <i>ListResources</i> operation. This is only used as input to Operation.</p>
+ */
+export interface ListResourcesFilters {
+  /**
+   * @public
+   * <p>Filters only resource that start with the entered name prefix .</p>
+   */
+  NamePrefix?: string;
+
+  /**
+   * @public
+   * <p>Filters only resource with the provided primary email prefix.</p>
+   */
+  PrimaryEmailPrefix?: string;
+
+  /**
+   * @public
+   * <p>Filters only resource with the provided state.</p>
+   */
+  State?: EntityState | string;
+}
+
+/**
+ * @public
  */
 export interface ListResourcesRequest {
   /**
@@ -3835,6 +4451,12 @@ export interface ListResourcesRequest {
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
+
+  /**
+   * @public
+   * <p>Limit the resource search results based on the filter criteria. You can only use one filter per request.</p>
+   */
+  Filters?: ListResourcesFilters;
 }
 
 /**
@@ -3883,6 +4505,12 @@ export interface Resource {
    * <p>The date indicating when the resource was disabled from WorkMail use.</p>
    */
   DisabledDate?: Date;
+
+  /**
+   * @public
+   * <p>Resource description.</p>
+   */
+  Description?: string;
 }
 
 /**
@@ -3946,6 +4574,36 @@ export interface ListTagsForResourceResponse {
 
 /**
  * @public
+ * <p> Filtering options for <i>ListUsers</i> operation. This is only used as input to Operation.</p>
+ */
+export interface ListUsersFilters {
+  /**
+   * @public
+   * <p>Filters only users with the provided username prefix.</p>
+   */
+  UsernamePrefix?: string;
+
+  /**
+   * @public
+   * <p>Filters only users with the provided display name prefix.</p>
+   */
+  DisplayNamePrefix?: string;
+
+  /**
+   * @public
+   * <p>Filters only users with the provided email prefix.</p>
+   */
+  PrimaryEmailPrefix?: string;
+
+  /**
+   * @public
+   * <p>Filters only users with the provided state.</p>
+   */
+  State?: EntityState | string;
+}
+
+/**
+ * @public
  */
 export interface ListUsersRequest {
   /**
@@ -3966,6 +4624,12 @@ export interface ListUsersRequest {
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
+
+  /**
+   * @public
+   * <p>Limit the user search results based on the filter criteria. You can only use one filter per request.</p>
+   */
+  Filters?: ListUsersFilters;
 }
 
 /**
@@ -4189,8 +4853,20 @@ export interface PutMailboxPermissionsRequest {
 
   /**
    * @public
-   * <p>The identifier of the user, group, or resource for which to update mailbox
+   * <p>The identifier of the user or resource for which to update mailbox
    *          permissions.</p>
+   *          <p>The identifier can be <i>UserId, ResourceID, or Group Id</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: entity@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Entity name: entity</p>
+   *             </li>
+   *          </ul>
    */
   EntityId: string | undefined;
 
@@ -4198,6 +4874,18 @@ export interface PutMailboxPermissionsRequest {
    * @public
    * <p>The identifier of the user, group, or resource to which to grant the
    *          permissions.</p>
+   *          <p>The identifier can be <i>UserId, ResourceID, or Group Id</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Grantee ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: grantee@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Grantee name: grantee</p>
+   *             </li>
+   *          </ul>
    */
   GranteeId: string | undefined;
 
@@ -4354,6 +5042,15 @@ export interface RegisterToWorkMailRequest {
   /**
    * @public
    * <p>The identifier for the user, group, or resource to be updated.</p>
+   *          <p>The identifier can accept <i>UserId, ResourceId, or GroupId</i>, or <i>Username, Resourcename, or Groupname</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Entity name: entity</p>
+   *             </li>
+   *          </ul>
    */
   EntityId: string | undefined;
 
@@ -4417,6 +5114,19 @@ export interface StartMailboxExportJobRequest {
   /**
    * @public
    * <p>The identifier of the user or resource associated with the mailbox.</p>
+   *          <p>The identifier can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789
+   *             , or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: entity@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Entity name: entity</p>
+   *             </li>
+   *          </ul>
    */
   EntityId: string | undefined;
 
@@ -4640,6 +5350,46 @@ export interface UpdateDefaultMailDomainResponse {}
 /**
  * @public
  */
+export interface UpdateGroupRequest {
+  /**
+   * @public
+   * <p>The identifier for the organization under which the group exists.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier for the group to be updated.</p>
+   *          <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: group@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Group name: group</p>
+   *             </li>
+   *          </ul>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * @public
+   * <p>If enabled, the group is hidden from the global address list.</p>
+   */
+  HiddenFromGlobalAddressList?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGroupResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateImpersonationRoleRequest {
   /**
    * @public
@@ -4697,6 +5447,18 @@ export interface UpdateMailboxQuotaRequest {
   /**
    * @public
    * <p>The identifer for the user for whom to update the mailbox quota.</p>
+   *          <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: user@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>User name: user</p>
+   *             </li>
+   *          </ul>
    */
   UserId: string | undefined;
 
@@ -4813,6 +5575,18 @@ export interface UpdatePrimaryEmailAddressRequest {
   /**
    * @public
    * <p>The user, group, or resource to update.</p>
+   *          <p>The identifier can accept <i>UseriD, ResourceId, or GroupId</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: entity@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Entity name: entity</p>
+   *             </li>
+   *          </ul>
    */
   EntityId: string | undefined;
 
@@ -4842,6 +5616,18 @@ export interface UpdateResourceRequest {
   /**
    * @public
    * <p>The identifier of the resource to be updated.</p>
+   *          <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Resource ID: r-0123456789a0123456789b0123456789</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: resource@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>Resource name: resource</p>
+   *             </li>
+   *          </ul>
    */
   ResourceId: string | undefined;
 
@@ -4856,12 +5642,155 @@ export interface UpdateResourceRequest {
    * <p>The resource's booking options to be updated.</p>
    */
   BookingOptions?: BookingOptions;
+
+  /**
+   * @public
+   * <p>Updates the resource description.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>Updates the resource type.</p>
+   */
+  Type?: ResourceType | string;
+
+  /**
+   * @public
+   * <p>If enabled, the resource is hidden from the global address list.</p>
+   */
+  HiddenFromGlobalAddressList?: boolean;
 }
 
 /**
  * @public
  */
 export interface UpdateResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateUserRequest {
+  /**
+   * @public
+   * <p>The identifier for the organization under which the user exists.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier for the user to be updated.</p>
+   *          <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: user@domain.tld</p>
+   *             </li>
+   *             <li>
+   *                <p>User name: user</p>
+   *             </li>
+   *          </ul>
+   */
+  UserId: string | undefined;
+
+  /**
+   * @public
+   * <p>Updates the user role.</p>
+   *          <p>You cannot pass <i>SYSTEM_USER</i> or <i>RESOURCE</i>.</p>
+   */
+  Role?: UserRole | string;
+
+  /**
+   * @public
+   * <p>Updates the display name of the user.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * @public
+   * <p>Updates the user's first name.</p>
+   */
+  FirstName?: string;
+
+  /**
+   * @public
+   * <p>Updates the user's last name.</p>
+   */
+  LastName?: string;
+
+  /**
+   * @public
+   * <p>If enabled, the user is hidden from the global address list.</p>
+   */
+  HiddenFromGlobalAddressList?: boolean;
+
+  /**
+   * @public
+   * <p>Updates the user's initials.</p>
+   */
+  Initials?: string;
+
+  /**
+   * @public
+   * <p>Updates the user's contact details.</p>
+   */
+  Telephone?: string;
+
+  /**
+   * @public
+   * <p>Updates the user's street address.</p>
+   */
+  Street?: string;
+
+  /**
+   * @public
+   * <p>Updates the user's job title.</p>
+   */
+  JobTitle?: string;
+
+  /**
+   * @public
+   * <p>Updates the user's city.</p>
+   */
+  City?: string;
+
+  /**
+   * @public
+   * <p>Updates the user's company.</p>
+   */
+  Company?: string;
+
+  /**
+   * @public
+   * <p>Updates the user's zipcode.</p>
+   */
+  ZipCode?: string;
+
+  /**
+   * @public
+   * <p>Updates the user's department.</p>
+   */
+  Department?: string;
+
+  /**
+   * @public
+   * <p>Updates the user's country.</p>
+   */
+  Country?: string;
+
+  /**
+   * @public
+   * <p>Updates the user's office.</p>
+   */
+  Office?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserResponse {}
 
 /**
  * @internal
@@ -4886,7 +5815,46 @@ export const CreateAvailabilityConfigurationRequestFilterSensitiveLog = (
  */
 export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
   ...obj,
+  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
   ...(obj.Password && { Password: SENSITIVE_STRING }),
+  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
+  ...obj,
+  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
+  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+  ...(obj.Initials && { Initials: SENSITIVE_STRING }),
+  ...(obj.Telephone && { Telephone: SENSITIVE_STRING }),
+  ...(obj.Street && { Street: SENSITIVE_STRING }),
+  ...(obj.JobTitle && { JobTitle: SENSITIVE_STRING }),
+  ...(obj.City && { City: SENSITIVE_STRING }),
+  ...(obj.Company && { Company: SENSITIVE_STRING }),
+  ...(obj.ZipCode && { ZipCode: SENSITIVE_STRING }),
+  ...(obj.Department && { Department: SENSITIVE_STRING }),
+  ...(obj.Country && { Country: SENSITIVE_STRING }),
+  ...(obj.Office && { Office: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListUsersFiltersFilterSensitiveLog = (obj: ListUsersFilters): any => ({
+  ...obj,
+  ...(obj.DisplayNamePrefix && { DisplayNamePrefix: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListUsersRequestFilterSensitiveLog = (obj: ListUsersRequest): any => ({
+  ...obj,
+  ...(obj.Filters && { Filters: ListUsersFiltersFilterSensitiveLog(obj.Filters) }),
 });
 
 /**
@@ -4923,4 +5891,24 @@ export const UpdateAvailabilityConfigurationRequestFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.EwsProvider && { EwsProvider: EwsAvailabilityProviderFilterSensitiveLog(obj.EwsProvider) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any => ({
+  ...obj,
+  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
+  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+  ...(obj.Initials && { Initials: SENSITIVE_STRING }),
+  ...(obj.Telephone && { Telephone: SENSITIVE_STRING }),
+  ...(obj.Street && { Street: SENSITIVE_STRING }),
+  ...(obj.JobTitle && { JobTitle: SENSITIVE_STRING }),
+  ...(obj.City && { City: SENSITIVE_STRING }),
+  ...(obj.Company && { Company: SENSITIVE_STRING }),
+  ...(obj.ZipCode && { ZipCode: SENSITIVE_STRING }),
+  ...(obj.Department && { Department: SENSITIVE_STRING }),
+  ...(obj.Country && { Country: SENSITIVE_STRING }),
+  ...(obj.Office && { Office: SENSITIVE_STRING }),
 });

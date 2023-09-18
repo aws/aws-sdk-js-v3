@@ -13,8 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DescribeUserRequest, DescribeUserResponse, DescribeUserResponseFilterSensitiveLog } from "../models/models_0";
-import { de_DescribeUserCommand, se_DescribeUserCommand } from "../protocols/Aws_json1_1";
+import { UpdateUserRequest, UpdateUserRequestFilterSensitiveLog, UpdateUserResponse } from "../models/models_0";
+import { de_UpdateUserCommand, se_UpdateUserCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -24,68 +24,71 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeUserCommand}.
+ * The input for {@link UpdateUserCommand}.
  */
-export interface DescribeUserCommandInput extends DescribeUserRequest {}
+export interface UpdateUserCommandInput extends UpdateUserRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeUserCommand}.
+ * The output of {@link UpdateUserCommand}.
  */
-export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
+export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Provides information regarding the user.</p>
+ * <p>Updates data for the user. To have the latest information, it must be preceded by a
+ *             <a>DescribeUser</a> call. The dataset in the request should be the one
+ *          expected when performing another <code>DescribeUser</code> call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DescribeUserCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DescribeUserCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, UpdateUserCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, UpdateUserCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = { // DescribeUserRequest
+ * const input = { // UpdateUserRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
+ *   Role: "USER" || "RESOURCE" || "SYSTEM_USER" || "REMOTE_USER",
+ *   DisplayName: "STRING_VALUE",
+ *   FirstName: "STRING_VALUE",
+ *   LastName: "STRING_VALUE",
+ *   HiddenFromGlobalAddressList: true || false,
+ *   Initials: "STRING_VALUE",
+ *   Telephone: "STRING_VALUE",
+ *   Street: "STRING_VALUE",
+ *   JobTitle: "STRING_VALUE",
+ *   City: "STRING_VALUE",
+ *   Company: "STRING_VALUE",
+ *   ZipCode: "STRING_VALUE",
+ *   Department: "STRING_VALUE",
+ *   Country: "STRING_VALUE",
+ *   Office: "STRING_VALUE",
  * };
- * const command = new DescribeUserCommand(input);
+ * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
- * // { // DescribeUserResponse
- * //   UserId: "STRING_VALUE",
- * //   Name: "STRING_VALUE",
- * //   Email: "STRING_VALUE",
- * //   DisplayName: "STRING_VALUE",
- * //   State: "ENABLED" || "DISABLED" || "DELETED",
- * //   UserRole: "USER" || "RESOURCE" || "SYSTEM_USER" || "REMOTE_USER",
- * //   EnabledDate: new Date("TIMESTAMP"),
- * //   DisabledDate: new Date("TIMESTAMP"),
- * //   MailboxProvisionedDate: new Date("TIMESTAMP"),
- * //   MailboxDeprovisionedDate: new Date("TIMESTAMP"),
- * //   FirstName: "STRING_VALUE",
- * //   LastName: "STRING_VALUE",
- * //   HiddenFromGlobalAddressList: true || false,
- * //   Initials: "STRING_VALUE",
- * //   Telephone: "STRING_VALUE",
- * //   Street: "STRING_VALUE",
- * //   JobTitle: "STRING_VALUE",
- * //   City: "STRING_VALUE",
- * //   Company: "STRING_VALUE",
- * //   ZipCode: "STRING_VALUE",
- * //   Department: "STRING_VALUE",
- * //   Country: "STRING_VALUE",
- * //   Office: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
- * @returns {@link DescribeUserCommandOutput}
- * @see {@link DescribeUserCommandInput} for command's `input` shape.
- * @see {@link DescribeUserCommandOutput} for command's `response` shape.
+ * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
+ * @returns {@link UpdateUserCommandOutput}
+ * @see {@link UpdateUserCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link DirectoryServiceAuthenticationFailedException} (client fault)
+ *  <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The directory is unavailable. It might be located in another Region or deleted.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>The identifier supplied for the user, group, or resource does not exist in your
  *          organization.</p>
+ *
+ * @throws {@link EntityStateException} (client fault)
+ *  <p>You are performing an operation on a user, group, or resource that isn't in the
+ *          expected state, such as trying to delete an active user.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more of the input parameters don't match the service's restrictions.</p>
@@ -98,13 +101,16 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>You can't perform a write operation against a read-only directory.</p>
+ *
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
-export class DescribeUserCommand extends $Command<
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput,
+export class UpdateUserCommand extends $Command<
+  UpdateUserCommandInput,
+  UpdateUserCommandOutput,
   WorkMailClientResolvedConfig
 > {
   // Start section: command_properties
@@ -122,7 +128,7 @@ export class DescribeUserCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeUserCommandInput) {
+  constructor(readonly input: UpdateUserCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -135,21 +141,21 @@ export class DescribeUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeUserCommandInput, DescribeUserCommandOutput> {
+  ): Handler<UpdateUserCommandInput, UpdateUserCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeUserCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateUserCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WorkMailClient";
-    const commandName = "DescribeUserCommand";
+    const commandName = "UpdateUserCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DescribeUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: UpdateUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -162,15 +168,15 @@ export class DescribeUserCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeUserCommand(input, context);
+  private serialize(input: UpdateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateUserCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserCommandOutput> {
-    return de_DescribeUserCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserCommandOutput> {
+    return de_UpdateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

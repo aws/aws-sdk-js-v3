@@ -46,6 +46,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * const input = { // CreateGroupRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
+ *   HiddenFromGlobalAddressList: true || false,
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);

@@ -13,8 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DescribeUserRequest, DescribeUserResponse, DescribeUserResponseFilterSensitiveLog } from "../models/models_0";
-import { de_DescribeUserCommand, se_DescribeUserCommand } from "../protocols/Aws_json1_1";
+import { ListGroupsForEntityRequest, ListGroupsForEntityResponse } from "../models/models_0";
+import { de_ListGroupsForEntityCommand, se_ListGroupsForEntityCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -24,68 +24,61 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeUserCommand}.
+ * The input for {@link ListGroupsForEntityCommand}.
  */
-export interface DescribeUserCommandInput extends DescribeUserRequest {}
+export interface ListGroupsForEntityCommandInput extends ListGroupsForEntityRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeUserCommand}.
+ * The output of {@link ListGroupsForEntityCommand}.
  */
-export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
+export interface ListGroupsForEntityCommandOutput extends ListGroupsForEntityResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Provides information regarding the user.</p>
+ * <p>Returns all the groups to which an entity belongs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkMailClient, DescribeUserCommand } from "@aws-sdk/client-workmail"; // ES Modules import
- * // const { WorkMailClient, DescribeUserCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * import { WorkMailClient, ListGroupsForEntityCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, ListGroupsForEntityCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = { // DescribeUserRequest
+ * const input = { // ListGroupsForEntityRequest
  *   OrganizationId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ *   Filters: { // ListGroupsForEntityFilters
+ *     GroupNamePrefix: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
- * const command = new DescribeUserCommand(input);
+ * const command = new ListGroupsForEntityCommand(input);
  * const response = await client.send(command);
- * // { // DescribeUserResponse
- * //   UserId: "STRING_VALUE",
- * //   Name: "STRING_VALUE",
- * //   Email: "STRING_VALUE",
- * //   DisplayName: "STRING_VALUE",
- * //   State: "ENABLED" || "DISABLED" || "DELETED",
- * //   UserRole: "USER" || "RESOURCE" || "SYSTEM_USER" || "REMOTE_USER",
- * //   EnabledDate: new Date("TIMESTAMP"),
- * //   DisabledDate: new Date("TIMESTAMP"),
- * //   MailboxProvisionedDate: new Date("TIMESTAMP"),
- * //   MailboxDeprovisionedDate: new Date("TIMESTAMP"),
- * //   FirstName: "STRING_VALUE",
- * //   LastName: "STRING_VALUE",
- * //   HiddenFromGlobalAddressList: true || false,
- * //   Initials: "STRING_VALUE",
- * //   Telephone: "STRING_VALUE",
- * //   Street: "STRING_VALUE",
- * //   JobTitle: "STRING_VALUE",
- * //   City: "STRING_VALUE",
- * //   Company: "STRING_VALUE",
- * //   ZipCode: "STRING_VALUE",
- * //   Department: "STRING_VALUE",
- * //   Country: "STRING_VALUE",
- * //   Office: "STRING_VALUE",
+ * // { // ListGroupsForEntityResponse
+ * //   Groups: [ // GroupIdentifiers
+ * //     { // GroupIdentifier
+ * //       GroupId: "STRING_VALUE",
+ * //       GroupName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
- * @returns {@link DescribeUserCommandOutput}
- * @see {@link DescribeUserCommandInput} for command's `input` shape.
- * @see {@link DescribeUserCommandOutput} for command's `response` shape.
+ * @param ListGroupsForEntityCommandInput - {@link ListGroupsForEntityCommandInput}
+ * @returns {@link ListGroupsForEntityCommandOutput}
+ * @see {@link ListGroupsForEntityCommandInput} for command's `input` shape.
+ * @see {@link ListGroupsForEntityCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>The identifier supplied for the user, group, or resource does not exist in your
  *          organization.</p>
+ *
+ * @throws {@link EntityStateException} (client fault)
+ *  <p>You are performing an operation on a user, group, or resource that isn't in the
+ *          expected state, such as trying to delete an active user.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more of the input parameters don't match the service's restrictions.</p>
@@ -102,9 +95,9 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
-export class DescribeUserCommand extends $Command<
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput,
+export class ListGroupsForEntityCommand extends $Command<
+  ListGroupsForEntityCommandInput,
+  ListGroupsForEntityCommandOutput,
   WorkMailClientResolvedConfig
 > {
   // Start section: command_properties
@@ -122,7 +115,7 @@ export class DescribeUserCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeUserCommandInput) {
+  constructor(readonly input: ListGroupsForEntityCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -135,21 +128,23 @@ export class DescribeUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeUserCommandInput, DescribeUserCommandOutput> {
+  ): Handler<ListGroupsForEntityCommandInput, ListGroupsForEntityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeUserCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListGroupsForEntityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WorkMailClient";
-    const commandName = "DescribeUserCommand";
+    const commandName = "ListGroupsForEntityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DescribeUserResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -162,15 +157,15 @@ export class DescribeUserCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeUserCommand(input, context);
+  private serialize(input: ListGroupsForEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListGroupsForEntityCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserCommandOutput> {
-    return de_DescribeUserCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupsForEntityCommandOutput> {
+    return de_ListGroupsForEntityCommand(output, context);
   }
 
   // Start section: command_body_extra
