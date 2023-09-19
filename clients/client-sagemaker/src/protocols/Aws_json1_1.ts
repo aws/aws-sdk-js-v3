@@ -19294,6 +19294,7 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
     DataCapturedDestinationS3Uri: [],
     DatasetFormat: _json,
     EndTimeOffset: [],
+    ExcludeFeaturesAttribute: [],
     FeaturesAttribute: [],
     InferenceAttribute: [],
     LocalPath: [],
@@ -20091,6 +20092,7 @@ const se_EndpointInput = (input: EndpointInput, context: __SerdeContext): any =>
   return take(input, {
     EndTimeOffset: [],
     EndpointName: [],
+    ExcludeFeaturesAttribute: [],
     FeaturesAttribute: [],
     InferenceAttribute: [],
     LocalPath: [],
@@ -22616,6 +22618,7 @@ const de_BatchTransformInput = (output: any, context: __SerdeContext): BatchTran
     DataCapturedDestinationS3Uri: __expectString,
     DatasetFormat: _json,
     EndTimeOffset: __expectString,
+    ExcludeFeaturesAttribute: __expectString,
     FeaturesAttribute: __expectString,
     InferenceAttribute: __expectString,
     LocalPath: __expectString,
@@ -24621,6 +24624,7 @@ const de_EndpointInput = (output: any, context: __SerdeContext): EndpointInput =
   return take(output, {
     EndTimeOffset: __expectString,
     EndpointName: __expectString,
+    ExcludeFeaturesAttribute: __expectString,
     FeaturesAttribute: __expectString,
     InferenceAttribute: __expectString,
     LocalPath: __expectString,

@@ -3218,15 +3218,14 @@ export interface UpdateMonitoringAlertResponse {
 export interface UpdateMonitoringScheduleRequest {
   /**
    * @public
-   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services
-   *    Region within an Amazon Web Services account.</p>
+   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within an Amazon Web Services account.</p>
    */
   MonitoringScheduleName: string | undefined;
 
   /**
    * @public
-   * <p>The configuration object that specifies the monitoring schedule and defines the monitoring
-   *    job.</p>
+   * <p>The configuration object that specifies the monitoring schedule and defines the
+   *          monitoring job.</p>
    */
   MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
 }

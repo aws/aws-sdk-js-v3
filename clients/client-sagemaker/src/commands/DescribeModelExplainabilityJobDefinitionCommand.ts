@@ -86,6 +86,7 @@ export interface DescribeModelExplainabilityJobDefinitionCommandOutput
  * //       ProbabilityThresholdAttribute: Number("double"),
  * //       StartTimeOffset: "STRING_VALUE",
  * //       EndTimeOffset: "STRING_VALUE",
+ * //       ExcludeFeaturesAttribute: "STRING_VALUE",
  * //     },
  * //     BatchTransformInput: { // BatchTransformInput
  * //       DataCapturedDestinationS3Uri: "STRING_VALUE", // required
@@ -107,6 +108,7 @@ export interface DescribeModelExplainabilityJobDefinitionCommandOutput
  * //       ProbabilityThresholdAttribute: Number("double"),
  * //       StartTimeOffset: "STRING_VALUE",
  * //       EndTimeOffset: "STRING_VALUE",
+ * //       ExcludeFeaturesAttribute: "STRING_VALUE",
  * //     },
  * //   },
  * //   ModelExplainabilityJobOutputConfig: { // MonitoringOutputConfig

@@ -2049,8 +2049,8 @@ export interface DescribeDataQualityJobDefinitionResponse {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
-   *    assume to perform tasks on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
+   *          perform tasks on your behalf.</p>
    */
   RoleArn: string | undefined;
 
@@ -5858,8 +5858,7 @@ export interface DescribeModelBiasJobDefinitionResponse {
 
   /**
    * @public
-   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services
-   *    Region in the Amazon Web Services account.</p>
+   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
    */
   JobDefinitionName: string | undefined;
 
@@ -5907,8 +5906,9 @@ export interface DescribeModelBiasJobDefinitionResponse {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM role that has read permission to the
-   *    input data location and write permission to the output data location in Amazon S3.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management
+   *          (IAM) role that has read permission to the input data location and write permission to the
+   *          output data location in Amazon S3.</p>
    */
   RoleArn: string | undefined;
 
@@ -6233,7 +6233,8 @@ export interface DescribeModelExplainabilityJobDefinitionResponse {
 
   /**
    * @public
-   * <p>Configures the model explainability job to run a specified Docker container image.</p>
+   * <p>Configures the model explainability job to run a specified Docker container
+   *          image.</p>
    */
   ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecification | undefined;
 
@@ -6263,8 +6264,9 @@ export interface DescribeModelExplainabilityJobDefinitionResponse {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM role that has read permission to the
-   *    input data location and write permission to the output data location in Amazon S3.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management
+   *          (IAM) role that has read permission to the input data location and write permission to the
+   *          output data location in Amazon S3.</p>
    */
   RoleArn: string | undefined;
 
@@ -6662,8 +6664,8 @@ export interface DescribeModelQualityJobDefinitionResponse {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
-   *    assume to perform tasks on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
+   *          perform tasks on your behalf.</p>
    */
   RoleArn: string | undefined;
 
@@ -6857,8 +6859,8 @@ export interface DescribeMonitoringScheduleResponse {
 
   /**
    * @public
-   * <p>The configuration object that specifies the monitoring schedule and defines the monitoring
-   *    job.</p>
+   * <p>The configuration object that specifies the monitoring schedule and defines the
+   *          monitoring job.</p>
    */
   MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
 

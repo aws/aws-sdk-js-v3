@@ -48,6 +48,8 @@ export interface UpdateMonitoringScheduleCommandOutput extends UpdateMonitoringS
  *   MonitoringScheduleConfig: { // MonitoringScheduleConfig
  *     ScheduleConfig: { // ScheduleConfig
  *       ScheduleExpression: "STRING_VALUE", // required
+ *       DataAnalysisStartTime: "STRING_VALUE",
+ *       DataAnalysisEndTime: "STRING_VALUE",
  *     },
  *     MonitoringJobDefinition: { // MonitoringJobDefinition
  *       BaselineConfig: { // MonitoringBaselineConfig
@@ -72,6 +74,7 @@ export interface UpdateMonitoringScheduleCommandOutput extends UpdateMonitoringS
  *             ProbabilityThresholdAttribute: Number("double"),
  *             StartTimeOffset: "STRING_VALUE",
  *             EndTimeOffset: "STRING_VALUE",
+ *             ExcludeFeaturesAttribute: "STRING_VALUE",
  *           },
  *           BatchTransformInput: { // BatchTransformInput
  *             DataCapturedDestinationS3Uri: "STRING_VALUE", // required
@@ -93,6 +96,7 @@ export interface UpdateMonitoringScheduleCommandOutput extends UpdateMonitoringS
  *             ProbabilityThresholdAttribute: Number("double"),
  *             StartTimeOffset: "STRING_VALUE",
  *             EndTimeOffset: "STRING_VALUE",
+ *             ExcludeFeaturesAttribute: "STRING_VALUE",
  *           },
  *         },
  *       ],

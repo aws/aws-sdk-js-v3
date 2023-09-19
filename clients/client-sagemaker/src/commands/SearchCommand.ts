@@ -908,6 +908,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             MonitoringScheduleConfig: { // MonitoringScheduleConfig
  * //               ScheduleConfig: { // ScheduleConfig
  * //                 ScheduleExpression: "STRING_VALUE", // required
+ * //                 DataAnalysisStartTime: "STRING_VALUE",
+ * //                 DataAnalysisEndTime: "STRING_VALUE",
  * //               },
  * //               MonitoringJobDefinition: { // MonitoringJobDefinition
  * //                 BaselineConfig: { // MonitoringBaselineConfig
@@ -932,6 +934,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                       ProbabilityThresholdAttribute: Number("double"),
  * //                       StartTimeOffset: "STRING_VALUE",
  * //                       EndTimeOffset: "STRING_VALUE",
+ * //                       ExcludeFeaturesAttribute: "STRING_VALUE",
  * //                     },
  * //                     BatchTransformInput: { // BatchTransformInput
  * //                       DataCapturedDestinationS3Uri: "STRING_VALUE", // required
@@ -953,6 +956,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                       ProbabilityThresholdAttribute: Number("double"),
  * //                       StartTimeOffset: "STRING_VALUE",
  * //                       EndTimeOffset: "STRING_VALUE",
+ * //                       ExcludeFeaturesAttribute: "STRING_VALUE",
  * //                     },
  * //                   },
  * //                 ],
@@ -1845,6 +1849,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             MonitoringScheduleConfig: {
  * //               ScheduleConfig: {
  * //                 ScheduleExpression: "STRING_VALUE", // required
+ * //                 DataAnalysisStartTime: "STRING_VALUE",
+ * //                 DataAnalysisEndTime: "STRING_VALUE",
  * //               },
  * //               MonitoringJobDefinition: {
  * //                 BaselineConfig: {
@@ -1869,6 +1875,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                       ProbabilityThresholdAttribute: Number("double"),
  * //                       StartTimeOffset: "STRING_VALUE",
  * //                       EndTimeOffset: "STRING_VALUE",
+ * //                       ExcludeFeaturesAttribute: "STRING_VALUE",
  * //                     },
  * //                     BatchTransformInput: {
  * //                       DataCapturedDestinationS3Uri: "STRING_VALUE", // required
@@ -1890,6 +1897,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                       ProbabilityThresholdAttribute: Number("double"),
  * //                       StartTimeOffset: "STRING_VALUE",
  * //                       EndTimeOffset: "STRING_VALUE",
+ * //                       ExcludeFeaturesAttribute: "STRING_VALUE",
  * //                     },
  * //                   },
  * //                 ],

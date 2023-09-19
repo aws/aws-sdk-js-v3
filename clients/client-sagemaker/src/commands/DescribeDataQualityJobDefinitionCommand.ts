@@ -92,6 +92,7 @@ export interface DescribeDataQualityJobDefinitionCommandOutput
  * //       ProbabilityThresholdAttribute: Number("double"),
  * //       StartTimeOffset: "STRING_VALUE",
  * //       EndTimeOffset: "STRING_VALUE",
+ * //       ExcludeFeaturesAttribute: "STRING_VALUE",
  * //     },
  * //     BatchTransformInput: { // BatchTransformInput
  * //       DataCapturedDestinationS3Uri: "STRING_VALUE", // required
@@ -113,6 +114,7 @@ export interface DescribeDataQualityJobDefinitionCommandOutput
  * //       ProbabilityThresholdAttribute: Number("double"),
  * //       StartTimeOffset: "STRING_VALUE",
  * //       EndTimeOffset: "STRING_VALUE",
+ * //       ExcludeFeaturesAttribute: "STRING_VALUE",
  * //     },
  * //   },
  * //   DataQualityJobOutputConfig: { // MonitoringOutputConfig

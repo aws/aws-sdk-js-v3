@@ -3096,8 +3096,7 @@ export interface ListDataQualityJobDefinitionsRequest {
 
   /**
    * @public
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *    The default is <code>Descending</code>.</p>
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 
@@ -5067,22 +5066,22 @@ export interface ListModelBiasJobDefinitionsRequest {
 
   /**
    * @public
-   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field.
-   *    The default is <code>CreationTime</code>.</p>
+   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The
+   *          default is <code>CreationTime</code>.</p>
    */
   SortBy?: MonitoringJobDefinitionSortKey | string;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *    The default is <code>Descending</code>.</p>
+   *          The default is <code>Descending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
    * @public
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
+   * <p>The token returned if the response is truncated. To retrieve the next set of job
+   *          executions, use it in the next request.</p>
    */
   NextToken?: string;
 
@@ -5124,8 +5123,8 @@ export interface ListModelBiasJobDefinitionsResponse {
 
   /**
    * @public
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
+   *          use it in the subsequent request.</p>
    */
   NextToken?: string;
 }
@@ -5608,22 +5607,22 @@ export interface ListModelExplainabilityJobDefinitionsRequest {
 
   /**
    * @public
-   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field.
-   *    The default is <code>CreationTime</code>.</p>
+   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The
+   *          default is <code>CreationTime</code>.</p>
    */
   SortBy?: MonitoringJobDefinitionSortKey | string;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *    The default is <code>Descending</code>.</p>
+   *          The default is <code>Descending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
    * @public
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
+   * <p>The token returned if the response is truncated. To retrieve the next set of job
+   *          executions, use it in the next request.</p>
    */
   NextToken?: string;
 
@@ -5666,8 +5665,8 @@ export interface ListModelExplainabilityJobDefinitionsResponse {
 
   /**
    * @public
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
+   *          use it in the subsequent request.</p>
    */
   NextToken?: string;
 }
@@ -6145,8 +6144,7 @@ export interface ListModelQualityJobDefinitionsRequest {
 
   /**
    * @public
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *    The default is <code>Descending</code>.</p>
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 
@@ -6199,8 +6197,8 @@ export interface ListModelQualityJobDefinitionsResponse {
 
   /**
    * @public
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the
-   *          next set of model quality monitoring job definitions, use it in the next request.</p>
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of model
+   *          quality monitoring job definitions, use it in the next request.</p>
    */
   NextToken?: string;
 }
@@ -6609,22 +6607,22 @@ export interface ListMonitoringExecutionsRequest {
 
   /**
    * @public
-   * <p>Whether to sort the results by the <code>Status</code>, <code>CreationTime</code>, or
-   *    <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
+   * <p>Whether to sort results by <code>Status</code>, <code>CreationTime</code>,
+   *             <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
    */
   SortBy?: MonitoringExecutionSortKey | string;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *    The default is <code>Descending</code>.</p>
+   *          The default is <code>Descending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
    * @public
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
+   * <p>The token returned if the response is truncated. To retrieve the next set of job
+   *          executions, use it in the next request.</p>
    */
   NextToken?: string;
 
@@ -6703,8 +6701,8 @@ export interface ListMonitoringExecutionsResponse {
 
   /**
    * @public
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
+   *          use it in the subsequent reques</p>
    */
   NextToken?: string;
 }
@@ -6736,22 +6734,22 @@ export interface ListMonitoringSchedulesRequest {
 
   /**
    * @public
-   * <p>Whether to sort the results by the <code>Status</code>, <code>CreationTime</code>, or
-   *    <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
+   * <p>Whether to sort results by <code>Status</code>, <code>CreationTime</code>,
+   *             <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
    */
   SortBy?: MonitoringScheduleSortKey | string;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *    The default is <code>Descending</code>.</p>
+   *          The default is <code>Descending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
    * @public
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
+   * <p>The token returned if the response is truncated. To retrieve the next set of job
+   *          executions, use it in the next request.</p>
    */
   NextToken?: string;
 
@@ -6878,8 +6876,8 @@ export interface ListMonitoringSchedulesResponse {
 
   /**
    * @public
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
+   *          use it in the subsequent request.</p>
    */
   NextToken?: string;
 }

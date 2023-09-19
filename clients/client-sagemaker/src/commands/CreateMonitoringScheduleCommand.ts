@@ -36,8 +36,8 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
 
 /**
  * @public
- * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to
- *          monitor the data captured for an Amazon SageMaker Endpoint.</p>
+ * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to monitor the data
+ *          captured for an Amazon SageMaker Endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +49,8 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  *   MonitoringScheduleConfig: { // MonitoringScheduleConfig
  *     ScheduleConfig: { // ScheduleConfig
  *       ScheduleExpression: "STRING_VALUE", // required
+ *       DataAnalysisStartTime: "STRING_VALUE",
+ *       DataAnalysisEndTime: "STRING_VALUE",
  *     },
  *     MonitoringJobDefinition: { // MonitoringJobDefinition
  *       BaselineConfig: { // MonitoringBaselineConfig
@@ -73,6 +75,7 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  *             ProbabilityThresholdAttribute: Number("double"),
  *             StartTimeOffset: "STRING_VALUE",
  *             EndTimeOffset: "STRING_VALUE",
+ *             ExcludeFeaturesAttribute: "STRING_VALUE",
  *           },
  *           BatchTransformInput: { // BatchTransformInput
  *             DataCapturedDestinationS3Uri: "STRING_VALUE", // required
@@ -94,6 +97,7 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  *             ProbabilityThresholdAttribute: Number("double"),
  *             StartTimeOffset: "STRING_VALUE",
  *             EndTimeOffset: "STRING_VALUE",
+ *             ExcludeFeaturesAttribute: "STRING_VALUE",
  *           },
  *         },
  *       ],
