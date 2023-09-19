@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.416.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.415.0...v3.416.0) (2023-09-19)
+
+
+### Features
+
+* **client-outposts:** This release adds the InstanceFamilies field to the ListAssets response. ([fb5c16b](https://github.com/aws/aws-sdk-js-v3/commit/fb5c16b32ca7326b6f9f6b3b567888f7e4ce89bd))
+
+
+
+
+
 # [3.414.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.413.0...v3.414.0) (2023-09-15)
 
 

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.416.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.415.0...v3.416.0) (2023-09-19)
+
+
+### Features
+
+* **client-ec2:** This release adds support for C7i, and R7a instance types. ([871a04d](https://github.com/aws/aws-sdk-js-v3/commit/871a04d972e665cb0febf293f0c08c9eb8362a89))
+* **client-outposts:** This release adds the InstanceFamilies field to the ListAssets response. ([fb5c16b](https://github.com/aws/aws-sdk-js-v3/commit/fb5c16b32ca7326b6f9f6b3b567888f7e4ce89bd))
+* **client-sagemaker:** This release adds support for one-time model monitoring schedules that are executed immediately without delay, explicit data analysis windows for model monitoring schedules and exclude features attributes to remove features from model monitor analysis. ([2604b84](https://github.com/aws/aws-sdk-js-v3/commit/2604b84433480cdfd4a6738ac9617a1793abddb4))
+* **clients:** update client endpoints as of 2023-09-19 ([bee0ed4](https://github.com/aws/aws-sdk-js-v3/commit/bee0ed4d1b7d48fef5c869cb4d1a1dded759fbaa))
+
+
+
+
+
 # [3.415.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.414.0...v3.415.0) (2023-09-18)
 
 
