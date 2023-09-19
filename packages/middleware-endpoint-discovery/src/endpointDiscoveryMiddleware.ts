@@ -28,7 +28,8 @@ export const endpointDiscoveryMiddleware =
 
     const { endpointDiscoveryCommandCtor } = config;
     const { isDiscoveredEndpointRequired, identifiers } = middlewareConfig;
-    const { clientName, commandName } = context;
+    const clientName = context.clientName!;
+    const commandName = context.commandName!;
     const isEndpointDiscoveryEnabled = await config.endpointDiscoveryEnabled();
     const cacheKey = await getCacheKey(commandName, config, { identifiers });
 
