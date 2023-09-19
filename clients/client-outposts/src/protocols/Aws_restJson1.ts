@@ -2530,6 +2530,8 @@ const de_CatalogItemListDefinition = (output: any, context: __SerdeContext): Cat
 
 // de_EC2CapacityListDefinition omitted.
 
+// de_InstanceFamilies omitted.
+
 // de_InstanceTypeItem omitted.
 
 // de_InstanceTypeListDefinition omitted.

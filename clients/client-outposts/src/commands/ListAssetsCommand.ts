@@ -68,6 +68,9 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * //       ComputeAttributes: { // ComputeAttributes
  * //         HostId: "STRING_VALUE",
  * //         State: "ACTIVE" || "ISOLATED" || "RETIRING",
+ * //         InstanceFamilies: [ // InstanceFamilies
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       AssetLocation: { // AssetLocation
  * //         RackElevation: Number("float"),
