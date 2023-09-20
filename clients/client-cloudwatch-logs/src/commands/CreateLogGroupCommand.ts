@@ -36,7 +36,7 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a log group with the specified name. You can create up to 20,000 log groups per account.</p>
+ * <p>Creates a log group with the specified name. You can create up to 1,000,000 log groups per Region per account.</p>
  *          <p>You must use the following guidelines when naming a log group:</p>
  *          <ul>
  *             <li>

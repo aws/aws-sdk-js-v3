@@ -17,6 +17,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import { AssociateKmsKeyCommandInput, AssociateKmsKeyCommandOutput } from "../commands/AssociateKmsKeyCommand";
 import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "../commands/CancelExportTaskCommand";
@@ -725,7 +726,7 @@ export const se_PutQueryDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutQueryDefinition");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_PutQueryDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3844,7 +3845,18 @@ const se_PutMetricFilterRequest = (input: PutMetricFilterRequest, context: __Ser
   });
 };
 
-// se_PutQueryDefinitionRequest omitted.
+/**
+ * serializeAws_json1_1PutQueryDefinitionRequest
+ */
+const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    logGroupNames: _json,
+    name: [],
+    queryDefinitionId: [],
+    queryString: [],
+  });
+};
 
 // se_PutResourcePolicyRequest omitted.
 

@@ -2882,6 +2882,13 @@ export interface PutQueryDefinitionRequest {
    *       For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
    */
   queryString: string | undefined;
+
+  /**
+   * @public
+   * <p>Used as an idempotency token, to avoid returning an exception if the service receives the same request twice because of a network
+   *     error.</p>
+   */
+  clientToken?: string;
 }
 
 /**
