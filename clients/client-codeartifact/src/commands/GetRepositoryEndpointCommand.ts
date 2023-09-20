@@ -72,7 +72,7 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "swift", // required
  * };
  * const command = new GetRepositoryEndpointCommand(input);
  * const response = await client.send(command);

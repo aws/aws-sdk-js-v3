@@ -48,7 +48,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResult, __Metad
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "swift", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  * };
@@ -56,7 +56,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResult, __Metad
  * const response = await client.send(command);
  * // { // DeletePackageResult
  * //   deletedPackage: { // PackageSummary
- * //     format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ * //     format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "swift",
  * //     namespace: "STRING_VALUE",
  * //     package: "STRING_VALUE",
  * //     originConfiguration: { // PackageOriginConfiguration

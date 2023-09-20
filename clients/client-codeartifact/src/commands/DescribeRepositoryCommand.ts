@@ -69,7 +69,7 @@ export interface DescribeRepositoryCommandOutput extends DescribeRepositoryResul
  * //     externalConnections: [ // RepositoryExternalConnectionInfoList
  * //       { // RepositoryExternalConnectionInfo
  * //         externalConnectionName: "STRING_VALUE",
- * //         packageFormat: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ * //         packageFormat: "npm" || "pypi" || "maven" || "nuget" || "generic" || "swift",
  * //         status: "Available",
  * //       },
  * //     ],

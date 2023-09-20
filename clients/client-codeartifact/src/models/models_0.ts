@@ -189,6 +189,7 @@ export const PackageFormat = {
   NPM: "npm",
   NUGET: "nuget",
   PYPI: "pypi",
+  SWIFT: "swift",
 } as const;
 
 /**

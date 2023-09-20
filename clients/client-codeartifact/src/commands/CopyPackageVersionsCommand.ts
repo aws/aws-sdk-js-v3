@@ -55,7 +55,7 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  *   domainOwner: "STRING_VALUE",
  *   sourceRepository: "STRING_VALUE", // required
  *   destinationRepository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "swift", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  *   versions: [ // PackageVersionList
