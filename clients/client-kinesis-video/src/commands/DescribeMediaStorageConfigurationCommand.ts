@@ -41,7 +41,10 @@ export interface DescribeMediaStorageConfigurationCommandOutput
 
 /**
  * @public
- * <p>Returns the most current information about the channel. Specify the <code>ChannelName</code>
+ * <important>
+ *             <p>This API is related to <a href="https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.html">WebRTC Ingestion</a> and is only available in the <code>us-west-2</code> region.</p>
+ *          </important>
+ *          <p>Returns the most current information about the channel. Specify the <code>ChannelName</code>
  *             or <code>ChannelARN</code> in the input.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

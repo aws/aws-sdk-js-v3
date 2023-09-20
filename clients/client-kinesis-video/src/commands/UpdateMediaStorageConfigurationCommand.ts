@@ -41,7 +41,10 @@ export interface UpdateMediaStorageConfigurationCommandOutput
 
 /**
  * @public
- * <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are two signaling modes that
+ * <important>
+ *             <p>This API is related to <a href="https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.html">WebRTC Ingestion</a> and is only available in the <code>us-west-2</code> region.</p>
+ *          </important>
+ *          <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are two signaling modes that
  *             can specified :</p>
  *          <ul>
  *             <li>
