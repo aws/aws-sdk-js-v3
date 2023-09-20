@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.417.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.416.0...v3.417.0) (2023-09-20)
+
+
+### Features
+
+* **client-codeartifact:** Add support for the Swift package format. ([24d8dfe](https://github.com/aws/aws-sdk-js-v3/commit/24d8dfec0838e00b19e513e0c8ca43d42fa80d63))
+
+
+
+
+
 # [3.414.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.413.0...v3.414.0) (2023-09-15)
 
 

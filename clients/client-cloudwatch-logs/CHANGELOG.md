@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.417.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.416.0...v3.417.0) (2023-09-20)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Add ClientToken to QueryDefinition CFN Handler in CWL ([f2d4554](https://github.com/aws/aws-sdk-js-v3/commit/f2d4554c86ff2564cf6d31a11c9759454a3020e0))
+
+
+
+
+
 # [3.414.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.413.0...v3.414.0) (2023-09-15)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.417.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.416.0...v3.417.0) (2023-09-20)
+
+
+### Features
+
+* **client-servicediscovery:** Adds a new DiscoverInstancesRevision API and also adds InstanceRevision field to the DiscoverInstances API response. ([5bfe554](https://github.com/aws/aws-sdk-js-v3/commit/5bfe554e73eabcb636103b3826bb699440e1cb24))
+
+
+
+
+
 # [3.414.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.413.0...v3.414.0) (2023-09-15)
 
 

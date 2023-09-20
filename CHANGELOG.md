@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.417.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.416.0...v3.417.0) (2023-09-20)
+
+
+### Bug Fixes
+
+* **middleware-endpoint-discovery:** assert `clientName` and `commandName` in `context` ([#5232](https://github.com/aws/aws-sdk-js-v3/issues/5232)) ([5c17a3f](https://github.com/aws/aws-sdk-js-v3/commit/5c17a3f00693af803fe1a3f960970f9cd76758d7))
+
+
+### Features
+
+* **client-appconfig:** Enabling boto3 paginators for list APIs and adding documentation around ServiceQuotaExceededException errors ([78ddf33](https://github.com/aws/aws-sdk-js-v3/commit/78ddf33a50bac6a9a0904366f45049432d4fa381))
+* **client-apprunner:** This release adds improvements for managing App Runner auto scaling configuration resources. New APIs: UpdateDefaultAutoScalingConfiguration and ListServicesForAutoScalingConfiguration. Updated API: DeleteAutoScalingConfiguration. ([9ebf966](https://github.com/aws/aws-sdk-js-v3/commit/9ebf966bf5bf97a7ce8195b0724f201fdec88c2c))
+* **client-cloudwatch-logs:** Add ClientToken to QueryDefinition CFN Handler in CWL ([f2d4554](https://github.com/aws/aws-sdk-js-v3/commit/f2d4554c86ff2564cf6d31a11c9759454a3020e0))
+* **client-codeartifact:** Add support for the Swift package format. ([24d8dfe](https://github.com/aws/aws-sdk-js-v3/commit/24d8dfec0838e00b19e513e0c8ca43d42fa80d63))
+* **client-s3:** Fix an issue where the SDK can fail to unmarshall response due to NumberFormatException ([f2b4b67](https://github.com/aws/aws-sdk-js-v3/commit/f2b4b679302ccc12a1ffad4c2676cacd0ee450e3))
+* **client-servicediscovery:** Adds a new DiscoverInstancesRevision API and also adds InstanceRevision field to the DiscoverInstances API response. ([5bfe554](https://github.com/aws/aws-sdk-js-v3/commit/5bfe554e73eabcb636103b3826bb699440e1cb24))
+* **client-sso-oidc:** Update FIPS endpoints in aws-us-gov. ([70e51ce](https://github.com/aws/aws-sdk-js-v3/commit/70e51ce208116de8d6519ee6c3111dd1b4eb4324))
+* **clients:** update client endpoints as of 2023-09-20 ([3f9e483](https://github.com/aws/aws-sdk-js-v3/commit/3f9e4831ca38e32e8a0561cc9415f9b31b31081b))
+
+
+
+
+
 # [3.416.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.415.0...v3.416.0) (2023-09-19)
 
 

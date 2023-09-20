@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.417.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.416.0...v3.417.0) (2023-09-20)
+
+
+### Bug Fixes
+
+* **middleware-endpoint-discovery:** assert `clientName` and `commandName` in `context` ([#5232](https://github.com/aws/aws-sdk-js-v3/issues/5232)) ([5c17a3f](https://github.com/aws/aws-sdk-js-v3/commit/5c17a3f00693af803fe1a3f960970f9cd76758d7))
+
+
+
+
+
 # [3.415.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.414.0...v3.415.0) (2023-09-18)
 
 
