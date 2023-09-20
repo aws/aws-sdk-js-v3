@@ -53,12 +53,12 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  *             <code>MfaDelete</code> request elements in a request to set the versioning state of the
  *          bucket.</p>
  *          <important>
- *             <p>If you have an object expiration lifecycle configuration in your non-versioned bucket and
- *             you want to maintain the same permanent delete behavior when you enable versioning, you
- *             must add a noncurrent expiration policy. The noncurrent expiration lifecycle configuration will
- *             manage the deletes of the noncurrent object versions in the version-enabled bucket. (A
- *             version-enabled bucket maintains one current and zero or more noncurrent object
- *             versions.) For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-and-other-bucket-config">Lifecycle and Versioning</a>.</p>
+ *             <p>If you have an object expiration lifecycle configuration in your non-versioned bucket
+ *             and you want to maintain the same permanent delete behavior when you enable versioning,
+ *             you must add a noncurrent expiration policy. The noncurrent expiration lifecycle
+ *             configuration will manage the deletes of the noncurrent object versions in the
+ *             version-enabled bucket. (A version-enabled bucket maintains one current and zero or more
+ *             noncurrent object versions.) For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-and-other-bucket-config">Lifecycle and Versioning</a>.</p>
  *          </important>
  *          <p>The following operations are related to <code>PutBucketVersioning</code>:</p>
  *          <ul>

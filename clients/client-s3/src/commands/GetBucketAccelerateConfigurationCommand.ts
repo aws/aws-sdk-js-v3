@@ -58,7 +58,8 @@ export interface GetBucketAccelerateConfigurationCommandOutput
  *          has never been set on the bucket. </p>
  *          <p>For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer Acceleration</a> in
  *          the Amazon S3 User Guide.</p>
- *          <p>The following operations are related to <code>GetBucketAccelerateConfiguration</code>:</p>
+ *          <p>The following operations are related to
+ *          <code>GetBucketAccelerateConfiguration</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

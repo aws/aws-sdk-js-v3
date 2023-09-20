@@ -159,6 +159,7 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  *          <p>Amazon S3 has a limitation of 50 routing rules per website configuration. If you require more
  *          than 50 routing rules, you can use object redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">Configuring an
  *             Object Redirect</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>The maximum request length is limited to 128 KB.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

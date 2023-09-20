@@ -41,14 +41,10 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  *          and Amazon S3 Bucket Keys for an existing bucket.</p>
  *          <p>By default, all buckets have a default encryption configuration that uses server-side
  *          encryption with Amazon S3 managed keys (SSE-S3). You can optionally configure default encryption
- *          for a bucket by using server-side encryption with Key Management Service (KMS) keys (SSE-KMS),
- *          dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS), or server-side
- *          encryption with customer-provided keys (SSE-C). If you specify default encryption by using
- *          SSE-KMS, you can also configure Amazon S3 Bucket Keys. For information about bucket default
- *          encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 bucket default encryption</a>
- *          in the <i>Amazon S3 User Guide</i>. For more information about S3 Bucket Keys, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket
- *             Keys</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          for a bucket by using server-side encryption with Key Management Service (KMS) keys (SSE-KMS) or
+ *          dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS). If you specify default encryption by using
+ *          SSE-KMS, you can also configure <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket
+ *             Keys</a>. If you use PutBucketEncryption to set your <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">default bucket encryption</a> to SSE-KMS, you should verify that your KMS key ID is correct. Amazon S3 does not validate the KMS key ID provided in PutBucketEncryption requests.</p>
  *          <important>
  *             <p>This action requires Amazon Web Services Signature Version 4. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">
  *                Authenticating Requests (Amazon Web Services Signature Version 4)</a>. </p>

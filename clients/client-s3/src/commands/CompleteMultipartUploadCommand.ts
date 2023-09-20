@@ -46,12 +46,12 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * <p>Completes a multipart upload by assembling previously uploaded parts.</p>
  *          <p>You first initiate the multipart upload and then upload all parts using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
  *          operation. After successfully uploading all relevant parts of an upload, you call this
- *          action to complete the upload. Upon receiving this request, Amazon S3 concatenates all the
- *          parts in ascending order by part number to create a new object. In the Complete Multipart
- *          Upload request, you must provide the parts list. You must ensure that the parts list is
- *          complete. This action concatenates the parts that you provide in the list. For each part in
- *          the list, you must provide the part number and the <code>ETag</code> value, returned after
- *          that part was uploaded.</p>
+ *          action to complete the upload. Upon receiving this request, Amazon S3 concatenates all the parts
+ *          in ascending order by part number to create a new object. In the Complete Multipart Upload
+ *          request, you must provide the parts list. You must ensure that the parts list is complete.
+ *          This action concatenates the parts that you provide in the list. For each part in the list,
+ *          you must provide the part number and the <code>ETag</code> value, returned after that part
+ *          was uploaded.</p>
  *          <p>Processing of a Complete Multipart Upload request could take several minutes to
  *          complete. After Amazon S3 begins processing the request, it sends an HTTP response header that
  *          specifies a 200 OK response. While processing is in progress, Amazon S3 periodically sends white

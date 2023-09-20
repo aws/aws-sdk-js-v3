@@ -119,15 +119,17 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *          <dl>
  *             <dt>Versioning</dt>
  *             <dd>
- *                <p>If your bucket has versioning enabled, you could have multiple versions of the same
- *                   object. By default, <code>x-amz-copy-source</code> identifies the current version of the
- *                   object to copy. If the current version is a delete marker and you don't specify a versionId
- *                   in the <code>x-amz-copy-source</code>, Amazon S3 returns a 404 error, because the object does
- *                   not exist. If you specify versionId in the <code>x-amz-copy-source</code> and the versionId
- *                   is a delete marker, Amazon S3 returns an HTTP 400 error, because you are not allowed to specify
- *                   a delete marker as a version for the <code>x-amz-copy-source</code>. </p>
- *                <p>You can optionally specify a specific version of the source object to copy by adding the
- *                   <code>versionId</code> subresource as shown in the following example:</p>
+ *                <p>If your bucket has versioning enabled, you could have multiple versions of the
+ *                   same object. By default, <code>x-amz-copy-source</code> identifies the current
+ *                   version of the object to copy. If the current version is a delete marker and you
+ *                   don't specify a versionId in the <code>x-amz-copy-source</code>, Amazon S3 returns a
+ *                   404 error, because the object does not exist. If you specify versionId in the
+ *                      <code>x-amz-copy-source</code> and the versionId is a delete marker, Amazon S3
+ *                   returns an HTTP 400 error, because you are not allowed to specify a delete marker
+ *                   as a version for the <code>x-amz-copy-source</code>. </p>
+ *                <p>You can optionally specify a specific version of the source object to copy by
+ *                   adding the <code>versionId</code> subresource as shown in the following
+ *                   example:</p>
  *                <p>
  *                   <code>x-amz-copy-source: /bucket/object?versionId=version id</code>
  *                </p>
@@ -144,9 +146,9 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *                         </li>
  *                         <li>
  *                            <p>
- *                               <i>Cause: The specified multipart upload does not exist. The upload
- *                               ID might be invalid, or the multipart upload might have been aborted or
- *                               completed.</i>
+ *                               <i>Cause: The specified multipart upload does not exist. The
+ *                                  upload ID might be invalid, or the multipart upload might have been
+ *                                  aborted or completed.</i>
  *                            </p>
  *                         </li>
  *                         <li>
@@ -165,8 +167,8 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *                         </li>
  *                         <li>
  *                            <p>
- *                               <i>Cause: The specified copy source is not supported as a byte-range
- *                               copy source.</i>
+ *                               <i>Cause: The specified copy source is not supported as a
+ *                                  byte-range copy source.</i>
  *                            </p>
  *                         </li>
  *                         <li>

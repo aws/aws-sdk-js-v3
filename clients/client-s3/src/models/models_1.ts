@@ -53,8 +53,10 @@ export interface PutObjectLockConfigurationRequest {
   /**
    * @public
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          owners need not specify this parameter in their requests. If either the source or
+   *          destination Amazon S3 bucket has Requester Pays enabled, the requester will pay for
+   *          corresponding charges to copy the object. For information about downloading objects from
+   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
@@ -133,8 +135,10 @@ export interface PutObjectRetentionRequest {
   /**
    * @public
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          owners need not specify this parameter in their requests. If either the source or
+   *          destination Amazon S3 bucket has Requester Pays enabled, the requester will pay for
+   *          corresponding charges to copy the object. For information about downloading objects from
+   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
@@ -250,8 +254,10 @@ export interface PutObjectTaggingRequest {
   /**
    * @public
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          owners need not specify this parameter in their requests. If either the source or
+   *          destination Amazon S3 bucket has Requester Pays enabled, the requester will pay for
+   *          corresponding charges to copy the object. For information about downloading objects from
+   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
@@ -900,8 +906,10 @@ export interface RestoreObjectRequest {
   /**
    * @public
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          owners need not specify this parameter in their requests. If either the source or
+   *          destination Amazon S3 bucket has Requester Pays enabled, the requester will pay for
+   *          corresponding charges to copy the object. For information about downloading objects from
+   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
@@ -1530,8 +1538,10 @@ export interface UploadPartRequest {
   /**
    * @public
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          owners need not specify this parameter in their requests. If either the source or
+   *          destination Amazon S3 bucket has Requester Pays enabled, the requester will pay for
+   *          corresponding charges to copy the object. For information about downloading objects from
+   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
@@ -1804,8 +1814,10 @@ export interface UploadPartCopyRequest {
   /**
    * @public
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          owners need not specify this parameter in their requests. If either the source or
+   *          destination Amazon S3 bucket has Requester Pays enabled, the requester will pay for
+   *          corresponding charges to copy the object. For information about downloading objects from
+   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
@@ -2163,7 +2175,7 @@ export interface WriteGetObjectResponseRequest {
 
   /**
    * @public
-   * <p> If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
+   * <p> If present, specifies the ID (Key ID, Key ARN, or Key Alias) of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
    *          encryption customer managed key that was used for stored in Amazon S3 object. </p>
    */
   SSEKMSKeyId?: string;

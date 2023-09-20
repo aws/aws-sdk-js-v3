@@ -125,22 +125,25 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>The permissions that you need to use this operation depend on whether the bucket is
- *                   versioned. If the bucket is versioned, you need both the <code>s3:GetObjectVersion</code>
- *                   and <code>s3:GetObjectVersionAttributes</code> permissions for this operation. If the
- *                   bucket is not versioned, you need the <code>s3:GetObject</code> and
- *                   <code>s3:GetObjectAttributes</code> permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
- *                      Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>. If the
- *                   object that you request does not exist, the error Amazon S3 returns depends on whether you also
- *                   have the <code>s3:ListBucket</code> permission.</p>
+ *                <p>The permissions that you need to use this operation depend on whether the
+ *                   bucket is versioned. If the bucket is versioned, you need both the
+ *                      <code>s3:GetObjectVersion</code> and <code>s3:GetObjectVersionAttributes</code>
+ *                   permissions for this operation. If the bucket is not versioned, you need the
+ *                      <code>s3:GetObject</code> and <code>s3:GetObjectAttributes</code> permissions.
+ *                   For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in
+ *                      a Policy</a> in the <i>Amazon S3 User Guide</i>. If the object
+ *                   that you request does not exist, the error Amazon S3 returns depends on whether you
+ *                   also have the <code>s3:ListBucket</code> permission.</p>
  *                <ul>
  *                   <li>
- *                      <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 returns
- *                         an HTTP status code <code>404 Not Found</code> ("no such key") error.</p>
+ *                      <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3
+ *                         returns an HTTP status code <code>404 Not Found</code> ("no such key")
+ *                         error.</p>
  *                   </li>
  *                   <li>
- *                      <p>If you don't have the <code>s3:ListBucket</code> permission, Amazon S3 returns an HTTP
- *                         status code <code>403 Forbidden</code> ("access denied") error.</p>
+ *                      <p>If you don't have the <code>s3:ListBucket</code> permission, Amazon S3 returns
+ *                         an HTTP status code <code>403 Forbidden</code> ("access denied")
+ *                         error.</p>
  *                   </li>
  *                </ul>
  *             </dd>

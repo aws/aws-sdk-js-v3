@@ -66,20 +66,19 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  *             <dt>Permissions</dt>
  *             <dd>
  *                <p>To use this operation, you must have permission to perform the
- *                   <code>s3:PutInventoryConfiguration</code> action. The bucket owner has this permission
- *                   by default and can grant this permission to others. </p>
- *                <p>The <code>s3:PutInventoryConfiguration</code> permission allows a user to create an
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html">S3
- *                      Inventory</a> report that includes all object metadata fields available and to
- *                   specify the destination bucket to store the inventory. A user with read access to objects
- *                   in the destination bucket can also access all object metadata fields that are available in
- *                   the inventory report. </p>
+ *                      <code>s3:PutInventoryConfiguration</code> action. The bucket owner has this
+ *                   permission by default and can grant this permission to others. </p>
+ *                <p>The <code>s3:PutInventoryConfiguration</code> permission allows a user to
+ *                   create an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html">S3 Inventory</a>
+ *                   report that includes all object metadata fields available and to specify the
+ *                   destination bucket to store the inventory. A user with read access to objects in
+ *                   the destination bucket can also access all object metadata fields that are
+ *                   available in the inventory report. </p>
  *                <p>To restrict access to an inventory report, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-10">Restricting access to an Amazon S3 Inventory report</a> in the
- *                   <i>Amazon S3 User Guide</i>. For more information about the metadata fields
- *                   available in S3 Inventory, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html#storage-inventory-contents">Amazon S3
- *                      Inventory lists</a> in the <i>Amazon S3 User Guide</i>. For more
- *                   information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions related to bucket subresource operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Identity and
- *                         access management in Amazon S3</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                      <i>Amazon S3 User Guide</i>. For more information about the metadata
+ *                   fields available in S3 Inventory, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html#storage-inventory-contents">Amazon S3 Inventory lists</a> in the <i>Amazon S3 User Guide</i>. For
+ *                   more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions related to bucket subresource operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Identity and access management in Amazon S3</a> in the
+ *                      <i>Amazon S3 User Guide</i>.</p>
  *             </dd>
  *          </dl>
  *          <p>
@@ -98,17 +97,18 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  *                   <i>Code:</i> TooManyConfigurations</p>
  *                <p>
  *                   <i>Cause:</i> You are attempting to create a new configuration
- *                         but have already reached the 1,000-configuration limit. </p>
+ *                   but have already reached the 1,000-configuration limit. </p>
  *             </dd>
  *             <dt>HTTP 403 Forbidden Error</dt>
  *             <dd>
  *                <p>
- *                   <i>Cause:</i> You are not the owner of the specified bucket,
- *                            or you do not have the <code>s3:PutInventoryConfiguration</code> bucket
- *                            permission to set the configuration on the bucket. </p>
+ *                   <i>Cause:</i> You are not the owner of the specified bucket, or
+ *                   you do not have the <code>s3:PutInventoryConfiguration</code> bucket permission to
+ *                   set the configuration on the bucket. </p>
  *             </dd>
  *          </dl>
- *          <p>The following operations are related to <code>PutBucketInventoryConfiguration</code>:</p>
+ *          <p>The following operations are related to
+ *          <code>PutBucketInventoryConfiguration</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

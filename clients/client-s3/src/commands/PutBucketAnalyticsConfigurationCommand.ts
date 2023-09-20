@@ -123,7 +123,8 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  *                </ul>
  *             </li>
  *          </ul>
- *          <p>The following operations are related to <code>PutBucketAnalyticsConfiguration</code>:</p>
+ *          <p>The following operations are related to
+ *          <code>PutBucketAnalyticsConfiguration</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

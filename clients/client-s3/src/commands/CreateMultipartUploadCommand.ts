@@ -51,7 +51,8 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *          <p>If you have configured a lifecycle rule to abort incomplete multipart uploads, the
  *          upload must complete within the number of days specified in the bucket lifecycle
  *          configuration. Otherwise, the incomplete multipart upload becomes eligible for an abort
- *          action and Amazon S3 aborts the multipart upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p>
+ *          action and Amazon S3 aborts the multipart upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle
+ *          Configuration</a>.</p>
  *          <p>For information about the permissions required to use the multipart upload API, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart
  *             Upload and Permissions</a>.</p>
@@ -126,19 +127,19 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *             </dd>
  *             <dt>Server-Side- Encryption-Specific Request Headers</dt>
  *             <dd>
- *                <p>Amazon S3 encrypts data
- *                   by using server-side encryption with an Amazon S3 managed key (SSE-S3) by default. Server-side encryption is for data encryption at rest. Amazon S3 encrypts
- *                   your data as it writes it to disks in its data centers and decrypts it when you
- *                   access it. You can request that Amazon S3 encrypts
- *                   data at rest by using server-side encryption with other key options. The option you use depends on
+ *                <p>Amazon S3 encrypts data by using server-side encryption with an Amazon S3 managed key
+ *                   (SSE-S3) by default. Server-side encryption is for data encryption at rest. Amazon S3
+ *                   encrypts your data as it writes it to disks in its data centers and decrypts it
+ *                   when you access it. You can request that Amazon S3 encrypts data at rest by using
+ *                   server-side encryption with other key options. The option you use depends on
  *                   whether you want to use KMS keys (SSE-KMS) or provide your own encryption keys
  *                   (SSE-C).</p>
  *                <ul>
  *                   <li>
  *                      <p>Use KMS keys (SSE-KMS) that include the Amazon Web Services managed key
- *                         (<code>aws/s3</code>) and KMS customer managed keys stored in Key Management Service (KMS) – If you
- *                         want Amazon Web Services to manage the keys used to encrypt data, specify the following
- *                         headers in the request.</p>
+ *                            (<code>aws/s3</code>) and KMS customer managed keys stored in Key Management Service (KMS) –
+ *                         If you want Amazon Web Services to manage the keys used to encrypt data, specify the
+ *                         following headers in the request.</p>
  *                      <ul>
  *                         <li>
  *                            <p>
@@ -163,9 +164,10 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                            protect the data.</p>
  *                      </note>
  *                      <important>
- *                         <p>All <code>GET</code> and <code>PUT</code> requests for an object protected
- *                            by KMS fail if you don't make them by using Secure Sockets Layer (SSL),
- *                            Transport Layer Security (TLS), or Signature Version 4.</p>
+ *                         <p>All <code>GET</code> and <code>PUT</code> requests for an object
+ *                            protected by KMS fail if you don't make them by using Secure Sockets
+ *                            Layer (SSL), Transport Layer Security (TLS), or Signature Version
+ *                            4.</p>
  *                      </important>
  *                      <p>For more information about server-side encryption with KMS keys
  *                         (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">Protecting Data

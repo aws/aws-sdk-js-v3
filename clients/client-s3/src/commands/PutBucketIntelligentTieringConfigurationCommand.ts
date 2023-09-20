@@ -69,7 +69,8 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
  *             or Deep Archive Access tier.</p>
  *          </note>
  *          <p>
- *             <code>PutBucketIntelligentTieringConfiguration</code> has the following special errors:</p>
+ *             <code>PutBucketIntelligentTieringConfiguration</code> has the following special
+ *          errors:</p>
  *          <dl>
  *             <dt>HTTP 400 Bad Request Error</dt>
  *             <dd>
@@ -89,9 +90,9 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
  *             <dt>HTTP 403 Forbidden Error</dt>
  *             <dd>
  *                <p>
- *                   <i>Cause:</i> You are not the owner of the specified bucket,
- *                   or you do not have the <code>s3:PutIntelligentTieringConfiguration</code>
- *                   bucket permission to set the configuration on the bucket. </p>
+ *                   <i>Cause:</i> You are not the owner of the specified bucket, or
+ *                   you do not have the <code>s3:PutIntelligentTieringConfiguration</code> bucket
+ *                   permission to set the configuration on the bucket. </p>
  *             </dd>
  *          </dl>
  * @example

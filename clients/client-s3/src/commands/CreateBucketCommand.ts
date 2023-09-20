@@ -45,69 +45,95 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *          rules</a>.</p>
  *          <p>If you want to create an Amazon S3 on Outposts bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html">Create Bucket</a>. </p>
  *          <p>By default, the bucket is created in the US East (N. Virginia) Region. You can
- *          optionally specify a Region in the request body. You might choose a Region to optimize
- *          latency, minimize costs, or address regulatory requirements. For example, if you reside in
- *          Europe, you will probably find it advantageous to create buckets in the Europe (Ireland)
- *          Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro">Accessing a
+ *          optionally specify a Region in the request body. To constrain the bucket creation to a
+ *          specific Region, you can use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketConfiguration.html">
+ *                <code>LocationConstraint</code>
+ *             </a> condition key. You might choose a Region to
+ *          optimize latency, minimize costs, or address regulatory requirements. For example, if you
+ *          reside in Europe, you will probably find it advantageous to create buckets in the Europe
+ *          (Ireland) Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro">Accessing a
  *             bucket</a>.</p>
  *          <note>
  *             <p>If you send your create bucket request to the <code>s3.amazonaws.com</code> endpoint,
- *             the request goes to the <code>us-east-1</code> Region. Accordingly, the signature calculations in
- *             Signature Version 4 must use <code>us-east-1</code> as the Region, even if the location constraint in
- *             the request specifies another Region where the bucket is to be created. If you create a
- *             bucket in a Region other than US East (N. Virginia), your application must be able to
- *             handle 307 redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html">Virtual hosting of
- *             buckets</a>.</p>
+ *             the request goes to the <code>us-east-1</code> Region. Accordingly, the signature
+ *             calculations in Signature Version 4 must use <code>us-east-1</code> as the Region, even
+ *             if the location constraint in the request specifies another Region where the bucket is
+ *             to be created. If you create a bucket in a Region other than US East (N. Virginia), your
+ *             application must be able to handle 307 redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html">Virtual hosting of
+ *                buckets</a>.</p>
  *          </note>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>In addition to <code>s3:CreateBucket</code>, the following permissions are required when
- *                   your <code>CreateBucket</code> request includes specific headers:</p>
+ *                <p>In addition to <code>s3:CreateBucket</code>, the following permissions are
+ *                   required when your <code>CreateBucket</code> request includes specific
+ *                   headers:</p>
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>Access control lists (ACLs)</b> - If your <code>CreateBucket</code> request
- *                         specifies access control list (ACL) permissions and the ACL is public-read, public-read-write,
- *                         authenticated-read, or if you specify access permissions explicitly through any other
- *                         ACL, both <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code> permissions
- *                         are needed. If the ACL for the <code>CreateBucket</code> request is private or if the request doesn't
- *                         specify any ACLs, only <code>s3:CreateBucket</code> permission is needed. </p>
+ *                         <b>Access control lists (ACLs)</b> - If your
+ *                            <code>CreateBucket</code> request specifies access control list (ACL)
+ *                         permissions and the ACL is public-read, public-read-write,
+ *                         authenticated-read, or if you specify access permissions explicitly through
+ *                         any other ACL, both <code>s3:CreateBucket</code> and
+ *                            <code>s3:PutBucketAcl</code> permissions are needed. If the ACL for the
+ *                            <code>CreateBucket</code> request is private or if the request doesn't
+ *                         specify any ACLs, only <code>s3:CreateBucket</code> permission is needed.
+ *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Object Lock</b> - If <code>ObjectLockEnabledForBucket</code> is set to true in your
- *                          <code>CreateBucket</code> request,
- *                          <code>s3:PutBucketObjectLockConfiguration</code> and
- *                          <code>s3:PutBucketVersioning</code> permissions are required.</p>
+ *                         <b>Object Lock</b> - If
+ *                            <code>ObjectLockEnabledForBucket</code> is set to true in your
+ *                            <code>CreateBucket</code> request,
+ *                            <code>s3:PutBucketObjectLockConfiguration</code> and
+ *                            <code>s3:PutBucketVersioning</code> permissions are required.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>S3 Object Ownership</b> - If your <code>CreateBucket</code> request includes the <code>x-amz-object-ownership</code> header, then the
- *                         <code>s3:PutBucketOwnershipControls</code> permission is required. By default, <code>ObjectOwnership</code> is set to <code>BucketOWnerEnforced</code> and ACLs are disabled. We recommend keeping
- *                      ACLs disabled, except in uncommon use cases where you must control access for each object individually. If you want to change the <code>ObjectOwnership</code> setting, you can use the
- *                      <code>x-amz-object-ownership</code> header in your <code>CreateBucket</code> request to set the <code>ObjectOwnership</code> setting of your choice.
- *                         For more information about S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object
- *                            ownership </a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                         <b>S3 Object Ownership</b> - If your
+ *                            <code>CreateBucket</code> request includes the
+ *                            <code>x-amz-object-ownership</code> header, then the
+ *                            <code>s3:PutBucketOwnershipControls</code> permission is required. By
+ *                         default, <code>ObjectOwnership</code> is set to
+ *                            <code>BucketOWnerEnforced</code> and ACLs are disabled. We recommend
+ *                         keeping ACLs disabled, except in uncommon use cases where you must control
+ *                         access for each object individually. If you want to change the
+ *                            <code>ObjectOwnership</code> setting, you can use the
+ *                            <code>x-amz-object-ownership</code> header in your
+ *                            <code>CreateBucket</code> request to set the <code>ObjectOwnership</code>
+ *                         setting of your choice. For more information about S3 Object Ownership, see
+ *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling
+ *                            object ownership </a> in the
+ *                         <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>S3 Block Public Access</b> - If your specific use case requires granting public access to your S3 resources, you can disable Block Public Access. You can create a new bucket with Block Public Access enabled, then separately call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html">
+ *                         <b>S3 Block Public Access</b> - If your
+ *                         specific use case requires granting public access to your S3 resources, you
+ *                         can disable Block Public Access. You can create a new bucket with Block
+ *                         Public Access enabled, then separately call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html">
  *                            <code>DeletePublicAccessBlock</code>
  *                         </a> API. To use this operation, you must have the
- *                         <code>s3:PutBucketPublicAccessBlock</code> permission. By default, all Block
- *                         Public Access settings are enabled for new buckets. To avoid inadvertent exposure of
- *                         your resources, we recommend keeping the S3 Block Public Access settings enabled. For more information about S3 Block Public Access, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Blocking public
- *                            access to your Amazon S3 storage </a> in the <i>Amazon S3 User Guide</i>. </p>
+ *                            <code>s3:PutBucketPublicAccessBlock</code> permission. By default, all
+ *                         Block Public Access settings are enabled for new buckets. To avoid
+ *                         inadvertent exposure of your resources, we recommend keeping the S3 Block
+ *                         Public Access settings enabled. For more information about S3 Block Public
+ *                         Access, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Blocking
+ *                            public access to your Amazon S3 storage </a> in the
+ *                            <i>Amazon S3 User Guide</i>. </p>
  *                   </li>
  *                </ul>
  *             </dd>
  *          </dl>
  *          <important>
- *             <p> If your <code>CreateBucket</code> request sets <code>BucketOwnerEnforced</code> for Amazon S3 Object Ownership
- *          and specifies a bucket ACL that provides access to an external Amazon Web Services account, your request fails with a <code>400</code> error and returns the <code>InvalidBucketAcLWithObjectOwnership</code> error code. For more information,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-ownership-existing-bucket.html">Setting Object
- *             Ownership on an existing bucket </a> in the <i>Amazon S3 User Guide</i>. </p>
+ *             <p> If your <code>CreateBucket</code> request sets <code>BucketOwnerEnforced</code> for
+ *             Amazon S3 Object Ownership and specifies a bucket ACL that provides access to an external
+ *             Amazon Web Services account, your request fails with a <code>400</code> error and returns the
+ *                <code>InvalidBucketAcLWithObjectOwnership</code> error code. For more information,
+ *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-ownership-existing-bucket.html">Setting Object
+ *                Ownership on an existing bucket </a> in the <i>Amazon S3 User Guide</i>.
+ *          </p>
  *          </important>
  *          <p>The following operations are related to <code>CreateBucket</code>:</p>
  *          <ul>

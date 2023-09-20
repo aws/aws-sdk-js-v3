@@ -51,7 +51,8 @@ export interface GetBucketAnalyticsConfigurationCommandOutput
  *             <i>Amazon S3 User Guide</i>. </p>
  *          <p>For information about Amazon S3 analytics feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html">Amazon S3 Analytics – Storage Class
  *             Analysis</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p>The following operations are related to <code>GetBucketAnalyticsConfiguration</code>:</p>
+ *          <p>The following operations are related to
+ *          <code>GetBucketAnalyticsConfiguration</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

@@ -36,9 +36,9 @@ export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>This implementation of the DELETE action resets the default encryption for the
- *          bucket as server-side encryption with Amazon S3 managed keys (SSE-S3). For information about the
- *          bucket default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Bucket Default Encryption</a>
+ * <p>This implementation of the DELETE action resets the default encryption for the bucket as
+ *          server-side encryption with Amazon S3 managed keys (SSE-S3). For information about the bucket
+ *          default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Bucket Default Encryption</a>
  *          in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>To use this operation, you must have permissions to perform the
  *             <code>s3:PutEncryptionConfiguration</code> action. The bucket owner has this permission

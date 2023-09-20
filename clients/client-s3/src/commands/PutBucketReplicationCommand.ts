@@ -42,7 +42,11 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *          <p>Specify the replication configuration in the request body. In the replication
  *          configuration, you provide the name of the destination bucket or buckets where you want
  *          Amazon S3 to replicate objects, the IAM role that Amazon S3 can assume to replicate objects on your
- *          behalf, and other relevant information.</p>
+ *          behalf, and other relevant information. You can invoke this request for a specific
+ *          Amazon Web Services Region by using the
+ *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requestedregion">
+ *                <code>aws:RequestedRegion</code>
+ *             </a> condition key.</p>
  *          <p>A replication configuration must include at least one rule, and can contain a maximum of
  *          1,000. Each rule identifies a subset of objects to replicate by filtering the objects in
  *          the source bucket. To choose additional subsets of objects to replicate, add a rule for
@@ -61,31 +65,33 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *          <dl>
  *             <dt>Handling Replication of Encrypted Objects</dt>
  *             <dd>
- *                <p>By default, Amazon S3 doesn't replicate objects that are stored at rest using server-side
- *                   encryption with KMS keys. To replicate Amazon Web Services KMS-encrypted objects, add the following:
- *                   <code>SourceSelectionCriteria</code>, <code>SseKmsEncryptedObjects</code>,
- *                   <code>Status</code>, <code>EncryptionConfiguration</code>, and
- *                   <code>ReplicaKmsKeyID</code>. For information about replication configuration, see
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating Objects
- *                      Created with SSE Using KMS keys</a>.</p>
+ *                <p>By default, Amazon S3 doesn't replicate objects that are stored at rest using
+ *                   server-side encryption with KMS keys. To replicate Amazon Web Services KMS-encrypted objects,
+ *                   add the following: <code>SourceSelectionCriteria</code>,
+ *                      <code>SseKmsEncryptedObjects</code>, <code>Status</code>,
+ *                      <code>EncryptionConfiguration</code>, and <code>ReplicaKmsKeyID</code>. For
+ *                   information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating
+ *                      Objects Created with SSE Using KMS keys</a>.</p>
  *                <p>For information on <code>PutBucketReplication</code> errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList">List of
- *                   replication-related error codes</a>
+ *                      replication-related error codes</a>
  *                </p>
  *             </dd>
  *             <dt>Permissions</dt>
  *             <dd>
  *                <p>To create a <code>PutBucketReplication</code> request, you must have
- *                   <code>s3:PutReplicationConfiguration</code> permissions for the bucket.
+ *                      <code>s3:PutReplicationConfiguration</code> permissions for the bucket.
  *
  *                </p>
- *                <p>By default, a resource owner, in this case the Amazon Web Services account that created the bucket,
- *                   can perform this operation. The resource owner can also grant others permissions to perform
- *                   the operation. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
- *                      Policy</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to
- *                         Your Amazon S3 Resources</a>.</p>
+ *                <p>By default, a resource owner, in this case the Amazon Web Services account that created the
+ *                   bucket, can perform this operation. The resource owner can also grant others
+ *                   permissions to perform the operation. For more information about permissions, see
+ *                      <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in
+ *                      a Policy</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access
+ *                      Permissions to Your Amazon S3 Resources</a>.</p>
  *                <note>
- *                   <p>To perform this operation, the user or role performing the action must have the
- *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a> permission.</p>
+ *                   <p>To perform this operation, the user or role performing the action must have
+ *                      the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a>
+ *                      permission.</p>
  *                </note>
  *             </dd>
  *          </dl>

@@ -58,7 +58,8 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  *          provide an invalid token, whether there are versioned keys in the request or not, the
  *          entire Multi-Object Delete request will fail. For information about MFA Delete, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#MultiFactorAuthenticationDelete"> MFA
  *             Delete</a>.</p>
- *          <p>Finally, the Content-MD5 header is required for all Multi-Object Delete requests. Amazon S3 uses the header value to ensure that your request body has not been altered in
+ *          <p>Finally, the Content-MD5 header is required for all Multi-Object Delete requests. Amazon S3
+ *          uses the header value to ensure that your request body has not been altered in
  *          transit.</p>
  *          <p>The following operations are related to <code>DeleteObjects</code>:</p>
  *          <ul>

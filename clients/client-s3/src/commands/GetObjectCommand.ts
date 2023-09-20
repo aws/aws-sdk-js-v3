@@ -105,33 +105,36 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You need the relevant read object (or version) permission for this operation. For more
- *                   information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
- *                      Policy</a>. If the object that you request doesn’t exist, the error that Amazon S3 returns depends
- *                   on whether you also have the <code>s3:ListBucket</code> permission.</p>
+ *                <p>You need the relevant read object (or version) permission for this operation.
+ *                   For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in
+ *                      a Policy</a>. If the object that you request doesn’t exist, the error that
+ *                   Amazon S3 returns depends on whether you also have the <code>s3:ListBucket</code>
+ *                   permission.</p>
  *                <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3
- *                         returns an HTTP status code 404 (Not Found) error.</p>
+ *                   returns an HTTP status code 404 (Not Found) error.</p>
  *                <p>If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
- *                         HTTP status code 403 ("access denied") error.</p>
+ *                   HTTP status code 403 ("access denied") error.</p>
  *             </dd>
  *             <dt>Versioning</dt>
  *             <dd>
- *                <p>By default, the <code>GET</code> action returns the current version of an object. To return a
- *                   different version, use the <code>versionId</code> subresource.</p>
+ *                <p>By default, the <code>GET</code> action returns the current version of an
+ *                   object. To return a different version, use the <code>versionId</code>
+ *                   subresource.</p>
  *                <note>
  *                   <ul>
  *                      <li>
  *                         <p> If you supply a <code>versionId</code>, you need the
- *                            <code>s3:GetObjectVersion</code> permission to access a specific version of an
- *                            object. If you request a specific version, you do not need to have the
- *                            <code>s3:GetObject</code> permission. If you request the current version
- *                            without a specific version ID, only <code>s3:GetObject</code> permission is
- *                            required. <code>s3:GetObjectVersion</code> permission won't be required.</p>
+ *                               <code>s3:GetObjectVersion</code> permission to access a specific
+ *                            version of an object. If you request a specific version, you do not need
+ *                            to have the <code>s3:GetObject</code> permission. If you request the
+ *                            current version without a specific version ID, only
+ *                               <code>s3:GetObject</code> permission is required.
+ *                               <code>s3:GetObjectVersion</code> permission won't be required.</p>
  *                      </li>
  *                      <li>
- *                         <p>If the current version of the object is a delete marker, Amazon S3 behaves as if the
- *                            object was deleted and includes <code>x-amz-delete-marker: true</code> in the
- *                            response.</p>
+ *                         <p>If the current version of the object is a delete marker, Amazon S3 behaves
+ *                            as if the object was deleted and includes <code>x-amz-delete-marker:
+ *                               true</code> in the response.</p>
  *                      </li>
  *                   </ul>
  *                </note>
@@ -139,21 +142,24 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  *             </dd>
  *             <dt>Overriding Response Header Values</dt>
  *             <dd>
- *                <p>There are times when you want to override certain response header values in a <code>GET</code>
- *                   response. For example, you might override the <code>Content-Disposition</code> response
- *          header value in your <code>GET</code> request.</p>
+ *                <p>There are times when you want to override certain response header values in a
+ *                      <code>GET</code> response. For example, you might override the
+ *                      <code>Content-Disposition</code> response header value in your <code>GET</code>
+ *                   request.</p>
  *                <p>You can override values for a set of response headers using the following query
- *                   parameters. These response header values are sent only on a successful request, that is,
- *                   when status code 200 OK is returned. The set of headers you can override using these
- *                   parameters is a subset of the headers that Amazon S3 accepts when you create an object. The
- *                   response headers that you can override for the <code>GET</code> response are <code>Content-Type</code>,
- *                   <code>Content-Language</code>, <code>Expires</code>, <code>Cache-Control</code>,
- *                   <code>Content-Disposition</code>, and <code>Content-Encoding</code>. To override these
- *                   header values in the <code>GET</code> response, you use the following request parameters.</p>
+ *                   parameters. These response header values are sent only on a successful request,
+ *                   that is, when status code 200 OK is returned. The set of headers you can override
+ *                   using these parameters is a subset of the headers that Amazon S3 accepts when you
+ *                   create an object. The response headers that you can override for the
+ *                      <code>GET</code> response are <code>Content-Type</code>,
+ *                      <code>Content-Language</code>, <code>Expires</code>,
+ *                   <code>Cache-Control</code>, <code>Content-Disposition</code>, and
+ *                      <code>Content-Encoding</code>. To override these header values in the
+ *                      <code>GET</code> response, you use the following request parameters.</p>
  *                <note>
- *                   <p>You must sign the request, either using an Authorization header or a presigned URL,
- *                      when using these parameters. They cannot be used with an unsigned (anonymous)
- *                      request.</p>
+ *                   <p>You must sign the request, either using an Authorization header or a
+ *                      presigned URL, when using these parameters. They cannot be used with an
+ *                      unsigned (anonymous) request.</p>
  *                </note>
  *                <ul>
  *                   <li>
@@ -190,14 +196,15 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  *             </dd>
  *             <dt>Overriding Response Header Values</dt>
  *             <dd>
- *                <p>If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code> headers are
- *                  present in the request as follows: <code>If-Match</code> condition evaluates to
- *                  <code>true</code>, and; <code>If-Unmodified-Since</code> condition evaluates to
- *                  <code>false</code>; then, S3 returns 200 OK and the data requested. </p>
- *                <p>If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code> headers are
- *                  present in the request as follows:<code> If-None-Match</code> condition evaluates to
- *                  <code>false</code>, and; <code>If-Modified-Since</code> condition evaluates to
- *                  <code>true</code>; then, S3 returns 304 Not Modified response code.</p>
+ *                <p>If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code>
+ *                   headers are present in the request as follows: <code>If-Match</code> condition
+ *                   evaluates to <code>true</code>, and; <code>If-Unmodified-Since</code> condition
+ *                   evaluates to <code>false</code>; then, S3 returns 200 OK and the data requested. </p>
+ *                <p>If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code>
+ *                   headers are present in the request as follows:<code> If-None-Match</code>
+ *                   condition evaluates to <code>false</code>, and; <code>If-Modified-Since</code>
+ *                   condition evaluates to <code>true</code>; then, S3 returns 304 Not Modified
+ *                   response code.</p>
  *                <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
  *             </dd>
  *          </dl>
