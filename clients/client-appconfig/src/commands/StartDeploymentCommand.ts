@@ -106,6 +106,7 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  * //   ],
  * //   KmsKeyArn: "STRING_VALUE",
  * //   KmsKeyIdentifier: "STRING_VALUE",
+ * //   VersionLabel: "STRING_VALUE",
  * // };
  *
  * ```

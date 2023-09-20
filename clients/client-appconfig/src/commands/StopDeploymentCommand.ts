@@ -101,6 +101,7 @@ export interface StopDeploymentCommandOutput extends Deployment, __MetadataBeare
  * //   ],
  * //   KmsKeyArn: "STRING_VALUE",
  * //   KmsKeyIdentifier: "STRING_VALUE",
+ * //   VersionLabel: "STRING_VALUE",
  * // };
  *
  * ```

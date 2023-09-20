@@ -341,6 +341,36 @@ export class InternalServerException extends __BaseException {
 
 /**
  * @public
+ * <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your
+ *          environment doesn't exceed the following service quotas:</p>
+ *          <p>Applications: 100 max</p>
+ *          <p>Deployment strategies: 20 max</p>
+ *          <p>Configuration profiles: 100 max per application</p>
+ *          <p>Environments: 20 max per application</p>
+ *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you
+ *          can request a quota increase. For more information about quotas and to request an increase,
+ *          see <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const ValidatorType = {
@@ -477,8 +507,13 @@ export interface CreateConfigurationProfileRequest {
    *                the format <code>ssm-parameter://<parameter name></code> or the ARN.</p>
    *             </li>
    *             <li>
+   *                <p>For an Amazon Web Services
+   *                CodePipeline pipeline, specify the URI in the following format:
+   *                   <code>codepipeline</code>://<pipeline name>.</p>
+   *             </li>
+   *             <li>
    *                <p>For an Secrets Manager secret, specify the URI in the following format:
-   *                   <code>secrets-manager</code>://<secret name>.</p>
+   *                   <code>secretsmanager</code>://<secret name>.</p>
    *             </li>
    *             <li>
    *                <p>For an Amazon S3 object, specify the URI in the following format:
@@ -994,28 +1029,6 @@ export interface Extension {
 
 /**
  * @public
- * <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted configuration store. Delete one or more versions and try again.</p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
  */
 export interface CreateExtensionAssociationRequest {
   /**
@@ -1142,7 +1155,9 @@ export interface CreateHostedConfigurationVersionRequest {
 
   /**
    * @public
-   * <p>An optional, user-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character. For example, "v2.2.0".</p>
+   * <p>An optional, user-defined label for the AppConfig hosted configuration
+   *          version. This value must contain at least one non-numeric character. For example,
+   *          "v2.2.0".</p>
    */
   VersionLabel?: string;
 }
@@ -1549,9 +1564,19 @@ export interface DeploymentEvent {
   /**
    * @public
    * <p>A description of the deployment event. Descriptions include, but are not limited to, the
-   *          user account or the Amazon CloudWatch alarm ARN that initiated a rollback, the percentage of hosts
-   *          that received the deployment, or in the case of an internal error, a recommendation to
-   *          attempt a new deployment.</p>
+   *          following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The Amazon Web Services account or the Amazon CloudWatch alarm ARN that initiated a rollback.</p>
+   *             </li>
+   *             <li>
+   *                <p>The percentage of hosts that received the deployment.</p>
+   *             </li>
+   *             <li>
+   *                <p>A recommendation to attempt a new deployment (in the case of an internal
+   *                error).</p>
+   *             </li>
+   *          </ul>
    */
   Description?: string;
 
@@ -1723,6 +1748,12 @@ export interface Deployment {
    * <p>The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this ID to encrypt the configuration data using a customer managed key. </p>
    */
   KmsKeyIdentifier?: string;
+
+  /**
+   * @public
+   * <p>A user-defined label for an AppConfig hosted configuration version.</p>
+   */
+  VersionLabel?: string;
 }
 
 /**
@@ -2040,6 +2071,12 @@ export interface DeploymentSummary {
    * <p>Time the deployment completed.</p>
    */
   CompletedAt?: Date;
+
+  /**
+   * @public
+   * <p>A user-defined label for an AppConfig hosted configuration version.</p>
+   */
+  VersionLabel?: string;
 }
 
 /**
@@ -2429,7 +2466,9 @@ export interface ListHostedConfigurationVersionsRequest {
 
   /**
    * @public
-   * <p>An optional filter that can be used to specify the version label of an AppConfig hosted configuration version. This parameter supports filtering by prefix using a wildcard, for example "v2*". If you don't specify an asterisk at the end of the value, only an exact match is returned.</p>
+   * <p>An optional filter that can be used to specify the version label of an AppConfig hosted configuration version. This parameter supports filtering by prefix using a
+   *          wildcard, for example "v2*". If you don't specify an asterisk at the end of the value, only
+   *          an exact match is returned.</p>
    */
   VersionLabel?: string;
 }
@@ -2488,7 +2527,9 @@ export interface StartDeploymentRequest {
 
   /**
    * @public
-   * <p>The configuration version to deploy. If deploying an AppConfig hosted configuration version, you can specify either the version number or version label.</p>
+   * <p>The configuration version to deploy. If deploying an AppConfig hosted
+   *          configuration version, you can specify either the version number or version label. For all
+   *          other configurations, you must specify the version number.</p>
    */
   ConfigurationVersion: string | undefined;
 

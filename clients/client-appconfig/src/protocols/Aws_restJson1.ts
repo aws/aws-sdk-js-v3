@@ -1837,6 +1837,9 @@ const de_CreateApplicationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appconfig#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1897,6 +1900,9 @@ const de_CreateConfigurationProfileCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appconfig#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1954,6 +1960,9 @@ const de_CreateDeploymentStrategyCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appconfig#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2012,6 +2021,9 @@ const de_CreateEnvironmentCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appconfig#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2765,6 +2777,7 @@ export const de_GetDeploymentCommand = async (
     PercentageComplete: __limitedParseFloat32,
     StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     State: __expectString,
+    VersionLabel: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3605,6 +3618,7 @@ export const de_StartDeploymentCommand = async (
     PercentageComplete: __limitedParseFloat32,
     StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     State: __expectString,
+    VersionLabel: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3681,6 +3695,7 @@ export const de_StopDeploymentCommand = async (
     PercentageComplete: __limitedParseFloat32,
     StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     State: __expectString,
+    VersionLabel: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4466,6 +4481,7 @@ const de_DeploymentSummary = (output: any, context: __SerdeContext): DeploymentS
     PercentageComplete: __limitedParseFloat32,
     StartedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     State: __expectString,
+    VersionLabel: __expectString,
   }) as any;
 };
 

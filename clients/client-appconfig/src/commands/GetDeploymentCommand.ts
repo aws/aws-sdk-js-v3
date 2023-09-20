@@ -99,6 +99,7 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * //   ],
  * //   KmsKeyArn: "STRING_VALUE",
  * //   KmsKeyIdentifier: "STRING_VALUE",
+ * //   VersionLabel: "STRING_VALUE",
  * // };
  *
  * ```

@@ -65,6 +65,7 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * //       PercentageComplete: Number("float"),
  * //       StartedAt: new Date("TIMESTAMP"),
  * //       CompletedAt: new Date("TIMESTAMP"),
+ * //       VersionLabel: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
