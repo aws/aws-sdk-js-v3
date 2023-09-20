@@ -275,13 +275,29 @@ export interface Tag {
 export interface CreateAutoScalingConfigurationRequest {
   /**
    * @public
-   * <p>A name for the auto scaling configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number <code>1</code> of this
-   *       name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.</p>
+   * <p>A name for the auto scaling configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number
+   *         <code>1</code> of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.</p>
    *          <note>
-   *             <p>The name <code>DefaultConfiguration</code> is reserved (it's the configuration that App Runner uses if you don't provide a custome one). You can't use it
-   *         to create a new auto scaling configuration, and you can't create a revision of it.</p>
-   *             <p>When you want to use your own auto scaling configuration for your App Runner service, <i>create a configuration with a different name</i>,
-   *         and then provide it when you create or update your service.</p>
+   *             <p>Prior to the release of <a href="https://docs.aws.amazon.com/apprunner/latest/relnotes/release-yyyy-mm-dd-asc-improvements.html">Managing auto
+   *           scaling</a>, the name <code>DefaultConfiguration</code> was reserved. </p>
+   *             <p>This restriction is no longer in place. You can now manage <code>DefaultConfiguration</code> the same way you manage your custom auto scaling
+   *         configurations. This means you can do the following with the <code>DefaultConfiguration</code> that App Runner provides:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Create new revisions of the <code>DefaultConfiguration</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Delete the revisions of the <code>DefaultConfiguration</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Delete the auto scaling configuration for which the App Runner <code>DefaultConfiguration</code> was created.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you delete the auto scaling configuration you can create another custom auto scaling configuration with the same
+   *               <code>DefaultConfiguration</code> name. The original <code>DefaultConfiguration</code> resource provided by App Runner remains in your account unless
+   *             you make changes to it.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    */
   AutoScalingConfigurationName: string | undefined;
@@ -412,6 +428,22 @@ export interface AutoScalingConfiguration {
    * <p>The time when the auto scaling configuration was deleted. It's in Unix time stamp format.</p>
    */
   DeletedAt?: Date;
+
+  /**
+   * @public
+   * <p>Indicates if this auto scaling configuration has an App Runner service associated with it. A value of <code>true</code> indicates one or more services are
+   *       associated. A value of <code>false</code> indicates no services are associated.</p>
+   */
+  HasAssociatedService?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates if this auto scaling configuration should be used as the default for a new App Runner service that does not have an
+   *       auto scaling configuration ARN specified during creation. Each account can have only one
+   *       default <code>AutoScalingConfiguration</code> per region. The default <code>AutoScalingConfiguration</code> can be any revision under
+   *       the same <code>AutoScalingConfigurationName</code>.</p>
+   */
+  IsDefault?: boolean;
 }
 
 /**
@@ -1325,6 +1357,35 @@ export interface AutoScalingConfigurationSummary {
    *         <code>AutoScalingConfigurationName</code>.</p>
    */
   AutoScalingConfigurationRevision?: number;
+
+  /**
+   * @public
+   * <p>The current state of the auto scaling configuration. If the status of a configuration revision is <code>INACTIVE</code>, it was deleted and can't be
+   *       used. Inactive configuration revisions are permanently removed some time after they are deleted.</p>
+   */
+  Status?: AutoScalingConfigurationStatus | string;
+
+  /**
+   * @public
+   * <p>The time when the auto scaling configuration was created. It's in Unix time stamp format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>Indicates if this auto scaling configuration has an App Runner service associated with it. A value of <code>true</code> indicates one or more services are
+   *       associated. A value of <code>false</code> indicates no services are associated.</p>
+   */
+  HasAssociatedService?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates if this auto scaling configuration should be used as the default for a new App Runner service that does not have an
+   *       auto scaling configuration ARN specified during creation. Each account can have only one
+   *       default <code>AutoScalingConfiguration</code> per region. The default <code>AutoScalingConfiguration</code> can be any revision under
+   *       the same <code>AutoScalingConfigurationName</code>.</p>
+   */
+  IsDefault?: boolean;
 }
 
 /**
@@ -1784,6 +1845,14 @@ export interface DeleteAutoScalingConfigurationRequest {
    *             </code>. If a revision isn't specified, the latest active revision is deleted.</p>
    */
   AutoScalingConfigurationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code> parameter value.</p>
+   *          <p>When <code>DeleteAllRevisions</code> is set to <code>true</code>, the only valid value for the Amazon Resource Name (ARN) is a partial ARN ending
+   *       with: <code>.../name</code>.</p>
+   */
+  DeleteAllRevisions?: boolean;
 }
 
 /**
@@ -2619,6 +2688,53 @@ export interface ListServicesResponse {
 /**
  * @public
  */
+export interface ListServicesForAutoScalingConfigurationRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to list the services for.</p>
+   *          <p>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with either <code>.../<i>name</i>
+   *             </code> or
+   *       <code>.../<i>name</i>/<i>revision</i>
+   *             </code>. If a revision isn't specified, the latest active revision is used.</p>
+   */
+  AutoScalingConfigurationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p>
+   *          <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be
+   *       identical to the ones specified in the initial request.</p>
+   *          <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListServicesForAutoScalingConfigurationResponse {
+  /**
+   * @public
+   * <p>A list of service ARN records. In a paginated request, the request returns up to <code>MaxResults</code> records for each call.</p>
+   */
+  ServiceArnList: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * @public
@@ -2887,6 +3003,33 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateDefaultAutoScalingConfigurationRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to set as the default.</p>
+   *          <p>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with either <code>.../<i>name</i>
+   *             </code> or
+   *           <code>.../<i>name</i>/<i>revision</i>
+   *             </code>. If a revision isn't specified, the latest active revision is set as the
+   *       default.</p>
+   */
+  AutoScalingConfigurationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDefaultAutoScalingConfigurationResponse {
+  /**
+   * @public
+   * <p>A description of the App Runner auto scaling configuration that was set as default.</p>
+   */
+  AutoScalingConfiguration: AutoScalingConfiguration | undefined;
+}
 
 /**
  * @public

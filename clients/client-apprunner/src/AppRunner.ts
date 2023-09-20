@@ -129,6 +129,11 @@ import {
   ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
+  ListServicesForAutoScalingConfigurationCommand,
+  ListServicesForAutoScalingConfigurationCommandInput,
+  ListServicesForAutoScalingConfigurationCommandOutput,
+} from "./commands/ListServicesForAutoScalingConfigurationCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -164,6 +169,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateDefaultAutoScalingConfigurationCommand,
+  UpdateDefaultAutoScalingConfigurationCommandInput,
+  UpdateDefaultAutoScalingConfigurationCommandOutput,
+} from "./commands/UpdateDefaultAutoScalingConfigurationCommand";
 import {
   UpdateServiceCommand,
   UpdateServiceCommandInput,
@@ -201,6 +211,7 @@ const commands = {
   ListObservabilityConfigurationsCommand,
   ListOperationsCommand,
   ListServicesCommand,
+  ListServicesForAutoScalingConfigurationCommand,
   ListTagsForResourceCommand,
   ListVpcConnectorsCommand,
   ListVpcIngressConnectionsCommand,
@@ -209,6 +220,7 @@ const commands = {
   StartDeploymentCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateDefaultAutoScalingConfigurationCommand,
   UpdateServiceCommand,
   UpdateVpcIngressConnectionCommand,
 };
@@ -613,6 +625,23 @@ export interface AppRunner {
   ): void;
 
   /**
+   * @see {@link ListServicesForAutoScalingConfigurationCommand}
+   */
+  listServicesForAutoScalingConfiguration(
+    args: ListServicesForAutoScalingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServicesForAutoScalingConfigurationCommandOutput>;
+  listServicesForAutoScalingConfiguration(
+    args: ListServicesForAutoScalingConfigurationCommandInput,
+    cb: (err: any, data?: ListServicesForAutoScalingConfigurationCommandOutput) => void
+  ): void;
+  listServicesForAutoScalingConfiguration(
+    args: ListServicesForAutoScalingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServicesForAutoScalingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -719,6 +748,23 @@ export interface AppRunner {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDefaultAutoScalingConfigurationCommand}
+   */
+  updateDefaultAutoScalingConfiguration(
+    args: UpdateDefaultAutoScalingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDefaultAutoScalingConfigurationCommandOutput>;
+  updateDefaultAutoScalingConfiguration(
+    args: UpdateDefaultAutoScalingConfigurationCommandInput,
+    cb: (err: any, data?: UpdateDefaultAutoScalingConfigurationCommandOutput) => void
+  ): void;
+  updateDefaultAutoScalingConfiguration(
+    args: UpdateDefaultAutoScalingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDefaultAutoScalingConfigurationCommandOutput) => void
   ): void;
 
   /**

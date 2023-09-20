@@ -206,6 +206,10 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //       AutoScalingConfigurationArn: "STRING_VALUE",
  * //       AutoScalingConfigurationName: "STRING_VALUE",
  * //       AutoScalingConfigurationRevision: Number("int"),
+ * //       Status: "ACTIVE" || "INACTIVE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       HasAssociatedService: true || false,
+ * //       IsDefault: true || false,
  * //     },
  * //     NetworkConfiguration: { // NetworkConfiguration
  * //       EgressConfiguration: { // EgressConfiguration

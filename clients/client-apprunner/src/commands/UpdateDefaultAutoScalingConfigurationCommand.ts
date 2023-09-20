@@ -14,10 +14,13 @@ import {
 } from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { DeleteAutoScalingConfigurationRequest, DeleteAutoScalingConfigurationResponse } from "../models/models_0";
 import {
-  de_DeleteAutoScalingConfigurationCommand,
-  se_DeleteAutoScalingConfigurationCommand,
+  UpdateDefaultAutoScalingConfigurationRequest,
+  UpdateDefaultAutoScalingConfigurationResponse,
+} from "../models/models_0";
+import {
+  de_UpdateDefaultAutoScalingConfigurationCommand,
+  se_UpdateDefaultAutoScalingConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -27,36 +30,35 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteAutoScalingConfigurationCommand}.
+ * The input for {@link UpdateDefaultAutoScalingConfigurationCommand}.
  */
-export interface DeleteAutoScalingConfigurationCommandInput extends DeleteAutoScalingConfigurationRequest {}
+export interface UpdateDefaultAutoScalingConfigurationCommandInput
+  extends UpdateDefaultAutoScalingConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteAutoScalingConfigurationCommand}.
+ * The output of {@link UpdateDefaultAutoScalingConfigurationCommand}.
  */
-export interface DeleteAutoScalingConfigurationCommandOutput
-  extends DeleteAutoScalingConfigurationResponse,
+export interface UpdateDefaultAutoScalingConfigurationCommandOutput
+  extends UpdateDefaultAutoScalingConfigurationResponse,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Delete an App Runner automatic scaling configuration resource. You can delete a top level auto scaling configuration, a specific revision of one, or all
- *       revisions associated with the top level configuration. You can't delete the default auto scaling configuration or a configuration that's used by one or
- *       more App Runner services.</p>
+ * <p>Update an auto scaling configuration to be the default. The existing default auto scaling configuration will be set to non-default
+ *       automatically.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, DeleteAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, DeleteAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, UpdateDefaultAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
+ * // const { AppRunnerClient, UpdateDefaultAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
- * const input = { // DeleteAutoScalingConfigurationRequest
+ * const input = { // UpdateDefaultAutoScalingConfigurationRequest
  *   AutoScalingConfigurationArn: "STRING_VALUE", // required
- *   DeleteAllRevisions: true || false,
  * };
- * const command = new DeleteAutoScalingConfigurationCommand(input);
+ * const command = new UpdateDefaultAutoScalingConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // DeleteAutoScalingConfigurationResponse
+ * // { // UpdateDefaultAutoScalingConfigurationResponse
  * //   AutoScalingConfiguration: { // AutoScalingConfiguration
  * //     AutoScalingConfigurationArn: "STRING_VALUE",
  * //     AutoScalingConfigurationName: "STRING_VALUE",
@@ -75,10 +77,10 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteAutoScalingConfigurationCommandInput - {@link DeleteAutoScalingConfigurationCommandInput}
- * @returns {@link DeleteAutoScalingConfigurationCommandOutput}
- * @see {@link DeleteAutoScalingConfigurationCommandInput} for command's `input` shape.
- * @see {@link DeleteAutoScalingConfigurationCommandOutput} for command's `response` shape.
+ * @param UpdateDefaultAutoScalingConfigurationCommandInput - {@link UpdateDefaultAutoScalingConfigurationCommandInput}
+ * @returns {@link UpdateDefaultAutoScalingConfigurationCommandOutput}
+ * @see {@link UpdateDefaultAutoScalingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateDefaultAutoScalingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
@@ -94,9 +96,9 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
-export class DeleteAutoScalingConfigurationCommand extends $Command<
-  DeleteAutoScalingConfigurationCommandInput,
-  DeleteAutoScalingConfigurationCommandOutput,
+export class UpdateDefaultAutoScalingConfigurationCommand extends $Command<
+  UpdateDefaultAutoScalingConfigurationCommandInput,
+  UpdateDefaultAutoScalingConfigurationCommandOutput,
   AppRunnerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -114,7 +116,7 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteAutoScalingConfigurationCommandInput) {
+  constructor(readonly input: UpdateDefaultAutoScalingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -127,17 +129,17 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppRunnerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteAutoScalingConfigurationCommandInput, DeleteAutoScalingConfigurationCommandOutput> {
+  ): Handler<UpdateDefaultAutoScalingConfigurationCommandInput, UpdateDefaultAutoScalingConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteAutoScalingConfigurationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateDefaultAutoScalingConfigurationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AppRunnerClient";
-    const commandName = "DeleteAutoScalingConfigurationCommand";
+    const commandName = "UpdateDefaultAutoScalingConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -157,10 +159,10 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(
-    input: DeleteAutoScalingConfigurationCommandInput,
+    input: UpdateDefaultAutoScalingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return se_DeleteAutoScalingConfigurationCommand(input, context);
+    return se_UpdateDefaultAutoScalingConfigurationCommand(input, context);
   }
 
   /**
@@ -169,8 +171,8 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DeleteAutoScalingConfigurationCommandOutput> {
-    return de_DeleteAutoScalingConfigurationCommand(output, context);
+  ): Promise<UpdateDefaultAutoScalingConfigurationCommandOutput> {
+    return de_UpdateDefaultAutoScalingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

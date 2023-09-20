@@ -14,10 +14,13 @@ import {
 } from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { DeleteAutoScalingConfigurationRequest, DeleteAutoScalingConfigurationResponse } from "../models/models_0";
 import {
-  de_DeleteAutoScalingConfigurationCommand,
-  se_DeleteAutoScalingConfigurationCommand,
+  ListServicesForAutoScalingConfigurationRequest,
+  ListServicesForAutoScalingConfigurationResponse,
+} from "../models/models_0";
+import {
+  de_ListServicesForAutoScalingConfigurationCommand,
+  se_ListServicesForAutoScalingConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -27,58 +30,48 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteAutoScalingConfigurationCommand}.
+ * The input for {@link ListServicesForAutoScalingConfigurationCommand}.
  */
-export interface DeleteAutoScalingConfigurationCommandInput extends DeleteAutoScalingConfigurationRequest {}
+export interface ListServicesForAutoScalingConfigurationCommandInput
+  extends ListServicesForAutoScalingConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteAutoScalingConfigurationCommand}.
+ * The output of {@link ListServicesForAutoScalingConfigurationCommand}.
  */
-export interface DeleteAutoScalingConfigurationCommandOutput
-  extends DeleteAutoScalingConfigurationResponse,
+export interface ListServicesForAutoScalingConfigurationCommandOutput
+  extends ListServicesForAutoScalingConfigurationResponse,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Delete an App Runner automatic scaling configuration resource. You can delete a top level auto scaling configuration, a specific revision of one, or all
- *       revisions associated with the top level configuration. You can't delete the default auto scaling configuration or a configuration that's used by one or
- *       more App Runner services.</p>
+ * <p>Returns a list of the associated App Runner services using an auto scaling configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppRunnerClient, DeleteAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
- * // const { AppRunnerClient, DeleteAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * import { AppRunnerClient, ListServicesForAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
+ * // const { AppRunnerClient, ListServicesForAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
- * const input = { // DeleteAutoScalingConfigurationRequest
+ * const input = { // ListServicesForAutoScalingConfigurationRequest
  *   AutoScalingConfigurationArn: "STRING_VALUE", // required
- *   DeleteAllRevisions: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
- * const command = new DeleteAutoScalingConfigurationCommand(input);
+ * const command = new ListServicesForAutoScalingConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // DeleteAutoScalingConfigurationResponse
- * //   AutoScalingConfiguration: { // AutoScalingConfiguration
- * //     AutoScalingConfigurationArn: "STRING_VALUE",
- * //     AutoScalingConfigurationName: "STRING_VALUE",
- * //     AutoScalingConfigurationRevision: Number("int"),
- * //     Latest: true || false,
- * //     Status: "ACTIVE" || "INACTIVE",
- * //     MaxConcurrency: Number("int"),
- * //     MinSize: Number("int"),
- * //     MaxSize: Number("int"),
- * //     CreatedAt: new Date("TIMESTAMP"),
- * //     DeletedAt: new Date("TIMESTAMP"),
- * //     HasAssociatedService: true || false,
- * //     IsDefault: true || false,
- * //   },
+ * // { // ListServicesForAutoScalingConfigurationResponse
+ * //   ServiceArnList: [ // ServiceArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DeleteAutoScalingConfigurationCommandInput - {@link DeleteAutoScalingConfigurationCommandInput}
- * @returns {@link DeleteAutoScalingConfigurationCommandOutput}
- * @see {@link DeleteAutoScalingConfigurationCommandInput} for command's `input` shape.
- * @see {@link DeleteAutoScalingConfigurationCommandOutput} for command's `response` shape.
+ * @param ListServicesForAutoScalingConfigurationCommandInput - {@link ListServicesForAutoScalingConfigurationCommandInput}
+ * @returns {@link ListServicesForAutoScalingConfigurationCommandOutput}
+ * @see {@link ListServicesForAutoScalingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link ListServicesForAutoScalingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
@@ -94,9 +87,9 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
-export class DeleteAutoScalingConfigurationCommand extends $Command<
-  DeleteAutoScalingConfigurationCommandInput,
-  DeleteAutoScalingConfigurationCommandOutput,
+export class ListServicesForAutoScalingConfigurationCommand extends $Command<
+  ListServicesForAutoScalingConfigurationCommandInput,
+  ListServicesForAutoScalingConfigurationCommandOutput,
   AppRunnerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -114,7 +107,7 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteAutoScalingConfigurationCommandInput) {
+  constructor(readonly input: ListServicesForAutoScalingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -127,17 +120,23 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppRunnerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteAutoScalingConfigurationCommandInput, DeleteAutoScalingConfigurationCommandOutput> {
+  ): Handler<
+    ListServicesForAutoScalingConfigurationCommandInput,
+    ListServicesForAutoScalingConfigurationCommandOutput
+  > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteAutoScalingConfigurationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(
+        configuration,
+        ListServicesForAutoScalingConfigurationCommand.getEndpointParameterInstructions()
+      )
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AppRunnerClient";
-    const commandName = "DeleteAutoScalingConfigurationCommand";
+    const commandName = "ListServicesForAutoScalingConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -157,10 +156,10 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(
-    input: DeleteAutoScalingConfigurationCommandInput,
+    input: ListServicesForAutoScalingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return se_DeleteAutoScalingConfigurationCommand(input, context);
+    return se_ListServicesForAutoScalingConfigurationCommand(input, context);
   }
 
   /**
@@ -169,8 +168,8 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DeleteAutoScalingConfigurationCommandOutput> {
-    return de_DeleteAutoScalingConfigurationCommand(output, context);
+  ): Promise<ListServicesForAutoScalingConfigurationCommandOutput> {
+    return de_ListServicesForAutoScalingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

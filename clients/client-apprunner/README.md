@@ -422,6 +422,14 @@ ListServices
 </details>
 <details>
 <summary>
+ListServicesForAutoScalingConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-apprunner/classes/listservicesforautoscalingconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-apprunner/interfaces/listservicesforautoscalingconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-apprunner/interfaces/listservicesforautoscalingconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
@@ -482,6 +490,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-apprunner/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-apprunner/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-apprunner/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateDefaultAutoScalingConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-apprunner/classes/updatedefaultautoscalingconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-apprunner/interfaces/updatedefaultautoscalingconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-apprunner/interfaces/updatedefaultautoscalingconfigurationcommandoutput.html)
 
 </details>
 <details>

@@ -65,6 +65,8 @@ export interface DescribeAutoScalingConfigurationCommandOutput
  * //     MaxSize: Number("int"),
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     DeletedAt: new Date("TIMESTAMP"),
+ * //     HasAssociatedService: true || false,
+ * //     IsDefault: true || false,
  * //   },
  * // };
  *
