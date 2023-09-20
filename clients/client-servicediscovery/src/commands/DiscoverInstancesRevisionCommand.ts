@@ -13,8 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DiscoverInstancesRequest, DiscoverInstancesResponse } from "../models/models_0";
-import { de_DiscoverInstancesCommand, se_DiscoverInstancesCommand } from "../protocols/Aws_json1_1";
+import { DiscoverInstancesRevisionRequest, DiscoverInstancesRevisionResponse } from "../models/models_0";
+import { de_DiscoverInstancesRevisionCommand, se_DiscoverInstancesRevisionCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
@@ -24,64 +24,41 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DiscoverInstancesCommand}.
+ * The input for {@link DiscoverInstancesRevisionCommand}.
  */
-export interface DiscoverInstancesCommandInput extends DiscoverInstancesRequest {}
+export interface DiscoverInstancesRevisionCommandInput extends DiscoverInstancesRevisionRequest {}
 /**
  * @public
  *
- * The output of {@link DiscoverInstancesCommand}.
+ * The output of {@link DiscoverInstancesRevisionCommand}.
  */
-export interface DiscoverInstancesCommandOutput extends DiscoverInstancesResponse, __MetadataBearer {}
+export interface DiscoverInstancesRevisionCommandOutput extends DiscoverInstancesRevisionResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Discovers registered instances for a specified namespace and service. You can use
- *     <code>DiscoverInstances</code> to discover instances for any type of namespace.
- *     <code>DiscoverInstances</code> returns a randomized list of instances allowing customers to
- *    distribute traffic evenly across instances. For public and private DNS namespaces, you can also
- *    use DNS queries to discover instances.</p>
+ * <p>Discovers the increasing revision associated with an instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceDiscoveryClient, DiscoverInstancesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
- * // const { ServiceDiscoveryClient, DiscoverInstancesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * import { ServiceDiscoveryClient, DiscoverInstancesRevisionCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
+ * // const { ServiceDiscoveryClient, DiscoverInstancesRevisionCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = { // DiscoverInstancesRequest
+ * const input = { // DiscoverInstancesRevisionRequest
  *   NamespaceName: "STRING_VALUE", // required
  *   ServiceName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   QueryParameters: { // Attributes
- *     "<keys>": "STRING_VALUE",
- *   },
- *   OptionalParameters: {
- *     "<keys>": "STRING_VALUE",
- *   },
- *   HealthStatus: "HEALTHY" || "UNHEALTHY" || "ALL" || "HEALTHY_OR_ELSE_ALL",
  * };
- * const command = new DiscoverInstancesCommand(input);
+ * const command = new DiscoverInstancesRevisionCommand(input);
  * const response = await client.send(command);
- * // { // DiscoverInstancesResponse
- * //   Instances: [ // HttpInstanceSummaryList
- * //     { // HttpInstanceSummary
- * //       InstanceId: "STRING_VALUE",
- * //       NamespaceName: "STRING_VALUE",
- * //       ServiceName: "STRING_VALUE",
- * //       HealthStatus: "HEALTHY" || "UNHEALTHY" || "UNKNOWN",
- * //       Attributes: { // Attributes
- * //         "<keys>": "STRING_VALUE",
- * //       },
- * //     },
- * //   ],
+ * // { // DiscoverInstancesRevisionResponse
  * //   InstancesRevision: Number("long"),
  * // };
  *
  * ```
  *
- * @param DiscoverInstancesCommandInput - {@link DiscoverInstancesCommandInput}
- * @returns {@link DiscoverInstancesCommandOutput}
- * @see {@link DiscoverInstancesCommandInput} for command's `input` shape.
- * @see {@link DiscoverInstancesCommandOutput} for command's `response` shape.
+ * @param DiscoverInstancesRevisionCommandInput - {@link DiscoverInstancesRevisionCommandInput}
+ * @returns {@link DiscoverInstancesRevisionCommandOutput}
+ * @see {@link DiscoverInstancesRevisionCommandInput} for command's `input` shape.
+ * @see {@link DiscoverInstancesRevisionCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
@@ -103,40 +80,10 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @example Example: Discover registered instances
- * ```javascript
- * // Example: Discover registered instances
- * const input = {
- *   "HealthStatus": "ALL",
- *   "MaxResults": 10,
- *   "NamespaceName": "example.com",
- *   "ServiceName": "myservice"
- * };
- * const command = new DiscoverInstancesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Instances": [
- *     {
- *       "Attributes": {
- *         "AWS_INSTANCE_IPV4": "172.2.1.3",
- *         "AWS_INSTANCE_PORT": "808"
- *       },
- *       "HealthStatus": "UNKNOWN",
- *       "InstanceId": "myservice-53",
- *       "NamespaceName": "example.com",
- *       "ServiceName": "myservice"
- *     }
- *   ]
- * }
- * *\/
- * // example id: example-discover-registered-instances-1587236343568
- * ```
- *
  */
-export class DiscoverInstancesCommand extends $Command<
-  DiscoverInstancesCommandInput,
-  DiscoverInstancesCommandOutput,
+export class DiscoverInstancesRevisionCommand extends $Command<
+  DiscoverInstancesRevisionCommandInput,
+  DiscoverInstancesRevisionCommandOutput,
   ServiceDiscoveryClientResolvedConfig
 > {
   // Start section: command_properties
@@ -154,7 +101,7 @@ export class DiscoverInstancesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DiscoverInstancesCommandInput) {
+  constructor(readonly input: DiscoverInstancesRevisionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -167,17 +114,17 @@ export class DiscoverInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DiscoverInstancesCommandInput, DiscoverInstancesCommandOutput> {
+  ): Handler<DiscoverInstancesRevisionCommandInput, DiscoverInstancesRevisionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DiscoverInstancesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DiscoverInstancesRevisionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ServiceDiscoveryClient";
-    const commandName = "DiscoverInstancesCommand";
+    const commandName = "DiscoverInstancesRevisionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -196,15 +143,18 @@ export class DiscoverInstancesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DiscoverInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DiscoverInstancesCommand(input, context);
+  private serialize(input: DiscoverInstancesRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DiscoverInstancesRevisionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DiscoverInstancesCommandOutput> {
-    return de_DiscoverInstancesCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DiscoverInstancesRevisionCommandOutput> {
+    return de_DiscoverInstancesRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

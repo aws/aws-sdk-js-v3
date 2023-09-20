@@ -276,6 +276,14 @@ DiscoverInstances
 </details>
 <details>
 <summary>
+DiscoverInstancesRevision
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-servicediscovery/classes/discoverinstancesrevisioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-servicediscovery/interfaces/discoverinstancesrevisioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-servicediscovery/interfaces/discoverinstancesrevisioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetInstance
 </summary>
 

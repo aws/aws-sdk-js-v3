@@ -37,7 +37,7 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
 /**
  * @public
  * <p>Gets information about any operation that returns an operation ID in the response, such as a
- *     <code>CreateService</code> request.</p>
+ *     <code>CreateHttpNamespace</code> request.</p>
  *          <note>
  *             <p>To get a list of operations that match specified criteria, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html">ListOperations</a>.</p>
  *          </note>

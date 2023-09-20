@@ -7,6 +7,7 @@ export * from "./DeleteNamespaceCommand";
 export * from "./DeleteServiceCommand";
 export * from "./DeregisterInstanceCommand";
 export * from "./DiscoverInstancesCommand";
+export * from "./DiscoverInstancesRevisionCommand";
 export * from "./GetInstanceCommand";
 export * from "./GetInstancesHealthStatusCommand";
 export * from "./GetNamespaceCommand";

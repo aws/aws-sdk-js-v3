@@ -67,6 +67,10 @@ import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./com
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
 import { DeregisterInstanceCommandInput, DeregisterInstanceCommandOutput } from "./commands/DeregisterInstanceCommand";
 import { DiscoverInstancesCommandInput, DiscoverInstancesCommandOutput } from "./commands/DiscoverInstancesCommand";
+import {
+  DiscoverInstancesRevisionCommandInput,
+  DiscoverInstancesRevisionCommandOutput,
+} from "./commands/DiscoverInstancesRevisionCommand";
 import { GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
 import {
   GetInstancesHealthStatusCommandInput,
@@ -126,6 +130,7 @@ export type ServiceInputTypes =
   | DeleteServiceCommandInput
   | DeregisterInstanceCommandInput
   | DiscoverInstancesCommandInput
+  | DiscoverInstancesRevisionCommandInput
   | GetInstanceCommandInput
   | GetInstancesHealthStatusCommandInput
   | GetNamespaceCommandInput
@@ -157,6 +162,7 @@ export type ServiceOutputTypes =
   | DeleteServiceCommandOutput
   | DeregisterInstanceCommandOutput
   | DiscoverInstancesCommandOutput
+  | DiscoverInstancesRevisionCommandOutput
   | GetInstanceCommandOutput
   | GetInstancesHealthStatusCommandOutput
   | GetNamespaceCommandOutput
