@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { StopAppReplicationRequest, StopAppReplicationResponse } from "../models/models_0";
@@ -129,6 +130,10 @@ export class StopAppReplicationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSServerMigrationService_V2016_10_24",
+        operation: "StopAppReplication",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

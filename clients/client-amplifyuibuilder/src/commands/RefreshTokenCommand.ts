@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
@@ -125,6 +126,10 @@ export class RefreshTokenCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: RefreshTokenRequestFilterSensitiveLog,
       outputFilterSensitiveLog: RefreshTokenResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmplifyUIBuilder",
+        operation: "RefreshToken",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

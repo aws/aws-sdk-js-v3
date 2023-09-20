@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { RespondActivityTaskFailedInput } from "../models/models_0";
@@ -150,6 +151,10 @@ export class RespondActivityTaskFailedCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SimpleWorkflowService",
+        operation: "RespondActivityTaskFailed",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

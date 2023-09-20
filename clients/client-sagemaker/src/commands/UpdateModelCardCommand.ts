@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -134,6 +135,10 @@ export class UpdateModelCardCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateModelCardRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "UpdateModelCard",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

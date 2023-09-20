@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetGroupRequest, GetGroupResult } from "../models/models_0";
@@ -123,6 +124,10 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSXRay",
+        operation: "GetGroup",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -146,6 +147,10 @@ export class GetImageSetMetadataCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetImageSetMetadataResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AHIGatewayService",
+        operation: "GetImageSetMetadata",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -222,6 +223,10 @@ export class StartAppAssessmentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: StartAppAssessmentRequestFilterSensitiveLog,
       outputFilterSensitiveLog: StartAppAssessmentResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AwsResilienceHub",
+        operation: "StartAppAssessment",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

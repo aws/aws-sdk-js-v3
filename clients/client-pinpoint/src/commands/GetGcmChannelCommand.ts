@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetGcmChannelRequest, GetGcmChannelResponse } from "../models/models_1";
@@ -147,6 +148,10 @@ export class GetGcmChannelCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Pinpoint",
+        operation: "GetGcmChannel",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

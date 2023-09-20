@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteObjectOutput, DeleteObjectRequest } from "../models/models_0";
@@ -96,18 +97,6 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @example To delete an object
- * ```javascript
- * // The following example deletes an object from an S3 bucket.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "objectkey.jpg"
- * };
- * const command = new DeleteObjectCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-object-1472850136595
- * ```
- *
  * @example To delete an object (from a non-versioned bucket)
  * ```javascript
  * // The following example deletes an object from a non-versioned bucket.
@@ -118,6 +107,18 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * const command = new DeleteObjectCommand(input);
  * await client.send(command);
  * // example id: to-delete-an-object-from-a-non-versioned-bucket-1481588533089
+ * ```
+ *
+ * @example To delete an object
+ * ```javascript
+ * // The following example deletes an object from an S3 bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "objectkey.jpg"
+ * };
+ * const command = new DeleteObjectCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-object-1472850136595
  * ```
  *
  */
@@ -175,6 +176,10 @@ export class DeleteObjectCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonS3",
+        operation: "DeleteObject",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

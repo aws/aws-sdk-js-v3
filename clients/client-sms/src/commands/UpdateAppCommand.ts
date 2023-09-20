@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UpdateAppRequest, UpdateAppResponse } from "../models/models_0";
@@ -211,6 +212,10 @@ export class UpdateAppCommand extends $Command<UpdateAppCommandInput, UpdateAppC
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSServerMigrationService_V2016_10_24",
+        operation: "UpdateApp",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

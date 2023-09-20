@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -168,6 +169,10 @@ export class GetMaintenanceWindowExecutionTaskCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMaintenanceWindowExecutionTaskResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSSM",
+        operation: "GetMaintenanceWindowExecutionTask",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

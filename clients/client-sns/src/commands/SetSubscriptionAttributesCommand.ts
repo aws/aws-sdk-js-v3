@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { SetSubscriptionAttributesInput } from "../models/models_0";
@@ -133,6 +134,10 @@ export class SetSubscriptionAttributesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSimpleNotificationService",
+        operation: "SetSubscriptionAttributes",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

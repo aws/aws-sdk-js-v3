@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteBrokerRequest, DeleteBrokerResponse } from "../models/models_0";
@@ -124,6 +125,10 @@ export class DeleteBrokerCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "mq",
+        operation: "DeleteBroker",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

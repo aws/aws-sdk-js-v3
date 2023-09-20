@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CrlDetailResponse, ImportCrlRequest, ImportCrlRequestFilterSensitiveLog } from "../models/models_0";
@@ -142,6 +143,10 @@ export class ImportCrlCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ImportCrlRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RolesAnywhere",
+        operation: "ImportCrl",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

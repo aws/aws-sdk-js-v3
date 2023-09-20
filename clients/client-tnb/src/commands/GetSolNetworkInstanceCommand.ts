@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -150,6 +151,10 @@ export class GetSolNetworkInstanceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSolNetworkInstanceOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "TNB",
+        operation: "GetSolNetworkInstance",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

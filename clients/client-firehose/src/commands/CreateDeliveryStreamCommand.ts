@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
@@ -607,6 +608,10 @@ export class CreateDeliveryStreamCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateDeliveryStreamInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Firehose_20150804",
+        operation: "CreateDeliveryStream",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -177,6 +178,10 @@ export class ListDevicesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ListDevicesRequestFilterSensitiveLog,
       outputFilterSensitiveLog: ListDevicesResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCognitoIdentityProviderService",
+        operation: "ListDevices",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

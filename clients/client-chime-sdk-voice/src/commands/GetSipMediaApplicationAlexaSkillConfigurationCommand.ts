@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
@@ -156,6 +157,10 @@ export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSipMediaApplicationAlexaSkillConfigurationResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ChimeSDKTelephonyService",
+        operation: "GetSipMediaApplicationAlexaSkillConfiguration",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

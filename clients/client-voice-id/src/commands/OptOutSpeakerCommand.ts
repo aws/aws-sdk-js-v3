@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -159,6 +160,10 @@ export class OptOutSpeakerCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: OptOutSpeakerRequestFilterSensitiveLog,
       outputFilterSensitiveLog: OptOutSpeakerResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "VoiceID",
+        operation: "OptOutSpeaker",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

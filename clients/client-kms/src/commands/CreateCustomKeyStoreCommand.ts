@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
@@ -412,6 +413,10 @@ export class CreateCustomKeyStoreCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateCustomKeyStoreRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "TrentService",
+        operation: "CreateCustomKeyStore",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

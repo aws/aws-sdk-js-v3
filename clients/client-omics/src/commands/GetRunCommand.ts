@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetRunRequest, GetRunResponse } from "../models/models_0";
@@ -163,6 +164,10 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Omics",
+        operation: "GetRun",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

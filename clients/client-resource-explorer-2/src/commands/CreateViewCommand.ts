@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -180,6 +181,10 @@ export class CreateViewCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateViewInputFilterSensitiveLog,
       outputFilterSensitiveLog: CreateViewOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ResourceExplorer",
+        operation: "CreateView",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

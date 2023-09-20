@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { StopProjectVersionRequest, StopProjectVersionResponse } from "../models/models_1";
@@ -155,6 +156,10 @@ export class StopProjectVersionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RekognitionService",
+        operation: "StopProjectVersion",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

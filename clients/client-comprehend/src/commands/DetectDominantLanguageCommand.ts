@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
@@ -134,6 +135,10 @@ export class DetectDominantLanguageCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: DetectDominantLanguageRequestFilterSensitiveLog,
       outputFilterSensitiveLog: DetectDominantLanguageResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Comprehend_20171127",
+        operation: "DetectDominantLanguage",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

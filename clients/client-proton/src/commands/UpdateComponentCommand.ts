@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -173,6 +174,10 @@ export class UpdateComponentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateComponentInputFilterSensitiveLog,
       outputFilterSensitiveLog: UpdateComponentOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AwsProton20200720",
+        operation: "UpdateComponent",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

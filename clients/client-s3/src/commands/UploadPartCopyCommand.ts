@@ -13,6 +13,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -378,6 +379,10 @@ export class UploadPartCopyCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UploadPartCopyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: UploadPartCopyOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonS3",
+        operation: "UploadPartCopy",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

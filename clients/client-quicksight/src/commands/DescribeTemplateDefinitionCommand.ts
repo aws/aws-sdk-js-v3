@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -4623,6 +4624,10 @@ export class DescribeTemplateDefinitionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeTemplateDefinitionResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "QuickSight_20180401",
+        operation: "DescribeTemplateDefinition",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

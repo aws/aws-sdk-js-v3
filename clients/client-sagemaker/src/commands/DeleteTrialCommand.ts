@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteTrialRequest, DeleteTrialResponse } from "../models/models_2";
@@ -117,6 +118,10 @@ export class DeleteTrialCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "DeleteTrial",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

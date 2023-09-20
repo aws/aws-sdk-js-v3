@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AssumeRoleRequest, AssumeRoleResponse, AssumeRoleResponseFilterSensitiveLog } from "../models/models_0";
@@ -313,6 +314,10 @@ export class AssumeRoleCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: AssumeRoleResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSSecurityTokenServiceV20110615",
+        operation: "AssumeRole",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

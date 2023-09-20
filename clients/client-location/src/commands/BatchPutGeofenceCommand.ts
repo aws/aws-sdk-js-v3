@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
@@ -173,6 +174,10 @@ export class BatchPutGeofenceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: BatchPutGeofenceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "LocationService",
+        operation: "BatchPutGeofence",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

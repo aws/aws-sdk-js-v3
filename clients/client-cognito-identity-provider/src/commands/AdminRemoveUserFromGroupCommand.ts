@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -161,6 +162,10 @@ export class AdminRemoveUserFromGroupCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: AdminRemoveUserFromGroupRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCognitoIdentityProviderService",
+        operation: "AdminRemoveUserFromGroup",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

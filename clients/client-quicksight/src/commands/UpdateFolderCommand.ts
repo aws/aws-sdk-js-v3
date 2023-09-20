@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UpdateFolderRequest, UpdateFolderResponse } from "../models/models_4";
@@ -147,6 +148,10 @@ export class UpdateFolderCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "QuickSight_20180401",
+        operation: "UpdateFolder",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

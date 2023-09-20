@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
@@ -265,6 +266,10 @@ export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOut
       commandName,
       inputFilterSensitiveLog: InvocationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: InvocationResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGirApiService",
+        operation: "Invoke",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

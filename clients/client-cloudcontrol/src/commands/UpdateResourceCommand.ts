@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
@@ -219,6 +220,10 @@ export class UpdateResourceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateResourceInputFilterSensitiveLog,
       outputFilterSensitiveLog: UpdateResourceOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CloudApiService",
+        operation: "UpdateResource",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

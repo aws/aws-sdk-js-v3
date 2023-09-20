@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ModifyDocumentPermissionRequest, ModifyDocumentPermissionResponse } from "../models/models_1";
@@ -144,6 +145,10 @@ export class ModifyDocumentPermissionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSSM",
+        operation: "ModifyDocumentPermission",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

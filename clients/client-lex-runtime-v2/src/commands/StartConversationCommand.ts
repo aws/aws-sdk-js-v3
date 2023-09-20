@@ -13,6 +13,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
@@ -523,6 +524,10 @@ export class StartConversationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: StartConversationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: StartConversationResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSDeepSenseRunTimeServiceApi2_0",
+        operation: "StartConversation",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

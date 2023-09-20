@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -184,6 +185,10 @@ export class GetSessionEmbedUrlCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSessionEmbedUrlResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "QuickSight_20180401",
+        operation: "GetSessionEmbedUrl",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

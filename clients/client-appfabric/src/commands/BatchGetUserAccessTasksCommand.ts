@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
@@ -157,6 +158,10 @@ export class BatchGetUserAccessTasksCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: BatchGetUserAccessTasksResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "FabricFrontEndService",
+        operation: "BatchGetUserAccessTasks",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

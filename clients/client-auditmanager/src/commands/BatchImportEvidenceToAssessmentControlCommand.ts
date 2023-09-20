@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
@@ -186,6 +187,10 @@ export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: BatchImportEvidenceToAssessmentControlRequestFilterSensitiveLog,
       outputFilterSensitiveLog: BatchImportEvidenceToAssessmentControlResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "BedrockAssessmentManagerLambda",
+        operation: "BatchImportEvidenceToAssessmentControl",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

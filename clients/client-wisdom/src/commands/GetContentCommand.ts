@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetContentRequest, GetContentResponse, GetContentResponseFilterSensitiveLog } from "../models/models_0";
@@ -141,6 +142,10 @@ export class GetContentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetContentResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "WisdomService",
+        operation: "GetContent",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,6 +13,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { PutBucketVersioningRequest } from "../models/models_0";
@@ -187,6 +188,10 @@ export class PutBucketVersioningCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSS3ControlServiceV20180820",
+        operation: "PutBucketVersioning",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

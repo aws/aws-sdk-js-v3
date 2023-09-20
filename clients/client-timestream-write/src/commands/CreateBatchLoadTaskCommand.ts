@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -226,6 +227,10 @@ export class CreateBatchLoadTaskCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateBatchLoadTaskRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Timestream_20181101",
+        operation: "CreateBatchLoadTask",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

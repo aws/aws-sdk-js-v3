@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetAccountRequest, GetAccountResponse, GetAccountResponseFilterSensitiveLog } from "../models/models_0";
@@ -152,6 +153,10 @@ export class GetAccountCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetAccountResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SimpleEmailService_v2",
+        operation: "GetAccount",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

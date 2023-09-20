@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
@@ -197,6 +198,10 @@ export class CreateCalculatedAttributeDefinitionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateCalculatedAttributeDefinitionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateCalculatedAttributeDefinitionResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CustomerProfiles_20200815",
+        operation: "CreateCalculatedAttributeDefinition",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

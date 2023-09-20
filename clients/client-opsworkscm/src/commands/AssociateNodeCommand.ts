@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -151,6 +152,10 @@ export class AssociateNodeCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: AssociateNodeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "OpsWorksCM_V2016_11_01",
+        operation: "AssociateNode",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

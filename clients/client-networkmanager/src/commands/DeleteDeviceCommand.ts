@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteDeviceRequest, DeleteDeviceResponse, DeleteDeviceResponseFilterSensitiveLog } from "../models/models_0";
@@ -160,6 +161,10 @@ export class DeleteDeviceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteDeviceResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "NetworkManager",
+        operation: "DeleteDevice",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

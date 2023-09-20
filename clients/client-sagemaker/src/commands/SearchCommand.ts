@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { SearchRequest, SearchResponse, SearchResponseFilterSensitiveLog } from "../models/models_4";
@@ -2074,6 +2075,10 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SearchResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "Search",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

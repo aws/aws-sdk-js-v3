@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreateInferenceExperimentRequest, CreateInferenceExperimentResponse } from "../models/models_1";
@@ -184,6 +185,10 @@ export class CreateInferenceExperimentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "CreateInferenceExperiment",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

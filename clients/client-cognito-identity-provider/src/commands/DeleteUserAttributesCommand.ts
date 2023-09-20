@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -160,6 +161,10 @@ export class DeleteUserAttributesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: DeleteUserAttributesRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCognitoIdentityProviderService",
+        operation: "DeleteUserAttributes",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

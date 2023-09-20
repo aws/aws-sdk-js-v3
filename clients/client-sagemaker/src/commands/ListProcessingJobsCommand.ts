@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListProcessingJobsRequest, ListProcessingJobsResponse } from "../models/models_3";
@@ -135,6 +136,10 @@ export class ListProcessingJobsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "ListProcessingJobs",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

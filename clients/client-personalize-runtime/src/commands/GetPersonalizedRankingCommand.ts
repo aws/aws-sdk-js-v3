@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -151,6 +152,10 @@ export class GetPersonalizedRankingCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: GetPersonalizedRankingRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonPersonalizeRuntime",
+        operation: "GetPersonalizedRanking",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

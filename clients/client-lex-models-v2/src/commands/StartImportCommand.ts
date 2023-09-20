@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
@@ -240,6 +241,10 @@ export class StartImportCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: StartImportRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "LexModelBuildingServiceV2",
+        operation: "StartImport",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

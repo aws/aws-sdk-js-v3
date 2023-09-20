@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CancelClusterRequest, CancelClusterResult } from "../models/models_0";
@@ -135,6 +136,10 @@ export class CancelClusterCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSIESnowballJobManagementService",
+        operation: "CancelCluster",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

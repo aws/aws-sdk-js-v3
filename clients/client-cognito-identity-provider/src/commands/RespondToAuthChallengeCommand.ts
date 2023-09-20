@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -256,6 +257,10 @@ export class RespondToAuthChallengeCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: RespondToAuthChallengeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: RespondToAuthChallengeResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCognitoIdentityProviderService",
+        operation: "RespondToAuthChallenge",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

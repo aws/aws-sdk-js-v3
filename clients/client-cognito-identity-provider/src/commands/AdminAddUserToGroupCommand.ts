@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -161,6 +162,10 @@ export class AdminAddUserToGroupCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: AdminAddUserToGroupRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCognitoIdentityProviderService",
+        operation: "AdminAddUserToGroup",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

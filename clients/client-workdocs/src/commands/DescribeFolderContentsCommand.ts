@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -200,6 +201,10 @@ export class DescribeFolderContentsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: DescribeFolderContentsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: DescribeFolderContentsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGorillaBoyService",
+        operation: "DescribeFolderContents",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
@@ -162,6 +163,10 @@ export class ConfigureLogsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ConfigureLogsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "MediaPackage",
+        operation: "ConfigureLogs",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

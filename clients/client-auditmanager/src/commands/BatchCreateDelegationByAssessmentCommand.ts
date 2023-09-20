@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
@@ -172,6 +173,10 @@ export class BatchCreateDelegationByAssessmentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: BatchCreateDelegationByAssessmentRequestFilterSensitiveLog,
       outputFilterSensitiveLog: BatchCreateDelegationByAssessmentResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "BedrockAssessmentManagerLambda",
+        operation: "BatchCreateDelegationByAssessment",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

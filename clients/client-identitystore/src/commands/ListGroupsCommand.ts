@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
@@ -160,6 +161,10 @@ export class ListGroupsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ListGroupsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: ListGroupsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSIdentityStore",
+        operation: "ListGroups",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

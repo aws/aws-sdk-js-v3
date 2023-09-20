@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { QueryLineageRequest, QueryLineageResponse } from "../models/models_4";
@@ -153,6 +154,10 @@ export class QueryLineageCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "QueryLineage",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

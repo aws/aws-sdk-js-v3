@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribePackageImportJobRequest, DescribePackageImportJobResponse } from "../models/models_0";
@@ -165,6 +166,10 @@ export class DescribePackageImportJobCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "OmniCloudServiceLambda",
+        operation: "DescribePackageImportJob",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

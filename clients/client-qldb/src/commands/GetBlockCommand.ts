@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -142,6 +143,10 @@ export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockComm
       commandName,
       inputFilterSensitiveLog: GetBlockRequestFilterSensitiveLog,
       outputFilterSensitiveLog: GetBlockResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonQLDB",
+        operation: "GetBlock",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

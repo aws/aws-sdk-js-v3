@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
@@ -133,6 +134,10 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonInteractiveVideoServiceChat",
+        operation: "GetRoom",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

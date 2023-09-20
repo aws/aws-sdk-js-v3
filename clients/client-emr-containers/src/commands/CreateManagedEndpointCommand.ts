@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
@@ -173,6 +174,10 @@ export class CreateManagedEndpointCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateManagedEndpointRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AwsChicagoWebService",
+        operation: "CreateManagedEndpoint",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

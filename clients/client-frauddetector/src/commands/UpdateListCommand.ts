@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
@@ -136,6 +137,10 @@ export class UpdateListCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateListRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSHawksNestServiceFacade",
+        operation: "UpdateList",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

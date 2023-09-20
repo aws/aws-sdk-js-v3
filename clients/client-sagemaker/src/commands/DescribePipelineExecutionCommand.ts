@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribePipelineExecutionRequest, DescribePipelineExecutionResponse } from "../models/models_2";
@@ -159,6 +160,10 @@ export class DescribePipelineExecutionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "DescribePipelineExecution",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

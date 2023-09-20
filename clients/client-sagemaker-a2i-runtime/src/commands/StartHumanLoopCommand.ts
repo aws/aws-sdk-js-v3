@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { StartHumanLoopRequest, StartHumanLoopResponse } from "../models/models_0";
@@ -152,6 +153,10 @@ export class StartHumanLoopCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSageMakerA2IRuntime",
+        operation: "StartHumanLoop",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

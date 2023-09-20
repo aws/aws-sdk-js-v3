@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { TerminateWorkflowExecutionInput } from "../models/models_0";
@@ -162,6 +163,10 @@ export class TerminateWorkflowExecutionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SimpleWorkflowService",
+        operation: "TerminateWorkflowExecution",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

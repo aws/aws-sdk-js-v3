@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreateDeploymentJobRequest, CreateDeploymentJobResponse } from "../models/models_0";
@@ -212,6 +213,10 @@ export class CreateDeploymentJobCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "robomaker",
+        operation: "CreateDeploymentJob",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

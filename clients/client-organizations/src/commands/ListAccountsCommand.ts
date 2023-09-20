@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListAccountsRequest, ListAccountsResponse, ListAccountsResponseFilterSensitiveLog } from "../models/models_0";
@@ -310,6 +311,10 @@ export class ListAccountsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListAccountsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSOrganizationsV20161128",
+        operation: "ListAccounts",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

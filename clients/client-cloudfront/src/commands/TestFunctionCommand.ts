@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
@@ -165,6 +166,10 @@ export class TestFunctionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: TestFunctionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: TestFunctionResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Cloudfront2020_05_31",
+        operation: "TestFunction",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

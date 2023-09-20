@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListSlackChannelConfigurationsRequest, ListSlackChannelConfigurationsResult } from "../models/models_0";
@@ -137,6 +138,10 @@ export class ListSlackChannelConfigurationsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SupportApp",
+        operation: "ListSlackChannelConfigurations",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

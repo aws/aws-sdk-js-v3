@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
@@ -215,6 +216,10 @@ export class UploadMultipartPartCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UploadMultipartPartInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Glacier",
+        operation: "UploadMultipartPart",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

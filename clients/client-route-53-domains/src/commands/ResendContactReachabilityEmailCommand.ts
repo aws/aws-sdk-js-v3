@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -140,6 +141,10 @@ export class ResendContactReachabilityEmailCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ResendContactReachabilityEmailResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Route53Domains_v20140515",
+        operation: "ResendContactReachabilityEmail",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

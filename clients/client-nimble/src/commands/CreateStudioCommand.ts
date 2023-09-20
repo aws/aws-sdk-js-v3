@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -193,6 +194,10 @@ export class CreateStudioCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateStudioRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateStudioResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "nimble",
+        operation: "CreateStudio",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

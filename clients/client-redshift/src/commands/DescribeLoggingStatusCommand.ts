@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribeLoggingStatusMessage, LoggingStatus } from "../models/models_1";
@@ -128,6 +129,10 @@ export class DescribeLoggingStatusCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RedshiftServiceVersion20121201",
+        operation: "DescribeLoggingStatus",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

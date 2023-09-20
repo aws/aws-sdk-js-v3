@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -153,6 +154,10 @@ export class DescribeNotificationRuleCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeNotificationRuleResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CodeStarNotifications_20191015",
+        operation: "DescribeNotificationRule",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

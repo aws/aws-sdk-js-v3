@@ -15,9 +15,9 @@
   "types": "./dist-types/index.d.ts",
   "sideEffects": false,
   "dependencies": {
-    "@smithy/protocol-http": "^3.0.3",
+    "@smithy/protocol-http": "^3.0.5",
     "@aws-sdk/aws-protocoltests-json": "*",
-    "@smithy/types": "^2.3.1",
+    "@smithy/types": "^2.3.3",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

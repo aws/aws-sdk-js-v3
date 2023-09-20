@@ -14,6 +14,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -270,6 +271,10 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: StartMedicalStreamTranscriptionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: StartMedicalStreamTranscriptionResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Transcribe",
+        operation: "StartMedicalStreamTranscription",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -164,6 +165,10 @@ export class AdminEnableUserCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: AdminEnableUserRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCognitoIdentityProviderService",
+        operation: "AdminEnableUser",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

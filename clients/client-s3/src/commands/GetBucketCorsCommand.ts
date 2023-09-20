@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetBucketCorsOutput, GetBucketCorsRequest } from "../models/models_0";
@@ -189,6 +190,10 @@ export class GetBucketCorsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonS3",
+        operation: "GetBucketCors",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

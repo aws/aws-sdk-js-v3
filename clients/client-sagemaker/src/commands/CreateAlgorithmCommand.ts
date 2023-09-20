@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreateAlgorithmInput, CreateAlgorithmOutput } from "../models/models_0";
@@ -313,6 +314,10 @@ export class CreateAlgorithmCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "CreateAlgorithm",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

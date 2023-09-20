@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteSubscriptionRequest, DeleteSubscriptionResponse } from "../models/models_0";
@@ -121,6 +122,10 @@ export class DeleteSubscriptionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSShield_20160616",
+        operation: "DeleteSubscription",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

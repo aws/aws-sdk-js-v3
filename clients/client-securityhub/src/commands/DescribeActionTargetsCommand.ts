@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribeActionTargetsRequest, DescribeActionTargetsResponse } from "../models/models_2";
@@ -162,6 +163,10 @@ export class DescribeActionTargetsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SecurityHubAPIService",
+        operation: "DescribeActionTargets",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

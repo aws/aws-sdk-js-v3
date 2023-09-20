@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribeAppRequest, DescribeAppResponse, DescribeAppResponseFilterSensitiveLog } from "../models/models_0";
@@ -161,6 +162,10 @@ export class DescribeAppCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAppResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AwsResilienceHub",
+        operation: "DescribeApp",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -265,6 +266,10 @@ export class PutSessionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: PutSessionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: PutSessionResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSDeepSenseRunTimeServiceApi2_0",
+        operation: "PutSession",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

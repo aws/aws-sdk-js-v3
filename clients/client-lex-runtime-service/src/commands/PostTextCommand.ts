@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -322,6 +323,10 @@ export class PostTextCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: PostTextRequestFilterSensitiveLog,
       outputFilterSensitiveLog: PostTextResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSDeepSenseRunTimeService",
+        operation: "PostText",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetCelebrityInfoRequest, GetCelebrityInfoResponse } from "../models/models_0";
@@ -146,6 +147,10 @@ export class GetCelebrityInfoCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RekognitionService",
+        operation: "GetCelebrityInfo",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

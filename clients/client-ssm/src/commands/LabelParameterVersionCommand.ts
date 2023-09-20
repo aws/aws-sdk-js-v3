@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { LabelParameterVersionRequest, LabelParameterVersionResult } from "../models/models_1";
@@ -173,6 +174,10 @@ export class LabelParameterVersionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSSM",
+        operation: "LabelParameterVersion",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

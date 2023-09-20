@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteSpeakerRequest, DeleteSpeakerRequestFilterSensitiveLog } from "../models/models_0";
@@ -136,6 +137,10 @@ export class DeleteSpeakerCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: DeleteSpeakerRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "VoiceID",
+        operation: "DeleteSpeaker",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

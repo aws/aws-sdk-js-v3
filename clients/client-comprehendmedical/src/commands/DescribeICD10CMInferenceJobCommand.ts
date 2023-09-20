@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -158,6 +159,10 @@ export class DescribeICD10CMInferenceJobCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ComprehendMedical_20181030",
+        operation: "DescribeICD10CMInferenceJob",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
@@ -242,6 +243,10 @@ export class PublishVersionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: FunctionConfigurationFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGirApiService",
+        operation: "PublishVersion",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

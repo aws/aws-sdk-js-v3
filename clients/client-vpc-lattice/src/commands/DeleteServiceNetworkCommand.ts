@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteServiceNetworkRequest, DeleteServiceNetworkResponse } from "../models/models_0";
@@ -136,6 +137,10 @@ export class DeleteServiceNetworkCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "MercuryControlPlane",
+        operation: "DeleteServiceNetwork",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UpdateOpsItemRequest, UpdateOpsItemResponse } from "../models/models_2";
@@ -166,6 +167,10 @@ export class UpdateOpsItemCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSSM",
+        operation: "UpdateOpsItem",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

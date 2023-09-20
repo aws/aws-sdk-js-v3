@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -192,6 +193,10 @@ export class CreatePatchBaselineCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreatePatchBaselineRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSSM",
+        operation: "CreatePatchBaseline",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

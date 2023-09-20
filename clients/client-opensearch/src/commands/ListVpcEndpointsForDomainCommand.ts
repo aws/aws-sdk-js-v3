@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListVpcEndpointsForDomainRequest, ListVpcEndpointsForDomainResponse } from "../models/models_0";
@@ -136,6 +137,10 @@ export class ListVpcEndpointsForDomainCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonOpenSearchService",
+        operation: "ListVpcEndpointsForDomain",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

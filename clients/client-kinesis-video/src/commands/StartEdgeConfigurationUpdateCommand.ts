@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
@@ -233,6 +234,10 @@ export class StartEdgeConfigurationUpdateCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: StartEdgeConfigurationUpdateInputFilterSensitiveLog,
       outputFilterSensitiveLog: StartEdgeConfigurationUpdateOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "KinesisVideo_20170930",
+        operation: "StartEdgeConfigurationUpdate",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

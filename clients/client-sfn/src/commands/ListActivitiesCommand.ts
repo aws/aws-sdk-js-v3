@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListActivitiesInput, ListActivitiesOutput } from "../models/models_0";
@@ -130,6 +131,10 @@ export class ListActivitiesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSStepFunctions",
+        operation: "ListActivities",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

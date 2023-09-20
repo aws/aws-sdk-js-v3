@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeletePolicyStoreInput, DeletePolicyStoreOutput } from "../models/models_0";
@@ -211,6 +212,10 @@ export class DeletePolicyStoreCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "VerifiedPermissions",
+        operation: "DeletePolicyStore",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

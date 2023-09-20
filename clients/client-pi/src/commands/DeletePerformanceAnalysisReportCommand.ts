@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeletePerformanceAnalysisReportRequest, DeletePerformanceAnalysisReportResponse } from "../models/models_0";
@@ -128,6 +129,10 @@ export class DeletePerformanceAnalysisReportCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "PerformanceInsightsv20180227",
+        operation: "DeletePerformanceAnalysisReport",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

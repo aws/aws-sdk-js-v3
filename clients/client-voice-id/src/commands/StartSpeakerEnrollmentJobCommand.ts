@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -199,6 +200,10 @@ export class StartSpeakerEnrollmentJobCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: StartSpeakerEnrollmentJobRequestFilterSensitiveLog,
       outputFilterSensitiveLog: StartSpeakerEnrollmentJobResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "VoiceID",
+        operation: "StartSpeakerEnrollmentJob",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

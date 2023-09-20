@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_2";
@@ -115,6 +116,10 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "DeleteNotebookInstanceLifecycleConfig",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

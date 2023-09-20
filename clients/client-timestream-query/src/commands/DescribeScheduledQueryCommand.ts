@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -246,6 +247,10 @@ export class DescribeScheduledQueryCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeScheduledQueryResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Timestream_20181101",
+        operation: "DescribeScheduledQuery",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

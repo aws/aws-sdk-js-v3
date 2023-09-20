@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -228,6 +229,10 @@ export class ForgotPasswordCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ForgotPasswordRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCognitoIdentityProviderService",
+        operation: "ForgotPassword",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteCommentRequest, DeleteCommentRequestFilterSensitiveLog } from "../models/models_0";
@@ -137,6 +138,10 @@ export class DeleteCommentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: DeleteCommentRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGorillaBoyService",
+        operation: "DeleteComment",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

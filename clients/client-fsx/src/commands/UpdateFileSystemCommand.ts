@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
@@ -993,6 +994,10 @@ export class UpdateFileSystemCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateFileSystemRequestFilterSensitiveLog,
       outputFilterSensitiveLog: UpdateFileSystemResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSSimbaAPIService_v20180301",
+        operation: "UpdateFileSystem",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

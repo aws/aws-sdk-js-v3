@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UpdateDataLakeRequest, UpdateDataLakeResponse } from "../models/models_0";
@@ -199,6 +200,10 @@ export class UpdateDataLakeCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SecurityLake",
+        operation: "UpdateDataLake",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

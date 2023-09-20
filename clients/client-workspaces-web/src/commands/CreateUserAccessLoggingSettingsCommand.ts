@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -148,6 +149,10 @@ export class CreateUserAccessLoggingSettingsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateUserAccessLoggingSettingsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSErmineControlPlaneService",
+        operation: "CreateUserAccessLoggingSettings",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

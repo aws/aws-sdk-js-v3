@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -196,6 +197,10 @@ export class ConfirmSignUpCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ConfirmSignUpRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCognitoIdentityProviderService",
+        operation: "ConfirmSignUp",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
@@ -157,6 +158,10 @@ export class PutSnapshotBlockCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: PutSnapshotBlockRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Ebs",
+        operation: "PutSnapshotBlock",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

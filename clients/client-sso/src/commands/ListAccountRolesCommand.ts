@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -142,6 +143,10 @@ export class ListAccountRolesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ListAccountRolesRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SWBPortalService",
+        operation: "ListAccountRoles",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -159,6 +160,10 @@ export class AddResourcePermissionsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: AddResourcePermissionsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: AddResourcePermissionsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGorillaBoyService",
+        operation: "AddResourcePermissions",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

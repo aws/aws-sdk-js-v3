@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
@@ -233,6 +234,10 @@ export class CreateWorkspaceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateWorkspaceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateWorkspaceResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGrafanaControlPlane",
+        operation: "CreateWorkspace",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetApnsChannelRequest, GetApnsChannelResponse } from "../models/models_0";
@@ -148,6 +149,10 @@ export class GetApnsChannelCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Pinpoint",
+        operation: "GetApnsChannel",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

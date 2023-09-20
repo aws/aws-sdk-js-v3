@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeactivateUserRequest, DeactivateUserRequestFilterSensitiveLog } from "../models/models_0";
@@ -131,6 +132,10 @@ export class DeactivateUserCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: DeactivateUserRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGorillaBoyService",
+        operation: "DeactivateUser",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

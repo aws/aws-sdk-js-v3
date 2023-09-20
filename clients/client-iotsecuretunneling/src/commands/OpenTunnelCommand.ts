@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -139,6 +140,10 @@ export class OpenTunnelCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: OpenTunnelResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "IoTSecuredTunneling",
+        operation: "OpenTunnel",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

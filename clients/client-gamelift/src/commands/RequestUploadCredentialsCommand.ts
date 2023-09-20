@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
@@ -156,6 +157,10 @@ export class RequestUploadCredentialsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RequestUploadCredentialsOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "GameLift",
+        operation: "RequestUploadCredentials",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

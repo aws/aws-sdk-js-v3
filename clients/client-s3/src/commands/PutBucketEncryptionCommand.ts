@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { PutBucketEncryptionRequest, PutBucketEncryptionRequestFilterSensitiveLog } from "../models/models_0";
@@ -170,6 +171,10 @@ export class PutBucketEncryptionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: PutBucketEncryptionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonS3",
+        operation: "PutBucketEncryption",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
@@ -232,6 +233,10 @@ export class CreateAppCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateAppRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateAppResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Amplify",
+        operation: "CreateApp",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

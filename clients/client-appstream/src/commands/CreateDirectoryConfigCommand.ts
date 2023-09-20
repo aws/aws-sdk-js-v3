@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
@@ -162,6 +163,10 @@ export class CreateDirectoryConfigCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateDirectoryConfigRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateDirectoryConfigResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "PhotonAdminProxyService",
+        operation: "CreateDirectoryConfig",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

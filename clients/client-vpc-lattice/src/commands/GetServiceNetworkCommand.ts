@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetServiceNetworkRequest, GetServiceNetworkResponse } from "../models/models_0";
@@ -137,6 +138,10 @@ export class GetServiceNetworkCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "MercuryControlPlane",
+        operation: "GetServiceNetwork",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

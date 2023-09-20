@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreateReferenceStoreRequest, CreateReferenceStoreResponse } from "../models/models_0";
@@ -149,6 +150,10 @@ export class CreateReferenceStoreCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Omics",
+        operation: "CreateReferenceStore",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

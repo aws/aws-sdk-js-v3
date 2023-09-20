@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadInputTypes,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
@@ -285,6 +286,10 @@ export class PostContentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: PostContentRequestFilterSensitiveLog,
       outputFilterSensitiveLog: PostContentResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSDeepSenseRunTimeService",
+        operation: "PostContent",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

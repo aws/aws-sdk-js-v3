@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
@@ -225,6 +226,10 @@ export class DeleteServiceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteServiceResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AppRunner",
+        operation: "DeleteService",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

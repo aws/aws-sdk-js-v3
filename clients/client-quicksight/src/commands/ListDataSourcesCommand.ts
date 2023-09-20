@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListDataSourcesRequest, ListDataSourcesResponse } from "../models/models_3";
@@ -370,6 +371,10 @@ export class ListDataSourcesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "QuickSight_20180401",
+        operation: "ListDataSources",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

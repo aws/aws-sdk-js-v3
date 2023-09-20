@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetServiceRequest, GetServiceResponse } from "../models/models_0";
@@ -177,6 +178,10 @@ export class GetServiceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Route53AutoNaming_v20170314",
+        operation: "GetService",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

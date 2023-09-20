@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListProtectionsRequest, ListProtectionsResponse } from "../models/models_0";
@@ -154,6 +155,10 @@ export class ListProtectionsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSShield_20160616",
+        operation: "ListProtections",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

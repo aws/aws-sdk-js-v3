@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -181,6 +182,10 @@ export class VerifySoftwareTokenCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: VerifySoftwareTokenRequestFilterSensitiveLog,
       outputFilterSensitiveLog: VerifySoftwareTokenResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCognitoIdentityProviderService",
+        operation: "VerifySoftwareToken",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

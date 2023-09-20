@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetSitesRequest, GetSitesResponse, GetSitesResponseFilterSensitiveLog } from "../models/models_0";
@@ -153,6 +154,10 @@ export class GetSitesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSitesResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "NetworkManager",
+        operation: "GetSites",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

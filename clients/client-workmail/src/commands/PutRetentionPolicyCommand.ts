@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -140,6 +141,10 @@ export class PutRetentionPolicyCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: PutRetentionPolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "WorkMailService",
+        operation: "PutRetentionPolicy",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

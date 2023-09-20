@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -178,6 +179,10 @@ export class StartMaintenanceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: StartMaintenanceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: StartMaintenanceResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "OpsWorksCM_V2016_11_01",
+        operation: "StartMaintenance",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

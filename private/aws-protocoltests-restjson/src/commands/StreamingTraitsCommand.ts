@@ -11,6 +11,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadInputTypes,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
@@ -114,6 +115,10 @@ export class StreamingTraitsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: StreamingTraitsInputOutputFilterSensitiveLog,
       outputFilterSensitiveLog: StreamingTraitsInputOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RestJson",
+        operation: "StreamingTraits",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

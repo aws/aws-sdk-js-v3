@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
@@ -163,6 +164,10 @@ export class UpdateBillingGroupCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateBillingGroupInputFilterSensitiveLog,
       outputFilterSensitiveLog: UpdateBillingGroupOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSBillingConductor",
+        operation: "UpdateBillingGroup",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

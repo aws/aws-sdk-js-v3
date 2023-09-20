@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DisassociateResourceRequest, DisassociateResourceResponse } from "../models/models_0";
@@ -125,6 +126,10 @@ export class DisassociateResourceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Synthetics",
+        operation: "DisassociateResource",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

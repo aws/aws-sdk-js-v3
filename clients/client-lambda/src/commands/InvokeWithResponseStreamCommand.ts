@@ -13,6 +13,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
@@ -251,6 +252,10 @@ export class InvokeWithResponseStreamCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: InvokeWithResponseStreamRequestFilterSensitiveLog,
       outputFilterSensitiveLog: InvokeWithResponseStreamResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGirApiService",
+        operation: "InvokeWithResponseStream",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

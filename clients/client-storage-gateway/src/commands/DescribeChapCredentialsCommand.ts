@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -158,6 +159,10 @@ export class DescribeChapCredentialsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChapCredentialsOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "StorageGateway_20130630",
+        operation: "DescribeChapCredentials",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

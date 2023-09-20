@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetCompatibleVersionsRequest, GetCompatibleVersionsResponse } from "../models/models_0";
@@ -137,6 +138,10 @@ export class GetCompatibleVersionsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonOpenSearchService",
+        operation: "GetCompatibleVersions",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

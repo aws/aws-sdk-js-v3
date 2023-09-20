@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
@@ -152,6 +153,10 @@ export class CreateNetworkProfileCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateNetworkProfileRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AlexaForBusiness",
+        operation: "CreateNetworkProfile",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

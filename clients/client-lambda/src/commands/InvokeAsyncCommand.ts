@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
@@ -137,6 +138,10 @@ export class InvokeAsyncCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: InvokeAsyncRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGirApiService",
+        operation: "InvokeAsync",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

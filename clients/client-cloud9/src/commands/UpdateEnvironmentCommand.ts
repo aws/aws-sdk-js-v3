@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
@@ -153,6 +154,10 @@ export class UpdateEnvironmentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateEnvironmentRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCloud9WorkspaceManagementService",
+        operation: "UpdateEnvironment",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

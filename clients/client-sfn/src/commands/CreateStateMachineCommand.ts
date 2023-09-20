@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -207,6 +208,10 @@ export class CreateStateMachineCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateStateMachineInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSStepFunctions",
+        operation: "CreateStateMachine",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteDBProxyRequest, DeleteDBProxyResponse } from "../models/models_0";
@@ -147,6 +148,10 @@ export class DeleteDBProxyCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonRDSv19",
+        operation: "DeleteDBProxy",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

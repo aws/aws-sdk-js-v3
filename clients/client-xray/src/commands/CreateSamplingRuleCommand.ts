@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreateSamplingRuleRequest, CreateSamplingRuleResult } from "../models/models_0";
@@ -171,6 +172,10 @@ export class CreateSamplingRuleCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSXRay",
+        operation: "CreateSamplingRule",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

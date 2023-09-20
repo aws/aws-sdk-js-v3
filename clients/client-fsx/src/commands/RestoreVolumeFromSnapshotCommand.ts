@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
@@ -674,6 +675,10 @@ export class RestoreVolumeFromSnapshotCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RestoreVolumeFromSnapshotResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSSimbaAPIService_v20180301",
+        operation: "RestoreVolumeFromSnapshot",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

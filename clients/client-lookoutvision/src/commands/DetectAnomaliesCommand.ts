@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
@@ -172,6 +173,10 @@ export class DetectAnomaliesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: DetectAnomaliesRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "LookoutVisionService",
+        operation: "DetectAnomalies",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { TagQueueRequest } from "../models/models_0";
@@ -133,6 +134,10 @@ export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueComm
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSQS",
+        operation: "TagQueue",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

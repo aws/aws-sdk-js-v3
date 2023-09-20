@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
@@ -206,6 +207,10 @@ export class DeleteResourceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteResourceOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CloudApiService",
+        operation: "DeleteResource",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

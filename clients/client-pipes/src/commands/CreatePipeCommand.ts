@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreatePipeRequest, CreatePipeRequestFilterSensitiveLog, CreatePipeResponse } from "../models/models_0";
@@ -435,6 +436,10 @@ export class CreatePipeCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreatePipeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Pipes",
+        operation: "CreatePipe",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

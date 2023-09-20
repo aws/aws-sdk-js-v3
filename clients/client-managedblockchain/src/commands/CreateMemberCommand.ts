@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -173,6 +174,10 @@ export class CreateMemberCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateMemberInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "TaigaWebService",
+        operation: "CreateMember",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

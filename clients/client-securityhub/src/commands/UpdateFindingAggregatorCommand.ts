@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UpdateFindingAggregatorRequest, UpdateFindingAggregatorResponse } from "../models/models_2";
@@ -172,6 +173,10 @@ export class UpdateFindingAggregatorCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SecurityHubAPIService",
+        operation: "UpdateFindingAggregator",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

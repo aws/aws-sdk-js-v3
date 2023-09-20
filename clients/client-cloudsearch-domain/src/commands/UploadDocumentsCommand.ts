@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
@@ -140,6 +141,10 @@ export class UploadDocumentsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UploadDocumentsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonCloudSearch2013",
+        operation: "UploadDocuments",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

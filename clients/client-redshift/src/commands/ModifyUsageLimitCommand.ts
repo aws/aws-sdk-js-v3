@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UsageLimit } from "../models/models_0";
@@ -139,6 +140,10 @@ export class ModifyUsageLimitCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RedshiftServiceVersion20121201",
+        operation: "ModifyUsageLimit",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

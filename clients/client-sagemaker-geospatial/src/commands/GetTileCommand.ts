@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -148,6 +149,10 @@ export class GetTileCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetTileOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMakerGeospatial",
+        operation: "GetTile",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

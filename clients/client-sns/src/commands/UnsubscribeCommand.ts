@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UnsubscribeInput } from "../models/models_0";
@@ -138,6 +139,10 @@ export class UnsubscribeCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSimpleNotificationService",
+        operation: "Unsubscribe",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

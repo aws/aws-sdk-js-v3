@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -158,6 +159,10 @@ export class ActivateUserCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ActivateUserRequestFilterSensitiveLog,
       outputFilterSensitiveLog: ActivateUserResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGorillaBoyService",
+        operation: "ActivateUser",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

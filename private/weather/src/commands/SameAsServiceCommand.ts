@@ -10,6 +10,7 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
+  SMITHY_CONTEXT_KEY,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext,
@@ -71,6 +72,10 @@ export class SameAsServiceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Weather",
+        operation: "SameAsService",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

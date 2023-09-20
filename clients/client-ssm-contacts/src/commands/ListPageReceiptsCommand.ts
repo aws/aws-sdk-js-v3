@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListPageReceiptsRequest, ListPageReceiptsResult } from "../models/models_0";
@@ -140,6 +141,10 @@ export class ListPageReceiptsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SSMContacts",
+        operation: "ListPageReceipts",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

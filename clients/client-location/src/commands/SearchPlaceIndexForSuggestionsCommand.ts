@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
@@ -196,6 +197,10 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: SearchPlaceIndexForSuggestionsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: SearchPlaceIndexForSuggestionsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "LocationService",
+        operation: "SearchPlaceIndexForSuggestions",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

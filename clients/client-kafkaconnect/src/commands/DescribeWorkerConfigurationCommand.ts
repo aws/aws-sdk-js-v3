@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
@@ -159,6 +160,10 @@ export class DescribeWorkerConfigurationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeWorkerConfigurationResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "KafkaConnect",
+        operation: "DescribeWorkerConfiguration",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

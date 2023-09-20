@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -153,6 +154,10 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeInputDeviceThumbnailResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "MediaLive",
+        operation: "DescribeInputDeviceThumbnail",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

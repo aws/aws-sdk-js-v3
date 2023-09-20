@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -216,6 +217,10 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: InitiateDocumentVersionUploadRequestFilterSensitiveLog,
       outputFilterSensitiveLog: InitiateDocumentVersionUploadResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGorillaBoyService",
+        operation: "InitiateDocumentVersionUpload",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

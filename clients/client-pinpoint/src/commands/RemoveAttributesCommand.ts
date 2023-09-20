@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { RemoveAttributesRequest, RemoveAttributesResponse } from "../models/models_1";
@@ -147,6 +148,10 @@ export class RemoveAttributesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Pinpoint",
+        operation: "RemoveAttributes",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

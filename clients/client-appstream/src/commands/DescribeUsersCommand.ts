@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
@@ -135,6 +136,10 @@ export class DescribeUsersCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeUsersResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "PhotonAdminProxyService",
+        operation: "DescribeUsers",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

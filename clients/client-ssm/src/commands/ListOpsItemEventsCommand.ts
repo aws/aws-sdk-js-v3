@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListOpsItemEventsRequest, ListOpsItemEventsResponse } from "../models/models_1";
@@ -151,6 +152,10 @@ export class ListOpsItemEventsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSSM",
+        operation: "ListOpsItemEvents",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

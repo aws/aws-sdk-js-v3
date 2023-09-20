@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadInputTypes,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
@@ -232,6 +233,10 @@ export class RecognizeUtteranceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: RecognizeUtteranceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: RecognizeUtteranceResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSDeepSenseRunTimeServiceApi2_0",
+        operation: "RecognizeUtterance",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

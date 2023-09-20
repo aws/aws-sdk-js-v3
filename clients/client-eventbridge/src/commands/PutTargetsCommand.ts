@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
@@ -443,6 +444,10 @@ export class PutTargetsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: PutTargetsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSEvents",
+        operation: "PutTargets",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
@@ -218,6 +219,10 @@ export class UploadServerCertificateCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UploadServerCertificateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSIdentityManagementV20100508",
+        operation: "UploadServerCertificate",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

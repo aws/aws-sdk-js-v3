@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetPushTemplateRequest, GetPushTemplateResponse } from "../models/models_1";
@@ -198,6 +199,10 @@ export class GetPushTemplateCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Pinpoint",
+        operation: "GetPushTemplate",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

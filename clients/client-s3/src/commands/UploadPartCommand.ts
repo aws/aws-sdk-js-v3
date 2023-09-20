@@ -13,6 +13,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
@@ -306,6 +307,10 @@ export class UploadPartCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UploadPartRequestFilterSensitiveLog,
       outputFilterSensitiveLog: UploadPartOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonS3",
+        operation: "UploadPart",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

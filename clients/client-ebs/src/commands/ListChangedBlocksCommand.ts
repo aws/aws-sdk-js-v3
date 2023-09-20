@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
@@ -158,6 +159,10 @@ export class ListChangedBlocksCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListChangedBlocksResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Ebs",
+        operation: "ListChangedBlocks",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

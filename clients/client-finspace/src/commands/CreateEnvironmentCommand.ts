@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
@@ -164,6 +165,10 @@ export class CreateEnvironmentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateEnvironmentRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSHabaneroManagementService",
+        operation: "CreateEnvironment",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

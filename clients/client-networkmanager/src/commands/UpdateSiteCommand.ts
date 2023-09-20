@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -162,6 +163,10 @@ export class UpdateSiteCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateSiteRequestFilterSensitiveLog,
       outputFilterSensitiveLog: UpdateSiteResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "NetworkManager",
+        operation: "UpdateSite",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

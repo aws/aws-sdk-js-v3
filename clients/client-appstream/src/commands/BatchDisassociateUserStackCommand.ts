@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
@@ -143,6 +144,10 @@ export class BatchDisassociateUserStackCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: BatchDisassociateUserStackRequestFilterSensitiveLog,
       outputFilterSensitiveLog: BatchDisassociateUserStackResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "PhotonAdminProxyService",
+        operation: "BatchDisassociateUserStack",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

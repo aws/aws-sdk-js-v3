@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { RestoreObjectOutput, RestoreObjectRequest, RestoreObjectRequestFilterSensitiveLog } from "../models/models_1";
@@ -494,6 +495,10 @@ export class RestoreObjectCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: RestoreObjectRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonS3",
+        operation: "RestoreObject",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

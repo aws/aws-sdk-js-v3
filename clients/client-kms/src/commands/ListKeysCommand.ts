@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
@@ -201,6 +202,10 @@ export class ListKeysCommand extends $Command<ListKeysCommandInput, ListKeysComm
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "TrentService",
+        operation: "ListKeys",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

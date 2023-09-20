@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { EnableImportFindingsForProductRequest, EnableImportFindingsForProductResponse } from "../models/models_2";
@@ -155,6 +156,10 @@ export class EnableImportFindingsForProductCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SecurityHubAPIService",
+        operation: "EnableImportFindingsForProduct",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

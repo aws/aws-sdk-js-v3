@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UpdateFolderRequest, UpdateFolderRequestFilterSensitiveLog } from "../models/models_0";
@@ -147,6 +148,10 @@ export class UpdateFolderCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateFolderRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGorillaBoyService",
+        operation: "UpdateFolder",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

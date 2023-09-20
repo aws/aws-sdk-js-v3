@@ -8,6 +8,7 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
+  SMITHY_CONTEXT_KEY,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext,
@@ -68,6 +69,10 @@ export class OnlyHttpApiKeyAuthOptionalCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Weather",
+        operation: "OnlyHttpApiKeyAuthOptional",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

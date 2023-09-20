@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
@@ -143,6 +144,10 @@ export class PutContactInformationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: PutContactInformationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Account",
+        operation: "PutContactInformation",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

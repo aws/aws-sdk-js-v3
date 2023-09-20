@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -279,6 +280,10 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: AdminRespondToAuthChallengeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: AdminRespondToAuthChallengeResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCognitoIdentityProviderService",
+        operation: "AdminRespondToAuthChallenge",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

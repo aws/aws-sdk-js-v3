@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListTranscriptionJobsRequest, ListTranscriptionJobsResponse } from "../models/models_0";
@@ -172,6 +173,10 @@ export class ListTranscriptionJobsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Transcribe",
+        operation: "ListTranscriptionJobs",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

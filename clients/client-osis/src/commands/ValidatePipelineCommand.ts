@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ValidatePipelineRequest, ValidatePipelineResponse } from "../models/models_0";
@@ -131,6 +132,10 @@ export class ValidatePipelineCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonOpenSearchIngestionService",
+        operation: "ValidatePipeline",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

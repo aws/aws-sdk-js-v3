@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetExportJobRequest, GetExportJobResponse, GetExportJobResponseFilterSensitiveLog } from "../models/models_0";
@@ -252,6 +253,10 @@ export class GetExportJobCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetExportJobResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SimpleEmailService_v2",
+        operation: "GetExportJob",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

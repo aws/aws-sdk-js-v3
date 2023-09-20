@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -888,6 +889,10 @@ export class CreateEndpointCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateEndpointMessageFilterSensitiveLog,
       outputFilterSensitiveLog: CreateEndpointResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonDMSv20160101",
+        operation: "CreateEndpoint",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

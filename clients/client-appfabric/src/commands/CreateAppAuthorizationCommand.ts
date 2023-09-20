@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
@@ -177,6 +178,10 @@ export class CreateAppAuthorizationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateAppAuthorizationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "FabricFrontEndService",
+        operation: "CreateAppAuthorization",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(
