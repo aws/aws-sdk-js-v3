@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
@@ -166,6 +167,10 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: InstallToRemoteAccessSessionResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "DeviceFarm_20150623",
+        operation: "InstallToRemoteAccessSession",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

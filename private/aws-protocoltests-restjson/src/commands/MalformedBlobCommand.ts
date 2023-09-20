@@ -10,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { MalformedBlobInput } from "../models/models_0";
@@ -71,6 +72,10 @@ export class MalformedBlobCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RestJson",
+        operation: "MalformedBlob",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

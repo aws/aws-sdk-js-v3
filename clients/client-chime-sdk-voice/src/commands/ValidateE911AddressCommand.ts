@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
@@ -173,6 +174,10 @@ export class ValidateE911AddressCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ValidateE911AddressRequestFilterSensitiveLog,
       outputFilterSensitiveLog: ValidateE911AddressResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ChimeSDKTelephonyService",
+        operation: "ValidateE911Address",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

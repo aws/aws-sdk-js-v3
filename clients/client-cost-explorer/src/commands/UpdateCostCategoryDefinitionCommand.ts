@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
@@ -229,6 +230,10 @@ export class UpdateCostCategoryDefinitionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSInsightsIndexService",
+        operation: "UpdateCostCategoryDefinition",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

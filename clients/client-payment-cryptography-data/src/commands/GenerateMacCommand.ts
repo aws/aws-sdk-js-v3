@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GenerateMacInput, GenerateMacInputFilterSensitiveLog, GenerateMacOutput } from "../models/models_0";
@@ -177,6 +178,10 @@ export class GenerateMacCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: GenerateMacInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "PaymentCryptographyDataPlane",
+        operation: "GenerateMac",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

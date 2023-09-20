@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
@@ -145,6 +146,10 @@ export class GetClusterCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ChimeraDbLionfishServiceLambda",
+        operation: "GetCluster",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

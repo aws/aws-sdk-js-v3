@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
@@ -1187,6 +1188,10 @@ export class BatchGetJobsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: BatchGetJobsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGlue",
+        operation: "BatchGetJobs",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

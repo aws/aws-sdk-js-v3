@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreateMonitoringScheduleRequest, CreateMonitoringScheduleResponse } from "../models/models_1";
@@ -237,6 +238,10 @@ export class CreateMonitoringScheduleCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "CreateMonitoringSchedule",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

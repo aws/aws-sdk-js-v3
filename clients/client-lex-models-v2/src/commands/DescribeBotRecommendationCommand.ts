@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
@@ -187,6 +188,10 @@ export class DescribeBotRecommendationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeBotRecommendationResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "LexModelBuildingServiceV2",
+        operation: "DescribeBotRecommendation",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

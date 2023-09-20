@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
@@ -146,6 +147,10 @@ export class ListAppInstancesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ListAppInstancesRequestFilterSensitiveLog,
       outputFilterSensitiveLog: ListAppInstancesResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ChimeIdentityService",
+        operation: "ListAppInstances",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

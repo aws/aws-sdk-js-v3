@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
@@ -182,6 +183,10 @@ export class BatchCreateTableRowsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: BatchCreateTableRowsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SheetsPublicApiService",
+        operation: "BatchCreateTableRows",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

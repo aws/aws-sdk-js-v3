@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
@@ -139,6 +140,10 @@ export class ResetUserPasswordCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ResetUserPasswordResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSHabaneroPublicAPI",
+        operation: "ResetUserPassword",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

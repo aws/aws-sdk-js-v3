@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -278,6 +279,10 @@ export class UpdateUserPoolClientCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateUserPoolClientRequestFilterSensitiveLog,
       outputFilterSensitiveLog: UpdateUserPoolClientResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCognitoIdentityProviderService",
+        operation: "UpdateUserPoolClient",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

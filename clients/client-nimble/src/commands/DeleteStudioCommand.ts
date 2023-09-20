@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteStudioRequest, DeleteStudioResponse, DeleteStudioResponseFilterSensitiveLog } from "../models/models_0";
@@ -159,6 +160,10 @@ export class DeleteStudioCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteStudioResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "nimble",
+        operation: "DeleteStudio",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

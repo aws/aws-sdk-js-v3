@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UpdateGroupInput, UpdateGroupOutput } from "../models/models_0";
@@ -149,6 +150,10 @@ export class UpdateGroupCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Ardi",
+        operation: "UpdateGroup",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -235,6 +236,10 @@ export class SearchRasterDataCollectionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: SearchRasterDataCollectionInputFilterSensitiveLog,
       outputFilterSensitiveLog: SearchRasterDataCollectionOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMakerGeospatial",
+        operation: "SearchRasterDataCollection",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

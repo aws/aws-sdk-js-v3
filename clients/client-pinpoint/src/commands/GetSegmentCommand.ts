@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetSegmentRequest, GetSegmentResponse } from "../models/models_1";
@@ -286,6 +287,10 @@ export class GetSegmentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Pinpoint",
+        operation: "GetSegment",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetLexiconInput, GetLexiconOutput, GetLexiconOutputFilterSensitiveLog } from "../models/models_0";
@@ -161,6 +162,10 @@ export class GetLexiconCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetLexiconOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Parrot_v1",
+        operation: "GetLexicon",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { MedicalImagingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MedicalImagingClient";
@@ -154,6 +155,10 @@ export class UpdateImageSetMetadataCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateImageSetMetadataRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AHIGatewayService",
+        operation: "UpdateImageSetMetadata",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

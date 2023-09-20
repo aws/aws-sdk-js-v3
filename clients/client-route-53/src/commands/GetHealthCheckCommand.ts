@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetHealthCheckRequest, GetHealthCheckResponse } from "../models/models_0";
@@ -174,6 +175,10 @@ export class GetHealthCheckCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSDnsV20130401",
+        operation: "GetHealthCheck",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

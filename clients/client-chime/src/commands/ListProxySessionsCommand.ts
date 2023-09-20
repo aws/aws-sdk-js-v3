@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
@@ -178,6 +179,10 @@ export class ListProxySessionsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListProxySessionsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "UCBuzzConsoleService",
+        operation: "ListProxySessions",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

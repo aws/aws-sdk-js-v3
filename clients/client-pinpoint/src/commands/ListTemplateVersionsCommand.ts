@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListTemplateVersionsRequest, ListTemplateVersionsResponse } from "../models/models_1";
@@ -153,6 +154,10 @@ export class ListTemplateVersionsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Pinpoint",
+        operation: "ListTemplateVersions",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

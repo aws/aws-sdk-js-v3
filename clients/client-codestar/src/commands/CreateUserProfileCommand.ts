@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
@@ -137,6 +138,10 @@ export class CreateUserProfileCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateUserProfileRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateUserProfileResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CodeStar_20170419",
+        operation: "CreateUserProfile",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

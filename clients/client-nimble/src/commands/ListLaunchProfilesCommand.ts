@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -214,6 +215,10 @@ export class ListLaunchProfilesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListLaunchProfilesResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "nimble",
+        operation: "ListLaunchProfiles",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

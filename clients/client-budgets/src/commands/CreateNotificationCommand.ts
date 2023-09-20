@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
@@ -152,6 +153,10 @@ export class CreateNotificationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateNotificationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSBudgetServiceGateway",
+        operation: "CreateNotification",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

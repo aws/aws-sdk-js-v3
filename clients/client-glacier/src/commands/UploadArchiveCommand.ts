@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
@@ -192,6 +193,10 @@ export class UploadArchiveCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UploadArchiveInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Glacier",
+        operation: "UploadArchive",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

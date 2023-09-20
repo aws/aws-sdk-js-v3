@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -196,6 +197,10 @@ export class ConfigureAccessPointCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ConfigureAccessPointRequestFilterSensitiveLog,
       outputFilterSensitiveLog: ConfigureAccessPointResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "E5GNetworkControllerLambda",
+        operation: "ConfigureAccessPoint",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

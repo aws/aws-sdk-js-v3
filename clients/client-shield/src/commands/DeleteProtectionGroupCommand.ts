@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteProtectionGroupRequest, DeleteProtectionGroupResponse } from "../models/models_0";
@@ -122,6 +123,10 @@ export class DeleteProtectionGroupCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSShield_20160616",
+        operation: "DeleteProtectionGroup",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

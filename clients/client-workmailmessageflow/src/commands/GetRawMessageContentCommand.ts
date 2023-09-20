@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -131,6 +132,10 @@ export class GetRawMessageContentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRawMessageContentResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "GiraffeMessageInTransitService",
+        operation: "GetRawMessageContent",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

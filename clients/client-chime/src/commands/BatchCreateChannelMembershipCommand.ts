@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
@@ -175,6 +176,10 @@ export class BatchCreateChannelMembershipCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: BatchCreateChannelMembershipResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "UCBuzzConsoleService",
+        operation: "BatchCreateChannelMembership",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

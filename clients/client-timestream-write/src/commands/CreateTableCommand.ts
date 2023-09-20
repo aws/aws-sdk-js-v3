@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreateTableRequest, CreateTableResponse } from "../models/models_0";
@@ -212,6 +213,10 @@ export class CreateTableCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Timestream_20181101",
+        operation: "CreateTable",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

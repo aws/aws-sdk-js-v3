@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -189,6 +190,10 @@ export class CreateRecommendationTemplateCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateRecommendationTemplateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateRecommendationTemplateResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AwsResilienceHub",
+        operation: "CreateRecommendationTemplate",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

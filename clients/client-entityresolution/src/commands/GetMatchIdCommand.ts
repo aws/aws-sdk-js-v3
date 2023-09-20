@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
@@ -135,6 +136,10 @@ export class GetMatchIdCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: GetMatchIdInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSVeniceService",
+        operation: "GetMatchId",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

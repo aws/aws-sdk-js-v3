@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
@@ -150,6 +151,10 @@ export class CreateLocationFsxOntapCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateLocationFsxOntapRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "FmrsService",
+        operation: "CreateLocationFsxOntap",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

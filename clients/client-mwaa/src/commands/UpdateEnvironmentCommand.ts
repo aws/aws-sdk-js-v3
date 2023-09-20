@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -173,6 +174,10 @@ export class UpdateEnvironmentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateEnvironmentInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonMWAA",
+        operation: "UpdateEnvironment",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { TagResourceInput, TagResourceInputFilterSensitiveLog, TagResourceOutput } from "../models/models_0";
@@ -129,6 +130,10 @@ export class TagResourceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: TagResourceInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "TNB",
+        operation: "TagResource",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

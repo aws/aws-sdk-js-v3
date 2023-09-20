@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
@@ -167,6 +168,10 @@ export class ShareDirectoryCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ShareDirectoryRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "DirectoryService_20150416",
+        operation: "ShareDirectory",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

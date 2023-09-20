@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
@@ -163,6 +164,10 @@ export class ListChannelModeratorsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ListChannelModeratorsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: ListChannelModeratorsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "UCBuzzConsoleService",
+        operation: "ListChannelModerators",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

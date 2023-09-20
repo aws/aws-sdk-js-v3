@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -136,6 +137,10 @@ export class GetObjectCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetObjectResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "MediaStoreObject_20170901",
+        operation: "GetObject",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

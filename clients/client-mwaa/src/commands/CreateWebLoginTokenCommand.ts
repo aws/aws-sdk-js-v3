@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -131,6 +132,10 @@ export class CreateWebLoginTokenCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateWebLoginTokenResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonMWAA",
+        operation: "CreateWebLoginToken",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

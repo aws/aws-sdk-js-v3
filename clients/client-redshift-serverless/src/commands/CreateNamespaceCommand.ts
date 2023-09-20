@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -168,6 +169,10 @@ export class CreateNamespaceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateNamespaceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateNamespaceResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RedshiftServerless",
+        operation: "CreateNamespace",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

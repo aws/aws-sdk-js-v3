@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetCellRequest, GetCellResponse } from "../models/models_0";
@@ -141,6 +142,10 @@ export class GetCellCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Route53RecoveryReadiness",
+        operation: "GetCell",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

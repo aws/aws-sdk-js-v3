@@ -10,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
@@ -74,6 +75,10 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "JsonRpc10",
+        operation: "EndpointWithHostLabelOperation",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

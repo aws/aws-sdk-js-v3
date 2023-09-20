@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -151,6 +152,10 @@ export class ListSubChannelsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ListSubChannelsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: ListSubChannelsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ChimeMessagingService",
+        operation: "ListSubChannels",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

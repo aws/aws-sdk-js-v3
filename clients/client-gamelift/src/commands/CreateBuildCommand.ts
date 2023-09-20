@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
@@ -212,6 +213,10 @@ export class CreateBuildCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateBuildOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "GameLift",
+        operation: "CreateBuild",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

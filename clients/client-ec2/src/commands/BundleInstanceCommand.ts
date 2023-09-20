@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
@@ -153,6 +154,10 @@ export class BundleInstanceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: BundleInstanceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: BundleInstanceResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonEC2",
+        operation: "BundleInstance",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

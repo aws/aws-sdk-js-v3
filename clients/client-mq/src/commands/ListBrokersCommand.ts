@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListBrokersRequest, ListBrokersResponse } from "../models/models_0";
@@ -134,6 +135,10 @@ export class ListBrokersCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "mq",
+        operation: "ListBrokers",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
@@ -373,6 +374,10 @@ export class UpdateConnectorProfileCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateConnectorProfileRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SandstoneConfigurationServiceLambda",
+        operation: "UpdateConnectorProfile",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UpdateAppRequest, UpdateAppResponse, UpdateAppResponseFilterSensitiveLog } from "../models/models_0";
@@ -185,6 +186,10 @@ export class UpdateAppCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateAppResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AwsResilienceHub",
+        operation: "UpdateApp",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

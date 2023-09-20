@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetDatabaseInput, GetDatabaseOutput, GetDatabaseOutputFilterSensitiveLog } from "../models/models_0";
@@ -143,6 +144,10 @@ export class GetDatabaseCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetDatabaseOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SsmSap",
+        operation: "GetDatabase",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

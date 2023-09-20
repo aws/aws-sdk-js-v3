@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
@@ -222,6 +223,10 @@ export class SubscribeToShardCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SubscribeToShardOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Kinesis_20131202",
+        operation: "SubscribeToShard",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

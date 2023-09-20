@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
@@ -183,6 +184,10 @@ export class CreateRelationalDatabaseCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateRelationalDatabaseRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Lightsail_20161128",
+        operation: "CreateRelationalDatabase",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteFolderRequest, DeleteFolderRequestFilterSensitiveLog } from "../models/models_0";
@@ -140,6 +141,10 @@ export class DeleteFolderCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: DeleteFolderRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGorillaBoyService",
+        operation: "DeleteFolder",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

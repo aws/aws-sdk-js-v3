@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
@@ -169,6 +170,10 @@ export class InvokeScreenAutomationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: InvokeScreenAutomationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SheetsPublicApiService",
+        operation: "InvokeScreenAutomation",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

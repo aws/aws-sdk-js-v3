@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
@@ -139,6 +140,10 @@ export class ExportCertificateCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ExportCertificateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: ExportCertificateResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CertificateManager",
+        operation: "ExportCertificate",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

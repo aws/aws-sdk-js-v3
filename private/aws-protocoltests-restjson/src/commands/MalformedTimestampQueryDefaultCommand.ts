@@ -10,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { MalformedTimestampQueryDefaultInput } from "../models/models_0";
@@ -74,6 +75,10 @@ export class MalformedTimestampQueryDefaultCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RestJson",
+        operation: "MalformedTimestampQueryDefault",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

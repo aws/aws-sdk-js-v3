@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { VerifyMacInput, VerifyMacInputFilterSensitiveLog, VerifyMacOutput } from "../models/models_0";
@@ -180,6 +181,10 @@ export class VerifyMacCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: VerifyMacInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "PaymentCryptographyDataPlane",
+        operation: "VerifyMac",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

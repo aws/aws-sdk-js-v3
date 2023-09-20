@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetBucketPolicyOutput, GetBucketPolicyRequest } from "../models/models_0";
@@ -168,6 +169,10 @@ export class GetBucketPolicyCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonS3",
+        operation: "GetBucketPolicy",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

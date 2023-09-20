@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
@@ -212,6 +213,10 @@ export class GetJobRunCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetJobRunResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AwsToledoWebService",
+        operation: "GetJobRun",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

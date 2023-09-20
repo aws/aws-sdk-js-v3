@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -196,6 +197,10 @@ export class GetJobOutputCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetJobOutputOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Glacier",
+        operation: "GetJobOutput",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

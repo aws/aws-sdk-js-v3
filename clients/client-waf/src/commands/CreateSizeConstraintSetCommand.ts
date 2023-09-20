@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreateSizeConstraintSetRequest, CreateSizeConstraintSetResponse } from "../models/models_0";
@@ -249,6 +250,10 @@ export class CreateSizeConstraintSetCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSWAF_20150824",
+        operation: "CreateSizeConstraintSet",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

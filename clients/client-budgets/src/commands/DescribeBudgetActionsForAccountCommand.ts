@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
@@ -191,6 +192,10 @@ export class DescribeBudgetActionsForAccountCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeBudgetActionsForAccountResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSBudgetServiceGateway",
+        operation: "DescribeBudgetActionsForAccount",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
@@ -174,6 +175,10 @@ export class CreateReplicationConfigurationTemplateCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateReplicationConfigurationTemplateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: ReplicationConfigurationTemplateFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ApplicationMigrationService",
+        operation: "CreateReplicationConfigurationTemplate",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UpdateReplicationSetInput, UpdateReplicationSetOutput } from "../models/models_0";
@@ -144,6 +145,10 @@ export class UpdateReplicationSetCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SSMIncidents",
+        operation: "UpdateReplicationSet",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

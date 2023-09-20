@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -183,6 +184,10 @@ export class GetFaceLivenessSessionResultsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetFaceLivenessSessionResultsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RekognitionService",
+        operation: "GetFaceLivenessSessionResults",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteViewInput, DeleteViewOutput } from "../models/models_0";
@@ -142,6 +143,10 @@ export class DeleteViewCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ResourceExplorer",
+        operation: "DeleteView",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
@@ -160,6 +161,10 @@ export class RotateChannelCredentialsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RotateChannelCredentialsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "MediaPackage",
+        operation: "RotateChannelCredentials",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

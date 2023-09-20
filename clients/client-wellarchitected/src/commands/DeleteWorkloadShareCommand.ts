@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteWorkloadShareInput } from "../models/models_0";
@@ -132,6 +133,10 @@ export class DeleteWorkloadShareCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "WellArchitectedApiServiceLambda",
+        operation: "DeleteWorkloadShare",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

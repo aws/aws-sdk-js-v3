@@ -10,6 +10,7 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
+  SMITHY_CONTEXT_KEY,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext,
@@ -66,6 +67,10 @@ export class EchoCommand extends $Command<EchoCommandInput, EchoCommandOutput, E
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "EchoService",
+        operation: "Echo",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

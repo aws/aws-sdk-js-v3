@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
@@ -202,6 +203,10 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetThirdPartyJobDetailsOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CodePipeline_20150709",
+        operation: "GetThirdPartyJobDetails",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

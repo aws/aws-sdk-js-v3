@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListModelPackageGroupsInput, ListModelPackageGroupsOutput } from "../models/models_3";
@@ -129,6 +130,10 @@ export class ListModelPackageGroupsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "ListModelPackageGroups",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -152,6 +153,10 @@ export class DescribeExecutionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeExecutionOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSStepFunctions",
+        operation: "DescribeExecution",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

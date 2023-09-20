@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { VerifyPinDataInput, VerifyPinDataInputFilterSensitiveLog, VerifyPinDataOutput } from "../models/models_0";
@@ -177,6 +178,10 @@ export class VerifyPinDataCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: VerifyPinDataInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "PaymentCryptographyDataPlane",
+        operation: "VerifyPinData",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

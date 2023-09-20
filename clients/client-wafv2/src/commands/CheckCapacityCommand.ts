@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CheckCapacityRequest, CheckCapacityResponse } from "../models/models_0";
@@ -1117,6 +1118,10 @@ export class CheckCapacityCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSWAF_20190729",
+        operation: "CheckCapacity",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

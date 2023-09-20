@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
@@ -181,6 +182,10 @@ export class PutVoiceConnectorTerminationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: PutVoiceConnectorTerminationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: PutVoiceConnectorTerminationResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "UCBuzzConsoleService",
+        operation: "PutVoiceConnectorTermination",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

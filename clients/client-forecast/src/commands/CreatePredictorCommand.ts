@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
@@ -276,6 +277,10 @@ export class CreatePredictorCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreatePredictorRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonForecast",
+        operation: "CreatePredictor",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

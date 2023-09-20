@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListSigningPlatformsRequest, ListSigningPlatformsResponse } from "../models/models_0";
@@ -168,6 +169,10 @@ export class ListSigningPlatformsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "WallabyService",
+        operation: "ListSigningPlatforms",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

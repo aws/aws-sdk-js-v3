@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
@@ -223,6 +224,10 @@ export class PutIntegrationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: PutIntegrationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CustomerProfiles_20200815",
+        operation: "PutIntegration",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

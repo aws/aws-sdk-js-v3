@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
@@ -133,6 +134,10 @@ export class UpdateLocationAzureBlobCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateLocationAzureBlobRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "FmrsService",
+        operation: "UpdateLocationAzureBlob",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

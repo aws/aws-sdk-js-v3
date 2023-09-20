@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ImportHubContentRequest, ImportHubContentResponse } from "../models/models_3";
@@ -145,6 +146,10 @@ export class ImportHubContentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "ImportHubContent",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

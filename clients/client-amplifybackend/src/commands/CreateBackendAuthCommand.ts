@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
@@ -220,6 +221,10 @@ export class CreateBackendAuthCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateBackendAuthRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmplifyBackend",
+        operation: "CreateBackendAuth",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

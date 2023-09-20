@@ -14,6 +14,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -419,6 +420,10 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
       commandName,
       inputFilterSensitiveLog: GetObjectRequestFilterSensitiveLog,
       outputFilterSensitiveLog: GetObjectOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonS3",
+        operation: "GetObject",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

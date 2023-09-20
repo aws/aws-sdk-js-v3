@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -141,6 +142,10 @@ export class GetReferenceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetReferenceResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Omics",
+        operation: "GetReference",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

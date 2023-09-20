@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -167,6 +168,10 @@ export class GetPackageVersionAssetCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPackageVersionAssetResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CodeArtifactControlPlaneService",
+        operation: "GetPackageVersionAsset",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

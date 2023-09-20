@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
@@ -219,6 +220,10 @@ export class CreateMembersCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateMembersRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateMembersResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonDetective",
+        operation: "CreateMembers",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

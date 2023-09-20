@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
@@ -179,6 +180,10 @@ export class CreateProxySessionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateProxySessionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateProxySessionResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ChimeSDKTelephonyService",
+        operation: "CreateProxySession",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

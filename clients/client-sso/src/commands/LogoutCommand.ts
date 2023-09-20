@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { LogoutRequest, LogoutRequestFilterSensitiveLog } from "../models/models_0";
@@ -131,6 +132,10 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
       commandName,
       inputFilterSensitiveLog: LogoutRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SWBPortalService",
+        operation: "Logout",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

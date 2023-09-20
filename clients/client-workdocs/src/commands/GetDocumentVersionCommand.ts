@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -167,6 +168,10 @@ export class GetDocumentVersionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: GetDocumentVersionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: GetDocumentVersionResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGorillaBoyService",
+        operation: "GetDocumentVersion",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

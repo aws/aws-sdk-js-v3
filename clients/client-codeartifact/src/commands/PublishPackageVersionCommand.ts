@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
@@ -186,6 +187,10 @@ export class PublishPackageVersionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: PublishPackageVersionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CodeArtifactControlPlaneService",
+        operation: "PublishPackageVersion",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

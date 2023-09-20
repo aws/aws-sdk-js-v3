@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -158,6 +159,10 @@ export class CreateWatchlistCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateWatchlistRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateWatchlistResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "VoiceID",
+        operation: "CreateWatchlist",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

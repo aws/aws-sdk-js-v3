@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -230,6 +231,10 @@ export class GetPerformanceAnalysisReportCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPerformanceAnalysisReportResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "PerformanceInsightsv20180227",
+        operation: "GetPerformanceAnalysisReport",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

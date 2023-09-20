@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -647,6 +648,10 @@ export class InviteAccountToOrganizationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: InviteAccountToOrganizationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: InviteAccountToOrganizationResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSOrganizationsV20161128",
+        operation: "InviteAccountToOrganization",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

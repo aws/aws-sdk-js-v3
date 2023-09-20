@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetCommandInvocationRequest, GetCommandInvocationResult } from "../models/models_1";
@@ -172,6 +173,10 @@ export class GetCommandInvocationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSSM",
+        operation: "GetCommandInvocation",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

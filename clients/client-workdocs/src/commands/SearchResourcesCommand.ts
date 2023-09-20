@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -287,6 +288,10 @@ export class SearchResourcesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: SearchResourcesRequestFilterSensitiveLog,
       outputFilterSensitiveLog: SearchResourcesResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGorillaBoyService",
+        operation: "SearchResources",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

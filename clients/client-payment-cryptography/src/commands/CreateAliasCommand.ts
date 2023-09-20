@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreateAliasInput, CreateAliasOutput } from "../models/models_0";
@@ -173,6 +174,10 @@ export class CreateAliasCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "PaymentCryptographyControlPlane",
+        operation: "CreateAlias",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

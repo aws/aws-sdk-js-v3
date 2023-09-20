@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -158,6 +159,10 @@ export class UpdateChannelFlowCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateChannelFlowRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ChimeMessagingService",
+        operation: "UpdateChannelFlow",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UntagQueueRequest } from "../models/models_0";
@@ -119,6 +120,10 @@ export class UntagQueueCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSQS",
+        operation: "UntagQueue",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

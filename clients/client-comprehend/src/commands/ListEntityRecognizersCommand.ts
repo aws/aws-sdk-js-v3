@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
@@ -224,6 +225,10 @@ export class ListEntityRecognizersCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListEntityRecognizersResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Comprehend_20171127",
+        operation: "ListEntityRecognizers",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { RemoveAccountFromOrganizationRequest } from "../models/models_0";
@@ -492,6 +493,10 @@ export class RemoveAccountFromOrganizationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSOrganizationsV20161128",
+        operation: "RemoveAccountFromOrganization",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

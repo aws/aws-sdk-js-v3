@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListOrdersRequest, ListOrdersResponse, ListOrdersResponseFilterSensitiveLog } from "../models/models_0";
@@ -169,6 +170,10 @@ export class ListOrdersCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListOrdersResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "E5GNetworkControllerLambda",
+        operation: "ListOrders",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

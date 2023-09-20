@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -304,6 +305,10 @@ export class IsAuthorizedWithTokenCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: IsAuthorizedWithTokenInputFilterSensitiveLog,
       outputFilterSensitiveLog: IsAuthorizedWithTokenOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "VerifiedPermissions",
+        operation: "IsAuthorizedWithToken",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

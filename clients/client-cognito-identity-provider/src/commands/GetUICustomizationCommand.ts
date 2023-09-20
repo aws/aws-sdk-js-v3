@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -156,6 +157,10 @@ export class GetUICustomizationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: GetUICustomizationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: GetUICustomizationResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCognitoIdentityProviderService",
+        operation: "GetUICustomization",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

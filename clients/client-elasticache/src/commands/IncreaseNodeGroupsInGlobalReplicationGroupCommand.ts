@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
@@ -181,6 +182,10 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonElastiCacheV9",
+        operation: "IncreaseNodeGroupsInGlobalReplicationGroup",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

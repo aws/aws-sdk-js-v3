@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
@@ -1011,6 +1012,10 @@ export class UpdateDistributionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateDistributionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: UpdateDistributionResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Cloudfront2020_05_31",
+        operation: "UpdateDistribution",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

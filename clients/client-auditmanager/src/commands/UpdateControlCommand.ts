@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
@@ -183,6 +184,10 @@ export class UpdateControlCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateControlRequestFilterSensitiveLog,
       outputFilterSensitiveLog: UpdateControlResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "BedrockAssessmentManagerLambda",
+        operation: "UpdateControl",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

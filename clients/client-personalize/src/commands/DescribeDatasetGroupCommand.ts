@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribeDatasetGroupRequest, DescribeDatasetGroupResponse } from "../models/models_0";
@@ -131,6 +132,10 @@ export class DescribeDatasetGroupCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonPersonalize",
+        operation: "DescribeDatasetGroup",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

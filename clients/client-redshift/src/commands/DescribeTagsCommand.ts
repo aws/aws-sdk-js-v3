@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribeTagsMessage, TaggedResourceListMessage } from "../models/models_1";
@@ -161,6 +162,10 @@ export class DescribeTagsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RedshiftServiceVersion20121201",
+        operation: "DescribeTags",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

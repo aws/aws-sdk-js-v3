@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
@@ -334,6 +335,10 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
       commandName,
       inputFilterSensitiveLog: EncryptRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "TrentService",
+        operation: "Encrypt",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -165,6 +166,10 @@ export class QueryAssistantCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: QueryAssistantRequestFilterSensitiveLog,
       outputFilterSensitiveLog: QueryAssistantResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "WisdomService",
+        operation: "QueryAssistant",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

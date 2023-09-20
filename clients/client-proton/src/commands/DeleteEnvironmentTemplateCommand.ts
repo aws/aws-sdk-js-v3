@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -146,6 +147,10 @@ export class DeleteEnvironmentTemplateCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteEnvironmentTemplateOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AwsProton20200720",
+        operation: "DeleteEnvironmentTemplate",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

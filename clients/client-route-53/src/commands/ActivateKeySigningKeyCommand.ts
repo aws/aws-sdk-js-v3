@@ -12,6 +12,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ActivateKeySigningKeyRequest, ActivateKeySigningKeyResponse } from "../models/models_0";
@@ -145,6 +146,10 @@ export class ActivateKeySigningKeyCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSDnsV20130401",
+        operation: "ActivateKeySigningKey",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -142,6 +143,10 @@ export class GetRoleCredentialsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: GetRoleCredentialsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: GetRoleCredentialsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SWBPortalService",
+        operation: "GetRoleCredentials",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

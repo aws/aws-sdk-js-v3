@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -197,6 +198,10 @@ export class GetSecretValueCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSecretValueResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "secretsmanager",
+        operation: "GetSecretValue",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

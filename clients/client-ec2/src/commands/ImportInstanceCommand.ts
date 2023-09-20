@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
@@ -226,6 +227,10 @@ export class ImportInstanceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ImportInstanceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: ImportInstanceResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonEC2",
+        operation: "ImportInstance",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

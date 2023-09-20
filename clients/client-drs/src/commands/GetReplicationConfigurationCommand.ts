@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
@@ -173,6 +174,10 @@ export class GetReplicationConfigurationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ReplicationConfigurationFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ElasticDisasterRecoveryService",
+        operation: "GetReplicationConfiguration",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

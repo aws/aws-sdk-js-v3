@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -168,6 +169,10 @@ export class UpdateStreamingImageCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateStreamingImageRequestFilterSensitiveLog,
       outputFilterSensitiveLog: UpdateStreamingImageResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "nimble",
+        operation: "UpdateStreamingImage",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

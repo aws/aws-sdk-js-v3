@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ExecuteStatementInput, ExecuteStatementOutput } from "../models/models_0";
@@ -179,6 +180,10 @@ export class ExecuteStatementCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RedshiftData",
+        operation: "ExecuteStatement",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

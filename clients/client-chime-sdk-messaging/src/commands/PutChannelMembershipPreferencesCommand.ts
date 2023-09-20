@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -177,6 +178,10 @@ export class PutChannelMembershipPreferencesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: PutChannelMembershipPreferencesRequestFilterSensitiveLog,
       outputFilterSensitiveLog: PutChannelMembershipPreferencesResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ChimeMessagingService",
+        operation: "PutChannelMembershipPreferences",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

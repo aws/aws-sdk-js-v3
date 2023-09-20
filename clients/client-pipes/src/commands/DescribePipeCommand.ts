@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribePipeRequest, DescribePipeResponse, DescribePipeResponseFilterSensitiveLog } from "../models/models_0";
@@ -429,6 +430,10 @@ export class DescribePipeCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribePipeResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Pipes",
+        operation: "DescribePipe",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

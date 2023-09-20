@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -279,6 +280,10 @@ export class SendCommandCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: SendCommandRequestFilterSensitiveLog,
       outputFilterSensitiveLog: SendCommandResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSSM",
+        operation: "SendCommand",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

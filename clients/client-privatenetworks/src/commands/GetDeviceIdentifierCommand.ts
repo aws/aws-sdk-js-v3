@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -140,6 +141,10 @@ export class GetDeviceIdentifierCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetDeviceIdentifierResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "E5GNetworkControllerLambda",
+        operation: "GetDeviceIdentifier",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetDedicatedIpRequest, GetDedicatedIpResponse } from "../models/models_0";
@@ -130,6 +131,10 @@ export class GetDedicatedIpCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SimpleEmailService_v2",
+        operation: "GetDedicatedIp",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -163,6 +164,10 @@ export class ListMediaInsightsPipelineConfigurationsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListMediaInsightsPipelineConfigurationsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ChimeSDKMediaPipelinesService",
+        operation: "ListMediaInsightsPipelineConfigurations",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

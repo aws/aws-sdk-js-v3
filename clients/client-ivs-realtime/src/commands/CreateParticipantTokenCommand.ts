@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
@@ -157,6 +158,10 @@ export class CreateParticipantTokenCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateParticipantTokenResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonInteractiveVideoServiceRealTime",
+        operation: "CreateParticipantToken",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

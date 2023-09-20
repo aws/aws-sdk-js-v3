@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
@@ -174,6 +175,10 @@ export class GetBackupPlanFromJSONCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetBackupPlanFromJSONOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CryoControllerUserManager",
+        operation: "GetBackupPlanFromJSON",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

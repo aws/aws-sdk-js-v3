@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/models_0";
@@ -159,6 +160,10 @@ export class DescribeCampaignCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonPersonalize",
+        operation: "DescribeCampaign",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

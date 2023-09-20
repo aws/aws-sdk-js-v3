@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -144,6 +145,10 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeNodeAssociationStatusResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "OpsWorksCM_V2016_11_01",
+        operation: "DescribeNodeAssociationStatus",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

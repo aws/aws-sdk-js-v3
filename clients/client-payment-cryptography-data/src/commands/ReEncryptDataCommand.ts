@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -198,6 +199,10 @@ export class ReEncryptDataCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ReEncryptDataInputFilterSensitiveLog,
       outputFilterSensitiveLog: ReEncryptDataOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "PaymentCryptographyDataPlane",
+        operation: "ReEncryptData",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

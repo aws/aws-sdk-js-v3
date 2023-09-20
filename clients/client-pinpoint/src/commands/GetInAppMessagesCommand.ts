@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetInAppMessagesRequest, GetInAppMessagesResponse } from "../models/models_1";
@@ -242,6 +243,10 @@ export class GetInAppMessagesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Pinpoint",
+        operation: "GetInAppMessages",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

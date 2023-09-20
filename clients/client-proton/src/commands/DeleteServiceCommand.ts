@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteServiceInput, DeleteServiceOutput, DeleteServiceOutputFilterSensitiveLog } from "../models/models_0";
@@ -164,6 +165,10 @@ export class DeleteServiceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteServiceOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AwsProton20200720",
+        operation: "DeleteService",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

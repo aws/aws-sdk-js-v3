@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -419,6 +420,10 @@ export class CreateAssociationBatchCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateAssociationBatchRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateAssociationBatchResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSSM",
+        operation: "CreateAssociationBatch",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

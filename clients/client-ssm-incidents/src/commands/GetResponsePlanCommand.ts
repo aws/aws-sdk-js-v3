@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetResponsePlanInput, GetResponsePlanOutput } from "../models/models_0";
@@ -187,6 +188,10 @@ export class GetResponsePlanCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SSMIncidents",
+        operation: "GetResponsePlan",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

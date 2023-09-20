@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreateControlPanelRequest, CreateControlPanelResponse } from "../models/models_0";
@@ -151,6 +152,10 @@ export class CreateControlPanelCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Route53RecoveryControlConfig",
+        operation: "CreateControlPanel",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

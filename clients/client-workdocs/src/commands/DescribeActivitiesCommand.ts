@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -225,6 +226,10 @@ export class DescribeActivitiesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: DescribeActivitiesRequestFilterSensitiveLog,
       outputFilterSensitiveLog: DescribeActivitiesResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSGorillaBoyService",
+        operation: "DescribeActivities",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

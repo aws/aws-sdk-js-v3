@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribeCodeRepositoryInput, DescribeCodeRepositoryOutput } from "../models/models_2";
@@ -122,6 +123,10 @@ export class DescribeCodeRepositoryCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "DescribeCodeRepository",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
@@ -142,6 +143,10 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CryoControllerUserManager",
+        operation: "GetRecoveryPointRestoreMetadata",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -165,6 +166,10 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: TransferDomainToAnotherAwsAccountResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Route53Domains_v20140515",
+        operation: "TransferDomainToAnotherAwsAccount",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

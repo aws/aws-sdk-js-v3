@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -4641,6 +4642,10 @@ export class CreateAnalysisCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateAnalysisRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "QuickSight_20180401",
+        operation: "CreateAnalysis",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

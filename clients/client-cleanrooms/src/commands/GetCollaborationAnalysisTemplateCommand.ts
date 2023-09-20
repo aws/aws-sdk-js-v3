@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
@@ -165,6 +166,10 @@ export class GetCollaborationAnalysisTemplateCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetCollaborationAnalysisTemplateOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSBastionControlPlaneServiceLambda",
+        operation: "GetCollaborationAnalysisTemplate",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

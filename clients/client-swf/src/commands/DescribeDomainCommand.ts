@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribeDomainInput, DomainDetail } from "../models/models_0";
@@ -152,6 +153,10 @@ export class DescribeDomainCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SimpleWorkflowService",
+        operation: "DescribeDomain",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

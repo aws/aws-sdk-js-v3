@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetCampaignVersionRequest } from "../models/models_0";
@@ -519,6 +520,10 @@ export class GetCampaignVersionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Pinpoint",
+        operation: "GetCampaignVersion",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

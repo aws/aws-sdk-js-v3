@@ -13,6 +13,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -316,6 +317,10 @@ export class CompleteMultipartUploadCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CompleteMultipartUploadRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CompleteMultipartUploadOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonS3",
+        operation: "CompleteMultipartUpload",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

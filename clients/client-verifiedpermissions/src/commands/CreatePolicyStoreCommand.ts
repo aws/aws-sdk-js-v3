@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreatePolicyStoreInput, CreatePolicyStoreOutput } from "../models/models_0";
@@ -231,6 +232,10 @@ export class CreatePolicyStoreCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "VerifiedPermissions",
+        operation: "CreatePolicyStore",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

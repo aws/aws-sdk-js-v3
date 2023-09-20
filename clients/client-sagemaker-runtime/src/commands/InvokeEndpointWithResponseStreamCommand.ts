@@ -13,6 +13,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -206,6 +207,10 @@ export class InvokeEndpointWithResponseStreamCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: InvokeEndpointWithResponseStreamInputFilterSensitiveLog,
       outputFilterSensitiveLog: InvokeEndpointWithResponseStreamOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSageMakerRuntime",
+        operation: "InvokeEndpointWithResponseStream",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

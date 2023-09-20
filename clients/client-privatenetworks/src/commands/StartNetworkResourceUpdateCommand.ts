@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -217,6 +218,10 @@ export class StartNetworkResourceUpdateCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: StartNetworkResourceUpdateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: StartNetworkResourceUpdateResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "E5GNetworkControllerLambda",
+        operation: "StartNetworkResourceUpdate",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

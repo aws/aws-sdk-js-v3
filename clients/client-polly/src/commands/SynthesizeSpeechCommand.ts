@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -209,6 +210,10 @@ export class SynthesizeSpeechCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SynthesizeSpeechOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Parrot_v1",
+        operation: "SynthesizeSpeech",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

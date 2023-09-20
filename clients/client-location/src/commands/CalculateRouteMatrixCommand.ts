@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
@@ -236,6 +237,10 @@ export class CalculateRouteMatrixCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CalculateRouteMatrixRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CalculateRouteMatrixResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "LocationService",
+        operation: "CalculateRouteMatrix",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

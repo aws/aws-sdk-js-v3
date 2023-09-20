@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -153,6 +154,10 @@ export class GetObjectMetadataCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetObjectMetadataOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CryoStorageFrontendService",
+        operation: "GetObjectMetadata",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

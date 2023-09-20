@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -228,6 +229,10 @@ export class CreateServerCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateServerRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateServerResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "OpsWorksCM_V2016_11_01",
+        operation: "CreateServer",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

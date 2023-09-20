@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
@@ -155,6 +156,10 @@ export class StartDevEnvironmentSessionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: StartDevEnvironmentSessionResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "CodeCatalyst",
+        operation: "StartDevEnvironmentSession",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

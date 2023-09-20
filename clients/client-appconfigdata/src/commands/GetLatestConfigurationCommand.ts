@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
@@ -164,6 +165,10 @@ export class GetLatestConfigurationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetLatestConfigurationResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AppConfigData",
+        operation: "GetLatestConfiguration",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

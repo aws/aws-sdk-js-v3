@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UpdateTopicRequest, UpdateTopicRequestFilterSensitiveLog, UpdateTopicResponse } from "../models/models_4";
@@ -391,6 +392,10 @@ export class UpdateTopicCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateTopicRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "QuickSight_20180401",
+        operation: "UpdateTopic",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -140,6 +141,10 @@ export class GetIdentityProviderCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetIdentityProviderResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSErmineControlPlaneService",
+        operation: "GetIdentityProvider",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

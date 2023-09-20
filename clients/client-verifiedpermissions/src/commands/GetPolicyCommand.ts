@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetPolicyInput, GetPolicyOutput, GetPolicyOutputFilterSensitiveLog } from "../models/models_0";
@@ -242,6 +243,10 @@ export class GetPolicyCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPolicyOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "VerifiedPermissions",
+        operation: "GetPolicy",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
@@ -174,6 +175,10 @@ export class CreateCustomLineItemCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateCustomLineItemInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSBillingConductor",
+        operation: "CreateCustomLineItem",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

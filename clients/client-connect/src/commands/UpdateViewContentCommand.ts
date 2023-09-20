@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
@@ -173,6 +174,10 @@ export class UpdateViewContentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateViewContentRequestFilterSensitiveLog,
       outputFilterSensitiveLog: UpdateViewContentResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonConnectService",
+        operation: "UpdateViewContent",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

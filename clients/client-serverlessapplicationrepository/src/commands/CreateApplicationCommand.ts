@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0";
@@ -195,6 +196,10 @@ export class CreateApplicationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ServerlessApplicationRepository",
+        operation: "CreateApplication",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

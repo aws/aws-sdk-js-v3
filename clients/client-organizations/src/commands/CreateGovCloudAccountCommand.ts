@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -596,6 +597,10 @@ export class CreateGovCloudAccountCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateGovCloudAccountRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateGovCloudAccountResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSOrganizationsV20161128",
+        operation: "CreateGovCloudAccount",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

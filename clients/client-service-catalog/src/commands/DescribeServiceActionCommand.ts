@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribeServiceActionInput, DescribeServiceActionOutput } from "../models/models_0";
@@ -128,6 +129,10 @@ export class DescribeServiceActionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWS242ServiceCatalogService",
+        operation: "DescribeServiceAction",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

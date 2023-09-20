@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DisassociateResourceShareRequest, DisassociateResourceShareResponse } from "../models/models_0";
@@ -175,6 +176,10 @@ export class DisassociateResourceShareCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonResourceSharing",
+        operation: "DisassociateResourceShare",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

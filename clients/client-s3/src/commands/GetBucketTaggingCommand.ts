@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetBucketTaggingOutput, GetBucketTaggingRequest } from "../models/models_0";
@@ -180,6 +181,10 @@ export class GetBucketTaggingCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonS3",
+        operation: "GetBucketTagging",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

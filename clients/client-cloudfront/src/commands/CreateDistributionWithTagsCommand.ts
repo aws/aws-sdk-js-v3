@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
@@ -1000,6 +1001,10 @@ export class CreateDistributionWithTagsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateDistributionWithTagsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateDistributionWithTagsResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Cloudfront2020_05_31",
+        operation: "CreateDistributionWithTags",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

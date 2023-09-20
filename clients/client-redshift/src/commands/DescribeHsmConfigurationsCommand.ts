@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribeHsmConfigurationsMessage, HsmConfigurationMessage } from "../models/models_1";
@@ -152,6 +153,10 @@ export class DescribeHsmConfigurationsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RedshiftServiceVersion20121201",
+        operation: "DescribeHsmConfigurations",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

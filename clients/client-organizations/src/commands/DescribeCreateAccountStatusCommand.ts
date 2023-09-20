@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -282,6 +283,10 @@ export class DescribeCreateAccountStatusCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeCreateAccountStatusResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSOrganizationsV20161128",
+        operation: "DescribeCreateAccountStatus",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { StartAppInput, StartAppInputFilterSensitiveLog, StartAppOutput } from "../models/models_0";
@@ -138,6 +139,10 @@ export class StartAppCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: StartAppInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SimSpaceWeaver",
+        operation: "StartApp",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

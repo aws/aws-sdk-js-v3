@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
@@ -226,6 +227,10 @@ export class CreateMeetingWithAttendeesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateMeetingWithAttendeesRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateMeetingWithAttendeesResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ChimeMeetingsSDKService",
+        operation: "CreateMeetingWithAttendees",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

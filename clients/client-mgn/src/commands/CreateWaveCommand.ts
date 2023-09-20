@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
@@ -147,6 +148,10 @@ export class CreateWaveCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateWaveRequestFilterSensitiveLog,
       outputFilterSensitiveLog: WaveFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ApplicationMigrationService",
+        operation: "CreateWave",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

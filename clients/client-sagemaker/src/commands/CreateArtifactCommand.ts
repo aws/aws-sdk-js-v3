@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreateArtifactRequest, CreateArtifactResponse } from "../models/models_0";
@@ -147,6 +148,10 @@ export class CreateArtifactCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SageMaker",
+        operation: "CreateArtifact",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

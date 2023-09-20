@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
@@ -129,6 +130,10 @@ export class PutObjectCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: PutObjectRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "MediaStoreObject_20170901",
+        operation: "PutObject",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -350,6 +351,10 @@ export class UpdateAssociationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateAssociationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: UpdateAssociationResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSSM",
+        operation: "UpdateAssociation",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

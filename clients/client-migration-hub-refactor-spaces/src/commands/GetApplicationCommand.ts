@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -171,6 +172,10 @@ export class GetApplicationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetApplicationResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RefactorSpaces",
+        operation: "GetApplication",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

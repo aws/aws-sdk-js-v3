@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -142,6 +143,10 @@ export class GetWorkUnitResultsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: GetWorkUnitResultsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: GetWorkUnitResultsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSLakeFormation",
+        operation: "GetWorkUnitResults",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

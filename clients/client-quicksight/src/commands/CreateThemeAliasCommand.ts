@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { CreateThemeAliasRequest, CreateThemeAliasResponse } from "../models/models_2";
@@ -150,6 +151,10 @@ export class CreateThemeAliasCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "QuickSight_20180401",
+        operation: "CreateThemeAlias",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

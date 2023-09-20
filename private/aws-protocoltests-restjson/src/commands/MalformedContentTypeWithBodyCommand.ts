@@ -10,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GreetingStruct } from "../models/models_0";
@@ -74,6 +75,10 @@ export class MalformedContentTypeWithBodyCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RestJson",
+        operation: "MalformedContentTypeWithBody",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

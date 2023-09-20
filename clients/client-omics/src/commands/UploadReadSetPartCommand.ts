@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
@@ -154,6 +155,10 @@ export class UploadReadSetPartCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UploadReadSetPartRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Omics",
+        operation: "UploadReadSetPart",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

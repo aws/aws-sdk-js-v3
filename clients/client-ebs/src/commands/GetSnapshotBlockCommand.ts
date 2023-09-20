@@ -12,6 +12,7 @@ import {
   MiddlewareStack,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
@@ -152,6 +153,10 @@ export class GetSnapshotBlockCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSnapshotBlockResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Ebs",
+        operation: "GetSnapshotBlock",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ListLogSourcesRequest, ListLogSourcesResponse } from "../models/models_0";
@@ -194,6 +195,10 @@ export class ListLogSourcesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SecurityLake",
+        operation: "ListLogSources",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

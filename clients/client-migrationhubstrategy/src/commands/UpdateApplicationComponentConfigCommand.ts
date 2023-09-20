@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -155,6 +156,10 @@ export class UpdateApplicationComponentConfigCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateApplicationComponentConfigRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSMigrationHubStrategyRecommendation",
+        operation: "UpdateApplicationComponentConfig",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

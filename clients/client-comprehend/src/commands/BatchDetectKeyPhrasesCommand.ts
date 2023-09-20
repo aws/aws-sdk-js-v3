@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
@@ -161,6 +162,10 @@ export class BatchDetectKeyPhrasesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: BatchDetectKeyPhrasesRequestFilterSensitiveLog,
       outputFilterSensitiveLog: BatchDetectKeyPhrasesResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Comprehend_20171127",
+        operation: "BatchDetectKeyPhrases",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

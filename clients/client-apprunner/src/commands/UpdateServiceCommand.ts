@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
@@ -295,6 +296,10 @@ export class UpdateServiceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateServiceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: UpdateServiceResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AppRunner",
+        operation: "UpdateService",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -169,6 +170,10 @@ export class SetUserMFAPreferenceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: SetUserMFAPreferenceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSCognitoIdentityProviderService",
+        operation: "SetUserMFAPreference",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
@@ -151,6 +152,10 @@ export class GetEvidenceFileUploadUrlCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: GetEvidenceFileUploadUrlRequestFilterSensitiveLog,
       outputFilterSensitiveLog: GetEvidenceFileUploadUrlResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "BedrockAssessmentManagerLambda",
+        operation: "GetEvidenceFileUploadUrl",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

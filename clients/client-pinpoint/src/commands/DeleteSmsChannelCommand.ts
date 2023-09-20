@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteSmsChannelRequest, DeleteSmsChannelResponse } from "../models/models_0";
@@ -150,6 +151,10 @@ export class DeleteSmsChannelCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "Pinpoint",
+        operation: "DeleteSmsChannel",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { UpdateServerRequest, UpdateServerResponse, UpdateServerResponseFilterSensitiveLog } from "../models/models_0";
@@ -167,6 +168,10 @@ export class UpdateServerCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateServerResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "OpsWorksCM_V2016_11_01",
+        operation: "UpdateServer",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

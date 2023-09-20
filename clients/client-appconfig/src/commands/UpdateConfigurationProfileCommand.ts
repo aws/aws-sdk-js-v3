@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
@@ -173,6 +174,10 @@ export class UpdateConfigurationProfileCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: UpdateConfigurationProfileRequestFilterSensitiveLog,
       outputFilterSensitiveLog: ConfigurationProfileFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonAppConfig",
+        operation: "UpdateConfigurationProfile",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
@@ -173,6 +174,10 @@ export class CreateSipMediaApplicationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreateSipMediaApplicationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreateSipMediaApplicationResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "UCBuzzConsoleService",
+        operation: "CreateSipMediaApplication",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

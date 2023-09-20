@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -200,6 +201,10 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: GetDeployablePatchSnapshotForInstanceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonSSM",
+        operation: "GetDeployablePatchSnapshotForInstance",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetDedicatedIpPoolRequest, GetDedicatedIpPoolResponse } from "../models/models_0";
@@ -126,6 +127,10 @@ export class GetDedicatedIpPoolCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SimpleEmailService_v2",
+        operation: "GetDedicatedIpPool",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

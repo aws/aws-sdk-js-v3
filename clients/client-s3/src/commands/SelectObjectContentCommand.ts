@@ -13,6 +13,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -308,6 +309,10 @@ export class SelectObjectContentCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: SelectObjectContentRequestFilterSensitiveLog,
       outputFilterSensitiveLog: SelectObjectContentOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonS3",
+        operation: "SelectObjectContent",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

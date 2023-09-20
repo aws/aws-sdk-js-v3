@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DescribeOptOutListsRequest, DescribeOptOutListsResult } from "../models/models_0";
@@ -152,6 +153,10 @@ export class DescribeOptOutListsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "PinpointSMSVoiceV2",
+        operation: "DescribeOptOutLists",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

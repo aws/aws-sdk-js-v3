@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetMLDataProcessingJobInput, GetMLDataProcessingJobOutput } from "../models/models_0";
@@ -158,6 +159,10 @@ export class GetMLDataProcessingJobCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonNeptuneDataplane",
+        operation: "GetMLDataProcessingJob",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

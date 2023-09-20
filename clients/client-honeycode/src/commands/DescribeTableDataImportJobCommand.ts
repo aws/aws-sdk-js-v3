@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
@@ -177,6 +178,10 @@ export class DescribeTableDataImportJobCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeTableDataImportJobResultFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "SheetsPublicApiService",
+        operation: "DescribeTableDataImportJob",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
@@ -141,6 +142,10 @@ export class CreatePackageCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: CreatePackageRequestFilterSensitiveLog,
       outputFilterSensitiveLog: CreatePackageResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSIotService",
+        operation: "CreatePackage",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

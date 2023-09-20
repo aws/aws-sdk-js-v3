@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { ModifyDBSnapshotMessage, ModifyDBSnapshotResult } from "../models/models_1";
@@ -210,6 +211,10 @@ export class ModifyDBSnapshotCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonRDSv19",
+        operation: "ModifyDBSnapshot",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

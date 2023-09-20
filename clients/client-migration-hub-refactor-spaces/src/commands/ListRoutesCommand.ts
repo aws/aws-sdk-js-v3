@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -178,6 +179,10 @@ export class ListRoutesCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListRoutesResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "RefactorSpaces",
+        operation: "ListRoutes",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

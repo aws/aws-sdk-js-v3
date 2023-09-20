@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -147,6 +148,10 @@ export class GetIpAccessSettingsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetIpAccessSettingsResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSErmineControlPlaneService",
+        operation: "GetIpAccessSettings",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

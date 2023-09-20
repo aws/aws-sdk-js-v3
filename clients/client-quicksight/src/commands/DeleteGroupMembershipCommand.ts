@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { DeleteGroupMembershipRequest, DeleteGroupMembershipResponse } from "../models/models_3";
@@ -142,6 +143,10 @@ export class DeleteGroupMembershipCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "QuickSight_20180401",
+        operation: "DeleteGroupMembership",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

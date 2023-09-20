@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
@@ -140,6 +141,10 @@ export class GetClusterSessionCredentialsCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetClusterSessionCredentialsOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "ElasticMapReduce",
+        operation: "GetClusterSessionCredentials",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { GetDigestRequest, GetDigestResponse, GetDigestResponseFilterSensitiveLog } from "../models/models_0";
@@ -125,6 +126,10 @@ export class GetDigestCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetDigestResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AmazonQLDB",
+        operation: "GetDigest",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

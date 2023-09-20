@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -154,6 +155,10 @@ export class TestAvailabilityConfigurationCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: TestAvailabilityConfigurationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "WorkMailService",
+        operation: "TestAvailabilityConfiguration",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

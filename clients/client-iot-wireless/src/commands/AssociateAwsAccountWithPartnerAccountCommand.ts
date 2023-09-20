@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
@@ -157,6 +158,10 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: AssociateAwsAccountWithPartnerAccountRequestFilterSensitiveLog,
       outputFilterSensitiveLog: AssociateAwsAccountWithPartnerAccountResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "iotwireless",
+        operation: "AssociateAwsAccountWithPartnerAccount",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

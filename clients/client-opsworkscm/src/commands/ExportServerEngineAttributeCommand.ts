@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -155,6 +156,10 @@ export class ExportServerEngineAttributeCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: ExportServerEngineAttributeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: ExportServerEngineAttributeResponseFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "OpsWorksCM_V2016_11_01",
+        operation: "ExportServerEngineAttribute",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(

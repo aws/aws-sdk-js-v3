@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
 import {
@@ -172,6 +173,10 @@ export class StartSyncExecutionCommand extends $Command<
       commandName,
       inputFilterSensitiveLog: StartSyncExecutionInputFilterSensitiveLog,
       outputFilterSensitiveLog: StartSyncExecutionOutputFilterSensitiveLog,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSStepFunctions",
+        operation: "StartSyncExecution",
+      },
     };
     const { requestHandler } = configuration;
     return stack.resolve(
