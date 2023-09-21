@@ -1,12 +1,9 @@
 {
-  "name": "@aws-sdk/credential-providers",
+  "name": "@aws-sdk/credential-provider-http",
   "version": "3.418.0",
-  "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
+  "description": "AWS credential provider for containers and HTTP sources",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
-  "browser": "./dist-es/index.browser.js",
-  "react-native": "./dist-es/index.browser.js",
-  "sideEffects": false,
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -15,7 +12,6 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "extract:docs": "api-extractor run --local",
     "test": "jest"
   },
   "keywords": [
@@ -28,20 +24,11 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-cognito-identity": "*",
-    "@aws-sdk/client-sso": "*",
-    "@aws-sdk/client-sts": "*",
-    "@aws-sdk/credential-provider-cognito-identity": "*",
-    "@aws-sdk/credential-provider-env": "*",
-    "@aws-sdk/credential-provider-http": "*",
-    "@aws-sdk/credential-provider-ini": "*",
-    "@aws-sdk/credential-provider-node": "*",
-    "@aws-sdk/credential-provider-process": "*",
-    "@aws-sdk/credential-provider-sso": "*",
-    "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/types": "*",
-    "@smithy/credential-provider-imds": "^2.0.0",
+    "@smithy/protocol-http": "^3.0.5",
     "@smithy/property-provider": "^2.0.0",
+    "@smithy/fetch-http-handler": "^2.1.5",
+    "@smithy/node-http-handler": "^2.1.5",
     "@smithy/types": "^2.3.3",
     "tslib": "^2.5.0"
   },
@@ -68,11 +55,11 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-providers",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-provider-http",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/credential-providers"
+    "directory": "packages/credential-provider-http"
   },
   "typedoc": {
     "entryPoint": "src/index.ts"
