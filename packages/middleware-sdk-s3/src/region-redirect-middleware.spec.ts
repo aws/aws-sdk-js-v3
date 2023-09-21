@@ -29,4 +29,22 @@ describe(regionRedirectMiddleware.name, () => {
     await handler({ input: null });
     expect(context.__s3RegionRedirect).toEqual(redirectRegion);
   });
+
+  it("does not follow the redirect when followRegionRedirects is false", async () => {
+    const middleware = regionRedirectMiddleware({ region, followRegionRedirects: false });
+    const context = {} as HandlerExecutionContext;
+    const handler = middleware(next, context);
+    // Simulating a PermanentRedirect error with status 301
+    await expect(async () => {
+      await handler({ input: null });
+    }).rejects.toThrowError(
+      Object.assign(new Error(), {
+        Code: "PermanentRedirect",
+        $metadata: { httpStatusCode: 301 },
+        $response: { headers: { "x-amz-bucket-region": redirectRegion } },
+      })
+    );
+    // Ensure that context.__s3RegionRedirect is not set
+    expect(context.__s3RegionRedirect).toBeUndefined();
+  });
 });
