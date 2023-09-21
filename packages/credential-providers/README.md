@@ -14,6 +14,7 @@ A collection of all credential providers, with default clients.
    1. [Examples](#examples)
 1. [From Token File](#fromtokenfile)
 1. [From Instance and Container Metadata Service](#fromcontainermetadata-and-frominstancemetadata)
+1. [From HTTP(S)](#fromhttp)
 1. [From Shared INI files](#fromini)
    1. [Sample Files](#sample-files)
 1. [From Environmental Variables](#fromenv)
@@ -257,6 +258,105 @@ supported.
 
 Please see [Configure the instance metadata service][config_instance_metadata] for more information.
 
+## `fromHttp()`
+
+This creates a provider function that makes a `GET` request to
+any provided HTTPS URL. A limited set of HTTP destinations are also accepted.
+
+This is a general form of the `fromContainerMetadata` function.
+
+The server is expected to respond with the following format in JSON:
+
+```ts
+type HttpProviderResponse = {
+  AccessKeyId: string;
+  SecretAccessKey: string;
+  Token: string;
+  AccountId?: string;
+  Expiration: string; // rfc3339
+};
+```
+
+The acceptable non-HTTPS destinations are described in the validation error if encountered:
+
+```
+URL not accepted. It must either be HTTPS or match one of the following:
+  - loopback CIDR 127.0.0.0/8 or [::1/128]
+  - ECS container host 169.254.170.2
+  - EKS container host 169.254.170.23 or [fd00:ec2::23]
+```
+
+Node.js:
+
+```js
+import { fromHttp } from "@aws-sdk/credential-providers";
+// const { fromHttp } = require("@aws-sdk/credential-providers");
+
+const client = new FooClient({
+  credentials: fromHttp({
+    /**
+     * If this value is provided, it will be used as-is.
+     */
+    awsContainerCredentialsFullUri: "...",
+    /**
+     * If this value is provided instead of the full URI, it
+     * will be appended to the default link local host of 169.254.170.2.
+     */
+    awsContainerCredentialsRelativeUri: "...",
+
+    /**
+     * Will be read on each credentials request to
+     * add an Authorization request header value.
+     */
+    awsContainerAuthorizationTokenFile: "...",
+
+    /**
+     * An alternative to awsContainerAuthorizationTokenFile,
+     * this is the token value itself.
+     */
+    awsContainerAuthorizationToken: "...",
+  }),
+});
+```
+
+If not provided in the JavaScript code, the following process envrionment variables will
+be read:
+
+```
+AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
+AWS_CONTAINER_CREDENTIALS_FULL_URI
+AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE
+AWS_CONTAINER_AUTHORIZATION_TOKEN
+```
+
+Browsers:
+
+```js
+import { fromHttp } from "@aws-sdk/credential-providers";
+
+const client = new FooClient({
+  credentials: fromHttp({
+    /**
+     * BROWSER ONLY.
+     *
+     * In browsers, a relative URI is not allowed, and a full URI must be provided.
+     * HTTPS is required.
+     *
+     * This value is required for the browser environment.
+     */
+    credentialsFullUri: "...",
+
+    /**
+     * BROWSER ONLY.
+     *
+     * Providing this value will set an "Authorization" request
+     * header value on the GET request.
+     */
+    authorizationToken: "...",
+  }),
+});
+```
+
 ## `fromIni()`
 
 `fromIni` creates `AwsCredentialIdentityProvider` functions that read from a shared credentials file at
@@ -468,7 +568,7 @@ credential_process = /usr/local/bin/awscreds dev
 
 The function `fromTokenFile` returns `AwsCredentialIdentityProvider` that reads credentials as follows:
 
-- Reads file location of where the OIDC token is stored from either provided option  
+- Reads file location of where the OIDC token is stored from either provided option
   `webIdentityTokenFile` or environment variable `AWS_WEB_IDENTITY_TOKEN_FILE`.
 - Reads IAM role wanting to be assumed from either provided option `roleArn` or environment
   variable `AWS_ROLE_ARN`.
