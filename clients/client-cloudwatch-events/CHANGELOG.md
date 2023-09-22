@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
+
+
+### Features
+
+* **client-cloudwatch-events:** Adds sensitive trait to various shapes in Jetstream Connections API model. ([4fa6b7a](https://github.com/aws/aws-sdk-js-v3/commit/4fa6b7afb6fa2d66b3620b18e16232cd9026d39b))
+
+
+
+
+
 # [3.414.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.413.0...v3.414.0) (2023-09-15)
 
 

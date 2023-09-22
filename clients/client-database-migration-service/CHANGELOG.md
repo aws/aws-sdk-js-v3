@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
+
+
+### Features
+
+* **client-database-migration-service:** new vendors for DMS CSF: MongoDB, MariaDB, DocumentDb and Redshift ([28ddff5](https://github.com/aws/aws-sdk-js-v3/commit/28ddff5b33f1fdda26202c0ea3452effa90855ed))
+
+
+
+
+
 # [3.414.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.413.0...v3.414.0) (2023-09-15)
 
 

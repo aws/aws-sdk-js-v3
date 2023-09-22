@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
+
+
+### Features
+
+* **client-braket:** This release adds support to view the device queue depth (the number of queued quantum tasks and hybrid jobs on a device) and queue position for a quantum task and hybrid job. ([2270498](https://github.com/aws/aws-sdk-js-v3/commit/2270498b1050e5723b496bd160d4c305e03bd9c7))
+* **client-cloudwatch-events:** Adds sensitive trait to various shapes in Jetstream Connections API model. ([4fa6b7a](https://github.com/aws/aws-sdk-js-v3/commit/4fa6b7afb6fa2d66b3620b18e16232cd9026d39b))
+* **client-database-migration-service:** new vendors for DMS CSF: MongoDB, MariaDB, DocumentDb and Redshift ([28ddff5](https://github.com/aws/aws-sdk-js-v3/commit/28ddff5b33f1fdda26202c0ea3452effa90855ed))
+* **client-ec2:** EC2 M2 Pro Mac instances are powered by Apple M2 Pro Mac Mini computers featuring 12 core CPU, 19 core GPU, 32 GiB of memory, and 16 core Apple Neural Engine and uniquely enabled by the AWS Nitro System through high-speed Thunderbolt connections. ([987ec95](https://github.com/aws/aws-sdk-js-v3/commit/987ec95712b7f9a51af7936cd51109e155ea1cb1))
+* **client-guardduty:** Add `EKS_CLUSTER_NAME` to filter and sort key. ([5f15b82](https://github.com/aws/aws-sdk-js-v3/commit/5f15b8235f9707d8b01291a2e9cf6e8d47e6dcd2))
+* **client-mediaconvert:** This release supports the creation of of audio-only tracks in CMAF output groups. ([86bf62a](https://github.com/aws/aws-sdk-js-v3/commit/86bf62ab7493c7647b59b7d83b1680394b4724c5))
+* **clients:** update client endpoints as of 2023-09-22 ([c5e3e87](https://github.com/aws/aws-sdk-js-v3/commit/c5e3e87fcac460e495a27e560338e2fcec4cfa19))
+
+
+
+
+
 # [3.417.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.416.0...v3.417.0) (2023-09-20)
 
 

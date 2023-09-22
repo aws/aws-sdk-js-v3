@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
+
+
+### Features
+
+* **client-ec2:** EC2 M2 Pro Mac instances are powered by Apple M2 Pro Mac Mini computers featuring 12 core CPU, 19 core GPU, 32 GiB of memory, and 16 core Apple Neural Engine and uniquely enabled by the AWS Nitro System through high-speed Thunderbolt connections. ([987ec95](https://github.com/aws/aws-sdk-js-v3/commit/987ec95712b7f9a51af7936cd51109e155ea1cb1))
+
+
+
+
+
 # [3.416.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.415.0...v3.416.0) (2023-09-19)
 
 
