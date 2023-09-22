@@ -1463,6 +1463,7 @@ export const CoverageFilterCriterionKey = {
   ADDON_VERSION: "ADDON_VERSION",
   CLUSTER_NAME: "CLUSTER_NAME",
   COVERAGE_STATUS: "COVERAGE_STATUS",
+  EKS_CLUSTER_NAME: "EKS_CLUSTER_NAME",
   MANAGEMENT_TYPE: "MANAGEMENT_TYPE",
   RESOURCE_TYPE: "RESOURCE_TYPE",
 } as const;
@@ -1481,6 +1482,10 @@ export interface CoverageFilterCriterion {
   /**
    * @public
    * <p>An enum value representing possible filter fields.</p>
+   *          <note>
+   *             <p>Replace the enum value <code>CLUSTER_NAME</code> with <code>EKS_CLUSTER_NAME</code>.
+   *       <code>CLUSTER_NAME</code> has been deprecated.</p>
+   *          </note>
    */
   CriterionKey?: CoverageFilterCriterionKey | string;
 
@@ -1581,6 +1586,7 @@ export const CoverageSortKey = {
   ADDON_VERSION: "ADDON_VERSION",
   CLUSTER_NAME: "CLUSTER_NAME",
   COVERAGE_STATUS: "COVERAGE_STATUS",
+  EKS_CLUSTER_NAME: "EKS_CLUSTER_NAME",
   ISSUE: "ISSUE",
   UPDATED_AT: "UPDATED_AT",
 } as const;
@@ -1612,6 +1618,10 @@ export interface CoverageSortCriteria {
   /**
    * @public
    * <p>Represents the field name used to sort the coverage details.</p>
+   *          <note>
+   *             <p>Replace the enum value <code>CLUSTER_NAME</code> with <code>EKS_CLUSTER_NAME</code>.
+   *       <code>CLUSTER_NAME</code> has been deprecated.</p>
+   *          </note>
    */
   AttributeName?: CoverageSortKey | string;
 
@@ -3045,6 +3055,10 @@ export interface FilterCriterion {
    * @public
    * <p>An enum value representing possible scan properties to match with given scan
    *       entries.</p>
+   *          <note>
+   *             <p>Replace the enum value <code>CLUSTER_NAME</code> with <code>EKS_CLUSTER_NAME</code>.
+   *       <code>CLUSTER_NAME</code> has been deprecated.</p>
+   *          </note>
    */
   CriterionKey?: CriterionKey | string;
 
@@ -4474,7 +4488,7 @@ export interface EksClusterDetails {
 export interface EnableOrganizationAdminAccountRequest {
   /**
    * @public
-   * <p>The Amazon Web Services Account ID for the organization account to be enabled as a GuardDuty delegated
+   * <p>The Amazon Web Services account ID for the organization account to be enabled as a GuardDuty delegated
    *       administrator.</p>
    */
   AdminAccountId: string | undefined;
@@ -5620,7 +5634,7 @@ export interface Service {
 
 /**
  * @public
- * <p>Contains information about the finding, which is generated when abnormal or suspicious
+ * <p>Contains information about the finding that is generated when abnormal or suspicious
  *       activity is detected.</p>
  */
 export interface Finding {
@@ -6106,22 +6120,19 @@ export type ScanCriterionKey = (typeof ScanCriterionKey)[keyof typeof ScanCriter
 
 /**
  * @public
- * <p>Represents key, value pair to be matched against given resource property.</p>
+ * <p>Represents the <code>key:value</code> pair to be matched against given resource property.</p>
  */
 export interface ScanConditionPair {
   /**
    * @public
-   * <p>Represents <i>key</i>
-   *             <b></b> in the map condition.</p>
+   * <p>Represents the <b>key</b> in the map condition.</p>
    */
   Key: string | undefined;
 
   /**
    * @public
-   * <p>Represents optional <i>value</i>
-   *             <b></b> in the map
-   *       condition. If not specified, only <i>key</i>
-   *             <b></b> will be
+   * <p>Represents optional <b>value</b> in the map
+   *       condition. If not specified, only the <b>key</b> will be
    *       matched.</p>
    */
   Value?: string;

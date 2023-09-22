@@ -598,8 +598,9 @@ export interface OrganizationFeatureConfiguration {
 
   /**
    * @public
-   * <p>The status of the feature that will be configured for the organization. Use one of the following
-   *     values to configure the feature status for the entire organization:</p>
+   * <p>Describes the status of the feature that is configured for the
+   *       member accounts within the organization. One of the following
+   *       values is the status for the entire organization:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -616,9 +617,10 @@ export interface OrganizationFeatureConfiguration {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NONE</code>: Indicates that the feature will not be automatically enabled for any
-   *           account in the organization. The administrator must manage the feature for each account
-   *           individually.</p>
+   *                   <code>NONE</code>: Indicates that the feature will not be
+   *           automatically enabled for any
+   *           account in the organization. The administrator must manage the feature
+   *           for each account individually.</p>
    *             </li>
    *          </ul>
    */
@@ -645,9 +647,9 @@ export interface UpdateOrganizationConfigurationRequest {
    * @public
    * @deprecated
    *
-   * <p>Indicates whether to automatically enable member accounts in the organization.</p>
+   * <p>Represents whether or not to automatically enable member accounts in the organization.</p>
    *          <p>Even though this is still supported, we recommend using
-   *         <code>AutoEnableOrganizationMembers</code> to achieve the similar results. You must provide the
+   *    <code>AutoEnableOrganizationMembers</code> to achieve the similar results. You must provide a
    *     value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>.</p>
    */
   AutoEnable?: boolean;
@@ -669,8 +671,7 @@ export interface UpdateOrganizationConfigurationRequest {
   /**
    * @public
    * <p>Indicates the auto-enablement configuration of GuardDuty for the member accounts in the
-   *       organization. You must provide a
-   *       value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>. </p>
+   *       organization. You must provide a value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>. </p>
    *          <p>Use one of the
    *     following configuration values for <code>autoEnableOrganizationMembers</code>:</p>
    *          <ul>
@@ -690,8 +691,7 @@ export interface UpdateOrganizationConfigurationRequest {
    *             <li>
    *                <p>
    *                   <code>NONE</code>: Indicates that GuardDuty will not be automatically enabled for any
-   *           account in the organization. The administrator must manage GuardDuty for each account in the organization
-   *           individually.</p>
+   *           account in the organization. The administrator must manage GuardDuty for each account in the organization individually.</p>
    *             </li>
    *          </ul>
    */
