@@ -8839,6 +8839,7 @@ export const _InstanceType = {
   m7i_large: "m7i.large",
   m7i_xlarge: "m7i.xlarge",
   mac1_metal: "mac1.metal",
+  mac2_m2pro_metal: "mac2-m2pro.metal",
   mac2_metal: "mac2.metal",
   p2_16xlarge: "p2.16xlarge",
   p2_8xlarge: "p2.8xlarge",
