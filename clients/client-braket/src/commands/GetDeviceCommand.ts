@@ -65,6 +65,13 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * //   deviceType: "STRING_VALUE", // required
  * //   deviceStatus: "STRING_VALUE", // required
  * //   deviceCapabilities: "STRING_VALUE", // required
+ * //   deviceQueueInfo: [ // DeviceQueueInfoList
+ * //     { // DeviceQueueInfo
+ * //       queue: "STRING_VALUE", // required
+ * //       queueSize: "STRING_VALUE", // required
+ * //       queuePriority: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

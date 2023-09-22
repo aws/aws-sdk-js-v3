@@ -239,6 +239,12 @@ export const se_GetJobCommand = async (input: GetJobCommandInput, context: __Ser
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/job/{jobArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "jobArn", () => input.jobArn!, "{jobArn}", false);
+  const query: any = map({
+    additionalAttributeNames: [
+      () => input.additionalAttributeNames !== void 0,
+      () => (input.additionalAttributeNames! || []).map((_entry) => _entry as any),
+    ],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -247,6 +253,7 @@ export const se_GetJobCommand = async (input: GetJobCommandInput, context: __Ser
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -270,6 +277,12 @@ export const se_GetQuantumTaskCommand = async (
     "{quantumTaskArn}",
     false
   );
+  const query: any = map({
+    additionalAttributeNames: [
+      () => input.additionalAttributeNames !== void 0,
+      () => (input.additionalAttributeNames! || []).map((_entry) => _entry as any),
+    ],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -278,6 +291,7 @@ export const se_GetQuantumTaskCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -732,6 +746,7 @@ export const de_GetDeviceCommand = async (
     deviceArn: __expectString,
     deviceCapabilities: (_) => new __LazyJsonString(_),
     deviceName: __expectString,
+    deviceQueueInfo: _json,
     deviceStatus: __expectString,
     deviceType: __expectString,
     providerName: __expectString,
@@ -807,6 +822,7 @@ export const de_GetJobCommand = async (
     jobArn: __expectString,
     jobName: __expectString,
     outputDataConfig: _json,
+    queueInfo: _json,
     roleArn: __expectString,
     startedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     status: __expectString,
@@ -876,6 +892,7 @@ export const de_GetQuantumTaskCommand = async (
     outputS3Bucket: __expectString,
     outputS3Directory: __expectString,
     quantumTaskArn: __expectString,
+    queueInfo: _json,
     shots: __expectLong,
     status: __expectString,
     tags: _json,
@@ -1466,9 +1483,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_DeviceConfig omitted.
 
+// de_DeviceQueueInfo omitted.
+
+// de_DeviceQueueInfoList omitted.
+
 // de_DeviceSummary omitted.
 
 // de_DeviceSummaryList omitted.
+
+// de_HybridJobQueueInfo omitted.
 
 // de_HyperParameters omitted.
 
@@ -1534,6 +1557,8 @@ const de_JobSummaryList = (output: any, context: __SerdeContext): JobSummary[] =
     });
   return retVal;
 };
+
+// de_QuantumTaskQueueInfo omitted.
 
 /**
  * deserializeAws_restJson1QuantumTaskSummary

@@ -46,6 +46,9 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
  * const client = new BraketClient(config);
  * const input = { // GetQuantumTaskRequest
  *   quantumTaskArn: "STRING_VALUE", // required
+ *   additionalAttributeNames: [ // QuantumTaskAdditionalAttributeNamesList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new GetQuantumTaskCommand(input);
  * const response = await client.send(command);
@@ -64,6 +67,12 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   jobArn: "STRING_VALUE",
+ * //   queueInfo: { // QuantumTaskQueueInfo
+ * //     queue: "STRING_VALUE", // required
+ * //     position: "STRING_VALUE", // required
+ * //     queuePriority: "STRING_VALUE",
+ * //     message: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

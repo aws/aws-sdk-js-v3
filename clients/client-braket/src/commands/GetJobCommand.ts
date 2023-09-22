@@ -46,6 +46,9 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * const client = new BraketClient(config);
  * const input = { // GetJobRequest
  *   jobArn: "STRING_VALUE", // required
+ *   additionalAttributeNames: [ // HybridJobAdditionalAttributeNamesList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new GetJobCommand(input);
  * const response = await client.send(command);
@@ -111,6 +114,11 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //   ],
  * //   tags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   queueInfo: { // HybridJobQueueInfo
+ * //     queue: "STRING_VALUE", // required
+ * //     position: "STRING_VALUE", // required
+ * //     message: "STRING_VALUE",
  * //   },
  * // };
  *

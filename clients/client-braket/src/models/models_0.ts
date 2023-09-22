@@ -113,6 +113,59 @@ export interface GetDeviceRequest {
  * @public
  * @enum
  */
+export const QueueName = {
+  JOBS_QUEUE: "JOBS_QUEUE",
+  QUANTUM_TASKS_QUEUE: "QUANTUM_TASKS_QUEUE",
+} as const;
+
+/**
+ * @public
+ */
+export type QueueName = (typeof QueueName)[keyof typeof QueueName];
+
+/**
+ * @public
+ * @enum
+ */
+export const QueuePriority = {
+  NORMAL: "Normal",
+  PRIORITY: "Priority",
+} as const;
+
+/**
+ * @public
+ */
+export type QueuePriority = (typeof QueuePriority)[keyof typeof QueuePriority];
+
+/**
+ * @public
+ * <p>Information about tasks and jobs queued on a device.</p>
+ */
+export interface DeviceQueueInfo {
+  /**
+   * @public
+   * <p>The name of the queue. </p>
+   */
+  queue: QueueName | string | undefined;
+
+  /**
+   * @public
+   * <p>The number of jobs or tasks in the queue for a given device. </p>
+   */
+  queueSize: string | undefined;
+
+  /**
+   * @public
+   * <p>Optional. Specifies the priority of the queue. Tasks in a priority queue
+   *          are processed before the tasks in a normal queue.</p>
+   */
+  queuePriority?: QueuePriority | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const DeviceStatus = {
   OFFLINE: "OFFLINE",
   ONLINE: "ONLINE",
@@ -177,6 +230,12 @@ export interface GetDeviceResponse {
    * <p>Details about the capabilities of the device.</p>
    */
   deviceCapabilities: __LazyJsonString | string | undefined;
+
+  /**
+   * @public
+   * <p>List of information about tasks and jobs queued on a device.</p>
+   */
+  deviceQueueInfo?: DeviceQueueInfo[];
 }
 
 /**
@@ -755,6 +814,20 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const HybridJobAdditionalAttributeName = {
+  QUEUE_INFO: "QueueInfo",
+} as const;
+
+/**
+ * @public
+ */
+export type HybridJobAdditionalAttributeName =
+  (typeof HybridJobAdditionalAttributeName)[keyof typeof HybridJobAdditionalAttributeName];
+
+/**
+ * @public
  */
 export interface GetJobRequest {
   /**
@@ -762,6 +835,12 @@ export interface GetJobRequest {
    * <p>The ARN of the job to retrieve.</p>
    */
   jobArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of attributes to return information for.</p>
+   */
+  additionalAttributeNames?: (HybridJobAdditionalAttributeName | string)[];
 }
 
 /**
@@ -807,6 +886,32 @@ export interface JobEventDetails {
   /**
    * @public
    * <p>A message describing the event that occurred related to the Amazon Braket job.</p>
+   */
+  message?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the queue for a specified job.</p>
+ */
+export interface HybridJobQueueInfo {
+  /**
+   * @public
+   * <p>The name of the queue.</p>
+   */
+  queue: QueueName | string | undefined;
+
+  /**
+   * @public
+   * <p>Current position of the job in the jobs queue.</p>
+   */
+  position: string | undefined;
+
+  /**
+   * @public
+   * <p>Optional. Provides more information about the queue position. For example,
+   *          if the job is complete and no longer in the queue, the message field contains
+   *          that information.</p>
    */
   message?: string;
 }
@@ -955,6 +1060,14 @@ export interface GetJobResponse {
    *          Amazon Braket resources.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Queue information for the requested job. Only returned if
+   *          <code>QueueInfo</code> is specified in the <code>additionalAttributeNames"</code>
+   *          field in the <code>GetJob</code> API request.</p>
+   */
+  queueInfo?: HybridJobQueueInfo;
 }
 
 /**
@@ -1248,6 +1361,20 @@ export class DeviceOfflineException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const QuantumTaskAdditionalAttributeName = {
+  QUEUE_INFO: "QueueInfo",
+} as const;
+
+/**
+ * @public
+ */
+export type QuantumTaskAdditionalAttributeName =
+  (typeof QuantumTaskAdditionalAttributeName)[keyof typeof QuantumTaskAdditionalAttributeName];
+
+/**
+ * @public
  */
 export interface GetQuantumTaskRequest {
   /**
@@ -1255,6 +1382,45 @@ export interface GetQuantumTaskRequest {
    * <p>the ARN of the task to retrieve.</p>
    */
   quantumTaskArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of attributes to return information for.</p>
+   */
+  additionalAttributeNames?: (QuantumTaskAdditionalAttributeName | string)[];
+}
+
+/**
+ * @public
+ * <p>Information about the queue for the specified quantum task.</p>
+ */
+export interface QuantumTaskQueueInfo {
+  /**
+   * @public
+   * <p>The name of the queue. </p>
+   */
+  queue: QueueName | string | undefined;
+
+  /**
+   * @public
+   * <p>Current position of the task in the quantum tasks queue.</p>
+   */
+  position: string | undefined;
+
+  /**
+   * @public
+   * <p>Optional. Specifies the priority of the queue. Quantum tasks in a priority queue
+   *          are processed before the tasks in a normal queue.</p>
+   */
+  queuePriority?: QueuePriority | string;
+
+  /**
+   * @public
+   * <p>Optional. Provides more information about the queue position. For example,
+   *          if the task is complete and no longer in the queue, the message field contains
+   *          that information.</p>
+   */
+  message?: string;
 }
 
 /**
@@ -1351,6 +1517,14 @@ export interface GetQuantumTaskResponse {
    * <p>The ARN of the Amazon Braket job associated with the quantum task.</p>
    */
   jobArn?: string;
+
+  /**
+   * @public
+   * <p>Queue information for the requested quantum task. Only returned if
+   *          <code>QueueInfo</code> is specified in the <code>additionalAttributeNames"</code>
+   *          field in the <code>GetQuantumTask</code> API request.</p>
+   */
+  queueInfo?: QuantumTaskQueueInfo;
 }
 
 /**
