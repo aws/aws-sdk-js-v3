@@ -79,6 +79,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       CopyProtectionAction: "PASSTHROUGH" || "STRIP",
  *       VchipAction: "PASSTHROUGH" || "STRIP",
  *     },
+ *     FollowInputIndex: Number("int"),
  *     Inputs: [ // __listOfInput
  *       { // Input
  *         AdvancedInputFilter: "ENABLED" || "DISABLED",
@@ -870,7 +871,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  *                 AudioGroupId: "STRING_VALUE",
  *                 AudioRenditionSets: "STRING_VALUE",
- *                 AudioTrackType: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT" || "ALTERNATE_AUDIO_AUTO_SELECT" || "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
+ *                 AudioTrackType: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT" || "ALTERNATE_AUDIO_AUTO_SELECT" || "ALTERNATE_AUDIO_NOT_AUTO_SELECT" || "AUDIO_ONLY_VARIANT_STREAM",
  *                 DescriptiveVideoServiceFlag: "DONT_FLAG" || "FLAG",
  *                 IFrameOnlyManifest: "INCLUDE" || "EXCLUDE",
  *                 KlvMetadata: "PASSTHROUGH" || "NONE",
@@ -1527,6 +1528,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * //         CopyProtectionAction: "PASSTHROUGH" || "STRIP",
  * //         VchipAction: "PASSTHROUGH" || "STRIP",
  * //       },
+ * //       FollowInputIndex: Number("int"),
  * //       Inputs: [ // __listOfInput
  * //         { // Input
  * //           AdvancedInputFilter: "ENABLED" || "DISABLED",
@@ -2318,7 +2320,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * //                   AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  * //                   AudioGroupId: "STRING_VALUE",
  * //                   AudioRenditionSets: "STRING_VALUE",
- * //                   AudioTrackType: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT" || "ALTERNATE_AUDIO_AUTO_SELECT" || "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
+ * //                   AudioTrackType: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT" || "ALTERNATE_AUDIO_AUTO_SELECT" || "ALTERNATE_AUDIO_NOT_AUTO_SELECT" || "AUDIO_ONLY_VARIANT_STREAM",
  * //                   DescriptiveVideoServiceFlag: "DONT_FLAG" || "FLAG",
  * //                   IFrameOnlyManifest: "INCLUDE" || "EXCLUDE",
  * //                   KlvMetadata: "PASSTHROUGH" || "NONE",

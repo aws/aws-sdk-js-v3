@@ -6210,6 +6210,12 @@ export interface JobSettings {
 
   /**
    * @public
+   * Specifies which input metadata to use for the default "Follow input" option for the following settings: resolution, frame rate, and pixel aspect ratio. In the simplest case, specify which input is used based on its index in the job. For example if you specify 3, then the fourth input will be used from each input. If the job does not have a fourth input, then the first input will be used. If no followInputIndex is specified, then 0 will be chosen automatically.
+   */
+  FollowInputIndex?: number;
+
+  /**
+   * @public
    * Use Inputs to define source file used in the transcode job. There can be multiple inputs add in a job. These inputs will be concantenated together to create the output.
    */
   Inputs?: Input[];
@@ -6553,6 +6559,12 @@ export interface JobTemplateSettings {
    * If your source content has EIA-608 Line 21 Data Services, enable this feature to specify what MediaConvert does with the Extended Data Services (XDS) packets. You can choose to pass through XDS packets, or remove them from the output. For more information about XDS, see EIA-608 Line Data Services, section 9.5.1.5 05h Content Advisory.
    */
   ExtendedDataServices?: ExtendedDataServices;
+
+  /**
+   * @public
+   * Specifies which input metadata to use for the default "Follow input" option for the following settings: resolution, frame rate, and pixel aspect ratio. In the simplest case, specify which input is used based on its index in the job. For example if you specify 3, then the fourth input will be used from each input. If the job does not have a fourth input, then the first input will be used. If no followInputIndex is specified, then 0 will be chosen automatically.
+   */
+  FollowInputIndex?: number;
 
   /**
    * @public
