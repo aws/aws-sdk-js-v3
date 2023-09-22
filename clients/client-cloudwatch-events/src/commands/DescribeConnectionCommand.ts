@@ -15,7 +15,11 @@ import {
 } from "@smithy/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { DescribeConnectionRequest, DescribeConnectionResponse } from "../models/models_0";
+import {
+  DescribeConnectionRequest,
+  DescribeConnectionResponse,
+  DescribeConnectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_DescribeConnectionCommand, se_DescribeConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -190,7 +194,7 @@ export class DescribeConnectionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeConnectionResponseFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "DescribeConnection",
