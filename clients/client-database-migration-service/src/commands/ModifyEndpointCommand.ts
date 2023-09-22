@@ -24,7 +24,7 @@ import {
   ModifyEndpointMessageFilterSensitiveLog,
   ModifyEndpointResponse,
   ModifyEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ModifyEndpointCommand, se_ModifyEndpointCommand } from "../protocols/Aws_json1_1";
 
 /**

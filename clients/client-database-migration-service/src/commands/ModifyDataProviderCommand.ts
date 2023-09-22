@@ -19,7 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { ModifyDataProviderMessage, ModifyDataProviderResponse } from "../models/models_0";
+import { ModifyDataProviderMessage, ModifyDataProviderResponse } from "../models/models_1";
 import { de_ModifyDataProviderCommand, se_ModifyDataProviderCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -58,6 +58,11 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  *   Engine: "STRING_VALUE",
  *   ExactSettings: true || false,
  *   Settings: { // DataProviderSettings Union: only one key present
+ *     RedshiftSettings: { // RedshiftDataProviderSettings
+ *       ServerName: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       DatabaseName: "STRING_VALUE",
+ *     },
  *     PostgreSqlSettings: { // PostgreSqlDataProviderSettings
  *       ServerName: "STRING_VALUE",
  *       Port: Number("int"),
@@ -90,6 +95,29 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
  *     },
+ *     DocDbSettings: { // DocDbDataProviderSettings
+ *       ServerName: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       DatabaseName: "STRING_VALUE",
+ *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ *       CertificateArn: "STRING_VALUE",
+ *     },
+ *     MariaDbSettings: { // MariaDbDataProviderSettings
+ *       ServerName: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ *       CertificateArn: "STRING_VALUE",
+ *     },
+ *     MongoDbSettings: { // MongoDbDataProviderSettings
+ *       ServerName: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       DatabaseName: "STRING_VALUE",
+ *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ *       CertificateArn: "STRING_VALUE",
+ *       AuthType: "no" || "password",
+ *       AuthSource: "STRING_VALUE",
+ *       AuthMechanism: "default" || "mongodb_cr" || "scram_sha_1",
+ *     },
  *   },
  * };
  * const command = new ModifyDataProviderCommand(input);
@@ -102,6 +130,11 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  * //     Description: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
  * //     Settings: { // DataProviderSettings Union: only one key present
+ * //       RedshiftSettings: { // RedshiftDataProviderSettings
+ * //         ServerName: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         DatabaseName: "STRING_VALUE",
+ * //       },
  * //       PostgreSqlSettings: { // PostgreSqlDataProviderSettings
  * //         ServerName: "STRING_VALUE",
  * //         Port: Number("int"),
@@ -133,6 +166,29 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  * //         DatabaseName: "STRING_VALUE",
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //       },
+ * //       DocDbSettings: { // DocDbDataProviderSettings
+ * //         ServerName: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         DatabaseName: "STRING_VALUE",
+ * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //         CertificateArn: "STRING_VALUE",
+ * //       },
+ * //       MariaDbSettings: { // MariaDbDataProviderSettings
+ * //         ServerName: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //         CertificateArn: "STRING_VALUE",
+ * //       },
+ * //       MongoDbSettings: { // MongoDbDataProviderSettings
+ * //         ServerName: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         DatabaseName: "STRING_VALUE",
+ * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //         CertificateArn: "STRING_VALUE",
+ * //         AuthType: "no" || "password",
+ * //         AuthSource: "STRING_VALUE",
+ * //         AuthMechanism: "default" || "mongodb_cr" || "scram_sha_1",
  * //       },
  * //     },
  * //   },

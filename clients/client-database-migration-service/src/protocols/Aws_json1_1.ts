@@ -511,6 +511,7 @@ import {
   DescribeTableStatisticsMessage,
   DescribeTableStatisticsResponse,
   DmsTransferSettings,
+  DocDbDataProviderSettings,
   DocDbSettings,
   DynamoDbSettings,
   ElasticsearchSettings,
@@ -537,13 +538,12 @@ import {
   KMSNotFoundFault,
   KMSThrottlingFault,
   ListTagsForResourceMessage,
+  MariaDbDataProviderSettings,
   MicrosoftSqlServerDataProviderSettings,
   MicrosoftSQLServerSettings,
   MigrationProject,
   ModifyConversionConfigurationMessage,
-  ModifyDataProviderMessage,
-  ModifyDataProviderResponse,
-  ModifyEndpointMessage,
+  MongoDbDataProviderSettings,
   MongoDbSettings,
   MySqlDataProviderSettings,
   MySQLSettings,
@@ -561,6 +561,7 @@ import {
   RecommendationData,
   RecommendationSettings,
   RedisSettings,
+  RedshiftDataProviderSettings,
   RedshiftSettings,
   RefreshSchemasStatus,
   Replication,
@@ -593,6 +594,9 @@ import {
 } from "../models/models_0";
 import {
   KMSFault,
+  ModifyDataProviderMessage,
+  ModifyDataProviderResponse,
+  ModifyEndpointMessage,
   ModifyEventSubscriptionMessage,
   ModifyInstanceProfileMessage,
   ModifyInstanceProfileResponse,
@@ -8062,6 +8066,8 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
 
 // se_DmsTransferSettings omitted.
 
+// se_DocDbDataProviderSettings omitted.
+
 // se_DocDbSettings omitted.
 
 // se_DynamoDbSettings omitted.
@@ -8108,6 +8114,8 @@ const se_ImportCertificateMessage = (input: ImportCertificateMessage, context: _
 
 // se_ListTagsForResourceMessage omitted.
 
+// se_MariaDbDataProviderSettings omitted.
+
 // se_MicrosoftSqlServerDataProviderSettings omitted.
 
 // se_MicrosoftSQLServerSettings omitted.
@@ -8147,6 +8155,8 @@ const se_ModifyReplicationTaskMessage = (input: ModifyReplicationTaskMessage, co
   });
 };
 
+// se_MongoDbDataProviderSettings omitted.
+
 // se_MongoDbSettings omitted.
 
 // se_MoveReplicationTaskMessage omitted.
@@ -8170,6 +8180,8 @@ const se_ModifyReplicationTaskMessage = (input: ModifyReplicationTaskMessage, co
 // se_RecommendationSettings omitted.
 
 // se_RedisSettings omitted.
+
+// se_RedshiftDataProviderSettings omitted.
 
 // se_RedshiftSettings omitted.
 
@@ -8826,6 +8838,8 @@ const de_DescribeTableStatisticsResponse = (output: any, context: __SerdeContext
 
 // de_DmsTransferSettings omitted.
 
+// de_DocDbDataProviderSettings omitted.
+
 // de_DocDbSettings omitted.
 
 // de_DynamoDbSettings omitted.
@@ -9016,6 +9030,8 @@ const de_InstanceProfileList = (output: any, context: __SerdeContext): InstanceP
 
 // de_ListTagsForResourceResponse omitted.
 
+// de_MariaDbDataProviderSettings omitted.
+
 // de_MicrosoftSqlServerDataProviderSettings omitted.
 
 // de_MicrosoftSQLServerSettings omitted.
@@ -9114,6 +9130,8 @@ const de_ModifyReplicationTaskResponse = (output: any, context: __SerdeContext):
     ReplicationTask: (_: any) => de_ReplicationTask(_, context),
   }) as any;
 };
+
+// de_MongoDbDataProviderSettings omitted.
 
 // de_MongoDbSettings omitted.
 
@@ -9289,6 +9307,8 @@ const de_RecommendationList = (output: any, context: __SerdeContext): Recommenda
 // de_RecommendationSettings omitted.
 
 // de_RedisSettings omitted.
+
+// de_RedshiftDataProviderSettings omitted.
 
 // de_RedshiftSettings omitted.
 
