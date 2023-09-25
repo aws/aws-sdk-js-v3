@@ -110,6 +110,9 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * //         HeaderOrder: { // HeaderOrder
  * //           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //         },
+ * //         JA3Fingerprint: { // JA3Fingerprint
+ * //           FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //         },
  * //       },
  * //     ],
  * //     ManagedByFirewallManager: true || false,

@@ -113,6 +113,9 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * //           HeaderOrder: { // HeaderOrder
  * //             OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //           },
+ * //           JA3Fingerprint: { // JA3Fingerprint
+ * //             FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //           },
  * //         },
  * //       ],
  * //       ManagedByFirewallManager: true || false,

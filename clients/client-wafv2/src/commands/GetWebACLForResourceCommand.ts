@@ -140,6 +140,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               HeaderOrder: { // HeaderOrder
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA3Fingerprint: { // JA3Fingerprint
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
  * //             },
  * //             TextTransformations: [ // TextTransformations // required
  * //               { // TextTransformation
@@ -204,6 +207,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               HeaderOrder: {
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA3Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -264,6 +270,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               HeaderOrder: {
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA3Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -318,6 +327,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               },
  * //               HeaderOrder: {
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               JA3Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
  * //             },
  * //             ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
@@ -450,6 +462,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               },
  * //               HeaderOrder: {
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               JA3Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
  * //             },
  * //             TextTransformations: [ // required

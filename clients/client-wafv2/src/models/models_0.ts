@@ -421,6 +421,47 @@ export interface Headers {
  * @public
  * @enum
  */
+export const FallbackBehavior = {
+  MATCH: "MATCH",
+  NO_MATCH: "NO_MATCH",
+} as const;
+
+/**
+ * @public
+ */
+export type FallbackBehavior = (typeof FallbackBehavior)[keyof typeof FallbackBehavior];
+
+/**
+ * @public
+ * <p>Match against the request's JA3 fingerprint header. The header contains a hash fingerprint of the TLS Client Hello packet for the request. </p>
+ *          <note>
+ *             <p>You can use this choice only with a string match <code>ByteMatchStatement</code> with the <code>PositionalConstraint</code> set to
+ *        <code>EXACTLY</code>. </p>
+ *          </note>
+ */
+export interface JA3Fingerprint {
+  /**
+   * @public
+   * <p>The match status to assign to the web request if the request doesn't have a JA3 fingerprint. </p>
+   *          <p>You can specify the following fallback behaviors:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MATCH</code> - Treat the web request as matching the rule statement. WAF applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_MATCH</code> - Treat the web request as not matching the rule statement.</p>
+   *             </li>
+   *          </ul>
+   */
+  FallbackBehavior: FallbackBehavior | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const BodyParsingFallbackBehavior = {
   EVALUATE_AS_STRING: "EVALUATE_AS_STRING",
   MATCH: "MATCH",
@@ -781,6 +822,16 @@ export interface FieldToMatch {
    *     WAF separates the header names in the string using colons and no added spaces, for example <code>host:user-agent:accept:authorization:referer</code>.</p>
    */
   HeaderOrder?: HeaderOrder;
+
+  /**
+   * @public
+   * <p>Match against the request's JA3 fingerprint header. The header contains a hash fingerprint of the TLS Client Hello packet for the request. </p>
+   *          <note>
+   *             <p>You can use this choice only with a string match <code>ByteMatchStatement</code> with the <code>PositionalConstraint</code> set to
+   *        <code>EXACTLY</code>. </p>
+   *          </note>
+   */
+  JA3Fingerprint?: JA3Fingerprint;
 }
 
 /**
@@ -850,164 +901,8 @@ export interface TextTransformation {
 
   /**
    * @public
-   * <p>You can specify the following transformation types:</p>
-   *          <p>
-   *             <b>BASE64_DECODE</b> - Decode a
-   *          <code>Base64</code>-encoded string.</p>
-   *          <p>
-   *             <b>BASE64_DECODE_EXT</b> - Decode a
-   *          <code>Base64</code>-encoded string, but use a forgiving implementation that ignores
-   *          characters that aren't valid.</p>
-   *          <p>
-   *             <b>CMD_LINE</b> - Command-line transformations. These are
-   *          helpful in reducing effectiveness of attackers who inject an operating system command-line
-   *          command and use unusual formatting to disguise some or all of the command. </p>
-   *          <ul>
-   *             <li>
-   *                <p>Delete the following characters: <code>\ " ' ^</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Delete spaces before the following characters: <code>/ (</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Replace the following characters with a space: <code>, ;</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Replace multiple spaces with one space</p>
-   *             </li>
-   *             <li>
-   *                <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>COMPRESS_WHITE_SPACE</b> - Replace these characters
-   *          with a space character (decimal 32): </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>\f</code>, formfeed, decimal 12</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>\t</code>, tab, decimal 9</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>\n</code>, newline, decimal 10</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>\r</code>, carriage return, decimal 13</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>\v</code>, vertical tab, decimal 11</p>
-   *             </li>
-   *             <li>
-   *                <p>Non-breaking space, decimal 160</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>
-   *          <p>
-   *             <b>CSS_DECODE</b> - Decode characters that were encoded
-   *          using CSS 2.x escape rules <code>syndata.html#characters</code>. This function uses up to
-   *          two bytes in the decoding process, so it can help to uncover ASCII characters that were
-   *          encoded using CSS encoding that wouldn’t typically be encoded. It's also useful in
-   *          countering evasion, which is a combination of a backslash and non-hexadecimal characters.
-   *          For example, <code>ja\vascript</code> for javascript. </p>
-   *          <p>
-   *             <b>ESCAPE_SEQ_DECODE</b> - Decode the following ANSI C
-   *          escape sequences: <code>\a</code>, <code>\b</code>, <code>\f</code>, <code>\n</code>,
-   *             <code>\r</code>, <code>\t</code>, <code>\v</code>, <code>\\</code>, <code>\?</code>,
-   *             <code>\'</code>, <code>\"</code>, <code>\xHH</code> (hexadecimal), <code>\0OOO</code>
-   *          (octal). Encodings that aren't valid remain in the output. </p>
-   *          <p>
-   *             <b>HEX_DECODE</b> - Decode a string of hexadecimal
-   *          characters into a binary.</p>
-   *          <p>
-   *             <b>HTML_ENTITY_DECODE</b> - Replace HTML-encoded
-   *          characters with unencoded characters. <code>HTML_ENTITY_DECODE</code> performs these
-   *          operations: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Replaces <code>(ampersand)quot;</code> with <code>"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Replaces <code>(ampersand)nbsp;</code> with a non-breaking space, decimal
-   *                160</p>
-   *             </li>
-   *             <li>
-   *                <p>Replaces <code>(ampersand)lt;</code> with a "less than" symbol</p>
-   *             </li>
-   *             <li>
-   *                <p>Replaces <code>(ampersand)gt;</code> with <code>></code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Replaces characters that are represented in hexadecimal format,
-   *                   <code>(ampersand)#xhhhh;</code>, with the corresponding characters</p>
-   *             </li>
-   *             <li>
-   *                <p>Replaces characters that are represented in decimal format,
-   *                   <code>(ampersand)#nnnn;</code>, with the corresponding characters</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>JS_DECODE</b> - Decode JavaScript escape sequences. If
-   *          a
-   *          <code>\</code>
-   *             <code>u</code>
-   *             <code>HHHH</code>
-   *          code is in the full-width ASCII code range of <code>FF01-FF5E</code>, then the higher byte
-   *          is used to detect and adjust the lower byte. If not, only the lower byte is used and the
-   *          higher byte is zeroed, causing a possible loss of information. </p>
-   *          <p>
-   *             <b>LOWERCASE</b> - Convert uppercase letters (A-Z) to
-   *          lowercase (a-z). </p>
-   *          <p>
-   *             <b>MD5</b> - Calculate an MD5 hash from the data in the
-   *          input. The computed hash is in a raw binary form. </p>
-   *          <p>
-   *             <b>NONE</b> - Specify <code>NONE</code> if you don't want
-   *          any text transformations. </p>
-   *          <p>
-   *             <b>NORMALIZE_PATH</b> - Remove multiple slashes, directory
-   *          self-references, and directory back-references that are not at the beginning of the input
-   *          from an input string. </p>
-   *          <p>
-   *             <b>NORMALIZE_PATH_WIN</b> - This is the same as
-   *             <code>NORMALIZE_PATH</code>, but first converts backslash characters to forward slashes. </p>
-   *          <p>
-   *             <b>REMOVE_NULLS</b> - Remove all <code>NULL</code> bytes
-   *          from the input. </p>
-   *          <p>
-   *             <b>REPLACE_COMMENTS</b> - Replace each occurrence of a
-   *          C-style comment (<code>/* ... *\/</code>) with a single space. Multiple consecutive
-   *          occurrences are not compressed. Unterminated comments are also replaced with a space (ASCII
-   *          0x20). However, a standalone termination of a comment (<code>*\/</code>) is not acted upon. </p>
-   *          <p>
-   *             <b>REPLACE_NULLS</b> - Replace NULL bytes in the input
-   *          with space characters (ASCII <code>0x20</code>). </p>
-   *          <p>
-   *             <b>SQL_HEX_DECODE</b> - Decode SQL hex data. Example
-   *             (<code>0x414243</code>) will be decoded to (<code>ABC</code>).</p>
-   *          <p>
-   *             <b>URL_DECODE</b> - Decode a URL-encoded value. </p>
-   *          <p>
-   *             <b>URL_DECODE_UNI</b> - Like <code>URL_DECODE</code>, but
-   *          with support for Microsoft-specific <code>%u</code> encoding. If the code is in the
-   *          full-width ASCII code range of <code>FF01-FF5E</code>, the higher byte is used to detect
-   *          and adjust the lower byte. Otherwise, only the lower byte is used and the higher byte is
-   *          zeroed. </p>
-   *          <p>
-   *             <b>UTF8_TO_UNICODE</b> - Convert all UTF-8 character
-   *          sequences to Unicode. This helps input normalization, and minimizing false-positives and
-   *          false-negatives for non-English languages.</p>
+   * <p>For detailed descriptions of each of the transformation types, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html">Text transformations</a>
+   *                in the <i>WAF Developer Guide</i>.</p>
    */
   Type: TextTransformationType | string | undefined;
 }
@@ -1034,6 +929,11 @@ export interface ByteMatchStatement {
    *                <p>
    *                   <code>UriPath</code>: The value that you want WAF to search for in the URI path,
    *                for example, <code>/images/daily-ad.jpg</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>JA3Fingerprint</code>: The string to match against the web request's JA3 fingerprint header. The header contains a hash fingerprint of the TLS Client Hello packet for
+   *                  the request. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -1069,7 +969,7 @@ export interface ByteMatchStatement {
 
   /**
    * @public
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 
@@ -1384,20 +1284,6 @@ export const CountryCode = {
  * @public
  */
 export type CountryCode = (typeof CountryCode)[keyof typeof CountryCode];
-
-/**
- * @public
- * @enum
- */
-export const FallbackBehavior = {
-  MATCH: "MATCH",
-  NO_MATCH: "NO_MATCH",
-} as const;
-
-/**
- * @public
- */
-export type FallbackBehavior = (typeof FallbackBehavior)[keyof typeof FallbackBehavior];
 
 /**
  * @public
@@ -2076,7 +1962,15 @@ export interface AWSManagedRulesACFPRuleSet {
   /**
    * @public
    * <p>The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept <code>POST</code> requests.</p>
-   *          <p>For example, for the URL <code>https://example.com/web/signup</code>, you would provide the path <code>/web/signup</code>.</p>
+   *          <p>For example, for the URL <code>https://example.com/web/newaccount</code>, you would provide
+   * 	the path <code>/web/newaccount</code>. Account creation page paths that
+   * 	start with the path that you provide are considered a match. For example
+   * 	<code>/web/newaccount</code> matches the account creation paths
+   * 		<code>/web/newaccount</code>, <code>/web/newaccount/</code>,
+   * 		<code>/web/newaccountPage</code>, and
+   * 		<code>/web/newaccount/thisPage</code>, but doesn't match the path
+   * 		<code>/home/web/newaccount</code> or
+   * 		<code>/website/newaccount</code>. </p>
    */
   CreationPath: string | undefined;
 
@@ -2086,7 +1980,15 @@ export interface AWSManagedRulesACFPRuleSet {
    *          <note>
    *             <p>This page must accept <code>GET</code> text/html requests.</p>
    *          </note>
-   *          <p>For example, for the URL <code>https://example.com/web/register</code>, you would provide the path <code>/web/register</code>.</p>
+   *          <p>For example, for the URL <code>https://example.com/web/registration</code>, you would provide
+   * 	the path <code>/web/registration</code>. Registration page paths that
+   * 	start with the path that you provide are considered a match. For example
+   * 	    <code>/web/registration</code> matches the registration paths
+   * 	    <code>/web/registration</code>, <code>/web/registration/</code>,
+   * 	    <code>/web/registrationPage</code>, and
+   * 	    <code>/web/registration/thisPage</code>, but doesn't match the path
+   * 	    <code>/home/web/registration</code> or
+   * 	    <code>/website/registration</code>. </p>
    */
   RegistrationPagePath: string | undefined;
 
@@ -2187,7 +2089,7 @@ export interface AWSManagedRulesATPRuleSet {
    * @public
    * <p>The path of the login endpoint for your application. For example, for the URL
    *             <code>https://example.com/web/login</code>, you would provide the path
-   *             <code>/web/login</code>.</p>
+   *             <code>/web/login</code>. Login paths that start with the path that you provide are considered a match. For example <code>/web/login</code> matches the login paths <code>/web/login</code>, <code>/web/login/</code>, <code>/web/loginPage</code>, and <code>/web/login/thisPage</code>, but doesn't match the login path <code>/home/web/login</code> or <code>/website/login</code>.</p>
    *          <p>The rule group inspects only HTTP <code>POST</code> requests to your specified login endpoint.</p>
    */
   LoginPath: string | undefined;
@@ -2383,7 +2285,7 @@ export interface CustomResponse {
 
   /**
    * @public
-   * <p>The HTTP headers to use in the response. Duplicate header names are not allowed. </p>
+   * <p>The HTTP headers to use in the response. You can specify any header name except for <code>content-type</code>. Duplicate header names are not allowed.</p>
    *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a>
    *      in the <i>WAF Developer Guide</i>. </p>
    */
@@ -2599,7 +2501,7 @@ export interface RateLimitCookie {
 
   /**
    * @public
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 }
@@ -2631,7 +2533,7 @@ export interface RateLimitHeader {
 
   /**
    * @public
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 }
@@ -2685,7 +2587,7 @@ export interface RateLimitQueryArgument {
 
   /**
    * @public
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 }
@@ -2698,7 +2600,7 @@ export interface RateLimitQueryArgument {
 export interface RateLimitQueryString {
   /**
    * @public
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 }
@@ -2711,7 +2613,7 @@ export interface RateLimitQueryString {
 export interface RateLimitUriPath {
   /**
    * @public
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 }
@@ -2813,7 +2715,7 @@ export interface RegexMatchStatement {
 
   /**
    * @public
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 }
@@ -2839,7 +2741,7 @@ export interface RegexPatternSetReferenceStatement {
 
   /**
    * @public
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 }
@@ -2847,8 +2749,8 @@ export interface RegexPatternSetReferenceStatement {
 /**
  * @public
  * <p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>
- *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. You
- *       can only use a rule group reference statement at the top level inside a web ACL. </p>
+ *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. You cannot use a rule group
+ *       reference statement inside another rule group. You can only reference a rule group as a top-level statement within a rule that you define in a web ACL.</p>
  */
 export interface RuleGroupReferenceStatement {
   /**
@@ -2919,7 +2821,7 @@ export interface SizeConstraintStatement {
 
   /**
    * @public
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 }
@@ -2951,7 +2853,7 @@ export interface SqliMatchStatement {
 
   /**
    * @public
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 
@@ -2987,7 +2889,7 @@ export interface XssMatchStatement {
 
   /**
    * @public
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 }
@@ -3756,21 +3658,21 @@ export interface CreateIPSetRequest {
 
   /**
    * @public
-   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p>
+   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses that you want WAF to inspect for in incoming requests. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p>
    *          <p>Example address strings: </p>
    *          <ul>
    *             <li>
-   *                <p>To configure WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>
+   *                <p>For requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To configure WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify
+   *                <p>For requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify
    *                <code>192.0.2.0/24</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To configure WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>
+   *                <p>For requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To configure WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>
+   *                <p>For requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>
    *             </li>
    *          </ul>
    *          <p>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>.</p>
@@ -4982,21 +4884,21 @@ export interface IPSet {
 
   /**
    * @public
-   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p>
+   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses that you want WAF to inspect for in incoming requests. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p>
    *          <p>Example address strings: </p>
    *          <ul>
    *             <li>
-   *                <p>To configure WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>
+   *                <p>For requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To configure WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify
+   *                <p>For requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify
    *                <code>192.0.2.0/24</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To configure WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>
+   *                <p>For requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To configure WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>
+   *                <p>For requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>
    *             </li>
    *          </ul>
    *          <p>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>.</p>
@@ -7340,21 +7242,21 @@ export interface UpdateIPSetRequest {
 
   /**
    * @public
-   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p>
+   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses that you want WAF to inspect for in incoming requests. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p>
    *          <p>Example address strings: </p>
    *          <ul>
    *             <li>
-   *                <p>To configure WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>
+   *                <p>For requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To configure WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify
+   *                <p>For requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify
    *                <code>192.0.2.0/24</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To configure WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>
+   *                <p>For requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To configure WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>
+   *                <p>For requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p>
    *             </li>
    *          </ul>
    *          <p>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>.</p>
@@ -7612,8 +7514,8 @@ export interface Statement {
   /**
    * @public
    * <p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>
-   *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. You
-   *       can only use a rule group reference statement at the top level inside a web ACL. </p>
+   *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. You cannot use a rule group
+   *       reference statement inside another rule group. You can only reference a rule group as a top-level statement within a rule that you define in a web ACL.</p>
    */
   RuleGroupReferenceStatement?: RuleGroupReferenceStatement;
 
@@ -7723,7 +7625,8 @@ export interface Statement {
   /**
    * @public
    * <p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>
-   *          <p>You cannot nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+   *          <p>You cannot nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. You cannot use a managed rule group
+   *       inside another rule group. You can only reference a managed rule group as a top-level statement within a rule that you define in a web ACL.</p>
    *          <note>
    *             <p>You are charged additional fees when you use the WAF Bot Control managed rule group <code>AWSManagedRulesBotControlRuleSet</code>, the WAF Fraud Control account takeover prevention (ATP) managed rule group <code>AWSManagedRulesATPRuleSet</code>, or the WAF Fraud Control account creation fraud prevention (ACFP) managed rule group <code>AWSManagedRulesACFPRuleSet</code>. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
    *          </note>
@@ -7747,7 +7650,8 @@ export interface Statement {
 /**
  * @public
  * <p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>
- *          <p>You cannot nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+ *          <p>You cannot nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. You cannot use a managed rule group
+ *       inside another rule group. You can only reference a managed rule group as a top-level statement within a rule that you define in a web ACL.</p>
  *          <note>
  *             <p>You are charged additional fees when you use the WAF Bot Control managed rule group <code>AWSManagedRulesBotControlRuleSet</code>, the WAF Fraud Control account takeover prevention (ATP) managed rule group <code>AWSManagedRulesATPRuleSet</code>, or the WAF Fraud Control account creation fraud prevention (ACFP) managed rule group <code>AWSManagedRulesACFPRuleSet</code>. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
  *          </note>
@@ -7988,8 +7892,8 @@ export interface RateBasedStatement {
 
 /**
  * @public
- * <p>A single rule, which you can use in a <a>WebACL</a> or <a>RuleGroup</a> to identify web requests that you want to allow, block, or count.
- *          Each rule includes one top-level <a>Statement</a> that WAF uses to
+ * <p>A single rule, which you can use in a <a>WebACL</a> or <a>RuleGroup</a> to identify web requests that you want to manage in some way.
+ *       Each rule includes one top-level <a>Statement</a> that WAF uses to
  *          identify matching web requests, and parameters that govern how WAF handles them. </p>
  */
 export interface Rule {
@@ -8263,7 +8167,7 @@ export interface CreateRuleGroupRequest {
   /**
    * @public
    * <p>The <a>Rule</a> statements used to identify the web requests that you
-   *          want to allow, block, or count. Each rule includes one top-level statement that WAF uses to identify matching
+   *          want to manage. Each rule includes one top-level statement that WAF uses to identify matching
    *          web requests, and parameters that govern how WAF handles them.
    *       </p>
    */
@@ -8333,7 +8237,7 @@ export interface CreateWebACLRequest {
   /**
    * @public
    * <p>The <a>Rule</a> statements used to identify the web requests that you
-   *          want to allow, block, or count. Each rule includes one top-level statement that WAF uses to identify matching
+   *          want to manage. Each rule includes one top-level statement that WAF uses to identify matching
    *          web requests, and parameters that govern how WAF handles them.
    *       </p>
    */
@@ -8444,7 +8348,7 @@ export interface RuleGroup {
   /**
    * @public
    * <p>The <a>Rule</a> statements used to identify the web requests that you
-   *          want to allow, block, or count. Each rule includes one top-level statement that WAF uses to identify matching
+   *          want to manage. Each rule includes one top-level statement that WAF uses to identify matching
    *          web requests, and parameters that govern how WAF handles them.
    *       </p>
    */
@@ -8540,7 +8444,7 @@ export interface UpdateRuleGroupRequest {
   /**
    * @public
    * <p>The <a>Rule</a> statements used to identify the web requests that you
-   *          want to allow, block, or count. Each rule includes one top-level statement that WAF uses to identify matching
+   *          want to manage. Each rule includes one top-level statement that WAF uses to identify matching
    *          web requests, and parameters that govern how WAF handles them.
    *       </p>
    */
@@ -8616,7 +8520,7 @@ export interface UpdateWebACLRequest {
   /**
    * @public
    * <p>The <a>Rule</a> statements used to identify the web requests that you
-   *          want to allow, block, or count. Each rule includes one top-level statement that WAF uses to identify matching
+   *          want to manage. Each rule includes one top-level statement that WAF uses to identify matching
    *          web requests, and parameters that govern how WAF handles them.
    *       </p>
    */
@@ -8697,7 +8601,7 @@ export interface GetRuleGroupResponse {
 
 /**
  * @public
- * <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+ * <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
  */
 export interface WebACL {
   /**
@@ -8736,7 +8640,7 @@ export interface WebACL {
   /**
    * @public
    * <p>The <a>Rule</a> statements used to identify the web requests that you
-   *          want to allow, block, or count. Each rule includes one top-level statement that WAF uses to identify matching
+   *          want to manage. Each rule includes one top-level statement that WAF uses to identify matching
    *          web requests, and parameters that govern how WAF handles them.
    *       </p>
    */

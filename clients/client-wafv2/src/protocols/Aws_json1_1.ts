@@ -236,6 +236,7 @@ import {
   ImmunityTimeProperty,
   IPSetForwardedIPConfig,
   IPSetReferenceStatement,
+  JA3Fingerprint,
   JsonBody,
   JsonMatchPattern,
   Label,
@@ -4700,6 +4701,8 @@ const se_GetSampledRequestsRequest = (input: GetSampledRequestsRequest, context:
 
 // se_IPSetReferenceStatement omitted.
 
+// se_JA3Fingerprint omitted.
+
 // se_JsonBody omitted.
 
 // se_JsonMatchPattern omitted.
@@ -5359,6 +5362,8 @@ const de_GetWebACLResponse = (output: any, context: __SerdeContext): GetWebACLRe
 // de_IPSetSummaries omitted.
 
 // de_IPSetSummary omitted.
+
+// de_JA3Fingerprint omitted.
 
 // de_JsonBody omitted.
 
