@@ -140,6 +140,127 @@ export interface MaximumAllowedResources {
 
 /**
  * @public
+ * <p>The Amazon CloudWatch configuration for monitoring logs. You can configure your jobs
+ *          to send log information to CloudWatch.</p>
+ */
+export interface CloudWatchLoggingConfiguration {
+  /**
+   * @public
+   * <p>Enables CloudWatch logging.</p>
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * @public
+   * <p>The name of the log group in Amazon CloudWatch Logs where you want to publish your
+   *          logs.</p>
+   */
+  logGroupName?: string;
+
+  /**
+   * @public
+   * <p>Prefix for the CloudWatch log stream name.</p>
+   */
+  logStreamNamePrefix?: string;
+
+  /**
+   * @public
+   * <p>The Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.</p>
+   */
+  encryptionKeyArn?: string;
+
+  /**
+   * @public
+   * <p>The types of logs that you want to publish to CloudWatch. If you don't specify
+   *          any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by
+   *          default. For more information including the supported worker types for Hive and Spark, see
+   *             <a href="https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/logging.html#jobs-log-storage-cw">Logging for
+   *             EMR Serverless with CloudWatch</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Key Valid Values</b>: <code>SPARK_DRIVER</code>,
+   *                   <code>SPARK_EXECUTOR</code>, <code>HIVE_DRIVER</code>,
+   *                <code>TEZ_TASK</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Array Members Valid Values</b>: <code>STDOUT</code>,
+   *                   <code>STDERR</code>, <code>HIVE_LOG</code>, <code>TEZ_AM</code>,
+   *                   <code>SYSTEM_LOGS</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  logTypes?: Record<string, string[]>;
+}
+
+/**
+ * @public
+ * <p>The managed log persistence configuration for a job run.</p>
+ */
+export interface ManagedPersistenceMonitoringConfiguration {
+  /**
+   * @public
+   * <p>Enables managed logging and defaults to true. If set to false, managed logging will be
+   *          turned off.</p>
+   */
+  enabled?: boolean;
+
+  /**
+   * @public
+   * <p>The KMS key ARN to encrypt the logs stored in managed log persistence.</p>
+   */
+  encryptionKeyArn?: string;
+}
+
+/**
+ * @public
+ * <p>The Amazon S3 configuration for monitoring log publishing. You can configure your jobs
+ *          to send log information to Amazon S3.</p>
+ */
+export interface S3MonitoringConfiguration {
+  /**
+   * @public
+   * <p>The Amazon S3 destination URI for log publishing.</p>
+   */
+  logUri?: string;
+
+  /**
+   * @public
+   * <p>The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.</p>
+   */
+  encryptionKeyArn?: string;
+}
+
+/**
+ * @public
+ * <p>The configuration setting for monitoring.</p>
+ */
+export interface MonitoringConfiguration {
+  /**
+   * @public
+   * <p>The Amazon S3 configuration for monitoring log publishing.</p>
+   */
+  s3MonitoringConfiguration?: S3MonitoringConfiguration;
+
+  /**
+   * @public
+   * <p>The managed log persistence configuration for a job run.</p>
+   */
+  managedPersistenceMonitoringConfiguration?: ManagedPersistenceMonitoringConfiguration;
+
+  /**
+   * @public
+   * <p>The Amazon CloudWatch configuration for monitoring logs. You can configure your jobs
+   *          to send log information to CloudWatch.</p>
+   */
+  cloudWatchLoggingConfiguration?: CloudWatchLoggingConfiguration;
+}
+
+/**
+ * @public
  * <p>The network configuration for customer VPC connectivity.</p>
  */
 export interface NetworkConfiguration {
@@ -185,124 +306,6 @@ export interface WorkerTypeSpecification {
    * <p>The image configuration for a worker type.</p>
    */
   imageConfiguration?: ImageConfiguration;
-}
-
-/**
- * @public
- * <p>Information about an application. Amazon EMR Serverless uses applications to run
- *          jobs.</p>
- */
-export interface Application {
-  /**
-   * @public
-   * <p>The ID of the application.</p>
-   */
-  applicationId: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the application.</p>
-   */
-  name?: string;
-
-  /**
-   * @public
-   * <p>The ARN of the application.</p>
-   */
-  arn: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon EMR release associated with the application.</p>
-   */
-  releaseLabel: string | undefined;
-
-  /**
-   * @public
-   * <p>The type of application, such as Spark or Hive.</p>
-   */
-  type: string | undefined;
-
-  /**
-   * @public
-   * <p>The state of the application.</p>
-   */
-  state: ApplicationState | string | undefined;
-
-  /**
-   * @public
-   * <p>The state details of the application.</p>
-   */
-  stateDetails?: string;
-
-  /**
-   * @public
-   * <p>The initial capacity of the application.</p>
-   */
-  initialCapacity?: Record<string, InitialCapacityConfig>;
-
-  /**
-   * @public
-   * <p>The maximum capacity of the application. This is cumulative across all workers at any
-   *          given point in time during the lifespan of the application is created. No new resources
-   *          will be created once any one of the defined limits is hit.</p>
-   */
-  maximumCapacity?: MaximumAllowedResources;
-
-  /**
-   * @public
-   * <p>The date and time when the application run was created.</p>
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * @public
-   * <p>The date and time when the application run was last updated.</p>
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * @public
-   * <p>The tags assigned to the application.</p>
-   */
-  tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The configuration for an application to automatically start on job submission.</p>
-   */
-  autoStartConfiguration?: AutoStartConfig;
-
-  /**
-   * @public
-   * <p>The configuration for an application to automatically stop after a certain amount of
-   *          time being idle.</p>
-   */
-  autoStopConfiguration?: AutoStopConfig;
-
-  /**
-   * @public
-   * <p>The network configuration for customer VPC connectivity for the application.</p>
-   */
-  networkConfiguration?: NetworkConfiguration;
-
-  /**
-   * @public
-   * <p>The CPU architecture of an application.</p>
-   */
-  architecture?: Architecture | string;
-
-  /**
-   * @public
-   * <p>The image configuration applied to all worker types.</p>
-   */
-  imageConfiguration?: ImageConfiguration;
-
-  /**
-   * @public
-   * <p>The specification applied to each worker type.</p>
-   */
-  workerTypeSpecifications?: Record<string, WorkerTypeSpecification>;
 }
 
 /**
@@ -421,101 +424,6 @@ export interface WorkerTypeSpecificationInput {
 /**
  * @public
  */
-export interface CreateApplicationRequest {
-  /**
-   * @public
-   * <p>The name of the application.</p>
-   */
-  name?: string;
-
-  /**
-   * @public
-   * <p>The Amazon EMR release associated with the application.</p>
-   */
-  releaseLabel: string | undefined;
-
-  /**
-   * @public
-   * <p>The type of application you want to start, such as Spark or Hive.</p>
-   */
-  type: string | undefined;
-
-  /**
-   * @public
-   * <p>The client idempotency token of the application to create. Its value must be unique for
-   *          each request.</p>
-   */
-  clientToken?: string;
-
-  /**
-   * @public
-   * <p>The capacity to initialize when the application is created.</p>
-   */
-  initialCapacity?: Record<string, InitialCapacityConfig>;
-
-  /**
-   * @public
-   * <p>The maximum capacity to allocate when the application is created. This is cumulative
-   *          across all workers at any given point in time, not just when an application is created. No
-   *          new resources will be created once any one of the defined limits is hit.</p>
-   */
-  maximumCapacity?: MaximumAllowedResources;
-
-  /**
-   * @public
-   * <p>The tags assigned to the application.</p>
-   */
-  tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The configuration for an application to automatically start on job submission.</p>
-   */
-  autoStartConfiguration?: AutoStartConfig;
-
-  /**
-   * @public
-   * <p>The configuration for an application to automatically stop after a certain amount of
-   *          time being idle.</p>
-   */
-  autoStopConfiguration?: AutoStopConfig;
-
-  /**
-   * @public
-   * <p>The network configuration for customer VPC connectivity.</p>
-   */
-  networkConfiguration?: NetworkConfiguration;
-
-  /**
-   * @public
-   * <p>The CPU architecture of an application.</p>
-   */
-  architecture?: Architecture | string;
-
-  /**
-   * @public
-   * <p>The image configuration for all worker types. You can either set this parameter or
-   *             <code>imageConfiguration</code> for each worker type in
-   *             <code>workerTypeSpecifications</code>.</p>
-   */
-  imageConfiguration?: ImageConfigurationInput;
-
-  /**
-   * @public
-   * <p>The key-value pairs that specify worker type to
-   *             <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker
-   *          types for a Spark or Hive application. Valid worker types include <code>Driver</code> and
-   *             <code>Executor</code> for Spark applications and <code>HiveDriver</code> and
-   *             <code>TezTask</code> for Hive applications. You can either set image details in this
-   *          parameter for each worker type, or in <code>imageConfiguration</code> for all worker
-   *          types.</p>
-   */
-  workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
-}
-
-/**
- * @public
- */
 export interface CreateApplicationResponse {
   /**
    * @public
@@ -627,17 +535,6 @@ export interface GetApplicationRequest {
 /**
  * @public
  */
-export interface GetApplicationResponse {
-  /**
-   * @public
-   * <p>The output displays information about the specified application.</p>
-   */
-  application: Application | undefined;
-}
-
-/**
- * @public
- */
 export interface ListApplicationsRequest {
   /**
    * @public
@@ -728,101 +625,6 @@ export interface StopApplicationRequest {
  * @public
  */
 export interface StopApplicationResponse {}
-
-/**
- * @public
- */
-export interface UpdateApplicationRequest {
-  /**
-   * @public
-   * <p>The ID of the application to update.</p>
-   */
-  applicationId: string | undefined;
-
-  /**
-   * @public
-   * <p>The client idempotency token of the application to update. Its value must be unique for
-   *          each request.</p>
-   */
-  clientToken?: string;
-
-  /**
-   * @public
-   * <p>The capacity to initialize when the application is updated.</p>
-   */
-  initialCapacity?: Record<string, InitialCapacityConfig>;
-
-  /**
-   * @public
-   * <p>The maximum capacity to allocate when the application is updated. This is cumulative
-   *          across all workers at any given point in time during the lifespan of the application. No
-   *          new resources will be created once any one of the defined limits is hit.</p>
-   */
-  maximumCapacity?: MaximumAllowedResources;
-
-  /**
-   * @public
-   * <p>The configuration for an application to automatically start on job submission.</p>
-   */
-  autoStartConfiguration?: AutoStartConfig;
-
-  /**
-   * @public
-   * <p>The configuration for an application to automatically stop after a certain amount of
-   *          time being idle.</p>
-   */
-  autoStopConfiguration?: AutoStopConfig;
-
-  /**
-   * @public
-   * <p>The network configuration for customer VPC connectivity.</p>
-   */
-  networkConfiguration?: NetworkConfiguration;
-
-  /**
-   * @public
-   * <p>The CPU architecture of an application.</p>
-   */
-  architecture?: Architecture | string;
-
-  /**
-   * @public
-   * <p>The image configuration to be used for all worker types. You can either set this
-   *          parameter or <code>imageConfiguration</code> for each worker type in
-   *             <code>WorkerTypeSpecificationInput</code>.</p>
-   */
-  imageConfiguration?: ImageConfigurationInput;
-
-  /**
-   * @public
-   * <p>The key-value pairs that specify worker type to
-   *             <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker
-   *          types for a Spark or Hive application. Valid worker types include <code>Driver</code> and
-   *             <code>Executor</code> for Spark applications and <code>HiveDriver</code> and
-   *             <code>TezTask</code> for Hive applications. You can either set image details in this
-   *          parameter for each worker type, or in <code>imageConfiguration</code> for all worker
-   *          types.</p>
-   */
-  workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
-
-  /**
-   * @public
-   * <p>The Amazon EMR release label for the application. You can change the release
-   *          label to use a different release of Amazon EMR.</p>
-   */
-  releaseLabel?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateApplicationResponse {
-  /**
-   * @public
-   * <p>Information about the updated application.</p>
-   */
-  application: Application | undefined;
-}
 
 /**
  * @public
@@ -928,127 +730,6 @@ export interface ResourceUtilization {
    *          job is terminated.</p>
    */
   storageGBHour?: number;
-}
-
-/**
- * @public
- * <p>The Amazon CloudWatch configuration for monitoring logs. You can configure your jobs
- *          to send log information to CloudWatch.</p>
- */
-export interface CloudWatchLoggingConfiguration {
-  /**
-   * @public
-   * <p>Enables CloudWatch logging.</p>
-   */
-  enabled: boolean | undefined;
-
-  /**
-   * @public
-   * <p>The name of the log group in Amazon CloudWatch Logs where you want to publish your
-   *          logs.</p>
-   */
-  logGroupName?: string;
-
-  /**
-   * @public
-   * <p>Prefix for the CloudWatch log stream name.</p>
-   */
-  logStreamNamePrefix?: string;
-
-  /**
-   * @public
-   * <p>The Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.</p>
-   */
-  encryptionKeyArn?: string;
-
-  /**
-   * @public
-   * <p>The types of logs that you want to publish to CloudWatch. If you don't specify
-   *          any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by
-   *          default. For more information including the supported worker types for Hive and Spark, see
-   *             <a href="https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/logging.html#jobs-log-storage-cw">Logging for
-   *             EMR Serverless with CloudWatch</a>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Key Valid Values</b>: <code>SPARK_DRIVER</code>,
-   *                   <code>SPARK_EXECUTOR</code>, <code>HIVE_DRIVER</code>,
-   *                <code>TEZ_TASK</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Array Members Valid Values</b>: <code>STDOUT</code>,
-   *                   <code>STDERR</code>, <code>HIVE_LOG</code>, <code>TEZ_AM</code>,
-   *                   <code>SYSTEM_LOGS</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  logTypes?: Record<string, string[]>;
-}
-
-/**
- * @public
- * <p>The managed log persistence configuration for a job run.</p>
- */
-export interface ManagedPersistenceMonitoringConfiguration {
-  /**
-   * @public
-   * <p>Enables managed logging and defaults to true. If set to false, managed logging will be
-   *          turned off.</p>
-   */
-  enabled?: boolean;
-
-  /**
-   * @public
-   * <p>The KMS key ARN to encrypt the logs stored in managed log persistence.</p>
-   */
-  encryptionKeyArn?: string;
-}
-
-/**
- * @public
- * <p>The Amazon S3 configuration for monitoring log publishing. You can configure your jobs
- *          to send log information to Amazon S3.</p>
- */
-export interface S3MonitoringConfiguration {
-  /**
-   * @public
-   * <p>The Amazon S3 destination URI for log publishing.</p>
-   */
-  logUri?: string;
-
-  /**
-   * @public
-   * <p>The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.</p>
-   */
-  encryptionKeyArn?: string;
-}
-
-/**
- * @public
- * <p>The configuration setting for monitoring.</p>
- */
-export interface MonitoringConfiguration {
-  /**
-   * @public
-   * <p>The Amazon S3 configuration for monitoring log publishing.</p>
-   */
-  s3MonitoringConfiguration?: S3MonitoringConfiguration;
-
-  /**
-   * @public
-   * <p>The managed log persistence configuration for a job run.</p>
-   */
-  managedPersistenceMonitoringConfiguration?: ManagedPersistenceMonitoringConfiguration;
-
-  /**
-   * @public
-   * <p>The Amazon CloudWatch configuration for monitoring logs. You can configure your jobs
-   *          to send log information to CloudWatch.</p>
-   */
-  cloudWatchLoggingConfiguration?: CloudWatchLoggingConfiguration;
 }
 
 /**
@@ -1462,6 +1143,139 @@ export interface Configuration {
 
 /**
  * @public
+ * <p>Information about an application. Amazon EMR Serverless uses applications to run
+ *          jobs.</p>
+ */
+export interface Application {
+  /**
+   * @public
+   * <p>The ID of the application.</p>
+   */
+  applicationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the application.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the application.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon EMR release associated with the application.</p>
+   */
+  releaseLabel: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of application, such as Spark or Hive.</p>
+   */
+  type: string | undefined;
+
+  /**
+   * @public
+   * <p>The state of the application.</p>
+   */
+  state: ApplicationState | string | undefined;
+
+  /**
+   * @public
+   * <p>The state details of the application.</p>
+   */
+  stateDetails?: string;
+
+  /**
+   * @public
+   * <p>The initial capacity of the application.</p>
+   */
+  initialCapacity?: Record<string, InitialCapacityConfig>;
+
+  /**
+   * @public
+   * <p>The maximum capacity of the application. This is cumulative across all workers at any
+   *          given point in time during the lifespan of the application is created. No new resources
+   *          will be created once any one of the defined limits is hit.</p>
+   */
+  maximumCapacity?: MaximumAllowedResources;
+
+  /**
+   * @public
+   * <p>The date and time when the application run was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * @public
+   * <p>The date and time when the application run was last updated.</p>
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * @public
+   * <p>The tags assigned to the application.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The configuration for an application to automatically start on job submission.</p>
+   */
+  autoStartConfiguration?: AutoStartConfig;
+
+  /**
+   * @public
+   * <p>The configuration for an application to automatically stop after a certain amount of
+   *          time being idle.</p>
+   */
+  autoStopConfiguration?: AutoStopConfig;
+
+  /**
+   * @public
+   * <p>The network configuration for customer VPC connectivity for the application.</p>
+   */
+  networkConfiguration?: NetworkConfiguration;
+
+  /**
+   * @public
+   * <p>The CPU architecture of an application.</p>
+   */
+  architecture?: Architecture | string;
+
+  /**
+   * @public
+   * <p>The image configuration applied to all worker types.</p>
+   */
+  imageConfiguration?: ImageConfiguration;
+
+  /**
+   * @public
+   * <p>The specification applied to each worker type.</p>
+   */
+  workerTypeSpecifications?: Record<string, WorkerTypeSpecification>;
+
+  /**
+   * @public
+   * <p>The <a href="https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html">Configuration</a>
+   *          specifications of an application. Each configuration consists of a classification and properties. You use this
+   *       parameter when creating or updating an application. To see the runtimeConfiguration object of an application,
+   *       run the <a href="https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html">GetApplication</a> API operation.</p>
+   */
+  runtimeConfiguration?: Configuration[];
+
+  /**
+   * @public
+   * <p>The configuration setting for monitoring.</p>
+   */
+  monitoringConfiguration?: MonitoringConfiguration;
+}
+
+/**
+ * @public
  * <p>A configuration specification to be used to override existing configurations.</p>
  */
 export interface ConfigurationOverrides {
@@ -1476,6 +1290,224 @@ export interface ConfigurationOverrides {
    * <p>The override configurations for monitoring.</p>
    */
   monitoringConfiguration?: MonitoringConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface CreateApplicationRequest {
+  /**
+   * @public
+   * <p>The name of the application.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The Amazon EMR release associated with the application.</p>
+   */
+  releaseLabel: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of application you want to start, such as Spark or Hive.</p>
+   */
+  type: string | undefined;
+
+  /**
+   * @public
+   * <p>The client idempotency token of the application to create. Its value must be unique for
+   *          each request.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * @public
+   * <p>The capacity to initialize when the application is created.</p>
+   */
+  initialCapacity?: Record<string, InitialCapacityConfig>;
+
+  /**
+   * @public
+   * <p>The maximum capacity to allocate when the application is created. This is cumulative
+   *          across all workers at any given point in time, not just when an application is created. No
+   *          new resources will be created once any one of the defined limits is hit.</p>
+   */
+  maximumCapacity?: MaximumAllowedResources;
+
+  /**
+   * @public
+   * <p>The tags assigned to the application.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The configuration for an application to automatically start on job submission.</p>
+   */
+  autoStartConfiguration?: AutoStartConfig;
+
+  /**
+   * @public
+   * <p>The configuration for an application to automatically stop after a certain amount of
+   *          time being idle.</p>
+   */
+  autoStopConfiguration?: AutoStopConfig;
+
+  /**
+   * @public
+   * <p>The network configuration for customer VPC connectivity.</p>
+   */
+  networkConfiguration?: NetworkConfiguration;
+
+  /**
+   * @public
+   * <p>The CPU architecture of an application.</p>
+   */
+  architecture?: Architecture | string;
+
+  /**
+   * @public
+   * <p>The image configuration for all worker types. You can either set this parameter or
+   *             <code>imageConfiguration</code> for each worker type in
+   *             <code>workerTypeSpecifications</code>.</p>
+   */
+  imageConfiguration?: ImageConfigurationInput;
+
+  /**
+   * @public
+   * <p>The key-value pairs that specify worker type to
+   *             <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker
+   *          types for a Spark or Hive application. Valid worker types include <code>Driver</code> and
+   *             <code>Executor</code> for Spark applications and <code>HiveDriver</code> and
+   *             <code>TezTask</code> for Hive applications. You can either set image details in this
+   *          parameter for each worker type, or in <code>imageConfiguration</code> for all worker
+   *          types.</p>
+   */
+  workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
+
+  /**
+   * @public
+   * <p>The <a href="https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html">Configuration</a>
+   *          specifications to use when creating an application. Each configuration consists of a classification and properties.
+   *       This configuration is applied to all the job runs submitted under the application.</p>
+   */
+  runtimeConfiguration?: Configuration[];
+
+  /**
+   * @public
+   * <p>The configuration setting for monitoring.</p>
+   */
+  monitoringConfiguration?: MonitoringConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface UpdateApplicationRequest {
+  /**
+   * @public
+   * <p>The ID of the application to update.</p>
+   */
+  applicationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The client idempotency token of the application to update. Its value must be unique for
+   *          each request.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * @public
+   * <p>The capacity to initialize when the application is updated.</p>
+   */
+  initialCapacity?: Record<string, InitialCapacityConfig>;
+
+  /**
+   * @public
+   * <p>The maximum capacity to allocate when the application is updated. This is cumulative
+   *          across all workers at any given point in time during the lifespan of the application. No
+   *          new resources will be created once any one of the defined limits is hit.</p>
+   */
+  maximumCapacity?: MaximumAllowedResources;
+
+  /**
+   * @public
+   * <p>The configuration for an application to automatically start on job submission.</p>
+   */
+  autoStartConfiguration?: AutoStartConfig;
+
+  /**
+   * @public
+   * <p>The configuration for an application to automatically stop after a certain amount of
+   *          time being idle.</p>
+   */
+  autoStopConfiguration?: AutoStopConfig;
+
+  /**
+   * @public
+   * <p>The network configuration for customer VPC connectivity.</p>
+   */
+  networkConfiguration?: NetworkConfiguration;
+
+  /**
+   * @public
+   * <p>The CPU architecture of an application.</p>
+   */
+  architecture?: Architecture | string;
+
+  /**
+   * @public
+   * <p>The image configuration to be used for all worker types. You can either set this
+   *          parameter or <code>imageConfiguration</code> for each worker type in
+   *             <code>WorkerTypeSpecificationInput</code>.</p>
+   */
+  imageConfiguration?: ImageConfigurationInput;
+
+  /**
+   * @public
+   * <p>The key-value pairs that specify worker type to
+   *             <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker
+   *          types for a Spark or Hive application. Valid worker types include <code>Driver</code> and
+   *             <code>Executor</code> for Spark applications and <code>HiveDriver</code> and
+   *             <code>TezTask</code> for Hive applications. You can either set image details in this
+   *          parameter for each worker type, or in <code>imageConfiguration</code> for all worker
+   *          types.</p>
+   */
+  workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
+
+  /**
+   * @public
+   * <p>The Amazon EMR release label for the application. You can change the release
+   *          label to use a different release of Amazon EMR.</p>
+   */
+  releaseLabel?: string;
+
+  /**
+   * @public
+   * <p>The <a href="https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html">Configuration</a>
+   *          specifications to use when updating an application. Each configuration consists of a classification and properties.
+   *       This configuration is applied across all the job runs submitted under the application.</p>
+   */
+  runtimeConfiguration?: Configuration[];
+
+  /**
+   * @public
+   * <p>The configuration setting for monitoring.</p>
+   */
+  monitoringConfiguration?: MonitoringConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface GetApplicationResponse {
+  /**
+   * @public
+   * <p>The output displays information about the specified application.</p>
+   */
+  application: Application | undefined;
 }
 
 /**
@@ -1666,6 +1698,17 @@ export interface StartJobRunRequest {
 /**
  * @public
  */
+export interface UpdateApplicationResponse {
+  /**
+   * @public
+   * <p>Information about the updated application.</p>
+   */
+  application: Application | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetJobRunResponse {
   /**
    * @public
@@ -1717,11 +1760,49 @@ export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => ({
 /**
  * @internal
  */
+export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
+  ...obj,
+  ...(obj.runtimeConfiguration && {
+    runtimeConfiguration: obj.runtimeConfiguration.map((item) => ConfigurationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const ConfigurationOverridesFilterSensitiveLog = (obj: ConfigurationOverrides): any => ({
   ...obj,
   ...(obj.applicationConfiguration && {
     applicationConfiguration: obj.applicationConfiguration.map((item) => ConfigurationFilterSensitiveLog(item)),
   }),
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
+  ...obj,
+  ...(obj.runtimeConfiguration && {
+    runtimeConfiguration: obj.runtimeConfiguration.map((item) => ConfigurationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
+  ...obj,
+  ...(obj.runtimeConfiguration && {
+    runtimeConfiguration: obj.runtimeConfiguration.map((item) => ConfigurationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationResponseFilterSensitiveLog = (obj: GetApplicationResponse): any => ({
+  ...obj,
+  ...(obj.application && { application: ApplicationFilterSensitiveLog(obj.application) }),
 });
 
 /**
@@ -1744,6 +1825,14 @@ export const StartJobRunRequestFilterSensitiveLog = (obj: StartJobRunRequest): a
   ...(obj.configurationOverrides && {
     configurationOverrides: ConfigurationOverridesFilterSensitiveLog(obj.configurationOverrides),
   }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationResponseFilterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
+  ...obj,
+  ...(obj.application && { application: ApplicationFilterSensitiveLog(obj.application) }),
 });
 
 /**

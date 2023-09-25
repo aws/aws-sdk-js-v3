@@ -15,7 +15,12 @@ import {
 } from "@smithy/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0";
+import {
+  UpdateApplicationRequest,
+  UpdateApplicationRequestFilterSensitiveLog,
+  UpdateApplicationResponse,
+  UpdateApplicationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_UpdateApplicationCommand, se_UpdateApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -90,6 +95,44 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *     },
  *   },
  *   releaseLabel: "STRING_VALUE",
+ *   runtimeConfiguration: [ // ConfigurationList
+ *     { // Configuration
+ *       classification: "STRING_VALUE", // required
+ *       properties: { // SensitivePropertiesMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       configurations: [
+ *         {
+ *           classification: "STRING_VALUE", // required
+ *           properties: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           configurations: "<ConfigurationList>",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   monitoringConfiguration: { // MonitoringConfiguration
+ *     s3MonitoringConfiguration: { // S3MonitoringConfiguration
+ *       logUri: "STRING_VALUE",
+ *       encryptionKeyArn: "STRING_VALUE",
+ *     },
+ *     managedPersistenceMonitoringConfiguration: { // ManagedPersistenceMonitoringConfiguration
+ *       enabled: true || false,
+ *       encryptionKeyArn: "STRING_VALUE",
+ *     },
+ *     cloudWatchLoggingConfiguration: { // CloudWatchLoggingConfiguration
+ *       enabled: true || false, // required
+ *       logGroupName: "STRING_VALUE",
+ *       logStreamNamePrefix: "STRING_VALUE",
+ *       encryptionKeyArn: "STRING_VALUE",
+ *       logTypes: { // LogTypeMap
+ *         "<keys>": [ // LogTypeList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
@@ -147,6 +190,44 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //         imageConfiguration: {
  * //           imageUri: "STRING_VALUE", // required
  * //           resolvedImageDigest: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //     runtimeConfiguration: [ // ConfigurationList
+ * //       { // Configuration
+ * //         classification: "STRING_VALUE", // required
+ * //         properties: { // SensitivePropertiesMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         configurations: [
+ * //           {
+ * //             classification: "STRING_VALUE", // required
+ * //             properties: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             configurations: "<ConfigurationList>",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     monitoringConfiguration: { // MonitoringConfiguration
+ * //       s3MonitoringConfiguration: { // S3MonitoringConfiguration
+ * //         logUri: "STRING_VALUE",
+ * //         encryptionKeyArn: "STRING_VALUE",
+ * //       },
+ * //       managedPersistenceMonitoringConfiguration: { // ManagedPersistenceMonitoringConfiguration
+ * //         enabled: true || false,
+ * //         encryptionKeyArn: "STRING_VALUE",
+ * //       },
+ * //       cloudWatchLoggingConfiguration: { // CloudWatchLoggingConfiguration
+ * //         enabled: true || false, // required
+ * //         logGroupName: "STRING_VALUE",
+ * //         logStreamNamePrefix: "STRING_VALUE",
+ * //         encryptionKeyArn: "STRING_VALUE",
+ * //         logTypes: { // LogTypeMap
+ * //           "<keys>": [ // LogTypeList
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       },
  * //     },
@@ -223,8 +304,8 @@ export class UpdateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UpdateApplicationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateApplicationResponseFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "AwsToledoWebService",
         operation: "UpdateApplication",

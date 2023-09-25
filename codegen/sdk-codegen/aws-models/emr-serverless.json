@@ -119,6 +119,15 @@
           "traits": {
             "smithy.api#documentation": "<p>The specification applied to each worker type.</p>"
           }
+        },
+        "runtimeConfiguration": {
+          "target": "com.amazonaws.emrserverless#ConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html\">Configuration</a> \n         specifications of an application. Each configuration consists of a classification and properties. You use this \n      parameter when creating or updating an application. To see the runtimeConfiguration object of an application,\n      run the <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html\">GetApplication</a> API operation.</p>"
+          }
+        },
+        "monitoringConfiguration": {
+          "target": "com.amazonaws.emrserverless#MonitoringConfiguration"
         }
       },
       "traits": {
@@ -421,12 +430,7 @@
             "x-amzn-platform-id",
             "x-amzn-trace-id"
           ],
-          "additionalExposedHeaders": [
-            "x-amzn-errortype",
-            "x-amzn-requestid",
-            "x-amzn-trace-id",
-            "x-amz-apigw-id"
-          ]
+          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id", "x-amz-apigw-id"]
         },
         "smithy.api#documentation": "<p>Amazon EMR Serverless is a new deployment option for Amazon EMR. Amazon EMR Serverless provides a serverless runtime environment that simplifies running\n         analytics applications using the latest open source frameworks such as Apache Spark and\n         Apache Hive. With Amazon EMR Serverless, you don’t have to configure, optimize,\n         secure, or operate clusters to run applications with these frameworks.</p>\n         <p>The API reference to Amazon EMR Serverless is <code>emr-serverless</code>. The\n            <code>emr-serverless</code> prefix is used in the following scenarios: </p>\n         <ul>\n            <li>\n               <p>It is the prefix in the CLI commands for Amazon EMR Serverless. For\n               example, <code>aws emr-serverless start-job-run</code>.</p>\n            </li>\n            <li>\n               <p>It is the prefix before IAM policy actions for Amazon EMR Serverless. For\n               example, <code>\"Action\": [\"emr-serverless:StartJobRun\"]</code>. For more information,\n               see <a href=\"https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-actions\">Policy actions for Amazon EMR Serverless</a>.</p>\n            </li>\n            <li>\n               <p>It is the prefix used in Amazon EMR Serverless service endpoints. For\n               example, <code>emr-serverless.us-east-2.amazonaws.com</code>.</p>\n            </li>\n         </ul>",
         "smithy.api#title": "EMR Serverless",
@@ -1432,6 +1436,18 @@
           "target": "com.amazonaws.emrserverless#WorkerTypeSpecificationInputMap",
           "traits": {
             "smithy.api#documentation": "<p>The key-value pairs that specify worker type to\n            <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker\n         types for a Spark or Hive application. Valid worker types include <code>Driver</code> and\n            <code>Executor</code> for Spark applications and <code>HiveDriver</code> and\n            <code>TezTask</code> for Hive applications. You can either set image details in this\n         parameter for each worker type, or in <code>imageConfiguration</code> for all worker\n         types.</p>"
+          }
+        },
+        "runtimeConfiguration": {
+          "target": "com.amazonaws.emrserverless#ConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html\">Configuration</a> \n         specifications to use when creating an application. Each configuration consists of a classification and properties.\n      This configuration is applied to all the job runs submitted under the application.</p>"
+          }
+        },
+        "monitoringConfiguration": {
+          "target": "com.amazonaws.emrserverless#MonitoringConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration setting for monitoring.</p>"
           }
         }
       }
@@ -3409,6 +3425,18 @@
           "target": "com.amazonaws.emrserverless#ReleaseLabel",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon EMR release label for the application. You can change the release\n         label to use a different release of Amazon EMR.</p>"
+          }
+        },
+        "runtimeConfiguration": {
+          "target": "com.amazonaws.emrserverless#ConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html\">Configuration</a> \n         specifications to use when updating an application. Each configuration consists of a classification and properties.\n      This configuration is applied across all the job runs submitted under the application.</p>"
+          }
+        },
+        "monitoringConfiguration": {
+          "target": "com.amazonaws.emrserverless#MonitoringConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration setting for monitoring.</p>"
           }
         }
       }
