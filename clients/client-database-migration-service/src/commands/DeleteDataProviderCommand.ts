@@ -150,6 +150,35 @@ export interface DeleteDataProviderCommandOutput extends DeleteDataProviderRespo
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @example Delete Data Provider
+ * ```javascript
+ * // Deletes the specified data provider.
+ * const input = {
+ *   "DataProviderIdentifier": "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ * };
+ * const command = new DeleteDataProviderCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DataProvider": {
+ *     "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-data-provider",
+ *     "DataProviderCreationTime": "2023-05-12T10:50:41.988561Z",
+ *     "DataProviderName": "my-target-data-provider",
+ *     "Engine": "postgres",
+ *     "Settings": {
+ *       "PostgreSqlSettings": {
+ *         "DatabaseName": "target",
+ *         "Port": 5432,
+ *         "ServerName": "postrgesql.0a1b2c3d4e5f.us-east-1.rds.amazonaws.com",
+ *         "SslMode": "none"
+ *       }
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: delete-data-provider-1689724476356
+ * ```
+ *
  */
 export class DeleteDataProviderCommand extends $Command<
   DeleteDataProviderCommandInput,

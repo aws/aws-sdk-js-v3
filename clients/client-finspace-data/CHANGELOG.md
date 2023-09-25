@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.419.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.418.0...v3.419.0) (2023-09-25)
+
+
+### Features
+
+* **client-finspace-data:** Adding sensitive trait to attributes. Change max SessionDuration from 720 to 60. Correct "ApiAccess" attribute to "apiAccess" to maintain consistency between APIs. ([c591b7c](https://github.com/aws/aws-sdk-js-v3/commit/c591b7c011a341ae819ea4e01ecef0bd79359f76))
+
+
+
+
+
 # [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
 
 **Note:** Version bump only for package @aws-sdk/client-finspace-data

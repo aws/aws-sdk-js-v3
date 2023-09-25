@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.419.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.418.0...v3.419.0) (2023-09-25)
+
+
+### Features
+
+* **client-amplifyuibuilder:** Support for generating code that is compatible with future versions of amplify project dependencies. ([738cda3](https://github.com/aws/aws-sdk-js-v3/commit/738cda3a1117ee94b4717eb1c59e1e94c5de54ab))
+* **client-chime-sdk-media-pipelines:** Adds support for sending WebRTC audio to Amazon Kineses Video Streams. ([05242c2](https://github.com/aws/aws-sdk-js-v3/commit/05242c260b84d70bc3fbf88f08fe48ce8f5f1def))
+* **client-emr-serverless:** This release adds support for application-wide default job configurations. ([74bb52e](https://github.com/aws/aws-sdk-js-v3/commit/74bb52ec71871a013e2bed432f468c43036c36e7))
+* **client-finspace-data:** Adding sensitive trait to attributes. Change max SessionDuration from 720 to 60. Correct "ApiAccess" attribute to "apiAccess" to maintain consistency between APIs. ([c591b7c](https://github.com/aws/aws-sdk-js-v3/commit/c591b7c011a341ae819ea4e01ecef0bd79359f76))
+* **client-quicksight:** Added ability to tag users upon creation. ([dacb8c6](https://github.com/aws/aws-sdk-js-v3/commit/dacb8c66b436ce51f5fdf93d7839c93a04496d10))
+* **client-ssm:** This release updates the enum values for ResourceType in SSM DescribeInstanceInformation input and ConnectionStatus in GetConnectionStatus output. ([c1d80c2](https://github.com/aws/aws-sdk-js-v3/commit/c1d80c2e1062ec449d048d8448fe8a9214097840))
+* **client-wafv2:** You can now perform an exact match against the web request's JA3 fingerprint. ([e4f0c48](https://github.com/aws/aws-sdk-js-v3/commit/e4f0c48860cd3d6b81488bcf60e297e19bae9b33))
+* **clients:** update client endpoints as of 2023-09-25 ([2f18c93](https://github.com/aws/aws-sdk-js-v3/commit/2f18c9385e498937167b37fe28fd7e64978dbefa))
+
+
+
+
+
 # [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
 
 

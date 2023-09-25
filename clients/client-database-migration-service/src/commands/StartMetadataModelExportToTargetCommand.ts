@@ -101,6 +101,24 @@ export interface StartMetadataModelExportToTargetCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @example Start Metadata Model Export To Target
+ * ```javascript
+ * // Applies converted database objects to your target database.
+ * const input = {
+ *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
+ *   "OverwriteExtensionPack": true,
+ *   "SelectionRules": "{\"rules\": [{\"rule-type\": \"selection\",\"rule-id\": \"1\",\"rule-name\": \"1\",\"object-locator\": {\"server-name\": \"aurora-pg.cluster-a1b2c3d4e5f6.us-east-1.rds.amazonaws.com\", \"schema-name\": \"schema1\", \"table-name\": \"Cities\"},\"rule-action\": \"explicit\"} ]}"
+ * };
+ * const command = new StartMetadataModelExportToTargetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "RequestIdentifier": "01234567-89ab-cdef-0123-456789abcdef"
+ * }
+ * *\/
+ * // example id: start-metadata-model-export-to-target-1689783666835
+ * ```
+ *
  */
 export class StartMetadataModelExportToTargetCommand extends $Command<
   StartMetadataModelExportToTargetCommandInput,

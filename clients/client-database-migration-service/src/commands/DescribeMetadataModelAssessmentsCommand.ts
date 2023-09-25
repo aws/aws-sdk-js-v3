@@ -102,6 +102,39 @@ export interface DescribeMetadataModelAssessmentsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @example Describe Metadata Model Assessments
+ * ```javascript
+ * // Returns a paginated list of metadata model assessments for your account in the current region.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "my-migration-project",
+ *       "Values": [
+ *         "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
+ *       ]
+ *     }
+ *   ],
+ *   "Marker": "0123456789abcdefghijklmnopqrs",
+ *   "MaxRecords": 20,
+ *   "MigrationProjectIdentifier": ""
+ * };
+ * const command = new DescribeMetadataModelAssessmentsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "ASDLKJASDJKHDFHGDNBGDASKJHGFK",
+ *   "Requests": [
+ *     {
+ *       "MigrationProjectArn": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *       "RequestIdentifier": "01234567-89ab-cdef-0123-456789abcdef",
+ *       "Status": "SUCCESS"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: describe-metadata-model-assessments-1689718702303
+ * ```
+ *
  */
 export class DescribeMetadataModelAssessmentsCommand extends $Command<
   DescribeMetadataModelAssessmentsCommandInput,

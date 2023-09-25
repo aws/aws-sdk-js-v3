@@ -102,6 +102,39 @@ export interface DescribeMetadataModelConversionsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @example Describe Metadata Model Conversions
+ * ```javascript
+ * // Returns a paginated list of metadata model conversions for a migration project.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "request-id",
+ *       "Values": [
+ *         "01234567-89ab-cdef-0123-456789abcdef"
+ *       ]
+ *     }
+ *   ],
+ *   "Marker": "EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ123456",
+ *   "MaxRecords": 123,
+ *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ * };
+ * const command = new DescribeMetadataModelConversionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "0123456789abcdefghijklmnopqrs",
+ *   "Requests": [
+ *     {
+ *       "MigrationProjectArn": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *       "RequestIdentifier": "01234567-89ab-cdef-0123-456789abcdef",
+ *       "Status": "SUCCESS"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: describe-metadata-model-conversions-1689719021495
+ * ```
+ *
  */
 export class DescribeMetadataModelConversionsCommand extends $Command<
   DescribeMetadataModelConversionsCommandInput,

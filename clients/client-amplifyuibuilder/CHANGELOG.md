@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.419.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.418.0...v3.419.0) (2023-09-25)
+
+
+### Features
+
+* **client-amplifyuibuilder:** Support for generating code that is compatible with future versions of amplify project dependencies. ([738cda3](https://github.com/aws/aws-sdk-js-v3/commit/738cda3a1117ee94b4717eb1c59e1e94c5de54ab))
+
+
+
+
+
 # [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
 
 **Note:** Version bump only for package @aws-sdk/client-amplifyuibuilder
