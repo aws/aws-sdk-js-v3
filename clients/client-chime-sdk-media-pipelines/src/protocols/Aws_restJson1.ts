@@ -4,6 +4,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -44,6 +45,14 @@ import {
   CreateMediaLiveConnectorPipelineCommandOutput,
 } from "../commands/CreateMediaLiveConnectorPipelineCommand";
 import {
+  CreateMediaPipelineKinesisVideoStreamPoolCommandInput,
+  CreateMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "../commands/CreateMediaPipelineKinesisVideoStreamPoolCommand";
+import {
+  CreateMediaStreamPipelineCommandInput,
+  CreateMediaStreamPipelineCommandOutput,
+} from "../commands/CreateMediaStreamPipelineCommand";
+import {
   DeleteMediaCapturePipelineCommandInput,
   DeleteMediaCapturePipelineCommandOutput,
 } from "../commands/DeleteMediaCapturePipelineCommand";
@@ -56,6 +65,10 @@ import {
   DeleteMediaPipelineCommandOutput,
 } from "../commands/DeleteMediaPipelineCommand";
 import {
+  DeleteMediaPipelineKinesisVideoStreamPoolCommandInput,
+  DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "../commands/DeleteMediaPipelineKinesisVideoStreamPoolCommand";
+import {
   GetMediaCapturePipelineCommandInput,
   GetMediaCapturePipelineCommandOutput,
 } from "../commands/GetMediaCapturePipelineCommand";
@@ -64,6 +77,10 @@ import {
   GetMediaInsightsPipelineConfigurationCommandOutput,
 } from "../commands/GetMediaInsightsPipelineConfigurationCommand";
 import { GetMediaPipelineCommandInput, GetMediaPipelineCommandOutput } from "../commands/GetMediaPipelineCommand";
+import {
+  GetMediaPipelineKinesisVideoStreamPoolCommandInput,
+  GetMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "../commands/GetMediaPipelineKinesisVideoStreamPoolCommand";
 import {
   GetSpeakerSearchTaskCommandInput,
   GetSpeakerSearchTaskCommandOutput,
@@ -80,6 +97,10 @@ import {
   ListMediaInsightsPipelineConfigurationsCommandInput,
   ListMediaInsightsPipelineConfigurationsCommandOutput,
 } from "../commands/ListMediaInsightsPipelineConfigurationsCommand";
+import {
+  ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
+  ListMediaPipelineKinesisVideoStreamPoolsCommandOutput,
+} from "../commands/ListMediaPipelineKinesisVideoStreamPoolsCommand";
 import { ListMediaPipelinesCommandInput, ListMediaPipelinesCommandOutput } from "../commands/ListMediaPipelinesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -111,6 +132,10 @@ import {
   UpdateMediaInsightsPipelineStatusCommandInput,
   UpdateMediaInsightsPipelineStatusCommandOutput,
 } from "../commands/UpdateMediaInsightsPipelineStatusCommand";
+import {
+  UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
+  UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "../commands/UpdateMediaPipelineKinesisVideoStreamPoolCommand";
 import { ChimeSDKMediaPipelinesServiceException as __BaseException } from "../models/ChimeSDKMediaPipelinesServiceException";
 import {
   ActiveSpeakerOnlyConfiguration,
@@ -140,6 +165,9 @@ import {
   IssueDetectionConfiguration,
   KeywordMatchConfiguration,
   KinesisDataStreamSinkConfiguration,
+  KinesisVideoStreamConfiguration,
+  KinesisVideoStreamConfigurationUpdate,
+  KinesisVideoStreamPoolConfiguration,
   KinesisVideoStreamRecordingSourceRuntimeConfiguration,
   KinesisVideoStreamSourceRuntimeConfiguration,
   KinesisVideoStreamSourceTaskConfiguration,
@@ -155,6 +183,9 @@ import {
   MediaInsightsPipelineConfigurationElement,
   MediaLiveConnectorPipeline,
   MediaPipeline,
+  MediaStreamPipeline,
+  MediaStreamSink,
+  MediaStreamSource,
   MeetingEventsConcatenationConfiguration,
   NotFoundException,
   PostCallAnalyticsSettings,
@@ -365,6 +396,73 @@ export const se_CreateMediaLiveConnectorPipelineCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateMediaPipelineKinesisVideoStreamPoolCommand
+ */
+export const se_CreateMediaPipelineKinesisVideoStreamPoolCommand = async (
+  input: CreateMediaPipelineKinesisVideoStreamPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-pipeline-kinesis-video-stream-pools";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      PoolName: [],
+      StreamConfiguration: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateMediaStreamPipelineCommand
+ */
+export const se_CreateMediaStreamPipelineCommand = async (
+  input: CreateMediaStreamPipelineCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-stream-pipelines";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      Sinks: (_) => _json(_),
+      Sources: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteMediaCapturePipelineCommand
  */
 export const se_DeleteMediaCapturePipelineCommand = async (
@@ -453,6 +551,31 @@ export const se_DeleteMediaPipelineCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteMediaPipelineKinesisVideoStreamPoolCommand
+ */
+export const se_DeleteMediaPipelineKinesisVideoStreamPoolCommand = async (
+  input: DeleteMediaPipelineKinesisVideoStreamPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-pipeline-kinesis-video-stream-pools/{Identifier}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetMediaCapturePipelineCommand
  */
 export const se_GetMediaCapturePipelineCommand = async (
@@ -528,6 +651,31 @@ export const se_GetMediaPipelineCommand = async (
     "{MediaPipelineId}",
     false
   );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetMediaPipelineKinesisVideoStreamPoolCommand
+ */
+export const se_GetMediaPipelineKinesisVideoStreamPoolCommand = async (
+  input: GetMediaPipelineKinesisVideoStreamPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-pipeline-kinesis-video-stream-pools/{Identifier}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -645,6 +793,35 @@ export const se_ListMediaInsightsPipelineConfigurationsCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-insights-pipeline-configurations";
+  const query: any = map({
+    "next-token": [, input.NextToken!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListMediaPipelineKinesisVideoStreamPoolsCommand
+ */
+export const se_ListMediaPipelineKinesisVideoStreamPoolsCommand = async (
+  input: ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-pipeline-kinesis-video-stream-pools";
   const query: any = map({
     "next-token": [, input.NextToken!],
     "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
@@ -1000,6 +1177,38 @@ export const se_UpdateMediaInsightsPipelineStatusCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateMediaPipelineKinesisVideoStreamPoolCommand
+ */
+export const se_UpdateMediaPipelineKinesisVideoStreamPoolCommand = async (
+  input: UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-pipeline-kinesis-video-stream-pools/{Identifier}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      StreamConfiguration: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * deserializeAws_restJson1CreateMediaCapturePipelineCommand
  */
 export const de_CreateMediaCapturePipelineCommand = async (
@@ -1331,6 +1540,142 @@ const de_CreateMediaLiveConnectorPipelineCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateMediaPipelineKinesisVideoStreamPoolCommand
+ */
+export const de_CreateMediaPipelineKinesisVideoStreamPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateMediaPipelineKinesisVideoStreamPoolCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    KinesisVideoStreamPoolConfiguration: (_) => de_KinesisVideoStreamPoolConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateMediaPipelineKinesisVideoStreamPoolCommandError
+ */
+const de_CreateMediaPipelineKinesisVideoStreamPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateMediaStreamPipelineCommand
+ */
+export const de_CreateMediaStreamPipelineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaStreamPipelineCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateMediaStreamPipelineCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MediaStreamPipeline: (_) => de_MediaStreamPipeline(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateMediaStreamPipelineCommandError
+ */
+const de_CreateMediaStreamPipelineCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaStreamPipelineCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteMediaCapturePipelineCommand
  */
 export const de_DeleteMediaCapturePipelineCommand = async (
@@ -1479,6 +1824,70 @@ const de_DeleteMediaPipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMediaPipelineCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteMediaPipelineKinesisVideoStreamPoolCommand
+ */
+export const de_DeleteMediaPipelineKinesisVideoStreamPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteMediaPipelineKinesisVideoStreamPoolCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteMediaPipelineKinesisVideoStreamPoolCommandError
+ */
+const de_DeleteMediaPipelineKinesisVideoStreamPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1677,6 +2086,71 @@ const de_GetMediaPipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMediaPipelineCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetMediaPipelineKinesisVideoStreamPoolCommand
+ */
+export const de_GetMediaPipelineKinesisVideoStreamPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetMediaPipelineKinesisVideoStreamPoolCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    KinesisVideoStreamPoolConfiguration: (_) => de_KinesisVideoStreamPoolConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetMediaPipelineKinesisVideoStreamPoolCommandError
+ */
+const de_GetMediaPipelineKinesisVideoStreamPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1939,6 +2413,72 @@ const de_ListMediaInsightsPipelineConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMediaInsightsPipelineConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListMediaPipelineKinesisVideoStreamPoolsCommand
+ */
+export const de_ListMediaPipelineKinesisVideoStreamPoolsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMediaPipelineKinesisVideoStreamPoolsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListMediaPipelineKinesisVideoStreamPoolsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    KinesisVideoStreamPools: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListMediaPipelineKinesisVideoStreamPoolsCommandError
+ */
+const de_ListMediaPipelineKinesisVideoStreamPoolsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMediaPipelineKinesisVideoStreamPoolsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2625,6 +3165,74 @@ const de_UpdateMediaInsightsPipelineStatusCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpdateMediaPipelineKinesisVideoStreamPoolCommand
+ */
+export const de_UpdateMediaPipelineKinesisVideoStreamPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateMediaPipelineKinesisVideoStreamPoolCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    KinesisVideoStreamPoolConfiguration: (_) => de_KinesisVideoStreamPoolConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateMediaPipelineKinesisVideoStreamPoolCommandError
+ */
+const de_UpdateMediaPipelineKinesisVideoStreamPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
@@ -2882,6 +3490,10 @@ const se_FragmentSelector = (input: FragmentSelector, context: __SerdeContext): 
 
 // se_KinesisDataStreamSinkConfiguration omitted.
 
+// se_KinesisVideoStreamConfiguration omitted.
+
+// se_KinesisVideoStreamConfigurationUpdate omitted.
+
 /**
  * serializeAws_restJson1KinesisVideoStreamRecordingSourceRuntimeConfiguration
  */
@@ -2918,6 +3530,14 @@ const se_KinesisVideoStreamRecordingSourceRuntimeConfiguration = (
 // se_MediaInsightsPipelineConfigurationElements omitted.
 
 // se_MediaInsightsRuntimeMetadata omitted.
+
+// se_MediaStreamSink omitted.
+
+// se_MediaStreamSinkList omitted.
+
+// se_MediaStreamSource omitted.
+
+// se_MediaStreamSourceList omitted.
 
 // se_MeetingEventsConcatenationConfiguration omitted.
 
@@ -3056,6 +3676,31 @@ const de_FragmentSelector = (output: any, context: __SerdeContext): FragmentSele
 // de_KeywordMatchWordList omitted.
 
 // de_KinesisDataStreamSinkConfiguration omitted.
+
+// de_KinesisVideoStreamConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1KinesisVideoStreamPoolConfiguration
+ */
+const de_KinesisVideoStreamPoolConfiguration = (
+  output: any,
+  context: __SerdeContext
+): KinesisVideoStreamPoolConfiguration => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    PoolArn: __expectString,
+    PoolId: __expectString,
+    PoolName: __expectString,
+    PoolSize: __expectInt32,
+    PoolStatus: __expectString,
+    StreamConfiguration: _json,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+// de_KinesisVideoStreamPoolSummary omitted.
+
+// de_KinesisVideoStreamPoolSummaryList omitted.
 
 /**
  * deserializeAws_restJson1KinesisVideoStreamRecordingSourceRuntimeConfiguration
@@ -3199,12 +3844,36 @@ const de_MediaPipeline = (output: any, context: __SerdeContext): MediaPipeline =
     MediaConcatenationPipeline: (_: any) => de_MediaConcatenationPipeline(_, context),
     MediaInsightsPipeline: (_: any) => de_MediaInsightsPipeline(_, context),
     MediaLiveConnectorPipeline: (_: any) => de_MediaLiveConnectorPipeline(_, context),
+    MediaStreamPipeline: (_: any) => de_MediaStreamPipeline(_, context),
   }) as any;
 };
 
 // de_MediaPipelineList omitted.
 
 // de_MediaPipelineSummary omitted.
+
+/**
+ * deserializeAws_restJson1MediaStreamPipeline
+ */
+const de_MediaStreamPipeline = (output: any, context: __SerdeContext): MediaStreamPipeline => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    MediaPipelineArn: __expectString,
+    MediaPipelineId: __expectString,
+    Sinks: _json,
+    Sources: _json,
+    Status: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+// de_MediaStreamSink omitted.
+
+// de_MediaStreamSinkList omitted.
+
+// de_MediaStreamSource omitted.
+
+// de_MediaStreamSourceList omitted.
 
 // de_MeetingEventsConcatenationConfiguration omitted.
 

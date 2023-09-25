@@ -685,7 +685,7 @@ export interface HorizontalLayoutConfiguration {
 
   /**
    * @public
-   * <p>Sets the aspect ratio of the video tiles, such as 16:9.</p>
+   * <p>Specifies the aspect ratio of all video tiles.</p>
    */
   TileAspectRatio?: string;
 }
@@ -2818,17 +2818,6 @@ export interface CreateMediaLiveConnectorPipelineResponse {
 
 /**
  * @public
- */
-export interface DeleteMediaCapturePipelineRequest {
-  /**
-   * @public
-   * <p>The ID of the media pipeline being deleted. </p>
-   */
-  MediaPipelineId: string | undefined;
-}
-
-/**
- * @public
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource.</p>
  */
@@ -2860,6 +2849,311 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * <p>The configuration of an Kinesis video stream.</p>
+ */
+export interface KinesisVideoStreamConfiguration {
+  /**
+   * @public
+   * <p>The Amazon Web Services Region of the video stream.</p>
+   */
+  Region: string | undefined;
+
+  /**
+   * @public
+   * <p>The amount of time that data is retained.</p>
+   */
+  DataRetentionInHours?: number;
+}
+
+/**
+ * @public
+ */
+export interface CreateMediaPipelineKinesisVideoStreamPoolRequest {
+  /**
+   * @public
+   * <p>The configuration settings for the video stream.</p>
+   */
+  StreamConfiguration: KinesisVideoStreamConfiguration | undefined;
+
+  /**
+   * @public
+   * <p>The name of the video stream pool.</p>
+   */
+  PoolName: string | undefined;
+
+  /**
+   * @public
+   * <p>The token assigned to the client making the request.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * @public
+   * <p>The tags assigned to the video stream pool.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const KinesisVideoStreamPoolStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type KinesisVideoStreamPoolStatus =
+  (typeof KinesisVideoStreamPoolStatus)[keyof typeof KinesisVideoStreamPoolStatus];
+
+/**
+ * @public
+ * <p>The video stream pool configuration object.</p>
+ */
+export interface KinesisVideoStreamPoolConfiguration {
+  /**
+   * @public
+   * <p>The ARN of the video stream pool configuration.</p>
+   */
+  PoolArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the video stream pool configuration.</p>
+   */
+  PoolName?: string;
+
+  /**
+   * @public
+   * <p>The ID of the video stream pool in the configuration.</p>
+   */
+  PoolId?: string;
+
+  /**
+   * @public
+   * <p>The status of the video stream pool in the configuration. </p>
+   */
+  PoolStatus?: KinesisVideoStreamPoolStatus | string;
+
+  /**
+   * @public
+   * <p>The size of the video stream pool in the configuration.</p>
+   */
+  PoolSize?: number;
+
+  /**
+   * @public
+   * <p>The Kinesis video stream pool configuration object.</p>
+   */
+  StreamConfiguration?: KinesisVideoStreamConfiguration;
+
+  /**
+   * @public
+   * <p>The time at which the configuration was created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The time at which the configuration was updated.</p>
+   */
+  UpdatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface CreateMediaPipelineKinesisVideoStreamPoolResponse {
+  /**
+   * @public
+   * <p>The configuration for the Kinesis video stream pool.</p>
+   */
+  KinesisVideoStreamPoolConfiguration?: KinesisVideoStreamPoolConfiguration;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MediaStreamType = {
+  IndividualAudio: "IndividualAudio",
+  MixedAudio: "MixedAudio",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaStreamType = (typeof MediaStreamType)[keyof typeof MediaStreamType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MediaStreamPipelineSinkType = {
+  KinesisVideoStreamPool: "KinesisVideoStreamPool",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaStreamPipelineSinkType =
+  (typeof MediaStreamPipelineSinkType)[keyof typeof MediaStreamPipelineSinkType];
+
+/**
+ * @public
+ * <p>Structure that contains the settings for a media stream sink.</p>
+ */
+export interface MediaStreamSink {
+  /**
+   * @public
+   * <p>The ARN of the media stream sink.</p>
+   */
+  SinkArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The media stream sink's type.</p>
+   */
+  SinkType: MediaStreamPipelineSinkType | string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the number of streams that the sink can accept.</p>
+   */
+  ReservedStreamCapacity: number | undefined;
+
+  /**
+   * @public
+   * <p>The media stream sink's media stream type.</p>
+   */
+  MediaStreamType: MediaStreamType | string | undefined;
+}
+
+/**
+ * @public
+ * <p>Structure that contains the settings for media stream sources.</p>
+ */
+export interface MediaStreamSource {
+  /**
+   * @public
+   * <p>The type of media stream source.</p>
+   */
+  SourceType: MediaPipelineSourceType | string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the media stream source. </p>
+   */
+  SourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMediaStreamPipelineRequest {
+  /**
+   * @public
+   * <p>The data sources for the media pipeline.</p>
+   */
+  Sources: MediaStreamSource[] | undefined;
+
+  /**
+   * @public
+   * <p>The data sink for the media pipeline.</p>
+   */
+  Sinks: MediaStreamSink[] | undefined;
+
+  /**
+   * @public
+   * <p>The token assigned to the client making the request.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * @public
+   * <p>The tags assigned to the media pipeline.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * <p>Structure that contains the settings for a media stream pipeline.</p>
+ */
+export interface MediaStreamPipeline {
+  /**
+   * @public
+   * <p>The ID of the media stream pipeline</p>
+   */
+  MediaPipelineId?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the media stream pipeline.</p>
+   */
+  MediaPipelineArn?: string;
+
+  /**
+   * @public
+   * <p>The time at which the media stream pipeline was created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The time at which the media stream pipeline was updated.</p>
+   */
+  UpdatedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The status of the media stream pipeline.</p>
+   */
+  Status?: MediaPipelineStatus | string;
+
+  /**
+   * @public
+   * <p>The media stream pipeline's data sources.</p>
+   */
+  Sources?: MediaStreamSource[];
+
+  /**
+   * @public
+   * <p>The media stream pipeline's data sinks.</p>
+   */
+  Sinks?: MediaStreamSink[];
+}
+
+/**
+ * @public
+ */
+export interface CreateMediaStreamPipelineResponse {
+  /**
+   * @public
+   * <p>The requested media pipeline.</p>
+   */
+  MediaStreamPipeline?: MediaStreamPipeline;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMediaCapturePipelineRequest {
+  /**
+   * @public
+   * <p>The ID of the media pipeline being deleted. </p>
+   */
+  MediaPipelineId: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface DeleteMediaInsightsPipelineConfigurationRequest {
   /**
@@ -2878,6 +3172,17 @@ export interface DeleteMediaPipelineRequest {
    * <p>The ID of the media pipeline to delete.</p>
    */
   MediaPipelineId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMediaPipelineKinesisVideoStreamPoolRequest {
+  /**
+   * @public
+   * <p>The ID of the pool being deleted.</p>
+   */
+  Identifier: string | undefined;
 }
 
 /**
@@ -2963,6 +3268,12 @@ export interface MediaPipeline {
    * <p>The media insights pipeline of a media pipeline.</p>
    */
   MediaInsightsPipeline?: MediaInsightsPipeline;
+
+  /**
+   * @public
+   * <p>Designates a media pipeline as a media stream pipeline.</p>
+   */
+  MediaStreamPipeline?: MediaStreamPipeline;
 }
 
 /**
@@ -2974,6 +3285,28 @@ export interface GetMediaPipelineResponse {
    * <p>The media pipeline object.</p>
    */
   MediaPipeline?: MediaPipeline;
+}
+
+/**
+ * @public
+ */
+export interface GetMediaPipelineKinesisVideoStreamPoolRequest {
+  /**
+   * @public
+   * <p>The ID of the video stream pool.</p>
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMediaPipelineKinesisVideoStreamPoolResponse {
+  /**
+   * @public
+   * <p>The video stream pool configuration object.</p>
+   */
+  KinesisVideoStreamPoolConfiguration?: KinesisVideoStreamPoolConfiguration;
 }
 
 /**
@@ -3065,7 +3398,7 @@ export interface GetVoiceToneAnalysisTaskRequest {
 
   /**
    * @public
-   * <p>The ID of the voice tone anlysis task.</p>
+   * <p>The ID of the voice tone analysis task.</p>
    */
   VoiceToneAnalysisTaskId: string | undefined;
 }
@@ -3217,6 +3550,64 @@ export interface ListMediaInsightsPipelineConfigurationsResponse {
   /**
    * @public
    * <p>The token used to return the next page of results. </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListMediaPipelineKinesisVideoStreamPoolsRequest {
+  /**
+   * @public
+   * <p>The token used to return the next page of results. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>A summary of the Kinesis video stream pool.</p>
+ */
+export interface KinesisVideoStreamPoolSummary {
+  /**
+   * @public
+   * <p>The name of the video stream pool.</p>
+   */
+  PoolName?: string;
+
+  /**
+   * @public
+   * <p>The ID of the video stream pool.</p>
+   */
+  PoolId?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the video stream pool.</p>
+   */
+  PoolArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListMediaPipelineKinesisVideoStreamPoolsResponse {
+  /**
+   * @public
+   * <p>The list of video stream pools.</p>
+   */
+  KinesisVideoStreamPools?: KinesisVideoStreamPoolSummary[];
+
+  /**
+   * @public
+   * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
 }
@@ -3561,6 +3952,46 @@ export interface UpdateMediaInsightsPipelineStatusRequest {
    * <p>The requested status of the media insights pipeline.</p>
    */
   UpdateStatus: MediaPipelineStatusUpdate | string | undefined;
+}
+
+/**
+ * @public
+ * <p>The updated Kinesis video stream configuration object.</p>
+ */
+export interface KinesisVideoStreamConfigurationUpdate {
+  /**
+   * @public
+   * <p>The updated time that data is retained.</p>
+   */
+  DataRetentionInHours?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMediaPipelineKinesisVideoStreamPoolRequest {
+  /**
+   * @public
+   * <p>The ID of the video stream pool.</p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The configuration settings for the video stream.</p>
+   */
+  StreamConfiguration?: KinesisVideoStreamConfigurationUpdate;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMediaPipelineKinesisVideoStreamPoolResponse {
+  /**
+   * @public
+   * <p>The video stream pool configuration object.</p>
+   */
+  KinesisVideoStreamPoolConfiguration?: KinesisVideoStreamPoolConfiguration;
 }
 
 /**
@@ -3938,6 +4369,85 @@ export const CreateMediaLiveConnectorPipelineResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const CreateMediaPipelineKinesisVideoStreamPoolRequestFilterSensitiveLog = (
+  obj: CreateMediaPipelineKinesisVideoStreamPoolRequest
+): any => ({
+  ...obj,
+  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const KinesisVideoStreamPoolConfigurationFilterSensitiveLog = (
+  obj: KinesisVideoStreamPoolConfiguration
+): any => ({
+  ...obj,
+  ...(obj.PoolArn && { PoolArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMediaPipelineKinesisVideoStreamPoolResponseFilterSensitiveLog = (
+  obj: CreateMediaPipelineKinesisVideoStreamPoolResponse
+): any => ({
+  ...obj,
+  ...(obj.KinesisVideoStreamPoolConfiguration && {
+    KinesisVideoStreamPoolConfiguration: KinesisVideoStreamPoolConfigurationFilterSensitiveLog(
+      obj.KinesisVideoStreamPoolConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const MediaStreamSinkFilterSensitiveLog = (obj: MediaStreamSink): any => ({
+  ...obj,
+  ...(obj.SinkArn && { SinkArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MediaStreamSourceFilterSensitiveLog = (obj: MediaStreamSource): any => ({
+  ...obj,
+  ...(obj.SourceArn && { SourceArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMediaStreamPipelineRequestFilterSensitiveLog = (obj: CreateMediaStreamPipelineRequest): any => ({
+  ...obj,
+  ...(obj.Sources && { Sources: obj.Sources.map((item) => MediaStreamSourceFilterSensitiveLog(item)) }),
+  ...(obj.Sinks && { Sinks: obj.Sinks.map((item) => MediaStreamSinkFilterSensitiveLog(item)) }),
+  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MediaStreamPipelineFilterSensitiveLog = (obj: MediaStreamPipeline): any => ({
+  ...obj,
+  ...(obj.Sources && { Sources: obj.Sources.map((item) => MediaStreamSourceFilterSensitiveLog(item)) }),
+  ...(obj.Sinks && { Sinks: obj.Sinks.map((item) => MediaStreamSinkFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMediaStreamPipelineResponseFilterSensitiveLog = (obj: CreateMediaStreamPipelineResponse): any => ({
+  ...obj,
+  ...(obj.MediaStreamPipeline && {
+    MediaStreamPipeline: MediaStreamPipelineFilterSensitiveLog(obj.MediaStreamPipeline),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const GetMediaCapturePipelineResponseFilterSensitiveLog = (obj: GetMediaCapturePipelineResponse): any => ({
   ...obj,
   ...(obj.MediaCapturePipeline && {
@@ -3976,6 +4486,9 @@ export const MediaPipelineFilterSensitiveLog = (obj: MediaPipeline): any => ({
   ...(obj.MediaInsightsPipeline && {
     MediaInsightsPipeline: MediaInsightsPipelineFilterSensitiveLog(obj.MediaInsightsPipeline),
   }),
+  ...(obj.MediaStreamPipeline && {
+    MediaStreamPipeline: MediaStreamPipelineFilterSensitiveLog(obj.MediaStreamPipeline),
+  }),
 });
 
 /**
@@ -3984,6 +4497,20 @@ export const MediaPipelineFilterSensitiveLog = (obj: MediaPipeline): any => ({
 export const GetMediaPipelineResponseFilterSensitiveLog = (obj: GetMediaPipelineResponse): any => ({
   ...obj,
   ...(obj.MediaPipeline && { MediaPipeline: MediaPipelineFilterSensitiveLog(obj.MediaPipeline) }),
+});
+
+/**
+ * @internal
+ */
+export const GetMediaPipelineKinesisVideoStreamPoolResponseFilterSensitiveLog = (
+  obj: GetMediaPipelineKinesisVideoStreamPoolResponse
+): any => ({
+  ...obj,
+  ...(obj.KinesisVideoStreamPoolConfiguration && {
+    KinesisVideoStreamPoolConfiguration: KinesisVideoStreamPoolConfigurationFilterSensitiveLog(
+      obj.KinesisVideoStreamPoolConfiguration
+    ),
+  }),
 });
 
 /**
@@ -4006,6 +4533,28 @@ export const ListMediaInsightsPipelineConfigurationsResponseFilterSensitiveLog =
   ...(obj.MediaInsightsPipelineConfigurations && {
     MediaInsightsPipelineConfigurations: obj.MediaInsightsPipelineConfigurations.map((item) =>
       MediaInsightsPipelineConfigurationSummaryFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KinesisVideoStreamPoolSummaryFilterSensitiveLog = (obj: KinesisVideoStreamPoolSummary): any => ({
+  ...obj,
+  ...(obj.PoolArn && { PoolArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListMediaPipelineKinesisVideoStreamPoolsResponseFilterSensitiveLog = (
+  obj: ListMediaPipelineKinesisVideoStreamPoolsResponse
+): any => ({
+  ...obj,
+  ...(obj.KinesisVideoStreamPools && {
+    KinesisVideoStreamPools: obj.KinesisVideoStreamPools.map((item) =>
+      KinesisVideoStreamPoolSummaryFilterSensitiveLog(item)
     ),
   }),
 });
@@ -4050,6 +4599,20 @@ export const UpdateMediaInsightsPipelineConfigurationResponseFilterSensitiveLog 
   ...(obj.MediaInsightsPipelineConfiguration && {
     MediaInsightsPipelineConfiguration: MediaInsightsPipelineConfigurationFilterSensitiveLog(
       obj.MediaInsightsPipelineConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMediaPipelineKinesisVideoStreamPoolResponseFilterSensitiveLog = (
+  obj: UpdateMediaPipelineKinesisVideoStreamPoolResponse
+): any => ({
+  ...obj,
+  ...(obj.KinesisVideoStreamPoolConfiguration && {
+    KinesisVideoStreamPoolConfiguration: KinesisVideoStreamPoolConfigurationFilterSensitiveLog(
+      obj.KinesisVideoStreamPoolConfiguration
     ),
   }),
 });

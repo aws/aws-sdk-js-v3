@@ -71,6 +71,14 @@ import {
   CreateMediaLiveConnectorPipelineCommandOutput,
 } from "./commands/CreateMediaLiveConnectorPipelineCommand";
 import {
+  CreateMediaPipelineKinesisVideoStreamPoolCommandInput,
+  CreateMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "./commands/CreateMediaPipelineKinesisVideoStreamPoolCommand";
+import {
+  CreateMediaStreamPipelineCommandInput,
+  CreateMediaStreamPipelineCommandOutput,
+} from "./commands/CreateMediaStreamPipelineCommand";
+import {
   DeleteMediaCapturePipelineCommandInput,
   DeleteMediaCapturePipelineCommandOutput,
 } from "./commands/DeleteMediaCapturePipelineCommand";
@@ -83,6 +91,10 @@ import {
   DeleteMediaPipelineCommandOutput,
 } from "./commands/DeleteMediaPipelineCommand";
 import {
+  DeleteMediaPipelineKinesisVideoStreamPoolCommandInput,
+  DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "./commands/DeleteMediaPipelineKinesisVideoStreamPoolCommand";
+import {
   GetMediaCapturePipelineCommandInput,
   GetMediaCapturePipelineCommandOutput,
 } from "./commands/GetMediaCapturePipelineCommand";
@@ -91,6 +103,10 @@ import {
   GetMediaInsightsPipelineConfigurationCommandOutput,
 } from "./commands/GetMediaInsightsPipelineConfigurationCommand";
 import { GetMediaPipelineCommandInput, GetMediaPipelineCommandOutput } from "./commands/GetMediaPipelineCommand";
+import {
+  GetMediaPipelineKinesisVideoStreamPoolCommandInput,
+  GetMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "./commands/GetMediaPipelineKinesisVideoStreamPoolCommand";
 import {
   GetSpeakerSearchTaskCommandInput,
   GetSpeakerSearchTaskCommandOutput,
@@ -107,6 +123,10 @@ import {
   ListMediaInsightsPipelineConfigurationsCommandInput,
   ListMediaInsightsPipelineConfigurationsCommandOutput,
 } from "./commands/ListMediaInsightsPipelineConfigurationsCommand";
+import {
+  ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
+  ListMediaPipelineKinesisVideoStreamPoolsCommandOutput,
+} from "./commands/ListMediaPipelineKinesisVideoStreamPoolsCommand";
 import { ListMediaPipelinesCommandInput, ListMediaPipelinesCommandOutput } from "./commands/ListMediaPipelinesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -139,6 +159,10 @@ import {
   UpdateMediaInsightsPipelineStatusCommandOutput,
 } from "./commands/UpdateMediaInsightsPipelineStatusCommand";
 import {
+  UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
+  UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "./commands/UpdateMediaPipelineKinesisVideoStreamPoolCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -158,16 +182,21 @@ export type ServiceInputTypes =
   | CreateMediaInsightsPipelineCommandInput
   | CreateMediaInsightsPipelineConfigurationCommandInput
   | CreateMediaLiveConnectorPipelineCommandInput
+  | CreateMediaPipelineKinesisVideoStreamPoolCommandInput
+  | CreateMediaStreamPipelineCommandInput
   | DeleteMediaCapturePipelineCommandInput
   | DeleteMediaInsightsPipelineConfigurationCommandInput
   | DeleteMediaPipelineCommandInput
+  | DeleteMediaPipelineKinesisVideoStreamPoolCommandInput
   | GetMediaCapturePipelineCommandInput
   | GetMediaInsightsPipelineConfigurationCommandInput
   | GetMediaPipelineCommandInput
+  | GetMediaPipelineKinesisVideoStreamPoolCommandInput
   | GetSpeakerSearchTaskCommandInput
   | GetVoiceToneAnalysisTaskCommandInput
   | ListMediaCapturePipelinesCommandInput
   | ListMediaInsightsPipelineConfigurationsCommandInput
+  | ListMediaPipelineKinesisVideoStreamPoolsCommandInput
   | ListMediaPipelinesCommandInput
   | ListTagsForResourceCommandInput
   | StartSpeakerSearchTaskCommandInput
@@ -177,7 +206,8 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateMediaInsightsPipelineConfigurationCommandInput
-  | UpdateMediaInsightsPipelineStatusCommandInput;
+  | UpdateMediaInsightsPipelineStatusCommandInput
+  | UpdateMediaPipelineKinesisVideoStreamPoolCommandInput;
 
 /**
  * @public
@@ -188,16 +218,21 @@ export type ServiceOutputTypes =
   | CreateMediaInsightsPipelineCommandOutput
   | CreateMediaInsightsPipelineConfigurationCommandOutput
   | CreateMediaLiveConnectorPipelineCommandOutput
+  | CreateMediaPipelineKinesisVideoStreamPoolCommandOutput
+  | CreateMediaStreamPipelineCommandOutput
   | DeleteMediaCapturePipelineCommandOutput
   | DeleteMediaInsightsPipelineConfigurationCommandOutput
   | DeleteMediaPipelineCommandOutput
+  | DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput
   | GetMediaCapturePipelineCommandOutput
   | GetMediaInsightsPipelineConfigurationCommandOutput
   | GetMediaPipelineCommandOutput
+  | GetMediaPipelineKinesisVideoStreamPoolCommandOutput
   | GetSpeakerSearchTaskCommandOutput
   | GetVoiceToneAnalysisTaskCommandOutput
   | ListMediaCapturePipelinesCommandOutput
   | ListMediaInsightsPipelineConfigurationsCommandOutput
+  | ListMediaPipelineKinesisVideoStreamPoolsCommandOutput
   | ListMediaPipelinesCommandOutput
   | ListTagsForResourceCommandOutput
   | StartSpeakerSearchTaskCommandOutput
@@ -207,7 +242,8 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateMediaInsightsPipelineConfigurationCommandOutput
-  | UpdateMediaInsightsPipelineStatusCommandOutput;
+  | UpdateMediaInsightsPipelineStatusCommandOutput
+  | UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput;
 
 /**
  * @public

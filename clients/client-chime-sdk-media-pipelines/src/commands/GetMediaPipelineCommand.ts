@@ -296,6 +296,27 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  * //         },
  * //       ],
  * //     },
+ * //     MediaStreamPipeline: { // MediaStreamPipeline
+ * //       MediaPipelineId: "STRING_VALUE",
+ * //       MediaPipelineArn: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused" || "NotStarted",
+ * //       Sources: [ // MediaStreamSourceList
+ * //         { // MediaStreamSource
+ * //           SourceType: "ChimeSdkMeeting", // required
+ * //           SourceArn: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Sinks: [ // MediaStreamSinkList
+ * //         { // MediaStreamSink
+ * //           SinkArn: "STRING_VALUE", // required
+ * //           SinkType: "KinesisVideoStreamPool", // required
+ * //           ReservedStreamCapacity: Number("int"), // required
+ * //           MediaStreamType: "MixedAudio" || "IndividualAudio", // required
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
