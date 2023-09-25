@@ -37,7 +37,7 @@ export function regionRedirectMiddleware(clientConfig: PreviouslyResolved): Init
       } catch (err) {
         if (
           clientConfig.followRegionRedirects &&
-          err.Code === "PermanentRedirect" &&
+          err.name === "PermanentRedirect" &&
           err.$metadata.httpStatusCode === 301
         ) {
           try {
@@ -72,9 +72,7 @@ export const regionRedirectEndpointMiddleware = (config: PreviouslyResolved): Se
           return context.__s3RegionRedirect;
         };
       }
-      const result = await next({
-        ...args,
-      });
+      const result = await next(args);
       if (context.__s3RegionRedirect) {
         const region = await config.region();
         if (originalRegion !== region) {

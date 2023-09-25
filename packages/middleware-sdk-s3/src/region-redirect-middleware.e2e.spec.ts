@@ -47,7 +47,7 @@ async function testS3GlobalClient() {
   }
 
   for (let i = 0; i < s3Clients.length; ++i) {
-    s3Clients[i].send(new DeleteBucketCommand({ Bucket: bucketNames[(i + 1) % bucketNames.length] }));
+    await s3Clients[i].send(new DeleteBucketCommand({ Bucket: bucketNames[(i + 1) % bucketNames.length] }));
   }
 }
 
