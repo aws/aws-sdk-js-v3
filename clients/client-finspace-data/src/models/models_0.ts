@@ -962,7 +962,7 @@ export interface CreateUserRequest {
    *             </li>
    *          </ul>
    */
-  ApiAccess?: ApiAccess | string;
+  apiAccess?: ApiAccess | string;
 
   /**
    * @public
@@ -1052,7 +1052,7 @@ export interface DeletePermissionGroupResponse {
 export interface DisableUserRequest {
   /**
    * @public
-   * <p>The unique identifier for the user account that you want to disable.</p>
+   * <p>The unique identifier for the user that you want to deactivate.</p>
    */
   userId: string | undefined;
 
@@ -1069,7 +1069,7 @@ export interface DisableUserRequest {
 export interface DisableUserResponse {
   /**
    * @public
-   * <p>The unique identifier for the disabled user account.</p>
+   * <p>The unique identifier for the deactivated user.</p>
    */
   userId?: string;
 }
@@ -1114,7 +1114,7 @@ export interface DisassociateUserFromPermissionGroupResponse {
 export interface EnableUserRequest {
   /**
    * @public
-   * <p>The unique identifier for the user account that you want to enable.</p>
+   * <p>The unique identifier for the user that you want to activate.</p>
    */
   userId: string | undefined;
 
@@ -1131,7 +1131,7 @@ export interface EnableUserRequest {
 export interface EnableUserResponse {
   /**
    * @public
-   * <p>The unique identifier for the enabled user account.</p>
+   * <p>The unique identifier for the active user.</p>
    */
   userId?: string;
 }
@@ -1832,15 +1832,15 @@ export interface PermissionGroup {
 
   /**
    * @public
-   * <p>Indicates the status of the user account within a permission group.</p>
+   * <p>Indicates the status of the user within a permission group.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ADDITION_IN_PROGRESS</code> – The user account is currently being added to the permission group.</p>
+   *                   <code>ADDITION_IN_PROGRESS</code> – The user is currently being added to the permission group.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ADDITION_SUCCESS</code> – The user account is successfully added to the permission group.</p>
+   *                   <code>ADDITION_SUCCESS</code> – The user is successfully added to the permission group.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1954,25 +1954,25 @@ export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus];
 export interface GetUserResponse {
   /**
    * @public
-   * <p>The unique identifier for the user account that is retrieved.</p>
+   * <p>The unique identifier for the user that is retrieved.</p>
    */
   userId?: string;
 
   /**
    * @public
-   * <p>The current status of the user account. </p>
+   * <p>The current status of the user. </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATING</code> – The user account creation is in progress.</p>
+   *                   <code>CREATING</code> – The creation is in progress.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ENABLED</code> – The user account is created and is currently active.</p>
+   *                   <code>ENABLED</code> – The user is created and is currently active.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DISABLED</code> – The user account is currently inactive.</p>
+   *                   <code>DISABLED</code> – The user is currently inactive.</p>
    *             </li>
    *          </ul>
    */
@@ -2038,25 +2038,25 @@ export interface GetUserResponse {
 
   /**
    * @public
-   * <p>The timestamp at which the user account was created in FinSpace. The value is determined as epoch time in milliseconds. </p>
+   * <p>The timestamp at which the user was created in FinSpace. The value is determined as epoch time in milliseconds. </p>
    */
   createTime?: number;
 
   /**
    * @public
-   * <p>Describes the last time the user account was enabled. The value is determined as epoch time in milliseconds.</p>
+   * <p>Describes the last time the user was activated. The value is determined as epoch time in milliseconds.</p>
    */
   lastEnabledTime?: number;
 
   /**
    * @public
-   * <p>Describes the last time the user account was disabled. The value is determined as epoch time in milliseconds.</p>
+   * <p>Describes the last time the user was deactivated. The value is determined as epoch time in milliseconds.</p>
    */
   lastDisabledTime?: number;
 
   /**
    * @public
-   * <p>Describes the last time the user account was updated. The value is determined as epoch time in milliseconds.</p>
+   * <p>Describes the last time the user details were updated. The value is determined as epoch time in milliseconds.</p>
    */
   lastModifiedTime?: number;
 
@@ -2616,7 +2616,7 @@ export interface ListPermissionGroupsByUserRequest {
 
 /**
  * @public
- * <p>The structure of a permission group associated with a user account.</p>
+ * <p>The structure of a permission group associated with a user.</p>
  */
 export interface PermissionGroupByUser {
   /**
@@ -2633,15 +2633,15 @@ export interface PermissionGroupByUser {
 
   /**
    * @public
-   * <p>Indicates the status of the user account within a permission group.</p>
+   * <p>Indicates the status of the user within a permission group.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ADDITION_IN_PROGRESS</code> – The user account is currently being added to the permission group.</p>
+   *                   <code>ADDITION_IN_PROGRESS</code> – The user is currently being added to the permission group.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ADDITION_SUCCESS</code> – The user account is successfully added to the permission group.</p>
+   *                   <code>ADDITION_SUCCESS</code> – The user is successfully added to the permission group.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2688,7 +2688,7 @@ export interface ListUsersRequest {
 
 /**
  * @public
- * <p>The details of the user account.</p>
+ * <p>The details of the user.</p>
  */
 export interface User {
   /**
@@ -2699,19 +2699,19 @@ export interface User {
 
   /**
    * @public
-   * <p>The current status of the user account. </p>
+   * <p>The current status of the user. </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATING</code> – The user account creation is in progress.</p>
+   *                   <code>CREATING</code> – The user creation is in progress.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ENABLED</code> – The user account is created and is currently active.</p>
+   *                   <code>ENABLED</code> – The user is created and is currently active.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DISABLED</code> – The user account is currently inactive.</p>
+   *                   <code>DISABLED</code> – The user is currently inactive.</p>
    *             </li>
    *          </ul>
    */
@@ -2775,26 +2775,26 @@ export interface User {
 
   /**
    * @public
-   * <p>The timestamp at which the user account was created in FinSpace. The value is determined as epoch time in milliseconds. </p>
+   * <p>The timestamp at which the user was created in FinSpace. The value is determined as epoch time in milliseconds. </p>
    */
   createTime?: number;
 
   /**
    * @public
-   * <p> Describes the last time the user account was enabled. The value is determined as epoch time in milliseconds.
+   * <p> Describes the last time the user was activated. The value is determined as epoch time in milliseconds.
    *     </p>
    */
   lastEnabledTime?: number;
 
   /**
    * @public
-   * <p>Describes the last time the user account was disabled. The value is determined as epoch time in milliseconds.</p>
+   * <p>Describes the last time the user was deactivated. The value is determined as epoch time in milliseconds.</p>
    */
   lastDisabledTime?: number;
 
   /**
    * @public
-   * <p>Describes the last time the user account was updated. The value is determined as epoch time in milliseconds.
+   * <p>Describes the last time the user was updated. The value is determined as epoch time in milliseconds.
    *     </p>
    */
   lastModifiedTime?: number;
@@ -2813,7 +2813,7 @@ export interface User {
 export interface ListUsersResponse {
   /**
    * @public
-   * <p>A list of all the user accounts.</p>
+   * <p>A list of all the users.</p>
    */
   users?: User[];
 
@@ -2849,7 +2849,7 @@ export interface ListUsersByPermissionGroupRequest {
 
 /**
  * @public
- * <p>The structure of a user account associated with a permission group.</p>
+ * <p>The structure of a user associated with a permission group.</p>
  */
 export interface UserByPermissionGroup {
   /**
@@ -2860,19 +2860,19 @@ export interface UserByPermissionGroup {
 
   /**
    * @public
-   * <p>The current status of the user account. </p>
+   * <p>The current status of the user. </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATING</code> – The user account creation is in progress.</p>
+   *                   <code>CREATING</code> – The user creation is in progress.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ENABLED</code> – The user account is created and is currently active.</p>
+   *                   <code>ENABLED</code> – The user is created and is currently active.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DISABLED</code> – The user account is currently inactive.</p>
+   *                   <code>DISABLED</code> – The user is currently inactive.</p>
    *             </li>
    *          </ul>
    */
@@ -2936,15 +2936,15 @@ export interface UserByPermissionGroup {
 
   /**
    * @public
-   * <p>Indicates the status of the user account within a permission group.</p>
+   * <p>Indicates the status of the user within a permission group.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ADDITION_IN_PROGRESS</code> – The user account is currently being added to the permission group.</p>
+   *                   <code>ADDITION_IN_PROGRESS</code> – The user is currently being added to the permission group.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ADDITION_SUCCESS</code> – The user account is successfully added to the permission group.</p>
+   *                   <code>ADDITION_SUCCESS</code> – The user is successfully added to the permission group.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3001,7 +3001,7 @@ export interface ResetUserPasswordResponse {
 
   /**
    * @public
-   * <p>A randomly generated temporary password for the requested user account. This password expires in 7 days.</p>
+   * <p>A randomly generated temporary password for the requested user. This password expires in 7 days.</p>
    */
   temporaryPassword?: string;
 }
@@ -3271,7 +3271,7 @@ export interface UpdatePermissionGroupResponse {
 export interface UpdateUserRequest {
   /**
    * @public
-   * <p>The unique identifier for the user account to update.</p>
+   * <p>The unique identifier for the user that you want to update.</p>
    */
   userId: string | undefined;
 
@@ -3338,7 +3338,7 @@ export interface UpdateUserRequest {
 export interface UpdateUserResponse {
   /**
    * @public
-   * <p>The unique identifier of the updated user account.</p>
+   * <p>The unique identifier of the updated user.</p>
    */
   userId?: string;
 }
@@ -3394,7 +3394,7 @@ export const GetExternalDataViewAccessDetailsResponseFilterSensitiveLog = (
   obj: GetExternalDataViewAccessDetailsResponse
 ): any => ({
   ...obj,
-  ...(obj.credentials && { credentials: AwsCredentialsFilterSensitiveLog(obj.credentials) }),
+  ...(obj.credentials && { credentials: SENSITIVE_STRING }),
 });
 
 /**
@@ -3412,6 +3412,23 @@ export const PermissionGroupFilterSensitiveLog = (obj: PermissionGroup): any => 
 export const GetPermissionGroupResponseFilterSensitiveLog = (obj: GetPermissionGroupResponse): any => ({
   ...obj,
   ...(obj.permissionGroup && { permissionGroup: PermissionGroupFilterSensitiveLog(obj.permissionGroup) }),
+});
+
+/**
+ * @internal
+ */
+export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProgrammaticAccessCredentialsResponseFilterSensitiveLog = (
+  obj: GetProgrammaticAccessCredentialsResponse
+): any => ({
+  ...obj,
+  ...(obj.credentials && { credentials: SENSITIVE_STRING }),
 });
 
 /**

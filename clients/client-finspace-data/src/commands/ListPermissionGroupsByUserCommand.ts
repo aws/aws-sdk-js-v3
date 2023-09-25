@@ -41,7 +41,7 @@ export interface ListPermissionGroupsByUserCommandOutput extends ListPermissionG
 
 /**
  * @public
- * <p>Lists all the permission groups that are associated with a specific user account.</p>
+ * <p>Lists all the permission groups that are associated with a specific user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -42,7 +42,7 @@ export interface AssociateUserToPermissionGroupCommandOutput
 
 /**
  * @public
- * <p>Adds a user account to a permission group to grant permissions for actions a user can perform in FinSpace.</p>
+ * <p>Adds a user to a permission group to grant permissions for actions a user can perform in FinSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -15,7 +15,11 @@ import {
 } from "@smithy/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import { GetProgrammaticAccessCredentialsRequest, GetProgrammaticAccessCredentialsResponse } from "../models/models_0";
+import {
+  GetProgrammaticAccessCredentialsRequest,
+  GetProgrammaticAccessCredentialsResponse,
+  GetProgrammaticAccessCredentialsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   de_GetProgrammaticAccessCredentialsCommand,
   se_GetProgrammaticAccessCredentialsCommand,
@@ -42,7 +46,7 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
 
 /**
  * @public
- * <p>Request programmatic credentials to use with FinSpace SDK.</p>
+ * <p>Request programmatic credentials to use with FinSpace SDK. For more information, see <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#accessing-credentials">Step 2. Access credentials programmatically using IAM access key id and secret access key</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -138,7 +142,7 @@ export class GetProgrammaticAccessCredentialsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetProgrammaticAccessCredentialsResponseFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSHabaneroPublicAPI",
         operation: "GetProgrammaticAccessCredentials",

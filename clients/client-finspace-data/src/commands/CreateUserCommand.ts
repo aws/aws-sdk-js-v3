@@ -49,7 +49,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *   type: "SUPER_USER" || "APP_USER", // required
  *   firstName: "STRING_VALUE",
  *   lastName: "STRING_VALUE",
- *   ApiAccess: "ENABLED" || "DISABLED",
+ *   apiAccess: "ENABLED" || "DISABLED",
  *   apiAccessPrincipalArn: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };

@@ -45,7 +45,7 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
 
 /**
  * @public
- * <p>Removes a user account from a permission group.</p>
+ * <p>Removes a user from a permission group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

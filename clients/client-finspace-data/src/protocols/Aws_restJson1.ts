@@ -295,7 +295,7 @@ export const se_CreateUserCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ApiAccess: [],
+      apiAccess: [],
       apiAccessPrincipalArn: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       emailAddress: [],

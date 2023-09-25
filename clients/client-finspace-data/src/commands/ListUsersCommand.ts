@@ -37,7 +37,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
 
 /**
  * @public
- * <p>Lists all available user accounts in FinSpace.</p>
+ * <p>Lists all available users in FinSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
