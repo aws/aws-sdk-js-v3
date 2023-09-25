@@ -10,7 +10,7 @@ describe(regionRedirectMiddleware.name, () => {
     if (call === 0) {
       call++;
       throw Object.assign(new Error(), {
-        Code: "PermanentRedirect",
+        name: "PermanentRedirect",
         $metadata: { httpStatusCode: 301 },
         $response: { headers: { "x-amz-bucket-region": redirectRegion } },
       });

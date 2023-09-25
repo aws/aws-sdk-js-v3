@@ -10,8 +10,8 @@ import { STS } from "@aws-sdk/client-sts";
 
 const regionConfigs = [
   { region: "us-east-1", followRegionRedirects: true },
+  { region: "eu-west-1", followRegionRedirects: true },
   { region: "us-west-2", followRegionRedirects: true },
-  { region: "us-west-1", followRegionRedirects: true },
 ];
 
 const s3Clients = regionConfigs.map((config) => new S3Client(config));
@@ -23,7 +23,7 @@ async function testS3GlobalClient() {
 
   const callerID = await stsClient.getCallerIdentity({});
 
-  const bucketNames = regionConfigs.map((config) => `${callerID.Account}-redirect-testing-${config.region}`);
+  const bucketNames = regionConfigs.map((config) => `${callerID.Account}-redirect-${config.region}`);
   await Promise.all(
     bucketNames.map((bucketName, index) => s3Clients[index].send(new CreateBucketCommand({ Bucket: bucketName })))
   );

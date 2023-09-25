@@ -8,17 +8,12 @@ import {
   MetadataBearer,
   Pluggable,
   Provider,
-  RelativeMiddlewareOptions,
-  SerializeHandler,
-  SerializeHandlerArguments,
-  SerializeHandlerOutput,
-  SerializeMiddleware,
 } from "@smithy/types";
 
 /**
  * @internal
  */
-interface PreviouslyResolved {
+export interface PreviouslyResolved {
   region: Provider<string>;
   followRegionRedirects: boolean;
 }
@@ -58,34 +53,6 @@ export function regionRedirectMiddleware(clientConfig: PreviouslyResolved): Init
 /**
  * @internal
  */
-export const regionRedirectEndpointMiddleware = (config: PreviouslyResolved): SerializeMiddleware<any, any> => {
-  return <Output extends MetadataBearer>(
-      next: SerializeHandler<any, Output>,
-      context: HandlerExecutionContext
-    ): SerializeHandler<any, Output> =>
-    async (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<Output>> => {
-      const originalRegion = await config.region();
-      if (context.__s3RegionRedirect) {
-        const regionProviderRef = config.region;
-        config.region = async () => {
-          config.region = regionProviderRef;
-          return context.__s3RegionRedirect;
-        };
-      }
-      const result = await next(args);
-      if (context.__s3RegionRedirect) {
-        const region = await config.region();
-        if (originalRegion !== region) {
-          throw new Error("Region was not restored following S3 region redirect.");
-        }
-      }
-      return result;
-    };
-};
-
-/**
- * @internal
- */
 export const regionRedirectMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["REGION_REDIRECT", "S3"],
@@ -96,20 +63,8 @@ export const regionRedirectMiddlewareOptions: InitializeHandlerOptions = {
 /**
  * @internal
  */
-export const regionRedirectEndpointMiddlewareOptions: RelativeMiddlewareOptions = {
-  tags: ["REGION_REDIRECT", "S3"],
-  name: "regionRedirectEndpointMiddleware",
-  override: true,
-  relation: "before",
-  toMiddleware: "endpointV2Middleware",
-};
-
-/**
- * @internal
- */
 export const getRegionRedirectMiddlewarePlugin = (clientConfig: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(regionRedirectMiddleware(clientConfig), regionRedirectMiddlewareOptions);
-    clientStack.addRelativeTo(regionRedirectEndpointMiddleware(clientConfig), regionRedirectEndpointMiddlewareOptions);
   },
 });
