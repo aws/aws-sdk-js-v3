@@ -57,6 +57,12 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  *   ExternalLoginFederationProviderType: "STRING_VALUE",
  *   CustomFederationProviderUrl: "STRING_VALUE",
  *   ExternalLoginId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new RegisterUserCommand(input);
  * const response = await client.send(command);

@@ -5637,6 +5637,7 @@ export const se_RegisterUserCommand = async (
       IamArn: [],
       IdentityType: [],
       SessionName: [],
+      Tags: (_) => _json(_),
       UserName: [],
       UserRole: [],
     })

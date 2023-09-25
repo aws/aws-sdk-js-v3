@@ -8442,6 +8442,12 @@ export interface RegisterUserRequest {
    * <p>The identity ID for a user in the external login provider.</p>
    */
   ExternalLoginId?: string;
+
+  /**
+   * @public
+   * <p>The tags to associate with the user.</p>
+   */
+  Tags?: Tag[];
 }
 
 /**

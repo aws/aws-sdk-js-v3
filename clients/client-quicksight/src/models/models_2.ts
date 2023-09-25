@@ -5724,6 +5724,7 @@ export const MemberType = {
   ANALYSIS: "ANALYSIS",
   DASHBOARD: "DASHBOARD",
   DATASET: "DATASET",
+  TOPIC: "TOPIC",
 } as const;
 
 /**
