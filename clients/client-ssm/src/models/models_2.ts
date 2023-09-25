@@ -1223,8 +1223,7 @@ export interface UpdateManagedInstanceRoleResult {}
 export interface UpdateOpsItemRequest {
   /**
    * @public
-   * <p>Update the information about the OpsItem. Provide enough information so that users reading
-   *    this OpsItem for the first time understand the issue. </p>
+   * <p>User-defined text that contains information about the OpsItem, in Markdown format. </p>
    */
   Description?: string;
 

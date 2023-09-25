@@ -293,7 +293,7 @@ export interface OpsItemSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/aws/insights</code>
+   *                   <code>/aws/insight</code>
    *                </p>
    *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
    *      OpsItems. </p>
@@ -2028,8 +2028,8 @@ export interface GetConnectionStatusRequest {
  * @enum
  */
 export const ConnectionStatus = {
-  CONNECTED: "Connected",
-  NOT_CONNECTED: "NotConnected",
+  CONNECTED: "connected",
+  NOT_CONNECTED: "notconnected",
 } as const;
 
 /**
@@ -3696,7 +3696,7 @@ export interface OpsItem {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/aws/insights</code>
+   *                   <code>/aws/insight</code>
    *                </p>
    *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
    *      OpsItems. </p>

@@ -3064,7 +3064,12 @@ export interface RelatedOpsItem {
 export interface CreateOpsItemRequest {
   /**
    * @public
-   * <p>Information about the OpsItem. </p>
+   * <p>User-defined text that contains information about the OpsItem, in Markdown format.
+   *   </p>
+   *          <note>
+   *             <p>Provide enough information so that users viewing this OpsItem for the first time
+   *     understand the issue. </p>
+   *          </note>
    */
   Description: string | undefined;
 
@@ -3087,7 +3092,7 @@ export interface CreateOpsItemRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/aws/insights</code>
+   *                   <code>/aws/insight</code>
    *                </p>
    *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
    *      OpsItems. </p>
@@ -7353,7 +7358,6 @@ export type PingStatus = (typeof PingStatus)[keyof typeof PingStatus];
  * @enum
  */
 export const ResourceType = {
-  DOCUMENT: "Document",
   EC2_INSTANCE: "EC2Instance",
   MANAGED_INSTANCE: "ManagedInstance",
 } as const;

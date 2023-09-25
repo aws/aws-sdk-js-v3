@@ -89,7 +89,7 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * //       ActivationId: "STRING_VALUE",
  * //       IamRole: "STRING_VALUE",
  * //       RegistrationDate: new Date("TIMESTAMP"),
- * //       ResourceType: "ManagedInstance" || "Document" || "EC2Instance",
+ * //       ResourceType: "ManagedInstance" || "EC2Instance",
  * //       Name: "STRING_VALUE",
  * //       IPAddress: "STRING_VALUE",
  * //       ComputerName: "STRING_VALUE",
