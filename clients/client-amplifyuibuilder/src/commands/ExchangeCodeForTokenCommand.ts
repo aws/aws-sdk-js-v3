@@ -42,7 +42,10 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
 
 /**
  * @public
- * <p>Exchanges an access code for a token.</p>
+ * <note>
+ *             <p>This is for internal use.</p>
+ *          </note>
+ *          <p>Amplify uses this action to exchange an access code for a token.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

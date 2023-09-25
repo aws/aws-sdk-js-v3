@@ -121,12 +121,7 @@
             "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys"
           }
         },
-        "aws.iam#supportedPrincipalTypes": [
-          "Root",
-          "IAMUser",
-          "IAMRole",
-          "FederatedUser"
-        ],
+        "aws.iam#supportedPrincipalTypes": ["Root", "IAMUser", "IAMRole", "FederatedUser"],
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {},
         "smithy.api#documentation": "<p>The Amplify UI Builder API provides a programmatic interface for creating\n      and configuring user interface (UI) component libraries and themes for use in your Amplify applications. You can then connect these UI components to an application's\n      backend Amazon Web Services resources.</p>\n         <p>You can also use the Amplify Studio visual designer to create UI components\n      and model data for an app. For more information, see <a href=\"https://docs.amplify.aws/console/adminui/intro\">Introduction</a> in the\n        <i>Amplify Docs</i>.</p>\n         <p>The Amplify Framework is a comprehensive set of SDKs, libraries, tools, and\n      documentation for client app development. For more information, see the <a href=\"https://docs.amplify.aws/\">Amplify Framework</a>. For more information about\n      deploying an Amplify application to Amazon Web Services, see the <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html\">Amplify User Guide</a>.</p>",
@@ -1011,6 +1006,44 @@
         "target": "smithy.api#String"
       }
     },
+    "com.amazonaws.amplifyuibuilder#CodegenDependencies": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.amplifyuibuilder#CodegenDependency"
+      }
+    },
+    "com.amazonaws.amplifyuibuilder#CodegenDependency": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the dependency package.</p>"
+          }
+        },
+        "supportedVersion": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the version of the supported dependency package.</p>"
+          }
+        },
+        "isSemVer": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Determines if the dependency package is using Semantic versioning. If set to true, it indicates that the dependency package uses Semantic versioning.</p>"
+          }
+        },
+        "reason": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the reason to include the dependency package in your project code.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Dependency package that may be required for the project code to run.</p>"
+      }
+    },
     "com.amazonaws.amplifyuibuilder#CodegenFeatureFlags": {
       "type": "structure",
       "members": {
@@ -1452,6 +1485,12 @@
             "smithy.api#documentation": "<p>The time that the code generation job was modified.</p>",
             "smithy.api#timestampFormat": "date-time"
           }
+        },
+        "dependencies": {
+          "target": "com.amazonaws.amplifyuibuilder#CodegenDependencies",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists the dependency packages that may be required for the project code to run.</p>"
+          }
         }
       },
       "traits": {
@@ -1566,13 +1605,9 @@
         },
         "aws.cloudformation#cfnResource": {
           "name": "CodegenJob",
-          "additionalSchemas": [
-            "com.amazonaws.amplifyuibuilder#CodegenJob"
-          ]
+          "additionalSchemas": ["com.amazonaws.amplifyuibuilder#CodegenJob"]
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ]
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"]
       }
     },
     "com.amazonaws.amplifyuibuilder#CodegenJobStatus": {
@@ -2262,13 +2297,9 @@
         },
         "aws.cloudformation#cfnResource": {
           "name": "Component",
-          "additionalSchemas": [
-            "com.amazonaws.amplifyuibuilder#Component"
-          ]
+          "additionalSchemas": ["com.amazonaws.amplifyuibuilder#Component"]
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ]
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"]
       }
     },
     "com.amazonaws.amplifyuibuilder#ComponentSummary": {
@@ -2387,13 +2418,8 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Creates a new component for an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/components",
@@ -2562,13 +2588,8 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Creates a new form for an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/forms",
@@ -2726,13 +2747,8 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Creates a theme to apply to the components in an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/themes",
@@ -2853,9 +2869,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Deletes a component from an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/components/{id}",
@@ -2913,9 +2927,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Deletes a form from an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/forms/{id}",
@@ -2973,9 +2985,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Deletes a theme from an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/themes/{id}",
@@ -3027,7 +3037,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Exchanges an access code for a token.</p>",
+        "smithy.api#documentation": "<note>\n            <p>This is for internal use.</p>\n         </note>\n         <p>Amplify uses this action to exchange an access code for a token.</p>",
         "smithy.api#http": {
           "uri": "/tokens/{provider}",
           "method": "POST"
@@ -4028,13 +4038,9 @@
         },
         "aws.cloudformation#cfnResource": {
           "name": "Form",
-          "additionalSchemas": [
-            "com.amazonaws.amplifyuibuilder#Form"
-          ]
+          "additionalSchemas": ["com.amazonaws.amplifyuibuilder#Form"]
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ]
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"]
       }
     },
     "com.amazonaws.amplifyuibuilder#FormStyle": {
@@ -4185,9 +4191,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Returns an existing code generation job.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/codegen-jobs/{id}",
@@ -4264,9 +4268,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Returns an existing component for an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/components/{id}",
@@ -4337,9 +4339,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Returns an existing form for an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/forms/{id}",
@@ -4468,9 +4468,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Returns an existing theme for an Amplify app.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/themes/{id}",
@@ -4692,9 +4690,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Retrieves a list of code generation jobs for a specified Amplify app and backend environment.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/codegen-jobs",
@@ -4795,9 +4791,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Retrieves a list of components for a specified Amplify app and backend\n      environment.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/components",
@@ -4893,9 +4887,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Retrieves a list of forms for a specified Amplify app and backend environment.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/forms",
@@ -4991,9 +4983,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Retrieves a list of themes for a specified Amplify app and backend\n      environment.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/themes",
@@ -5246,6 +5236,18 @@
         }
       }
     },
+    "com.amazonaws.amplifyuibuilder#ReactCodegenDependencies": {
+      "type": "map",
+      "key": {
+        "target": "smithy.api#String"
+      },
+      "value": {
+        "target": "smithy.api#String"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Indicates the dependency version of the project code to be generated by Amazon Web Services Amplify. The version of the generated code output is determined by the version number contained in <code>aws-amplify</code>.</p>"
+      }
+    },
     "com.amazonaws.amplifyuibuilder#ReactStartCodegenJobData": {
       "type": "structure",
       "members": {
@@ -5286,6 +5288,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The API configuration for the code generation job.</p>"
           }
+        },
+        "dependencies": {
+          "target": "com.amazonaws.amplifyuibuilder#ReactCodegenDependencies",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists the dependency packages that may be required for the project code to run.</p>"
+          }
         }
       },
       "traits": {
@@ -5306,7 +5314,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Refreshes a previously issued access token that might have expired.</p>",
+        "smithy.api#documentation": "<note>\n            <p>This is for internal use.</p>\n         </note>\n         <p>Amplify uses this action to refresh a previously issued access token that might have expired.</p>",
         "smithy.api#http": {
           "uri": "/tokens/{provider}/refresh",
           "method": "POST"
@@ -5540,9 +5548,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Starts a code generation job for a specified Amplify app and backend environment.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/codegen-jobs",
@@ -5831,13 +5837,9 @@
         },
         "aws.cloudformation#cfnResource": {
           "name": "Theme",
-          "additionalSchemas": [
-            "com.amazonaws.amplifyuibuilder#Theme"
-          ]
+          "additionalSchemas": ["com.amazonaws.amplifyuibuilder#Theme"]
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ]
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"]
       }
     },
     "com.amazonaws.amplifyuibuilder#ThemeSummary": {
@@ -5986,9 +5988,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Updates an existing component.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/components/{id}",
@@ -6156,9 +6156,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Updates an existing form.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/forms/{id}",
@@ -6308,9 +6306,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "amplify:GetApp"
-        ],
+        "aws.iam#requiredActions": ["amplify:GetApp"],
         "smithy.api#documentation": "<p>Updates an existing theme.</p>",
         "smithy.api#http": {
           "uri": "/app/{appId}/environment/{environmentName}/themes/{id}",

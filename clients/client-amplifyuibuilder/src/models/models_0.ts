@@ -77,6 +77,36 @@ export interface CodegenJobAsset {
 
 /**
  * @public
+ * <p>Dependency package that may be required for the project code to run.</p>
+ */
+export interface CodegenDependency {
+  /**
+   * @public
+   * <p>Name of the dependency package.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Indicates the version of the supported dependency package.</p>
+   */
+  supportedVersion?: string;
+
+  /**
+   * @public
+   * <p>Determines if the dependency package is using Semantic versioning. If set to true, it indicates that the dependency package uses Semantic versioning.</p>
+   */
+  isSemVer?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates the reason to include the dependency package in your project code.</p>
+   */
+  reason?: string;
+}
+
+/**
+ * @public
  * <p>Describes the feature flags that you can specify for a code generation job.</p>
  */
 export interface CodegenFeatureFlags {
@@ -536,6 +566,12 @@ export interface ReactStartCodegenJobData {
    * <p>The API configuration for the code generation job.</p>
    */
   apiConfiguration?: ApiConfiguration;
+
+  /**
+   * @public
+   * <p>Lists the dependency packages that may be required for the project code to run.</p>
+   */
+  dependencies?: Record<string, string>;
 }
 
 /**
@@ -673,6 +709,12 @@ export interface CodegenJob {
    * <p>The time that the code generation job was modified.</p>
    */
   modifiedAt?: Date;
+
+  /**
+   * @public
+   * <p>Lists the dependency packages that may be required for the project code to run.</p>
+   */
+  dependencies?: CodegenDependency[];
 }
 
 /**

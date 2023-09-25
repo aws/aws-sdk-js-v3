@@ -2941,6 +2941,8 @@ const se_PredicateList = (input: Predicate[], context: __SerdeContext): any => {
 
 // se_PutMetadataFlagBody omitted.
 
+// se_ReactCodegenDependencies omitted.
+
 // se_ReactStartCodegenJobData omitted.
 
 // se_RefreshTokenRequestBody omitted.
@@ -3095,6 +3097,10 @@ const de_ActionParameters = (output: any, context: __SerdeContext): ActionParame
 
 // de_AssociatedFieldsList omitted.
 
+// de_CodegenDependencies omitted.
+
+// de_CodegenDependency omitted.
+
 // de_CodegenFeatureFlags omitted.
 
 // de_CodegenGenericDataEnum omitted.
@@ -3128,6 +3134,7 @@ const de_CodegenJob = (output: any, context: __SerdeContext): CodegenJob => {
     asset: _json,
     autoGenerateForms: __expectBoolean,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    dependencies: _json,
     environmentName: __expectString,
     features: _json,
     genericDataSchema: _json,
@@ -3605,6 +3612,8 @@ const de_PredicateList = (output: any, context: __SerdeContext): Predicate[] => 
     });
   return retVal;
 };
+
+// de_ReactCodegenDependencies omitted.
 
 // de_ReactStartCodegenJobData omitted.
 

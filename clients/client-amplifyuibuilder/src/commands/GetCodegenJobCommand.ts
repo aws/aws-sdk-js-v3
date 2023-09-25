@@ -74,6 +74,9 @@ export interface GetCodegenJobCommandOutput extends GetCodegenJobResponse, __Met
  * //           dataStoreConfig: {},
  * //           noApiConfig: {},
  * //         },
+ * //         dependencies: { // ReactCodegenDependencies
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //     genericDataSchema: { // CodegenJobGenericDataSchema
@@ -161,6 +164,14 @@ export interface GetCodegenJobCommandOutput extends GetCodegenJobResponse, __Met
  * //     },
  * //     createdAt: new Date("TIMESTAMP"),
  * //     modifiedAt: new Date("TIMESTAMP"),
+ * //     dependencies: [ // CodegenDependencies
+ * //       { // CodegenDependency
+ * //         name: "STRING_VALUE",
+ * //         supportedVersion: "STRING_VALUE",
+ * //         isSemVer: true || false,
+ * //         reason: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

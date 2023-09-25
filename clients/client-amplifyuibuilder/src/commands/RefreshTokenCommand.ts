@@ -42,7 +42,10 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
 
 /**
  * @public
- * <p>Refreshes a previously issued access token that might have expired.</p>
+ * <note>
+ *             <p>This is for internal use.</p>
+ *          </note>
+ *          <p>Amplify uses this action to refresh a previously issued access token that might have expired.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
