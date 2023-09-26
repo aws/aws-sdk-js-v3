@@ -70,6 +70,12 @@ export interface DescribeExportCommandOutput extends DescribeExportOutput, __Met
  * //     ExportFormat: "DYNAMODB_JSON" || "ION",
  * //     BilledSizeBytes: Number("long"),
  * //     ItemCount: Number("long"),
+ * //     ExportType: "FULL_EXPORT" || "INCREMENTAL_EXPORT",
+ * //     IncrementalExportSpecification: { // IncrementalExportSpecification
+ * //       ExportFromTime: new Date("TIMESTAMP"),
+ * //       ExportToTime: new Date("TIMESTAMP"),
+ * //       ExportViewType: "NEW_IMAGE" || "NEW_AND_OLD_IMAGES",
+ * //     },
  * //   },
  * // };
  *

@@ -56,6 +56,12 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  *   S3SseAlgorithm: "AES256" || "KMS",
  *   S3SseKmsKeyId: "STRING_VALUE",
  *   ExportFormat: "DYNAMODB_JSON" || "ION",
+ *   ExportType: "FULL_EXPORT" || "INCREMENTAL_EXPORT",
+ *   IncrementalExportSpecification: { // IncrementalExportSpecification
+ *     ExportFromTime: new Date("TIMESTAMP"),
+ *     ExportToTime: new Date("TIMESTAMP"),
+ *     ExportViewType: "NEW_IMAGE" || "NEW_AND_OLD_IMAGES",
+ *   },
  * };
  * const command = new ExportTableToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -80,6 +86,12 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  * //     ExportFormat: "DYNAMODB_JSON" || "ION",
  * //     BilledSizeBytes: Number("long"),
  * //     ItemCount: Number("long"),
+ * //     ExportType: "FULL_EXPORT" || "INCREMENTAL_EXPORT",
+ * //     IncrementalExportSpecification: { // IncrementalExportSpecification
+ * //       ExportFromTime: new Date("TIMESTAMP"),
+ * //       ExportToTime: new Date("TIMESTAMP"),
+ * //       ExportViewType: "NEW_IMAGE" || "NEW_AND_OLD_IMAGES",
+ * //     },
  * //   },
  * // };
  *

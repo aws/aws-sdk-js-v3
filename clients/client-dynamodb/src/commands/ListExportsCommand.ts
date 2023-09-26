@@ -56,6 +56,7 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * //     { // ExportSummary
  * //       ExportArn: "STRING_VALUE",
  * //       ExportStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ * //       ExportType: "FULL_EXPORT" || "INCREMENTAL_EXPORT",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

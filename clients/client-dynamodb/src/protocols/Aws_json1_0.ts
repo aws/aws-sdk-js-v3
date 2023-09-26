@@ -236,6 +236,7 @@ import {
   ImportTableDescription,
   ImportTableInput,
   ImportTableOutput,
+  IncrementalExportSpecification,
   IndexNotFoundException,
   InputFormatOptions,
   InternalServerError,
@@ -4834,6 +4835,8 @@ const se_ExportTableToPointInTimeInput = (input: ExportTableToPointInTimeInput, 
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ExportFormat: [],
     ExportTime: (_) => Math.round(_.getTime() / 1000),
+    ExportType: [],
+    IncrementalExportSpecification: (_) => se_IncrementalExportSpecification(_, context),
     S3Bucket: [],
     S3BucketOwner: [],
     S3Prefix: [],
@@ -4972,6 +4975,17 @@ const se_ImportTableInput = (input: ImportTableInput, context: __SerdeContext): 
     InputFormatOptions: _json,
     S3BucketSource: _json,
     TableCreationParameters: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_0IncrementalExportSpecification
+ */
+const se_IncrementalExportSpecification = (input: IncrementalExportSpecification, context: __SerdeContext): any => {
+  return take(input, {
+    ExportFromTime: (_) => Math.round(_.getTime() / 1000),
+    ExportToTime: (_) => Math.round(_.getTime() / 1000),
+    ExportViewType: [],
   });
 };
 
@@ -6188,8 +6202,10 @@ const de_ExportDescription = (output: any, context: __SerdeContext): ExportDescr
     ExportManifest: __expectString,
     ExportStatus: __expectString,
     ExportTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExportType: __expectString,
     FailureCode: __expectString,
     FailureMessage: __expectString,
+    IncrementalExportSpecification: (_: any) => de_IncrementalExportSpecification(_, context),
     ItemCount: __expectLong,
     S3Bucket: __expectString,
     S3BucketOwner: __expectString,
@@ -6359,6 +6375,17 @@ const de_ImportTableDescription = (output: any, context: __SerdeContext): Import
 const de_ImportTableOutput = (output: any, context: __SerdeContext): ImportTableOutput => {
   return take(output, {
     ImportTableDescription: (_: any) => de_ImportTableDescription(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0IncrementalExportSpecification
+ */
+const de_IncrementalExportSpecification = (output: any, context: __SerdeContext): IncrementalExportSpecification => {
+  return take(output, {
+    ExportFromTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExportToTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExportViewType: __expectString,
   }) as any;
 };
 

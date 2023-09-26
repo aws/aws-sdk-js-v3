@@ -3762,6 +3762,58 @@ export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
  * @public
  * @enum
  */
+export const ExportType = {
+  FULL_EXPORT: "FULL_EXPORT",
+  INCREMENTAL_EXPORT: "INCREMENTAL_EXPORT",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportType = (typeof ExportType)[keyof typeof ExportType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportViewType = {
+  NEW_AND_OLD_IMAGES: "NEW_AND_OLD_IMAGES",
+  NEW_IMAGE: "NEW_IMAGE",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportViewType = (typeof ExportViewType)[keyof typeof ExportViewType];
+
+/**
+ * @public
+ * <p>Optional object containing the parameters specific to an incremental export.</p>
+ */
+export interface IncrementalExportSpecification {
+  /**
+   * @public
+   * <p>Time in the past which provides the inclusive start range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state including and after this point in time.</p>
+   */
+  ExportFromTime?: Date;
+
+  /**
+   * @public
+   * <p>Time in the past which provides the exclusive end range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state just prior to this point in time. If this is not provided, the latest time with data available will be used.</p>
+   */
+  ExportToTime?: Date;
+
+  /**
+   * @public
+   * <p>Choice of whether to output the previous item image prior to the start time of the incremental export. Valid values are <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>.</p>
+   */
+  ExportViewType?: ExportViewType | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const S3SseAlgorithm = {
   AES256: "AES256",
   KMS: "KMS",
@@ -3910,6 +3962,18 @@ export interface ExportDescription {
    * <p>The number of items exported.</p>
    */
   ItemCount?: number;
+
+  /**
+   * @public
+   * <p>Choice of whether to execute as a full export or incremental export. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>. If <code>INCREMENTAL_EXPORT</code> is provided, the <code>IncrementalExportSpecification</code> must also be used.</p>
+   */
+  ExportType?: ExportType | string;
+
+  /**
+   * @public
+   * <p>Optional object containing the parameters specific to an incremental export.</p>
+   */
+  IncrementalExportSpecification?: IncrementalExportSpecification;
 }
 
 /**
@@ -5085,6 +5149,18 @@ export interface ExportTableToPointInTimeInput {
    *                 <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
    */
   ExportFormat?: ExportFormat | string;
+
+  /**
+   * @public
+   * <p>Choice of whether to execute as a full export or incremental export. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>. If <code>INCREMENTAL_EXPORT</code> is provided, the <code>IncrementalExportSpecification</code> must also be used.</p>
+   */
+  ExportType?: ExportType | string;
+
+  /**
+   * @public
+   * <p>Optional object containing the parameters specific to an incremental export.</p>
+   */
+  IncrementalExportSpecification?: IncrementalExportSpecification;
 }
 
 /**
@@ -5398,6 +5474,12 @@ export interface ExportSummary {
    *             FAILED.</p>
    */
   ExportStatus?: ExportStatus | string;
+
+  /**
+   * @public
+   * <p>Choice of whether to execute as a full export or incremental export. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>. If <code>INCREMENTAL_EXPORT</code> is provided, the <code>IncrementalExportSpecification</code> must also be used.</p>
+   */
+  ExportType?: ExportType | string;
 }
 
 /**
