@@ -113,7 +113,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *   ObjectLockLegalHoldStatus: "ON" || "OFF",
  *   ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
  *   PartsCount: Number("int"),
- *   ReplicationStatus: "COMPLETE" || "PENDING" || "FAILED" || "REPLICA",
+ *   ReplicationStatus: "COMPLETE" || "PENDING" || "FAILED" || "REPLICA" || "COMPLETED",
  *   RequestCharged: "requester",
  *   Restore: "STRING_VALUE",
  *   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",

@@ -7513,6 +7513,7 @@ export interface GetBucketWebsiteRequest {
  */
 export const ReplicationStatus = {
   COMPLETE: "COMPLETE",
+  COMPLETED: "COMPLETED",
   FAILED: "FAILED",
   PENDING: "PENDING",
   REPLICA: "REPLICA",
