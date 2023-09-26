@@ -164,6 +164,8 @@ export interface LFTag {
   /**
    * @public
    * <p>A list of possible values an attribute can take.</p>
+   *          <p>The maximum number of values that can be defined for a LF-Tag is 1000. A single API call
+   *       supports 50 values. You can use multiple API calls to add more values.</p>
    */
   TagValues: string[] | undefined;
 }
@@ -1078,6 +1080,29 @@ export class ResourceNumberLimitExceededException extends __BaseException {
 /**
  * @public
  */
+export interface CreateLakeFormationOptInRequest {
+  /**
+   * @public
+   * <p>The Lake Formation principal. Supported principals are IAM users
+   *       or IAM roles.</p>
+   */
+  Principal: DataLakePrincipal | undefined;
+
+  /**
+   * @public
+   * <p>A structure for the resource.</p>
+   */
+  Resource: Resource | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLakeFormationOptInResponse {}
+
+/**
+ * @public
+ */
 export interface CreateLFTagRequest {
   /**
    * @public
@@ -1136,6 +1161,29 @@ export interface DeleteDataCellsFilterRequest {
  * @public
  */
 export interface DeleteDataCellsFilterResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteLakeFormationOptInRequest {
+  /**
+   * @public
+   * <p>The Lake Formation principal. Supported principals are IAM users
+   *       or IAM roles.</p>
+   */
+  Principal: DataLakePrincipal | undefined;
+
+  /**
+   * @public
+   * <p>A structure for the resource.</p>
+   */
+  Resource: Resource | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLakeFormationOptInResponse {}
 
 /**
  * @public
@@ -1299,6 +1347,14 @@ export interface ResourceInfo {
    * <p>Whether or not the resource is a federated resource.</p>
    */
   WithFederation?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *       Indicates whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.
+   *     </p>
+   */
+  HybridAccessEnabled?: boolean;
 }
 
 /**
@@ -1612,6 +1668,18 @@ export interface PrincipalResourcePermissions {
    * <p>This attribute can be used to return any additional details of <code>PrincipalResourcePermissions</code>. Currently returns only as a RAM resource share ARN.</p>
    */
   AdditionalDetails?: DetailsMap;
+
+  /**
+   * @public
+   * <p>The date and time when the resource was last updated.</p>
+   */
+  LastUpdated?: Date;
+
+  /**
+   * @public
+   * <p>The user who updated the record.</p>
+   */
+  LastUpdatedBy?: string;
 }
 
 /**
@@ -2516,6 +2584,84 @@ export interface ListDataCellsFilterResponse {
 
 /**
  * @public
+ */
+export interface ListLakeFormationOptInsRequest {
+  /**
+   * @public
+   * <p>The Lake Formation principal. Supported principals are IAM users
+   *       or IAM roles.</p>
+   */
+  Principal?: DataLakePrincipal;
+
+  /**
+   * @public
+   * <p>A structure for the resource.</p>
+   */
+  Resource?: Resource;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A single principal-resource pair that has Lake Formation permissins enforced.</p>
+ */
+export interface LakeFormationOptInsInfo {
+  /**
+   * @public
+   * <p>A structure for the resource.</p>
+   */
+  Resource?: Resource;
+
+  /**
+   * @public
+   * <p>The Lake Formation principal. Supported principals are IAM users
+   *       or IAM roles.</p>
+   */
+  Principal?: DataLakePrincipal;
+
+  /**
+   * @public
+   * <p>The last modified date and time of the record.</p>
+   */
+  LastModified?: Date;
+
+  /**
+   * @public
+   * <p>The user who updated the record.</p>
+   */
+  LastUpdatedBy?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListLakeFormationOptInsResponse {
+  /**
+   * @public
+   * <p>A list of principal-resource pairs that have Lake Formation permissins enforced.</p>
+   */
+  LakeFormationOptInsInfoList?: LakeFormationOptInsInfo[];
+
+  /**
+   * @public
+   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ResourceShareType = {
@@ -2985,6 +3131,14 @@ export interface RegisterResourceRequest {
    * <p>Whether or not the resource is a federated resource.</p>
    */
   WithFederation?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *     Specifies whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.
+   *   </p>
+   */
+  HybridAccessEnabled?: boolean;
 }
 
 /**
@@ -3379,6 +3533,14 @@ export interface UpdateResourceRequest {
    * <p>Whether or not the resource is a federated resource.</p>
    */
   WithFederation?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *       Specifies whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.
+   *     </p>
+   */
+  HybridAccessEnabled?: boolean;
 }
 
 /**

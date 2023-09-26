@@ -48,11 +48,19 @@ import {
   CreateDataCellsFilterCommandInput,
   CreateDataCellsFilterCommandOutput,
 } from "../commands/CreateDataCellsFilterCommand";
+import {
+  CreateLakeFormationOptInCommandInput,
+  CreateLakeFormationOptInCommandOutput,
+} from "../commands/CreateLakeFormationOptInCommand";
 import { CreateLFTagCommandInput, CreateLFTagCommandOutput } from "../commands/CreateLFTagCommand";
 import {
   DeleteDataCellsFilterCommandInput,
   DeleteDataCellsFilterCommandOutput,
 } from "../commands/DeleteDataCellsFilterCommand";
+import {
+  DeleteLakeFormationOptInCommandInput,
+  DeleteLakeFormationOptInCommandOutput,
+} from "../commands/DeleteLakeFormationOptInCommand";
 import { DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "../commands/DeleteLFTagCommand";
 import {
   DeleteObjectsOnCancelCommandInput,
@@ -94,6 +102,10 @@ import {
   ListDataCellsFilterCommandInput,
   ListDataCellsFilterCommandOutput,
 } from "../commands/ListDataCellsFilterCommand";
+import {
+  ListLakeFormationOptInsCommandInput,
+  ListLakeFormationOptInsCommandOutput,
+} from "../commands/ListLakeFormationOptInsCommand";
 import { ListLFTagsCommandInput, ListLFTagsCommandOutput } from "../commands/ListLFTagsCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "../commands/ListPermissionsCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "../commands/ListResourcesCommand";
@@ -157,6 +169,7 @@ import {
   GlueEncryptionException,
   InternalServiceException,
   InvalidInputException,
+  LakeFormationOptInsInfo,
   LFTag,
   LFTagKeyResource,
   LFTagPair,
@@ -167,6 +180,7 @@ import {
   PermissionType,
   PermissionTypeMismatchException,
   PrincipalPermissions,
+  PrincipalResourcePermissions,
   QueryPlanningContext,
   Resource,
   ResourceInfo,
@@ -400,6 +414,37 @@ export const se_CreateDataCellsFilterCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateLakeFormationOptInCommand
+ */
+export const se_CreateLakeFormationOptInCommand = async (
+  input: CreateLakeFormationOptInCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateLakeFormationOptIn";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Principal: (_) => _json(_),
+      Resource: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateLFTagCommand
  */
 export const se_CreateLFTagCommand = async (
@@ -449,6 +494,37 @@ export const se_DeleteDataCellsFilterCommand = async (
       Name: [],
       TableCatalogId: [],
       TableName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteLakeFormationOptInCommand
+ */
+export const se_DeleteLakeFormationOptInCommand = async (
+  input: DeleteLakeFormationOptInCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteLakeFormationOptIn";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Principal: (_) => _json(_),
+      Resource: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -1114,6 +1190,39 @@ export const se_ListDataCellsFilterCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListLakeFormationOptInsCommand
+ */
+export const se_ListLakeFormationOptInsCommand = async (
+  input: ListLakeFormationOptInsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListLakeFormationOptIns";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      Principal: (_) => _json(_),
+      Resource: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListLFTagsCommand
  */
 export const se_ListLFTagsCommand = async (
@@ -1323,6 +1432,7 @@ export const se_RegisterResourceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      HybridAccessEnabled: [],
       ResourceArn: [],
       RoleArn: [],
       UseServiceLinkedRole: [],
@@ -1612,6 +1722,7 @@ export const se_UpdateResourceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      HybridAccessEnabled: [],
       ResourceArn: [],
       RoleArn: [],
       WithFederation: [],
@@ -2103,6 +2214,64 @@ const de_CreateDataCellsFilterCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateLakeFormationOptInCommand
+ */
+export const de_CreateLakeFormationOptInCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLakeFormationOptInCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateLakeFormationOptInCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateLakeFormationOptInCommandError
+ */
+const de_CreateLakeFormationOptInCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLakeFormationOptInCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.lakeformation#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateLFTagCommand
  */
 export const de_CreateLFTagCommand = async (
@@ -2193,6 +2362,64 @@ const de_DeleteDataCellsFilterCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteLakeFormationOptInCommand
+ */
+export const de_DeleteLakeFormationOptInCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLakeFormationOptInCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteLakeFormationOptInCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteLakeFormationOptInCommandError
+ */
+const de_DeleteLakeFormationOptInCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLakeFormationOptInCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.lakeformation#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
       throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
@@ -2687,7 +2914,7 @@ export const de_GetEffectivePermissionsForPathCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    Permissions: _json,
+    Permissions: (_) => de_PrincipalResourcePermissionsList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3392,6 +3619,63 @@ const de_ListDataCellsFilterCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListLakeFormationOptInsCommand
+ */
+export const de_ListLakeFormationOptInsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLakeFormationOptInsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListLakeFormationOptInsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LakeFormationOptInsInfoList: (_) => de_LakeFormationOptInsInfoList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListLakeFormationOptInsCommandError
+ */
+const de_ListLakeFormationOptInsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLakeFormationOptInsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListLFTagsCommand
  */
 export const de_ListLFTagsCommand = async (
@@ -3467,7 +3751,7 @@ export const de_ListPermissionsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    PrincipalResourcePermissions: _json,
+    PrincipalResourcePermissions: (_) => de_PrincipalResourcePermissionsList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -4924,6 +5208,30 @@ const se_QueryPlanningContext = (input: QueryPlanningContext, context: __SerdeCo
 
 // de_Expression omitted.
 
+/**
+ * deserializeAws_restJson1LakeFormationOptInsInfo
+ */
+const de_LakeFormationOptInsInfo = (output: any, context: __SerdeContext): LakeFormationOptInsInfo => {
+  return take(output, {
+    LastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedBy: __expectString,
+    Principal: _json,
+    Resource: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LakeFormationOptInsInfoList
+ */
+const de_LakeFormationOptInsInfoList = (output: any, context: __SerdeContext): LakeFormationOptInsInfo[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LakeFormationOptInsInfo(entry, context);
+    });
+  return retVal;
+};
+
 // de_LFTag omitted.
 
 // de_LFTagError omitted.
@@ -4954,9 +5262,32 @@ const se_QueryPlanningContext = (input: QueryPlanningContext, context: __SerdeCo
 
 // de_PrincipalPermissionsList omitted.
 
-// de_PrincipalResourcePermissions omitted.
+/**
+ * deserializeAws_restJson1PrincipalResourcePermissions
+ */
+const de_PrincipalResourcePermissions = (output: any, context: __SerdeContext): PrincipalResourcePermissions => {
+  return take(output, {
+    AdditionalDetails: _json,
+    LastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedBy: __expectString,
+    Permissions: _json,
+    PermissionsWithGrantOption: _json,
+    Principal: _json,
+    Resource: _json,
+  }) as any;
+};
 
-// de_PrincipalResourcePermissionsList omitted.
+/**
+ * deserializeAws_restJson1PrincipalResourcePermissionsList
+ */
+const de_PrincipalResourcePermissionsList = (output: any, context: __SerdeContext): PrincipalResourcePermissions[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PrincipalResourcePermissions(entry, context);
+    });
+  return retVal;
+};
 
 // de_Resource omitted.
 
@@ -4965,6 +5296,7 @@ const se_QueryPlanningContext = (input: QueryPlanningContext, context: __SerdeCo
  */
 const de_ResourceInfo = (output: any, context: __SerdeContext): ResourceInfo => {
   return take(output, {
+    HybridAccessEnabled: __expectBoolean,
     LastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ResourceArn: __expectString,
     RoleArn: __expectString,

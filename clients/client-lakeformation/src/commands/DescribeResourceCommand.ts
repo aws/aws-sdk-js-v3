@@ -55,6 +55,7 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * //     RoleArn: "STRING_VALUE",
  * //     LastModified: new Date("TIMESTAMP"),
  * //     WithFederation: true || false,
+ * //     HybridAccessEnabled: true || false,
  * //   },
  * // };
  *

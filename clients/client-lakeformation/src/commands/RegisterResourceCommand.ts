@@ -59,6 +59,7 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  *   UseServiceLinkedRole: true || false,
  *   RoleArn: "STRING_VALUE",
  *   WithFederation: true || false,
+ *   HybridAccessEnabled: true || false,
  * };
  * const command = new RegisterResourceCommand(input);
  * const response = await client.send(command);

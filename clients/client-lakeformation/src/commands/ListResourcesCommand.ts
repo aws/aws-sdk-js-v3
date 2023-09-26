@@ -66,6 +66,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * //       RoleArn: "STRING_VALUE",
  * //       LastModified: new Date("TIMESTAMP"),
  * //       WithFederation: true || false,
+ * //       HybridAccessEnabled: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

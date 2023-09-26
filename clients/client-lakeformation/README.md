@@ -263,6 +263,14 @@ CreateDataCellsFilter
 </details>
 <details>
 <summary>
+CreateLakeFormationOptIn
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/createlakeformationoptincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/createlakeformationoptincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/createlakeformationoptincommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateLFTag
 </summary>
 
@@ -275,6 +283,14 @@ DeleteDataCellsFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/deletedatacellsfiltercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/deletedatacellsfiltercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/deletedatacellsfiltercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteLakeFormationOptIn
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/deletelakeformationoptincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/deletelakeformationoptincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/deletelakeformationoptincommandoutput.html)
 
 </details>
 <details>
@@ -435,6 +451,14 @@ ListDataCellsFilter
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/listdatacellsfiltercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listdatacellsfiltercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listdatacellsfiltercommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListLakeFormationOptIns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/listlakeformationoptinscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listlakeformationoptinscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listlakeformationoptinscommandoutput.html)
 
 </details>
 <details>

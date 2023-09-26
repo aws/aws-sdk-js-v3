@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { ListPermissionsRequest, ListPermissionsResponse } from "../models/models_0";
-import { de_ListPermissionsCommand, se_ListPermissionsCommand } from "../protocols/Aws_restJson1";
+import { ListLakeFormationOptInsRequest, ListLakeFormationOptInsResponse } from "../models/models_0";
+import { de_ListLakeFormationOptInsCommand, se_ListLakeFormationOptInsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,33 +25,29 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListPermissionsCommand}.
+ * The input for {@link ListLakeFormationOptInsCommand}.
  */
-export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
+export interface ListLakeFormationOptInsCommandInput extends ListLakeFormationOptInsRequest {}
 /**
  * @public
  *
- * The output of {@link ListPermissionsCommand}.
+ * The output of {@link ListLakeFormationOptInsCommand}.
  */
-export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
+export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationOptInsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER.</p>
- *          <p>This operation returns only those permissions that have been explicitly granted.</p>
- *          <p>For information about permissions, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
+ * <p>Retrieve the current list of resources and principals that are opt in to enforce Lake Formation permissions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LakeFormationClient, ListPermissionsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
- * // const { LakeFormationClient, ListPermissionsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * import { LakeFormationClient, ListLakeFormationOptInsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
+ * // const { LakeFormationClient, ListLakeFormationOptInsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = { // ListPermissionsRequest
- *   CatalogId: "STRING_VALUE",
+ * const input = { // ListLakeFormationOptInsRequest
  *   Principal: { // DataLakePrincipal
  *     DataLakePrincipalIdentifier: "STRING_VALUE",
  *   },
- *   ResourceType: "CATALOG" || "DATABASE" || "TABLE" || "DATA_LOCATION" || "LF_TAG" || "LF_TAG_POLICY" || "LF_TAG_POLICY_DATABASE" || "LF_TAG_POLICY_TABLE",
  *   Resource: { // Resource
  *     Catalog: {},
  *     Database: { // DatabaseResource
@@ -107,18 +103,14 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *       ],
  *     },
  *   },
- *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   IncludeRelated: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
  * };
- * const command = new ListPermissionsCommand(input);
+ * const command = new ListLakeFormationOptInsCommand(input);
  * const response = await client.send(command);
- * // { // ListPermissionsResponse
- * //   PrincipalResourcePermissions: [ // PrincipalResourcePermissionsList
- * //     { // PrincipalResourcePermissions
- * //       Principal: { // DataLakePrincipal
- * //         DataLakePrincipalIdentifier: "STRING_VALUE",
- * //       },
+ * // { // ListLakeFormationOptInsResponse
+ * //   LakeFormationOptInsInfoList: [ // LakeFormationOptInsInfoList
+ * //     { // LakeFormationOptInsInfo
  * //       Resource: { // Resource
  * //         Catalog: {},
  * //         Database: { // DatabaseResource
@@ -174,18 +166,10 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * //           ],
  * //         },
  * //       },
- * //       Permissions: [ // PermissionList
- * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
- * //       ],
- * //       PermissionsWithGrantOption: [
- * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
- * //       ],
- * //       AdditionalDetails: { // DetailsMap
- * //         ResourceShare: [ // ResourceShareList
- * //           "STRING_VALUE",
- * //         ],
+ * //       Principal: { // DataLakePrincipal
+ * //         DataLakePrincipalIdentifier: "STRING_VALUE",
  * //       },
- * //       LastUpdated: new Date("TIMESTAMP"),
+ * //       LastModified: new Date("TIMESTAMP"),
  * //       LastUpdatedBy: "STRING_VALUE",
  * //     },
  * //   ],
@@ -194,11 +178,14 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *
  * ```
  *
- * @param ListPermissionsCommandInput - {@link ListPermissionsCommandInput}
- * @returns {@link ListPermissionsCommandOutput}
- * @see {@link ListPermissionsCommandInput} for command's `input` shape.
- * @see {@link ListPermissionsCommandOutput} for command's `response` shape.
+ * @param ListLakeFormationOptInsCommandInput - {@link ListLakeFormationOptInsCommandInput}
+ * @returns {@link ListLakeFormationOptInsCommandOutput}
+ * @see {@link ListLakeFormationOptInsCommandInput} for command's `input` shape.
+ * @see {@link ListLakeFormationOptInsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
@@ -213,9 +200,9 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
-export class ListPermissionsCommand extends $Command<
-  ListPermissionsCommandInput,
-  ListPermissionsCommandOutput,
+export class ListLakeFormationOptInsCommand extends $Command<
+  ListLakeFormationOptInsCommandInput,
+  ListLakeFormationOptInsCommandOutput,
   LakeFormationClientResolvedConfig
 > {
   // Start section: command_properties
@@ -233,7 +220,7 @@ export class ListPermissionsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListPermissionsCommandInput) {
+  constructor(readonly input: ListLakeFormationOptInsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -246,17 +233,17 @@ export class ListPermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListPermissionsCommandInput, ListPermissionsCommandOutput> {
+  ): Handler<ListLakeFormationOptInsCommandInput, ListLakeFormationOptInsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListPermissionsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListLakeFormationOptInsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LakeFormationClient";
-    const commandName = "ListPermissionsCommand";
+    const commandName = "ListLakeFormationOptInsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -265,7 +252,7 @@ export class ListPermissionsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSLakeFormation",
-        operation: "ListPermissions",
+        operation: "ListLakeFormationOptIns",
       },
     };
     const { requestHandler } = configuration;
@@ -279,15 +266,15 @@ export class ListPermissionsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListPermissionsCommand(input, context);
+  private serialize(input: ListLakeFormationOptInsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListLakeFormationOptInsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionsCommandOutput> {
-    return de_ListPermissionsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLakeFormationOptInsCommandOutput> {
+    return de_ListLakeFormationOptInsCommand(output, context);
   }
 
   // Start section: command_body_extra

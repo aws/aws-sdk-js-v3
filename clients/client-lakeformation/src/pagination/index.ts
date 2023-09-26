@@ -7,6 +7,7 @@ export * from "./GetWorkUnitsPaginator";
 export * from "./Interfaces";
 export * from "./ListDataCellsFilterPaginator";
 export * from "./ListLFTagsPaginator";
+export * from "./ListLakeFormationOptInsPaginator";
 export * from "./ListPermissionsPaginator";
 export * from "./ListResourcesPaginator";
 export * from "./ListTableStorageOptimizersPaginator";

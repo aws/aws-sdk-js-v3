@@ -37,12 +37,22 @@ import {
   CreateDataCellsFilterCommandInput,
   CreateDataCellsFilterCommandOutput,
 } from "./commands/CreateDataCellsFilterCommand";
+import {
+  CreateLakeFormationOptInCommand,
+  CreateLakeFormationOptInCommandInput,
+  CreateLakeFormationOptInCommandOutput,
+} from "./commands/CreateLakeFormationOptInCommand";
 import { CreateLFTagCommand, CreateLFTagCommandInput, CreateLFTagCommandOutput } from "./commands/CreateLFTagCommand";
 import {
   DeleteDataCellsFilterCommand,
   DeleteDataCellsFilterCommandInput,
   DeleteDataCellsFilterCommandOutput,
 } from "./commands/DeleteDataCellsFilterCommand";
+import {
+  DeleteLakeFormationOptInCommand,
+  DeleteLakeFormationOptInCommandInput,
+  DeleteLakeFormationOptInCommandOutput,
+} from "./commands/DeleteLakeFormationOptInCommand";
 import { DeleteLFTagCommand, DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "./commands/DeleteLFTagCommand";
 import {
   DeleteObjectsOnCancelCommand,
@@ -135,6 +145,11 @@ import {
   ListDataCellsFilterCommandInput,
   ListDataCellsFilterCommandOutput,
 } from "./commands/ListDataCellsFilterCommand";
+import {
+  ListLakeFormationOptInsCommand,
+  ListLakeFormationOptInsCommandInput,
+  ListLakeFormationOptInsCommandOutput,
+} from "./commands/ListLakeFormationOptInsCommand";
 import { ListLFTagsCommand, ListLFTagsCommandInput, ListLFTagsCommandOutput } from "./commands/ListLFTagsCommand";
 import {
   ListPermissionsCommand,
@@ -227,8 +242,10 @@ const commands = {
   CancelTransactionCommand,
   CommitTransactionCommand,
   CreateDataCellsFilterCommand,
+  CreateLakeFormationOptInCommand,
   CreateLFTagCommand,
   DeleteDataCellsFilterCommand,
+  DeleteLakeFormationOptInCommand,
   DeleteLFTagCommand,
   DeleteObjectsOnCancelCommand,
   DeregisterResourceCommand,
@@ -249,6 +266,7 @@ const commands = {
   GetWorkUnitsCommand,
   GrantPermissionsCommand,
   ListDataCellsFilterCommand,
+  ListLakeFormationOptInsCommand,
   ListLFTagsCommand,
   ListPermissionsCommand,
   ListResourcesCommand,
@@ -390,6 +408,23 @@ export interface LakeFormation {
   ): void;
 
   /**
+   * @see {@link CreateLakeFormationOptInCommand}
+   */
+  createLakeFormationOptIn(
+    args: CreateLakeFormationOptInCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLakeFormationOptInCommandOutput>;
+  createLakeFormationOptIn(
+    args: CreateLakeFormationOptInCommandInput,
+    cb: (err: any, data?: CreateLakeFormationOptInCommandOutput) => void
+  ): void;
+  createLakeFormationOptIn(
+    args: CreateLakeFormationOptInCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLakeFormationOptInCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateLFTagCommand}
    */
   createLFTag(args: CreateLFTagCommandInput, options?: __HttpHandlerOptions): Promise<CreateLFTagCommandOutput>;
@@ -415,6 +450,23 @@ export interface LakeFormation {
     args: DeleteDataCellsFilterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDataCellsFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLakeFormationOptInCommand}
+   */
+  deleteLakeFormationOptIn(
+    args: DeleteLakeFormationOptInCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLakeFormationOptInCommandOutput>;
+  deleteLakeFormationOptIn(
+    args: DeleteLakeFormationOptInCommandInput,
+    cb: (err: any, data?: DeleteLakeFormationOptInCommandOutput) => void
+  ): void;
+  deleteLakeFormationOptIn(
+    args: DeleteLakeFormationOptInCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLakeFormationOptInCommandOutput) => void
   ): void;
 
   /**
@@ -728,6 +780,23 @@ export interface LakeFormation {
     args: ListDataCellsFilterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDataCellsFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLakeFormationOptInsCommand}
+   */
+  listLakeFormationOptIns(
+    args: ListLakeFormationOptInsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLakeFormationOptInsCommandOutput>;
+  listLakeFormationOptIns(
+    args: ListLakeFormationOptInsCommandInput,
+    cb: (err: any, data?: ListLakeFormationOptInsCommandOutput) => void
+  ): void;
+  listLakeFormationOptIns(
+    args: ListLakeFormationOptInsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLakeFormationOptInsCommandOutput) => void
   ): void;
 
   /**

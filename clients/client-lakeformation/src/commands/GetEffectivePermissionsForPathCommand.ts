@@ -130,6 +130,8 @@ export interface GetEffectivePermissionsForPathCommandOutput
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       LastUpdated: new Date("TIMESTAMP"),
+ * //       LastUpdatedBy: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

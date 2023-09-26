@@ -73,11 +73,19 @@ import {
   CreateDataCellsFilterCommandInput,
   CreateDataCellsFilterCommandOutput,
 } from "./commands/CreateDataCellsFilterCommand";
+import {
+  CreateLakeFormationOptInCommandInput,
+  CreateLakeFormationOptInCommandOutput,
+} from "./commands/CreateLakeFormationOptInCommand";
 import { CreateLFTagCommandInput, CreateLFTagCommandOutput } from "./commands/CreateLFTagCommand";
 import {
   DeleteDataCellsFilterCommandInput,
   DeleteDataCellsFilterCommandOutput,
 } from "./commands/DeleteDataCellsFilterCommand";
+import {
+  DeleteLakeFormationOptInCommandInput,
+  DeleteLakeFormationOptInCommandOutput,
+} from "./commands/DeleteLakeFormationOptInCommand";
 import { DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "./commands/DeleteLFTagCommand";
 import {
   DeleteObjectsOnCancelCommandInput,
@@ -119,6 +127,10 @@ import {
   ListDataCellsFilterCommandInput,
   ListDataCellsFilterCommandOutput,
 } from "./commands/ListDataCellsFilterCommand";
+import {
+  ListLakeFormationOptInsCommandInput,
+  ListLakeFormationOptInsCommandOutput,
+} from "./commands/ListLakeFormationOptInsCommand";
 import { ListLFTagsCommandInput, ListLFTagsCommandOutput } from "./commands/ListLFTagsCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
@@ -181,8 +193,10 @@ export type ServiceInputTypes =
   | CommitTransactionCommandInput
   | CreateDataCellsFilterCommandInput
   | CreateLFTagCommandInput
+  | CreateLakeFormationOptInCommandInput
   | DeleteDataCellsFilterCommandInput
   | DeleteLFTagCommandInput
+  | DeleteLakeFormationOptInCommandInput
   | DeleteObjectsOnCancelCommandInput
   | DeregisterResourceCommandInput
   | DescribeResourceCommandInput
@@ -203,6 +217,7 @@ export type ServiceInputTypes =
   | GrantPermissionsCommandInput
   | ListDataCellsFilterCommandInput
   | ListLFTagsCommandInput
+  | ListLakeFormationOptInsCommandInput
   | ListPermissionsCommandInput
   | ListResourcesCommandInput
   | ListTableStorageOptimizersCommandInput
@@ -233,8 +248,10 @@ export type ServiceOutputTypes =
   | CommitTransactionCommandOutput
   | CreateDataCellsFilterCommandOutput
   | CreateLFTagCommandOutput
+  | CreateLakeFormationOptInCommandOutput
   | DeleteDataCellsFilterCommandOutput
   | DeleteLFTagCommandOutput
+  | DeleteLakeFormationOptInCommandOutput
   | DeleteObjectsOnCancelCommandOutput
   | DeregisterResourceCommandOutput
   | DescribeResourceCommandOutput
@@ -255,6 +272,7 @@ export type ServiceOutputTypes =
   | GrantPermissionsCommandOutput
   | ListDataCellsFilterCommandOutput
   | ListLFTagsCommandOutput
+  | ListLakeFormationOptInsCommandOutput
   | ListPermissionsCommandOutput
   | ListResourcesCommandOutput
   | ListTableStorageOptimizersCommandOutput
