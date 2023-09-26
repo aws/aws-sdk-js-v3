@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EntityResolutionClient` and
-the commands you need, for example `CreateMatchingWorkflowCommand`:
+the commands you need, for example `ListMatchingJobsCommand`:
 
 ```js
 // ES5 example
-const { EntityResolutionClient, CreateMatchingWorkflowCommand } = require("@aws-sdk/client-entityresolution");
+const { EntityResolutionClient, ListMatchingJobsCommand } = require("@aws-sdk/client-entityresolution");
 ```
 
 ```ts
 // ES6+ example
-import { EntityResolutionClient, CreateMatchingWorkflowCommand } from "@aws-sdk/client-entityresolution";
+import { EntityResolutionClient, ListMatchingJobsCommand } from "@aws-sdk/client-entityresolution";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new EntityResolutionClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateMatchingWorkflowCommand(params);
+const command = new ListMatchingJobsCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.EntityResolution({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createMatchingWorkflow(params);
+  const data = await client.listMatchingJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .createMatchingWorkflow(params)
+  .listMatchingJobs(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.createMatchingWorkflow(params, (err, data) => {
+client.listMatchingJobs(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ComputeOptimizerClient` and
-the commands you need, for example `DeleteRecommendationPreferencesCommand`:
+the commands you need, for example `GetEnrollmentStatusCommand`:
 
 ```js
 // ES5 example
-const { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer");
+const { ComputeOptimizerClient, GetEnrollmentStatusCommand } = require("@aws-sdk/client-compute-optimizer");
 ```
 
 ```ts
 // ES6+ example
-import { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer";
+import { ComputeOptimizerClient, GetEnrollmentStatusCommand } from "@aws-sdk/client-compute-optimizer";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new ComputeOptimizerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteRecommendationPreferencesCommand(params);
+const command = new GetEnrollmentStatusCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.ComputeOptimizer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteRecommendationPreferences(params);
+  const data = await client.getEnrollmentStatus(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .deleteRecommendationPreferences(params)
+  .getEnrollmentStatus(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.deleteRecommendationPreferences(params, (err, data) => {
+client.getEnrollmentStatus(params, (err, data) => {
   // process err and data.
 });
 ```

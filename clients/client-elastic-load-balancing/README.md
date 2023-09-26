@@ -43,16 +43,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ElasticLoadBalancingClient` and
-the commands you need, for example `AddTagsCommand`:
+the commands you need, for example `DescribeAccountLimitsCommand`:
 
 ```js
 // ES5 example
-const { ElasticLoadBalancingClient, AddTagsCommand } = require("@aws-sdk/client-elastic-load-balancing");
+const { ElasticLoadBalancingClient, DescribeAccountLimitsCommand } = require("@aws-sdk/client-elastic-load-balancing");
 ```
 
 ```ts
 // ES6+ example
-import { ElasticLoadBalancingClient, AddTagsCommand } from "@aws-sdk/client-elastic-load-balancing";
+import { ElasticLoadBalancingClient, DescribeAccountLimitsCommand } from "@aws-sdk/client-elastic-load-balancing";
 ```
 
 ### Usage
@@ -71,7 +71,7 @@ const client = new ElasticLoadBalancingClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddTagsCommand(params);
+const command = new DescribeAccountLimitsCommand(params);
 ```
 
 #### Async/await
@@ -150,7 +150,7 @@ const client = new AWS.ElasticLoadBalancing({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addTags(params);
+  const data = await client.describeAccountLimits(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -158,7 +158,7 @@ try {
 
 // Promises.
 client
-  .addTags(params)
+  .describeAccountLimits(params)
   .then((data) => {
     // process data.
   })
@@ -167,7 +167,7 @@ client
   });
 
 // callbacks.
-client.addTags(params, (err, data) => {
+client.describeAccountLimits(params, (err, data) => {
   // process err and data.
 });
 ```

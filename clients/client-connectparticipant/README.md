@@ -31,16 +31,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ConnectParticipantClient` and
-the commands you need, for example `CompleteAttachmentUploadCommand`:
+the commands you need, for example `GetTranscriptCommand`:
 
 ```js
 // ES5 example
-const { ConnectParticipantClient, CompleteAttachmentUploadCommand } = require("@aws-sdk/client-connectparticipant");
+const { ConnectParticipantClient, GetTranscriptCommand } = require("@aws-sdk/client-connectparticipant");
 ```
 
 ```ts
 // ES6+ example
-import { ConnectParticipantClient, CompleteAttachmentUploadCommand } from "@aws-sdk/client-connectparticipant";
+import { ConnectParticipantClient, GetTranscriptCommand } from "@aws-sdk/client-connectparticipant";
 ```
 
 ### Usage
@@ -59,7 +59,7 @@ const client = new ConnectParticipantClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CompleteAttachmentUploadCommand(params);
+const command = new GetTranscriptCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +138,7 @@ const client = new AWS.ConnectParticipant({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.completeAttachmentUpload(params);
+  const data = await client.getTranscript(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +146,7 @@ try {
 
 // Promises.
 client
-  .completeAttachmentUpload(params)
+  .getTranscript(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +155,7 @@ client
   });
 
 // callbacks.
-client.completeAttachmentUpload(params, (err, data) => {
+client.getTranscript(params, (err, data) => {
   // process err and data.
 });
 ```

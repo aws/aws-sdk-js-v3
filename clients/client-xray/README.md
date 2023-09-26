@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `XRayClient` and
-the commands you need, for example `BatchGetTracesCommand`:
+the commands you need, for example `ListResourcePoliciesCommand`:
 
 ```js
 // ES5 example
-const { XRayClient, BatchGetTracesCommand } = require("@aws-sdk/client-xray");
+const { XRayClient, ListResourcePoliciesCommand } = require("@aws-sdk/client-xray");
 ```
 
 ```ts
 // ES6+ example
-import { XRayClient, BatchGetTracesCommand } from "@aws-sdk/client-xray";
+import { XRayClient, ListResourcePoliciesCommand } from "@aws-sdk/client-xray";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new XRayClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetTracesCommand(params);
+const command = new ListResourcePoliciesCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.XRay({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetTraces(params);
+  const data = await client.listResourcePolicies(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .batchGetTraces(params)
+  .listResourcePolicies(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.batchGetTraces(params, (err, data) => {
+client.listResourcePolicies(params, (err, data) => {
   // process err and data.
 });
 ```

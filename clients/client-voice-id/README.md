@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `VoiceIDClient` and
-the commands you need, for example `AssociateFraudsterCommand`:
+the commands you need, for example `ListDomainsCommand`:
 
 ```js
 // ES5 example
-const { VoiceIDClient, AssociateFraudsterCommand } = require("@aws-sdk/client-voice-id");
+const { VoiceIDClient, ListDomainsCommand } = require("@aws-sdk/client-voice-id");
 ```
 
 ```ts
 // ES6+ example
-import { VoiceIDClient, AssociateFraudsterCommand } from "@aws-sdk/client-voice-id";
+import { VoiceIDClient, ListDomainsCommand } from "@aws-sdk/client-voice-id";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new VoiceIDClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateFraudsterCommand(params);
+const command = new ListDomainsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.VoiceID({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateFraudster(params);
+  const data = await client.listDomains(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .associateFraudster(params)
+  .listDomains(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.associateFraudster(params, (err, data) => {
+client.listDomains(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -23,16 +23,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `KinesisVideoArchivedMediaClient` and
-the commands you need, for example `GetClipCommand`:
+the commands you need, for example `ListFragmentsCommand`:
 
 ```js
 // ES5 example
-const { KinesisVideoArchivedMediaClient, GetClipCommand } = require("@aws-sdk/client-kinesis-video-archived-media");
+const {
+  KinesisVideoArchivedMediaClient,
+  ListFragmentsCommand,
+} = require("@aws-sdk/client-kinesis-video-archived-media");
 ```
 
 ```ts
 // ES6+ example
-import { KinesisVideoArchivedMediaClient, GetClipCommand } from "@aws-sdk/client-kinesis-video-archived-media";
+import { KinesisVideoArchivedMediaClient, ListFragmentsCommand } from "@aws-sdk/client-kinesis-video-archived-media";
 ```
 
 ### Usage
@@ -51,7 +54,7 @@ const client = new KinesisVideoArchivedMediaClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetClipCommand(params);
+const command = new ListFragmentsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +133,7 @@ const client = new AWS.KinesisVideoArchivedMedia({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getClip(params);
+  const data = await client.listFragments(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +141,7 @@ try {
 
 // Promises.
 client
-  .getClip(params)
+  .listFragments(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +150,7 @@ client
   });
 
 // callbacks.
-client.getClip(params, (err, data) => {
+client.listFragments(params, (err, data) => {
   // process err and data.
 });
 ```

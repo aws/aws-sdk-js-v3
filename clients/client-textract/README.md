@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `TextractClient` and
-the commands you need, for example `AnalyzeDocumentCommand`:
+the commands you need, for example `GetDocumentAnalysisCommand`:
 
 ```js
 // ES5 example
-const { TextractClient, AnalyzeDocumentCommand } = require("@aws-sdk/client-textract");
+const { TextractClient, GetDocumentAnalysisCommand } = require("@aws-sdk/client-textract");
 ```
 
 ```ts
 // ES6+ example
-import { TextractClient, AnalyzeDocumentCommand } from "@aws-sdk/client-textract";
+import { TextractClient, GetDocumentAnalysisCommand } from "@aws-sdk/client-textract";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new TextractClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AnalyzeDocumentCommand(params);
+const command = new GetDocumentAnalysisCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.Textract({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.analyzeDocument(params);
+  const data = await client.getDocumentAnalysis(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .analyzeDocument(params)
+  .getDocumentAnalysis(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.analyzeDocument(params, (err, data) => {
+client.getDocumentAnalysis(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -35,16 +35,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTWirelessClient` and
-the commands you need, for example `AssociateAwsAccountWithPartnerAccountCommand`:
+the commands you need, for example `ListDestinationsCommand`:
 
 ```js
 // ES5 example
-const { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } = require("@aws-sdk/client-iot-wireless");
+const { IoTWirelessClient, ListDestinationsCommand } = require("@aws-sdk/client-iot-wireless");
 ```
 
 ```ts
 // ES6+ example
-import { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } from "@aws-sdk/client-iot-wireless";
+import { IoTWirelessClient, ListDestinationsCommand } from "@aws-sdk/client-iot-wireless";
 ```
 
 ### Usage
@@ -63,7 +63,7 @@ const client = new IoTWirelessClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateAwsAccountWithPartnerAccountCommand(params);
+const command = new ListDestinationsCommand(params);
 ```
 
 #### Async/await
@@ -142,7 +142,7 @@ const client = new AWS.IoTWireless({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateAwsAccountWithPartnerAccount(params);
+  const data = await client.listDestinations(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -150,7 +150,7 @@ try {
 
 // Promises.
 client
-  .associateAwsAccountWithPartnerAccount(params)
+  .listDestinations(params)
   .then((data) => {
     // process data.
   })
@@ -159,7 +159,7 @@ client
   });
 
 // callbacks.
-client.associateAwsAccountWithPartnerAccount(params, (err, data) => {
+client.listDestinations(params, (err, data) => {
   // process err and data.
 });
 ```

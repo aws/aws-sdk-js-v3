@@ -40,16 +40,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `WorkSpacesClient` and
-the commands you need, for example `AssociateConnectionAliasCommand`:
+the commands you need, for example `ListAvailableManagementCidrRangesCommand`:
 
 ```js
 // ES5 example
-const { WorkSpacesClient, AssociateConnectionAliasCommand } = require("@aws-sdk/client-workspaces");
+const { WorkSpacesClient, ListAvailableManagementCidrRangesCommand } = require("@aws-sdk/client-workspaces");
 ```
 
 ```ts
 // ES6+ example
-import { WorkSpacesClient, AssociateConnectionAliasCommand } from "@aws-sdk/client-workspaces";
+import { WorkSpacesClient, ListAvailableManagementCidrRangesCommand } from "@aws-sdk/client-workspaces";
 ```
 
 ### Usage
@@ -68,7 +68,7 @@ const client = new WorkSpacesClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateConnectionAliasCommand(params);
+const command = new ListAvailableManagementCidrRangesCommand(params);
 ```
 
 #### Async/await
@@ -147,7 +147,7 @@ const client = new AWS.WorkSpaces({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateConnectionAlias(params);
+  const data = await client.listAvailableManagementCidrRanges(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -155,7 +155,7 @@ try {
 
 // Promises.
 client
-  .associateConnectionAlias(params)
+  .listAvailableManagementCidrRanges(params)
   .then((data) => {
     // process data.
   })
@@ -164,7 +164,7 @@ client
   });
 
 // callbacks.
-client.associateConnectionAlias(params, (err, data) => {
+client.listAvailableManagementCidrRanges(params, (err, data) => {
   // process err and data.
 });
 ```

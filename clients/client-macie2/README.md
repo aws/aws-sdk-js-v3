@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `Macie2Client` and
-the commands you need, for example `AcceptInvitationCommand`:
+the commands you need, for example `ListMembersCommand`:
 
 ```js
 // ES5 example
-const { Macie2Client, AcceptInvitationCommand } = require("@aws-sdk/client-macie2");
+const { Macie2Client, ListMembersCommand } = require("@aws-sdk/client-macie2");
 ```
 
 ```ts
 // ES6+ example
-import { Macie2Client, AcceptInvitationCommand } from "@aws-sdk/client-macie2";
+import { Macie2Client, ListMembersCommand } from "@aws-sdk/client-macie2";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new Macie2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptInvitationCommand(params);
+const command = new ListMembersCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Macie2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptInvitation(params);
+  const data = await client.listMembers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .acceptInvitation(params)
+  .listMembers(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.acceptInvitation(params, (err, data) => {
+client.listMembers(params, (err, data) => {
   // process err and data.
 });
 ```

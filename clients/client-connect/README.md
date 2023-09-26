@@ -33,16 +33,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ConnectClient` and
-the commands you need, for example `ActivateEvaluationFormCommand`:
+the commands you need, for example `ListInstancesCommand`:
 
 ```js
 // ES5 example
-const { ConnectClient, ActivateEvaluationFormCommand } = require("@aws-sdk/client-connect");
+const { ConnectClient, ListInstancesCommand } = require("@aws-sdk/client-connect");
 ```
 
 ```ts
 // ES6+ example
-import { ConnectClient, ActivateEvaluationFormCommand } from "@aws-sdk/client-connect";
+import { ConnectClient, ListInstancesCommand } from "@aws-sdk/client-connect";
 ```
 
 ### Usage
@@ -61,7 +61,7 @@ const client = new ConnectClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ActivateEvaluationFormCommand(params);
+const command = new ListInstancesCommand(params);
 ```
 
 #### Async/await
@@ -140,7 +140,7 @@ const client = new AWS.Connect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.activateEvaluationForm(params);
+  const data = await client.listInstances(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -148,7 +148,7 @@ try {
 
 // Promises.
 client
-  .activateEvaluationForm(params)
+  .listInstances(params)
   .then((data) => {
     // process data.
   })
@@ -157,7 +157,7 @@ client
   });
 
 // callbacks.
-client.activateEvaluationForm(params, (err, data) => {
+client.listInstances(params, (err, data) => {
   // process err and data.
 });
 ```

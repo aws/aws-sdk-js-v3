@@ -56,16 +56,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ResourceGroupsClient` and
-the commands you need, for example `CreateGroupCommand`:
+the commands you need, for example `ListGroupsCommand`:
 
 ```js
 // ES5 example
-const { ResourceGroupsClient, CreateGroupCommand } = require("@aws-sdk/client-resource-groups");
+const { ResourceGroupsClient, ListGroupsCommand } = require("@aws-sdk/client-resource-groups");
 ```
 
 ```ts
 // ES6+ example
-import { ResourceGroupsClient, CreateGroupCommand } from "@aws-sdk/client-resource-groups";
+import { ResourceGroupsClient, ListGroupsCommand } from "@aws-sdk/client-resource-groups";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ const client = new ResourceGroupsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateGroupCommand(params);
+const command = new ListGroupsCommand(params);
 ```
 
 #### Async/await
@@ -163,7 +163,7 @@ const client = new AWS.ResourceGroups({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createGroup(params);
+  const data = await client.listGroups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -171,7 +171,7 @@ try {
 
 // Promises.
 client
-  .createGroup(params)
+  .listGroups(params)
   .then((data) => {
     // process data.
   })
@@ -180,7 +180,7 @@ client
   });
 
 // callbacks.
-client.createGroup(params, (err, data) => {
+client.listGroups(params, (err, data) => {
   // process err and data.
 });
 ```

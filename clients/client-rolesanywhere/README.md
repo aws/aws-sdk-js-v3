@@ -37,16 +37,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RolesAnywhereClient` and
-the commands you need, for example `CreateProfileCommand`:
+the commands you need, for example `ListCrlsCommand`:
 
 ```js
 // ES5 example
-const { RolesAnywhereClient, CreateProfileCommand } = require("@aws-sdk/client-rolesanywhere");
+const { RolesAnywhereClient, ListCrlsCommand } = require("@aws-sdk/client-rolesanywhere");
 ```
 
 ```ts
 // ES6+ example
-import { RolesAnywhereClient, CreateProfileCommand } from "@aws-sdk/client-rolesanywhere";
+import { RolesAnywhereClient, ListCrlsCommand } from "@aws-sdk/client-rolesanywhere";
 ```
 
 ### Usage
@@ -65,7 +65,7 @@ const client = new RolesAnywhereClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateProfileCommand(params);
+const command = new ListCrlsCommand(params);
 ```
 
 #### Async/await
@@ -144,7 +144,7 @@ const client = new AWS.RolesAnywhere({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createProfile(params);
+  const data = await client.listCrls(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -152,7 +152,7 @@ try {
 
 // Promises.
 client
-  .createProfile(params)
+  .listCrls(params)
   .then((data) => {
     // process data.
   })
@@ -161,7 +161,7 @@ client
   });
 
 // callbacks.
-client.createProfile(params, (err, data) => {
+client.listCrls(params, (err, data) => {
   // process err and data.
 });
 ```

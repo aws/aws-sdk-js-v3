@@ -36,16 +36,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `TimestreamWriteClient` and
-the commands you need, for example `CreateBatchLoadTaskCommand`:
+the commands you need, for example `ListTablesCommand`:
 
 ```js
 // ES5 example
-const { TimestreamWriteClient, CreateBatchLoadTaskCommand } = require("@aws-sdk/client-timestream-write");
+const { TimestreamWriteClient, ListTablesCommand } = require("@aws-sdk/client-timestream-write");
 ```
 
 ```ts
 // ES6+ example
-import { TimestreamWriteClient, CreateBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write";
+import { TimestreamWriteClient, ListTablesCommand } from "@aws-sdk/client-timestream-write";
 ```
 
 ### Usage
@@ -64,7 +64,7 @@ const client = new TimestreamWriteClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateBatchLoadTaskCommand(params);
+const command = new ListTablesCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +143,7 @@ const client = new AWS.TimestreamWrite({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createBatchLoadTask(params);
+  const data = await client.listTables(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +151,7 @@ try {
 
 // Promises.
 client
-  .createBatchLoadTask(params)
+  .listTables(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +160,7 @@ client
   });
 
 // callbacks.
-client.createBatchLoadTask(params, (err, data) => {
+client.listTables(params, (err, data) => {
   // process err and data.
 });
 ```

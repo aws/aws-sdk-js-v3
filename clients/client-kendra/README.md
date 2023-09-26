@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `KendraClient` and
-the commands you need, for example `AssociateEntitiesToExperienceCommand`:
+the commands you need, for example `ListIndicesCommand`:
 
 ```js
 // ES5 example
-const { KendraClient, AssociateEntitiesToExperienceCommand } = require("@aws-sdk/client-kendra");
+const { KendraClient, ListIndicesCommand } = require("@aws-sdk/client-kendra");
 ```
 
 ```ts
 // ES6+ example
-import { KendraClient, AssociateEntitiesToExperienceCommand } from "@aws-sdk/client-kendra";
+import { KendraClient, ListIndicesCommand } from "@aws-sdk/client-kendra";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new KendraClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateEntitiesToExperienceCommand(params);
+const command = new ListIndicesCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Kendra({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateEntitiesToExperience(params);
+  const data = await client.listIndices(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .associateEntitiesToExperience(params)
+  .listIndices(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.associateEntitiesToExperience(params, (err, data) => {
+client.listIndices(params, (err, data) => {
   // process err and data.
 });
 ```

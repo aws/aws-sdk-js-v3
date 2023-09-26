@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PollyClient` and
-the commands you need, for example `DeleteLexiconCommand`:
+the commands you need, for example `ListLexiconsCommand`:
 
 ```js
 // ES5 example
-const { PollyClient, DeleteLexiconCommand } = require("@aws-sdk/client-polly");
+const { PollyClient, ListLexiconsCommand } = require("@aws-sdk/client-polly");
 ```
 
 ```ts
 // ES6+ example
-import { PollyClient, DeleteLexiconCommand } from "@aws-sdk/client-polly";
+import { PollyClient, ListLexiconsCommand } from "@aws-sdk/client-polly";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new PollyClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteLexiconCommand(params);
+const command = new ListLexiconsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.Polly({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteLexicon(params);
+  const data = await client.listLexicons(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .deleteLexicon(params)
+  .listLexicons(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.deleteLexicon(params, (err, data) => {
+client.listLexicons(params, (err, data) => {
   // process err and data.
 });
 ```

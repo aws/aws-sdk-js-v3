@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PinpointSMSVoiceClient` and
-the commands you need, for example `CreateConfigurationSetCommand`:
+the commands you need, for example `ListConfigurationSetsCommand`:
 
 ```js
 // ES5 example
-const { PinpointSMSVoiceClient, CreateConfigurationSetCommand } = require("@aws-sdk/client-pinpoint-sms-voice");
+const { PinpointSMSVoiceClient, ListConfigurationSetsCommand } = require("@aws-sdk/client-pinpoint-sms-voice");
 ```
 
 ```ts
 // ES6+ example
-import { PinpointSMSVoiceClient, CreateConfigurationSetCommand } from "@aws-sdk/client-pinpoint-sms-voice";
+import { PinpointSMSVoiceClient, ListConfigurationSetsCommand } from "@aws-sdk/client-pinpoint-sms-voice";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new PinpointSMSVoiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateConfigurationSetCommand(params);
+const command = new ListConfigurationSetsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.PinpointSMSVoice({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createConfigurationSet(params);
+  const data = await client.listConfigurationSets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createConfigurationSet(params)
+  .listConfigurationSets(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createConfigurationSet(params, (err, data) => {
+client.listConfigurationSets(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -33,16 +33,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `WAFClient` and
-the commands you need, for example `CreateByteMatchSetCommand`:
+the commands you need, for example `ListIPSetsCommand`:
 
 ```js
 // ES5 example
-const { WAFClient, CreateByteMatchSetCommand } = require("@aws-sdk/client-waf");
+const { WAFClient, ListIPSetsCommand } = require("@aws-sdk/client-waf");
 ```
 
 ```ts
 // ES6+ example
-import { WAFClient, CreateByteMatchSetCommand } from "@aws-sdk/client-waf";
+import { WAFClient, ListIPSetsCommand } from "@aws-sdk/client-waf";
 ```
 
 ### Usage
@@ -61,7 +61,7 @@ const client = new WAFClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateByteMatchSetCommand(params);
+const command = new ListIPSetsCommand(params);
 ```
 
 #### Async/await
@@ -140,7 +140,7 @@ const client = new AWS.WAF({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createByteMatchSet(params);
+  const data = await client.listIPSets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -148,7 +148,7 @@ try {
 
 // Promises.
 client
-  .createByteMatchSet(params)
+  .listIPSets(params)
   .then((data) => {
     // process data.
   })
@@ -157,7 +157,7 @@ client
   });
 
 // callbacks.
-client.createByteMatchSet(params, (err, data) => {
+client.listIPSets(params, (err, data) => {
   // process err and data.
 });
 ```

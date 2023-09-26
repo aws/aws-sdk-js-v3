@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `TimestreamQueryClient` and
-the commands you need, for example `CancelQueryCommand`:
+the commands you need, for example `ListScheduledQueriesCommand`:
 
 ```js
 // ES5 example
-const { TimestreamQueryClient, CancelQueryCommand } = require("@aws-sdk/client-timestream-query");
+const { TimestreamQueryClient, ListScheduledQueriesCommand } = require("@aws-sdk/client-timestream-query");
 ```
 
 ```ts
 // ES6+ example
-import { TimestreamQueryClient, CancelQueryCommand } from "@aws-sdk/client-timestream-query";
+import { TimestreamQueryClient, ListScheduledQueriesCommand } from "@aws-sdk/client-timestream-query";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new TimestreamQueryClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelQueryCommand(params);
+const command = new ListScheduledQueriesCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.TimestreamQuery({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelQuery(params);
+  const data = await client.listScheduledQueries(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .cancelQuery(params)
+  .listScheduledQueries(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.cancelQuery(params, (err, data) => {
+client.listScheduledQueries(params, (err, data) => {
   // process err and data.
 });
 ```

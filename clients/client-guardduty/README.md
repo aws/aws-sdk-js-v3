@@ -41,16 +41,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `GuardDutyClient` and
-the commands you need, for example `AcceptAdministratorInvitationCommand`:
+the commands you need, for example `ListDetectorsCommand`:
 
 ```js
 // ES5 example
-const { GuardDutyClient, AcceptAdministratorInvitationCommand } = require("@aws-sdk/client-guardduty");
+const { GuardDutyClient, ListDetectorsCommand } = require("@aws-sdk/client-guardduty");
 ```
 
 ```ts
 // ES6+ example
-import { GuardDutyClient, AcceptAdministratorInvitationCommand } from "@aws-sdk/client-guardduty";
+import { GuardDutyClient, ListDetectorsCommand } from "@aws-sdk/client-guardduty";
 ```
 
 ### Usage
@@ -69,7 +69,7 @@ const client = new GuardDutyClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptAdministratorInvitationCommand(params);
+const command = new ListDetectorsCommand(params);
 ```
 
 #### Async/await
@@ -148,7 +148,7 @@ const client = new AWS.GuardDuty({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptAdministratorInvitation(params);
+  const data = await client.listDetectors(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -156,7 +156,7 @@ try {
 
 // Promises.
 client
-  .acceptAdministratorInvitation(params)
+  .listDetectors(params)
   .then((data) => {
     // process data.
   })
@@ -165,7 +165,7 @@ client
   });
 
 // callbacks.
-client.acceptAdministratorInvitation(params, (err, data) => {
+client.listDetectors(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTEventsDataClient` and
-the commands you need, for example `BatchAcknowledgeAlarmCommand`:
+the commands you need, for example `ListAlarmsCommand`:
 
 ```js
 // ES5 example
-const { IoTEventsDataClient, BatchAcknowledgeAlarmCommand } = require("@aws-sdk/client-iot-events-data");
+const { IoTEventsDataClient, ListAlarmsCommand } = require("@aws-sdk/client-iot-events-data");
 ```
 
 ```ts
 // ES6+ example
-import { IoTEventsDataClient, BatchAcknowledgeAlarmCommand } from "@aws-sdk/client-iot-events-data";
+import { IoTEventsDataClient, ListAlarmsCommand } from "@aws-sdk/client-iot-events-data";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new IoTEventsDataClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchAcknowledgeAlarmCommand(params);
+const command = new ListAlarmsCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.IoTEventsData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchAcknowledgeAlarm(params);
+  const data = await client.listAlarms(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .batchAcknowledgeAlarm(params)
+  .listAlarms(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.batchAcknowledgeAlarm(params, (err, data) => {
+client.listAlarms(params, (err, data) => {
   // process err and data.
 });
 ```

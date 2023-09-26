@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ApiGatewayManagementApiClient` and
-the commands you need, for example `DeleteConnectionCommand`:
+the commands you need, for example `GetConnectionCommand`:
 
 ```js
 // ES5 example
-const { ApiGatewayManagementApiClient, DeleteConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi");
+const { ApiGatewayManagementApiClient, GetConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi");
 ```
 
 ```ts
 // ES6+ example
-import { ApiGatewayManagementApiClient, DeleteConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi";
+import { ApiGatewayManagementApiClient, GetConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new ApiGatewayManagementApiClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteConnectionCommand(params);
+const command = new GetConnectionCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.ApiGatewayManagementApi({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteConnection(params);
+  const data = await client.getConnection(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .deleteConnection(params)
+  .getConnection(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.deleteConnection(params, (err, data) => {
+client.getConnection(params, (err, data) => {
   // process err and data.
 });
 ```

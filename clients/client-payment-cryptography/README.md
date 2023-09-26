@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PaymentCryptographyClient` and
-the commands you need, for example `CreateAliasCommand`:
+the commands you need, for example `ListAliasesCommand`:
 
 ```js
 // ES5 example
-const { PaymentCryptographyClient, CreateAliasCommand } = require("@aws-sdk/client-payment-cryptography");
+const { PaymentCryptographyClient, ListAliasesCommand } = require("@aws-sdk/client-payment-cryptography");
 ```
 
 ```ts
 // ES6+ example
-import { PaymentCryptographyClient, CreateAliasCommand } from "@aws-sdk/client-payment-cryptography";
+import { PaymentCryptographyClient, ListAliasesCommand } from "@aws-sdk/client-payment-cryptography";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new PaymentCryptographyClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAliasCommand(params);
+const command = new ListAliasesCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.PaymentCryptography({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAlias(params);
+  const data = await client.listAliases(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .createAlias(params)
+  .listAliases(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.createAlias(params, (err, data) => {
+client.listAliases(params, (err, data) => {
   // process err and data.
 });
 ```

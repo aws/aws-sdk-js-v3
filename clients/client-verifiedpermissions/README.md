@@ -87,16 +87,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `VerifiedPermissionsClient` and
-the commands you need, for example `CreateIdentitySourceCommand`:
+the commands you need, for example `ListPolicyStoresCommand`:
 
 ```js
 // ES5 example
-const { VerifiedPermissionsClient, CreateIdentitySourceCommand } = require("@aws-sdk/client-verifiedpermissions");
+const { VerifiedPermissionsClient, ListPolicyStoresCommand } = require("@aws-sdk/client-verifiedpermissions");
 ```
 
 ```ts
 // ES6+ example
-import { VerifiedPermissionsClient, CreateIdentitySourceCommand } from "@aws-sdk/client-verifiedpermissions";
+import { VerifiedPermissionsClient, ListPolicyStoresCommand } from "@aws-sdk/client-verifiedpermissions";
 ```
 
 ### Usage
@@ -115,7 +115,7 @@ const client = new VerifiedPermissionsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateIdentitySourceCommand(params);
+const command = new ListPolicyStoresCommand(params);
 ```
 
 #### Async/await
@@ -194,7 +194,7 @@ const client = new AWS.VerifiedPermissions({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createIdentitySource(params);
+  const data = await client.listPolicyStores(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -202,7 +202,7 @@ try {
 
 // Promises.
 client
-  .createIdentitySource(params)
+  .listPolicyStores(params)
   .then((data) => {
     // process data.
   })
@@ -211,7 +211,7 @@ client
   });
 
 // callbacks.
-client.createIdentitySource(params, (err, data) => {
+client.listPolicyStores(params, (err, data) => {
   // process err and data.
 });
 ```

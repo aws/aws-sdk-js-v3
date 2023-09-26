@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `WorkSpacesWebClient` and
-the commands you need, for example `AssociateBrowserSettingsCommand`:
+the commands you need, for example `ListPortalsCommand`:
 
 ```js
 // ES5 example
-const { WorkSpacesWebClient, AssociateBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web");
+const { WorkSpacesWebClient, ListPortalsCommand } = require("@aws-sdk/client-workspaces-web");
 ```
 
 ```ts
 // ES6+ example
-import { WorkSpacesWebClient, AssociateBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web";
+import { WorkSpacesWebClient, ListPortalsCommand } from "@aws-sdk/client-workspaces-web";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new WorkSpacesWebClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateBrowserSettingsCommand(params);
+const command = new ListPortalsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.WorkSpacesWeb({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateBrowserSettings(params);
+  const data = await client.listPortals(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .associateBrowserSettings(params)
+  .listPortals(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.associateBrowserSettings(params, (err, data) => {
+client.listPortals(params, (err, data) => {
   // process err and data.
 });
 ```

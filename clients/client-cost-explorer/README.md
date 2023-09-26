@@ -38,16 +38,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CostExplorerClient` and
-the commands you need, for example `CreateAnomalyMonitorCommand`:
+the commands you need, for example `ListCostAllocationTagsCommand`:
 
 ```js
 // ES5 example
-const { CostExplorerClient, CreateAnomalyMonitorCommand } = require("@aws-sdk/client-cost-explorer");
+const { CostExplorerClient, ListCostAllocationTagsCommand } = require("@aws-sdk/client-cost-explorer");
 ```
 
 ```ts
 // ES6+ example
-import { CostExplorerClient, CreateAnomalyMonitorCommand } from "@aws-sdk/client-cost-explorer";
+import { CostExplorerClient, ListCostAllocationTagsCommand } from "@aws-sdk/client-cost-explorer";
 ```
 
 ### Usage
@@ -66,7 +66,7 @@ const client = new CostExplorerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAnomalyMonitorCommand(params);
+const command = new ListCostAllocationTagsCommand(params);
 ```
 
 #### Async/await
@@ -145,7 +145,7 @@ const client = new AWS.CostExplorer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAnomalyMonitor(params);
+  const data = await client.listCostAllocationTags(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -153,7 +153,7 @@ try {
 
 // Promises.
 client
-  .createAnomalyMonitor(params)
+  .listCostAllocationTags(params)
   .then((data) => {
     // process data.
   })
@@ -162,7 +162,7 @@ client
   });
 
 // callbacks.
-client.createAnomalyMonitor(params, (err, data) => {
+client.listCostAllocationTags(params, (err, data) => {
   // process err and data.
 });
 ```

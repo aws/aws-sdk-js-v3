@@ -361,16 +361,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IvsClient` and
-the commands you need, for example `BatchGetChannelCommand`:
+the commands you need, for example `ListStreamsCommand`:
 
 ```js
 // ES5 example
-const { IvsClient, BatchGetChannelCommand } = require("@aws-sdk/client-ivs");
+const { IvsClient, ListStreamsCommand } = require("@aws-sdk/client-ivs");
 ```
 
 ```ts
 // ES6+ example
-import { IvsClient, BatchGetChannelCommand } from "@aws-sdk/client-ivs";
+import { IvsClient, ListStreamsCommand } from "@aws-sdk/client-ivs";
 ```
 
 ### Usage
@@ -389,7 +389,7 @@ const client = new IvsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetChannelCommand(params);
+const command = new ListStreamsCommand(params);
 ```
 
 #### Async/await
@@ -468,7 +468,7 @@ const client = new AWS.Ivs({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetChannel(params);
+  const data = await client.listStreams(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -476,7 +476,7 @@ try {
 
 // Promises.
 client
-  .batchGetChannel(params)
+  .listStreams(params)
   .then((data) => {
     // process data.
   })
@@ -485,7 +485,7 @@ client
   });
 
 // callbacks.
-client.batchGetChannel(params, (err, data) => {
+client.listStreams(params, (err, data) => {
   // process err and data.
 });
 ```

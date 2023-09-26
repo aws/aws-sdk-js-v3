@@ -32,16 +32,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RDSDataClient` and
-the commands you need, for example `BatchExecuteStatementCommand`:
+the commands you need, for example `BeginTransactionCommand`:
 
 ```js
 // ES5 example
-const { RDSDataClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-rds-data");
+const { RDSDataClient, BeginTransactionCommand } = require("@aws-sdk/client-rds-data");
 ```
 
 ```ts
 // ES6+ example
-import { RDSDataClient, BatchExecuteStatementCommand } from "@aws-sdk/client-rds-data";
+import { RDSDataClient, BeginTransactionCommand } from "@aws-sdk/client-rds-data";
 ```
 
 ### Usage
@@ -60,7 +60,7 @@ const client = new RDSDataClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchExecuteStatementCommand(params);
+const command = new BeginTransactionCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +139,7 @@ const client = new AWS.RDSData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchExecuteStatement(params);
+  const data = await client.beginTransaction(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +147,7 @@ try {
 
 // Promises.
 client
-  .batchExecuteStatement(params)
+  .beginTransaction(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +156,7 @@ client
   });
 
 // callbacks.
-client.batchExecuteStatement(params, (err, data) => {
+client.beginTransaction(params, (err, data) => {
   // process err and data.
 });
 ```

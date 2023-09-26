@@ -21,16 +21,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `JSONRPC10Client` and
-the commands you need, for example `EmptyInputAndEmptyOutputCommand`:
+the commands you need, for example `JsonUnionsCommand`:
 
 ```js
 // ES5 example
-const { JSONRPC10Client, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-protocoltests-json-10");
+const { JSONRPC10Client, JsonUnionsCommand } = require("@aws-sdk/aws-protocoltests-json-10");
 ```
 
 ```ts
 // ES6+ example
-import { JSONRPC10Client, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-protocoltests-json-10";
+import { JSONRPC10Client, JsonUnionsCommand } from "@aws-sdk/aws-protocoltests-json-10";
 ```
 
 ### Usage
@@ -49,7 +49,7 @@ const client = new JSONRPC10Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new EmptyInputAndEmptyOutputCommand(params);
+const command = new JsonUnionsCommand(params);
 ```
 
 #### Async/await
@@ -128,7 +128,7 @@ const client = new AWS.JSONRPC10({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.emptyInputAndEmptyOutput(params);
+  const data = await client.jsonUnions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -136,7 +136,7 @@ try {
 
 // Promises.
 client
-  .emptyInputAndEmptyOutput(params)
+  .jsonUnions(params)
   .then((data) => {
     // process data.
   })
@@ -145,7 +145,7 @@ client
   });
 
 // callbacks.
-client.emptyInputAndEmptyOutput(params, (err, data) => {
+client.jsonUnions(params, (err, data) => {
   // process err and data.
 });
 ```

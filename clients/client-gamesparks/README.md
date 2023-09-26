@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `GameSparksClient` and
-the commands you need, for example `CreateGameCommand`:
+the commands you need, for example `ListGamesCommand`:
 
 ```js
 // ES5 example
-const { GameSparksClient, CreateGameCommand } = require("@aws-sdk/client-gamesparks");
+const { GameSparksClient, ListGamesCommand } = require("@aws-sdk/client-gamesparks");
 ```
 
 ```ts
 // ES6+ example
-import { GameSparksClient, CreateGameCommand } from "@aws-sdk/client-gamesparks";
+import { GameSparksClient, ListGamesCommand } from "@aws-sdk/client-gamesparks";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new GameSparksClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateGameCommand(params);
+const command = new ListGamesCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.GameSparks({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createGame(params);
+  const data = await client.listGames(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createGame(params)
+  .listGames(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createGame(params, (err, data) => {
+client.listGames(params, (err, data) => {
   // process err and data.
 });
 ```

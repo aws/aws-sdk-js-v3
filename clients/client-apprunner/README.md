@@ -40,16 +40,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppRunnerClient` and
-the commands you need, for example `AssociateCustomDomainCommand`:
+the commands you need, for example `ListConnectionsCommand`:
 
 ```js
 // ES5 example
-const { AppRunnerClient, AssociateCustomDomainCommand } = require("@aws-sdk/client-apprunner");
+const { AppRunnerClient, ListConnectionsCommand } = require("@aws-sdk/client-apprunner");
 ```
 
 ```ts
 // ES6+ example
-import { AppRunnerClient, AssociateCustomDomainCommand } from "@aws-sdk/client-apprunner";
+import { AppRunnerClient, ListConnectionsCommand } from "@aws-sdk/client-apprunner";
 ```
 
 ### Usage
@@ -68,7 +68,7 @@ const client = new AppRunnerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateCustomDomainCommand(params);
+const command = new ListConnectionsCommand(params);
 ```
 
 #### Async/await
@@ -147,7 +147,7 @@ const client = new AWS.AppRunner({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateCustomDomain(params);
+  const data = await client.listConnections(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -155,7 +155,7 @@ try {
 
 // Promises.
 client
-  .associateCustomDomain(params)
+  .listConnections(params)
   .then((data) => {
     // process data.
   })
@@ -164,7 +164,7 @@ client
   });
 
 // callbacks.
-client.associateCustomDomain(params, (err, data) => {
+client.listConnections(params, (err, data) => {
   // process err and data.
 });
 ```

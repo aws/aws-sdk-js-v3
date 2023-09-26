@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `KafkaConnectClient` and
-the commands you need, for example `CreateConnectorCommand`:
+the commands you need, for example `ListConnectorsCommand`:
 
 ```js
 // ES5 example
-const { KafkaConnectClient, CreateConnectorCommand } = require("@aws-sdk/client-kafkaconnect");
+const { KafkaConnectClient, ListConnectorsCommand } = require("@aws-sdk/client-kafkaconnect");
 ```
 
 ```ts
 // ES6+ example
-import { KafkaConnectClient, CreateConnectorCommand } from "@aws-sdk/client-kafkaconnect";
+import { KafkaConnectClient, ListConnectorsCommand } from "@aws-sdk/client-kafkaconnect";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new KafkaConnectClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateConnectorCommand(params);
+const command = new ListConnectorsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.KafkaConnect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createConnector(params);
+  const data = await client.listConnectors(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createConnector(params)
+  .listConnectors(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createConnector(params, (err, data) => {
+client.listConnectors(params, (err, data) => {
   // process err and data.
 });
 ```

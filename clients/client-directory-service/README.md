@@ -37,16 +37,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DirectoryServiceClient` and
-the commands you need, for example `AcceptSharedDirectoryCommand`:
+the commands you need, for example `ListCertificatesCommand`:
 
 ```js
 // ES5 example
-const { DirectoryServiceClient, AcceptSharedDirectoryCommand } = require("@aws-sdk/client-directory-service");
+const { DirectoryServiceClient, ListCertificatesCommand } = require("@aws-sdk/client-directory-service");
 ```
 
 ```ts
 // ES6+ example
-import { DirectoryServiceClient, AcceptSharedDirectoryCommand } from "@aws-sdk/client-directory-service";
+import { DirectoryServiceClient, ListCertificatesCommand } from "@aws-sdk/client-directory-service";
 ```
 
 ### Usage
@@ -65,7 +65,7 @@ const client = new DirectoryServiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptSharedDirectoryCommand(params);
+const command = new ListCertificatesCommand(params);
 ```
 
 #### Async/await
@@ -144,7 +144,7 @@ const client = new AWS.DirectoryService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptSharedDirectory(params);
+  const data = await client.listCertificates(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -152,7 +152,7 @@ try {
 
 // Promises.
 client
-  .acceptSharedDirectory(params)
+  .listCertificates(params)
   .then((data) => {
     // process data.
   })
@@ -161,7 +161,7 @@ client
   });
 
 // callbacks.
-client.acceptSharedDirectory(params, (err, data) => {
+client.listCertificates(params, (err, data) => {
   // process err and data.
 });
 ```

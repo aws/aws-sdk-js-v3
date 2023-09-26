@@ -39,16 +39,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `Route53Client` and
-the commands you need, for example `ActivateKeySigningKeyCommand`:
+the commands you need, for example `ListGeoLocationsCommand`:
 
 ```js
 // ES5 example
-const { Route53Client, ActivateKeySigningKeyCommand } = require("@aws-sdk/client-route-53");
+const { Route53Client, ListGeoLocationsCommand } = require("@aws-sdk/client-route-53");
 ```
 
 ```ts
 // ES6+ example
-import { Route53Client, ActivateKeySigningKeyCommand } from "@aws-sdk/client-route-53";
+import { Route53Client, ListGeoLocationsCommand } from "@aws-sdk/client-route-53";
 ```
 
 ### Usage
@@ -67,7 +67,7 @@ const client = new Route53Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ActivateKeySigningKeyCommand(params);
+const command = new ListGeoLocationsCommand(params);
 ```
 
 #### Async/await
@@ -146,7 +146,7 @@ const client = new AWS.Route53({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.activateKeySigningKey(params);
+  const data = await client.listGeoLocations(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -154,7 +154,7 @@ try {
 
 // Promises.
 client
-  .activateKeySigningKey(params)
+  .listGeoLocations(params)
   .then((data) => {
     // process data.
   })
@@ -163,7 +163,7 @@ client
   });
 
 // callbacks.
-client.activateKeySigningKey(params, (err, data) => {
+client.listGeoLocations(params, (err, data) => {
   // process err and data.
 });
 ```

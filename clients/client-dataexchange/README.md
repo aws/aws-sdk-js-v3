@@ -38,16 +38,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DataExchangeClient` and
-the commands you need, for example `CancelJobCommand`:
+the commands you need, for example `ListJobsCommand`:
 
 ```js
 // ES5 example
-const { DataExchangeClient, CancelJobCommand } = require("@aws-sdk/client-dataexchange");
+const { DataExchangeClient, ListJobsCommand } = require("@aws-sdk/client-dataexchange");
 ```
 
 ```ts
 // ES6+ example
-import { DataExchangeClient, CancelJobCommand } from "@aws-sdk/client-dataexchange";
+import { DataExchangeClient, ListJobsCommand } from "@aws-sdk/client-dataexchange";
 ```
 
 ### Usage
@@ -66,7 +66,7 @@ const client = new DataExchangeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelJobCommand(params);
+const command = new ListJobsCommand(params);
 ```
 
 #### Async/await
@@ -145,7 +145,7 @@ const client = new AWS.DataExchange({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelJob(params);
+  const data = await client.listJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -153,7 +153,7 @@ try {
 
 // Promises.
 client
-  .cancelJob(params)
+  .listJobs(params)
   .then((data) => {
     // process data.
   })
@@ -162,7 +162,7 @@ client
   });
 
 // callbacks.
-client.cancelJob(params, (err, data) => {
+client.listJobs(params, (err, data) => {
   // process err and data.
 });
 ```

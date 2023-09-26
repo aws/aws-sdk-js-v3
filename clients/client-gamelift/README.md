@@ -80,16 +80,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `GameLiftClient` and
-the commands you need, for example `AcceptMatchCommand`:
+the commands you need, for example `ListAliasesCommand`:
 
 ```js
 // ES5 example
-const { GameLiftClient, AcceptMatchCommand } = require("@aws-sdk/client-gamelift");
+const { GameLiftClient, ListAliasesCommand } = require("@aws-sdk/client-gamelift");
 ```
 
 ```ts
 // ES6+ example
-import { GameLiftClient, AcceptMatchCommand } from "@aws-sdk/client-gamelift";
+import { GameLiftClient, ListAliasesCommand } from "@aws-sdk/client-gamelift";
 ```
 
 ### Usage
@@ -108,7 +108,7 @@ const client = new GameLiftClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptMatchCommand(params);
+const command = new ListAliasesCommand(params);
 ```
 
 #### Async/await
@@ -187,7 +187,7 @@ const client = new AWS.GameLift({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptMatch(params);
+  const data = await client.listAliases(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -195,7 +195,7 @@ try {
 
 // Promises.
 client
-  .acceptMatch(params)
+  .listAliases(params)
   .then((data) => {
     // process data.
   })
@@ -204,7 +204,7 @@ client
   });
 
 // callbacks.
-client.acceptMatch(params, (err, data) => {
+client.listAliases(params, (err, data) => {
   // process err and data.
 });
 ```

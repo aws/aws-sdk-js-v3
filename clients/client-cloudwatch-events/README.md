@@ -43,16 +43,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudWatchEventsClient` and
-the commands you need, for example `ActivateEventSourceCommand`:
+the commands you need, for example `ListReplaysCommand`:
 
 ```js
 // ES5 example
-const { CloudWatchEventsClient, ActivateEventSourceCommand } = require("@aws-sdk/client-cloudwatch-events");
+const { CloudWatchEventsClient, ListReplaysCommand } = require("@aws-sdk/client-cloudwatch-events");
 ```
 
 ```ts
 // ES6+ example
-import { CloudWatchEventsClient, ActivateEventSourceCommand } from "@aws-sdk/client-cloudwatch-events";
+import { CloudWatchEventsClient, ListReplaysCommand } from "@aws-sdk/client-cloudwatch-events";
 ```
 
 ### Usage
@@ -71,7 +71,7 @@ const client = new CloudWatchEventsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ActivateEventSourceCommand(params);
+const command = new ListReplaysCommand(params);
 ```
 
 #### Async/await
@@ -150,7 +150,7 @@ const client = new AWS.CloudWatchEvents({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.activateEventSource(params);
+  const data = await client.listReplays(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -158,7 +158,7 @@ try {
 
 // Promises.
 client
-  .activateEventSource(params)
+  .listReplays(params)
   .then((data) => {
     // process data.
   })
@@ -167,7 +167,7 @@ client
   });
 
 // callbacks.
-client.activateEventSource(params, (err, data) => {
+client.listReplays(params, (err, data) => {
   // process err and data.
 });
 ```

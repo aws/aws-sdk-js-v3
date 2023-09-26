@@ -57,16 +57,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SESClient` and
-the commands you need, for example `CloneReceiptRuleSetCommand`:
+the commands you need, for example `ListIdentitiesCommand`:
 
 ```js
 // ES5 example
-const { SESClient, CloneReceiptRuleSetCommand } = require("@aws-sdk/client-ses");
+const { SESClient, ListIdentitiesCommand } = require("@aws-sdk/client-ses");
 ```
 
 ```ts
 // ES6+ example
-import { SESClient, CloneReceiptRuleSetCommand } from "@aws-sdk/client-ses";
+import { SESClient, ListIdentitiesCommand } from "@aws-sdk/client-ses";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ const client = new SESClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CloneReceiptRuleSetCommand(params);
+const command = new ListIdentitiesCommand(params);
 ```
 
 #### Async/await
@@ -164,7 +164,7 @@ const client = new AWS.SES({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cloneReceiptRuleSet(params);
+  const data = await client.listIdentities(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -172,7 +172,7 @@ try {
 
 // Promises.
 client
-  .cloneReceiptRuleSet(params)
+  .listIdentities(params)
   .then((data) => {
     // process data.
   })
@@ -181,7 +181,7 @@ client
   });
 
 // callbacks.
-client.cloneReceiptRuleSet(params, (err, data) => {
+client.listIdentities(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -30,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ElasticInferenceClient` and
-the commands you need, for example `DescribeAcceleratorOfferingsCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { ElasticInferenceClient, DescribeAcceleratorOfferingsCommand } = require("@aws-sdk/client-elastic-inference");
+const { ElasticInferenceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-elastic-inference");
 ```
 
 ```ts
 // ES6+ example
-import { ElasticInferenceClient, DescribeAcceleratorOfferingsCommand } from "@aws-sdk/client-elastic-inference";
+import { ElasticInferenceClient, ListTagsForResourceCommand } from "@aws-sdk/client-elastic-inference";
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ const client = new ElasticInferenceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeAcceleratorOfferingsCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.ElasticInference({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeAcceleratorOfferings(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .describeAcceleratorOfferings(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.describeAcceleratorOfferings(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

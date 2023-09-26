@@ -29,22 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MigrationHubStrategyClient` and
-the commands you need, for example `GetApplicationComponentDetailsCommand`:
+the commands you need, for example `ListServersCommand`:
 
 ```js
 // ES5 example
-const {
-  MigrationHubStrategyClient,
-  GetApplicationComponentDetailsCommand,
-} = require("@aws-sdk/client-migrationhubstrategy");
+const { MigrationHubStrategyClient, ListServersCommand } = require("@aws-sdk/client-migrationhubstrategy");
 ```
 
 ```ts
 // ES6+ example
-import {
-  MigrationHubStrategyClient,
-  GetApplicationComponentDetailsCommand,
-} from "@aws-sdk/client-migrationhubstrategy";
+import { MigrationHubStrategyClient, ListServersCommand } from "@aws-sdk/client-migrationhubstrategy";
 ```
 
 ### Usage
@@ -63,7 +57,7 @@ const client = new MigrationHubStrategyClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetApplicationComponentDetailsCommand(params);
+const command = new ListServersCommand(params);
 ```
 
 #### Async/await
@@ -142,7 +136,7 @@ const client = new AWS.MigrationHubStrategy({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getApplicationComponentDetails(params);
+  const data = await client.listServers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -150,7 +144,7 @@ try {
 
 // Promises.
 client
-  .getApplicationComponentDetails(params)
+  .listServers(params)
   .then((data) => {
     // process data.
   })
@@ -159,7 +153,7 @@ client
   });
 
 // callbacks.
-client.getApplicationComponentDetails(params, (err, data) => {
+client.listServers(params, (err, data) => {
   // process err and data.
 });
 ```

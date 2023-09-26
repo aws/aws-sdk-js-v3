@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTDataPlaneClient` and
-the commands you need, for example `DeleteThingShadowCommand`:
+the commands you need, for example `ListRetainedMessagesCommand`:
 
 ```js
 // ES5 example
-const { IoTDataPlaneClient, DeleteThingShadowCommand } = require("@aws-sdk/client-iot-data-plane");
+const { IoTDataPlaneClient, ListRetainedMessagesCommand } = require("@aws-sdk/client-iot-data-plane");
 ```
 
 ```ts
 // ES6+ example
-import { IoTDataPlaneClient, DeleteThingShadowCommand } from "@aws-sdk/client-iot-data-plane";
+import { IoTDataPlaneClient, ListRetainedMessagesCommand } from "@aws-sdk/client-iot-data-plane";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new IoTDataPlaneClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteThingShadowCommand(params);
+const command = new ListRetainedMessagesCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.IoTDataPlane({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteThingShadow(params);
+  const data = await client.listRetainedMessages(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .deleteThingShadow(params)
+  .listRetainedMessages(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.deleteThingShadow(params, (err, data) => {
+client.listRetainedMessages(params, (err, data) => {
   // process err and data.
 });
 ```

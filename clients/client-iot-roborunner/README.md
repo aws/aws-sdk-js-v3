@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTRoboRunnerClient` and
-the commands you need, for example `CreateDestinationCommand`:
+the commands you need, for example `ListSitesCommand`:
 
 ```js
 // ES5 example
-const { IoTRoboRunnerClient, CreateDestinationCommand } = require("@aws-sdk/client-iot-roborunner");
+const { IoTRoboRunnerClient, ListSitesCommand } = require("@aws-sdk/client-iot-roborunner");
 ```
 
 ```ts
 // ES6+ example
-import { IoTRoboRunnerClient, CreateDestinationCommand } from "@aws-sdk/client-iot-roborunner";
+import { IoTRoboRunnerClient, ListSitesCommand } from "@aws-sdk/client-iot-roborunner";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new IoTRoboRunnerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateDestinationCommand(params);
+const command = new ListSitesCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.IoTRoboRunner({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createDestination(params);
+  const data = await client.listSites(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .createDestination(params)
+  .listSites(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.createDestination(params, (err, data) => {
+client.listSites(params, (err, data) => {
   // process err and data.
 });
 ```

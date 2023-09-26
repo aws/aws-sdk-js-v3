@@ -37,16 +37,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CognitoIdentityClient` and
-the commands you need, for example `CreateIdentityPoolCommand`:
+the commands you need, for example `ListIdentityPoolsCommand`:
 
 ```js
 // ES5 example
-const { CognitoIdentityClient, CreateIdentityPoolCommand } = require("@aws-sdk/client-cognito-identity");
+const { CognitoIdentityClient, ListIdentityPoolsCommand } = require("@aws-sdk/client-cognito-identity");
 ```
 
 ```ts
 // ES6+ example
-import { CognitoIdentityClient, CreateIdentityPoolCommand } from "@aws-sdk/client-cognito-identity";
+import { CognitoIdentityClient, ListIdentityPoolsCommand } from "@aws-sdk/client-cognito-identity";
 ```
 
 ### Usage
@@ -65,7 +65,7 @@ const client = new CognitoIdentityClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateIdentityPoolCommand(params);
+const command = new ListIdentityPoolsCommand(params);
 ```
 
 #### Async/await
@@ -144,7 +144,7 @@ const client = new AWS.CognitoIdentity({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createIdentityPool(params);
+  const data = await client.listIdentityPools(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -152,7 +152,7 @@ try {
 
 // Promises.
 client
-  .createIdentityPool(params)
+  .listIdentityPools(params)
   .then((data) => {
     // process data.
   })
@@ -161,7 +161,7 @@ client
   });
 
 // callbacks.
-client.createIdentityPool(params, (err, data) => {
+client.listIdentityPools(params, (err, data) => {
   // process err and data.
 });
 ```

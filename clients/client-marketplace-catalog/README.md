@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MarketplaceCatalogClient` and
-the commands you need, for example `CancelChangeSetCommand`:
+the commands you need, for example `ListChangeSetsCommand`:
 
 ```js
 // ES5 example
-const { MarketplaceCatalogClient, CancelChangeSetCommand } = require("@aws-sdk/client-marketplace-catalog");
+const { MarketplaceCatalogClient, ListChangeSetsCommand } = require("@aws-sdk/client-marketplace-catalog");
 ```
 
 ```ts
 // ES6+ example
-import { MarketplaceCatalogClient, CancelChangeSetCommand } from "@aws-sdk/client-marketplace-catalog";
+import { MarketplaceCatalogClient, ListChangeSetsCommand } from "@aws-sdk/client-marketplace-catalog";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new MarketplaceCatalogClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelChangeSetCommand(params);
+const command = new ListChangeSetsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.MarketplaceCatalog({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelChangeSet(params);
+  const data = await client.listChangeSets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .cancelChangeSet(params)
+  .listChangeSets(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.cancelChangeSet(params, (err, data) => {
+client.listChangeSets(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -44,16 +44,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ConfigServiceClient` and
-the commands you need, for example `BatchGetAggregateResourceConfigCommand`:
+the commands you need, for example `ListStoredQueriesCommand`:
 
 ```js
 // ES5 example
-const { ConfigServiceClient, BatchGetAggregateResourceConfigCommand } = require("@aws-sdk/client-config-service");
+const { ConfigServiceClient, ListStoredQueriesCommand } = require("@aws-sdk/client-config-service");
 ```
 
 ```ts
 // ES6+ example
-import { ConfigServiceClient, BatchGetAggregateResourceConfigCommand } from "@aws-sdk/client-config-service";
+import { ConfigServiceClient, ListStoredQueriesCommand } from "@aws-sdk/client-config-service";
 ```
 
 ### Usage
@@ -72,7 +72,7 @@ const client = new ConfigServiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetAggregateResourceConfigCommand(params);
+const command = new ListStoredQueriesCommand(params);
 ```
 
 #### Async/await
@@ -151,7 +151,7 @@ const client = new AWS.ConfigService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetAggregateResourceConfig(params);
+  const data = await client.listStoredQueries(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -159,7 +159,7 @@ try {
 
 // Promises.
 client
-  .batchGetAggregateResourceConfig(params)
+  .listStoredQueries(params)
   .then((data) => {
     // process data.
   })
@@ -168,7 +168,7 @@ client
   });
 
 // callbacks.
-client.batchGetAggregateResourceConfig(params, (err, data) => {
+client.listStoredQueries(params, (err, data) => {
   // process err and data.
 });
 ```

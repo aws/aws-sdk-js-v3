@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MgnClient` and
-the commands you need, for example `ArchiveApplicationCommand`:
+the commands you need, for example `ListExportsCommand`:
 
 ```js
 // ES5 example
-const { MgnClient, ArchiveApplicationCommand } = require("@aws-sdk/client-mgn");
+const { MgnClient, ListExportsCommand } = require("@aws-sdk/client-mgn");
 ```
 
 ```ts
 // ES6+ example
-import { MgnClient, ArchiveApplicationCommand } from "@aws-sdk/client-mgn";
+import { MgnClient, ListExportsCommand } from "@aws-sdk/client-mgn";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new MgnClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ArchiveApplicationCommand(params);
+const command = new ListExportsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Mgn({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.archiveApplication(params);
+  const data = await client.listExports(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .archiveApplication(params)
+  .listExports(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.archiveApplication(params, (err, data) => {
+client.listExports(params, (err, data) => {
   // process err and data.
 });
 ```

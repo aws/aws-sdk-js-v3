@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ShieldClient` and
-the commands you need, for example `AssociateDRTLogBucketCommand`:
+the commands you need, for example `ListAttacksCommand`:
 
 ```js
 // ES5 example
-const { ShieldClient, AssociateDRTLogBucketCommand } = require("@aws-sdk/client-shield");
+const { ShieldClient, ListAttacksCommand } = require("@aws-sdk/client-shield");
 ```
 
 ```ts
 // ES6+ example
-import { ShieldClient, AssociateDRTLogBucketCommand } from "@aws-sdk/client-shield";
+import { ShieldClient, ListAttacksCommand } from "@aws-sdk/client-shield";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new ShieldClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateDRTLogBucketCommand(params);
+const command = new ListAttacksCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.Shield({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateDRTLogBucket(params);
+  const data = await client.listAttacks(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .associateDRTLogBucket(params)
+  .listAttacks(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.associateDRTLogBucket(params, (err, data) => {
+client.listAttacks(params, (err, data) => {
   // process err and data.
 });
 ```

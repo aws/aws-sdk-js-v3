@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudFrontClient` and
-the commands you need, for example `AssociateAliasCommand`:
+the commands you need, for example `ListCachePoliciesCommand`:
 
 ```js
 // ES5 example
-const { CloudFrontClient, AssociateAliasCommand } = require("@aws-sdk/client-cloudfront");
+const { CloudFrontClient, ListCachePoliciesCommand } = require("@aws-sdk/client-cloudfront");
 ```
 
 ```ts
 // ES6+ example
-import { CloudFrontClient, AssociateAliasCommand } from "@aws-sdk/client-cloudfront";
+import { CloudFrontClient, ListCachePoliciesCommand } from "@aws-sdk/client-cloudfront";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new CloudFrontClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateAliasCommand(params);
+const command = new ListCachePoliciesCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.CloudFront({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateAlias(params);
+  const data = await client.listCachePolicies(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .associateAlias(params)
+  .listCachePolicies(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.associateAlias(params, (err, data) => {
+client.listCachePolicies(params, (err, data) => {
   // process err and data.
 });
 ```

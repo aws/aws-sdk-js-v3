@@ -30,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ECRPUBLICClient` and
-the commands you need, for example `BatchCheckLayerAvailabilityCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { ECRPUBLICClient, BatchCheckLayerAvailabilityCommand } = require("@aws-sdk/client-ecr-public");
+const { ECRPUBLICClient, ListTagsForResourceCommand } = require("@aws-sdk/client-ecr-public");
 ```
 
 ```ts
 // ES6+ example
-import { ECRPUBLICClient, BatchCheckLayerAvailabilityCommand } from "@aws-sdk/client-ecr-public";
+import { ECRPUBLICClient, ListTagsForResourceCommand } from "@aws-sdk/client-ecr-public";
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ const client = new ECRPUBLICClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchCheckLayerAvailabilityCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.ECRPUBLIC({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchCheckLayerAvailability(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .batchCheckLayerAvailability(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.batchCheckLayerAvailability(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

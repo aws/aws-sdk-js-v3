@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LicenseManagerClient` and
-the commands you need, for example `AcceptGrantCommand`:
+the commands you need, for example `ListTokensCommand`:
 
 ```js
 // ES5 example
-const { LicenseManagerClient, AcceptGrantCommand } = require("@aws-sdk/client-license-manager");
+const { LicenseManagerClient, ListTokensCommand } = require("@aws-sdk/client-license-manager");
 ```
 
 ```ts
 // ES6+ example
-import { LicenseManagerClient, AcceptGrantCommand } from "@aws-sdk/client-license-manager";
+import { LicenseManagerClient, ListTokensCommand } from "@aws-sdk/client-license-manager";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new LicenseManagerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptGrantCommand(params);
+const command = new ListTokensCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.LicenseManager({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptGrant(params);
+  const data = await client.listTokens(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .acceptGrant(params)
+  .listTokens(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.acceptGrant(params, (err, data) => {
+client.listTokens(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ForecastClient` and
-the commands you need, for example `CreateAutoPredictorCommand`:
+the commands you need, for example `ListDatasetGroupsCommand`:
 
 ```js
 // ES5 example
-const { ForecastClient, CreateAutoPredictorCommand } = require("@aws-sdk/client-forecast");
+const { ForecastClient, ListDatasetGroupsCommand } = require("@aws-sdk/client-forecast");
 ```
 
 ```ts
 // ES6+ example
-import { ForecastClient, CreateAutoPredictorCommand } from "@aws-sdk/client-forecast";
+import { ForecastClient, ListDatasetGroupsCommand } from "@aws-sdk/client-forecast";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new ForecastClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAutoPredictorCommand(params);
+const command = new ListDatasetGroupsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Forecast({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAutoPredictor(params);
+  const data = await client.listDatasetGroups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createAutoPredictor(params)
+  .listDatasetGroups(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createAutoPredictor(params, (err, data) => {
+client.listDatasetGroups(params, (err, data) => {
   // process err and data.
 });
 ```

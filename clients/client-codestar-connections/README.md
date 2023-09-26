@@ -103,16 +103,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CodeStarConnectionsClient` and
-the commands you need, for example `CreateConnectionCommand`:
+the commands you need, for example `ListHostsCommand`:
 
 ```js
 // ES5 example
-const { CodeStarConnectionsClient, CreateConnectionCommand } = require("@aws-sdk/client-codestar-connections");
+const { CodeStarConnectionsClient, ListHostsCommand } = require("@aws-sdk/client-codestar-connections");
 ```
 
 ```ts
 // ES6+ example
-import { CodeStarConnectionsClient, CreateConnectionCommand } from "@aws-sdk/client-codestar-connections";
+import { CodeStarConnectionsClient, ListHostsCommand } from "@aws-sdk/client-codestar-connections";
 ```
 
 ### Usage
@@ -131,7 +131,7 @@ const client = new CodeStarConnectionsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateConnectionCommand(params);
+const command = new ListHostsCommand(params);
 ```
 
 #### Async/await
@@ -210,7 +210,7 @@ const client = new AWS.CodeStarConnections({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createConnection(params);
+  const data = await client.listHosts(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -218,7 +218,7 @@ try {
 
 // Promises.
 client
-  .createConnection(params)
+  .listHosts(params)
   .then((data) => {
     // process data.
   })
@@ -227,7 +227,7 @@ client
   });
 
 // callbacks.
-client.createConnection(params, (err, data) => {
+client.listHosts(params, (err, data) => {
   // process err and data.
 });
 ```

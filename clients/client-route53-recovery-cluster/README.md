@@ -62,19 +62,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `Route53RecoveryClusterClient` and
-the commands you need, for example `GetRoutingControlStateCommand`:
+the commands you need, for example `ListRoutingControlsCommand`:
 
 ```js
 // ES5 example
 const {
   Route53RecoveryClusterClient,
-  GetRoutingControlStateCommand,
+  ListRoutingControlsCommand,
 } = require("@aws-sdk/client-route53-recovery-cluster");
 ```
 
 ```ts
 // ES6+ example
-import { Route53RecoveryClusterClient, GetRoutingControlStateCommand } from "@aws-sdk/client-route53-recovery-cluster";
+import { Route53RecoveryClusterClient, ListRoutingControlsCommand } from "@aws-sdk/client-route53-recovery-cluster";
 ```
 
 ### Usage
@@ -93,7 +93,7 @@ const client = new Route53RecoveryClusterClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetRoutingControlStateCommand(params);
+const command = new ListRoutingControlsCommand(params);
 ```
 
 #### Async/await
@@ -172,7 +172,7 @@ const client = new AWS.Route53RecoveryCluster({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getRoutingControlState(params);
+  const data = await client.listRoutingControls(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -180,7 +180,7 @@ try {
 
 // Promises.
 client
-  .getRoutingControlState(params)
+  .listRoutingControls(params)
   .then((data) => {
     // process data.
   })
@@ -189,7 +189,7 @@ client
   });
 
 // callbacks.
-client.getRoutingControlState(params, (err, data) => {
+client.listRoutingControls(params, (err, data) => {
   // process err and data.
 });
 ```

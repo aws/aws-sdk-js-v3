@@ -241,16 +241,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IvschatClient` and
-the commands you need, for example `CreateChatTokenCommand`:
+the commands you need, for example `ListRoomsCommand`:
 
 ```js
 // ES5 example
-const { IvschatClient, CreateChatTokenCommand } = require("@aws-sdk/client-ivschat");
+const { IvschatClient, ListRoomsCommand } = require("@aws-sdk/client-ivschat");
 ```
 
 ```ts
 // ES6+ example
-import { IvschatClient, CreateChatTokenCommand } from "@aws-sdk/client-ivschat";
+import { IvschatClient, ListRoomsCommand } from "@aws-sdk/client-ivschat";
 ```
 
 ### Usage
@@ -269,7 +269,7 @@ const client = new IvschatClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateChatTokenCommand(params);
+const command = new ListRoomsCommand(params);
 ```
 
 #### Async/await
@@ -348,7 +348,7 @@ const client = new AWS.Ivschat({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createChatToken(params);
+  const data = await client.listRooms(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -356,7 +356,7 @@ try {
 
 // Promises.
 client
-  .createChatToken(params)
+  .listRooms(params)
   .then((data) => {
     // process data.
   })
@@ -365,7 +365,7 @@ client
   });
 
 // callbacks.
-client.createChatToken(params, (err, data) => {
+client.listRooms(params, (err, data) => {
   // process err and data.
 });
 ```

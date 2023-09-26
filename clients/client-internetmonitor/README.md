@@ -38,16 +38,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `InternetMonitorClient` and
-the commands you need, for example `CreateMonitorCommand`:
+the commands you need, for example `ListMonitorsCommand`:
 
 ```js
 // ES5 example
-const { InternetMonitorClient, CreateMonitorCommand } = require("@aws-sdk/client-internetmonitor");
+const { InternetMonitorClient, ListMonitorsCommand } = require("@aws-sdk/client-internetmonitor");
 ```
 
 ```ts
 // ES6+ example
-import { InternetMonitorClient, CreateMonitorCommand } from "@aws-sdk/client-internetmonitor";
+import { InternetMonitorClient, ListMonitorsCommand } from "@aws-sdk/client-internetmonitor";
 ```
 
 ### Usage
@@ -66,7 +66,7 @@ const client = new InternetMonitorClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateMonitorCommand(params);
+const command = new ListMonitorsCommand(params);
 ```
 
 #### Async/await
@@ -145,7 +145,7 @@ const client = new AWS.InternetMonitor({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createMonitor(params);
+  const data = await client.listMonitors(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -153,7 +153,7 @@ try {
 
 // Promises.
 client
-  .createMonitor(params)
+  .listMonitors(params)
   .then((data) => {
     // process data.
   })
@@ -162,7 +162,7 @@ client
   });
 
 // callbacks.
-client.createMonitor(params, (err, data) => {
+client.listMonitors(params, (err, data) => {
   // process err and data.
 });
 ```

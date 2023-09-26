@@ -32,16 +32,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OpenSearchClient` and
-the commands you need, for example `AcceptInboundConnectionCommand`:
+the commands you need, for example `ListDomainNamesCommand`:
 
 ```js
 // ES5 example
-const { OpenSearchClient, AcceptInboundConnectionCommand } = require("@aws-sdk/client-opensearch");
+const { OpenSearchClient, ListDomainNamesCommand } = require("@aws-sdk/client-opensearch");
 ```
 
 ```ts
 // ES6+ example
-import { OpenSearchClient, AcceptInboundConnectionCommand } from "@aws-sdk/client-opensearch";
+import { OpenSearchClient, ListDomainNamesCommand } from "@aws-sdk/client-opensearch";
 ```
 
 ### Usage
@@ -60,7 +60,7 @@ const client = new OpenSearchClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptInboundConnectionCommand(params);
+const command = new ListDomainNamesCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +139,7 @@ const client = new AWS.OpenSearch({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptInboundConnection(params);
+  const data = await client.listDomainNames(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +147,7 @@ try {
 
 // Promises.
 client
-  .acceptInboundConnection(params)
+  .listDomainNames(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +156,7 @@ client
   });
 
 // callbacks.
-client.acceptInboundConnection(params, (err, data) => {
+client.listDomainNames(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -71,16 +71,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `GlobalAcceleratorClient` and
-the commands you need, for example `AddCustomRoutingEndpointsCommand`:
+the commands you need, for example `ListAcceleratorsCommand`:
 
 ```js
 // ES5 example
-const { GlobalAcceleratorClient, AddCustomRoutingEndpointsCommand } = require("@aws-sdk/client-global-accelerator");
+const { GlobalAcceleratorClient, ListAcceleratorsCommand } = require("@aws-sdk/client-global-accelerator");
 ```
 
 ```ts
 // ES6+ example
-import { GlobalAcceleratorClient, AddCustomRoutingEndpointsCommand } from "@aws-sdk/client-global-accelerator";
+import { GlobalAcceleratorClient, ListAcceleratorsCommand } from "@aws-sdk/client-global-accelerator";
 ```
 
 ### Usage
@@ -99,7 +99,7 @@ const client = new GlobalAcceleratorClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddCustomRoutingEndpointsCommand(params);
+const command = new ListAcceleratorsCommand(params);
 ```
 
 #### Async/await
@@ -178,7 +178,7 @@ const client = new AWS.GlobalAccelerator({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addCustomRoutingEndpoints(params);
+  const data = await client.listAccelerators(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -186,7 +186,7 @@ try {
 
 // Promises.
 client
-  .addCustomRoutingEndpoints(params)
+  .listAccelerators(params)
   .then((data) => {
     // process data.
   })
@@ -195,7 +195,7 @@ client
   });
 
 // callbacks.
-client.addCustomRoutingEndpoints(params, (err, data) => {
+client.listAccelerators(params, (err, data) => {
   // process err and data.
 });
 ```

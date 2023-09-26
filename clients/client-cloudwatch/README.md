@@ -35,16 +35,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudWatchClient` and
-the commands you need, for example `DeleteAlarmsCommand`:
+the commands you need, for example `ListMetricsCommand`:
 
 ```js
 // ES5 example
-const { CloudWatchClient, DeleteAlarmsCommand } = require("@aws-sdk/client-cloudwatch");
+const { CloudWatchClient, ListMetricsCommand } = require("@aws-sdk/client-cloudwatch");
 ```
 
 ```ts
 // ES6+ example
-import { CloudWatchClient, DeleteAlarmsCommand } from "@aws-sdk/client-cloudwatch";
+import { CloudWatchClient, ListMetricsCommand } from "@aws-sdk/client-cloudwatch";
 ```
 
 ### Usage
@@ -63,7 +63,7 @@ const client = new CloudWatchClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteAlarmsCommand(params);
+const command = new ListMetricsCommand(params);
 ```
 
 #### Async/await
@@ -142,7 +142,7 @@ const client = new AWS.CloudWatch({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteAlarms(params);
+  const data = await client.listMetrics(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -150,7 +150,7 @@ try {
 
 // Promises.
 client
-  .deleteAlarms(params)
+  .listMetrics(params)
   .then((data) => {
     // process data.
   })
@@ -159,7 +159,7 @@ client
   });
 
 // callbacks.
-client.deleteAlarms(params, (err, data) => {
+client.listMetrics(params, (err, data) => {
   // process err and data.
 });
 ```

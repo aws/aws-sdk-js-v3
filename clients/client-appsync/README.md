@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppSyncClient` and
-the commands you need, for example `AssociateApiCommand`:
+the commands you need, for example `ListApiKeysCommand`:
 
 ```js
 // ES5 example
-const { AppSyncClient, AssociateApiCommand } = require("@aws-sdk/client-appsync");
+const { AppSyncClient, ListApiKeysCommand } = require("@aws-sdk/client-appsync");
 ```
 
 ```ts
 // ES6+ example
-import { AppSyncClient, AssociateApiCommand } from "@aws-sdk/client-appsync";
+import { AppSyncClient, ListApiKeysCommand } from "@aws-sdk/client-appsync";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new AppSyncClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateApiCommand(params);
+const command = new ListApiKeysCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.AppSync({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateApi(params);
+  const data = await client.listApiKeys(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .associateApi(params)
+  .listApiKeys(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.associateApi(params, (err, data) => {
+client.listApiKeys(params, (err, data) => {
   // process err and data.
 });
 ```

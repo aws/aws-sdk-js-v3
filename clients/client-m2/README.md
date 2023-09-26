@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `M2Client` and
-the commands you need, for example `CancelBatchJobExecutionCommand`:
+the commands you need, for example `ListApplicationsCommand`:
 
 ```js
 // ES5 example
-const { M2Client, CancelBatchJobExecutionCommand } = require("@aws-sdk/client-m2");
+const { M2Client, ListApplicationsCommand } = require("@aws-sdk/client-m2");
 ```
 
 ```ts
 // ES6+ example
-import { M2Client, CancelBatchJobExecutionCommand } from "@aws-sdk/client-m2";
+import { M2Client, ListApplicationsCommand } from "@aws-sdk/client-m2";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new M2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelBatchJobExecutionCommand(params);
+const command = new ListApplicationsCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.M2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelBatchJobExecution(params);
+  const data = await client.listApplications(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .cancelBatchJobExecution(params)
+  .listApplications(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.cancelBatchJobExecution(params, (err, data) => {
+client.listApplications(params, (err, data) => {
   // process err and data.
 });
 ```

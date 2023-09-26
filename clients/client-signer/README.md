@@ -37,16 +37,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SignerClient` and
-the commands you need, for example `AddProfilePermissionCommand`:
+the commands you need, for example `ListSigningJobsCommand`:
 
 ```js
 // ES5 example
-const { SignerClient, AddProfilePermissionCommand } = require("@aws-sdk/client-signer");
+const { SignerClient, ListSigningJobsCommand } = require("@aws-sdk/client-signer");
 ```
 
 ```ts
 // ES6+ example
-import { SignerClient, AddProfilePermissionCommand } from "@aws-sdk/client-signer";
+import { SignerClient, ListSigningJobsCommand } from "@aws-sdk/client-signer";
 ```
 
 ### Usage
@@ -65,7 +65,7 @@ const client = new SignerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddProfilePermissionCommand(params);
+const command = new ListSigningJobsCommand(params);
 ```
 
 #### Async/await
@@ -144,7 +144,7 @@ const client = new AWS.Signer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addProfilePermission(params);
+  const data = await client.listSigningJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -152,7 +152,7 @@ try {
 
 // Promises.
 client
-  .addProfilePermission(params)
+  .listSigningJobs(params)
   .then((data) => {
     // process data.
   })
@@ -161,7 +161,7 @@ client
   });
 
 // callbacks.
-client.addProfilePermission(params, (err, data) => {
+client.listSigningJobs(params, (err, data) => {
   // process err and data.
 });
 ```

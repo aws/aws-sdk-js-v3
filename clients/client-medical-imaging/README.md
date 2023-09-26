@@ -172,16 +172,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MedicalImagingClient` and
-the commands you need, for example `CopyImageSetCommand`:
+the commands you need, for example `ListDatastoresCommand`:
 
 ```js
 // ES5 example
-const { MedicalImagingClient, CopyImageSetCommand } = require("@aws-sdk/client-medical-imaging");
+const { MedicalImagingClient, ListDatastoresCommand } = require("@aws-sdk/client-medical-imaging");
 ```
 
 ```ts
 // ES6+ example
-import { MedicalImagingClient, CopyImageSetCommand } from "@aws-sdk/client-medical-imaging";
+import { MedicalImagingClient, ListDatastoresCommand } from "@aws-sdk/client-medical-imaging";
 ```
 
 ### Usage
@@ -200,7 +200,7 @@ const client = new MedicalImagingClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CopyImageSetCommand(params);
+const command = new ListDatastoresCommand(params);
 ```
 
 #### Async/await
@@ -279,7 +279,7 @@ const client = new AWS.MedicalImaging({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.copyImageSet(params);
+  const data = await client.listDatastores(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -287,7 +287,7 @@ try {
 
 // Promises.
 client
-  .copyImageSet(params)
+  .listDatastores(params)
   .then((data) => {
     // process data.
   })
@@ -296,7 +296,7 @@ client
   });
 
 // callbacks.
-client.copyImageSet(params, (err, data) => {
+client.listDatastores(params, (err, data) => {
   // process err and data.
 });
 ```

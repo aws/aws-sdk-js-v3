@@ -38,19 +38,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PinpointSMSVoiceV2Client` and
-the commands you need, for example `AssociateOriginationIdentityCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const {
-  PinpointSMSVoiceV2Client,
-  AssociateOriginationIdentityCommand,
-} = require("@aws-sdk/client-pinpoint-sms-voice-v2");
+const { PinpointSMSVoiceV2Client, ListTagsForResourceCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2");
 ```
 
 ```ts
 // ES6+ example
-import { PinpointSMSVoiceV2Client, AssociateOriginationIdentityCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2";
+import { PinpointSMSVoiceV2Client, ListTagsForResourceCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2";
 ```
 
 ### Usage
@@ -69,7 +66,7 @@ const client = new PinpointSMSVoiceV2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateOriginationIdentityCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -148,7 +145,7 @@ const client = new AWS.PinpointSMSVoiceV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateOriginationIdentity(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -156,7 +153,7 @@ try {
 
 // Promises.
 client
-  .associateOriginationIdentity(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -165,7 +162,7 @@ client
   });
 
 // callbacks.
-client.associateOriginationIdentity(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

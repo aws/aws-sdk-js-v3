@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaPackageV2Client` and
-the commands you need, for example `CreateChannelCommand`:
+the commands you need, for example `ListChannelGroupsCommand`:
 
 ```js
 // ES5 example
-const { MediaPackageV2Client, CreateChannelCommand } = require("@aws-sdk/client-mediapackagev2");
+const { MediaPackageV2Client, ListChannelGroupsCommand } = require("@aws-sdk/client-mediapackagev2");
 ```
 
 ```ts
 // ES6+ example
-import { MediaPackageV2Client, CreateChannelCommand } from "@aws-sdk/client-mediapackagev2";
+import { MediaPackageV2Client, ListChannelGroupsCommand } from "@aws-sdk/client-mediapackagev2";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new MediaPackageV2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateChannelCommand(params);
+const command = new ListChannelGroupsCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.MediaPackageV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createChannel(params);
+  const data = await client.listChannelGroups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .createChannel(params)
+  .listChannelGroups(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.createChannel(params, (err, data) => {
+client.listChannelGroups(params, (err, data) => {
   // process err and data.
 });
 ```

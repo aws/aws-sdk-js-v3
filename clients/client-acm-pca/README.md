@@ -38,16 +38,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ACMPCAClient` and
-the commands you need, for example `CreateCertificateAuthorityCommand`:
+the commands you need, for example `ListTagsCommand`:
 
 ```js
 // ES5 example
-const { ACMPCAClient, CreateCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca");
+const { ACMPCAClient, ListTagsCommand } = require("@aws-sdk/client-acm-pca");
 ```
 
 ```ts
 // ES6+ example
-import { ACMPCAClient, CreateCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca";
+import { ACMPCAClient, ListTagsCommand } from "@aws-sdk/client-acm-pca";
 ```
 
 ### Usage
@@ -66,7 +66,7 @@ const client = new ACMPCAClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateCertificateAuthorityCommand(params);
+const command = new ListTagsCommand(params);
 ```
 
 #### Async/await
@@ -145,7 +145,7 @@ const client = new AWS.ACMPCA({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createCertificateAuthority(params);
+  const data = await client.listTags(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -153,7 +153,7 @@ try {
 
 // Promises.
 client
-  .createCertificateAuthority(params)
+  .listTags(params)
   .then((data) => {
     // process data.
   })
@@ -162,7 +162,7 @@ client
   });
 
 // callbacks.
-client.createCertificateAuthority(params, (err, data) => {
+client.listTags(params, (err, data) => {
   // process err and data.
 });
 ```

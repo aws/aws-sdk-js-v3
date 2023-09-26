@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `InspectorClient` and
-the commands you need, for example `AddAttributesToFindingsCommand`:
+the commands you need, for example `ListFindingsCommand`:
 
 ```js
 // ES5 example
-const { InspectorClient, AddAttributesToFindingsCommand } = require("@aws-sdk/client-inspector");
+const { InspectorClient, ListFindingsCommand } = require("@aws-sdk/client-inspector");
 ```
 
 ```ts
 // ES6+ example
-import { InspectorClient, AddAttributesToFindingsCommand } from "@aws-sdk/client-inspector";
+import { InspectorClient, ListFindingsCommand } from "@aws-sdk/client-inspector";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new InspectorClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddAttributesToFindingsCommand(params);
+const command = new ListFindingsCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.Inspector({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addAttributesToFindings(params);
+  const data = await client.listFindings(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .addAttributesToFindings(params)
+  .listFindings(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.addAttributesToFindings(params, (err, data) => {
+client.listFindings(params, (err, data) => {
   // process err and data.
 });
 ```

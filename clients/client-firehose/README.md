@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `FirehoseClient` and
-the commands you need, for example `CreateDeliveryStreamCommand`:
+the commands you need, for example `ListDeliveryStreamsCommand`:
 
 ```js
 // ES5 example
-const { FirehoseClient, CreateDeliveryStreamCommand } = require("@aws-sdk/client-firehose");
+const { FirehoseClient, ListDeliveryStreamsCommand } = require("@aws-sdk/client-firehose");
 ```
 
 ```ts
 // ES6+ example
-import { FirehoseClient, CreateDeliveryStreamCommand } from "@aws-sdk/client-firehose";
+import { FirehoseClient, ListDeliveryStreamsCommand } from "@aws-sdk/client-firehose";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new FirehoseClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateDeliveryStreamCommand(params);
+const command = new ListDeliveryStreamsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.Firehose({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createDeliveryStream(params);
+  const data = await client.listDeliveryStreams(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .createDeliveryStream(params)
+  .listDeliveryStreams(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.createDeliveryStream(params, (err, data) => {
+client.listDeliveryStreams(params, (err, data) => {
   // process err and data.
 });
 ```

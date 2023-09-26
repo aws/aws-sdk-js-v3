@@ -296,16 +296,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CodeartifactClient` and
-the commands you need, for example `AssociateExternalConnectionCommand`:
+the commands you need, for example `ListDomainsCommand`:
 
 ```js
 // ES5 example
-const { CodeartifactClient, AssociateExternalConnectionCommand } = require("@aws-sdk/client-codeartifact");
+const { CodeartifactClient, ListDomainsCommand } = require("@aws-sdk/client-codeartifact");
 ```
 
 ```ts
 // ES6+ example
-import { CodeartifactClient, AssociateExternalConnectionCommand } from "@aws-sdk/client-codeartifact";
+import { CodeartifactClient, ListDomainsCommand } from "@aws-sdk/client-codeartifact";
 ```
 
 ### Usage
@@ -324,7 +324,7 @@ const client = new CodeartifactClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateExternalConnectionCommand(params);
+const command = new ListDomainsCommand(params);
 ```
 
 #### Async/await
@@ -403,7 +403,7 @@ const client = new AWS.Codeartifact({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateExternalConnection(params);
+  const data = await client.listDomains(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -411,7 +411,7 @@ try {
 
 // Promises.
 client
-  .associateExternalConnection(params)
+  .listDomains(params)
   .then((data) => {
     // process data.
   })
@@ -420,7 +420,7 @@ client
   });
 
 // callbacks.
-client.associateExternalConnection(params, (err, data) => {
+client.listDomains(params, (err, data) => {
   // process err and data.
 });
 ```

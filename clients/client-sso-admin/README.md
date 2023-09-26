@@ -42,19 +42,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SSOAdminClient` and
-the commands you need, for example `AttachCustomerManagedPolicyReferenceToPermissionSetCommand`:
+the commands you need, for example `ListInstancesCommand`:
 
 ```js
 // ES5 example
-const {
-  SSOAdminClient,
-  AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
-} = require("@aws-sdk/client-sso-admin");
+const { SSOAdminClient, ListInstancesCommand } = require("@aws-sdk/client-sso-admin");
 ```
 
 ```ts
 // ES6+ example
-import { SSOAdminClient, AttachCustomerManagedPolicyReferenceToPermissionSetCommand } from "@aws-sdk/client-sso-admin";
+import { SSOAdminClient, ListInstancesCommand } from "@aws-sdk/client-sso-admin";
 ```
 
 ### Usage
@@ -73,7 +70,7 @@ const client = new SSOAdminClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AttachCustomerManagedPolicyReferenceToPermissionSetCommand(params);
+const command = new ListInstancesCommand(params);
 ```
 
 #### Async/await
@@ -152,7 +149,7 @@ const client = new AWS.SSOAdmin({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.attachCustomerManagedPolicyReferenceToPermissionSet(params);
+  const data = await client.listInstances(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -160,7 +157,7 @@ try {
 
 // Promises.
 client
-  .attachCustomerManagedPolicyReferenceToPermissionSet(params)
+  .listInstances(params)
   .then((data) => {
     // process data.
   })
@@ -169,7 +166,7 @@ client
   });
 
 // callbacks.
-client.attachCustomerManagedPolicyReferenceToPermissionSet(params, (err, data) => {
+client.listInstances(params, (err, data) => {
   // process err and data.
 });
 ```

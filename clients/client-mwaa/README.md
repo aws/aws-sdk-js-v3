@@ -107,16 +107,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MWAAClient` and
-the commands you need, for example `CreateCliTokenCommand`:
+the commands you need, for example `ListEnvironmentsCommand`:
 
 ```js
 // ES5 example
-const { MWAAClient, CreateCliTokenCommand } = require("@aws-sdk/client-mwaa");
+const { MWAAClient, ListEnvironmentsCommand } = require("@aws-sdk/client-mwaa");
 ```
 
 ```ts
 // ES6+ example
-import { MWAAClient, CreateCliTokenCommand } from "@aws-sdk/client-mwaa";
+import { MWAAClient, ListEnvironmentsCommand } from "@aws-sdk/client-mwaa";
 ```
 
 ### Usage
@@ -135,7 +135,7 @@ const client = new MWAAClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateCliTokenCommand(params);
+const command = new ListEnvironmentsCommand(params);
 ```
 
 #### Async/await
@@ -214,7 +214,7 @@ const client = new AWS.MWAA({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createCliToken(params);
+  const data = await client.listEnvironments(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -222,7 +222,7 @@ try {
 
 // Promises.
 client
-  .createCliToken(params)
+  .listEnvironments(params)
   .then((data) => {
     // process data.
   })
@@ -231,7 +231,7 @@ client
   });
 
 // callbacks.
-client.createCliToken(params, (err, data) => {
+client.listEnvironments(params, (err, data) => {
   // process err and data.
 });
 ```

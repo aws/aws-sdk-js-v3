@@ -36,16 +36,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SWFClient` and
-the commands you need, for example `CountClosedWorkflowExecutionsCommand`:
+the commands you need, for example `ListDomainsCommand`:
 
 ```js
 // ES5 example
-const { SWFClient, CountClosedWorkflowExecutionsCommand } = require("@aws-sdk/client-swf");
+const { SWFClient, ListDomainsCommand } = require("@aws-sdk/client-swf");
 ```
 
 ```ts
 // ES6+ example
-import { SWFClient, CountClosedWorkflowExecutionsCommand } from "@aws-sdk/client-swf";
+import { SWFClient, ListDomainsCommand } from "@aws-sdk/client-swf";
 ```
 
 ### Usage
@@ -64,7 +64,7 @@ const client = new SWFClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CountClosedWorkflowExecutionsCommand(params);
+const command = new ListDomainsCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +143,7 @@ const client = new AWS.SWF({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.countClosedWorkflowExecutions(params);
+  const data = await client.listDomains(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +151,7 @@ try {
 
 // Promises.
 client
-  .countClosedWorkflowExecutions(params)
+  .listDomains(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +160,7 @@ client
   });
 
 // callbacks.
-client.countClosedWorkflowExecutions(params, (err, data) => {
+client.listDomains(params, (err, data) => {
   // process err and data.
 });
 ```

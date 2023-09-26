@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTSiteWiseClient` and
-the commands you need, for example `AssociateAssetsCommand`:
+the commands you need, for example `ListAssetsCommand`:
 
 ```js
 // ES5 example
-const { IoTSiteWiseClient, AssociateAssetsCommand } = require("@aws-sdk/client-iotsitewise");
+const { IoTSiteWiseClient, ListAssetsCommand } = require("@aws-sdk/client-iotsitewise");
 ```
 
 ```ts
 // ES6+ example
-import { IoTSiteWiseClient, AssociateAssetsCommand } from "@aws-sdk/client-iotsitewise";
+import { IoTSiteWiseClient, ListAssetsCommand } from "@aws-sdk/client-iotsitewise";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new IoTSiteWiseClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateAssetsCommand(params);
+const command = new ListAssetsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.IoTSiteWise({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateAssets(params);
+  const data = await client.listAssets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .associateAssets(params)
+  .listAssets(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.associateAssets(params, (err, data) => {
+client.listAssets(params, (err, data) => {
   // process err and data.
 });
 ```

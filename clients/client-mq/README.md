@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MqClient` and
-the commands you need, for example `CreateBrokerCommand`:
+the commands you need, for example `ListBrokersCommand`:
 
 ```js
 // ES5 example
-const { MqClient, CreateBrokerCommand } = require("@aws-sdk/client-mq");
+const { MqClient, ListBrokersCommand } = require("@aws-sdk/client-mq");
 ```
 
 ```ts
 // ES6+ example
-import { MqClient, CreateBrokerCommand } from "@aws-sdk/client-mq";
+import { MqClient, ListBrokersCommand } from "@aws-sdk/client-mq";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new MqClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateBrokerCommand(params);
+const command = new ListBrokersCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Mq({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createBroker(params);
+  const data = await client.listBrokers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createBroker(params)
+  .listBrokers(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createBroker(params, (err, data) => {
+client.listBrokers(params, (err, data) => {
   // process err and data.
 });
 ```

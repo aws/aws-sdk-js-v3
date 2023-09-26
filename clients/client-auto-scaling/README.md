@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AutoScalingClient` and
-the commands you need, for example `AttachInstancesCommand`:
+the commands you need, for example `DescribePoliciesCommand`:
 
 ```js
 // ES5 example
-const { AutoScalingClient, AttachInstancesCommand } = require("@aws-sdk/client-auto-scaling");
+const { AutoScalingClient, DescribePoliciesCommand } = require("@aws-sdk/client-auto-scaling");
 ```
 
 ```ts
 // ES6+ example
-import { AutoScalingClient, AttachInstancesCommand } from "@aws-sdk/client-auto-scaling";
+import { AutoScalingClient, DescribePoliciesCommand } from "@aws-sdk/client-auto-scaling";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new AutoScalingClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AttachInstancesCommand(params);
+const command = new DescribePoliciesCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.AutoScaling({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.attachInstances(params);
+  const data = await client.describePolicies(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .attachInstances(params)
+  .describePolicies(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.attachInstances(params, (err, data) => {
+client.describePolicies(params, (err, data) => {
   // process err and data.
 });
 ```

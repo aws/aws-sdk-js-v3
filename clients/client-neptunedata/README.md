@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `NeptunedataClient` and
-the commands you need, for example `CancelGremlinQueryCommand`:
+the commands you need, for example `ListLoaderJobsCommand`:
 
 ```js
 // ES5 example
-const { NeptunedataClient, CancelGremlinQueryCommand } = require("@aws-sdk/client-neptunedata");
+const { NeptunedataClient, ListLoaderJobsCommand } = require("@aws-sdk/client-neptunedata");
 ```
 
 ```ts
 // ES6+ example
-import { NeptunedataClient, CancelGremlinQueryCommand } from "@aws-sdk/client-neptunedata";
+import { NeptunedataClient, ListLoaderJobsCommand } from "@aws-sdk/client-neptunedata";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new NeptunedataClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelGremlinQueryCommand(params);
+const command = new ListLoaderJobsCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.Neptunedata({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelGremlinQuery(params);
+  const data = await client.listLoaderJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .cancelGremlinQuery(params)
+  .listLoaderJobs(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.cancelGremlinQuery(params, (err, data) => {
+client.listLoaderJobs(params, (err, data) => {
   // process err and data.
 });
 ```

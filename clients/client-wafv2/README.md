@@ -81,16 +81,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `WAFV2Client` and
-the commands you need, for example `AssociateWebACLCommand`:
+the commands you need, for example `ListAPIKeysCommand`:
 
 ```js
 // ES5 example
-const { WAFV2Client, AssociateWebACLCommand } = require("@aws-sdk/client-wafv2");
+const { WAFV2Client, ListAPIKeysCommand } = require("@aws-sdk/client-wafv2");
 ```
 
 ```ts
 // ES6+ example
-import { WAFV2Client, AssociateWebACLCommand } from "@aws-sdk/client-wafv2";
+import { WAFV2Client, ListAPIKeysCommand } from "@aws-sdk/client-wafv2";
 ```
 
 ### Usage
@@ -109,7 +109,7 @@ const client = new WAFV2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateWebACLCommand(params);
+const command = new ListAPIKeysCommand(params);
 ```
 
 #### Async/await
@@ -188,7 +188,7 @@ const client = new AWS.WAFV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateWebACL(params);
+  const data = await client.listAPIKeys(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -196,7 +196,7 @@ try {
 
 // Promises.
 client
-  .associateWebACL(params)
+  .listAPIKeys(params)
   .then((data) => {
     // process data.
   })
@@ -205,7 +205,7 @@ client
   });
 
 // callbacks.
-client.associateWebACL(params, (err, data) => {
+client.listAPIKeys(params, (err, data) => {
   // process err and data.
 });
 ```

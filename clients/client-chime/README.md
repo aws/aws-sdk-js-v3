@@ -65,16 +65,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ChimeClient` and
-the commands you need, for example `AssociatePhoneNumbersWithVoiceConnectorCommand`:
+the commands you need, for example `ListAccountsCommand`:
 
 ```js
 // ES5 example
-const { ChimeClient, AssociatePhoneNumbersWithVoiceConnectorCommand } = require("@aws-sdk/client-chime");
+const { ChimeClient, ListAccountsCommand } = require("@aws-sdk/client-chime");
 ```
 
 ```ts
 // ES6+ example
-import { ChimeClient, AssociatePhoneNumbersWithVoiceConnectorCommand } from "@aws-sdk/client-chime";
+import { ChimeClient, ListAccountsCommand } from "@aws-sdk/client-chime";
 ```
 
 ### Usage
@@ -93,7 +93,7 @@ const client = new ChimeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociatePhoneNumbersWithVoiceConnectorCommand(params);
+const command = new ListAccountsCommand(params);
 ```
 
 #### Async/await
@@ -172,7 +172,7 @@ const client = new AWS.Chime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associatePhoneNumbersWithVoiceConnector(params);
+  const data = await client.listAccounts(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -180,7 +180,7 @@ try {
 
 // Promises.
 client
-  .associatePhoneNumbersWithVoiceConnector(params)
+  .listAccounts(params)
   .then((data) => {
     // process data.
   })
@@ -189,7 +189,7 @@ client
   });
 
 // callbacks.
-client.associatePhoneNumbersWithVoiceConnector(params, (err, data) => {
+client.listAccounts(params, (err, data) => {
   // process err and data.
 });
 ```

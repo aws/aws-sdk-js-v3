@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LookoutMetricsClient` and
-the commands you need, for example `ActivateAnomalyDetectorCommand`:
+the commands you need, for example `ListAlertsCommand`:
 
 ```js
 // ES5 example
-const { LookoutMetricsClient, ActivateAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics");
+const { LookoutMetricsClient, ListAlertsCommand } = require("@aws-sdk/client-lookoutmetrics");
 ```
 
 ```ts
 // ES6+ example
-import { LookoutMetricsClient, ActivateAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics";
+import { LookoutMetricsClient, ListAlertsCommand } from "@aws-sdk/client-lookoutmetrics";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new LookoutMetricsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ActivateAnomalyDetectorCommand(params);
+const command = new ListAlertsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.LookoutMetrics({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.activateAnomalyDetector(params);
+  const data = await client.listAlerts(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .activateAnomalyDetector(params)
+  .listAlerts(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.activateAnomalyDetector(params, (err, data) => {
+client.listAlerts(params, (err, data) => {
   // process err and data.
 });
 ```

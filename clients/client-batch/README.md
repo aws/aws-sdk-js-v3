@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BatchClient` and
-the commands you need, for example `CancelJobCommand`:
+the commands you need, for example `ListJobsCommand`:
 
 ```js
 // ES5 example
-const { BatchClient, CancelJobCommand } = require("@aws-sdk/client-batch");
+const { BatchClient, ListJobsCommand } = require("@aws-sdk/client-batch");
 ```
 
 ```ts
 // ES6+ example
-import { BatchClient, CancelJobCommand } from "@aws-sdk/client-batch";
+import { BatchClient, ListJobsCommand } from "@aws-sdk/client-batch";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new BatchClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelJobCommand(params);
+const command = new ListJobsCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.Batch({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelJob(params);
+  const data = await client.listJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .cancelJob(params)
+  .listJobs(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.cancelJob(params, (err, data) => {
+client.listJobs(params, (err, data) => {
   // process err and data.
 });
 ```

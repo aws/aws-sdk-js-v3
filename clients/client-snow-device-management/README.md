@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SnowDeviceManagementClient` and
-the commands you need, for example `CancelTaskCommand`:
+the commands you need, for example `ListDevicesCommand`:
 
 ```js
 // ES5 example
-const { SnowDeviceManagementClient, CancelTaskCommand } = require("@aws-sdk/client-snow-device-management");
+const { SnowDeviceManagementClient, ListDevicesCommand } = require("@aws-sdk/client-snow-device-management");
 ```
 
 ```ts
 // ES6+ example
-import { SnowDeviceManagementClient, CancelTaskCommand } from "@aws-sdk/client-snow-device-management";
+import { SnowDeviceManagementClient, ListDevicesCommand } from "@aws-sdk/client-snow-device-management";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new SnowDeviceManagementClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelTaskCommand(params);
+const command = new ListDevicesCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.SnowDeviceManagement({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelTask(params);
+  const data = await client.listDevices(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .cancelTask(params)
+  .listDevices(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.cancelTask(params, (err, data) => {
+client.listDevices(params, (err, data) => {
   // process err and data.
 });
 ```

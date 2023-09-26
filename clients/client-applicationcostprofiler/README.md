@@ -28,19 +28,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ApplicationCostProfilerClient` and
-the commands you need, for example `DeleteReportDefinitionCommand`:
+the commands you need, for example `ListReportDefinitionsCommand`:
 
 ```js
 // ES5 example
 const {
   ApplicationCostProfilerClient,
-  DeleteReportDefinitionCommand,
+  ListReportDefinitionsCommand,
 } = require("@aws-sdk/client-applicationcostprofiler");
 ```
 
 ```ts
 // ES6+ example
-import { ApplicationCostProfilerClient, DeleteReportDefinitionCommand } from "@aws-sdk/client-applicationcostprofiler";
+import { ApplicationCostProfilerClient, ListReportDefinitionsCommand } from "@aws-sdk/client-applicationcostprofiler";
 ```
 
 ### Usage
@@ -59,7 +59,7 @@ const client = new ApplicationCostProfilerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteReportDefinitionCommand(params);
+const command = new ListReportDefinitionsCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +138,7 @@ const client = new AWS.ApplicationCostProfiler({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteReportDefinition(params);
+  const data = await client.listReportDefinitions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +146,7 @@ try {
 
 // Promises.
 client
-  .deleteReportDefinition(params)
+  .listReportDefinitions(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +155,7 @@ client
   });
 
 // callbacks.
-client.deleteReportDefinition(params, (err, data) => {
+client.listReportDefinitions(params, (err, data) => {
   // process err and data.
 });
 ```

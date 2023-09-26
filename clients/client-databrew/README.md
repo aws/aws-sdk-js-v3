@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DataBrewClient` and
-the commands you need, for example `BatchDeleteRecipeVersionCommand`:
+the commands you need, for example `ListJobsCommand`:
 
 ```js
 // ES5 example
-const { DataBrewClient, BatchDeleteRecipeVersionCommand } = require("@aws-sdk/client-databrew");
+const { DataBrewClient, ListJobsCommand } = require("@aws-sdk/client-databrew");
 ```
 
 ```ts
 // ES6+ example
-import { DataBrewClient, BatchDeleteRecipeVersionCommand } from "@aws-sdk/client-databrew";
+import { DataBrewClient, ListJobsCommand } from "@aws-sdk/client-databrew";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new DataBrewClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchDeleteRecipeVersionCommand(params);
+const command = new ListJobsCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.DataBrew({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchDeleteRecipeVersion(params);
+  const data = await client.listJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .batchDeleteRecipeVersion(params)
+  .listJobs(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.batchDeleteRecipeVersion(params, (err, data) => {
+client.listJobs(params, (err, data) => {
   // process err and data.
 });
 ```

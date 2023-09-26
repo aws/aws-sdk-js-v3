@@ -76,16 +76,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RDSClient` and
-the commands you need, for example `AddRoleToDBClusterCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { RDSClient, AddRoleToDBClusterCommand } = require("@aws-sdk/client-rds");
+const { RDSClient, ListTagsForResourceCommand } = require("@aws-sdk/client-rds");
 ```
 
 ```ts
 // ES6+ example
-import { RDSClient, AddRoleToDBClusterCommand } from "@aws-sdk/client-rds";
+import { RDSClient, ListTagsForResourceCommand } from "@aws-sdk/client-rds";
 ```
 
 ### Usage
@@ -104,7 +104,7 @@ const client = new RDSClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddRoleToDBClusterCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -183,7 +183,7 @@ const client = new AWS.RDS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addRoleToDBCluster(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -191,7 +191,7 @@ try {
 
 // Promises.
 client
-  .addRoleToDBCluster(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -200,7 +200,7 @@ client
   });
 
 // callbacks.
-client.addRoleToDBCluster(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

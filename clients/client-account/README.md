@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AccountClient` and
-the commands you need, for example `DeleteAlternateContactCommand`:
+the commands you need, for example `ListRegionsCommand`:
 
 ```js
 // ES5 example
-const { AccountClient, DeleteAlternateContactCommand } = require("@aws-sdk/client-account");
+const { AccountClient, ListRegionsCommand } = require("@aws-sdk/client-account");
 ```
 
 ```ts
 // ES6+ example
-import { AccountClient, DeleteAlternateContactCommand } from "@aws-sdk/client-account";
+import { AccountClient, ListRegionsCommand } from "@aws-sdk/client-account";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new AccountClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteAlternateContactCommand(params);
+const command = new ListRegionsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Account({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteAlternateContact(params);
+  const data = await client.listRegions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .deleteAlternateContact(params)
+  .listRegions(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.deleteAlternateContact(params, (err, data) => {
+client.listRegions(params, (err, data) => {
   // process err and data.
 });
 ```

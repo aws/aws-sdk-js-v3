@@ -42,16 +42,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RAMClient` and
-the commands you need, for example `AcceptResourceShareInvitationCommand`:
+the commands you need, for example `ListPermissionsCommand`:
 
 ```js
 // ES5 example
-const { RAMClient, AcceptResourceShareInvitationCommand } = require("@aws-sdk/client-ram");
+const { RAMClient, ListPermissionsCommand } = require("@aws-sdk/client-ram");
 ```
 
 ```ts
 // ES6+ example
-import { RAMClient, AcceptResourceShareInvitationCommand } from "@aws-sdk/client-ram";
+import { RAMClient, ListPermissionsCommand } from "@aws-sdk/client-ram";
 ```
 
 ### Usage
@@ -70,7 +70,7 @@ const client = new RAMClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptResourceShareInvitationCommand(params);
+const command = new ListPermissionsCommand(params);
 ```
 
 #### Async/await
@@ -149,7 +149,7 @@ const client = new AWS.RAM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptResourceShareInvitation(params);
+  const data = await client.listPermissions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -157,7 +157,7 @@ try {
 
 // Promises.
 client
-  .acceptResourceShareInvitation(params)
+  .listPermissions(params)
   .then((data) => {
     // process data.
   })
@@ -166,7 +166,7 @@ client
   });
 
 // callbacks.
-client.acceptResourceShareInvitation(params, (err, data) => {
+client.listPermissions(params, (err, data) => {
   // process err and data.
 });
 ```

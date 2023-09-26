@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaLiveClient` and
-the commands you need, for example `AcceptInputDeviceTransferCommand`:
+the commands you need, for example `ListInputsCommand`:
 
 ```js
 // ES5 example
-const { MediaLiveClient, AcceptInputDeviceTransferCommand } = require("@aws-sdk/client-medialive");
+const { MediaLiveClient, ListInputsCommand } = require("@aws-sdk/client-medialive");
 ```
 
 ```ts
 // ES6+ example
-import { MediaLiveClient, AcceptInputDeviceTransferCommand } from "@aws-sdk/client-medialive";
+import { MediaLiveClient, ListInputsCommand } from "@aws-sdk/client-medialive";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new MediaLiveClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptInputDeviceTransferCommand(params);
+const command = new ListInputsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.MediaLive({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptInputDeviceTransfer(params);
+  const data = await client.listInputs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .acceptInputDeviceTransfer(params)
+  .listInputs(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.acceptInputDeviceTransfer(params, (err, data) => {
+client.listInputs(params, (err, data) => {
   // process err and data.
 });
 ```

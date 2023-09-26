@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MTurkClient` and
-the commands you need, for example `AcceptQualificationRequestCommand`:
+the commands you need, for example `ListHITsCommand`:
 
 ```js
 // ES5 example
-const { MTurkClient, AcceptQualificationRequestCommand } = require("@aws-sdk/client-mturk");
+const { MTurkClient, ListHITsCommand } = require("@aws-sdk/client-mturk");
 ```
 
 ```ts
 // ES6+ example
-import { MTurkClient, AcceptQualificationRequestCommand } from "@aws-sdk/client-mturk";
+import { MTurkClient, ListHITsCommand } from "@aws-sdk/client-mturk";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new MTurkClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptQualificationRequestCommand(params);
+const command = new ListHITsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.MTurk({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptQualificationRequest(params);
+  const data = await client.listHITs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .acceptQualificationRequest(params)
+  .listHITs(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.acceptQualificationRequest(params, (err, data) => {
+client.listHITs(params, (err, data) => {
   // process err and data.
 });
 ```

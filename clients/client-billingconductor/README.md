@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BillingconductorClient` and
-the commands you need, for example `AssociateAccountsCommand`:
+the commands you need, for example `ListBillingGroupsCommand`:
 
 ```js
 // ES5 example
-const { BillingconductorClient, AssociateAccountsCommand } = require("@aws-sdk/client-billingconductor");
+const { BillingconductorClient, ListBillingGroupsCommand } = require("@aws-sdk/client-billingconductor");
 ```
 
 ```ts
 // ES6+ example
-import { BillingconductorClient, AssociateAccountsCommand } from "@aws-sdk/client-billingconductor";
+import { BillingconductorClient, ListBillingGroupsCommand } from "@aws-sdk/client-billingconductor";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new BillingconductorClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateAccountsCommand(params);
+const command = new ListBillingGroupsCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.Billingconductor({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateAccounts(params);
+  const data = await client.listBillingGroups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .associateAccounts(params)
+  .listBillingGroups(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.associateAccounts(params, (err, data) => {
+client.listBillingGroups(params, (err, data) => {
   // process err and data.
 });
 ```

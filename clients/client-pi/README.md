@@ -48,16 +48,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PIClient` and
-the commands you need, for example `CreatePerformanceAnalysisReportCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { PIClient, CreatePerformanceAnalysisReportCommand } = require("@aws-sdk/client-pi");
+const { PIClient, ListTagsForResourceCommand } = require("@aws-sdk/client-pi");
 ```
 
 ```ts
 // ES6+ example
-import { PIClient, CreatePerformanceAnalysisReportCommand } from "@aws-sdk/client-pi";
+import { PIClient, ListTagsForResourceCommand } from "@aws-sdk/client-pi";
 ```
 
 ### Usage
@@ -76,7 +76,7 @@ const client = new PIClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreatePerformanceAnalysisReportCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -155,7 +155,7 @@ const client = new AWS.PI({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createPerformanceAnalysisReport(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -163,7 +163,7 @@ try {
 
 // Promises.
 client
-  .createPerformanceAnalysisReport(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -172,7 +172,7 @@ client
   });
 
 // callbacks.
-client.createPerformanceAnalysisReport(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

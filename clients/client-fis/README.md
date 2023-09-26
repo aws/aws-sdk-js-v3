@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `FisClient` and
-the commands you need, for example `CreateExperimentTemplateCommand`:
+the commands you need, for example `ListActionsCommand`:
 
 ```js
 // ES5 example
-const { FisClient, CreateExperimentTemplateCommand } = require("@aws-sdk/client-fis");
+const { FisClient, ListActionsCommand } = require("@aws-sdk/client-fis");
 ```
 
 ```ts
 // ES6+ example
-import { FisClient, CreateExperimentTemplateCommand } from "@aws-sdk/client-fis";
+import { FisClient, ListActionsCommand } from "@aws-sdk/client-fis";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new FisClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateExperimentTemplateCommand(params);
+const command = new ListActionsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.Fis({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createExperimentTemplate(params);
+  const data = await client.listActions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .createExperimentTemplate(params)
+  .listActions(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.createExperimentTemplate(params, (err, data) => {
+client.listActions(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -39,16 +39,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DataPipelineClient` and
-the commands you need, for example `ActivatePipelineCommand`:
+the commands you need, for example `ListPipelinesCommand`:
 
 ```js
 // ES5 example
-const { DataPipelineClient, ActivatePipelineCommand } = require("@aws-sdk/client-data-pipeline");
+const { DataPipelineClient, ListPipelinesCommand } = require("@aws-sdk/client-data-pipeline");
 ```
 
 ```ts
 // ES6+ example
-import { DataPipelineClient, ActivatePipelineCommand } from "@aws-sdk/client-data-pipeline";
+import { DataPipelineClient, ListPipelinesCommand } from "@aws-sdk/client-data-pipeline";
 ```
 
 ### Usage
@@ -67,7 +67,7 @@ const client = new DataPipelineClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ActivatePipelineCommand(params);
+const command = new ListPipelinesCommand(params);
 ```
 
 #### Async/await
@@ -146,7 +146,7 @@ const client = new AWS.DataPipeline({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.activatePipeline(params);
+  const data = await client.listPipelines(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -154,7 +154,7 @@ try {
 
 // Promises.
 client
-  .activatePipeline(params)
+  .listPipelines(params)
   .then((data) => {
     // process data.
   })
@@ -163,7 +163,7 @@ client
   });
 
 // callbacks.
-client.activatePipeline(params, (err, data) => {
+client.listPipelines(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -113,16 +113,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CodeStarClient` and
-the commands you need, for example `AssociateTeamMemberCommand`:
+the commands you need, for example `ListProjectsCommand`:
 
 ```js
 // ES5 example
-const { CodeStarClient, AssociateTeamMemberCommand } = require("@aws-sdk/client-codestar");
+const { CodeStarClient, ListProjectsCommand } = require("@aws-sdk/client-codestar");
 ```
 
 ```ts
 // ES6+ example
-import { CodeStarClient, AssociateTeamMemberCommand } from "@aws-sdk/client-codestar";
+import { CodeStarClient, ListProjectsCommand } from "@aws-sdk/client-codestar";
 ```
 
 ### Usage
@@ -141,7 +141,7 @@ const client = new CodeStarClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateTeamMemberCommand(params);
+const command = new ListProjectsCommand(params);
 ```
 
 #### Async/await
@@ -220,7 +220,7 @@ const client = new AWS.CodeStar({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateTeamMember(params);
+  const data = await client.listProjects(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -228,7 +228,7 @@ try {
 
 // Promises.
 client
-  .associateTeamMember(params)
+  .listProjects(params)
   .then((data) => {
     // process data.
   })
@@ -237,7 +237,7 @@ client
   });
 
 // callbacks.
-client.associateTeamMember(params, (err, data) => {
+client.listProjects(params, (err, data) => {
   // process err and data.
 });
 ```

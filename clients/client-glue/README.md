@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `GlueClient` and
-the commands you need, for example `BatchCreatePartitionCommand`:
+the commands you need, for example `ListJobsCommand`:
 
 ```js
 // ES5 example
-const { GlueClient, BatchCreatePartitionCommand } = require("@aws-sdk/client-glue");
+const { GlueClient, ListJobsCommand } = require("@aws-sdk/client-glue");
 ```
 
 ```ts
 // ES6+ example
-import { GlueClient, BatchCreatePartitionCommand } from "@aws-sdk/client-glue";
+import { GlueClient, ListJobsCommand } from "@aws-sdk/client-glue";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new GlueClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchCreatePartitionCommand(params);
+const command = new ListJobsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.Glue({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchCreatePartition(params);
+  const data = await client.listJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .batchCreatePartition(params)
+  .listJobs(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.batchCreatePartition(params, (err, data) => {
+client.listJobs(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -44,16 +44,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RedshiftClient` and
-the commands you need, for example `AcceptReservedNodeExchangeCommand`:
+the commands you need, for example `DescribeClustersCommand`:
 
 ```js
 // ES5 example
-const { RedshiftClient, AcceptReservedNodeExchangeCommand } = require("@aws-sdk/client-redshift");
+const { RedshiftClient, DescribeClustersCommand } = require("@aws-sdk/client-redshift");
 ```
 
 ```ts
 // ES6+ example
-import { RedshiftClient, AcceptReservedNodeExchangeCommand } from "@aws-sdk/client-redshift";
+import { RedshiftClient, DescribeClustersCommand } from "@aws-sdk/client-redshift";
 ```
 
 ### Usage
@@ -72,7 +72,7 @@ const client = new RedshiftClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptReservedNodeExchangeCommand(params);
+const command = new DescribeClustersCommand(params);
 ```
 
 #### Async/await
@@ -151,7 +151,7 @@ const client = new AWS.Redshift({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptReservedNodeExchange(params);
+  const data = await client.describeClusters(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -159,7 +159,7 @@ try {
 
 // Promises.
 client
-  .acceptReservedNodeExchange(params)
+  .describeClusters(params)
   .then((data) => {
     // process data.
   })
@@ -168,7 +168,7 @@ client
   });
 
 // callbacks.
-client.acceptReservedNodeExchange(params, (err, data) => {
+client.describeClusters(params, (err, data) => {
   // process err and data.
 });
 ```

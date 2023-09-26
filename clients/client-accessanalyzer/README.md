@@ -31,16 +31,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AccessAnalyzerClient` and
-the commands you need, for example `ApplyArchiveRuleCommand`:
+the commands you need, for example `ListAnalyzersCommand`:
 
 ```js
 // ES5 example
-const { AccessAnalyzerClient, ApplyArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer");
+const { AccessAnalyzerClient, ListAnalyzersCommand } = require("@aws-sdk/client-accessanalyzer");
 ```
 
 ```ts
 // ES6+ example
-import { AccessAnalyzerClient, ApplyArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer";
+import { AccessAnalyzerClient, ListAnalyzersCommand } from "@aws-sdk/client-accessanalyzer";
 ```
 
 ### Usage
@@ -59,7 +59,7 @@ const client = new AccessAnalyzerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ApplyArchiveRuleCommand(params);
+const command = new ListAnalyzersCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +138,7 @@ const client = new AWS.AccessAnalyzer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.applyArchiveRule(params);
+  const data = await client.listAnalyzers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +146,7 @@ try {
 
 // Promises.
 client
-  .applyArchiveRule(params)
+  .listAnalyzers(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +155,7 @@ client
   });
 
 // callbacks.
-client.applyArchiveRule(params, (err, data) => {
+client.listAnalyzers(params, (err, data) => {
   // process err and data.
 });
 ```

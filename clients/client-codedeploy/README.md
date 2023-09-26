@@ -115,16 +115,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CodeDeployClient` and
-the commands you need, for example `AddTagsToOnPremisesInstancesCommand`:
+the commands you need, for example `ListApplicationsCommand`:
 
 ```js
 // ES5 example
-const { CodeDeployClient, AddTagsToOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy");
+const { CodeDeployClient, ListApplicationsCommand } = require("@aws-sdk/client-codedeploy");
 ```
 
 ```ts
 // ES6+ example
-import { CodeDeployClient, AddTagsToOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy";
+import { CodeDeployClient, ListApplicationsCommand } from "@aws-sdk/client-codedeploy";
 ```
 
 ### Usage
@@ -143,7 +143,7 @@ const client = new CodeDeployClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddTagsToOnPremisesInstancesCommand(params);
+const command = new ListApplicationsCommand(params);
 ```
 
 #### Async/await
@@ -222,7 +222,7 @@ const client = new AWS.CodeDeploy({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addTagsToOnPremisesInstances(params);
+  const data = await client.listApplications(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -230,7 +230,7 @@ try {
 
 // Promises.
 client
-  .addTagsToOnPremisesInstances(params)
+  .listApplications(params)
   .then((data) => {
     // process data.
   })
@@ -239,7 +239,7 @@ client
   });
 
 // callbacks.
-client.addTagsToOnPremisesInstances(params, (err, data) => {
+client.listApplications(params, (err, data) => {
   // process err and data.
 });
 ```

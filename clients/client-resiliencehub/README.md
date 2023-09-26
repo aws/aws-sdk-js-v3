@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ResiliencehubClient` and
-the commands you need, for example `AddDraftAppVersionResourceMappingsCommand`:
+the commands you need, for example `ListAppsCommand`:
 
 ```js
 // ES5 example
-const { ResiliencehubClient, AddDraftAppVersionResourceMappingsCommand } = require("@aws-sdk/client-resiliencehub");
+const { ResiliencehubClient, ListAppsCommand } = require("@aws-sdk/client-resiliencehub");
 ```
 
 ```ts
 // ES6+ example
-import { ResiliencehubClient, AddDraftAppVersionResourceMappingsCommand } from "@aws-sdk/client-resiliencehub";
+import { ResiliencehubClient, ListAppsCommand } from "@aws-sdk/client-resiliencehub";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new ResiliencehubClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddDraftAppVersionResourceMappingsCommand(params);
+const command = new ListAppsCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.Resiliencehub({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addDraftAppVersionResourceMappings(params);
+  const data = await client.listApps(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .addDraftAppVersionResourceMappings(params)
+  .listApps(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.addDraftAppVersionResourceMappings(params, (err, data) => {
+client.listApps(params, (err, data) => {
   // process err and data.
 });
 ```

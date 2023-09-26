@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudHSMClient` and
-the commands you need, for example `AddTagsToResourceCommand`:
+the commands you need, for example `ListHapgsCommand`:
 
 ```js
 // ES5 example
-const { CloudHSMClient, AddTagsToResourceCommand } = require("@aws-sdk/client-cloudhsm");
+const { CloudHSMClient, ListHapgsCommand } = require("@aws-sdk/client-cloudhsm");
 ```
 
 ```ts
 // ES6+ example
-import { CloudHSMClient, AddTagsToResourceCommand } from "@aws-sdk/client-cloudhsm";
+import { CloudHSMClient, ListHapgsCommand } from "@aws-sdk/client-cloudhsm";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new CloudHSMClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddTagsToResourceCommand(params);
+const command = new ListHapgsCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.CloudHSM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addTagsToResource(params);
+  const data = await client.listHapgs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .addTagsToResource(params)
+  .listHapgs(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.addTagsToResource(params, (err, data) => {
+client.listHapgs(params, (err, data) => {
   // process err and data.
 });
 ```

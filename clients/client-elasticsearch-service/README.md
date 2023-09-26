@@ -30,22 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ElasticsearchServiceClient` and
-the commands you need, for example `AcceptInboundCrossClusterSearchConnectionCommand`:
+the commands you need, for example `ListDomainNamesCommand`:
 
 ```js
 // ES5 example
-const {
-  ElasticsearchServiceClient,
-  AcceptInboundCrossClusterSearchConnectionCommand,
-} = require("@aws-sdk/client-elasticsearch-service");
+const { ElasticsearchServiceClient, ListDomainNamesCommand } = require("@aws-sdk/client-elasticsearch-service");
 ```
 
 ```ts
 // ES6+ example
-import {
-  ElasticsearchServiceClient,
-  AcceptInboundCrossClusterSearchConnectionCommand,
-} from "@aws-sdk/client-elasticsearch-service";
+import { ElasticsearchServiceClient, ListDomainNamesCommand } from "@aws-sdk/client-elasticsearch-service";
 ```
 
 ### Usage
@@ -64,7 +58,7 @@ const client = new ElasticsearchServiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptInboundCrossClusterSearchConnectionCommand(params);
+const command = new ListDomainNamesCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +137,7 @@ const client = new AWS.ElasticsearchService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptInboundCrossClusterSearchConnection(params);
+  const data = await client.listDomainNames(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +145,7 @@ try {
 
 // Promises.
 client
-  .acceptInboundCrossClusterSearchConnection(params)
+  .listDomainNames(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +154,7 @@ client
   });
 
 // callbacks.
-client.acceptInboundCrossClusterSearchConnection(params, (err, data) => {
+client.listDomainNames(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -45,16 +45,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CodeGuruProfilerClient` and
-the commands you need, for example `AddNotificationChannelsCommand`:
+the commands you need, for example `ListProfilingGroupsCommand`:
 
 ```js
 // ES5 example
-const { CodeGuruProfilerClient, AddNotificationChannelsCommand } = require("@aws-sdk/client-codeguruprofiler");
+const { CodeGuruProfilerClient, ListProfilingGroupsCommand } = require("@aws-sdk/client-codeguruprofiler");
 ```
 
 ```ts
 // ES6+ example
-import { CodeGuruProfilerClient, AddNotificationChannelsCommand } from "@aws-sdk/client-codeguruprofiler";
+import { CodeGuruProfilerClient, ListProfilingGroupsCommand } from "@aws-sdk/client-codeguruprofiler";
 ```
 
 ### Usage
@@ -73,7 +73,7 @@ const client = new CodeGuruProfilerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddNotificationChannelsCommand(params);
+const command = new ListProfilingGroupsCommand(params);
 ```
 
 #### Async/await
@@ -152,7 +152,7 @@ const client = new AWS.CodeGuruProfiler({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addNotificationChannels(params);
+  const data = await client.listProfilingGroups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -160,7 +160,7 @@ try {
 
 // Promises.
 client
-  .addNotificationChannels(params)
+  .listProfilingGroups(params)
   .then((data) => {
     // process data.
   })
@@ -169,7 +169,7 @@ client
   });
 
 // callbacks.
-client.addNotificationChannels(params, (err, data) => {
+client.listProfilingGroups(params, (err, data) => {
   // process err and data.
 });
 ```

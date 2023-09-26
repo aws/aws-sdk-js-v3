@@ -32,16 +32,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BraketClient` and
-the commands you need, for example `CancelJobCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { BraketClient, CancelJobCommand } = require("@aws-sdk/client-braket");
+const { BraketClient, ListTagsForResourceCommand } = require("@aws-sdk/client-braket");
 ```
 
 ```ts
 // ES6+ example
-import { BraketClient, CancelJobCommand } from "@aws-sdk/client-braket";
+import { BraketClient, ListTagsForResourceCommand } from "@aws-sdk/client-braket";
 ```
 
 ### Usage
@@ -60,7 +60,7 @@ const client = new BraketClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelJobCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +139,7 @@ const client = new AWS.Braket({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelJob(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +147,7 @@ try {
 
 // Promises.
 client
-  .cancelJob(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +156,7 @@ client
   });
 
 // callbacks.
-client.cancelJob(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

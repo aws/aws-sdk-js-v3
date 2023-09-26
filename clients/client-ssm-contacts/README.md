@@ -30,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SSMContactsClient` and
-the commands you need, for example `AcceptPageCommand`:
+the commands you need, for example `ListContactsCommand`:
 
 ```js
 // ES5 example
-const { SSMContactsClient, AcceptPageCommand } = require("@aws-sdk/client-ssm-contacts");
+const { SSMContactsClient, ListContactsCommand } = require("@aws-sdk/client-ssm-contacts");
 ```
 
 ```ts
 // ES6+ example
-import { SSMContactsClient, AcceptPageCommand } from "@aws-sdk/client-ssm-contacts";
+import { SSMContactsClient, ListContactsCommand } from "@aws-sdk/client-ssm-contacts";
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ const client = new SSMContactsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptPageCommand(params);
+const command = new ListContactsCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.SSMContacts({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptPage(params);
+  const data = await client.listContacts(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .acceptPage(params)
+  .listContacts(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.acceptPage(params, (err, data) => {
+client.listContacts(params, (err, data) => {
   // process err and data.
 });
 ```

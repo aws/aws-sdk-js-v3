@@ -37,16 +37,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CodeGuruReviewerClient` and
-the commands you need, for example `AssociateRepositoryCommand`:
+the commands you need, for example `ListCodeReviewsCommand`:
 
 ```js
 // ES5 example
-const { CodeGuruReviewerClient, AssociateRepositoryCommand } = require("@aws-sdk/client-codeguru-reviewer");
+const { CodeGuruReviewerClient, ListCodeReviewsCommand } = require("@aws-sdk/client-codeguru-reviewer");
 ```
 
 ```ts
 // ES6+ example
-import { CodeGuruReviewerClient, AssociateRepositoryCommand } from "@aws-sdk/client-codeguru-reviewer";
+import { CodeGuruReviewerClient, ListCodeReviewsCommand } from "@aws-sdk/client-codeguru-reviewer";
 ```
 
 ### Usage
@@ -65,7 +65,7 @@ const client = new CodeGuruReviewerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateRepositoryCommand(params);
+const command = new ListCodeReviewsCommand(params);
 ```
 
 #### Async/await
@@ -144,7 +144,7 @@ const client = new AWS.CodeGuruReviewer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateRepository(params);
+  const data = await client.listCodeReviews(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -152,7 +152,7 @@ try {
 
 // Promises.
 client
-  .associateRepository(params)
+  .listCodeReviews(params)
   .then((data) => {
     // process data.
   })
@@ -161,7 +161,7 @@ client
   });
 
 // callbacks.
-client.associateRepository(params, (err, data) => {
+client.listCodeReviews(params, (err, data) => {
   // process err and data.
 });
 ```

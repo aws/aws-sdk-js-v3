@@ -31,16 +31,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CleanRoomsClient` and
-the commands you need, for example `BatchGetCollaborationAnalysisTemplateCommand`:
+the commands you need, for example `ListMembersCommand`:
 
 ```js
 // ES5 example
-const { CleanRoomsClient, BatchGetCollaborationAnalysisTemplateCommand } = require("@aws-sdk/client-cleanrooms");
+const { CleanRoomsClient, ListMembersCommand } = require("@aws-sdk/client-cleanrooms");
 ```
 
 ```ts
 // ES6+ example
-import { CleanRoomsClient, BatchGetCollaborationAnalysisTemplateCommand } from "@aws-sdk/client-cleanrooms";
+import { CleanRoomsClient, ListMembersCommand } from "@aws-sdk/client-cleanrooms";
 ```
 
 ### Usage
@@ -59,7 +59,7 @@ const client = new CleanRoomsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetCollaborationAnalysisTemplateCommand(params);
+const command = new ListMembersCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +138,7 @@ const client = new AWS.CleanRooms({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetCollaborationAnalysisTemplate(params);
+  const data = await client.listMembers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +146,7 @@ try {
 
 // Promises.
 client
-  .batchGetCollaborationAnalysisTemplate(params)
+  .listMembers(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +155,7 @@ client
   });
 
 // callbacks.
-client.batchGetCollaborationAnalysisTemplate(params, (err, data) => {
+client.listMembers(params, (err, data) => {
   // process err and data.
 });
 ```

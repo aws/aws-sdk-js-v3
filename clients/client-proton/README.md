@@ -151,16 +151,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ProtonClient` and
-the commands you need, for example `AcceptEnvironmentAccountConnectionCommand`:
+the commands you need, for example `ListComponentsCommand`:
 
 ```js
 // ES5 example
-const { ProtonClient, AcceptEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton");
+const { ProtonClient, ListComponentsCommand } = require("@aws-sdk/client-proton");
 ```
 
 ```ts
 // ES6+ example
-import { ProtonClient, AcceptEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton";
+import { ProtonClient, ListComponentsCommand } from "@aws-sdk/client-proton";
 ```
 
 ### Usage
@@ -179,7 +179,7 @@ const client = new ProtonClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptEnvironmentAccountConnectionCommand(params);
+const command = new ListComponentsCommand(params);
 ```
 
 #### Async/await
@@ -258,7 +258,7 @@ const client = new AWS.Proton({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptEnvironmentAccountConnection(params);
+  const data = await client.listComponents(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -266,7 +266,7 @@ try {
 
 // Promises.
 client
-  .acceptEnvironmentAccountConnection(params)
+  .listComponents(params)
   .then((data) => {
     // process data.
   })
@@ -275,7 +275,7 @@ client
   });
 
 // callbacks.
-client.acceptEnvironmentAccountConnection(params, (err, data) => {
+client.listComponents(params, (err, data) => {
   // process err and data.
 });
 ```

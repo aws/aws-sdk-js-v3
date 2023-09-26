@@ -23,22 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ResourceGroupsTaggingAPIClient` and
-the commands you need, for example `DescribeReportCreationCommand`:
+the commands you need, for example `GetTagKeysCommand`:
 
 ```js
 // ES5 example
-const {
-  ResourceGroupsTaggingAPIClient,
-  DescribeReportCreationCommand,
-} = require("@aws-sdk/client-resource-groups-tagging-api");
+const { ResourceGroupsTaggingAPIClient, GetTagKeysCommand } = require("@aws-sdk/client-resource-groups-tagging-api");
 ```
 
 ```ts
 // ES6+ example
-import {
-  ResourceGroupsTaggingAPIClient,
-  DescribeReportCreationCommand,
-} from "@aws-sdk/client-resource-groups-tagging-api";
+import { ResourceGroupsTaggingAPIClient, GetTagKeysCommand } from "@aws-sdk/client-resource-groups-tagging-api";
 ```
 
 ### Usage
@@ -57,7 +51,7 @@ const client = new ResourceGroupsTaggingAPIClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeReportCreationCommand(params);
+const command = new GetTagKeysCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +130,7 @@ const client = new AWS.ResourceGroupsTaggingAPI({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeReportCreation(params);
+  const data = await client.getTagKeys(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +138,7 @@ try {
 
 // Promises.
 client
-  .describeReportCreation(params)
+  .getTagKeys(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +147,7 @@ client
   });
 
 // callbacks.
-client.describeReportCreation(params, (err, data) => {
+client.getTagKeys(params, (err, data) => {
   // process err and data.
 });
 ```

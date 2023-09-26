@@ -93,16 +93,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ControlTowerClient` and
-the commands you need, for example `DisableControlCommand`:
+the commands you need, for example `ListEnabledControlsCommand`:
 
 ```js
 // ES5 example
-const { ControlTowerClient, DisableControlCommand } = require("@aws-sdk/client-controltower");
+const { ControlTowerClient, ListEnabledControlsCommand } = require("@aws-sdk/client-controltower");
 ```
 
 ```ts
 // ES6+ example
-import { ControlTowerClient, DisableControlCommand } from "@aws-sdk/client-controltower";
+import { ControlTowerClient, ListEnabledControlsCommand } from "@aws-sdk/client-controltower";
 ```
 
 ### Usage
@@ -121,7 +121,7 @@ const client = new ControlTowerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DisableControlCommand(params);
+const command = new ListEnabledControlsCommand(params);
 ```
 
 #### Async/await
@@ -200,7 +200,7 @@ const client = new AWS.ControlTower({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.disableControl(params);
+  const data = await client.listEnabledControls(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -208,7 +208,7 @@ try {
 
 // Promises.
 client
-  .disableControl(params)
+  .listEnabledControls(params)
   .then((data) => {
     // process data.
   })
@@ -217,7 +217,7 @@ client
   });
 
 // callbacks.
-client.disableControl(params, (err, data) => {
+client.listEnabledControls(params, (err, data) => {
   // process err and data.
 });
 ```

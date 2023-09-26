@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudControlClient` and
-the commands you need, for example `CancelResourceRequestCommand`:
+the commands you need, for example `ListResourceRequestsCommand`:
 
 ```js
 // ES5 example
-const { CloudControlClient, CancelResourceRequestCommand } = require("@aws-sdk/client-cloudcontrol");
+const { CloudControlClient, ListResourceRequestsCommand } = require("@aws-sdk/client-cloudcontrol");
 ```
 
 ```ts
 // ES6+ example
-import { CloudControlClient, CancelResourceRequestCommand } from "@aws-sdk/client-cloudcontrol";
+import { CloudControlClient, ListResourceRequestsCommand } from "@aws-sdk/client-cloudcontrol";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new CloudControlClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelResourceRequestCommand(params);
+const command = new ListResourceRequestsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.CloudControl({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelResourceRequest(params);
+  const data = await client.listResourceRequests(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .cancelResourceRequest(params)
+  .listResourceRequests(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.cancelResourceRequest(params, (err, data) => {
+client.listResourceRequests(params, (err, data) => {
   // process err and data.
 });
 ```

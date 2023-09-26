@@ -23,22 +23,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ServiceCatalogAppRegistryClient` and
-the commands you need, for example `AssociateAttributeGroupCommand`:
+the commands you need, for example `ListApplicationsCommand`:
 
 ```js
 // ES5 example
 const {
   ServiceCatalogAppRegistryClient,
-  AssociateAttributeGroupCommand,
+  ListApplicationsCommand,
 } = require("@aws-sdk/client-service-catalog-appregistry");
 ```
 
 ```ts
 // ES6+ example
-import {
-  ServiceCatalogAppRegistryClient,
-  AssociateAttributeGroupCommand,
-} from "@aws-sdk/client-service-catalog-appregistry";
+import { ServiceCatalogAppRegistryClient, ListApplicationsCommand } from "@aws-sdk/client-service-catalog-appregistry";
 ```
 
 ### Usage
@@ -57,7 +54,7 @@ const client = new ServiceCatalogAppRegistryClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateAttributeGroupCommand(params);
+const command = new ListApplicationsCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +133,7 @@ const client = new AWS.ServiceCatalogAppRegistry({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateAttributeGroup(params);
+  const data = await client.listApplications(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +141,7 @@ try {
 
 // Promises.
 client
-  .associateAttributeGroup(params)
+  .listApplications(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +150,7 @@ client
   });
 
 // callbacks.
-client.associateAttributeGroup(params, (err, data) => {
+client.listApplications(params, (err, data) => {
   // process err and data.
 });
 ```

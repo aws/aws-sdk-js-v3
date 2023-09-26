@@ -24,19 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ChimeSDKVoiceClient` and
-the commands you need, for example `AssociatePhoneNumbersWithVoiceConnectorCommand`:
+the commands you need, for example `ListPhoneNumbersCommand`:
 
 ```js
 // ES5 example
-const {
-  ChimeSDKVoiceClient,
-  AssociatePhoneNumbersWithVoiceConnectorCommand,
-} = require("@aws-sdk/client-chime-sdk-voice");
+const { ChimeSDKVoiceClient, ListPhoneNumbersCommand } = require("@aws-sdk/client-chime-sdk-voice");
 ```
 
 ```ts
 // ES6+ example
-import { ChimeSDKVoiceClient, AssociatePhoneNumbersWithVoiceConnectorCommand } from "@aws-sdk/client-chime-sdk-voice";
+import { ChimeSDKVoiceClient, ListPhoneNumbersCommand } from "@aws-sdk/client-chime-sdk-voice";
 ```
 
 ### Usage
@@ -55,7 +52,7 @@ const client = new ChimeSDKVoiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociatePhoneNumbersWithVoiceConnectorCommand(params);
+const command = new ListPhoneNumbersCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +131,7 @@ const client = new AWS.ChimeSDKVoice({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associatePhoneNumbersWithVoiceConnector(params);
+  const data = await client.listPhoneNumbers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +139,7 @@ try {
 
 // Promises.
 client
-  .associatePhoneNumbersWithVoiceConnector(params)
+  .listPhoneNumbers(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +148,7 @@ client
   });
 
 // callbacks.
-client.associatePhoneNumbersWithVoiceConnector(params, (err, data) => {
+client.listPhoneNumbers(params, (err, data) => {
   // process err and data.
 });
 ```

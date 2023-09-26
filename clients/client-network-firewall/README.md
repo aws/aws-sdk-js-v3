@@ -100,16 +100,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `NetworkFirewallClient` and
-the commands you need, for example `AssociateFirewallPolicyCommand`:
+the commands you need, for example `ListFirewallsCommand`:
 
 ```js
 // ES5 example
-const { NetworkFirewallClient, AssociateFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall");
+const { NetworkFirewallClient, ListFirewallsCommand } = require("@aws-sdk/client-network-firewall");
 ```
 
 ```ts
 // ES6+ example
-import { NetworkFirewallClient, AssociateFirewallPolicyCommand } from "@aws-sdk/client-network-firewall";
+import { NetworkFirewallClient, ListFirewallsCommand } from "@aws-sdk/client-network-firewall";
 ```
 
 ### Usage
@@ -128,7 +128,7 @@ const client = new NetworkFirewallClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateFirewallPolicyCommand(params);
+const command = new ListFirewallsCommand(params);
 ```
 
 #### Async/await
@@ -207,7 +207,7 @@ const client = new AWS.NetworkFirewall({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateFirewallPolicy(params);
+  const data = await client.listFirewalls(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -215,7 +215,7 @@ try {
 
 // Promises.
 client
-  .associateFirewallPolicy(params)
+  .listFirewalls(params)
   .then((data) => {
     // process data.
   })
@@ -224,7 +224,7 @@ client
   });
 
 // callbacks.
-client.associateFirewallPolicy(params, (err, data) => {
+client.listFirewalls(params, (err, data) => {
   // process err and data.
 });
 ```

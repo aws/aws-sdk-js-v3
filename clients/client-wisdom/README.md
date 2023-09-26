@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `WisdomClient` and
-the commands you need, for example `CreateAssistantCommand`:
+the commands you need, for example `ListAssistantsCommand`:
 
 ```js
 // ES5 example
-const { WisdomClient, CreateAssistantCommand } = require("@aws-sdk/client-wisdom");
+const { WisdomClient, ListAssistantsCommand } = require("@aws-sdk/client-wisdom");
 ```
 
 ```ts
 // ES6+ example
-import { WisdomClient, CreateAssistantCommand } from "@aws-sdk/client-wisdom";
+import { WisdomClient, ListAssistantsCommand } from "@aws-sdk/client-wisdom";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new WisdomClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAssistantCommand(params);
+const command = new ListAssistantsCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.Wisdom({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAssistant(params);
+  const data = await client.listAssistants(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .createAssistant(params)
+  .listAssistants(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.createAssistant(params, (err, data) => {
+client.listAssistants(params, (err, data) => {
   // process err and data.
 });
 ```

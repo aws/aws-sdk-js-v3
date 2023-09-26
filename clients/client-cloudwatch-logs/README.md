@@ -57,16 +57,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudWatchLogsClient` and
-the commands you need, for example `AssociateKmsKeyCommand`:
+the commands you need, for example `ListTagsLogGroupCommand`:
 
 ```js
 // ES5 example
-const { CloudWatchLogsClient, AssociateKmsKeyCommand } = require("@aws-sdk/client-cloudwatch-logs");
+const { CloudWatchLogsClient, ListTagsLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs");
 ```
 
 ```ts
 // ES6+ example
-import { CloudWatchLogsClient, AssociateKmsKeyCommand } from "@aws-sdk/client-cloudwatch-logs";
+import { CloudWatchLogsClient, ListTagsLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ const client = new CloudWatchLogsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateKmsKeyCommand(params);
+const command = new ListTagsLogGroupCommand(params);
 ```
 
 #### Async/await
@@ -164,7 +164,7 @@ const client = new AWS.CloudWatchLogs({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateKmsKey(params);
+  const data = await client.listTagsLogGroup(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -172,7 +172,7 @@ try {
 
 // Promises.
 client
-  .associateKmsKey(params)
+  .listTagsLogGroup(params)
   .then((data) => {
     // process data.
   })
@@ -181,7 +181,7 @@ client
   });
 
 // callbacks.
-client.associateKmsKey(params, (err, data) => {
+client.listTagsLogGroup(params, (err, data) => {
   // process err and data.
 });
 ```

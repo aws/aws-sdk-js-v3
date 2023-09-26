@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CodeGuruSecurityClient` and
-the commands you need, for example `BatchGetFindingsCommand`:
+the commands you need, for example `ListScansCommand`:
 
 ```js
 // ES5 example
-const { CodeGuruSecurityClient, BatchGetFindingsCommand } = require("@aws-sdk/client-codeguru-security");
+const { CodeGuruSecurityClient, ListScansCommand } = require("@aws-sdk/client-codeguru-security");
 ```
 
 ```ts
 // ES6+ example
-import { CodeGuruSecurityClient, BatchGetFindingsCommand } from "@aws-sdk/client-codeguru-security";
+import { CodeGuruSecurityClient, ListScansCommand } from "@aws-sdk/client-codeguru-security";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new CodeGuruSecurityClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetFindingsCommand(params);
+const command = new ListScansCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.CodeGuruSecurity({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetFindings(params);
+  const data = await client.listScans(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .batchGetFindings(params)
+  .listScans(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.batchGetFindings(params, (err, data) => {
+client.listScans(params, (err, data) => {
   // process err and data.
 });
 ```

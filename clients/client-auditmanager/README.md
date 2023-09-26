@@ -58,16 +58,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AuditManagerClient` and
-the commands you need, for example `AssociateAssessmentReportEvidenceFolderCommand`:
+the commands you need, for example `ListAssessmentsCommand`:
 
 ```js
 // ES5 example
-const { AuditManagerClient, AssociateAssessmentReportEvidenceFolderCommand } = require("@aws-sdk/client-auditmanager");
+const { AuditManagerClient, ListAssessmentsCommand } = require("@aws-sdk/client-auditmanager");
 ```
 
 ```ts
 // ES6+ example
-import { AuditManagerClient, AssociateAssessmentReportEvidenceFolderCommand } from "@aws-sdk/client-auditmanager";
+import { AuditManagerClient, ListAssessmentsCommand } from "@aws-sdk/client-auditmanager";
 ```
 
 ### Usage
@@ -86,7 +86,7 @@ const client = new AuditManagerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateAssessmentReportEvidenceFolderCommand(params);
+const command = new ListAssessmentsCommand(params);
 ```
 
 #### Async/await
@@ -165,7 +165,7 @@ const client = new AWS.AuditManager({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateAssessmentReportEvidenceFolder(params);
+  const data = await client.listAssessments(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -173,7 +173,7 @@ try {
 
 // Promises.
 client
-  .associateAssessmentReportEvidenceFolder(params)
+  .listAssessments(params)
   .then((data) => {
     // process data.
   })
@@ -182,7 +182,7 @@ client
   });
 
 // callbacks.
-client.associateAssessmentReportEvidenceFolder(params, (err, data) => {
+client.listAssessments(params, (err, data) => {
   // process err and data.
 });
 ```

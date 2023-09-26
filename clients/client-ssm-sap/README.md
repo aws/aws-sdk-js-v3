@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SsmSapClient` and
-the commands you need, for example `DeleteResourcePermissionCommand`:
+the commands you need, for example `ListApplicationsCommand`:
 
 ```js
 // ES5 example
-const { SsmSapClient, DeleteResourcePermissionCommand } = require("@aws-sdk/client-ssm-sap");
+const { SsmSapClient, ListApplicationsCommand } = require("@aws-sdk/client-ssm-sap");
 ```
 
 ```ts
 // ES6+ example
-import { SsmSapClient, DeleteResourcePermissionCommand } from "@aws-sdk/client-ssm-sap";
+import { SsmSapClient, ListApplicationsCommand } from "@aws-sdk/client-ssm-sap";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new SsmSapClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteResourcePermissionCommand(params);
+const command = new ListApplicationsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.SsmSap({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteResourcePermission(params);
+  const data = await client.listApplications(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .deleteResourcePermission(params)
+  .listApplications(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.deleteResourcePermission(params, (err, data) => {
+client.listApplications(params, (err, data) => {
   // process err and data.
 });
 ```

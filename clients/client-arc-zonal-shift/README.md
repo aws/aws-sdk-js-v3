@@ -37,16 +37,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ARCZonalShiftClient` and
-the commands you need, for example `CancelZonalShiftCommand`:
+the commands you need, for example `ListZonalShiftsCommand`:
 
 ```js
 // ES5 example
-const { ARCZonalShiftClient, CancelZonalShiftCommand } = require("@aws-sdk/client-arc-zonal-shift");
+const { ARCZonalShiftClient, ListZonalShiftsCommand } = require("@aws-sdk/client-arc-zonal-shift");
 ```
 
 ```ts
 // ES6+ example
-import { ARCZonalShiftClient, CancelZonalShiftCommand } from "@aws-sdk/client-arc-zonal-shift";
+import { ARCZonalShiftClient, ListZonalShiftsCommand } from "@aws-sdk/client-arc-zonal-shift";
 ```
 
 ### Usage
@@ -65,7 +65,7 @@ const client = new ARCZonalShiftClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelZonalShiftCommand(params);
+const command = new ListZonalShiftsCommand(params);
 ```
 
 #### Async/await
@@ -144,7 +144,7 @@ const client = new AWS.ARCZonalShift({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelZonalShift(params);
+  const data = await client.listZonalShifts(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -152,7 +152,7 @@ try {
 
 // Promises.
 client
-  .cancelZonalShift(params)
+  .listZonalShifts(params)
   .then((data) => {
     // process data.
   })
@@ -161,7 +161,7 @@ client
   });
 
 // callbacks.
-client.cancelZonalShift(params, (err, data) => {
+client.listZonalShifts(params, (err, data) => {
   // process err and data.
 });
 ```

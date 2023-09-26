@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CustomerProfilesClient` and
-the commands you need, for example `AddProfileKeyCommand`:
+the commands you need, for example `ListDomainsCommand`:
 
 ```js
 // ES5 example
-const { CustomerProfilesClient, AddProfileKeyCommand } = require("@aws-sdk/client-customer-profiles");
+const { CustomerProfilesClient, ListDomainsCommand } = require("@aws-sdk/client-customer-profiles");
 ```
 
 ```ts
 // ES6+ example
-import { CustomerProfilesClient, AddProfileKeyCommand } from "@aws-sdk/client-customer-profiles";
+import { CustomerProfilesClient, ListDomainsCommand } from "@aws-sdk/client-customer-profiles";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new CustomerProfilesClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddProfileKeyCommand(params);
+const command = new ListDomainsCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.CustomerProfiles({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addProfileKey(params);
+  const data = await client.listDomains(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .addProfileKey(params)
+  .listDomains(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.addProfileKey(params, (err, data) => {
+client.listDomains(params, (err, data) => {
   // process err and data.
 });
 ```

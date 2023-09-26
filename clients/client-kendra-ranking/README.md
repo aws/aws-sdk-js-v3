@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `KendraRankingClient` and
-the commands you need, for example `CreateRescoreExecutionPlanCommand`:
+the commands you need, for example `ListRescoreExecutionPlansCommand`:
 
 ```js
 // ES5 example
-const { KendraRankingClient, CreateRescoreExecutionPlanCommand } = require("@aws-sdk/client-kendra-ranking");
+const { KendraRankingClient, ListRescoreExecutionPlansCommand } = require("@aws-sdk/client-kendra-ranking");
 ```
 
 ```ts
 // ES6+ example
-import { KendraRankingClient, CreateRescoreExecutionPlanCommand } from "@aws-sdk/client-kendra-ranking";
+import { KendraRankingClient, ListRescoreExecutionPlansCommand } from "@aws-sdk/client-kendra-ranking";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new KendraRankingClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateRescoreExecutionPlanCommand(params);
+const command = new ListRescoreExecutionPlansCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.KendraRanking({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createRescoreExecutionPlan(params);
+  const data = await client.listRescoreExecutionPlans(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .createRescoreExecutionPlan(params)
+  .listRescoreExecutionPlans(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.createRescoreExecutionPlan(params, (err, data) => {
+client.listRescoreExecutionPlans(params, (err, data) => {
   // process err and data.
 });
 ```

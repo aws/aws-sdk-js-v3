@@ -43,16 +43,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ResourceExplorer2Client` and
-the commands you need, for example `AssociateDefaultViewCommand`:
+the commands you need, for example `ListIndexesCommand`:
 
 ```js
 // ES5 example
-const { ResourceExplorer2Client, AssociateDefaultViewCommand } = require("@aws-sdk/client-resource-explorer-2");
+const { ResourceExplorer2Client, ListIndexesCommand } = require("@aws-sdk/client-resource-explorer-2");
 ```
 
 ```ts
 // ES6+ example
-import { ResourceExplorer2Client, AssociateDefaultViewCommand } from "@aws-sdk/client-resource-explorer-2";
+import { ResourceExplorer2Client, ListIndexesCommand } from "@aws-sdk/client-resource-explorer-2";
 ```
 
 ### Usage
@@ -71,7 +71,7 @@ const client = new ResourceExplorer2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateDefaultViewCommand(params);
+const command = new ListIndexesCommand(params);
 ```
 
 #### Async/await
@@ -150,7 +150,7 @@ const client = new AWS.ResourceExplorer2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateDefaultView(params);
+  const data = await client.listIndexes(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -158,7 +158,7 @@ try {
 
 // Promises.
 client
-  .associateDefaultView(params)
+  .listIndexes(params)
   .then((data) => {
     // process data.
   })
@@ -167,7 +167,7 @@ client
   });
 
 // callbacks.
-client.associateDefaultView(params, (err, data) => {
+client.listIndexes(params, (err, data) => {
   // process err and data.
 });
 ```

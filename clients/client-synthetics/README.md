@@ -38,16 +38,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SyntheticsClient` and
-the commands you need, for example `AssociateResourceCommand`:
+the commands you need, for example `ListGroupsCommand`:
 
 ```js
 // ES5 example
-const { SyntheticsClient, AssociateResourceCommand } = require("@aws-sdk/client-synthetics");
+const { SyntheticsClient, ListGroupsCommand } = require("@aws-sdk/client-synthetics");
 ```
 
 ```ts
 // ES6+ example
-import { SyntheticsClient, AssociateResourceCommand } from "@aws-sdk/client-synthetics";
+import { SyntheticsClient, ListGroupsCommand } from "@aws-sdk/client-synthetics";
 ```
 
 ### Usage
@@ -66,7 +66,7 @@ const client = new SyntheticsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateResourceCommand(params);
+const command = new ListGroupsCommand(params);
 ```
 
 #### Async/await
@@ -145,7 +145,7 @@ const client = new AWS.Synthetics({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateResource(params);
+  const data = await client.listGroups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -153,7 +153,7 @@ try {
 
 // Promises.
 client
-  .associateResource(params)
+  .listGroups(params)
   .then((data) => {
     // process data.
   })
@@ -162,7 +162,7 @@ client
   });
 
 // callbacks.
-client.associateResource(params, (err, data) => {
+client.listGroups(params, (err, data) => {
   // process err and data.
 });
 ```

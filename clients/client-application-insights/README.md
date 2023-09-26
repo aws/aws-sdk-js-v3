@@ -35,16 +35,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ApplicationInsightsClient` and
-the commands you need, for example `AddWorkloadCommand`:
+the commands you need, for example `ListApplicationsCommand`:
 
 ```js
 // ES5 example
-const { ApplicationInsightsClient, AddWorkloadCommand } = require("@aws-sdk/client-application-insights");
+const { ApplicationInsightsClient, ListApplicationsCommand } = require("@aws-sdk/client-application-insights");
 ```
 
 ```ts
 // ES6+ example
-import { ApplicationInsightsClient, AddWorkloadCommand } from "@aws-sdk/client-application-insights";
+import { ApplicationInsightsClient, ListApplicationsCommand } from "@aws-sdk/client-application-insights";
 ```
 
 ### Usage
@@ -63,7 +63,7 @@ const client = new ApplicationInsightsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddWorkloadCommand(params);
+const command = new ListApplicationsCommand(params);
 ```
 
 #### Async/await
@@ -142,7 +142,7 @@ const client = new AWS.ApplicationInsights({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addWorkload(params);
+  const data = await client.listApplications(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -150,7 +150,7 @@ try {
 
 // Promises.
 client
-  .addWorkload(params)
+  .listApplications(params)
   .then((data) => {
     // process data.
   })
@@ -159,7 +159,7 @@ client
   });
 
 // callbacks.
-client.addWorkload(params, (err, data) => {
+client.listApplications(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `HealthLakeClient` and
-the commands you need, for example `CreateFHIRDatastoreCommand`:
+the commands you need, for example `ListFHIRDatastoresCommand`:
 
 ```js
 // ES5 example
-const { HealthLakeClient, CreateFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake");
+const { HealthLakeClient, ListFHIRDatastoresCommand } = require("@aws-sdk/client-healthlake");
 ```
 
 ```ts
 // ES6+ example
-import { HealthLakeClient, CreateFHIRDatastoreCommand } from "@aws-sdk/client-healthlake";
+import { HealthLakeClient, ListFHIRDatastoresCommand } from "@aws-sdk/client-healthlake";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new HealthLakeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateFHIRDatastoreCommand(params);
+const command = new ListFHIRDatastoresCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.HealthLake({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createFHIRDatastore(params);
+  const data = await client.listFHIRDatastores(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .createFHIRDatastore(params)
+  .listFHIRDatastores(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.createFHIRDatastore(params, (err, data) => {
+client.listFHIRDatastores(params, (err, data) => {
   // process err and data.
 });
 ```

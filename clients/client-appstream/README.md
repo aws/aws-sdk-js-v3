@@ -41,16 +41,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppStreamClient` and
-the commands you need, for example `AssociateAppBlockBuilderAppBlockCommand`:
+the commands you need, for example `ListAssociatedFleetsCommand`:
 
 ```js
 // ES5 example
-const { AppStreamClient, AssociateAppBlockBuilderAppBlockCommand } = require("@aws-sdk/client-appstream");
+const { AppStreamClient, ListAssociatedFleetsCommand } = require("@aws-sdk/client-appstream");
 ```
 
 ```ts
 // ES6+ example
-import { AppStreamClient, AssociateAppBlockBuilderAppBlockCommand } from "@aws-sdk/client-appstream";
+import { AppStreamClient, ListAssociatedFleetsCommand } from "@aws-sdk/client-appstream";
 ```
 
 ### Usage
@@ -69,7 +69,7 @@ const client = new AppStreamClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateAppBlockBuilderAppBlockCommand(params);
+const command = new ListAssociatedFleetsCommand(params);
 ```
 
 #### Async/await
@@ -148,7 +148,7 @@ const client = new AWS.AppStream({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateAppBlockBuilderAppBlock(params);
+  const data = await client.listAssociatedFleets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -156,7 +156,7 @@ try {
 
 // Promises.
 client
-  .associateAppBlockBuilderAppBlock(params)
+  .listAssociatedFleets(params)
   .then((data) => {
     // process data.
   })
@@ -165,7 +165,7 @@ client
   });
 
 // callbacks.
-client.associateAppBlockBuilderAppBlock(params, (err, data) => {
+client.listAssociatedFleets(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -32,16 +32,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BackupGatewayClient` and
-the commands you need, for example `AssociateGatewayToServerCommand`:
+the commands you need, for example `ListGatewaysCommand`:
 
 ```js
 // ES5 example
-const { BackupGatewayClient, AssociateGatewayToServerCommand } = require("@aws-sdk/client-backup-gateway");
+const { BackupGatewayClient, ListGatewaysCommand } = require("@aws-sdk/client-backup-gateway");
 ```
 
 ```ts
 // ES6+ example
-import { BackupGatewayClient, AssociateGatewayToServerCommand } from "@aws-sdk/client-backup-gateway";
+import { BackupGatewayClient, ListGatewaysCommand } from "@aws-sdk/client-backup-gateway";
 ```
 
 ### Usage
@@ -60,7 +60,7 @@ const client = new BackupGatewayClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateGatewayToServerCommand(params);
+const command = new ListGatewaysCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +139,7 @@ const client = new AWS.BackupGateway({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateGatewayToServer(params);
+  const data = await client.listGateways(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +147,7 @@ try {
 
 // Promises.
 client
-  .associateGatewayToServer(params)
+  .listGateways(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +156,7 @@ client
   });
 
 // callbacks.
-client.associateGatewayToServer(params, (err, data) => {
+client.listGateways(params, (err, data) => {
   // process err and data.
 });
 ```

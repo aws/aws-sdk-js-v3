@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PinpointClient` and
-the commands you need, for example `CreateAppCommand`:
+the commands you need, for example `ListTemplatesCommand`:
 
 ```js
 // ES5 example
-const { PinpointClient, CreateAppCommand } = require("@aws-sdk/client-pinpoint");
+const { PinpointClient, ListTemplatesCommand } = require("@aws-sdk/client-pinpoint");
 ```
 
 ```ts
 // ES6+ example
-import { PinpointClient, CreateAppCommand } from "@aws-sdk/client-pinpoint";
+import { PinpointClient, ListTemplatesCommand } from "@aws-sdk/client-pinpoint";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new PinpointClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAppCommand(params);
+const command = new ListTemplatesCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Pinpoint({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createApp(params);
+  const data = await client.listTemplates(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createApp(params)
+  .listTemplates(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createApp(params, (err, data) => {
+client.listTemplates(params, (err, data) => {
   // process err and data.
 });
 ```

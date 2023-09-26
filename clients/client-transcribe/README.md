@@ -44,16 +44,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `TranscribeClient` and
-the commands you need, for example `CreateCallAnalyticsCategoryCommand`:
+the commands you need, for example `ListVocabulariesCommand`:
 
 ```js
 // ES5 example
-const { TranscribeClient, CreateCallAnalyticsCategoryCommand } = require("@aws-sdk/client-transcribe");
+const { TranscribeClient, ListVocabulariesCommand } = require("@aws-sdk/client-transcribe");
 ```
 
 ```ts
 // ES6+ example
-import { TranscribeClient, CreateCallAnalyticsCategoryCommand } from "@aws-sdk/client-transcribe";
+import { TranscribeClient, ListVocabulariesCommand } from "@aws-sdk/client-transcribe";
 ```
 
 ### Usage
@@ -72,7 +72,7 @@ const client = new TranscribeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateCallAnalyticsCategoryCommand(params);
+const command = new ListVocabulariesCommand(params);
 ```
 
 #### Async/await
@@ -151,7 +151,7 @@ const client = new AWS.Transcribe({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createCallAnalyticsCategory(params);
+  const data = await client.listVocabularies(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -159,7 +159,7 @@ try {
 
 // Promises.
 client
-  .createCallAnalyticsCategory(params)
+  .listVocabularies(params)
   .then((data) => {
     // process data.
   })
@@ -168,7 +168,7 @@ client
   });
 
 // callbacks.
-client.createCallAnalyticsCategory(params, (err, data) => {
+client.listVocabularies(params, (err, data) => {
   // process err and data.
 });
 ```

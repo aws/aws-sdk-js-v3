@@ -36,16 +36,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `KeyspacesClient` and
-the commands you need, for example `CreateKeyspaceCommand`:
+the commands you need, for example `ListKeyspacesCommand`:
 
 ```js
 // ES5 example
-const { KeyspacesClient, CreateKeyspaceCommand } = require("@aws-sdk/client-keyspaces");
+const { KeyspacesClient, ListKeyspacesCommand } = require("@aws-sdk/client-keyspaces");
 ```
 
 ```ts
 // ES6+ example
-import { KeyspacesClient, CreateKeyspaceCommand } from "@aws-sdk/client-keyspaces";
+import { KeyspacesClient, ListKeyspacesCommand } from "@aws-sdk/client-keyspaces";
 ```
 
 ### Usage
@@ -64,7 +64,7 @@ const client = new KeyspacesClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateKeyspaceCommand(params);
+const command = new ListKeyspacesCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +143,7 @@ const client = new AWS.Keyspaces({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createKeyspace(params);
+  const data = await client.listKeyspaces(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +151,7 @@ try {
 
 // Promises.
 client
-  .createKeyspace(params)
+  .listKeyspaces(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +160,7 @@ client
   });
 
 // callbacks.
-client.createKeyspace(params, (err, data) => {
+client.listKeyspaces(params, (err, data) => {
   // process err and data.
 });
 ```

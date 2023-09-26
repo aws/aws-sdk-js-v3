@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `TnbClient` and
-the commands you need, for example `CancelSolNetworkOperationCommand`:
+the commands you need, for example `ListSolFunctionPackagesCommand`:
 
 ```js
 // ES5 example
-const { TnbClient, CancelSolNetworkOperationCommand } = require("@aws-sdk/client-tnb");
+const { TnbClient, ListSolFunctionPackagesCommand } = require("@aws-sdk/client-tnb");
 ```
 
 ```ts
 // ES6+ example
-import { TnbClient, CancelSolNetworkOperationCommand } from "@aws-sdk/client-tnb";
+import { TnbClient, ListSolFunctionPackagesCommand } from "@aws-sdk/client-tnb";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new TnbClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelSolNetworkOperationCommand(params);
+const command = new ListSolFunctionPackagesCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Tnb({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelSolNetworkOperation(params);
+  const data = await client.listSolFunctionPackages(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .cancelSolNetworkOperation(params)
+  .listSolFunctionPackages(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.cancelSolNetworkOperation(params, (err, data) => {
+client.listSolFunctionPackages(params, (err, data) => {
   // process err and data.
 });
 ```

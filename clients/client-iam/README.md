@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IAMClient` and
-the commands you need, for example `AddClientIDToOpenIDConnectProviderCommand`:
+the commands you need, for example `ListGroupsCommand`:
 
 ```js
 // ES5 example
-const { IAMClient, AddClientIDToOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam");
+const { IAMClient, ListGroupsCommand } = require("@aws-sdk/client-iam");
 ```
 
 ```ts
 // ES6+ example
-import { IAMClient, AddClientIDToOpenIDConnectProviderCommand } from "@aws-sdk/client-iam";
+import { IAMClient, ListGroupsCommand } from "@aws-sdk/client-iam";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new IAMClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddClientIDToOpenIDConnectProviderCommand(params);
+const command = new ListGroupsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.IAM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addClientIDToOpenIDConnectProvider(params);
+  const data = await client.listGroups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .addClientIDToOpenIDConnectProvider(params)
+  .listGroups(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.addClientIDToOpenIDConnectProvider(params, (err, data) => {
+client.listGroups(params, (err, data) => {
   // process err and data.
 });
 ```

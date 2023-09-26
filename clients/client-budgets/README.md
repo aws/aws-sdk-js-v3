@@ -65,16 +65,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BudgetsClient` and
-the commands you need, for example `CreateBudgetCommand`:
+the commands you need, for example `DescribeBudgetsCommand`:
 
 ```js
 // ES5 example
-const { BudgetsClient, CreateBudgetCommand } = require("@aws-sdk/client-budgets");
+const { BudgetsClient, DescribeBudgetsCommand } = require("@aws-sdk/client-budgets");
 ```
 
 ```ts
 // ES6+ example
-import { BudgetsClient, CreateBudgetCommand } from "@aws-sdk/client-budgets";
+import { BudgetsClient, DescribeBudgetsCommand } from "@aws-sdk/client-budgets";
 ```
 
 ### Usage
@@ -93,7 +93,7 @@ const client = new BudgetsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateBudgetCommand(params);
+const command = new DescribeBudgetsCommand(params);
 ```
 
 #### Async/await
@@ -172,7 +172,7 @@ const client = new AWS.Budgets({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createBudget(params);
+  const data = await client.describeBudgets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -180,7 +180,7 @@ try {
 
 // Promises.
 client
-  .createBudget(params)
+  .describeBudgets(params)
   .then((data) => {
     // process data.
   })
@@ -189,7 +189,7 @@ client
   });
 
 // callbacks.
-client.createBudget(params, (err, data) => {
+client.describeBudgets(params, (err, data) => {
   // process err and data.
 });
 ```

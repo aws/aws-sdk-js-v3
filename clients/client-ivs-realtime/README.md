@@ -147,16 +147,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IVSRealTimeClient` and
-the commands you need, for example `CreateParticipantTokenCommand`:
+the commands you need, for example `ListStagesCommand`:
 
 ```js
 // ES5 example
-const { IVSRealTimeClient, CreateParticipantTokenCommand } = require("@aws-sdk/client-ivs-realtime");
+const { IVSRealTimeClient, ListStagesCommand } = require("@aws-sdk/client-ivs-realtime");
 ```
 
 ```ts
 // ES6+ example
-import { IVSRealTimeClient, CreateParticipantTokenCommand } from "@aws-sdk/client-ivs-realtime";
+import { IVSRealTimeClient, ListStagesCommand } from "@aws-sdk/client-ivs-realtime";
 ```
 
 ### Usage
@@ -175,7 +175,7 @@ const client = new IVSRealTimeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateParticipantTokenCommand(params);
+const command = new ListStagesCommand(params);
 ```
 
 #### Async/await
@@ -254,7 +254,7 @@ const client = new AWS.IVSRealTime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createParticipantToken(params);
+  const data = await client.listStages(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -262,7 +262,7 @@ try {
 
 // Promises.
 client
-  .createParticipantToken(params)
+  .listStages(params)
   .then((data) => {
     // process data.
   })
@@ -271,7 +271,7 @@ client
   });
 
 // callbacks.
-client.createParticipantToken(params, (err, data) => {
+client.listStages(params, (err, data) => {
   // process err and data.
 });
 ```

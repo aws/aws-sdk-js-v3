@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MemoryDBClient` and
-the commands you need, for example `BatchUpdateClusterCommand`:
+the commands you need, for example `ListTagsCommand`:
 
 ```js
 // ES5 example
-const { MemoryDBClient, BatchUpdateClusterCommand } = require("@aws-sdk/client-memorydb");
+const { MemoryDBClient, ListTagsCommand } = require("@aws-sdk/client-memorydb");
 ```
 
 ```ts
 // ES6+ example
-import { MemoryDBClient, BatchUpdateClusterCommand } from "@aws-sdk/client-memorydb";
+import { MemoryDBClient, ListTagsCommand } from "@aws-sdk/client-memorydb";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new MemoryDBClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchUpdateClusterCommand(params);
+const command = new ListTagsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.MemoryDB({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchUpdateCluster(params);
+  const data = await client.listTags(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .batchUpdateCluster(params)
+  .listTags(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.batchUpdateCluster(params, (err, data) => {
+client.listTags(params, (err, data) => {
   // process err and data.
 });
 ```

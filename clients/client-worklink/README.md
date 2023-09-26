@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `WorkLinkClient` and
-the commands you need, for example `AssociateDomainCommand`:
+the commands you need, for example `ListFleetsCommand`:
 
 ```js
 // ES5 example
-const { WorkLinkClient, AssociateDomainCommand } = require("@aws-sdk/client-worklink");
+const { WorkLinkClient, ListFleetsCommand } = require("@aws-sdk/client-worklink");
 ```
 
 ```ts
 // ES6+ example
-import { WorkLinkClient, AssociateDomainCommand } from "@aws-sdk/client-worklink";
+import { WorkLinkClient, ListFleetsCommand } from "@aws-sdk/client-worklink";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new WorkLinkClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateDomainCommand(params);
+const command = new ListFleetsCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.WorkLink({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateDomain(params);
+  const data = await client.listFleets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .associateDomain(params)
+  .listFleets(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.associateDomain(params, (err, data) => {
+client.listFleets(params, (err, data) => {
   // process err and data.
 });
 ```

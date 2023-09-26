@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DocDBElasticClient` and
-the commands you need, for example `CreateClusterCommand`:
+the commands you need, for example `ListClustersCommand`:
 
 ```js
 // ES5 example
-const { DocDBElasticClient, CreateClusterCommand } = require("@aws-sdk/client-docdb-elastic");
+const { DocDBElasticClient, ListClustersCommand } = require("@aws-sdk/client-docdb-elastic");
 ```
 
 ```ts
 // ES6+ example
-import { DocDBElasticClient, CreateClusterCommand } from "@aws-sdk/client-docdb-elastic";
+import { DocDBElasticClient, ListClustersCommand } from "@aws-sdk/client-docdb-elastic";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new DocDBElasticClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateClusterCommand(params);
+const command = new ListClustersCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.DocDBElastic({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createCluster(params);
+  const data = await client.listClusters(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createCluster(params)
+  .listClusters(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createCluster(params, (err, data) => {
+client.listClusters(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -40,16 +40,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `NeptuneClient` and
-the commands you need, for example `AddRoleToDBClusterCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { NeptuneClient, AddRoleToDBClusterCommand } = require("@aws-sdk/client-neptune");
+const { NeptuneClient, ListTagsForResourceCommand } = require("@aws-sdk/client-neptune");
 ```
 
 ```ts
 // ES6+ example
-import { NeptuneClient, AddRoleToDBClusterCommand } from "@aws-sdk/client-neptune";
+import { NeptuneClient, ListTagsForResourceCommand } from "@aws-sdk/client-neptune";
 ```
 
 ### Usage
@@ -68,7 +68,7 @@ const client = new NeptuneClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddRoleToDBClusterCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -147,7 +147,7 @@ const client = new AWS.Neptune({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addRoleToDBCluster(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -155,7 +155,7 @@ try {
 
 // Promises.
 client
-  .addRoleToDBCluster(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -164,7 +164,7 @@ client
   });
 
 // callbacks.
-client.addRoleToDBCluster(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

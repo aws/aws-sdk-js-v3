@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `KafkaClient` and
-the commands you need, for example `BatchAssociateScramSecretCommand`:
+the commands you need, for example `ListClustersCommand`:
 
 ```js
 // ES5 example
-const { KafkaClient, BatchAssociateScramSecretCommand } = require("@aws-sdk/client-kafka");
+const { KafkaClient, ListClustersCommand } = require("@aws-sdk/client-kafka");
 ```
 
 ```ts
 // ES6+ example
-import { KafkaClient, BatchAssociateScramSecretCommand } from "@aws-sdk/client-kafka";
+import { KafkaClient, ListClustersCommand } from "@aws-sdk/client-kafka";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new KafkaClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchAssociateScramSecretCommand(params);
+const command = new ListClustersCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Kafka({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchAssociateScramSecret(params);
+  const data = await client.listClusters(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .batchAssociateScramSecret(params)
+  .listClusters(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.batchAssociateScramSecret(params, (err, data) => {
+client.listClusters(params, (err, data) => {
   // process err and data.
 });
 ```

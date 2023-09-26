@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `FinspaceClient` and
-the commands you need, for example `CreateEnvironmentCommand`:
+the commands you need, for example `ListEnvironmentsCommand`:
 
 ```js
 // ES5 example
-const { FinspaceClient, CreateEnvironmentCommand } = require("@aws-sdk/client-finspace");
+const { FinspaceClient, ListEnvironmentsCommand } = require("@aws-sdk/client-finspace");
 ```
 
 ```ts
 // ES6+ example
-import { FinspaceClient, CreateEnvironmentCommand } from "@aws-sdk/client-finspace";
+import { FinspaceClient, ListEnvironmentsCommand } from "@aws-sdk/client-finspace";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new FinspaceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateEnvironmentCommand(params);
+const command = new ListEnvironmentsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Finspace({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createEnvironment(params);
+  const data = await client.listEnvironments(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createEnvironment(params)
+  .listEnvironments(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createEnvironment(params, (err, data) => {
+client.listEnvironments(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -30,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ServiceCatalogClient` and
-the commands you need, for example `AcceptPortfolioShareCommand`:
+the commands you need, for example `ListPortfoliosCommand`:
 
 ```js
 // ES5 example
-const { ServiceCatalogClient, AcceptPortfolioShareCommand } = require("@aws-sdk/client-service-catalog");
+const { ServiceCatalogClient, ListPortfoliosCommand } = require("@aws-sdk/client-service-catalog");
 ```
 
 ```ts
 // ES6+ example
-import { ServiceCatalogClient, AcceptPortfolioShareCommand } from "@aws-sdk/client-service-catalog";
+import { ServiceCatalogClient, ListPortfoliosCommand } from "@aws-sdk/client-service-catalog";
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ const client = new ServiceCatalogClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptPortfolioShareCommand(params);
+const command = new ListPortfoliosCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.ServiceCatalog({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptPortfolioShare(params);
+  const data = await client.listPortfolios(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .acceptPortfolioShare(params)
+  .listPortfolios(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.acceptPortfolioShare(params, (err, data) => {
+client.listPortfolios(params, (err, data) => {
   // process err and data.
 });
 ```

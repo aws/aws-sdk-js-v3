@@ -81,16 +81,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `WorkDocsClient` and
-the commands you need, for example `AbortDocumentVersionUploadCommand`:
+the commands you need, for example `DescribeUsersCommand`:
 
 ```js
 // ES5 example
-const { WorkDocsClient, AbortDocumentVersionUploadCommand } = require("@aws-sdk/client-workdocs");
+const { WorkDocsClient, DescribeUsersCommand } = require("@aws-sdk/client-workdocs");
 ```
 
 ```ts
 // ES6+ example
-import { WorkDocsClient, AbortDocumentVersionUploadCommand } from "@aws-sdk/client-workdocs";
+import { WorkDocsClient, DescribeUsersCommand } from "@aws-sdk/client-workdocs";
 ```
 
 ### Usage
@@ -109,7 +109,7 @@ const client = new WorkDocsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AbortDocumentVersionUploadCommand(params);
+const command = new DescribeUsersCommand(params);
 ```
 
 #### Async/await
@@ -188,7 +188,7 @@ const client = new AWS.WorkDocs({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.abortDocumentVersionUpload(params);
+  const data = await client.describeUsers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -196,7 +196,7 @@ try {
 
 // Promises.
 client
-  .abortDocumentVersionUpload(params)
+  .describeUsers(params)
   .then((data) => {
     // process data.
   })
@@ -205,7 +205,7 @@ client
   });
 
 // callbacks.
-client.abortDocumentVersionUpload(params, (err, data) => {
+client.describeUsers(params, (err, data) => {
   // process err and data.
 });
 ```

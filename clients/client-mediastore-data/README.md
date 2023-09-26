@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaStoreDataClient` and
-the commands you need, for example `DeleteObjectCommand`:
+the commands you need, for example `ListItemsCommand`:
 
 ```js
 // ES5 example
-const { MediaStoreDataClient, DeleteObjectCommand } = require("@aws-sdk/client-mediastore-data");
+const { MediaStoreDataClient, ListItemsCommand } = require("@aws-sdk/client-mediastore-data");
 ```
 
 ```ts
 // ES6+ example
-import { MediaStoreDataClient, DeleteObjectCommand } from "@aws-sdk/client-mediastore-data";
+import { MediaStoreDataClient, ListItemsCommand } from "@aws-sdk/client-mediastore-data";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new MediaStoreDataClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteObjectCommand(params);
+const command = new ListItemsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.MediaStoreData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteObject(params);
+  const data = await client.listItems(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .deleteObject(params)
+  .listItems(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.deleteObject(params, (err, data) => {
+client.listItems(params, (err, data) => {
   // process err and data.
 });
 ```

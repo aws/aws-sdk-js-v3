@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ChimeSDKMeetingsClient` and
-the commands you need, for example `BatchCreateAttendeeCommand`:
+the commands you need, for example `ListAttendeesCommand`:
 
 ```js
 // ES5 example
-const { ChimeSDKMeetingsClient, BatchCreateAttendeeCommand } = require("@aws-sdk/client-chime-sdk-meetings");
+const { ChimeSDKMeetingsClient, ListAttendeesCommand } = require("@aws-sdk/client-chime-sdk-meetings");
 ```
 
 ```ts
 // ES6+ example
-import { ChimeSDKMeetingsClient, BatchCreateAttendeeCommand } from "@aws-sdk/client-chime-sdk-meetings";
+import { ChimeSDKMeetingsClient, ListAttendeesCommand } from "@aws-sdk/client-chime-sdk-meetings";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new ChimeSDKMeetingsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchCreateAttendeeCommand(params);
+const command = new ListAttendeesCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.ChimeSDKMeetings({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchCreateAttendee(params);
+  const data = await client.listAttendees(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .batchCreateAttendee(params)
+  .listAttendees(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.batchCreateAttendee(params, (err, data) => {
+client.listAttendees(params, (err, data) => {
   // process err and data.
 });
 ```

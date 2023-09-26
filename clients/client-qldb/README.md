@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `QLDBClient` and
-the commands you need, for example `CancelJournalKinesisStreamCommand`:
+the commands you need, for example `ListLedgersCommand`:
 
 ```js
 // ES5 example
-const { QLDBClient, CancelJournalKinesisStreamCommand } = require("@aws-sdk/client-qldb");
+const { QLDBClient, ListLedgersCommand } = require("@aws-sdk/client-qldb");
 ```
 
 ```ts
 // ES6+ example
-import { QLDBClient, CancelJournalKinesisStreamCommand } from "@aws-sdk/client-qldb";
+import { QLDBClient, ListLedgersCommand } from "@aws-sdk/client-qldb";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new QLDBClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelJournalKinesisStreamCommand(params);
+const command = new ListLedgersCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.QLDB({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelJournalKinesisStream(params);
+  const data = await client.listLedgers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .cancelJournalKinesisStream(params)
+  .listLedgers(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.cancelJournalKinesisStream(params, (err, data) => {
+client.listLedgers(params, (err, data) => {
   // process err and data.
 });
 ```

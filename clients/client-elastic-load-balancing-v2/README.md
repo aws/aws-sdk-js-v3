@@ -52,22 +52,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ElasticLoadBalancingV2Client` and
-the commands you need, for example `AddListenerCertificatesCommand`:
+the commands you need, for example `DescribeListenersCommand`:
 
 ```js
 // ES5 example
-const {
-  ElasticLoadBalancingV2Client,
-  AddListenerCertificatesCommand,
-} = require("@aws-sdk/client-elastic-load-balancing-v2");
+const { ElasticLoadBalancingV2Client, DescribeListenersCommand } = require("@aws-sdk/client-elastic-load-balancing-v2");
 ```
 
 ```ts
 // ES6+ example
-import {
-  ElasticLoadBalancingV2Client,
-  AddListenerCertificatesCommand,
-} from "@aws-sdk/client-elastic-load-balancing-v2";
+import { ElasticLoadBalancingV2Client, DescribeListenersCommand } from "@aws-sdk/client-elastic-load-balancing-v2";
 ```
 
 ### Usage
@@ -86,7 +80,7 @@ const client = new ElasticLoadBalancingV2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddListenerCertificatesCommand(params);
+const command = new DescribeListenersCommand(params);
 ```
 
 #### Async/await
@@ -165,7 +159,7 @@ const client = new AWS.ElasticLoadBalancingV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addListenerCertificates(params);
+  const data = await client.describeListeners(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -173,7 +167,7 @@ try {
 
 // Promises.
 client
-  .addListenerCertificates(params)
+  .describeListeners(params)
   .then((data) => {
     // process data.
   })
@@ -182,7 +176,7 @@ client
   });
 
 // callbacks.
-client.addListenerCertificates(params, (err, data) => {
+client.describeListeners(params, (err, data) => {
   // process err and data.
 });
 ```

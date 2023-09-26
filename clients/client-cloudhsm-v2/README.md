@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudHSMV2Client` and
-the commands you need, for example `CopyBackupToRegionCommand`:
+the commands you need, for example `ListTagsCommand`:
 
 ```js
 // ES5 example
-const { CloudHSMV2Client, CopyBackupToRegionCommand } = require("@aws-sdk/client-cloudhsm-v2");
+const { CloudHSMV2Client, ListTagsCommand } = require("@aws-sdk/client-cloudhsm-v2");
 ```
 
 ```ts
 // ES6+ example
-import { CloudHSMV2Client, CopyBackupToRegionCommand } from "@aws-sdk/client-cloudhsm-v2";
+import { CloudHSMV2Client, ListTagsCommand } from "@aws-sdk/client-cloudhsm-v2";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new CloudHSMV2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CopyBackupToRegionCommand(params);
+const command = new ListTagsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.CloudHSMV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.copyBackupToRegion(params);
+  const data = await client.listTags(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .copyBackupToRegion(params)
+  .listTags(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.copyBackupToRegion(params, (err, data) => {
+client.listTags(params, (err, data) => {
   // process err and data.
 });
 ```

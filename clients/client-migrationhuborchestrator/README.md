@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MigrationHubOrchestratorClient` and
-the commands you need, for example `CreateWorkflowCommand`:
+the commands you need, for example `ListPluginsCommand`:
 
 ```js
 // ES5 example
-const { MigrationHubOrchestratorClient, CreateWorkflowCommand } = require("@aws-sdk/client-migrationhuborchestrator");
+const { MigrationHubOrchestratorClient, ListPluginsCommand } = require("@aws-sdk/client-migrationhuborchestrator");
 ```
 
 ```ts
 // ES6+ example
-import { MigrationHubOrchestratorClient, CreateWorkflowCommand } from "@aws-sdk/client-migrationhuborchestrator";
+import { MigrationHubOrchestratorClient, ListPluginsCommand } from "@aws-sdk/client-migrationhuborchestrator";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new MigrationHubOrchestratorClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateWorkflowCommand(params);
+const command = new ListPluginsCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.MigrationHubOrchestrator({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createWorkflow(params);
+  const data = await client.listPlugins(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .createWorkflow(params)
+  .listPlugins(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.createWorkflow(params, (err, data) => {
+client.listPlugins(params, (err, data) => {
   // process err and data.
 });
 ```

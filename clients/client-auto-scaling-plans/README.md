@@ -56,16 +56,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AutoScalingPlansClient` and
-the commands you need, for example `CreateScalingPlanCommand`:
+the commands you need, for example `DescribeScalingPlansCommand`:
 
 ```js
 // ES5 example
-const { AutoScalingPlansClient, CreateScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans");
+const { AutoScalingPlansClient, DescribeScalingPlansCommand } = require("@aws-sdk/client-auto-scaling-plans");
 ```
 
 ```ts
 // ES6+ example
-import { AutoScalingPlansClient, CreateScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans";
+import { AutoScalingPlansClient, DescribeScalingPlansCommand } from "@aws-sdk/client-auto-scaling-plans";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ const client = new AutoScalingPlansClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateScalingPlanCommand(params);
+const command = new DescribeScalingPlansCommand(params);
 ```
 
 #### Async/await
@@ -163,7 +163,7 @@ const client = new AWS.AutoScalingPlans({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createScalingPlan(params);
+  const data = await client.describeScalingPlans(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -171,7 +171,7 @@ try {
 
 // Promises.
 client
-  .createScalingPlan(params)
+  .describeScalingPlans(params)
   .then((data) => {
     // process data.
   })
@@ -180,7 +180,7 @@ client
   });
 
 // callbacks.
-client.createScalingPlan(params, (err, data) => {
+client.describeScalingPlans(params, (err, data) => {
   // process err and data.
 });
 ```

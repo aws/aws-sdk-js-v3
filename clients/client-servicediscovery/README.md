@@ -30,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ServiceDiscoveryClient` and
-the commands you need, for example `CreateHttpNamespaceCommand`:
+the commands you need, for example `ListNamespacesCommand`:
 
 ```js
 // ES5 example
-const { ServiceDiscoveryClient, CreateHttpNamespaceCommand } = require("@aws-sdk/client-servicediscovery");
+const { ServiceDiscoveryClient, ListNamespacesCommand } = require("@aws-sdk/client-servicediscovery");
 ```
 
 ```ts
 // ES6+ example
-import { ServiceDiscoveryClient, CreateHttpNamespaceCommand } from "@aws-sdk/client-servicediscovery";
+import { ServiceDiscoveryClient, ListNamespacesCommand } from "@aws-sdk/client-servicediscovery";
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ const client = new ServiceDiscoveryClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateHttpNamespaceCommand(params);
+const command = new ListNamespacesCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.ServiceDiscovery({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createHttpNamespace(params);
+  const data = await client.listNamespaces(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .createHttpNamespace(params)
+  .listNamespaces(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.createHttpNamespace(params, (err, data) => {
+client.listNamespaces(params, (err, data) => {
   // process err and data.
 });
 ```

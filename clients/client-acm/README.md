@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ACMClient` and
-the commands you need, for example `AddTagsToCertificateCommand`:
+the commands you need, for example `ListCertificatesCommand`:
 
 ```js
 // ES5 example
-const { ACMClient, AddTagsToCertificateCommand } = require("@aws-sdk/client-acm");
+const { ACMClient, ListCertificatesCommand } = require("@aws-sdk/client-acm");
 ```
 
 ```ts
 // ES6+ example
-import { ACMClient, AddTagsToCertificateCommand } from "@aws-sdk/client-acm";
+import { ACMClient, ListCertificatesCommand } from "@aws-sdk/client-acm";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new ACMClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddTagsToCertificateCommand(params);
+const command = new ListCertificatesCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.ACM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addTagsToCertificate(params);
+  const data = await client.listCertificates(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .addTagsToCertificate(params)
+  .listCertificates(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.addTagsToCertificate(params, (err, data) => {
+client.listCertificates(params, (err, data) => {
   // process err and data.
 });
 ```

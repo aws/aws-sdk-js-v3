@@ -98,16 +98,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DetectiveClient` and
-the commands you need, for example `AcceptInvitationCommand`:
+the commands you need, for example `ListGraphsCommand`:
 
 ```js
 // ES5 example
-const { DetectiveClient, AcceptInvitationCommand } = require("@aws-sdk/client-detective");
+const { DetectiveClient, ListGraphsCommand } = require("@aws-sdk/client-detective");
 ```
 
 ```ts
 // ES6+ example
-import { DetectiveClient, AcceptInvitationCommand } from "@aws-sdk/client-detective";
+import { DetectiveClient, ListGraphsCommand } from "@aws-sdk/client-detective";
 ```
 
 ### Usage
@@ -126,7 +126,7 @@ const client = new DetectiveClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptInvitationCommand(params);
+const command = new ListGraphsCommand(params);
 ```
 
 #### Async/await
@@ -205,7 +205,7 @@ const client = new AWS.Detective({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptInvitation(params);
+  const data = await client.listGraphs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -213,7 +213,7 @@ try {
 
 // Promises.
 client
-  .acceptInvitation(params)
+  .listGraphs(params)
   .then((data) => {
     // process data.
   })
@@ -222,7 +222,7 @@ client
   });
 
 // callbacks.
-client.acceptInvitation(params, (err, data) => {
+client.listGraphs(params, (err, data) => {
   // process err and data.
 });
 ```

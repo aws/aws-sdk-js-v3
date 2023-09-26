@@ -67,16 +67,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SupportClient` and
-the commands you need, for example `AddAttachmentsToSetCommand`:
+the commands you need, for example `DescribeCasesCommand`:
 
 ```js
 // ES5 example
-const { SupportClient, AddAttachmentsToSetCommand } = require("@aws-sdk/client-support");
+const { SupportClient, DescribeCasesCommand } = require("@aws-sdk/client-support");
 ```
 
 ```ts
 // ES6+ example
-import { SupportClient, AddAttachmentsToSetCommand } from "@aws-sdk/client-support";
+import { SupportClient, DescribeCasesCommand } from "@aws-sdk/client-support";
 ```
 
 ### Usage
@@ -95,7 +95,7 @@ const client = new SupportClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddAttachmentsToSetCommand(params);
+const command = new DescribeCasesCommand(params);
 ```
 
 #### Async/await
@@ -174,7 +174,7 @@ const client = new AWS.Support({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addAttachmentsToSet(params);
+  const data = await client.describeCases(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -182,7 +182,7 @@ try {
 
 // Promises.
 client
-  .addAttachmentsToSet(params)
+  .describeCases(params)
   .then((data) => {
     // process data.
   })
@@ -191,7 +191,7 @@ client
   });
 
 // callbacks.
-client.addAttachmentsToSet(params, (err, data) => {
+client.describeCases(params, (err, data) => {
   // process err and data.
 });
 ```

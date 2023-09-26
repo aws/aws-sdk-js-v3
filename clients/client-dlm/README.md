@@ -30,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DLMClient` and
-the commands you need, for example `CreateLifecyclePolicyCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { DLMClient, CreateLifecyclePolicyCommand } = require("@aws-sdk/client-dlm");
+const { DLMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-dlm");
 ```
 
 ```ts
 // ES6+ example
-import { DLMClient, CreateLifecyclePolicyCommand } from "@aws-sdk/client-dlm";
+import { DLMClient, ListTagsForResourceCommand } from "@aws-sdk/client-dlm";
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ const client = new DLMClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateLifecyclePolicyCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.DLM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createLifecyclePolicy(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .createLifecyclePolicy(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.createLifecyclePolicy(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

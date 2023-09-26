@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RoboMakerClient` and
-the commands you need, for example `BatchDeleteWorldsCommand`:
+the commands you need, for example `ListFleetsCommand`:
 
 ```js
 // ES5 example
-const { RoboMakerClient, BatchDeleteWorldsCommand } = require("@aws-sdk/client-robomaker");
+const { RoboMakerClient, ListFleetsCommand } = require("@aws-sdk/client-robomaker");
 ```
 
 ```ts
 // ES6+ example
-import { RoboMakerClient, BatchDeleteWorldsCommand } from "@aws-sdk/client-robomaker";
+import { RoboMakerClient, ListFleetsCommand } from "@aws-sdk/client-robomaker";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new RoboMakerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchDeleteWorldsCommand(params);
+const command = new ListFleetsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.RoboMaker({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchDeleteWorlds(params);
+  const data = await client.listFleets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .batchDeleteWorlds(params)
+  .listFleets(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.batchDeleteWorlds(params, (err, data) => {
+client.listFleets(params, (err, data) => {
   // process err and data.
 });
 ```

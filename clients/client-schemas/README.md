@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SchemasClient` and
-the commands you need, for example `CreateDiscovererCommand`:
+the commands you need, for example `ListDiscoverersCommand`:
 
 ```js
 // ES5 example
-const { SchemasClient, CreateDiscovererCommand } = require("@aws-sdk/client-schemas");
+const { SchemasClient, ListDiscoverersCommand } = require("@aws-sdk/client-schemas");
 ```
 
 ```ts
 // ES6+ example
-import { SchemasClient, CreateDiscovererCommand } from "@aws-sdk/client-schemas";
+import { SchemasClient, ListDiscoverersCommand } from "@aws-sdk/client-schemas";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new SchemasClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateDiscovererCommand(params);
+const command = new ListDiscoverersCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Schemas({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createDiscoverer(params);
+  const data = await client.listDiscoverers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createDiscoverer(params)
+  .listDiscoverers(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createDiscoverer(params, (err, data) => {
+client.listDiscoverers(params, (err, data) => {
   // process err and data.
 });
 ```

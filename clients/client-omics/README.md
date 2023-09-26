@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OmicsClient` and
-the commands you need, for example `AbortMultipartReadSetUploadCommand`:
+the commands you need, for example `ListRunsCommand`:
 
 ```js
 // ES5 example
-const { OmicsClient, AbortMultipartReadSetUploadCommand } = require("@aws-sdk/client-omics");
+const { OmicsClient, ListRunsCommand } = require("@aws-sdk/client-omics");
 ```
 
 ```ts
 // ES6+ example
-import { OmicsClient, AbortMultipartReadSetUploadCommand } from "@aws-sdk/client-omics";
+import { OmicsClient, ListRunsCommand } from "@aws-sdk/client-omics";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new OmicsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AbortMultipartReadSetUploadCommand(params);
+const command = new ListRunsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.Omics({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.abortMultipartReadSetUpload(params);
+  const data = await client.listRuns(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .abortMultipartReadSetUpload(params)
+  .listRuns(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.abortMultipartReadSetUpload(params, (err, data) => {
+client.listRuns(params, (err, data) => {
   // process err and data.
 });
 ```
