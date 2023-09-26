@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `Inspector2Client` and
-the commands you need, for example `AssociateMemberCommand`:
+the commands you need, for example `ListFiltersCommand`:
 
 ```js
 // ES5 example
-const { Inspector2Client, AssociateMemberCommand } = require("@aws-sdk/client-inspector2");
+const { Inspector2Client, ListFiltersCommand } = require("@aws-sdk/client-inspector2");
 ```
 
 ```ts
 // ES6+ example
-import { Inspector2Client, AssociateMemberCommand } from "@aws-sdk/client-inspector2";
+import { Inspector2Client, ListFiltersCommand } from "@aws-sdk/client-inspector2";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new Inspector2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateMemberCommand(params);
+const command = new ListFiltersCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.Inspector2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateMember(params);
+  const data = await client.listFilters(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .associateMember(params)
+  .listFilters(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.associateMember(params, (err, data) => {
+client.listFilters(params, (err, data) => {
   // process err and data.
 });
 ```

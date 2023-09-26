@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ImagebuilderClient` and
-the commands you need, for example `CancelImageCreationCommand`:
+the commands you need, for example `ListImagesCommand`:
 
 ```js
 // ES5 example
-const { ImagebuilderClient, CancelImageCreationCommand } = require("@aws-sdk/client-imagebuilder");
+const { ImagebuilderClient, ListImagesCommand } = require("@aws-sdk/client-imagebuilder");
 ```
 
 ```ts
 // ES6+ example
-import { ImagebuilderClient, CancelImageCreationCommand } from "@aws-sdk/client-imagebuilder";
+import { ImagebuilderClient, ListImagesCommand } from "@aws-sdk/client-imagebuilder";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new ImagebuilderClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelImageCreationCommand(params);
+const command = new ListImagesCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.Imagebuilder({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelImageCreation(params);
+  const data = await client.listImages(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .cancelImageCreation(params)
+  .listImages(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.cancelImageCreation(params, (err, data) => {
+client.listImages(params, (err, data) => {
   // process err and data.
 });
 ```

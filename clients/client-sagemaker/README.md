@@ -38,16 +38,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SageMakerClient` and
-the commands you need, for example `AddAssociationCommand`:
+the commands you need, for example `ListActionsCommand`:
 
 ```js
 // ES5 example
-const { SageMakerClient, AddAssociationCommand } = require("@aws-sdk/client-sagemaker");
+const { SageMakerClient, ListActionsCommand } = require("@aws-sdk/client-sagemaker");
 ```
 
 ```ts
 // ES6+ example
-import { SageMakerClient, AddAssociationCommand } from "@aws-sdk/client-sagemaker";
+import { SageMakerClient, ListActionsCommand } from "@aws-sdk/client-sagemaker";
 ```
 
 ### Usage
@@ -66,7 +66,7 @@ const client = new SageMakerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddAssociationCommand(params);
+const command = new ListActionsCommand(params);
 ```
 
 #### Async/await
@@ -145,7 +145,7 @@ const client = new AWS.SageMaker({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addAssociation(params);
+  const data = await client.listActions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -153,7 +153,7 @@ try {
 
 // Promises.
 client
-  .addAssociation(params)
+  .listActions(params)
   .then((data) => {
     // process data.
   })
@@ -162,7 +162,7 @@ client
   });
 
 // callbacks.
-client.addAssociation(params, (err, data) => {
+client.listActions(params, (err, data) => {
   // process err and data.
 });
 ```

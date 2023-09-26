@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `S3OutpostsClient` and
-the commands you need, for example `CreateEndpointCommand`:
+the commands you need, for example `ListEndpointsCommand`:
 
 ```js
 // ES5 example
-const { S3OutpostsClient, CreateEndpointCommand } = require("@aws-sdk/client-s3outposts");
+const { S3OutpostsClient, ListEndpointsCommand } = require("@aws-sdk/client-s3outposts");
 ```
 
 ```ts
 // ES6+ example
-import { S3OutpostsClient, CreateEndpointCommand } from "@aws-sdk/client-s3outposts";
+import { S3OutpostsClient, ListEndpointsCommand } from "@aws-sdk/client-s3outposts";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new S3OutpostsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateEndpointCommand(params);
+const command = new ListEndpointsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.S3Outposts({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createEndpoint(params);
+  const data = await client.listEndpoints(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createEndpoint(params)
+  .listEndpoints(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createEndpoint(params, (err, data) => {
+client.listEndpoints(params, (err, data) => {
   // process err and data.
 });
 ```

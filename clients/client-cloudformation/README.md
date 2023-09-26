@@ -33,16 +33,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudFormationClient` and
-the commands you need, for example `ActivateOrganizationsAccessCommand`:
+the commands you need, for example `ListExportsCommand`:
 
 ```js
 // ES5 example
-const { CloudFormationClient, ActivateOrganizationsAccessCommand } = require("@aws-sdk/client-cloudformation");
+const { CloudFormationClient, ListExportsCommand } = require("@aws-sdk/client-cloudformation");
 ```
 
 ```ts
 // ES6+ example
-import { CloudFormationClient, ActivateOrganizationsAccessCommand } from "@aws-sdk/client-cloudformation";
+import { CloudFormationClient, ListExportsCommand } from "@aws-sdk/client-cloudformation";
 ```
 
 ### Usage
@@ -61,7 +61,7 @@ const client = new CloudFormationClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ActivateOrganizationsAccessCommand(params);
+const command = new ListExportsCommand(params);
 ```
 
 #### Async/await
@@ -140,7 +140,7 @@ const client = new AWS.CloudFormation({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.activateOrganizationsAccess(params);
+  const data = await client.listExports(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -148,7 +148,7 @@ try {
 
 // Promises.
 client
-  .activateOrganizationsAccess(params)
+  .listExports(params)
   .then((data) => {
     // process data.
   })
@@ -157,7 +157,7 @@ client
   });
 
 // callbacks.
-client.activateOrganizationsAccess(params, (err, data) => {
+client.listExports(params, (err, data) => {
   // process err and data.
 });
 ```

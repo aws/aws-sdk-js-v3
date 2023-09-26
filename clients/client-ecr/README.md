@@ -32,16 +32,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ECRClient` and
-the commands you need, for example `BatchCheckLayerAvailabilityCommand`:
+the commands you need, for example `ListImagesCommand`:
 
 ```js
 // ES5 example
-const { ECRClient, BatchCheckLayerAvailabilityCommand } = require("@aws-sdk/client-ecr");
+const { ECRClient, ListImagesCommand } = require("@aws-sdk/client-ecr");
 ```
 
 ```ts
 // ES6+ example
-import { ECRClient, BatchCheckLayerAvailabilityCommand } from "@aws-sdk/client-ecr";
+import { ECRClient, ListImagesCommand } from "@aws-sdk/client-ecr";
 ```
 
 ### Usage
@@ -60,7 +60,7 @@ const client = new ECRClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchCheckLayerAvailabilityCommand(params);
+const command = new ListImagesCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +139,7 @@ const client = new AWS.ECR({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchCheckLayerAvailability(params);
+  const data = await client.listImages(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +147,7 @@ try {
 
 // Promises.
 client
-  .batchCheckLayerAvailability(params)
+  .listImages(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +156,7 @@ client
   });
 
 // callbacks.
-client.batchCheckLayerAvailability(params, (err, data) => {
+client.listImages(params, (err, data) => {
   // process err and data.
 });
 ```

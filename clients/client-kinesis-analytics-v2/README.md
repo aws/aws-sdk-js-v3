@@ -25,22 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `KinesisAnalyticsV2Client` and
-the commands you need, for example `AddApplicationCloudWatchLoggingOptionCommand`:
+the commands you need, for example `ListApplicationsCommand`:
 
 ```js
 // ES5 example
-const {
-  KinesisAnalyticsV2Client,
-  AddApplicationCloudWatchLoggingOptionCommand,
-} = require("@aws-sdk/client-kinesis-analytics-v2");
+const { KinesisAnalyticsV2Client, ListApplicationsCommand } = require("@aws-sdk/client-kinesis-analytics-v2");
 ```
 
 ```ts
 // ES6+ example
-import {
-  KinesisAnalyticsV2Client,
-  AddApplicationCloudWatchLoggingOptionCommand,
-} from "@aws-sdk/client-kinesis-analytics-v2";
+import { KinesisAnalyticsV2Client, ListApplicationsCommand } from "@aws-sdk/client-kinesis-analytics-v2";
 ```
 
 ### Usage
@@ -59,7 +53,7 @@ const client = new KinesisAnalyticsV2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddApplicationCloudWatchLoggingOptionCommand(params);
+const command = new ListApplicationsCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +132,7 @@ const client = new AWS.KinesisAnalyticsV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addApplicationCloudWatchLoggingOption(params);
+  const data = await client.listApplications(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +140,7 @@ try {
 
 // Promises.
 client
-  .addApplicationCloudWatchLoggingOption(params)
+  .listApplications(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +149,7 @@ client
   });
 
 // callbacks.
-client.addApplicationCloudWatchLoggingOption(params, (err, data) => {
+client.listApplications(params, (err, data) => {
   // process err and data.
 });
 ```

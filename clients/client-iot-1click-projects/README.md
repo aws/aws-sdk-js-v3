@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoT1ClickProjectsClient` and
-the commands you need, for example `AssociateDeviceWithPlacementCommand`:
+the commands you need, for example `ListProjectsCommand`:
 
 ```js
 // ES5 example
-const { IoT1ClickProjectsClient, AssociateDeviceWithPlacementCommand } = require("@aws-sdk/client-iot-1click-projects");
+const { IoT1ClickProjectsClient, ListProjectsCommand } = require("@aws-sdk/client-iot-1click-projects");
 ```
 
 ```ts
 // ES6+ example
-import { IoT1ClickProjectsClient, AssociateDeviceWithPlacementCommand } from "@aws-sdk/client-iot-1click-projects";
+import { IoT1ClickProjectsClient, ListProjectsCommand } from "@aws-sdk/client-iot-1click-projects";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new IoT1ClickProjectsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateDeviceWithPlacementCommand(params);
+const command = new ListProjectsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.IoT1ClickProjects({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateDeviceWithPlacement(params);
+  const data = await client.listProjects(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .associateDeviceWithPlacement(params)
+  .listProjects(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.associateDeviceWithPlacement(params, (err, data) => {
+client.listProjects(params, (err, data) => {
   // process err and data.
 });
 ```

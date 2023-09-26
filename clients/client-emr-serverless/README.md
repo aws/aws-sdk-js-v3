@@ -43,16 +43,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EMRServerlessClient` and
-the commands you need, for example `CancelJobRunCommand`:
+the commands you need, for example `ListApplicationsCommand`:
 
 ```js
 // ES5 example
-const { EMRServerlessClient, CancelJobRunCommand } = require("@aws-sdk/client-emr-serverless");
+const { EMRServerlessClient, ListApplicationsCommand } = require("@aws-sdk/client-emr-serverless");
 ```
 
 ```ts
 // ES6+ example
-import { EMRServerlessClient, CancelJobRunCommand } from "@aws-sdk/client-emr-serverless";
+import { EMRServerlessClient, ListApplicationsCommand } from "@aws-sdk/client-emr-serverless";
 ```
 
 ### Usage
@@ -71,7 +71,7 @@ const client = new EMRServerlessClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelJobRunCommand(params);
+const command = new ListApplicationsCommand(params);
 ```
 
 #### Async/await
@@ -150,7 +150,7 @@ const client = new AWS.EMRServerless({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelJobRun(params);
+  const data = await client.listApplications(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -158,7 +158,7 @@ try {
 
 // Promises.
 client
-  .cancelJobRun(params)
+  .listApplications(params)
   .then((data) => {
     // process data.
   })
@@ -167,7 +167,7 @@ client
   });
 
 // callbacks.
-client.cancelJobRun(params, (err, data) => {
+client.listApplications(params, (err, data) => {
   // process err and data.
 });
 ```

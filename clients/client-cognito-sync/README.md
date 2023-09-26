@@ -36,16 +36,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CognitoSyncClient` and
-the commands you need, for example `BulkPublishCommand`:
+the commands you need, for example `ListIdentityPoolUsageCommand`:
 
 ```js
 // ES5 example
-const { CognitoSyncClient, BulkPublishCommand } = require("@aws-sdk/client-cognito-sync");
+const { CognitoSyncClient, ListIdentityPoolUsageCommand } = require("@aws-sdk/client-cognito-sync");
 ```
 
 ```ts
 // ES6+ example
-import { CognitoSyncClient, BulkPublishCommand } from "@aws-sdk/client-cognito-sync";
+import { CognitoSyncClient, ListIdentityPoolUsageCommand } from "@aws-sdk/client-cognito-sync";
 ```
 
 ### Usage
@@ -64,7 +64,7 @@ const client = new CognitoSyncClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BulkPublishCommand(params);
+const command = new ListIdentityPoolUsageCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +143,7 @@ const client = new AWS.CognitoSync({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.bulkPublish(params);
+  const data = await client.listIdentityPoolUsage(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +151,7 @@ try {
 
 // Promises.
 client
-  .bulkPublish(params)
+  .listIdentityPoolUsage(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +160,7 @@ client
   });
 
 // callbacks.
-client.bulkPublish(params, (err, data) => {
+client.listIdentityPoolUsage(params, (err, data) => {
   // process err and data.
 });
 ```

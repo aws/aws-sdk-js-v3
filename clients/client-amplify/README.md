@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AmplifyClient` and
-the commands you need, for example `CreateAppCommand`:
+the commands you need, for example `ListAppsCommand`:
 
 ```js
 // ES5 example
-const { AmplifyClient, CreateAppCommand } = require("@aws-sdk/client-amplify");
+const { AmplifyClient, ListAppsCommand } = require("@aws-sdk/client-amplify");
 ```
 
 ```ts
 // ES6+ example
-import { AmplifyClient, CreateAppCommand } from "@aws-sdk/client-amplify";
+import { AmplifyClient, ListAppsCommand } from "@aws-sdk/client-amplify";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new AmplifyClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAppCommand(params);
+const command = new ListAppsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.Amplify({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createApp(params);
+  const data = await client.listApps(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .createApp(params)
+  .listApps(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.createApp(params, (err, data) => {
+client.listApps(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -47,16 +47,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SMSClient` and
-the commands you need, for example `CreateAppCommand`:
+the commands you need, for example `ListAppsCommand`:
 
 ```js
 // ES5 example
-const { SMSClient, CreateAppCommand } = require("@aws-sdk/client-sms");
+const { SMSClient, ListAppsCommand } = require("@aws-sdk/client-sms");
 ```
 
 ```ts
 // ES6+ example
-import { SMSClient, CreateAppCommand } from "@aws-sdk/client-sms";
+import { SMSClient, ListAppsCommand } from "@aws-sdk/client-sms";
 ```
 
 ### Usage
@@ -75,7 +75,7 @@ const client = new SMSClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAppCommand(params);
+const command = new ListAppsCommand(params);
 ```
 
 #### Async/await
@@ -154,7 +154,7 @@ const client = new AWS.SMS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createApp(params);
+  const data = await client.listApps(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -162,7 +162,7 @@ try {
 
 // Promises.
 client
-  .createApp(params)
+  .listApps(params)
   .then((data) => {
     // process data.
   })
@@ -171,7 +171,7 @@ client
   });
 
 // callbacks.
-client.createApp(params, (err, data) => {
+client.listApps(params, (err, data) => {
   // process err and data.
 });
 ```

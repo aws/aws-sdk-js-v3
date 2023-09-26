@@ -40,16 +40,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DynamoDBClient` and
-the commands you need, for example `BatchExecuteStatementCommand`:
+the commands you need, for example `ListBackupsCommand`:
 
 ```js
 // ES5 example
-const { DynamoDBClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-dynamodb");
+const { DynamoDBClient, ListBackupsCommand } = require("@aws-sdk/client-dynamodb");
 ```
 
 ```ts
 // ES6+ example
-import { DynamoDBClient, BatchExecuteStatementCommand } from "@aws-sdk/client-dynamodb";
+import { DynamoDBClient, ListBackupsCommand } from "@aws-sdk/client-dynamodb";
 ```
 
 ### Usage
@@ -68,7 +68,7 @@ const client = new DynamoDBClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchExecuteStatementCommand(params);
+const command = new ListBackupsCommand(params);
 ```
 
 #### Async/await
@@ -147,7 +147,7 @@ const client = new AWS.DynamoDB({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchExecuteStatement(params);
+  const data = await client.listBackups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -155,7 +155,7 @@ try {
 
 // Promises.
 client
-  .batchExecuteStatement(params)
+  .listBackups(params)
   .then((data) => {
     // process data.
   })
@@ -164,7 +164,7 @@ client
   });
 
 // callbacks.
-client.batchExecuteStatement(params, (err, data) => {
+client.listBackups(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudDirectoryClient` and
-the commands you need, for example `AddFacetToObjectCommand`:
+the commands you need, for example `ListDirectoriesCommand`:
 
 ```js
 // ES5 example
-const { CloudDirectoryClient, AddFacetToObjectCommand } = require("@aws-sdk/client-clouddirectory");
+const { CloudDirectoryClient, ListDirectoriesCommand } = require("@aws-sdk/client-clouddirectory");
 ```
 
 ```ts
 // ES6+ example
-import { CloudDirectoryClient, AddFacetToObjectCommand } from "@aws-sdk/client-clouddirectory";
+import { CloudDirectoryClient, ListDirectoriesCommand } from "@aws-sdk/client-clouddirectory";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new CloudDirectoryClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddFacetToObjectCommand(params);
+const command = new ListDirectoriesCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.CloudDirectory({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addFacetToObject(params);
+  const data = await client.listDirectories(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .addFacetToObject(params)
+  .listDirectories(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.addFacetToObject(params, (err, data) => {
+client.listDirectories(params, (err, data) => {
   // process err and data.
 });
 ```

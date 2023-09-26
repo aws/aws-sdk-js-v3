@@ -48,16 +48,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SageMakerA2IRuntimeClient` and
-the commands you need, for example `DeleteHumanLoopCommand`:
+the commands you need, for example `ListHumanLoopsCommand`:
 
 ```js
 // ES5 example
-const { SageMakerA2IRuntimeClient, DeleteHumanLoopCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime");
+const { SageMakerA2IRuntimeClient, ListHumanLoopsCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime");
 ```
 
 ```ts
 // ES6+ example
-import { SageMakerA2IRuntimeClient, DeleteHumanLoopCommand } from "@aws-sdk/client-sagemaker-a2i-runtime";
+import { SageMakerA2IRuntimeClient, ListHumanLoopsCommand } from "@aws-sdk/client-sagemaker-a2i-runtime";
 ```
 
 ### Usage
@@ -76,7 +76,7 @@ const client = new SageMakerA2IRuntimeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteHumanLoopCommand(params);
+const command = new ListHumanLoopsCommand(params);
 ```
 
 #### Async/await
@@ -155,7 +155,7 @@ const client = new AWS.SageMakerA2IRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteHumanLoop(params);
+  const data = await client.listHumanLoops(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -163,7 +163,7 @@ try {
 
 // Promises.
 client
-  .deleteHumanLoop(params)
+  .listHumanLoops(params)
   .then((data) => {
     // process data.
   })
@@ -172,7 +172,7 @@ client
   });
 
 // callbacks.
-client.deleteHumanLoop(params, (err, data) => {
+client.listHumanLoops(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EFSClient` and
-the commands you need, for example `CreateAccessPointCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { EFSClient, CreateAccessPointCommand } = require("@aws-sdk/client-efs");
+const { EFSClient, ListTagsForResourceCommand } = require("@aws-sdk/client-efs");
 ```
 
 ```ts
 // ES6+ example
-import { EFSClient, CreateAccessPointCommand } from "@aws-sdk/client-efs";
+import { EFSClient, ListTagsForResourceCommand } from "@aws-sdk/client-efs";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new EFSClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAccessPointCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.EFS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAccessPoint(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .createAccessPoint(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.createAccessPoint(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

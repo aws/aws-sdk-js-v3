@@ -30,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SESv2Client` and
-the commands you need, for example `BatchGetMetricDataCommand`:
+the commands you need, for example `ListContactListsCommand`:
 
 ```js
 // ES5 example
-const { SESv2Client, BatchGetMetricDataCommand } = require("@aws-sdk/client-sesv2");
+const { SESv2Client, ListContactListsCommand } = require("@aws-sdk/client-sesv2");
 ```
 
 ```ts
 // ES6+ example
-import { SESv2Client, BatchGetMetricDataCommand } from "@aws-sdk/client-sesv2";
+import { SESv2Client, ListContactListsCommand } from "@aws-sdk/client-sesv2";
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ const client = new SESv2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetMetricDataCommand(params);
+const command = new ListContactListsCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.SESv2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetMetricData(params);
+  const data = await client.listContactLists(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .batchGetMetricData(params)
+  .listContactLists(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.batchGetMetricData(params, (err, data) => {
+client.listContactLists(params, (err, data) => {
   // process err and data.
 });
 ```

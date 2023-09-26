@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AlexaForBusinessClient` and
-the commands you need, for example `ApproveSkillCommand`:
+the commands you need, for example `ListSkillsCommand`:
 
 ```js
 // ES5 example
-const { AlexaForBusinessClient, ApproveSkillCommand } = require("@aws-sdk/client-alexa-for-business");
+const { AlexaForBusinessClient, ListSkillsCommand } = require("@aws-sdk/client-alexa-for-business");
 ```
 
 ```ts
 // ES6+ example
-import { AlexaForBusinessClient, ApproveSkillCommand } from "@aws-sdk/client-alexa-for-business";
+import { AlexaForBusinessClient, ListSkillsCommand } from "@aws-sdk/client-alexa-for-business";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new AlexaForBusinessClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ApproveSkillCommand(params);
+const command = new ListSkillsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.AlexaForBusiness({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.approveSkill(params);
+  const data = await client.listSkills(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .approveSkill(params)
+  .listSkills(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.approveSkill(params, (err, data) => {
+client.listSkills(params, (err, data) => {
   // process err and data.
 });
 ```

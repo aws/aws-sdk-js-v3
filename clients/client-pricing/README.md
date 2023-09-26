@@ -57,16 +57,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PricingClient` and
-the commands you need, for example `DescribeServicesCommand`:
+the commands you need, for example `ListPriceListsCommand`:
 
 ```js
 // ES5 example
-const { PricingClient, DescribeServicesCommand } = require("@aws-sdk/client-pricing");
+const { PricingClient, ListPriceListsCommand } = require("@aws-sdk/client-pricing");
 ```
 
 ```ts
 // ES6+ example
-import { PricingClient, DescribeServicesCommand } from "@aws-sdk/client-pricing";
+import { PricingClient, ListPriceListsCommand } from "@aws-sdk/client-pricing";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ const client = new PricingClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeServicesCommand(params);
+const command = new ListPriceListsCommand(params);
 ```
 
 #### Async/await
@@ -164,7 +164,7 @@ const client = new AWS.Pricing({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeServices(params);
+  const data = await client.listPriceLists(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -172,7 +172,7 @@ try {
 
 // Promises.
 client
-  .describeServices(params)
+  .listPriceLists(params)
   .then((data) => {
     // process data.
   })
@@ -181,7 +181,7 @@ client
   });
 
 // callbacks.
-client.describeServices(params, (err, data) => {
+client.listPriceLists(params, (err, data) => {
   // process err and data.
 });
 ```

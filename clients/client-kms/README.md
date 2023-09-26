@@ -118,16 +118,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `KMSClient` and
-the commands you need, for example `CancelKeyDeletionCommand`:
+the commands you need, for example `ListAliasesCommand`:
 
 ```js
 // ES5 example
-const { KMSClient, CancelKeyDeletionCommand } = require("@aws-sdk/client-kms");
+const { KMSClient, ListAliasesCommand } = require("@aws-sdk/client-kms");
 ```
 
 ```ts
 // ES6+ example
-import { KMSClient, CancelKeyDeletionCommand } from "@aws-sdk/client-kms";
+import { KMSClient, ListAliasesCommand } from "@aws-sdk/client-kms";
 ```
 
 ### Usage
@@ -146,7 +146,7 @@ const client = new KMSClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelKeyDeletionCommand(params);
+const command = new ListAliasesCommand(params);
 ```
 
 #### Async/await
@@ -225,7 +225,7 @@ const client = new AWS.KMS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelKeyDeletion(params);
+  const data = await client.listAliases(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -233,7 +233,7 @@ try {
 
 // Promises.
 client
-  .cancelKeyDeletion(params)
+  .listAliases(params)
   .then((data) => {
     // process data.
   })
@@ -242,7 +242,7 @@ client
   });
 
 // callbacks.
-client.cancelKeyDeletion(params, (err, data) => {
+client.listAliases(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -31,16 +31,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `GrafanaClient` and
-the commands you need, for example `AssociateLicenseCommand`:
+the commands you need, for example `ListVersionsCommand`:
 
 ```js
 // ES5 example
-const { GrafanaClient, AssociateLicenseCommand } = require("@aws-sdk/client-grafana");
+const { GrafanaClient, ListVersionsCommand } = require("@aws-sdk/client-grafana");
 ```
 
 ```ts
 // ES6+ example
-import { GrafanaClient, AssociateLicenseCommand } from "@aws-sdk/client-grafana";
+import { GrafanaClient, ListVersionsCommand } from "@aws-sdk/client-grafana";
 ```
 
 ### Usage
@@ -59,7 +59,7 @@ const client = new GrafanaClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateLicenseCommand(params);
+const command = new ListVersionsCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +138,7 @@ const client = new AWS.Grafana({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateLicense(params);
+  const data = await client.listVersions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +146,7 @@ try {
 
 // Promises.
 client
-  .associateLicense(params)
+  .listVersions(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +155,7 @@ client
   });
 
 // callbacks.
-client.associateLicense(params, (err, data) => {
+client.listVersions(params, (err, data) => {
   // process err and data.
 });
 ```

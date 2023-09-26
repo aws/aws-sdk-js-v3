@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ChimeSDKIdentityClient` and
-the commands you need, for example `CreateAppInstanceCommand`:
+the commands you need, for example `ListAppInstancesCommand`:
 
 ```js
 // ES5 example
-const { ChimeSDKIdentityClient, CreateAppInstanceCommand } = require("@aws-sdk/client-chime-sdk-identity");
+const { ChimeSDKIdentityClient, ListAppInstancesCommand } = require("@aws-sdk/client-chime-sdk-identity");
 ```
 
 ```ts
 // ES6+ example
-import { ChimeSDKIdentityClient, CreateAppInstanceCommand } from "@aws-sdk/client-chime-sdk-identity";
+import { ChimeSDKIdentityClient, ListAppInstancesCommand } from "@aws-sdk/client-chime-sdk-identity";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new ChimeSDKIdentityClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAppInstanceCommand(params);
+const command = new ListAppInstancesCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.ChimeSDKIdentity({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAppInstance(params);
+  const data = await client.listAppInstances(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .createAppInstance(params)
+  .listAppInstances(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.createAppInstance(params, (err, data) => {
+client.listAppInstances(params, (err, data) => {
   // process err and data.
 });
 ```

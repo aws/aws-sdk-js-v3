@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BackupStorageClient` and
-the commands you need, for example `DeleteObjectCommand`:
+the commands you need, for example `ListObjectsCommand`:
 
 ```js
 // ES5 example
-const { BackupStorageClient, DeleteObjectCommand } = require("@aws-sdk/client-backupstorage");
+const { BackupStorageClient, ListObjectsCommand } = require("@aws-sdk/client-backupstorage");
 ```
 
 ```ts
 // ES6+ example
-import { BackupStorageClient, DeleteObjectCommand } from "@aws-sdk/client-backupstorage";
+import { BackupStorageClient, ListObjectsCommand } from "@aws-sdk/client-backupstorage";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new BackupStorageClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteObjectCommand(params);
+const command = new ListObjectsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.BackupStorage({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteObject(params);
+  const data = await client.listObjects(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .deleteObject(params)
+  .listObjects(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.deleteObject(params, (err, data) => {
+client.listObjects(params, (err, data) => {
   // process err and data.
 });
 ```

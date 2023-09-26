@@ -24,22 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `Route53DomainsClient` and
-the commands you need, for example `AcceptDomainTransferFromAnotherAwsAccountCommand`:
+the commands you need, for example `ListDomainsCommand`:
 
 ```js
 // ES5 example
-const {
-  Route53DomainsClient,
-  AcceptDomainTransferFromAnotherAwsAccountCommand,
-} = require("@aws-sdk/client-route-53-domains");
+const { Route53DomainsClient, ListDomainsCommand } = require("@aws-sdk/client-route-53-domains");
 ```
 
 ```ts
 // ES6+ example
-import {
-  Route53DomainsClient,
-  AcceptDomainTransferFromAnotherAwsAccountCommand,
-} from "@aws-sdk/client-route-53-domains";
+import { Route53DomainsClient, ListDomainsCommand } from "@aws-sdk/client-route-53-domains";
 ```
 
 ### Usage
@@ -58,7 +52,7 @@ const client = new Route53DomainsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptDomainTransferFromAnotherAwsAccountCommand(params);
+const command = new ListDomainsCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +131,7 @@ const client = new AWS.Route53Domains({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptDomainTransferFromAnotherAwsAccount(params);
+  const data = await client.listDomains(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +139,7 @@ try {
 
 // Promises.
 client
-  .acceptDomainTransferFromAnotherAwsAccount(params)
+  .listDomains(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +148,7 @@ client
   });
 
 // callbacks.
-client.acceptDomainTransferFromAnotherAwsAccount(params, (err, data) => {
+client.listDomains(params, (err, data) => {
   // process err and data.
 });
 ```

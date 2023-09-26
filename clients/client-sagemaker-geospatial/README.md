@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SageMakerGeospatialClient` and
-the commands you need, for example `DeleteEarthObservationJobCommand`:
+the commands you need, for example `ListEarthObservationJobsCommand`:
 
 ```js
 // ES5 example
-const { SageMakerGeospatialClient, DeleteEarthObservationJobCommand } = require("@aws-sdk/client-sagemaker-geospatial");
+const { SageMakerGeospatialClient, ListEarthObservationJobsCommand } = require("@aws-sdk/client-sagemaker-geospatial");
 ```
 
 ```ts
 // ES6+ example
-import { SageMakerGeospatialClient, DeleteEarthObservationJobCommand } from "@aws-sdk/client-sagemaker-geospatial";
+import { SageMakerGeospatialClient, ListEarthObservationJobsCommand } from "@aws-sdk/client-sagemaker-geospatial";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new SageMakerGeospatialClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteEarthObservationJobCommand(params);
+const command = new ListEarthObservationJobsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.SageMakerGeospatial({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteEarthObservationJob(params);
+  const data = await client.listEarthObservationJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .deleteEarthObservationJob(params)
+  .listEarthObservationJobs(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.deleteEarthObservationJob(params, (err, data) => {
+client.listEarthObservationJobs(params, (err, data) => {
   // process err and data.
 });
 ```

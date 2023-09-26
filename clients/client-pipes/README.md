@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PipesClient` and
-the commands you need, for example `CreatePipeCommand`:
+the commands you need, for example `ListPipesCommand`:
 
 ```js
 // ES5 example
-const { PipesClient, CreatePipeCommand } = require("@aws-sdk/client-pipes");
+const { PipesClient, ListPipesCommand } = require("@aws-sdk/client-pipes");
 ```
 
 ```ts
 // ES6+ example
-import { PipesClient, CreatePipeCommand } from "@aws-sdk/client-pipes";
+import { PipesClient, ListPipesCommand } from "@aws-sdk/client-pipes";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new PipesClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreatePipeCommand(params);
+const command = new ListPipesCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.Pipes({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createPipe(params);
+  const data = await client.listPipes(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .createPipe(params)
+  .listPipes(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.createPipe(params, (err, data) => {
+client.listPipes(params, (err, data) => {
   // process err and data.
 });
 ```

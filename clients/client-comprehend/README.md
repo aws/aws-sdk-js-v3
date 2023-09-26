@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ComprehendClient` and
-the commands you need, for example `BatchDetectDominantLanguageCommand`:
+the commands you need, for example `ListDatasetsCommand`:
 
 ```js
 // ES5 example
-const { ComprehendClient, BatchDetectDominantLanguageCommand } = require("@aws-sdk/client-comprehend");
+const { ComprehendClient, ListDatasetsCommand } = require("@aws-sdk/client-comprehend");
 ```
 
 ```ts
 // ES6+ example
-import { ComprehendClient, BatchDetectDominantLanguageCommand } from "@aws-sdk/client-comprehend";
+import { ComprehendClient, ListDatasetsCommand } from "@aws-sdk/client-comprehend";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new ComprehendClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchDetectDominantLanguageCommand(params);
+const command = new ListDatasetsCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.Comprehend({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchDetectDominantLanguage(params);
+  const data = await client.listDatasets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .batchDetectDominantLanguage(params)
+  .listDatasets(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.batchDetectDominantLanguage(params, (err, data) => {
+client.listDatasets(params, (err, data) => {
   // process err and data.
 });
 ```

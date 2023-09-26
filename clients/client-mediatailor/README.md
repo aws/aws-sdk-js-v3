@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaTailorClient` and
-the commands you need, for example `ConfigureLogsForChannelCommand`:
+the commands you need, for example `ListAlertsCommand`:
 
 ```js
 // ES5 example
-const { MediaTailorClient, ConfigureLogsForChannelCommand } = require("@aws-sdk/client-mediatailor");
+const { MediaTailorClient, ListAlertsCommand } = require("@aws-sdk/client-mediatailor");
 ```
 
 ```ts
 // ES6+ example
-import { MediaTailorClient, ConfigureLogsForChannelCommand } from "@aws-sdk/client-mediatailor";
+import { MediaTailorClient, ListAlertsCommand } from "@aws-sdk/client-mediatailor";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new MediaTailorClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ConfigureLogsForChannelCommand(params);
+const command = new ListAlertsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.MediaTailor({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.configureLogsForChannel(params);
+  const data = await client.listAlerts(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .configureLogsForChannel(params)
+  .listAlerts(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.configureLogsForChannel(params, (err, data) => {
+client.listAlerts(params, (err, data) => {
   // process err and data.
 });
 ```

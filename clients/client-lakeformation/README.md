@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LakeFormationClient` and
-the commands you need, for example `AddLFTagsToResourceCommand`:
+the commands you need, for example `ListLFTagsCommand`:
 
 ```js
 // ES5 example
-const { LakeFormationClient, AddLFTagsToResourceCommand } = require("@aws-sdk/client-lakeformation");
+const { LakeFormationClient, ListLFTagsCommand } = require("@aws-sdk/client-lakeformation");
 ```
 
 ```ts
 // ES6+ example
-import { LakeFormationClient, AddLFTagsToResourceCommand } from "@aws-sdk/client-lakeformation";
+import { LakeFormationClient, ListLFTagsCommand } from "@aws-sdk/client-lakeformation";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new LakeFormationClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddLFTagsToResourceCommand(params);
+const command = new ListLFTagsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.LakeFormation({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addLFTagsToResource(params);
+  const data = await client.listLFTags(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .addLFTagsToResource(params)
+  .listLFTags(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.addLFTagsToResource(params, (err, data) => {
+client.listLFTags(params, (err, data) => {
   // process err and data.
 });
 ```

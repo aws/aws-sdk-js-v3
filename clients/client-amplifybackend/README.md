@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AmplifyBackendClient` and
-the commands you need, for example `CloneBackendCommand`:
+the commands you need, for example `ListS3BucketsCommand`:
 
 ```js
 // ES5 example
-const { AmplifyBackendClient, CloneBackendCommand } = require("@aws-sdk/client-amplifybackend");
+const { AmplifyBackendClient, ListS3BucketsCommand } = require("@aws-sdk/client-amplifybackend");
 ```
 
 ```ts
 // ES6+ example
-import { AmplifyBackendClient, CloneBackendCommand } from "@aws-sdk/client-amplifybackend";
+import { AmplifyBackendClient, ListS3BucketsCommand } from "@aws-sdk/client-amplifybackend";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new AmplifyBackendClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CloneBackendCommand(params);
+const command = new ListS3BucketsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.AmplifyBackend({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cloneBackend(params);
+  const data = await client.listS3Buckets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .cloneBackend(params)
+  .listS3Buckets(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.cloneBackend(params, (err, data) => {
+client.listS3Buckets(params, (err, data) => {
   // process err and data.
 });
 ```

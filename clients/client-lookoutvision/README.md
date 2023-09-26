@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LookoutVisionClient` and
-the commands you need, for example `CreateDatasetCommand`:
+the commands you need, for example `ListModelsCommand`:
 
 ```js
 // ES5 example
-const { LookoutVisionClient, CreateDatasetCommand } = require("@aws-sdk/client-lookoutvision");
+const { LookoutVisionClient, ListModelsCommand } = require("@aws-sdk/client-lookoutvision");
 ```
 
 ```ts
 // ES6+ example
-import { LookoutVisionClient, CreateDatasetCommand } from "@aws-sdk/client-lookoutvision";
+import { LookoutVisionClient, ListModelsCommand } from "@aws-sdk/client-lookoutvision";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new LookoutVisionClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateDatasetCommand(params);
+const command = new ListModelsCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.LookoutVision({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createDataset(params);
+  const data = await client.listModels(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .createDataset(params)
+  .listModels(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.createDataset(params, (err, data) => {
+client.listModels(params, (err, data) => {
   // process err and data.
 });
 ```

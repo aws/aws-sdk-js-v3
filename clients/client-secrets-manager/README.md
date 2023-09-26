@@ -49,16 +49,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SecretsManagerClient` and
-the commands you need, for example `CancelRotateSecretCommand`:
+the commands you need, for example `ListSecretsCommand`:
 
 ```js
 // ES5 example
-const { SecretsManagerClient, CancelRotateSecretCommand } = require("@aws-sdk/client-secrets-manager");
+const { SecretsManagerClient, ListSecretsCommand } = require("@aws-sdk/client-secrets-manager");
 ```
 
 ```ts
 // ES6+ example
-import { SecretsManagerClient, CancelRotateSecretCommand } from "@aws-sdk/client-secrets-manager";
+import { SecretsManagerClient, ListSecretsCommand } from "@aws-sdk/client-secrets-manager";
 ```
 
 ### Usage
@@ -77,7 +77,7 @@ const client = new SecretsManagerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelRotateSecretCommand(params);
+const command = new ListSecretsCommand(params);
 ```
 
 #### Async/await
@@ -156,7 +156,7 @@ const client = new AWS.SecretsManager({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelRotateSecret(params);
+  const data = await client.listSecrets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -164,7 +164,7 @@ try {
 
 // Promises.
 client
-  .cancelRotateSecret(params)
+  .listSecrets(params)
   .then((data) => {
     // process data.
   })
@@ -173,7 +173,7 @@ client
   });
 
 // callbacks.
-client.cancelRotateSecret(params, (err, data) => {
+client.listSecrets(params, (err, data) => {
   // process err and data.
 });
 ```

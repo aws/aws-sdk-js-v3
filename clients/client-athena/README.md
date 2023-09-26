@@ -36,16 +36,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AthenaClient` and
-the commands you need, for example `BatchGetNamedQueryCommand`:
+the commands you need, for example `ListDataCatalogsCommand`:
 
 ```js
 // ES5 example
-const { AthenaClient, BatchGetNamedQueryCommand } = require("@aws-sdk/client-athena");
+const { AthenaClient, ListDataCatalogsCommand } = require("@aws-sdk/client-athena");
 ```
 
 ```ts
 // ES6+ example
-import { AthenaClient, BatchGetNamedQueryCommand } from "@aws-sdk/client-athena";
+import { AthenaClient, ListDataCatalogsCommand } from "@aws-sdk/client-athena";
 ```
 
 ### Usage
@@ -64,7 +64,7 @@ const client = new AthenaClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetNamedQueryCommand(params);
+const command = new ListDataCatalogsCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +143,7 @@ const client = new AWS.Athena({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetNamedQuery(params);
+  const data = await client.listDataCatalogs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +151,7 @@ try {
 
 // Promises.
 client
-  .batchGetNamedQuery(params)
+  .listDataCatalogs(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +160,7 @@ client
   });
 
 // callbacks.
-client.batchGetNamedQuery(params, (err, data) => {
+client.listDataCatalogs(params, (err, data) => {
   // process err and data.
 });
 ```

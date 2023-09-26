@@ -32,16 +32,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DataSyncClient` and
-the commands you need, for example `AddStorageSystemCommand`:
+the commands you need, for example `ListAgentsCommand`:
 
 ```js
 // ES5 example
-const { DataSyncClient, AddStorageSystemCommand } = require("@aws-sdk/client-datasync");
+const { DataSyncClient, ListAgentsCommand } = require("@aws-sdk/client-datasync");
 ```
 
 ```ts
 // ES6+ example
-import { DataSyncClient, AddStorageSystemCommand } from "@aws-sdk/client-datasync";
+import { DataSyncClient, ListAgentsCommand } from "@aws-sdk/client-datasync";
 ```
 
 ### Usage
@@ -60,7 +60,7 @@ const client = new DataSyncClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddStorageSystemCommand(params);
+const command = new ListAgentsCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +139,7 @@ const client = new AWS.DataSync({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addStorageSystem(params);
+  const data = await client.listAgents(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +147,7 @@ try {
 
 // Promises.
 client
-  .addStorageSystem(params)
+  .listAgents(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +156,7 @@ client
   });
 
 // callbacks.
-client.addStorageSystem(params, (err, data) => {
+client.listAgents(params, (err, data) => {
   // process err and data.
 });
 ```

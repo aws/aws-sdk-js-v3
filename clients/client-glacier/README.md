@@ -60,16 +60,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `GlacierClient` and
-the commands you need, for example `AbortMultipartUploadCommand`:
+the commands you need, for example `ListVaultsCommand`:
 
 ```js
 // ES5 example
-const { GlacierClient, AbortMultipartUploadCommand } = require("@aws-sdk/client-glacier");
+const { GlacierClient, ListVaultsCommand } = require("@aws-sdk/client-glacier");
 ```
 
 ```ts
 // ES6+ example
-import { GlacierClient, AbortMultipartUploadCommand } from "@aws-sdk/client-glacier";
+import { GlacierClient, ListVaultsCommand } from "@aws-sdk/client-glacier";
 ```
 
 ### Usage
@@ -88,7 +88,7 @@ const client = new GlacierClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AbortMultipartUploadCommand(params);
+const command = new ListVaultsCommand(params);
 ```
 
 #### Async/await
@@ -167,7 +167,7 @@ const client = new AWS.Glacier({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.abortMultipartUpload(params);
+  const data = await client.listVaults(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -175,7 +175,7 @@ try {
 
 // Promises.
 client
-  .abortMultipartUpload(params)
+  .listVaults(params)
   .then((data) => {
     // process data.
   })
@@ -184,7 +184,7 @@ client
   });
 
 // callbacks.
-client.abortMultipartUpload(params, (err, data) => {
+client.listVaults(params, (err, data) => {
   // process err and data.
 });
 ```

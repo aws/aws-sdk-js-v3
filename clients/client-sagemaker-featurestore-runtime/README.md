@@ -49,22 +49,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SageMakerFeatureStoreRuntimeClient` and
-the commands you need, for example `BatchGetRecordCommand`:
+the commands you need, for example `GetRecordCommand`:
 
 ```js
 // ES5 example
 const {
   SageMakerFeatureStoreRuntimeClient,
-  BatchGetRecordCommand,
+  GetRecordCommand,
 } = require("@aws-sdk/client-sagemaker-featurestore-runtime");
 ```
 
 ```ts
 // ES6+ example
-import {
-  SageMakerFeatureStoreRuntimeClient,
-  BatchGetRecordCommand,
-} from "@aws-sdk/client-sagemaker-featurestore-runtime";
+import { SageMakerFeatureStoreRuntimeClient, GetRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime";
 ```
 
 ### Usage
@@ -83,7 +80,7 @@ const client = new SageMakerFeatureStoreRuntimeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetRecordCommand(params);
+const command = new GetRecordCommand(params);
 ```
 
 #### Async/await
@@ -162,7 +159,7 @@ const client = new AWS.SageMakerFeatureStoreRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetRecord(params);
+  const data = await client.getRecord(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -170,7 +167,7 @@ try {
 
 // Promises.
 client
-  .batchGetRecord(params)
+  .getRecord(params)
   .then((data) => {
     // process data.
   })
@@ -179,7 +176,7 @@ client
   });
 
 // callbacks.
-client.batchGetRecord(params, (err, data) => {
+client.getRecord(params, (err, data) => {
   // process err and data.
 });
 ```

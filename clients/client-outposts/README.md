@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OutpostsClient` and
-the commands you need, for example `CancelOrderCommand`:
+the commands you need, for example `ListOrdersCommand`:
 
 ```js
 // ES5 example
-const { OutpostsClient, CancelOrderCommand } = require("@aws-sdk/client-outposts");
+const { OutpostsClient, ListOrdersCommand } = require("@aws-sdk/client-outposts");
 ```
 
 ```ts
 // ES6+ example
-import { OutpostsClient, CancelOrderCommand } from "@aws-sdk/client-outposts";
+import { OutpostsClient, ListOrdersCommand } from "@aws-sdk/client-outposts";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new OutpostsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelOrderCommand(params);
+const command = new ListOrdersCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.Outposts({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelOrder(params);
+  const data = await client.listOrders(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .cancelOrder(params)
+  .listOrders(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.cancelOrder(params, (err, data) => {
+client.listOrders(params, (err, data) => {
   // process err and data.
 });
 ```

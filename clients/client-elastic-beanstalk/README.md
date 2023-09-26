@@ -36,16 +36,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ElasticBeanstalkClient` and
-the commands you need, for example `AbortEnvironmentUpdateCommand`:
+the commands you need, for example `ListPlatformBranchesCommand`:
 
 ```js
 // ES5 example
-const { ElasticBeanstalkClient, AbortEnvironmentUpdateCommand } = require("@aws-sdk/client-elastic-beanstalk");
+const { ElasticBeanstalkClient, ListPlatformBranchesCommand } = require("@aws-sdk/client-elastic-beanstalk");
 ```
 
 ```ts
 // ES6+ example
-import { ElasticBeanstalkClient, AbortEnvironmentUpdateCommand } from "@aws-sdk/client-elastic-beanstalk";
+import { ElasticBeanstalkClient, ListPlatformBranchesCommand } from "@aws-sdk/client-elastic-beanstalk";
 ```
 
 ### Usage
@@ -64,7 +64,7 @@ const client = new ElasticBeanstalkClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AbortEnvironmentUpdateCommand(params);
+const command = new ListPlatformBranchesCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +143,7 @@ const client = new AWS.ElasticBeanstalk({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.abortEnvironmentUpdate(params);
+  const data = await client.listPlatformBranches(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +151,7 @@ try {
 
 // Promises.
 client
-  .abortEnvironmentUpdate(params)
+  .listPlatformBranches(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +160,7 @@ client
   });
 
 // callbacks.
-client.abortEnvironmentUpdate(params, (err, data) => {
+client.listPlatformBranches(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -39,16 +39,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EBSClient` and
-the commands you need, for example `CompleteSnapshotCommand`:
+the commands you need, for example `ListChangedBlocksCommand`:
 
 ```js
 // ES5 example
-const { EBSClient, CompleteSnapshotCommand } = require("@aws-sdk/client-ebs");
+const { EBSClient, ListChangedBlocksCommand } = require("@aws-sdk/client-ebs");
 ```
 
 ```ts
 // ES6+ example
-import { EBSClient, CompleteSnapshotCommand } from "@aws-sdk/client-ebs";
+import { EBSClient, ListChangedBlocksCommand } from "@aws-sdk/client-ebs";
 ```
 
 ### Usage
@@ -67,7 +67,7 @@ const client = new EBSClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CompleteSnapshotCommand(params);
+const command = new ListChangedBlocksCommand(params);
 ```
 
 #### Async/await
@@ -146,7 +146,7 @@ const client = new AWS.EBS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.completeSnapshot(params);
+  const data = await client.listChangedBlocks(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -154,7 +154,7 @@ try {
 
 // Promises.
 client
-  .completeSnapshot(params)
+  .listChangedBlocks(params)
   .then((data) => {
     // process data.
   })
@@ -163,7 +163,7 @@ client
   });
 
 // callbacks.
-client.completeSnapshot(params, (err, data) => {
+client.listChangedBlocks(params, (err, data) => {
   // process err and data.
 });
 ```

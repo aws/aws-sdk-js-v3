@@ -48,16 +48,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SecurityLakeClient` and
-the commands you need, for example `CreateAwsLogSourceCommand`:
+the commands you need, for example `ListDataLakesCommand`:
 
 ```js
 // ES5 example
-const { SecurityLakeClient, CreateAwsLogSourceCommand } = require("@aws-sdk/client-securitylake");
+const { SecurityLakeClient, ListDataLakesCommand } = require("@aws-sdk/client-securitylake");
 ```
 
 ```ts
 // ES6+ example
-import { SecurityLakeClient, CreateAwsLogSourceCommand } from "@aws-sdk/client-securitylake";
+import { SecurityLakeClient, ListDataLakesCommand } from "@aws-sdk/client-securitylake";
 ```
 
 ### Usage
@@ -76,7 +76,7 @@ const client = new SecurityLakeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAwsLogSourceCommand(params);
+const command = new ListDataLakesCommand(params);
 ```
 
 #### Async/await
@@ -155,7 +155,7 @@ const client = new AWS.SecurityLake({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAwsLogSource(params);
+  const data = await client.listDataLakes(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -163,7 +163,7 @@ try {
 
 // Promises.
 client
-  .createAwsLogSource(params)
+  .listDataLakes(params)
   .then((data) => {
     // process data.
   })
@@ -172,7 +172,7 @@ client
   });
 
 // callbacks.
-client.createAwsLogSource(params, (err, data) => {
+client.listDataLakes(params, (err, data) => {
   // process err and data.
 });
 ```

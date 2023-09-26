@@ -31,16 +31,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppFabricClient` and
-the commands you need, for example `BatchGetUserAccessTasksCommand`:
+the commands you need, for example `ListAppBundlesCommand`:
 
 ```js
 // ES5 example
-const { AppFabricClient, BatchGetUserAccessTasksCommand } = require("@aws-sdk/client-appfabric");
+const { AppFabricClient, ListAppBundlesCommand } = require("@aws-sdk/client-appfabric");
 ```
 
 ```ts
 // ES6+ example
-import { AppFabricClient, BatchGetUserAccessTasksCommand } from "@aws-sdk/client-appfabric";
+import { AppFabricClient, ListAppBundlesCommand } from "@aws-sdk/client-appfabric";
 ```
 
 ### Usage
@@ -59,7 +59,7 @@ const client = new AppFabricClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetUserAccessTasksCommand(params);
+const command = new ListAppBundlesCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +138,7 @@ const client = new AWS.AppFabric({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetUserAccessTasks(params);
+  const data = await client.listAppBundles(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +146,7 @@ try {
 
 // Promises.
 client
-  .batchGetUserAccessTasks(params)
+  .listAppBundles(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +155,7 @@ client
   });
 
 // callbacks.
-client.batchGetUserAccessTasks(params, (err, data) => {
+client.listAppBundles(params, (err, data) => {
   // process err and data.
 });
 ```

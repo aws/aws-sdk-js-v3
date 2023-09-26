@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DAXClient` and
-the commands you need, for example `CreateClusterCommand`:
+the commands you need, for example `ListTagsCommand`:
 
 ```js
 // ES5 example
-const { DAXClient, CreateClusterCommand } = require("@aws-sdk/client-dax");
+const { DAXClient, ListTagsCommand } = require("@aws-sdk/client-dax");
 ```
 
 ```ts
 // ES6+ example
-import { DAXClient, CreateClusterCommand } from "@aws-sdk/client-dax";
+import { DAXClient, ListTagsCommand } from "@aws-sdk/client-dax";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new DAXClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateClusterCommand(params);
+const command = new ListTagsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.DAX({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createCluster(params);
+  const data = await client.listTags(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .createCluster(params)
+  .listTags(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.createCluster(params, (err, data) => {
+client.listTags(params, (err, data) => {
   // process err and data.
 });
 ```

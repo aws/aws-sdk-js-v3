@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LexRuntimeV2Client` and
-the commands you need, for example `DeleteSessionCommand`:
+the commands you need, for example `GetSessionCommand`:
 
 ```js
 // ES5 example
-const { LexRuntimeV2Client, DeleteSessionCommand } = require("@aws-sdk/client-lex-runtime-v2");
+const { LexRuntimeV2Client, GetSessionCommand } = require("@aws-sdk/client-lex-runtime-v2");
 ```
 
 ```ts
 // ES6+ example
-import { LexRuntimeV2Client, DeleteSessionCommand } from "@aws-sdk/client-lex-runtime-v2";
+import { LexRuntimeV2Client, GetSessionCommand } from "@aws-sdk/client-lex-runtime-v2";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new LexRuntimeV2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteSessionCommand(params);
+const command = new GetSessionCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.LexRuntimeV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteSession(params);
+  const data = await client.getSession(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .deleteSession(params)
+  .getSession(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.deleteSession(params, (err, data) => {
+client.getSession(params, (err, data) => {
   // process err and data.
 });
 ```

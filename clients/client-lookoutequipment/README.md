@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LookoutEquipmentClient` and
-the commands you need, for example `CreateDatasetCommand`:
+the commands you need, for example `ListModelsCommand`:
 
 ```js
 // ES5 example
-const { LookoutEquipmentClient, CreateDatasetCommand } = require("@aws-sdk/client-lookoutequipment");
+const { LookoutEquipmentClient, ListModelsCommand } = require("@aws-sdk/client-lookoutequipment");
 ```
 
 ```ts
 // ES6+ example
-import { LookoutEquipmentClient, CreateDatasetCommand } from "@aws-sdk/client-lookoutequipment";
+import { LookoutEquipmentClient, ListModelsCommand } from "@aws-sdk/client-lookoutequipment";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new LookoutEquipmentClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateDatasetCommand(params);
+const command = new ListModelsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.LookoutEquipment({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createDataset(params);
+  const data = await client.listModels(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .createDataset(params)
+  .listModels(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.createDataset(params, (err, data) => {
+client.listModels(params, (err, data) => {
   // process err and data.
 });
 ```

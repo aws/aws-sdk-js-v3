@@ -82,16 +82,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `StorageGatewayClient` and
-the commands you need, for example `ActivateGatewayCommand`:
+the commands you need, for example `ListTapesCommand`:
 
 ```js
 // ES5 example
-const { StorageGatewayClient, ActivateGatewayCommand } = require("@aws-sdk/client-storage-gateway");
+const { StorageGatewayClient, ListTapesCommand } = require("@aws-sdk/client-storage-gateway");
 ```
 
 ```ts
 // ES6+ example
-import { StorageGatewayClient, ActivateGatewayCommand } from "@aws-sdk/client-storage-gateway";
+import { StorageGatewayClient, ListTapesCommand } from "@aws-sdk/client-storage-gateway";
 ```
 
 ### Usage
@@ -110,7 +110,7 @@ const client = new StorageGatewayClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ActivateGatewayCommand(params);
+const command = new ListTapesCommand(params);
 ```
 
 #### Async/await
@@ -189,7 +189,7 @@ const client = new AWS.StorageGateway({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.activateGateway(params);
+  const data = await client.listTapes(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -197,7 +197,7 @@ try {
 
 // Promises.
 client
-  .activateGateway(params)
+  .listTapes(params)
   .then((data) => {
     // process data.
   })
@@ -206,7 +206,7 @@ client
   });
 
 // callbacks.
-client.activateGateway(params, (err, data) => {
+client.listTapes(params, (err, data) => {
   // process err and data.
 });
 ```

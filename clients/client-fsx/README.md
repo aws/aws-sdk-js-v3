@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `FSxClient` and
-the commands you need, for example `AssociateFileSystemAliasesCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { FSxClient, AssociateFileSystemAliasesCommand } = require("@aws-sdk/client-fsx");
+const { FSxClient, ListTagsForResourceCommand } = require("@aws-sdk/client-fsx");
 ```
 
 ```ts
 // ES6+ example
-import { FSxClient, AssociateFileSystemAliasesCommand } from "@aws-sdk/client-fsx";
+import { FSxClient, ListTagsForResourceCommand } from "@aws-sdk/client-fsx";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new FSxClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateFileSystemAliasesCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.FSx({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateFileSystemAliases(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .associateFileSystemAliases(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.associateFileSystemAliases(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

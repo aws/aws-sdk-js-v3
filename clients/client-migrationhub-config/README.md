@@ -48,16 +48,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MigrationHubConfigClient` and
-the commands you need, for example `CreateHomeRegionControlCommand`:
+the commands you need, for example `GetHomeRegionCommand`:
 
 ```js
 // ES5 example
-const { MigrationHubConfigClient, CreateHomeRegionControlCommand } = require("@aws-sdk/client-migrationhub-config");
+const { MigrationHubConfigClient, GetHomeRegionCommand } = require("@aws-sdk/client-migrationhub-config");
 ```
 
 ```ts
 // ES6+ example
-import { MigrationHubConfigClient, CreateHomeRegionControlCommand } from "@aws-sdk/client-migrationhub-config";
+import { MigrationHubConfigClient, GetHomeRegionCommand } from "@aws-sdk/client-migrationhub-config";
 ```
 
 ### Usage
@@ -76,7 +76,7 @@ const client = new MigrationHubConfigClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateHomeRegionControlCommand(params);
+const command = new GetHomeRegionCommand(params);
 ```
 
 #### Async/await
@@ -155,7 +155,7 @@ const client = new AWS.MigrationHubConfig({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createHomeRegionControl(params);
+  const data = await client.getHomeRegion(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -163,7 +163,7 @@ try {
 
 // Promises.
 client
-  .createHomeRegionControl(params)
+  .getHomeRegion(params)
   .then((data) => {
     // process data.
   })
@@ -172,7 +172,7 @@ client
   });
 
 // callbacks.
-client.createHomeRegionControl(params, (err, data) => {
+client.getHomeRegion(params, (err, data) => {
   // process err and data.
 });
 ```

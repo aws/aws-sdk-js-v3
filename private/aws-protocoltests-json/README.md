@@ -21,16 +21,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `JsonProtocolClient` and
-the commands you need, for example `DatetimeOffsetsCommand`:
+the commands you need, for example `JsonEnumsCommand`:
 
 ```js
 // ES5 example
-const { JsonProtocolClient, DatetimeOffsetsCommand } = require("@aws-sdk/aws-protocoltests-json");
+const { JsonProtocolClient, JsonEnumsCommand } = require("@aws-sdk/aws-protocoltests-json");
 ```
 
 ```ts
 // ES6+ example
-import { JsonProtocolClient, DatetimeOffsetsCommand } from "@aws-sdk/aws-protocoltests-json";
+import { JsonProtocolClient, JsonEnumsCommand } from "@aws-sdk/aws-protocoltests-json";
 ```
 
 ### Usage
@@ -49,7 +49,7 @@ const client = new JsonProtocolClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DatetimeOffsetsCommand(params);
+const command = new JsonEnumsCommand(params);
 ```
 
 #### Async/await
@@ -128,7 +128,7 @@ const client = new AWS.JsonProtocol({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.datetimeOffsets(params);
+  const data = await client.jsonEnums(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -136,7 +136,7 @@ try {
 
 // Promises.
 client
-  .datetimeOffsets(params)
+  .jsonEnums(params)
   .then((data) => {
     // process data.
   })
@@ -145,7 +145,7 @@ client
   });
 
 // callbacks.
-client.datetimeOffsets(params, (err, data) => {
+client.jsonEnums(params, (err, data) => {
   // process err and data.
 });
 ```

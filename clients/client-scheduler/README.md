@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SchedulerClient` and
-the commands you need, for example `CreateScheduleCommand`:
+the commands you need, for example `ListSchedulesCommand`:
 
 ```js
 // ES5 example
-const { SchedulerClient, CreateScheduleCommand } = require("@aws-sdk/client-scheduler");
+const { SchedulerClient, ListSchedulesCommand } = require("@aws-sdk/client-scheduler");
 ```
 
 ```ts
 // ES6+ example
-import { SchedulerClient, CreateScheduleCommand } from "@aws-sdk/client-scheduler";
+import { SchedulerClient, ListSchedulesCommand } from "@aws-sdk/client-scheduler";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new SchedulerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateScheduleCommand(params);
+const command = new ListSchedulesCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.Scheduler({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createSchedule(params);
+  const data = await client.listSchedules(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .createSchedule(params)
+  .listSchedules(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.createSchedule(params, (err, data) => {
+client.listSchedules(params, (err, data) => {
   // process err and data.
 });
 ```

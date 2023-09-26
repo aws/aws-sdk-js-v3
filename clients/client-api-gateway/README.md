@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `APIGatewayClient` and
-the commands you need, for example `CreateApiKeyCommand`:
+the commands you need, for example `GetAccountCommand`:
 
 ```js
 // ES5 example
-const { APIGatewayClient, CreateApiKeyCommand } = require("@aws-sdk/client-api-gateway");
+const { APIGatewayClient, GetAccountCommand } = require("@aws-sdk/client-api-gateway");
 ```
 
 ```ts
 // ES6+ example
-import { APIGatewayClient, CreateApiKeyCommand } from "@aws-sdk/client-api-gateway";
+import { APIGatewayClient, GetAccountCommand } from "@aws-sdk/client-api-gateway";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new APIGatewayClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateApiKeyCommand(params);
+const command = new GetAccountCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.APIGateway({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createApiKey(params);
+  const data = await client.getAccount(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .createApiKey(params)
+  .getAccount(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.createApiKey(params, (err, data) => {
+client.getAccount(params, (err, data) => {
   // process err and data.
 });
 ```

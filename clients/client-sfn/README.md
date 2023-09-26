@@ -39,16 +39,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SFNClient` and
-the commands you need, for example `CreateActivityCommand`:
+the commands you need, for example `ListActivitiesCommand`:
 
 ```js
 // ES5 example
-const { SFNClient, CreateActivityCommand } = require("@aws-sdk/client-sfn");
+const { SFNClient, ListActivitiesCommand } = require("@aws-sdk/client-sfn");
 ```
 
 ```ts
 // ES6+ example
-import { SFNClient, CreateActivityCommand } from "@aws-sdk/client-sfn";
+import { SFNClient, ListActivitiesCommand } from "@aws-sdk/client-sfn";
 ```
 
 ### Usage
@@ -67,7 +67,7 @@ const client = new SFNClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateActivityCommand(params);
+const command = new ListActivitiesCommand(params);
 ```
 
 #### Async/await
@@ -146,7 +146,7 @@ const client = new AWS.SFN({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createActivity(params);
+  const data = await client.listActivities(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -154,7 +154,7 @@ try {
 
 // Promises.
 client
-  .createActivity(params)
+  .listActivities(params)
   .then((data) => {
     // process data.
   })
@@ -163,7 +163,7 @@ client
   });
 
 // callbacks.
-client.createActivity(params, (err, data) => {
+client.listActivities(params, (err, data) => {
   // process err and data.
 });
 ```

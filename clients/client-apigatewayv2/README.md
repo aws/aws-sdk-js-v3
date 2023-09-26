@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ApiGatewayV2Client` and
-the commands you need, for example `CreateApiCommand`:
+the commands you need, for example `GetApisCommand`:
 
 ```js
 // ES5 example
-const { ApiGatewayV2Client, CreateApiCommand } = require("@aws-sdk/client-apigatewayv2");
+const { ApiGatewayV2Client, GetApisCommand } = require("@aws-sdk/client-apigatewayv2");
 ```
 
 ```ts
 // ES6+ example
-import { ApiGatewayV2Client, CreateApiCommand } from "@aws-sdk/client-apigatewayv2";
+import { ApiGatewayV2Client, GetApisCommand } from "@aws-sdk/client-apigatewayv2";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new ApiGatewayV2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateApiCommand(params);
+const command = new GetApisCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.ApiGatewayV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createApi(params);
+  const data = await client.getApis(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createApi(params)
+  .getApis(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createApi(params, (err, data) => {
+client.getApis(params, (err, data) => {
   // process err and data.
 });
 ```

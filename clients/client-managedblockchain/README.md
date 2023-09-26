@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ManagedBlockchainClient` and
-the commands you need, for example `CreateAccessorCommand`:
+the commands you need, for example `ListAccessorsCommand`:
 
 ```js
 // ES5 example
-const { ManagedBlockchainClient, CreateAccessorCommand } = require("@aws-sdk/client-managedblockchain");
+const { ManagedBlockchainClient, ListAccessorsCommand } = require("@aws-sdk/client-managedblockchain");
 ```
 
 ```ts
 // ES6+ example
-import { ManagedBlockchainClient, CreateAccessorCommand } from "@aws-sdk/client-managedblockchain";
+import { ManagedBlockchainClient, ListAccessorsCommand } from "@aws-sdk/client-managedblockchain";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new ManagedBlockchainClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAccessorCommand(params);
+const command = new ListAccessorsCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.ManagedBlockchain({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAccessor(params);
+  const data = await client.listAccessors(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .createAccessor(params)
+  .listAccessors(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.createAccessor(params, (err, data) => {
+client.listAccessors(params, (err, data) => {
   // process err and data.
 });
 ```

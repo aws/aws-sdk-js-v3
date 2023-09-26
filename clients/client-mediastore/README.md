@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaStoreClient` and
-the commands you need, for example `CreateContainerCommand`:
+the commands you need, for example `ListContainersCommand`:
 
 ```js
 // ES5 example
-const { MediaStoreClient, CreateContainerCommand } = require("@aws-sdk/client-mediastore");
+const { MediaStoreClient, ListContainersCommand } = require("@aws-sdk/client-mediastore");
 ```
 
 ```ts
 // ES6+ example
-import { MediaStoreClient, CreateContainerCommand } from "@aws-sdk/client-mediastore";
+import { MediaStoreClient, ListContainersCommand } from "@aws-sdk/client-mediastore";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new MediaStoreClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateContainerCommand(params);
+const command = new ListContainersCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.MediaStore({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createContainer(params);
+  const data = await client.listContainers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .createContainer(params)
+  .listContainers(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.createContainer(params, (err, data) => {
+client.listContainers(params, (err, data) => {
   // process err and data.
 });
 ```

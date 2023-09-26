@@ -77,16 +77,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SupportAppClient` and
-the commands you need, for example `CreateSlackChannelConfigurationCommand`:
+the commands you need, for example `ListSlackChannelConfigurationsCommand`:
 
 ```js
 // ES5 example
-const { SupportAppClient, CreateSlackChannelConfigurationCommand } = require("@aws-sdk/client-support-app");
+const { SupportAppClient, ListSlackChannelConfigurationsCommand } = require("@aws-sdk/client-support-app");
 ```
 
 ```ts
 // ES6+ example
-import { SupportAppClient, CreateSlackChannelConfigurationCommand } from "@aws-sdk/client-support-app";
+import { SupportAppClient, ListSlackChannelConfigurationsCommand } from "@aws-sdk/client-support-app";
 ```
 
 ### Usage
@@ -105,7 +105,7 @@ const client = new SupportAppClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateSlackChannelConfigurationCommand(params);
+const command = new ListSlackChannelConfigurationsCommand(params);
 ```
 
 #### Async/await
@@ -184,7 +184,7 @@ const client = new AWS.SupportApp({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createSlackChannelConfiguration(params);
+  const data = await client.listSlackChannelConfigurations(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -192,7 +192,7 @@ try {
 
 // Promises.
 client
-  .createSlackChannelConfiguration(params)
+  .listSlackChannelConfigurations(params)
   .then((data) => {
     // process data.
   })
@@ -201,7 +201,7 @@ client
   });
 
 // callbacks.
-client.createSlackChannelConfiguration(params, (err, data) => {
+client.listSlackChannelConfigurations(params, (err, data) => {
   // process err and data.
 });
 ```

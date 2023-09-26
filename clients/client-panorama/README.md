@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PanoramaClient` and
-the commands you need, for example `CreateApplicationInstanceCommand`:
+the commands you need, for example `ListDevicesCommand`:
 
 ```js
 // ES5 example
-const { PanoramaClient, CreateApplicationInstanceCommand } = require("@aws-sdk/client-panorama");
+const { PanoramaClient, ListDevicesCommand } = require("@aws-sdk/client-panorama");
 ```
 
 ```ts
 // ES6+ example
-import { PanoramaClient, CreateApplicationInstanceCommand } from "@aws-sdk/client-panorama";
+import { PanoramaClient, ListDevicesCommand } from "@aws-sdk/client-panorama";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new PanoramaClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateApplicationInstanceCommand(params);
+const command = new ListDevicesCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.Panorama({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createApplicationInstance(params);
+  const data = await client.listDevices(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .createApplicationInstance(params)
+  .listDevices(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.createApplicationInstance(params, (err, data) => {
+client.listDevices(params, (err, data) => {
   // process err and data.
 });
 ```

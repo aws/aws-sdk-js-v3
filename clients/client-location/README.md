@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LocationClient` and
-the commands you need, for example `AssociateTrackerConsumerCommand`:
+the commands you need, for example `ListKeysCommand`:
 
 ```js
 // ES5 example
-const { LocationClient, AssociateTrackerConsumerCommand } = require("@aws-sdk/client-location");
+const { LocationClient, ListKeysCommand } = require("@aws-sdk/client-location");
 ```
 
 ```ts
 // ES6+ example
-import { LocationClient, AssociateTrackerConsumerCommand } from "@aws-sdk/client-location";
+import { LocationClient, ListKeysCommand } from "@aws-sdk/client-location";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new LocationClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateTrackerConsumerCommand(params);
+const command = new ListKeysCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Location({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateTrackerConsumer(params);
+  const data = await client.listKeys(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .associateTrackerConsumer(params)
+  .listKeys(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.associateTrackerConsumer(params, (err, data) => {
+client.listKeys(params, (err, data) => {
   // process err and data.
 });
 ```

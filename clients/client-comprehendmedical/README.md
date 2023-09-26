@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ComprehendMedicalClient` and
-the commands you need, for example `DescribeEntitiesDetectionV2JobCommand`:
+the commands you need, for example `ListPHIDetectionJobsCommand`:
 
 ```js
 // ES5 example
-const { ComprehendMedicalClient, DescribeEntitiesDetectionV2JobCommand } = require("@aws-sdk/client-comprehendmedical");
+const { ComprehendMedicalClient, ListPHIDetectionJobsCommand } = require("@aws-sdk/client-comprehendmedical");
 ```
 
 ```ts
 // ES6+ example
-import { ComprehendMedicalClient, DescribeEntitiesDetectionV2JobCommand } from "@aws-sdk/client-comprehendmedical";
+import { ComprehendMedicalClient, ListPHIDetectionJobsCommand } from "@aws-sdk/client-comprehendmedical";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new ComprehendMedicalClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeEntitiesDetectionV2JobCommand(params);
+const command = new ListPHIDetectionJobsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.ComprehendMedical({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeEntitiesDetectionV2Job(params);
+  const data = await client.listPHIDetectionJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .describeEntitiesDetectionV2Job(params)
+  .listPHIDetectionJobs(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.describeEntitiesDetectionV2Job(params, (err, data) => {
+client.listPHIDetectionJobs(params, (err, data) => {
   // process err and data.
 });
 ```

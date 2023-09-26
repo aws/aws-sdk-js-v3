@@ -33,16 +33,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTJobsDataPlaneClient` and
-the commands you need, for example `DescribeJobExecutionCommand`:
+the commands you need, for example `GetPendingJobExecutionsCommand`:
 
 ```js
 // ES5 example
-const { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane");
+const { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } = require("@aws-sdk/client-iot-jobs-data-plane");
 ```
 
 ```ts
 // ES6+ example
-import { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane";
+import { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } from "@aws-sdk/client-iot-jobs-data-plane";
 ```
 
 ### Usage
@@ -61,7 +61,7 @@ const client = new IoTJobsDataPlaneClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeJobExecutionCommand(params);
+const command = new GetPendingJobExecutionsCommand(params);
 ```
 
 #### Async/await
@@ -140,7 +140,7 @@ const client = new AWS.IoTJobsDataPlane({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeJobExecution(params);
+  const data = await client.getPendingJobExecutions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -148,7 +148,7 @@ try {
 
 // Promises.
 client
-  .describeJobExecution(params)
+  .getPendingJobExecutions(params)
   .then((data) => {
     // process data.
   })
@@ -157,7 +157,7 @@ client
   });
 
 // callbacks.
-client.describeJobExecution(params, (err, data) => {
+client.getPendingJobExecutions(params, (err, data) => {
   // process err and data.
 });
 ```

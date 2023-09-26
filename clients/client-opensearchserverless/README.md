@@ -32,16 +32,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OpenSearchServerlessClient` and
-the commands you need, for example `BatchGetCollectionCommand`:
+the commands you need, for example `ListCollectionsCommand`:
 
 ```js
 // ES5 example
-const { OpenSearchServerlessClient, BatchGetCollectionCommand } = require("@aws-sdk/client-opensearchserverless");
+const { OpenSearchServerlessClient, ListCollectionsCommand } = require("@aws-sdk/client-opensearchserverless");
 ```
 
 ```ts
 // ES6+ example
-import { OpenSearchServerlessClient, BatchGetCollectionCommand } from "@aws-sdk/client-opensearchserverless";
+import { OpenSearchServerlessClient, ListCollectionsCommand } from "@aws-sdk/client-opensearchserverless";
 ```
 
 ### Usage
@@ -60,7 +60,7 @@ const client = new OpenSearchServerlessClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetCollectionCommand(params);
+const command = new ListCollectionsCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +139,7 @@ const client = new AWS.OpenSearchServerless({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetCollection(params);
+  const data = await client.listCollections(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +147,7 @@ try {
 
 // Promises.
 client
-  .batchGetCollection(params)
+  .listCollections(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +156,7 @@ client
   });
 
 // callbacks.
-client.batchGetCollection(params, (err, data) => {
+client.listCollections(params, (err, data) => {
   // process err and data.
 });
 ```

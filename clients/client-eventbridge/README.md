@@ -43,16 +43,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EventBridgeClient` and
-the commands you need, for example `ActivateEventSourceCommand`:
+the commands you need, for example `ListReplaysCommand`:
 
 ```js
 // ES5 example
-const { EventBridgeClient, ActivateEventSourceCommand } = require("@aws-sdk/client-eventbridge");
+const { EventBridgeClient, ListReplaysCommand } = require("@aws-sdk/client-eventbridge");
 ```
 
 ```ts
 // ES6+ example
-import { EventBridgeClient, ActivateEventSourceCommand } from "@aws-sdk/client-eventbridge";
+import { EventBridgeClient, ListReplaysCommand } from "@aws-sdk/client-eventbridge";
 ```
 
 ### Usage
@@ -71,7 +71,7 @@ const client = new EventBridgeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ActivateEventSourceCommand(params);
+const command = new ListReplaysCommand(params);
 ```
 
 #### Async/await
@@ -150,7 +150,7 @@ const client = new AWS.EventBridge({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.activateEventSource(params);
+  const data = await client.listReplays(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -158,7 +158,7 @@ try {
 
 // Promises.
 client
-  .activateEventSource(params)
+  .listReplays(params)
   .then((data) => {
     // process data.
   })
@@ -167,7 +167,7 @@ client
   });
 
 // callbacks.
-client.activateEventSource(params, (err, data) => {
+client.listReplays(params, (err, data) => {
   // process err and data.
 });
 ```

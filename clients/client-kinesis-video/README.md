@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `KinesisVideoClient` and
-the commands you need, for example `CreateSignalingChannelCommand`:
+the commands you need, for example `ListStreamsCommand`:
 
 ```js
 // ES5 example
-const { KinesisVideoClient, CreateSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video");
+const { KinesisVideoClient, ListStreamsCommand } = require("@aws-sdk/client-kinesis-video");
 ```
 
 ```ts
 // ES6+ example
-import { KinesisVideoClient, CreateSignalingChannelCommand } from "@aws-sdk/client-kinesis-video";
+import { KinesisVideoClient, ListStreamsCommand } from "@aws-sdk/client-kinesis-video";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new KinesisVideoClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateSignalingChannelCommand(params);
+const command = new ListStreamsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.KinesisVideo({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createSignalingChannel(params);
+  const data = await client.listStreams(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createSignalingChannel(params)
+  .listStreams(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createSignalingChannel(params, (err, data) => {
+client.listStreams(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -90,16 +90,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `Cloud9Client` and
-the commands you need, for example `CreateEnvironmentEC2Command`:
+the commands you need, for example `ListEnvironmentsCommand`:
 
 ```js
 // ES5 example
-const { Cloud9Client, CreateEnvironmentEC2Command } = require("@aws-sdk/client-cloud9");
+const { Cloud9Client, ListEnvironmentsCommand } = require("@aws-sdk/client-cloud9");
 ```
 
 ```ts
 // ES6+ example
-import { Cloud9Client, CreateEnvironmentEC2Command } from "@aws-sdk/client-cloud9";
+import { Cloud9Client, ListEnvironmentsCommand } from "@aws-sdk/client-cloud9";
 ```
 
 ### Usage
@@ -118,7 +118,7 @@ const client = new Cloud9Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateEnvironmentEC2Command(params);
+const command = new ListEnvironmentsCommand(params);
 ```
 
 #### Async/await
@@ -197,7 +197,7 @@ const client = new AWS.Cloud9({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createEnvironmentEC2(params);
+  const data = await client.listEnvironments(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -205,7 +205,7 @@ try {
 
 // Promises.
 client
-  .createEnvironmentEC2(params)
+  .listEnvironments(params)
   .then((data) => {
     // process data.
   })
@@ -214,7 +214,7 @@ client
   });
 
 // callbacks.
-client.createEnvironmentEC2(params, (err, data) => {
+client.listEnvironments(params, (err, data) => {
   // process err and data.
 });
 ```

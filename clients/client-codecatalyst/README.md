@@ -174,16 +174,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CodeCatalystClient` and
-the commands you need, for example `CreateAccessTokenCommand`:
+the commands you need, for example `ListSpacesCommand`:
 
 ```js
 // ES5 example
-const { CodeCatalystClient, CreateAccessTokenCommand } = require("@aws-sdk/client-codecatalyst");
+const { CodeCatalystClient, ListSpacesCommand } = require("@aws-sdk/client-codecatalyst");
 ```
 
 ```ts
 // ES6+ example
-import { CodeCatalystClient, CreateAccessTokenCommand } from "@aws-sdk/client-codecatalyst";
+import { CodeCatalystClient, ListSpacesCommand } from "@aws-sdk/client-codecatalyst";
 ```
 
 ### Usage
@@ -202,7 +202,7 @@ const client = new CodeCatalystClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAccessTokenCommand(params);
+const command = new ListSpacesCommand(params);
 ```
 
 #### Async/await
@@ -281,7 +281,7 @@ const client = new AWS.CodeCatalyst({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAccessToken(params);
+  const data = await client.listSpaces(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -289,7 +289,7 @@ try {
 
 // Promises.
 client
-  .createAccessToken(params)
+  .listSpaces(params)
   .then((data) => {
     // process data.
   })
@@ -298,7 +298,7 @@ client
   });
 
 // callbacks.
-client.createAccessToken(params, (err, data) => {
+client.listSpaces(params, (err, data) => {
   // process err and data.
 });
 ```

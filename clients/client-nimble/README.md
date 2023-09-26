@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `NimbleClient` and
-the commands you need, for example `AcceptEulasCommand`:
+the commands you need, for example `ListEulasCommand`:
 
 ```js
 // ES5 example
-const { NimbleClient, AcceptEulasCommand } = require("@aws-sdk/client-nimble");
+const { NimbleClient, ListEulasCommand } = require("@aws-sdk/client-nimble");
 ```
 
 ```ts
 // ES6+ example
-import { NimbleClient, AcceptEulasCommand } from "@aws-sdk/client-nimble";
+import { NimbleClient, ListEulasCommand } from "@aws-sdk/client-nimble";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new NimbleClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptEulasCommand(params);
+const command = new ListEulasCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.Nimble({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptEulas(params);
+  const data = await client.listEulas(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .acceptEulas(params)
+  .listEulas(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.acceptEulas(params, (err, data) => {
+client.listEulas(params, (err, data) => {
   // process err and data.
 });
 ```

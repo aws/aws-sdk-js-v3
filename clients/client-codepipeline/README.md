@@ -217,16 +217,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CodePipelineClient` and
-the commands you need, for example `AcknowledgeJobCommand`:
+the commands you need, for example `ListActionTypesCommand`:
 
 ```js
 // ES5 example
-const { CodePipelineClient, AcknowledgeJobCommand } = require("@aws-sdk/client-codepipeline");
+const { CodePipelineClient, ListActionTypesCommand } = require("@aws-sdk/client-codepipeline");
 ```
 
 ```ts
 // ES6+ example
-import { CodePipelineClient, AcknowledgeJobCommand } from "@aws-sdk/client-codepipeline";
+import { CodePipelineClient, ListActionTypesCommand } from "@aws-sdk/client-codepipeline";
 ```
 
 ### Usage
@@ -245,7 +245,7 @@ const client = new CodePipelineClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcknowledgeJobCommand(params);
+const command = new ListActionTypesCommand(params);
 ```
 
 #### Async/await
@@ -324,7 +324,7 @@ const client = new AWS.CodePipeline({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acknowledgeJob(params);
+  const data = await client.listActionTypes(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -332,7 +332,7 @@ try {
 
 // Promises.
 client
-  .acknowledgeJob(params)
+  .listActionTypes(params)
   .then((data) => {
     // process data.
   })
@@ -341,7 +341,7 @@ client
   });
 
 // callbacks.
-client.acknowledgeJob(params, (err, data) => {
+client.listActionTypes(params, (err, data) => {
   // process err and data.
 });
 ```

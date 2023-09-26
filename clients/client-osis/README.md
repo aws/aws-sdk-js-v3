@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OSISClient` and
-the commands you need, for example `CreatePipelineCommand`:
+the commands you need, for example `ListPipelinesCommand`:
 
 ```js
 // ES5 example
-const { OSISClient, CreatePipelineCommand } = require("@aws-sdk/client-osis");
+const { OSISClient, ListPipelinesCommand } = require("@aws-sdk/client-osis");
 ```
 
 ```ts
 // ES6+ example
-import { OSISClient, CreatePipelineCommand } from "@aws-sdk/client-osis";
+import { OSISClient, ListPipelinesCommand } from "@aws-sdk/client-osis";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new OSISClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreatePipelineCommand(params);
+const command = new ListPipelinesCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.OSIS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createPipeline(params);
+  const data = await client.listPipelines(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .createPipeline(params)
+  .listPipelines(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.createPipeline(params, (err, data) => {
+client.listPipelines(params, (err, data) => {
   // process err and data.
 });
 ```

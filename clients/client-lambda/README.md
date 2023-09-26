@@ -88,16 +88,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LambdaClient` and
-the commands you need, for example `AddLayerVersionPermissionCommand`:
+the commands you need, for example `ListLayersCommand`:
 
 ```js
 // ES5 example
-const { LambdaClient, AddLayerVersionPermissionCommand } = require("@aws-sdk/client-lambda");
+const { LambdaClient, ListLayersCommand } = require("@aws-sdk/client-lambda");
 ```
 
 ```ts
 // ES6+ example
-import { LambdaClient, AddLayerVersionPermissionCommand } from "@aws-sdk/client-lambda";
+import { LambdaClient, ListLayersCommand } from "@aws-sdk/client-lambda";
 ```
 
 ### Usage
@@ -116,7 +116,7 @@ const client = new LambdaClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddLayerVersionPermissionCommand(params);
+const command = new ListLayersCommand(params);
 ```
 
 #### Async/await
@@ -195,7 +195,7 @@ const client = new AWS.Lambda({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addLayerVersionPermission(params);
+  const data = await client.listLayers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -203,7 +203,7 @@ try {
 
 // Promises.
 client
-  .addLayerVersionPermission(params)
+  .listLayers(params)
   .then((data) => {
     // process data.
   })
@@ -212,7 +212,7 @@ client
   });
 
 // callbacks.
-client.addLayerVersionPermission(params, (err, data) => {
+client.listLayers(params, (err, data) => {
   // process err and data.
 });
 ```

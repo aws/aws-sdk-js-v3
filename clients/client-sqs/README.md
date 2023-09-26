@@ -94,16 +94,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SQSClient` and
-the commands you need, for example `AddPermissionCommand`:
+the commands you need, for example `ListQueuesCommand`:
 
 ```js
 // ES5 example
-const { SQSClient, AddPermissionCommand } = require("@aws-sdk/client-sqs");
+const { SQSClient, ListQueuesCommand } = require("@aws-sdk/client-sqs");
 ```
 
 ```ts
 // ES6+ example
-import { SQSClient, AddPermissionCommand } from "@aws-sdk/client-sqs";
+import { SQSClient, ListQueuesCommand } from "@aws-sdk/client-sqs";
 ```
 
 ### Usage
@@ -122,7 +122,7 @@ const client = new SQSClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddPermissionCommand(params);
+const command = new ListQueuesCommand(params);
 ```
 
 #### Async/await
@@ -201,7 +201,7 @@ const client = new AWS.SQS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addPermission(params);
+  const data = await client.listQueues(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -209,7 +209,7 @@ try {
 
 // Promises.
 client
-  .addPermission(params)
+  .listQueues(params)
   .then((data) => {
     // process data.
   })
@@ -218,7 +218,7 @@ client
   });
 
 // callbacks.
-client.addPermission(params, (err, data) => {
+client.listQueues(params, (err, data) => {
   // process err and data.
 });
 ```

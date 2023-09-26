@@ -30,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IdentitystoreClient` and
-the commands you need, for example `CreateGroupCommand`:
+the commands you need, for example `ListGroupsCommand`:
 
 ```js
 // ES5 example
-const { IdentitystoreClient, CreateGroupCommand } = require("@aws-sdk/client-identitystore");
+const { IdentitystoreClient, ListGroupsCommand } = require("@aws-sdk/client-identitystore");
 ```
 
 ```ts
 // ES6+ example
-import { IdentitystoreClient, CreateGroupCommand } from "@aws-sdk/client-identitystore";
+import { IdentitystoreClient, ListGroupsCommand } from "@aws-sdk/client-identitystore";
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ const client = new IdentitystoreClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateGroupCommand(params);
+const command = new ListGroupsCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.Identitystore({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createGroup(params);
+  const data = await client.listGroups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .createGroup(params)
+  .listGroups(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.createGroup(params, (err, data) => {
+client.listGroups(params, (err, data) => {
   // process err and data.
 });
 ```

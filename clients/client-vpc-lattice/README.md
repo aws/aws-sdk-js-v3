@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `VPCLatticeClient` and
-the commands you need, for example `BatchUpdateRuleCommand`:
+the commands you need, for example `ListServicesCommand`:
 
 ```js
 // ES5 example
-const { VPCLatticeClient, BatchUpdateRuleCommand } = require("@aws-sdk/client-vpc-lattice");
+const { VPCLatticeClient, ListServicesCommand } = require("@aws-sdk/client-vpc-lattice");
 ```
 
 ```ts
 // ES6+ example
-import { VPCLatticeClient, BatchUpdateRuleCommand } from "@aws-sdk/client-vpc-lattice";
+import { VPCLatticeClient, ListServicesCommand } from "@aws-sdk/client-vpc-lattice";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new VPCLatticeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchUpdateRuleCommand(params);
+const command = new ListServicesCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.VPCLattice({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchUpdateRule(params);
+  const data = await client.listServices(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .batchUpdateRule(params)
+  .listServices(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.batchUpdateRule(params, (err, data) => {
+client.listServices(params, (err, data) => {
   // process err and data.
 });
 ```

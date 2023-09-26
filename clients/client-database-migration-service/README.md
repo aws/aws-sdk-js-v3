@@ -33,19 +33,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DatabaseMigrationServiceClient` and
-the commands you need, for example `AddTagsToResourceCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
 const {
   DatabaseMigrationServiceClient,
-  AddTagsToResourceCommand,
+  ListTagsForResourceCommand,
 } = require("@aws-sdk/client-database-migration-service");
 ```
 
 ```ts
 // ES6+ example
-import { DatabaseMigrationServiceClient, AddTagsToResourceCommand } from "@aws-sdk/client-database-migration-service";
+import { DatabaseMigrationServiceClient, ListTagsForResourceCommand } from "@aws-sdk/client-database-migration-service";
 ```
 
 ### Usage
@@ -64,7 +64,7 @@ const client = new DatabaseMigrationServiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddTagsToResourceCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +143,7 @@ const client = new AWS.DatabaseMigrationService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addTagsToResource(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +151,7 @@ try {
 
 // Promises.
 client
-  .addTagsToResource(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +160,7 @@ client
   });
 
 // callbacks.
-client.addTagsToResource(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

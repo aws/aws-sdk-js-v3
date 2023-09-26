@@ -94,16 +94,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OrganizationsClient` and
-the commands you need, for example `AcceptHandshakeCommand`:
+the commands you need, for example `ListRootsCommand`:
 
 ```js
 // ES5 example
-const { OrganizationsClient, AcceptHandshakeCommand } = require("@aws-sdk/client-organizations");
+const { OrganizationsClient, ListRootsCommand } = require("@aws-sdk/client-organizations");
 ```
 
 ```ts
 // ES6+ example
-import { OrganizationsClient, AcceptHandshakeCommand } from "@aws-sdk/client-organizations";
+import { OrganizationsClient, ListRootsCommand } from "@aws-sdk/client-organizations";
 ```
 
 ### Usage
@@ -122,7 +122,7 @@ const client = new OrganizationsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptHandshakeCommand(params);
+const command = new ListRootsCommand(params);
 ```
 
 #### Async/await
@@ -201,7 +201,7 @@ const client = new AWS.Organizations({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptHandshake(params);
+  const data = await client.listRoots(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -209,7 +209,7 @@ try {
 
 // Promises.
 client
-  .acceptHandshake(params)
+  .listRoots(params)
   .then((data) => {
     // process data.
   })
@@ -218,7 +218,7 @@ client
   });
 
 // callbacks.
-client.acceptHandshake(params, (err, data) => {
+client.listRoots(params, (err, data) => {
   // process err and data.
 });
 ```

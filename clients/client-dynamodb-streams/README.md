@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DynamoDBStreamsClient` and
-the commands you need, for example `DescribeStreamCommand`:
+the commands you need, for example `ListStreamsCommand`:
 
 ```js
 // ES5 example
-const { DynamoDBStreamsClient, DescribeStreamCommand } = require("@aws-sdk/client-dynamodb-streams");
+const { DynamoDBStreamsClient, ListStreamsCommand } = require("@aws-sdk/client-dynamodb-streams");
 ```
 
 ```ts
 // ES6+ example
-import { DynamoDBStreamsClient, DescribeStreamCommand } from "@aws-sdk/client-dynamodb-streams";
+import { DynamoDBStreamsClient, ListStreamsCommand } from "@aws-sdk/client-dynamodb-streams";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new DynamoDBStreamsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeStreamCommand(params);
+const command = new ListStreamsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.DynamoDBStreams({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeStream(params);
+  const data = await client.listStreams(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .describeStream(params)
+  .listStreams(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.describeStream(params, (err, data) => {
+client.listStreams(params, (err, data) => {
   // process err and data.
 });
 ```

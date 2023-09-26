@@ -39,16 +39,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTAnalyticsClient` and
-the commands you need, for example `BatchPutMessageCommand`:
+the commands you need, for example `ListChannelsCommand`:
 
 ```js
 // ES5 example
-const { IoTAnalyticsClient, BatchPutMessageCommand } = require("@aws-sdk/client-iotanalytics");
+const { IoTAnalyticsClient, ListChannelsCommand } = require("@aws-sdk/client-iotanalytics");
 ```
 
 ```ts
 // ES6+ example
-import { IoTAnalyticsClient, BatchPutMessageCommand } from "@aws-sdk/client-iotanalytics";
+import { IoTAnalyticsClient, ListChannelsCommand } from "@aws-sdk/client-iotanalytics";
 ```
 
 ### Usage
@@ -67,7 +67,7 @@ const client = new IoTAnalyticsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchPutMessageCommand(params);
+const command = new ListChannelsCommand(params);
 ```
 
 #### Async/await
@@ -146,7 +146,7 @@ const client = new AWS.IoTAnalytics({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchPutMessage(params);
+  const data = await client.listChannels(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -154,7 +154,7 @@ try {
 
 // Promises.
 client
-  .batchPutMessage(params)
+  .listChannels(params)
   .then((data) => {
     // process data.
   })
@@ -163,7 +163,7 @@ client
   });
 
 // callbacks.
-client.batchPutMessage(params, (err, data) => {
+client.listChannels(params, (err, data) => {
   // process err and data.
 });
 ```

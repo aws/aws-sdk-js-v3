@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MachineLearningClient` and
-the commands you need, for example `AddTagsCommand`:
+the commands you need, for example `DescribeMLModelsCommand`:
 
 ```js
 // ES5 example
-const { MachineLearningClient, AddTagsCommand } = require("@aws-sdk/client-machine-learning");
+const { MachineLearningClient, DescribeMLModelsCommand } = require("@aws-sdk/client-machine-learning");
 ```
 
 ```ts
 // ES6+ example
-import { MachineLearningClient, AddTagsCommand } from "@aws-sdk/client-machine-learning";
+import { MachineLearningClient, DescribeMLModelsCommand } from "@aws-sdk/client-machine-learning";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new MachineLearningClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddTagsCommand(params);
+const command = new DescribeMLModelsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.MachineLearning({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addTags(params);
+  const data = await client.describeMLModels(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .addTags(params)
+  .describeMLModels(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.addTags(params, (err, data) => {
+client.describeMLModels(params, (err, data) => {
   // process err and data.
 });
 ```

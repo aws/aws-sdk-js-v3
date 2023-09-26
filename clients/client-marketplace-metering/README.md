@@ -87,16 +87,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MarketplaceMeteringClient` and
-the commands you need, for example `BatchMeterUsageCommand`:
+the commands you need, for example `ResolveCustomerCommand`:
 
 ```js
 // ES5 example
-const { MarketplaceMeteringClient, BatchMeterUsageCommand } = require("@aws-sdk/client-marketplace-metering");
+const { MarketplaceMeteringClient, ResolveCustomerCommand } = require("@aws-sdk/client-marketplace-metering");
 ```
 
 ```ts
 // ES6+ example
-import { MarketplaceMeteringClient, BatchMeterUsageCommand } from "@aws-sdk/client-marketplace-metering";
+import { MarketplaceMeteringClient, ResolveCustomerCommand } from "@aws-sdk/client-marketplace-metering";
 ```
 
 ### Usage
@@ -115,7 +115,7 @@ const client = new MarketplaceMeteringClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchMeterUsageCommand(params);
+const command = new ResolveCustomerCommand(params);
 ```
 
 #### Async/await
@@ -194,7 +194,7 @@ const client = new AWS.MarketplaceMetering({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchMeterUsage(params);
+  const data = await client.resolveCustomer(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -202,7 +202,7 @@ try {
 
 // Promises.
 client
-  .batchMeterUsage(params)
+  .resolveCustomer(params)
   .then((data) => {
     // process data.
   })
@@ -211,7 +211,7 @@ client
   });
 
 // callbacks.
-client.batchMeterUsage(params, (err, data) => {
+client.resolveCustomer(params, (err, data) => {
   // process err and data.
 });
 ```

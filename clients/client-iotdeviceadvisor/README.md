@@ -31,16 +31,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IotDeviceAdvisorClient` and
-the commands you need, for example `CreateSuiteDefinitionCommand`:
+the commands you need, for example `ListSuiteRunsCommand`:
 
 ```js
 // ES5 example
-const { IotDeviceAdvisorClient, CreateSuiteDefinitionCommand } = require("@aws-sdk/client-iotdeviceadvisor");
+const { IotDeviceAdvisorClient, ListSuiteRunsCommand } = require("@aws-sdk/client-iotdeviceadvisor");
 ```
 
 ```ts
 // ES6+ example
-import { IotDeviceAdvisorClient, CreateSuiteDefinitionCommand } from "@aws-sdk/client-iotdeviceadvisor";
+import { IotDeviceAdvisorClient, ListSuiteRunsCommand } from "@aws-sdk/client-iotdeviceadvisor";
 ```
 
 ### Usage
@@ -59,7 +59,7 @@ const client = new IotDeviceAdvisorClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateSuiteDefinitionCommand(params);
+const command = new ListSuiteRunsCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +138,7 @@ const client = new AWS.IotDeviceAdvisor({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createSuiteDefinition(params);
+  const data = await client.listSuiteRuns(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +146,7 @@ try {
 
 // Promises.
 client
-  .createSuiteDefinition(params)
+  .listSuiteRuns(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +155,7 @@ client
   });
 
 // callbacks.
-client.createSuiteDefinition(params, (err, data) => {
+client.listSuiteRuns(params, (err, data) => {
   // process err and data.
 });
 ```

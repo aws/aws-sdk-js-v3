@@ -46,16 +46,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EMRContainersClient` and
-the commands you need, for example `CancelJobRunCommand`:
+the commands you need, for example `ListJobRunsCommand`:
 
 ```js
 // ES5 example
-const { EMRContainersClient, CancelJobRunCommand } = require("@aws-sdk/client-emr-containers");
+const { EMRContainersClient, ListJobRunsCommand } = require("@aws-sdk/client-emr-containers");
 ```
 
 ```ts
 // ES6+ example
-import { EMRContainersClient, CancelJobRunCommand } from "@aws-sdk/client-emr-containers";
+import { EMRContainersClient, ListJobRunsCommand } from "@aws-sdk/client-emr-containers";
 ```
 
 ### Usage
@@ -74,7 +74,7 @@ const client = new EMRContainersClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelJobRunCommand(params);
+const command = new ListJobRunsCommand(params);
 ```
 
 #### Async/await
@@ -153,7 +153,7 @@ const client = new AWS.EMRContainers({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelJobRun(params);
+  const data = await client.listJobRuns(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -161,7 +161,7 @@ try {
 
 // Promises.
 client
-  .cancelJobRun(params)
+  .listJobRuns(params)
   .then((data) => {
     // process data.
   })
@@ -170,7 +170,7 @@ client
   });
 
 // callbacks.
-client.cancelJobRun(params, (err, data) => {
+client.listJobRuns(params, (err, data) => {
   // process err and data.
 });
 ```

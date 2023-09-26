@@ -28,22 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DirectConnectClient` and
-the commands you need, for example `AcceptDirectConnectGatewayAssociationProposalCommand`:
+the commands you need, for example `ListVirtualInterfaceTestHistoryCommand`:
 
 ```js
 // ES5 example
-const {
-  DirectConnectClient,
-  AcceptDirectConnectGatewayAssociationProposalCommand,
-} = require("@aws-sdk/client-direct-connect");
+const { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } = require("@aws-sdk/client-direct-connect");
 ```
 
 ```ts
 // ES6+ example
-import {
-  DirectConnectClient,
-  AcceptDirectConnectGatewayAssociationProposalCommand,
-} from "@aws-sdk/client-direct-connect";
+import { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } from "@aws-sdk/client-direct-connect";
 ```
 
 ### Usage
@@ -62,7 +56,7 @@ const client = new DirectConnectClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptDirectConnectGatewayAssociationProposalCommand(params);
+const command = new ListVirtualInterfaceTestHistoryCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +135,7 @@ const client = new AWS.DirectConnect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptDirectConnectGatewayAssociationProposal(params);
+  const data = await client.listVirtualInterfaceTestHistory(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +143,7 @@ try {
 
 // Promises.
 client
-  .acceptDirectConnectGatewayAssociationProposal(params)
+  .listVirtualInterfaceTestHistory(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +152,7 @@ client
   });
 
 // callbacks.
-client.acceptDirectConnectGatewayAssociationProposal(params, (err, data) => {
+client.listVirtualInterfaceTestHistory(params, (err, data) => {
   // process err and data.
 });
 ```

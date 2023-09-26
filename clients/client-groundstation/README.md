@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `GroundStationClient` and
-the commands you need, for example `CancelContactCommand`:
+the commands you need, for example `ListConfigsCommand`:
 
 ```js
 // ES5 example
-const { GroundStationClient, CancelContactCommand } = require("@aws-sdk/client-groundstation");
+const { GroundStationClient, ListConfigsCommand } = require("@aws-sdk/client-groundstation");
 ```
 
 ```ts
 // ES6+ example
-import { GroundStationClient, CancelContactCommand } from "@aws-sdk/client-groundstation";
+import { GroundStationClient, ListConfigsCommand } from "@aws-sdk/client-groundstation";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new GroundStationClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelContactCommand(params);
+const command = new ListConfigsCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.GroundStation({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelContact(params);
+  const data = await client.listConfigs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .cancelContact(params)
+  .listConfigs(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.cancelContact(params, (err, data) => {
+client.listConfigs(params, (err, data) => {
   // process err and data.
 });
 ```

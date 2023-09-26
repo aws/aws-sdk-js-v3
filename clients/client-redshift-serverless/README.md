@@ -34,19 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RedshiftServerlessClient` and
-the commands you need, for example `ConvertRecoveryPointToSnapshotCommand`:
+the commands you need, for example `ListNamespacesCommand`:
 
 ```js
 // ES5 example
-const {
-  RedshiftServerlessClient,
-  ConvertRecoveryPointToSnapshotCommand,
-} = require("@aws-sdk/client-redshift-serverless");
+const { RedshiftServerlessClient, ListNamespacesCommand } = require("@aws-sdk/client-redshift-serverless");
 ```
 
 ```ts
 // ES6+ example
-import { RedshiftServerlessClient, ConvertRecoveryPointToSnapshotCommand } from "@aws-sdk/client-redshift-serverless";
+import { RedshiftServerlessClient, ListNamespacesCommand } from "@aws-sdk/client-redshift-serverless";
 ```
 
 ### Usage
@@ -65,7 +62,7 @@ const client = new RedshiftServerlessClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ConvertRecoveryPointToSnapshotCommand(params);
+const command = new ListNamespacesCommand(params);
 ```
 
 #### Async/await
@@ -144,7 +141,7 @@ const client = new AWS.RedshiftServerless({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.convertRecoveryPointToSnapshot(params);
+  const data = await client.listNamespaces(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -152,7 +149,7 @@ try {
 
 // Promises.
 client
-  .convertRecoveryPointToSnapshot(params)
+  .listNamespaces(params)
   .then((data) => {
     // process data.
   })
@@ -161,7 +158,7 @@ client
   });
 
 // callbacks.
-client.convertRecoveryPointToSnapshot(params, (err, data) => {
+client.listNamespaces(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MobileClient` and
-the commands you need, for example `CreateProjectCommand`:
+the commands you need, for example `ListBundlesCommand`:
 
 ```js
 // ES5 example
-const { MobileClient, CreateProjectCommand } = require("@aws-sdk/client-mobile");
+const { MobileClient, ListBundlesCommand } = require("@aws-sdk/client-mobile");
 ```
 
 ```ts
 // ES6+ example
-import { MobileClient, CreateProjectCommand } from "@aws-sdk/client-mobile";
+import { MobileClient, ListBundlesCommand } from "@aws-sdk/client-mobile";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new MobileClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateProjectCommand(params);
+const command = new ListBundlesCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.Mobile({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createProject(params);
+  const data = await client.listBundles(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .createProject(params)
+  .listBundles(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.createProject(params, (err, data) => {
+client.listBundles(params, (err, data) => {
   // process err and data.
 });
 ```

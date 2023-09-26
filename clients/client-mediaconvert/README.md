@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaConvertClient` and
-the commands you need, for example `AssociateCertificateCommand`:
+the commands you need, for example `ListJobsCommand`:
 
 ```js
 // ES5 example
-const { MediaConvertClient, AssociateCertificateCommand } = require("@aws-sdk/client-mediaconvert");
+const { MediaConvertClient, ListJobsCommand } = require("@aws-sdk/client-mediaconvert");
 ```
 
 ```ts
 // ES6+ example
-import { MediaConvertClient, AssociateCertificateCommand } from "@aws-sdk/client-mediaconvert";
+import { MediaConvertClient, ListJobsCommand } from "@aws-sdk/client-mediaconvert";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new MediaConvertClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateCertificateCommand(params);
+const command = new ListJobsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.MediaConvert({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateCertificate(params);
+  const data = await client.listJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .associateCertificate(params)
+  .listJobs(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.associateCertificate(params, (err, data) => {
+client.listJobs(params, (err, data) => {
   // process err and data.
 });
 ```

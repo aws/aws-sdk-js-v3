@@ -30,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudSearchClient` and
-the commands you need, for example `BuildSuggestersCommand`:
+the commands you need, for example `ListDomainNamesCommand`:
 
 ```js
 // ES5 example
-const { CloudSearchClient, BuildSuggestersCommand } = require("@aws-sdk/client-cloudsearch");
+const { CloudSearchClient, ListDomainNamesCommand } = require("@aws-sdk/client-cloudsearch");
 ```
 
 ```ts
 // ES6+ example
-import { CloudSearchClient, BuildSuggestersCommand } from "@aws-sdk/client-cloudsearch";
+import { CloudSearchClient, ListDomainNamesCommand } from "@aws-sdk/client-cloudsearch";
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ const client = new CloudSearchClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BuildSuggestersCommand(params);
+const command = new ListDomainNamesCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.CloudSearch({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.buildSuggesters(params);
+  const data = await client.listDomainNames(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .buildSuggesters(params)
+  .listDomainNames(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.buildSuggesters(params, (err, data) => {
+client.listDomainNames(params, (err, data) => {
   // process err and data.
 });
 ```

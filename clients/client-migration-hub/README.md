@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MigrationHubClient` and
-the commands you need, for example `AssociateCreatedArtifactCommand`:
+the commands you need, for example `ListApplicationStatesCommand`:
 
 ```js
 // ES5 example
-const { MigrationHubClient, AssociateCreatedArtifactCommand } = require("@aws-sdk/client-migration-hub");
+const { MigrationHubClient, ListApplicationStatesCommand } = require("@aws-sdk/client-migration-hub");
 ```
 
 ```ts
 // ES6+ example
-import { MigrationHubClient, AssociateCreatedArtifactCommand } from "@aws-sdk/client-migration-hub";
+import { MigrationHubClient, ListApplicationStatesCommand } from "@aws-sdk/client-migration-hub";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new MigrationHubClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateCreatedArtifactCommand(params);
+const command = new ListApplicationStatesCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.MigrationHub({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateCreatedArtifact(params);
+  const data = await client.listApplicationStates(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .associateCreatedArtifact(params)
+  .listApplicationStates(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.associateCreatedArtifact(params, (err, data) => {
+client.listApplicationStates(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `STSClient` and
-the commands you need, for example `AssumeRoleCommand`:
+the commands you need, for example `GetCallerIdentityCommand`:
 
 ```js
 // ES5 example
-const { STSClient, AssumeRoleCommand } = require("@aws-sdk/client-sts");
+const { STSClient, GetCallerIdentityCommand } = require("@aws-sdk/client-sts");
 ```
 
 ```ts
 // ES6+ example
-import { STSClient, AssumeRoleCommand } from "@aws-sdk/client-sts";
+import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new STSClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssumeRoleCommand(params);
+const command = new GetCallerIdentityCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.STS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.assumeRole(params);
+  const data = await client.getCallerIdentity(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .assumeRole(params)
+  .getCallerIdentity(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.assumeRole(params, (err, data) => {
+client.getCallerIdentity(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -68,16 +68,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppConfigClient` and
-the commands you need, for example `CreateApplicationCommand`:
+the commands you need, for example `ListApplicationsCommand`:
 
 ```js
 // ES5 example
-const { AppConfigClient, CreateApplicationCommand } = require("@aws-sdk/client-appconfig");
+const { AppConfigClient, ListApplicationsCommand } = require("@aws-sdk/client-appconfig");
 ```
 
 ```ts
 // ES6+ example
-import { AppConfigClient, CreateApplicationCommand } from "@aws-sdk/client-appconfig";
+import { AppConfigClient, ListApplicationsCommand } from "@aws-sdk/client-appconfig";
 ```
 
 ### Usage
@@ -96,7 +96,7 @@ const client = new AppConfigClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateApplicationCommand(params);
+const command = new ListApplicationsCommand(params);
 ```
 
 #### Async/await
@@ -175,7 +175,7 @@ const client = new AWS.AppConfig({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createApplication(params);
+  const data = await client.listApplications(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -183,7 +183,7 @@ try {
 
 // Promises.
 client
-  .createApplication(params)
+  .listApplications(params)
   .then((data) => {
     // process data.
   })
@@ -192,7 +192,7 @@ client
   });
 
 // callbacks.
-client.createApplication(params, (err, data) => {
+client.listApplications(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -32,16 +32,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `FraudDetectorClient` and
-the commands you need, for example `BatchCreateVariableCommand`:
+the commands you need, for example `ListEventPredictionsCommand`:
 
 ```js
 // ES5 example
-const { FraudDetectorClient, BatchCreateVariableCommand } = require("@aws-sdk/client-frauddetector");
+const { FraudDetectorClient, ListEventPredictionsCommand } = require("@aws-sdk/client-frauddetector");
 ```
 
 ```ts
 // ES6+ example
-import { FraudDetectorClient, BatchCreateVariableCommand } from "@aws-sdk/client-frauddetector";
+import { FraudDetectorClient, ListEventPredictionsCommand } from "@aws-sdk/client-frauddetector";
 ```
 
 ### Usage
@@ -60,7 +60,7 @@ const client = new FraudDetectorClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchCreateVariableCommand(params);
+const command = new ListEventPredictionsCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +139,7 @@ const client = new AWS.FraudDetector({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchCreateVariable(params);
+  const data = await client.listEventPredictions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +147,7 @@ try {
 
 // Promises.
 client
-  .batchCreateVariable(params)
+  .listEventPredictions(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +156,7 @@ client
   });
 
 // callbacks.
-client.batchCreateVariable(params, (err, data) => {
+client.listEventPredictions(params, (err, data) => {
   // process err and data.
 });
 ```

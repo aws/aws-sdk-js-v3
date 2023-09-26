@@ -33,16 +33,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ElastiCacheClient` and
-the commands you need, for example `AddTagsToResourceCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { ElastiCacheClient, AddTagsToResourceCommand } = require("@aws-sdk/client-elasticache");
+const { ElastiCacheClient, ListTagsForResourceCommand } = require("@aws-sdk/client-elasticache");
 ```
 
 ```ts
 // ES6+ example
-import { ElastiCacheClient, AddTagsToResourceCommand } from "@aws-sdk/client-elasticache";
+import { ElastiCacheClient, ListTagsForResourceCommand } from "@aws-sdk/client-elasticache";
 ```
 
 ### Usage
@@ -61,7 +61,7 @@ const client = new ElastiCacheClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddTagsToResourceCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -140,7 +140,7 @@ const client = new AWS.ElastiCache({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addTagsToResource(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -148,7 +148,7 @@ try {
 
 // Promises.
 client
-  .addTagsToResource(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -157,7 +157,7 @@ client
   });
 
 // callbacks.
-client.addTagsToResource(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

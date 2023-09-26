@@ -27,19 +27,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LexModelBuildingServiceClient` and
-the commands you need, for example `CreateBotVersionCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
 const {
   LexModelBuildingServiceClient,
-  CreateBotVersionCommand,
+  ListTagsForResourceCommand,
 } = require("@aws-sdk/client-lex-model-building-service");
 ```
 
 ```ts
 // ES6+ example
-import { LexModelBuildingServiceClient, CreateBotVersionCommand } from "@aws-sdk/client-lex-model-building-service";
+import { LexModelBuildingServiceClient, ListTagsForResourceCommand } from "@aws-sdk/client-lex-model-building-service";
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ const client = new LexModelBuildingServiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateBotVersionCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.LexModelBuildingService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createBotVersion(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .createBotVersion(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.createBotVersion(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

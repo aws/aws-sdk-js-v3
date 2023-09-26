@@ -49,16 +49,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `Route53ResolverClient` and
-the commands you need, for example `AssociateFirewallRuleGroupCommand`:
+the commands you need, for example `ListResolverRulesCommand`:
 
 ```js
 // ES5 example
-const { Route53ResolverClient, AssociateFirewallRuleGroupCommand } = require("@aws-sdk/client-route53resolver");
+const { Route53ResolverClient, ListResolverRulesCommand } = require("@aws-sdk/client-route53resolver");
 ```
 
 ```ts
 // ES6+ example
-import { Route53ResolverClient, AssociateFirewallRuleGroupCommand } from "@aws-sdk/client-route53resolver";
+import { Route53ResolverClient, ListResolverRulesCommand } from "@aws-sdk/client-route53resolver";
 ```
 
 ### Usage
@@ -77,7 +77,7 @@ const client = new Route53ResolverClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateFirewallRuleGroupCommand(params);
+const command = new ListResolverRulesCommand(params);
 ```
 
 #### Async/await
@@ -156,7 +156,7 @@ const client = new AWS.Route53Resolver({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateFirewallRuleGroup(params);
+  const data = await client.listResolverRules(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -164,7 +164,7 @@ try {
 
 // Promises.
 client
-  .associateFirewallRuleGroup(params)
+  .listResolverRules(params)
   .then((data) => {
     // process data.
   })
@@ -173,7 +173,7 @@ client
   });
 
 // callbacks.
-client.associateFirewallRuleGroup(params, (err, data) => {
+client.listResolverRules(params, (err, data) => {
   // process err and data.
 });
 ```

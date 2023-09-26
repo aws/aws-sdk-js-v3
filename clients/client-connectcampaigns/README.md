@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ConnectCampaignsClient` and
-the commands you need, for example `CreateCampaignCommand`:
+the commands you need, for example `ListCampaignsCommand`:
 
 ```js
 // ES5 example
-const { ConnectCampaignsClient, CreateCampaignCommand } = require("@aws-sdk/client-connectcampaigns");
+const { ConnectCampaignsClient, ListCampaignsCommand } = require("@aws-sdk/client-connectcampaigns");
 ```
 
 ```ts
 // ES6+ example
-import { ConnectCampaignsClient, CreateCampaignCommand } from "@aws-sdk/client-connectcampaigns";
+import { ConnectCampaignsClient, ListCampaignsCommand } from "@aws-sdk/client-connectcampaigns";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new ConnectCampaignsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateCampaignCommand(params);
+const command = new ListCampaignsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.ConnectCampaigns({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createCampaign(params);
+  const data = await client.listCampaigns(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createCampaign(params)
+  .listCampaigns(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createCampaign(params, (err, data) => {
+client.listCampaigns(params, (err, data) => {
   // process err and data.
 });
 ```

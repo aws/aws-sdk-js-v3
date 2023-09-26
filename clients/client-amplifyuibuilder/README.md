@@ -31,16 +31,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AmplifyUIBuilderClient` and
-the commands you need, for example `CreateComponentCommand`:
+the commands you need, for example `ListFormsCommand`:
 
 ```js
 // ES5 example
-const { AmplifyUIBuilderClient, CreateComponentCommand } = require("@aws-sdk/client-amplifyuibuilder");
+const { AmplifyUIBuilderClient, ListFormsCommand } = require("@aws-sdk/client-amplifyuibuilder");
 ```
 
 ```ts
 // ES6+ example
-import { AmplifyUIBuilderClient, CreateComponentCommand } from "@aws-sdk/client-amplifyuibuilder";
+import { AmplifyUIBuilderClient, ListFormsCommand } from "@aws-sdk/client-amplifyuibuilder";
 ```
 
 ### Usage
@@ -59,7 +59,7 @@ const client = new AmplifyUIBuilderClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateComponentCommand(params);
+const command = new ListFormsCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +138,7 @@ const client = new AWS.AmplifyUIBuilder({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createComponent(params);
+  const data = await client.listForms(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +146,7 @@ try {
 
 // Promises.
 client
-  .createComponent(params)
+  .listForms(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +155,7 @@ client
   });
 
 // callbacks.
-client.createComponent(params, (err, data) => {
+client.listForms(params, (err, data) => {
   // process err and data.
 });
 ```

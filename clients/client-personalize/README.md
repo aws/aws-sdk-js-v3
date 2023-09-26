@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PersonalizeClient` and
-the commands you need, for example `CreateBatchInferenceJobCommand`:
+the commands you need, for example `ListFiltersCommand`:
 
 ```js
 // ES5 example
-const { PersonalizeClient, CreateBatchInferenceJobCommand } = require("@aws-sdk/client-personalize");
+const { PersonalizeClient, ListFiltersCommand } = require("@aws-sdk/client-personalize");
 ```
 
 ```ts
 // ES6+ example
-import { PersonalizeClient, CreateBatchInferenceJobCommand } from "@aws-sdk/client-personalize";
+import { PersonalizeClient, ListFiltersCommand } from "@aws-sdk/client-personalize";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new PersonalizeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateBatchInferenceJobCommand(params);
+const command = new ListFiltersCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.Personalize({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createBatchInferenceJob(params);
+  const data = await client.listFilters(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .createBatchInferenceJob(params)
+  .listFilters(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.createBatchInferenceJob(params, (err, data) => {
+client.listFilters(params, (err, data) => {
   // process err and data.
 });
 ```

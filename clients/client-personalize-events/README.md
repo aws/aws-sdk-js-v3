@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PersonalizeEventsClient` and
-the commands you need, for example `PutEventsCommand`:
+the commands you need, for example `PutItemsCommand`:
 
 ```js
 // ES5 example
-const { PersonalizeEventsClient, PutEventsCommand } = require("@aws-sdk/client-personalize-events");
+const { PersonalizeEventsClient, PutItemsCommand } = require("@aws-sdk/client-personalize-events");
 ```
 
 ```ts
 // ES6+ example
-import { PersonalizeEventsClient, PutEventsCommand } from "@aws-sdk/client-personalize-events";
+import { PersonalizeEventsClient, PutItemsCommand } from "@aws-sdk/client-personalize-events";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new PersonalizeEventsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new PutEventsCommand(params);
+const command = new PutItemsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.PersonalizeEvents({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.putEvents(params);
+  const data = await client.putItems(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .putEvents(params)
+  .putItems(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.putEvents(params, (err, data) => {
+client.putItems(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -29,19 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ManagedBlockchainQueryClient` and
-the commands you need, for example `BatchGetTokenBalanceCommand`:
+the commands you need, for example `ListTokenBalancesCommand`:
 
 ```js
 // ES5 example
-const {
-  ManagedBlockchainQueryClient,
-  BatchGetTokenBalanceCommand,
-} = require("@aws-sdk/client-managedblockchain-query");
+const { ManagedBlockchainQueryClient, ListTokenBalancesCommand } = require("@aws-sdk/client-managedblockchain-query");
 ```
 
 ```ts
 // ES6+ example
-import { ManagedBlockchainQueryClient, BatchGetTokenBalanceCommand } from "@aws-sdk/client-managedblockchain-query";
+import { ManagedBlockchainQueryClient, ListTokenBalancesCommand } from "@aws-sdk/client-managedblockchain-query";
 ```
 
 ### Usage
@@ -60,7 +57,7 @@ const client = new ManagedBlockchainQueryClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetTokenBalanceCommand(params);
+const command = new ListTokenBalancesCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +136,7 @@ const client = new AWS.ManagedBlockchainQuery({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetTokenBalance(params);
+  const data = await client.listTokenBalances(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +144,7 @@ try {
 
 // Promises.
 client
-  .batchGetTokenBalance(params)
+  .listTokenBalances(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +153,7 @@ client
   });
 
 // callbacks.
-client.batchGetTokenBalance(params, (err, data) => {
+client.listTokenBalances(params, (err, data) => {
   // process err and data.
 });
 ```

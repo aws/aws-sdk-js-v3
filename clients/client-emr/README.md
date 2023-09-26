@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EMRClient` and
-the commands you need, for example `AddInstanceFleetCommand`:
+the commands you need, for example `ListStudiosCommand`:
 
 ```js
 // ES5 example
-const { EMRClient, AddInstanceFleetCommand } = require("@aws-sdk/client-emr");
+const { EMRClient, ListStudiosCommand } = require("@aws-sdk/client-emr");
 ```
 
 ```ts
 // ES6+ example
-import { EMRClient, AddInstanceFleetCommand } from "@aws-sdk/client-emr";
+import { EMRClient, ListStudiosCommand } from "@aws-sdk/client-emr";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new EMRClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddInstanceFleetCommand(params);
+const command = new ListStudiosCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.EMR({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addInstanceFleet(params);
+  const data = await client.listStudios(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .addInstanceFleet(params)
+  .listStudios(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.addInstanceFleet(params, (err, data) => {
+client.listStudios(params, (err, data) => {
   // process err and data.
 });
 ```

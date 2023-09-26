@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EC2ProtocolClient` and
-the commands you need, for example `DatetimeOffsetsCommand`:
+the commands you need, for example `QueryListsCommand`:
 
 ```js
 // ES5 example
-const { EC2ProtocolClient, DatetimeOffsetsCommand } = require("@aws-sdk/aws-protocoltests-ec2");
+const { EC2ProtocolClient, QueryListsCommand } = require("@aws-sdk/aws-protocoltests-ec2");
 ```
 
 ```ts
 // ES6+ example
-import { EC2ProtocolClient, DatetimeOffsetsCommand } from "@aws-sdk/aws-protocoltests-ec2";
+import { EC2ProtocolClient, QueryListsCommand } from "@aws-sdk/aws-protocoltests-ec2";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new EC2ProtocolClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DatetimeOffsetsCommand(params);
+const command = new QueryListsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.EC2Protocol({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.datetimeOffsets(params);
+  const data = await client.queryLists(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .datetimeOffsets(params)
+  .queryLists(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.datetimeOffsets(params, (err, data) => {
+client.queryLists(params, (err, data) => {
   // process err and data.
 });
 ```

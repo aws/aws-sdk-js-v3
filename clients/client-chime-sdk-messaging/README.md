@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ChimeSDKMessagingClient` and
-the commands you need, for example `AssociateChannelFlowCommand`:
+the commands you need, for example `ListChannelFlowsCommand`:
 
 ```js
 // ES5 example
-const { ChimeSDKMessagingClient, AssociateChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging");
+const { ChimeSDKMessagingClient, ListChannelFlowsCommand } = require("@aws-sdk/client-chime-sdk-messaging");
 ```
 
 ```ts
 // ES6+ example
-import { ChimeSDKMessagingClient, AssociateChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging";
+import { ChimeSDKMessagingClient, ListChannelFlowsCommand } from "@aws-sdk/client-chime-sdk-messaging";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new ChimeSDKMessagingClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateChannelFlowCommand(params);
+const command = new ListChannelFlowsCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.ChimeSDKMessaging({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateChannelFlow(params);
+  const data = await client.listChannelFlows(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .associateChannelFlow(params)
+  .listChannelFlows(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.associateChannelFlow(params, (err, data) => {
+client.listChannelFlows(params, (err, data) => {
   // process err and data.
 });
 ```

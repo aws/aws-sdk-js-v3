@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RedshiftDataClient` and
-the commands you need, for example `BatchExecuteStatementCommand`:
+the commands you need, for example `ListSchemasCommand`:
 
 ```js
 // ES5 example
-const { RedshiftDataClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-redshift-data");
+const { RedshiftDataClient, ListSchemasCommand } = require("@aws-sdk/client-redshift-data");
 ```
 
 ```ts
 // ES6+ example
-import { RedshiftDataClient, BatchExecuteStatementCommand } from "@aws-sdk/client-redshift-data";
+import { RedshiftDataClient, ListSchemasCommand } from "@aws-sdk/client-redshift-data";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new RedshiftDataClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchExecuteStatementCommand(params);
+const command = new ListSchemasCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.RedshiftData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchExecuteStatement(params);
+  const data = await client.listSchemas(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .batchExecuteStatement(params)
+  .listSchemas(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.batchExecuteStatement(params, (err, data) => {
+client.listSchemas(params, (err, data) => {
   // process err and data.
 });
 ```

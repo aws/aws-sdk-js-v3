@@ -129,13 +129,13 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ApplicationDiscoveryServiceClient` and
-the commands you need, for example `AssociateConfigurationItemsToApplicationCommand`:
+the commands you need, for example `ListConfigurationsCommand`:
 
 ```js
 // ES5 example
 const {
   ApplicationDiscoveryServiceClient,
-  AssociateConfigurationItemsToApplicationCommand,
+  ListConfigurationsCommand,
 } = require("@aws-sdk/client-application-discovery-service");
 ```
 
@@ -143,7 +143,7 @@ const {
 // ES6+ example
 import {
   ApplicationDiscoveryServiceClient,
-  AssociateConfigurationItemsToApplicationCommand,
+  ListConfigurationsCommand,
 } from "@aws-sdk/client-application-discovery-service";
 ```
 
@@ -163,7 +163,7 @@ const client = new ApplicationDiscoveryServiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateConfigurationItemsToApplicationCommand(params);
+const command = new ListConfigurationsCommand(params);
 ```
 
 #### Async/await
@@ -242,7 +242,7 @@ const client = new AWS.ApplicationDiscoveryService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateConfigurationItemsToApplication(params);
+  const data = await client.listConfigurations(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -250,7 +250,7 @@ try {
 
 // Promises.
 client
-  .associateConfigurationItemsToApplication(params)
+  .listConfigurations(params)
   .then((data) => {
     // process data.
   })
@@ -259,7 +259,7 @@ client
   });
 
 // callbacks.
-client.associateConfigurationItemsToApplication(params, (err, data) => {
+client.listConfigurations(params, (err, data) => {
   // process err and data.
 });
 ```

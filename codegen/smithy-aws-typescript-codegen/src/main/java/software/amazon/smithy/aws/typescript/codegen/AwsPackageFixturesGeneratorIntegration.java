@@ -19,8 +19,10 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAws
 
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -100,8 +102,11 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             resource = resource.replaceAll(Pattern.quote("${documentation}"), Matcher.quoteReplacement(documentation));
 
             TopDownIndex topDownIndex = TopDownIndex.of(model);
-            OperationShape firstOperation = topDownIndex.getContainedOperations(service).iterator().next();
-            String operationName = firstOperation.getId().getName(service);
+
+            OperationShape sampleOperation =
+                getPreferredExampleOperation(topDownIndex.getContainedOperations(service), model);
+
+            String operationName = sampleOperation.getId().getName(service);
             resource = resource.replaceAll(Pattern.quote("${commandName}"), operationName);
             resource = resource.replaceAll(Pattern.quote("${operationName}"),
                     operationName.substring(0, 1).toLowerCase() + operationName.substring(1));
@@ -109,6 +114,61 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             writer.write(resource.replaceAll(Pattern.quote("$"), Matcher.quoteReplacement("$$")));
             writeOperationList(writer, model, settings);
         });
+    }
+
+    /**
+     * Tries to find an operation with a read-like name prefix "get", "describe", "list" etc.
+     * And has few or no required input parameters.
+     */
+    private OperationShape getPreferredExampleOperation(Collection<OperationShape> operations, Model model) {
+        // Heuristic score used to rank the candidate operations.
+        long candidateOperationScore = Long.MIN_VALUE;
+        OperationShape candidateOperation = null;
+
+        for (OperationShape operation : operations) {
+            long heuristicScore = 0;
+
+            String name = operation.getId().getName().toLowerCase();
+
+            heuristicScore -= name.length() / 6;
+
+            if (name.startsWith("list")) {
+                heuristicScore += 20;
+            } else if (
+                name.startsWith("get")
+                || name.startsWith("describe")
+                || name.startsWith("retrieve")
+                || name.startsWith("fetch")
+            ) {
+                heuristicScore += 10;
+            } else if (
+                name.startsWith("delete")
+                || name.startsWith("remove")
+                || name.startsWith("stop")
+                || name.startsWith("abort")
+                || name.startsWith("terminate")
+                || name.startsWith("deactivate")
+                || name.startsWith("toggle")
+            ) {
+                heuristicScore -= 20;
+            }
+
+            Optional<Shape> input = model.getShape(operation.getInputShape());
+            if (input.isPresent()) {
+                long inputFields = input.get().getAllMembers().values().stream()
+                    .filter(member -> member.isRequired())
+                    .count();
+
+                heuristicScore -= inputFields;
+            }
+
+            if (heuristicScore > candidateOperationScore) {
+                candidateOperation = operation;
+                candidateOperationScore = heuristicScore;
+            }
+        }
+
+        return candidateOperation;
     }
 
     private void writeOperationList(TypeScriptWriter writer, Model model, TypeScriptSettings settings) {

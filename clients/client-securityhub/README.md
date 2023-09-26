@@ -70,16 +70,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SecurityHubClient` and
-the commands you need, for example `AcceptAdministratorInvitationCommand`:
+the commands you need, for example `ListMembersCommand`:
 
 ```js
 // ES5 example
-const { SecurityHubClient, AcceptAdministratorInvitationCommand } = require("@aws-sdk/client-securityhub");
+const { SecurityHubClient, ListMembersCommand } = require("@aws-sdk/client-securityhub");
 ```
 
 ```ts
 // ES6+ example
-import { SecurityHubClient, AcceptAdministratorInvitationCommand } from "@aws-sdk/client-securityhub";
+import { SecurityHubClient, ListMembersCommand } from "@aws-sdk/client-securityhub";
 ```
 
 ### Usage
@@ -98,7 +98,7 @@ const client = new SecurityHubClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptAdministratorInvitationCommand(params);
+const command = new ListMembersCommand(params);
 ```
 
 #### Async/await
@@ -177,7 +177,7 @@ const client = new AWS.SecurityHub({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptAdministratorInvitation(params);
+  const data = await client.listMembers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -185,7 +185,7 @@ try {
 
 // Promises.
 client
-  .acceptAdministratorInvitation(params)
+  .listMembers(params)
   .then((data) => {
     // process data.
   })
@@ -194,7 +194,7 @@ client
   });
 
 // callbacks.
-client.acceptAdministratorInvitation(params, (err, data) => {
+client.listMembers(params, (err, data) => {
   // process err and data.
 });
 ```

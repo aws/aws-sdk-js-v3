@@ -33,16 +33,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `WAFRegionalClient` and
-the commands you need, for example `AssociateWebACLCommand`:
+the commands you need, for example `ListIPSetsCommand`:
 
 ```js
 // ES5 example
-const { WAFRegionalClient, AssociateWebACLCommand } = require("@aws-sdk/client-waf-regional");
+const { WAFRegionalClient, ListIPSetsCommand } = require("@aws-sdk/client-waf-regional");
 ```
 
 ```ts
 // ES6+ example
-import { WAFRegionalClient, AssociateWebACLCommand } from "@aws-sdk/client-waf-regional";
+import { WAFRegionalClient, ListIPSetsCommand } from "@aws-sdk/client-waf-regional";
 ```
 
 ### Usage
@@ -61,7 +61,7 @@ const client = new WAFRegionalClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateWebACLCommand(params);
+const command = new ListIPSetsCommand(params);
 ```
 
 #### Async/await
@@ -140,7 +140,7 @@ const client = new AWS.WAFRegional({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateWebACL(params);
+  const data = await client.listIPSets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -148,7 +148,7 @@ try {
 
 // Promises.
 client
-  .associateWebACL(params)
+  .listIPSets(params)
   .then((data) => {
     // process data.
   })
@@ -157,7 +157,7 @@ client
   });
 
 // callbacks.
-client.associateWebACL(params, (err, data) => {
+client.listIPSets(params, (err, data) => {
   // process err and data.
 });
 ```

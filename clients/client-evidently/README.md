@@ -32,16 +32,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EvidentlyClient` and
-the commands you need, for example `BatchEvaluateFeatureCommand`:
+the commands you need, for example `ListProjectsCommand`:
 
 ```js
 // ES5 example
-const { EvidentlyClient, BatchEvaluateFeatureCommand } = require("@aws-sdk/client-evidently");
+const { EvidentlyClient, ListProjectsCommand } = require("@aws-sdk/client-evidently");
 ```
 
 ```ts
 // ES6+ example
-import { EvidentlyClient, BatchEvaluateFeatureCommand } from "@aws-sdk/client-evidently";
+import { EvidentlyClient, ListProjectsCommand } from "@aws-sdk/client-evidently";
 ```
 
 ### Usage
@@ -60,7 +60,7 @@ const client = new EvidentlyClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchEvaluateFeatureCommand(params);
+const command = new ListProjectsCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +139,7 @@ const client = new AWS.Evidently({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchEvaluateFeature(params);
+  const data = await client.listProjects(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +147,7 @@ try {
 
 // Promises.
 client
-  .batchEvaluateFeature(params)
+  .listProjects(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +156,7 @@ client
   });
 
 // callbacks.
-client.batchEvaluateFeature(params, (err, data) => {
+client.listProjects(params, (err, data) => {
   // process err and data.
 });
 ```

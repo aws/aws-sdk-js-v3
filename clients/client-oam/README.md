@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OAMClient` and
-the commands you need, for example `CreateLinkCommand`:
+the commands you need, for example `ListLinksCommand`:
 
 ```js
 // ES5 example
-const { OAMClient, CreateLinkCommand } = require("@aws-sdk/client-oam");
+const { OAMClient, ListLinksCommand } = require("@aws-sdk/client-oam");
 ```
 
 ```ts
 // ES6+ example
-import { OAMClient, CreateLinkCommand } from "@aws-sdk/client-oam";
+import { OAMClient, ListLinksCommand } from "@aws-sdk/client-oam";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new OAMClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateLinkCommand(params);
+const command = new ListLinksCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.OAM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createLink(params);
+  const data = await client.listLinks(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .createLink(params)
+  .listLinks(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.createLink(params, (err, data) => {
+client.listLinks(params, (err, data) => {
   // process err and data.
 });
 ```

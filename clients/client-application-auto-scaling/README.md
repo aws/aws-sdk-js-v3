@@ -96,19 +96,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ApplicationAutoScalingClient` and
-the commands you need, for example `DeleteScalingPolicyCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
 const {
   ApplicationAutoScalingClient,
-  DeleteScalingPolicyCommand,
+  ListTagsForResourceCommand,
 } = require("@aws-sdk/client-application-auto-scaling");
 ```
 
 ```ts
 // ES6+ example
-import { ApplicationAutoScalingClient, DeleteScalingPolicyCommand } from "@aws-sdk/client-application-auto-scaling";
+import { ApplicationAutoScalingClient, ListTagsForResourceCommand } from "@aws-sdk/client-application-auto-scaling";
 ```
 
 ### Usage
@@ -127,7 +127,7 @@ const client = new ApplicationAutoScalingClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteScalingPolicyCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -206,7 +206,7 @@ const client = new AWS.ApplicationAutoScaling({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteScalingPolicy(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -214,7 +214,7 @@ try {
 
 // Promises.
 client
-  .deleteScalingPolicy(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -223,7 +223,7 @@ client
   });
 
 // callbacks.
-client.deleteScalingPolicy(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

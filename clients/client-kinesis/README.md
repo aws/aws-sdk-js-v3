@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `KinesisClient` and
-the commands you need, for example `AddTagsToStreamCommand`:
+the commands you need, for example `ListShardsCommand`:
 
 ```js
 // ES5 example
-const { KinesisClient, AddTagsToStreamCommand } = require("@aws-sdk/client-kinesis");
+const { KinesisClient, ListShardsCommand } = require("@aws-sdk/client-kinesis");
 ```
 
 ```ts
 // ES6+ example
-import { KinesisClient, AddTagsToStreamCommand } from "@aws-sdk/client-kinesis";
+import { KinesisClient, ListShardsCommand } from "@aws-sdk/client-kinesis";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new KinesisClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddTagsToStreamCommand(params);
+const command = new ListShardsCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.Kinesis({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addTagsToStream(params);
+  const data = await client.listShards(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .addTagsToStream(params)
+  .listShards(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.addTagsToStream(params, (err, data) => {
+client.listShards(params, (err, data) => {
   // process err and data.
 });
 ```

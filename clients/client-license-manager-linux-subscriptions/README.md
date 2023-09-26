@@ -24,13 +24,13 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LicenseManagerLinuxSubscriptionsClient` and
-the commands you need, for example `GetServiceSettingsCommand`:
+the commands you need, for example `ListLinuxSubscriptionsCommand`:
 
 ```js
 // ES5 example
 const {
   LicenseManagerLinuxSubscriptionsClient,
-  GetServiceSettingsCommand,
+  ListLinuxSubscriptionsCommand,
 } = require("@aws-sdk/client-license-manager-linux-subscriptions");
 ```
 
@@ -38,7 +38,7 @@ const {
 // ES6+ example
 import {
   LicenseManagerLinuxSubscriptionsClient,
-  GetServiceSettingsCommand,
+  ListLinuxSubscriptionsCommand,
 } from "@aws-sdk/client-license-manager-linux-subscriptions";
 ```
 
@@ -58,7 +58,7 @@ const client = new LicenseManagerLinuxSubscriptionsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetServiceSettingsCommand(params);
+const command = new ListLinuxSubscriptionsCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.LicenseManagerLinuxSubscriptions({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getServiceSettings(params);
+  const data = await client.listLinuxSubscriptions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .getServiceSettings(params)
+  .listLinuxSubscriptions(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.getServiceSettings(params, (err, data) => {
+client.listLinuxSubscriptions(params, (err, data) => {
   // process err and data.
 });
 ```

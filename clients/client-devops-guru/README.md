@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DevOpsGuruClient` and
-the commands you need, for example `AddNotificationChannelCommand`:
+the commands you need, for example `ListEventsCommand`:
 
 ```js
 // ES5 example
-const { DevOpsGuruClient, AddNotificationChannelCommand } = require("@aws-sdk/client-devops-guru");
+const { DevOpsGuruClient, ListEventsCommand } = require("@aws-sdk/client-devops-guru");
 ```
 
 ```ts
 // ES6+ example
-import { DevOpsGuruClient, AddNotificationChannelCommand } from "@aws-sdk/client-devops-guru";
+import { DevOpsGuruClient, ListEventsCommand } from "@aws-sdk/client-devops-guru";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new DevOpsGuruClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddNotificationChannelCommand(params);
+const command = new ListEventsCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.DevOpsGuru({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addNotificationChannel(params);
+  const data = await client.listEvents(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .addNotificationChannel(params)
+  .listEvents(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.addNotificationChannel(params, (err, data) => {
+client.listEvents(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MacieClient` and
-the commands you need, for example `AssociateMemberAccountCommand`:
+the commands you need, for example `ListS3ResourcesCommand`:
 
 ```js
 // ES5 example
-const { MacieClient, AssociateMemberAccountCommand } = require("@aws-sdk/client-macie");
+const { MacieClient, ListS3ResourcesCommand } = require("@aws-sdk/client-macie");
 ```
 
 ```ts
 // ES6+ example
-import { MacieClient, AssociateMemberAccountCommand } from "@aws-sdk/client-macie";
+import { MacieClient, ListS3ResourcesCommand } from "@aws-sdk/client-macie";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new MacieClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateMemberAccountCommand(params);
+const command = new ListS3ResourcesCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.Macie({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateMemberAccount(params);
+  const data = await client.listS3Resources(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .associateMemberAccount(params)
+  .listS3Resources(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.associateMemberAccount(params, (err, data) => {
+client.listS3Resources(params, (err, data) => {
   // process err and data.
 });
 ```

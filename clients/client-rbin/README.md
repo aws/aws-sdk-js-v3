@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RbinClient` and
-the commands you need, for example `CreateRuleCommand`:
+the commands you need, for example `ListRulesCommand`:
 
 ```js
 // ES5 example
-const { RbinClient, CreateRuleCommand } = require("@aws-sdk/client-rbin");
+const { RbinClient, ListRulesCommand } = require("@aws-sdk/client-rbin");
 ```
 
 ```ts
 // ES6+ example
-import { RbinClient, CreateRuleCommand } from "@aws-sdk/client-rbin";
+import { RbinClient, ListRulesCommand } from "@aws-sdk/client-rbin";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new RbinClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateRuleCommand(params);
+const command = new ListRulesCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.Rbin({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createRule(params);
+  const data = await client.listRules(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .createRule(params)
+  .listRules(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.createRule(params, (err, data) => {
+client.listRules(params, (err, data) => {
   // process err and data.
 });
 ```

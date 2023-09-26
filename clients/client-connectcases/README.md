@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ConnectCasesClient` and
-the commands you need, for example `BatchGetFieldCommand`:
+the commands you need, for example `ListDomainsCommand`:
 
 ```js
 // ES5 example
-const { ConnectCasesClient, BatchGetFieldCommand } = require("@aws-sdk/client-connectcases");
+const { ConnectCasesClient, ListDomainsCommand } = require("@aws-sdk/client-connectcases");
 ```
 
 ```ts
 // ES6+ example
-import { ConnectCasesClient, BatchGetFieldCommand } from "@aws-sdk/client-connectcases";
+import { ConnectCasesClient, ListDomainsCommand } from "@aws-sdk/client-connectcases";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new ConnectCasesClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetFieldCommand(params);
+const command = new ListDomainsCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.ConnectCases({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetField(params);
+  const data = await client.listDomains(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .batchGetField(params)
+  .listDomains(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.batchGetField(params, (err, data) => {
+client.listDomains(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -30,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SSMIncidentsClient` and
-the commands you need, for example `CreateReplicationSetCommand`:
+the commands you need, for example `ListResponsePlansCommand`:
 
 ```js
 // ES5 example
-const { SSMIncidentsClient, CreateReplicationSetCommand } = require("@aws-sdk/client-ssm-incidents");
+const { SSMIncidentsClient, ListResponsePlansCommand } = require("@aws-sdk/client-ssm-incidents");
 ```
 
 ```ts
 // ES6+ example
-import { SSMIncidentsClient, CreateReplicationSetCommand } from "@aws-sdk/client-ssm-incidents";
+import { SSMIncidentsClient, ListResponsePlansCommand } from "@aws-sdk/client-ssm-incidents";
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ const client = new SSMIncidentsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateReplicationSetCommand(params);
+const command = new ListResponsePlansCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.SSMIncidents({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createReplicationSet(params);
+  const data = await client.listResponsePlans(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .createReplicationSet(params)
+  .listResponsePlans(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.createReplicationSet(params, (err, data) => {
+client.listResponsePlans(params, (err, data) => {
   // process err and data.
 });
 ```

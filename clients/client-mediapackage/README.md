@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaPackageClient` and
-the commands you need, for example `ConfigureLogsCommand`:
+the commands you need, for example `ListChannelsCommand`:
 
 ```js
 // ES5 example
-const { MediaPackageClient, ConfigureLogsCommand } = require("@aws-sdk/client-mediapackage");
+const { MediaPackageClient, ListChannelsCommand } = require("@aws-sdk/client-mediapackage");
 ```
 
 ```ts
 // ES6+ example
-import { MediaPackageClient, ConfigureLogsCommand } from "@aws-sdk/client-mediapackage";
+import { MediaPackageClient, ListChannelsCommand } from "@aws-sdk/client-mediapackage";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new MediaPackageClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ConfigureLogsCommand(params);
+const command = new ListChannelsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.MediaPackage({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.configureLogs(params);
+  const data = await client.listChannels(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .configureLogs(params)
+  .listChannels(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.configureLogs(params, (err, data) => {
+client.listChannels(params, (err, data) => {
   // process err and data.
 });
 ```

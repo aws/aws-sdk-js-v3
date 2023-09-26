@@ -89,19 +89,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CognitoIdentityProviderClient` and
-the commands you need, for example `AddCustomAttributesCommand`:
+the commands you need, for example `ListDevicesCommand`:
 
 ```js
 // ES5 example
-const {
-  CognitoIdentityProviderClient,
-  AddCustomAttributesCommand,
-} = require("@aws-sdk/client-cognito-identity-provider");
+const { CognitoIdentityProviderClient, ListDevicesCommand } = require("@aws-sdk/client-cognito-identity-provider");
 ```
 
 ```ts
 // ES6+ example
-import { CognitoIdentityProviderClient, AddCustomAttributesCommand } from "@aws-sdk/client-cognito-identity-provider";
+import { CognitoIdentityProviderClient, ListDevicesCommand } from "@aws-sdk/client-cognito-identity-provider";
 ```
 
 ### Usage
@@ -120,7 +117,7 @@ const client = new CognitoIdentityProviderClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddCustomAttributesCommand(params);
+const command = new ListDevicesCommand(params);
 ```
 
 #### Async/await
@@ -199,7 +196,7 @@ const client = new AWS.CognitoIdentityProvider({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addCustomAttributes(params);
+  const data = await client.listDevices(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -207,7 +204,7 @@ try {
 
 // Promises.
 client
-  .addCustomAttributes(params)
+  .listDevices(params)
   .then((data) => {
     // process data.
   })
@@ -216,7 +213,7 @@ client
   });
 
 // callbacks.
-client.addCustomAttributes(params, (err, data) => {
+client.listDevices(params, (err, data) => {
   // process err and data.
 });
 ```

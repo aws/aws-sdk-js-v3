@@ -39,16 +39,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTClient` and
-the commands you need, for example `AcceptCertificateTransferCommand`:
+the commands you need, for example `ListIndicesCommand`:
 
 ```js
 // ES5 example
-const { IoTClient, AcceptCertificateTransferCommand } = require("@aws-sdk/client-iot");
+const { IoTClient, ListIndicesCommand } = require("@aws-sdk/client-iot");
 ```
 
 ```ts
 // ES6+ example
-import { IoTClient, AcceptCertificateTransferCommand } from "@aws-sdk/client-iot";
+import { IoTClient, ListIndicesCommand } from "@aws-sdk/client-iot";
 ```
 
 ### Usage
@@ -67,7 +67,7 @@ const client = new IoTClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptCertificateTransferCommand(params);
+const command = new ListIndicesCommand(params);
 ```
 
 #### Async/await
@@ -146,7 +146,7 @@ const client = new AWS.IoT({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptCertificateTransfer(params);
+  const data = await client.listIndices(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -154,7 +154,7 @@ try {
 
 // Promises.
 client
-  .acceptCertificateTransfer(params)
+  .listIndices(params)
   .then((data) => {
     // process data.
   })
@@ -163,7 +163,7 @@ client
   });
 
 // callbacks.
-client.acceptCertificateTransfer(params, (err, data) => {
+client.listIndices(params, (err, data) => {
   // process err and data.
 });
 ```

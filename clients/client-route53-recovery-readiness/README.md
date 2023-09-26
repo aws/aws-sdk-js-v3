@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `Route53RecoveryReadinessClient` and
-the commands you need, for example `CreateCellCommand`:
+the commands you need, for example `ListCellsCommand`:
 
 ```js
 // ES5 example
-const { Route53RecoveryReadinessClient, CreateCellCommand } = require("@aws-sdk/client-route53-recovery-readiness");
+const { Route53RecoveryReadinessClient, ListCellsCommand } = require("@aws-sdk/client-route53-recovery-readiness");
 ```
 
 ```ts
 // ES6+ example
-import { Route53RecoveryReadinessClient, CreateCellCommand } from "@aws-sdk/client-route53-recovery-readiness";
+import { Route53RecoveryReadinessClient, ListCellsCommand } from "@aws-sdk/client-route53-recovery-readiness";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new Route53RecoveryReadinessClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateCellCommand(params);
+const command = new ListCellsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Route53RecoveryReadiness({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createCell(params);
+  const data = await client.listCells(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createCell(params)
+  .listCells(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createCell(params, (err, data) => {
+client.listCells(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CodeBuildClient` and
-the commands you need, for example `BatchDeleteBuildsCommand`:
+the commands you need, for example `ListBuildsCommand`:
 
 ```js
 // ES5 example
-const { CodeBuildClient, BatchDeleteBuildsCommand } = require("@aws-sdk/client-codebuild");
+const { CodeBuildClient, ListBuildsCommand } = require("@aws-sdk/client-codebuild");
 ```
 
 ```ts
 // ES6+ example
-import { CodeBuildClient, BatchDeleteBuildsCommand } from "@aws-sdk/client-codebuild";
+import { CodeBuildClient, ListBuildsCommand } from "@aws-sdk/client-codebuild";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new CodeBuildClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchDeleteBuildsCommand(params);
+const command = new ListBuildsCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.CodeBuild({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchDeleteBuilds(params);
+  const data = await client.listBuilds(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .batchDeleteBuilds(params)
+  .listBuilds(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.batchDeleteBuilds(params, (err, data) => {
+client.listBuilds(params, (err, data) => {
   // process err and data.
 });
 ```

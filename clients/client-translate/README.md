@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `TranslateClient` and
-the commands you need, for example `CreateParallelDataCommand`:
+the commands you need, for example `ListLanguagesCommand`:
 
 ```js
 // ES5 example
-const { TranslateClient, CreateParallelDataCommand } = require("@aws-sdk/client-translate");
+const { TranslateClient, ListLanguagesCommand } = require("@aws-sdk/client-translate");
 ```
 
 ```ts
 // ES6+ example
-import { TranslateClient, CreateParallelDataCommand } from "@aws-sdk/client-translate";
+import { TranslateClient, ListLanguagesCommand } from "@aws-sdk/client-translate";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new TranslateClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateParallelDataCommand(params);
+const command = new ListLanguagesCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Translate({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createParallelData(params);
+  const data = await client.listLanguages(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createParallelData(params)
+  .listLanguages(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createParallelData(params, (err, data) => {
+client.listLanguages(params, (err, data) => {
   // process err and data.
 });
 ```

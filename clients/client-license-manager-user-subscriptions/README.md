@@ -24,13 +24,13 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LicenseManagerUserSubscriptionsClient` and
-the commands you need, for example `AssociateUserCommand`:
+the commands you need, for example `ListInstancesCommand`:
 
 ```js
 // ES5 example
 const {
   LicenseManagerUserSubscriptionsClient,
-  AssociateUserCommand,
+  ListInstancesCommand,
 } = require("@aws-sdk/client-license-manager-user-subscriptions");
 ```
 
@@ -38,7 +38,7 @@ const {
 // ES6+ example
 import {
   LicenseManagerUserSubscriptionsClient,
-  AssociateUserCommand,
+  ListInstancesCommand,
 } from "@aws-sdk/client-license-manager-user-subscriptions";
 ```
 
@@ -58,7 +58,7 @@ const client = new LicenseManagerUserSubscriptionsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateUserCommand(params);
+const command = new ListInstancesCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.LicenseManagerUserSubscriptions({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateUser(params);
+  const data = await client.listInstances(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .associateUser(params)
+  .listInstances(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.associateUser(params, (err, data) => {
+client.listInstances(params, (err, data) => {
   // process err and data.
 });
 ```

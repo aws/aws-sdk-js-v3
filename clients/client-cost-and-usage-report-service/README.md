@@ -40,13 +40,13 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CostAndUsageReportServiceClient` and
-the commands you need, for example `DeleteReportDefinitionCommand`:
+the commands you need, for example `DescribeReportDefinitionsCommand`:
 
 ```js
 // ES5 example
 const {
   CostAndUsageReportServiceClient,
-  DeleteReportDefinitionCommand,
+  DescribeReportDefinitionsCommand,
 } = require("@aws-sdk/client-cost-and-usage-report-service");
 ```
 
@@ -54,7 +54,7 @@ const {
 // ES6+ example
 import {
   CostAndUsageReportServiceClient,
-  DeleteReportDefinitionCommand,
+  DescribeReportDefinitionsCommand,
 } from "@aws-sdk/client-cost-and-usage-report-service";
 ```
 
@@ -74,7 +74,7 @@ const client = new CostAndUsageReportServiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteReportDefinitionCommand(params);
+const command = new DescribeReportDefinitionsCommand(params);
 ```
 
 #### Async/await
@@ -153,7 +153,7 @@ const client = new AWS.CostAndUsageReportService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteReportDefinition(params);
+  const data = await client.describeReportDefinitions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -161,7 +161,7 @@ try {
 
 // Promises.
 client
-  .deleteReportDefinition(params)
+  .describeReportDefinitions(params)
   .then((data) => {
     // process data.
   })
@@ -170,7 +170,7 @@ client
   });
 
 // callbacks.
-client.deleteReportDefinition(params, (err, data) => {
+client.describeReportDefinitions(params, (err, data) => {
   // process err and data.
 });
 ```

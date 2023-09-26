@@ -381,16 +381,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RekognitionClient` and
-the commands you need, for example `AssociateFacesCommand`:
+the commands you need, for example `ListCollectionsCommand`:
 
 ```js
 // ES5 example
-const { RekognitionClient, AssociateFacesCommand } = require("@aws-sdk/client-rekognition");
+const { RekognitionClient, ListCollectionsCommand } = require("@aws-sdk/client-rekognition");
 ```
 
 ```ts
 // ES6+ example
-import { RekognitionClient, AssociateFacesCommand } from "@aws-sdk/client-rekognition";
+import { RekognitionClient, ListCollectionsCommand } from "@aws-sdk/client-rekognition";
 ```
 
 ### Usage
@@ -409,7 +409,7 @@ const client = new RekognitionClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateFacesCommand(params);
+const command = new ListCollectionsCommand(params);
 ```
 
 #### Async/await
@@ -488,7 +488,7 @@ const client = new AWS.Rekognition({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateFaces(params);
+  const data = await client.listCollections(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -496,7 +496,7 @@ try {
 
 // Promises.
 client
-  .associateFaces(params)
+  .listCollections(params)
   .then((data) => {
     // process data.
   })
@@ -505,7 +505,7 @@ client
   });
 
 // callbacks.
-client.associateFaces(params, (err, data) => {
+client.listCollections(params, (err, data) => {
   // process err and data.
 });
 ```

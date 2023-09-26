@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `S3Client` and
-the commands you need, for example `AbortMultipartUploadCommand`:
+the commands you need, for example `ListBucketsCommand`:
 
 ```js
 // ES5 example
-const { S3Client, AbortMultipartUploadCommand } = require("@aws-sdk/client-s3");
+const { S3Client, ListBucketsCommand } = require("@aws-sdk/client-s3");
 ```
 
 ```ts
 // ES6+ example
-import { S3Client, AbortMultipartUploadCommand } from "@aws-sdk/client-s3";
+import { S3Client, ListBucketsCommand } from "@aws-sdk/client-s3";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new S3Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AbortMultipartUploadCommand(params);
+const command = new ListBucketsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.S3({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.abortMultipartUpload(params);
+  const data = await client.listBuckets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .abortMultipartUpload(params)
+  .listBuckets(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.abortMultipartUpload(params, (err, data) => {
+client.listBuckets(params, (err, data) => {
   // process err and data.
 });
 ```

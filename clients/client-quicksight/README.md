@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `QuickSightClient` and
-the commands you need, for example `CancelIngestionCommand`:
+the commands you need, for example `ListFoldersCommand`:
 
 ```js
 // ES5 example
-const { QuickSightClient, CancelIngestionCommand } = require("@aws-sdk/client-quicksight");
+const { QuickSightClient, ListFoldersCommand } = require("@aws-sdk/client-quicksight");
 ```
 
 ```ts
 // ES6+ example
-import { QuickSightClient, CancelIngestionCommand } from "@aws-sdk/client-quicksight";
+import { QuickSightClient, ListFoldersCommand } from "@aws-sdk/client-quicksight";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new QuickSightClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelIngestionCommand(params);
+const command = new ListFoldersCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.QuickSight({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelIngestion(params);
+  const data = await client.listFolders(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .cancelIngestion(params)
+  .listFolders(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.cancelIngestion(params, (err, data) => {
+client.listFolders(params, (err, data) => {
   // process err and data.
 });
 ```

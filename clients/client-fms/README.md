@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `FMSClient` and
-the commands you need, for example `AssociateAdminAccountCommand`:
+the commands you need, for example `ListPoliciesCommand`:
 
 ```js
 // ES5 example
-const { FMSClient, AssociateAdminAccountCommand } = require("@aws-sdk/client-fms");
+const { FMSClient, ListPoliciesCommand } = require("@aws-sdk/client-fms");
 ```
 
 ```ts
 // ES6+ example
-import { FMSClient, AssociateAdminAccountCommand } from "@aws-sdk/client-fms";
+import { FMSClient, ListPoliciesCommand } from "@aws-sdk/client-fms";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new FMSClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateAdminAccountCommand(params);
+const command = new ListPoliciesCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.FMS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateAdminAccount(params);
+  const data = await client.listPolicies(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .associateAdminAccount(params)
+  .listPolicies(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.associateAdminAccount(params, (err, data) => {
+client.listPolicies(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SavingsplansClient` and
-the commands you need, for example `CreateSavingsPlanCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { SavingsplansClient, CreateSavingsPlanCommand } = require("@aws-sdk/client-savingsplans");
+const { SavingsplansClient, ListTagsForResourceCommand } = require("@aws-sdk/client-savingsplans");
 ```
 
 ```ts
 // ES6+ example
-import { SavingsplansClient, CreateSavingsPlanCommand } from "@aws-sdk/client-savingsplans";
+import { SavingsplansClient, ListTagsForResourceCommand } from "@aws-sdk/client-savingsplans";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new SavingsplansClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateSavingsPlanCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.Savingsplans({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createSavingsPlan(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .createSavingsPlan(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.createSavingsPlan(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```

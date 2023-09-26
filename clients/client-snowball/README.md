@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SnowballClient` and
-the commands you need, for example `CancelClusterCommand`:
+the commands you need, for example `ListJobsCommand`:
 
 ```js
 // ES5 example
-const { SnowballClient, CancelClusterCommand } = require("@aws-sdk/client-snowball");
+const { SnowballClient, ListJobsCommand } = require("@aws-sdk/client-snowball");
 ```
 
 ```ts
 // ES6+ example
-import { SnowballClient, CancelClusterCommand } from "@aws-sdk/client-snowball";
+import { SnowballClient, ListJobsCommand } from "@aws-sdk/client-snowball";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new SnowballClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelClusterCommand(params);
+const command = new ListJobsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.Snowball({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelCluster(params);
+  const data = await client.listJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .cancelCluster(params)
+  .listJobs(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.cancelCluster(params, (err, data) => {
+client.listJobs(params, (err, data) => {
   // process err and data.
 });
 ```

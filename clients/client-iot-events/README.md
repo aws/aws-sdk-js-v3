@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTEventsClient` and
-the commands you need, for example `CreateAlarmModelCommand`:
+the commands you need, for example `ListInputsCommand`:
 
 ```js
 // ES5 example
-const { IoTEventsClient, CreateAlarmModelCommand } = require("@aws-sdk/client-iot-events");
+const { IoTEventsClient, ListInputsCommand } = require("@aws-sdk/client-iot-events");
 ```
 
 ```ts
 // ES6+ example
-import { IoTEventsClient, CreateAlarmModelCommand } from "@aws-sdk/client-iot-events";
+import { IoTEventsClient, ListInputsCommand } from "@aws-sdk/client-iot-events";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new IoTEventsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAlarmModelCommand(params);
+const command = new ListInputsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.IoTEvents({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAlarmModel(params);
+  const data = await client.listInputs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .createAlarmModel(params)
+  .listInputs(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.createAlarmModel(params, (err, data) => {
+client.listInputs(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PersonalizeRuntimeClient` and
-the commands you need, for example `GetPersonalizedRankingCommand`:
+the commands you need, for example `GetRecommendationsCommand`:
 
 ```js
 // ES5 example
-const { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } = require("@aws-sdk/client-personalize-runtime");
+const { PersonalizeRuntimeClient, GetRecommendationsCommand } = require("@aws-sdk/client-personalize-runtime");
 ```
 
 ```ts
 // ES6+ example
-import { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } from "@aws-sdk/client-personalize-runtime";
+import { PersonalizeRuntimeClient, GetRecommendationsCommand } from "@aws-sdk/client-personalize-runtime";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new PersonalizeRuntimeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetPersonalizedRankingCommand(params);
+const command = new GetRecommendationsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.PersonalizeRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getPersonalizedRanking(params);
+  const data = await client.getRecommendations(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .getPersonalizedRanking(params)
+  .getRecommendations(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.getPersonalizedRanking(params, (err, data) => {
+client.getRecommendations(params, (err, data) => {
   // process err and data.
 });
 ```

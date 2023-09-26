@@ -31,13 +31,13 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MigrationHubRefactorSpacesClient` and
-the commands you need, for example `CreateApplicationCommand`:
+the commands you need, for example `ListEnvironmentsCommand`:
 
 ```js
 // ES5 example
 const {
   MigrationHubRefactorSpacesClient,
-  CreateApplicationCommand,
+  ListEnvironmentsCommand,
 } = require("@aws-sdk/client-migration-hub-refactor-spaces");
 ```
 
@@ -45,7 +45,7 @@ const {
 // ES6+ example
 import {
   MigrationHubRefactorSpacesClient,
-  CreateApplicationCommand,
+  ListEnvironmentsCommand,
 } from "@aws-sdk/client-migration-hub-refactor-spaces";
 ```
 
@@ -65,7 +65,7 @@ const client = new MigrationHubRefactorSpacesClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateApplicationCommand(params);
+const command = new ListEnvironmentsCommand(params);
 ```
 
 #### Async/await
@@ -144,7 +144,7 @@ const client = new AWS.MigrationHubRefactorSpaces({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createApplication(params);
+  const data = await client.listEnvironments(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -152,7 +152,7 @@ try {
 
 // Promises.
 client
-  .createApplication(params)
+  .listEnvironments(params)
   .then((data) => {
     // process data.
   })
@@ -161,7 +161,7 @@ client
   });
 
 // callbacks.
-client.createApplication(params, (err, data) => {
+client.listEnvironments(params, (err, data) => {
   // process err and data.
 });
 ```

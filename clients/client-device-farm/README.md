@@ -37,16 +37,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DeviceFarmClient` and
-the commands you need, for example `CreateDevicePoolCommand`:
+the commands you need, for example `ListDevicesCommand`:
 
 ```js
 // ES5 example
-const { DeviceFarmClient, CreateDevicePoolCommand } = require("@aws-sdk/client-device-farm");
+const { DeviceFarmClient, ListDevicesCommand } = require("@aws-sdk/client-device-farm");
 ```
 
 ```ts
 // ES6+ example
-import { DeviceFarmClient, CreateDevicePoolCommand } from "@aws-sdk/client-device-farm";
+import { DeviceFarmClient, ListDevicesCommand } from "@aws-sdk/client-device-farm";
 ```
 
 ### Usage
@@ -65,7 +65,7 @@ const client = new DeviceFarmClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateDevicePoolCommand(params);
+const command = new ListDevicesCommand(params);
 ```
 
 #### Async/await
@@ -144,7 +144,7 @@ const client = new AWS.DeviceFarm({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createDevicePool(params);
+  const data = await client.listDevices(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -152,7 +152,7 @@ try {
 
 // Promises.
 client
-  .createDevicePool(params)
+  .listDevices(params)
   .then((data) => {
     // process data.
   })
@@ -161,7 +161,7 @@ client
   });
 
 // callbacks.
-client.createDevicePool(params, (err, data) => {
+client.listDevices(params, (err, data) => {
   // process err and data.
 });
 ```

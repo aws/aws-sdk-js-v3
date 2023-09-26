@@ -39,16 +39,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudTrailClient` and
-the commands you need, for example `AddTagsCommand`:
+the commands you need, for example `ListImportsCommand`:
 
 ```js
 // ES5 example
-const { CloudTrailClient, AddTagsCommand } = require("@aws-sdk/client-cloudtrail");
+const { CloudTrailClient, ListImportsCommand } = require("@aws-sdk/client-cloudtrail");
 ```
 
 ```ts
 // ES6+ example
-import { CloudTrailClient, AddTagsCommand } from "@aws-sdk/client-cloudtrail";
+import { CloudTrailClient, ListImportsCommand } from "@aws-sdk/client-cloudtrail";
 ```
 
 ### Usage
@@ -67,7 +67,7 @@ const client = new CloudTrailClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddTagsCommand(params);
+const command = new ListImportsCommand(params);
 ```
 
 #### Async/await
@@ -146,7 +146,7 @@ const client = new AWS.CloudTrail({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addTags(params);
+  const data = await client.listImports(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -154,7 +154,7 @@ try {
 
 // Promises.
 client
-  .addTags(params)
+  .listImports(params)
   .then((data) => {
     // process data.
   })
@@ -163,7 +163,7 @@ client
   });
 
 // callbacks.
-client.addTags(params, (err, data) => {
+client.listImports(params, (err, data) => {
   // process err and data.
 });
 ```

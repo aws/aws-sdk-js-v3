@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `S3ControlClient` and
-the commands you need, for example `CreateAccessPointCommand`:
+the commands you need, for example `ListJobsCommand`:
 
 ```js
 // ES5 example
-const { S3ControlClient, CreateAccessPointCommand } = require("@aws-sdk/client-s3-control");
+const { S3ControlClient, ListJobsCommand } = require("@aws-sdk/client-s3-control");
 ```
 
 ```ts
 // ES6+ example
-import { S3ControlClient, CreateAccessPointCommand } from "@aws-sdk/client-s3-control";
+import { S3ControlClient, ListJobsCommand } from "@aws-sdk/client-s3-control";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new S3ControlClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAccessPointCommand(params);
+const command = new ListJobsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.S3Control({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAccessPoint(params);
+  const data = await client.listJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createAccessPoint(params)
+  .listJobs(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createAccessPoint(params, (err, data) => {
+client.listJobs(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -32,16 +32,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EKSClient` and
-the commands you need, for example `AssociateEncryptionConfigCommand`:
+the commands you need, for example `ListAddonsCommand`:
 
 ```js
 // ES5 example
-const { EKSClient, AssociateEncryptionConfigCommand } = require("@aws-sdk/client-eks");
+const { EKSClient, ListAddonsCommand } = require("@aws-sdk/client-eks");
 ```
 
 ```ts
 // ES6+ example
-import { EKSClient, AssociateEncryptionConfigCommand } from "@aws-sdk/client-eks";
+import { EKSClient, ListAddonsCommand } from "@aws-sdk/client-eks";
 ```
 
 ### Usage
@@ -60,7 +60,7 @@ const client = new EKSClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateEncryptionConfigCommand(params);
+const command = new ListAddonsCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +139,7 @@ const client = new AWS.EKS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateEncryptionConfig(params);
+  const data = await client.listAddons(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +147,7 @@ try {
 
 // Promises.
 client
-  .associateEncryptionConfig(params)
+  .listAddons(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +156,7 @@ client
   });
 
 // callbacks.
-client.associateEncryptionConfig(params, (err, data) => {
+client.listAddons(params, (err, data) => {
   // process err and data.
 });
 ```

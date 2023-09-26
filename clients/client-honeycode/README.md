@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `HoneycodeClient` and
-the commands you need, for example `BatchCreateTableRowsCommand`:
+the commands you need, for example `ListTablesCommand`:
 
 ```js
 // ES5 example
-const { HoneycodeClient, BatchCreateTableRowsCommand } = require("@aws-sdk/client-honeycode");
+const { HoneycodeClient, ListTablesCommand } = require("@aws-sdk/client-honeycode");
 ```
 
 ```ts
 // ES6+ example
-import { HoneycodeClient, BatchCreateTableRowsCommand } from "@aws-sdk/client-honeycode";
+import { HoneycodeClient, ListTablesCommand } from "@aws-sdk/client-honeycode";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new HoneycodeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchCreateTableRowsCommand(params);
+const command = new ListTablesCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.Honeycode({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchCreateTableRows(params);
+  const data = await client.listTables(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .batchCreateTableRows(params)
+  .listTables(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.batchCreateTableRows(params, (err, data) => {
+client.listTables(params, (err, data) => {
   // process err and data.
 });
 ```

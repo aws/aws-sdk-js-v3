@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ElasticTranscoderClient` and
-the commands you need, for example `CancelJobCommand`:
+the commands you need, for example `ListPresetsCommand`:
 
 ```js
 // ES5 example
-const { ElasticTranscoderClient, CancelJobCommand } = require("@aws-sdk/client-elastic-transcoder");
+const { ElasticTranscoderClient, ListPresetsCommand } = require("@aws-sdk/client-elastic-transcoder");
 ```
 
 ```ts
 // ES6+ example
-import { ElasticTranscoderClient, CancelJobCommand } from "@aws-sdk/client-elastic-transcoder";
+import { ElasticTranscoderClient, ListPresetsCommand } from "@aws-sdk/client-elastic-transcoder";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new ElasticTranscoderClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelJobCommand(params);
+const command = new ListPresetsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.ElasticTranscoder({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelJob(params);
+  const data = await client.listPresets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .cancelJob(params)
+  .listPresets(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.cancelJob(params, (err, data) => {
+client.listPresets(params, (err, data) => {
   // process err and data.
 });
 ```

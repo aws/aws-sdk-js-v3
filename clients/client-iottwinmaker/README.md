@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTTwinMakerClient` and
-the commands you need, for example `BatchPutPropertyValuesCommand`:
+the commands you need, for example `ListScenesCommand`:
 
 ```js
 // ES5 example
-const { IoTTwinMakerClient, BatchPutPropertyValuesCommand } = require("@aws-sdk/client-iottwinmaker");
+const { IoTTwinMakerClient, ListScenesCommand } = require("@aws-sdk/client-iottwinmaker");
 ```
 
 ```ts
 // ES6+ example
-import { IoTTwinMakerClient, BatchPutPropertyValuesCommand } from "@aws-sdk/client-iottwinmaker";
+import { IoTTwinMakerClient, ListScenesCommand } from "@aws-sdk/client-iottwinmaker";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new IoTTwinMakerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchPutPropertyValuesCommand(params);
+const command = new ListScenesCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.IoTTwinMaker({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchPutPropertyValues(params);
+  const data = await client.listScenes(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .batchPutPropertyValues(params)
+  .listScenes(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.batchPutPropertyValues(params, (err, data) => {
+client.listScenes(params, (err, data) => {
   // process err and data.
 });
 ```

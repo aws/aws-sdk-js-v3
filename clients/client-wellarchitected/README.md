@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `WellArchitectedClient` and
-the commands you need, for example `AssociateLensesCommand`:
+the commands you need, for example `ListLensesCommand`:
 
 ```js
 // ES5 example
-const { WellArchitectedClient, AssociateLensesCommand } = require("@aws-sdk/client-wellarchitected");
+const { WellArchitectedClient, ListLensesCommand } = require("@aws-sdk/client-wellarchitected");
 ```
 
 ```ts
 // ES6+ example
-import { WellArchitectedClient, AssociateLensesCommand } from "@aws-sdk/client-wellarchitected";
+import { WellArchitectedClient, ListLensesCommand } from "@aws-sdk/client-wellarchitected";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new WellArchitectedClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateLensesCommand(params);
+const command = new ListLensesCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.WellArchitected({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateLenses(params);
+  const data = await client.listLenses(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .associateLenses(params)
+  .listLenses(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.associateLenses(params, (err, data) => {
+client.listLenses(params, (err, data) => {
   // process err and data.
 });
 ```

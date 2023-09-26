@@ -404,16 +404,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CodeCommitClient` and
-the commands you need, for example `AssociateApprovalRuleTemplateWithRepositoryCommand`:
+the commands you need, for example `ListRepositoriesCommand`:
 
 ```js
 // ES5 example
-const { CodeCommitClient, AssociateApprovalRuleTemplateWithRepositoryCommand } = require("@aws-sdk/client-codecommit");
+const { CodeCommitClient, ListRepositoriesCommand } = require("@aws-sdk/client-codecommit");
 ```
 
 ```ts
 // ES6+ example
-import { CodeCommitClient, AssociateApprovalRuleTemplateWithRepositoryCommand } from "@aws-sdk/client-codecommit";
+import { CodeCommitClient, ListRepositoriesCommand } from "@aws-sdk/client-codecommit";
 ```
 
 ### Usage
@@ -432,7 +432,7 @@ const client = new CodeCommitClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateApprovalRuleTemplateWithRepositoryCommand(params);
+const command = new ListRepositoriesCommand(params);
 ```
 
 #### Async/await
@@ -511,7 +511,7 @@ const client = new AWS.CodeCommit({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateApprovalRuleTemplateWithRepository(params);
+  const data = await client.listRepositories(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -519,7 +519,7 @@ try {
 
 // Promises.
 client
-  .associateApprovalRuleTemplateWithRepository(params)
+  .listRepositories(params)
   .then((data) => {
     // process data.
   })
@@ -528,7 +528,7 @@ client
   });
 
 // callbacks.
-client.associateApprovalRuleTemplateWithRepository(params, (err, data) => {
+client.listRepositories(params, (err, data) => {
   // process err and data.
 });
 ```

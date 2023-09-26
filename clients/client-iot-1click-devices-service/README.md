@@ -25,22 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoT1ClickDevicesServiceClient` and
-the commands you need, for example `ClaimDevicesByClaimCodeCommand`:
+the commands you need, for example `ListDevicesCommand`:
 
 ```js
 // ES5 example
-const {
-  IoT1ClickDevicesServiceClient,
-  ClaimDevicesByClaimCodeCommand,
-} = require("@aws-sdk/client-iot-1click-devices-service");
+const { IoT1ClickDevicesServiceClient, ListDevicesCommand } = require("@aws-sdk/client-iot-1click-devices-service");
 ```
 
 ```ts
 // ES6+ example
-import {
-  IoT1ClickDevicesServiceClient,
-  ClaimDevicesByClaimCodeCommand,
-} from "@aws-sdk/client-iot-1click-devices-service";
+import { IoT1ClickDevicesServiceClient, ListDevicesCommand } from "@aws-sdk/client-iot-1click-devices-service";
 ```
 
 ### Usage
@@ -59,7 +53,7 @@ const client = new IoT1ClickDevicesServiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ClaimDevicesByClaimCodeCommand(params);
+const command = new ListDevicesCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +132,7 @@ const client = new AWS.IoT1ClickDevicesService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.claimDevicesByClaimCode(params);
+  const data = await client.listDevices(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +140,7 @@ try {
 
 // Promises.
 client
-  .claimDevicesByClaimCode(params)
+  .listDevices(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +149,7 @@ client
   });
 
 // callbacks.
-client.claimDevicesByClaimCode(params, (err, data) => {
+client.listDevices(params, (err, data) => {
   // process err and data.
 });
 ```

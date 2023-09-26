@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTFleetWiseClient` and
-the commands you need, for example `AssociateVehicleFleetCommand`:
+the commands you need, for example `ListFleetsCommand`:
 
 ```js
 // ES5 example
-const { IoTFleetWiseClient, AssociateVehicleFleetCommand } = require("@aws-sdk/client-iotfleetwise");
+const { IoTFleetWiseClient, ListFleetsCommand } = require("@aws-sdk/client-iotfleetwise");
 ```
 
 ```ts
 // ES6+ example
-import { IoTFleetWiseClient, AssociateVehicleFleetCommand } from "@aws-sdk/client-iotfleetwise";
+import { IoTFleetWiseClient, ListFleetsCommand } from "@aws-sdk/client-iotfleetwise";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new IoTFleetWiseClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateVehicleFleetCommand(params);
+const command = new ListFleetsCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.IoTFleetWise({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateVehicleFleet(params);
+  const data = await client.listFleets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .associateVehicleFleet(params)
+  .listFleets(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.associateVehicleFleet(params, (err, data) => {
+client.listFleets(params, (err, data) => {
   // process err and data.
 });
 ```

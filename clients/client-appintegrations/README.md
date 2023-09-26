@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppIntegrationsClient` and
-the commands you need, for example `CreateApplicationCommand`:
+the commands you need, for example `ListApplicationsCommand`:
 
 ```js
 // ES5 example
-const { AppIntegrationsClient, CreateApplicationCommand } = require("@aws-sdk/client-appintegrations");
+const { AppIntegrationsClient, ListApplicationsCommand } = require("@aws-sdk/client-appintegrations");
 ```
 
 ```ts
 // ES6+ example
-import { AppIntegrationsClient, CreateApplicationCommand } from "@aws-sdk/client-appintegrations";
+import { AppIntegrationsClient, ListApplicationsCommand } from "@aws-sdk/client-appintegrations";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new AppIntegrationsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateApplicationCommand(params);
+const command = new ListApplicationsCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.AppIntegrations({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createApplication(params);
+  const data = await client.listApplications(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .createApplication(params)
+  .listApplications(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.createApplication(params, (err, data) => {
+client.listApplications(params, (err, data) => {
   // process err and data.
 });
 ```

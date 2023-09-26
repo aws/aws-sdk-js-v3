@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PrivateNetworksClient` and
-the commands you need, for example `AcknowledgeOrderReceiptCommand`:
+the commands you need, for example `ListNetworksCommand`:
 
 ```js
 // ES5 example
-const { PrivateNetworksClient, AcknowledgeOrderReceiptCommand } = require("@aws-sdk/client-privatenetworks");
+const { PrivateNetworksClient, ListNetworksCommand } = require("@aws-sdk/client-privatenetworks");
 ```
 
 ```ts
 // ES6+ example
-import { PrivateNetworksClient, AcknowledgeOrderReceiptCommand } from "@aws-sdk/client-privatenetworks";
+import { PrivateNetworksClient, ListNetworksCommand } from "@aws-sdk/client-privatenetworks";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new PrivateNetworksClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcknowledgeOrderReceiptCommand(params);
+const command = new ListNetworksCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.PrivateNetworks({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acknowledgeOrderReceipt(params);
+  const data = await client.listNetworks(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .acknowledgeOrderReceipt(params)
+  .listNetworks(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.acknowledgeOrderReceipt(params, (err, data) => {
+client.listNetworks(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaConnectClient` and
-the commands you need, for example `AddBridgeOutputsCommand`:
+the commands you need, for example `ListBridgesCommand`:
 
 ```js
 // ES5 example
-const { MediaConnectClient, AddBridgeOutputsCommand } = require("@aws-sdk/client-mediaconnect");
+const { MediaConnectClient, ListBridgesCommand } = require("@aws-sdk/client-mediaconnect");
 ```
 
 ```ts
 // ES6+ example
-import { MediaConnectClient, AddBridgeOutputsCommand } from "@aws-sdk/client-mediaconnect";
+import { MediaConnectClient, ListBridgesCommand } from "@aws-sdk/client-mediaconnect";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new MediaConnectClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddBridgeOutputsCommand(params);
+const command = new ListBridgesCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.MediaConnect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addBridgeOutputs(params);
+  const data = await client.listBridges(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .addBridgeOutputs(params)
+  .listBridges(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.addBridgeOutputs(params, (err, data) => {
+client.listBridges(params, (err, data) => {
   // process err and data.
 });
 ```

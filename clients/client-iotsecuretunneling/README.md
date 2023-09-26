@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTSecureTunnelingClient` and
-the commands you need, for example `CloseTunnelCommand`:
+the commands you need, for example `ListTunnelsCommand`:
 
 ```js
 // ES5 example
-const { IoTSecureTunnelingClient, CloseTunnelCommand } = require("@aws-sdk/client-iotsecuretunneling");
+const { IoTSecureTunnelingClient, ListTunnelsCommand } = require("@aws-sdk/client-iotsecuretunneling");
 ```
 
 ```ts
 // ES6+ example
-import { IoTSecureTunnelingClient, CloseTunnelCommand } from "@aws-sdk/client-iotsecuretunneling";
+import { IoTSecureTunnelingClient, ListTunnelsCommand } from "@aws-sdk/client-iotsecuretunneling";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new IoTSecureTunnelingClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CloseTunnelCommand(params);
+const command = new ListTunnelsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.IoTSecureTunneling({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.closeTunnel(params);
+  const data = await client.listTunnels(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .closeTunnel(params)
+  .listTunnels(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.closeTunnel(params, (err, data) => {
+client.listTunnels(params, (err, data) => {
   // process err and data.
 });
 ```
