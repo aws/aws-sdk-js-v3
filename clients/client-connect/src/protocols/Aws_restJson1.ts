@@ -363,6 +363,10 @@ import {
 import { ListRulesCommandInput, ListRulesCommandOutput } from "../commands/ListRulesCommand";
 import { ListSecurityKeysCommandInput, ListSecurityKeysCommandOutput } from "../commands/ListSecurityKeysCommand";
 import {
+  ListSecurityProfileApplicationsCommandInput,
+  ListSecurityProfileApplicationsCommandOutput,
+} from "../commands/ListSecurityProfileApplicationsCommand";
+import {
   ListSecurityProfilePermissionsCommandInput,
   ListSecurityProfilePermissionsCommandOutput,
 } from "../commands/ListSecurityProfilePermissionsCommand";
@@ -607,6 +611,7 @@ import {
   AgentContactReference,
   AgentInfo,
   AgentStatusReference,
+  Application,
   AssignContactCategoryActionDefinition,
   Channel,
   Contact,
@@ -1698,6 +1703,7 @@ export const se_CreateSecurityProfileCommand = async (
   body = JSON.stringify(
     take(input, {
       AllowedAccessControlTags: (_) => _json(_),
+      Applications: (_) => _json(_),
       Description: [],
       Permissions: (_) => _json(_),
       SecurityProfileName: [],
@@ -4880,6 +4886,44 @@ export const se_ListSecurityKeysCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListSecurityProfileApplicationsCommand
+ */
+export const se_ListSecurityProfileApplicationsCommand = async (
+  input: ListSecurityProfileApplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/security-profiles-applications/{InstanceId}/{SecurityProfileId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SecurityProfileId",
+    () => input.SecurityProfileId!,
+    "{SecurityProfileId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListSecurityProfilePermissionsCommand
  */
 export const se_ListSecurityProfilePermissionsCommand = async (
@@ -7374,6 +7418,7 @@ export const se_UpdateSecurityProfileCommand = async (
   body = JSON.stringify(
     take(input, {
       AllowedAccessControlTags: (_) => _json(_),
+      Applications: (_) => _json(_),
       Description: [],
       Permissions: (_) => _json(_),
       TagRestrictedResources: (_) => _json(_),
@@ -15347,6 +15392,66 @@ const de_ListSecurityKeysCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListSecurityProfileApplicationsCommand
+ */
+export const de_ListSecurityProfileApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSecurityProfileApplicationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListSecurityProfileApplicationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Applications: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSecurityProfileApplicationsCommandError
+ */
+const de_ListSecurityProfileApplicationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSecurityProfileApplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListSecurityProfilePermissionsCommand
  */
 export const de_ListSecurityProfilePermissionsCommand = async (
@@ -20612,6 +20717,12 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_AnswerMachineDetectionConfig omitted.
 
+// se_Application omitted.
+
+// se_ApplicationPermissions omitted.
+
+// se_Applications omitted.
+
 // se_AssignContactCategoryActionDefinition omitted.
 
 // se_Attributes omitted.
@@ -21261,6 +21372,12 @@ const de_AgentStatusReference = (output: any, context: __SerdeContext): AgentSta
 // de_AgentStatusSummaryList omitted.
 
 // de_AllowedAccessControlTags omitted.
+
+// de_Application omitted.
+
+// de_ApplicationPermissions omitted.
+
+// de_Applications omitted.
 
 // de_AssignContactCategoryActionDefinition omitted.
 

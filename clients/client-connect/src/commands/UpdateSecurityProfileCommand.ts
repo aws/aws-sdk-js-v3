@@ -58,6 +58,14 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
  *   TagRestrictedResources: [ // TagRestrictedResourceList
  *     "STRING_VALUE",
  *   ],
+ *   Applications: [ // Applications
+ *     { // Application
+ *       Namespace: "STRING_VALUE",
+ *       ApplicationPermissions: [ // ApplicationPermissions
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new UpdateSecurityProfileCommand(input);
  * const response = await client.send(command);

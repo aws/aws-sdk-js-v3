@@ -126,6 +126,7 @@ export * from "./ListRoutingProfileQueuesCommand";
 export * from "./ListRoutingProfilesCommand";
 export * from "./ListRulesCommand";
 export * from "./ListSecurityKeysCommand";
+export * from "./ListSecurityProfileApplicationsCommand";
 export * from "./ListSecurityProfilePermissionsCommand";
 export * from "./ListSecurityProfilesCommand";
 export * from "./ListTagsForResourceCommand";

@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { CreateSecurityProfileRequest, CreateSecurityProfileResponse } from "../models/models_0";
-import { de_CreateSecurityProfileCommand, se_CreateSecurityProfileCommand } from "../protocols/Aws_restJson1";
+import { ListSecurityProfileApplicationsRequest, ListSecurityProfileApplicationsResponse } from "../models/models_1";
+import {
+  de_ListSecurityProfileApplicationsCommand,
+  se_ListSecurityProfileApplicationsCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,68 +28,54 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateSecurityProfileCommand}.
+ * The input for {@link ListSecurityProfileApplicationsCommand}.
  */
-export interface CreateSecurityProfileCommandInput extends CreateSecurityProfileRequest {}
+export interface ListSecurityProfileApplicationsCommandInput extends ListSecurityProfileApplicationsRequest {}
 /**
  * @public
  *
- * The output of {@link CreateSecurityProfileCommand}.
+ * The output of {@link ListSecurityProfileApplicationsCommand}.
  */
-export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfileResponse, __MetadataBearer {}
+export interface ListSecurityProfileApplicationsCommandOutput
+  extends ListSecurityProfileApplicationsResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Creates a security profile.</p>
+ * <p>Returns a list of third party applications in a specific security profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateSecurityProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateSecurityProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListSecurityProfileApplicationsCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListSecurityProfileApplicationsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // CreateSecurityProfileRequest
- *   SecurityProfileName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Permissions: [ // PermissionsList
- *     "STRING_VALUE",
- *   ],
+ * const input = { // ListSecurityProfileApplicationsRequest
+ *   SecurityProfileId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   AllowedAccessControlTags: { // AllowedAccessControlTags
- *     "<keys>": "STRING_VALUE",
- *   },
- *   TagRestrictedResources: [ // TagRestrictedResourceList
- *     "STRING_VALUE",
- *   ],
- *   Applications: [ // Applications
- *     { // Application
- *       Namespace: "STRING_VALUE",
- *       ApplicationPermissions: [ // ApplicationPermissions
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
- * const command = new CreateSecurityProfileCommand(input);
+ * const command = new ListSecurityProfileApplicationsCommand(input);
  * const response = await client.send(command);
- * // { // CreateSecurityProfileResponse
- * //   SecurityProfileId: "STRING_VALUE",
- * //   SecurityProfileArn: "STRING_VALUE",
+ * // { // ListSecurityProfileApplicationsResponse
+ * //   Applications: [ // Applications
+ * //     { // Application
+ * //       Namespace: "STRING_VALUE",
+ * //       ApplicationPermissions: [ // ApplicationPermissions
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param CreateSecurityProfileCommandInput - {@link CreateSecurityProfileCommandInput}
- * @returns {@link CreateSecurityProfileCommandOutput}
- * @see {@link CreateSecurityProfileCommandInput} for command's `input` shape.
- * @see {@link CreateSecurityProfileCommandOutput} for command's `response` shape.
+ * @param ListSecurityProfileApplicationsCommandInput - {@link ListSecurityProfileApplicationsCommandInput}
+ * @returns {@link ListSecurityProfileApplicationsCommandOutput}
+ * @see {@link ListSecurityProfileApplicationsCommandInput} for command's `input` shape.
+ * @see {@link ListSecurityProfileApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
- *
- * @throws {@link DuplicateResourceException} (client fault)
- *  <p>A resource with the specified name already exists.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -96,9 +85,6 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
- *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>The allowed limit for the resource has been exceeded.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
@@ -110,9 +96,9 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class CreateSecurityProfileCommand extends $Command<
-  CreateSecurityProfileCommandInput,
-  CreateSecurityProfileCommandOutput,
+export class ListSecurityProfileApplicationsCommand extends $Command<
+  ListSecurityProfileApplicationsCommandInput,
+  ListSecurityProfileApplicationsCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -130,7 +116,7 @@ export class CreateSecurityProfileCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateSecurityProfileCommandInput) {
+  constructor(readonly input: ListSecurityProfileApplicationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -143,17 +129,17 @@ export class CreateSecurityProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateSecurityProfileCommandInput, CreateSecurityProfileCommandOutput> {
+  ): Handler<ListSecurityProfileApplicationsCommandInput, ListSecurityProfileApplicationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateSecurityProfileCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListSecurityProfileApplicationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "CreateSecurityProfileCommand";
+    const commandName = "ListSecurityProfileApplicationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -162,7 +148,7 @@ export class CreateSecurityProfileCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonConnectService",
-        operation: "CreateSecurityProfile",
+        operation: "ListSecurityProfileApplications",
       },
     };
     const { requestHandler } = configuration;
@@ -176,15 +162,21 @@ export class CreateSecurityProfileCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateSecurityProfileCommand(input, context);
+  private serialize(
+    input: ListSecurityProfileApplicationsCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_ListSecurityProfileApplicationsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSecurityProfileCommandOutput> {
-    return de_CreateSecurityProfileCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListSecurityProfileApplicationsCommandOutput> {
+    return de_ListSecurityProfileApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

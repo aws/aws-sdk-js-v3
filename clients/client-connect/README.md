@@ -1231,6 +1231,14 @@ ListSecurityKeys
 </details>
 <details>
 <summary>
+ListSecurityProfileApplications
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/listsecurityprofileapplicationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listsecurityprofileapplicationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listsecurityprofileapplicationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListSecurityProfilePermissions
 </summary>
 

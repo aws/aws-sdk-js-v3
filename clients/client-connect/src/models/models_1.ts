@@ -10,6 +10,7 @@ import {
   AgentStatusState,
   AgentStatusSummary,
   AgentStatusType,
+  Application,
   Attribute,
   Channel,
   ContactFlowModuleState,
@@ -60,6 +61,23 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DescribeVocabularyRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the custom vocabulary.</p>
+   */
+  VocabularyId: string | undefined;
+}
 
 /**
  * @public
@@ -3858,6 +3876,12 @@ export interface ListPhoneNumbersRequest {
   /**
    * @public
    * <p>The type of phone number.</p>
+   *          <note>
+   *             <p>We recommend using <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> to
+   *     return phone number types. While ListPhoneNumbers returns number types <code>UIFN</code>,
+   *      <code>SHARED</code>, <code>THIRD_PARTY_TF</code>, and <code>THIRD_PARTY_DID</code>, it
+   *     incorrectly lists them as <code>TOLL_FREE</code> or <code>DID</code>. </p>
+   *          </note>
    */
   PhoneNumberTypes?: (PhoneNumberType | string)[];
 
@@ -4646,6 +4670,54 @@ export interface ListSecurityKeysResponse {
   /**
    * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityProfileApplicationsRequest {
+  /**
+   * @public
+   * <p>The security profile identifier.</p>
+   */
+  SecurityProfileId: string | undefined;
+
+  /**
+   * @public
+   * <p>The instance identifier.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The token for the next set of results. The next set of results can be retrieved by using the
+   *    token value returned in the previous response when making the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityProfileApplicationsResponse {
+  /**
+   * @public
+   * <p>A list of the third party application's metadata.</p>
+   */
+  Applications?: Application[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results. The next set of results can be retrieved by using the
+   *    token value returned in the previous response when making the next request.</p>
    */
   NextToken?: string;
 }
@@ -8212,84 +8284,6 @@ export interface UpdateParticipantRoleConfigRequest {
  * @public
  */
 export interface UpdateParticipantRoleConfigResponse {}
-
-/**
- * @public
- */
-export interface UpdatePhoneNumberRequest {
-  /**
-   * @public
-   * <p>A unique identifier for the phone number.</p>
-   */
-  PhoneNumberId: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
-   */
-  TargetArn: string | undefined;
-
-  /**
-   * @public
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   */
-  ClientToken?: string;
-}
-
-/**
- * @public
- */
-export interface UpdatePhoneNumberResponse {
-  /**
-   * @public
-   * <p>A unique identifier for the phone number.</p>
-   */
-  PhoneNumberId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
-   */
-  PhoneNumberArn?: string;
-}
-
-/**
- * @public
- */
-export interface UpdatePromptRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>A unique identifier for the prompt.</p>
-   */
-  PromptId: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the prompt.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>A description of the prompt.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The URI for the S3 bucket where the prompt is stored.</p>
-   */
-  S3Uri?: string;
-}
 
 /**
  * @internal

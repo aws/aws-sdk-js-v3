@@ -2277,6 +2277,7 @@ export interface CreateInstanceResponse {
  * @enum
  */
 export const IntegrationType = {
+  APPLICATION: "APPLICATION",
   CASES_DOMAIN: "CASES_DOMAIN",
   EVENT: "EVENT",
   PINPOINT_APP: "PINPOINT_APP",
@@ -2736,7 +2737,7 @@ export interface CreateQuickConnectRequest {
 
   /**
    * @public
-   * <p>The name of the quick connect.</p>
+   * <p>A unique name of the quick connect.</p>
    */
   Name: string | undefined;
 
@@ -3117,18 +3118,33 @@ export interface RuleAction {
   /**
    * @public
    * <p>Information about the EventBridge action.</p>
+   *          <p>Supported only for <code>TriggerEventSource</code> values:
+   *     <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
+   *     <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> |
+   *     <code>OnMetricDataUpdate</code>
+   *          </p>
    */
   EventBridgeAction?: EventBridgeActionDefinition;
 
   /**
    * @public
    * <p>Information about the contact category action.</p>
+   *          <p>Supported only for <code>TriggerEventSource</code> values:
+   *     <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
+   *     <code>OnPostChatAnalysisAvailable</code> | <code>OnZendeskTicketCreate</code> |
+   *     <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code>
+   *          </p>
    */
   AssignContactCategoryAction?: AssignContactCategoryActionDefinition;
 
   /**
    * @public
    * <p>Information about the send notification action.</p>
+   *          <p>Supported only for <code>TriggerEventSource</code> values:
+   *     <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
+   *     <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> |
+   *    <code>OnMetricDataUpdate</code>
+   *          </p>
    */
   SendNotificationAction?: SendNotificationActionDefinition;
 }
@@ -3171,8 +3187,8 @@ export type EventSourceName = (typeof EventSourceName)[keyof typeof EventSourceN
  * @public
  * <p>The name of the event source. This field is required if <code>TriggerEventSource</code> is one of the
  *    following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> |
- *     <code>OnSalesforceCaseCreate</code>
- *          </p>
+ *     <code>OnSalesforceCaseCreate</code> | <code>OnContactEvaluationSubmit</code> |
+ *     <code>OnMetricDataUpdate</code>.</p>
  */
 export interface RuleTriggerEventSource {
   /**
@@ -3257,6 +3273,25 @@ export interface CreateRuleResponse {
 
 /**
  * @public
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>A third party application's metadata.</p>
+ */
+export interface Application {
+  /**
+   * @public
+   * <p>Namespace of the application that you want to give access to.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * @public
+   * <p>The permissions that the agent is granted on the application. Only the <code>ACCESS</code> permission is supported.</p>
+   */
+  ApplicationPermissions?: string[];
+}
+
+/**
+ * @public
  */
 export interface CreateSecurityProfileRequest {
   /**
@@ -3303,6 +3338,13 @@ export interface CreateSecurityProfileRequest {
    *          </p>
    */
   TagRestrictedResources?: string[];
+
+  /**
+   * @public
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>A list of third party applications that the security profile will give access to.</p>
+   */
+  Applications?: Application[];
 }
 
 /**
@@ -7350,23 +7392,6 @@ export interface DescribeViewResponse {
    * <p>All view data is contained within the View object.</p>
    */
   View?: View;
-}
-
-/**
- * @public
- */
-export interface DescribeVocabularyRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the custom vocabulary.</p>
-   */
-  VocabularyId: string | undefined;
 }
 
 /**

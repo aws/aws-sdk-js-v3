@@ -586,6 +586,11 @@ import {
   ListSecurityKeysCommandOutput,
 } from "./commands/ListSecurityKeysCommand";
 import {
+  ListSecurityProfileApplicationsCommand,
+  ListSecurityProfileApplicationsCommandInput,
+  ListSecurityProfileApplicationsCommandOutput,
+} from "./commands/ListSecurityProfileApplicationsCommand";
+import {
   ListSecurityProfilePermissionsCommand,
   ListSecurityProfilePermissionsCommandInput,
   ListSecurityProfilePermissionsCommandOutput,
@@ -1101,6 +1106,7 @@ const commands = {
   ListRoutingProfilesCommand,
   ListRulesCommand,
   ListSecurityKeysCommand,
+  ListSecurityProfileApplicationsCommand,
   ListSecurityProfilePermissionsCommand,
   ListSecurityProfilesCommand,
   ListTagsForResourceCommand,
@@ -3169,6 +3175,23 @@ export interface Connect {
     args: ListSecurityKeysCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListSecurityKeysCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSecurityProfileApplicationsCommand}
+   */
+  listSecurityProfileApplications(
+    args: ListSecurityProfileApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityProfileApplicationsCommandOutput>;
+  listSecurityProfileApplications(
+    args: ListSecurityProfileApplicationsCommandInput,
+    cb: (err: any, data?: ListSecurityProfileApplicationsCommandOutput) => void
+  ): void;
+  listSecurityProfileApplications(
+    args: ListSecurityProfileApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityProfileApplicationsCommandOutput) => void
   ): void;
 
   /**

@@ -34,6 +34,7 @@ export * from "./ListRoutingProfileQueuesPaginator";
 export * from "./ListRoutingProfilesPaginator";
 export * from "./ListRulesPaginator";
 export * from "./ListSecurityKeysPaginator";
+export * from "./ListSecurityProfileApplicationsPaginator";
 export * from "./ListSecurityProfilePermissionsPaginator";
 export * from "./ListSecurityProfilesPaginator";
 export * from "./ListTaskTemplatesPaginator";

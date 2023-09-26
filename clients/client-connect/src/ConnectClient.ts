@@ -385,6 +385,10 @@ import {
 import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import { ListSecurityKeysCommandInput, ListSecurityKeysCommandOutput } from "./commands/ListSecurityKeysCommand";
 import {
+  ListSecurityProfileApplicationsCommandInput,
+  ListSecurityProfileApplicationsCommandOutput,
+} from "./commands/ListSecurityProfileApplicationsCommand";
+import {
   ListSecurityProfilePermissionsCommandInput,
   ListSecurityProfilePermissionsCommandOutput,
 } from "./commands/ListSecurityProfilePermissionsCommand";
@@ -764,6 +768,7 @@ export type ServiceInputTypes =
   | ListRoutingProfilesCommandInput
   | ListRulesCommandInput
   | ListSecurityKeysCommandInput
+  | ListSecurityProfileApplicationsCommandInput
   | ListSecurityProfilePermissionsCommandInput
   | ListSecurityProfilesCommandInput
   | ListTagsForResourceCommandInput
@@ -978,6 +983,7 @@ export type ServiceOutputTypes =
   | ListRoutingProfilesCommandOutput
   | ListRulesCommandOutput
   | ListSecurityKeysCommandOutput
+  | ListSecurityProfileApplicationsCommandOutput
   | ListSecurityProfilePermissionsCommandOutput
   | ListSecurityProfilesCommandOutput
   | ListTagsForResourceCommandOutput

@@ -4,6 +4,7 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   AgentAvailabilityTimer,
   AgentConfig,
+  Application,
   Evaluation,
   EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
@@ -41,6 +42,84 @@ import {
   TelephonyConfig,
   UserSearchFilter,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface UpdatePhoneNumberRequest {
+  /**
+   * @public
+   * <p>A unique identifier for the phone number.</p>
+   */
+  PhoneNumberId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePhoneNumberResponse {
+  /**
+   * @public
+   * <p>A unique identifier for the phone number.</p>
+   */
+  PhoneNumberId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
+   */
+  PhoneNumberArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePromptRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier for the prompt.</p>
+   */
+  PromptId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the prompt.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>A description of the prompt.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The URI for the S3 bucket where the prompt is stored.</p>
+   */
+  S3Uri?: string;
+}
 
 /**
  * @public
@@ -441,6 +520,13 @@ export interface UpdateSecurityProfileRequest {
    * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect.</p>
    */
   TagRestrictedResources?: string[];
+
+  /**
+   * @public
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>A list of the third party application's metadata.</p>
+   */
+  Applications?: Application[];
 }
 
 /**
