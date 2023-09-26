@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.420.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.419.0...v3.420.0) (2023-09-26)
+
+
+### Features
+
+* **client-connect:** This release updates a set of Amazon Connect APIs that provides the ability to integrate third party applications in the Amazon Connect agent workspace. ([970fe06](https://github.com/aws/aws-sdk-js-v3/commit/970fe061864a2c34b90e62e359ffba3daea6353c))
+
+
+
+
+
 # [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

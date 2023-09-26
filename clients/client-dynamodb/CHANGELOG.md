@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.420.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.419.0...v3.420.0) (2023-09-26)
+
+
+### Features
+
+* **client-dynamodb:** Amazon DynamoDB now supports Incremental Export as an enhancement to the existing Export Table ([4ff14d6](https://github.com/aws/aws-sdk-js-v3/commit/4ff14d6b1c3acbe29e31b5e053270017fbb88bce))
+
+
+
+
+
 # [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb

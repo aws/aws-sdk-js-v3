@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.420.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.419.0...v3.420.0) (2023-09-26)
+
+
+### Features
+
+* **client-lakeformation:** This release adds three new API support "CreateLakeFormationOptIn", "DeleteLakeFormationOptIn" and "ListLakeFormationOptIns", and also updates the corresponding documentation. ([ae29e55](https://github.com/aws/aws-sdk-js-v3/commit/ae29e5525d5ea070083a6634f26485e3b7ce5ee9))
+
+
+
+
+
 # [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
 
 **Note:** Version bump only for package @aws-sdk/client-lakeformation

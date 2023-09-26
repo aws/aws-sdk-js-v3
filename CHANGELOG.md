@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.420.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.419.0...v3.420.0) (2023-09-26)
+
+
+### Features
+
+* **client-appintegrations:** The Amazon AppIntegrations service adds a set of APIs (in preview) to manage third party applications to be used in Amazon Connect agent workspace. ([b5bd165](https://github.com/aws/aws-sdk-js-v3/commit/b5bd165b399d5b64da8673784b99bfab32ef1a4a))
+* **client-apprunner:** This release allows an App Runner customer to specify a custom source directory to run the build & start command. This change allows App Runner to support monorepo based repositories ([f49a521](https://github.com/aws/aws-sdk-js-v3/commit/f49a521190b81d609a5ab934712c7917c9846a4f))
+* **client-connect:** This release updates a set of Amazon Connect APIs that provides the ability to integrate third party applications in the Amazon Connect agent workspace. ([970fe06](https://github.com/aws/aws-sdk-js-v3/commit/970fe061864a2c34b90e62e359ffba3daea6353c))
+* **client-dynamodb:** Amazon DynamoDB now supports Incremental Export as an enhancement to the existing Export Table ([4ff14d6](https://github.com/aws/aws-sdk-js-v3/commit/4ff14d6b1c3acbe29e31b5e053270017fbb88bce))
+* **client-ec2:** The release includes AWS verified access to support FIPs compliance in North America regions ([2cb7f26](https://github.com/aws/aws-sdk-js-v3/commit/2cb7f26f20e1f4bde32ab4693c95d0f3d52b6402))
+* **client-lakeformation:** This release adds three new API support "CreateLakeFormationOptIn", "DeleteLakeFormationOptIn" and "ListLakeFormationOptIns", and also updates the corresponding documentation. ([ae29e55](https://github.com/aws/aws-sdk-js-v3/commit/ae29e5525d5ea070083a6634f26485e3b7ce5ee9))
+* **client-s3:** This release adds a new field COMPLETED to the ReplicationStatus Enum. You can now use this field to validate the replication status of S3 objects using the AWS SDK. ([33e5436](https://github.com/aws/aws-sdk-js-v3/commit/33e5436ac8f94d237f738d00df8d2c667bf7f875))
+
+
+
+
+
 # [3.419.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.418.0...v3.419.0) (2023-09-25)
 
 

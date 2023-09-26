@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.420.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.419.0...v3.420.0) (2023-09-26)
+
+
+### Features
+
+* **client-appintegrations:** The Amazon AppIntegrations service adds a set of APIs (in preview) to manage third party applications to be used in Amazon Connect agent workspace. ([b5bd165](https://github.com/aws/aws-sdk-js-v3/commit/b5bd165b399d5b64da8673784b99bfab32ef1a4a))
+
+
+
+
+
 # [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
 
 **Note:** Version bump only for package @aws-sdk/client-appintegrations

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.420.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.419.0...v3.420.0) (2023-09-26)
+
+
+### Features
+
+* **client-ec2:** The release includes AWS verified access to support FIPs compliance in North America regions ([2cb7f26](https://github.com/aws/aws-sdk-js-v3/commit/2cb7f26f20e1f4bde32ab4693c95d0f3d52b6402))
+
+
+
+
+
 # [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
 
 
