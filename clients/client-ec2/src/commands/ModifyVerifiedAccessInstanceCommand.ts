@@ -75,6 +75,7 @@ export interface ModifyVerifiedAccessInstanceCommandOutput
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     FipsEnabled: true || false,
  * //   },
  * // };
  *

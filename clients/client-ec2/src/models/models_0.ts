@@ -5707,6 +5707,14 @@ export interface VerifiedAccessInstance {
    * <p>The tags.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>
+   * 		  Describes if support for Federal Information Processing Standards (FIPS) is enabled on the instance.
+   * 	   </p>
+   */
+  FipsEnabled?: boolean;
 }
 
 /**

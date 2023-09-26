@@ -89,6 +89,7 @@ export interface DescribeVerifiedAccessInstancesCommandOutput
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       FipsEnabled: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

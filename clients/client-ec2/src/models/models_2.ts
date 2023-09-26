@@ -4528,6 +4528,14 @@ export interface CreateVerifiedAccessInstanceRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>
+   * 		   Choose to enable or disable support for Federal Information Processing Standards (FIPS) on the instance.
+   * 	   </p>
+   */
+  FIPSEnabled?: boolean;
 }
 
 /**

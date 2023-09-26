@@ -110,6 +110,7 @@ export interface AttachVerifiedAccessTrustProviderCommandOutput
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     FipsEnabled: true || false,
  * //   },
  * // };
  *

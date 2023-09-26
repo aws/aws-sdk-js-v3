@@ -74,6 +74,7 @@ export interface DeleteVerifiedAccessInstanceCommandOutput
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     FipsEnabled: true || false,
  * //   },
  * // };
  *

@@ -43166,6 +43166,9 @@ const se_CreateVerifiedAccessInstanceRequest = (
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
   }
+  if (input.FIPSEnabled != null) {
+    entries["FIPSEnabled"] = input.FIPSEnabled;
+  }
   return entries;
 };
 
@@ -92606,6 +92609,9 @@ const de_VerifiedAccessInstance = (output: any, context: __SerdeContext): Verifi
     contents.Tags = [];
   } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = de_TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["fipsEnabled"] !== undefined) {
+    contents.FipsEnabled = __parseBoolean(output["fipsEnabled"]);
   }
   return contents;
 };

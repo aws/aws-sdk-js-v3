@@ -62,6 +62,7 @@ export interface CreateVerifiedAccessInstanceCommandOutput
  *   ],
  *   ClientToken: "STRING_VALUE",
  *   DryRun: true || false,
+ *   FIPSEnabled: true || false,
  * };
  * const command = new CreateVerifiedAccessInstanceCommand(input);
  * const response = await client.send(command);
@@ -86,6 +87,7 @@ export interface CreateVerifiedAccessInstanceCommandOutput
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     FipsEnabled: true || false,
  * //   },
  * // };
  *
