@@ -37,7 +37,7 @@ export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsO
 
 /**
  * @public
- * <p>Lists the deployment groups for an application registered with the IAM
+ * <p>Lists the deployment groups for an application registered with the Amazon Web Services
  *             user or Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,7 +68,7 @@ export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsO
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *  <p>The application does not exist with the user or Amazon Web Services account.</p>
  *
  * @throws {@link ApplicationNameRequiredException} (client fault)
  *  <p>The minimum number of required application names was not specified.</p>

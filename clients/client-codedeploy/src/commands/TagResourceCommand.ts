@@ -67,18 +67,18 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *  <p>The application does not exist with the user or Amazon Web Services account.</p>
  *
  * @throws {@link ArnNotSupportedException} (client fault)
  *  <p> The specified ARN is not supported. For example, it might be an ARN for a resource
  *             that is not expected. </p>
  *
  * @throws {@link DeploymentConfigDoesNotExistException} (client fault)
- *  <p>The deployment configuration does not exist with the IAM user or
- *                 Amazon Web Services account.</p>
+ *  <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
  *
  * @throws {@link DeploymentGroupDoesNotExistException} (client fault)
- *  <p>The named deployment group with the IAM user or Amazon Web Services account does not exist.</p>
+ *  <p>The named deployment group with the user or Amazon Web Services account does not
+ *             exist.</p>
  *
  * @throws {@link InvalidArnException} (client fault)
  *  <p> The specified ARN is not in a valid format. </p>

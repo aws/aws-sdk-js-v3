@@ -69,8 +69,7 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  *  <p>The deployment is already complete.</p>
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the IAM user or Amazon Web Services account does not
- *             exist.</p>
+ *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
  *  <p>At least one deployment ID must be specified.</p>

@@ -100,8 +100,7 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
  *  <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the IAM user or Amazon Web Services account does not
- *             exist.</p>
+ *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
  *  <p>At least one deployment ID must be specified.</p>

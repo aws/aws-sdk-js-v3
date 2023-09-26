@@ -255,7 +255,8 @@ export class AlarmsLimitExceededException extends __BaseException {
 
 /**
  * @public
- * <p>An application with the specified name with the IAM user or Amazon Web Services account already exists.</p>
+ * <p>An application with the specified name with the user or Amazon Web Services account
+ *             already exists.</p>
  */
 export class ApplicationAlreadyExistsException extends __BaseException {
   readonly name: "ApplicationAlreadyExistsException" = "ApplicationAlreadyExistsException";
@@ -275,7 +276,7 @@ export class ApplicationAlreadyExistsException extends __BaseException {
 
 /**
  * @public
- * <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ * <p>The application does not exist with the user or Amazon Web Services account.</p>
  */
 export class ApplicationDoesNotExistException extends __BaseException {
   readonly name: "ApplicationDoesNotExistException" = "ApplicationDoesNotExistException";
@@ -597,6 +598,14 @@ export interface S3Location {
    *                <p>
    *                   <code>zip</code>: A zip archive file.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YAML</code>: A YAML-formatted file.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>JSON</code>: A JSON-formatted file.</p>
+   *             </li>
    *          </ul>
    */
   bundleType?: BundleType | string;
@@ -915,8 +924,8 @@ export interface BatchGetApplicationsOutput {
 export interface BatchGetDeploymentGroupsInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the applicable
-   *                 IAM or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the applicable user
+   *             or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -1285,16 +1294,16 @@ export interface LastDeploymentInfo {
 
 /**
  * @public
- * <p>Information about a load balancer in Elastic Load Balancing to use in a deployment.
+ * <p>Information about a Classic Load Balancer in Elastic Load Balancing to use in a deployment.
  *             Instances are registered directly with a load balancer, and traffic is routed to the
  *             load balancer.</p>
  */
 export interface ELBInfo {
   /**
    * @public
-   * <p>For blue/green deployments, the name of the load balancer that is used to route
+   * <p>For blue/green deployments, the name of the Classic Load Balancer that is used to route
    *             traffic from original instances to replacement instances in a blue/green deployment. For
-   *             in-place deployments, the name of the load balancer that instances are deregistered from
+   *             in-place deployments, the name of the Classic Load Balancer that instances are deregistered from
    *             so they are not serving traffic during a deployment, and then re-registered with after
    *             the deployment is complete.</p>
    */
@@ -1365,26 +1374,38 @@ export interface TargetGroupPairInfo {
  * @public
  * <p>Information about the Elastic Load Balancing load balancer or target group used in a
  *             deployment.</p>
+ *          <p>You can use load balancers and target groups in combination. For example, if you have
+ *             two Classic Load Balancers, and five target groups tied to an Application Load Balancer,
+ *             you can specify the two Classic Load Balancers in <code>elbInfoList</code>, and the five
+ *             target groups in <code>targetGroupInfoList</code>.</p>
  */
 export interface LoadBalancerInfo {
   /**
    * @public
-   * <p>An array that contains information about the load balancer to use for load balancing
-   *             in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load
-   *             Balancers.</p>
+   * <p>An array that contains information about the load balancers to use for load balancing
+   *             in a deployment. If you're using Classic Load Balancers, specify those load balancers
+   *             in this array. </p>
    *          <note>
-   *             <p> Adding more than one load balancer to the array is not supported. </p>
+   *             <p>You can add up to 10 load balancers to the array.</p>
+   *          </note>
+   *          <note>
+   *             <p>If you're using Application Load Balancers or Network Load Balancers, use the
+   *                     <code>targetGroupInfoList</code> array instead of this one.</p>
    *          </note>
    */
   elbInfoList?: ELBInfo[];
 
   /**
    * @public
-   * <p>An array that contains information about the target group to use for load balancing in
-   *             a deployment. In Elastic Load Balancing, target groups are used with Application Load
-   *             Balancers.</p>
+   * <p>An array that contains information about the target groups to use for load balancing
+   *             in a deployment. If you're using Application Load Balancers and Network Load Balancers,
+   *             specify their associated target groups in this array.</p>
    *          <note>
-   *             <p> Adding more than one target group to the array is not supported. </p>
+   *             <p>You can add up to 10 target groups to the array.</p>
+   *          </note>
+   *          <note>
+   *             <p>If you're using Classic Load Balancers, use the <code>elbInfoList</code> array
+   *                 instead of this one.</p>
    *          </note>
    */
   targetGroupInfoList?: TargetGroupInfo[];
@@ -1702,8 +1723,7 @@ export interface BatchGetDeploymentGroupsOutput {
 
 /**
  * @public
- * <p>The deployment configuration does not exist with the IAM user or
- *                 Amazon Web Services account.</p>
+ * <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
  */
 export class DeploymentConfigDoesNotExistException extends __BaseException {
   readonly name: "DeploymentConfigDoesNotExistException" = "DeploymentConfigDoesNotExistException";
@@ -2066,8 +2086,7 @@ export interface BatchGetDeploymentInstancesOutput {
 
 /**
  * @public
- * <p>The deployment with the IAM user or Amazon Web Services account does not
- *             exist.</p>
+ * <p>The deployment with the user or Amazon Web Services account does not exist.</p>
  */
 export class DeploymentDoesNotExistException extends __BaseException {
   readonly name: "DeploymentDoesNotExistException" = "DeploymentDoesNotExistException";
@@ -3379,13 +3398,14 @@ export interface InstanceInfo {
 
   /**
    * @public
-   * <p>The ARN of the IAM session associated with the on-premises instance.</p>
+   * <p>The ARN of the IAM session associated with the on-premises
+   *             instance.</p>
    */
   iamSessionArn?: string;
 
   /**
    * @public
-   * <p>The IAM user ARN associated with the on-premises instance.</p>
+   * <p>The user ARN associated with the on-premises instance.</p>
    */
   iamUserArn?: string;
 
@@ -3589,7 +3609,8 @@ export class UnsupportedActionForDeploymentTypeException extends __BaseException
 export interface CreateApplicationInput {
   /**
    * @public
-   * <p>The name of the application. This name must be unique with the applicable IAM or Amazon Web Services account.</p>
+   * <p>The name of the application. This name must be unique with the applicable user or
+   *                 Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -3648,7 +3669,7 @@ export class InvalidTagsToAddException extends __BaseException {
 export interface CreateDeploymentInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -3666,8 +3687,7 @@ export interface CreateDeploymentInput {
 
   /**
    * @public
-   * <p>The name of a deployment configuration associated with the IAM user or
-   *                 Amazon Web Services account.</p>
+   * <p>The name of a deployment configuration associated with the user or Amazon Web Services account.</p>
    *          <p>If not specified, the value configured in the deployment group is used as the default.
    *             If the deployment group does not have a deployment configuration associated with it,
    *                 <code>CodeDeployDefault</code>.<code>OneAtATime</code> is used by default.</p>
@@ -3765,8 +3785,8 @@ export interface CreateDeploymentInput {
    *             deployment.</p>
    *          <note>
    *             <p>If you specify an <code>overrideAlarmConfiguration</code>, you need the
-   *                     <code>UpdateDeploymentGroup</code> IAM permission when calling
-   *                     <code>CreateDeployment</code>.</p>
+   *                     <code>UpdateDeploymentGroup</code>
+   *                 IAM permission when calling <code>CreateDeployment</code>.</p>
    *          </note>
    */
   overrideAlarmConfiguration?: AlarmConfiguration;
@@ -3786,7 +3806,8 @@ export interface CreateDeploymentOutput {
 
 /**
  * @public
- * <p>The named deployment group with the IAM user or Amazon Web Services account does not exist.</p>
+ * <p>The named deployment group with the user or Amazon Web Services account does not
+ *             exist.</p>
  */
 export class DeploymentGroupDoesNotExistException extends __BaseException {
   readonly name: "DeploymentGroupDoesNotExistException" = "DeploymentGroupDoesNotExistException";
@@ -4132,7 +4153,7 @@ export class InvalidUpdateOutdatedInstancesOnlyValueException extends __BaseExce
 
 /**
  * @public
- * <p>The named revision does not exist with the IAM user or Amazon Web Services account.</p>
+ * <p>The named revision does not exist with the user or Amazon Web Services account.</p>
  */
 export class RevisionDoesNotExistException extends __BaseException {
   readonly name: "RevisionDoesNotExistException" = "RevisionDoesNotExistException";
@@ -4391,8 +4412,7 @@ export interface CreateDeploymentConfigOutput {
 
 /**
  * @public
- * <p>A deployment configuration with the specified name with the IAM user or
- *                 Amazon Web Services account already exists.</p>
+ * <p>A deployment configuration with the specified name with the user or Amazon Web Services account already exists.</p>
  */
 export class DeploymentConfigAlreadyExistsException extends __BaseException {
   readonly name: "DeploymentConfigAlreadyExistsException" = "DeploymentConfigAlreadyExistsException";
@@ -4477,7 +4497,7 @@ export class InvalidMinimumHealthyHostValueException extends __BaseException {
 export interface CreateDeploymentGroupInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -4631,7 +4651,8 @@ export interface CreateDeploymentGroupOutput {
 
 /**
  * @public
- * <p>A deployment group with the specified name with the IAM user or Amazon Web Services account already exists.</p>
+ * <p>A deployment group with the specified name with the user or Amazon Web Services account
+ *             already exists.</p>
  */
 export class DeploymentGroupAlreadyExistsException extends __BaseException {
   readonly name: "DeploymentGroupAlreadyExistsException" = "DeploymentGroupAlreadyExistsException";
@@ -4964,7 +4985,7 @@ export class TriggerTargetsLimitExceededException extends __BaseException {
 export interface DeleteApplicationInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 }
@@ -4976,8 +4997,7 @@ export interface DeleteApplicationInput {
 export interface DeleteDeploymentConfigInput {
   /**
    * @public
-   * <p>The name of a deployment configuration associated with the IAM user or
-   *                 Amazon Web Services account.</p>
+   * <p>The name of a deployment configuration associated with the user or Amazon Web Services account.</p>
    */
   deploymentConfigName: string | undefined;
 }
@@ -5029,7 +5049,7 @@ export class InvalidOperationException extends __BaseException {
 export interface DeleteDeploymentGroupInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -5216,7 +5236,7 @@ export interface DeregisterOnPremisesInstanceInput {
 export interface GetApplicationInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 }
@@ -5282,7 +5302,8 @@ export interface GetApplicationRevisionOutput {
 export interface GetDeploymentInput {
   /**
    * @public
-   * <p> The unique ID of a deployment associated with the IAM user or Amazon Web Services account. </p>
+   * <p> The unique ID of a deployment associated with the user or Amazon Web Services account.
+   *         </p>
    */
   deploymentId: string | undefined;
 }
@@ -5306,8 +5327,7 @@ export interface GetDeploymentOutput {
 export interface GetDeploymentConfigInput {
   /**
    * @public
-   * <p>The name of a deployment configuration associated with the IAM user or
-   *                 Amazon Web Services account.</p>
+   * <p>The name of a deployment configuration associated with the user or Amazon Web Services account.</p>
    */
   deploymentConfigName: string | undefined;
 }
@@ -5376,7 +5396,7 @@ export interface GetDeploymentConfigOutput {
 export interface GetDeploymentGroupInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -5644,7 +5664,7 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 export interface ListApplicationRevisionsInput {
   /**
    * @public
-   * <p> The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account. </p>
+   * <p> The name of an CodeDeploy application associated with the user or Amazon Web Services account. </p>
    */
   applicationName: string | undefined;
 
@@ -5830,7 +5850,7 @@ export interface ListDeploymentConfigsOutput {
 export interface ListDeploymentGroupsInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -6104,7 +6124,7 @@ export interface TimeRange {
 export interface ListDeploymentsInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    *          <note>
    *             <p>If <code>applicationName</code> is specified, then
    *                     <code>deploymentGroupName</code> must be specified. If it is not specified, then
@@ -6609,7 +6629,7 @@ export interface PutLifecycleEventHookExecutionStatusOutput {
 export interface RegisterApplicationRevisionInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -6629,7 +6649,7 @@ export interface RegisterApplicationRevisionInput {
 
 /**
  * @public
- * <p>No IAM ARN was included in the request. You must use an IAM session ARN or IAM user ARN in the request.</p>
+ * <p>No IAM ARN was included in the request. You must use an IAM session ARN or user ARN in the request.</p>
  */
 export class IamArnRequiredException extends __BaseException {
   readonly name: "IamArnRequiredException" = "IamArnRequiredException";
@@ -6670,8 +6690,7 @@ export class IamSessionArnAlreadyRegisteredException extends __BaseException {
 
 /**
  * @public
- * <p>The specified IAM user ARN is already registered with an on-premises
- *             instance.</p>
+ * <p>The specified user ARN is already registered with an on-premises instance.</p>
  */
 export class IamUserArnAlreadyRegisteredException extends __BaseException {
   readonly name: "IamUserArnAlreadyRegisteredException" = "IamUserArnAlreadyRegisteredException";
@@ -6691,7 +6710,7 @@ export class IamUserArnAlreadyRegisteredException extends __BaseException {
 
 /**
  * @public
- * <p>An IAM user ARN was not specified.</p>
+ * <p>An user ARN was not specified.</p>
  */
 export class IamUserArnRequiredException extends __BaseException {
   readonly name: "IamUserArnRequiredException" = "IamUserArnRequiredException";
@@ -6751,7 +6770,7 @@ export class InvalidIamSessionArnException extends __BaseException {
 
 /**
  * @public
- * <p>The IAM user ARN was specified in an invalid format.</p>
+ * <p>The user ARN was specified in an invalid format.</p>
  */
 export class InvalidIamUserArnException extends __BaseException {
   readonly name: "InvalidIamUserArnException" = "InvalidIamUserArnException";
@@ -6771,8 +6790,8 @@ export class InvalidIamUserArnException extends __BaseException {
 
 /**
  * @public
- * <p>Both an IAM user ARN and an IAM session ARN were
- *             included in the request. Use only one ARN type.</p>
+ * <p>Both an user ARN and an IAM session ARN were included in the request.
+ *             Use only one ARN type.</p>
  */
 export class MultipleIamArnsProvidedException extends __BaseException {
   readonly name: "MultipleIamArnsProvidedException" = "MultipleIamArnsProvidedException";
@@ -6810,8 +6829,7 @@ export interface RegisterOnPremisesInstanceInput {
 
   /**
    * @public
-   * <p>The ARN of the IAM user to associate with the on-premises
-   *             instance.</p>
+   * <p>The ARN of the user to associate with the on-premises instance.</p>
    */
   iamUserArn?: string;
 }
@@ -7027,7 +7045,7 @@ export interface UpdateDeploymentGroupInput {
    *                     parameter. </p>
    *             </li>
    *             <li>
-   *                <p>To remove Auto Scaling groups, specify a non-null empty list of Auto Scaling group names to detach all CodeDeploy-managed Auto Scaling lifecycle hooks. For examples, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-auto-scaling.html#troubleshooting-auto-scaling-heartbeat">Amazon EC2 instances in an Amazon EC2 Auto Scaling group fail to
+   *                <p>To remove Auto Scaling groups, specify a non-null empty list of Auto Scaling group names to detach all CodeDeploy-managed Auto Scaling lifecycle hooks. For examples, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-auto-scaling.html#troubleshooting-auto-scaling-heartbeat">Amazon EC2 instances in an Amazon EC2 Auto Scaling group fail to
    *                         launch and receive the error "Heartbeat Timeout"</a> in the
    *                             <i>CodeDeploy User Guide</i>.</p>
    *             </li>

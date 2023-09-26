@@ -61,10 +61,11 @@ export interface UpdateApplicationCommandOutput extends __MetadataBearer {}
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ApplicationAlreadyExistsException} (client fault)
- *  <p>An application with the specified name with the IAM user or Amazon Web Services account already exists.</p>
+ *  <p>An application with the specified name with the user or Amazon Web Services account
+ *             already exists.</p>
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *  <p>The application does not exist with the user or Amazon Web Services account.</p>
  *
  * @throws {@link ApplicationNameRequiredException} (client fault)
  *  <p>The minimum number of required application names was not specified.</p>

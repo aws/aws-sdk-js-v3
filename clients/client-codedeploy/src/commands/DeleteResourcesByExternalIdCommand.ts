@@ -37,7 +37,14 @@ export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResource
 
 /**
  * @public
- * <p>Deletes resources linked to an external ID.</p>
+ * <p>Deletes resources linked to an external ID. This action only applies if you have
+ *             configured blue/green deployments through CloudFormation. </p>
+ *          <note>
+ *             <p>It is not necessary to call this action directly. CloudFormation calls it
+ *                 on your behalf when it needs to delete stack resources. This action is offered
+ *                 publicly in case you need to delete resources to comply with General Data Protection
+ *                 Regulation (GDPR) requirements.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

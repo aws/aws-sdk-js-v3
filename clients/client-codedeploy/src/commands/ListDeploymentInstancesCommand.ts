@@ -45,8 +45,7 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  *                 exception if it is used with a compute platform other than EC2/On-premises or
  *                     Lambda. </p>
  *          </note>
- *          <p> Lists the instance for a deployment associated with the IAM user or
- *                 Amazon Web Services account. </p>
+ *          <p> Lists the instance for a deployment associated with the user or Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +80,7 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the IAM user or Amazon Web Services account does not
- *             exist.</p>
+ *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
  *  <p>At least one deployment ID must be specified.</p>

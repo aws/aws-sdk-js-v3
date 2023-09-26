@@ -192,17 +192,17 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  *  <p>The maximum number of alarms for a deployment group (10) was exceeded.</p>
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *  <p>The application does not exist with the user or Amazon Web Services account.</p>
  *
  * @throws {@link ApplicationNameRequiredException} (client fault)
  *  <p>The minimum number of required application names was not specified.</p>
  *
  * @throws {@link DeploymentConfigDoesNotExistException} (client fault)
- *  <p>The deployment configuration does not exist with the IAM user or
- *                 Amazon Web Services account.</p>
+ *  <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
  *
  * @throws {@link DeploymentGroupAlreadyExistsException} (client fault)
- *  <p>A deployment group with the specified name with the IAM user or Amazon Web Services account already exists.</p>
+ *  <p>A deployment group with the specified name with the user or Amazon Web Services account
+ *             already exists.</p>
  *
  * @throws {@link DeploymentGroupLimitExceededException} (client fault)
  *  <p> The deployment groups limit was exceeded.</p>

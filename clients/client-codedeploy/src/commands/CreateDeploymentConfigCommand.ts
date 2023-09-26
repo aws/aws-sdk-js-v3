@@ -78,8 +78,7 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentConfigAlreadyExistsException} (client fault)
- *  <p>A deployment configuration with the specified name with the IAM user or
- *                 Amazon Web Services account already exists.</p>
+ *  <p>A deployment configuration with the specified name with the user or Amazon Web Services account already exists.</p>
  *
  * @throws {@link DeploymentConfigLimitExceededException} (client fault)
  *  <p>The deployment configurations limit was exceeded.</p>

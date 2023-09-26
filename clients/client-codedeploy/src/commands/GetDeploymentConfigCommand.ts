@@ -82,8 +82,7 @@ export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOut
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentConfigDoesNotExistException} (client fault)
- *  <p>The deployment configuration does not exist with the IAM user or
- *                 Amazon Web Services account.</p>
+ *  <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
  *
  * @throws {@link DeploymentConfigNameRequiredException} (client fault)
  *  <p>The deployment configuration name was not specified.</p>

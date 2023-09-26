@@ -69,7 +69,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ApplicationAlreadyExistsException} (client fault)
- *  <p>An application with the specified name with the IAM user or Amazon Web Services account already exists.</p>
+ *  <p>An application with the specified name with the user or Amazon Web Services account
+ *             already exists.</p>
  *
  * @throws {@link ApplicationLimitExceededException} (client fault)
  *  <p>More applications were attempted to be created than are allowed.</p>
