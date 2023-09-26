@@ -78,6 +78,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *           },
  *         },
  *       },
+ *       SourceDirectory: "STRING_VALUE",
  *     },
  *     ImageRepository: { // ImageRepository
  *       ImageIdentifier: "STRING_VALUE", // required
@@ -161,6 +162,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //             },
  * //           },
  * //         },
+ * //         SourceDirectory: "STRING_VALUE",
  * //       },
  * //       ImageRepository: { // ImageRepository
  * //         ImageIdentifier: "STRING_VALUE", // required

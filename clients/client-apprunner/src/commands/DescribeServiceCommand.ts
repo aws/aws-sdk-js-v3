@@ -85,6 +85,7 @@ export interface DescribeServiceCommandOutput extends DescribeServiceResponse, _
  * //             },
  * //           },
  * //         },
+ * //         SourceDirectory: "STRING_VALUE",
  * //       },
  * //       ImageRepository: { // ImageRepository
  * //         ImageIdentifier: "STRING_VALUE", // required

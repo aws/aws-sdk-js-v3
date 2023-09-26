@@ -278,8 +278,8 @@ export interface CreateAutoScalingConfigurationRequest {
    * <p>A name for the auto scaling configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number
    *         <code>1</code> of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.</p>
    *          <note>
-   *             <p>Prior to the release of <a href="https://docs.aws.amazon.com/apprunner/latest/relnotes/release-yyyy-mm-dd-asc-improvements.html">Managing auto
-   *           scaling</a>, the name <code>DefaultConfiguration</code> was reserved. </p>
+   *             <p>Prior to the release of <a href="https://docs.aws.amazon.com/apprunner/latest/relnotes/release-2023-09-22-auto-scale-config.html">Auto scale
+   *         configuration enhancements</a>, the name <code>DefaultConfiguration</code> was reserved. </p>
    *             <p>This restriction is no longer in place. You can now manage <code>DefaultConfiguration</code> the same way you manage your custom auto scaling
    *         configurations. This means you can do the following with the <code>DefaultConfiguration</code> that App Runner provides:</p>
    *             <ul>
@@ -920,7 +920,7 @@ export interface ServiceObservabilityConfiguration {
    * <p>The Amazon Resource Name (ARN) of the observability configuration that is associated with the service. Specified only when
    *         <code>ObservabilityEnabled</code> is <code>true</code>.</p>
    *          <p>Specify an ARN with a name and a revision number to associate that revision. For example:
-   *           <code>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing/3</code>
+   *         <code>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing/3</code>
    *          </p>
    *          <p>Specify just the name to associate the latest revision. For example:
    *         <code>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing</code>
@@ -987,13 +987,15 @@ export interface CodeConfigurationValues {
 
   /**
    * @public
-   * <p>The command App Runner runs to build your application.</p>
+   * <p>The command App Runner runs to build your
+   *       application.</p>
    */
   BuildCommand?: string;
 
   /**
    * @public
-   * <p>The command App Runner runs to start your application.</p>
+   * <p>The command App Runner runs to start your
+   *       application.</p>
    */
   StartCommand?: string;
 
@@ -1013,20 +1015,17 @@ export interface CodeConfigurationValues {
 
   /**
    * @public
-   * <p>An array of key-value pairs representing the secrets and parameters that get referenced to your service as an environment variable.
-   *       The supported values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager Parameter Store.</p>
+   * <p>An array of key-value pairs representing the secrets and parameters that get referenced to your service as an environment variable. The supported
+   *       values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager
+   *       Parameter Store.</p>
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>
-   *             If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Amazon Web Services Region as the service that you're launching,
-   *             you can use either the full ARN or name of the secret. If the parameter exists in a different Region, then the full ARN must be specified.
-   *           </p>
+   *                   <p> If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Amazon Web Services Region as the service that you're launching, you can use
+   *             either the full ARN or name of the secret. If the parameter exists in a different Region, then the full ARN must be specified. </p>
    *                </li>
    *                <li>
-   *                   <p>
-   *             Currently, cross account referencing of Amazon Web Services Systems Manager Parameter Store parameter is not supported.
-   *           </p>
+   *                   <p> Currently, cross account referencing of Amazon Web Services Systems Manager Parameter Store parameter is not supported. </p>
    *                </li>
    *             </ul>
    *          </note>
@@ -1138,6 +1137,13 @@ export interface CodeRepository {
    *          </note>
    */
   CodeConfiguration?: CodeConfiguration;
+
+  /**
+   * @public
+   * <p>The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute
+   *       from root and, if not specified, defaults to the repository root.</p>
+   */
+  SourceDirectory?: string;
 }
 
 /**
@@ -1168,20 +1174,17 @@ export interface ImageConfiguration {
 
   /**
    * @public
-   * <p>An array of key-value pairs representing the secrets and parameters that get referenced to your service as an environment variable.
-   *       The supported values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager Parameter Store.</p>
+   * <p>An array of key-value pairs representing the secrets and parameters that get referenced to your service as an environment variable. The supported
+   *       values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager
+   *       Parameter Store.</p>
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>
-   *             If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Amazon Web Services Region as the service that you're launching,
-   *             you can use either the full ARN or name of the secret. If the parameter exists in a different Region, then the full ARN must be specified.
-   *           </p>
+   *                   <p> If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Amazon Web Services Region as the service that you're launching, you can use
+   *             either the full ARN or name of the secret. If the parameter exists in a different Region, then the full ARN must be specified. </p>
    *                </li>
    *                <li>
-   *                   <p>
-   *             Currently, cross account referencing of Amazon Web Services Systems Manager Parameter Store parameter is not supported.
-   *           </p>
+   *                   <p> Currently, cross account referencing of Amazon Web Services Systems Manager Parameter Store parameter is not supported. </p>
    *                </li>
    *             </ul>
    *          </note>
@@ -1235,7 +1238,8 @@ export interface ImageRepository {
 export interface SourceConfiguration {
   /**
    * @public
-   * <p>The description of a source code repository.</p>
+   * <p>The description of a source code
+   *       repository.</p>
    *          <p>You must provide either this member or <code>ImageRepository</code> (but not both).</p>
    */
   CodeRepository?: CodeRepository;
@@ -1461,9 +1465,9 @@ export interface Service {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATE_FAILED</code> – The service failed to create. The failed service isn't usable, and still counts towards your service quota.
-   *           To troubleshoot this failure, read the failure events and logs, change any
-   *           parameters that need to be fixed, and rebuild your service using <code>UpdateService</code>.</p>
+   *                   <code>CREATE_FAILED</code> – The service failed to create. The failed service isn't usable, and still counts towards your service quota. To
+   *           troubleshoot this failure, read the failure events and logs, change any parameters that need to be fixed, and rebuild your service using
+   *             <code>UpdateService</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2654,9 +2658,9 @@ export interface ServiceSummary {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATE_FAILED</code> – The service failed to create. The failed service isn't usable, and still counts towards your service quota.
-   *           To troubleshoot this failure, read the failure events and logs, change any
-   *           parameters that need to be fixed, and rebuild your service using <code>UpdateService</code>.</p>
+   *                   <code>CREATE_FAILED</code> – The service failed to create. The failed service isn't usable, and still counts towards your service quota. To
+   *           troubleshoot this failure, read the failure events and logs, change any parameters that need to be fixed, and rebuild your service using
+   *             <code>UpdateService</code>.</p>
    *             </li>
    *             <li>
    *                <p>

@@ -84,6 +84,7 @@ export interface PauseServiceCommandOutput extends PauseServiceResponse, __Metad
  * //             },
  * //           },
  * //         },
+ * //         SourceDirectory: "STRING_VALUE",
  * //       },
  * //       ImageRepository: { // ImageRepository
  * //         ImageIdentifier: "STRING_VALUE", // required

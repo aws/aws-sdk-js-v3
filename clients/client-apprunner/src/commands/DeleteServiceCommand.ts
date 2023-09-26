@@ -91,6 +91,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //             },
  * //           },
  * //         },
+ * //         SourceDirectory: "STRING_VALUE",
  * //       },
  * //       ImageRepository: { // ImageRepository
  * //         ImageIdentifier: "STRING_VALUE", // required

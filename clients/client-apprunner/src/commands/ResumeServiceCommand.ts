@@ -87,6 +87,7 @@ export interface ResumeServiceCommandOutput extends ResumeServiceResponse, __Met
  * //             },
  * //           },
  * //         },
+ * //         SourceDirectory: "STRING_VALUE",
  * //       },
  * //       ImageRepository: { // ImageRepository
  * //         ImageIdentifier: "STRING_VALUE", // required
