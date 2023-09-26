@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppIntegrationsClient` and
-the commands you need, for example `CreateDataIntegrationCommand`:
+the commands you need, for example `CreateApplicationCommand`:
 
 ```js
 // ES5 example
-const { AppIntegrationsClient, CreateDataIntegrationCommand } = require("@aws-sdk/client-appintegrations");
+const { AppIntegrationsClient, CreateApplicationCommand } = require("@aws-sdk/client-appintegrations");
 ```
 
 ```ts
 // ES6+ example
-import { AppIntegrationsClient, CreateDataIntegrationCommand } from "@aws-sdk/client-appintegrations";
+import { AppIntegrationsClient, CreateApplicationCommand } from "@aws-sdk/client-appintegrations";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new AppIntegrationsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateDataIntegrationCommand(params);
+const command = new CreateApplicationCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.AppIntegrations({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createDataIntegration(params);
+  const data = await client.createApplication(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .createDataIntegration(params)
+  .createApplication(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.createDataIntegration(params, (err, data) => {
+client.createApplication(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -211,6 +211,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CreateApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/createapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/createapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/createapplicationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateDataIntegration
 </summary>
 
@@ -243,6 +251,14 @@ DeleteEventIntegration
 </details>
 <details>
 <summary>
+GetApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/getapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/getapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/getapplicationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetDataIntegration
 </summary>
 
@@ -255,6 +271,14 @@ GetEventIntegration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/geteventintegrationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/geteventintegrationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/geteventintegrationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListApplications
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/listapplicationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/listapplicationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/listapplicationscommandoutput.html)
 
 </details>
 <details>
@@ -311,6 +335,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/classes/updateapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/updateapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appintegrations/interfaces/updateapplicationcommandoutput.html)
 
 </details>
 <details>

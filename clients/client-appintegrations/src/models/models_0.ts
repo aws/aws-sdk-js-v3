@@ -27,6 +27,261 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * <p>The external URL source for the application.</p>
+ */
+export interface ExternalUrlConfig {
+  /**
+   * @public
+   * <p>The URL to access the application.</p>
+   */
+  AccessUrl: string | undefined;
+
+  /**
+   * @public
+   * <p>Additional URLs to allow list if different than the access URL.</p>
+   */
+  ApprovedOrigins?: string[];
+}
+
+/**
+ * @public
+ * <p>The configuration for where the application should be loaded from.</p>
+ */
+export interface ApplicationSourceConfig {
+  /**
+   * @public
+   * <p>The external URL source for the application.</p>
+   */
+  ExternalUrlConfig?: ExternalUrlConfig;
+}
+
+/**
+ * @public
+ * <p>The configuration of an event that the application publishes.</p>
+ */
+export interface Publication {
+  /**
+   * @public
+   * <p>The name of the publication.</p>
+   */
+  Event: string | undefined;
+
+  /**
+   * @public
+   * <p>The JSON schema of the publication event.</p>
+   */
+  Schema: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the publication.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ * <p>The configuration of an event that the application subscribes.</p>
+ */
+export interface Subscription {
+  /**
+   * @public
+   * <p>The name of the subscription.</p>
+   */
+  Event: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the subscription.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateApplicationRequest {
+  /**
+   * @public
+   * <p>The name of the application.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The namespace of the application.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the application.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The configuration for where the application should be loaded from.</p>
+   */
+  ApplicationSourceConfig: ApplicationSourceConfig | undefined;
+
+  /**
+   * @public
+   * <p>The events that the application subscribes.</p>
+   */
+  Subscriptions?: Subscription[];
+
+  /**
+   * @public
+   * <p>The events that the application publishes.</p>
+   */
+  Publications?: Publication[];
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * @public
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateApplicationResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>A unique identifier for the Application.</p>
+   */
+  Id?: string;
+}
+
+/**
+ * @public
+ * <p>A resource with the specified name already exists.</p>
+ */
+export class DuplicateResourceException extends __BaseException {
+  readonly name: "DuplicateResourceException" = "DuplicateResourceException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateResourceException, __BaseException>) {
+    super({
+      name: "DuplicateResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateResourceException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>Request processing failed due to an error or failure with the service.</p>
+ */
+export class InternalServiceError extends __BaseException {
+  readonly name: "InternalServiceError" = "InternalServiceError";
+  readonly $fault: "server" = "server";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceError, __BaseException>) {
+    super({
+      name: "InternalServiceError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceError.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The request is not valid. </p>
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The allowed quota for the resource has been exceeded.</p>
+ */
+export class ResourceQuotaExceededException extends __BaseException {
+  readonly name: "ResourceQuotaExceededException" = "ResourceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ResourceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The throttling limit has been exceeded.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>The configuration for what files should be pulled from the source.</p>
  */
 export interface FileConfiguration {
@@ -206,116 +461,6 @@ export interface CreateDataIntegrationResponse {
 
 /**
  * @public
- * <p>A resource with the specified name already exists.</p>
- */
-export class DuplicateResourceException extends __BaseException {
-  readonly name: "DuplicateResourceException" = "DuplicateResourceException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateResourceException, __BaseException>) {
-    super({
-      name: "DuplicateResourceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateResourceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * <p>Request processing failed due to an error or failure with the service.</p>
- */
-export class InternalServiceError extends __BaseException {
-  readonly name: "InternalServiceError" = "InternalServiceError";
-  readonly $fault: "server" = "server";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceError, __BaseException>) {
-    super({
-      name: "InternalServiceError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceError.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * <p>The request is not valid. </p>
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * <p>The allowed quota for the resource has been exceeded.</p>
- */
-export class ResourceQuotaExceededException extends __BaseException {
-  readonly name: "ResourceQuotaExceededException" = "ResourceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ResourceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * <p>The throttling limit has been exceeded.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
  * <p>The event filter.</p>
  */
 export interface EventFilter {
@@ -434,6 +579,88 @@ export interface DeleteEventIntegrationRequest {
  * @public
  */
 export interface DeleteEventIntegrationResponse {}
+
+/**
+ * @public
+ */
+export interface GetApplicationRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetApplicationResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>A unique identifier for the Application.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>The name of the application.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The namespace of the application.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * @public
+   * <p>The description of the application.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The configuration for where the application should be loaded from.</p>
+   */
+  ApplicationSourceConfig?: ApplicationSourceConfig;
+
+  /**
+   * @public
+   * <p>The events that the application subscribes.</p>
+   */
+  Subscriptions?: Subscription[];
+
+  /**
+   * @public
+   * <p>The events that the application publishes.</p>
+   */
+  Publications?: Publication[];
+
+  /**
+   * @public
+   * <p>The created time of the Application.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The last modified time of the Application.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   */
+  Tags?: Record<string, string>;
+}
 
 /**
  * @public
@@ -561,6 +788,83 @@ export interface GetEventIntegrationResponse {
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListApplicationsRequest {
+  /**
+   * @public
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Summary information about the Application.</p>
+ */
+export interface ApplicationSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>A unique identifier for the Application.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>The name of the application.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The namespace of the application.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * @public
+   * <p>The time when the application was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The time when the application was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListApplicationsResponse {
+  /**
+   * @public
+   * <p>The Applications associated with this account.</p>
+   */
+  Applications?: ApplicationSummary[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -917,6 +1221,52 @@ export interface UntagResourceResponse {}
 /**
  * @public
  */
+export interface UpdateApplicationRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the application.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The description of the application.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The configuration for where the application should be loaded from.</p>
+   */
+  ApplicationSourceConfig?: ApplicationSourceConfig;
+
+  /**
+   * @public
+   * <p>The events that the application subscribes.</p>
+   */
+  Subscriptions?: Subscription[];
+
+  /**
+   * @public
+   * <p>The events that the application publishes.</p>
+   */
+  Publications?: Publication[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateApplicationResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateDataIntegrationRequest {
   /**
    * @public
@@ -954,7 +1304,7 @@ export interface UpdateEventIntegrationRequest {
 
   /**
    * @public
-   * <p>The description of the event inegration.</p>
+   * <p>The description of the event integration.</p>
    */
   Description?: string;
 }

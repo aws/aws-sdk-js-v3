@@ -15,6 +15,7 @@ export * from "./AppIntegrationsClient";
 export * from "./AppIntegrations";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
+export * from "./pagination";
 export * from "./models";
 
 export { AppIntegrationsServiceException } from "./models/AppIntegrationsServiceException";

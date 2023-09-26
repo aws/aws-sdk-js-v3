@@ -4,6 +4,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { AppIntegrationsClient, AppIntegrationsClientConfig } from "./AppIntegrationsClient";
 import {
+  CreateApplicationCommand,
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import {
   CreateDataIntegrationCommand,
   CreateDataIntegrationCommandInput,
   CreateDataIntegrationCommandOutput,
@@ -24,6 +29,11 @@ import {
   DeleteEventIntegrationCommandOutput,
 } from "./commands/DeleteEventIntegrationCommand";
 import {
+  GetApplicationCommand,
+  GetApplicationCommandInput,
+  GetApplicationCommandOutput,
+} from "./commands/GetApplicationCommand";
+import {
   GetDataIntegrationCommand,
   GetDataIntegrationCommandInput,
   GetDataIntegrationCommandOutput,
@@ -33,6 +43,11 @@ import {
   GetEventIntegrationCommandInput,
   GetEventIntegrationCommandOutput,
 } from "./commands/GetEventIntegrationCommand";
+import {
+  ListApplicationsCommand,
+  ListApplicationsCommandInput,
+  ListApplicationsCommandOutput,
+} from "./commands/ListApplicationsCommand";
 import {
   ListDataIntegrationAssociationsCommand,
   ListDataIntegrationAssociationsCommandInput,
@@ -65,6 +80,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateApplicationCommand,
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import {
   UpdateDataIntegrationCommand,
   UpdateDataIntegrationCommandInput,
   UpdateDataIntegrationCommandOutput,
@@ -76,12 +96,15 @@ import {
 } from "./commands/UpdateEventIntegrationCommand";
 
 const commands = {
+  CreateApplicationCommand,
   CreateDataIntegrationCommand,
   CreateEventIntegrationCommand,
   DeleteDataIntegrationCommand,
   DeleteEventIntegrationCommand,
+  GetApplicationCommand,
   GetDataIntegrationCommand,
   GetEventIntegrationCommand,
+  ListApplicationsCommand,
   ListDataIntegrationAssociationsCommand,
   ListDataIntegrationsCommand,
   ListEventIntegrationAssociationsCommand,
@@ -89,11 +112,29 @@ const commands = {
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateApplicationCommand,
   UpdateDataIntegrationCommand,
   UpdateEventIntegrationCommand,
 };
 
 export interface AppIntegrations {
+  /**
+   * @see {@link CreateApplicationCommand}
+   */
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationCommandOutput>;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateDataIntegrationCommand}
    */
@@ -163,6 +204,20 @@ export interface AppIntegrations {
   ): void;
 
   /**
+   * @see {@link GetApplicationCommand}
+   */
+  getApplication(
+    args: GetApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetApplicationCommandOutput>;
+  getApplication(args: GetApplicationCommandInput, cb: (err: any, data?: GetApplicationCommandOutput) => void): void;
+  getApplication(
+    args: GetApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDataIntegrationCommand}
    */
   getDataIntegration(
@@ -194,6 +249,23 @@ export interface AppIntegrations {
     args: GetEventIntegrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEventIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   */
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationsCommandOutput>;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
   /**
@@ -301,6 +373,23 @@ export interface AppIntegrations {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateApplicationCommand}
+   */
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApplicationCommandOutput>;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
 
   /**
