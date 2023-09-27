@@ -934,6 +934,28 @@ export interface IotSiteWiseAction {
 
 /**
  * @public
+ * <p>Specifies a Kafka header using key-value pairs when you create a Rule’s Kafka Action.
+ *          You can use these headers to route data from IoT clients to downstream Kafka clusters
+ *          without modifying your message payload.</p>
+ *          <p>For more information about Rule's Kafka action, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html">Apache Kafka</a>.
+ *       </p>
+ */
+export interface KafkaActionHeader {
+  /**
+   * @public
+   * <p>The key of the Kafka header.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * @public
+   * <p>The value of the Kafka header.</p>
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
  * <p>Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.</p>
  */
 export interface KafkaAction {
@@ -966,6 +988,12 @@ export interface KafkaAction {
    * <p>Properties of the Apache Kafka producer client.</p>
    */
   clientProperties: Record<string, string> | undefined;
+
+  /**
+   * @public
+   * <p>The list of Kafka headers that you specify.</p>
+   */
+  headers?: KafkaActionHeader[];
 }
 
 /**
@@ -1934,8 +1962,10 @@ export interface Behavior {
 
   /**
    * @public
-   * <p>The criteria that determine if a device is behaving normally in regard to
-   *           the <code>metric</code>.</p>
+   * <p>The criteria that determine if a device is behaving normally in regard to the <code>metric</code>.</p>
+   *          <note>
+   *             <p>In the IoT console, you can choose to be sent an alert through Amazon SNS when IoT Device Defender detects that a device is behaving anomalously.</p>
+   *          </note>
    */
   criteria?: BehaviorCriteria;
 
@@ -4718,6 +4748,8 @@ export interface SchedulingConfig {
    *             must be scheduled a minimum of thirty minutes from the current time. The date and time
    *             format for the <code>startTime</code> is YYYY-MM-DD for the date and HH:MM for the
    *             time.</p>
+   *          <p>For more information on the syntax for <code>startTime</code> when using an API
+   *                 command or the Command Line Interface, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>.</p>
    */
   startTime?: string;
 
@@ -4730,6 +4762,8 @@ export interface SchedulingConfig {
    *             minutes. The maximum duration between <code>startTime</code> and <code>endTime</code> is
    *             two years. The date and time format for the <code>endTime</code> is YYYY-MM-DD for the
    *             date and HH:MM for the time.</p>
+   *          <p>For more information on the syntax for <code>endTime</code> when using an API command
+   *             or the Command Line Interface, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>.</p>
    */
   endTime?: string;
 
@@ -4991,15 +5025,10 @@ export interface CreateJobTemplateRequest {
 
   /**
    * @public
-   * <p>An S3 link to the job document to use in the template. Required if you don't specify a value for <code>document</code>.</p>
-   *          <note>
-   *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
-   *             <p>The placeholder link is of the following form:</p>
-   *             <p>
-   *                <code>$\{aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>\}</code>
-   *             </p>
-   *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
-   *          </note>
+   * <p>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for <code>document</code>.</p>
+   *          <p>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code>
+   *          </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods for accessing a bucket</a>.</p>
    */
   documentSource?: string;
 
@@ -5795,7 +5824,7 @@ export interface OTAUpdateFile {
 
   /**
    * @public
-   * <p>A list of name/attribute pairs.</p>
+   * <p>A list of name-attribute pairs. They won't be sent to devices as a part of the Job document.</p>
    */
   attributes?: Record<string, string>;
 }
@@ -5895,7 +5924,8 @@ export interface CreateOTAUpdateRequest {
 
   /**
    * @public
-   * <p>A list of additional OTA update parameters which are name-value pairs.</p>
+   * <p>A list of additional OTA update parameters, which are name-value pairs.
+   *             They won't be sent to devices as a part of the Job document.</p>
    */
   additionalParameters?: Record<string, string>;
 
@@ -5965,7 +5995,7 @@ export interface CreateOTAUpdateResponse {
 export interface CreatePackageRequest {
   /**
    * @public
-   * <p>The name of the new package.</p>
+   * <p>The name of the new software package.</p>
    */
   packageName: string | undefined;
 
@@ -5995,7 +6025,7 @@ export interface CreatePackageRequest {
 export interface CreatePackageResponse {
   /**
    * @public
-   * <p>The name of the package.</p>
+   * <p>The name of the software package.</p>
    */
   packageName?: string;
 
@@ -6079,7 +6109,7 @@ export class ValidationException extends __BaseException {
 export interface CreatePackageVersionRequest {
   /**
    * @public
-   * <p>The name of the associated package.</p>
+   * <p>The name of the associated software package.</p>
    */
   packageName: string | undefined;
 
@@ -6143,7 +6173,7 @@ export interface CreatePackageVersionResponse {
 
   /**
    * @public
-   * <p>The name of the associated package.</p>
+   * <p>The name of the associated software package.</p>
    */
   packageName?: string;
 
@@ -7581,11 +7611,6 @@ export interface DeleteDynamicThingGroupRequest {
    */
   expectedVersion?: number;
 }
-
-/**
- * @public
- */
-export interface DeleteDynamicThingGroupResponse {}
 
 /**
  * @internal

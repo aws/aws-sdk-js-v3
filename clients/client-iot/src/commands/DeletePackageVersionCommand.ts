@@ -39,7 +39,7 @@ export interface DeletePackageVersionCommandOutput extends DeletePackageVersionR
  * @public
  * <p>Deletes a specific version from a software package.</p>
  *          <p>
- *             <b>Note:</b> If a package version is designated as default, you must remove the designation from the package using the <a>UpdatePackage</a> action.</p>
+ *             <b>Note:</b> If a package version is designated as default, you must remove the designation from the software package using the <a>UpdatePackage</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

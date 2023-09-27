@@ -68,6 +68,11 @@ import {
 /**
  * @public
  */
+export interface DeleteDynamicThingGroupResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteFleetMetricRequest {
   /**
    * @public
@@ -240,7 +245,7 @@ export interface DeleteOTAUpdateResponse {}
 export interface DeletePackageRequest {
   /**
    * @public
-   * <p>The name of the target package.</p>
+   * <p>The name of the target software package.</p>
    */
   packageName: string | undefined;
 
@@ -263,7 +268,7 @@ export interface DeletePackageResponse {}
 export interface DeletePackageVersionRequest {
   /**
    * @public
-   * <p>The name of the associated package.</p>
+   * <p>The name of the associated software package.</p>
    */
   packageName: string | undefined;
 
@@ -540,6 +545,8 @@ export interface DeleteTopicRuleDestinationResponse {}
 export const LogTargetType = {
   CLIENT_ID: "CLIENT_ID",
   DEFAULT: "DEFAULT",
+  DEVICE_DEFENDER: "DEVICE_DEFENDER",
+  EVENT_TYPE: "EVENT_TYPE",
   PRINCIPAL_ID: "PRINCIPAL_ID",
   SOURCE_IP: "SOURCE_IP",
   THING_GROUP: "THING_GROUP",
@@ -1883,7 +1890,8 @@ export interface DescribeEndpointRequest {
    *             </li>
    *          </ul>
    *          <p>We strongly recommend that customers use the newer <code>iot:Data-ATS</code> endpoint type to avoid
-   *          issues related to the widespread distrust of Symantec certificate authorities.</p>
+   *          issues related to the widespread distrust of Symantec certificate authorities. ATS Signed Certificates
+   *          are more secure and are trusted by most popular browsers.</p>
    */
   endpointType?: string;
 }
@@ -4612,7 +4620,7 @@ export interface GetOTAUpdateResponse {
 export interface GetPackageRequest {
   /**
    * @public
-   * <p>The name of the target package.</p>
+   * <p>The name of the target software package.</p>
    */
   packageName: string | undefined;
 }
@@ -4623,7 +4631,7 @@ export interface GetPackageRequest {
 export interface GetPackageResponse {
   /**
    * @public
-   * <p>The name of the package.</p>
+   * <p>The name of the software package.</p>
    */
   packageName?: string;
 
@@ -4725,7 +4733,7 @@ export interface GetPackageVersionResponse {
 
   /**
    * @public
-   * <p>The name of the package.</p>
+   * <p>The name of the software package.</p>
    */
   packageName?: string;
 
@@ -7295,7 +7303,7 @@ export interface ListPackagesRequest {
 export interface PackageSummary {
   /**
    * @public
-   * <p>The name for the target package.</p>
+   * <p>The name for the target software package.</p>
    */
   packageName?: string;
 
@@ -7341,7 +7349,7 @@ export interface ListPackagesResponse {
 export interface ListPackageVersionsRequest {
   /**
    * @public
-   * <p>The name of the target package.</p>
+   * <p>The name of the target software package.</p>
    */
   packageName: string | undefined;
 
@@ -7521,30 +7529,6 @@ export interface ListPolicyVersionsRequest {
    * <p>The policy name.</p>
    */
   policyName: string | undefined;
-}
-
-/**
- * @public
- * <p>Describes a policy version.</p>
- */
-export interface PolicyVersion {
-  /**
-   * @public
-   * <p>The policy version ID.</p>
-   */
-  versionId?: string;
-
-  /**
-   * @public
-   * <p>Specifies whether the policy version is the default.</p>
-   */
-  isDefaultVersion?: boolean;
-
-  /**
-   * @public
-   * <p>The date and time the policy was created.</p>
-   */
-  createDate?: Date;
 }
 
 /**

@@ -47,7 +47,7 @@ export interface SetV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * const client = new IoTClient(config);
  * const input = { // SetV2LoggingLevelRequest
  *   logTarget: { // LogTarget
- *     targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID", // required
+ *     targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID" || "EVENT_TYPE" || "DEVICE_DEFENDER", // required
  *     targetName: "STRING_VALUE",
  *   },
  *   logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED", // required

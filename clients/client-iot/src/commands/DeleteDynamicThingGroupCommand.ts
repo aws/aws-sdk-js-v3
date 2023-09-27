@@ -15,7 +15,8 @@ import {
 } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteDynamicThingGroupRequest, DeleteDynamicThingGroupResponse } from "../models/models_0";
+import { DeleteDynamicThingGroupRequest } from "../models/models_0";
+import { DeleteDynamicThingGroupResponse } from "../models/models_1";
 import { de_DeleteDynamicThingGroupCommand, se_DeleteDynamicThingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -779,6 +779,7 @@ import {
   JobExecutionsRetryConfig,
   JobExecutionsRolloutConfig,
   KafkaAction,
+  KafkaActionHeader,
   KinesisAction,
   LambdaAction,
   LimitExceededException,
@@ -877,7 +878,6 @@ import {
   PackageSummary,
   PackageVersionSummary,
   PercentPair,
-  PolicyVersion,
   RegistrationConfig,
   RoleAliasDescription,
   Statistics,
@@ -899,6 +899,7 @@ import {
   LoggingOptionsPayload,
   LogTarget,
   MqttContext,
+  PolicyVersion,
   ProvisioningTemplateSummary,
   ProvisioningTemplateVersionSummary,
   RegistrationCodeValidationException,
@@ -24546,6 +24547,10 @@ const se_JobExecutionsRolloutConfig = (input: JobExecutionsRolloutConfig, contex
 
 // se_KafkaAction omitted.
 
+// se_KafkaActionHeader omitted.
+
+// se_KafkaHeaders omitted.
+
 // se_KinesisAction omitted.
 
 // se_LambdaAction omitted.
@@ -25679,6 +25684,10 @@ const de_JobTemplateSummaryList = (output: any, context: __SerdeContext): JobTem
 };
 
 // de_KafkaAction omitted.
+
+// de_KafkaActionHeader omitted.
+
+// de_KafkaHeaders omitted.
 
 // de_KeyPair omitted.
 

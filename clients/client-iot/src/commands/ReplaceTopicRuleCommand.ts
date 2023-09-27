@@ -233,6 +233,12 @@ export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
  *           clientProperties: { // ClientProperties // required
  *             "<keys>": "STRING_VALUE",
  *           },
+ *           headers: [ // KafkaHeaders
+ *             { // KafkaActionHeader
+ *               key: "STRING_VALUE", // required
+ *               value: "STRING_VALUE", // required
+ *             },
+ *           ],
  *         },
  *         openSearch: { // OpenSearchAction
  *           roleArn: "STRING_VALUE", // required
@@ -436,6 +442,12 @@ export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
  *         clientProperties: { // required
  *           "<keys>": "STRING_VALUE",
  *         },
+ *         headers: [
+ *           {
+ *             key: "STRING_VALUE", // required
+ *             value: "STRING_VALUE", // required
+ *           },
+ *         ],
  *       },
  *       openSearch: {
  *         roleArn: "STRING_VALUE", // required

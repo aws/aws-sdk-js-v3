@@ -41,7 +41,7 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
 
 /**
  * @public
- * <p>Updates the supported fields for a specific package.</p>
+ * <p>Updates the supported fields for a specific software package.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdatePackage</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetIndexingConfiguration</a> actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
