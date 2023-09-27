@@ -1677,9 +1677,7 @@
             "input": {
               "UserPoolId": "us-east-1_EXAMPLE",
               "Username": "testuser",
-              "DesiredDeliveryMediums": [
-                "SMS"
-              ],
+              "DesiredDeliveryMediums": ["SMS"],
               "MessageAction": "SUPPRESS",
               "TemporaryPassword": "This-is-my-test-99!",
               "UserAttributes": [
@@ -1718,8 +1716,8 @@
                   }
                 ],
                 "Enabled": true,
-                "UserCreateDate": 1689980857.949,
-                "UserLastModifiedDate": 1689980857.949,
+                "UserCreateDate": 1.689980857949e9,
+                "UserLastModifiedDate": 1.689980857949e9,
                 "UserStatus": "FORCE_CHANGE_PASSWORD",
                 "Username": "testuser"
               }
@@ -1769,7 +1767,7 @@
         "Username": {
           "target": "com.amazonaws.cognitoidentityprovider#UsernameType",
           "traits": {
-            "smithy.api#documentation": "<p>The username for the user. Must be unique within the user pool. Must be a UTF-8 string\n            between 1 and 128 characters. After the user is created, the username can't be\n            changed.</p>",
+            "smithy.api#documentation": "<p>The value that you want to set as the username sign-in attribute. The following\n            conditions apply to the username parameter.</p>\n         <ul>\n            <li>\n               <p>The username can't be a duplicate of another username in the same user\n                    pool.</p>\n            </li>\n            <li>\n               <p>You can't change the value of a username after you create it.</p>\n            </li>\n            <li>\n               <p>You can only provide a value if usernames are a valid sign-in attribute for\n                    your user pool. If your user pool only supports phone numbers or email addresses\n                    as sign-in attributes, Amazon Cognito automatically generates a username value. For more\n                    information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases\">Customizing sign-in attributes</a>.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -4602,7 +4600,7 @@
         "LogGroupArn": {
           "target": "com.amazonaws.cognitoidentityprovider#ArnType",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (arn) of a CloudWatch Logs log group where your user pool sends logs.\n            The log group must not be encrypted with Key Management Service and must be in the same Amazon Web Services account\n            as your user pool.</p>\n         <p>To send logs to log groups with a resource policy of a size greater than 5120\n            characters, configure a log group with a path that starts with\n            <code>/aws/vendedlogs</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html\">Enabling\n                logging from certain Amazon Web Services services</a>.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (arn) of a CloudWatch Logs log group where your user pool sends logs.\n            The log group must not be encrypted with Key Management Service and must be in the same Amazon Web Services account\n            as your user pool.</p>\n         <p>To send logs to log groups with a resource policy of a size greater than 5120\n            characters, configure a log group with a path that starts with\n                <code>/aws/vendedlogs</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html\">Enabling\n                logging from certain Amazon Web Services services</a>.</p>"
           }
         }
       },
@@ -5583,12 +5581,8 @@
                   "SMSMessage": "Your username is {username} and temporary password is {####}."
                 }
               },
-              "AliasAttributes": [
-                "email"
-              ],
-              "AutoVerifiedAttributes": [
-                "email"
-              ],
+              "AliasAttributes": ["email"],
+              "AutoVerifiedAttributes": ["email"],
               "DeviceConfiguration": {
                 "ChallengeRequiredOnNewDevice": true,
                 "DeviceOnlyRememberedOnUserPrompt": true
@@ -5659,9 +5653,7 @@
               },
               "SmsVerificationMessage": "Your verification code is {####}.",
               "UserAttributeUpdateSettings": {
-                "AttributesRequireVerificationBeforeUpdate": [
-                  "email"
-                ]
+                "AttributesRequireVerificationBeforeUpdate": ["email"]
               },
               "UsernameConfiguration": {
                 "CaseSensitive": true
@@ -5700,14 +5692,10 @@
                   },
                   "UnusedAccountValidityDays": 7
                 },
-                "AliasAttributes": [
-                  "email"
-                ],
+                "AliasAttributes": ["email"],
                 "Arn": "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_EXAMPLE",
-                "AutoVerifiedAttributes": [
-                  "email"
-                ],
-                "CreationDate": 1689721665.239,
+                "AutoVerifiedAttributes": ["email"],
+                "CreationDate": 1.689721665239e9,
                 "DeletionProtection": "ACTIVE",
                 "DeviceConfiguration": {
                   "ChallengeRequiredOnNewDevice": true,
@@ -5744,7 +5732,7 @@
                   "UserMigration": "arn:aws:lambda:us-east-1:123456789012:function:MyFunction",
                   "VerifyAuthChallengeResponse": "arn:aws:lambda:us-east-1:123456789012:function:MyFunction"
                 },
-                "LastModifiedDate": 1689721665.239,
+                "LastModifiedDate": 1.689721665239e9,
                 "MfaConfiguration": "OPTIONAL",
                 "Name": "my-test-user-pool",
                 "Policies": {
@@ -5989,9 +5977,7 @@
                 },
                 "SmsVerificationMessage": "Your verification code is {####}.",
                 "UserAttributeUpdateSettings": {
-                  "AttributesRequireVerificationBeforeUpdate": [
-                    "email"
-                  ]
+                  "AttributesRequireVerificationBeforeUpdate": ["email"]
                 },
                 "UserPoolAddOns": {
                   "AdvancedSecurityMode": "OFF"
@@ -6058,25 +6044,16 @@
             "documentation": "The following example creates an app client with all configurable properties set to an example value. The resulting user pool client connects to an analytics client, allows sign-in with username and password, and has two external identity providers associated with it.",
             "input": {
               "AccessTokenValidity": 6,
-              "AllowedOAuthFlows": [
-                "code"
-              ],
+              "AllowedOAuthFlows": ["code"],
               "AllowedOAuthFlowsUserPoolClient": true,
-              "AllowedOAuthScopes": [
-                "aws.cognito.signin.user.admin",
-                "openid"
-              ],
+              "AllowedOAuthScopes": ["aws.cognito.signin.user.admin", "openid"],
               "AnalyticsConfiguration": {
                 "ApplicationId": "d70b2ba36a8c4dc5a04a0451a31a1e12",
                 "ExternalId": "my-external-id",
                 "RoleArn": "arn:aws:iam::123456789012:role/test-cognitouserpool-role",
                 "UserDataShared": true
               },
-              "CallbackURLs": [
-                "https://example.com",
-                "http://localhost",
-                "myapp://example"
-              ],
+              "CallbackURLs": ["https://example.com", "http://localhost", "myapp://example"],
               "ClientName": "my-test-app-client",
               "DefaultRedirectURI": "https://example.com",
               "ExplicitAuthFlows": [
@@ -6086,42 +6063,25 @@
               ],
               "GenerateSecret": true,
               "IdTokenValidity": 6,
-              "LogoutURLs": [
-                "https://example.com/logout"
-              ],
+              "LogoutURLs": ["https://example.com/logout"],
               "PreventUserExistenceErrors": "ENABLED",
-              "ReadAttributes": [
-                "email",
-                "address",
-                "preferred_username"
-              ],
+              "ReadAttributes": ["email", "address", "preferred_username"],
               "RefreshTokenValidity": 6,
-              "SupportedIdentityProviders": [
-                "SignInWithApple",
-                "MySSO"
-              ],
+              "SupportedIdentityProviders": ["SignInWithApple", "MySSO"],
               "TokenValidityUnits": {
                 "AccessToken": "hours",
                 "IdToken": "minutes",
                 "RefreshToken": "days"
               },
               "UserPoolId": "us-east-1_EXAMPLE",
-              "WriteAttributes": [
-                "family_name",
-                "email"
-              ]
+              "WriteAttributes": ["family_name", "email"]
             },
             "output": {
               "UserPoolClient": {
                 "AccessTokenValidity": 6,
-                "AllowedOAuthFlows": [
-                  "code"
-                ],
+                "AllowedOAuthFlows": ["code"],
                 "AllowedOAuthFlowsUserPoolClient": true,
-                "AllowedOAuthScopes": [
-                  "aws.cognito.signin.user.admin",
-                  "openid"
-                ],
+                "AllowedOAuthScopes": ["aws.cognito.signin.user.admin", "openid"],
                 "AnalyticsConfiguration": {
                   "ApplicationId": "d70b2ba36a8c4dc5a04a0451a31a1e12",
                   "ExternalId": "my-external-id",
@@ -6129,15 +6089,11 @@
                   "UserDataShared": true
                 },
                 "AuthSessionValidity": 3,
-                "CallbackURLs": [
-                  "https://example.com",
-                  "http://localhost",
-                  "myapp://example"
-                ],
+                "CallbackURLs": ["https://example.com", "http://localhost", "myapp://example"],
                 "ClientId": "26cb2c60kq7nbmas7rbme9b6pp",
                 "ClientName": "my-test-app-client",
                 "ClientSecret": "13ka4h7u28d9oo44tqpq9djqsfvhvu8rk4d2ighvpu0k8fj1c2r9",
-                "CreationDate": 1689885426.107,
+                "CreationDate": 1.689885426107e9,
                 "DefaultRedirectURI": "https://example.com",
                 "EnablePropagateAdditionalUserContextData": false,
                 "EnableTokenRevocation": true,
@@ -6147,31 +6103,19 @@
                   "ALLOW_REFRESH_TOKEN_AUTH"
                 ],
                 "IdTokenValidity": 6,
-                "LastModifiedDate": 1689885426.107,
-                "LogoutURLs": [
-                  "https://example.com/logout"
-                ],
+                "LastModifiedDate": 1.689885426107e9,
+                "LogoutURLs": ["https://example.com/logout"],
                 "PreventUserExistenceErrors": "ENABLED",
-                "ReadAttributes": [
-                  "address",
-                  "preferred_username",
-                  "email"
-                ],
+                "ReadAttributes": ["address", "preferred_username", "email"],
                 "RefreshTokenValidity": 6,
-                "SupportedIdentityProviders": [
-                  "SignInWithApple",
-                  "MySSO"
-                ],
+                "SupportedIdentityProviders": ["SignInWithApple", "MySSO"],
                 "TokenValidityUnits": {
                   "AccessToken": "hours",
                   "IdToken": "minutes",
                   "RefreshToken": "days"
                 },
                 "UserPoolId": "us-east-1_EXAMPLE",
-                "WriteAttributes": [
-                  "family_name",
-                  "email"
-                ]
+                "WriteAttributes": ["family_name", "email"]
               }
             }
           }
@@ -10713,10 +10657,7 @@
             "title": "A ListUsers request for the next 3 users whose email address starts with \"testuser.\"",
             "documentation": "This request submits a value for all possible parameters for ListUsers. By iterating the PaginationToken, you can page through and collect all users in a user pool.",
             "input": {
-              "AttributesToGet": [
-                "email",
-                "sub"
-              ],
+              "AttributesToGet": ["email", "sub"],
               "Filter": "\"email\"^=\"testuser\"",
               "Limit": 3,
               "PaginationToken": "abcd1234EXAMPLE",
@@ -10737,8 +10678,8 @@
                     }
                   ],
                   "Enabled": true,
-                  "UserCreateDate": 1682955829.578,
-                  "UserLastModifiedDate": 1689030181.63,
+                  "UserCreateDate": 1.682955829578e9,
+                  "UserLastModifiedDate": 1.68903018163e9,
                   "UserStatus": "CONFIRMED",
                   "Username": "testuser"
                 },
@@ -10754,8 +10695,8 @@
                     }
                   ],
                   "Enabled": true,
-                  "UserCreateDate": 1684427979.201,
-                  "UserLastModifiedDate": 1684427979.201,
+                  "UserCreateDate": 1.684427979201e9,
+                  "UserLastModifiedDate": 1.684427979201e9,
                   "UserStatus": "UNCONFIRMED",
                   "Username": "testuser2"
                 },
@@ -10771,8 +10712,8 @@
                     }
                   ],
                   "Enabled": true,
-                  "UserCreateDate": 1684427823.641,
-                  "UserLastModifiedDate": 1684427823.641,
+                  "UserCreateDate": 1.684427823641e9,
+                  "UserLastModifiedDate": 1.684427823641e9,
                   "UserStatus": "UNCONFIRMED",
                   "Username": "testuser3@example.com"
                 }
@@ -15292,6 +15233,9 @@
         "Status": {
           "target": "com.amazonaws.cognitoidentityprovider#StatusType",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "This property is no longer available."
+            },
             "smithy.api#documentation": "<p>The user pool status in a user pool description.</p>"
           }
         },
@@ -15439,6 +15383,9 @@
         "Status": {
           "target": "com.amazonaws.cognitoidentityprovider#StatusType",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "This property is no longer available."
+            },
             "smithy.api#documentation": "<p>The status of a user pool.</p>"
           }
         },

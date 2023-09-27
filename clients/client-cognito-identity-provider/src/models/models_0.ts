@@ -756,9 +756,23 @@ export interface AdminCreateUserRequest {
 
   /**
    * @public
-   * <p>The username for the user. Must be unique within the user pool. Must be a UTF-8 string
-   *             between 1 and 128 characters. After the user is created, the username can't be
-   *             changed.</p>
+   * <p>The value that you want to set as the username sign-in attribute. The following
+   *             conditions apply to the username parameter.</p>
+   *          <ul>
+   *             <li>
+   *                <p>The username can't be a duplicate of another username in the same user
+   *                     pool.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can't change the value of a username after you create it.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can only provide a value if usernames are a valid sign-in attribute for
+   *                     your user pool. If your user pool only supports phone numbers or email addresses
+   *                     as sign-in attributes, Amazon Cognito automatically generates a username value. For more
+   *                     information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases">Customizing sign-in attributes</a>.</p>
+   *             </li>
+   *          </ul>
    */
   Username: string | undefined;
 
@@ -5556,6 +5570,8 @@ export interface UserPoolType {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>The status of a user pool.</p>
    */
   Status?: StatusType | string;
@@ -7575,7 +7591,7 @@ export interface CloudWatchLogsConfigurationType {
    *             as your user pool.</p>
    *          <p>To send logs to log groups with a resource policy of a size greater than 5120
    *             characters, configure a log group with a path that starts with
-   *             <code>/aws/vendedlogs</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
+   *                 <code>/aws/vendedlogs</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
    *                 logging from certain Amazon Web Services services</a>.</p>
    */
   LogGroupArn?: string;
@@ -8660,6 +8676,8 @@ export interface UserPoolDescriptionType {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>The user pool status in a user pool description.</p>
    */
   Status?: StatusType | string;
