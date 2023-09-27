@@ -226,6 +226,11 @@ public final class AddS3Config implements TypeScriptIntegration {
                     && isS3(s)
                     && !isEndpointsV2Service(s)
                     && containsInputMembers(m, o, BUCKET_ENDPOINT_INPUT_KEYS))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "RegionRedirectMiddleware",
+                    HAS_MIDDLEWARE)
+                .servicePredicate((m, s) -> isS3(s))
                 .build()
         );
     }

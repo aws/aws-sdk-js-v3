@@ -1,7 +1,6 @@
 import {
   HandlerExecutionContext,
   MetadataBearer,
-  Pluggable,
   RelativeMiddlewareOptions,
   SerializeHandler,
   SerializeHandlerArguments,
@@ -21,8 +20,10 @@ export const regionRedirectEndpointMiddleware = (config: PreviouslyResolved): Se
     ): SerializeHandler<any, Output> =>
     async (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<Output>> => {
       const originalRegion = await config.region();
+      const regionProviderRef = config.region;
       if (context.__s3RegionRedirect) {
         config.region = async () => {
+          config.region = regionProviderRef;
           return context.__s3RegionRedirect;
         };
       }
@@ -47,12 +48,3 @@ export const regionRedirectEndpointMiddlewareOptions: RelativeMiddlewareOptions 
   relation: "before",
   toMiddleware: "endpointV2Middleware",
 };
-
-/**
- * @internal
- */
-export const getRegionRedirectEndpointMiddlewarePlugin = (clientConfig: PreviouslyResolved): Pluggable<any, any> => ({
-  applyToStack: (clientStack) => {
-    clientStack.addRelativeTo(regionRedirectEndpointMiddleware(clientConfig), regionRedirectEndpointMiddlewareOptions);
-  },
-});

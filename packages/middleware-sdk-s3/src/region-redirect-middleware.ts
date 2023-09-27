@@ -10,6 +10,11 @@ import {
   Provider,
 } from "@smithy/types";
 
+import {
+  regionRedirectEndpointMiddleware,
+  regionRedirectEndpointMiddlewareOptions,
+} from "./region-redirect-endpoint-middleware";
+
 /**
  * @internal
  */
@@ -28,8 +33,9 @@ export function regionRedirectMiddleware(clientConfig: PreviouslyResolved): Init
     ): InitializeHandler<any, Output> =>
     async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
       try {
-        return next(args);
+        return await next(args);
       } catch (err) {
+        // console.log("Region Redirect", clientConfig.followRegionRedirects, err.name, err.$metadata.httpStatusCode);
         if (
           clientConfig.followRegionRedirects &&
           err.name === "PermanentRedirect" &&
@@ -66,5 +72,6 @@ export const regionRedirectMiddlewareOptions: InitializeHandlerOptions = {
 export const getRegionRedirectMiddlewarePlugin = (clientConfig: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(regionRedirectMiddleware(clientConfig), regionRedirectMiddlewareOptions);
+    clientStack.addRelativeTo(regionRedirectEndpointMiddleware(clientConfig), regionRedirectEndpointMiddlewareOptions);
   },
 });
