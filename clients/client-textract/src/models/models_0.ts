@@ -106,6 +106,7 @@ export interface Document {
  */
 export const FeatureType = {
   FORMS: "FORMS",
+  LAYOUT: "LAYOUT",
   QUERIES: "QUERIES",
   SIGNATURES: "SIGNATURES",
   TABLES: "TABLES",
@@ -244,11 +245,12 @@ export interface AnalyzeDocumentRequest {
    * @public
    * <p>A list of the types of analysis to perform. Add TABLES to the list to return information
    *          about the tables that are detected in the input document. Add FORMS to return detected form
-   *          data. Add SIGNATURES to return the locations of detected signatures. To perform both forms
-   *          and table analysis, add TABLES and FORMS to <code>FeatureTypes</code>. To detect signatures within
-   *          form data and table data, add SIGNATURES to either TABLES or FORMS.
-   *          All lines and words detected in the document are included in the response (including text
-   *          that isn't related to the value of <code>FeatureTypes</code>). </p>
+   *          data. Add SIGNATURES to return the locations of detected signatures. Add LAYOUT to the list
+   *          to return information about the layout of the document. To perform both forms
+   *          and table analysis, add TABLES and FORMS to <code>FeatureTypes</code>. To detect signatures
+   *          within the document and within form data and table data, add SIGNATURES to either TABLES or
+   *          FORMS. All lines and words detected in the document are included in the response (including
+   *          text that isn't related to the value of <code>FeatureTypes</code>). </p>
    */
   FeatureTypes: (FeatureType | string)[] | undefined;
 
@@ -273,6 +275,16 @@ export interface AnalyzeDocumentRequest {
 export const BlockType = {
   CELL: "CELL",
   KEY_VALUE_SET: "KEY_VALUE_SET",
+  LAYOUT_FIGURE: "LAYOUT_FIGURE",
+  LAYOUT_FOOTER: "LAYOUT_FOOTER",
+  LAYOUT_HEADER: "LAYOUT_HEADER",
+  LAYOUT_KEY_VALUE: "LAYOUT_KEY_VALUE",
+  LAYOUT_LIST: "LAYOUT_LIST",
+  LAYOUT_PAGE_NUMBER: "LAYOUT_PAGE_NUMBER",
+  LAYOUT_SECTION_HEADER: "LAYOUT_SECTION_HEADER",
+  LAYOUT_TABLE: "LAYOUT_TABLE",
+  LAYOUT_TEXT: "LAYOUT_TEXT",
+  LAYOUT_TITLE: "LAYOUT_TITLE",
   LINE: "LINE",
   MERGED_CELL: "MERGED_CELL",
   PAGE: "PAGE",
@@ -613,7 +625,7 @@ export interface Block {
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>SIGNATURE</i> - The location and confidene score of a signature detected on a
+   *                   <i>SIGNATURE</i> - The location and confidence score of a signature detected on a
    *                document page. Can be returned as part of a Key-Value pair or a detected cell.</p>
    *             </li>
    *             <li>
@@ -776,8 +788,7 @@ export interface Block {
    *          documents that are in PDF or TIFF format. A scanned image (JPEG/PNG) provided to an
    *          asynchronous operation, even if it contains multiple document pages, is considered a
    *          single-page document. This means that for scanned images the value of <code>Page</code> is
-   *          always 1. Synchronous operations will also return a <code>Page</code> value of 1
-   *          because every input document is considered to be a single-page document.</p>
+   *          always 1. </p>
    */
   Page?: number;
 

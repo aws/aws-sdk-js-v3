@@ -69,7 +69,7 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  *     },
  *   },
  *   FeatureTypes: [ // FeatureTypes // required
- *     "TABLES" || "FORMS" || "QUERIES" || "SIGNATURES",
+ *     "TABLES" || "FORMS" || "QUERIES" || "SIGNATURES" || "LAYOUT",
  *   ],
  *   ClientRequestToken: "STRING_VALUE",
  *   JobTag: "STRING_VALUE",
