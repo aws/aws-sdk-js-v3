@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.421.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.420.0...v3.421.0) (2023-09-27)
+
+
+### Features
+
+* **client-cognito-identity-provider:** The UserPoolType Status field is no longer used. ([114788d](https://github.com/aws/aws-sdk-js-v3/commit/114788d89a39bf57d2db3da486a105b8ee7537a6))
+
+
+
+
+
 # [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

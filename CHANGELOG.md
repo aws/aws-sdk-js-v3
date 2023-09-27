@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.421.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.420.0...v3.421.0) (2023-09-27)
+
+
+### Features
+
+* **client-cognito-identity-provider:** The UserPoolType Status field is no longer used. ([114788d](https://github.com/aws/aws-sdk-js-v3/commit/114788d89a39bf57d2db3da486a105b8ee7537a6))
+* **client-firehose:** Features : Adding support for new data ingestion source to Kinesis Firehose - AWS Managed Services Kafka. ([f392d88](https://github.com/aws/aws-sdk-js-v3/commit/f392d8897ea0f16a77d743fa483142312380a477))
+* **client-iot:** Added support for IoT Rules Engine Kafka Action Headers ([607458d](https://github.com/aws/aws-sdk-js-v3/commit/607458d22f43c3c8f06ec0c39924b47fb585d34c))
+* **client-textract:** This release adds new feature - Layout to Analyze Document API which can automatically extract layout elements such as titles, paragraphs, headers, section headers, lists, page numbers, footers, table areas, key-value areas and figure areas and order the elements as a human would read. ([10647e5](https://github.com/aws/aws-sdk-js-v3/commit/10647e5f19a92345980f1f81a65c5003469a8da9))
+* **clients:** update client endpoints as of 2023-09-27 ([e7cded8](https://github.com/aws/aws-sdk-js-v3/commit/e7cded86da269aa14c429d3cf86bcbd396c3158b))
+
+
+
+
+
 # [3.420.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.419.0...v3.420.0) (2023-09-26)
 
 

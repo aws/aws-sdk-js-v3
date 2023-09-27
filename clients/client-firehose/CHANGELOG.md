@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.421.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.420.0...v3.421.0) (2023-09-27)
+
+
+### Features
+
+* **client-firehose:** Features : Adding support for new data ingestion source to Kinesis Firehose - AWS Managed Services Kafka. ([f392d88](https://github.com/aws/aws-sdk-js-v3/commit/f392d8897ea0f16a77d743fa483142312380a477))
+
+
+
+
+
 # [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
 
 **Note:** Version bump only for package @aws-sdk/client-firehose
