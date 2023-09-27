@@ -60,6 +60,7 @@ export interface CloudWatchLoggingOptions {
 export const ProcessorParameterName = {
   BUFFER_INTERVAL_IN_SECONDS: "BufferIntervalInSeconds",
   BUFFER_SIZE_IN_MB: "BufferSizeInMBs",
+  COMPRESSION_FORMAT: "CompressionFormat",
   Delimiter: "Delimiter",
   JSON_PARSING_ENGINE: "JsonParsingEngine",
   LAMBDA_ARN: "LambdaArn",
@@ -102,6 +103,7 @@ export interface ProcessorParameter {
  */
 export const ProcessorType = {
   AppendDelimiterToRecord: "AppendDelimiterToRecord",
+  Decompression: "Decompression",
   Lambda: "Lambda",
   MetadataExtraction: "MetadataExtraction",
   RecordDeAggregation: "RecordDeAggregation",
@@ -1279,6 +1281,38 @@ export interface AmazonopensearchserviceDestinationUpdate {
 
 /**
  * @public
+ * @enum
+ */
+export const Connectivity = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type Connectivity = (typeof Connectivity)[keyof typeof Connectivity];
+
+/**
+ * @public
+ * <p>The authentication configuration of the Amazon MSK cluster.</p>
+ */
+export interface AuthenticationConfiguration {
+  /**
+   * @public
+   * <p>The ARN of the role used to access the Amazon MSK cluster.</p>
+   */
+  RoleARN: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of connectivity used to access the Amazon MSK cluster.</p>
+   */
+  Connectivity: Connectivity | string | undefined;
+}
+
+/**
+ * @public
  * <p>Another modification has already happened. Fetch <code>VersionId</code> again and use
  *          it to update the destination.</p>
  */
@@ -1415,6 +1449,7 @@ export interface DeliveryStreamEncryptionConfigurationInput {
 export const DeliveryStreamType = {
   DirectPut: "DirectPut",
   KinesisStreamAsSource: "KinesisStreamAsSource",
+  MSKAsSource: "MSKAsSource",
 } as const;
 
 /**
@@ -2425,6 +2460,31 @@ export interface KinesisStreamSourceConfiguration {
 
 /**
  * @public
+ * <p>The configuration for the Amazon MSK cluster to be used as the source for a delivery
+ *          stream.</p>
+ */
+export interface MSKSourceConfiguration {
+  /**
+   * @public
+   * <p>The ARN of the Amazon MSK cluster.</p>
+   */
+  MSKClusterARN: string | undefined;
+
+  /**
+   * @public
+   * <p>The topic name within the Amazon MSK cluster. </p>
+   */
+  TopicName: string | undefined;
+
+  /**
+   * @public
+   * <p>The authentication configuration of the Amazon MSK cluster.</p>
+   */
+  AuthenticationConfiguration: AuthenticationConfiguration | undefined;
+}
+
+/**
+ * @public
  * <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver
  *          documents to Amazon Redshift.</p>
  */
@@ -2786,6 +2846,13 @@ export interface CreateDeliveryStreamInput {
    *          specify only one destination.</p>
    */
   AmazonOpenSearchServerlessDestinationConfiguration?: AmazonOpenSearchServerlessDestinationConfiguration;
+
+  /**
+   * @public
+   * <p>The configuration for the Amazon MSK cluster to be used as the source for a delivery
+   *          stream.</p>
+   */
+  MSKSourceConfiguration?: MSKSourceConfiguration;
 }
 
 /**
@@ -3577,6 +3644,38 @@ export interface KinesisStreamSourceDescription {
 
 /**
  * @public
+ * <p>Details about the Amazon MSK cluster used as the source for a Kinesis Data Firehose
+ *          delivery stream.</p>
+ */
+export interface MSKSourceDescription {
+  /**
+   * @public
+   * <p>The ARN of the Amazon MSK cluster.</p>
+   */
+  MSKClusterARN?: string;
+
+  /**
+   * @public
+   * <p>The topic name within the Amazon MSK cluster.</p>
+   */
+  TopicName?: string;
+
+  /**
+   * @public
+   * <p>The authentication configuration of the Amazon MSK cluster.</p>
+   */
+  AuthenticationConfiguration?: AuthenticationConfiguration;
+
+  /**
+   * @public
+   * <p>Kinesis Data Firehose starts retrieving records from the topic within the Amazon MSK
+   *          cluster starting with this timestamp.</p>
+   */
+  DeliveryStartTimestamp?: Date;
+}
+
+/**
+ * @public
  * <p>Details about a Kinesis data stream used as the source for a Kinesis Data Firehose
  *          delivery stream.</p>
  */
@@ -3587,6 +3686,13 @@ export interface SourceDescription {
    *          data stream.</p>
    */
   KinesisStreamSourceDescription?: KinesisStreamSourceDescription;
+
+  /**
+   * @public
+   * <p>The configuration description for the Amazon MSK cluster to be used as the source for a delivery
+   *          stream.</p>
+   */
+  MSKSourceDescription?: MSKSourceDescription;
 }
 
 /**

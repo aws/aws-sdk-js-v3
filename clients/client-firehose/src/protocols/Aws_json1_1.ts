@@ -69,6 +69,7 @@ import {
   AmazonopensearchserviceDestinationConfiguration,
   AmazonopensearchserviceDestinationUpdate,
   AmazonopensearchserviceRetryOptions,
+  AuthenticationConfiguration,
   BufferingHints,
   CloudWatchLoggingOptions,
   ConcurrentModificationException,
@@ -109,6 +110,8 @@ import {
   LimitExceededException,
   ListDeliveryStreamsInput,
   ListTagsForDeliveryStreamInput,
+  MSKSourceConfiguration,
+  MSKSourceDescription,
   OpenXJsonSerDe,
   OrcSerDe,
   OutputFormatConfiguration,
@@ -1056,6 +1059,8 @@ const de_ServiceUnavailableExceptionRes = async (
 
 // se_AmazonopensearchserviceRetryOptions omitted.
 
+// se_AuthenticationConfiguration omitted.
+
 // se_BufferingHints omitted.
 
 // se_CloudWatchLoggingOptions omitted.
@@ -1078,6 +1083,7 @@ const se_CreateDeliveryStreamInput = (input: CreateDeliveryStreamInput, context:
     ExtendedS3DestinationConfiguration: (_) => se_ExtendedS3DestinationConfiguration(_, context),
     HttpEndpointDestinationConfiguration: _json,
     KinesisStreamSourceConfiguration: _json,
+    MSKSourceConfiguration: _json,
     RedshiftDestinationConfiguration: _json,
     S3DestinationConfiguration: _json,
     SplunkDestinationConfiguration: _json,
@@ -1198,6 +1204,8 @@ const se_ExtendedS3DestinationUpdate = (input: ExtendedS3DestinationUpdate, cont
 // se_ListOfNonEmptyStringsWithoutWhitespace omitted.
 
 // se_ListTagsForDeliveryStreamInput omitted.
+
+// se_MSKSourceConfiguration omitted.
 
 // se_OpenXJsonSerDe omitted.
 
@@ -1360,6 +1368,8 @@ const se_UpdateDestinationInput = (input: UpdateDestinationInput, context: __Ser
 // de_AmazonopensearchserviceDestinationDescription omitted.
 
 // de_AmazonopensearchserviceRetryOptions omitted.
+
+// de_AuthenticationConfiguration omitted.
 
 // de_BufferingHints omitted.
 
@@ -1539,6 +1549,18 @@ const de_KinesisStreamSourceDescription = (output: any, context: __SerdeContext)
 
 // de_ListTagsForDeliveryStreamOutputTagList omitted.
 
+/**
+ * deserializeAws_json1_1MSKSourceDescription
+ */
+const de_MSKSourceDescription = (output: any, context: __SerdeContext): MSKSourceDescription => {
+  return take(output, {
+    AuthenticationConfiguration: _json,
+    DeliveryStartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MSKClusterARN: __expectString,
+    TopicName: __expectString,
+  }) as any;
+};
+
 // de_OpenXJsonSerDe omitted.
 
 /**
@@ -1622,6 +1644,7 @@ const de_Serializer = (output: any, context: __SerdeContext): Serializer => {
 const de_SourceDescription = (output: any, context: __SerdeContext): SourceDescription => {
   return take(output, {
     KinesisStreamSourceDescription: (_: any) => de_KinesisStreamSourceDescription(_, context),
+    MSKSourceDescription: (_: any) => de_MSKSourceDescription(_, context),
   }) as any;
 };
 

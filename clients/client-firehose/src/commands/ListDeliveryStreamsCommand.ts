@@ -53,7 +53,7 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * const client = new FirehoseClient(config);
  * const input = { // ListDeliveryStreamsInput
  *   Limit: Number("int"),
- *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource",
+ *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource" || "MSKAsSource",
  *   ExclusiveStartDeliveryStreamName: "STRING_VALUE",
  * };
  * const command = new ListDeliveryStreamsCommand(input);

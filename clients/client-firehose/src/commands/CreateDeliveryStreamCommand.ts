@@ -118,7 +118,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  * const client = new FirehoseClient(config);
  * const input = { // CreateDeliveryStreamInput
  *   DeliveryStreamName: "STRING_VALUE", // required
- *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource",
+ *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource" || "MSKAsSource",
  *   KinesisStreamSourceConfiguration: { // KinesisStreamSourceConfiguration
  *     KinesisStreamARN: "STRING_VALUE", // required
  *     RoleARN: "STRING_VALUE", // required
@@ -174,10 +174,10 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       Enabled: true || false,
  *       Processors: [ // ProcessorList
  *         { // Processor
- *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [ // ProcessorParameterList
  *             { // ProcessorParameter
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -306,10 +306,10 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       Enabled: true || false,
  *       Processors: [
  *         {
- *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [
  *             {
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -370,10 +370,10 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       Enabled: true || false,
  *       Processors: [
  *         {
- *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [
  *             {
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -414,10 +414,10 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       Enabled: true || false,
  *       Processors: [
  *         {
- *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [
  *             {
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -452,10 +452,10 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       Enabled: true || false,
  *       Processors: [
  *         {
- *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [
  *             {
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -521,6 +521,14 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       SecurityGroupIds: [ // required
  *         "STRING_VALUE",
  *       ],
+ *     },
+ *   },
+ *   MSKSourceConfiguration: { // MSKSourceConfiguration
+ *     MSKClusterARN: "STRING_VALUE", // required
+ *     TopicName: "STRING_VALUE", // required
+ *     AuthenticationConfiguration: { // AuthenticationConfiguration
+ *       RoleARN: "STRING_VALUE", // required
+ *       Connectivity: "PUBLIC" || "PRIVATE", // required
  *     },
  *   },
  * };

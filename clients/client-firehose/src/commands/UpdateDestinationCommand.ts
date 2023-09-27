@@ -121,10 +121,10 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *       Enabled: true || false,
  *       Processors: [ // ProcessorList
  *         { // Processor
- *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [ // ProcessorParameterList
  *             { // ProcessorParameter
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -253,10 +253,10 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *       Enabled: true || false,
  *       Processors: [
  *         {
- *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [
  *             {
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -316,10 +316,10 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *       Enabled: true || false,
  *       Processors: [
  *         {
- *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [
  *             {
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -350,10 +350,10 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *       Enabled: true || false,
  *       Processors: [
  *         {
- *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [
  *             {
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -379,10 +379,10 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *       Enabled: true || false,
  *       Processors: [
  *         {
- *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [
  *             {
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
