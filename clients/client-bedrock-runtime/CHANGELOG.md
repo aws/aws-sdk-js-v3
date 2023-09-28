@@ -8,4 +8,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **credential-providers:** add fromHttp credential provider ([#5256](https://github.com/aws/aws-sdk-js-v3/issues/5256)) ([c720c1c](https://github.com/aws/aws-sdk-js-v3/commit/c720c1ca02d6cdb73139ce63cf21878ae4bfb90c))
+* **client-bedrock-runtime:** Run Inference: Added support to run the inference on models.  Includes set of APIs for running inference in streaming and non-streaming mode. ([4202837](https://github.com/aws/aws-sdk-js-v3/commit/42028373750f56a76fd03587ec48091eb71915cb))

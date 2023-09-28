@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.422.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.421.0...v3.422.0) (2023-09-28)
+
+
+### Features
+
+* **client-sagemaker:** Online store feature groups supports Standard and InMemory tier storage types for low latency storage for real-time data retrieval. The InMemory tier supports collection types List, Set, and Vector. ([5fc40b0](https://github.com/aws/aws-sdk-js-v3/commit/5fc40b046014c981ddd68997bacc4190c1c3bf0c))
+
+
+
+
+
 # [3.421.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.420.0...v3.421.0) (2023-09-27)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

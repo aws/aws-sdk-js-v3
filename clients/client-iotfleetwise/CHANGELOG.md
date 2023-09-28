@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.422.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.421.0...v3.422.0) (2023-09-28)
+
+
+### Features
+
+* **client-iotfleetwise:** AWS IoT FleetWise now supports encryption through a customer managed AWS KMS key. The PutEncryptionConfiguration and GetEncryptionConfiguration APIs were added. ([b35f84b](https://github.com/aws/aws-sdk-js-v3/commit/b35f84bd78e47b36aa42e8b294c3075ab1f29b01))
+
+
+
+
+
 # [3.421.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.420.0...v3.421.0) (2023-09-27)
 
 **Note:** Version bump only for package @aws-sdk/client-iotfleetwise

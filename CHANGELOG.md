@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.422.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.421.0...v3.422.0) (2023-09-28)
+
+
+### Features
+
+* **client-bedrock-runtime:** Run Inference: Added support to run the inference on models.  Includes set of APIs for running inference in streaming and non-streaming mode. ([4202837](https://github.com/aws/aws-sdk-js-v3/commit/42028373750f56a76fd03587ec48091eb71915cb))
+* **client-bedrock:** Model Invocation logging added to enable or disable logs in customer account. Model listing and description support added. Provisioned Throughput feature added. Custom model support added for creating custom models. Also includes list, and delete functions for custom model. ([1f7b366](https://github.com/aws/aws-sdk-js-v3/commit/1f7b366360725a45440f9580b5b1629e4f9d75f1))
+* **client-budgets:** Update DescribeBudgets and DescribeBudgetNotificationsForAccount MaxResults limit to 1000. ([b88ea7e](https://github.com/aws/aws-sdk-js-v3/commit/b88ea7e7adeb6d51ec5bacdf583190afef586736))
+* **client-ec2:** Adds support for Customer Managed Key encryption for Amazon Verified Access resources ([5ba0655](https://github.com/aws/aws-sdk-js-v3/commit/5ba06550cd42b318766df784175c926c1ca820db))
+* **client-iotfleetwise:** AWS IoT FleetWise now supports encryption through a customer managed AWS KMS key. The PutEncryptionConfiguration and GetEncryptionConfiguration APIs were added. ([b35f84b](https://github.com/aws/aws-sdk-js-v3/commit/b35f84bd78e47b36aa42e8b294c3075ab1f29b01))
+* **client-sagemaker-featurestore-runtime:** Feature Store supports read/write of records with collection type features. ([1f7a244](https://github.com/aws/aws-sdk-js-v3/commit/1f7a24472444278b098f0256f9ec71b12b9ef6d3))
+* **client-sagemaker:** Online store feature groups supports Standard and InMemory tier storage types for low latency storage for real-time data retrieval. The InMemory tier supports collection types List, Set, and Vector. ([5fc40b0](https://github.com/aws/aws-sdk-js-v3/commit/5fc40b046014c981ddd68997bacc4190c1c3bf0c))
+* **clients:** update client endpoints as of 2023-09-28 ([5ba9a46](https://github.com/aws/aws-sdk-js-v3/commit/5ba9a4600c50debe034f4b5c8ff26ffeecf316cf))
+* **credential-providers:** add fromHttp credential provider ([#5256](https://github.com/aws/aws-sdk-js-v3/issues/5256)) ([c720c1c](https://github.com/aws/aws-sdk-js-v3/commit/c720c1ca02d6cdb73139ce63cf21878ae4bfb90c))
+
+
+
+
+
 # [3.421.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.420.0...v3.421.0) (2023-09-27)
 
 

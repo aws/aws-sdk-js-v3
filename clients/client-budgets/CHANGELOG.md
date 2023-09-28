@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.422.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.421.0...v3.422.0) (2023-09-28)
+
+
+### Features
+
+* **client-budgets:** Update DescribeBudgets and DescribeBudgetNotificationsForAccount MaxResults limit to 1000. ([b88ea7e](https://github.com/aws/aws-sdk-js-v3/commit/b88ea7e7adeb6d51ec5bacdf583190afef586736))
+
+
+
+
+
 # [3.421.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.420.0...v3.421.0) (2023-09-27)
 
 **Note:** Version bump only for package @aws-sdk/client-budgets
