@@ -355,6 +355,14 @@ GetDecoderManifest
 </details>
 <details>
 <summary>
+GetEncryptionConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/getencryptionconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getencryptionconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getencryptionconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetFleet
 </summary>
 
@@ -527,6 +535,14 @@ ListVehiclesInFleet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listvehiclesinfleetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listvehiclesinfleetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listvehiclesinfleetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutEncryptionConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/putencryptionconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/putencryptionconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/putencryptionconfigurationcommandoutput.html)
 
 </details>
 <details>

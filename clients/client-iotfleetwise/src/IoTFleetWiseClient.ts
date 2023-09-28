@@ -92,6 +92,10 @@ import {
 } from "./commands/DisassociateVehicleFleetCommand";
 import { GetCampaignCommandInput, GetCampaignCommandOutput } from "./commands/GetCampaignCommand";
 import { GetDecoderManifestCommandInput, GetDecoderManifestCommandOutput } from "./commands/GetDecoderManifestCommand";
+import {
+  GetEncryptionConfigurationCommandInput,
+  GetEncryptionConfigurationCommandOutput,
+} from "./commands/GetEncryptionConfigurationCommand";
 import { GetFleetCommandInput, GetFleetCommandOutput } from "./commands/GetFleetCommand";
 import { GetLoggingOptionsCommandInput, GetLoggingOptionsCommandOutput } from "./commands/GetLoggingOptionsCommand";
 import { GetModelManifestCommandInput, GetModelManifestCommandOutput } from "./commands/GetModelManifestCommand";
@@ -147,6 +151,10 @@ import {
   ListVehiclesInFleetCommandInput,
   ListVehiclesInFleetCommandOutput,
 } from "./commands/ListVehiclesInFleetCommand";
+import {
+  PutEncryptionConfigurationCommandInput,
+  PutEncryptionConfigurationCommandOutput,
+} from "./commands/PutEncryptionConfigurationCommand";
 import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "./commands/PutLoggingOptionsCommand";
 import { RegisterAccountCommandInput, RegisterAccountCommandOutput } from "./commands/RegisterAccountCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -199,6 +207,7 @@ export type ServiceInputTypes =
   | DisassociateVehicleFleetCommandInput
   | GetCampaignCommandInput
   | GetDecoderManifestCommandInput
+  | GetEncryptionConfigurationCommandInput
   | GetFleetCommandInput
   | GetLoggingOptionsCommandInput
   | GetModelManifestCommandInput
@@ -221,6 +230,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListVehiclesCommandInput
   | ListVehiclesInFleetCommandInput
+  | PutEncryptionConfigurationCommandInput
   | PutLoggingOptionsCommandInput
   | RegisterAccountCommandInput
   | TagResourceCommandInput
@@ -254,6 +264,7 @@ export type ServiceOutputTypes =
   | DisassociateVehicleFleetCommandOutput
   | GetCampaignCommandOutput
   | GetDecoderManifestCommandOutput
+  | GetEncryptionConfigurationCommandOutput
   | GetFleetCommandOutput
   | GetLoggingOptionsCommandOutput
   | GetModelManifestCommandOutput
@@ -276,6 +287,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListVehiclesCommandOutput
   | ListVehiclesInFleetCommandOutput
+  | PutEncryptionConfigurationCommandOutput
   | PutLoggingOptionsCommandOutput
   | RegisterAccountCommandOutput
   | TagResourceCommandOutput

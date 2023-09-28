@@ -1260,7 +1260,7 @@ export interface CreateCampaignRequest {
   /**
    * @public
    * <p>The destination where the campaign sends data. You can choose to send data to be stored in Amazon S3 or Amazon Timestream.</p>
-   *         <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. </p>
+   *         <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. Amazon Web Services IoT FleetWise supports at-least-once file delivery to S3. Your vehicle data is stored on multiple Amazon Web Services IoT FleetWise servers for redundancy and high availability.</p>
    *         <p>You can use Amazon Timestream to access and analyze time series data, and Timestream to query
    *             vehicle data so that you can identify trends and patterns.</p>
    */
@@ -3271,6 +3271,35 @@ export interface DisassociateVehicleFleetResponse {}
 
 /**
  * @public
+ * @enum
+ */
+export const EncryptionStatus = {
+  FAILURE: "FAILURE",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
+  FLEETWISE_DEFAULT_ENCRYPTION: "FLEETWISE_DEFAULT_ENCRYPTION",
+  KMS_BASED_ENCRYPTION: "KMS_BASED_ENCRYPTION",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+/**
+ * @public
  */
 export interface ListFleetsForVehicleRequest {
   /**
@@ -3559,6 +3588,52 @@ export namespace FormattedVss {
     if (value.vssJson !== undefined) return visitor.vssJson(value.vssJson);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * @public
+ */
+export interface GetEncryptionConfigurationRequest {}
+
+/**
+ * @public
+ */
+export interface GetEncryptionConfigurationResponse {
+  /**
+   * @public
+   * <p>The ID of the KMS key that is used for encryption.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The encryption status.</p>
+   */
+  encryptionStatus: EncryptionStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>The type of encryption. Set to <code>KMS_BASED_ENCRYPTION</code> to use an KMS key that you own and manage. Set to <code>FLEETWISE_DEFAULT_ENCRYPTION</code> to use an Amazon Web Services managed key that is owned by the Amazon Web Services IoT FleetWise service account.</p>
+   */
+  encryptionType: EncryptionType | string | undefined;
+
+  /**
+   * @public
+   * <p>The error message that describes why encryption settings couldn't be configured, if applicable.</p>
+   */
+  errorMessage?: string;
+
+  /**
+   * @public
+   * <p>The time when encryption was configured in seconds since epoch (January 1, 1970 at midnight UTC time).</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * @public
+   * <p>The time when encryption was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).</p>
+   */
+  lastModificationTime?: Date;
 }
 
 /**
@@ -4324,6 +4399,46 @@ export interface UpdateModelManifestResponse {
    * <p> The Amazon Resource Name (ARN) of the updated vehicle model. </p>
    */
   arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutEncryptionConfigurationRequest {
+  /**
+   * @public
+   * <p>The ID of the KMS key that is used for encryption.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The type of encryption. Choose <code>KMS_BASED_ENCRYPTION</code> to use a KMS key or <code>FLEETWISE_DEFAULT_ENCRYPTION</code> to use an Amazon Web Services managed key.</p>
+   */
+  encryptionType: EncryptionType | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutEncryptionConfigurationResponse {
+  /**
+   * @public
+   * <p>The ID of the KMS key that is used for encryption.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The encryption status.</p>
+   */
+  encryptionStatus: EncryptionStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>The type of encryption. Set to <code>KMS_BASED_ENCRYPTION</code> to use an KMS key that you own and manage. Set to <code>FLEETWISE_DEFAULT_ENCRYPTION</code> to use an Amazon Web Services managed key that is owned by the Amazon Web Services IoT FleetWise service account.</p>
+   */
+  encryptionType: EncryptionType | string | undefined;
 }
 
 /**

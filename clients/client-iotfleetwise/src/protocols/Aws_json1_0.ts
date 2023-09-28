@@ -66,6 +66,10 @@ import {
 } from "../commands/DisassociateVehicleFleetCommand";
 import { GetCampaignCommandInput, GetCampaignCommandOutput } from "../commands/GetCampaignCommand";
 import { GetDecoderManifestCommandInput, GetDecoderManifestCommandOutput } from "../commands/GetDecoderManifestCommand";
+import {
+  GetEncryptionConfigurationCommandInput,
+  GetEncryptionConfigurationCommandOutput,
+} from "../commands/GetEncryptionConfigurationCommand";
 import { GetFleetCommandInput, GetFleetCommandOutput } from "../commands/GetFleetCommand";
 import { GetLoggingOptionsCommandInput, GetLoggingOptionsCommandOutput } from "../commands/GetLoggingOptionsCommand";
 import { GetModelManifestCommandInput, GetModelManifestCommandOutput } from "../commands/GetModelManifestCommand";
@@ -121,6 +125,10 @@ import {
   ListVehiclesInFleetCommandInput,
   ListVehiclesInFleetCommandOutput,
 } from "../commands/ListVehiclesInFleetCommand";
+import {
+  PutEncryptionConfigurationCommandInput,
+  PutEncryptionConfigurationCommandOutput,
+} from "../commands/PutEncryptionConfigurationCommand";
 import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "../commands/PutLoggingOptionsCommand";
 import { RegisterAccountCommandInput, RegisterAccountCommandOutput } from "../commands/RegisterAccountCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -180,6 +188,8 @@ import {
   GetCampaignResponse,
   GetDecoderManifestRequest,
   GetDecoderManifestResponse,
+  GetEncryptionConfigurationRequest,
+  GetEncryptionConfigurationResponse,
   GetFleetRequest,
   GetFleetResponse,
   GetLoggingOptionsRequest,
@@ -227,6 +237,7 @@ import {
   Node,
   ObdInterface,
   ObdSignal,
+  PutEncryptionConfigurationRequest,
   PutLoggingOptionsRequest,
   RegisterAccountRequest,
   RegisterAccountResponse,
@@ -483,6 +494,19 @@ export const se_GetDecoderManifestCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDecoderManifest");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetEncryptionConfigurationCommand
+ */
+export const se_GetEncryptionConfigurationCommand = async (
+  input: GetEncryptionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetEncryptionConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -769,6 +793,19 @@ export const se_ListVehiclesInFleetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListVehiclesInFleet");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0PutEncryptionConfigurationCommand
+ */
+export const se_PutEncryptionConfigurationCommand = async (
+  input: PutEncryptionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutEncryptionConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1953,6 +1990,64 @@ const de_GetDecoderManifestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDecoderManifestCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotfleetwise#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotfleetwise#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotfleetwise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotfleetwise#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0GetEncryptionConfigurationCommand
+ */
+export const de_GetEncryptionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEncryptionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetEncryptionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetEncryptionConfigurationResponse(data, context);
+  const response: GetEncryptionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetEncryptionConfigurationCommandError
+ */
+const de_GetEncryptionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEncryptionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3264,6 +3359,67 @@ const de_ListVehiclesInFleetCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0PutEncryptionConfigurationCommand
+ */
+export const de_PutEncryptionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEncryptionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutEncryptionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutEncryptionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0PutEncryptionConfigurationCommandError
+ */
+const de_PutEncryptionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEncryptionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotfleetwise#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iotfleetwise#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotfleetwise#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotfleetwise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotfleetwise#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0PutLoggingOptionsCommand
  */
 export const de_PutLoggingOptionsCommand = async (
@@ -4206,6 +4362,8 @@ const se_CreateSignalCatalogRequest = (input: CreateSignalCatalogRequest, contex
 
 // se_GetDecoderManifestRequest omitted.
 
+// se_GetEncryptionConfigurationRequest omitted.
+
 // se_GetFleetRequest omitted.
 
 // se_GetLoggingOptionsRequest omitted.
@@ -4346,6 +4504,8 @@ const se_ObdSignal = (input: ObdSignal, context: __SerdeContext): any => {
     startByte: [],
   });
 };
+
+// se_PutEncryptionConfigurationRequest omitted.
 
 // se_PutLoggingOptionsRequest omitted.
 
@@ -4699,6 +4859,23 @@ const de_GetDecoderManifestResponse = (output: any, context: __SerdeContext): Ge
 };
 
 /**
+ * deserializeAws_json1_0GetEncryptionConfigurationResponse
+ */
+const de_GetEncryptionConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): GetEncryptionConfigurationResponse => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    encryptionStatus: __expectString,
+    encryptionType: __expectString,
+    errorMessage: __expectString,
+    kmsKeyId: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0GetFleetResponse
  */
 const de_GetFleetResponse = (output: any, context: __SerdeContext): GetFleetResponse => {
@@ -5007,6 +5184,8 @@ const de_ObdSignal = (output: any, context: __SerdeContext): ObdSignal => {
     startByte: __expectInt32,
   }) as any;
 };
+
+// de_PutEncryptionConfigurationResponse omitted.
 
 // de_PutLoggingOptionsResponse omitted.
 
