@@ -490,15 +490,29 @@ export interface AutoAdjustData {
 /**
  * @public
  * <p>The amount of cost or usage that's measured for a budget.</p>
- *          <p>For example, a <code>Spend</code> for <code>3 GB</code> of S3 usage has the following
- * 			parameters:</p>
+ *          <p>
+ *             <i>Cost example:</i> A <code>Spend</code> for <code>3 USD</code> of
+ * 			costs has the following parameters:</p>
  *          <ul>
  *             <li>
  *                <p>An <code>Amount</code> of <code>3</code>
  *                </p>
  *             </li>
  *             <li>
- *                <p>A <code>unit</code> of <code>GB</code>
+ *                <p>A <code>Unit</code> of <code>USD</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <i>Usage example:</i> A <code>Spend</code> for <code>3 GB</code> of S3
+ * 			usage has the following parameters:</p>
+ *          <ul>
+ *             <li>
+ *                <p>An <code>Amount</code> of <code>3</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>A <code>Unit</code> of <code>GB</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -514,7 +528,7 @@ export interface Spend {
   /**
    * @public
    * <p>The unit of measurement that's used for the budget forecast, actual spend, or budget
-   * 			threshold, such as USD or GBP.</p>
+   * 			threshold.</p>
    */
   Unit: string | undefined;
 }
@@ -1728,9 +1742,8 @@ export interface DescribeBudgetNotificationsForAccountRequest {
 
   /**
    * @public
-   * <p>
-   * 			An integer that shows how many budget name entries a paginated response contains.
-   * 		</p>
+   * <p> An integer that represents how many budgets a paginated response contains. The default is
+   * 			50. </p>
    */
   MaxResults?: number;
 
@@ -1938,13 +1951,15 @@ export interface DescribeBudgetPerformanceHistoryResponse {
 export interface DescribeBudgetsRequest {
   /**
    * @public
-   * <p>The <code>accountId</code> that is associated with the budgets that you want descriptions of.</p>
+   * <p>The <code>accountId</code> that is associated with the budgets that you want to
+   *          describe.</p>
    */
   AccountId: string | undefined;
 
   /**
    * @public
-   * <p>An optional integer that represents how many entries a paginated response contains. The maximum is 100.</p>
+   * <p>An integer that represents how many budgets a paginated response contains. The default is
+   *          100.</p>
    */
   MaxResults?: number;
 
@@ -1980,7 +1995,8 @@ export interface DescribeBudgetsResponse {
 export interface DescribeNotificationsForBudgetRequest {
   /**
    * @public
-   * <p>The <code>accountId</code> that is associated with the budget whose notifications you want descriptions of.</p>
+   * <p>The <code>accountId</code> that is associated with the budget whose notifications you want
+   *          descriptions of.</p>
    */
   AccountId: string | undefined;
 
@@ -1992,7 +2008,7 @@ export interface DescribeNotificationsForBudgetRequest {
 
   /**
    * @public
-   * <p>An optional integer that represents how many entries a paginated response contains. The maximum is 100.</p>
+   * <p>An optional integer that represents how many entries a paginated response contains.</p>
    */
   MaxResults?: number;
 
@@ -2046,7 +2062,7 @@ export interface DescribeSubscribersForNotificationRequest {
 
   /**
    * @public
-   * <p>An optional integer that represents how many entries a paginated response contains. The maximum is 100.</p>
+   * <p>An optional integer that represents how many entries a paginated response contains.</p>
    */
   MaxResults?: number;
 
