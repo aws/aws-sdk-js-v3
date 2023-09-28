@@ -68,7 +68,10 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  *   Record: [ // Record // required
  *     { // FeatureValue
  *       FeatureName: "STRING_VALUE", // required
- *       ValueAsString: "STRING_VALUE", // required
+ *       ValueAsString: "STRING_VALUE",
+ *       ValueAsStringList: [ // ValueAsStringList
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   ],
  *   TargetStores: [ // TargetStores

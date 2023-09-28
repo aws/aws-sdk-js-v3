@@ -517,6 +517,8 @@ const de_ValidationErrorRes = async (parsedOutput: any, context: __SerdeContext)
 
 // se_TtlDuration omitted.
 
+// se_ValueAsStringList omitted.
+
 // de_BatchGetRecordError omitted.
 
 // de_BatchGetRecordErrors omitted.
@@ -536,6 +538,8 @@ const de_ValidationErrorRes = async (parsedOutput: any, context: __SerdeContext)
 // de_RecordIdentifiers omitted.
 
 // de_UnprocessedIdentifiers omitted.
+
+// de_ValueAsStringList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

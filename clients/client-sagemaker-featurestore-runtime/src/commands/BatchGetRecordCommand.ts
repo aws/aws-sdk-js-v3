@@ -72,7 +72,10 @@ export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __M
  * //       Record: [ // Record // required
  * //         { // FeatureValue
  * //           FeatureName: "STRING_VALUE", // required
- * //           ValueAsString: "STRING_VALUE", // required
+ * //           ValueAsString: "STRING_VALUE",
+ * //           ValueAsStringList: [ // ValueAsStringList
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       ],
  * //       ExpiresAt: "STRING_VALUE",

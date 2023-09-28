@@ -135,10 +135,22 @@ export interface FeatureValue {
 
   /**
    * @public
-   * <p>The value associated with a feature, in string format. Note that features types can be
-   *          String, Integral, or Fractional. This value represents all three types as a string.</p>
+   * <p>The value in string format associated with a feature. Used when your
+   *             <code>CollectionType</code> is <code>None</code>. Note that features types can be
+   *             <code>String</code>, <code>Integral</code>, or <code>Fractional</code>. This value
+   *          represents all three types as a string.</p>
    */
-  ValueAsString: string | undefined;
+  ValueAsString?: string;
+
+  /**
+   * @public
+   * <p>The list of values in string format associated with a feature. Used when your
+   *             <code>CollectionType</code> is a <code>List</code>, <code>Set</code>, or
+   *             <code>Vector</code>. Note that features types can be <code>String</code>,
+   *             <code>Integral</code>, or <code>Fractional</code>. These values represents all three
+   *          types as a string.</p>
+   */
+  ValueAsStringList?: string[];
 }
 
 /**

@@ -64,7 +64,10 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  * //   Record: [ // Record
  * //     { // FeatureValue
  * //       FeatureName: "STRING_VALUE", // required
- * //       ValueAsString: "STRING_VALUE", // required
+ * //       ValueAsString: "STRING_VALUE",
+ * //       ValueAsStringList: [ // ValueAsStringList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   ExpiresAt: "STRING_VALUE",
