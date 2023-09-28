@@ -111,6 +111,10 @@ export interface DescribeVerifiedAccessEndpointsCommandOutput
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SseSpecification: { // VerifiedAccessSseSpecificationResponse
+ * //         CustomerManagedKeyEnabled: true || false,
+ * //         KmsKeyArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

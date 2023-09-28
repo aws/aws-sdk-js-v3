@@ -89,6 +89,10 @@ export interface AttachVerifiedAccessTrustProviderCommandOutput
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SseSpecification: { // VerifiedAccessSseSpecificationResponse
+ * //       CustomerManagedKeyEnabled: true || false,
+ * //       KmsKeyArn: "STRING_VALUE",
+ * //     },
  * //   },
  * //   VerifiedAccessInstance: { // VerifiedAccessInstance
  * //     VerifiedAccessInstanceId: "STRING_VALUE",

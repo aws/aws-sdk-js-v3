@@ -91,7 +91,6 @@ import {
   TransitGatewayRouteTable,
   TransitGatewayRouteTableAnnouncement,
   VerifiedAccessEndpoint,
-  VerifiedAccessGroup,
 } from "./models_2";
 import {
   ArchitectureValues,
@@ -100,8 +99,6 @@ import {
   CapacityReservationSpecificationResponse,
   CpuOptions,
   DeviceType,
-  ElasticGpuAssociation,
-  ElasticInferenceAcceleratorAssociation,
   EnclaveOptions,
   EventInformation,
   Filter,
@@ -113,6 +110,77 @@ import {
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>Describes the association between an instance and an Elastic Graphics accelerator.</p>
+ */
+export interface ElasticGpuAssociation {
+  /**
+   * @public
+   * <p>The ID of the Elastic Graphics accelerator.</p>
+   */
+  ElasticGpuId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the association.</p>
+   */
+  ElasticGpuAssociationId?: string;
+
+  /**
+   * @public
+   * <p>The state of the association between the instance and the
+   *             Elastic Graphics accelerator.</p>
+   */
+  ElasticGpuAssociationState?: string;
+
+  /**
+   * @public
+   * <p>The time the Elastic Graphics accelerator was associated with the instance.</p>
+   */
+  ElasticGpuAssociationTime?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the association between an instance and an elastic inference accelerator.
+ *         </p>
+ */
+export interface ElasticInferenceAcceleratorAssociation {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the elastic inference accelerator.
+   *         </p>
+   */
+  ElasticInferenceAcceleratorArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The ID of the association.
+   *         </p>
+   */
+  ElasticInferenceAcceleratorAssociationId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The state of the elastic inference accelerator.
+   *         </p>
+   */
+  ElasticInferenceAcceleratorAssociationState?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The time at which the elastic inference accelerator is associated with an instance.
+   *         </p>
+   */
+  ElasticInferenceAcceleratorAssociationTime?: Date;
+}
 
 /**
  * @public
@@ -12214,67 +12282,6 @@ export interface DescribeVerifiedAccessEndpointsResult {
    * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpoints?: VerifiedAccessEndpoint[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeVerifiedAccessGroupsRequest {
-  /**
-   * @public
-   * <p>The ID of the Verified Access groups.</p>
-   */
-  VerifiedAccessGroupIds?: string[];
-
-  /**
-   * @public
-   * <p>The ID of the Verified Access instance.</p>
-   */
-  VerifiedAccessInstanceId?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeVerifiedAccessGroupsResult {
-  /**
-   * @public
-   * <p>The ID of the Verified Access group.</p>
-   */
-  VerifiedAccessGroups?: VerifiedAccessGroup[];
 
   /**
    * @public

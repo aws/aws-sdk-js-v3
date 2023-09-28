@@ -51,16 +51,24 @@ export interface ModifyVerifiedAccessGroupPolicyCommandOutput
  * const client = new EC2Client(config);
  * const input = { // ModifyVerifiedAccessGroupPolicyRequest
  *   VerifiedAccessGroupId: "STRING_VALUE", // required
- *   PolicyEnabled: true || false, // required
+ *   PolicyEnabled: true || false,
  *   PolicyDocument: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  *   DryRun: true || false,
+ *   SseSpecification: { // VerifiedAccessSseSpecificationRequest
+ *     CustomerManagedKeyEnabled: true || false,
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new ModifyVerifiedAccessGroupPolicyCommand(input);
  * const response = await client.send(command);
  * // { // ModifyVerifiedAccessGroupPolicyResult
  * //   PolicyEnabled: true || false,
  * //   PolicyDocument: "STRING_VALUE",
+ * //   SseSpecification: { // VerifiedAccessSseSpecificationResponse
+ * //     CustomerManagedKeyEnabled: true || false,
+ * //     KmsKeyArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

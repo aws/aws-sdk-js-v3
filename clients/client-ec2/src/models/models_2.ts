@@ -22,6 +22,7 @@ import {
   UnsuccessfulItem,
   UserTrustProviderType,
   VerifiedAccessInstance,
+  VerifiedAccessSseSpecificationResponse,
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
   VolumeAttachment,
@@ -45,11 +46,23 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
+  PlacementGroup,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreatePlacementGroupResult {
+  /**
+   * @public
+   * <p>Information about the placement group.</p>
+   */
+  PlacementGroup?: PlacementGroup;
+}
 
 /**
  * @public
@@ -4066,6 +4079,32 @@ export interface CreateVerifiedAccessEndpointEniOptions {
 
 /**
  * @public
+ * <p>
+ *          Verified Access provides server side encryption by default to data at rest using Amazon Web Services-owned KMS keys. You also have the option of using customer managed KMS keys, which can be specified using the options below.
+ *       </p>
+ */
+export interface VerifiedAccessSseSpecificationRequest {
+  /**
+   * @public
+   * <p>
+   *          Enable or disable the use of customer managed KMS keys for server side encryption.
+   *       </p>
+   *          <p>Valid values: <code>True</code> | <code>False</code>
+   *          </p>
+   */
+  CustomerManagedKeyEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *          The ARN of the KMS key.
+   *       </p>
+   */
+  KmsKeyArn?: string;
+}
+
+/**
+ * @public
  */
 export interface CreateVerifiedAccessEndpointRequest {
   /**
@@ -4159,6 +4198,14 @@ export interface CreateVerifiedAccessEndpointRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *          Options for server side encryption.
+   *       </p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
 
 /**
@@ -4370,6 +4417,14 @@ export interface VerifiedAccessEndpoint {
    * <p>The tags.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>
+   *          Describes the options in use for server side encryption.
+   *       </p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
 
 /**
@@ -4425,6 +4480,14 @@ export interface CreateVerifiedAccessGroupRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *          Options for server side encryption.
+   *       </p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
 
 /**
@@ -4485,6 +4548,14 @@ export interface VerifiedAccessGroup {
    * <p>The tags.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>
+   *          Describes the options in use for server side encryption.
+   *       </p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
 
 /**
@@ -4531,9 +4602,7 @@ export interface CreateVerifiedAccessInstanceRequest {
 
   /**
    * @public
-   * <p>
-   * 		   Choose to enable or disable support for Federal Information Processing Standards (FIPS) on the instance.
-   * 	   </p>
+   * <p>Enable or disable support for Federal Information Processing Standards (FIPS) on the instance.</p>
    */
   FIPSEnabled?: boolean;
 }
@@ -4681,6 +4750,14 @@ export interface CreateVerifiedAccessTrustProviderRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *          Options for server side encryption.
+   *       </p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
 
 /**
@@ -8657,36 +8734,6 @@ export interface DeletePublicIpv4PoolRequest {
    * <p>The ID of the public IPv4 pool you want to delete.</p>
    */
   PoolId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePublicIpv4PoolResult {
-  /**
-   * @public
-   * <p>Information about the result of deleting the public IPv4 pool.</p>
-   */
-  ReturnValue?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeleteQueuedReservedInstancesRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The IDs of the Reserved Instances.</p>
-   */
-  ReservedInstancesIds: string[] | undefined;
 }
 
 /**

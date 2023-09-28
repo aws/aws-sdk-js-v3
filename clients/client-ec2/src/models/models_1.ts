@@ -16,7 +16,6 @@ import {
   AddPrefixListEntry,
   AddressFamily,
   AttachmentStatus,
-  CertificateAuthenticationRequest,
   DirectoryServiceAuthenticationRequest,
   FederatedAuthenticationRequest,
   InstanceEventWindow,
@@ -33,6 +32,19 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Information about the client certificate to be used for authentication.</p>
+ */
+export interface CertificateAuthenticationRequest {
+  /**
+   * @public
+   * <p>The ARN of the client certificate. The certificate must be signed by a certificate
+   * 			authority (CA) and it must be provisioned in Certificate Manager (ACM).</p>
+   */
+  ClientRootCertificateChainArn?: string;
+}
 
 /**
  * @public
@@ -10994,17 +11006,6 @@ export interface PlacementGroup {
    *             groups can be spread across hosts.</p>
    */
   SpreadLevel?: SpreadLevel | string;
-}
-
-/**
- * @public
- */
-export interface CreatePlacementGroupResult {
-  /**
-   * @public
-   * <p>Information about the placement group.</p>
-   */
-  PlacementGroup?: PlacementGroup;
 }
 
 /**

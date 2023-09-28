@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVerifiedAccessGroupsRequest, DescribeVerifiedAccessGroupsResult } from "../models/models_4";
+import { DescribeVerifiedAccessGroupsRequest, DescribeVerifiedAccessGroupsResult } from "../models/models_5";
 import { de_DescribeVerifiedAccessGroupsCommand, se_DescribeVerifiedAccessGroupsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -82,6 +82,10 @@ export interface DescribeVerifiedAccessGroupsCommandOutput
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SseSpecification: { // VerifiedAccessSseSpecificationResponse
+ * //         CustomerManagedKeyEnabled: true || false,
+ * //         KmsKeyArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

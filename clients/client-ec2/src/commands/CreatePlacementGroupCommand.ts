@@ -15,7 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreatePlacementGroupRequest, CreatePlacementGroupResult } from "../models/models_1";
+import { CreatePlacementGroupRequest } from "../models/models_1";
+import { CreatePlacementGroupResult } from "../models/models_2";
 import { de_CreatePlacementGroupCommand, se_CreatePlacementGroupCommand } from "../protocols/Aws_ec2";
 
 /**

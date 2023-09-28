@@ -55,6 +55,7 @@ import {
   State,
   SubnetCidrReservation,
   TransitGatewayPrefixListReference,
+  VerifiedAccessGroup,
   Volume,
   VpcEndpoint,
   VpnConnection,
@@ -79,6 +80,67 @@ import {
   VirtualizationType,
 } from "./models_3";
 import { AnalysisStatus, ArchitectureType } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessGroupsRequest {
+  /**
+   * @public
+   * <p>The ID of the Verified Access groups.</p>
+   */
+  VerifiedAccessGroupIds?: string[];
+
+  /**
+   * @public
+   * <p>The ID of the Verified Access instance.</p>
+   */
+  VerifiedAccessInstanceId?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessGroupsResult {
+  /**
+   * @public
+   * <p>The ID of the Verified Access group.</p>
+   */
+  VerifiedAccessGroups?: VerifiedAccessGroup[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -8419,42 +8481,6 @@ export interface GetVerifiedAccessEndpointPolicyRequest {
  * @public
  */
 export interface GetVerifiedAccessEndpointPolicyResult {
-  /**
-   * @public
-   * <p>The status of the Verified Access policy.</p>
-   */
-  PolicyEnabled?: boolean;
-
-  /**
-   * @public
-   * <p>The Verified Access policy document.</p>
-   */
-  PolicyDocument?: string;
-}
-
-/**
- * @public
- */
-export interface GetVerifiedAccessGroupPolicyRequest {
-  /**
-   * @public
-   * <p>The ID of the Verified Access group.</p>
-   */
-  VerifiedAccessGroupId: string | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetVerifiedAccessGroupPolicyResult {
   /**
    * @public
    * <p>The status of the Verified Access policy.</p>

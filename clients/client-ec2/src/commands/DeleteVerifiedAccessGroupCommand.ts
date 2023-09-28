@@ -67,6 +67,10 @@ export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAc
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SseSpecification: { // VerifiedAccessSseSpecificationResponse
+ * //       CustomerManagedKeyEnabled: true || false,
+ * //       KmsKeyArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

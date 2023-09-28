@@ -69,6 +69,10 @@ export interface ModifyVerifiedAccessGroupCommandOutput extends ModifyVerifiedAc
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SseSpecification: { // VerifiedAccessSseSpecificationResponse
+ * //       CustomerManagedKeyEnabled: true || false,
+ * //       KmsKeyArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

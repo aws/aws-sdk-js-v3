@@ -33,6 +33,7 @@ import {
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
   VerifiedAccessInstance,
+  VerifiedAccessSseSpecificationResponse,
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
@@ -100,6 +101,7 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessEndpointProtocol,
   VerifiedAccessGroup,
+  VerifiedAccessSseSpecificationRequest,
   VpnConnection,
   VpnConnectionFilterSensitiveLog,
   VpnEcmpSupportValue,
@@ -158,6 +160,42 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessGroupPolicyRequest {
+  /**
+   * @public
+   * <p>The ID of the Verified Access group.</p>
+   */
+  VerifiedAccessGroupId: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessGroupPolicyResult {
+  /**
+   * @public
+   * <p>The status of the Verified Access policy.</p>
+   */
+  PolicyEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>The Verified Access policy document.</p>
+   */
+  PolicyDocument?: string;
+}
 
 /**
  * @public
@@ -4761,7 +4799,7 @@ export interface ModifyVerifiedAccessEndpointPolicyRequest {
    * @public
    * <p>The status of the Verified Access policy.</p>
    */
-  PolicyEnabled: boolean | undefined;
+  PolicyEnabled?: boolean;
 
   /**
    * @public
@@ -4783,6 +4821,14 @@ export interface ModifyVerifiedAccessEndpointPolicyRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *          Options for server side encryption.
+   *       </p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
 
 /**
@@ -4800,6 +4846,14 @@ export interface ModifyVerifiedAccessEndpointPolicyResult {
    * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
+
+  /**
+   * @public
+   * <p>
+   *          Describes the options in use for server side encryption.
+   *       </p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
 
 /**
@@ -4865,7 +4919,7 @@ export interface ModifyVerifiedAccessGroupPolicyRequest {
    * @public
    * <p>The status of the Verified Access policy.</p>
    */
-  PolicyEnabled: boolean | undefined;
+  PolicyEnabled?: boolean;
 
   /**
    * @public
@@ -4887,6 +4941,14 @@ export interface ModifyVerifiedAccessGroupPolicyRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *          Options for server side encryption.
+   *       </p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
 
 /**
@@ -4904,6 +4966,14 @@ export interface ModifyVerifiedAccessGroupPolicyResult {
    * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
+
+  /**
+   * @public
+   * <p>
+   *          Describes the options in use for server side encryption.
+   *       </p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
 
 /**
@@ -5184,6 +5254,14 @@ export interface ModifyVerifiedAccessTrustProviderRequest {
    *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
    */
   ClientToken?: string;
+
+  /**
+   * @public
+   * <p>
+   *          Options for server side encryption.
+   *       </p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
 
 /**
@@ -9159,53 +9237,6 @@ export interface InstanceMarketOptionsRequest {
    * <p>The options for Spot Instances.</p>
    */
   SpotOptions?: SpotMarketOptions;
-}
-
-/**
- * @public
- * <p>The launch template to use. You must specify either the launch template ID or launch
- *             template name in the request, but not both.</p>
- */
-export interface LaunchTemplateSpecification {
-  /**
-   * @public
-   * <p>The ID of the launch template.</p>
-   *          <p>You must specify the <code>LaunchTemplateId</code> or the
-   *                 <code>LaunchTemplateName</code>, but not both.</p>
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * @public
-   * <p>The name of the launch template.</p>
-   *          <p>You must specify the <code>LaunchTemplateName</code> or the
-   *                 <code>LaunchTemplateId</code>, but not both.</p>
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * @public
-   * <p>The launch template version number, <code>$Latest</code>, or
-   *             <code>$Default</code>.</p>
-   *          <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch
-   *             template.</p>
-   *          <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the
-   *             launch template.</p>
-   *          <p>Default: The default version of the launch template.</p>
-   */
-  Version?: string;
-}
-
-/**
- * @public
- * <p>Describes a license configuration.</p>
- */
-export interface LicenseConfigurationRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
-   */
-  LicenseConfigurationArn?: string;
 }
 
 /**

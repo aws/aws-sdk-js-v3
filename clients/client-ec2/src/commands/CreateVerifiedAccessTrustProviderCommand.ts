@@ -88,6 +88,10 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
  *   ],
  *   ClientToken: "STRING_VALUE",
  *   DryRun: true || false,
+ *   SseSpecification: { // VerifiedAccessSseSpecificationRequest
+ *     CustomerManagedKeyEnabled: true || false,
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
@@ -119,6 +123,10 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SseSpecification: { // VerifiedAccessSseSpecificationResponse
+ * //       CustomerManagedKeyEnabled: true || false,
+ * //       KmsKeyArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

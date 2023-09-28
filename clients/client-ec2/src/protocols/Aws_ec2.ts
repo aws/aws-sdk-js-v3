@@ -2188,7 +2188,6 @@ import {
   CapacityReservation,
   CapacityReservationFleetCancellationState,
   CarrierGateway,
-  CertificateAuthenticationRequest,
   CidrBlock,
   ClientVpnAuthorizationRuleStatus,
   ConfirmProductInstanceRequest,
@@ -2277,6 +2276,7 @@ import {
   UnsuccessfulItemError,
   UserIdGroupPair,
   VerifiedAccessInstance,
+  VerifiedAccessSseSpecificationResponse,
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderCondensed,
   VolumeAttachment,
@@ -2299,6 +2299,7 @@ import {
   CapacityReservationOptionsRequest,
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
+  CertificateAuthenticationRequest,
   ClientConnectOptions,
   ClientLoginBannerOptions,
   ClientVpnAuthenticationRequest,
@@ -2381,7 +2382,6 @@ import {
   CreateNetworkInterfaceRequest,
   CreateNetworkInterfaceResult,
   CreatePlacementGroupRequest,
-  CreatePlacementGroupResult,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2525,6 +2525,7 @@ import {
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreatePlacementGroupResult,
   CreatePublicIpv4PoolRequest,
   CreatePublicIpv4PoolResult,
   CreateReplaceRootVolumeTaskRequest,
@@ -2684,8 +2685,6 @@ import {
   DeleteNetworkInterfaceRequest,
   DeletePlacementGroupRequest,
   DeletePublicIpv4PoolRequest,
-  DeletePublicIpv4PoolResult,
-  DeleteQueuedReservedInstancesRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2756,6 +2755,7 @@ import {
   VerifiedAccessEndpointLoadBalancerOptions,
   VerifiedAccessEndpointStatus,
   VerifiedAccessGroup,
+  VerifiedAccessSseSpecificationRequest,
   VgwTelemetry,
   Volume,
   VpcEndpoint,
@@ -2791,7 +2791,9 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeletePublicIpv4PoolResult,
   DeleteQueuedReservedInstancesError,
+  DeleteQueuedReservedInstancesRequest,
   DeleteQueuedReservedInstancesResult,
   DeleteRouteRequest,
   DeleteRouteTableRequest,
@@ -2973,10 +2975,8 @@ import {
   DiskImageDescription,
   DiskImageVolumeDescription,
   EbsInstanceBlockDevice,
-  ElasticGpuAssociation,
   ElasticGpuHealth,
   ElasticGpus,
-  ElasticInferenceAcceleratorAssociation,
   EnclaveOptions,
   EventInformation,
   ExportImageTask,
@@ -3188,12 +3188,12 @@ import {
   DescribeTrunkInterfaceAssociationsResult,
   DescribeVerifiedAccessEndpointsRequest,
   DescribeVerifiedAccessEndpointsResult,
-  DescribeVerifiedAccessGroupsRequest,
-  DescribeVerifiedAccessGroupsResult,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
   EfaInfo,
+  ElasticGpuAssociation,
+  ElasticInferenceAcceleratorAssociation,
   FpgaDeviceInfo,
   FpgaDeviceMemoryInfo,
   FpgaInfo,
@@ -3303,6 +3303,8 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVerifiedAccessGroupsRequest,
+  DescribeVerifiedAccessGroupsResult,
   DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
   DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
   DescribeVerifiedAccessInstancesRequest,
@@ -3529,8 +3531,6 @@ import {
   GetTransitGatewayRouteTablePropagationsResult,
   GetVerifiedAccessEndpointPolicyRequest,
   GetVerifiedAccessEndpointPolicyResult,
-  GetVerifiedAccessGroupPolicyRequest,
-  GetVerifiedAccessGroupPolicyResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3591,6 +3591,8 @@ import {
   EbsInstanceBlockDeviceSpecification,
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
+  GetVerifiedAccessGroupPolicyRequest,
+  GetVerifiedAccessGroupPolicyResult,
   GetVpnConnectionDeviceSampleConfigurationRequest,
   GetVpnConnectionDeviceSampleConfigurationResult,
   GetVpnConnectionDeviceTypesRequest,
@@ -3620,8 +3622,6 @@ import {
   InstanceMonitoring,
   IpamCidrAuthorizationContext,
   LaunchPermissionModifications,
-  LaunchTemplateSpecification,
-  LicenseConfigurationRequest,
   ListImagesInRecycleBinRequest,
   ListImagesInRecycleBinResult,
   ListSnapshotsInRecycleBinRequest,
@@ -3874,6 +3874,8 @@ import {
   InstanceMaintenanceOptionsRequest,
   InstanceMetadataOptionsRequest,
   InstanceStateChange,
+  LaunchTemplateSpecification,
+  LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
   RunInstancesRequest,
   RunScheduledInstancesRequest,
@@ -43081,6 +43083,13 @@ const se_CreateVerifiedAccessEndpointRequest = (
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
   }
+  if (input.SseSpecification != null) {
+    const memberEntries = se_VerifiedAccessSseSpecificationRequest(input.SseSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SseSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -43132,6 +43141,13 @@ const se_CreateVerifiedAccessGroupRequest = (input: CreateVerifiedAccessGroupReq
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.SseSpecification != null) {
+    const memberEntries = se_VerifiedAccessSseSpecificationRequest(input.SseSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SseSpecification.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -43273,6 +43289,13 @@ const se_CreateVerifiedAccessTrustProviderRequest = (
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.SseSpecification != null) {
+    const memberEntries = se_VerifiedAccessSseSpecificationRequest(input.SseSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SseSpecification.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -58309,6 +58332,13 @@ const se_ModifyVerifiedAccessEndpointPolicyRequest = (
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
   }
+  if (input.SseSpecification != null) {
+    const memberEntries = se_VerifiedAccessSseSpecificationRequest(input.SseSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SseSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -58396,6 +58426,13 @@ const se_ModifyVerifiedAccessGroupPolicyRequest = (
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.SseSpecification != null) {
+    const memberEntries = se_VerifiedAccessSseSpecificationRequest(input.SseSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SseSpecification.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -58543,6 +58580,13 @@ const se_ModifyVerifiedAccessTrustProviderRequest = (
   }
   if (input.ClientToken != null) {
     entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.SseSpecification != null) {
+    const memberEntries = se_VerifiedAccessSseSpecificationRequest(input.SseSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SseSpecification.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -65230,6 +65274,23 @@ const se_VerifiedAccessLogS3DestinationOptions = (
   }
   if (input.BucketOwner != null) {
     entries["BucketOwner"] = input.BucketOwner;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2VerifiedAccessSseSpecificationRequest
+ */
+const se_VerifiedAccessSseSpecificationRequest = (
+  input: VerifiedAccessSseSpecificationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.CustomerManagedKeyEnabled != null) {
+    entries["CustomerManagedKeyEnabled"] = input.CustomerManagedKeyEnabled;
+  }
+  if (input.KmsKeyArn != null) {
+    entries["KmsKeyArn"] = input.KmsKeyArn;
   }
   return entries;
 };
@@ -83792,6 +83853,9 @@ const de_ModifyVerifiedAccessEndpointPolicyResult = (
   if (output["policyDocument"] !== undefined) {
     contents.PolicyDocument = __expectString(output["policyDocument"]);
   }
+  if (output["sseSpecification"] !== undefined) {
+    contents.SseSpecification = de_VerifiedAccessSseSpecificationResponse(output["sseSpecification"], context);
+  }
   return contents;
 };
 
@@ -83822,6 +83886,9 @@ const de_ModifyVerifiedAccessGroupPolicyResult = (
   }
   if (output["policyDocument"] !== undefined) {
     contents.PolicyDocument = __expectString(output["policyDocument"]);
+  }
+  if (output["sseSpecification"] !== undefined) {
+    contents.SseSpecification = de_VerifiedAccessSseSpecificationResponse(output["sseSpecification"], context);
   }
   return contents;
 };
@@ -92442,6 +92509,9 @@ const de_VerifiedAccessEndpoint = (output: any, context: __SerdeContext): Verifi
   } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = de_TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
   }
+  if (output["sseSpecification"] !== undefined) {
+    contents.SseSpecification = de_VerifiedAccessSseSpecificationResponse(output["sseSpecification"], context);
+  }
   return contents;
 };
 
@@ -92562,6 +92632,9 @@ const de_VerifiedAccessGroup = (output: any, context: __SerdeContext): VerifiedA
     contents.Tags = [];
   } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = de_TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["sseSpecification"] !== undefined) {
+    contents.SseSpecification = de_VerifiedAccessSseSpecificationResponse(output["sseSpecification"], context);
   }
   return contents;
 };
@@ -92762,6 +92835,23 @@ const de_VerifiedAccessLogS3Destination = (output: any, context: __SerdeContext)
 };
 
 /**
+ * deserializeAws_ec2VerifiedAccessSseSpecificationResponse
+ */
+const de_VerifiedAccessSseSpecificationResponse = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessSseSpecificationResponse => {
+  const contents: any = {};
+  if (output["customerManagedKeyEnabled"] !== undefined) {
+    contents.CustomerManagedKeyEnabled = __parseBoolean(output["customerManagedKeyEnabled"]);
+  }
+  if (output["kmsKeyArn"] !== undefined) {
+    contents.KmsKeyArn = __expectString(output["kmsKeyArn"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2VerifiedAccessTrustProvider
  */
 const de_VerifiedAccessTrustProvider = (output: any, context: __SerdeContext): VerifiedAccessTrustProvider => {
@@ -92800,6 +92890,9 @@ const de_VerifiedAccessTrustProvider = (output: any, context: __SerdeContext): V
     contents.Tags = [];
   } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = de_TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["sseSpecification"] !== undefined) {
+    contents.SseSpecification = de_VerifiedAccessSseSpecificationResponse(output["sseSpecification"], context);
   }
   return contents;
 };

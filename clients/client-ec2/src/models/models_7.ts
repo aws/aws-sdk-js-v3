@@ -42,9 +42,54 @@ import {
   HibernationOptionsRequest,
   InstanceMarketOptionsRequest,
   InstanceMonitoring,
-  LaunchTemplateSpecification,
-  LicenseConfigurationRequest,
 } from "./models_6";
+
+/**
+ * @public
+ * <p>The launch template to use. You must specify either the launch template ID or launch
+ *             template name in the request, but not both.</p>
+ */
+export interface LaunchTemplateSpecification {
+  /**
+   * @public
+   * <p>The ID of the launch template.</p>
+   *          <p>You must specify the <code>LaunchTemplateId</code> or the
+   *                 <code>LaunchTemplateName</code>, but not both.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * @public
+   * <p>The name of the launch template.</p>
+   *          <p>You must specify the <code>LaunchTemplateName</code> or the
+   *                 <code>LaunchTemplateId</code>, but not both.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * @public
+   * <p>The launch template version number, <code>$Latest</code>, or
+   *             <code>$Default</code>.</p>
+   *          <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch
+   *             template.</p>
+   *          <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the
+   *             launch template.</p>
+   *          <p>Default: The default version of the launch template.</p>
+   */
+  Version?: string;
+}
+
+/**
+ * @public
+ * <p>Describes a license configuration.</p>
+ */
+export interface LicenseConfigurationRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
+   */
+  LicenseConfigurationArn?: string;
+}
 
 /**
  * @public

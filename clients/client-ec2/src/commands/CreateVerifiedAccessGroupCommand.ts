@@ -64,6 +64,10 @@ export interface CreateVerifiedAccessGroupCommandOutput extends CreateVerifiedAc
  *   ],
  *   ClientToken: "STRING_VALUE",
  *   DryRun: true || false,
+ *   SseSpecification: { // VerifiedAccessSseSpecificationRequest
+ *     CustomerManagedKeyEnabled: true || false,
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateVerifiedAccessGroupCommand(input);
  * const response = await client.send(command);
@@ -83,6 +87,10 @@ export interface CreateVerifiedAccessGroupCommandOutput extends CreateVerifiedAc
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SseSpecification: { // VerifiedAccessSseSpecificationResponse
+ * //       CustomerManagedKeyEnabled: true || false,
+ * //       KmsKeyArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

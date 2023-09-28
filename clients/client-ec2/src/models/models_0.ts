@@ -5710,9 +5710,7 @@ export interface VerifiedAccessInstance {
 
   /**
    * @public
-   * <p>
-   * 		  Describes if support for Federal Information Processing Standards (FIPS) is enabled on the instance.
-   * 	   </p>
+   * <p>Describes whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.</p>
    */
   FipsEnabled?: boolean;
 }
@@ -5776,6 +5774,32 @@ export interface OidcOptions {
    * <p>The OpenID Connect (OIDC) scope specified.</p>
    */
   Scope?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *          Describes the options in use for server side encryption.
+ *       </p>
+ */
+export interface VerifiedAccessSseSpecificationResponse {
+  /**
+   * @public
+   * <p>
+   *          Describes the use of customer managed KMS keys for server side encryption.
+   *       </p>
+   *          <p>Valid values: <code>True</code> | <code>False</code>
+   *          </p>
+   */
+  CustomerManagedKeyEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *          Describes the ARN of the KMS key.
+   *       </p>
+   */
+  KmsKeyArn?: string;
 }
 
 /**
@@ -5848,6 +5872,14 @@ export interface VerifiedAccessTrustProvider {
    * <p>The tags.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>
+   *          Describes the options in use for server side encryption.
+   *       </p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
 
 /**
@@ -9568,19 +9600,6 @@ export interface FederatedAuthenticationRequest {
    * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>
    */
   SelfServiceSAMLProviderArn?: string;
-}
-
-/**
- * @public
- * <p>Information about the client certificate to be used for authentication.</p>
- */
-export interface CertificateAuthenticationRequest {
-  /**
-   * @public
-   * <p>The ARN of the client certificate. The certificate must be signed by a certificate
-   * 			authority (CA) and it must be provisioned in Certificate Manager (ACM).</p>
-   */
-  ClientRootCertificateChainArn?: string;
 }
 
 /**
