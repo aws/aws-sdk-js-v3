@@ -53,6 +53,7 @@ import {
   DataProcessing,
   DriftCheckBaselines,
   ExperimentConfig,
+  FeatureDefinition,
   FeatureType,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
@@ -69,13 +70,14 @@ import {
   ModelPackageValidationSpecification,
   MonitoringScheduleConfig,
   MonitoringType,
+  OfflineStoreConfig,
+  OnlineStoreConfig,
   RecommendationJobType,
   ResourceLimits,
   SkipModelValidation,
   SourceAlgorithmSpecification,
   StudioLifecycleConfigAppType,
   TrialComponentStatus,
-  TtlDuration,
 } from "./models_1";
 import {
   DeploymentRecommendation,
@@ -97,9 +99,7 @@ import {
   EndpointStatus,
   EndpointSummary,
   ExecutionStatus,
-  ExperimentSummary,
-  FailStepMetadata,
-  FeatureGroupSortBy,
+  ExperimentSource,
   FeatureGroupStatus,
   FeatureParameter,
   FlowDefinitionStatus,
@@ -117,6 +117,7 @@ import {
   LabelCounters,
   LabelingJobOutput,
   LabelingJobStatus,
+  LastUpdateStatus,
   ModelCardExportJobStatus,
   ModelConfiguration,
   ModelPackageGroupStatus,
@@ -145,6 +146,212 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>A summary of the properties of an experiment. To get the complete set of properties, call
+ *       the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeExperiment.html">DescribeExperiment</a> API and provide the
+ *       <code>ExperimentName</code>.</p>
+ */
+export interface ExperimentSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   */
+  ExperimentArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the experiment.</p>
+   */
+  ExperimentName?: string;
+
+  /**
+   * @public
+   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified,
+   *         <code>ExperimentName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * @public
+   * <p>The source of the experiment.</p>
+   */
+  ExperimentSource?: ExperimentSource;
+
+  /**
+   * @public
+   * <p>When the experiment was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>When the experiment was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+/**
+ * @public
+ * <p>The container for the metadata for Fail step.</p>
+ */
+export interface FailStepMetadata {
+  /**
+   * @public
+   * <p>A message that you define and then is processed and rendered by
+   *          the Fail step when the error occurs.</p>
+   */
+  ErrorMessage?: string;
+}
+
+/**
+ * @public
+ * <p>Amazon SageMaker Feature Store stores features in a collection called Feature Group. A
+ *          Feature Group can be visualized as a table which has rows, with a unique identifier for
+ *          each row where each column in the table is a feature. In principle, a Feature Group is
+ *          composed of features and values per features.</p>
+ */
+export interface FeatureGroup {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of a <code>FeatureGroup</code>.</p>
+   */
+  FeatureGroupArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the <code>FeatureGroup</code>.</p>
+   */
+  FeatureGroupName?: string;
+
+  /**
+   * @public
+   * <p>The name of the <code>Feature</code> whose value uniquely identifies a
+   *             <code>Record</code> defined in the <code>FeatureGroup</code>
+   *             <code>FeatureDefinitions</code>.</p>
+   */
+  RecordIdentifierFeatureName?: string;
+
+  /**
+   * @public
+   * <p>The name of the feature that stores the <code>EventTime</code> of a Record in a
+   *             <code>FeatureGroup</code>.</p>
+   *          <p>A <code>EventTime</code> is point in time when a new event occurs that corresponds to
+   *          the creation or update of a <code>Record</code> in <code>FeatureGroup</code>. All
+   *             <code>Records</code> in the <code>FeatureGroup</code> must have a corresponding
+   *             <code>EventTime</code>.</p>
+   */
+  EventTimeFeatureName?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>Feature</code>s. Each <code>Feature</code> must include a
+   *             <code>FeatureName</code> and a <code>FeatureType</code>. </p>
+   *          <p>Valid <code>FeatureType</code>s are <code>Integral</code>, <code>Fractional</code> and
+   *             <code>String</code>. </p>
+   *          <p>
+   *             <code>FeatureName</code>s cannot be any of the following: <code>is_deleted</code>,
+   *             <code>write_time</code>, <code>api_invocation_time</code>.</p>
+   *          <p>You can create up to 2,500 <code>FeatureDefinition</code>s per
+   *          <code>FeatureGroup</code>.</p>
+   */
+  FeatureDefinitions?: FeatureDefinition[];
+
+  /**
+   * @public
+   * <p>The time a <code>FeatureGroup</code> was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>A timestamp indicating the last time you updated the feature group.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>Use this to specify the Amazon Web Services Key Management Service (KMS) Key ID, or
+   *             <code>KMSKeyId</code>, for at rest data encryption. You can turn
+   *             <code>OnlineStore</code> on or off by specifying the <code>EnableOnlineStore</code> flag
+   *          at General Assembly.</p>
+   *          <p>The default value is <code>False</code>.</p>
+   */
+  OnlineStoreConfig?: OnlineStoreConfig;
+
+  /**
+   * @public
+   * <p>The configuration of an <code>OfflineStore</code>.</p>
+   *          <p>Provide an <code>OfflineStoreConfig</code> in a request to
+   *             <code>CreateFeatureGroup</code> to create an <code>OfflineStore</code>.</p>
+   *          <p>To encrypt an <code>OfflineStore</code> using at rest data encryption, specify Amazon Web Services Key Management Service (KMS) key ID, or <code>KMSKeyId</code>, in
+   *             <code>S3StorageConfig</code>.</p>
+   */
+  OfflineStoreConfig?: OfflineStoreConfig;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to create the feature
+   *          group.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * @public
+   * <p>A <code>FeatureGroup</code> status.</p>
+   */
+  FeatureGroupStatus?: FeatureGroupStatus | string;
+
+  /**
+   * @public
+   * <p>The status of <code>OfflineStore</code>.</p>
+   */
+  OfflineStoreStatus?: OfflineStoreStatus;
+
+  /**
+   * @public
+   * <p>A value that indicates whether the feature group was updated successfully.</p>
+   */
+  LastUpdateStatus?: LastUpdateStatus;
+
+  /**
+   * @public
+   * <p>The reason that the <code>FeatureGroup</code> failed to be replicated in the
+   *             <code>OfflineStore</code>. This is failure may be due to a failure to create a
+   *             <code>FeatureGroup</code> in or delete a <code>FeatureGroup</code> from the
+   *             <code>OfflineStore</code>.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>A free form description of a <code>FeatureGroup</code>.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>Tags used to define a <code>FeatureGroup</code>.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureGroupSortBy = {
+  CREATION_TIME: "CreationTime",
+  FEATURE_GROUP_STATUS: "FeatureGroupStatus",
+  NAME: "Name",
+  OFFLINE_STORE_STATUS: "OfflineStoreStatus",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureGroupSortBy = (typeof FeatureGroupSortBy)[keyof typeof FeatureGroupSortBy];
 
 /**
  * @public
@@ -3096,7 +3303,8 @@ export interface ListDataQualityJobDefinitionsRequest {
 
   /**
    * @public
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *    The default is <code>Descending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 
@@ -5066,22 +5274,22 @@ export interface ListModelBiasJobDefinitionsRequest {
 
   /**
    * @public
-   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The
-   *          default is <code>CreationTime</code>.</p>
+   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field.
+   *    The default is <code>CreationTime</code>.</p>
    */
   SortBy?: MonitoringJobDefinitionSortKey | string;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *          The default is <code>Descending</code>.</p>
+   *    The default is <code>Descending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
    * @public
-   * <p>The token returned if the response is truncated. To retrieve the next set of job
-   *          executions, use it in the next request.</p>
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
    */
   NextToken?: string;
 
@@ -5123,8 +5331,8 @@ export interface ListModelBiasJobDefinitionsResponse {
 
   /**
    * @public
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
-   *          use it in the subsequent request.</p>
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
    */
   NextToken?: string;
 }
@@ -5607,22 +5815,22 @@ export interface ListModelExplainabilityJobDefinitionsRequest {
 
   /**
    * @public
-   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The
-   *          default is <code>CreationTime</code>.</p>
+   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field.
+   *    The default is <code>CreationTime</code>.</p>
    */
   SortBy?: MonitoringJobDefinitionSortKey | string;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *          The default is <code>Descending</code>.</p>
+   *    The default is <code>Descending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
    * @public
-   * <p>The token returned if the response is truncated. To retrieve the next set of job
-   *          executions, use it in the next request.</p>
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
    */
   NextToken?: string;
 
@@ -5665,8 +5873,8 @@ export interface ListModelExplainabilityJobDefinitionsResponse {
 
   /**
    * @public
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
-   *          use it in the subsequent request.</p>
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
    */
   NextToken?: string;
 }
@@ -6144,7 +6352,8 @@ export interface ListModelQualityJobDefinitionsRequest {
 
   /**
    * @public
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *    The default is <code>Descending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 
@@ -6197,8 +6406,8 @@ export interface ListModelQualityJobDefinitionsResponse {
 
   /**
    * @public
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of model
-   *          quality monitoring job definitions, use it in the next request.</p>
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the
+   *          next set of model quality monitoring job definitions, use it in the next request.</p>
    */
   NextToken?: string;
 }
@@ -6607,22 +6816,22 @@ export interface ListMonitoringExecutionsRequest {
 
   /**
    * @public
-   * <p>Whether to sort results by <code>Status</code>, <code>CreationTime</code>,
-   *             <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
+   * <p>Whether to sort the results by the <code>Status</code>, <code>CreationTime</code>, or
+   *    <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
    */
   SortBy?: MonitoringExecutionSortKey | string;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *          The default is <code>Descending</code>.</p>
+   *    The default is <code>Descending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
    * @public
-   * <p>The token returned if the response is truncated. To retrieve the next set of job
-   *          executions, use it in the next request.</p>
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
    */
   NextToken?: string;
 
@@ -6701,8 +6910,8 @@ export interface ListMonitoringExecutionsResponse {
 
   /**
    * @public
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
-   *          use it in the subsequent reques</p>
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
    */
   NextToken?: string;
 }
@@ -6734,22 +6943,22 @@ export interface ListMonitoringSchedulesRequest {
 
   /**
    * @public
-   * <p>Whether to sort results by <code>Status</code>, <code>CreationTime</code>,
-   *             <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
+   * <p>Whether to sort the results by the <code>Status</code>, <code>CreationTime</code>, or
+   *    <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
    */
   SortBy?: MonitoringScheduleSortKey | string;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *          The default is <code>Descending</code>.</p>
+   *    The default is <code>Descending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
    * @public
-   * <p>The token returned if the response is truncated. To retrieve the next set of job
-   *          executions, use it in the next request.</p>
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
    */
   NextToken?: string;
 
@@ -6876,8 +7085,8 @@ export interface ListMonitoringSchedulesResponse {
 
   /**
    * @public
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
-   *          use it in the subsequent request.</p>
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
    */
   NextToken?: string;
 }
@@ -10561,14 +10770,14 @@ export interface ModelPackage {
   /**
    * @public
    * <p>The machine learning domain of your model package and its components. Common
-   *            machine learning domains include computer vision and natural language processing.</p>
+   *             machine learning domains include computer vision and natural language processing.</p>
    */
   Domain?: string;
 
   /**
    * @public
    * <p>The machine learning task your model package accomplishes. Common machine
-   *      learning tasks include object detection and image classification.</p>
+   *             learning tasks include object detection and image classification.</p>
    */
   Task?: string;
 
@@ -10609,151 +10818,6 @@ export interface ModelPackage {
    * <p>Indicates if you want to skip model validation.</p>
    */
   SkipModelValidation?: SkipModelValidation | string;
-}
-
-/**
- * @public
- * <p>A group of versioned models in the model registry.</p>
- */
-export interface ModelPackageGroup {
-  /**
-   * @public
-   * <p>The name of the model group.</p>
-   */
-  ModelPackageGroupName?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the model group.</p>
-   */
-  ModelPackageGroupArn?: string;
-
-  /**
-   * @public
-   * <p>The description for the model group.</p>
-   */
-  ModelPackageGroupDescription?: string;
-
-  /**
-   * @public
-   * <p>The time that the model group was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>The status of the model group. This can be one of the following values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> - The model group is pending being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_PROGRESS</code> - The model group is in the process of being
-   *                     created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETED</code> - The model group was successfully created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> - The model group failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code> - The model group is in the process of being deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_FAILED</code> - SageMaker failed to delete the model group.</p>
-   *             </li>
-   *          </ul>
-   */
-  ModelPackageGroupStatus?: ModelPackageGroupStatus | string;
-
-  /**
-   * @public
-   * <p>A list of the tags associated with the model group. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- * @enum
- */
-export const ModelVariantAction = {
-  PROMOTE: "Promote",
-  REMOVE: "Remove",
-  RETAIN: "Retain",
-} as const;
-
-/**
- * @public
- */
-export type ModelVariantAction = (typeof ModelVariantAction)[keyof typeof ModelVariantAction];
-
-/**
- * @public
- * <p>A list of nested <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Filter.html">Filter</a> objects. A resource must satisfy the conditions
- *       of all filters to be included in the results returned from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
- *          <p>For example, to filter on a training job's <code>InputDataConfig</code> property with a
- *       specific channel name and <code>S3Uri</code> prefix, define the following filters:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>'\{Name:"InputDataConfig.ChannelName", "Operator":"Equals", "Value":"train"\}',</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>'\{Name:"InputDataConfig.DataSource.S3DataSource.S3Uri", "Operator":"Contains",
- *             "Value":"mybucket/catdata"\}'</code>
- *                </p>
- *             </li>
- *          </ul>
- */
-export interface NestedFilters {
-  /**
-   * @public
-   * <p>The name of the property to use in the nested filters. The value must match a listed property name,
-   *       such as <code>InputDataConfig</code>.</p>
-   */
-  NestedPropertyName: string | undefined;
-
-  /**
-   * @public
-   * <p>A list of filters. Each filter acts on a property. Filters must contain at least one
-   *       <code>Filters</code> value. For example, a <code>NestedFilters</code> call might
-   *       include a filter on the <code>PropertyName</code> parameter of the
-   *       <code>InputDataConfig</code> property:
-   *       <code>InputDataConfig.DataSource.S3DataSource.S3Uri</code>.</p>
-   */
-  Filters: Filter[] | undefined;
-}
-
-/**
- * @public
- * <p>Updates the feature group online store configuration.</p>
- */
-export interface OnlineStoreConfigUpdate {
-  /**
-   * @public
-   * <p>Time to live duration, where the record is hard deleted after the expiration time is
-   *          reached; <code>ExpiresAt</code> = <code>EventTime</code> + <code>TtlDuration</code>. For
-   *          information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p>
-   */
-  TtlDuration?: TtlDuration;
 }
 
 /**

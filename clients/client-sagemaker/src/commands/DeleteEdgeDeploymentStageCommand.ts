@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DeleteEdgeDeploymentStageRequest } from "../models/models_1";
+import { DeleteEdgeDeploymentStageRequest } from "../models/models_2";
 import { de_DeleteEdgeDeploymentStageCommand, se_DeleteEdgeDeploymentStageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

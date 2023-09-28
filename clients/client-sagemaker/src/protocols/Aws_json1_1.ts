@@ -869,6 +869,7 @@ import {
   CodeRepositorySummary,
   CognitoConfig,
   CognitoMemberDefinition,
+  CollectionConfig,
   CollectionConfiguration,
   CompilationJobSummary,
   CompressionType,
@@ -892,7 +893,6 @@ import {
   CreateContextRequest,
   CreateDataQualityJobDefinitionRequest,
   CreateDeviceFleetRequest,
-  CustomImage,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
@@ -913,8 +913,6 @@ import {
   InputConfig,
   InstanceGroup,
   IntegerParameterRangeSpecification,
-  JupyterServerAppSettings,
-  KernelGatewayAppSettings,
   KernelGatewayImageConfig,
   KernelSpec,
   MetadataProperties,
@@ -978,6 +976,7 @@ import {
   TransformOutput,
   TransformResources,
   TransformS3DataSource,
+  VectorConfig,
   VpcConfig,
   WorkspaceSettings,
 } from "../models/models_0";
@@ -1024,6 +1023,7 @@ import {
   CreateUserProfileRequest,
   CreateWorkforceRequest,
   CreateWorkteamRequest,
+  CustomImage,
   DataCaptureConfig,
   DataCatalogConfig,
   DataProcessing,
@@ -1042,10 +1042,6 @@ import {
   DeleteContextRequest,
   DeleteDataQualityJobDefinitionRequest,
   DeleteDeviceFleetRequest,
-  DeleteDomainRequest,
-  DeleteEdgeDeploymentPlanRequest,
-  DeleteEdgeDeploymentStageRequest,
-  DeleteEndpointInput,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -1085,6 +1081,8 @@ import {
   InferenceExperimentSchedule,
   InstanceMetadataServiceConfiguration,
   IntegerParameterRange,
+  JupyterServerAppSettings,
+  KernelGatewayAppSettings,
   LabelingJobAlgorithmsConfig,
   LabelingJobDataAttributes,
   LabelingJobDataSource,
@@ -1194,7 +1192,11 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteDomainRequest,
+  DeleteEdgeDeploymentPlanRequest,
+  DeleteEdgeDeploymentStageRequest,
   DeleteEndpointConfigInput,
+  DeleteEndpointInput,
   DeleteExperimentRequest,
   DeleteFeatureGroupRequest,
   DeleteFlowDefinitionRequest,
@@ -1362,8 +1364,6 @@ import {
   EndpointConfigSummary,
   EndpointSummary,
   Experiment,
-  ExperimentSummary,
-  FeatureGroup,
   FeatureParameter,
   FinalHyperParameterTuningJobObjectiveMetric,
   HyperParameterTrainingJobSummary,
@@ -1390,6 +1390,8 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ExperimentSummary,
+  FeatureGroup,
   FeatureGroupSummary,
   FeatureMetadata,
   Filter,
@@ -1569,19 +1571,15 @@ import {
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
   ModelPackage,
-  ModelPackageGroup,
   ModelPackageGroupSummary,
   ModelPackageSummary,
   ModelSummary,
-  ModelVariantAction,
   MonitoringAlertHistorySummary,
   MonitoringAlertSummary,
   MonitoringJobDefinitionSummary,
   MonitoringScheduleSummary,
-  NestedFilters,
   NotebookInstanceLifecycleConfigSummary,
   NotebookInstanceSummary,
-  OnlineStoreConfigUpdate,
   Parameter,
   PipelineExecutionStep,
   PipelineExecutionSummary,
@@ -1603,6 +1601,10 @@ import {
   UserProfileDetails,
 } from "../models/models_3";
 import {
+  ModelPackageGroup,
+  ModelVariantAction,
+  NestedFilters,
+  OnlineStoreConfigUpdate,
   Pipeline,
   PipelineExecution,
   ProcessingJob,
@@ -19370,6 +19372,8 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 
 // se_CognitoMemberDefinition omitted.
 
+// se_CollectionConfig omitted.
+
 // se_CollectionConfiguration omitted.
 
 // se_CollectionConfigurations omitted.
@@ -22201,6 +22205,8 @@ const se_UpdateTrialComponentRequest = (input: UpdateTrialComponentRequest, cont
 
 // se_VariantPropertyList omitted.
 
+// se_VectorConfig omitted.
+
 // se_VpcConfig omitted.
 
 // se_VpcSecurityGroupIds omitted.
@@ -22738,6 +22744,8 @@ const de_CodeRepositorySummaryList = (output: any, context: __SerdeContext): Cod
 // de_CognitoConfig omitted.
 
 // de_CognitoMemberDefinition omitted.
+
+// de_CollectionConfig omitted.
 
 // de_CollectionConfiguration omitted.
 
@@ -28540,6 +28548,8 @@ const de_UserProfileList = (output: any, context: __SerdeContext): UserProfileDe
 };
 
 // de_UserSettings omitted.
+
+// de_VectorConfig omitted.
 
 // de_Vertex omitted.
 

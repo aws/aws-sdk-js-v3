@@ -66,6 +66,7 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
+  TtlDuration,
   UiTemplate,
   UserSettings,
   VendorGuidance,
@@ -79,10 +80,10 @@ import {
   Edge,
   Endpoint,
   Experiment,
-  FeatureGroup,
   FeatureParameter,
   MetricData,
   ModelArtifacts,
+  ModelPackageGroupStatus,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
   PipelineStatus,
@@ -100,6 +101,7 @@ import {
   Workteam,
 } from "./models_2";
 import {
+  FeatureGroup,
   FeatureMetadata,
   Filter,
   GitConfigForUpdate,
@@ -110,14 +112,155 @@ import {
   ModelCardFilterSensitiveLog,
   ModelDashboardModel,
   ModelPackage,
-  ModelPackageGroup,
-  ModelVariantAction,
-  NestedFilters,
-  OnlineStoreConfigUpdate,
   Parameter,
   ResourceType,
   TransformJob,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>A group of versioned models in the model registry.</p>
+ */
+export interface ModelPackageGroup {
+  /**
+   * @public
+   * <p>The name of the model group.</p>
+   */
+  ModelPackageGroupName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the model group.</p>
+   */
+  ModelPackageGroupArn?: string;
+
+  /**
+   * @public
+   * <p>The description for the model group.</p>
+   */
+  ModelPackageGroupDescription?: string;
+
+  /**
+   * @public
+   * <p>The time that the model group was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>The status of the model group. This can be one of the following values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - The model group is pending being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> - The model group is in the process of being
+   *                     created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> - The model group was successfully created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The model group failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - The model group is in the process of being deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_FAILED</code> - SageMaker failed to delete the model group.</p>
+   *             </li>
+   *          </ul>
+   */
+  ModelPackageGroupStatus?: ModelPackageGroupStatus | string;
+
+  /**
+   * @public
+   * <p>A list of the tags associated with the model group. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelVariantAction = {
+  PROMOTE: "Promote",
+  REMOVE: "Remove",
+  RETAIN: "Retain",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelVariantAction = (typeof ModelVariantAction)[keyof typeof ModelVariantAction];
+
+/**
+ * @public
+ * <p>A list of nested <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Filter.html">Filter</a> objects. A resource must satisfy the conditions
+ *       of all filters to be included in the results returned from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
+ *          <p>For example, to filter on a training job's <code>InputDataConfig</code> property with a
+ *       specific channel name and <code>S3Uri</code> prefix, define the following filters:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>'\{Name:"InputDataConfig.ChannelName", "Operator":"Equals", "Value":"train"\}',</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>'\{Name:"InputDataConfig.DataSource.S3DataSource.S3Uri", "Operator":"Contains",
+ *             "Value":"mybucket/catdata"\}'</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface NestedFilters {
+  /**
+   * @public
+   * <p>The name of the property to use in the nested filters. The value must match a listed property name,
+   *       such as <code>InputDataConfig</code>.</p>
+   */
+  NestedPropertyName: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of filters. Each filter acts on a property. Filters must contain at least one
+   *       <code>Filters</code> value. For example, a <code>NestedFilters</code> call might
+   *       include a filter on the <code>PropertyName</code> parameter of the
+   *       <code>InputDataConfig</code> property:
+   *       <code>InputDataConfig.DataSource.S3DataSource.S3Uri</code>.</p>
+   */
+  Filters: Filter[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Updates the feature group online store configuration.</p>
+ */
+export interface OnlineStoreConfigUpdate {
+  /**
+   * @public
+   * <p>Time to live duration, where the record is hard deleted after the expiration time is
+   *          reached; <code>ExpiresAt</code> = <code>EventTime</code> + <code>TtlDuration</code>. For
+   *          information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p>
+   */
+  TtlDuration?: TtlDuration;
+}
 
 /**
  * @public
@@ -3218,14 +3361,15 @@ export interface UpdateMonitoringAlertResponse {
 export interface UpdateMonitoringScheduleRequest {
   /**
    * @public
-   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within an Amazon Web Services account.</p>
+   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services
+   *    Region within an Amazon Web Services account.</p>
    */
   MonitoringScheduleName: string | undefined;
 
   /**
    * @public
-   * <p>The configuration object that specifies the monitoring schedule and defines the
-   *          monitoring job.</p>
+   * <p>The configuration object that specifies the monitoring schedule and defines the monitoring
+   *    job.</p>
    */
   MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
 }
@@ -4035,6 +4179,7 @@ export interface SearchRequest {
 export const SearchRecordFilterSensitiveLog = (obj: SearchRecord): any => ({
   ...obj,
   ...(obj.TrialComponent && { TrialComponent: obj.TrialComponent }),
+  ...(obj.FeatureGroup && { FeatureGroup: obj.FeatureGroup }),
   ...(obj.ModelCard && { ModelCard: ModelCardFilterSensitiveLog(obj.ModelCard) }),
 });
 

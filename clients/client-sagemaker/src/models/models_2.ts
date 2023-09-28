@@ -159,6 +159,7 @@ import {
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   RecommendationJobType,
+  RetentionPolicy,
   RetryStrategy,
   RootAccess,
   RuleEvaluationStatus,
@@ -176,6 +177,64 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DeleteDomainRequest {
+  /**
+   * @public
+   * <p>The domain ID.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * @public
+   * <p>The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted.
+   *            By default, all resources are retained (not automatically deleted).
+   *        </p>
+   */
+  RetentionPolicy?: RetentionPolicy;
+}
+
+/**
+ * @public
+ */
+export interface DeleteEdgeDeploymentPlanRequest {
+  /**
+   * @public
+   * <p>The name of the edge deployment plan to delete.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteEdgeDeploymentStageRequest {
+  /**
+   * @public
+   * <p>The name of the edge deployment plan from which the stage will be deleted.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the stage.</p>
+   */
+  StageName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteEndpointInput {
+  /**
+   * @public
+   * <p>The name of the endpoint that you want to delete.</p>
+   */
+  EndpointName: string | undefined;
+}
 
 /**
  * @public
@@ -2049,8 +2108,8 @@ export interface DescribeDataQualityJobDefinitionResponse {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   *    assume to perform tasks on your behalf.</p>
    */
   RoleArn: string | undefined;
 
@@ -5858,7 +5917,8 @@ export interface DescribeModelBiasJobDefinitionResponse {
 
   /**
    * @public
-   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
+   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services
+   *    Region in the Amazon Web Services account.</p>
    */
   JobDefinitionName: string | undefined;
 
@@ -5906,9 +5966,8 @@ export interface DescribeModelBiasJobDefinitionResponse {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management
-   *          (IAM) role that has read permission to the input data location and write permission to the
-   *          output data location in Amazon S3.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that has read permission to the
+   *    input data location and write permission to the output data location in Amazon S3.</p>
    */
   RoleArn: string | undefined;
 
@@ -6233,8 +6292,7 @@ export interface DescribeModelExplainabilityJobDefinitionResponse {
 
   /**
    * @public
-   * <p>Configures the model explainability job to run a specified Docker container
-   *          image.</p>
+   * <p>Configures the model explainability job to run a specified Docker container image.</p>
    */
   ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecification | undefined;
 
@@ -6264,9 +6322,8 @@ export interface DescribeModelExplainabilityJobDefinitionResponse {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management
-   *          (IAM) role that has read permission to the input data location and write permission to the
-   *          output data location in Amazon S3.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that has read permission to the
+   *    input data location and write permission to the output data location in Amazon S3.</p>
    */
   RoleArn: string | undefined;
 
@@ -6488,29 +6545,29 @@ export interface DescribeModelPackageOutput {
   /**
    * @public
    * <p>The machine learning domain of the model package you specified. Common machine
-   *     learning domains include computer vision and natural language processing.</p>
+   *             learning domains include computer vision and natural language processing.</p>
    */
   Domain?: string;
 
   /**
    * @public
    * <p>The machine learning task you specified that your model package accomplishes.
-   *      Common machine learning tasks include object detection and image classification.</p>
+   *             Common machine learning tasks include object detection and image classification.</p>
    */
   Task?: string;
 
   /**
    * @public
    * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload are stored. This path points to a single
-   *     gzip compressed tar archive (.tar.gz suffix).</p>
+   *             gzip compressed tar archive (.tar.gz suffix).</p>
    */
   SamplePayloadUrl?: string;
 
   /**
    * @public
    * <p>An array of additional Inference Specification objects. Each additional
-   *     Inference Specification specifies artifacts based on this model package that can
-   *     be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.</p>
+   *             Inference Specification specifies artifacts based on this model package that can
+   *             be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.</p>
    */
   AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[];
 
@@ -6664,8 +6721,8 @@ export interface DescribeModelQualityJobDefinitionResponse {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   *    assume to perform tasks on your behalf.</p>
    */
   RoleArn: string | undefined;
 
@@ -6859,8 +6916,8 @@ export interface DescribeMonitoringScheduleResponse {
 
   /**
    * @public
-   * <p>The configuration object that specifies the monitoring schedule and defines the
-   *          monitoring job.</p>
+   * <p>The configuration object that specifies the monitoring schedule and defines the monitoring
+   *    job.</p>
    */
   MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
 
@@ -10925,212 +10982,6 @@ export interface Experiment {
    */
   Tags?: Tag[];
 }
-
-/**
- * @public
- * <p>A summary of the properties of an experiment. To get the complete set of properties, call
- *       the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeExperiment.html">DescribeExperiment</a> API and provide the
- *       <code>ExperimentName</code>.</p>
- */
-export interface ExperimentSummary {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   */
-  ExperimentArn?: string;
-
-  /**
-   * @public
-   * <p>The name of the experiment.</p>
-   */
-  ExperimentName?: string;
-
-  /**
-   * @public
-   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified,
-   *         <code>ExperimentName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * @public
-   * <p>The source of the experiment.</p>
-   */
-  ExperimentSource?: ExperimentSource;
-
-  /**
-   * @public
-   * <p>When the experiment was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>When the experiment was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-}
-
-/**
- * @public
- * <p>The container for the metadata for Fail step.</p>
- */
-export interface FailStepMetadata {
-  /**
-   * @public
-   * <p>A message that you define and then is processed and rendered by
-   *          the Fail step when the error occurs.</p>
-   */
-  ErrorMessage?: string;
-}
-
-/**
- * @public
- * <p>Amazon SageMaker Feature Store stores features in a collection called Feature Group. A
- *          Feature Group can be visualized as a table which has rows, with a unique identifier for
- *          each row where each column in the table is a feature. In principle, a Feature Group is
- *          composed of features and values per features.</p>
- */
-export interface FeatureGroup {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of a <code>FeatureGroup</code>.</p>
-   */
-  FeatureGroupArn?: string;
-
-  /**
-   * @public
-   * <p>The name of the <code>FeatureGroup</code>.</p>
-   */
-  FeatureGroupName?: string;
-
-  /**
-   * @public
-   * <p>The name of the <code>Feature</code> whose value uniquely identifies a
-   *             <code>Record</code> defined in the <code>FeatureGroup</code>
-   *             <code>FeatureDefinitions</code>.</p>
-   */
-  RecordIdentifierFeatureName?: string;
-
-  /**
-   * @public
-   * <p>The name of the feature that stores the <code>EventTime</code> of a Record in a
-   *             <code>FeatureGroup</code>.</p>
-   *          <p>A <code>EventTime</code> is point in time when a new event occurs that corresponds to
-   *          the creation or update of a <code>Record</code> in <code>FeatureGroup</code>. All
-   *             <code>Records</code> in the <code>FeatureGroup</code> must have a corresponding
-   *             <code>EventTime</code>.</p>
-   */
-  EventTimeFeatureName?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>Feature</code>s. Each <code>Feature</code> must include a
-   *             <code>FeatureName</code> and a <code>FeatureType</code>. </p>
-   *          <p>Valid <code>FeatureType</code>s are <code>Integral</code>, <code>Fractional</code> and
-   *             <code>String</code>. </p>
-   *          <p>
-   *             <code>FeatureName</code>s cannot be any of the following: <code>is_deleted</code>,
-   *             <code>write_time</code>, <code>api_invocation_time</code>.</p>
-   *          <p>You can create up to 2,500 <code>FeatureDefinition</code>s per
-   *          <code>FeatureGroup</code>.</p>
-   */
-  FeatureDefinitions?: FeatureDefinition[];
-
-  /**
-   * @public
-   * <p>The time a <code>FeatureGroup</code> was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>A timestamp indicating the last time you updated the feature group.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>Use this to specify the Amazon Web Services Key Management Service (KMS) Key ID, or
-   *             <code>KMSKeyId</code>, for at rest data encryption. You can turn
-   *             <code>OnlineStore</code> on or off by specifying the <code>EnableOnlineStore</code> flag
-   *          at General Assembly.</p>
-   *          <p>The default value is <code>False</code>.</p>
-   */
-  OnlineStoreConfig?: OnlineStoreConfig;
-
-  /**
-   * @public
-   * <p>The configuration of an <code>OfflineStore</code>.</p>
-   *          <p>Provide an <code>OfflineStoreConfig</code> in a request to
-   *             <code>CreateFeatureGroup</code> to create an <code>OfflineStore</code>.</p>
-   *          <p>To encrypt an <code>OfflineStore</code> using at rest data encryption, specify Amazon Web Services Key Management Service (KMS) key ID, or <code>KMSKeyId</code>, in
-   *             <code>S3StorageConfig</code>.</p>
-   */
-  OfflineStoreConfig?: OfflineStoreConfig;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to create the feature
-   *          group.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * @public
-   * <p>A <code>FeatureGroup</code> status.</p>
-   */
-  FeatureGroupStatus?: FeatureGroupStatus | string;
-
-  /**
-   * @public
-   * <p>The status of <code>OfflineStore</code>.</p>
-   */
-  OfflineStoreStatus?: OfflineStoreStatus;
-
-  /**
-   * @public
-   * <p>A value that indicates whether the feature group was updated successfully.</p>
-   */
-  LastUpdateStatus?: LastUpdateStatus;
-
-  /**
-   * @public
-   * <p>The reason that the <code>FeatureGroup</code> failed to be replicated in the
-   *             <code>OfflineStore</code>. This is failure may be due to a failure to create a
-   *             <code>FeatureGroup</code> in or delete a <code>FeatureGroup</code> from the
-   *             <code>OfflineStore</code>.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * @public
-   * <p>A free form description of a <code>FeatureGroup</code>.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>Tags used to define a <code>FeatureGroup</code>.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- * @enum
- */
-export const FeatureGroupSortBy = {
-  CREATION_TIME: "CreationTime",
-  FEATURE_GROUP_STATUS: "FeatureGroupStatus",
-  NAME: "Name",
-  OFFLINE_STORE_STATUS: "OfflineStoreStatus",
-} as const;
-
-/**
- * @public
- */
-export type FeatureGroupSortBy = (typeof FeatureGroupSortBy)[keyof typeof FeatureGroupSortBy];
 
 /**
  * @internal

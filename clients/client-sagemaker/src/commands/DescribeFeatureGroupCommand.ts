@@ -61,6 +61,12 @@ export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupR
  * //     { // FeatureDefinition
  * //       FeatureName: "STRING_VALUE",
  * //       FeatureType: "Integral" || "Fractional" || "String",
+ * //       CollectionType: "List" || "Set" || "Vector",
+ * //       CollectionConfig: { // CollectionConfig Union: only one key present
+ * //         VectorConfig: { // VectorConfig
+ * //           Dimension: Number("int"), // required
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   CreationTime: new Date("TIMESTAMP"), // required
@@ -74,6 +80,7 @@ export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupR
  * //       Unit: "Seconds" || "Minutes" || "Hours" || "Days" || "Weeks",
  * //       Value: Number("int"),
  * //     },
+ * //     StorageType: "Standard" || "InMemory",
  * //   },
  * //   OfflineStoreConfig: { // OfflineStoreConfig
  * //     S3StorageConfig: { // S3StorageConfig

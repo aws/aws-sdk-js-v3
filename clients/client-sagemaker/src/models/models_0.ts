@@ -5933,7 +5933,7 @@ export interface HolidayConfigAttributes {
   /**
    * @public
    * <p>The country code for the holiday calendar.</p>
-   *          <p>For the list of public holiday calendars supported by AutoML job V2, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/holidays.html#holidays-country-codes">Country Codes</a>. Use the country code corresponding to the country of your
+   *          <p>For the list of public holiday calendars supported by AutoML job V2, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-timeseries-forecasting-holiday-calendars.html#holiday-country-codes">Country Codes</a>. Use the country code corresponding to the country of your
    *          choice.</p>
    */
   CountryCode?: string;
@@ -6157,7 +6157,7 @@ export interface TimeSeriesForecastingJobConfig {
 
   /**
    * @public
-   * <p>The collection of holidays featurization attributes used to incorporate national holiday
+   * <p>The collection of holiday featurization attributes used to incorporate national holiday
    *          information into your forecasting model.</p>
    */
   HolidayConfig?: HolidayConfigAttributes[];
@@ -6739,7 +6739,7 @@ export interface MonitoringCsvDatasetFormat {
 export interface MonitoringJsonDatasetFormat {
   /**
    * @public
-   * <p>Indicates if the file should be read as a json object per line. </p>
+   * <p>Indicates if the file should be read as a JSON object per line. </p>
    */
   Line?: boolean;
 }
@@ -7342,20 +7342,20 @@ export interface CanvasAppSettings {
 /**
  * @public
  * <p>Configuration specifying how to treat different headers. If no headers are specified
- *          SageMaker will by default base64 encode when capturing the data.</p>
+ *             Amazon SageMaker will by default base64 encode when capturing the data.</p>
  */
 export interface CaptureContentTypeHeader {
   /**
    * @public
-   * <p>The list of all content type headers that SageMaker will treat as CSV and capture
-   *          accordingly.</p>
+   * <p>The list of all content type headers that Amazon SageMaker will treat as CSV and
+   *          capture accordingly.</p>
    */
   CsvContentTypes?: string[];
 
   /**
    * @public
-   * <p>The list of all content type headers that SageMaker will treat as JSON and capture
-   *          accordingly.</p>
+   * <p>The list of all content type headers that SageMaker will treat as JSON and
+   *          capture accordingly.</p>
    */
   JsonContentTypes?: string[];
 }
@@ -8135,6 +8135,62 @@ export interface CognitoMemberDefinition {
 
 /**
  * @public
+ * <p>Configuration for your vector collection type.</p>
+ */
+export interface VectorConfig {
+  /**
+   * @public
+   * <p>The number of elements in your vector.</p>
+   */
+  Dimension: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Configuration for your collection.</p>
+ */
+export type CollectionConfig = CollectionConfig.VectorConfigMember | CollectionConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CollectionConfig {
+  /**
+   * @public
+   * <p>Configuration for your vector collection type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Dimension</code>: The number of elements in your vector.</p>
+   *             </li>
+   *          </ul>
+   */
+  export interface VectorConfigMember {
+    VectorConfig: VectorConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    VectorConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    VectorConfig: (value: VectorConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CollectionConfig, visitor: Visitor<T>): T => {
+    if (value.VectorConfig !== undefined) return visitor.VectorConfig(value.VectorConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
  * <p>Configuration information for the Amazon SageMaker Debugger output tensor collections.</p>
  */
 export interface CollectionConfiguration {
@@ -8153,6 +8209,21 @@ export interface CollectionConfiguration {
    */
   CollectionParameters?: Record<string, string>;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const CollectionType = {
+  LIST: "List",
+  SET: "Set",
+  VECTOR: "Vector",
+} as const;
+
+/**
+ * @public
+ */
+export type CollectionType = (typeof CollectionType)[keyof typeof CollectionType];
 
 /**
  * @public
@@ -10842,16 +10913,15 @@ export interface DataQualityAppSpecification {
   /**
    * @public
    * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can
-   *          base64 decode the payload and convert it into a flatted json so that the built-in container
-   *          can use the converted data. Applicable only for the built-in (first party)
-   *          containers.</p>
+   *    base64 decode the payload and convert it into a flattened JSON so that the built-in container can use
+   *    the converted data. Applicable only for the built-in (first party) containers.</p>
    */
   RecordPreprocessorSourceUri?: string;
 
   /**
    * @public
-   * <p>An Amazon S3 URI to a script that is called after analysis has been performed.
-   *          Applicable only for the built-in (first party) containers.</p>
+   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable
+   *    only for the built-in (first party) containers.</p>
    */
   PostAnalyticsProcessorSourceUri?: string;
 
@@ -10888,9 +10958,9 @@ export interface MonitoringStatisticsResource {
 
 /**
  * @public
- * <p>Configuration for monitoring constraints and monitoring statistics. These baseline
- *          resources are compared against the results of the current job from the series of jobs
- *          scheduled to collect data periodically.</p>
+ * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are
+ *    compared against the results of the current job from the series of jobs scheduled to collect data
+ *    periodically.</p>
  */
 export interface DataQualityBaselineConfig {
   /**
@@ -10941,8 +11011,8 @@ export interface EndpointInput {
 
   /**
    * @public
-   * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
-   *          Defaults to <code>FullyReplicated</code>
+   * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an
+   *             Amazon S3 key. Defaults to <code>FullyReplicated</code>
    *          </p>
    */
   S3DataDistributionType?: ProcessingS3DataDistributionType | string;
@@ -11035,15 +11105,16 @@ export type ProcessingS3UploadMode = (typeof ProcessingS3UploadMode)[keyof typeo
 export interface MonitoringS3Output {
   /**
    * @public
-   * <p>A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a
-   *          monitoring job.</p>
+   * <p>A URI that identifies the Amazon S3 storage location where Amazon SageMaker
+   *          saves the results of a monitoring job.</p>
    */
   S3Uri: string | undefined;
 
   /**
    * @public
-   * <p>The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a
-   *          monitoring job. LocalPath is an absolute path for the output data.</p>
+   * <p>The local path to the Amazon S3 storage location where Amazon SageMaker
+   *          saves the results of a monitoring job. LocalPath is an absolute path for the output
+   *          data.</p>
    */
   LocalPath: string | undefined;
 
@@ -11062,7 +11133,8 @@ export interface MonitoringS3Output {
 export interface MonitoringOutput {
   /**
    * @public
-   * <p>The Amazon S3 storage location where the results of a monitoring job are saved.</p>
+   * <p>The Amazon S3 storage location where the results of a monitoring job are
+   *          saved.</p>
    */
   S3Output: MonitoringS3Output | undefined;
 }
@@ -11081,8 +11153,8 @@ export interface MonitoringOutputConfig {
 
   /**
    * @public
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker
-   *          uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.</p>
+   * <p>The Key Management Service (KMS) key that Amazon SageMaker uses to
+   *          encrypt the model artifacts at rest using Amazon S3 server-side encryption.</p>
    */
   KmsKeyId?: string;
 }
@@ -11170,9 +11242,9 @@ export interface MonitoringClusterConfig {
 
   /**
    * @public
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon
-   *          SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s)
-   *          that run the model monitoring job.</p>
+   * <p>The Key Management Service (KMS) key that Amazon SageMaker uses to
+   *          encrypt data on the storage volume attached to the ML compute instance(s) that run the
+   *          model monitoring job.</p>
    */
   VolumeKmsKeyId?: string;
 }
@@ -11286,8 +11358,8 @@ export interface CreateDataQualityJobDefinitionRequest {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   *    assume to perform tasks on your behalf.</p>
    */
   RoleArn: string | undefined;
 
@@ -11299,8 +11371,9 @@ export interface CreateDataQualityJobDefinitionRequest {
 
   /**
    * @public
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost
-   *             Management User Guide</i>.</p>
+   * <p>(Optional) An array of key-value pairs. For more information, see
+   *    <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">
+   *    Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -11437,88 +11510,4 @@ export interface CreateDeviceFleetRequest {
    *      the role alias will be "SageMakerEdge-demo-fleet".</p>
    */
   EnableIotRoleAlias?: boolean;
-}
-
-/**
- * @public
- * <p>The JupyterServer app settings.</p>
- */
-export interface JupyterServerAppSettings {
-  /**
-   * @public
-   * <p>The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the <code>LifecycleConfigArns</code> parameter, then this parameter is also required.</p>
-   */
-  DefaultResourceSpec?: ResourceSpec;
-
-  /**
-   * @public
-   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the JupyterServerApp. If you use this parameter, the <code>DefaultResourceSpec</code> parameter is also required.</p>
-   *          <note>
-   *             <p>To remove a Lifecycle Config, you must set <code>LifecycleConfigArns</code> to an empty list.</p>
-   *          </note>
-   */
-  LifecycleConfigArns?: string[];
-
-  /**
-   * @public
-   * <p>A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application.</p>
-   */
-  CodeRepositories?: CodeRepository[];
-}
-
-/**
- * @public
- * <p>A custom SageMaker image. For more information, see
- *        <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker image</a>.</p>
- */
-export interface CustomImage {
-  /**
-   * @public
-   * <p>The name of the CustomImage. Must be unique to your account.</p>
-   */
-  ImageName: string | undefined;
-
-  /**
-   * @public
-   * <p>The version number of the CustomImage.</p>
-   */
-  ImageVersionNumber?: number;
-
-  /**
-   * @public
-   * <p>The name of the AppImageConfig.</p>
-   */
-  AppImageConfigName: string | undefined;
-}
-
-/**
- * @public
- * <p>The KernelGateway app settings.</p>
- */
-export interface KernelGatewayAppSettings {
-  /**
-   * @public
-   * <p>The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.</p>
-   *          <note>
-   *             <p>The Amazon SageMaker Studio UI does not use the default instance type value set here. The default
-   *           instance type set here is used when Apps are created using the Amazon Web Services Command Line Interface or Amazon Web Services CloudFormation
-   *             and the instance type parameter value is not passed.</p>
-   *          </note>
-   */
-  DefaultResourceSpec?: ResourceSpec;
-
-  /**
-   * @public
-   * <p>A list of custom SageMaker images that are configured to run as a KernelGateway app.</p>
-   */
-  CustomImages?: CustomImage[];
-
-  /**
-   * @public
-   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the the user profile or domain.</p>
-   *          <note>
-   *             <p>To remove a Lifecycle Config, you must set <code>LifecycleConfigArns</code> to an empty list.</p>
-   *          </note>
-   */
-  LifecycleConfigArns?: string[];
 }

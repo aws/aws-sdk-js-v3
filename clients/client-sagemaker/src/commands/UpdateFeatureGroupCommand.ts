@@ -61,6 +61,12 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  *     { // FeatureDefinition
  *       FeatureName: "STRING_VALUE",
  *       FeatureType: "Integral" || "Fractional" || "String",
+ *       CollectionType: "List" || "Set" || "Vector",
+ *       CollectionConfig: { // CollectionConfig Union: only one key present
+ *         VectorConfig: { // VectorConfig
+ *           Dimension: Number("int"), // required
+ *         },
+ *       },
  *     },
  *   ],
  *   OnlineStoreConfig: { // OnlineStoreConfigUpdate
