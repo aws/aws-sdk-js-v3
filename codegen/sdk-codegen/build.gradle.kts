@@ -117,7 +117,6 @@ tasks.register("generate-smithy-build") {
                 ShapeId.from("com.amazonaws.route53#AWSDnsV20130401"),
                 ShapeId.from("com.amazonaws.transcribestreaming#Transcribe"),
                 ShapeId.from("com.amazonaws.eventbridge#AWSEvents"),
-                ShapeId.from("com.amazonaws.s3control#AWSS3ControlServiceV20180820"),
             )
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
