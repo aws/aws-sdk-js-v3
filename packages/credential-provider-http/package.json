@@ -4,6 +4,8 @@
   "description": "AWS credential provider for containers and HTTP sources",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
+  "browser": "./dist-es/index.browser.js",
+  "react-native": "./dist-es/index.browser.js",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
