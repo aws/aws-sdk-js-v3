@@ -55,9 +55,8 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Configure clients with AWS auth configurations and plugin.
- *
- * This is the existing control behavior for `experimentalIdentityAndAuth`.
  */
+@Deprecated
 @SmithyInternalApi
 public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     static final String STS_CLIENT_PREFIX = "sts-client-";
@@ -66,14 +65,6 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     static final String STS_ROLE_ASSUMERS_FILE = "defaultStsRoleAssumers";
 
     private static final Logger LOGGER = Logger.getLogger(AddAwsAuthPlugin.class.getName());
-
-    /**
-     * Integration should only be used if `experimentalIdentityAndAuth` flag is false.
-     */
-    @Override
-    public boolean matchesSettings(TypeScriptSettings settings) {
-        return !settings.getExperimentalIdentityAndAuth();
-    }
 
     @Override
     public void addConfigInterfaceFields(

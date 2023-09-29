@@ -4,6 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.not;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import software.amazon.smithy.build.MockManifest;
 import software.amazon.smithy.build.PluginContext;
@@ -12,7 +13,9 @@ import software.amazon.smithy.model.node.Node;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
 
+@Deprecated
 public class AddAwsAuthPluginTest {
+    @Disabled("software.amazon.smithy.aws.typescript.codegen.AddAwsAuthPlugin is considered deprecated")
     @Test
     public void awsClient() {
         Model model = Model.assembler()
@@ -52,6 +55,7 @@ public class AddAwsAuthPluginTest {
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("getAwsAuthPlugin"));
     }
 
+    @Disabled("software.amazon.smithy.aws.typescript.codegen.AddAwsAuthPlugin is considered deprecated")
     @Test
     public void sigV4GenericClient() {
         Model model = Model.assembler()
