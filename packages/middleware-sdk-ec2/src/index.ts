@@ -81,7 +81,12 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
             host: resolvedEndpoint.hostname,
           },
           query: {
-            ...input,
+            // Values must be string instead of e.g. boolean
+            // because we need to sign the serialized form.
+            ...Object.entries(input).reduce((acc, [k, v]) => {
+              acc[k] = String(v ?? "");
+              return acc;
+            }, {} as Record<string, string>),
             Action: "CopySnapshot",
             Version: version,
             DestinationRegion: destinationRegion,
