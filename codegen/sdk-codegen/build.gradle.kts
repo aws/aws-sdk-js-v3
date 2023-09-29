@@ -105,6 +105,7 @@ tasks.register("generate-smithy-build") {
             ).expectObjectNode()
             val experimentalIdentityAndAuthServices = setOf(
                 ShapeId.from("com.amazonaws.codecatalyst#CodeCatalyst"),
+                ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615"),
             )
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
