@@ -108,6 +108,9 @@ tasks.register("generate-smithy-build") {
                 ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615"),
                 ShapeId.from("com.amazonaws.sqs#AmazonSQS"),
                 ShapeId.from("com.amazonaws.dynamodb#DynamoDB_20120810"),
+                ShapeId.from("com.amazonaws.rds#AmazonRDSv19"),
+                ShapeId.from("com.amazonaws.ec2#AmazonEC2"),
+                ShapeId.from("com.amazonaws.polly#Parrot_v1"),
             )
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
