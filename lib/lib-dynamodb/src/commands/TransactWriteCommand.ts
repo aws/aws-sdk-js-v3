@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/client-dynamodb";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
-import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions,MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
@@ -80,10 +80,58 @@ export class TransactWriteCommand extends DynamoDBDocumentClientCommand<
     {
       key: "TransactItems",
       children: [
-        { key: "ConditionCheck", children: [{ key: "Key" }, { key: "ExpressionAttributeValues" }] },
-        { key: "Put", children: [{ key: "Item" }, { key: "ExpressionAttributeValues" }] },
-        { key: "Delete", children: [{ key: "Key" }, { key: "ExpressionAttributeValues" }] },
-        { key: "Update", children: [{ key: "Key" }, { key: "ExpressionAttributeValues" }] },
+        {
+          key: "ConditionCheck",
+          children: [
+            {
+              key: "Key",
+              children: {}, // map with AttributeValue
+            },
+            {
+              key: "ExpressionAttributeValues",
+              children: {}, // map with AttributeValue
+            },
+          ],
+        },
+        {
+          key: "Put",
+          children: [
+            {
+              key: "Item",
+              children: {}, // map with AttributeValue
+            },
+            {
+              key: "ExpressionAttributeValues",
+              children: {}, // map with AttributeValue
+            },
+          ],
+        },
+        {
+          key: "Delete",
+          children: [
+            {
+              key: "Key",
+              children: {}, // map with AttributeValue
+            },
+            {
+              key: "ExpressionAttributeValues",
+              children: {}, // map with AttributeValue
+            },
+          ],
+        },
+        {
+          key: "Update",
+          children: [
+            {
+              key: "Key",
+              children: {}, // map with AttributeValue
+            },
+            {
+              key: "ExpressionAttributeValues",
+              children: {}, // map with AttributeValue
+            },
+          ],
+        },
       ],
     },
   ];
@@ -91,7 +139,12 @@ export class TransactWriteCommand extends DynamoDBDocumentClientCommand<
     {
       key: "ItemCollectionMetrics",
       children: {
-        children: [{ key: "ItemCollectionKey" }],
+        children: [
+          {
+            key: "ItemCollectionKey",
+            children: {}, // map with AttributeValue
+          },
+        ],
       },
     },
   ];

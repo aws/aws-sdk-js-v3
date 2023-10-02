@@ -1,7 +1,6 @@
-import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
-
 import { S3Client } from "@aws-sdk/client-s3";
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 import { Upload } from "@aws-sdk/lib-storage";
 
 import { configuration } from "./config";
@@ -37,7 +36,7 @@ const uploadIndeterminateLengthStreamBrowser = async () => {
 
   const Key = configuration.Key;
 
-  let upload = new Upload({
+  const upload = new Upload({
     client,
     params: {
       Key,

@@ -247,6 +247,7 @@ final class DocumentClientCommandGenerator implements Runnable {
                 Shape mapMemberTarget = model.expectShape(mapMember.getTarget());
                 if (mapMemberTarget.isUnionShape()
                         && symbolProvider.toSymbol(mapMemberTarget).getName().equals("AttributeValue")) {
+                    writer.write("children: {}, // map with AttributeValue");
                     return;
                 } else {
                     writer.openBlock("children: {", "},", () -> {

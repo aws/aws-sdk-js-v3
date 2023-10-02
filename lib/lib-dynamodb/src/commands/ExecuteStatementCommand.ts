@@ -6,7 +6,7 @@ import {
 } from "@aws-sdk/client-dynamodb";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
-import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions,MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
@@ -48,7 +48,16 @@ export class ExecuteStatementCommand extends DynamoDBDocumentClientCommand<
   DynamoDBDocumentClientResolvedConfig
 > {
   protected readonly inputKeyNodes = [{ key: "Parameters" }];
-  protected readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
+  protected readonly outputKeyNodes = [
+    {
+      key: "Items",
+      children: {}, // map with AttributeValue
+    },
+    {
+      key: "LastEvaluatedKey",
+      children: {}, // map with AttributeValue
+    },
+  ];
 
   protected readonly clientCommand: __ExecuteStatementCommand;
   public readonly middlewareStack: MiddlewareStack<

@@ -9,7 +9,7 @@ import {
 } from "@aws-sdk/client-dynamodb";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
-import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions,MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
@@ -59,8 +59,33 @@ export class TransactGetCommand extends DynamoDBDocumentClientCommand<
   __TransactGetItemsCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [{ key: "TransactItems", children: [{ key: "Get", children: [{ key: "Key" }] }] }];
-  protected readonly outputKeyNodes = [{ key: "Responses", children: [{ key: "Item" }] }];
+  protected readonly inputKeyNodes = [
+    {
+      key: "TransactItems",
+      children: [
+        {
+          key: "Get",
+          children: [
+            {
+              key: "Key",
+              children: {}, // map with AttributeValue
+            },
+          ],
+        },
+      ],
+    },
+  ];
+  protected readonly outputKeyNodes = [
+    {
+      key: "Responses",
+      children: [
+        {
+          key: "Item",
+          children: {}, // map with AttributeValue
+        },
+      ],
+    },
+  ];
 
   protected readonly clientCommand: __TransactGetItemsCommand;
   public readonly middlewareStack: MiddlewareStack<
