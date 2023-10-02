@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.423.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.422.0...v3.423.0) (2023-10-02)
+
+
+### Bug Fixes
+
+* **credential-provider-http:** use alternate browser entry point ([#5277](https://github.com/aws/aws-sdk-js-v3/issues/5277)) ([a3f0754](https://github.com/aws/aws-sdk-js-v3/commit/a3f07541d8e560c3dce38a621ae2670410054053))
+* **middleware-sdk-ec2:** fix presigning of boolean query param ([#5278](https://github.com/aws/aws-sdk-js-v3/issues/5278)) ([fa961c2](https://github.com/aws/aws-sdk-js-v3/commit/fa961c2350b650a1c29cc09306f0e2e0b9eb6c4e))
+
+
+### Features
+
+* **client-bedrock-runtime:** Add model timeout exception for InvokeModelWithResponseStream API and update validator for invoke model identifier. ([b07fb6e](https://github.com/aws/aws-sdk-js-v3/commit/b07fb6e025f3a33306d519c044119c937b902b1a))
+* **client-bedrock:** Provisioned throughput feature with Amazon and third-party base models, and update validators for model identifier and taggable resource ARNs. ([441ce01](https://github.com/aws/aws-sdk-js-v3/commit/441ce01f2d2e468c34de27578db3aa14e4a10392))
+* **client-ec2:** Introducing Amazon EC2 R7iz instances with 3.9 GHz sustained all-core turbo frequency and deliver up to 20% better performance than previous generation z1d instances. ([bd24ace](https://github.com/aws/aws-sdk-js-v3/commit/bd24ace57c22b3a28cb5c9526e36ed5eac6d89b3))
+* **client-rds:** Adds DefaultCertificateForNewLaunches field in the DescribeCertificates API response. ([679fd29](https://github.com/aws/aws-sdk-js-v3/commit/679fd290e48a3996cb5e80d972779cf142a15600))
+* **client-sso:** Fix FIPS Endpoints in aws-us-gov. ([0b76346](https://github.com/aws/aws-sdk-js-v3/commit/0b76346b1ca23f7206b27f4a6129d937d726a7b8))
+* **client-sts:** STS API updates for assumeRole ([d233302](https://github.com/aws/aws-sdk-js-v3/commit/d23330266f2b4a57891ca6b7fe1f224f134fc483))
+* **clients:** update client endpoints as of 2023-10-02 ([f5a47e7](https://github.com/aws/aws-sdk-js-v3/commit/f5a47e70cf83cfecad3bfa12765e7ee24c914f59))
+
+
+
+
+
 # [3.422.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.421.0...v3.422.0) (2023-09-28)
 
 

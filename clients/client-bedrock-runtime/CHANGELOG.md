@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.423.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.422.0...v3.423.0) (2023-10-02)
+
+
+### Features
+
+* **client-bedrock-runtime:** Add model timeout exception for InvokeModelWithResponseStream API and update validator for invoke model identifier. ([b07fb6e](https://github.com/aws/aws-sdk-js-v3/commit/b07fb6e025f3a33306d519c044119c937b902b1a))
+
+
+
+
+
 # [3.422.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.421.0...v3.422.0) (2023-09-28)
 
 

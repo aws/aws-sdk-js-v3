@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.423.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.422.0...v3.423.0) (2023-10-02)
+
+
+### Bug Fixes
+
+* **middleware-sdk-ec2:** fix presigning of boolean query param ([#5278](https://github.com/aws/aws-sdk-js-v3/issues/5278)) ([fa961c2](https://github.com/aws/aws-sdk-js-v3/commit/fa961c2350b650a1c29cc09306f0e2e0b9eb6c4e))
+
+
+
+
+
 # [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-ec2
