@@ -79,7 +79,7 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementRespons
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *  <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>

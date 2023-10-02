@@ -130,13 +130,13 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *  <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceExistsException} (client fault)
- *  <p>The requested resource does not exist.</p>
+ *  <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family

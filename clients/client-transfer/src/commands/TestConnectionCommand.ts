@@ -38,7 +38,7 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
 /**
  * @public
  * <p>Tests whether your SFTP connector is set up successfully. We highly recommend that you call this
- *     operation to test your ability to transfer files between a Transfer Family server and a trading partner's
+ *     operation to test your ability to transfer files between local Amazon Web Services storage and a trading partner's
  *     SFTP server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,7 +66,7 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *  <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>

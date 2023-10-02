@@ -525,15 +525,26 @@ export interface CreateAccessRequest {
    * @public
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
+   *          <note>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *          </note>
    */
   HomeDirectory?: string;
 
   /**
    * @public
    * <p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.
-   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer
-   *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
+   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer
+   *     protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
+   *          <note>
+   *             <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,
+   *             using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,
+   *                <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path
+   *             using the <code>HomeDirectory</code> parameter. You cannot have both
+   *                <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your
+   *             template.</p>
+   *          </note>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
 
@@ -641,7 +652,7 @@ export interface CreateAccessResponse {
 
 /**
  * @public
- * <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ * <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
  */
 export class InternalServiceError extends __BaseException {
   readonly name: "InternalServiceError" = "InternalServiceError";
@@ -685,7 +696,7 @@ export class InvalidRequestException extends __BaseException {
 
 /**
  * @public
- * <p>The requested resource does not exist.</p>
+ * <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
  */
 export class ResourceExistsException extends __BaseException {
   readonly name: "ResourceExistsException" = "ResourceExistsException";
@@ -914,8 +925,9 @@ export interface SftpConnectorConfig {
    * @public
    * <p>The public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting. You can use the <code>ssh-keyscan</code> command against the SFTP server to retrieve the necessary key.</p>
    *          <p>The three standard SSH public key format elements are <code><key type></code>,
-   *       <code><body base64></code>, and  an optional <code><comment></code>, with spaces
-   *       between each element.</p>
+   *         <code><body base64></code>, and an optional <code><comment></code>, with spaces
+   *       between each element. Specify only the  <code><key type></code> and <code><body
+   *         base64></code>: do not enter the <code><comment></code> portion of the key.</p>
    *          <p>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</p>
    *          <ul>
    *             <li>
@@ -1766,15 +1778,26 @@ export interface CreateUserRequest {
    * @public
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
+   *          <note>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *          </note>
    */
   HomeDirectory?: string;
 
   /**
    * @public
    * <p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.
-   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer
-   *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
+   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer
+   *     protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
+   *          <note>
+   *             <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,
+   *             using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,
+   *                <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path
+   *             using the <code>HomeDirectory</code> parameter. You cannot have both
+   *                <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your
+   *             template.</p>
+   *          </note>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
 
@@ -2542,6 +2565,9 @@ export interface DescribedAccess {
    * @public
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
+   *          <note>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *          </note>
    */
   HomeDirectory?: string;
 
@@ -2565,9 +2591,17 @@ export interface DescribedAccess {
   /**
    * @public
    * <p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.
-   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer
-   *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
+   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer
+   *     protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
+   *          <note>
+   *             <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,
+   *             using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,
+   *                <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path
+   *             using the <code>HomeDirectory</code> parameter. You cannot have both
+   *                <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your
+   *             template.</p>
+   *          </note>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
 
@@ -3804,6 +3838,9 @@ export interface DescribedUser {
    * @public
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
+   *          <note>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *          </note>
    */
   HomeDirectory?: string;
 
@@ -3827,9 +3864,17 @@ export interface DescribedUser {
   /**
    * @public
    * <p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.
-   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer
-   *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
+   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer
+   *     protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
+   *          <note>
+   *             <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,
+   *             using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,
+   *                <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path
+   *             using the <code>HomeDirectory</code> parameter. You cannot have both
+   *                <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your
+   *             template.</p>
+   *          </note>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
 
@@ -4349,15 +4394,26 @@ export interface ListedAccess {
    * @public
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
+   *          <note>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *          </note>
    */
   HomeDirectory?: string;
 
   /**
    * @public
    * <p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.
-   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer
-   *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
+   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer
+   *     protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
+   *          <note>
+   *             <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,
+   *             using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,
+   *                <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path
+   *             using the <code>HomeDirectory</code> parameter. You cannot have both
+   *                <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your
+   *             template.</p>
+   *          </note>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
 
@@ -4893,15 +4949,26 @@ export interface ListedUser {
    * @public
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
+   *          <note>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *          </note>
    */
   HomeDirectory?: string;
 
   /**
    * @public
    * <p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.
-   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer
-   *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
+   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer
+   *     protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
+   *          <note>
+   *             <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,
+   *             using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,
+   *                <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path
+   *             using the <code>HomeDirectory</code> parameter. You cannot have both
+   *                <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your
+   *             template.</p>
+   *          </note>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
 
@@ -5269,9 +5336,9 @@ export interface ListUsersRequest {
 
   /**
    * @public
-   * <p>When you can get additional results from the <code>ListUsers</code> call, a
-   *         <code>NextToken</code> parameter is returned in the output. You can then pass in a
-   *       subsequent command to the <code>NextToken</code> parameter to continue listing additional
+   * <p>If there are additional results from the <code>ListUsers</code> call, a
+   *         <code>NextToken</code> parameter is returned in the output. You can then pass
+   *       the <code>NextToken</code> to a subsequent <code>ListUsers</code> command, to continue listing additional
    *       users.</p>
    */
   NextToken?: string;
@@ -5514,26 +5581,21 @@ export interface TestConnectionResponse {
   /**
    * @public
    * <p>Returns <code>Connection succeeded</code> if the test is successful. Or, returns a descriptive error message
-   *     if the test fails. The following list provides the details for some error messages and troubleshooting steps for each.</p>
+   *     if the test fails. The following list provides troubleshooting details, depending on the error message that you receive.</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *                   <b>Unable to access secrets manager</b>: Verify that your secret name aligns with the one in
+   *                <p>Verify that your secret name aligns with the one in
    *           Transfer Role permissions.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <b>Unknown Host/Connection failed</b>: Verify the server URL in the connector
-   *           configuration , and
-   *           verify that the login credentials work successfully outside of the connector.</p>
+   *                <p>Verify the server URL in the connector
+   *           configuration , and verify that the login credentials work successfully outside of the connector.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <b>Private key not found</b>: Verify that the secret exists and is formatted correctly.</p>
+   *                <p>Verify that the secret exists and is formatted correctly.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <b>Invalid trusted host keys</b>: Verify that the trusted host key in the connector
+   *                <p>Verify that the trusted host key in the connector
    *           configuration matches the <code>ssh-keyscan</code> output.</p>
    *             </li>
    *          </ul>
@@ -5651,15 +5713,26 @@ export interface UpdateAccessRequest {
    * @public
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
+   *          <note>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *          </note>
    */
   HomeDirectory?: string;
 
   /**
    * @public
    * <p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.
-   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer
-   *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
+   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer
+   *     protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
+   *          <note>
+   *             <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,
+   *             using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,
+   *                <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path
+   *             using the <code>HomeDirectory</code> parameter. You cannot have both
+   *                <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your
+   *             template.</p>
+   *          </note>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
 
@@ -6333,15 +6406,26 @@ export interface UpdateUserRequest {
    * @public
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
+   *          <note>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *          </note>
    */
   HomeDirectory?: string;
 
   /**
    * @public
    * <p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.
-   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer
-   *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
+   *     If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer
+   *     protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
+   *          <note>
+   *             <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,
+   *             using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,
+   *                <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path
+   *             using the <code>HomeDirectory</code> parameter. You cannot have both
+   *                <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your
+   *             template.</p>
+   *          </note>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
 
