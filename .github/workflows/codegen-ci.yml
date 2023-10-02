@@ -25,10 +25,7 @@ jobs:
       
       - name: build and publish smithy-typescript
         run: |
-          git clone --depth 1 https://github.com/awslabs/smithy-typescript.git
-          cd smithy-typescript
-          ./gradlew clean build publishToMavenLocal
-          cd ..
+          node ./scripts/generate-clients/build-smithy-typescript-ci.js
       
       - name: build and test codegen
         run: |
