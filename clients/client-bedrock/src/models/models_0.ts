@@ -790,14 +790,17 @@ export interface ListFoundationModelsResponse {
 
 /**
  * @public
+ * @enum
  */
-export interface ListTagsForResourceRequest {
-  /**
-   * @public
-   * <p>The ARN of the resource.</p>
-   */
-  resourceARN: string | undefined;
-}
+export const CommitmentDuration = {
+  ONE_MONTH: "OneMonth",
+  SIX_MONTHS: "SixMonths",
+} as const;
+
+/**
+ * @public
+ */
+export type CommitmentDuration = (typeof CommitmentDuration)[keyof typeof CommitmentDuration];
 
 /**
  * @public
@@ -815,6 +818,439 @@ export interface Tag {
    * <p>Value for the tag.</p>
    */
   value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateProvisionedModelThroughputRequest {
+  /**
+   * @public
+   * <p>Unique token value that you can provide. If this token matches a previous request,
+   *             Bedrock ignores the request, but does not return an error.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * @public
+   * <p>Number of model units to allocate.</p>
+   */
+  modelUnits: number | undefined;
+
+  /**
+   * @public
+   * <p>Unique name for this provisioned throughput.</p>
+   */
+  provisionedModelName: string | undefined;
+
+  /**
+   * @public
+   * <p>Name or ARN of the model to associate with this provisioned throughput.</p>
+   */
+  modelId: string | undefined;
+
+  /**
+   * @public
+   * <p>Commitment duration requested for the provisioned throughput.</p>
+   */
+  commitmentDuration?: CommitmentDuration | string;
+
+  /**
+   * @public
+   * <p>Tags to associate with this provisioned throughput.</p>
+   */
+  tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateProvisionedModelThroughputResponse {
+  /**
+   * @public
+   * <p>The ARN for this provisioned throughput.</p>
+   */
+  provisionedModelArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request contains more tags than can be associated with a resource (50 tags per resource).
+ *             The maximum number of tags includes both existing tags and those included in your current request. </p>
+ */
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The name of the resource with too many tags.</p>
+   */
+  resourceName?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.resourceName = opts.resourceName;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteProvisionedModelThroughputRequest {
+  /**
+   * @public
+   * <p>The ARN or name of the provisioned throughput.</p>
+   */
+  provisionedModelId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProvisionedModelThroughputResponse {}
+
+/**
+ * @public
+ */
+export interface GetProvisionedModelThroughputRequest {
+  /**
+   * @public
+   * <p>The ARN or name of the provisioned throughput.</p>
+   */
+  provisionedModelId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProvisionedModelStatus = {
+  CREATING: "Creating",
+  FAILED: "Failed",
+  IN_SERVICE: "InService",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisionedModelStatus = (typeof ProvisionedModelStatus)[keyof typeof ProvisionedModelStatus];
+
+/**
+ * @public
+ */
+export interface GetProvisionedModelThroughputResponse {
+  /**
+   * @public
+   * <p>The current number of model units requested to be available for this provisioned throughput.</p>
+   */
+  modelUnits: number | undefined;
+
+  /**
+   * @public
+   * <p>The desired number of model units that was requested to be available for this provisioned throughput.</p>
+   */
+  desiredModelUnits: number | undefined;
+
+  /**
+   * @public
+   * <p>The name of the provisioned throughput.</p>
+   */
+  provisionedModelName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the provisioned throughput.</p>
+   */
+  provisionedModelArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN or name of the model associated with this provisioned throughput.</p>
+   */
+  modelArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the new model to asssociate with this provisioned throughput.</p>
+   */
+  desiredModelArn: string | undefined;
+
+  /**
+   * @public
+   * <p>ARN of the foundation model.</p>
+   */
+  foundationModelArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Status of the provisioned throughput. </p>
+   */
+  status: ProvisionedModelStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>The timestamp of the creation time for this provisioned throughput. </p>
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The timestamp of the last modified time of this provisioned throughput. </p>
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>Failure message for any issues that the create operation encounters.</p>
+   */
+  failureMessage?: string;
+
+  /**
+   * @public
+   * <p>Commitment duration of the provisioned throughput.</p>
+   */
+  commitmentDuration?: CommitmentDuration | string;
+
+  /**
+   * @public
+   * <p>Commitment expiration time for the provisioned throughput.</p>
+   */
+  commitmentExpirationTime?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortByProvisionedModels = {
+  CREATION_TIME: "CreationTime",
+} as const;
+
+/**
+ * @public
+ */
+export type SortByProvisionedModels = (typeof SortByProvisionedModels)[keyof typeof SortByProvisionedModels];
+
+/**
+ * @public
+ */
+export interface ListProvisionedModelThroughputsRequest {
+  /**
+   * @public
+   * <p>Return provisioned capacities created after the specified time. </p>
+   */
+  creationTimeAfter?: Date;
+
+  /**
+   * @public
+   * <p>Return provisioned capacities created before the specified time. </p>
+   */
+  creationTimeBefore?: Date;
+
+  /**
+   * @public
+   * <p>Return the list of provisioned capacities that match the specified status.</p>
+   */
+  statusEquals?: ProvisionedModelStatus | string;
+
+  /**
+   * @public
+   * <p>Return the list of provisioned capacities where their model ARN is equal to this parameter.</p>
+   */
+  modelArnEquals?: string;
+
+  /**
+   * @public
+   * <p>Return the list of provisioned capacities if their name contains these characters.</p>
+   */
+  nameContains?: string;
+
+  /**
+   * @public
+   * <p>THe maximum number of results to return in the response.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>Continuation token from the previous response, for Bedrock to list the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The field to sort by in the returned list of provisioned capacities.</p>
+   */
+  sortBy?: SortByProvisionedModels | string;
+
+  /**
+   * @public
+   * <p>The sort order of the results.</p>
+   */
+  sortOrder?: SortOrder | string;
+}
+
+/**
+ * @public
+ * <p>Set of fields associated with a provisioned throughput.</p>
+ */
+export interface ProvisionedModelSummary {
+  /**
+   * @public
+   * <p>The name of the provisioned throughput.</p>
+   */
+  provisionedModelName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the provisioned throughput.</p>
+   */
+  provisionedModelArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the model associated with this provisioned throughput.</p>
+   */
+  modelArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Desired model ARN.</p>
+   */
+  desiredModelArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Foundation model ARN.</p>
+   */
+  foundationModelArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The number of model units allocated.</p>
+   */
+  modelUnits: number | undefined;
+
+  /**
+   * @public
+   * <p>Desired model units.</p>
+   */
+  desiredModelUnits: number | undefined;
+
+  /**
+   * @public
+   * <p>Status of the provisioned throughput.</p>
+   */
+  status: ProvisionedModelStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>Commitment duration for the provisioned throughput.</p>
+   */
+  commitmentDuration?: CommitmentDuration | string;
+
+  /**
+   * @public
+   * <p>Commitment expiration time for the provisioned throughput.</p>
+   */
+  commitmentExpirationTime?: Date;
+
+  /**
+   * @public
+   * <p>The time that this provisioned throughput was created. </p>
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The time that this provisioned throughput was last modified. </p>
+   */
+  lastModifiedTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProvisionedModelThroughputsResponse {
+  /**
+   * @public
+   * <p>Continuation token for the next request to list the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>List of summaries, one for each provisioned throughput in the response.</p>
+   */
+  provisionedModelSummaries?: ProvisionedModelSummary[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateProvisionedModelThroughputRequest {
+  /**
+   * @public
+   * <p>The ARN or name of the provisioned throughput to update.</p>
+   */
+  provisionedModelId: string | undefined;
+
+  /**
+   * @public
+   * <p>The new name for this provisioned throughput.</p>
+   */
+  desiredProvisionedModelName?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the new model to associate with this provisioned throughput.</p>
+   */
+  desiredModelId?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProvisionedModelThroughputResponse {}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * @public
+   * <p>The ARN of the resource.</p>
+   */
+  resourceARN: string | undefined;
 }
 
 /**
@@ -849,34 +1285,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * @public
- * <p>The request contains more tags than can be associated with a resource (50 tags per resource).
- *          The maximum number of tags includes both existing tags and those included in your current request. </p>
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @public
-   * <p>The name of the resource with too many tags.</p>
-   */
-  resourceName?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
 
 /**
  * @public
@@ -937,9 +1345,9 @@ export interface CreateModelCustomizationJobRequest {
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
-   *          For example, during model training, Bedrock needs your permission to read input data from an S3 bucket, write model artifacts to an S3 bucket.
-   *          To pass this role to Bedrock, the caller of this API must have the <code>iam:PassRole</code> permission.
-   *       </p>
+   *             For example, during model training, Bedrock needs your permission to read input data from an S3 bucket, write model artifacts to an S3 bucket.
+   *             To pass this role to Bedrock, the caller of this API must have the <code>iam:PassRole</code> permission.
+   *         </p>
    */
   roleArn: string | undefined;
 
@@ -1000,7 +1408,7 @@ export interface CreateModelCustomizationJobRequest {
   /**
    * @public
    * <p>VPC configuration (optional). Configuration parameters for the
-   *            private Virtual Private Cloud (VPC) that contains the resources you are using for this job.</p>
+   *             private Virtual Private Cloud (VPC) that contains the resources you are using for this job.</p>
    */
   vpcConfig?: VpcConfig;
 }
@@ -1014,26 +1422,6 @@ export interface CreateModelCustomizationJobResponse {
    * <p>ARN of the fine tuning job</p>
    */
   jobArn: string | undefined;
-}
-
-/**
- * @public
- * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
 }
 
 /**
@@ -1108,7 +1496,7 @@ export interface GetModelCustomizationJobResponse {
   /**
    * @public
    * <p>The status of the job. A successful job transitions from in-progress to completed when the output model is ready to use.
-   *       If the job failed, the failure message contains information about why the job failed.</p>
+   *             If the job failed, the failure message contains information about why the job failed.</p>
    */
   status?: ModelCustomizationJobStatus | string;
 

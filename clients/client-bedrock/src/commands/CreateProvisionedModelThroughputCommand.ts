@@ -15,10 +15,10 @@ import {
 } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { CreateModelCustomizationJobRequest, CreateModelCustomizationJobResponse } from "../models/models_0";
+import { CreateProvisionedModelThroughputRequest, CreateProvisionedModelThroughputResponse } from "../models/models_0";
 import {
-  de_CreateModelCustomizationJobCommand,
-  se_CreateModelCustomizationJobCommand,
+  de_CreateProvisionedModelThroughputCommand,
+  se_CreateProvisionedModelThroughputCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -28,100 +28,57 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateModelCustomizationJobCommand}.
+ * The input for {@link CreateProvisionedModelThroughputCommand}.
  */
-export interface CreateModelCustomizationJobCommandInput extends CreateModelCustomizationJobRequest {}
+export interface CreateProvisionedModelThroughputCommandInput extends CreateProvisionedModelThroughputRequest {}
 /**
  * @public
  *
- * The output of {@link CreateModelCustomizationJobCommand}.
+ * The output of {@link CreateProvisionedModelThroughputCommand}.
  */
-export interface CreateModelCustomizationJobCommandOutput
-  extends CreateModelCustomizationJobResponse,
+export interface CreateProvisionedModelThroughputCommandOutput
+  extends CreateProvisionedModelThroughputResponse,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a fine-tuning job to customize a base model.</p>
- *          <p>You specify the base foundation model and the location of the training data.
- *             After the  model-customization job completes successfully, your custom model resource will be ready to use. Training data
- *             contains input and output text for each record in a JSONL format. Optionally, you can specify validation data
- *             in the same format as the training data. Bedrock returns validation loss metrics and output generations
- *             after the job completes.
- *         </p>
- *          <p>
- *             Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size.
- *             To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Bedrock User Guide.</p>
+ * <p>Creates a provisioned throughput with dedicated capacity for a foundation model or a fine-tuned model.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Provisioned throughput</a> in the Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockClient, CreateModelCustomizationJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
- * // const { BedrockClient, CreateModelCustomizationJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * import { BedrockClient, CreateProvisionedModelThroughputCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
+ * // const { BedrockClient, CreateProvisionedModelThroughputCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
  * const client = new BedrockClient(config);
- * const input = { // CreateModelCustomizationJobRequest
- *   jobName: "STRING_VALUE", // required
- *   customModelName: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
+ * const input = { // CreateProvisionedModelThroughputRequest
  *   clientRequestToken: "STRING_VALUE",
- *   baseModelIdentifier: "STRING_VALUE", // required
- *   customModelKmsKeyId: "STRING_VALUE",
- *   jobTags: [ // TagList
+ *   modelUnits: Number("int"), // required
+ *   provisionedModelName: "STRING_VALUE", // required
+ *   modelId: "STRING_VALUE", // required
+ *   commitmentDuration: "OneMonth" || "SixMonths",
+ *   tags: [ // TagList
  *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
- *   customModelTags: [
- *     {
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
- *     },
- *   ],
- *   trainingDataConfig: { // TrainingDataConfig
- *     s3Uri: "STRING_VALUE", // required
- *   },
- *   validationDataConfig: { // ValidationDataConfig
- *     validators: [ // Validators // required
- *       { // Validator
- *         s3Uri: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   outputDataConfig: { // OutputDataConfig
- *     s3Uri: "STRING_VALUE", // required
- *   },
- *   hyperParameters: { // ModelCustomizationHyperParameters // required
- *     "<keys>": "STRING_VALUE",
- *   },
- *   vpcConfig: { // VpcConfig
- *     subnetIds: [ // SubnetIds // required
- *       "STRING_VALUE",
- *     ],
- *     securityGroupIds: [ // SecurityGroupIds // required
- *       "STRING_VALUE",
- *     ],
- *   },
  * };
- * const command = new CreateModelCustomizationJobCommand(input);
+ * const command = new CreateProvisionedModelThroughputCommand(input);
  * const response = await client.send(command);
- * // { // CreateModelCustomizationJobResponse
- * //   jobArn: "STRING_VALUE", // required
+ * // { // CreateProvisionedModelThroughputResponse
+ * //   provisionedModelArn: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param CreateModelCustomizationJobCommandInput - {@link CreateModelCustomizationJobCommandInput}
- * @returns {@link CreateModelCustomizationJobCommandOutput}
- * @see {@link CreateModelCustomizationJobCommandInput} for command's `input` shape.
- * @see {@link CreateModelCustomizationJobCommandOutput} for command's `response` shape.
+ * @param CreateProvisionedModelThroughputCommandInput - {@link CreateProvisionedModelThroughputCommandInput}
+ * @returns {@link CreateProvisionedModelThroughputCommandOutput}
+ * @see {@link CreateProvisionedModelThroughputCommandInput} for command's `input` shape.
+ * @see {@link CreateProvisionedModelThroughputCommandOutput} for command's `response` shape.
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The request is denied because of missing access permissions.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>Error occurred because of a conflict while performing an operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred. Retry your request.</p>
@@ -146,9 +103,9 @@ export interface CreateModelCustomizationJobCommandOutput
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
  */
-export class CreateModelCustomizationJobCommand extends $Command<
-  CreateModelCustomizationJobCommandInput,
-  CreateModelCustomizationJobCommandOutput,
+export class CreateProvisionedModelThroughputCommand extends $Command<
+  CreateProvisionedModelThroughputCommandInput,
+  CreateProvisionedModelThroughputCommandOutput,
   BedrockClientResolvedConfig
 > {
   // Start section: command_properties
@@ -166,7 +123,7 @@ export class CreateModelCustomizationJobCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateModelCustomizationJobCommandInput) {
+  constructor(readonly input: CreateProvisionedModelThroughputCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -179,17 +136,17 @@ export class CreateModelCustomizationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BedrockClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateModelCustomizationJobCommandInput, CreateModelCustomizationJobCommandOutput> {
+  ): Handler<CreateProvisionedModelThroughputCommandInput, CreateProvisionedModelThroughputCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateModelCustomizationJobCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateProvisionedModelThroughputCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BedrockClient";
-    const commandName = "CreateModelCustomizationJobCommand";
+    const commandName = "CreateProvisionedModelThroughputCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -198,7 +155,7 @@ export class CreateModelCustomizationJobCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonBedrockControlPlaneService",
-        operation: "CreateModelCustomizationJob",
+        operation: "CreateProvisionedModelThroughput",
       },
     };
     const { requestHandler } = configuration;
@@ -212,8 +169,11 @@ export class CreateModelCustomizationJobCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateModelCustomizationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateModelCustomizationJobCommand(input, context);
+  private serialize(
+    input: CreateProvisionedModelThroughputCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_CreateProvisionedModelThroughputCommand(input, context);
   }
 
   /**
@@ -222,8 +182,8 @@ export class CreateModelCustomizationJobCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<CreateModelCustomizationJobCommandOutput> {
-    return de_CreateModelCustomizationJobCommand(output, context);
+  ): Promise<CreateProvisionedModelThroughputCommandOutput> {
+    return de_CreateProvisionedModelThroughputCommand(output, context);
   }
 
   // Start section: command_body_extra

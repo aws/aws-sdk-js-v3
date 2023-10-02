@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { ListModelCustomizationJobsRequest, ListModelCustomizationJobsResponse } from "../models/models_0";
-import { de_ListModelCustomizationJobsCommand, se_ListModelCustomizationJobsCommand } from "../protocols/Aws_restJson1";
+import { GetProvisionedModelThroughputRequest, GetProvisionedModelThroughputResponse } from "../models/models_0";
+import {
+  de_GetProvisionedModelThroughputCommand,
+  se_GetProvisionedModelThroughputCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,62 +28,54 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListModelCustomizationJobsCommand}.
+ * The input for {@link GetProvisionedModelThroughputCommand}.
  */
-export interface ListModelCustomizationJobsCommandInput extends ListModelCustomizationJobsRequest {}
+export interface GetProvisionedModelThroughputCommandInput extends GetProvisionedModelThroughputRequest {}
 /**
  * @public
  *
- * The output of {@link ListModelCustomizationJobsCommand}.
+ * The output of {@link GetProvisionedModelThroughputCommand}.
  */
-export interface ListModelCustomizationJobsCommandOutput extends ListModelCustomizationJobsResponse, __MetadataBearer {}
+export interface GetProvisionedModelThroughputCommandOutput
+  extends GetProvisionedModelThroughputResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns a list of model customization jobs that you have submitted. You can filter the jobs to return based on
- *             one or more criteria.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Bedrock User Guide.</p>
+ * <p>Get details for a provisioned throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Provisioned throughput</a> in the Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockClient, ListModelCustomizationJobsCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
- * // const { BedrockClient, ListModelCustomizationJobsCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * import { BedrockClient, GetProvisionedModelThroughputCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
+ * // const { BedrockClient, GetProvisionedModelThroughputCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
  * const client = new BedrockClient(config);
- * const input = { // ListModelCustomizationJobsRequest
- *   creationTimeAfter: new Date("TIMESTAMP"),
- *   creationTimeBefore: new Date("TIMESTAMP"),
- *   statusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
- *   nameContains: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   sortBy: "CreationTime",
- *   sortOrder: "Ascending" || "Descending",
+ * const input = { // GetProvisionedModelThroughputRequest
+ *   provisionedModelId: "STRING_VALUE", // required
  * };
- * const command = new ListModelCustomizationJobsCommand(input);
+ * const command = new GetProvisionedModelThroughputCommand(input);
  * const response = await client.send(command);
- * // { // ListModelCustomizationJobsResponse
- * //   nextToken: "STRING_VALUE",
- * //   modelCustomizationJobSummaries: [ // ModelCustomizationJobSummaries
- * //     { // ModelCustomizationJobSummary
- * //       jobArn: "STRING_VALUE", // required
- * //       baseModelArn: "STRING_VALUE", // required
- * //       jobName: "STRING_VALUE", // required
- * //       status: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
- * //       lastModifiedTime: new Date("TIMESTAMP"),
- * //       creationTime: new Date("TIMESTAMP"), // required
- * //       endTime: new Date("TIMESTAMP"),
- * //       customModelArn: "STRING_VALUE",
- * //       customModelName: "STRING_VALUE",
- * //     },
- * //   ],
+ * // { // GetProvisionedModelThroughputResponse
+ * //   modelUnits: Number("int"), // required
+ * //   desiredModelUnits: Number("int"), // required
+ * //   provisionedModelName: "STRING_VALUE", // required
+ * //   provisionedModelArn: "STRING_VALUE", // required
+ * //   modelArn: "STRING_VALUE", // required
+ * //   desiredModelArn: "STRING_VALUE", // required
+ * //   foundationModelArn: "STRING_VALUE", // required
+ * //   status: "Creating" || "InService" || "Updating" || "Failed", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   lastModifiedTime: new Date("TIMESTAMP"), // required
+ * //   failureMessage: "STRING_VALUE",
+ * //   commitmentDuration: "OneMonth" || "SixMonths",
+ * //   commitmentExpirationTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
  *
- * @param ListModelCustomizationJobsCommandInput - {@link ListModelCustomizationJobsCommandInput}
- * @returns {@link ListModelCustomizationJobsCommandOutput}
- * @see {@link ListModelCustomizationJobsCommandInput} for command's `input` shape.
- * @see {@link ListModelCustomizationJobsCommandOutput} for command's `response` shape.
+ * @param GetProvisionedModelThroughputCommandInput - {@link GetProvisionedModelThroughputCommandInput}
+ * @returns {@link GetProvisionedModelThroughputCommandOutput}
+ * @see {@link GetProvisionedModelThroughputCommandInput} for command's `input` shape.
+ * @see {@link GetProvisionedModelThroughputCommandOutput} for command's `response` shape.
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -88,6 +83,9 @@ export interface ListModelCustomizationJobsCommandOutput extends ListModelCustom
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
@@ -99,9 +97,9 @@ export interface ListModelCustomizationJobsCommandOutput extends ListModelCustom
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
  */
-export class ListModelCustomizationJobsCommand extends $Command<
-  ListModelCustomizationJobsCommandInput,
-  ListModelCustomizationJobsCommandOutput,
+export class GetProvisionedModelThroughputCommand extends $Command<
+  GetProvisionedModelThroughputCommandInput,
+  GetProvisionedModelThroughputCommandOutput,
   BedrockClientResolvedConfig
 > {
   // Start section: command_properties
@@ -119,7 +117,7 @@ export class ListModelCustomizationJobsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListModelCustomizationJobsCommandInput) {
+  constructor(readonly input: GetProvisionedModelThroughputCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -132,17 +130,17 @@ export class ListModelCustomizationJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BedrockClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListModelCustomizationJobsCommandInput, ListModelCustomizationJobsCommandOutput> {
+  ): Handler<GetProvisionedModelThroughputCommandInput, GetProvisionedModelThroughputCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListModelCustomizationJobsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetProvisionedModelThroughputCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BedrockClient";
-    const commandName = "ListModelCustomizationJobsCommand";
+    const commandName = "GetProvisionedModelThroughputCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -151,7 +149,7 @@ export class ListModelCustomizationJobsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonBedrockControlPlaneService",
-        operation: "ListModelCustomizationJobs",
+        operation: "GetProvisionedModelThroughput",
       },
     };
     const { requestHandler } = configuration;
@@ -165,8 +163,8 @@ export class ListModelCustomizationJobsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListModelCustomizationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListModelCustomizationJobsCommand(input, context);
+  private serialize(input: GetProvisionedModelThroughputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetProvisionedModelThroughputCommand(input, context);
   }
 
   /**
@@ -175,8 +173,8 @@ export class ListModelCustomizationJobsCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<ListModelCustomizationJobsCommandOutput> {
-    return de_ListModelCustomizationJobsCommand(output, context);
+  ): Promise<GetProvisionedModelThroughputCommandOutput> {
+    return de_GetProvisionedModelThroughputCommand(output, context);
   }
 
   // Start section: command_body_extra

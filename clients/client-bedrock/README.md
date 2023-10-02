@@ -213,6 +213,14 @@ CreateModelCustomizationJob
 </details>
 <details>
 <summary>
+CreateProvisionedModelThroughput
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/classes/createprovisionedmodelthroughputcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/createprovisionedmodelthroughputcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/createprovisionedmodelthroughputcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteCustomModel
 </summary>
 
@@ -225,6 +233,14 @@ DeleteModelInvocationLoggingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/classes/deletemodelinvocationloggingconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/deletemodelinvocationloggingconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/deletemodelinvocationloggingconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteProvisionedModelThroughput
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/classes/deleteprovisionedmodelthroughputcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/deleteprovisionedmodelthroughputcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/deleteprovisionedmodelthroughputcommandoutput.html)
 
 </details>
 <details>
@@ -261,6 +277,14 @@ GetModelInvocationLoggingConfiguration
 </details>
 <details>
 <summary>
+GetProvisionedModelThroughput
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/classes/getprovisionedmodelthroughputcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/getprovisionedmodelthroughputcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/getprovisionedmodelthroughputcommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListCustomModels
 </summary>
 
@@ -281,6 +305,14 @@ ListModelCustomizationJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/classes/listmodelcustomizationjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/listmodelcustomizationjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/listmodelcustomizationjobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListProvisionedModelThroughputs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/classes/listprovisionedmodelthroughputscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/listprovisionedmodelthroughputscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/listprovisionedmodelthroughputscommandoutput.html)
 
 </details>
 <details>
@@ -321,5 +353,13 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateProvisionedModelThroughput
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/classes/updateprovisionedmodelthroughputcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/updateprovisionedmodelthroughputcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-bedrock/interfaces/updateprovisionedmodelthroughputcommandoutput.html)
 
 </details>

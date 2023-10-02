@@ -54,11 +54,19 @@ import {
   CreateModelCustomizationJobCommandInput,
   CreateModelCustomizationJobCommandOutput,
 } from "./commands/CreateModelCustomizationJobCommand";
+import {
+  CreateProvisionedModelThroughputCommandInput,
+  CreateProvisionedModelThroughputCommandOutput,
+} from "./commands/CreateProvisionedModelThroughputCommand";
 import { DeleteCustomModelCommandInput, DeleteCustomModelCommandOutput } from "./commands/DeleteCustomModelCommand";
 import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/DeleteModelInvocationLoggingConfigurationCommand";
+import {
+  DeleteProvisionedModelThroughputCommandInput,
+  DeleteProvisionedModelThroughputCommandOutput,
+} from "./commands/DeleteProvisionedModelThroughputCommand";
 import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "./commands/GetCustomModelCommand";
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "./commands/GetFoundationModelCommand";
 import {
@@ -69,6 +77,10 @@ import {
   GetModelInvocationLoggingConfigurationCommandInput,
   GetModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/GetModelInvocationLoggingConfigurationCommand";
+import {
+  GetProvisionedModelThroughputCommandInput,
+  GetProvisionedModelThroughputCommandOutput,
+} from "./commands/GetProvisionedModelThroughputCommand";
 import { ListCustomModelsCommandInput, ListCustomModelsCommandOutput } from "./commands/ListCustomModelsCommand";
 import {
   ListFoundationModelsCommandInput,
@@ -78,6 +90,10 @@ import {
   ListModelCustomizationJobsCommandInput,
   ListModelCustomizationJobsCommandOutput,
 } from "./commands/ListModelCustomizationJobsCommand";
+import {
+  ListProvisionedModelThroughputsCommandInput,
+  ListProvisionedModelThroughputsCommandOutput,
+} from "./commands/ListProvisionedModelThroughputsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -92,6 +108,10 @@ import {
 } from "./commands/StopModelCustomizationJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateProvisionedModelThroughputCommandInput,
+  UpdateProvisionedModelThroughputCommandOutput,
+} from "./commands/UpdateProvisionedModelThroughputCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -108,40 +128,50 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateModelCustomizationJobCommandInput
+  | CreateProvisionedModelThroughputCommandInput
   | DeleteCustomModelCommandInput
   | DeleteModelInvocationLoggingConfigurationCommandInput
+  | DeleteProvisionedModelThroughputCommandInput
   | GetCustomModelCommandInput
   | GetFoundationModelCommandInput
   | GetModelCustomizationJobCommandInput
   | GetModelInvocationLoggingConfigurationCommandInput
+  | GetProvisionedModelThroughputCommandInput
   | ListCustomModelsCommandInput
   | ListFoundationModelsCommandInput
   | ListModelCustomizationJobsCommandInput
+  | ListProvisionedModelThroughputsCommandInput
   | ListTagsForResourceCommandInput
   | PutModelInvocationLoggingConfigurationCommandInput
   | StopModelCustomizationJobCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateProvisionedModelThroughputCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | CreateModelCustomizationJobCommandOutput
+  | CreateProvisionedModelThroughputCommandOutput
   | DeleteCustomModelCommandOutput
   | DeleteModelInvocationLoggingConfigurationCommandOutput
+  | DeleteProvisionedModelThroughputCommandOutput
   | GetCustomModelCommandOutput
   | GetFoundationModelCommandOutput
   | GetModelCustomizationJobCommandOutput
   | GetModelInvocationLoggingConfigurationCommandOutput
+  | GetProvisionedModelThroughputCommandOutput
   | ListCustomModelsCommandOutput
   | ListFoundationModelsCommandOutput
   | ListModelCustomizationJobsCommandOutput
+  | ListProvisionedModelThroughputsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutModelInvocationLoggingConfigurationCommandOutput
   | StopModelCustomizationJobCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateProvisionedModelThroughputCommandOutput;
 
 /**
  * @public

@@ -9,6 +9,11 @@ import {
   CreateModelCustomizationJobCommandOutput,
 } from "./commands/CreateModelCustomizationJobCommand";
 import {
+  CreateProvisionedModelThroughputCommand,
+  CreateProvisionedModelThroughputCommandInput,
+  CreateProvisionedModelThroughputCommandOutput,
+} from "./commands/CreateProvisionedModelThroughputCommand";
+import {
   DeleteCustomModelCommand,
   DeleteCustomModelCommandInput,
   DeleteCustomModelCommandOutput,
@@ -18,6 +23,11 @@ import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/DeleteModelInvocationLoggingConfigurationCommand";
+import {
+  DeleteProvisionedModelThroughputCommand,
+  DeleteProvisionedModelThroughputCommandInput,
+  DeleteProvisionedModelThroughputCommandOutput,
+} from "./commands/DeleteProvisionedModelThroughputCommand";
 import {
   GetCustomModelCommand,
   GetCustomModelCommandInput,
@@ -39,6 +49,11 @@ import {
   GetModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/GetModelInvocationLoggingConfigurationCommand";
 import {
+  GetProvisionedModelThroughputCommand,
+  GetProvisionedModelThroughputCommandInput,
+  GetProvisionedModelThroughputCommandOutput,
+} from "./commands/GetProvisionedModelThroughputCommand";
+import {
   ListCustomModelsCommand,
   ListCustomModelsCommandInput,
   ListCustomModelsCommandOutput,
@@ -53,6 +68,11 @@ import {
   ListModelCustomizationJobsCommandInput,
   ListModelCustomizationJobsCommandOutput,
 } from "./commands/ListModelCustomizationJobsCommand";
+import {
+  ListProvisionedModelThroughputsCommand,
+  ListProvisionedModelThroughputsCommandInput,
+  ListProvisionedModelThroughputsCommandOutput,
+} from "./commands/ListProvisionedModelThroughputsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -74,23 +94,33 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateProvisionedModelThroughputCommand,
+  UpdateProvisionedModelThroughputCommandInput,
+  UpdateProvisionedModelThroughputCommandOutput,
+} from "./commands/UpdateProvisionedModelThroughputCommand";
 
 const commands = {
   CreateModelCustomizationJobCommand,
+  CreateProvisionedModelThroughputCommand,
   DeleteCustomModelCommand,
   DeleteModelInvocationLoggingConfigurationCommand,
+  DeleteProvisionedModelThroughputCommand,
   GetCustomModelCommand,
   GetFoundationModelCommand,
   GetModelCustomizationJobCommand,
   GetModelInvocationLoggingConfigurationCommand,
+  GetProvisionedModelThroughputCommand,
   ListCustomModelsCommand,
   ListFoundationModelsCommand,
   ListModelCustomizationJobsCommand,
+  ListProvisionedModelThroughputsCommand,
   ListTagsForResourceCommand,
   PutModelInvocationLoggingConfigurationCommand,
   StopModelCustomizationJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateProvisionedModelThroughputCommand,
 };
 
 export interface Bedrock {
@@ -109,6 +139,23 @@ export interface Bedrock {
     args: CreateModelCustomizationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateModelCustomizationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateProvisionedModelThroughputCommand}
+   */
+  createProvisionedModelThroughput(
+    args: CreateProvisionedModelThroughputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProvisionedModelThroughputCommandOutput>;
+  createProvisionedModelThroughput(
+    args: CreateProvisionedModelThroughputCommandInput,
+    cb: (err: any, data?: CreateProvisionedModelThroughputCommandOutput) => void
+  ): void;
+  createProvisionedModelThroughput(
+    args: CreateProvisionedModelThroughputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProvisionedModelThroughputCommandOutput) => void
   ): void;
 
   /**
@@ -143,6 +190,23 @@ export interface Bedrock {
     args: DeleteModelInvocationLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteModelInvocationLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProvisionedModelThroughputCommand}
+   */
+  deleteProvisionedModelThroughput(
+    args: DeleteProvisionedModelThroughputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProvisionedModelThroughputCommandOutput>;
+  deleteProvisionedModelThroughput(
+    args: DeleteProvisionedModelThroughputCommandInput,
+    cb: (err: any, data?: DeleteProvisionedModelThroughputCommandOutput) => void
+  ): void;
+  deleteProvisionedModelThroughput(
+    args: DeleteProvisionedModelThroughputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProvisionedModelThroughputCommandOutput) => void
   ): void;
 
   /**
@@ -211,6 +275,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link GetProvisionedModelThroughputCommand}
+   */
+  getProvisionedModelThroughput(
+    args: GetProvisionedModelThroughputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProvisionedModelThroughputCommandOutput>;
+  getProvisionedModelThroughput(
+    args: GetProvisionedModelThroughputCommandInput,
+    cb: (err: any, data?: GetProvisionedModelThroughputCommandOutput) => void
+  ): void;
+  getProvisionedModelThroughput(
+    args: GetProvisionedModelThroughputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProvisionedModelThroughputCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCustomModelsCommand}
    */
   listCustomModels(
@@ -259,6 +340,23 @@ export interface Bedrock {
     args: ListModelCustomizationJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListModelCustomizationJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProvisionedModelThroughputsCommand}
+   */
+  listProvisionedModelThroughputs(
+    args: ListProvisionedModelThroughputsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProvisionedModelThroughputsCommandOutput>;
+  listProvisionedModelThroughputs(
+    args: ListProvisionedModelThroughputsCommandInput,
+    cb: (err: any, data?: ListProvisionedModelThroughputsCommandOutput) => void
+  ): void;
+  listProvisionedModelThroughputs(
+    args: ListProvisionedModelThroughputsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProvisionedModelThroughputsCommandOutput) => void
   ): void;
 
   /**
@@ -332,6 +430,23 @@ export interface Bedrock {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProvisionedModelThroughputCommand}
+   */
+  updateProvisionedModelThroughput(
+    args: UpdateProvisionedModelThroughputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProvisionedModelThroughputCommandOutput>;
+  updateProvisionedModelThroughput(
+    args: UpdateProvisionedModelThroughputCommandInput,
+    cb: (err: any, data?: UpdateProvisionedModelThroughputCommandOutput) => void
+  ): void;
+  updateProvisionedModelThroughput(
+    args: UpdateProvisionedModelThroughputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProvisionedModelThroughputCommandOutput) => void
   ): void;
 }
 

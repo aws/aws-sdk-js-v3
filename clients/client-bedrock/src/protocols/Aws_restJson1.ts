@@ -4,6 +4,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
@@ -26,11 +27,19 @@ import {
   CreateModelCustomizationJobCommandInput,
   CreateModelCustomizationJobCommandOutput,
 } from "../commands/CreateModelCustomizationJobCommand";
+import {
+  CreateProvisionedModelThroughputCommandInput,
+  CreateProvisionedModelThroughputCommandOutput,
+} from "../commands/CreateProvisionedModelThroughputCommand";
 import { DeleteCustomModelCommandInput, DeleteCustomModelCommandOutput } from "../commands/DeleteCustomModelCommand";
 import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
 } from "../commands/DeleteModelInvocationLoggingConfigurationCommand";
+import {
+  DeleteProvisionedModelThroughputCommandInput,
+  DeleteProvisionedModelThroughputCommandOutput,
+} from "../commands/DeleteProvisionedModelThroughputCommand";
 import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "../commands/GetCustomModelCommand";
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "../commands/GetFoundationModelCommand";
 import {
@@ -41,6 +50,10 @@ import {
   GetModelInvocationLoggingConfigurationCommandInput,
   GetModelInvocationLoggingConfigurationCommandOutput,
 } from "../commands/GetModelInvocationLoggingConfigurationCommand";
+import {
+  GetProvisionedModelThroughputCommandInput,
+  GetProvisionedModelThroughputCommandOutput,
+} from "../commands/GetProvisionedModelThroughputCommand";
 import { ListCustomModelsCommandInput, ListCustomModelsCommandOutput } from "../commands/ListCustomModelsCommand";
 import {
   ListFoundationModelsCommandInput,
@@ -50,6 +63,10 @@ import {
   ListModelCustomizationJobsCommandInput,
   ListModelCustomizationJobsCommandOutput,
 } from "../commands/ListModelCustomizationJobsCommand";
+import {
+  ListProvisionedModelThroughputsCommandInput,
+  ListProvisionedModelThroughputsCommandOutput,
+} from "../commands/ListProvisionedModelThroughputsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -64,6 +81,10 @@ import {
 } from "../commands/StopModelCustomizationJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateProvisionedModelThroughputCommandInput,
+  UpdateProvisionedModelThroughputCommandOutput,
+} from "../commands/UpdateProvisionedModelThroughputCommand";
 import { BedrockServiceException as __BaseException } from "../models/BedrockServiceException";
 import {
   AccessDeniedException,
@@ -74,6 +95,7 @@ import {
   LoggingConfig,
   ModelCustomizationJobSummary,
   OutputDataConfig,
+  ProvisionedModelSummary,
   ResourceNotFoundException,
   S3Config,
   ServiceQuotaExceededException,
@@ -118,6 +140,41 @@ export const se_CreateModelCustomizationJobCommand = async (
       trainingDataConfig: (_) => _json(_),
       validationDataConfig: (_) => _json(_),
       vpcConfig: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateProvisionedModelThroughputCommand
+ */
+export const se_CreateProvisionedModelThroughputCommand = async (
+  input: CreateProvisionedModelThroughputCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/provisioned-model-throughput";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      commitmentDuration: [],
+      modelId: [],
+      modelUnits: [],
+      provisionedModelName: [],
+      tags: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -177,6 +234,38 @@ export const se_DeleteModelInvocationLoggingConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logging/modelinvocations";
   let body: any;
   body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteProvisionedModelThroughputCommand
+ */
+export const se_DeleteProvisionedModelThroughputCommand = async (
+  input: DeleteProvisionedModelThroughputCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/provisioned-model-throughput/{provisionedModelId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "provisionedModelId",
+    () => input.provisionedModelId!,
+    "{provisionedModelId}",
+    false
+  );
+  let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
@@ -308,6 +397,38 @@ export const se_GetModelInvocationLoggingConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetProvisionedModelThroughputCommand
+ */
+export const se_GetProvisionedModelThroughputCommand = async (
+  input: GetProvisionedModelThroughputCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/provisioned-model-throughput/{provisionedModelId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "provisionedModelId",
+    () => input.provisionedModelId!,
+    "{provisionedModelId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListCustomModelsCommand
  */
 export const se_ListCustomModelsCommand = async (
@@ -397,6 +518,47 @@ export const se_ListModelCustomizationJobsCommand = async (
       () => (input.creationTimeBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
     statusEquals: [, input.statusEquals!],
+    nameContains: [, input.nameContains!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+    sortBy: [, input.sortBy!],
+    sortOrder: [, input.sortOrder!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListProvisionedModelThroughputsCommand
+ */
+export const se_ListProvisionedModelThroughputsCommand = async (
+  input: ListProvisionedModelThroughputsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/provisioned-model-throughputs";
+  const query: any = map({
+    creationTimeAfter: [
+      () => input.creationTimeAfter !== void 0,
+      () => (input.creationTimeAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    creationTimeBefore: [
+      () => input.creationTimeBefore !== void 0,
+      () => (input.creationTimeBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    statusEquals: [, input.statusEquals!],
+    modelArnEquals: [, input.modelArnEquals!],
     nameContains: [, input.nameContains!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
@@ -568,6 +730,46 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateProvisionedModelThroughputCommand
+ */
+export const se_UpdateProvisionedModelThroughputCommand = async (
+  input: UpdateProvisionedModelThroughputCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/provisioned-model-throughput/{provisionedModelId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "provisionedModelId",
+    () => input.provisionedModelId!,
+    "{provisionedModelId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      desiredModelId: [],
+      desiredProvisionedModelName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * deserializeAws_restJson1CreateModelCustomizationJobCommand
  */
 export const de_CreateModelCustomizationJobCommand = async (
@@ -607,6 +809,71 @@ const de_CreateModelCustomizationJobCommandError = async (
     case "ConflictException":
     case "com.amazonaws.bedrock#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.bedrock#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.bedrock#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.bedrock#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.bedrock#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.bedrock#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.bedrock#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateProvisionedModelThroughputCommand
+ */
+export const de_CreateProvisionedModelThroughputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProvisionedModelThroughputCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateProvisionedModelThroughputCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    provisionedModelArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateProvisionedModelThroughputCommandError
+ */
+const de_CreateProvisionedModelThroughputCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProvisionedModelThroughputCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.bedrock#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.bedrock#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -732,6 +999,64 @@ const de_DeleteModelInvocationLoggingConfigurationCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.bedrock#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteProvisionedModelThroughputCommand
+ */
+export const de_DeleteProvisionedModelThroughputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProvisionedModelThroughputCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteProvisionedModelThroughputCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteProvisionedModelThroughputCommandError
+ */
+const de_DeleteProvisionedModelThroughputCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProvisionedModelThroughputCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.bedrock#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.bedrock#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.bedrock#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.bedrock#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.bedrock#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.bedrock#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1004,6 +1329,77 @@ const de_GetModelInvocationLoggingConfigurationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetProvisionedModelThroughputCommand
+ */
+export const de_GetProvisionedModelThroughputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProvisionedModelThroughputCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetProvisionedModelThroughputCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    commitmentDuration: __expectString,
+    commitmentExpirationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    desiredModelArn: __expectString,
+    desiredModelUnits: __expectInt32,
+    failureMessage: __expectString,
+    foundationModelArn: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    modelArn: __expectString,
+    modelUnits: __expectInt32,
+    provisionedModelArn: __expectString,
+    provisionedModelName: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetProvisionedModelThroughputCommandError
+ */
+const de_GetProvisionedModelThroughputCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProvisionedModelThroughputCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.bedrock#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.bedrock#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.bedrock#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.bedrock#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.bedrock#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListCustomModelsCommand
  */
 export const de_ListCustomModelsCommand = async (
@@ -1145,6 +1541,63 @@ const de_ListModelCustomizationJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListModelCustomizationJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.bedrock#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.bedrock#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.bedrock#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.bedrock#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListProvisionedModelThroughputsCommand
+ */
+export const de_ListProvisionedModelThroughputsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProvisionedModelThroughputsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListProvisionedModelThroughputsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    provisionedModelSummaries: (_) => de_ProvisionedModelSummaries(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListProvisionedModelThroughputsCommandError
+ */
+const de_ListProvisionedModelThroughputsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProvisionedModelThroughputsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1455,6 +1908,61 @@ const de_UntagResourceCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpdateProvisionedModelThroughputCommand
+ */
+export const de_UpdateProvisionedModelThroughputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProvisionedModelThroughputCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateProvisionedModelThroughputCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateProvisionedModelThroughputCommandError
+ */
+const de_UpdateProvisionedModelThroughputCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProvisionedModelThroughputCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.bedrock#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.bedrock#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.bedrock#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.bedrock#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.bedrock#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
@@ -1711,6 +2219,38 @@ const de_ModelCustomizationJobSummary = (output: any, context: __SerdeContext): 
 // de_ModelModalityList omitted.
 
 // de_OutputDataConfig omitted.
+
+/**
+ * deserializeAws_restJson1ProvisionedModelSummaries
+ */
+const de_ProvisionedModelSummaries = (output: any, context: __SerdeContext): ProvisionedModelSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ProvisionedModelSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ProvisionedModelSummary
+ */
+const de_ProvisionedModelSummary = (output: any, context: __SerdeContext): ProvisionedModelSummary => {
+  return take(output, {
+    commitmentDuration: __expectString,
+    commitmentExpirationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    desiredModelArn: __expectString,
+    desiredModelUnits: __expectInt32,
+    foundationModelArn: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    modelArn: __expectString,
+    modelUnits: __expectInt32,
+    provisionedModelArn: __expectString,
+    provisionedModelName: __expectString,
+    status: __expectString,
+  }) as any;
+};
 
 // de_S3Config omitted.
 
