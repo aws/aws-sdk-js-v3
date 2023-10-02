@@ -19665,6 +19665,9 @@ const de_CertificateList = (output: any, context: __SerdeContext): Certificate[]
  */
 const de_CertificateMessage = (output: any, context: __SerdeContext): CertificateMessage => {
   const contents: any = {};
+  if (output["DefaultCertificateForNewLaunches"] !== undefined) {
+    contents.DefaultCertificateForNewLaunches = __expectString(output["DefaultCertificateForNewLaunches"]);
+  }
   if (output.Certificates === "") {
     contents.Certificates = [];
   } else if (output["Certificates"] !== undefined && output["Certificates"]["Certificate"] !== undefined) {

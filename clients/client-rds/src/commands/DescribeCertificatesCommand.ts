@@ -37,7 +37,7 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
 
 /**
  * @public
- * <p>Lists the set of CA certificates provided by Amazon RDS for this Amazon Web Services account.</p>
+ * <p>Lists the set of certificate authority (CA) certificates provided by Amazon RDS for this Amazon Web Services account.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
  *             instance</a> in the <i>Amazon RDS User Guide</i> and
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
@@ -65,6 +65,7 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  * const command = new DescribeCertificatesCommand(input);
  * const response = await client.send(command);
  * // { // CertificateMessage
+ * //   DefaultCertificateForNewLaunches: "STRING_VALUE",
  * //   Certificates: [ // CertificateList
  * //     { // Certificate
  * //       CertificateIdentifier: "STRING_VALUE",

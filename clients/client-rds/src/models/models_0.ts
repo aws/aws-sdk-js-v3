@@ -13204,6 +13204,14 @@ export interface Certificate {
 export interface CertificateMessage {
   /**
    * @public
+   * <p>The default root CA for new databases created by your Amazon Web Services account. This is either the root CA override
+   *             set on your Amazon Web Services account or the system default CA for the Region if no override exists. To override the default CA, use the
+   *             <code>ModifyCertificates</code> operation.</p>
+   */
+  DefaultCertificateForNewLaunches?: string;
+
+  /**
+   * @public
    * <p>The list of <code>Certificate</code> objects for the Amazon Web Services account.</p>
    */
   Certificates?: Certificate[];
