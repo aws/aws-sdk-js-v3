@@ -472,6 +472,11 @@ const de_ResponseStream = (
         throttlingException: await de_ThrottlingException_event(event["throttlingException"], context),
       };
     }
+    if (event["modelTimeoutException"] != null) {
+      return {
+        modelTimeoutException: await de_ModelTimeoutException_event(event["modelTimeoutException"], context),
+      };
+    }
     return { $unknown: output };
   });
 };
@@ -494,6 +499,13 @@ const de_ModelStreamErrorException_event = async (
     body: await parseBody(output.body, context),
   };
   return de_ModelStreamErrorExceptionRes(parsedOutput, context);
+};
+const de_ModelTimeoutException_event = async (output: any, context: __SerdeContext): Promise<ModelTimeoutException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return de_ModelTimeoutExceptionRes(parsedOutput, context);
 };
 const de_PayloadPart_event = async (output: any, context: __SerdeContext): Promise<PayloadPart> => {
   const contents: PayloadPart = {} as any;

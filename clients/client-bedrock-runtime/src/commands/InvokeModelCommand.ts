@@ -60,7 +60,7 @@ export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, 
  * @public
  * <p>Invokes the specified Bedrock model to run inference using the input provided in the request body.
  *          You use InvokeModel to run inference for text models, image models, and embedding models.</p>
- *          <p>For more information about invoking models, see Using the API in the <a href="https://d2eo22ngex1n9g.cloudfront.net/Documentation/BedrockUserGuide.pdf">Bedrock User Guide</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
  *          <p>For example requests, see Examples (after the Errors section).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -331,6 +331,7 @@ export type ResponseStream =
   | ResponseStream.ChunkMember
   | ResponseStream.InternalServerExceptionMember
   | ResponseStream.ModelStreamErrorExceptionMember
+  | ResponseStream.ModelTimeoutExceptionMember
   | ResponseStream.ThrottlingExceptionMember
   | ResponseStream.ValidationExceptionMember
   | ResponseStream.$UnknownMember;
@@ -349,6 +350,7 @@ export namespace ResponseStream {
     modelStreamErrorException?: never;
     validationException?: never;
     throttlingException?: never;
+    modelTimeoutException?: never;
     $unknown?: never;
   }
 
@@ -362,6 +364,7 @@ export namespace ResponseStream {
     modelStreamErrorException?: never;
     validationException?: never;
     throttlingException?: never;
+    modelTimeoutException?: never;
     $unknown?: never;
   }
 
@@ -375,6 +378,7 @@ export namespace ResponseStream {
     modelStreamErrorException: ModelStreamErrorException;
     validationException?: never;
     throttlingException?: never;
+    modelTimeoutException?: never;
     $unknown?: never;
   }
 
@@ -388,6 +392,7 @@ export namespace ResponseStream {
     modelStreamErrorException?: never;
     validationException: ValidationException;
     throttlingException?: never;
+    modelTimeoutException?: never;
     $unknown?: never;
   }
 
@@ -401,6 +406,21 @@ export namespace ResponseStream {
     modelStreamErrorException?: never;
     validationException?: never;
     throttlingException: ThrottlingException;
+    modelTimeoutException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
+   */
+  export interface ModelTimeoutExceptionMember {
+    chunk?: never;
+    internalServerException?: never;
+    modelStreamErrorException?: never;
+    validationException?: never;
+    throttlingException?: never;
+    modelTimeoutException: ModelTimeoutException;
     $unknown?: never;
   }
 
@@ -413,6 +433,7 @@ export namespace ResponseStream {
     modelStreamErrorException?: never;
     validationException?: never;
     throttlingException?: never;
+    modelTimeoutException?: never;
     $unknown: [string, any];
   }
 
@@ -422,6 +443,7 @@ export namespace ResponseStream {
     modelStreamErrorException: (value: ModelStreamErrorException) => T;
     validationException: (value: ValidationException) => T;
     throttlingException: (value: ThrottlingException) => T;
+    modelTimeoutException: (value: ModelTimeoutException) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -433,6 +455,7 @@ export namespace ResponseStream {
       return visitor.modelStreamErrorException(value.modelStreamErrorException);
     if (value.validationException !== undefined) return visitor.validationException(value.validationException);
     if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
+    if (value.modelTimeoutException !== undefined) return visitor.modelTimeoutException(value.modelTimeoutException);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -497,6 +520,7 @@ export const ResponseStreamFilterSensitiveLog = (obj: ResponseStream): any => {
   if (obj.modelStreamErrorException !== undefined) return { modelStreamErrorException: obj.modelStreamErrorException };
   if (obj.validationException !== undefined) return { validationException: obj.validationException };
   if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
+  if (obj.modelTimeoutException !== undefined) return { modelTimeoutException: obj.modelTimeoutException };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
