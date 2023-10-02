@@ -867,11 +867,6 @@ export interface CreateNodeInput {
    *                   <code>n-ethereum-goerli</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>n-ethereum-rinkeby</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   NetworkId: string | undefined;
@@ -1076,11 +1071,6 @@ export interface DeleteNodeInput {
    *             <li>
    *                <p>
    *                   <code>n-ethereum-goerli</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>n-ethereum-rinkeby</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1339,10 +1329,6 @@ export interface NetworkEthereumAttributes {
    *             </li>
    *             <li>
    *                <p>goerli = <code>5</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>rinkeby = <code>4</code>
    *                </p>
    *             </li>
    *          </ul>
