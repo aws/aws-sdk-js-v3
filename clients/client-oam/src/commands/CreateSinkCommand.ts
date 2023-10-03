@@ -41,9 +41,9 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  *             used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that
  *             represents an attachment point in a monitoring account. Source accounts can link to the sink
  *             to send observability data.</p>
- *         <p>After you create a sink, you must create a sink policy that allows source accounts to attach to it.
+ *          <p>After you create a sink, you must create a sink policy that allows source accounts to attach to it.
  *             For more information, see <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html">PutSinkPolicy</a>.</p>
- *         <p>Each account can contain one sink. If you delete a sink, you can then create a new one in that account.</p>
+ *          <p>Each account can contain one sink. If you delete a sink, you can then create a new one in that account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

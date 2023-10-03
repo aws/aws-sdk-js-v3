@@ -40,9 +40,9 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  * <p>Creates or updates the resource policy that grants permissions to source
  *             accounts to link to the monitoring account sink. When you create a sink policy, you can grant
  *             permissions to all accounts in an organization or to individual accounts.</p>
- *         <p>You can also use a sink policy to limit the types of data that is shared. The three types that
+ *          <p>You can also use a sink policy to limit the types of data that is shared. The three types that
  *             you can allow or deny are:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <b>Metrics</b> - Specify with
@@ -59,8 +59,13 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  *                   <b>Traces</b> - Specify with <code>AWS::XRay::Trace</code>
  *                </p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Application Insights - Applications</b> - Specify with <code>AWS::ApplicationInsights::Application</code>
+ *                </p>
+ *             </li>
  *          </ul>
- *         <p>See the examples in this section to see how to specify permitted source accounts and data types.</p>
+ *          <p>See the examples in this section to see how to specify permitted source accounts and data types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
