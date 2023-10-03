@@ -430,6 +430,7 @@ export const ProductionVariantInstanceType = {
   ML_P3_8XLARGE: "ml.p3.8xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_R5D_12XLARGE: "ml.r5d.12xlarge",
   ML_R5D_24XLARGE: "ml.r5d.24xlarge",
   ML_R5D_2XLARGE: "ml.r5d.2xlarge",

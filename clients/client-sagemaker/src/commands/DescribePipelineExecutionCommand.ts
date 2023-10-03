@@ -86,7 +86,7 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * //     MaxParallelExecutionSteps: Number("int"), // required
  * //   },
  * //   SelectiveExecutionConfig: { // SelectiveExecutionConfig
- * //     SourcePipelineExecutionArn: "STRING_VALUE", // required
+ * //     SourcePipelineExecutionArn: "STRING_VALUE",
  * //     SelectedSteps: [ // SelectedStepList // required
  * //       { // SelectedStep
  * //         StepName: "STRING_VALUE", // required
