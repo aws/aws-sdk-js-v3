@@ -1611,6 +1611,84 @@ export interface FilterV2 {
 
 /**
  * @public
+ * @enum
+ */
+export const IntervalPeriod = {
+  DAY: "DAY",
+  FIFTEEN_MIN: "FIFTEEN_MIN",
+  HOUR: "HOUR",
+  THIRTY_MIN: "THIRTY_MIN",
+  TOTAL: "TOTAL",
+  WEEK: "WEEK",
+} as const;
+
+/**
+ * @public
+ */
+export type IntervalPeriod = (typeof IntervalPeriod)[keyof typeof IntervalPeriod];
+
+/**
+ * @public
+ * <p>Information about the interval period to use for returning results.</p>
+ */
+export interface IntervalDetails {
+  /**
+   * @public
+   * <p>The timezone applied to requested metrics.</p>
+   */
+  TimeZone?: string;
+
+  /**
+   * @public
+   * <p>
+   *             <code>IntervalPeriod</code>: An aggregated grouping applied to request metrics. Valid
+   *     <code>IntervalPeriod</code> values are: <code>FIFTEEN_MIN</code> | <code>THIRTY_MIN</code> |
+   *     <code>HOUR</code> | <code>DAY</code> | <code>WEEK</code> | <code>TOTAL</code>. </p>
+   *          <p>For example, if <code>IntervalPeriod</code> is selected <code>THIRTY_MIN</code>,
+   *     <code>StartTime</code> and <code>EndTime</code> differs by 1 day, then Amazon Connect
+   *    returns 48 results in the response. Each result is aggregated by the THIRTY_MIN period. By
+   *    default Amazon Connect aggregates results based on the <code>TOTAL</code> interval period. </p>
+   *          <p>The following list describes restrictions on <code>StartTime</code> and <code>EndTime</code>
+   *    based on what <code>IntervalPeriod</code> is requested. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FIFTEEN_MIN</code>: The
+   *      difference between <code>StartTime</code> and <code>EndTime</code> must be less than 3
+   *      days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>THIRTY_MIN</code>: The difference between <code>StartTime</code> and
+   *       <code>EndTime</code> must be less than 3 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HOUR</code>: The difference between <code>StartTime</code> and <code>EndTime</code>
+   *      must be less than 3 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DAY</code>: The difference between <code>StartTime</code> and <code>EndTime</code>
+   *      must be less than 35 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WEEK</code>: The difference between <code>StartTime</code> and <code>EndTime</code>
+   *      must be less than 35 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TOTAL</code>: The difference between <code>StartTime</code> and <code>EndTime</code>
+   *      must be less than 35 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  IntervalPeriod?: IntervalPeriod | string;
+}
+
+/**
+ * @public
  * <p>Contains information about the filter used when retrieving metrics.
  *     <code>MetricFiltersV2</code> can be used on the following metrics:
  *     <code>AVG_AGENT_CONNECTING_TIME</code>, <code>CONTACTS_CREATED</code>,
@@ -1642,6 +1720,14 @@ export interface MetricFilterV2 {
    *          </p>
    */
   MetricFilterValues?: string[];
+
+  /**
+   * @public
+   * <p>The flag to use to filter on requested metric filter values or to not filter on requested
+   *    metric filter values. By default the negate is <code>false</code>, which indicates to filter on
+   *    the requested metric filter. </p>
+   */
+  Negate?: boolean;
 }
 
 /**
@@ -1703,9 +1789,9 @@ export interface GetMetricDataV2Request {
   /**
    * @public
    * <p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the
-   *    retrieval of historical metrics data. The time must be before the end time timestamp. The time
-   *    range between the start and end time must be less than 24 hours. The start time cannot be earlier
-   *    than 35 days before the time of the request. Historical metrics are available for 35 days.</p>
+   *    retrieval of historical metrics data. The time must be before the end time timestamp. The start
+   *    and end time depends on the <code>IntervalPeriod</code> selected. By default the time range between
+   *    start and end time is 35 days. Historical metrics are available for 3 months.</p>
    */
   StartTime: Date | undefined;
 
@@ -1714,9 +1800,64 @@ export interface GetMetricDataV2Request {
    * <p>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for the
    *    retrieval of historical metrics data. The time must be later than the start time timestamp. It
    *    cannot be later than the current timestamp.</p>
-   *          <p>The time range between the start and end time must be less than 24 hours.</p>
    */
   EndTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The interval period and timezone to apply to returned metrics.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IntervalPeriod</code>: An aggregated grouping applied to request metrics. Valid
+   *       <code>IntervalPeriod</code> values are: <code>FIFTEEN_MIN</code> | <code>THIRTY_MIN</code> |
+   *       <code>HOUR</code> | <code>DAY</code> | <code>WEEK</code> | <code>TOTAL</code>. </p>
+   *                <p>For example, if <code>IntervalPeriod</code> is selected <code>THIRTY_MIN</code>,
+   *       <code>StartTime</code> and <code>EndTime</code> differs by 1 day, then Amazon Connect
+   *      returns 48 results in the response. Each result is aggregated by the THIRTY_MIN period. By
+   *      default Amazon Connect aggregates results based on the <code>TOTAL</code> interval period. </p>
+   *                <p>The following list describes restrictions on <code>StartTime</code> and
+   *       <code>EndTime</code> based on which <code>IntervalPeriod</code> is requested. </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>FIFTEEN_MIN</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 3
+   *        days.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>THIRTY_MIN</code>: The difference between <code>StartTime</code> and
+   *         <code>EndTime</code> must be less than 3 days.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>HOUR</code>: The difference between <code>StartTime</code> and
+   *         <code>EndTime</code> must be less than 3 days.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>DAY</code>: The difference between <code>StartTime</code> and <code>EndTime</code>
+   *        must be less than 35 days.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>WEEK</code>: The difference between <code>StartTime</code> and
+   *         <code>EndTime</code> must be less than 35 days.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>TOTAL</code>: The difference between <code>StartTime</code> and
+   *         <code>EndTime</code> must be less than 35 days.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TimeZone</code>: The timezone applied to requested metrics.</p>
+   *             </li>
+   *          </ul>
+   */
+  Interval?: IntervalDetails;
 
   /**
    * @public
@@ -1794,6 +1935,11 @@ export interface GetMetricDataV2Request {
    *    following historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's
    *     Guide</i>.</p>
    *          <dl>
+   *             <dt>ABANDONMENT_RATE</dt>
+   *             <dd>
+   *                <p>Unit: Percent</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
    *             <dt>AGENT_ADHERENT_TIME</dt>
    *             <dd>
    *                <p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p>
@@ -1804,6 +1950,12 @@ export interface GetMetricDataV2Request {
    *             <dd>
    *                <p>Unit: Count</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p>
+   *             </dd>
+   *             <dt>AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *                <p>Data for this metric is available starting from October 1, 2023 0:00:00 GMT.</p>
    *             </dd>
    *             <dt>AGENT_OCCUPANCY</dt>
    *             <dd>
@@ -1843,15 +1995,9 @@ export interface GetMetricDataV2Request {
    *        <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code>
    *                </p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
-   *             </dd>
-   *             <dt>AVG_AGENT_CONNECTING_TIME</dt>
-   *             <dd>
-   *                <p>Unit: Seconds</p>
-   *                <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only
-   *       supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> |
-   *        <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code>
-   *                </p>
-   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *                <note>
+   *                   <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p>
+   *                </note>
    *             </dd>
    *             <dt>AVG_CONTACT_DURATION</dt>
    *             <dd>
@@ -1888,6 +2034,11 @@ export interface GetMetricDataV2Request {
    *                <note>
    *                   <p>Feature is a valid filter but not a valid grouping.</p>
    *                </note>
+   *             </dd>
+   *             <dt>AVG_HOLD_TIME_ALL_CONTACTS</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
    *             </dd>
    *             <dt>AVG_HOLDS</dt>
    *             <dd>
@@ -1938,6 +2089,11 @@ export interface GetMetricDataV2Request {
    *                <note>
    *                   <p>Feature is a valid filter but not a valid grouping.</p>
    *                </note>
+   *             </dd>
+   *             <dt>AVG_RESOLUTION_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile</p>
    *             </dd>
    *             <dt>AVG_TALK_TIME</dt>
    *             <dd>
@@ -1995,6 +2151,14 @@ export interface GetMetricDataV2Request {
    *             <dd>
    *                <p>Unit: Count</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
+   *             <dt>CONTACTS_RESOLVED_IN_X</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile</p>
+   *                <p>Threshold: For <code>ThresholdValue</code> enter any whole number from 1 to 604800
+   *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for
+   *       "Less than").</p>
    *             </dd>
    *             <dt>CONTACTS_TRANSFERRED_OUT</dt>
    *             <dd>
@@ -2094,6 +2258,35 @@ export interface MetricDataV2 {
 
 /**
  * @public
+ * <p>The interval period with the start and end time for the metrics.</p>
+ */
+export interface MetricInterval {
+  /**
+   * @public
+   * <p>The interval period provided in the API request. </p>
+   */
+  Interval?: IntervalPeriod | string;
+
+  /**
+   * @public
+   * <p>The timestamp, in UNIX Epoch time format. Start time is based on the interval period
+   *    selected. </p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The timestamp, in UNIX Epoch time format. End time is based on the interval period selected.
+   *    For example, If <code>IntervalPeriod</code> is selected <code>THIRTY_MIN</code>,
+   *     <code>StartTime</code> and <code>EndTime</code> in the API request differs by 1 day, then 48
+   *    results are returned in the response. Each result is aggregated by the 30 minutes period, with
+   *    each <code>StartTime</code> and <code>EndTime</code> differing by 30 minutes. </p>
+   */
+  EndTime?: Date;
+}
+
+/**
+ * @public
  * <p>Contains information about the metric results.</p>
  */
 export interface MetricResultV2 {
@@ -2102,6 +2295,12 @@ export interface MetricResultV2 {
    * <p>The dimension for the metrics.</p>
    */
   Dimensions?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The interval period with the start and end time for the metrics.</p>
+   */
+  MetricInterval?: MetricInterval;
 
   /**
    * @public
@@ -4710,7 +4909,8 @@ export interface ListSecurityProfileApplicationsRequest {
 export interface ListSecurityProfileApplicationsResponse {
   /**
    * @public
-   * <p>A list of the third party application's metadata.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>A list of the third party application's metadata.</p>
    */
   Applications?: Application[];
 
@@ -5334,7 +5534,8 @@ export interface ListUsersResponse {
 export interface ListViewsRequest {
   /**
    * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5346,8 +5547,8 @@ export interface ListViewsRequest {
 
   /**
    * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
@@ -5390,7 +5591,7 @@ export interface ViewSummary {
   /**
    * @public
    * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
-   *    <code>PUBLISHED</code> status will initiate validation on the content.</p>
+   *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
    */
   Status?: ViewStatus | string;
 
@@ -5413,8 +5614,8 @@ export interface ListViewsResponse {
 
   /**
    * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 }
@@ -5425,20 +5626,22 @@ export interface ListViewsResponse {
 export interface ListViewVersionsRequest {
   /**
    * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
    * @public
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   *    used.</p>
    */
   ViewId: string | undefined;
 
   /**
    * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
@@ -5509,8 +5712,8 @@ export interface ListViewVersionsResponse {
 
   /**
    * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 }
@@ -7770,8 +7973,9 @@ export interface UpdateContactFlowContentRequest {
 
   /**
    * @public
-   * <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
+   * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
    *     contact flow in Amazon Connect Flow language</a>. </p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>
    */
   Content: string | undefined;
 }
@@ -7839,7 +8043,8 @@ export interface UpdateContactFlowModuleContentRequest {
 
   /**
    * @public
-   * <p>The content of the flow module.</p>
+   * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
+   *     contact flow in Amazon Connect Flow language</a>. </p>
    */
   Content: string | undefined;
 }
@@ -8216,74 +8421,6 @@ export interface ChatParticipantRoleConfig {
    */
   ParticipantTimerConfigList: ParticipantTimerConfiguration[] | undefined;
 }
-
-/**
- * @public
- * <p>Configuration information for the chat participant role.</p>
- */
-export type UpdateParticipantRoleConfigChannelInfo =
-  | UpdateParticipantRoleConfigChannelInfo.ChatMember
-  | UpdateParticipantRoleConfigChannelInfo.$UnknownMember;
-
-/**
- * @public
- */
-export namespace UpdateParticipantRoleConfigChannelInfo {
-  /**
-   * @public
-   * <p>Configuration information for the chat participant role.</p>
-   */
-  export interface ChatMember {
-    Chat: ChatParticipantRoleConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    Chat?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    Chat: (value: ChatParticipantRoleConfig) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: UpdateParticipantRoleConfigChannelInfo, visitor: Visitor<T>): T => {
-    if (value.Chat !== undefined) return visitor.Chat(value.Chat);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- */
-export interface UpdateParticipantRoleConfigRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   */
-  ContactId: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Connect channel you want to configure.</p>
-   */
-  ChannelConfiguration: UpdateParticipantRoleConfigChannelInfo | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateParticipantRoleConfigResponse {}
 
 /**
  * @internal

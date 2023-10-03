@@ -37,8 +37,7 @@ export interface DeleteSecurityProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Deletes a security profile.</p>
+ * <p>Deletes a security profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

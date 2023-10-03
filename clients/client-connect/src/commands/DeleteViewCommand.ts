@@ -37,7 +37,8 @@ export interface DeleteViewCommandOutput extends DeleteViewResponse, __MetadataB
 
 /**
  * @public
- * <p>Deletes the view entirely. It deletes the view and all associated qualifiers (versions and aliases).</p>
+ * <p>Deletes the view entirely. It deletes the view and all associated qualifiers (versions and
+ *    aliases).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

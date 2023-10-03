@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateParticipantRoleConfigRequest, UpdateParticipantRoleConfigResponse } from "../models/models_1";
+import { UpdateParticipantRoleConfigRequest, UpdateParticipantRoleConfigResponse } from "../models/models_2";
 import {
   de_UpdateParticipantRoleConfigCommand,
   se_UpdateParticipantRoleConfigCommand,

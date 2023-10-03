@@ -29,6 +29,7 @@ import {
   ViewStatus,
 } from "./models_0";
 import {
+  ChatParticipantRoleConfig,
   HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
   PromptSearchFilter,
@@ -42,6 +43,74 @@ import {
   TelephonyConfig,
   UserSearchFilter,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>Configuration information for the chat participant role.</p>
+ */
+export type UpdateParticipantRoleConfigChannelInfo =
+  | UpdateParticipantRoleConfigChannelInfo.ChatMember
+  | UpdateParticipantRoleConfigChannelInfo.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UpdateParticipantRoleConfigChannelInfo {
+  /**
+   * @public
+   * <p>Configuration information for the chat participant role.</p>
+   */
+  export interface ChatMember {
+    Chat: ChatParticipantRoleConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Chat?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Chat: (value: ChatParticipantRoleConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UpdateParticipantRoleConfigChannelInfo, visitor: Visitor<T>): T => {
+    if (value.Chat !== undefined) return visitor.Chat(value.Chat);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface UpdateParticipantRoleConfigRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Connect channel you want to configure.</p>
+   */
+  ChannelConfiguration: UpdateParticipantRoleConfigChannelInfo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateParticipantRoleConfigResponse {}
 
 /**
  * @public
@@ -916,20 +985,22 @@ export interface UpdateUserSecurityProfilesRequest {
 export interface UpdateViewContentRequest {
   /**
    * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
    * @public
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   *    used.</p>
    */
   ViewId: string | undefined;
 
   /**
    * @public
    * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
-   *    <code>PUBLISHED</code> status will initiate validation on the content.</p>
+   *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
    */
   Status: ViewStatus | string | undefined;
 
@@ -959,13 +1030,15 @@ export interface UpdateViewContentResponse {
 export interface UpdateViewMetadataRequest {
   /**
    * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
    * @public
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   *    used.</p>
    */
   ViewId: string | undefined;
 

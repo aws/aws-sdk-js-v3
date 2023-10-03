@@ -42,12 +42,14 @@ export interface CreateViewCommandOutput extends CreateViewResponse, __MetadataB
 
 /**
  * @public
- * <p>Creates a new view with the possible status of <code>SAVED</code> or <code>PUBLISHED</code>.</p>
+ * <p>Creates a new view with the possible status of <code>SAVED</code> or
+ *    <code>PUBLISHED</code>.</p>
  *          <p>The views will have a unique name for each connect instance.</p>
- *          <p>It performs basic content validation if the status is <code>SAVED</code> or full content validation if the status
- *    is set to <code>PUBLISHED</code>. An error is returned if validation fails. It associates either
- *    the <code>$SAVED</code> qualifier or both of the <code>$SAVED</code> and <code>$LATEST</code> qualifiers with the
- *    provided view content based on the status. The view is idempotent if ClientToken is provided.</p>
+ *          <p>It performs basic content validation if the status is <code>SAVED</code> or full content
+ *    validation if the status is set to <code>PUBLISHED</code>. An error is returned if validation
+ *    fails. It associates either the <code>$SAVED</code> qualifier or both of the <code>$SAVED</code>
+ *    and <code>$LATEST</code> qualifiers with the provided view content based on the status. The view
+ *    is idempotent if ClientToken is provided.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

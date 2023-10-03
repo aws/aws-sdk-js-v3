@@ -725,9 +725,11 @@ import {
   HistoricalMetricResult,
   HoursOfOperationSearchFilter,
   InstanceSummary,
+  IntervalDetails,
   MaximumResultReturnedException,
   MetricDataV2,
   MetricFilterV2,
+  MetricInterval,
   MetricResultV2,
   MetricV2,
   OutboundContactNotPermittedException,
@@ -752,7 +754,6 @@ import {
   TelephonyConfig,
   Threshold,
   ThresholdV2,
-  UpdateParticipantRoleConfigChannelInfo,
   UserData,
   UserDataFilters,
   UserNotFoundException,
@@ -774,6 +775,7 @@ import {
   QuickConnectSearchCriteria,
   RoutingProfileSearchCriteria,
   SecurityProfileSearchCriteria,
+  UpdateParticipantRoleConfigChannelInfo,
   UserSearchCriteria,
 } from "../models/models_2";
 
@@ -3938,6 +3940,7 @@ export const se_GetMetricDataV2Command = async (
       EndTime: (_) => Math.round(_.getTime() / 1000),
       Filters: (_) => _json(_),
       Groupings: (_) => _json(_),
+      Interval: (_) => _json(_),
       MaxResults: [],
       Metrics: (_) => se_MetricsV2(_, context),
       NextToken: [],
@@ -20949,6 +20952,8 @@ const se_HoursOfOperationSearchCriteria = (input: HoursOfOperationSearchCriteria
 
 // se_InstanceStorageConfig omitted.
 
+// se_IntervalDetails omitted.
+
 // se_InvisibleFieldInfo omitted.
 
 // se_InvisibleTaskTemplateFields omitted.
@@ -22026,6 +22031,17 @@ const de_MetricDataV2 = (output: any, context: __SerdeContext): MetricDataV2 => 
 // de_MetricFilterValueList omitted.
 
 /**
+ * deserializeAws_restJson1MetricInterval
+ */
+const de_MetricInterval = (output: any, context: __SerdeContext): MetricInterval => {
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Interval: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1MetricResultsV2
  */
 const de_MetricResultsV2 = (output: any, context: __SerdeContext): MetricResultV2[] => {
@@ -22044,6 +22060,7 @@ const de_MetricResultV2 = (output: any, context: __SerdeContext): MetricResultV2
   return take(output, {
     Collections: (_: any) => de_MetricDataCollectionsV2(_, context),
     Dimensions: _json,
+    MetricInterval: (_: any) => de_MetricInterval(_, context),
   }) as any;
 };
 

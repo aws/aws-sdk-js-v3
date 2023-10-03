@@ -42,10 +42,12 @@ export interface UpdateViewContentCommandOutput extends UpdateViewContentRespons
 
 /**
  * @public
- * <p>Updates the view content of the given view identifier in the specified Amazon Connect instance.</p>
- *          <p>It performs content validation if <code>Status</code> is set to <code>SAVED</code> and performs full content validation if
- *    <code>Status</code> is <code>PUBLISHED</code>. Note that the <code>$SAVED</code> alias' content will always be updated,
- *    but the <code>$LATEST</code> alias' content will only be updated if <code>Status</code> is <code>PUBLISHED</code>.</p>
+ * <p>Updates the view content of the given view identifier in the specified Amazon Connect
+ *    instance.</p>
+ *          <p>It performs content validation if <code>Status</code> is set to <code>SAVED</code> and
+ *    performs full content validation if <code>Status</code> is <code>PUBLISHED</code>. Note that the
+ *     <code>$SAVED</code> alias' content will always be updated, but the <code>$LATEST</code> alias'
+ *    content will only be updated if <code>Status</code> is <code>PUBLISHED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
