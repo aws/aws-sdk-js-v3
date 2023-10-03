@@ -61,6 +61,7 @@ export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenc
  * //   },
  * //   CreateTime: new Date("TIMESTAMP"), // required
  * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * //   GeofenceCount: Number("int"),
  * // };
  *
  * ```

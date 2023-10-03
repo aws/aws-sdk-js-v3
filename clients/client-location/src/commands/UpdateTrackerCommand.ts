@@ -51,6 +51,7 @@ export interface UpdateTrackerCommandOutput extends UpdateTrackerResponse, __Met
  *   Description: "STRING_VALUE",
  *   PositionFiltering: "STRING_VALUE",
  *   EventBridgeEnabled: true || false,
+ *   KmsKeyEnableGeospatialQueries: true || false,
  * };
  * const command = new UpdateTrackerCommand(input);
  * const response = await client.send(command);

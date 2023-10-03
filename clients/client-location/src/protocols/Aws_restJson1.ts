@@ -208,6 +208,7 @@ import {
   ServiceQuotaExceededException,
   Step,
   ThrottlingException,
+  TrackingFilterGeometry,
   TruckDimensions,
   TruckWeight,
   ValidationException,
@@ -845,6 +846,7 @@ export const se_CreateTrackerCommand = async (
     take(input, {
       Description: [],
       EventBridgeEnabled: [],
+      KmsKeyEnableGeospatialQueries: [],
       KmsKeyId: [],
       PositionFiltering: [],
       PricingPlan: [],
@@ -1631,6 +1633,7 @@ export const se_ListDevicePositionsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      FilterGeometry: (_) => se_TrackingFilterGeometry(_, context),
       MaxResults: [],
       NextToken: [],
     })
@@ -2496,6 +2499,7 @@ export const se_UpdateTrackerCommand = async (
     take(input, {
       Description: [],
       EventBridgeEnabled: [],
+      KmsKeyEnableGeospatialQueries: [],
       PositionFiltering: [],
       PricingPlan: [],
       PricingPlanDataSource: [],
@@ -3792,6 +3796,7 @@ export const de_DescribeGeofenceCollectionCommand = async (
     CollectionName: __expectString,
     CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     Description: __expectString,
+    GeofenceCount: __expectInt32,
     KmsKeyId: __expectString,
     PricingPlan: __expectString,
     PricingPlanDataSource: __expectString,
@@ -4125,6 +4130,7 @@ export const de_DescribeTrackerCommand = async (
     CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     Description: __expectString,
     EventBridgeEnabled: __expectBoolean,
+    KmsKeyEnableGeospatialQueries: __expectBoolean,
     KmsKeyId: __expectString,
     PositionFiltering: __expectString,
     PricingPlan: __expectString,
@@ -6313,6 +6319,15 @@ const se_PositionList = (input: number[][], context: __SerdeContext): any => {
 // se_RefererPatternList omitted.
 
 // se_TagMap omitted.
+
+/**
+ * serializeAws_restJson1TrackingFilterGeometry
+ */
+const se_TrackingFilterGeometry = (input: TrackingFilterGeometry, context: __SerdeContext): any => {
+  return take(input, {
+    Polygon: (_) => se_LinearRings(_, context),
+  });
+};
 
 /**
  * serializeAws_restJson1TruckDimensions

@@ -3242,6 +3242,20 @@ export interface CreateTrackerRequest {
    *          </note>
    */
   EventBridgeEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *             KMS customer managed key</a>.</p>
+   *          <p>This parameter is only used if you are using a KMS customer managed key.</p>
+   *          <note>
+   *             <p>If you wish to encrypt your data using your own KMS customer managed key, then the Bounding Polygon Queries feature will be disabled by default.
+   *                 This is because by using this feature, a representation of your device positions will not be encrypted using the your KMS managed key. The exact device position, however; is still encrypted using your managed key.</p>
+   *             <p>You can choose to opt-in to the Bounding Polygon Quseries feature. This is done by setting the <code>KmsKeyEnableGeospatialQueries</code> parameter to
+   *                 true when creating or updating a Tracker.</p>
+   *          </note>
+   */
+  KmsKeyEnableGeospatialQueries?: boolean;
 }
 
 /**
@@ -3442,6 +3456,12 @@ export interface DescribeGeofenceCollectionResponse {
    *          </p>
    */
   UpdateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The number of geofences in the geofence collection.</p>
+   */
+  GeofenceCount?: number;
 }
 
 /**
@@ -3829,6 +3849,20 @@ export interface DescribeTrackerResponse {
    *             enabled. If set to <code>true</code> these events will be sent to EventBridge.</p>
    */
   EventBridgeEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *             KMS customer managed key</a>.</p>
+   *          <p>This parameter is only used if you are using a KMS customer managed key.</p>
+   *          <note>
+   *             <p>If you wish to encrypt your data using your own KMS customer managed key, then the Bounding Polygon Queries feature will be disabled by default.
+   *                 This is because by using this feature, a representation of your device positions will not be encrypted using the your KMS managed key. The exact device position, however; is still encrypted using your managed key.</p>
+   *             <p>You can choose to opt-in to the Bounding Polygon Quseries feature. This is done by setting the <code>KmsKeyEnableGeospatialQueries</code> parameter to
+   *                 true when creating or updating a Tracker.</p>
+   *          </note>
+   */
+  KmsKeyEnableGeospatialQueries?: boolean;
 }
 
 /**
@@ -4571,7 +4605,7 @@ export interface GetMapGlyphsRequest {
    * @public
    * <p>A comma-separated list of fonts to load glyphs from in order of preference. For
    *             example, <code>Noto Sans Regular, Arial Unicode</code>.</p>
-   *          <p>Valid fonts stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p>
+   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p>
    *          <ul>
    *             <li>
    *                <p>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu
@@ -5105,6 +5139,18 @@ export interface GetPlaceResponse {
 
 /**
  * @public
+ * <p>The geomerty used to filter device positions.</p>
+ */
+export interface TrackingFilterGeometry {
+  /**
+   * @public
+   * <p>The set of arrays which define the polygon. A polygon can have between 4 and 1000 vertices.</p>
+   */
+  Polygon?: number[][][];
+}
+
+/**
+ * @public
  */
 export interface ListDevicePositionsRequest {
   /**
@@ -5129,6 +5175,12 @@ export interface ListDevicePositionsRequest {
    *          </p>
    */
   NextToken?: string;
+
+  /**
+   * @public
+   * <p>The geomerty used to filter device positions.</p>
+   */
+  FilterGeometry?: TrackingFilterGeometry;
 }
 
 /**
@@ -5174,8 +5226,7 @@ export interface ListDevicePositionsResponseEntry {
 export interface ListDevicePositionsResponse {
   /**
    * @public
-   * <p>Contains details about each device's last known position. These details includes the device ID,
-   *             the time when the position was sampled on the device, the time that the service received the update, and the most recent coordinates.</p>
+   * <p>Contains details about each device's last known position.</p>
    */
   Entries: ListDevicePositionsResponseEntry[] | undefined;
 
@@ -6594,6 +6645,14 @@ export interface UpdateTrackerRequest {
    *          </note>
    */
   EventBridgeEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *             KMS customer managed key</a>.</p>
+   *          <p>This parameter is only used if you are using a KMS customer managed key.</p>
+   */
+  KmsKeyEnableGeospatialQueries?: boolean;
 }
 
 /**
@@ -6914,6 +6973,22 @@ export const PlaceFilterSensitiveLog = (obj: Place): any => ({
 export const GetPlaceResponseFilterSensitiveLog = (obj: GetPlaceResponse): any => ({
   ...obj,
   ...(obj.Place && { Place: PlaceFilterSensitiveLog(obj.Place) }),
+});
+
+/**
+ * @internal
+ */
+export const TrackingFilterGeometryFilterSensitiveLog = (obj: TrackingFilterGeometry): any => ({
+  ...obj,
+  ...(obj.Polygon && { Polygon: obj.Polygon.map((item) => SENSITIVE_STRING) }),
+});
+
+/**
+ * @internal
+ */
+export const ListDevicePositionsRequestFilterSensitiveLog = (obj: ListDevicePositionsRequest): any => ({
+  ...obj,
+  ...(obj.FilterGeometry && { FilterGeometry: TrackingFilterGeometryFilterSensitiveLog(obj.FilterGeometry) }),
 });
 
 /**

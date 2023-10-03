@@ -63,6 +63,7 @@ export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, _
  * //   KmsKeyId: "STRING_VALUE",
  * //   PositionFiltering: "STRING_VALUE",
  * //   EventBridgeEnabled: true || false,
+ * //   KmsKeyEnableGeospatialQueries: true || false,
  * // };
  *
  * ```
