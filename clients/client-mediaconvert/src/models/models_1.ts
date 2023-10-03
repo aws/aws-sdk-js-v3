@@ -12,7 +12,13 @@ import {
   CaptionDescription,
   CaptionDescriptionPreset,
   CmfcAudioDuration,
-  CmfcSettings,
+  CmfcAudioTrackType,
+  CmfcDescriptiveVideoServiceFlag,
+  CmfcIFrameOnlyManifest,
+  CmfcKlvMetadata,
+  CmfcManifestMetadataSignaling,
+  CmfcScte35Esam,
+  CmfcScte35Source,
   EsamSettings,
   ExtendedDataServices,
   Hdr10Metadata,
@@ -32,6 +38,128 @@ import {
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcTimedMetadata = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcTimedMetadata = (typeof CmfcTimedMetadata)[keyof typeof CmfcTimedMetadata];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcTimedMetadataBoxVersion = {
+  VERSION_0: "VERSION_0",
+  VERSION_1: "VERSION_1",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcTimedMetadataBoxVersion =
+  (typeof CmfcTimedMetadataBoxVersion)[keyof typeof CmfcTimedMetadataBoxVersion];
+
+/**
+ * @public
+ * These settings relate to the fragmented MP4 container for the segments in your CMAF outputs.
+ */
+export interface CmfcSettings {
+  /**
+   * @public
+   * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration. In all other cases, keep the default value, Default codec duration. When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+   */
+  AudioDuration?: CmfcAudioDuration | string;
+
+  /**
+   * @public
+   * Specify the audio rendition group for this audio rendition. Specify up to one value for each audio output in your output group. This value appears in your HLS parent manifest in the EXT-X-MEDIA tag of TYPE=AUDIO, as the value for the GROUP-ID attribute. For example, if you specify "audio_aac_1" for Audio group ID, it appears in your manifest like this: #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio_aac_1". Related setting: To associate the rendition group that this audio track belongs to with a video rendition, include the same value that you provide here for that video output's setting Audio rendition sets.
+   */
+  AudioGroupId?: string;
+
+  /**
+   * @public
+   * List the audio rendition groups that you want included with this video rendition. Use a comma-separated list. For example, say you want to include the audio rendition groups that have the audio group IDs "audio_aac_1" and "audio_dolby". Then you would specify this value: "audio_aac_1,audio_dolby". Related setting: The rendition groups that you include in your comma-separated list should all match values that you specify in the setting Audio group ID for audio renditions in the same output group as this video rendition. Default behavior: If you don't specify anything here and for Audio group ID, MediaConvert puts each audio variant in its own audio rendition group and associates it with every video variant. Each value in your list appears in your HLS parent manifest in the EXT-X-STREAM-INF tag as the value for the AUDIO attribute. To continue the previous example, say that the file name for the child manifest for your video rendition is "amazing_video_1.m3u8". Then, in your parent manifest, each value will appear on separate lines, like this: #EXT-X-STREAM-INF:AUDIO="audio_aac_1"... amazing_video_1.m3u8 #EXT-X-STREAM-INF:AUDIO="audio_dolby"... amazing_video_1.m3u8
+   */
+  AudioRenditionSets?: string;
+
+  /**
+   * @public
+   * Use this setting to control the values that MediaConvert puts in your HLS parent playlist to control how the client player selects which audio track to play. Choose Audio-only variant stream (AUDIO_ONLY_VARIANT_STREAM) for any variant that you want to prohibit the client from playing with video. This causes MediaConvert to represent the variant as an EXT-X-STREAM-INF in the HLS manifest. The other options for this setting determine the values that MediaConvert writes for the DEFAULT and AUTOSELECT attributes of the EXT-X-MEDIA entry for the audio variant. For more information about these attributes, see the Apple documentation article https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming/adding_alternate_media_to_a_playlist. Choose Alternate audio, auto select, default to set DEFAULT=YES and AUTOSELECT=YES. Choose this value for only one variant in your output group. Choose Alternate audio, auto select, not default to set DEFAULT=NO and AUTOSELECT=YES. Choose Alternate Audio, Not Auto Select to set DEFAULT=NO and AUTOSELECT=NO. When you don't specify a value for this setting, MediaConvert defaults to Alternate audio, auto select, default. When there is more than one variant in your output group, you must explicitly choose a value for this setting.
+   */
+  AudioTrackType?: CmfcAudioTrackType | string;
+
+  /**
+   * @public
+   * Specify whether to flag this audio track as descriptive video service (DVS) in your HLS parent manifest. When you choose Flag, MediaConvert includes the parameter CHARACTERISTICS="public.accessibility.describes-video" in the EXT-X-MEDIA entry for this track. When you keep the default choice, Don't flag, MediaConvert leaves this parameter out. The DVS flag can help with accessibility on Apple devices. For more information, see the Apple documentation.
+   */
+  DescriptiveVideoServiceFlag?: CmfcDescriptiveVideoServiceFlag | string;
+
+  /**
+   * @public
+   * Choose Include to have MediaConvert generate an HLS child manifest that lists only the I-frames for this rendition, in addition to your regular manifest for this rendition. You might use this manifest as part of a workflow that creates preview functions for your video. MediaConvert adds both the I-frame only child manifest and the regular child manifest to the parent manifest. When you don't need the I-frame only child manifest, keep the default value Exclude.
+   */
+  IFrameOnlyManifest?: CmfcIFrameOnlyManifest | string;
+
+  /**
+   * @public
+   * To include key-length-value metadata in this output: Set KLV metadata insertion to Passthrough. MediaConvert reads KLV metadata present in your input and writes each instance to a separate event message box in the output, according to MISB ST1910.1. To exclude this KLV metadata: Set KLV metadata insertion to None or leave blank.
+   */
+  KlvMetadata?: CmfcKlvMetadata | string;
+
+  /**
+   * @public
+   * To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be "urn:scte:scte35:2013:bin". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled. To enable Manifest metadata signaling, you must also set SCTE-35 source to Passthrough, ESAM SCTE-35 to insert, or ID3 metadata to Passthrough.
+   */
+  ManifestMetadataSignaling?: CmfcManifestMetadataSignaling | string;
+
+  /**
+   * @public
+   * Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML.
+   */
+  Scte35Esam?: CmfcScte35Esam | string;
+
+  /**
+   * @public
+   * Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None if you don't want those SCTE-35 markers in this output.
+   */
+  Scte35Source?: CmfcScte35Source | string;
+
+  /**
+   * @public
+   * To include ID3 metadata in this output: Set ID3 metadata to Passthrough. Specify this ID3 metadata in Custom ID3 metadata inserter. MediaConvert writes each instance of ID3 metadata in a separate Event Message (eMSG) box. To exclude this ID3 metadata: Set ID3 metadata to None or leave blank.
+   */
+  TimedMetadata?: CmfcTimedMetadata | string;
+
+  /**
+   * @public
+   * Specify the event message box (eMSG) version for ID3 timed metadata in your output.
+   * For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.3 Syntax.
+   * Leave blank to use the default value Version 0.
+   * When you specify Version 1, you must also set ID3 metadata to Passthrough.
+   */
+  TimedMetadataBoxVersion?: CmfcTimedMetadataBoxVersion | string;
+
+  /**
+   * @public
+   * Specify the event message box (eMSG) scheme ID URI for ID3 timed metadata in your output. For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the default value: https://aomedia.org/emsg/ID3 When you specify a value for ID3 metadata scheme ID URI, you must also set ID3 metadata to Passthrough.
+   */
+  TimedMetadataSchemeIdUri?: string;
+
+  /**
+   * @public
+   * Specify the event message box (eMSG) value for ID3 timed metadata in your output. For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value, you must also set ID3 metadata to Passthrough.
+   */
+  TimedMetadataValue?: string;
+}
 
 /**
  * @public
@@ -2162,6 +2290,20 @@ export type H264DynamicSubGop = (typeof H264DynamicSubGop)[keyof typeof H264Dyna
  * @public
  * @enum
  */
+export const H264EndOfStreamMarkers = {
+  INCLUDE: "INCLUDE",
+  SUPPRESS: "SUPPRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type H264EndOfStreamMarkers = (typeof H264EndOfStreamMarkers)[keyof typeof H264EndOfStreamMarkers];
+
+/**
+ * @public
+ * @enum
+ */
 export const H264EntropyEncoding = {
   CABAC: "CABAC",
   CAVLC: "CAVLC",
@@ -2520,6 +2662,12 @@ export interface H264Settings {
 
   /**
    * @public
+   * Optionally include or suppress markers at the end of your output that signal the end of the video stream. To include end of stream markers: Leave blank or keep the default value, Include. To not include end of stream markers: Choose Suppress. This is useful when your output will be inserted into another stream.
+   */
+  EndOfStreamMarkers?: H264EndOfStreamMarkers | string;
+
+  /**
+   * @public
    * Entropy encoding mode. Use CABAC (must be in Main or High profile) or CAVLC.
    */
   EntropyEncoding?: H264EntropyEncoding | string;
@@ -2828,6 +2976,20 @@ export const H265DynamicSubGop = {
  * @public
  */
 export type H265DynamicSubGop = (typeof H265DynamicSubGop)[keyof typeof H265DynamicSubGop];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265EndOfStreamMarkers = {
+  INCLUDE: "INCLUDE",
+  SUPPRESS: "SUPPRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type H265EndOfStreamMarkers = (typeof H265EndOfStreamMarkers)[keyof typeof H265EndOfStreamMarkers];
 
 /**
  * @public
@@ -3195,6 +3357,12 @@ export interface H265Settings {
    * Specify whether to allow the number of B-frames in your output GOP structure to vary or not depending on your input video content. To improve the subjective video quality of your output that has high-motion content: Leave blank or keep the default value Adaptive. MediaConvert will use fewer B-frames for high-motion video content than low-motion content. The maximum number of B- frames is limited by the value that you choose for B-frames between reference frames. To use the same number B-frames for all types of content: Choose Static.
    */
   DynamicSubGop?: H265DynamicSubGop | string;
+
+  /**
+   * @public
+   * Optionally include or suppress markers at the end of your output that signal the end of the video stream. To include end of stream markers: Leave blank or keep the default value, Include. To not include end of stream markers: Choose Suppress. This is useful when your output will be inserted into another stream.
+   */
+  EndOfStreamMarkers?: H265EndOfStreamMarkers | string;
 
   /**
    * @public
@@ -6210,12 +6378,6 @@ export interface JobSettings {
 
   /**
    * @public
-   * Specifies which input metadata to use for the default "Follow input" option for the following settings: resolution, frame rate, and pixel aspect ratio. In the simplest case, specify which input is used based on its index in the job. For example if you specify 3, then the fourth input will be used from each input. If the job does not have a fourth input, then the first input will be used. If no followInputIndex is specified, then 0 will be chosen automatically.
-   */
-  FollowInputIndex?: number;
-
-  /**
-   * @public
    * Use Inputs to define source file used in the transcode job. There can be multiple inputs add in a job. These inputs will be concantenated together to create the output.
    */
   Inputs?: Input[];
@@ -6559,12 +6721,6 @@ export interface JobTemplateSettings {
    * If your source content has EIA-608 Line 21 Data Services, enable this feature to specify what MediaConvert does with the Extended Data Services (XDS) packets. You can choose to pass through XDS packets, or remove them from the output. For more information about XDS, see EIA-608 Line Data Services, section 9.5.1.5 05h Content Advisory.
    */
   ExtendedDataServices?: ExtendedDataServices;
-
-  /**
-   * @public
-   * Specifies which input metadata to use for the default "Follow input" option for the following settings: resolution, frame rate, and pixel aspect ratio. In the simplest case, specify which input is used based on its index in the job. For example if you specify 3, then the fourth input will be used from each input. If the job does not have a fourth input, then the first input will be used. If no followInputIndex is specified, then 0 will be chosen automatically.
-   */
-  FollowInputIndex?: number;
 
   /**
    * @public
@@ -7383,76 +7539,3 @@ export interface ReservationPlanSettings {
    */
   ReservedSlots: number | undefined;
 }
-
-/**
- * @public
- */
-export interface CreateQueueRequest {
-  /**
-   * @public
-   * Optional. A description of the queue that you are creating.
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * The name of the queue that you are creating.
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the API to create a queue, the default is on-demand.
-   */
-  PricingPlan?: PricingPlan | string;
-
-  /**
-   * @public
-   * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
-   */
-  ReservationPlanSettings?: ReservationPlanSettings;
-
-  /**
-   * @public
-   * Initial state of the queue. If you create a paused queue, then jobs in that queue won't begin.
-   */
-  Status?: QueueStatus | string;
-
-  /**
-   * @public
-   * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface CreateQueueResponse {
-  /**
-   * @public
-   * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
-   */
-  Queue?: Queue;
-}
-
-/**
- * @public
- */
-export interface DeleteJobTemplateRequest {
-  /**
-   * @public
-   * The name of the job template to be deleted.
-   */
-  Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteJobTemplateResponse {}
-
-/**
- * @public
- */
-export interface DeletePolicyRequest {}

@@ -87,7 +87,6 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //         CopyProtectionAction: "PASSTHROUGH" || "STRIP",
  * //         VchipAction: "PASSTHROUGH" || "STRIP",
  * //       },
- * //       FollowInputIndex: Number("int"),
  * //       Inputs: [ // __listOfInputTemplate
  * //         { // InputTemplate
  * //           AdvancedInputFilter: "ENABLED" || "DISABLED",
@@ -232,6 +231,23 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //           PsiControl: "IGNORE_PSI" || "USE_PSI",
  * //           TimecodeSource: "EMBEDDED" || "ZEROBASED" || "SPECIFIEDSTART",
  * //           TimecodeStart: "STRING_VALUE",
+ * //           VideoOverlays: [ // __listOfVideoOverlay
+ * //             { // VideoOverlay
+ * //               EndTimecode: "STRING_VALUE",
+ * //               Input: { // VideoOverlayInput
+ * //                 FileInput: "STRING_VALUE",
+ * //                 InputClippings: [ // __listOfVideoOverlayInputClipping
+ * //                   { // VideoOverlayInputClipping
+ * //                     EndTimecode: "STRING_VALUE",
+ * //                     StartTimecode: "STRING_VALUE",
+ * //                   },
+ * //                 ],
+ * //                 TimecodeSource: "EMBEDDED" || "ZEROBASED" || "SPECIFIEDSTART",
+ * //                 TimecodeStart: "STRING_VALUE",
+ * //               },
+ * //               StartTimecode: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //           VideoSelector: { // VideoSelector
  * //             AlphaBehavior: "DISCARD" || "REMAP_TO_LUMA",
  * //             ColorSpace: "FOLLOW" || "REC_601" || "REC_709" || "HDR10" || "HLG_2020" || "P3DCI" || "P3D65_SDR" || "P3D65_HDR",
@@ -1072,6 +1088,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //                     CodecLevel: "AUTO" || "LEVEL_1" || "LEVEL_1_1" || "LEVEL_1_2" || "LEVEL_1_3" || "LEVEL_2" || "LEVEL_2_1" || "LEVEL_2_2" || "LEVEL_3" || "LEVEL_3_1" || "LEVEL_3_2" || "LEVEL_4" || "LEVEL_4_1" || "LEVEL_4_2" || "LEVEL_5" || "LEVEL_5_1" || "LEVEL_5_2",
  * //                     CodecProfile: "BASELINE" || "HIGH" || "HIGH_10BIT" || "HIGH_422" || "HIGH_422_10BIT" || "MAIN",
  * //                     DynamicSubGop: "ADAPTIVE" || "STATIC",
+ * //                     EndOfStreamMarkers: "INCLUDE" || "SUPPRESS",
  * //                     EntropyEncoding: "CABAC" || "CAVLC",
  * //                     FieldEncoding: "PAFF" || "FORCE_FIELD" || "MBAFF",
  * //                     FlickerAdaptiveQuantization: "DISABLED" || "ENABLED",
@@ -1124,6 +1141,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //                     CodecLevel: "AUTO" || "LEVEL_1" || "LEVEL_2" || "LEVEL_2_1" || "LEVEL_3" || "LEVEL_3_1" || "LEVEL_4" || "LEVEL_4_1" || "LEVEL_5" || "LEVEL_5_1" || "LEVEL_5_2" || "LEVEL_6" || "LEVEL_6_1" || "LEVEL_6_2",
  * //                     CodecProfile: "MAIN_MAIN" || "MAIN_HIGH" || "MAIN10_MAIN" || "MAIN10_HIGH" || "MAIN_422_8BIT_MAIN" || "MAIN_422_8BIT_HIGH" || "MAIN_422_10BIT_MAIN" || "MAIN_422_10BIT_HIGH",
  * //                     DynamicSubGop: "ADAPTIVE" || "STATIC",
+ * //                     EndOfStreamMarkers: "INCLUDE" || "SUPPRESS",
  * //                     FlickerAdaptiveQuantization: "DISABLED" || "ENABLED",
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",

@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeletePolicyRequest } from "../models/models_1";
-import { DeletePolicyResponse } from "../models/models_2";
+import { DeletePolicyRequest, DeletePolicyResponse } from "../models/models_2";
 import { de_DeletePolicyCommand, se_DeletePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**

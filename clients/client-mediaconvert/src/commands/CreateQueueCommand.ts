@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { CreateQueueRequest, CreateQueueResponse } from "../models/models_1";
+import { CreateQueueRequest, CreateQueueResponse } from "../models/models_2";
 import { de_CreateQueueCommand, se_CreateQueueCommand } from "../protocols/Aws_restJson1";
 
 /**

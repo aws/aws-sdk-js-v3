@@ -93,7 +93,6 @@ import {
   CmafEncryptionSettings,
   CmafGroupSettings,
   CmafImageBasedTrickPlaySettings,
-  CmfcSettings,
   DashAdditionalManifest,
   DashIsoEncryptionSettings,
   DashIsoGroupSettings,
@@ -168,6 +167,9 @@ import {
   TrackSourceSettings,
   TtmlDestinationSettings,
   VideoDetail,
+  VideoOverlay,
+  VideoOverlayInput,
+  VideoOverlayInputClipping,
   VideoSelector,
   VorbisSettings,
   WavSettings,
@@ -182,6 +184,7 @@ import {
   BadRequestException,
   BandwidthReductionFilter,
   ClipLimits,
+  CmfcSettings,
   ColorCorrector,
   ConflictException,
   ContainerSettings,
@@ -3118,6 +3121,28 @@ const se___listOfOutputGroup = (input: OutputGroup[], context: __SerdeContext): 
 
 // se___listOfTeletextPageType omitted.
 
+/**
+ * serializeAws_restJson1__listOfVideoOverlay
+ */
+const se___listOfVideoOverlay = (input: VideoOverlay[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_VideoOverlay(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfVideoOverlayInputClipping
+ */
+const se___listOfVideoOverlayInputClipping = (input: VideoOverlayInputClipping[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_VideoOverlayInputClipping(entry, context);
+    });
+};
+
 // se___mapOf__string omitted.
 
 /**
@@ -4116,6 +4141,7 @@ const se_H264Settings = (input: H264Settings, context: __SerdeContext): any => {
     codecLevel: [, , `CodecLevel`],
     codecProfile: [, , `CodecProfile`],
     dynamicSubGop: [, , `DynamicSubGop`],
+    endOfStreamMarkers: [, , `EndOfStreamMarkers`],
     entropyEncoding: [, , `EntropyEncoding`],
     fieldEncoding: [, , `FieldEncoding`],
     flickerAdaptiveQuantization: [, , `FlickerAdaptiveQuantization`],
@@ -4178,6 +4204,7 @@ const se_H265Settings = (input: H265Settings, context: __SerdeContext): any => {
     codecLevel: [, , `CodecLevel`],
     codecProfile: [, , `CodecProfile`],
     dynamicSubGop: [, , `DynamicSubGop`],
+    endOfStreamMarkers: [, , `EndOfStreamMarkers`],
     flickerAdaptiveQuantization: [, , `FlickerAdaptiveQuantization`],
     framerateControl: [, , `FramerateControl`],
     framerateConversionAlgorithm: [, , `FramerateConversionAlgorithm`],
@@ -4436,6 +4463,7 @@ const se_Input = (input: Input, context: __SerdeContext): any => {
     timecodeSource: [, , `TimecodeSource`],
     timecodeStart: [, , `TimecodeStart`],
     videoGenerator: [, (_) => se_InputVideoGenerator(_, context), `VideoGenerator`],
+    videoOverlays: [, (_) => se___listOfVideoOverlay(_, context), `VideoOverlays`],
     videoSelector: [, (_) => se_VideoSelector(_, context), `VideoSelector`],
   });
 };
@@ -4486,6 +4514,7 @@ const se_InputTemplate = (input: InputTemplate, context: __SerdeContext): any =>
     psiControl: [, , `PsiControl`],
     timecodeSource: [, , `TimecodeSource`],
     timecodeStart: [, , `TimecodeStart`],
+    videoOverlays: [, (_) => se___listOfVideoOverlay(_, context), `VideoOverlays`],
     videoSelector: [, (_) => se_VideoSelector(_, context), `VideoSelector`],
   });
 };
@@ -4527,7 +4556,6 @@ const se_JobSettings = (input: JobSettings, context: __SerdeContext): any => {
     availBlanking: [, (_) => se_AvailBlanking(_, context), `AvailBlanking`],
     esam: [, (_) => se_EsamSettings(_, context), `Esam`],
     extendedDataServices: [, (_) => se_ExtendedDataServices(_, context), `ExtendedDataServices`],
-    followInputIndex: [, , `FollowInputIndex`],
     inputs: [, (_) => se___listOfInput(_, context), `Inputs`],
     kantarWatermark: [, (_) => se_KantarWatermarkSettings(_, context), `KantarWatermark`],
     motionImageInserter: [, (_) => se_MotionImageInserter(_, context), `MotionImageInserter`],
@@ -4548,7 +4576,6 @@ const se_JobTemplateSettings = (input: JobTemplateSettings, context: __SerdeCont
     availBlanking: [, (_) => se_AvailBlanking(_, context), `AvailBlanking`],
     esam: [, (_) => se_EsamSettings(_, context), `Esam`],
     extendedDataServices: [, (_) => se_ExtendedDataServices(_, context), `ExtendedDataServices`],
-    followInputIndex: [, , `FollowInputIndex`],
     inputs: [, (_) => se___listOfInputTemplate(_, context), `Inputs`],
     kantarWatermark: [, (_) => se_KantarWatermarkSettings(_, context), `KantarWatermark`],
     motionImageInserter: [, (_) => se_MotionImageInserter(_, context), `MotionImageInserter`],
@@ -5360,6 +5387,39 @@ const se_VideoDescription = (input: VideoDescription, context: __SerdeContext): 
 };
 
 /**
+ * serializeAws_restJson1VideoOverlay
+ */
+const se_VideoOverlay = (input: VideoOverlay, context: __SerdeContext): any => {
+  return take(input, {
+    endTimecode: [, , `EndTimecode`],
+    input: [, (_) => se_VideoOverlayInput(_, context), `Input`],
+    startTimecode: [, , `StartTimecode`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VideoOverlayInput
+ */
+const se_VideoOverlayInput = (input: VideoOverlayInput, context: __SerdeContext): any => {
+  return take(input, {
+    fileInput: [, , `FileInput`],
+    inputClippings: [, (_) => se___listOfVideoOverlayInputClipping(_, context), `InputClippings`],
+    timecodeSource: [, , `TimecodeSource`],
+    timecodeStart: [, , `TimecodeStart`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VideoOverlayInputClipping
+ */
+const se_VideoOverlayInputClipping = (input: VideoOverlayInputClipping, context: __SerdeContext): any => {
+  return take(input, {
+    endTimecode: [, , `EndTimecode`],
+    startTimecode: [, , `StartTimecode`],
+  });
+};
+
+/**
  * serializeAws_restJson1VideoPreprocessor
  */
 const se_VideoPreprocessor = (input: VideoPreprocessor, context: __SerdeContext): any => {
@@ -5942,6 +6002,30 @@ const de___listOfQueueTransition = (output: any, context: __SerdeContext): Queue
 };
 
 // de___listOfTeletextPageType omitted.
+
+/**
+ * deserializeAws_restJson1__listOfVideoOverlay
+ */
+const de___listOfVideoOverlay = (output: any, context: __SerdeContext): VideoOverlay[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_VideoOverlay(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfVideoOverlayInputClipping
+ */
+const de___listOfVideoOverlayInputClipping = (output: any, context: __SerdeContext): VideoOverlayInputClipping[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_VideoOverlayInputClipping(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1__listOfWarningGroup
@@ -6977,6 +7061,7 @@ const de_H264Settings = (output: any, context: __SerdeContext): H264Settings => 
     CodecLevel: [, __expectString, `codecLevel`],
     CodecProfile: [, __expectString, `codecProfile`],
     DynamicSubGop: [, __expectString, `dynamicSubGop`],
+    EndOfStreamMarkers: [, __expectString, `endOfStreamMarkers`],
     EntropyEncoding: [, __expectString, `entropyEncoding`],
     FieldEncoding: [, __expectString, `fieldEncoding`],
     FlickerAdaptiveQuantization: [, __expectString, `flickerAdaptiveQuantization`],
@@ -7039,6 +7124,7 @@ const de_H265Settings = (output: any, context: __SerdeContext): H265Settings => 
     CodecLevel: [, __expectString, `codecLevel`],
     CodecProfile: [, __expectString, `codecProfile`],
     DynamicSubGop: [, __expectString, `dynamicSubGop`],
+    EndOfStreamMarkers: [, __expectString, `endOfStreamMarkers`],
     FlickerAdaptiveQuantization: [, __expectString, `flickerAdaptiveQuantization`],
     FramerateControl: [, __expectString, `framerateControl`],
     FramerateConversionAlgorithm: [, __expectString, `framerateConversionAlgorithm`],
@@ -7305,6 +7391,7 @@ const de_Input = (output: any, context: __SerdeContext): Input => {
     TimecodeSource: [, __expectString, `timecodeSource`],
     TimecodeStart: [, __expectString, `timecodeStart`],
     VideoGenerator: [, (_: any) => de_InputVideoGenerator(_, context), `videoGenerator`],
+    VideoOverlays: [, (_: any) => de___listOfVideoOverlay(_, context), `videoOverlays`],
     VideoSelector: [, (_: any) => de_VideoSelector(_, context), `videoSelector`],
   }) as any;
 };
@@ -7359,6 +7446,7 @@ const de_InputTemplate = (output: any, context: __SerdeContext): InputTemplate =
     PsiControl: [, __expectString, `psiControl`],
     TimecodeSource: [, __expectString, `timecodeSource`],
     TimecodeStart: [, __expectString, `timecodeStart`],
+    VideoOverlays: [, (_: any) => de___listOfVideoOverlay(_, context), `videoOverlays`],
     VideoSelector: [, (_: any) => de_VideoSelector(_, context), `videoSelector`],
   }) as any;
 };
@@ -7445,7 +7533,6 @@ const de_JobSettings = (output: any, context: __SerdeContext): JobSettings => {
     AvailBlanking: [, (_: any) => de_AvailBlanking(_, context), `availBlanking`],
     Esam: [, (_: any) => de_EsamSettings(_, context), `esam`],
     ExtendedDataServices: [, (_: any) => de_ExtendedDataServices(_, context), `extendedDataServices`],
-    FollowInputIndex: [, __expectInt32, `followInputIndex`],
     Inputs: [, (_: any) => de___listOfInput(_, context), `inputs`],
     KantarWatermark: [, (_: any) => de_KantarWatermarkSettings(_, context), `kantarWatermark`],
     MotionImageInserter: [, (_: any) => de_MotionImageInserter(_, context), `motionImageInserter`],
@@ -7491,7 +7578,6 @@ const de_JobTemplateSettings = (output: any, context: __SerdeContext): JobTempla
     AvailBlanking: [, (_: any) => de_AvailBlanking(_, context), `availBlanking`],
     Esam: [, (_: any) => de_EsamSettings(_, context), `esam`],
     ExtendedDataServices: [, (_: any) => de_ExtendedDataServices(_, context), `extendedDataServices`],
-    FollowInputIndex: [, __expectInt32, `followInputIndex`],
     Inputs: [, (_: any) => de___listOfInputTemplate(_, context), `inputs`],
     KantarWatermark: [, (_: any) => de_KantarWatermarkSettings(_, context), `kantarWatermark`],
     MotionImageInserter: [, (_: any) => de_MotionImageInserter(_, context), `motionImageInserter`],
@@ -8402,6 +8488,39 @@ const de_VideoDetail = (output: any, context: __SerdeContext): VideoDetail => {
   return take(output, {
     HeightInPx: [, __expectInt32, `heightInPx`],
     WidthInPx: [, __expectInt32, `widthInPx`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VideoOverlay
+ */
+const de_VideoOverlay = (output: any, context: __SerdeContext): VideoOverlay => {
+  return take(output, {
+    EndTimecode: [, __expectString, `endTimecode`],
+    Input: [, (_: any) => de_VideoOverlayInput(_, context), `input`],
+    StartTimecode: [, __expectString, `startTimecode`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VideoOverlayInput
+ */
+const de_VideoOverlayInput = (output: any, context: __SerdeContext): VideoOverlayInput => {
+  return take(output, {
+    FileInput: [, __expectString, `fileInput`],
+    InputClippings: [, (_: any) => de___listOfVideoOverlayInputClipping(_, context), `inputClippings`],
+    TimecodeSource: [, __expectString, `timecodeSource`],
+    TimecodeStart: [, __expectString, `timecodeStart`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VideoOverlayInputClipping
+ */
+const de_VideoOverlayInputClipping = (output: any, context: __SerdeContext): VideoOverlayInputClipping => {
+  return take(output, {
+    EndTimecode: [, __expectString, `endTimecode`],
+    StartTimecode: [, __expectString, `startTimecode`],
   }) as any;
 };
 

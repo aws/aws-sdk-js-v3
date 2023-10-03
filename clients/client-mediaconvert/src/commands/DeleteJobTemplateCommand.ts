@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeleteJobTemplateRequest, DeleteJobTemplateResponse } from "../models/models_1";
+import { DeleteJobTemplateRequest, DeleteJobTemplateResponse } from "../models/models_2";
 import { de_DeleteJobTemplateCommand, se_DeleteJobTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**

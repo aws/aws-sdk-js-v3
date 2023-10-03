@@ -7,11 +7,85 @@ import {
   JobTemplateSettings,
   Preset,
   PresetSettings,
+  PricingPlan,
   Queue,
   QueueStatus,
   ReservationPlanSettings,
   StatusUpdateInterval,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateQueueRequest {
+  /**
+   * @public
+   * Optional. A description of the queue that you are creating.
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * The name of the queue that you are creating.
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the API to create a queue, the default is on-demand.
+   */
+  PricingPlan?: PricingPlan | string;
+
+  /**
+   * @public
+   * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
+   */
+  ReservationPlanSettings?: ReservationPlanSettings;
+
+  /**
+   * @public
+   * Initial state of the queue. If you create a paused queue, then jobs in that queue won't begin.
+   */
+  Status?: QueueStatus | string;
+
+  /**
+   * @public
+   * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateQueueResponse {
+  /**
+   * @public
+   * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
+   */
+  Queue?: Queue;
+}
+
+/**
+ * @public
+ */
+export interface DeleteJobTemplateRequest {
+  /**
+   * @public
+   * The name of the job template to be deleted.
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteJobTemplateResponse {}
+
+/**
+ * @public
+ */
+export interface DeletePolicyRequest {}
 
 /**
  * @public
