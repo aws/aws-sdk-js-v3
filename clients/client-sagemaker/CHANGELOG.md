@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.424.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.423.0...v3.424.0) (2023-10-03)
+
+
+### Features
+
+* **client-sagemaker:** This release allows users to run Selective Execution in SageMaker Pipelines without SourcePipelineExecutionArn if selected steps do not have any dependent steps. ([47c3a81](https://github.com/aws/aws-sdk-js-v3/commit/47c3a81265145630b4e616182bb3811098be9f61))
+
+
+
+
+
 # [3.423.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.422.0...v3.423.0) (2023-10-02)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

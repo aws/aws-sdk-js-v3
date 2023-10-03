@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.424.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.423.0...v3.424.0) (2023-10-03)
+
+
+### Features
+
+* **client-connect:** GetMetricDataV2 API: Update to include new metrics CONTACTS_RESOLVED_IN_X , AVG_HOLD_TIME_ALL_CONTACTS , AVG_RESOLUTION_TIME , ABANDONMENT_RATE , AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS with added features: Interval Period, TimeZone, Negate MetricFilters, Extended date time range. ([5cb5254](https://github.com/aws/aws-sdk-js-v3/commit/5cb52541740a001b136a27989253c8b13ab55ada))
+* **client-location:** Amazon Location Service adds support for bounding polygon queries. Additionally, the GeofenceCount field has been added to the DescribeGeofenceCollection API response. ([8e0a2a9](https://github.com/aws/aws-sdk-js-v3/commit/8e0a2a9a6f8e3851e86d20f6c3e6d7001a41b4f4))
+* **client-mediaconvert:** This release adds the ability to replace video frames without modifying the audio essence. ([3a9c2a7](https://github.com/aws/aws-sdk-js-v3/commit/3a9c2a79dd75dce71eb2dac3a926e1a9be6c76e5))
+* **client-oam:** This release adds support for sharing AWS::ApplicationInsights::Application resources. ([1bdcbcb](https://github.com/aws/aws-sdk-js-v3/commit/1bdcbcbb6bb82dfaa2bccb156ec7b41f69cc122a))
+* **client-sagemaker:** This release allows users to run Selective Execution in SageMaker Pipelines without SourcePipelineExecutionArn if selected steps do not have any dependent steps. ([47c3a81](https://github.com/aws/aws-sdk-js-v3/commit/47c3a81265145630b4e616182bb3811098be9f61))
+* **client-wellarchitected:** AWS Well-Architected now supports Review Templates that allows you to create templates with pre-filled answers for Well-Architected and Custom Lens best practices. ([cf0a622](https://github.com/aws/aws-sdk-js-v3/commit/cf0a622aed93ed8392f9ee4680e31c4bf7037dc9))
+* **clients:** update client endpoints as of 2023-10-03 ([8def9f4](https://github.com/aws/aws-sdk-js-v3/commit/8def9f4548987f63f7cf5345f10c5a983c32b7b2))
+
+
+
+
+
 # [3.423.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.422.0...v3.423.0) (2023-10-02)
 
 

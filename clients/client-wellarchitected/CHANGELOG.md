@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.424.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.423.0...v3.424.0) (2023-10-03)
+
+
+### Features
+
+* **client-wellarchitected:** AWS Well-Architected now supports Review Templates that allows you to create templates with pre-filled answers for Well-Architected and Custom Lens best practices. ([cf0a622](https://github.com/aws/aws-sdk-js-v3/commit/cf0a622aed93ed8392f9ee4680e31c4bf7037dc9))
+
+
+
+
+
 # [3.423.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.422.0...v3.423.0) (2023-10-02)
 
 **Note:** Version bump only for package @aws-sdk/client-wellarchitected

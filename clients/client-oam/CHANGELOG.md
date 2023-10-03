@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.424.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.423.0...v3.424.0) (2023-10-03)
+
+
+### Features
+
+* **client-oam:** This release adds support for sharing AWS::ApplicationInsights::Application resources. ([1bdcbcb](https://github.com/aws/aws-sdk-js-v3/commit/1bdcbcbb6bb82dfaa2bccb156ec7b41f69cc122a))
+
+
+
+
+
 # [3.423.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.422.0...v3.423.0) (2023-10-02)
 
 **Note:** Version bump only for package @aws-sdk/client-oam

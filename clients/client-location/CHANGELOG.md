@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.424.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.423.0...v3.424.0) (2023-10-03)
+
+
+### Features
+
+* **client-location:** Amazon Location Service adds support for bounding polygon queries. Additionally, the GeofenceCount field has been added to the DescribeGeofenceCollection API response. ([8e0a2a9](https://github.com/aws/aws-sdk-js-v3/commit/8e0a2a9a6f8e3851e86d20f6c3e6d7001a41b4f4))
+
+
+
+
+
 # [3.423.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.422.0...v3.423.0) (2023-10-02)
 
 **Note:** Version bump only for package @aws-sdk/client-location
