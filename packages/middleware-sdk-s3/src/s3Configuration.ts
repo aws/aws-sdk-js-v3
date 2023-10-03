@@ -18,8 +18,10 @@ export interface S3InputConfig {
    */
   disableMultiregionAccessPoints?: boolean;
   /**
-   * If you receive a permanent redirect with status 301,
-   * the client will retry your request with the corrected region.
+   * This feature was previously called the S3 Global Client.
+   * This can result in additional latency as failed requests are retried
+   * with a corrected region when receiving a permanent redirect error with status 301.
+   * This feature should only be used as a last resort if you do not know the region of your bucket(s) ahead of time.
    */
   followRegionRedirects?: boolean;
 }
