@@ -14,8 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { UpdateShareInvitationInput, UpdateShareInvitationOutput } from "../models/models_0";
-import { de_UpdateShareInvitationCommand, se_UpdateShareInvitationCommand } from "../protocols/Aws_restJson1";
+import { UpdateReviewTemplateLensReviewInput, UpdateReviewTemplateLensReviewOutput } from "../models/models_0";
+import {
+  de_UpdateReviewTemplateLensReviewCommand,
+  se_UpdateReviewTemplateLensReviewCommand,
+} from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -25,52 +28,70 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateShareInvitationCommand}.
+ * The input for {@link UpdateReviewTemplateLensReviewCommand}.
  */
-export interface UpdateShareInvitationCommandInput extends UpdateShareInvitationInput {}
+export interface UpdateReviewTemplateLensReviewCommandInput extends UpdateReviewTemplateLensReviewInput {}
 /**
  * @public
  *
- * The output of {@link UpdateShareInvitationCommand}.
+ * The output of {@link UpdateReviewTemplateLensReviewCommand}.
  */
-export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitationOutput, __MetadataBearer {}
+export interface UpdateReviewTemplateLensReviewCommandOutput
+  extends UpdateReviewTemplateLensReviewOutput,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Update a workload or custom lens share invitation.</p>
- *          <note>
- *             <p>This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.</p>
- *          </note>
+ * <p>Update a lens review associated with a review template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, UpdateShareInvitationCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, UpdateShareInvitationCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, UpdateReviewTemplateLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, UpdateReviewTemplateLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = { // UpdateShareInvitationInput
- *   ShareInvitationId: "STRING_VALUE", // required
- *   ShareInvitationAction: "ACCEPT" || "REJECT", // required
+ * const input = { // UpdateReviewTemplateLensReviewInput
+ *   TemplateArn: "STRING_VALUE", // required
+ *   LensAlias: "STRING_VALUE", // required
+ *   LensNotes: "STRING_VALUE",
+ *   PillarNotes: { // PillarNotes
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new UpdateShareInvitationCommand(input);
+ * const command = new UpdateReviewTemplateLensReviewCommand(input);
  * const response = await client.send(command);
- * // { // UpdateShareInvitationOutput
- * //   ShareInvitation: { // ShareInvitation
- * //     ShareInvitationId: "STRING_VALUE",
- * //     ShareResourceType: "WORKLOAD" || "LENS" || "PROFILE" || "TEMPLATE",
- * //     WorkloadId: "STRING_VALUE",
+ * // { // UpdateReviewTemplateLensReviewOutput
+ * //   TemplateArn: "STRING_VALUE",
+ * //   LensReview: { // ReviewTemplateLensReview
  * //     LensAlias: "STRING_VALUE",
  * //     LensArn: "STRING_VALUE",
- * //     ProfileArn: "STRING_VALUE",
- * //     TemplateArn: "STRING_VALUE",
+ * //     LensVersion: "STRING_VALUE",
+ * //     LensName: "STRING_VALUE",
+ * //     LensStatus: "CURRENT" || "NOT_CURRENT" || "DEPRECATED" || "DELETED" || "UNSHARED",
+ * //     PillarReviewSummaries: [ // ReviewTemplatePillarReviewSummaries
+ * //       { // ReviewTemplatePillarReviewSummary
+ * //         PillarId: "STRING_VALUE",
+ * //         PillarName: "STRING_VALUE",
+ * //         Notes: "STRING_VALUE",
+ * //         QuestionCounts: { // QuestionCounts
+ * //           "<keys>": Number("int"),
+ * //         },
+ * //       },
+ * //     ],
+ * //     UpdatedAt: new Date("TIMESTAMP"),
+ * //     Notes: "STRING_VALUE",
+ * //     QuestionCounts: {
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //     NextToken: "STRING_VALUE",
  * //   },
  * // };
  *
  * ```
  *
- * @param UpdateShareInvitationCommandInput - {@link UpdateShareInvitationCommandInput}
- * @returns {@link UpdateShareInvitationCommandOutput}
- * @see {@link UpdateShareInvitationCommandInput} for command's `input` shape.
- * @see {@link UpdateShareInvitationCommandOutput} for command's `response` shape.
+ * @param UpdateReviewTemplateLensReviewCommandInput - {@link UpdateReviewTemplateLensReviewCommandInput}
+ * @returns {@link UpdateReviewTemplateLensReviewCommandOutput}
+ * @see {@link UpdateReviewTemplateLensReviewCommandInput} for command's `input` shape.
+ * @see {@link UpdateReviewTemplateLensReviewCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -95,9 +116,9 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
-export class UpdateShareInvitationCommand extends $Command<
-  UpdateShareInvitationCommandInput,
-  UpdateShareInvitationCommandOutput,
+export class UpdateReviewTemplateLensReviewCommand extends $Command<
+  UpdateReviewTemplateLensReviewCommandInput,
+  UpdateReviewTemplateLensReviewCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
   // Start section: command_properties
@@ -115,7 +136,7 @@ export class UpdateShareInvitationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateShareInvitationCommandInput) {
+  constructor(readonly input: UpdateReviewTemplateLensReviewCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -128,17 +149,17 @@ export class UpdateShareInvitationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WellArchitectedClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateShareInvitationCommandInput, UpdateShareInvitationCommandOutput> {
+  ): Handler<UpdateReviewTemplateLensReviewCommandInput, UpdateReviewTemplateLensReviewCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateShareInvitationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateReviewTemplateLensReviewCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WellArchitectedClient";
-    const commandName = "UpdateShareInvitationCommand";
+    const commandName = "UpdateReviewTemplateLensReviewCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -147,7 +168,7 @@ export class UpdateShareInvitationCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "WellArchitectedApiServiceLambda",
-        operation: "UpdateShareInvitation",
+        operation: "UpdateReviewTemplateLensReview",
       },
     };
     const { requestHandler } = configuration;
@@ -161,15 +182,21 @@ export class UpdateShareInvitationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateShareInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateShareInvitationCommand(input, context);
+  private serialize(
+    input: UpdateReviewTemplateLensReviewCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_UpdateReviewTemplateLensReviewCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateShareInvitationCommandOutput> {
-    return de_UpdateShareInvitationCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateReviewTemplateLensReviewCommandOutput> {
+    return de_UpdateReviewTemplateLensReviewCommand(output, context);
   }
 
   // Start section: command_body_extra

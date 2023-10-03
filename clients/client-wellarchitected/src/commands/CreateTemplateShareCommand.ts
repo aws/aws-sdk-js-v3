@@ -14,8 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListShareInvitationsInput, ListShareInvitationsOutput } from "../models/models_0";
-import { de_ListShareInvitationsCommand, se_ListShareInvitationsCommand } from "../protocols/Aws_restJson1";
+import { CreateTemplateShareInput, CreateTemplateShareOutput } from "../models/models_0";
+import { de_CreateTemplateShareCommand, se_CreateTemplateShareCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -25,74 +25,73 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListShareInvitationsCommand}.
+ * The input for {@link CreateTemplateShareCommand}.
  */
-export interface ListShareInvitationsCommandInput extends ListShareInvitationsInput {}
+export interface CreateTemplateShareCommandInput extends CreateTemplateShareInput {}
 /**
  * @public
  *
- * The output of {@link ListShareInvitationsCommand}.
+ * The output of {@link CreateTemplateShareCommand}.
  */
-export interface ListShareInvitationsCommandOutput extends ListShareInvitationsOutput, __MetadataBearer {}
+export interface CreateTemplateShareCommandOutput extends CreateTemplateShareOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>List the share invitations.</p>
- *          <p>
- *             <code>WorkloadNamePrefix</code>, <code>LensNamePrefix</code>,
- *                 <code>ProfileNamePrefix</code>, and <code>TemplateNamePrefix</code> are mutually
- *             exclusive. Use the parameter that matches your <code>ShareResourceType</code>.</p>
+ * <p>Create a review template share.</p>
+ *          <p>The owner of a review template can share it with other Amazon Web Services accounts,
+ *             users, an organization, and organizational units (OUs) in the same Amazon Web Services Region. </p>
+ *          <p> Shared access to a review template is not removed until the review template share
+ *             invitation is deleted.</p>
+ *          <p>If you share a review template with an organization or OU, all accounts in the
+ *             organization or OU are granted access to the review template.</p>
+ *          <note>
+ *             <p>
+ *                <b>Disclaimer</b>
+ *             </p>
+ *             <p>By sharing your review template with other Amazon Web Services accounts, you
+ *                 acknowledge that Amazon Web Services will make your review template available to
+ *                 those other accounts.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, ListShareInvitationsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, ListShareInvitationsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, CreateTemplateShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, CreateTemplateShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = { // ListShareInvitationsInput
- *   WorkloadNamePrefix: "STRING_VALUE",
- *   LensNamePrefix: "STRING_VALUE",
- *   ShareResourceType: "WORKLOAD" || "LENS" || "PROFILE" || "TEMPLATE",
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ProfileNamePrefix: "STRING_VALUE",
- *   TemplateNamePrefix: "STRING_VALUE",
+ * const input = { // CreateTemplateShareInput
+ *   TemplateArn: "STRING_VALUE", // required
+ *   SharedWith: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE", // required
  * };
- * const command = new ListShareInvitationsCommand(input);
+ * const command = new CreateTemplateShareCommand(input);
  * const response = await client.send(command);
- * // { // ListShareInvitationsOutput
- * //   ShareInvitationSummaries: [ // ShareInvitationSummaries
- * //     { // ShareInvitationSummary
- * //       ShareInvitationId: "STRING_VALUE",
- * //       SharedBy: "STRING_VALUE",
- * //       SharedWith: "STRING_VALUE",
- * //       PermissionType: "READONLY" || "CONTRIBUTOR",
- * //       ShareResourceType: "WORKLOAD" || "LENS" || "PROFILE" || "TEMPLATE",
- * //       WorkloadName: "STRING_VALUE",
- * //       WorkloadId: "STRING_VALUE",
- * //       LensName: "STRING_VALUE",
- * //       LensArn: "STRING_VALUE",
- * //       ProfileName: "STRING_VALUE",
- * //       ProfileArn: "STRING_VALUE",
- * //       TemplateName: "STRING_VALUE",
- * //       TemplateArn: "STRING_VALUE",
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
+ * // { // CreateTemplateShareOutput
+ * //   TemplateArn: "STRING_VALUE",
+ * //   ShareId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListShareInvitationsCommandInput - {@link ListShareInvitationsCommandInput}
- * @returns {@link ListShareInvitationsCommandOutput}
- * @see {@link ListShareInvitationsCommandInput} for command's `input` shape.
- * @see {@link ListShareInvitationsCommandOutput} for command's `response` shape.
+ * @param CreateTemplateShareCommandInput - {@link CreateTemplateShareCommandInput}
+ * @returns {@link CreateTemplateShareCommandOutput}
+ * @see {@link CreateTemplateShareCommandInput} for command's `input` shape.
+ * @see {@link CreateTemplateShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>User does not have sufficient access to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The user has reached their resource quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Request was denied due to request throttling.</p>
@@ -104,9 +103,9 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
-export class ListShareInvitationsCommand extends $Command<
-  ListShareInvitationsCommandInput,
-  ListShareInvitationsCommandOutput,
+export class CreateTemplateShareCommand extends $Command<
+  CreateTemplateShareCommandInput,
+  CreateTemplateShareCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
   // Start section: command_properties
@@ -124,7 +123,7 @@ export class ListShareInvitationsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListShareInvitationsCommandInput) {
+  constructor(readonly input: CreateTemplateShareCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -137,17 +136,17 @@ export class ListShareInvitationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WellArchitectedClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListShareInvitationsCommandInput, ListShareInvitationsCommandOutput> {
+  ): Handler<CreateTemplateShareCommandInput, CreateTemplateShareCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListShareInvitationsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateTemplateShareCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WellArchitectedClient";
-    const commandName = "ListShareInvitationsCommand";
+    const commandName = "CreateTemplateShareCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -156,7 +155,7 @@ export class ListShareInvitationsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "WellArchitectedApiServiceLambda",
-        operation: "ListShareInvitations",
+        operation: "CreateTemplateShare",
       },
     };
     const { requestHandler } = configuration;
@@ -170,15 +169,15 @@ export class ListShareInvitationsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListShareInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListShareInvitationsCommand(input, context);
+  private serialize(input: CreateTemplateShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateTemplateShareCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListShareInvitationsCommandOutput> {
-    return de_ListShareInvitationsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTemplateShareCommandOutput> {
+    return de_CreateTemplateShareCommand(output, context);
   }
 
   // Start section: command_body_extra

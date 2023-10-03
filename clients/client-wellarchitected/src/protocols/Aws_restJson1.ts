@@ -31,6 +31,14 @@ import { CreateLensVersionCommandInput, CreateLensVersionCommandOutput } from ".
 import { CreateMilestoneCommandInput, CreateMilestoneCommandOutput } from "../commands/CreateMilestoneCommand";
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "../commands/CreateProfileCommand";
 import { CreateProfileShareCommandInput, CreateProfileShareCommandOutput } from "../commands/CreateProfileShareCommand";
+import {
+  CreateReviewTemplateCommandInput,
+  CreateReviewTemplateCommandOutput,
+} from "../commands/CreateReviewTemplateCommand";
+import {
+  CreateTemplateShareCommandInput,
+  CreateTemplateShareCommandOutput,
+} from "../commands/CreateTemplateShareCommand";
 import { CreateWorkloadCommandInput, CreateWorkloadCommandOutput } from "../commands/CreateWorkloadCommand";
 import {
   CreateWorkloadShareCommandInput,
@@ -40,6 +48,14 @@ import { DeleteLensCommandInput, DeleteLensCommandOutput } from "../commands/Del
 import { DeleteLensShareCommandInput, DeleteLensShareCommandOutput } from "../commands/DeleteLensShareCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "../commands/DeleteProfileCommand";
 import { DeleteProfileShareCommandInput, DeleteProfileShareCommandOutput } from "../commands/DeleteProfileShareCommand";
+import {
+  DeleteReviewTemplateCommandInput,
+  DeleteReviewTemplateCommandOutput,
+} from "../commands/DeleteReviewTemplateCommand";
+import {
+  DeleteTemplateShareCommandInput,
+  DeleteTemplateShareCommandOutput,
+} from "../commands/DeleteTemplateShareCommand";
 import { DeleteWorkloadCommandInput, DeleteWorkloadCommandOutput } from "../commands/DeleteWorkloadCommand";
 import {
   DeleteWorkloadShareCommandInput,
@@ -69,6 +85,15 @@ import {
 import { GetMilestoneCommandInput, GetMilestoneCommandOutput } from "../commands/GetMilestoneCommand";
 import { GetProfileCommandInput, GetProfileCommandOutput } from "../commands/GetProfileCommand";
 import { GetProfileTemplateCommandInput, GetProfileTemplateCommandOutput } from "../commands/GetProfileTemplateCommand";
+import {
+  GetReviewTemplateAnswerCommandInput,
+  GetReviewTemplateAnswerCommandOutput,
+} from "../commands/GetReviewTemplateAnswerCommand";
+import { GetReviewTemplateCommandInput, GetReviewTemplateCommandOutput } from "../commands/GetReviewTemplateCommand";
+import {
+  GetReviewTemplateLensReviewCommandInput,
+  GetReviewTemplateLensReviewCommandOutput,
+} from "../commands/GetReviewTemplateLensReviewCommand";
 import { GetWorkloadCommandInput, GetWorkloadCommandOutput } from "../commands/GetWorkloadCommand";
 import { ImportLensCommandInput, ImportLensCommandOutput } from "../commands/ImportLensCommand";
 import { ListAnswersCommandInput, ListAnswersCommandOutput } from "../commands/ListAnswersCommand";
@@ -90,6 +115,14 @@ import {
 import { ListProfilesCommandInput, ListProfilesCommandOutput } from "../commands/ListProfilesCommand";
 import { ListProfileSharesCommandInput, ListProfileSharesCommandOutput } from "../commands/ListProfileSharesCommand";
 import {
+  ListReviewTemplateAnswersCommandInput,
+  ListReviewTemplateAnswersCommandOutput,
+} from "../commands/ListReviewTemplateAnswersCommand";
+import {
+  ListReviewTemplatesCommandInput,
+  ListReviewTemplatesCommandOutput,
+} from "../commands/ListReviewTemplatesCommand";
+import {
   ListShareInvitationsCommandInput,
   ListShareInvitationsCommandOutput,
 } from "../commands/ListShareInvitationsCommand";
@@ -97,6 +130,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListTemplateSharesCommandInput, ListTemplateSharesCommandOutput } from "../commands/ListTemplateSharesCommand";
 import { ListWorkloadsCommandInput, ListWorkloadsCommandOutput } from "../commands/ListWorkloadsCommand";
 import { ListWorkloadSharesCommandInput, ListWorkloadSharesCommandOutput } from "../commands/ListWorkloadSharesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -108,6 +142,18 @@ import {
 } from "../commands/UpdateGlobalSettingsCommand";
 import { UpdateLensReviewCommandInput, UpdateLensReviewCommandOutput } from "../commands/UpdateLensReviewCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "../commands/UpdateProfileCommand";
+import {
+  UpdateReviewTemplateAnswerCommandInput,
+  UpdateReviewTemplateAnswerCommandOutput,
+} from "../commands/UpdateReviewTemplateAnswerCommand";
+import {
+  UpdateReviewTemplateCommandInput,
+  UpdateReviewTemplateCommandOutput,
+} from "../commands/UpdateReviewTemplateCommand";
+import {
+  UpdateReviewTemplateLensReviewCommandInput,
+  UpdateReviewTemplateLensReviewCommandOutput,
+} from "../commands/UpdateReviewTemplateLensReviewCommand";
 import {
   UpdateShareInvitationCommandInput,
   UpdateShareInvitationCommandOutput,
@@ -122,6 +168,10 @@ import {
   UpgradeProfileVersionCommandInput,
   UpgradeProfileVersionCommandOutput,
 } from "../commands/UpgradeProfileVersionCommand";
+import {
+  UpgradeReviewTemplateLensReviewCommandInput,
+  UpgradeReviewTemplateLensReviewCommandOutput,
+} from "../commands/UpgradeReviewTemplateLensReviewCommand";
 import {
   AccessDeniedException,
   CheckDetail,
@@ -141,6 +191,9 @@ import {
   ProfileSummary,
   ProfileTemplate,
   ResourceNotFoundException,
+  ReviewTemplate,
+  ReviewTemplateLensReview,
+  ReviewTemplateSummary,
   ServiceQuotaExceededException,
   ThrottlingException,
   ValidationException,
@@ -375,6 +428,72 @@ export const se_CreateProfileShareCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateReviewTemplateCommand
+ */
+export const se_CreateReviewTemplateCommand = async (
+  input: CreateReviewTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reviewTemplates";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      Description: [],
+      Lenses: (_) => _json(_),
+      Notes: [],
+      Tags: (_) => _json(_),
+      TemplateName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateTemplateShareCommand
+ */
+export const se_CreateTemplateShareCommand = async (
+  input: CreateTemplateShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates/shares/{TemplateArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      SharedWith: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateWorkloadCommand
  */
 export const se_CreateWorkloadCommand = async (
@@ -405,6 +524,7 @@ export const se_CreateWorkloadCommand = async (
       PillarPriorities: (_) => _json(_),
       ProfileArns: (_) => _json(_),
       ReviewOwner: [],
+      ReviewTemplateArns: (_) => _json(_),
       Tags: (_) => _json(_),
       WorkloadName: [],
     })
@@ -550,6 +670,63 @@ export const se_DeleteProfileShareCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles/{ProfileArn}/shares/{ShareId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  const query: any = map({
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteReviewTemplateCommand
+ */
+export const se_DeleteReviewTemplateCommand = async (
+  input: DeleteReviewTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reviewTemplates/{TemplateArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  const query: any = map({
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteTemplateShareCommand
+ */
+export const se_DeleteTemplateShareCommand = async (
+  input: DeleteTemplateShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates/shares/{TemplateArn}/{ShareId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
   const query: any = map({
     ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
   });
@@ -979,6 +1156,83 @@ export const se_GetProfileTemplateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetReviewTemplateCommand
+ */
+export const se_GetReviewTemplateCommand = async (
+  input: GetReviewTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reviewTemplates/{TemplateArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetReviewTemplateAnswerCommand
+ */
+export const se_GetReviewTemplateAnswerCommand = async (
+  input: GetReviewTemplateAnswerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "QuestionId", () => input.QuestionId!, "{QuestionId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetReviewTemplateLensReviewCommand
+ */
+export const se_GetReviewTemplateLensReviewCommand = async (
+  input: GetReviewTemplateLensReviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetWorkloadCommand
  */
 export const se_GetWorkloadCommand = async (
@@ -1314,6 +1568,7 @@ export const se_ListNotificationsCommand = async (
     take(input, {
       MaxResults: [],
       NextToken: [],
+      ResourceArn: [],
       WorkloadId: [],
     })
   );
@@ -1417,6 +1672,65 @@ export const se_ListProfileSharesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListReviewTemplateAnswersCommand
+ */
+export const se_ListReviewTemplateAnswersCommand = async (
+  input: ListReviewTemplateAnswersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers";
+  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  const query: any = map({
+    PillarId: [, input.PillarId!],
+    NextToken: [, input.NextToken!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListReviewTemplatesCommand
+ */
+export const se_ListReviewTemplatesCommand = async (
+  input: ListReviewTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reviewTemplates";
+  const query: any = map({
+    NextToken: [, input.NextToken!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListShareInvitationsCommand
  */
 export const se_ListShareInvitationsCommand = async (
@@ -1433,6 +1747,7 @@ export const se_ListShareInvitationsCommand = async (
     NextToken: [, input.NextToken!],
     MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     ProfileNamePrefix: [, input.ProfileNamePrefix!],
+    TemplateNamePrefix: [, input.TemplateNamePrefix!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1466,6 +1781,37 @@ export const se_ListTagsForResourceCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListTemplateSharesCommand
+ */
+export const se_ListTemplateSharesCommand = async (
+  input: ListTemplateSharesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates/shares/{TemplateArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  const query: any = map({
+    SharedWithPrefix: [, input.SharedWithPrefix!],
+    NextToken: [, input.NextToken!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    Status: [, input.Status!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1726,6 +2072,113 @@ export const se_UpdateProfileCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateReviewTemplateCommand
+ */
+export const se_UpdateReviewTemplateCommand = async (
+  input: UpdateReviewTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reviewTemplates/{TemplateArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      LensesToAssociate: (_) => _json(_),
+      LensesToDisassociate: (_) => _json(_),
+      Notes: [],
+      TemplateName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateReviewTemplateAnswerCommand
+ */
+export const se_UpdateReviewTemplateAnswerCommand = async (
+  input: UpdateReviewTemplateAnswerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "QuestionId", () => input.QuestionId!, "{QuestionId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ChoiceUpdates: (_) => _json(_),
+      IsApplicable: [],
+      Notes: [],
+      Reason: [],
+      SelectedChoices: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateReviewTemplateLensReviewCommand
+ */
+export const se_UpdateReviewTemplateLensReviewCommand = async (
+  input: UpdateReviewTemplateLensReviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      LensNotes: [],
+      PillarNotes: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateShareInvitationCommand
  */
 export const se_UpdateShareInvitationCommand = async (
@@ -1895,6 +2348,39 @@ export const se_UpgradeProfileVersionCommand = async (
     take(input, {
       ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       MilestoneName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpgradeReviewTemplateLensReviewCommand
+ */
+export const se_UpgradeReviewTemplateLensReviewCommand = async (
+  input: UpgradeReviewTemplateLensReviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/upgrade";
+  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [],
     })
   );
   return new __HttpRequest({
@@ -2351,6 +2837,137 @@ const de_CreateProfileShareCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateReviewTemplateCommand
+ */
+export const de_CreateReviewTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateReviewTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateReviewTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateReviewTemplateCommandError
+ */
+const de_CreateReviewTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateReviewTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.wellarchitected#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateTemplateShareCommand
+ */
+export const de_CreateTemplateShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTemplateShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateTemplateShareCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ShareId: __expectString,
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateTemplateShareCommandError
+ */
+const de_CreateTemplateShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTemplateShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.wellarchitected#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateWorkloadCommand
  */
 export const de_CreateWorkloadCommand = async (
@@ -2680,6 +3297,122 @@ const de_DeleteProfileShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProfileShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteReviewTemplateCommand
+ */
+export const de_DeleteReviewTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteReviewTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteReviewTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteReviewTemplateCommandError
+ */
+const de_DeleteReviewTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteReviewTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteTemplateShareCommand
+ */
+export const de_DeleteTemplateShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTemplateShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteTemplateShareCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteTemplateShareCommandError
+ */
+const de_DeleteTemplateShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTemplateShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3521,6 +4254,186 @@ const de_GetProfileTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProfileTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetReviewTemplateCommand
+ */
+export const de_GetReviewTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReviewTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetReviewTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ReviewTemplate: (_) => de_ReviewTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetReviewTemplateCommandError
+ */
+const de_GetReviewTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReviewTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetReviewTemplateAnswerCommand
+ */
+export const de_GetReviewTemplateAnswerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReviewTemplateAnswerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetReviewTemplateAnswerCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Answer: _json,
+    LensAlias: __expectString,
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetReviewTemplateAnswerCommandError
+ */
+const de_GetReviewTemplateAnswerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReviewTemplateAnswerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetReviewTemplateLensReviewCommand
+ */
+export const de_GetReviewTemplateLensReviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReviewTemplateLensReviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetReviewTemplateLensReviewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LensReview: (_) => de_ReviewTemplateLensReview(_, context),
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetReviewTemplateLensReviewCommandError
+ */
+const de_GetReviewTemplateLensReviewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReviewTemplateLensReviewCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4397,6 +5310,125 @@ const de_ListProfileSharesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListReviewTemplateAnswersCommand
+ */
+export const de_ListReviewTemplateAnswersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReviewTemplateAnswersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListReviewTemplateAnswersCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AnswerSummaries: _json,
+    LensAlias: __expectString,
+    NextToken: __expectString,
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListReviewTemplateAnswersCommandError
+ */
+const de_ListReviewTemplateAnswersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReviewTemplateAnswersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListReviewTemplatesCommand
+ */
+export const de_ListReviewTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReviewTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListReviewTemplatesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ReviewTemplates: (_) => de_ReviewTemplates(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListReviewTemplatesCommandError
+ */
+const de_ListReviewTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReviewTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListShareInvitationsCommand
  */
 export const de_ListShareInvitationsCommand = async (
@@ -4493,6 +5525,67 @@ const de_ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.wellarchitected#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListTemplateSharesCommand
+ */
+export const de_ListTemplateSharesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTemplateSharesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTemplateSharesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    TemplateArn: __expectString,
+    TemplateShareSummaries: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTemplateSharesCommandError
+ */
+const de_ListTemplateSharesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTemplateSharesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4959,6 +6052,195 @@ const de_UpdateProfileCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateReviewTemplateCommand
+ */
+export const de_UpdateReviewTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReviewTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateReviewTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ReviewTemplate: (_) => de_ReviewTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateReviewTemplateCommandError
+ */
+const de_UpdateReviewTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReviewTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateReviewTemplateAnswerCommand
+ */
+export const de_UpdateReviewTemplateAnswerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReviewTemplateAnswerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateReviewTemplateAnswerCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Answer: _json,
+    LensAlias: __expectString,
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateReviewTemplateAnswerCommandError
+ */
+const de_UpdateReviewTemplateAnswerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReviewTemplateAnswerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateReviewTemplateLensReviewCommand
+ */
+export const de_UpdateReviewTemplateLensReviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReviewTemplateLensReviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateReviewTemplateLensReviewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LensReview: (_) => de_ReviewTemplateLensReview(_, context),
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateReviewTemplateLensReviewCommandError
+ */
+const de_UpdateReviewTemplateLensReviewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReviewTemplateLensReviewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateShareInvitationCommand
  */
 export const de_UpdateShareInvitationCommand = async (
@@ -5261,6 +6543,64 @@ const de_UpgradeProfileVersionCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpgradeReviewTemplateLensReviewCommand
+ */
+export const de_UpgradeReviewTemplateLensReviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpgradeReviewTemplateLensReviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpgradeReviewTemplateLensReviewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpgradeReviewTemplateLensReviewCommandError
+ */
+const de_UpgradeReviewTemplateLensReviewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpgradeReviewTemplateLensReviewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
@@ -5418,6 +6758,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ProfileQuestionUpdate omitted.
 
 // se_ProfileQuestionUpdates omitted.
+
+// se_ReviewTemplateArns omitted.
+
+// se_ReviewTemplateLensAliases omitted.
+
+// se_ReviewTemplateLenses omitted.
 
 // se_SelectedChoices omitted.
 
@@ -5797,6 +7143,8 @@ const de_ProfileTemplate = (output: any, context: __SerdeContext): ProfileTempla
 
 // de_ProfileTemplateQuestionChoices omitted.
 
+// de_QuestionCounts omitted.
+
 // de_QuestionDifference omitted.
 
 // de_QuestionDifferences omitted.
@@ -5804,6 +7152,82 @@ const de_ProfileTemplate = (output: any, context: __SerdeContext): ProfileTempla
 // de_QuestionMetric omitted.
 
 // de_QuestionMetrics omitted.
+
+/**
+ * deserializeAws_restJson1ReviewTemplate
+ */
+const de_ReviewTemplate = (output: any, context: __SerdeContext): ReviewTemplate => {
+  return take(output, {
+    Description: __expectString,
+    Lenses: _json,
+    Notes: __expectString,
+    Owner: __expectString,
+    QuestionCounts: _json,
+    ShareInvitationId: __expectString,
+    Tags: _json,
+    TemplateArn: __expectString,
+    TemplateName: __expectString,
+    UpdateStatus: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_ReviewTemplateAnswer omitted.
+
+// de_ReviewTemplateAnswerSummaries omitted.
+
+// de_ReviewTemplateAnswerSummary omitted.
+
+// de_ReviewTemplateLenses omitted.
+
+/**
+ * deserializeAws_restJson1ReviewTemplateLensReview
+ */
+const de_ReviewTemplateLensReview = (output: any, context: __SerdeContext): ReviewTemplateLensReview => {
+  return take(output, {
+    LensAlias: __expectString,
+    LensArn: __expectString,
+    LensName: __expectString,
+    LensStatus: __expectString,
+    LensVersion: __expectString,
+    NextToken: __expectString,
+    Notes: __expectString,
+    PillarReviewSummaries: _json,
+    QuestionCounts: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_ReviewTemplatePillarReviewSummaries omitted.
+
+// de_ReviewTemplatePillarReviewSummary omitted.
+
+/**
+ * deserializeAws_restJson1ReviewTemplates
+ */
+const de_ReviewTemplates = (output: any, context: __SerdeContext): ReviewTemplateSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReviewTemplateSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ReviewTemplateSummary
+ */
+const de_ReviewTemplateSummary = (output: any, context: __SerdeContext): ReviewTemplateSummary => {
+  return take(output, {
+    Description: __expectString,
+    Lenses: _json,
+    Owner: __expectString,
+    TemplateArn: __expectString,
+    TemplateName: __expectString,
+    UpdateStatus: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
 
 // de_RiskCounts omitted.
 
@@ -5820,6 +7244,10 @@ const de_ProfileTemplate = (output: any, context: __SerdeContext): ProfileTempla
 // de_TagMap omitted.
 
 // de_TemplateQuestions omitted.
+
+// de_TemplateShareSummaries omitted.
+
+// de_TemplateShareSummary omitted.
 
 // de_Urls omitted.
 

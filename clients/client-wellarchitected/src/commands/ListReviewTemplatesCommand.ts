@@ -14,8 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListShareInvitationsInput, ListShareInvitationsOutput } from "../models/models_0";
-import { de_ListShareInvitationsCommand, se_ListShareInvitationsCommand } from "../protocols/Aws_restJson1";
+import { ListReviewTemplatesInput, ListReviewTemplatesOutput } from "../models/models_0";
+import { de_ListReviewTemplatesCommand, se_ListReviewTemplatesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -25,56 +25,43 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListShareInvitationsCommand}.
+ * The input for {@link ListReviewTemplatesCommand}.
  */
-export interface ListShareInvitationsCommandInput extends ListShareInvitationsInput {}
+export interface ListReviewTemplatesCommandInput extends ListReviewTemplatesInput {}
 /**
  * @public
  *
- * The output of {@link ListShareInvitationsCommand}.
+ * The output of {@link ListReviewTemplatesCommand}.
  */
-export interface ListShareInvitationsCommandOutput extends ListShareInvitationsOutput, __MetadataBearer {}
+export interface ListReviewTemplatesCommandOutput extends ListReviewTemplatesOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>List the share invitations.</p>
- *          <p>
- *             <code>WorkloadNamePrefix</code>, <code>LensNamePrefix</code>,
- *                 <code>ProfileNamePrefix</code>, and <code>TemplateNamePrefix</code> are mutually
- *             exclusive. Use the parameter that matches your <code>ShareResourceType</code>.</p>
+ * <p>List review templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, ListShareInvitationsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, ListShareInvitationsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, ListReviewTemplatesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, ListReviewTemplatesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = { // ListShareInvitationsInput
- *   WorkloadNamePrefix: "STRING_VALUE",
- *   LensNamePrefix: "STRING_VALUE",
- *   ShareResourceType: "WORKLOAD" || "LENS" || "PROFILE" || "TEMPLATE",
+ * const input = { // ListReviewTemplatesInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   ProfileNamePrefix: "STRING_VALUE",
- *   TemplateNamePrefix: "STRING_VALUE",
  * };
- * const command = new ListShareInvitationsCommand(input);
+ * const command = new ListReviewTemplatesCommand(input);
  * const response = await client.send(command);
- * // { // ListShareInvitationsOutput
- * //   ShareInvitationSummaries: [ // ShareInvitationSummaries
- * //     { // ShareInvitationSummary
- * //       ShareInvitationId: "STRING_VALUE",
- * //       SharedBy: "STRING_VALUE",
- * //       SharedWith: "STRING_VALUE",
- * //       PermissionType: "READONLY" || "CONTRIBUTOR",
- * //       ShareResourceType: "WORKLOAD" || "LENS" || "PROFILE" || "TEMPLATE",
- * //       WorkloadName: "STRING_VALUE",
- * //       WorkloadId: "STRING_VALUE",
- * //       LensName: "STRING_VALUE",
- * //       LensArn: "STRING_VALUE",
- * //       ProfileName: "STRING_VALUE",
- * //       ProfileArn: "STRING_VALUE",
- * //       TemplateName: "STRING_VALUE",
+ * // { // ListReviewTemplatesOutput
+ * //   ReviewTemplates: [ // ReviewTemplates
+ * //     { // ReviewTemplateSummary
+ * //       Description: "STRING_VALUE",
+ * //       Lenses: [ // ReviewTemplateLenses
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Owner: "STRING_VALUE",
+ * //       UpdatedAt: new Date("TIMESTAMP"),
  * //       TemplateArn: "STRING_VALUE",
+ * //       TemplateName: "STRING_VALUE",
+ * //       UpdateStatus: "CURRENT" || "LENS_NOT_CURRENT",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -82,10 +69,10 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  *
  * ```
  *
- * @param ListShareInvitationsCommandInput - {@link ListShareInvitationsCommandInput}
- * @returns {@link ListShareInvitationsCommandOutput}
- * @see {@link ListShareInvitationsCommandInput} for command's `input` shape.
- * @see {@link ListShareInvitationsCommandOutput} for command's `response` shape.
+ * @param ListReviewTemplatesCommandInput - {@link ListReviewTemplatesCommandInput}
+ * @returns {@link ListReviewTemplatesCommandOutput}
+ * @see {@link ListReviewTemplatesCommandInput} for command's `input` shape.
+ * @see {@link ListReviewTemplatesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -104,9 +91,9 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
-export class ListShareInvitationsCommand extends $Command<
-  ListShareInvitationsCommandInput,
-  ListShareInvitationsCommandOutput,
+export class ListReviewTemplatesCommand extends $Command<
+  ListReviewTemplatesCommandInput,
+  ListReviewTemplatesCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
   // Start section: command_properties
@@ -124,7 +111,7 @@ export class ListShareInvitationsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListShareInvitationsCommandInput) {
+  constructor(readonly input: ListReviewTemplatesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -137,17 +124,17 @@ export class ListShareInvitationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WellArchitectedClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListShareInvitationsCommandInput, ListShareInvitationsCommandOutput> {
+  ): Handler<ListReviewTemplatesCommandInput, ListReviewTemplatesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListShareInvitationsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListReviewTemplatesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WellArchitectedClient";
-    const commandName = "ListShareInvitationsCommand";
+    const commandName = "ListReviewTemplatesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -156,7 +143,7 @@ export class ListShareInvitationsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "WellArchitectedApiServiceLambda",
-        operation: "ListShareInvitations",
+        operation: "ListReviewTemplates",
       },
     };
     const { requestHandler } = configuration;
@@ -170,15 +157,15 @@ export class ListShareInvitationsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListShareInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListShareInvitationsCommand(input, context);
+  private serialize(input: ListReviewTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListReviewTemplatesCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListShareInvitationsCommandOutput> {
-    return de_ListShareInvitationsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReviewTemplatesCommandOutput> {
+    return de_ListReviewTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

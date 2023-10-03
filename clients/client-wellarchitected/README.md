@@ -267,6 +267,22 @@ CreateProfileShare
 </details>
 <details>
 <summary>
+CreateReviewTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/createreviewtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createreviewtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createreviewtemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateTemplateShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/createtemplatesharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createtemplatesharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createtemplatesharecommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateWorkload
 </summary>
 
@@ -311,6 +327,22 @@ DeleteProfileShare
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/deleteprofilesharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deleteprofilesharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deleteprofilesharecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteReviewTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/deletereviewtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deletereviewtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deletereviewtemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteTemplateShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/deletetemplatesharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deletetemplatesharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deletetemplatesharecommandoutput.html)
 
 </details>
 <details>
@@ -427,6 +459,30 @@ GetProfileTemplate
 </details>
 <details>
 <summary>
+GetReviewTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getreviewtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getreviewtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getreviewtemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetReviewTemplateAnswer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getreviewtemplateanswercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getreviewtemplateanswercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getreviewtemplateanswercommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetReviewTemplateLensReview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getreviewtemplatelensreviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getreviewtemplatelensreviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getreviewtemplatelensreviewcommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetWorkload
 </summary>
 
@@ -539,6 +595,22 @@ ListProfileShares
 </details>
 <details>
 <summary>
+ListReviewTemplateAnswers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listreviewtemplateanswerscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listreviewtemplateanswerscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listreviewtemplateanswerscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListReviewTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listreviewtemplatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listreviewtemplatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listreviewtemplatescommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListShareInvitations
 </summary>
 
@@ -551,6 +623,14 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTemplateShares
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listtemplatesharescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listtemplatesharescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listtemplatesharescommandoutput.html)
 
 </details>
 <details>
@@ -619,6 +699,30 @@ UpdateProfile
 </details>
 <details>
 <summary>
+UpdateReviewTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/updatereviewtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updatereviewtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updatereviewtemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateReviewTemplateAnswer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/updatereviewtemplateanswercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updatereviewtemplateanswercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updatereviewtemplateanswercommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateReviewTemplateLensReview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/updatereviewtemplatelensreviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updatereviewtemplatelensreviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updatereviewtemplatelensreviewcommandoutput.html)
+
+</details>
+<details>
+<summary>
 UpdateShareInvitation
 </summary>
 
@@ -655,5 +759,13 @@ UpgradeProfileVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/upgradeprofileversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/upgradeprofileversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/upgradeprofileversioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpgradeReviewTemplateLensReview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/upgradereviewtemplatelensreviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/upgradereviewtemplatelensreviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/upgradereviewtemplatelensreviewcommandoutput.html)
 
 </details>
