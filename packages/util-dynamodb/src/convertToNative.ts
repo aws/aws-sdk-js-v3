@@ -6,8 +6,8 @@ import { unmarshallOptions } from "./unmarshall";
 /**
  * Convert a DynamoDB AttributeValue object to its equivalent JavaScript type.
  *
- * @param {AttributeValue} data - The DynamoDB record to convert to JavaScript type.
- * @param {unmarshallOptions} options - An optional configuration object for `convertToNative`.
+ * @param data - The DynamoDB record to convert to JavaScript type.
+ * @param options - An optional configuration object for `convertToNative`.
  */
 export const convertToNative = (data: AttributeValue, options?: unmarshallOptions): NativeAttributeValue => {
   for (const [key, value] of Object.entries(data)) {

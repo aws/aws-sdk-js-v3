@@ -41,7 +41,10 @@ export abstract class DynamoDBDocumentClientCommand<
   };
 
   protected addMarshallingMiddleware(configuration: DynamoDBDocumentClientResolvedConfig): void {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
+    const { marshallOptions = {}, unmarshallOptions = {} } = configuration.translateConfig || {};
+
+    marshallOptions.convertTopLevelContainer = marshallOptions.convertTopLevelContainer ?? true;
+    unmarshallOptions.convertWithoutMapWrapper = unmarshallOptions.convertWithoutMapWrapper ?? true;
 
     this.clientCommand.middlewareStack.addRelativeTo(
       (next: InitializeHandler<Input | BaseInput, Output | BaseOutput>, context: HandlerExecutionContext) =>
