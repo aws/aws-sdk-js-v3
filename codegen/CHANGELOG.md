@@ -1,5 +1,17 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.18.0 (2023-10-04)
+
+### Features
+* Refactor addImport usage ([#4986](https://github.com/aws/aws-sdk-js-v3/pull/4986))
+* Remove defaults mode provider codegen ([#4993](https://github.com/aws/aws-sdk-js-v3/pull/4993))
+* Temporarily disable unused codegen ([#4996](https://github.com/aws/aws-sdk-js-v3/pull/4996))
+* Customize @aws.auth#sigv4 identity providers for the AWS SDK ([#5179](https://github.com/aws/aws-sdk-js-v3/pull/5179))
+* Customize @httpBearerAuth identity providers for the AWS SDK ([#5169](https://github.com/aws/aws-sdk-js-v3/pull/5169))
+* Add aws region runtime extension codegen ([#5157](https://github.com/aws/aws-sdk-js-v3/pull/5157))
+* Add smithy-aws-endpoints dependency ([#5311](https://github.com/aws/aws-sdk-js-v3/pull/5311))
+* Upgrade to Smithy 1.39.0 ([#5311](https://github.com/aws/aws-sdk-js-v3/pull/5311))
+
 ## 0.17.1 (2023-07-07)
 
 ## 0.17.0 (2023-07-06)
