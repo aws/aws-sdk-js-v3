@@ -79,72 +79,76 @@ export class TransactWriteCommand extends DynamoDBDocumentClientCommand<
   protected readonly inputKeyNodes = [
     {
       key: "TransactItems",
-      children: [
-        {
-          key: "ConditionCheck",
-          children: [
-            {
-              key: "Key",
-              children: {}, // map with AttributeValue
-            },
-            {
-              key: "ExpressionAttributeValues",
-              children: {}, // map with AttributeValue
-            },
-          ],
-        },
-        {
-          key: "Put",
-          children: [
-            {
-              key: "Item",
-              children: {}, // map with AttributeValue
-            },
-            {
-              key: "ExpressionAttributeValues",
-              children: {}, // map with AttributeValue
-            },
-          ],
-        },
-        {
-          key: "Delete",
-          children: [
-            {
-              key: "Key",
-              children: {}, // map with AttributeValue
-            },
-            {
-              key: "ExpressionAttributeValues",
-              children: {}, // map with AttributeValue
-            },
-          ],
-        },
-        {
-          key: "Update",
-          children: [
-            {
-              key: "Key",
-              children: {}, // map with AttributeValue
-            },
-            {
-              key: "ExpressionAttributeValues",
-              children: {}, // map with AttributeValue
-            },
-          ],
-        },
-      ],
+      children: {
+        children: [
+          {
+            key: "ConditionCheck",
+            children: [
+              {
+                key: "Key",
+                children: {}, // map with AttributeValue
+              },
+              {
+                key: "ExpressionAttributeValues",
+                children: {}, // map with AttributeValue
+              },
+            ],
+          },
+          {
+            key: "Put",
+            children: [
+              {
+                key: "Item",
+                children: {}, // map with AttributeValue
+              },
+              {
+                key: "ExpressionAttributeValues",
+                children: {}, // map with AttributeValue
+              },
+            ],
+          },
+          {
+            key: "Delete",
+            children: [
+              {
+                key: "Key",
+                children: {}, // map with AttributeValue
+              },
+              {
+                key: "ExpressionAttributeValues",
+                children: {}, // map with AttributeValue
+              },
+            ],
+          },
+          {
+            key: "Update",
+            children: [
+              {
+                key: "Key",
+                children: {}, // map with AttributeValue
+              },
+              {
+                key: "ExpressionAttributeValues",
+                children: {}, // map with AttributeValue
+              },
+            ],
+          },
+        ],
+      },
     },
   ];
   protected readonly outputKeyNodes = [
     {
       key: "ItemCollectionMetrics",
       children: {
-        children: [
-          {
-            key: "ItemCollectionKey",
-            children: {}, // map with AttributeValue
-          },
-        ],
+        children: {
+          children: [
+            {
+              key: "ItemCollectionKey",
+              children: {}, // map with AttributeValue
+            },
+          ],
+        },
       },
     },
   ];

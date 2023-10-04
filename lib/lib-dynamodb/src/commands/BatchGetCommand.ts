@@ -67,7 +67,9 @@ export class BatchGetCommand extends DynamoDBDocumentClientCommand<
         children: [
           {
             key: "Keys",
-            children: {}, // map with AttributeValue
+            children: {
+              children: {}, // map with AttributeValue
+            },
           },
         ],
       },
@@ -77,7 +79,9 @@ export class BatchGetCommand extends DynamoDBDocumentClientCommand<
     {
       key: "Responses",
       children: {
-        children: {}, // map with AttributeValue
+        children: {
+          children: {}, // map with AttributeValue
+        },
       },
     },
     {
@@ -86,7 +90,9 @@ export class BatchGetCommand extends DynamoDBDocumentClientCommand<
         children: [
           {
             key: "Keys",
-            children: {}, // map with AttributeValue
+            children: {
+              children: {}, // map with AttributeValue
+            },
           },
         ],
       },

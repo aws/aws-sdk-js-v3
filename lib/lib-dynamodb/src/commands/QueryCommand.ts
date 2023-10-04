@@ -68,13 +68,23 @@ export class QueryCommand extends DynamoDBDocumentClientCommand<
     {
       key: "KeyConditions",
       children: {
-        children: [{ key: "AttributeValueList" }],
+        children: [
+          {
+            key: "AttributeValueList",
+            children: {}, // set/list of AttributeValue
+          },
+        ],
       },
     },
     {
       key: "QueryFilter",
       children: {
-        children: [{ key: "AttributeValueList" }],
+        children: [
+          {
+            key: "AttributeValueList",
+            children: {}, // set/list of AttributeValue
+          },
+        ],
       },
     },
     {
@@ -89,7 +99,9 @@ export class QueryCommand extends DynamoDBDocumentClientCommand<
   protected readonly outputKeyNodes = [
     {
       key: "Items",
-      children: {}, // map with AttributeValue
+      children: {
+        children: {}, // map with AttributeValue
+      },
     },
     {
       key: "LastEvaluatedKey",

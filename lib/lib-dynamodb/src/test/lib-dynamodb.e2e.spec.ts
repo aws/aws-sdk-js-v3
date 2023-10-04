@@ -5,12 +5,22 @@ import {
   DeleteTableCommandOutput,
   DescribeTableCommandOutput,
   DynamoDB,
-  GetItemCommandOutput,
-  PutItemCommandOutput,
-  UpdateItemCommandOutput,
   waitUntilTableExists,
 } from "@aws-sdk/client-dynamodb";
-import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
+import {
+  BatchGetCommandOutput,
+  BatchWriteCommandOutput,
+  DynamoDBDocument,
+  ExecuteStatementCommandOutput,
+  ExecuteTransactionCommandOutput,
+  GetCommandOutput,
+  PutCommandOutput,
+  QueryCommandOutput,
+  ScanCommandOutput,
+  TransactGetCommandOutput,
+  TransactWriteCommandOutput,
+  UpdateCommandOutput,
+} from "@aws-sdk/lib-dynamodb";
 
 jest.setTimeout(60000);
 
@@ -27,10 +37,18 @@ describe(DynamoDBDocument.name, () => {
   const log = {
     describe: null as null | DescribeTableCommandOutput,
     create: null as null | CreateTableCommandOutput,
-    write: {} as Record<string, PutItemCommandOutput>,
-    read: {} as Record<string, GetItemCommandOutput>,
-    update: {} as Record<string, UpdateItemCommandOutput>,
-    readAfterUpdate: {} as Record<string, GetItemCommandOutput>,
+    write: {} as Record<string, PutCommandOutput>,
+    read: {} as Record<string, GetCommandOutput>,
+    batchWrite: null as null | BatchWriteCommandOutput,
+    batchRead: null as null | BatchGetCommandOutput,
+    transactWrite: null as null | TransactWriteCommandOutput,
+    transactRead: null as null | TransactGetCommandOutput,
+    executeStatement: null as null | ExecuteStatementCommandOutput,
+    executeTransaction: null as null | ExecuteTransactionCommandOutput,
+    query: null as null | QueryCommandOutput,
+    scan: null as null | ScanCommandOutput,
+    update: {} as Record<string, UpdateCommandOutput>,
+    readAfterUpdate: {} as Record<string, GetCommandOutput>,
     delete: {} as Record<string, DeleteItemCommandOutput>,
     drop: null as null | DeleteTableCommandOutput,
   };
@@ -148,7 +166,21 @@ describe(DynamoDBDocument.name, () => {
           },
         })
         .catch(passError);
+    }
 
+    log.batchRead = await doc.batchGet({
+      RequestItems: {
+        [TableName]: {
+          Keys: [
+            ...Object.keys(data).map((key) => {
+              return { id: key };
+            }),
+          ],
+        },
+      },
+    });
+
+    for (const [id, value] of [["1", data as any], ...Object.entries(data)]) {
       log.update[id] = await doc
         .update({
           TableName,
@@ -232,6 +264,16 @@ describe(DynamoDBDocument.name, () => {
       expect(log.describe?.Table?.TableName).toEqual(TableName);
     } else {
       expect(log.create?.TableDescription?.TableName).toEqual(TableName);
+    }
+  });
+
+  it("can batch write", async () => {});
+
+  it("can batch read", async () => {
+    const results = log.batchRead?.Responses?.[TableName] ?? [];
+
+    for (const result of results) {
+      expect(result.data).toEqual(data[result.id]);
     }
   });
 

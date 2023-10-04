@@ -62,7 +62,12 @@ export class ScanCommand extends DynamoDBDocumentClientCommand<
     {
       key: "ScanFilter",
       children: {
-        children: [{ key: "AttributeValueList" }],
+        children: [
+          {
+            key: "AttributeValueList",
+            children: {}, // set/list of AttributeValue
+          },
+        ],
       },
     },
     {
@@ -77,7 +82,9 @@ export class ScanCommand extends DynamoDBDocumentClientCommand<
   protected readonly outputKeyNodes = [
     {
       key: "Items",
-      children: {}, // map with AttributeValue
+      children: {
+        children: {}, // map with AttributeValue
+      },
     },
     {
       key: "LastEvaluatedKey",

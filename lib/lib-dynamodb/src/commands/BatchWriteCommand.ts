@@ -85,26 +85,28 @@ export class BatchWriteCommand extends DynamoDBDocumentClientCommand<
     {
       key: "RequestItems",
       children: {
-        children: [
-          {
-            key: "PutRequest",
-            children: [
-              {
-                key: "Item",
-                children: {}, // map with AttributeValue
-              },
-            ],
-          },
-          {
-            key: "DeleteRequest",
-            children: [
-              {
-                key: "Key",
-                children: {}, // map with AttributeValue
-              },
-            ],
-          },
-        ],
+        children: {
+          children: [
+            {
+              key: "PutRequest",
+              children: [
+                {
+                  key: "Item",
+                  children: {}, // map with AttributeValue
+                },
+              ],
+            },
+            {
+              key: "DeleteRequest",
+              children: [
+                {
+                  key: "Key",
+                  children: {}, // map with AttributeValue
+                },
+              ],
+            },
+          ],
+        },
       },
     },
   ];
@@ -112,37 +114,41 @@ export class BatchWriteCommand extends DynamoDBDocumentClientCommand<
     {
       key: "UnprocessedItems",
       children: {
-        children: [
-          {
-            key: "PutRequest",
-            children: [
-              {
-                key: "Item",
-                children: {}, // map with AttributeValue
-              },
-            ],
-          },
-          {
-            key: "DeleteRequest",
-            children: [
-              {
-                key: "Key",
-                children: {}, // map with AttributeValue
-              },
-            ],
-          },
-        ],
+        children: {
+          children: [
+            {
+              key: "PutRequest",
+              children: [
+                {
+                  key: "Item",
+                  children: {}, // map with AttributeValue
+                },
+              ],
+            },
+            {
+              key: "DeleteRequest",
+              children: [
+                {
+                  key: "Key",
+                  children: {}, // map with AttributeValue
+                },
+              ],
+            },
+          ],
+        },
       },
     },
     {
       key: "ItemCollectionMetrics",
       children: {
-        children: [
-          {
-            key: "ItemCollectionKey",
-            children: {}, // map with AttributeValue
-          },
-        ],
+        children: {
+          children: [
+            {
+              key: "ItemCollectionKey",
+              children: {}, // map with AttributeValue
+            },
+          ],
+        },
       },
     },
   ];

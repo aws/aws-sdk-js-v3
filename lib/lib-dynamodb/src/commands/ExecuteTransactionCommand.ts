@@ -54,16 +54,30 @@ export class ExecuteTransactionCommand extends DynamoDBDocumentClientCommand<
   __ExecuteTransactionCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [{ key: "TransactStatements", children: [{ key: "Parameters" }] }];
+  protected readonly inputKeyNodes = [
+    {
+      key: "TransactStatements",
+      children: {
+        children: [
+          {
+            key: "Parameters",
+            children: {}, // set/list of AttributeValue
+          },
+        ],
+      },
+    },
+  ];
   protected readonly outputKeyNodes = [
     {
       key: "Responses",
-      children: [
-        {
-          key: "Item",
-          children: {}, // map with AttributeValue
-        },
-      ],
+      children: {
+        children: [
+          {
+            key: "Item",
+            children: {}, // map with AttributeValue
+          },
+        ],
+      },
     },
   ];
 

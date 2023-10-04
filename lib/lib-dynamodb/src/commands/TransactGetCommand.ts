@@ -62,28 +62,32 @@ export class TransactGetCommand extends DynamoDBDocumentClientCommand<
   protected readonly inputKeyNodes = [
     {
       key: "TransactItems",
-      children: [
-        {
-          key: "Get",
-          children: [
-            {
-              key: "Key",
-              children: {}, // map with AttributeValue
-            },
-          ],
-        },
-      ],
+      children: {
+        children: [
+          {
+            key: "Get",
+            children: [
+              {
+                key: "Key",
+                children: {}, // map with AttributeValue
+              },
+            ],
+          },
+        ],
+      },
     },
   ];
   protected readonly outputKeyNodes = [
     {
       key: "Responses",
-      children: [
-        {
-          key: "Item",
-          children: {}, // map with AttributeValue
-        },
-      ],
+      children: {
+        children: [
+          {
+            key: "Item",
+            children: {}, // map with AttributeValue
+          },
+        ],
+      },
     },
   ];
 

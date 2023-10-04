@@ -83,7 +83,13 @@ export class UpdateCommand extends DynamoDBDocumentClientCommand<
     {
       key: "Expected",
       children: {
-        children: [{ key: "Value" }, { key: "AttributeValueList" }],
+        children: [
+          { key: "Value" },
+          {
+            key: "AttributeValueList",
+            children: {}, // set/list of AttributeValue
+          },
+        ],
       },
     },
     {

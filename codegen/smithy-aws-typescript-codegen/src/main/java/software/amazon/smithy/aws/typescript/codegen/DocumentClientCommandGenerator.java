@@ -27,6 +27,7 @@ import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
 import software.amazon.smithy.model.shapes.CollectionShape;
+import software.amazon.smithy.model.shapes.ListShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
@@ -230,7 +231,15 @@ final class DocumentClientCommandGenerator implements Runnable {
         Shape memberTarget = model.expectShape(member.getTarget());
         if (memberTarget instanceof CollectionShape) {
             MemberShape collectionMember = ((CollectionShape) memberTarget).getMember();
-            writeKeyNode(collectionMember);
+            Shape collectionMemberTarget = model.expectShape(collectionMember.getTarget());
+            if (collectionMemberTarget.isUnionShape()
+                    && symbolProvider.toSymbol(collectionMemberTarget).getName().equals("AttributeValue")) {
+                writer.write("children: {}, // set/list of AttributeValue");
+                return;
+            }
+            writer.openBlock("children: {", "},", () -> {
+                writeKeyNode(collectionMember);
+            });
         } else if (memberTarget.isUnionShape()) {
             if (symbolProvider.toSymbol(memberTarget).getName().equals("AttributeValue")) {
                 return;
@@ -241,22 +250,20 @@ final class DocumentClientCommandGenerator implements Runnable {
                     "AttributeValue inside Union is not supported, attempted for %s", memberTarget.getType()
                 ));
             }
-        } else {
-            if (memberTarget.isMapShape()) {
-                MemberShape mapMember = ((MapShape) memberTarget).getValue();
-                Shape mapMemberTarget = model.expectShape(mapMember.getTarget());
-                if (mapMemberTarget.isUnionShape()
-                        && symbolProvider.toSymbol(mapMemberTarget).getName().equals("AttributeValue")) {
-                    writer.write("children: {}, // map with AttributeValue");
-                    return;
-                } else {
-                    writer.openBlock("children: {", "},", () -> {
-                        writeKeyNode(mapMember);
-                    });
-                }
-            } else if (memberTarget.isStructureShape()) {
-                writeStructureKeyNode((StructureShape) memberTarget);
+        } else if (memberTarget.isMapShape()) {
+            MemberShape mapMember = ((MapShape) memberTarget).getValue();
+            Shape mapMemberTarget = model.expectShape(mapMember.getTarget());
+            if (mapMemberTarget.isUnionShape()
+                    && symbolProvider.toSymbol(mapMemberTarget).getName().equals("AttributeValue")) {
+                writer.write("children: {}, // map with AttributeValue");
+                return;
+            } else {
+                writer.openBlock("children: {", "},", () -> {
+                    writeKeyNode(mapMember);
+                });
             }
+        } else if (memberTarget.isStructureShape()) {
+            writeStructureKeyNode((StructureShape) memberTarget);
         }
     }
 

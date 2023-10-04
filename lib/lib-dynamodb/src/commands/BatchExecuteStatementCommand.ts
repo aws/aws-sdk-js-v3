@@ -58,25 +58,39 @@ export class BatchExecuteStatementCommand extends DynamoDBDocumentClientCommand<
   __BatchExecuteStatementCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [{ key: "Statements", children: [{ key: "Parameters" }] }];
+  protected readonly inputKeyNodes = [
+    {
+      key: "Statements",
+      children: {
+        children: [
+          {
+            key: "Parameters",
+            children: {}, // set/list of AttributeValue
+          },
+        ],
+      },
+    },
+  ];
   protected readonly outputKeyNodes = [
     {
       key: "Responses",
-      children: [
-        {
-          key: "Error",
-          children: [
-            {
-              key: "Item",
-              children: {}, // map with AttributeValue
-            },
-          ],
-        },
-        {
-          key: "Item",
-          children: {}, // map with AttributeValue
-        },
-      ],
+      children: {
+        children: [
+          {
+            key: "Error",
+            children: [
+              {
+                key: "Item",
+                children: {}, // map with AttributeValue
+              },
+            ],
+          },
+          {
+            key: "Item",
+            children: {}, // map with AttributeValue
+          },
+        ],
+      },
     },
   ];
 

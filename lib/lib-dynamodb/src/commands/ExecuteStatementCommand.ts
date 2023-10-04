@@ -47,11 +47,18 @@ export class ExecuteStatementCommand extends DynamoDBDocumentClientCommand<
   __ExecuteStatementCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [{ key: "Parameters" }];
+  protected readonly inputKeyNodes = [
+    {
+      key: "Parameters",
+      children: {}, // set/list of AttributeValue
+    },
+  ];
   protected readonly outputKeyNodes = [
     {
       key: "Items",
-      children: {}, // map with AttributeValue
+      children: {
+        children: {}, // map with AttributeValue
+      },
     },
     {
       key: "LastEvaluatedKey",
