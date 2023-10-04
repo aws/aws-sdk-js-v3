@@ -10,10 +10,11 @@ import {
   BooleanOperator,
   Channel,
   CheckpointConfig,
-  EdgeOutputConfig,
+  InferenceSpecification,
   KernelGatewayImageConfig,
   MetadataProperties,
   ModelApprovalStatus,
+  ModelPackageStatus,
   OutputDataConfig,
   OutputParameter,
   ResourceConfig,
@@ -30,6 +31,8 @@ import {
   DebugRuleEvaluationStatus,
   DefaultSpaceSettings,
   DeploymentConfig,
+  DriftCheckBaselines,
+  EdgeOutputConfig,
   ExperimentConfig,
   FeatureDefinition,
   InferenceExperimentDataStorageConfig,
@@ -38,6 +41,8 @@ import {
   JobType,
   MemberDefinition,
   ModelCardStatus,
+  ModelMetrics,
+  ModelPackageValidationSpecification,
   ModelVariantConfig,
   MonitoringScheduleConfig,
   NetworkConfig,
@@ -60,6 +65,8 @@ import {
   RootAccess,
   ServiceCatalogProvisioningDetails,
   ShadowModeConfig,
+  SkipModelValidation,
+  SourceAlgorithmSpecification,
   SourceIpConfig,
   SpaceSettings,
   TensorBoardOutputConfig,
@@ -79,11 +86,11 @@ import {
   DomainSettingsForUpdate,
   Edge,
   Endpoint,
-  Experiment,
   FeatureParameter,
   MetricData,
   ModelArtifacts,
   ModelPackageGroupStatus,
+  ModelPackageStatusDetails,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
   PipelineStatus,
@@ -101,6 +108,7 @@ import {
   Workteam,
 } from "./models_2";
 import {
+  Experiment,
   FeatureGroup,
   FeatureMetadata,
   Filter,
@@ -108,14 +116,265 @@ import {
   HyperParameterTuningJobSearchEntity,
   InferenceExperimentStopDesiredState,
   LineageType,
+  Model,
   ModelCard,
   ModelCardFilterSensitiveLog,
-  ModelDashboardModel,
-  ModelPackage,
+  ModelDashboardEndpoint,
+  ModelDashboardModelCard,
+  ModelDashboardMonitoringSchedule,
   Parameter,
   ResourceType,
   TransformJob,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>A model displayed in the Amazon SageMaker Model Dashboard.</p>
+ */
+export interface ModelDashboardModel {
+  /**
+   * @public
+   * <p>A model displayed in the Model Dashboard.</p>
+   */
+  Model?: Model;
+
+  /**
+   * @public
+   * <p>The endpoints that host a model.</p>
+   */
+  Endpoints?: ModelDashboardEndpoint[];
+
+  /**
+   * @public
+   * <p>A batch transform job. For information about SageMaker batch transform, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Use Batch
+   *         Transform</a>.</p>
+   */
+  LastBatchTransformJob?: TransformJob;
+
+  /**
+   * @public
+   * <p>The monitoring schedules for a model.</p>
+   */
+  MonitoringSchedules?: ModelDashboardMonitoringSchedule[];
+
+  /**
+   * @public
+   * <p>The model card for a model.</p>
+   */
+  ModelCard?: ModelDashboardModelCard;
+}
+
+/**
+ * @public
+ * <p>A versioned model that can be deployed for SageMaker inference.</p>
+ */
+export interface ModelPackage {
+  /**
+   * @public
+   * <p>The name of the model.</p>
+   */
+  ModelPackageName?: string;
+
+  /**
+   * @public
+   * <p>The model group to which the model belongs.</p>
+   */
+  ModelPackageGroupName?: string;
+
+  /**
+   * @public
+   * <p>The version number of a versioned model.</p>
+   */
+  ModelPackageVersion?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the model package.</p>
+   */
+  ModelPackageArn?: string;
+
+  /**
+   * @public
+   * <p>The description of the model package.</p>
+   */
+  ModelPackageDescription?: string;
+
+  /**
+   * @public
+   * <p>The time that the model package was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>Defines how to perform inference generation after a training job is run.</p>
+   */
+  InferenceSpecification?: InferenceSpecification;
+
+  /**
+   * @public
+   * <p>A list of algorithms that were used to create a model package.</p>
+   */
+  SourceAlgorithmSpecification?: SourceAlgorithmSpecification;
+
+  /**
+   * @public
+   * <p>Specifies batch transform jobs that SageMaker runs to validate your model package.</p>
+   */
+  ValidationSpecification?: ModelPackageValidationSpecification;
+
+  /**
+   * @public
+   * <p>The status of the model package. This can be one of the following values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - The model package is pending being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> - The model package is in the process of being
+   *                     created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> - The model package was successfully created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The model package failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - The model package is in the process of being deleted.</p>
+   *             </li>
+   *          </ul>
+   */
+  ModelPackageStatus?: ModelPackageStatus | string;
+
+  /**
+   * @public
+   * <p>Specifies the validation and image scan statuses of the model package.</p>
+   */
+  ModelPackageStatusDetails?: ModelPackageStatusDetails;
+
+  /**
+   * @public
+   * <p>Whether the model package is to be certified to be listed on Amazon Web Services Marketplace. For
+   *             information about listing model packages on Amazon Web Services Marketplace, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html">List Your
+   *                 Algorithm or Model Package on Amazon Web Services Marketplace</a>.</p>
+   */
+  CertifyForMarketplace?: boolean;
+
+  /**
+   * @public
+   * <p>The approval status of the model. This can be one of the following values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>APPROVED</code> - The model is approved</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTED</code> - The model is rejected.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_MANUAL_APPROVAL</code> - The model is waiting for manual
+   *                     approval.</p>
+   *             </li>
+   *          </ul>
+   */
+  ModelApprovalStatus?: ModelApprovalStatus | string;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   */
+  MetadataProperties?: MetadataProperties;
+
+  /**
+   * @public
+   * <p>Metrics for the model.</p>
+   */
+  ModelMetrics?: ModelMetrics;
+
+  /**
+   * @public
+   * <p>The last time the model package was modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>A description provided when the model approval is set.</p>
+   */
+  ApprovalDescription?: string;
+
+  /**
+   * @public
+   * <p>The machine learning domain of your model package and its components. Common
+   *             machine learning domains include computer vision and natural language processing.</p>
+   */
+  Domain?: string;
+
+  /**
+   * @public
+   * <p>The machine learning task your model package accomplishes. Common machine
+   *             learning tasks include object detection and image classification.</p>
+   */
+  Task?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Simple Storage Service path where the sample payload are stored. This path must point to
+   *            a single gzip compressed tar archive (.tar.gz suffix).</p>
+   */
+  SamplePayloadUrl?: string;
+
+  /**
+   * @public
+   * <p>An array of additional Inference Specification objects.</p>
+   */
+  AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[];
+
+  /**
+   * @public
+   * <p>A list of the tags associated with the model package. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The metadata properties for the model package. </p>
+   */
+  CustomerMetadataProperties?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.</p>
+   */
+  DriftCheckBaselines?: DriftCheckBaselines;
+
+  /**
+   * @public
+   * <p>Indicates if you want to skip model validation.</p>
+   */
+  SkipModelValidation?: SkipModelValidation | string;
+}
 
 /**
  * @public

@@ -114,6 +114,11 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
  * //         MetricName: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     AdditionalS3DataSource: { // AdditionalS3DataSource
+ * //       S3DataType: "S3Object", // required
+ * //       S3Uri: "STRING_VALUE", // required
+ * //       CompressionType: "None" || "Gzip",
+ * //     },
  * //   },
  * //   InferenceSpecification: { // InferenceSpecification
  * //     Containers: [ // ModelPackageContainerDefinitionList // required
@@ -132,6 +137,11 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
  * //         Framework: "STRING_VALUE",
  * //         FrameworkVersion: "STRING_VALUE",
  * //         NearestModelName: "STRING_VALUE",
+ * //         AdditionalS3DataSource: {
+ * //           S3DataType: "S3Object", // required
+ * //           S3Uri: "STRING_VALUE", // required
+ * //           CompressionType: "None" || "Gzip",
+ * //         },
  * //       },
  * //     ],
  * //     SupportedTransformInstanceTypes: [ // TransformInstanceTypes

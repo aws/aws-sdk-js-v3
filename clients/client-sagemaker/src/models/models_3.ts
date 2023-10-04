@@ -3,7 +3,6 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   ActionSummary,
-  AdditionalInferenceSpecificationDefinition,
   AgentVersion,
   AlgorithmSortBy,
   AlgorithmSummary,
@@ -35,9 +34,6 @@ import {
   ConditionStepMetadata,
   ContainerDefinition,
   ContextSummary,
-  EdgeOutputConfig,
-  InferenceSpecification,
-  MetadataProperties,
   ModelApprovalStatus,
   ModelPackageStatus,
   OutputParameter,
@@ -51,7 +47,7 @@ import {
 import {
   _InstanceType,
   DataProcessing,
-  DriftCheckBaselines,
+  EdgeOutputConfig,
   ExperimentConfig,
   FeatureDefinition,
   FeatureType,
@@ -66,16 +62,12 @@ import {
   ModelCardSecurityConfig,
   ModelCardStatus,
   ModelClientConfig,
-  ModelMetrics,
-  ModelPackageValidationSpecification,
   MonitoringScheduleConfig,
   MonitoringType,
   OfflineStoreConfig,
   OnlineStoreConfig,
   RecommendationJobType,
   ResourceLimits,
-  SkipModelValidation,
-  SourceAlgorithmSpecification,
   StudioLifecycleConfigAppType,
   TrialComponentStatus,
 } from "./models_1";
@@ -97,7 +89,6 @@ import {
   EndpointOutputConfiguration,
   EndpointSortKey,
   EndpointStatus,
-  EndpointSummary,
   ExecutionStatus,
   ExperimentSource,
   FeatureGroupStatus,
@@ -121,7 +112,6 @@ import {
   ModelCardExportJobStatus,
   ModelConfiguration,
   ModelPackageGroupStatus,
-  ModelPackageStatusDetails,
   MonitoringExecutionSummary,
   NotebookInstanceStatus,
   ObjectiveStatusCounters,
@@ -146,6 +136,160 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Provides summary information for an endpoint.</p>
+ */
+export interface EndpointSummary {
+  /**
+   * @public
+   * <p>The name of the endpoint.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A timestamp that shows when the endpoint was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>A timestamp that shows when the endpoint was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The status of the endpoint.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>OutOfService</code>: Endpoint is not available to take incoming
+   *                     requests.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Creating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> is executing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Updating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> is executing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be
+   *                     updated or deleted or re-scaled until it has completed. This maintenance
+   *                     operation does not change any customer-specified values such as VPC config, KMS
+   *                     encryption, model, instance type, or instance count.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RollingBack</code>: Endpoint fails to scale up or down or change its
+   *                     variant weight and is in the process of rolling back to its previous
+   *                     configuration. Once the rollback completes, endpoint returns to an
+   *                         <code>InService</code> status. This transitional status only applies to an
+   *                     endpoint that has autoscaling enabled and is undergoing variant weight or
+   *                     capacity changes as part of an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> call or when the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> operation is called
+   *                     explicitly.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InService</code>: Endpoint is available to process incoming
+   *                     requests.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deleting</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is executing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
+   *                         <code>DescribeEndpointOutput$FailureReason</code> for information about the
+   *                     failure. <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is the only operation that can be performed on a
+   *                     failed endpoint.</p>
+   *             </li>
+   *          </ul>
+   *          <p>To get a list of endpoints with a specified status, use the <code>StatusEquals</code>
+   *             filter with a call to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListEndpoints.html">ListEndpoints</a>.</p>
+   */
+  EndpointStatus: EndpointStatus | string | undefined;
+}
+
+/**
+ * @public
+ * <p>The properties of an experiment as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
+ */
+export interface Experiment {
+  /**
+   * @public
+   * <p>The name of the experiment.</p>
+   */
+  ExperimentName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   */
+  ExperimentArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified,
+   *         <code>ExperimentName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * @public
+   * <p>The source of the experiment.</p>
+   */
+  Source?: ExperimentSource;
+
+  /**
+   * @public
+   * <p>The description of the experiment.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>When the experiment was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>Who created the experiment.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>When the experiment was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>The list of tags that are associated with the experiment. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
+   */
+  Tags?: Tag[];
+}
 
 /**
  * @public
@@ -10569,255 +10713,6 @@ export interface ModelDashboardMonitoringSchedule {
    * <p>Summary of information about the last monitoring job to run.</p>
    */
   LastMonitoringExecutionSummary?: MonitoringExecutionSummary;
-}
-
-/**
- * @public
- * <p>A model displayed in the Amazon SageMaker Model Dashboard.</p>
- */
-export interface ModelDashboardModel {
-  /**
-   * @public
-   * <p>A model displayed in the Model Dashboard.</p>
-   */
-  Model?: Model;
-
-  /**
-   * @public
-   * <p>The endpoints that host a model.</p>
-   */
-  Endpoints?: ModelDashboardEndpoint[];
-
-  /**
-   * @public
-   * <p>A batch transform job. For information about SageMaker batch transform, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Use Batch
-   *         Transform</a>.</p>
-   */
-  LastBatchTransformJob?: TransformJob;
-
-  /**
-   * @public
-   * <p>The monitoring schedules for a model.</p>
-   */
-  MonitoringSchedules?: ModelDashboardMonitoringSchedule[];
-
-  /**
-   * @public
-   * <p>The model card for a model.</p>
-   */
-  ModelCard?: ModelDashboardModelCard;
-}
-
-/**
- * @public
- * <p>A versioned model that can be deployed for SageMaker inference.</p>
- */
-export interface ModelPackage {
-  /**
-   * @public
-   * <p>The name of the model.</p>
-   */
-  ModelPackageName?: string;
-
-  /**
-   * @public
-   * <p>The model group to which the model belongs.</p>
-   */
-  ModelPackageGroupName?: string;
-
-  /**
-   * @public
-   * <p>The version number of a versioned model.</p>
-   */
-  ModelPackageVersion?: number;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the model package.</p>
-   */
-  ModelPackageArn?: string;
-
-  /**
-   * @public
-   * <p>The description of the model package.</p>
-   */
-  ModelPackageDescription?: string;
-
-  /**
-   * @public
-   * <p>The time that the model package was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>Defines how to perform inference generation after a training job is run.</p>
-   */
-  InferenceSpecification?: InferenceSpecification;
-
-  /**
-   * @public
-   * <p>A list of algorithms that were used to create a model package.</p>
-   */
-  SourceAlgorithmSpecification?: SourceAlgorithmSpecification;
-
-  /**
-   * @public
-   * <p>Specifies batch transform jobs that SageMaker runs to validate your model package.</p>
-   */
-  ValidationSpecification?: ModelPackageValidationSpecification;
-
-  /**
-   * @public
-   * <p>The status of the model package. This can be one of the following values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> - The model package is pending being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_PROGRESS</code> - The model package is in the process of being
-   *                     created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETED</code> - The model package was successfully created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> - The model package failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code> - The model package is in the process of being deleted.</p>
-   *             </li>
-   *          </ul>
-   */
-  ModelPackageStatus?: ModelPackageStatus | string;
-
-  /**
-   * @public
-   * <p>Specifies the validation and image scan statuses of the model package.</p>
-   */
-  ModelPackageStatusDetails?: ModelPackageStatusDetails;
-
-  /**
-   * @public
-   * <p>Whether the model package is to be certified to be listed on Amazon Web Services Marketplace. For
-   *             information about listing model packages on Amazon Web Services Marketplace, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html">List Your
-   *                 Algorithm or Model Package on Amazon Web Services Marketplace</a>.</p>
-   */
-  CertifyForMarketplace?: boolean;
-
-  /**
-   * @public
-   * <p>The approval status of the model. This can be one of the following values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>APPROVED</code> - The model is approved</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REJECTED</code> - The model is rejected.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING_MANUAL_APPROVAL</code> - The model is waiting for manual
-   *                     approval.</p>
-   *             </li>
-   *          </ul>
-   */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
-
-  /**
-   * @public
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * @public
-   * <p>Metrics for the model.</p>
-   */
-  ModelMetrics?: ModelMetrics;
-
-  /**
-   * @public
-   * <p>The last time the model package was modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>A description provided when the model approval is set.</p>
-   */
-  ApprovalDescription?: string;
-
-  /**
-   * @public
-   * <p>The machine learning domain of your model package and its components. Common
-   *             machine learning domains include computer vision and natural language processing.</p>
-   */
-  Domain?: string;
-
-  /**
-   * @public
-   * <p>The machine learning task your model package accomplishes. Common machine
-   *             learning tasks include object detection and image classification.</p>
-   */
-  Task?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Simple Storage Service path where the sample payload are stored. This path must point to
-   *            a single gzip compressed tar archive (.tar.gz suffix).</p>
-   */
-  SamplePayloadUrl?: string;
-
-  /**
-   * @public
-   * <p>An array of additional Inference Specification objects.</p>
-   */
-  AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[];
-
-  /**
-   * @public
-   * <p>A list of the tags associated with the model package. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>The metadata properties for the model package. </p>
-   */
-  CustomerMetadataProperties?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.</p>
-   */
-  DriftCheckBaselines?: DriftCheckBaselines;
-
-  /**
-   * @public
-   * <p>Indicates if you want to skip model validation.</p>
-   */
-  SkipModelValidation?: SkipModelValidation | string;
 }
 
 /**

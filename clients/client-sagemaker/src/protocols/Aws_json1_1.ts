@@ -798,6 +798,7 @@ import {
   ActionSummary,
   AddAssociationRequest,
   AdditionalInferenceSpecificationDefinition,
+  AdditionalS3DataSource,
   AddTagsInput,
   AggregationTransformationValue,
   Alarm,
@@ -892,12 +893,10 @@ import {
   CreateCompilationJobRequest,
   CreateContextRequest,
   CreateDataQualityJobDefinitionRequest,
-  CreateDeviceFleetRequest,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DataSource,
-  EdgeOutputConfig,
   EndpointInput,
   FileSystemConfig,
   FileSystemDataSource,
@@ -981,6 +980,7 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  CreateDeviceFleetRequest,
   CreateDomainRequest,
   CreateEdgeDeploymentPlanRequest,
   CreateEdgeDeploymentStageRequest,
@@ -1053,6 +1053,7 @@ import {
   DriftCheckModelQuality,
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
+  EdgeOutputConfig,
   EndpointInfo,
   EndpointInputConfiguration,
   EnvironmentParameterRanges,
@@ -1160,7 +1161,6 @@ import {
   RecommendationJobVpcConfig,
   RedshiftDatasetDefinition,
   ResourceLimits,
-  RetentionPolicy,
   RetryStrategy,
   RollingUpdatePolicy,
   RSessionAppSettings,
@@ -1362,8 +1362,6 @@ import {
   EnableSagemakerServicecatalogPortfolioInput,
   Endpoint,
   EndpointConfigSummary,
-  EndpointSummary,
-  Experiment,
   FeatureParameter,
   FinalHyperParameterTuningJobObjectiveMetric,
   HyperParameterTrainingJobSummary,
@@ -1379,6 +1377,7 @@ import {
   ProductionVariantSummary,
   ProfilerRuleEvaluationStatus,
   RecommendationMetrics,
+  RetentionPolicy,
   RStudioServerProDomainSettingsForUpdate,
   ScalingPolicy,
   SecondaryStatusTransition,
@@ -1390,6 +1389,8 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  EndpointSummary,
+  Experiment,
   ExperimentSummary,
   FeatureGroup,
   FeatureGroupSummary,
@@ -1565,12 +1566,10 @@ import {
   ModelCardSummary,
   ModelCardVersionSummary,
   ModelDashboardEndpoint,
-  ModelDashboardModel,
   ModelDashboardModelCard,
   ModelDashboardMonitoringSchedule,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
-  ModelPackage,
   ModelPackageGroupSummary,
   ModelPackageSummary,
   ModelSummary,
@@ -1601,6 +1600,8 @@ import {
   UserProfileDetails,
 } from "../models/models_3";
 import {
+  ModelDashboardModel,
+  ModelPackage,
   ModelPackageGroup,
   ModelVariantAction,
   NestedFilters,
@@ -19182,6 +19183,8 @@ const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext
 
 // se_AdditionalInferenceSpecifications omitted.
 
+// se_AdditionalS3DataSource omitted.
+
 // se_AddTagsInput omitted.
 
 // se_AggregationTransformations omitted.
@@ -22255,6 +22258,8 @@ const de_ActionSummary = (output: any, context: __SerdeContext): ActionSummary =
 // de_AdditionalInferenceSpecificationDefinition omitted.
 
 // de_AdditionalInferenceSpecifications omitted.
+
+// de_AdditionalS3DataSource omitted.
 
 // de_AddTagsOutput omitted.
 

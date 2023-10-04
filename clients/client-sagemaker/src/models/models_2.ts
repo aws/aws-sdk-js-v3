@@ -46,7 +46,6 @@ import {
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
-  EdgeOutputConfig,
   EdgePresetDeploymentType,
   GitConfig,
   HyperParameterTuningJobObjectiveType,
@@ -95,6 +94,7 @@ import {
   DriftCheckBaselines,
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
+  EdgeOutputConfig,
   EndpointInfo,
   ExecutionRoleIdentityConfig,
   ExperimentConfig,
@@ -159,7 +159,6 @@ import {
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   RecommendationJobType,
-  RetentionPolicy,
   RetryStrategy,
   RootAccess,
   RuleEvaluationStatus,
@@ -177,6 +176,33 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const RetentionType = {
+  Delete: "Delete",
+  Retain: "Retain",
+} as const;
+
+/**
+ * @public
+ */
+export type RetentionType = (typeof RetentionType)[keyof typeof RetentionType];
+
+/**
+ * @public
+ * <p>The retention policy for data stored on an Amazon Elastic File System (EFS) volume.</p>
+ */
+export interface RetentionPolicy {
+  /**
+   * @public
+   * <p>The default is <code>Retain</code>, which specifies to keep the data stored on the EFS volume.</p>
+   *          <p>Specify <code>Delete</code> to delete the data stored on the EFS volume.</p>
+   */
+  HomeEfsFileSystem?: RetentionType | string;
+}
 
 /**
  * @public
@@ -3126,10 +3152,11 @@ export interface DescribeEndpointOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UpdateRollbackFailed</code>: Both the rolling deployment and auto-rollback failed. Your endpoint
-   *                 is in service with a mix of the old and new endpoint configurations. For information about how to remedy
-   *                 this issue and restore the endpoint's status to <code>InService</code>, see
-   *                     <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails-rolling.html">Rolling Deployments</a>.</p>
+   *                   <code>UpdateRollbackFailed</code>: Both the rolling deployment and
+   *                     auto-rollback failed. Your endpoint is in service with a mix of the old and new
+   *                     endpoint configurations. For information about how to remedy this issue and
+   *                     restore the endpoint's status to <code>InService</code>, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails-rolling.html">Rolling
+   *                         Deployments</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -7391,10 +7418,6 @@ export interface SelectiveExecutionConfig {
    *         Used to copy input collaterals needed for the selected steps to run.
    *         The execution status of the pipeline can be either <code>Failed</code>
    *         or <code>Success</code>.</p>
-   *          <p>This field is required if the steps you specify for
-   *           <code>SelectedSteps</code> depend on output collaterals from any non-specified pipeline
-   *           steps. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-selective-ex.html">Selective
-   *           Execution for Pipeline Steps</a>.</p>
    */
   SourcePipelineExecutionArn?: string;
 
@@ -10832,160 +10855,6 @@ export const EndpointSortKey = {
  * @public
  */
 export type EndpointSortKey = (typeof EndpointSortKey)[keyof typeof EndpointSortKey];
-
-/**
- * @public
- * <p>Provides summary information for an endpoint.</p>
- */
-export interface EndpointSummary {
-  /**
-   * @public
-   * <p>The name of the endpoint.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-
-  /**
-   * @public
-   * <p>A timestamp that shows when the endpoint was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>A timestamp that shows when the endpoint was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The status of the endpoint.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>OutOfService</code>: Endpoint is not available to take incoming
-   *                     requests.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Creating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> is executing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Updating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> is executing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be
-   *                     updated or deleted or re-scaled until it has completed. This maintenance
-   *                     operation does not change any customer-specified values such as VPC config, KMS
-   *                     encryption, model, instance type, or instance count.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RollingBack</code>: Endpoint fails to scale up or down or change its
-   *                     variant weight and is in the process of rolling back to its previous
-   *                     configuration. Once the rollback completes, endpoint returns to an
-   *                         <code>InService</code> status. This transitional status only applies to an
-   *                     endpoint that has autoscaling enabled and is undergoing variant weight or
-   *                     capacity changes as part of an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> call or when the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> operation is called
-   *                     explicitly.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>InService</code>: Endpoint is available to process incoming
-   *                     requests.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Deleting</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is executing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
-   *                         <code>DescribeEndpointOutput$FailureReason</code> for information about the
-   *                     failure. <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is the only operation that can be performed on a
-   *                     failed endpoint.</p>
-   *             </li>
-   *          </ul>
-   *          <p>To get a list of endpoints with a specified status, use the <code>StatusEquals</code>
-   *             filter with a call to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListEndpoints.html">ListEndpoints</a>.</p>
-   */
-  EndpointStatus: EndpointStatus | string | undefined;
-}
-
-/**
- * @public
- * <p>The properties of an experiment as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
- */
-export interface Experiment {
-  /**
-   * @public
-   * <p>The name of the experiment.</p>
-   */
-  ExperimentName?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   */
-  ExperimentArn?: string;
-
-  /**
-   * @public
-   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified,
-   *         <code>ExperimentName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * @public
-   * <p>The source of the experiment.</p>
-   */
-  Source?: ExperimentSource;
-
-  /**
-   * @public
-   * <p>The description of the experiment.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>When the experiment was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>Who created the experiment.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>When the experiment was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>The list of tags that are associated with the experiment. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
-   */
-  Tags?: Tag[];
-}
 
 /**
  * @internal

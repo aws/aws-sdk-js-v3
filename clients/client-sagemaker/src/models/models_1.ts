@@ -43,7 +43,7 @@ import {
   ContentClassifier,
   ContinuousParameterRange,
   ConvergenceDetected,
-  EdgeOutputConfig,
+  EdgePresetDeploymentType,
   EndpointInput,
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
@@ -76,6 +76,116 @@ import {
   TransformResources,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The output configuration.</p>
+ */
+export interface EdgeOutputConfig {
+  /**
+   * @public
+   * <p>The Amazon Simple Storage (S3) bucker URI.</p>
+   */
+  S3OutputLocation: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job.
+   *      If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The deployment type SageMaker Edge Manager will create.
+   *       Currently only supports Amazon Web Services IoT Greengrass Version 2 components.</p>
+   */
+  PresetDeploymentType?: EdgePresetDeploymentType | string;
+
+  /**
+   * @public
+   * <p>The configuration used to create deployment artifacts.
+   *       Specify configuration options with a JSON string. The available configuration options for each type are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ComponentName</code> (optional) - Name of the GreenGrass V2 component. If not specified,
+   *      the default name generated consists of "SagemakerEdgeManager" and the name of your SageMaker Edge Manager
+   *      packaging job.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ComponentDescription</code> (optional) - Description of the component.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ComponentVersion</code> (optional) - The version of the component.</p>
+   *                <note>
+   *                   <p>Amazon Web Services IoT Greengrass uses semantic versions for components. Semantic versions follow a<i>
+   *        major.minor.patch</i> number system. For example, version 1.0.0 represents the first
+   *         major release for a component. For more information, see the <a href="https://semver.org/">semantic version specification</a>.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PlatformOS</code> (optional) - The name of the operating system for the platform.
+   *      Supported platforms include Windows and Linux.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PlatformArchitecture</code> (optional) - The processor architecture for the platform. </p>
+   *                <p>Supported architectures Windows include: Windows32_x86, Windows64_x64.</p>
+   *                <p>Supported architectures for Linux include: Linux x86_64, Linux ARMV8.</p>
+   *             </li>
+   *          </ul>
+   */
+  PresetDeploymentConfig?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateDeviceFleetRequest {
+  /**
+   * @public
+   * <p>The name of the fleet that the device belongs to.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that has access to Amazon Web Services Internet of Things (IoT).</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * @public
+   * <p>A description of the fleet.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The output configuration for storing sample data collected by the fleet.</p>
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * @public
+   * <p>Creates tags for the specified fleet.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
+   *      The name of the role alias generated will match this pattern:
+   *      "SageMakerEdge-\{DeviceFleetName\}".</p>
+   *          <p>For example, if your device fleet is called "demo-fleet", the name of
+   *      the role alias will be "SageMakerEdge-demo-fleet".</p>
+   */
+  EnableIotRoleAlias?: boolean;
+}
 
 /**
  * @public
@@ -837,7 +947,8 @@ export interface RollingUpdatePolicy {
 
   /**
    * @public
-   * <p>The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet.</p>
+   * <p>The length of the baking period, during which SageMaker monitors alarms for each batch on
+   *             the new fleet.</p>
    */
   WaitIntervalInSeconds: number | undefined;
 
@@ -850,9 +961,10 @@ export interface RollingUpdatePolicy {
   /**
    * @public
    * <p>Batch size for rollback to the old endpoint fleet. Each rolling step to provision
-   *             capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new
-   *             endpoint fleet. If this field is absent, the default value will be set to 100% of total
-   *             capacity which means to bring up the whole capacity of the old fleet at once during rollback.</p>
+   *             capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the
+   *             new endpoint fleet. If this field is absent, the default value will be set to 100% of
+   *             total capacity which means to bring up the whole capacity of the old fleet at once
+   *             during rollback.</p>
    */
   RollbackMaximumBatchSize?: CapacitySize;
 }
@@ -3312,7 +3424,8 @@ export interface HyperParameterTuningInstanceConfig {
    * @public
    * <p>The number of instances of the type specified by <code>InstanceType</code>. Choose an
    *             instance count larger than 1 for distributed training algorithms. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html">Step 2:
-   *                 Launch a SageMaker Distributed Training Job Using the SageMaker Python SDK</a> for more information.</p>
+   *                 Launch a SageMaker Distributed Training Job Using the SageMaker Python SDK</a> for more
+   *             information.</p>
    */
   InstanceCount: number | undefined;
 
@@ -11871,33 +11984,6 @@ export interface DeleteDeviceFleetRequest {
    * <p>The name of the fleet to delete.</p>
    */
   DeviceFleetName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RetentionType = {
-  Delete: "Delete",
-  Retain: "Retain",
-} as const;
-
-/**
- * @public
- */
-export type RetentionType = (typeof RetentionType)[keyof typeof RetentionType];
-
-/**
- * @public
- * <p>The retention policy for data stored on an Amazon Elastic File System (EFS) volume.</p>
- */
-export interface RetentionPolicy {
-  /**
-   * @public
-   * <p>The default is <code>Retain</code>, which specifies to keep the data stored on the EFS volume.</p>
-   *          <p>Specify <code>Delete</code> to delete the data stored on the EFS volume.</p>
-   */
-  HomeEfsFileSystem?: RetentionType | string;
 }
 
 /**

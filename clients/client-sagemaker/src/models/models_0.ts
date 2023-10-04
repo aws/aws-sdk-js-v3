@@ -218,6 +218,62 @@ export class ResourceNotFound extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const CompressionType = {
+  GZIP: "Gzip",
+  NONE: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type CompressionType = (typeof CompressionType)[keyof typeof CompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AdditionalS3DataSourceDataType = {
+  S3OBJECT: "S3Object",
+} as const;
+
+/**
+ * @public
+ */
+export type AdditionalS3DataSourceDataType =
+  (typeof AdditionalS3DataSourceDataType)[keyof typeof AdditionalS3DataSourceDataType];
+
+/**
+ * @public
+ * <p>A data source used for training or inference that is in addition to the input dataset
+ *             or model data.</p>
+ */
+export interface AdditionalS3DataSource {
+  /**
+   * @public
+   * <p>The data type of the additional data source that you specify for use in inference or
+   *             training. </p>
+   */
+  S3DataType: AdditionalS3DataSourceDataType | string | undefined;
+
+  /**
+   * @public
+   * <p>The uniform resource identifier (URI) used to identify an additional data source used
+   *             in inference or training.</p>
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of compression used for an additional data source used in inference or
+   *             training. Specify <code>None</code> if your additional data source is not compressed.</p>
+   */
+  CompressionType?: CompressionType | string;
+}
+
+/**
+ * @public
  * <p>Input object for the model.</p>
  */
 export interface ModelInput {
@@ -308,6 +364,13 @@ export interface ModelPackageContainerDefinition {
    *            You can find a list of benchmarked models by calling <code>ListModelMetadata</code>.</p>
    */
   NearestModelName?: string;
+
+  /**
+   * @public
+   * <p>The additional data source that is used during inference in the Docker container for
+   *             your model package.</p>
+   */
+  AdditionalS3DataSource?: AdditionalS3DataSource;
 }
 
 /**
@@ -1041,20 +1104,6 @@ export interface AlgorithmSummary {
  * @public
  * @enum
  */
-export const CompressionType = {
-  GZIP: "Gzip",
-  NONE: "None",
-} as const;
-
-/**
- * @public
- */
-export type CompressionType = (typeof CompressionType)[keyof typeof CompressionType];
-
-/**
- * @public
- * @enum
- */
 export const FileSystemAccessMode = {
   RO: "ro",
   RW: "rw",
@@ -1472,7 +1521,8 @@ export interface OutputDataConfig {
 
   /**
    * @public
-   * <p>The model output compression type. Select <code>None</code> to output an uncompressed model, recommended for large model outputs. Defaults to gzip.</p>
+   * <p>The model output compression type. Select <code>None</code> to output an uncompressed
+   *             model, recommended for large model outputs. Defaults to gzip.</p>
    */
   CompressionType?: OutputCompressionType | string;
 }
@@ -6970,10 +7020,12 @@ export type CapacitySizeType = (typeof CapacitySizeType)[keyof typeof CapacitySi
 
 /**
  * @public
- * <p>Specifies the type and size of the endpoint capacity to activate for a blue/green deployment, a rolling deployment, or a rollback strategy.
- *         You can specify your batches as either instance count or the overall percentage or your fleet.</p>
- *          <p>For a rollback strategy, if you don't specify the fields in this object, or if you set the <code>Value</code> to 100%, then SageMaker
- *         uses a blue/green rollback strategy and rolls all traffic back to the blue fleet.</p>
+ * <p>Specifies the type and size of the endpoint capacity to activate for a blue/green
+ *             deployment, a rolling deployment, or a rollback strategy. You can specify your batches
+ *             as either instance count or the overall percentage or your fleet.</p>
+ *          <p>For a rollback strategy, if you don't specify the fields in this object, or if you set
+ *             the <code>Value</code> to 100%, then SageMaker uses a blue/green rollback strategy and rolls
+ *             all traffic back to the blue fleet.</p>
  */
 export interface CapacitySize {
   /**
@@ -8615,32 +8667,32 @@ export interface S3ModelDataSource {
    * @public
    * <p>Specifies how the ML model data is prepared.</p>
    *          <p>If you choose <code>Gzip</code> and choose <code>S3Object</code> as the value of
-   *             <code>S3DataType</code>, <code>S3Uri</code> identifies an object that is a
-   *             gzip-compressed TAR archive. SageMaker will attempt to decompress and untar the object
-   *             during model deployment.</p>
+   *                 <code>S3DataType</code>, <code>S3Uri</code> identifies an object that is a
+   *             gzip-compressed TAR archive. SageMaker will attempt to decompress and untar the object during
+   *             model deployment.</p>
    *          <p>If you choose <code>None</code> and chooose <code>S3Object</code> as the value of
-   *             <code>S3DataType</code>, <code>S3Uri</code> identifies an object that represents an
+   *                 <code>S3DataType</code>, <code>S3Uri</code> identifies an object that represents an
    *             uncompressed ML model to deploy.</p>
    *          <p>If you choose None and choose <code>S3Prefix</code> as the value of
-   *             <code>S3DataType</code>, <code>S3Uri</code> identifies a key name prefix, under which
-   *             all objects represents the uncompressed ML model to deploy.</p>
+   *                 <code>S3DataType</code>, <code>S3Uri</code> identifies a key name prefix, under
+   *             which all objects represents the uncompressed ML model to deploy.</p>
    *          <p>If you choose None, then SageMaker will follow rules below when creating model data files
    *             under /opt/ml/model directory for use by your inference code:</p>
    *          <ul>
    *             <li>
    *                <p>If you choose <code>S3Object</code> as the value of <code>S3DataType</code>,
-   *                     then SageMaker will split the key of the S3 object referenced by <code>S3Uri</code> by
-   *                     slash (/), and use the last part as the filename of the file holding the content
-   *                     of the S3 object.</p>
+   *                     then SageMaker will split the key of the S3 object referenced by <code>S3Uri</code>
+   *                     by slash (/), and use the last part as the filename of the file holding the
+   *                     content of the S3 object.</p>
    *             </li>
    *             <li>
    *                <p>If you choose <code>S3Prefix</code> as the value of <code>S3DataType</code>,
-   *                     then for each S3 object under the key name pefix referenced by <code>S3Uri</code>,
-   *                     SageMaker will trim its key by the prefix, and use the remainder as the path
-   *                     (relative to <code>/opt/ml/model</code>) of the file holding the content of the
-   *                     S3 object. SageMaker will split the remainder by slash (/), using intermediate parts as
-   *                     directory names and the last part as filename of the file holding the content of
-   *                     the S3 object.</p>
+   *                     then for each S3 object under the key name pefix referenced by
+   *                         <code>S3Uri</code>, SageMaker will trim its key by the prefix, and use the
+   *                     remainder as the path (relative to <code>/opt/ml/model</code>) of the file
+   *                     holding the content of the S3 object. SageMaker will split the remainder by slash
+   *                     (/), using intermediate parts as directory names and the last part as filename
+   *                     of the file holding the content of the S3 object.</p>
    *             </li>
    *             <li>
    *                <p>Do not use any of the following as file names or directory names:</p>
@@ -8663,21 +8715,21 @@ export interface S3ModelDataSource {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Ambiguous file names will result in model deployment failure. For example,
-   *                     if your uncompressed ML model consists of two S3 objects
-   *                     <code>s3://mybucket/model/weights</code> and <code>s3://mybucket/model/weights/part1</code>
-   *                     and you specify <code>s3://mybucket/model/</code> as the value of <code>S3Uri</code> and
-   *                     <code>S3Prefix</code> as the value of <code>S3DataType</code>, then it will result in name
-   *                     clash between <code>/opt/ml/model/weights</code> (a regular file) and
-   *                     <code>/opt/ml/model/weights/</code> (a directory).</p>
+   *                <p>Ambiguous file names will result in model deployment failure. For example, if
+   *                     your uncompressed ML model consists of two S3 objects
+   *                         <code>s3://mybucket/model/weights</code> and
+   *                         <code>s3://mybucket/model/weights/part1</code> and you specify
+   *                         <code>s3://mybucket/model/</code> as the value of <code>S3Uri</code> and
+   *                         <code>S3Prefix</code> as the value of <code>S3DataType</code>, then it will
+   *                     result in name clash between <code>/opt/ml/model/weights</code> (a regular file)
+   *                     and <code>/opt/ml/model/weights/</code> (a directory).</p>
    *             </li>
    *             <li>
-   *                <p>Do not organize the model artifacts in
-   *                     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-folders.html">S3 console using folders</a>.
-   *                     When you create a folder in S3 console, S3 creates a 0-byte object with a key set to the
-   *                     folder name you provide. They key of the 0-byte object ends with a slash (/) which violates
-   *                     SageMaker restrictions on model artifact file names, leading to model deployment failure.
-   *                 </p>
+   *                <p>Do not organize the model artifacts in <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-folders.html">S3 console using
+   *                         folders</a>. When you create a folder in S3 console, S3 creates a 0-byte
+   *                     object with a key set to the folder name you provide. They key of the 0-byte
+   *                     object ends with a slash (/) which violates SageMaker restrictions on model artifact
+   *                     file names, leading to model deployment failure. </p>
    *             </li>
    *          </ul>
    */
@@ -8686,8 +8738,8 @@ export interface S3ModelDataSource {
 
 /**
  * @public
- * <p>Specifies the location of ML model data to deploy. If specified, you must specify
- *             one and only one of the available data sources.</p>
+ * <p>Specifies the location of ML model data to deploy. If specified, you must specify one
+ *             and only one of the available data sources.</p>
  */
 export interface ModelDataSource {
   /**
@@ -8844,8 +8896,8 @@ export interface ContainerDefinition {
    * @public
    * <p>Specifies the location of ML model data to deploy.</p>
    *          <note>
-   *             <p>Currently you cannot use <code>ModelDataSource</code> in conjunction with
-   *                 SageMaker batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker
+   *             <p>Currently you cannot use <code>ModelDataSource</code> in conjunction with SageMaker
+   *                 batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker
    *                 Marketplace.</p>
    *          </note>
    */
@@ -9350,6 +9402,12 @@ export interface TrainingSpecification {
    *             metric in a hyperparameter tuning job.</p>
    */
   SupportedTuningJobObjectiveMetrics?: HyperParameterTuningJobObjective[];
+
+  /**
+   * @public
+   * <p>The additional data source used during the training job.</p>
+   */
+  AdditionalS3DataSource?: AdditionalS3DataSource;
 }
 
 /**
@@ -11402,113 +11460,3 @@ export const EdgePresetDeploymentType = {
  * @public
  */
 export type EdgePresetDeploymentType = (typeof EdgePresetDeploymentType)[keyof typeof EdgePresetDeploymentType];
-
-/**
- * @public
- * <p>The output configuration.</p>
- */
-export interface EdgeOutputConfig {
-  /**
-   * @public
-   * <p>The Amazon Simple Storage (S3) bucker URI.</p>
-   */
-  S3OutputLocation: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job.
-   *      If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * @public
-   * <p>The deployment type SageMaker Edge Manager will create.
-   *       Currently only supports Amazon Web Services IoT Greengrass Version 2 components.</p>
-   */
-  PresetDeploymentType?: EdgePresetDeploymentType | string;
-
-  /**
-   * @public
-   * <p>The configuration used to create deployment artifacts.
-   *       Specify configuration options with a JSON string. The available configuration options for each type are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ComponentName</code> (optional) - Name of the GreenGrass V2 component. If not specified,
-   *      the default name generated consists of "SagemakerEdgeManager" and the name of your SageMaker Edge Manager
-   *      packaging job.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ComponentDescription</code> (optional) - Description of the component.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ComponentVersion</code> (optional) - The version of the component.</p>
-   *                <note>
-   *                   <p>Amazon Web Services IoT Greengrass uses semantic versions for components. Semantic versions follow a<i>
-   *        major.minor.patch</i> number system. For example, version 1.0.0 represents the first
-   *         major release for a component. For more information, see the <a href="https://semver.org/">semantic version specification</a>.</p>
-   *                </note>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PlatformOS</code> (optional) - The name of the operating system for the platform.
-   *      Supported platforms include Windows and Linux.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PlatformArchitecture</code> (optional) - The processor architecture for the platform. </p>
-   *                <p>Supported architectures Windows include: Windows32_x86, Windows64_x64.</p>
-   *                <p>Supported architectures for Linux include: Linux x86_64, Linux ARMV8.</p>
-   *             </li>
-   *          </ul>
-   */
-  PresetDeploymentConfig?: string;
-}
-
-/**
- * @public
- */
-export interface CreateDeviceFleetRequest {
-  /**
-   * @public
-   * <p>The name of the fleet that the device belongs to.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) that has access to Amazon Web Services Internet of Things (IoT).</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * @public
-   * <p>A description of the fleet.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The output configuration for storing sample data collected by the fleet.</p>
-   */
-  OutputConfig: EdgeOutputConfig | undefined;
-
-  /**
-   * @public
-   * <p>Creates tags for the specified fleet.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
-   *      The name of the role alias generated will match this pattern:
-   *      "SageMakerEdge-\{DeviceFleetName\}".</p>
-   *          <p>For example, if your device fleet is called "demo-fleet", the name of
-   *      the role alias will be "SageMakerEdge-demo-fleet".</p>
-   */
-  EnableIotRoleAlias?: boolean;
-}
