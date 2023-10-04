@@ -2,12 +2,13 @@ import {
   BillingMode,
   CreateTableCommandOutput,
   DeleteItemCommandOutput,
-  DeleteTableCommandOutput,
   DescribeTableCommandOutput,
   DynamoDB,
+  GetItemCommandOutput,
   waitUntilTableExists,
 } from "@aws-sdk/client-dynamodb";
 import {
+  BatchExecuteStatementCommandOutput,
   BatchGetCommandOutput,
   BatchWriteCommandOutput,
   DynamoDBDocument,
@@ -22,15 +23,21 @@ import {
   UpdateCommandOutput,
 } from "@aws-sdk/lib-dynamodb";
 
-jest.setTimeout(60000);
+jest.setTimeout(60000); // expected running time: 10s
 
 describe(DynamoDBDocument.name, () => {
-  const dynamodb = new DynamoDB({ region: "us-west-2" });
+  const dynamodb = new DynamoDB({ region: "us-west-2", maxAttempts: 10 });
   const doc = DynamoDBDocument.from(dynamodb, {
     marshallOptions: {
       convertTopLevelContainer: true,
     },
   });
+
+  function throwIfError(e: unknown) {
+    if (e instanceof Error) {
+      throw e;
+    }
+  }
 
   const TableName = "js-sdk-dynamodb-test";
 
@@ -43,14 +50,17 @@ describe(DynamoDBDocument.name, () => {
     batchRead: null as null | BatchGetCommandOutput,
     transactWrite: null as null | TransactWriteCommandOutput,
     transactRead: null as null | TransactGetCommandOutput,
-    executeStatement: null as null | ExecuteStatementCommandOutput,
     executeTransaction: null as null | ExecuteTransactionCommandOutput,
+    executeTransactionReadBack: {} as Record<string, GetItemCommandOutput>,
+    executeStatement: {} as Record<string, ExecuteStatementCommandOutput>,
+    executeStatementReadBack: {} as Record<string, GetItemCommandOutput>,
+    batchExecuteStatement: null as null | BatchExecuteStatementCommandOutput,
+    batchExecuteStatementReadBack: null as null | BatchExecuteStatementCommandOutput,
     query: null as null | QueryCommandOutput,
     scan: null as null | ScanCommandOutput,
     update: {} as Record<string, UpdateCommandOutput>,
-    readAfterUpdate: {} as Record<string, GetCommandOutput>,
+    updateReadBack: {} as Record<string, GetCommandOutput>,
     delete: {} as Record<string, DeleteItemCommandOutput>,
-    drop: null as null | DeleteTableCommandOutput,
   };
 
   const data = {
@@ -168,17 +178,169 @@ describe(DynamoDBDocument.name, () => {
         .catch(passError);
     }
 
-    log.batchRead = await doc.batchGet({
-      RequestItems: {
-        [TableName]: {
-          Keys: [
-            ...Object.keys(data).map((key) => {
-              return { id: key };
+    log.batchWrite = await doc
+      .batchWrite({
+        RequestItems: {
+          [TableName]: [
+            ...Object.entries(data).map(([k, v]) => {
+              return {
+                PutRequest: {
+                  Item: {
+                    id: k + "-batch",
+                    data: v,
+                  },
+                },
+              };
             }),
           ],
         },
-      },
-    });
+      })
+      .catch(passError);
+
+    log.batchRead = await doc
+      .batchGet({
+        RequestItems: {
+          [TableName]: {
+            Keys: [
+              ...Object.keys(data).map((key) => {
+                return { id: key + "-batch" };
+              }),
+            ],
+          },
+        },
+      })
+      .catch(passError);
+
+    log.transactWrite = await doc
+      .transactWrite({
+        TransactItems: [
+          ...Object.entries(data).map(([k, v]) => {
+            return {
+              Put: {
+                TableName,
+                Key: {
+                  id: k + "-transact",
+                },
+                Item: {
+                  id: k + "-transact",
+                  data: v,
+                },
+              },
+            };
+          }),
+        ],
+      })
+      .catch(passError);
+
+    log.transactRead = await doc
+      .transactGet({
+        TransactItems: [
+          ...Object.keys(data).map((k) => {
+            return {
+              Get: {
+                TableName,
+                Key: {
+                  id: k + "-transact",
+                },
+              },
+            };
+          }),
+        ],
+      })
+      .catch(passError);
+
+    log.executeTransaction = await doc
+      .executeTransaction({
+        TransactStatements: [
+          ...Object.entries(data).map(([k, v]) => {
+            return {
+              Statement: `INSERT INTO "${TableName}" value {'id':?,'data':?}`,
+              Parameters: [k + "-exec-transact", v],
+            };
+          }),
+        ],
+      })
+      .catch(passError);
+    for (const [k] of Object.entries(data)) {
+      log.executeTransactionReadBack[k] = await doc
+        .get({
+          TableName,
+          Key: {
+            id: k + "-exec-transact",
+          },
+        })
+        .catch(passError);
+    }
+
+    for (const [k, v] of Object.entries(data)) {
+      log.executeStatement[k] = await doc
+        .executeStatement({
+          Statement: `INSERT INTO "${TableName}" value {'id':?,'data':?}`,
+          Parameters: [k + "-statement", v],
+        })
+        .catch(passError);
+    }
+    for (const [k] of Object.entries(data)) {
+      log.executeStatementReadBack[k] = await doc
+        .get({
+          TableName,
+          Key: {
+            id: k + "-statement",
+          },
+        })
+        .catch(passError);
+    }
+
+    log.batchExecuteStatement = await doc
+      .batchExecuteStatement({
+        Statements: [
+          ...Object.entries(data).map(([k, v]) => {
+            return {
+              Statement: `INSERT INTO "${TableName}" value {'id':?,'data':?}`,
+              Parameters: [k + "-batch-statement", v],
+            };
+          }),
+        ],
+      })
+      .catch(passError);
+
+    log.batchExecuteStatementReadBack = await doc
+      .batchExecuteStatement({
+        Statements: [
+          ...Object.entries(data).map(([k, v]) => {
+            return {
+              Statement: `SELECT * FROM ${TableName} WHERE "id" = ?`,
+              Parameters: [k + "-batch-statement"],
+            };
+          }),
+        ],
+      })
+      .catch(passError);
+
+    log.query = await doc
+      .query({
+        TableName,
+        KeyConditionExpression: `id = :id`,
+        ExpressionAttributeValues: {
+          ":id": "map",
+        },
+        ConsistentRead: true,
+      })
+      .catch(passError);
+
+    log.scan = await doc
+      .scan({
+        TableName,
+        FilterExpression: `#data = :data1 OR #data = :data2`,
+        ExpressionAttributeNames: {
+          "#data": "data",
+        },
+        ExpressionAttributeValues: {
+          ":data1": data.list,
+          ":data2": data.map,
+        },
+      })
+      .catch(passError);
 
     for (const [id, value] of [["1", data as any], ...Object.entries(data)]) {
       log.update[id] = await doc
@@ -196,7 +358,7 @@ describe(DynamoDBDocument.name, () => {
         })
         .catch(passError);
 
-      log.readAfterUpdate[id] = await doc
+      log.updateReadBack[id] = await doc
         .get({
           TableName,
           Key: {
@@ -205,14 +367,22 @@ describe(DynamoDBDocument.name, () => {
         })
         .catch(passError);
 
-      log.delete[id] = await doc
-        .delete({
+      log.delete[id] = await (async () => {
+        for (const suffix of ["-batch", "-transact", "-exec-transact", "-statement", "-batch-statement"]) {
+          doc
+            .delete({
+              TableName,
+              Key: {
+                id: id + suffix,
+              },
+            })
+            .catch(() => {});
+        }
+        return doc.delete({
           TableName,
-          Key: {
-            id,
-          },
-        })
-        .catch(passError);
+          Key: { id },
+        });
+      })().catch(passError);
     }
   });
 
@@ -261,54 +431,106 @@ describe(DynamoDBDocument.name, () => {
 
   it("creates the test table if it does not exist", async () => {
     if (log.describe) {
+      throwIfError(log.describe);
       expect(log.describe?.Table?.TableName).toEqual(TableName);
     } else {
+      throwIfError(log.create);
       expect(log.create?.TableDescription?.TableName).toEqual(TableName);
     }
   });
 
   it("can batch write", async () => {
-    throw new Error("NYI");
+    throwIfError(log.batchWrite);
   });
 
   it("can batch read", async () => {
+    throwIfError(log.batchRead);
     const results = log.batchRead?.Responses?.[TableName] ?? [];
 
     for (const result of results) {
-      expect(result.data).toEqual(data[result.id]);
+      expect(result.data).toEqual(data[result.id.replace("-batch", "")]);
     }
   });
 
   it("can transact write", async () => {
-    throw new Error("NYI");
+    throwIfError(log.transactWrite);
   });
 
   it("can transact read", async () => {
-    throw new Error("NYI");
-  });
+    throwIfError(log.transactRead);
+    const results = log.transactRead?.Responses ?? [];
 
-  it("can execute statements", async () => {
-    throw new Error("NYI");
+    for (const result of results) {
+      expect(result.Item?.data).toEqual(data[result.Item?.id.replace("-transact", "")]);
+    }
   });
 
   it("can execute transactions", async () => {
-    throw new Error("NYI");
+    throwIfError(log.executeTransaction);
+  });
+
+  it("can batch execute statements", async () => {
+    throwIfError(log.batchExecuteStatement);
+
+    expect(log.batchExecuteStatementReadBack?.Responses).toBeInstanceOf(Array);
+    expect(log.batchExecuteStatementReadBack?.Responses?.length).toBeGreaterThan(0);
+    for (const response of log.batchExecuteStatementReadBack?.Responses ?? []) {
+      expect(response.Item?.data).toEqual(data[response.Item?.id?.replace("-batch-statement", "")]);
+    }
   });
 
   it("can query", async () => {
-    throw new Error("NYI");
+    throwIfError(log.query);
+    expect(log.query?.Items).toContainEqual({
+      id: "map",
+      data: data.map,
+    });
   });
 
   it("can scan", async () => {
-    throw new Error("NYI");
+    throwIfError(log.scan);
+    expect(log.scan?.Items).toContainEqual({
+      id: "map",
+      data: data.map,
+    });
+
+    expect(log.scan?.Items).toContainEqual({
+      id: "list",
+      data: data.list,
+    });
   });
 
   for (const [key, value] of Object.entries(data)) {
     it(`can write data of type ${key}`, async () => {
+      throwIfError(log.write[key]);
       expect(log.write[key].$metadata).toBeDefined();
     });
 
+    it(`can execute statement inserting type ${key}`, async () => {
+      const match = log.executeStatement[key];
+      expect(match).toBeDefined();
+
+      throwIfError(match);
+    });
+
+    it(`can read back data inserted via ExecuteStatement of type ${key}`, async () => {
+      throwIfError(log.executeStatementReadBack[key]);
+      expect(log.executeStatementReadBack[key].Item).toEqual({
+        id: key + "-statement",
+        data: value,
+      });
+    });
+
+    it(`can read back data inserted via ExecuteTransaction of type ${key}`, async () => {
+      throwIfError(log.executeTransactionReadBack[key]);
+      expect(log.executeTransactionReadBack[key].Item).toEqual({
+        id: key + "-exec-transact",
+        data: value,
+      });
+    });
+
     it(`can read data of type ${key}`, async () => {
+      throwIfError(log.read[key]);
       expect(log.read[key].Item).toEqual({
         id: key,
         data: value,
@@ -316,13 +538,15 @@ describe(DynamoDBDocument.name, () => {
     });
 
     it(`can update data of type ${key}`, async () => {
-      expect(log.readAfterUpdate[key].Item).toEqual({
+      throwIfError(log.updateReadBack[key]);
+      expect(log.updateReadBack[key].Item).toEqual({
         id: key,
         data: updateTransform(value),
       });
     });
 
     it(`can delete data of type ${key}`, async () => {
+      throwIfError(log.delete[key]);
       expect(log.delete[key].$metadata).toBeDefined();
     });
   }

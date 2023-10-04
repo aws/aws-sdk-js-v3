@@ -1,8 +1,7 @@
 import { S3Client } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
-import { Readable } from "stream";
-
 import { configuration } from "./config";
+import { Readable } from "stream";
 
 const Bucket = configuration.Bucket;
 const region = "us-west-2";
@@ -24,7 +23,7 @@ const uploadIndeterminateLengthStreamNode = async () => {
   const streamOfUnknownlength = Readable.from(generateContents());
 
   const Key = configuration.Key;
-  const upload = new Upload({
+  let upload = new Upload({
     client: new S3Client({ region }),
     params: {
       Key,
@@ -39,7 +38,7 @@ const uploadIndeterminateLengthStreamNode = async () => {
 
   setTimeout(() => {
     console.log(" Aborting ....");
-    const res = upload.abort();
+    let res = upload.abort();
   }, 10 * 1000);
 
   const uploadResult = await upload.done();

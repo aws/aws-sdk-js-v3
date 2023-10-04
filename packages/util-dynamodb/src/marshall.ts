@@ -22,6 +22,9 @@ export interface marshallOptions {
   /**
    * Whether to convert the top level container
    * if it is a map or list.
+   *
+   * Default is true when using the DynamoDBDocumentClient,
+   * but false if directly using the marshall function (backwards compatibility).
    */
   convertTopLevelContainer?: boolean;
 }

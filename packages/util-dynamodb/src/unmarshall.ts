@@ -16,7 +16,7 @@ export interface unmarshallOptions {
    * When true, skip wrapping the data in `{ M: data }` before converting.
    *
    * Default is true when using the DynamoDBDocumentClient,
-   * but false if only using the unmarshall function.
+   * but false if directly using the unmarshall function (backwards compatibility)..
    */
   convertWithoutMapWrapper?: boolean;
 }
