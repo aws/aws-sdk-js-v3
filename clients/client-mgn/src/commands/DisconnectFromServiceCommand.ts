@@ -163,6 +163,10 @@ export interface DisconnectFromServiceCommandOutput extends SourceServer, __Meta
  * //   applicationID: "STRING_VALUE",
  * //   userProvidedID: "STRING_VALUE",
  * //   fqdnForActionFramework: "STRING_VALUE",
+ * //   connectorAction: { // SourceServerConnectorAction
+ * //     credentialsSecretArn: "STRING_VALUE",
+ * //     connectorArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

@@ -40,6 +40,7 @@ import {
   ChangeServerLifeCycleStateCommandOutput,
 } from "../commands/ChangeServerLifeCycleStateCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
+import { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "../commands/CreateConnectorCommand";
 import {
   CreateLaunchConfigurationTemplateCommandInput,
   CreateLaunchConfigurationTemplateCommandOutput,
@@ -50,6 +51,7 @@ import {
 } from "../commands/CreateReplicationConfigurationTemplateCommand";
 import { CreateWaveCommandInput, CreateWaveCommandOutput } from "../commands/CreateWaveCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
+import { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "../commands/DeleteConnectorCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "../commands/DeleteJobCommand";
 import {
   DeleteLaunchConfigurationTemplateCommandInput,
@@ -109,6 +111,7 @@ import {
 } from "../commands/GetReplicationConfigurationCommand";
 import { InitializeServiceCommandInput, InitializeServiceCommandOutput } from "../commands/InitializeServiceCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
+import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "../commands/ListConnectorsCommand";
 import { ListExportErrorsCommandInput, ListExportErrorsCommandOutput } from "../commands/ListExportErrorsCommand";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "../commands/ListExportsCommand";
 import { ListImportErrorsCommandInput, ListImportErrorsCommandOutput } from "../commands/ListImportErrorsCommand";
@@ -168,6 +171,7 @@ import {
 import { UnarchiveWaveCommandInput, UnarchiveWaveCommandOutput } from "../commands/UnarchiveWaveCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
+import { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "../commands/UpdateConnectorCommand";
 import {
   UpdateLaunchConfigurationCommandInput,
   UpdateLaunchConfigurationCommandOutput,
@@ -184,6 +188,7 @@ import {
   UpdateReplicationConfigurationTemplateCommandInput,
   UpdateReplicationConfigurationTemplateCommandOutput,
 } from "../commands/UpdateReplicationConfigurationTemplateCommand";
+import { UpdateSourceServerCommandInput, UpdateSourceServerCommandOutput } from "../commands/UpdateSourceServerCommand";
 import {
   UpdateSourceServerReplicationTypeCommandInput,
   UpdateSourceServerReplicationTypeCommandOutput,
@@ -194,6 +199,7 @@ import {
   AccessDeniedException,
   ChangeServerLifeCycleStateSourceServerLifecycle,
   ConflictException,
+  ConnectorSsmCommandConfig,
   DescribeJobsRequestFilters,
   DescribeSourceServersRequestFilters,
   ExportTask,
@@ -204,6 +210,7 @@ import {
   Licensing,
   LifeCycleState,
   ListApplicationsRequestFilters,
+  ListConnectorsRequestFilters,
   ListExportsRequestFilters,
   ListImportsRequestFilters,
   ListWavesRequestFilters,
@@ -214,6 +221,7 @@ import {
   S3BucketSource,
   ServiceQuotaExceededException,
   SourceServerActionsRequestFilters,
+  SourceServerConnectorAction,
   SsmDocument,
   SsmExternalParameter,
   SsmParameterStoreParameter,
@@ -411,6 +419,38 @@ export const se_CreateApplicationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateConnectorCommand
+ */
+export const se_CreateConnectorCommand = async (
+  input: CreateConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateConnector";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      name: [],
+      ssmCommandConfig: (_) => _json(_),
+      ssmInstanceID: [],
+      tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateLaunchConfigurationTemplateCommand
  */
 export const se_CreateLaunchConfigurationTemplateCommand = async (
@@ -545,6 +585,35 @@ export const se_DeleteApplicationCommand = async (
     take(input, {
       accountID: [],
       applicationID: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteConnectorCommand
+ */
+export const se_DeleteConnectorCommand = async (
+  input: DeleteConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteConnector";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      connectorID: [],
     })
   );
   return new __HttpRequest({
@@ -1153,6 +1222,37 @@ export const se_ListApplicationsCommand = async (
   body = JSON.stringify(
     take(input, {
       accountID: [],
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListConnectorsCommand
+ */
+export const se_ListConnectorsCommand = async (
+  input: ListConnectorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListConnectors";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
       filters: (_) => _json(_),
       maxResults: [],
       nextToken: [],
@@ -2078,6 +2178,37 @@ export const se_UpdateApplicationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateConnectorCommand
+ */
+export const se_UpdateConnectorCommand = async (
+  input: UpdateConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateConnector";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      connectorID: [],
+      name: [],
+      ssmCommandConfig: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateLaunchConfigurationCommand
  */
 export const se_UpdateLaunchConfigurationCommand = async (
@@ -2238,6 +2369,37 @@ export const se_UpdateReplicationConfigurationTemplateCommand = async (
       stagingAreaTags: (_) => _json(_),
       useDedicatedReplicationServer: [],
       useFipsEndpoint: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateSourceServerCommand
+ */
+export const se_UpdateSourceServerCommand = async (
+  input: UpdateSourceServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateSourceServer";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountID: [],
+      connectorAction: (_) => _json(_),
+      sourceServerID: [],
     })
   );
   return new __HttpRequest({
@@ -2565,6 +2727,7 @@ export const de_ChangeServerLifeCycleStateCommand = async (
   const doc = take(data, {
     applicationID: __expectString,
     arn: __expectString,
+    connectorAction: _json,
     dataReplicationInfo: _json,
     fqdnForActionFramework: __expectString,
     isArchived: __expectBoolean,
@@ -2668,6 +2831,61 @@ const de_CreateApplicationCommandError = async (
     case "UninitializedAccountException":
     case "com.amazonaws.mgn#UninitializedAccountException":
       throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateConnectorCommand
+ */
+export const de_CreateConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectorCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateConnectorCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    connectorID: __expectString,
+    name: __expectString,
+    ssmCommandConfig: _json,
+    ssmInstanceID: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateConnectorCommandError
+ */
+const de_CreateConnectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2915,6 +3133,55 @@ const de_DeleteApplicationCommandError = async (
     case "UninitializedAccountException":
     case "com.amazonaws.mgn#UninitializedAccountException":
       throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteConnectorCommand
+ */
+export const de_DeleteConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectorCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteConnectorCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteConnectorCommandError
+ */
+const de_DeleteConnectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3649,6 +3916,7 @@ export const de_DisconnectFromServiceCommand = async (
   const doc = take(data, {
     applicationID: __expectString,
     arn: __expectString,
+    connectorAction: _json,
     dataReplicationInfo: _json,
     fqdnForActionFramework: __expectString,
     isArchived: __expectBoolean,
@@ -3714,6 +3982,7 @@ export const de_FinalizeCutoverCommand = async (
   const doc = take(data, {
     applicationID: __expectString,
     arn: __expectString,
+    connectorAction: _json,
     dataReplicationInfo: _json,
     fqdnForActionFramework: __expectString,
     isArchived: __expectBoolean,
@@ -3975,6 +4244,57 @@ const de_ListApplicationsCommandError = async (
     case "UninitializedAccountException":
     case "com.amazonaws.mgn#UninitializedAccountException":
       throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListConnectorsCommand
+ */
+export const de_ListConnectorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListConnectorsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListConnectorsCommandError
+ */
+const de_ListConnectorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4463,6 +4783,7 @@ export const de_MarkAsArchivedCommand = async (
   const doc = take(data, {
     applicationID: __expectString,
     arn: __expectString,
+    connectorAction: _json,
     dataReplicationInfo: _json,
     fqdnForActionFramework: __expectString,
     isArchived: __expectBoolean,
@@ -4528,6 +4849,7 @@ export const de_PauseReplicationCommand = async (
   const doc = take(data, {
     applicationID: __expectString,
     arn: __expectString,
+    connectorAction: _json,
     dataReplicationInfo: _json,
     fqdnForActionFramework: __expectString,
     isArchived: __expectBoolean,
@@ -4832,6 +5154,7 @@ export const de_ResumeReplicationCommand = async (
   const doc = take(data, {
     applicationID: __expectString,
     arn: __expectString,
+    connectorAction: _json,
     dataReplicationInfo: _json,
     fqdnForActionFramework: __expectString,
     isArchived: __expectBoolean,
@@ -4903,6 +5226,7 @@ export const de_RetryDataReplicationCommand = async (
   const doc = take(data, {
     applicationID: __expectString,
     arn: __expectString,
+    connectorAction: _json,
     dataReplicationInfo: _json,
     fqdnForActionFramework: __expectString,
     isArchived: __expectBoolean,
@@ -5133,6 +5457,7 @@ export const de_StartReplicationCommand = async (
   const doc = take(data, {
     applicationID: __expectString,
     arn: __expectString,
+    connectorAction: _json,
     dataReplicationInfo: _json,
     fqdnForActionFramework: __expectString,
     isArchived: __expectBoolean,
@@ -5257,6 +5582,7 @@ export const de_StopReplicationCommand = async (
   const doc = take(data, {
     applicationID: __expectString,
     arn: __expectString,
+    connectorAction: _json,
     dataReplicationInfo: _json,
     fqdnForActionFramework: __expectString,
     isArchived: __expectBoolean,
@@ -5660,6 +5986,64 @@ const de_UpdateApplicationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateConnectorCommand
+ */
+export const de_UpdateConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateConnectorCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    connectorID: __expectString,
+    name: __expectString,
+    ssmCommandConfig: _json,
+    ssmInstanceID: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateConnectorCommandError
+ */
+const de_UpdateConnectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateLaunchConfigurationCommand
  */
 export const de_UpdateLaunchConfigurationCommand = async (
@@ -5944,6 +6328,72 @@ const de_UpdateReplicationConfigurationTemplateCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateSourceServerCommand
+ */
+export const de_UpdateSourceServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSourceServerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateSourceServerCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    applicationID: __expectString,
+    arn: __expectString,
+    connectorAction: _json,
+    dataReplicationInfo: _json,
+    fqdnForActionFramework: __expectString,
+    isArchived: __expectBoolean,
+    launchedInstance: _json,
+    lifeCycle: _json,
+    replicationType: __expectString,
+    sourceProperties: _json,
+    sourceServerID: __expectString,
+    tags: _json,
+    userProvidedID: __expectString,
+    vcenterClientID: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSourceServerCommandError
+ */
+const de_UpdateSourceServerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSourceServerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateSourceServerReplicationTypeCommand
  */
 export const de_UpdateSourceServerReplicationTypeCommand = async (
@@ -5960,6 +6410,7 @@ export const de_UpdateSourceServerReplicationTypeCommand = async (
   const doc = take(data, {
     applicationID: __expectString,
     arn: __expectString,
+    connectorAction: _json,
     dataReplicationInfo: _json,
     fqdnForActionFramework: __expectString,
     isArchived: __expectBoolean,
@@ -6261,6 +6712,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ChangeServerLifeCycleStateSourceServerLifecycle omitted.
 
+// se_ConnectorIDsFilter omitted.
+
+// se_ConnectorSsmCommandConfig omitted.
+
 // se_DescribeJobsRequestFilters omitted.
 
 // se_DescribeJobsRequestFiltersJobIDs omitted.
@@ -6285,6 +6740,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ListApplicationsRequestFilters omitted.
 
+// se_ListConnectorsRequestFilters omitted.
+
 // se_ListExportsRequestFilters omitted.
 
 // se_ListExportsRequestFiltersExportIDs omitted.
@@ -6308,6 +6765,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_S3BucketSource omitted.
 
 // se_SourceServerActionsRequestFilters omitted.
+
+// se_SourceServerConnectorAction omitted.
 
 // se_SsmDocument omitted.
 
@@ -6342,6 +6801,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_ApplicationsList omitted.
 
 // de_ConflictExceptionErrors omitted.
+
+// de_Connector omitted.
+
+// de_ConnectorsList omitted.
+
+// de_ConnectorSsmCommandConfig omitted.
 
 // de_CPU omitted.
 
@@ -6538,6 +7003,8 @@ const de_JobsList = (output: any, context: __SerdeContext): Job[] => {
 // de_SourceServerActionDocument omitted.
 
 // de_SourceServerActionDocuments omitted.
+
+// de_SourceServerConnectorAction omitted.
 
 // de_SourceServersList omitted.
 

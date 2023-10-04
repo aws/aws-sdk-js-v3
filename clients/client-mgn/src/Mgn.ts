@@ -29,6 +29,11 @@ import {
   CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  CreateConnectorCommand,
+  CreateConnectorCommandInput,
+  CreateConnectorCommandOutput,
+} from "./commands/CreateConnectorCommand";
+import {
   CreateLaunchConfigurationTemplateCommand,
   CreateLaunchConfigurationTemplateCommandInput,
   CreateLaunchConfigurationTemplateCommandOutput,
@@ -44,6 +49,11 @@ import {
   DeleteApplicationCommandInput,
   DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
+import {
+  DeleteConnectorCommand,
+  DeleteConnectorCommandInput,
+  DeleteConnectorCommandOutput,
+} from "./commands/DeleteConnectorCommand";
 import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
   DeleteLaunchConfigurationTemplateCommand,
@@ -136,6 +146,11 @@ import {
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
+import {
+  ListConnectorsCommand,
+  ListConnectorsCommandInput,
+  ListConnectorsCommandOutput,
+} from "./commands/ListConnectorsCommand";
 import {
   ListExportErrorsCommand,
   ListExportErrorsCommandInput,
@@ -254,6 +269,11 @@ import {
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  UpdateConnectorCommand,
+  UpdateConnectorCommandInput,
+  UpdateConnectorCommandOutput,
+} from "./commands/UpdateConnectorCommand";
+import {
   UpdateLaunchConfigurationCommand,
   UpdateLaunchConfigurationCommandInput,
   UpdateLaunchConfigurationCommandOutput,
@@ -274,6 +294,11 @@ import {
   UpdateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/UpdateReplicationConfigurationTemplateCommand";
 import {
+  UpdateSourceServerCommand,
+  UpdateSourceServerCommandInput,
+  UpdateSourceServerCommandOutput,
+} from "./commands/UpdateSourceServerCommand";
+import {
   UpdateSourceServerReplicationTypeCommand,
   UpdateSourceServerReplicationTypeCommandInput,
   UpdateSourceServerReplicationTypeCommandOutput,
@@ -288,10 +313,12 @@ const commands = {
   AssociateSourceServersCommand,
   ChangeServerLifeCycleStateCommand,
   CreateApplicationCommand,
+  CreateConnectorCommand,
   CreateLaunchConfigurationTemplateCommand,
   CreateReplicationConfigurationTemplateCommand,
   CreateWaveCommand,
   DeleteApplicationCommand,
+  DeleteConnectorCommand,
   DeleteJobCommand,
   DeleteLaunchConfigurationTemplateCommand,
   DeleteReplicationConfigurationTemplateCommand,
@@ -312,6 +339,7 @@ const commands = {
   GetReplicationConfigurationCommand,
   InitializeServiceCommand,
   ListApplicationsCommand,
+  ListConnectorsCommand,
   ListExportErrorsCommand,
   ListExportsCommand,
   ListImportErrorsCommand,
@@ -341,10 +369,12 @@ const commands = {
   UnarchiveWaveCommand,
   UntagResourceCommand,
   UpdateApplicationCommand,
+  UpdateConnectorCommand,
   UpdateLaunchConfigurationCommand,
   UpdateLaunchConfigurationTemplateCommand,
   UpdateReplicationConfigurationCommand,
   UpdateReplicationConfigurationTemplateCommand,
+  UpdateSourceServerCommand,
   UpdateSourceServerReplicationTypeCommand,
   UpdateWaveCommand,
 };
@@ -447,6 +477,20 @@ export interface Mgn {
   ): void;
 
   /**
+   * @see {@link CreateConnectorCommand}
+   */
+  createConnector(
+    args: CreateConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConnectorCommandOutput>;
+  createConnector(args: CreateConnectorCommandInput, cb: (err: any, data?: CreateConnectorCommandOutput) => void): void;
+  createConnector(
+    args: CreateConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateLaunchConfigurationTemplateCommand}
    */
   createLaunchConfigurationTemplate(
@@ -506,6 +550,20 @@ export interface Mgn {
     args: DeleteApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConnectorCommand}
+   */
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectorCommandOutput>;
+  deleteConnector(args: DeleteConnectorCommandInput, cb: (err: any, data?: DeleteConnectorCommandOutput) => void): void;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -825,6 +883,20 @@ export interface Mgn {
     args: ListApplicationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConnectorsCommand}
+   */
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectorsCommandOutput>;
+  listConnectors(args: ListConnectorsCommandInput, cb: (err: any, data?: ListConnectorsCommandOutput) => void): void;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
   ): void;
 
   /**
@@ -1255,6 +1327,20 @@ export interface Mgn {
   ): void;
 
   /**
+   * @see {@link UpdateConnectorCommand}
+   */
+  updateConnector(
+    args: UpdateConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectorCommandOutput>;
+  updateConnector(args: UpdateConnectorCommandInput, cb: (err: any, data?: UpdateConnectorCommandOutput) => void): void;
+  updateConnector(
+    args: UpdateConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateLaunchConfigurationCommand}
    */
   updateLaunchConfiguration(
@@ -1320,6 +1406,23 @@ export interface Mgn {
     args: UpdateReplicationConfigurationTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateReplicationConfigurationTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSourceServerCommand}
+   */
+  updateSourceServer(
+    args: UpdateSourceServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSourceServerCommandOutput>;
+  updateSourceServer(
+    args: UpdateSourceServerCommandInput,
+    cb: (err: any, data?: UpdateSourceServerCommandOutput) => void
+  ): void;
+  updateSourceServer(
+    args: UpdateSourceServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSourceServerCommandOutput) => void
   ): void;
 
   /**

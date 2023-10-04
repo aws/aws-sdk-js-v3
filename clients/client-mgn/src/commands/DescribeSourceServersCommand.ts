@@ -185,6 +185,10 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  * //       applicationID: "STRING_VALUE",
  * //       userProvidedID: "STRING_VALUE",
  * //       fqdnForActionFramework: "STRING_VALUE",
+ * //       connectorAction: { // SourceServerConnectorAction
+ * //         credentialsSecretArn: "STRING_VALUE",
+ * //         connectorArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

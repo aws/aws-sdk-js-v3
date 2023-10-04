@@ -163,6 +163,10 @@ export interface ResumeReplicationCommandOutput extends SourceServer, __Metadata
  * //   applicationID: "STRING_VALUE",
  * //   userProvidedID: "STRING_VALUE",
  * //   fqdnForActionFramework: "STRING_VALUE",
+ * //   connectorAction: { // SourceServerConnectorAction
+ * //     credentialsSecretArn: "STRING_VALUE",
+ * //     connectorArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

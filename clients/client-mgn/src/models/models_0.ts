@@ -602,74 +602,102 @@ export interface UpdateApplicationRequest {
 
 /**
  * @public
- * <p>List export errors request.</p>
+ * <p>Connector SSM command config.</p>
  */
-export interface ListExportErrorsRequest {
+export interface ConnectorSsmCommandConfig {
   /**
    * @public
-   * <p>List export errors request export id.</p>
+   * <p>Connector SSM command config S3 output enabled.</p>
    */
-  exportID: string | undefined;
+  s3OutputEnabled: boolean | undefined;
 
   /**
    * @public
-   * <p>List export errors request max results.</p>
+   * <p>Connector SSM command config output S3 bucket name.</p>
    */
-  maxResults?: number;
+  outputS3BucketName?: string;
 
   /**
    * @public
-   * <p>List export errors request next token.</p>
+   * <p>Connector SSM command config CloudWatch output enabled.</p>
    */
-  nextToken?: string;
+  cloudWatchOutputEnabled: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Connector SSM command config CloudWatch log group name.</p>
+   */
+  cloudWatchLogGroupName?: string;
 }
 
 /**
  * @public
- * <p>Export errors data.</p>
  */
-export interface ExportErrorData {
+export interface Connector {
   /**
    * @public
-   * <p>Export errors data raw error.</p>
+   * <p>Connector ID.</p>
    */
-  rawError?: string;
+  connectorID?: string;
+
+  /**
+   * @public
+   * <p>Connector name.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Connector SSM instance ID.</p>
+   */
+  ssmInstanceID?: string;
+
+  /**
+   * @public
+   * <p>Connector arn.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>Connector tags.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Connector SSM command config.</p>
+   */
+  ssmCommandConfig?: ConnectorSsmCommandConfig;
 }
 
 /**
  * @public
- * <p>Export task error.</p>
  */
-export interface ExportTaskError {
+export interface CreateConnectorRequest {
   /**
    * @public
-   * <p>Export task error datetime.</p>
+   * <p>Create Connector request name.</p>
    */
-  errorDateTime?: string;
+  name: string | undefined;
 
   /**
    * @public
-   * <p>Export task error data.</p>
+   * <p>Create Connector request SSM instance ID.</p>
    */
-  errorData?: ExportErrorData;
-}
-
-/**
- * @public
- * <p>List export errors response.</p>
- */
-export interface ListExportErrorsResponse {
-  /**
-   * @public
-   * <p>List export errors response items.</p>
-   */
-  items?: ExportTaskError[];
+  ssmInstanceID: string | undefined;
 
   /**
    * @public
-   * <p>List export errors response next token.</p>
+   * <p>Create Connector request tags.</p>
    */
-  nextToken?: string;
+  tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Create Connector request SSM command config.</p>
+   */
+  ssmCommandConfig?: ConnectorSsmCommandConfig;
 }
 
 /**
@@ -740,6 +768,164 @@ export class ValidationException extends __BaseException {
     this.reason = opts.reason;
     this.fieldList = opts.fieldList;
   }
+}
+
+/**
+ * @public
+ */
+export interface DeleteConnectorRequest {
+  /**
+   * @public
+   * <p>Delete Connector request connector ID.</p>
+   */
+  connectorID: string | undefined;
+}
+
+/**
+ * @public
+ * <p>List Connectors Request Filters.</p>
+ */
+export interface ListConnectorsRequestFilters {
+  /**
+   * @public
+   * <p>List Connectors Request Filters connector IDs.</p>
+   */
+  connectorIDs?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsRequest {
+  /**
+   * @public
+   * <p>List Connectors Request filters.</p>
+   */
+  filters?: ListConnectorsRequestFilters;
+
+  /**
+   * @public
+   * <p>List Connectors Request max results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>List Connectors Request next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsResponse {
+  /**
+   * @public
+   * <p>List connectors response items.</p>
+   */
+  items?: Connector[];
+
+  /**
+   * @public
+   * <p>List connectors response next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectorRequest {
+  /**
+   * @public
+   * <p>Update Connector request connector ID.</p>
+   */
+  connectorID: string | undefined;
+
+  /**
+   * @public
+   * <p>Update Connector request name.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Update Connector request SSM command config.</p>
+   */
+  ssmCommandConfig?: ConnectorSsmCommandConfig;
+}
+
+/**
+ * @public
+ * <p>List export errors request.</p>
+ */
+export interface ListExportErrorsRequest {
+  /**
+   * @public
+   * <p>List export errors request export id.</p>
+   */
+  exportID: string | undefined;
+
+  /**
+   * @public
+   * <p>List export errors request max results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>List export errors request next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Export errors data.</p>
+ */
+export interface ExportErrorData {
+  /**
+   * @public
+   * <p>Export errors data raw error.</p>
+   */
+  rawError?: string;
+}
+
+/**
+ * @public
+ * <p>Export task error.</p>
+ */
+export interface ExportTaskError {
+  /**
+   * @public
+   * <p>Export task error datetime.</p>
+   */
+  errorDateTime?: string;
+
+  /**
+   * @public
+   * <p>Export task error data.</p>
+   */
+  errorData?: ExportErrorData;
+}
+
+/**
+ * @public
+ * <p>List export errors response.</p>
+ */
+export interface ListExportErrorsResponse {
+  /**
+   * @public
+   * <p>List export errors response items.</p>
+   */
+  items?: ExportTaskError[];
+
+  /**
+   * @public
+   * <p>List export errors response next token.</p>
+   */
+  nextToken?: string;
 }
 
 /**
@@ -3209,6 +3395,24 @@ export interface ChangeServerLifeCycleStateRequest {
 
 /**
  * @public
+ * <p>Source Server connector action.</p>
+ */
+export interface SourceServerConnectorAction {
+  /**
+   * @public
+   * <p>Source Server connector action credentials secret arn.</p>
+   */
+  credentialsSecretArn?: string;
+
+  /**
+   * @public
+   * <p>Source Server connector action connector arn.</p>
+   */
+  connectorArn?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const DataReplicationErrorString = {
@@ -3944,6 +4148,12 @@ export interface SourceServer {
    * <p>Source server fqdn for action framework.</p>
    */
   fqdnForActionFramework?: string;
+
+  /**
+   * @public
+   * <p>Source Server connector action.</p>
+   */
+  connectorAction?: SourceServerConnectorAction;
 }
 
 /**
@@ -5002,6 +5212,29 @@ export interface UpdateReplicationConfigurationRequest {
 /**
  * @public
  */
+export interface UpdateSourceServerRequest {
+  /**
+   * @public
+   * <p>Update Source Server request account ID.</p>
+   */
+  accountID?: string;
+
+  /**
+   * @public
+   * <p>Update Source Server request source server ID.</p>
+   */
+  sourceServerID: string | undefined;
+
+  /**
+   * @public
+   * <p>Update Source Server request connector action.</p>
+   */
+  connectorAction?: SourceServerConnectorAction;
+}
+
+/**
+ * @public
+ */
 export interface UpdateSourceServerReplicationTypeRequest {
   /**
    * @public
@@ -5536,6 +5769,30 @@ export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicatio
 export const ListApplicationsResponseFilterSensitiveLog = (obj: ListApplicationsResponse): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => ApplicationFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectorFilterSensitiveLog = (obj: Connector): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectorRequestFilterSensitiveLog = (obj: CreateConnectorRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListConnectorsResponseFilterSensitiveLog = (obj: ListConnectorsResponse): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => ConnectorFilterSensitiveLog(item)) }),
 });
 
 /**

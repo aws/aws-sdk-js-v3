@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { FinalizeCutoverRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
-import { de_FinalizeCutoverCommand, se_FinalizeCutoverCommand } from "../protocols/Aws_restJson1";
+import { SourceServer, SourceServerFilterSensitiveLog, UpdateSourceServerRequest } from "../models/models_0";
+import { de_UpdateSourceServerCommand, se_UpdateSourceServerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,30 +25,34 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link FinalizeCutoverCommand}.
+ * The input for {@link UpdateSourceServerCommand}.
  */
-export interface FinalizeCutoverCommandInput extends FinalizeCutoverRequest {}
+export interface UpdateSourceServerCommandInput extends UpdateSourceServerRequest {}
 /**
  * @public
  *
- * The output of {@link FinalizeCutoverCommand}.
+ * The output of {@link UpdateSourceServerCommand}.
  */
-export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBearer {}
+export interface UpdateSourceServerCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
  * @public
- * <p>Finalizes the cutover immediately for specific Source Servers. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. The AWS Replication Agent will receive a command to uninstall itself (within 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be changed to DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The totalStorageBytes property fo each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
+ * <p>Update Source Server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, FinalizeCutoverCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, FinalizeCutoverCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, UpdateSourceServerCommand } from "@aws-sdk/client-mgn"; // ES Modules import
+ * // const { MgnClient, UpdateSourceServerCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = { // FinalizeCutoverRequest
- *   sourceServerID: "STRING_VALUE", // required
+ * const input = { // UpdateSourceServerRequest
  *   accountID: "STRING_VALUE",
+ *   sourceServerID: "STRING_VALUE", // required
+ *   connectorAction: { // SourceServerConnectorAction
+ *     credentialsSecretArn: "STRING_VALUE",
+ *     connectorArn: "STRING_VALUE",
+ *   },
  * };
- * const command = new FinalizeCutoverCommand(input);
+ * const command = new UpdateSourceServerCommand(input);
  * const response = await client.send(command);
  * // { // SourceServer
  * //   sourceServerID: "STRING_VALUE",
@@ -171,10 +175,10 @@ export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBe
  *
  * ```
  *
- * @param FinalizeCutoverCommandInput - {@link FinalizeCutoverCommandInput}
- * @returns {@link FinalizeCutoverCommandOutput}
- * @see {@link FinalizeCutoverCommandInput} for command's `input` shape.
- * @see {@link FinalizeCutoverCommandOutput} for command's `response` shape.
+ * @param UpdateSourceServerCommandInput - {@link UpdateSourceServerCommandInput}
+ * @returns {@link UpdateSourceServerCommandOutput}
+ * @see {@link UpdateSourceServerCommandInput} for command's `input` shape.
+ * @see {@link UpdateSourceServerCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -186,16 +190,13 @@ export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBe
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
- *
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
-export class FinalizeCutoverCommand extends $Command<
-  FinalizeCutoverCommandInput,
-  FinalizeCutoverCommandOutput,
+export class UpdateSourceServerCommand extends $Command<
+  UpdateSourceServerCommandInput,
+  UpdateSourceServerCommandOutput,
   MgnClientResolvedConfig
 > {
   // Start section: command_properties
@@ -213,7 +214,7 @@ export class FinalizeCutoverCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: FinalizeCutoverCommandInput) {
+  constructor(readonly input: UpdateSourceServerCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -226,17 +227,17 @@ export class FinalizeCutoverCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MgnClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<FinalizeCutoverCommandInput, FinalizeCutoverCommandOutput> {
+  ): Handler<UpdateSourceServerCommandInput, UpdateSourceServerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, FinalizeCutoverCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateSourceServerCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MgnClient";
-    const commandName = "FinalizeCutoverCommand";
+    const commandName = "UpdateSourceServerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -245,7 +246,7 @@ export class FinalizeCutoverCommand extends $Command<
       outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "ApplicationMigrationService",
-        operation: "FinalizeCutover",
+        operation: "UpdateSourceServer",
       },
     };
     const { requestHandler } = configuration;
@@ -259,15 +260,15 @@ export class FinalizeCutoverCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: FinalizeCutoverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_FinalizeCutoverCommand(input, context);
+  private serialize(input: UpdateSourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateSourceServerCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FinalizeCutoverCommandOutput> {
-    return de_FinalizeCutoverCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSourceServerCommandOutput> {
+    return de_UpdateSourceServerCommand(output, context);
   }
 
   // Start section: command_body_extra
