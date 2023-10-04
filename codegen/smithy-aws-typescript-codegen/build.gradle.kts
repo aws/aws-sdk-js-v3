@@ -37,6 +37,7 @@ buildscript {
 dependencies {
     api("software.amazon.smithy:smithy-aws-cloudformation-traits:$smithyVersion")
     api("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
+    api("software.amazon.smithy:smithy-aws-endpoints:$smithyVersion")
     api("software.amazon.smithy:smithy-waiters:$smithyVersion")
     api("software.amazon.smithy:smithy-aws-iam-traits:$smithyVersion")
     api("software.amazon.smithy:smithy-protocol-test-traits:$smithyVersion")
