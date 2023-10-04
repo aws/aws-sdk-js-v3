@@ -1,4 +1,3 @@
-
 export * from "./DynamoDBDocument";
 
 export * from "./DynamoDBDocumentClient";

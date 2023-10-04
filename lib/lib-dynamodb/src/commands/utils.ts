@@ -36,18 +36,30 @@ const processObj = (obj: any, processFunc: Function, children?: KeyNode[] | AllN
 };
 
 const processKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNode[]) => {
-  const accumulator = { ...obj };
+  let accumulator: any;
+  if (Array.isArray(obj)) {
+    accumulator = [...obj];
+  } else {
+    accumulator = { ...obj };
+  }
   return keyNodes.reduce((acc, { key, children }) => {
-    acc[key] = processObj(acc[key], processFunc, children);
+    const value = processObj(acc[key], processFunc, children);
+    if (value !== undefined) {
+      acc[key] = value;
+    }
     return acc;
   }, accumulator);
 };
 
-const processAllKeysInObj = (obj: any, processFunc: Function, children?: KeyNode[] | AllNodes): any =>
-  Object.entries(obj).reduce((acc, [key, value]) => {
+const processAllKeysInObj = (obj: any, processFunc: Function, children?: KeyNode[] | AllNodes): any => {
+  if (Array.isArray(obj)) {
+    return obj.map((item) => processObj(item, processFunc, children));
+  }
+  return Object.entries(obj).reduce((acc, [key, value]) => {
     acc[key] = processObj(value, processFunc, children);
     return acc;
   }, {} as any);
+};
 
 /**
  * @internal
