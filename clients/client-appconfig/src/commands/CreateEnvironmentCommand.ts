@@ -105,9 +105,9 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  *          <p>Deployment strategies: 20 max</p>
  *          <p>Configuration profiles: 100 max per application</p>
  *          <p>Environments: 20 max per application</p>
- *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you
- *          can request a quota increase. For more information about quotas and to request an increase,
- *          see <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+ *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you can
+ *          request a quota increase. For more information about quotas and to request an increase, see
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
  *
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>

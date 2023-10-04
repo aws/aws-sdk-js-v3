@@ -347,9 +347,9 @@ export class InternalServerException extends __BaseException {
  *          <p>Deployment strategies: 20 max</p>
  *          <p>Configuration profiles: 100 max per application</p>
  *          <p>Environments: 20 max per application</p>
- *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you
- *          can request a quota increase. For more information about quotas and to request an increase,
- *          see <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+ *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you can
+ *          request a quota increase. For more information about quotas and to request an increase, see
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -470,6 +470,21 @@ export interface ConfigurationProfile {
    *          </p>
    */
   Type?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name of the Key Management Service key to encrypt new configuration data
+   *          versions in the AppConfig hosted configuration store. This
+   *          attribute is only used for <code>hosted</code> configuration types. To encrypt data managed
+   *          in other configuration stores, see the documentation for how to specify an KMS key for that particular service.</p>
+   */
+  KmsKeyArn?: string;
+
+  /**
+   * @public
+   * <p>The Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.</p>
+   */
+  KmsKeyIdentifier?: string;
 }
 
 /**
@@ -570,6 +585,16 @@ export interface CreateConfigurationProfileRequest {
    *          </p>
    */
   Type?: string;
+
+  /**
+   * @public
+   * <p>The identifier for an Key Management Service key to encrypt new configuration
+   *          data versions in the AppConfig hosted configuration store. This attribute is only
+   *          used for <code>hosted</code> configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+   *          To encrypt data managed in other configuration stores, see the documentation for how to
+   *          specify an KMS key for that particular service.</p>
+   */
+  KmsKeyIdentifier?: string;
 }
 
 /**
@@ -1208,6 +1233,14 @@ export interface HostedConfigurationVersion {
    * <p>A user-defined label for an AppConfig hosted configuration version.</p>
    */
   VersionLabel?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name of the Key Management Service key that was used to encrypt this
+   *          specific version of the configuration data in the AppConfig hosted configuration
+   *          store.</p>
+   */
+  KmsKeyArn?: string;
 }
 
 /**
@@ -1745,7 +1778,7 @@ export interface Deployment {
 
   /**
    * @public
-   * <p>The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this ID to encrypt the configuration data using a customer managed key. </p>
+   * <p>The Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.</p>
    */
   KmsKeyIdentifier?: string;
 
@@ -2415,6 +2448,14 @@ export interface HostedConfigurationVersionSummary {
    * <p>A user-defined label for an AppConfig hosted configuration version.</p>
    */
   VersionLabel?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name of the Key Management Service key that was used to encrypt this
+   *          specific version of the configuration data in the AppConfig hosted configuration
+   *          store.</p>
+   */
+  KmsKeyArn?: string;
 }
 
 /**
@@ -2675,6 +2716,16 @@ export interface UpdateConfigurationProfileRequest {
    * <p>A list of methods for validating the configuration.</p>
    */
   Validators?: Validator[];
+
+  /**
+   * @public
+   * <p>The identifier for a Key Management Service key to encrypt new configuration
+   *          data versions in the AppConfig hosted configuration store. This attribute is only
+   *          used for <code>hosted</code> configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+   *          To encrypt data managed in other configuration stores, see the documentation for how to
+   *          specify an KMS key for that particular service.</p>
+   */
+  KmsKeyIdentifier?: string;
 }
 
 /**

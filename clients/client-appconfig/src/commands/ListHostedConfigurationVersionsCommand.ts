@@ -66,6 +66,7 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
  * //       Description: "STRING_VALUE",
  * //       ContentType: "STRING_VALUE",
  * //       VersionLabel: "STRING_VALUE",
+ * //       KmsKeyArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

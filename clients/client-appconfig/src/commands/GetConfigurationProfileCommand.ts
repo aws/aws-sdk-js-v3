@@ -68,6 +68,8 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
  * //     },
  * //   ],
  * //   Type: "STRING_VALUE",
+ * //   KmsKeyArn: "STRING_VALUE",
+ * //   KmsKeyIdentifier: "STRING_VALUE",
  * // };
  *
  * ```

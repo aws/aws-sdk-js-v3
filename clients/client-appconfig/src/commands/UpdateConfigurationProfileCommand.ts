@@ -61,6 +61,7 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
  *       Content: "STRING_VALUE", // required
  *     },
  *   ],
+ *   KmsKeyIdentifier: "STRING_VALUE",
  * };
  * const command = new UpdateConfigurationProfileCommand(input);
  * const response = await client.send(command);
@@ -78,6 +79,8 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
  * //     },
  * //   ],
  * //   Type: "STRING_VALUE",
+ * //   KmsKeyArn: "STRING_VALUE",
+ * //   KmsKeyIdentifier: "STRING_VALUE",
  * // };
  *
  * ```

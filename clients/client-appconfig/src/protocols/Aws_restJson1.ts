@@ -205,6 +205,7 @@ export const se_CreateConfigurationProfileCommand = async (
   body = JSON.stringify(
     take(input, {
       Description: [],
+      KmsKeyIdentifier: [],
       LocationUri: [],
       Name: [],
       RetrievalRoleArn: [],
@@ -1563,6 +1564,7 @@ export const se_UpdateConfigurationProfileCommand = async (
   body = JSON.stringify(
     take(input, {
       Description: [],
+      KmsKeyIdentifier: [],
       Name: [],
       RetrievalRoleArn: [],
       Validators: (_) => _json(_),
@@ -1868,6 +1870,8 @@ export const de_CreateConfigurationProfileCommand = async (
     ApplicationId: __expectString,
     Description: __expectString,
     Id: __expectString,
+    KmsKeyArn: __expectString,
+    KmsKeyIdentifier: __expectString,
     LocationUri: __expectString,
     Name: __expectString,
     RetrievalRoleArn: __expectString,
@@ -2178,6 +2182,7 @@ export const de_CreateHostedConfigurationVersionCommand = async (
     Description: [, output.headers["description"]],
     ContentType: [, output.headers["content-type"]],
     VersionLabel: [, output.headers["versionlabel"]],
+    KmsKeyArn: [, output.headers["kmskeyarn"]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Content = data;
@@ -2699,6 +2704,8 @@ export const de_GetConfigurationProfileCommand = async (
     ApplicationId: __expectString,
     Description: __expectString,
     Id: __expectString,
+    KmsKeyArn: __expectString,
+    KmsKeyIdentifier: __expectString,
     LocationUri: __expectString,
     Name: __expectString,
     RetrievalRoleArn: __expectString,
@@ -3071,6 +3078,7 @@ export const de_GetHostedConfigurationVersionCommand = async (
     Description: [, output.headers["description"]],
     ContentType: [, output.headers["content-type"]],
     VersionLabel: [, output.headers["versionlabel"]],
+    KmsKeyArn: [, output.headers["kmskeyarn"]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Content = data;
@@ -3904,6 +3912,8 @@ export const de_UpdateConfigurationProfileCommand = async (
     ApplicationId: __expectString,
     Description: __expectString,
     Id: __expectString,
+    KmsKeyArn: __expectString,
+    KmsKeyIdentifier: __expectString,
     LocationUri: __expectString,
     Name: __expectString,
     RetrievalRoleArn: __expectString,

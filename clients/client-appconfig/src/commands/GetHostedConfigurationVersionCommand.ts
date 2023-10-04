@@ -76,6 +76,7 @@ export interface GetHostedConfigurationVersionCommandOutput
  * //   Content: "BLOB_VALUE",
  * //   ContentType: "STRING_VALUE",
  * //   VersionLabel: "STRING_VALUE",
+ * //   KmsKeyArn: "STRING_VALUE",
  * // };
  *
  * ```
