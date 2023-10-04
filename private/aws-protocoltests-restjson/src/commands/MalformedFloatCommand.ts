@@ -34,6 +34,37 @@ export interface MalformedFloatCommandInput extends MalformedFloatInput {}
  */
 export interface MalformedFloatCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, MalformedFloatCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, MalformedFloatCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const input = { // MalformedFloatInput
+ *   floatInBody: Number("float"),
+ *   floatInPath: Number("float"), // required
+ *   floatInQuery: Number("float"),
+ *   floatInHeader: Number("float"),
+ * };
+ * const command = new MalformedFloatCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param MalformedFloatCommandInput - {@link MalformedFloatCommandInput}
+ * @returns {@link MalformedFloatCommandOutput}
+ * @see {@link MalformedFloatCommandInput} for command's `input` shape.
+ * @see {@link MalformedFloatCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
+ */
 export class MalformedFloatCommand extends $Command<
   MalformedFloatCommandInput,
   MalformedFloatCommandOutput,

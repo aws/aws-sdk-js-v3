@@ -97,6 +97,10 @@ import {
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
 } from "../commands/HttpPayloadWithStructureCommand";
+import {
+  HttpPayloadWithUnionCommandInput,
+  HttpPayloadWithUnionCommandOutput,
+} from "../commands/HttpPayloadWithUnionCommand";
 import { HttpPrefixHeadersCommandInput, HttpPrefixHeadersCommandOutput } from "../commands/HttpPrefixHeadersCommand";
 import {
   HttpPrefixHeadersInResponseCommandInput,
@@ -312,6 +316,7 @@ import {
   SimpleUnion,
   StructureListMember,
   TestConfig,
+  UnionPayload,
   UnionWithJsonName,
   Unit,
 } from "../models/models_0";
@@ -844,6 +849,37 @@ export const se_HttpPayloadWithStructureCommand = async (
   };
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithStructure";
+  let body: any;
+  if (input.nested !== undefined) {
+    body = _json(input.nested);
+  }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1HttpPayloadWithUnionCommand
+ */
+export const se_HttpPayloadWithUnionCommand = async (
+  input: HttpPayloadWithUnionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithUnion";
   let body: any;
   if (input.nested !== undefined) {
     body = _json(input.nested);
@@ -3941,6 +3977,44 @@ const de_HttpPayloadWithStructureCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPayloadWithStructureCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1HttpPayloadWithUnionCommand
+ */
+export const de_HttpPayloadWithUnionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpPayloadWithUnionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_HttpPayloadWithUnionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectUnion(await parseBody(output.body, context));
+  contents.nested = _json(data);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1HttpPayloadWithUnionCommandError
+ */
+const de_HttpPayloadWithUnionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpPayloadWithUnionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -7133,6 +7207,8 @@ const se_StructureListMember = (input: StructureListMember, context: __SerdeCont
 
 // se_TestConfig omitted.
 
+// se_UnionPayload omitted.
+
 /**
  * serializeAws_restJson1UnionWithJsonName
  */
@@ -7393,6 +7469,8 @@ const de_StructureListMember = (output: any, context: __SerdeContext): Structure
 };
 
 // de_TestConfig omitted.
+
+// de_UnionPayload omitted.
 
 /**
  * deserializeAws_restJson1UnionWithJsonName

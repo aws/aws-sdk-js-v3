@@ -35,6 +35,37 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
  */
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaPackageClient, UntagResourceCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
+ * // const { MediaPackageClient, UntagResourceCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * const client = new MediaPackageClient(config);
+ * const input = { // UntagResourceRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagKeys: [ // __listOf__string // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ * const command = new UntagResourceCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
+ * @returns {@link UntagResourceCommandOutput}
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
+ *
+ * @throws {@link MediaPackageServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackage service.</p>
+ *
+ */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,

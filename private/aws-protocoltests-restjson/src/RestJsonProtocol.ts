@@ -88,6 +88,11 @@ import {
   HttpPayloadWithStructureCommandOutput,
 } from "./commands/HttpPayloadWithStructureCommand";
 import {
+  HttpPayloadWithUnionCommand,
+  HttpPayloadWithUnionCommandInput,
+  HttpPayloadWithUnionCommandOutput,
+} from "./commands/HttpPayloadWithUnionCommand";
+import {
   HttpPrefixHeadersCommand,
   HttpPrefixHeadersCommandInput,
   HttpPrefixHeadersCommandOutput,
@@ -457,6 +462,7 @@ const commands = {
   HttpPayloadTraitsCommand,
   HttpPayloadTraitsWithMediaTypeCommand,
   HttpPayloadWithStructureCommand,
+  HttpPayloadWithUnionCommand,
   HttpPrefixHeadersCommand,
   HttpPrefixHeadersInResponseCommand,
   HttpRequestWithFloatLabelsCommand,
@@ -809,6 +815,23 @@ export interface RestJsonProtocol {
     args: HttpPayloadWithStructureCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: HttpPayloadWithStructureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link HttpPayloadWithUnionCommand}
+   */
+  httpPayloadWithUnion(
+    args: HttpPayloadWithUnionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpPayloadWithUnionCommandOutput>;
+  httpPayloadWithUnion(
+    args: HttpPayloadWithUnionCommandInput,
+    cb: (err: any, data?: HttpPayloadWithUnionCommandOutput) => void
+  ): void;
+  httpPayloadWithUnion(
+    args: HttpPayloadWithUnionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpPayloadWithUnionCommandOutput) => void
   ): void;
 
   /**

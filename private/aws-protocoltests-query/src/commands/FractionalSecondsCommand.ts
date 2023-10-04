@@ -34,6 +34,34 @@ export interface FractionalSecondsCommandInput {}
  */
 export interface FractionalSecondsCommandOutput extends FractionalSecondsOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QueryProtocolClient, FractionalSecondsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
+ * // const { QueryProtocolClient, FractionalSecondsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
+ * const client = new QueryProtocolClient(config);
+ * const input = {};
+ * const command = new FractionalSecondsCommand(input);
+ * const response = await client.send(command);
+ * // { // FractionalSecondsOutput
+ * //   datetime: new Date("TIMESTAMP"),
+ * // };
+ *
+ * ```
+ *
+ * @param FractionalSecondsCommandInput - {@link FractionalSecondsCommandInput}
+ * @returns {@link FractionalSecondsCommandOutput}
+ * @see {@link FractionalSecondsCommandInput} for command's `input` shape.
+ * @see {@link FractionalSecondsCommandOutput} for command's `response` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
+ *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
+ *
+ */
 export class FractionalSecondsCommand extends $Command<
   FractionalSecondsCommandInput,
   FractionalSecondsCommandOutput,

@@ -31,6 +31,32 @@ export interface OnlyCustomAuthOptionalCommandInput {}
  */
 export interface OnlyCustomAuthOptionalCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WeatherClient, OnlyCustomAuthOptionalCommand } from "@aws-sdk/weather"; // ES Modules import
+ * // const { WeatherClient, OnlyCustomAuthOptionalCommand } = require("@aws-sdk/weather"); // CommonJS import
+ * const client = new WeatherClient(config);
+ * const input = {};
+ * const command = new OnlyCustomAuthOptionalCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param OnlyCustomAuthOptionalCommandInput - {@link OnlyCustomAuthOptionalCommandInput}
+ * @returns {@link OnlyCustomAuthOptionalCommandOutput}
+ * @see {@link OnlyCustomAuthOptionalCommandInput} for command's `input` shape.
+ * @see {@link OnlyCustomAuthOptionalCommandOutput} for command's `response` shape.
+ * @see {@link WeatherClientResolvedConfig | config} for WeatherClient's `config` shape.
+ *
+ * @throws {@link WeatherServiceException}
+ * <p>Base exception class for all service exceptions from Weather service.</p>
+ *
+ */
 export class OnlyCustomAuthOptionalCommand extends $Command<
   OnlyCustomAuthOptionalCommandInput,
   OnlyCustomAuthOptionalCommandOutput,

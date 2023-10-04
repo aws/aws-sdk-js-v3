@@ -16,6 +16,7 @@ export * from "./HttpEnumPayloadCommand";
 export * from "./HttpPayloadTraitsCommand";
 export * from "./HttpPayloadTraitsWithMediaTypeCommand";
 export * from "./HttpPayloadWithStructureCommand";
+export * from "./HttpPayloadWithUnionCommand";
 export * from "./HttpPrefixHeadersCommand";
 export * from "./HttpPrefixHeadersInResponseCommand";
 export * from "./HttpRequestWithFloatLabelsCommand";

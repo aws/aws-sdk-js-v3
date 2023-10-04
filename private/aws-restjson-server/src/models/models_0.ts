@@ -941,6 +941,97 @@ export namespace HttpPayloadWithStructureInputOutput {
 /**
  * @public
  */
+export type UnionPayload = UnionPayload.GreetingMember | UnionPayload.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UnionPayload {
+  export interface GreetingMember {
+    greeting: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    greeting?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    greeting: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UnionPayload, visitor: Visitor<T>): T => {
+    if (value.greeting !== undefined) return visitor.greeting(value.greeting);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  const memberValidators: {
+    greeting?: __MultiConstraintValidator<string>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: UnionPayload, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "greeting": {
+            memberValidators["greeting"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("greeting").validate(obj.greeting, `${path}/greeting`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface HttpPayloadWithUnionInputOutput {
+  nested?: UnionPayload;
+}
+
+export namespace HttpPayloadWithUnionInputOutput {
+  const memberValidators: {
+    nested?: __MultiConstraintValidator<UnionPayload>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: HttpPayloadWithUnionInputOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "nested": {
+            memberValidators["nested"] = new __CompositeStructureValidator<UnionPayload>(
+              new __NoOpValidator(),
+              UnionPayload.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("nested").validate(obj.nested, `${path}/nested`)];
+  };
+}
+
+/**
+ * @public
+ */
 export interface HttpPrefixHeadersInput {
   foo?: string;
   fooMap?: Record<string, string>;

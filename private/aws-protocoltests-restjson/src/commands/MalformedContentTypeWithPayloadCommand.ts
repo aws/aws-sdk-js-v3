@@ -45,6 +45,34 @@ export interface MalformedContentTypeWithPayloadCommandInput extends MalformedCo
  */
 export interface MalformedContentTypeWithPayloadCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, MalformedContentTypeWithPayloadCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, MalformedContentTypeWithPayloadCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const input = { // MalformedContentTypeWithPayloadInput
+ *   payload: "BLOB_VALUE",
+ * };
+ * const command = new MalformedContentTypeWithPayloadCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param MalformedContentTypeWithPayloadCommandInput - {@link MalformedContentTypeWithPayloadCommandInput}
+ * @returns {@link MalformedContentTypeWithPayloadCommandOutput}
+ * @see {@link MalformedContentTypeWithPayloadCommandInput} for command's `input` shape.
+ * @see {@link MalformedContentTypeWithPayloadCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
+ */
 export class MalformedContentTypeWithPayloadCommand extends $Command<
   MalformedContentTypeWithPayloadCommandInput,
   MalformedContentTypeWithPayloadCommandOutput,

@@ -250,6 +250,46 @@ export interface HttpPayloadWithStructureInputOutput {
 /**
  * @public
  */
+export type UnionPayload = UnionPayload.GreetingMember | UnionPayload.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UnionPayload {
+  export interface GreetingMember {
+    greeting: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    greeting?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    greeting: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UnionPayload, visitor: Visitor<T>): T => {
+    if (value.greeting !== undefined) return visitor.greeting(value.greeting);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface HttpPayloadWithUnionInputOutput {
+  nested?: UnionPayload;
+}
+
+/**
+ * @public
+ */
 export interface HttpPayloadWithXmlNameInputOutput {
   nested?: PayloadWithXmlName;
 }
@@ -567,6 +607,13 @@ export interface XmlIntEnumsInputOutput {
  */
 export interface XmlMapsXmlNameInputOutput {
   myMap?: Record<string, GreetingStruct>;
+}
+
+/**
+ * @public
+ */
+export interface XmlMapWithXmlNamespaceInputOutput {
+  myMap?: Record<string, string>;
 }
 
 /**

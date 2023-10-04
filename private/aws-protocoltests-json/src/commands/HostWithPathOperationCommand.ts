@@ -33,6 +33,32 @@ export interface HostWithPathOperationCommandInput {}
  */
 export interface HostWithPathOperationCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { JsonProtocolClient, HostWithPathOperationCommand } from "@aws-sdk/aws-protocoltests-json"; // ES Modules import
+ * // const { JsonProtocolClient, HostWithPathOperationCommand } = require("@aws-sdk/aws-protocoltests-json"); // CommonJS import
+ * const client = new JsonProtocolClient(config);
+ * const input = {};
+ * const command = new HostWithPathOperationCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param HostWithPathOperationCommandInput - {@link HostWithPathOperationCommandInput}
+ * @returns {@link HostWithPathOperationCommandOutput}
+ * @see {@link HostWithPathOperationCommandInput} for command's `input` shape.
+ * @see {@link HostWithPathOperationCommandOutput} for command's `response` shape.
+ * @see {@link JsonProtocolClientResolvedConfig | config} for JsonProtocolClient's `config` shape.
+ *
+ * @throws {@link JsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
+ *
+ */
 export class HostWithPathOperationCommand extends $Command<
   HostWithPathOperationCommandInput,
   HostWithPathOperationCommandOutput,

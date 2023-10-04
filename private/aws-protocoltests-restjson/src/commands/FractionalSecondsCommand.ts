@@ -34,6 +34,34 @@ export interface FractionalSecondsCommandInput {}
  */
 export interface FractionalSecondsCommandOutput extends FractionalSecondsOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, FractionalSecondsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, FractionalSecondsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const input = {};
+ * const command = new FractionalSecondsCommand(input);
+ * const response = await client.send(command);
+ * // { // FractionalSecondsOutput
+ * //   datetime: new Date("TIMESTAMP"),
+ * // };
+ *
+ * ```
+ *
+ * @param FractionalSecondsCommandInput - {@link FractionalSecondsCommandInput}
+ * @returns {@link FractionalSecondsCommandOutput}
+ * @see {@link FractionalSecondsCommandInput} for command's `input` shape.
+ * @see {@link FractionalSecondsCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
+ */
 export class FractionalSecondsCommand extends $Command<
   FractionalSecondsCommandInput,
   FractionalSecondsCommandOutput,

@@ -34,6 +34,35 @@ export interface PutWithContentEncodingCommandInput extends PutWithContentEncodi
  */
 export interface PutWithContentEncodingCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestXmlProtocolClient, PutWithContentEncodingCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, PutWithContentEncodingCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * const client = new RestXmlProtocolClient(config);
+ * const input = { // PutWithContentEncodingInput
+ *   encoding: "STRING_VALUE",
+ *   data: "STRING_VALUE",
+ * };
+ * const command = new PutWithContentEncodingCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param PutWithContentEncodingCommandInput - {@link PutWithContentEncodingCommandInput}
+ * @returns {@link PutWithContentEncodingCommandOutput}
+ * @see {@link PutWithContentEncodingCommandInput} for command's `input` shape.
+ * @see {@link PutWithContentEncodingCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
+ *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
+ *
+ */
 export class PutWithContentEncodingCommand extends $Command<
   PutWithContentEncodingCommandInput,
   PutWithContentEncodingCommandOutput,

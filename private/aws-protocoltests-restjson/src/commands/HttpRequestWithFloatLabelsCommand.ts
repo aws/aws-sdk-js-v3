@@ -34,6 +34,35 @@ export interface HttpRequestWithFloatLabelsCommandInput extends HttpRequestWithF
  */
 export interface HttpRequestWithFloatLabelsCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, HttpRequestWithFloatLabelsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, HttpRequestWithFloatLabelsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const input = { // HttpRequestWithFloatLabelsInput
+ *   float: Number("float"), // required
+ *   double: Number("double"), // required
+ * };
+ * const command = new HttpRequestWithFloatLabelsCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param HttpRequestWithFloatLabelsCommandInput - {@link HttpRequestWithFloatLabelsCommandInput}
+ * @returns {@link HttpRequestWithFloatLabelsCommandOutput}
+ * @see {@link HttpRequestWithFloatLabelsCommandInput} for command's `input` shape.
+ * @see {@link HttpRequestWithFloatLabelsCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
+ */
 export class HttpRequestWithFloatLabelsCommand extends $Command<
   HttpRequestWithFloatLabelsCommandInput,
   HttpRequestWithFloatLabelsCommandOutput,

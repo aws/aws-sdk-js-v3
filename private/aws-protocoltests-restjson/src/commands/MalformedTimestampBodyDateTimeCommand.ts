@@ -37,6 +37,34 @@ export interface MalformedTimestampBodyDateTimeCommandInput extends MalformedTim
  */
 export interface MalformedTimestampBodyDateTimeCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, MalformedTimestampBodyDateTimeCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, MalformedTimestampBodyDateTimeCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const input = { // MalformedTimestampBodyDateTimeInput
+ *   timestamp: new Date("TIMESTAMP"), // required
+ * };
+ * const command = new MalformedTimestampBodyDateTimeCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param MalformedTimestampBodyDateTimeCommandInput - {@link MalformedTimestampBodyDateTimeCommandInput}
+ * @returns {@link MalformedTimestampBodyDateTimeCommandOutput}
+ * @see {@link MalformedTimestampBodyDateTimeCommandInput} for command's `input` shape.
+ * @see {@link MalformedTimestampBodyDateTimeCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
+ */
 export class MalformedTimestampBodyDateTimeCommand extends $Command<
   MalformedTimestampBodyDateTimeCommandInput,
   MalformedTimestampBodyDateTimeCommandOutput,

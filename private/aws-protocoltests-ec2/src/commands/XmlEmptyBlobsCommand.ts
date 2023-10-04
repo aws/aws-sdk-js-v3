@@ -34,6 +34,34 @@ export interface XmlEmptyBlobsCommandInput {}
  */
 export interface XmlEmptyBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2ProtocolClient, XmlEmptyBlobsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
+ * // const { EC2ProtocolClient, XmlEmptyBlobsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
+ * const client = new EC2ProtocolClient(config);
+ * const input = {};
+ * const command = new XmlEmptyBlobsCommand(input);
+ * const response = await client.send(command);
+ * // { // XmlBlobsOutput
+ * //   data: "BLOB_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param XmlEmptyBlobsCommandInput - {@link XmlEmptyBlobsCommandInput}
+ * @returns {@link XmlEmptyBlobsCommandOutput}
+ * @see {@link XmlEmptyBlobsCommandInput} for command's `input` shape.
+ * @see {@link XmlEmptyBlobsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
+ *
+ * @throws {@link EC2ProtocolServiceException}
+ * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
+ *
+ */
 export class XmlEmptyBlobsCommand extends $Command<
   XmlEmptyBlobsCommandInput,
   XmlEmptyBlobsCommandOutput,

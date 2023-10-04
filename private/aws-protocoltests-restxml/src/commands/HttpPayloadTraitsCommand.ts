@@ -52,7 +52,7 @@ export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsCommand
 
 /**
  * @public
- * This examples serializes a blob shape in the payload.
+ * This example serializes a blob shape in the payload.
  *
  * In this example, no XML document is synthesized because the payload is
  * not a structure or a union type.

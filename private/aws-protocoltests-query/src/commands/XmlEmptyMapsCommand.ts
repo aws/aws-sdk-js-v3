@@ -34,6 +34,38 @@ export interface XmlEmptyMapsCommandInput {}
  */
 export interface XmlEmptyMapsCommandOutput extends XmlMapsOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QueryProtocolClient, XmlEmptyMapsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
+ * // const { QueryProtocolClient, XmlEmptyMapsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
+ * const client = new QueryProtocolClient(config);
+ * const input = {};
+ * const command = new XmlEmptyMapsCommand(input);
+ * const response = await client.send(command);
+ * // { // XmlMapsOutput
+ * //   myMap: { // XmlMapsOutputMap
+ * //     "<keys>": { // GreetingStruct
+ * //       hi: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
+ * ```
+ *
+ * @param XmlEmptyMapsCommandInput - {@link XmlEmptyMapsCommandInput}
+ * @returns {@link XmlEmptyMapsCommandOutput}
+ * @see {@link XmlEmptyMapsCommandInput} for command's `input` shape.
+ * @see {@link XmlEmptyMapsCommandOutput} for command's `response` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
+ *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
+ *
+ */
 export class XmlEmptyMapsCommand extends $Command<
   XmlEmptyMapsCommandInput,
   XmlEmptyMapsCommandOutput,

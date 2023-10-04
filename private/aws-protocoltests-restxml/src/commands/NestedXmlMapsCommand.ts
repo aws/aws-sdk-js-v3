@@ -34,6 +34,54 @@ export interface NestedXmlMapsCommandInput extends NestedXmlMapsInputOutput {}
  */
 export interface NestedXmlMapsCommandOutput extends NestedXmlMapsInputOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestXmlProtocolClient, NestedXmlMapsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, NestedXmlMapsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * const client = new RestXmlProtocolClient(config);
+ * const input = { // NestedXmlMapsInputOutput
+ *   nestedMap: { // NestedMap
+ *     "<keys>": { // FooEnumMap
+ *       "<keys>": "Foo" || "Baz" || "Bar" || "1" || "0",
+ *     },
+ *   },
+ *   flatNestedMap: {
+ *     "<keys>": {
+ *       "<keys>": "Foo" || "Baz" || "Bar" || "1" || "0",
+ *     },
+ *   },
+ * };
+ * const command = new NestedXmlMapsCommand(input);
+ * const response = await client.send(command);
+ * // { // NestedXmlMapsInputOutput
+ * //   nestedMap: { // NestedMap
+ * //     "<keys>": { // FooEnumMap
+ * //       "<keys>": "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //     },
+ * //   },
+ * //   flatNestedMap: {
+ * //     "<keys>": {
+ * //       "<keys>": "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //     },
+ * //   },
+ * // };
+ *
+ * ```
+ *
+ * @param NestedXmlMapsCommandInput - {@link NestedXmlMapsCommandInput}
+ * @returns {@link NestedXmlMapsCommandOutput}
+ * @see {@link NestedXmlMapsCommandInput} for command's `input` shape.
+ * @see {@link NestedXmlMapsCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
+ *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
+ *
+ */
 export class NestedXmlMapsCommand extends $Command<
   NestedXmlMapsCommandInput,
   NestedXmlMapsCommandOutput,

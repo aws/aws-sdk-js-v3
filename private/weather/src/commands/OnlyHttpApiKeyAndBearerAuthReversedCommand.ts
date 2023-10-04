@@ -33,6 +33,32 @@ export interface OnlyHttpApiKeyAndBearerAuthReversedCommandInput {}
  */
 export interface OnlyHttpApiKeyAndBearerAuthReversedCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WeatherClient, OnlyHttpApiKeyAndBearerAuthReversedCommand } from "@aws-sdk/weather"; // ES Modules import
+ * // const { WeatherClient, OnlyHttpApiKeyAndBearerAuthReversedCommand } = require("@aws-sdk/weather"); // CommonJS import
+ * const client = new WeatherClient(config);
+ * const input = {};
+ * const command = new OnlyHttpApiKeyAndBearerAuthReversedCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param OnlyHttpApiKeyAndBearerAuthReversedCommandInput - {@link OnlyHttpApiKeyAndBearerAuthReversedCommandInput}
+ * @returns {@link OnlyHttpApiKeyAndBearerAuthReversedCommandOutput}
+ * @see {@link OnlyHttpApiKeyAndBearerAuthReversedCommandInput} for command's `input` shape.
+ * @see {@link OnlyHttpApiKeyAndBearerAuthReversedCommandOutput} for command's `response` shape.
+ * @see {@link WeatherClientResolvedConfig | config} for WeatherClient's `config` shape.
+ *
+ * @throws {@link WeatherServiceException}
+ * <p>Base exception class for all service exceptions from Weather service.</p>
+ *
+ */
 export class OnlyHttpApiKeyAndBearerAuthReversedCommand extends $Command<
   OnlyHttpApiKeyAndBearerAuthReversedCommandInput,
   OnlyHttpApiKeyAndBearerAuthReversedCommandOutput,

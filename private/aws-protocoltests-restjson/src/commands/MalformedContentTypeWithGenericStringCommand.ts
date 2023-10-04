@@ -37,6 +37,34 @@ export interface MalformedContentTypeWithGenericStringCommandInput extends Malfo
  */
 export interface MalformedContentTypeWithGenericStringCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, MalformedContentTypeWithGenericStringCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, MalformedContentTypeWithGenericStringCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const input = { // MalformedContentTypeWithGenericStringInput
+ *   payload: "STRING_VALUE",
+ * };
+ * const command = new MalformedContentTypeWithGenericStringCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param MalformedContentTypeWithGenericStringCommandInput - {@link MalformedContentTypeWithGenericStringCommandInput}
+ * @returns {@link MalformedContentTypeWithGenericStringCommandOutput}
+ * @see {@link MalformedContentTypeWithGenericStringCommandInput} for command's `input` shape.
+ * @see {@link MalformedContentTypeWithGenericStringCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
+ */
 export class MalformedContentTypeWithGenericStringCommand extends $Command<
   MalformedContentTypeWithGenericStringCommandInput,
   MalformedContentTypeWithGenericStringCommandOutput,

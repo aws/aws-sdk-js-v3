@@ -34,6 +34,38 @@ export interface SimpleScalarPropertiesCommandInput extends SimpleScalarProperti
  */
 export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropertiesOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { JSONRPC10Client, SimpleScalarPropertiesCommand } from "@aws-sdk/aws-protocoltests-json-10"; // ES Modules import
+ * // const { JSONRPC10Client, SimpleScalarPropertiesCommand } = require("@aws-sdk/aws-protocoltests-json-10"); // CommonJS import
+ * const client = new JSONRPC10Client(config);
+ * const input = { // SimpleScalarPropertiesInput
+ *   floatValue: Number("float"),
+ *   doubleValue: Number("double"),
+ * };
+ * const command = new SimpleScalarPropertiesCommand(input);
+ * const response = await client.send(command);
+ * // { // SimpleScalarPropertiesOutput
+ * //   floatValue: Number("float"),
+ * //   doubleValue: Number("double"),
+ * // };
+ *
+ * ```
+ *
+ * @param SimpleScalarPropertiesCommandInput - {@link SimpleScalarPropertiesCommandInput}
+ * @returns {@link SimpleScalarPropertiesCommandOutput}
+ * @see {@link SimpleScalarPropertiesCommandInput} for command's `input` shape.
+ * @see {@link SimpleScalarPropertiesCommandOutput} for command's `response` shape.
+ * @see {@link JSONRPC10ClientResolvedConfig | config} for JSONRPC10Client's `config` shape.
+ *
+ * @throws {@link JSONRPC10ServiceException}
+ * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
+ *
+ */
 export class SimpleScalarPropertiesCommand extends $Command<
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,

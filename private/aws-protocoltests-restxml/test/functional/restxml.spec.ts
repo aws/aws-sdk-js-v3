@@ -25,6 +25,7 @@ import { HttpPayloadTraitsCommand } from "../../src/commands/HttpPayloadTraitsCo
 import { HttpPayloadTraitsWithMediaTypeCommand } from "../../src/commands/HttpPayloadTraitsWithMediaTypeCommand";
 import { HttpPayloadWithMemberXmlNameCommand } from "../../src/commands/HttpPayloadWithMemberXmlNameCommand";
 import { HttpPayloadWithStructureCommand } from "../../src/commands/HttpPayloadWithStructureCommand";
+import { HttpPayloadWithUnionCommand } from "../../src/commands/HttpPayloadWithUnionCommand";
 import { HttpPayloadWithXmlNameCommand } from "../../src/commands/HttpPayloadWithXmlNameCommand";
 import { HttpPayloadWithXmlNamespaceAndPrefixCommand } from "../../src/commands/HttpPayloadWithXmlNamespaceAndPrefixCommand";
 import { HttpPayloadWithXmlNamespaceCommand } from "../../src/commands/HttpPayloadWithXmlNamespaceCommand";
@@ -60,6 +61,7 @@ import { XmlIntEnumsCommand } from "../../src/commands/XmlIntEnumsCommand";
 import { XmlListsCommand } from "../../src/commands/XmlListsCommand";
 import { XmlMapsCommand } from "../../src/commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommand } from "../../src/commands/XmlMapsXmlNameCommand";
+import { XmlMapWithXmlNamespaceCommand } from "../../src/commands/XmlMapWithXmlNamespaceCommand";
 import { XmlNamespacesCommand } from "../../src/commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../src/commands/XmlTimestampsCommand";
 import { XmlUnionsCommand } from "../../src/commands/XmlUnionsCommand";
@@ -1769,6 +1771,148 @@ it("HttpPayloadWithStructure:Response", async () => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
+});
+
+/**
+ * Serializes a union in the payload.
+ */
+it("RestXmlHttpPayloadWithUnion:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpPayloadWithUnionCommand({
+    nested: {
+      greeting: "hello",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/HttpPayloadWithUnion");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<UnionPayload>
+        <greeting>hello</greeting>
+    </UnionPayload>`;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * No payload is sent if the union has no value.
+ */
+it.skip("RestXmlHttpPayloadWithUnsetUnion:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpPayloadWithUnionCommand({} as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/HttpPayloadWithUnion");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Serializes a union in the payload.
+ */
+it("RestXmlHttpPayloadWithUnion:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<UnionPayload>
+          <greeting>hello</greeting>
+      </UnionPayload>`
+    ),
+  });
+
+  const params: any = {};
+  const command = new HttpPayloadWithUnionCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      nested: {
+        greeting: "hello",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * No payload is sent if the union has no value.
+ */
+it.skip("RestXmlHttpPayloadWithUnsetUnion:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-length": "0",
+      },
+      ``
+    ),
+  });
+
+  const params: any = {};
+  const command = new HttpPayloadWithUnionCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
@@ -6370,6 +6514,110 @@ it("XmlMapsXmlName:Response", async () => {
         baz: {
           hi: "bye",
         },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes XML maps in requests that have xmlNamespace and xmlName on members
+ */
+it("RestXmlXmlMapWithXmlNamespace:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlMapWithXmlNamespaceCommand({
+    myMap: {
+      a: "A",
+
+      b: "B",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/XmlMapWithXmlNamespace");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<XmlMapWithXmlNamespaceInputOutput>
+        <KVP xmlns=\"https://the-member.example.com\">
+            <entry>
+                <K xmlns=\"https://the-key.example.com\">a</K>
+                <V xmlns=\"https://the-value.example.com\">A</V>
+            </entry>
+            <entry>
+                <K xmlns=\"https://the-key.example.com\">b</K>
+                <V xmlns=\"https://the-value.example.com\">B</V>
+            </entry>
+        </KVP>
+    </XmlMapWithXmlNamespaceInputOutput>`;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes XML maps in responses that have xmlNamespace and xmlName on members
+ */
+it("RestXmlXmlMapWithXmlNamespace:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlMapWithXmlNamespaceInputOutput>
+          <KVP xmlns="https://the-member.example.com">
+              <entry>
+                  <K xmlns="https://the-key.example.com">a</K>
+                  <V xmlns="https://the-value.example.com">A</V>
+              </entry>
+              <entry>
+                  <K xmlns="https://the-key.example.com">b</K>
+                  <V xmlns="https://the-value.example.com">B</V>
+              </entry>
+          </KVP>
+      </XmlMapWithXmlNamespaceInputOutput>`
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlMapWithXmlNamespaceCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      myMap: {
+        a: "A",
+
+        b: "B",
       },
     },
   ][0];

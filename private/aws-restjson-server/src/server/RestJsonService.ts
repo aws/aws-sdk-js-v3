@@ -97,6 +97,11 @@ import {
   HttpPayloadWithStructureServerInput,
 } from "./operations/HttpPayloadWithStructure";
 import {
+  HttpPayloadWithUnion,
+  HttpPayloadWithUnionSerializer,
+  HttpPayloadWithUnionServerInput,
+} from "./operations/HttpPayloadWithUnion";
+import {
   HttpPrefixHeaders,
   HttpPrefixHeadersSerializer,
   HttpPrefixHeadersServerInput,
@@ -393,6 +398,7 @@ export type RestJsonServiceOperations =
   | "HttpPayloadTraits"
   | "HttpPayloadTraitsWithMediaType"
   | "HttpPayloadWithStructure"
+  | "HttpPayloadWithUnion"
   | "HttpPrefixHeaders"
   | "HttpPrefixHeadersInResponse"
   | "HttpRequestWithFloatLabels"
@@ -485,6 +491,7 @@ export interface RestJsonService<Context> {
   HttpPayloadTraits: HttpPayloadTraits<Context>;
   HttpPayloadTraitsWithMediaType: HttpPayloadTraitsWithMediaType<Context>;
   HttpPayloadWithStructure: HttpPayloadWithStructure<Context>;
+  HttpPayloadWithUnion: HttpPayloadWithUnion<Context>;
   HttpPrefixHeaders: HttpPrefixHeaders<Context>;
   HttpPrefixHeadersInResponse: HttpPrefixHeadersInResponse<Context>;
   HttpRequestWithFloatLabels: HttpRequestWithFloatLabels<Context>;
@@ -851,6 +858,18 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.service.HttpPayloadWithStructure,
           this.serializeFrameworkException,
           HttpPayloadWithStructureServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "HttpPayloadWithUnion": {
+        return handle(
+          request,
+          context,
+          "HttpPayloadWithUnion",
+          this.serializerFactory("HttpPayloadWithUnion"),
+          this.service.HttpPayloadWithUnion,
+          this.serializeFrameworkException,
+          HttpPayloadWithUnionServerInput.validate,
           this.validationCustomizer
         );
       }
@@ -1854,6 +1873,12 @@ export const getRestJsonServiceHandler = <Context>(
       [],
       { service: "RestJson", operation: "HttpPayloadWithStructure" }
     ),
+    new httpbinding.UriSpec<"RestJson", "HttpPayloadWithUnion">(
+      "PUT",
+      [{ type: "path_literal", value: "HttpPayloadWithUnion" }],
+      [],
+      { service: "RestJson", operation: "HttpPayloadWithUnion" }
+    ),
     new httpbinding.UriSpec<"RestJson", "HttpPrefixHeaders">(
       "GET",
       [{ type: "path_literal", value: "HttpPrefixHeaders" }],
@@ -2347,6 +2372,8 @@ export const getRestJsonServiceHandler = <Context>(
         return new HttpPayloadTraitsWithMediaTypeSerializer();
       case "HttpPayloadWithStructure":
         return new HttpPayloadWithStructureSerializer();
+      case "HttpPayloadWithUnion":
+        return new HttpPayloadWithUnionSerializer();
       case "HttpPrefixHeaders":
         return new HttpPrefixHeadersSerializer();
       case "HttpPrefixHeadersInResponse":

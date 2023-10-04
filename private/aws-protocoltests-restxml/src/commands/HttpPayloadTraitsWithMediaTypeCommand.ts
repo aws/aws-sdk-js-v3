@@ -60,7 +60,7 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
 
 /**
  * @public
- * This examples uses a `@mediaType` trait on the payload to force a custom
+ * This example uses a `@mediaType` trait on the payload to force a custom
  * content-type to be serialized.
  * @example
  * Use a bare-bones client and the command you need to make an API call.

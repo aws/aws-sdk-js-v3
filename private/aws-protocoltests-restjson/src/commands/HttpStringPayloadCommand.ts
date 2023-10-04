@@ -34,6 +34,36 @@ export interface HttpStringPayloadCommandInput extends StringPayloadInput {}
  */
 export interface HttpStringPayloadCommandOutput extends StringPayloadInput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, HttpStringPayloadCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, HttpStringPayloadCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const input = { // StringPayloadInput
+ *   payload: "STRING_VALUE",
+ * };
+ * const command = new HttpStringPayloadCommand(input);
+ * const response = await client.send(command);
+ * // { // StringPayloadInput
+ * //   payload: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param HttpStringPayloadCommandInput - {@link HttpStringPayloadCommandInput}
+ * @returns {@link HttpStringPayloadCommandOutput}
+ * @see {@link HttpStringPayloadCommandInput} for command's `input` shape.
+ * @see {@link HttpStringPayloadCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
+ */
 export class HttpStringPayloadCommand extends $Command<
   HttpStringPayloadCommandInput,
   HttpStringPayloadCommandOutput,

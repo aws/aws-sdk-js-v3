@@ -33,6 +33,39 @@ export interface EchoCommandInput extends EchoInput {}
  */
 export interface EchoCommandOutput extends EchoOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EchoServiceClient, EchoCommand } from "@aws-sdk/aws-echo-service"; // ES Modules import
+ * // const { EchoServiceClient, EchoCommand } = require("@aws-sdk/aws-echo-service"); // CommonJS import
+ * const client = new EchoServiceClient(config);
+ * const input = { // EchoInput
+ *   string: "STRING_VALUE",
+ * };
+ * const command = new EchoCommand(input);
+ * const response = await client.send(command);
+ * // { // EchoOutput
+ * //   string: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param EchoCommandInput - {@link EchoCommandInput}
+ * @returns {@link EchoCommandOutput}
+ * @see {@link EchoCommandInput} for command's `input` shape.
+ * @see {@link EchoCommandOutput} for command's `response` shape.
+ * @see {@link EchoServiceClientResolvedConfig | config} for EchoServiceClient's `config` shape.
+ *
+ * @throws {@link PalindromeException} (client fault)
+ *  For some reason, this service does not like palindromes!
+ *
+ * @throws {@link EchoServiceServiceException}
+ * <p>Base exception class for all service exceptions from EchoService service.</p>
+ *
+ */
 export class EchoCommand extends $Command<EchoCommandInput, EchoCommandOutput, EchoServiceClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties

@@ -34,6 +34,43 @@ export interface SimpleScalarXmlPropertiesCommandInput {}
  */
 export interface SimpleScalarXmlPropertiesCommandOutput extends SimpleScalarXmlPropertiesOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2ProtocolClient, SimpleScalarXmlPropertiesCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
+ * // const { EC2ProtocolClient, SimpleScalarXmlPropertiesCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
+ * const client = new EC2ProtocolClient(config);
+ * const input = {};
+ * const command = new SimpleScalarXmlPropertiesCommand(input);
+ * const response = await client.send(command);
+ * // { // SimpleScalarXmlPropertiesOutput
+ * //   stringValue: "STRING_VALUE",
+ * //   emptyStringValue: "STRING_VALUE",
+ * //   trueBooleanValue: true || false,
+ * //   falseBooleanValue: true || false,
+ * //   byteValue: "BYTE_VALUE",
+ * //   shortValue: Number("short"),
+ * //   integerValue: Number("int"),
+ * //   longValue: Number("long"),
+ * //   floatValue: Number("float"),
+ * //   doubleValue: Number("double"),
+ * // };
+ *
+ * ```
+ *
+ * @param SimpleScalarXmlPropertiesCommandInput - {@link SimpleScalarXmlPropertiesCommandInput}
+ * @returns {@link SimpleScalarXmlPropertiesCommandOutput}
+ * @see {@link SimpleScalarXmlPropertiesCommandInput} for command's `input` shape.
+ * @see {@link SimpleScalarXmlPropertiesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
+ *
+ * @throws {@link EC2ProtocolServiceException}
+ * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
+ *
+ */
 export class SimpleScalarXmlPropertiesCommand extends $Command<
   SimpleScalarXmlPropertiesCommandInput,
   SimpleScalarXmlPropertiesCommandOutput,

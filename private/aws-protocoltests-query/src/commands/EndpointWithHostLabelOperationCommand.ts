@@ -37,6 +37,34 @@ export interface EndpointWithHostLabelOperationCommandInput extends HostLabelInp
  */
 export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QueryProtocolClient, EndpointWithHostLabelOperationCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
+ * // const { QueryProtocolClient, EndpointWithHostLabelOperationCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
+ * const client = new QueryProtocolClient(config);
+ * const input = { // HostLabelInput
+ *   label: "STRING_VALUE", // required
+ * };
+ * const command = new EndpointWithHostLabelOperationCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param EndpointWithHostLabelOperationCommandInput - {@link EndpointWithHostLabelOperationCommandInput}
+ * @returns {@link EndpointWithHostLabelOperationCommandOutput}
+ * @see {@link EndpointWithHostLabelOperationCommandInput} for command's `input` shape.
+ * @see {@link EndpointWithHostLabelOperationCommandOutput} for command's `response` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
+ *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
+ *
+ */
 export class EndpointWithHostLabelOperationCommand extends $Command<
   EndpointWithHostLabelOperationCommandInput,
   EndpointWithHostLabelOperationCommandOutput,

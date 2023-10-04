@@ -67,6 +67,7 @@ import {
   SimpleUnion,
   StructureListMember,
   TestConfig,
+  UnionPayload,
   UnionWithJsonName,
   Unit,
 } from "../models/models_0";
@@ -117,6 +118,10 @@ import {
   HttpPayloadWithStructureServerInput,
   HttpPayloadWithStructureServerOutput,
 } from "../server/operations/HttpPayloadWithStructure";
+import {
+  HttpPayloadWithUnionServerInput,
+  HttpPayloadWithUnionServerOutput,
+} from "../server/operations/HttpPayloadWithUnion";
 import { HttpPrefixHeadersServerInput, HttpPrefixHeadersServerOutput } from "../server/operations/HttpPrefixHeaders";
 import {
   HttpPrefixHeadersInResponseServerInput,
@@ -990,6 +995,32 @@ export const deserializeHttpPayloadWithStructureRequest = async (
   const contents: any = map({});
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = de_NestedPayload(data, context);
+  return contents;
+};
+
+export const deserializeHttpPayloadWithUnionRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<HttpPayloadWithUnionServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  const data: Record<string, any> | undefined = __expectUnion(await parseBody(output.body, context));
+  contents.nested = de_UnionPayload(data, context);
   return contents;
 };
 
@@ -4199,6 +4230,49 @@ export const serializeHttpPayloadWithStructureResponse = async (
   let body: any;
   if (input.nested !== undefined) {
     body = se_NestedPayload(input.nested, context);
+  }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeHttpPayloadWithUnionResponse = async (
+  input: HttpPayloadWithUnionServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  if (input.nested !== undefined) {
+    body = se_UnionPayload(input.nested, context);
   }
   if (body === undefined) {
     body = {};
@@ -7470,6 +7544,16 @@ const se_TestConfig = (input: TestConfig, context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restJson1UnionPayload
+ */
+const se_UnionPayload = (input: UnionPayload, context: __SerdeContext): any => {
+  return UnionPayload.visit(input, {
+    greeting: (value) => ({ greeting: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
  * serializeAws_restJson1UnionWithJsonName
  */
 const se_UnionWithJsonName = (input: UnionWithJsonName, context: __SerdeContext): any => {
@@ -7951,6 +8035,16 @@ const de_TestConfig = (output: any, context: __SerdeContext): TestConfig => {
   return take(output, {
     timeout: __expectInt32,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UnionPayload
+ */
+const de_UnionPayload = (output: any, context: __SerdeContext): UnionPayload => {
+  if (__expectString(output.greeting) !== undefined) {
+    return { greeting: __expectString(output.greeting) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 /**
