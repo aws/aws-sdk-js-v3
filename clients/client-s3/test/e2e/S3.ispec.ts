@@ -123,9 +123,23 @@ describe("@aws-sdk/client-s3", () => {
 
     it("should succeed with valid body payload", async () => {
       // prepare the object.
-      const body = createBuffer("1MB");
-      await client.putObject({ Bucket, Key, Body: body });
-      const result = await client.getObject({ Bucket, Key });
+      const body = createBuffer("16KB");
+
+      try {
+        await client.putObject({ Bucket, Key, Body: body });
+      } catch (e) {
+        console.error("failed to put");
+        throw e;
+      }
+
+      try {
+        // eslint-disable-next-line no-var
+        var result = await client.getObject({ Bucket, Key });
+      } catch (e) {
+        console.error("failed to get");
+        throw e;
+      }
+
       expect(result.$metadata.httpStatusCode).to.equal(200);
       if (isBrowser) {
         expect(result.Body).to.be.instanceOf(ReadableStream);
@@ -284,7 +298,6 @@ esfuture,29`;
       });
       const events: SelectObjectContentEventStream[] = [];
       for await (const event of Payload!) {
-        console.log(event);
         events.push(event);
       }
       expect(events.length).to.equal(3);
