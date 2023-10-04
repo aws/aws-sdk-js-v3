@@ -267,7 +267,9 @@ describe(DynamoDBDocument.name, () => {
     }
   });
 
-  it("can batch write", async () => {});
+  it("can batch write", async () => {
+    throw new Error("NYI");
+  });
 
   it("can batch read", async () => {
     const results = log.batchRead?.Responses?.[TableName] ?? [];
@@ -275,6 +277,30 @@ describe(DynamoDBDocument.name, () => {
     for (const result of results) {
       expect(result.data).toEqual(data[result.id]);
     }
+  });
+
+  it("can transact write", async () => {
+    throw new Error("NYI");
+  });
+
+  it("can transact read", async () => {
+    throw new Error("NYI");
+  });
+
+  it("can execute statements", async () => {
+    throw new Error("NYI");
+  });
+
+  it("can execute transactions", async () => {
+    throw new Error("NYI");
+  });
+
+  it("can query", async () => {
+    throw new Error("NYI");
+  });
+
+  it("can scan", async () => {
+    throw new Error("NYI");
   });
 
   for (const [key, value] of Object.entries(data)) {
