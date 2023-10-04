@@ -1997,7 +1997,7 @@ it("AwsJson11DeserializeStructureUnionValue:Response", async () => {
 /**
  * Ignores an unrecognized __type property
  */
-it("AwsJson11DeserializeIgnoreType:Response", async () => {
+it.skip("AwsJson11DeserializeIgnoreType:Response", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(

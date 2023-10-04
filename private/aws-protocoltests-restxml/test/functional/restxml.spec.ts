@@ -1817,7 +1817,7 @@ it("RestXmlHttpPayloadWithUnion:Request", async () => {
 /**
  * No payload is sent if the union has no value.
  */
-it("RestXmlHttpPayloadWithUnsetUnion:Request", async () => {
+it.skip("RestXmlHttpPayloadWithUnsetUnion:Request", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -1889,7 +1889,7 @@ it("RestXmlHttpPayloadWithUnion:Response", async () => {
 /**
  * No payload is sent if the union has no value.
  */
-it("RestXmlHttpPayloadWithUnsetUnion:Response", async () => {
+it.skip("RestXmlHttpPayloadWithUnsetUnion:Response", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(

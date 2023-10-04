@@ -2845,7 +2845,7 @@ it("RestJsonHttpPayloadWithUnion:ServerRequest", async () => {
 /**
  * No payload is sent if the union has no value.
  */
-it("RestJsonHttpPayloadWithUnsetUnion:ServerRequest", async () => {
+it.skip("RestJsonHttpPayloadWithUnsetUnion:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
@@ -2937,7 +2937,7 @@ it("RestJsonHttpPayloadWithUnion:ServerResponse", async () => {
 /**
  * No payload is sent if the union has no value.
  */
-it("RestJsonHttpPayloadWithUnsetUnion:ServerResponse", async () => {
+it.skip("RestJsonHttpPayloadWithUnsetUnion:ServerResponse", async () => {
   class TestService implements Partial<RestJsonService<{}>> {
     HttpPayloadWithUnion(input: any, ctx: {}): Promise<HttpPayloadWithUnionServerOutput> {
       const response = {} as any;

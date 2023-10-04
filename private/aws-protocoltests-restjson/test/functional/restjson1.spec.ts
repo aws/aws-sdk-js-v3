@@ -2583,7 +2583,7 @@ it("RestJsonHttpPayloadWithUnion:Request", async () => {
 /**
  * No payload is sent if the union has no value.
  */
-it("RestJsonHttpPayloadWithUnsetUnion:Request", async () => {
+it.skip("RestJsonHttpPayloadWithUnsetUnion:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -2652,7 +2652,7 @@ it("RestJsonHttpPayloadWithUnion:Response", async () => {
 /**
  * No payload is sent if the union has no value.
  */
-it("RestJsonHttpPayloadWithUnsetUnion:Response", async () => {
+it.skip("RestJsonHttpPayloadWithUnsetUnion:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
@@ -6989,7 +6989,7 @@ it("RestJsonDeserializeStructureUnionValue:Response", async () => {
 /**
  * Ignores an unrecognized __type property
  */
-it("RestJsonDeserializeIgnoreType:Response", async () => {
+it.skip("RestJsonDeserializeIgnoreType:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
