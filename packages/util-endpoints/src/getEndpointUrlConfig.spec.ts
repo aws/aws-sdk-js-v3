@@ -4,7 +4,7 @@ const ENV_ENDPOINT_URL = "AWS_ENDPOINT_URL";
 const CONFIG_ENDPOINT_URL = "endpoint_url";
 
 describe(getEndpointUrlConfig.name, () => {
-  const serviceId = "foo";
+  const serviceId = "mockServiceId";
   const endpointUrlConfig = getEndpointUrlConfig(serviceId);
 
   const mockEndpoint = "https://mock-endpoint.com";
@@ -19,25 +19,28 @@ describe(getEndpointUrlConfig.name, () => {
   });
 
   describe("environmentVariableSelector", () => {
-    const serviceMockEndpoint = `${mockEndpoint}/${serviceId}`;
-
     beforeEach(() => {
       process.env[ENV_ENDPOINT_URL] = mockEndpoint;
-      process.env[`${ENV_ENDPOINT_URL}_${serviceId.toUpperCase()}`] = serviceMockEndpoint;
     });
 
-    it("returns service specific endpoint from environment variable, if available", () => {
+    it.each([
+      ["foo", `${ENV_ENDPOINT_URL}_FOO`],
+      ["foobar", `${ENV_ENDPOINT_URL}_FOOBAR`],
+      ["foo bar", `${ENV_ENDPOINT_URL}_FOO_BAR`],
+    ])("returns endpoint for '%s' from environment variable %s", (serviceId, envKey) => {
+      const serviceMockEndpoint = `${mockEndpoint}/${envKey}`;
+      process.env[envKey] = serviceMockEndpoint;
+
+      const endpointUrlConfig = getEndpointUrlConfig(serviceId);
       expect(endpointUrlConfig.environmentVariableSelector(process.env)).toEqual(serviceMockEndpoint);
     });
 
-    it("returns endpoint from environment variable, if available", () => {
-      process.env[`${ENV_ENDPOINT_URL}_${serviceId.toUpperCase()}`] = undefined;
+    it(`returns endpoint from environment variable ${ENV_ENDPOINT_URL}`, () => {
       expect(endpointUrlConfig.environmentVariableSelector(process.env)).toEqual(mockEndpoint);
     });
 
     it("returns undefined, if endpoint not available in environment variables", () => {
       process.env[ENV_ENDPOINT_URL] = undefined;
-      process.env[`${ENV_ENDPOINT_URL}_${serviceId.toUpperCase()}`] = undefined;
       expect(endpointUrlConfig.environmentVariableSelector(process.env)).toBeUndefined();
     });
   });

@@ -6,7 +6,8 @@ const CONFIG_ENDPOINT_URL = "endpoint_url";
 export const getEndpointUrlConfig = (serviceId: string): LoadedConfigSelectors<string | undefined> => ({
   environmentVariableSelector: (env) => {
     // The value provided by a service-specific environment variable.
-    const serviceEndpointUrlSections = [ENV_ENDPOINT_URL, serviceId.toUpperCase()];
+
+    const serviceEndpointUrlSections = [ENV_ENDPOINT_URL, ...serviceId.split(" ").map((w) => w.toUpperCase())];
     const serviceEndpointUrl = env[serviceEndpointUrlSections.join("_")];
     if (serviceEndpointUrl) return serviceEndpointUrl;
 
