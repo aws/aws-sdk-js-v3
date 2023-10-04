@@ -34,6 +34,36 @@ export interface HttpEnumPayloadCommandInput extends EnumPayloadInput {}
  */
 export interface HttpEnumPayloadCommandOutput extends EnumPayloadInput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, HttpEnumPayloadCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, HttpEnumPayloadCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const input = { // EnumPayloadInput
+ *   payload: "enumvalue",
+ * };
+ * const command = new HttpEnumPayloadCommand(input);
+ * const response = await client.send(command);
+ * // { // EnumPayloadInput
+ * //   payload: "enumvalue",
+ * // };
+ *
+ * ```
+ *
+ * @param HttpEnumPayloadCommandInput - {@link HttpEnumPayloadCommandInput}
+ * @returns {@link HttpEnumPayloadCommandOutput}
+ * @see {@link HttpEnumPayloadCommandInput} for command's `input` shape.
+ * @see {@link HttpEnumPayloadCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
+ */
 export class HttpEnumPayloadCommand extends $Command<
   HttpEnumPayloadCommandInput,
   HttpEnumPayloadCommandOutput,

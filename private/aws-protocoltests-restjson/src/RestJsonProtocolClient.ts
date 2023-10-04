@@ -99,6 +99,10 @@ import {
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
 } from "./commands/HttpPayloadWithStructureCommand";
+import {
+  HttpPayloadWithUnionCommandInput,
+  HttpPayloadWithUnionCommandOutput,
+} from "./commands/HttpPayloadWithUnionCommand";
 import { HttpPrefixHeadersCommandInput, HttpPrefixHeadersCommandOutput } from "./commands/HttpPrefixHeadersCommand";
 import {
   HttpPrefixHeadersInResponseCommandInput,
@@ -322,6 +326,7 @@ export type ServiceInputTypes =
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
   | HttpPayloadWithStructureCommandInput
+  | HttpPayloadWithUnionCommandInput
   | HttpPrefixHeadersCommandInput
   | HttpPrefixHeadersInResponseCommandInput
   | HttpRequestWithFloatLabelsCommandInput
@@ -418,6 +423,7 @@ export type ServiceOutputTypes =
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput
   | HttpPayloadWithStructureCommandOutput
+  | HttpPayloadWithUnionCommandOutput
   | HttpPrefixHeadersCommandOutput
   | HttpPrefixHeadersInResponseCommandOutput
   | HttpRequestWithFloatLabelsCommandOutput
@@ -598,6 +604,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

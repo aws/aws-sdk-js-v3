@@ -34,6 +34,34 @@ export interface XmlEmptyBlobsCommandInput {}
  */
 export interface XmlEmptyBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QueryProtocolClient, XmlEmptyBlobsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
+ * // const { QueryProtocolClient, XmlEmptyBlobsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
+ * const client = new QueryProtocolClient(config);
+ * const input = {};
+ * const command = new XmlEmptyBlobsCommand(input);
+ * const response = await client.send(command);
+ * // { // XmlBlobsOutput
+ * //   data: "BLOB_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param XmlEmptyBlobsCommandInput - {@link XmlEmptyBlobsCommandInput}
+ * @returns {@link XmlEmptyBlobsCommandOutput}
+ * @see {@link XmlEmptyBlobsCommandInput} for command's `input` shape.
+ * @see {@link XmlEmptyBlobsCommandOutput} for command's `response` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
+ *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
+ *
+ */
 export class XmlEmptyBlobsCommand extends $Command<
   XmlEmptyBlobsCommandInput,
   XmlEmptyBlobsCommandOutput,

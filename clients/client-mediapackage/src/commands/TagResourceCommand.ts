@@ -35,6 +35,37 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
  */
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaPackageClient, TagResourceCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
+ * // const { MediaPackageClient, TagResourceCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * const client = new MediaPackageClient(config);
+ * const input = { // TagResourceRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Tags: { // __mapOf__string // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
+ *
+ * @throws {@link MediaPackageServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackage service.</p>
+ *
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,

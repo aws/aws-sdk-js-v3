@@ -34,6 +34,116 @@ export interface XmlUnionsCommandInput extends XmlUnionsInputOutput {}
  */
 export interface XmlUnionsCommandOutput extends XmlUnionsInputOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestXmlProtocolClient, XmlUnionsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, XmlUnionsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * const client = new RestXmlProtocolClient(config);
+ * const input = { // XmlUnionsInputOutput
+ *   unionValue: { // XmlUnionShape Union: only one key present
+ *     stringValue: "STRING_VALUE",
+ *     booleanValue: true || false,
+ *     byteValue: "BYTE_VALUE",
+ *     shortValue: Number("short"),
+ *     integerValue: Number("int"),
+ *     longValue: Number("long"),
+ *     floatValue: Number("float"),
+ *     doubleValue: Number("double"),
+ *     unionValue: {//  Union: only one key present
+ *       stringValue: "STRING_VALUE",
+ *       booleanValue: true || false,
+ *       byteValue: "BYTE_VALUE",
+ *       shortValue: Number("short"),
+ *       integerValue: Number("int"),
+ *       longValue: Number("long"),
+ *       floatValue: Number("float"),
+ *       doubleValue: Number("double"),
+ *       unionValue: "<XmlUnionShape>",
+ *       structValue: { // XmlNestedUnionStruct
+ *         stringValue: "STRING_VALUE",
+ *         booleanValue: true || false,
+ *         byteValue: "BYTE_VALUE",
+ *         shortValue: Number("short"),
+ *         integerValue: Number("int"),
+ *         longValue: Number("long"),
+ *         floatValue: Number("float"),
+ *         doubleValue: Number("double"),
+ *       },
+ *     },
+ *     structValue: {
+ *       stringValue: "STRING_VALUE",
+ *       booleanValue: true || false,
+ *       byteValue: "BYTE_VALUE",
+ *       shortValue: Number("short"),
+ *       integerValue: Number("int"),
+ *       longValue: Number("long"),
+ *       floatValue: Number("float"),
+ *       doubleValue: Number("double"),
+ *     },
+ *   },
+ * };
+ * const command = new XmlUnionsCommand(input);
+ * const response = await client.send(command);
+ * // { // XmlUnionsInputOutput
+ * //   unionValue: { // XmlUnionShape Union: only one key present
+ * //     stringValue: "STRING_VALUE",
+ * //     booleanValue: true || false,
+ * //     byteValue: "BYTE_VALUE",
+ * //     shortValue: Number("short"),
+ * //     integerValue: Number("int"),
+ * //     longValue: Number("long"),
+ * //     floatValue: Number("float"),
+ * //     doubleValue: Number("double"),
+ * //     unionValue: {//  Union: only one key present
+ * //       stringValue: "STRING_VALUE",
+ * //       booleanValue: true || false,
+ * //       byteValue: "BYTE_VALUE",
+ * //       shortValue: Number("short"),
+ * //       integerValue: Number("int"),
+ * //       longValue: Number("long"),
+ * //       floatValue: Number("float"),
+ * //       doubleValue: Number("double"),
+ * //       unionValue: "<XmlUnionShape>",
+ * //       structValue: { // XmlNestedUnionStruct
+ * //         stringValue: "STRING_VALUE",
+ * //         booleanValue: true || false,
+ * //         byteValue: "BYTE_VALUE",
+ * //         shortValue: Number("short"),
+ * //         integerValue: Number("int"),
+ * //         longValue: Number("long"),
+ * //         floatValue: Number("float"),
+ * //         doubleValue: Number("double"),
+ * //       },
+ * //     },
+ * //     structValue: {
+ * //       stringValue: "STRING_VALUE",
+ * //       booleanValue: true || false,
+ * //       byteValue: "BYTE_VALUE",
+ * //       shortValue: Number("short"),
+ * //       integerValue: Number("int"),
+ * //       longValue: Number("long"),
+ * //       floatValue: Number("float"),
+ * //       doubleValue: Number("double"),
+ * //     },
+ * //   },
+ * // };
+ *
+ * ```
+ *
+ * @param XmlUnionsCommandInput - {@link XmlUnionsCommandInput}
+ * @returns {@link XmlUnionsCommandOutput}
+ * @see {@link XmlUnionsCommandInput} for command's `input` shape.
+ * @see {@link XmlUnionsCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
+ *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
+ *
+ */
 export class XmlUnionsCommand extends $Command<
   XmlUnionsCommandInput,
   XmlUnionsCommandOutput,

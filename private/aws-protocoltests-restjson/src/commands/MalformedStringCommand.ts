@@ -34,6 +34,34 @@ export interface MalformedStringCommandInput extends MalformedStringInput {}
  */
 export interface MalformedStringCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, MalformedStringCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, MalformedStringCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const input = { // MalformedStringInput
+ *   blob: "STRING_VALUE",
+ * };
+ * const command = new MalformedStringCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param MalformedStringCommandInput - {@link MalformedStringCommandInput}
+ * @returns {@link MalformedStringCommandOutput}
+ * @see {@link MalformedStringCommandInput} for command's `input` shape.
+ * @see {@link MalformedStringCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
+ */
 export class MalformedStringCommand extends $Command<
   MalformedStringCommandInput,
   MalformedStringCommandOutput,

@@ -34,6 +34,34 @@ export interface HttpResponseCodeCommandInput {}
  */
 export interface HttpResponseCodeCommandOutput extends HttpResponseCodeOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestXmlProtocolClient, HttpResponseCodeCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, HttpResponseCodeCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * const client = new RestXmlProtocolClient(config);
+ * const input = {};
+ * const command = new HttpResponseCodeCommand(input);
+ * const response = await client.send(command);
+ * // { // HttpResponseCodeOutput
+ * //   Status: Number("int"),
+ * // };
+ *
+ * ```
+ *
+ * @param HttpResponseCodeCommandInput - {@link HttpResponseCodeCommandInput}
+ * @returns {@link HttpResponseCodeCommandOutput}
+ * @see {@link HttpResponseCodeCommandInput} for command's `input` shape.
+ * @see {@link HttpResponseCodeCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
+ *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
+ *
+ */
 export class HttpResponseCodeCommand extends $Command<
   HttpResponseCodeCommandInput,
   HttpResponseCodeCommandOutput,

@@ -346,6 +346,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

@@ -1021,6 +1021,14 @@ HttpPayloadWithStructure
 </details>
 <details>
 <summary>
+HttpPayloadWithUnion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-protocol/classes/httppayloadwithunioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-protocol/interfaces/httppayloadwithunioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-protocol/interfaces/httppayloadwithunioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 HttpPrefixHeaders
 </summary>
 
@@ -1877,6 +1885,14 @@ HttpPayloadWithStructure
 </details>
 <details>
 <summary>
+HttpPayloadWithUnion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-protocol/classes/httppayloadwithunioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-protocol/interfaces/httppayloadwithunioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-protocol/interfaces/httppayloadwithunioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 HttpPayloadWithXmlName
 </summary>
 
@@ -2161,6 +2177,14 @@ XmlMapsXmlName
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-protocol/classes/xmlmapsxmlnamecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-protocol/interfaces/xmlmapsxmlnamecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-protocol/interfaces/xmlmapsxmlnamecommandoutput.html)
+
+</details>
+<details>
+<summary>
+XmlMapWithXmlNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-protocol/classes/xmlmapwithxmlnamespacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-protocol/interfaces/xmlmapwithxmlnamespacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-protocol/interfaces/xmlmapwithxmlnamespacecommandoutput.html)
 
 </details>
 <details>

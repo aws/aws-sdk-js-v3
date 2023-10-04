@@ -33,6 +33,32 @@ export interface EndpointOperationCommandInput {}
  */
 export interface EndpointOperationCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { JSONRPC10Client, EndpointOperationCommand } from "@aws-sdk/aws-protocoltests-json-10"; // ES Modules import
+ * // const { JSONRPC10Client, EndpointOperationCommand } = require("@aws-sdk/aws-protocoltests-json-10"); // CommonJS import
+ * const client = new JSONRPC10Client(config);
+ * const input = {};
+ * const command = new EndpointOperationCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param EndpointOperationCommandInput - {@link EndpointOperationCommandInput}
+ * @returns {@link EndpointOperationCommandOutput}
+ * @see {@link EndpointOperationCommandInput} for command's `input` shape.
+ * @see {@link EndpointOperationCommandOutput} for command's `response` shape.
+ * @see {@link JSONRPC10ClientResolvedConfig | config} for JSONRPC10Client's `config` shape.
+ *
+ * @throws {@link JSONRPC10ServiceException}
+ * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
+ *
+ */
 export class EndpointOperationCommand extends $Command<
   EndpointOperationCommandInput,
   EndpointOperationCommandOutput,

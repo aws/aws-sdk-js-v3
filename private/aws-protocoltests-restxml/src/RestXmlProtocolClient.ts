@@ -101,6 +101,10 @@ import {
   HttpPayloadWithStructureCommandOutput,
 } from "./commands/HttpPayloadWithStructureCommand";
 import {
+  HttpPayloadWithUnionCommandInput,
+  HttpPayloadWithUnionCommandOutput,
+} from "./commands/HttpPayloadWithUnionCommand";
+import {
   HttpPayloadWithXmlNameCommandInput,
   HttpPayloadWithXmlNameCommandOutput,
 } from "./commands/HttpPayloadWithXmlNameCommand";
@@ -190,6 +194,10 @@ import { XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "./commands/Xm
 import { XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import { XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "./commands/XmlMapsXmlNameCommand";
+import {
+  XmlMapWithXmlNamespaceCommandInput,
+  XmlMapWithXmlNamespaceCommandOutput,
+} from "./commands/XmlMapWithXmlNamespaceCommand";
 import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "./commands/XmlNamespacesCommand";
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "./commands/XmlTimestampsCommand";
 import { XmlUnionsCommandInput, XmlUnionsCommandOutput } from "./commands/XmlUnionsCommand";
@@ -220,6 +228,7 @@ export type ServiceInputTypes =
   | HttpPayloadTraitsWithMediaTypeCommandInput
   | HttpPayloadWithMemberXmlNameCommandInput
   | HttpPayloadWithStructureCommandInput
+  | HttpPayloadWithUnionCommandInput
   | HttpPayloadWithXmlNameCommandInput
   | HttpPayloadWithXmlNamespaceAndPrefixCommandInput
   | HttpPayloadWithXmlNamespaceCommandInput
@@ -254,6 +263,7 @@ export type ServiceInputTypes =
   | XmlEnumsCommandInput
   | XmlIntEnumsCommandInput
   | XmlListsCommandInput
+  | XmlMapWithXmlNamespaceCommandInput
   | XmlMapsCommandInput
   | XmlMapsXmlNameCommandInput
   | XmlNamespacesCommandInput
@@ -282,6 +292,7 @@ export type ServiceOutputTypes =
   | HttpPayloadTraitsWithMediaTypeCommandOutput
   | HttpPayloadWithMemberXmlNameCommandOutput
   | HttpPayloadWithStructureCommandOutput
+  | HttpPayloadWithUnionCommandOutput
   | HttpPayloadWithXmlNameCommandOutput
   | HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
   | HttpPayloadWithXmlNamespaceCommandOutput
@@ -316,6 +327,7 @@ export type ServiceOutputTypes =
   | XmlEnumsCommandOutput
   | XmlIntEnumsCommandOutput
   | XmlListsCommandOutput
+  | XmlMapWithXmlNamespaceCommandOutput
   | XmlMapsCommandOutput
   | XmlMapsXmlNameCommandOutput
   | XmlNamespacesCommandOutput
@@ -427,6 +439,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

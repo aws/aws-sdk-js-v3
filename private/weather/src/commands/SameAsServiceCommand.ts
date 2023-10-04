@@ -33,6 +33,34 @@ export interface SameAsServiceCommandInput {}
  */
 export interface SameAsServiceCommandOutput extends SameAsServiceOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WeatherClient, SameAsServiceCommand } from "@aws-sdk/weather"; // ES Modules import
+ * // const { WeatherClient, SameAsServiceCommand } = require("@aws-sdk/weather"); // CommonJS import
+ * const client = new WeatherClient(config);
+ * const input = {};
+ * const command = new SameAsServiceCommand(input);
+ * const response = await client.send(command);
+ * // { // SameAsServiceOutput
+ * //   service: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param SameAsServiceCommandInput - {@link SameAsServiceCommandInput}
+ * @returns {@link SameAsServiceCommandOutput}
+ * @see {@link SameAsServiceCommandInput} for command's `input` shape.
+ * @see {@link SameAsServiceCommandOutput} for command's `response` shape.
+ * @see {@link WeatherClientResolvedConfig | config} for WeatherClient's `config` shape.
+ *
+ * @throws {@link WeatherServiceException}
+ * <p>Base exception class for all service exceptions from Weather service.</p>
+ *
+ */
 export class SameAsServiceCommand extends $Command<
   SameAsServiceCommandInput,
   SameAsServiceCommandOutput,

@@ -32,6 +32,32 @@ export interface OnlySigv4AuthCommandInput {}
  */
 export interface OnlySigv4AuthCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WeatherClient, OnlySigv4AuthCommand } from "@aws-sdk/weather"; // ES Modules import
+ * // const { WeatherClient, OnlySigv4AuthCommand } = require("@aws-sdk/weather"); // CommonJS import
+ * const client = new WeatherClient(config);
+ * const input = {};
+ * const command = new OnlySigv4AuthCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param OnlySigv4AuthCommandInput - {@link OnlySigv4AuthCommandInput}
+ * @returns {@link OnlySigv4AuthCommandOutput}
+ * @see {@link OnlySigv4AuthCommandInput} for command's `input` shape.
+ * @see {@link OnlySigv4AuthCommandOutput} for command's `response` shape.
+ * @see {@link WeatherClientResolvedConfig | config} for WeatherClient's `config` shape.
+ *
+ * @throws {@link WeatherServiceException}
+ * <p>Base exception class for all service exceptions from Weather service.</p>
+ *
+ */
 export class OnlySigv4AuthCommand extends $Command<
   OnlySigv4AuthCommandInput,
   OnlySigv4AuthCommandOutput,

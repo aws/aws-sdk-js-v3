@@ -92,6 +92,10 @@ import {
   HttpPayloadWithStructureCommandOutput,
 } from "../commands/HttpPayloadWithStructureCommand";
 import {
+  HttpPayloadWithUnionCommandInput,
+  HttpPayloadWithUnionCommandOutput,
+} from "../commands/HttpPayloadWithUnionCommand";
+import {
   HttpPayloadWithXmlNameCommandInput,
   HttpPayloadWithXmlNameCommandOutput,
 } from "../commands/HttpPayloadWithXmlNameCommand";
@@ -181,6 +185,10 @@ import { XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "../commands/X
 import { XmlListsCommandInput, XmlListsCommandOutput } from "../commands/XmlListsCommand";
 import { XmlMapsCommandInput, XmlMapsCommandOutput } from "../commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "../commands/XmlMapsXmlNameCommand";
+import {
+  XmlMapWithXmlNamespaceCommandInput,
+  XmlMapWithXmlNamespaceCommandOutput,
+} from "../commands/XmlMapWithXmlNamespaceCommand";
 import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "../commands/XmlTimestampsCommand";
 import { XmlUnionsCommandInput, XmlUnionsCommandOutput } from "../commands/XmlUnionsCommand";
@@ -198,6 +206,7 @@ import {
   RecursiveShapesInputOutputNested1,
   RecursiveShapesInputOutputNested2,
   StructureListMember,
+  UnionPayload,
   XmlAttributesInputOutput,
   XmlNamespaceNested,
   XmlNestedUnionStruct,
@@ -805,6 +814,39 @@ export const se_HttpPayloadWithStructureCommand = async (
   let contents: any;
   if (input.nested !== undefined) {
     contents = se_NestedPayload(input.nested, context);
+    body = '<?xml version="1.0" encoding="UTF-8"?>';
+    body += contents.toString();
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlHttpPayloadWithUnionCommand
+ */
+export const se_HttpPayloadWithUnionCommand = async (
+  input: HttpPayloadWithUnionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithUnion";
+  let body: any;
+  if (input.nested !== undefined) {
+    body = se_UnionPayload(input.nested, context);
+  }
+  let contents: any;
+  if (input.nested !== undefined) {
+    contents = se_UnionPayload(input.nested, context);
     body = '<?xml version="1.0" encoding="UTF-8"?>';
     body += contents.toString();
   }
@@ -2380,6 +2422,43 @@ export const se_XmlMapsXmlNameCommand = async (
 };
 
 /**
+ * serializeAws_restXmlXmlMapWithXmlNamespaceCommand
+ */
+export const se_XmlMapWithXmlNamespaceCommand = async (
+  input: XmlMapWithXmlNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlMapWithXmlNamespace";
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("XmlMapWithXmlNamespaceInputOutput");
+  if (input.myMap !== undefined) {
+    const nodes = se_XmlMapWithXmlNamespaceInputOutputMap(input.myMap, context);
+    const containerNode = new __XmlNode("KVP");
+    containerNode.addAttribute("xmlns", "https://the-member.example.com");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  body += bodyNode.toString();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restXmlXmlNamespacesCommand
  */
 export const se_XmlNamespacesCommand = async (
@@ -3200,6 +3279,44 @@ const de_HttpPayloadWithStructureCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPayloadWithStructureCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlHttpPayloadWithUnionCommand
+ */
+export const de_HttpPayloadWithUnionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpPayloadWithUnionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_HttpPayloadWithUnionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectUnion(await parseBody(output.body, context));
+  contents.nested = de_UnionPayload(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlHttpPayloadWithUnionCommandError
+ */
+const de_HttpPayloadWithUnionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpPayloadWithUnionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4937,6 +5054,48 @@ const de_XmlMapsXmlNameCommandError = async (
 };
 
 /**
+ * deserializeAws_restXmlXmlMapWithXmlNamespaceCommand
+ */
+export const de_XmlMapWithXmlNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlMapWithXmlNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_XmlMapWithXmlNamespaceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.KVP === "") {
+    contents.myMap = {};
+  } else if (data["KVP"] !== undefined && data["KVP"]["entry"] !== undefined) {
+    contents.myMap = de_XmlMapWithXmlNamespaceInputOutputMap(__getArrayIfSingleItem(data["KVP"]["entry"]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlXmlMapWithXmlNamespaceCommandError
+ */
+const de_XmlMapWithXmlNamespaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlMapWithXmlNamespaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_restXmlXmlNamespacesCommand
  */
 export const de_XmlNamespacesCommand = async (
@@ -5308,6 +5467,26 @@ const se_StructureListMember = (input: StructureListMember, context: __SerdeCont
 };
 
 /**
+ * serializeAws_restXmlUnionPayload
+ */
+const se_UnionPayload = (input: UnionPayload, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("UnionPayload");
+  UnionPayload.visit(input, {
+    greeting: (value) => {
+      const node = __XmlNode.of("String", value).withName("greeting");
+      bodyNode.addChildNode(node);
+    },
+    _: (name: string, value: any) => {
+      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
+        throw new Error("Unable to serialize unknown union members in XML.");
+      }
+      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
+    },
+  });
+  return bodyNode;
+};
+
+/**
  * serializeAws_restXmlXmlAttributesInputOutput
  */
 const se_XmlAttributesInputOutput = (input: XmlAttributesInputOutput, context: __SerdeContext): any => {
@@ -5352,6 +5531,25 @@ const se_XmlMapsXmlNameInputOutputMap = (input: Record<string, GreetingStruct>, 
       let node;
       node = se_GreetingStruct(input[key], context);
       entryNode.addChildNode(node.withName("Setting"));
+      return entryNode;
+    });
+};
+
+/**
+ * serializeAws_restXmlXmlMapWithXmlNamespaceInputOutputMap
+ */
+const se_XmlMapWithXmlNamespaceInputOutputMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.keys(input)
+    .filter((key) => input[key] != null)
+    .map((key) => {
+      const entryNode = new __XmlNode("entry");
+      const keyNode = __XmlNode.of("String", key).withName("K");
+      keyNode.addAttribute("xmlns", "https://the-key.example.com");
+      entryNode.addChildNode(keyNode);
+      let node;
+      node = __XmlNode.of("String", input[key]);
+      node.addAttribute("xmlns", "https://the-value.example.com");
+      entryNode.addChildNode(node.withName("V"));
       return entryNode;
     });
 };
@@ -5848,6 +6046,18 @@ const de_StructureListMember = (output: any, context: __SerdeContext): Structure
 };
 
 /**
+ * deserializeAws_restXmlUnionPayload
+ */
+const de_UnionPayload = (output: any, context: __SerdeContext): UnionPayload => {
+  if (output["greeting"] !== undefined) {
+    return {
+      greeting: __expectString(output["greeting"]) as any,
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
  * deserializeAws_restXmlXmlAttributesInputOutput
  */
 const de_XmlAttributesInputOutput = (output: any, context: __SerdeContext): XmlAttributesInputOutput => {
@@ -5883,6 +6093,19 @@ const de_XmlMapsXmlNameInputOutputMap = (output: any, context: __SerdeContext): 
       return acc;
     }
     acc[pair["Attribute"]] = de_GreetingStruct(pair["Setting"], context);
+    return acc;
+  }, {});
+};
+
+/**
+ * deserializeAws_restXmlXmlMapWithXmlNamespaceInputOutputMap
+ */
+const de_XmlMapWithXmlNamespaceInputOutputMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["V"] === null) {
+      return acc;
+    }
+    acc[pair["K"]] = __expectString(pair["V"]) as any;
     return acc;
   }, {});
 };

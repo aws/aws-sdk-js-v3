@@ -36,6 +36,32 @@ export interface MalformedContentTypeWithoutBodyCommandInput {}
  */
 export interface MalformedContentTypeWithoutBodyCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, MalformedContentTypeWithoutBodyCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, MalformedContentTypeWithoutBodyCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const input = {};
+ * const command = new MalformedContentTypeWithoutBodyCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param MalformedContentTypeWithoutBodyCommandInput - {@link MalformedContentTypeWithoutBodyCommandInput}
+ * @returns {@link MalformedContentTypeWithoutBodyCommandOutput}
+ * @see {@link MalformedContentTypeWithoutBodyCommandInput} for command's `input` shape.
+ * @see {@link MalformedContentTypeWithoutBodyCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
+ */
 export class MalformedContentTypeWithoutBodyCommand extends $Command<
   MalformedContentTypeWithoutBodyCommandInput,
   MalformedContentTypeWithoutBodyCommandOutput,

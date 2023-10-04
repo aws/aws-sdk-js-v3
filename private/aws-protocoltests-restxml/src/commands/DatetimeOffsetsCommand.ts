@@ -34,6 +34,34 @@ export interface DatetimeOffsetsCommandInput {}
  */
 export interface DatetimeOffsetsCommandOutput extends DatetimeOffsetsOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestXmlProtocolClient, DatetimeOffsetsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, DatetimeOffsetsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * const client = new RestXmlProtocolClient(config);
+ * const input = {};
+ * const command = new DatetimeOffsetsCommand(input);
+ * const response = await client.send(command);
+ * // { // DatetimeOffsetsOutput
+ * //   datetime: new Date("TIMESTAMP"),
+ * // };
+ *
+ * ```
+ *
+ * @param DatetimeOffsetsCommandInput - {@link DatetimeOffsetsCommandInput}
+ * @returns {@link DatetimeOffsetsCommandOutput}
+ * @see {@link DatetimeOffsetsCommandInput} for command's `input` shape.
+ * @see {@link DatetimeOffsetsCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
+ *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
+ *
+ */
 export class DatetimeOffsetsCommand extends $Command<
   DatetimeOffsetsCommandInput,
   DatetimeOffsetsCommandOutput,

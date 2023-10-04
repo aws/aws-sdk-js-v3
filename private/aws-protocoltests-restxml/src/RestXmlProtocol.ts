@@ -93,6 +93,11 @@ import {
   HttpPayloadWithStructureCommandOutput,
 } from "./commands/HttpPayloadWithStructureCommand";
 import {
+  HttpPayloadWithUnionCommand,
+  HttpPayloadWithUnionCommandInput,
+  HttpPayloadWithUnionCommandOutput,
+} from "./commands/HttpPayloadWithUnionCommand";
+import {
   HttpPayloadWithXmlNameCommand,
   HttpPayloadWithXmlNameCommandInput,
   HttpPayloadWithXmlNameCommandOutput,
@@ -253,6 +258,11 @@ import {
   XmlMapsXmlNameCommandOutput,
 } from "./commands/XmlMapsXmlNameCommand";
 import {
+  XmlMapWithXmlNamespaceCommand,
+  XmlMapWithXmlNamespaceCommandInput,
+  XmlMapWithXmlNamespaceCommandOutput,
+} from "./commands/XmlMapWithXmlNamespaceCommand";
+import {
   XmlNamespacesCommand,
   XmlNamespacesCommandInput,
   XmlNamespacesCommandOutput,
@@ -284,6 +294,7 @@ const commands = {
   HttpPayloadTraitsWithMediaTypeCommand,
   HttpPayloadWithMemberXmlNameCommand,
   HttpPayloadWithStructureCommand,
+  HttpPayloadWithUnionCommand,
   HttpPayloadWithXmlNameCommand,
   HttpPayloadWithXmlNamespaceCommand,
   HttpPayloadWithXmlNamespaceAndPrefixCommand,
@@ -320,6 +331,7 @@ const commands = {
   XmlListsCommand,
   XmlMapsCommand,
   XmlMapsXmlNameCommand,
+  XmlMapWithXmlNamespaceCommand,
   XmlNamespacesCommand,
   XmlTimestampsCommand,
   XmlUnionsCommand,
@@ -621,6 +633,23 @@ export interface RestXmlProtocol {
     args: HttpPayloadWithStructureCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: HttpPayloadWithStructureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link HttpPayloadWithUnionCommand}
+   */
+  httpPayloadWithUnion(
+    args: HttpPayloadWithUnionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpPayloadWithUnionCommandOutput>;
+  httpPayloadWithUnion(
+    args: HttpPayloadWithUnionCommandInput,
+    cb: (err: any, data?: HttpPayloadWithUnionCommandOutput) => void
+  ): void;
+  httpPayloadWithUnion(
+    args: HttpPayloadWithUnionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpPayloadWithUnionCommandOutput) => void
   ): void;
 
   /**
@@ -1161,6 +1190,23 @@ export interface RestXmlProtocol {
     args: XmlMapsXmlNameCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: XmlMapsXmlNameCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link XmlMapWithXmlNamespaceCommand}
+   */
+  xmlMapWithXmlNamespace(
+    args: XmlMapWithXmlNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlMapWithXmlNamespaceCommandOutput>;
+  xmlMapWithXmlNamespace(
+    args: XmlMapWithXmlNamespaceCommandInput,
+    cb: (err: any, data?: XmlMapWithXmlNamespaceCommandOutput) => void
+  ): void;
+  xmlMapWithXmlNamespace(
+    args: XmlMapWithXmlNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlMapWithXmlNamespaceCommandOutput) => void
   ): void;
 
   /**

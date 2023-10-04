@@ -34,6 +34,34 @@ export interface DatetimeOffsetsCommandInput {}
  */
 export interface DatetimeOffsetsCommandOutput extends DatetimeOffsetsOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QueryProtocolClient, DatetimeOffsetsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
+ * // const { QueryProtocolClient, DatetimeOffsetsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
+ * const client = new QueryProtocolClient(config);
+ * const input = {};
+ * const command = new DatetimeOffsetsCommand(input);
+ * const response = await client.send(command);
+ * // { // DatetimeOffsetsOutput
+ * //   datetime: new Date("TIMESTAMP"),
+ * // };
+ *
+ * ```
+ *
+ * @param DatetimeOffsetsCommandInput - {@link DatetimeOffsetsCommandInput}
+ * @returns {@link DatetimeOffsetsCommandOutput}
+ * @see {@link DatetimeOffsetsCommandInput} for command's `input` shape.
+ * @see {@link DatetimeOffsetsCommandOutput} for command's `response` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
+ *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
+ *
+ */
 export class DatetimeOffsetsCommand extends $Command<
   DatetimeOffsetsCommandInput,
   DatetimeOffsetsCommandOutput,

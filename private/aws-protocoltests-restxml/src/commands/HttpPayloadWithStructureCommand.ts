@@ -36,7 +36,7 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
 
 /**
  * @public
- * This examples serializes a structure in the payload.
+ * This example serializes a structure in the payload.
  *
  * Note that serializing a structure changes the wrapper element name
  * to match the targeted structure.

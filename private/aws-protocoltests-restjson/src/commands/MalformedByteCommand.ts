@@ -34,6 +34,37 @@ export interface MalformedByteCommandInput extends MalformedByteInput {}
  */
 export interface MalformedByteCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, MalformedByteCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, MalformedByteCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const input = { // MalformedByteInput
+ *   byteInBody: "BYTE_VALUE",
+ *   byteInPath: "BYTE_VALUE", // required
+ *   byteInQuery: "BYTE_VALUE",
+ *   byteInHeader: "BYTE_VALUE",
+ * };
+ * const command = new MalformedByteCommand(input);
+ * const response = await client.send(command);
+ * // {};
+ *
+ * ```
+ *
+ * @param MalformedByteCommandInput - {@link MalformedByteCommandInput}
+ * @returns {@link MalformedByteCommandOutput}
+ * @see {@link MalformedByteCommandInput} for command's `input` shape.
+ * @see {@link MalformedByteCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
+ */
 export class MalformedByteCommand extends $Command<
   MalformedByteCommandInput,
   MalformedByteCommandOutput,

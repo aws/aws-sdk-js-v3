@@ -34,6 +34,44 @@ export interface XmlMapsXmlNameCommandInput extends XmlMapsXmlNameInputOutput {}
  */
 export interface XmlMapsXmlNameCommandOutput extends XmlMapsXmlNameInputOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestXmlProtocolClient, XmlMapsXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, XmlMapsXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * const client = new RestXmlProtocolClient(config);
+ * const input = { // XmlMapsXmlNameInputOutput
+ *   myMap: { // XmlMapsXmlNameInputOutputMap
+ *     "<keys>": { // GreetingStruct
+ *       hi: "STRING_VALUE",
+ *     },
+ *   },
+ * };
+ * const command = new XmlMapsXmlNameCommand(input);
+ * const response = await client.send(command);
+ * // { // XmlMapsXmlNameInputOutput
+ * //   myMap: { // XmlMapsXmlNameInputOutputMap
+ * //     "<keys>": { // GreetingStruct
+ * //       hi: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
+ * ```
+ *
+ * @param XmlMapsXmlNameCommandInput - {@link XmlMapsXmlNameCommandInput}
+ * @returns {@link XmlMapsXmlNameCommandOutput}
+ * @see {@link XmlMapsXmlNameCommandInput} for command's `input` shape.
+ * @see {@link XmlMapsXmlNameCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
+ *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
+ *
+ */
 export class XmlMapsXmlNameCommand extends $Command<
   XmlMapsXmlNameCommandInput,
   XmlMapsXmlNameCommandOutput,

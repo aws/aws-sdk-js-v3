@@ -22,6 +22,7 @@ import { HttpEnumPayloadCommand } from "../../src/commands/HttpEnumPayloadComman
 import { HttpPayloadTraitsCommand } from "../../src/commands/HttpPayloadTraitsCommand";
 import { HttpPayloadTraitsWithMediaTypeCommand } from "../../src/commands/HttpPayloadTraitsWithMediaTypeCommand";
 import { HttpPayloadWithStructureCommand } from "../../src/commands/HttpPayloadWithStructureCommand";
+import { HttpPayloadWithUnionCommand } from "../../src/commands/HttpPayloadWithUnionCommand";
 import { HttpPrefixHeadersCommand } from "../../src/commands/HttpPrefixHeadersCommand";
 import { HttpPrefixHeadersInResponseCommand } from "../../src/commands/HttpPrefixHeadersInResponseCommand";
 import { HttpRequestWithFloatLabelsCommand } from "../../src/commands/HttpRequestWithFloatLabelsCommand";
@@ -2536,6 +2537,145 @@ it("RestJsonHttpPayloadWithStructure:Response", async () => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
+});
+
+/**
+ * Serializes a union in the payload.
+ */
+it("RestJsonHttpPayloadWithUnion:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpPayloadWithUnionCommand({
+    nested: {
+      greeting: "hello",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/HttpPayloadWithUnion");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"greeting\": \"hello\"
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * No payload is sent if the union has no value.
+ */
+it("RestJsonHttpPayloadWithUnsetUnion:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpPayloadWithUnionCommand({} as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/HttpPayloadWithUnion");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Serializes a union in the payload.
+ */
+it("RestJsonHttpPayloadWithUnion:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "greeting": "hello"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new HttpPayloadWithUnionCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      nested: {
+        greeting: "hello",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * No payload is sent if the union has no value.
+ */
+it("RestJsonHttpPayloadWithUnsetUnion:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-length": "0",
+      },
+      ``
+    ),
+  });
+
+  const params: any = {};
+  const command = new HttpPayloadWithUnionCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
@@ -6812,6 +6952,55 @@ it("RestJsonDeserializeStructureUnionValue:Response", async () => {
       },
       `{
           "contents": {
+              "structureValue": {
+                  "hi": "hello"
+              }
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        structureValue: {
+          hi: "hello",
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ignores an unrecognized __type property
+ */
+it("RestJsonDeserializeIgnoreType:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "contents": {
+              "__type": "aws.protocoltests.json10#MyUnion",
               "structureValue": {
                   "hi": "hello"
               }

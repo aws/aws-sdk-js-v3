@@ -1856,8 +1856,8 @@ it.skip("RestJsonMalformedPatternReDOSString:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$$\",
-    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$$\", \"path\": \"/string\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value 000000000000000000000000000000000000000000000000000000000000000000000000000000000000! at '/evilString' failed to satisfy constraint: Member must satisfy regular expression pattern: ^([0-9]+)+$$\",
+    \"fieldList\" : [{\"message\": \"Value 000000000000000000000000000000000000000000000000000000000000000000000000000000000000! at '/evilString' failed to satisfy constraint: Member must satisfy regular expression pattern: ^([0-9]+)+$$\", \"path\": \"/evilString\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });

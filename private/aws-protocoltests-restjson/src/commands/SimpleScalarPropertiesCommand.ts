@@ -34,6 +34,54 @@ export interface SimpleScalarPropertiesCommandInput extends SimpleScalarProperti
  */
 export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropertiesInputOutput, __MetadataBearer {}
 
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, SimpleScalarPropertiesCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, SimpleScalarPropertiesCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const input = { // SimpleScalarPropertiesInputOutput
+ *   foo: "STRING_VALUE",
+ *   stringValue: "STRING_VALUE",
+ *   trueBooleanValue: true || false,
+ *   falseBooleanValue: true || false,
+ *   byteValue: "BYTE_VALUE",
+ *   shortValue: Number("short"),
+ *   integerValue: Number("int"),
+ *   longValue: Number("long"),
+ *   floatValue: Number("float"),
+ *   doubleValue: Number("double"),
+ * };
+ * const command = new SimpleScalarPropertiesCommand(input);
+ * const response = await client.send(command);
+ * // { // SimpleScalarPropertiesInputOutput
+ * //   foo: "STRING_VALUE",
+ * //   stringValue: "STRING_VALUE",
+ * //   trueBooleanValue: true || false,
+ * //   falseBooleanValue: true || false,
+ * //   byteValue: "BYTE_VALUE",
+ * //   shortValue: Number("short"),
+ * //   integerValue: Number("int"),
+ * //   longValue: Number("long"),
+ * //   floatValue: Number("float"),
+ * //   doubleValue: Number("double"),
+ * // };
+ *
+ * ```
+ *
+ * @param SimpleScalarPropertiesCommandInput - {@link SimpleScalarPropertiesCommandInput}
+ * @returns {@link SimpleScalarPropertiesCommandOutput}
+ * @see {@link SimpleScalarPropertiesCommandInput} for command's `input` shape.
+ * @see {@link SimpleScalarPropertiesCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
+ */
 export class SimpleScalarPropertiesCommand extends $Command<
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
