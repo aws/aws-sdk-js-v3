@@ -21,7 +21,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/middleware-endpoint": "^1.0.2",
+    "@smithy/middleware-endpoint": "^2.0.10",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
