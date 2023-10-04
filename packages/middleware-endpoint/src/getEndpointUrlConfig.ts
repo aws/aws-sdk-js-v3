@@ -1,7 +1,9 @@
+import { LoadedConfigSelectors } from "@smithy/node-config-provider";
+
 const ENV_ENDPOINT_URL = "AWS_ENDPOINT_URL";
 const CONFIG_ENDPOINT_URL = "endpoint_url";
 
-export const getEndpointUrlConfig = (serviceId: string) => ({
+export const getEndpointUrlConfig = (serviceId: string): LoadedConfigSelectors<string | undefined> => ({
   environmentVariableSelector: (env) => {
     // The value provided by a service-specific environment variable.
     const serviceEndpointUrlSections = [ENV_ENDPOINT_URL, serviceId.toUpperCase()];
