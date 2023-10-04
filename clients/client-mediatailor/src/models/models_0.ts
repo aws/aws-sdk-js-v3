@@ -1319,6 +1319,18 @@ export interface VodSource {
 
 /**
  * @public
+ * <p>A location at which a zero-duration ad marker was detected in a VOD source manifest.</p>
+ */
+export interface AdBreakOpportunity {
+  /**
+   * @public
+   * <p>The offset in milliseconds from the start of the VOD source at which an ad marker was detected.</p>
+   */
+  OffsetMillis: number | undefined;
+}
+
+/**
+ * @public
  * <p>A request contains unexpected data.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -3014,6 +3026,12 @@ export interface DescribeVodSourceRequest {
  * @public
  */
 export interface DescribeVodSourceResponse {
+  /**
+   * @public
+   * <p>The ad break opportunities within the VOD source.</p>
+   */
+  AdBreakOpportunities?: AdBreakOpportunity[];
+
   /**
    * @public
    * <p>The ARN of the VOD source.</p>

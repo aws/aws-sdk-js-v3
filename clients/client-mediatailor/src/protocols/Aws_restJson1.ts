@@ -2500,6 +2500,7 @@ export const de_DescribeVodSourceCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AdBreakOpportunities: _json,
     Arn: __expectString,
     CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     HttpPackageConfigurations: _json,
@@ -3802,6 +3803,10 @@ const de___listOfVodSource = (output: any, context: __SerdeContext): VodSource[]
 // de_AdBreak omitted.
 
 // de_AdBreakMetadataList omitted.
+
+// de_AdBreakOpportunities omitted.
+
+// de_AdBreakOpportunity omitted.
 
 // de_AdMarkerPassthrough omitted.
 

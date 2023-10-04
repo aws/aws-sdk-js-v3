@@ -51,6 +51,11 @@ export interface DescribeVodSourceCommandOutput extends DescribeVodSourceRespons
  * const command = new DescribeVodSourceCommand(input);
  * const response = await client.send(command);
  * // { // DescribeVodSourceResponse
+ * //   AdBreakOpportunities: [ // AdBreakOpportunities
+ * //     { // AdBreakOpportunity
+ * //       OffsetMillis: Number("long"), // required
+ * //     },
+ * //   ],
  * //   Arn: "STRING_VALUE",
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   HttpPackageConfigurations: [ // HttpPackageConfigurations
