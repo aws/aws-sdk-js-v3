@@ -1,4 +1,3 @@
-// smithy-typescript generated code
 import { marshallInput, unmarshallOutput } from "./utils";
 
 describe("utils", () => {

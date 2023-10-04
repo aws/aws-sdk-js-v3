@@ -125,19 +125,6 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_NAME);
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_FULL_NAME);
             });
-
-            String utilsFileLocation = String.format("%s%s", DocumentClientUtils.DOC_CLIENT_PREFIX,
-                DocumentClientUtils.CLIENT_UTILS_FILE);
-            writerFactory.accept(String.format("%s%s/%s.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
-                DocumentClientUtils.CLIENT_COMMANDS_FOLDER, DocumentClientUtils.CLIENT_UTILS_FILE), writer -> {
-                writer.write(IoUtils.readUtf8Resource(AddDocumentClientPlugin.class,
-                    String.format("%s.ts", utilsFileLocation)));
-            });
-            writerFactory.accept(String.format("%s%s/%s.spec.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
-                DocumentClientUtils.CLIENT_COMMANDS_FOLDER, DocumentClientUtils.CLIENT_UTILS_FILE), writer -> {
-                writer.write(IoUtils.readUtf8Resource(AddDocumentClientPlugin.class,
-                    String.format("%s.spec.ts", utilsFileLocation)));
-            });
         }
     }
 
