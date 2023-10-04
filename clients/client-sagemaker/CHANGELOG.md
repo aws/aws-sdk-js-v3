@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.425.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.424.0...v3.425.0) (2023-10-04)
+
+
+### Features
+
+* **client-sagemaker:** Adding support for AdditionalS3DataSource, a data source used for training or inference that is in addition to the input dataset or model data. ([4fa41b7](https://github.com/aws/aws-sdk-js-v3/commit/4fa41b79af58bceb76c1658a26841e4f72e2ed55))
+
+
+
+
+
 # [3.424.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.423.0...v3.424.0) (2023-10-03)
 
 

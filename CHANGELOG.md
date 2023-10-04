@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.425.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.424.0...v3.425.0) (2023-10-04)
+
+
+### Features
+
+* **client-appconfig:** AWS AppConfig introduces KMS customer-managed key (CMK) encryption support for data saved to AppConfig's hosted configuration store. ([b6884ae](https://github.com/aws/aws-sdk-js-v3/commit/b6884ae728944b4d20b95256839f3d3a18099b0c))
+* **client-datazone:** Initial release of Amazon DataZone ([b57e9a9](https://github.com/aws/aws-sdk-js-v3/commit/b57e9a9dbb38d10a17aefe2a4267a90f6506f862))
+* **client-mediatailor:** Updates DescribeVodSource to include a list of ad break opportunities in the response ([7f79024](https://github.com/aws/aws-sdk-js-v3/commit/7f79024e49323860bfbe5f750f1fc5e839e920a1))
+* **client-mgn:** This release includes the following new APIs: ListConnectors, CreateConnector,  UpdateConnector, DeleteConnector and UpdateSourceServer to support the source action framework feature. ([02ce1d6](https://github.com/aws/aws-sdk-js-v3/commit/02ce1d66b58cc5bfb11a1b1d6a431c2e6473631d))
+* **client-sagemaker:** Adding support for AdditionalS3DataSource, a data source used for training or inference that is in addition to the input dataset or model data. ([4fa41b7](https://github.com/aws/aws-sdk-js-v3/commit/4fa41b79af58bceb76c1658a26841e4f72e2ed55))
+* **clients:** update client endpoints as of 2023-10-04 ([02940b4](https://github.com/aws/aws-sdk-js-v3/commit/02940b4b039ea45b1c9db08ae365afebbd14437b))
+* **codegen:** bump codegen version to 0.18.0 ([#5310](https://github.com/aws/aws-sdk-js-v3/issues/5310)) ([c51bd48](https://github.com/aws/aws-sdk-js-v3/commit/c51bd48b4a35a4e806d44fea5a1c95a108908bf3))
+
+
+### Reverts
+
+* Revert "feat(codegen): bump codegen version to 0.18.0 (#5310)" (#5320) ([bee66fb](https://github.com/aws/aws-sdk-js-v3/commit/bee66fbd2a519a16b57c787b2689af857af720af)), closes [#5310](https://github.com/aws/aws-sdk-js-v3/issues/5310) [#5320](https://github.com/aws/aws-sdk-js-v3/issues/5320)
+
+
+
+
+
 # [3.424.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.423.0...v3.424.0) (2023-10-03)
 
 
