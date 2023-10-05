@@ -1,3 +1,7 @@
+export * from "./DescribeApplicationAssociationsPaginator";
+
+export * from "./DescribeApplicationsPaginator";
+
 export * from "./DescribeWorkspaceBundlesPaginator";
 
 export * from "./DescribeWorkspaceDirectoriesPaginator";

@@ -23,6 +23,10 @@ import {
   AssociateConnectionAliasCommandOutput,
 } from "../commands/AssociateConnectionAliasCommand";
 import { AssociateIpGroupsCommandInput, AssociateIpGroupsCommandOutput } from "../commands/AssociateIpGroupsCommand";
+import {
+  AssociateWorkspaceApplicationCommandInput,
+  AssociateWorkspaceApplicationCommandOutput,
+} from "../commands/AssociateWorkspaceApplicationCommand";
 import { AuthorizeIpRulesCommandInput, AuthorizeIpRulesCommandOutput } from "../commands/AuthorizeIpRulesCommand";
 import { CopyWorkspaceImageCommandInput, CopyWorkspaceImageCommandOutput } from "../commands/CopyWorkspaceImageCommand";
 import {
@@ -75,6 +79,10 @@ import {
   DeleteWorkspaceImageCommandOutput,
 } from "../commands/DeleteWorkspaceImageCommand";
 import {
+  DeployWorkspaceApplicationsCommandInput,
+  DeployWorkspaceApplicationsCommandOutput,
+} from "../commands/DeployWorkspaceApplicationsCommand";
+import {
   DeregisterWorkspaceDirectoryCommandInput,
   DeregisterWorkspaceDirectoryCommandOutput,
 } from "../commands/DeregisterWorkspaceDirectoryCommand";
@@ -83,6 +91,18 @@ import {
   DescribeAccountModificationsCommandInput,
   DescribeAccountModificationsCommandOutput,
 } from "../commands/DescribeAccountModificationsCommand";
+import {
+  DescribeApplicationAssociationsCommandInput,
+  DescribeApplicationAssociationsCommandOutput,
+} from "../commands/DescribeApplicationAssociationsCommand";
+import {
+  DescribeApplicationsCommandInput,
+  DescribeApplicationsCommandOutput,
+} from "../commands/DescribeApplicationsCommand";
+import {
+  DescribeBundleAssociationsCommandInput,
+  DescribeBundleAssociationsCommandOutput,
+} from "../commands/DescribeBundleAssociationsCommand";
 import {
   DescribeClientBrandingCommandInput,
   DescribeClientBrandingCommandOutput,
@@ -103,8 +123,16 @@ import {
   DescribeConnectionAliasPermissionsCommandInput,
   DescribeConnectionAliasPermissionsCommandOutput,
 } from "../commands/DescribeConnectionAliasPermissionsCommand";
+import {
+  DescribeImageAssociationsCommandInput,
+  DescribeImageAssociationsCommandOutput,
+} from "../commands/DescribeImageAssociationsCommand";
 import { DescribeIpGroupsCommandInput, DescribeIpGroupsCommandOutput } from "../commands/DescribeIpGroupsCommand";
 import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "../commands/DescribeTagsCommand";
+import {
+  DescribeWorkspaceAssociationsCommandInput,
+  DescribeWorkspaceAssociationsCommandOutput,
+} from "../commands/DescribeWorkspaceAssociationsCommand";
 import {
   DescribeWorkspaceBundlesCommandInput,
   DescribeWorkspaceBundlesCommandOutput,
@@ -138,6 +166,10 @@ import {
   DisassociateIpGroupsCommandInput,
   DisassociateIpGroupsCommandOutput,
 } from "../commands/DisassociateIpGroupsCommand";
+import {
+  DisassociateWorkspaceApplicationCommandInput,
+  DisassociateWorkspaceApplicationCommandOutput,
+} from "../commands/DisassociateWorkspaceApplicationCommand";
 import {
   ImportClientBrandingCommandInput,
   ImportClientBrandingCommandOutput,
@@ -222,12 +254,21 @@ import {
   AccessDeniedException,
   AccountModification,
   Application,
+  ApplicationAssociatedResourceType,
+  ApplicationNotSupportedException,
+  ApplicationResourceAssociation,
   AssociateConnectionAliasRequest,
   AssociateIpGroupsRequest,
+  AssociateWorkspaceApplicationRequest,
+  AssociateWorkspaceApplicationResult,
   AuthorizeIpRulesRequest,
+  BundleAssociatedResourceType,
+  BundleResourceAssociation,
   CertificateBasedAuthProperties,
   ClientDeviceType,
   ClientProperties,
+  Compute,
+  ComputeNotCompatibleException,
   ComputeType,
   ConnectionAliasPermission,
   CopyWorkspaceImageRequest,
@@ -252,17 +293,29 @@ import {
   DeleteTagsRequest,
   DeleteWorkspaceBundleRequest,
   DeleteWorkspaceImageRequest,
+  DeployWorkspaceApplicationsRequest,
+  DeployWorkspaceApplicationsResult,
   DeregisterWorkspaceDirectoryRequest,
   DescribeAccountModificationsRequest,
   DescribeAccountModificationsResult,
   DescribeAccountRequest,
+  DescribeApplicationAssociationsRequest,
+  DescribeApplicationAssociationsResult,
+  DescribeApplicationsRequest,
+  DescribeApplicationsResult,
+  DescribeBundleAssociationsRequest,
+  DescribeBundleAssociationsResult,
   DescribeClientBrandingRequest,
   DescribeClientPropertiesRequest,
   DescribeConnectClientAddInsRequest,
   DescribeConnectionAliasesRequest,
   DescribeConnectionAliasPermissionsRequest,
+  DescribeImageAssociationsRequest,
+  DescribeImageAssociationsResult,
   DescribeIpGroupsRequest,
   DescribeTagsRequest,
+  DescribeWorkspaceAssociationsRequest,
+  DescribeWorkspaceAssociationsResult,
   DescribeWorkspaceBundlesRequest,
   DescribeWorkspaceBundlesResult,
   DescribeWorkspaceDirectoriesRequest,
@@ -276,8 +329,13 @@ import {
   DescribeWorkspacesRequest,
   DisassociateConnectionAliasRequest,
   DisassociateIpGroupsRequest,
+  DisassociateWorkspaceApplicationRequest,
+  DisassociateWorkspaceApplicationResult,
+  ImageAssociatedResourceType,
+  ImageResourceAssociation,
   ImportClientBrandingRequest,
   ImportWorkspaceImageRequest,
+  IncompatibleApplicationsException,
   InvalidParameterValuesException,
   InvalidResourceStateException,
   IosImportClientBrandingAttributes,
@@ -293,6 +351,8 @@ import {
   ModifyWorkspaceCreationPropertiesRequest,
   ModifyWorkspacePropertiesRequest,
   ModifyWorkspaceStateRequest,
+  OperatingSystemName,
+  OperatingSystemNotCompatibleException,
   OperationInProgressException,
   OperationNotSupportedException,
   Protocol,
@@ -304,6 +364,7 @@ import {
   ResourceAlreadyExistsException,
   ResourceAssociatedException,
   ResourceCreationFailedException,
+  ResourceInUseException,
   ResourceLimitExceededException,
   ResourceNotFoundException,
   ResourceUnavailableException,
@@ -330,12 +391,16 @@ import {
   UpdateWorkspaceImagePermissionRequest,
   UserStorage,
   WorkspaceAccessProperties,
+  WorkSpaceApplication,
+  WorkSpaceApplicationDeployment,
+  WorkSpaceAssociatedResourceType,
   WorkspaceBundle,
   WorkspaceConnectionStatus,
   WorkspaceCreationProperties,
   WorkspaceImage,
   WorkspaceProperties,
   WorkspaceRequest,
+  WorkspaceResourceAssociation,
   WorkspacesDefaultRoleNotFoundException,
 } from "../models/models_0";
 import { WorkSpacesServiceException as __BaseException } from "../models/WorkSpacesServiceException";
@@ -361,6 +426,19 @@ export const se_AssociateIpGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateIpGroups");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1AssociateWorkspaceApplicationCommand
+ */
+export const se_AssociateWorkspaceApplicationCommand = async (
+  input: AssociateWorkspaceApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AssociateWorkspaceApplication");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -601,6 +679,19 @@ export const se_DeleteWorkspaceImageCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DeployWorkspaceApplicationsCommand
+ */
+export const se_DeployWorkspaceApplicationsCommand = async (
+  input: DeployWorkspaceApplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeployWorkspaceApplications");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DeregisterWorkspaceDirectoryCommand
  */
 export const se_DeregisterWorkspaceDirectoryCommand = async (
@@ -634,6 +725,45 @@ export const se_DescribeAccountModificationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAccountModifications");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeApplicationAssociationsCommand
+ */
+export const se_DescribeApplicationAssociationsCommand = async (
+  input: DescribeApplicationAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeApplicationAssociations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeApplicationsCommand
+ */
+export const se_DescribeApplicationsCommand = async (
+  input: DescribeApplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeApplications");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeBundleAssociationsCommand
+ */
+export const se_DescribeBundleAssociationsCommand = async (
+  input: DescribeBundleAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeBundleAssociations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -705,6 +835,19 @@ export const se_DescribeConnectionAliasPermissionsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeImageAssociationsCommand
+ */
+export const se_DescribeImageAssociationsCommand = async (
+  input: DescribeImageAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeImageAssociations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeIpGroupsCommand
  */
 export const se_DescribeIpGroupsCommand = async (
@@ -725,6 +868,19 @@ export const se_DescribeTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeTags");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeWorkspaceAssociationsCommand
+ */
+export const se_DescribeWorkspaceAssociationsCommand = async (
+  input: DescribeWorkspaceAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkspaceAssociations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -842,6 +998,19 @@ export const se_DisassociateIpGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateIpGroups");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DisassociateWorkspaceApplicationCommand
+ */
+export const se_DisassociateWorkspaceApplicationCommand = async (
+  input: DisassociateWorkspaceApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisassociateWorkspaceApplication");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1294,6 +1463,79 @@ const de_AssociateIpGroupsCommandError = async (
     case "ResourceLimitExceededException":
     case "com.amazonaws.workspaces#ResourceLimitExceededException":
       throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1AssociateWorkspaceApplicationCommand
+ */
+export const de_AssociateWorkspaceApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateWorkspaceApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_AssociateWorkspaceApplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AssociateWorkspaceApplicationResult(data, context);
+  const response: AssociateWorkspaceApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1AssociateWorkspaceApplicationCommandError
+ */
+const de_AssociateWorkspaceApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateWorkspaceApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ApplicationNotSupportedException":
+    case "com.amazonaws.workspaces#ApplicationNotSupportedException":
+      throw await de_ApplicationNotSupportedExceptionRes(parsedOutput, context);
+    case "ComputeNotCompatibleException":
+    case "com.amazonaws.workspaces#ComputeNotCompatibleException":
+      throw await de_ComputeNotCompatibleExceptionRes(parsedOutput, context);
+    case "IncompatibleApplicationsException":
+    case "com.amazonaws.workspaces#IncompatibleApplicationsException":
+      throw await de_IncompatibleApplicationsExceptionRes(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
+    case "OperatingSystemNotCompatibleException":
+    case "com.amazonaws.workspaces#OperatingSystemNotCompatibleException":
+      throw await de_OperatingSystemNotCompatibleExceptionRes(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.workspaces#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -2331,6 +2573,67 @@ const de_DeleteWorkspaceImageCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DeployWorkspaceApplicationsCommand
+ */
+export const de_DeployWorkspaceApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeployWorkspaceApplicationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeployWorkspaceApplicationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeployWorkspaceApplicationsResult(data, context);
+  const response: DeployWorkspaceApplicationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeployWorkspaceApplicationsCommandError
+ */
+const de_DeployWorkspaceApplicationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeployWorkspaceApplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "IncompatibleApplicationsException":
+    case "com.amazonaws.workspaces#IncompatibleApplicationsException":
+      throw await de_IncompatibleApplicationsExceptionRes(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.workspaces#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand
  */
 export const de_DeregisterWorkspaceDirectoryCommand = async (
@@ -2470,6 +2773,171 @@ const de_DescribeAccountModificationsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeApplicationAssociationsCommand
+ */
+export const de_DescribeApplicationAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeApplicationAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeApplicationAssociationsResult(data, context);
+  const response: DescribeApplicationAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeApplicationAssociationsCommandError
+ */
+const de_DescribeApplicationAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeApplicationsCommand
+ */
+export const de_DescribeApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeApplicationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeApplicationsResult(data, context);
+  const response: DescribeApplicationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeApplicationsCommandError
+ */
+const de_DescribeApplicationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeBundleAssociationsCommand
+ */
+export const de_DescribeBundleAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBundleAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeBundleAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBundleAssociationsResult(data, context);
+  const response: DescribeBundleAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBundleAssociationsCommandError
+ */
+const de_DescribeBundleAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBundleAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2744,6 +3212,61 @@ const de_DescribeConnectionAliasPermissionsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeImageAssociationsCommand
+ */
+export const de_DescribeImageAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeImageAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeImageAssociationsResult(data, context);
+  const response: DescribeImageAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeImageAssociationsCommandError
+ */
+const de_DescribeImageAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DescribeIpGroupsCommand
  */
 export const de_DescribeIpGroupsCommand = async (
@@ -2825,6 +3348,61 @@ const de_DescribeTagsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeWorkspaceAssociationsCommand
+ */
+export const de_DescribeWorkspaceAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkspaceAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeWorkspaceAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeWorkspaceAssociationsResult(data, context);
+  const response: DescribeWorkspaceAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWorkspaceAssociationsCommandError
+ */
+const de_DescribeWorkspaceAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkspaceAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -3275,6 +3853,64 @@ const de_DisassociateIpGroupsCommandError = async (
     case "InvalidResourceStateException":
     case "com.amazonaws.workspaces#InvalidResourceStateException":
       throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DisassociateWorkspaceApplicationCommand
+ */
+export const de_DisassociateWorkspaceApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateWorkspaceApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DisassociateWorkspaceApplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisassociateWorkspaceApplicationResult(data, context);
+  const response: DisassociateWorkspaceApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DisassociateWorkspaceApplicationCommandError
+ */
+const de_DisassociateWorkspaceApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateWorkspaceApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.workspaces#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -4705,6 +5341,54 @@ const de_AccessDeniedExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ApplicationNotSupportedExceptionRes
+ */
+const de_ApplicationNotSupportedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ApplicationNotSupportedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ApplicationNotSupportedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ComputeNotCompatibleExceptionRes
+ */
+const de_ComputeNotCompatibleExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ComputeNotCompatibleException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ComputeNotCompatibleException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1IncompatibleApplicationsExceptionRes
+ */
+const de_IncompatibleApplicationsExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IncompatibleApplicationsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new IncompatibleApplicationsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1InvalidParameterValuesExceptionRes
  */
 const de_InvalidParameterValuesExceptionRes = async (
@@ -4730,6 +5414,22 @@ const de_InvalidResourceStateExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new InvalidResourceStateException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1OperatingSystemNotCompatibleExceptionRes
+ */
+const de_OperatingSystemNotCompatibleExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OperatingSystemNotCompatibleException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new OperatingSystemNotCompatibleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4810,6 +5510,22 @@ const de_ResourceCreationFailedExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ResourceCreationFailedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceInUseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4912,13 +5628,19 @@ const de_WorkspacesDefaultRoleNotFoundExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
+// se_ApplicationAssociatedResourceTypeList omitted.
+
 // se_ApplicationList omitted.
 
 // se_AssociateConnectionAliasRequest omitted.
 
 // se_AssociateIpGroupsRequest omitted.
 
+// se_AssociateWorkspaceApplicationRequest omitted.
+
 // se_AuthorizeIpRulesRequest omitted.
+
+// se_BundleAssociatedResourceTypeList omitted.
 
 // se_BundleIdList omitted.
 
@@ -4927,6 +5649,8 @@ const de_WorkspacesDefaultRoleNotFoundExceptionRes = async (
 // se_ClientDeviceTypeList omitted.
 
 // se_ClientProperties omitted.
+
+// se_ComputeList omitted.
 
 // se_ComputeType omitted.
 
@@ -4988,11 +5712,19 @@ const se_DefaultImportClientBrandingAttributes = (
 
 // se_DeleteWorkspaceImageRequest omitted.
 
+// se_DeployWorkspaceApplicationsRequest omitted.
+
 // se_DeregisterWorkspaceDirectoryRequest omitted.
 
 // se_DescribeAccountModificationsRequest omitted.
 
 // se_DescribeAccountRequest omitted.
+
+// se_DescribeApplicationAssociationsRequest omitted.
+
+// se_DescribeApplicationsRequest omitted.
+
+// se_DescribeBundleAssociationsRequest omitted.
 
 // se_DescribeClientBrandingRequest omitted.
 
@@ -5004,9 +5736,13 @@ const se_DefaultImportClientBrandingAttributes = (
 
 // se_DescribeConnectionAliasPermissionsRequest omitted.
 
+// se_DescribeImageAssociationsRequest omitted.
+
 // se_DescribeIpGroupsRequest omitted.
 
 // se_DescribeTagsRequest omitted.
+
+// se_DescribeWorkspaceAssociationsRequest omitted.
 
 // se_DescribeWorkspaceBundlesRequest omitted.
 
@@ -5027,6 +5763,10 @@ const se_DefaultImportClientBrandingAttributes = (
 // se_DisassociateConnectionAliasRequest omitted.
 
 // se_DisassociateIpGroupsRequest omitted.
+
+// se_DisassociateWorkspaceApplicationRequest omitted.
+
+// se_ImageAssociatedResourceTypeList omitted.
 
 /**
  * serializeAws_json1_1ImportClientBrandingRequest
@@ -5094,6 +5834,8 @@ const se_IosImportClientBrandingAttributes = (
 // se_ModifyWorkspacePropertiesRequest omitted.
 
 // se_ModifyWorkspaceStateRequest omitted.
+
+// se_OperatingSystemNameList omitted.
 
 // se_ProtocolList omitted.
 
@@ -5167,6 +5909,10 @@ const se_IosImportClientBrandingAttributes = (
 
 // se_WorkspaceAccessProperties omitted.
 
+// se_WorkSpaceApplicationIdList omitted.
+
+// se_WorkSpaceAssociatedResourceTypeList omitted.
+
 // se_WorkspaceCreationProperties omitted.
 
 // se_WorkspaceIdList omitted.
@@ -5207,9 +5953,55 @@ const de_AccountModificationList = (output: any, context: __SerdeContext): Accou
   return retVal;
 };
 
+// de_ApplicationNotSupportedException omitted.
+
+/**
+ * deserializeAws_json1_1ApplicationResourceAssociation
+ */
+const de_ApplicationResourceAssociation = (output: any, context: __SerdeContext): ApplicationResourceAssociation => {
+  return take(output, {
+    ApplicationId: __expectString,
+    AssociatedResourceId: __expectString,
+    AssociatedResourceType: __expectString,
+    Created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateReason: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ApplicationResourceAssociationList
+ */
+const de_ApplicationResourceAssociationList = (
+  output: any,
+  context: __SerdeContext
+): ApplicationResourceAssociation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ApplicationResourceAssociation(entry, context);
+    });
+  return retVal;
+};
+
 // de_AssociateConnectionAliasResult omitted.
 
 // de_AssociateIpGroupsResult omitted.
+
+/**
+ * deserializeAws_json1_1AssociateWorkspaceApplicationResult
+ */
+const de_AssociateWorkspaceApplicationResult = (
+  output: any,
+  context: __SerdeContext
+): AssociateWorkspaceApplicationResult => {
+  return take(output, {
+    Association: (_: any) => de_WorkspaceResourceAssociation(_, context),
+  }) as any;
+};
+
+// de_AssociationStateReason omitted.
 
 // de_AuthorizeIpRulesResult omitted.
 
@@ -5225,6 +6017,33 @@ const de_BundleList = (output: any, context: __SerdeContext): WorkspaceBundle[] 
   return retVal;
 };
 
+/**
+ * deserializeAws_json1_1BundleResourceAssociation
+ */
+const de_BundleResourceAssociation = (output: any, context: __SerdeContext): BundleResourceAssociation => {
+  return take(output, {
+    AssociatedResourceId: __expectString,
+    AssociatedResourceType: __expectString,
+    BundleId: __expectString,
+    Created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateReason: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1BundleResourceAssociationList
+ */
+const de_BundleResourceAssociationList = (output: any, context: __SerdeContext): BundleResourceAssociation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BundleResourceAssociation(entry, context);
+    });
+  return retVal;
+};
+
 // de_CertificateBasedAuthProperties omitted.
 
 // de_ClientProperties omitted.
@@ -5232,6 +6051,10 @@ const de_BundleList = (output: any, context: __SerdeContext): WorkspaceBundle[] 
 // de_ClientPropertiesList omitted.
 
 // de_ClientPropertiesResult omitted.
+
+// de_ComputeList omitted.
+
+// de_ComputeNotCompatibleException omitted.
 
 // de_ComputeType omitted.
 
@@ -5312,6 +6135,18 @@ const de_CreateWorkspaceImageResult = (output: any, context: __SerdeContext): Cr
 
 // de_DeleteWorkspaceImageResult omitted.
 
+/**
+ * deserializeAws_json1_1DeployWorkspaceApplicationsResult
+ */
+const de_DeployWorkspaceApplicationsResult = (
+  output: any,
+  context: __SerdeContext
+): DeployWorkspaceApplicationsResult => {
+  return take(output, {
+    Deployment: (_: any) => de_WorkSpaceApplicationDeployment(_, context),
+  }) as any;
+};
+
 // de_DeregisterWorkspaceDirectoryResult omitted.
 
 /**
@@ -5329,6 +6164,41 @@ const de_DescribeAccountModificationsResult = (
 
 // de_DescribeAccountResult omitted.
 
+/**
+ * deserializeAws_json1_1DescribeApplicationAssociationsResult
+ */
+const de_DescribeApplicationAssociationsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeApplicationAssociationsResult => {
+  return take(output, {
+    Associations: (_: any) => de_ApplicationResourceAssociationList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeApplicationsResult
+ */
+const de_DescribeApplicationsResult = (output: any, context: __SerdeContext): DescribeApplicationsResult => {
+  return take(output, {
+    Applications: (_: any) => de_WorkSpaceApplicationList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBundleAssociationsResult
+ */
+const de_DescribeBundleAssociationsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeBundleAssociationsResult => {
+  return take(output, {
+    Associations: (_: any) => de_BundleResourceAssociationList(_, context),
+  }) as any;
+};
+
 // de_DescribeClientBrandingResult omitted.
 
 // de_DescribeClientPropertiesResult omitted.
@@ -5339,9 +6209,30 @@ const de_DescribeAccountModificationsResult = (
 
 // de_DescribeConnectionAliasPermissionsResult omitted.
 
+/**
+ * deserializeAws_json1_1DescribeImageAssociationsResult
+ */
+const de_DescribeImageAssociationsResult = (output: any, context: __SerdeContext): DescribeImageAssociationsResult => {
+  return take(output, {
+    Associations: (_: any) => de_ImageResourceAssociationList(_, context),
+  }) as any;
+};
+
 // de_DescribeIpGroupsResult omitted.
 
 // de_DescribeTagsResult omitted.
+
+/**
+ * deserializeAws_json1_1DescribeWorkspaceAssociationsResult
+ */
+const de_DescribeWorkspaceAssociationsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeWorkspaceAssociationsResult => {
+  return take(output, {
+    Associations: (_: any) => de_WorkspaceResourceAssociationList(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1DescribeWorkspaceBundlesResult
@@ -5401,6 +6292,18 @@ const de_DescribeWorkspaceSnapshotsResult = (
 
 // de_DisassociateIpGroupsResult omitted.
 
+/**
+ * deserializeAws_json1_1DisassociateWorkspaceApplicationResult
+ */
+const de_DisassociateWorkspaceApplicationResult = (
+  output: any,
+  context: __SerdeContext
+): DisassociateWorkspaceApplicationResult => {
+  return take(output, {
+    Association: (_: any) => de_WorkspaceResourceAssociation(_, context),
+  }) as any;
+};
+
 // de_DnsIpAddresses omitted.
 
 // de_ErrorDetails omitted.
@@ -5431,9 +6334,38 @@ const de_DescribeWorkspaceSnapshotsResult = (
 
 // de_ImagePermissions omitted.
 
+/**
+ * deserializeAws_json1_1ImageResourceAssociation
+ */
+const de_ImageResourceAssociation = (output: any, context: __SerdeContext): ImageResourceAssociation => {
+  return take(output, {
+    AssociatedResourceId: __expectString,
+    AssociatedResourceType: __expectString,
+    Created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ImageId: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateReason: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ImageResourceAssociationList
+ */
+const de_ImageResourceAssociationList = (output: any, context: __SerdeContext): ImageResourceAssociation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImageResourceAssociation(entry, context);
+    });
+  return retVal;
+};
+
 // de_ImportClientBrandingResult omitted.
 
 // de_ImportWorkspaceImageResult omitted.
+
+// de_IncompatibleApplicationsException omitted.
 
 // de_InvalidParameterValuesException omitted.
 
@@ -5477,6 +6409,10 @@ const de_DescribeWorkspaceSnapshotsResult = (
 
 // de_OperatingSystem omitted.
 
+// de_OperatingSystemNameList omitted.
+
+// de_OperatingSystemNotCompatibleException omitted.
+
 // de_OperationInProgressException omitted.
 
 // de_OperationNotSupportedException omitted.
@@ -5502,6 +6438,8 @@ const de_DescribeWorkspaceSnapshotsResult = (
 // de_ResourceAssociatedException omitted.
 
 // de_ResourceCreationFailedException omitted.
+
+// de_ResourceInUseException omitted.
 
 // de_ResourceLimitExceededException omitted.
 
@@ -5575,6 +6513,44 @@ const de_SnapshotList = (output: any, context: __SerdeContext): Snapshot[] => {
 // de_Workspace omitted.
 
 // de_WorkspaceAccessProperties omitted.
+
+/**
+ * deserializeAws_json1_1WorkSpaceApplication
+ */
+const de_WorkSpaceApplication = (output: any, context: __SerdeContext): WorkSpaceApplication => {
+  return take(output, {
+    ApplicationId: __expectString,
+    Created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LicenseType: __expectString,
+    Name: __expectString,
+    Owner: __expectString,
+    State: __expectString,
+    SupportedComputeTypeNames: _json,
+    SupportedOperatingSystemNames: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1WorkSpaceApplicationDeployment
+ */
+const de_WorkSpaceApplicationDeployment = (output: any, context: __SerdeContext): WorkSpaceApplicationDeployment => {
+  return take(output, {
+    Associations: (_: any) => de_WorkspaceResourceAssociationList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1WorkSpaceApplicationList
+ */
+const de_WorkSpaceApplicationList = (output: any, context: __SerdeContext): WorkSpaceApplication[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_WorkSpaceApplication(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_1WorkspaceBundle
@@ -5659,6 +6635,33 @@ const de_WorkspaceImageList = (output: any, context: __SerdeContext): WorkspaceI
 // de_WorkspaceProperties omitted.
 
 // de_WorkspaceRequest omitted.
+
+/**
+ * deserializeAws_json1_1WorkspaceResourceAssociation
+ */
+const de_WorkspaceResourceAssociation = (output: any, context: __SerdeContext): WorkspaceResourceAssociation => {
+  return take(output, {
+    AssociatedResourceId: __expectString,
+    AssociatedResourceType: __expectString,
+    Created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StateReason: _json,
+    WorkspaceId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1WorkspaceResourceAssociationList
+ */
+const de_WorkspaceResourceAssociationList = (output: any, context: __SerdeContext): WorkspaceResourceAssociation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_WorkspaceResourceAssociation(entry, context);
+    });
+  return retVal;
+};
 
 // de_WorkspacesDefaultRoleNotFoundException omitted.
 
