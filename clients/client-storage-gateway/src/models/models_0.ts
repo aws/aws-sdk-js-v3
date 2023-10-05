@@ -854,8 +854,12 @@ export interface BandwidthRateLimitInterval {
   /**
    * @public
    * <p> The average upload rate limit component of the bandwidth rate limit interval, in bits
-   *          per second. This field does not appear in the response if the upload rate limit is not set.
-   *       </p>
+   *          per second. This field does not appear in the response if the upload rate limit is not set. </p>
+   *          <note>
+   *             <p>For Tape Gateway and Volume Gateway, the minimum value is <code>51200</code>.</p>
+   *             <p>For S3 File Gateway and FSx File Gateway, the minimum value is
+   *             <code>104857600</code>.</p>
+   *          </note>
    */
   AverageUploadRateLimitInBitsPerSec?: number;
 
@@ -3350,6 +3354,12 @@ export interface DescribeGatewayInformationOutput {
    *          host environment type.</p>
    */
   HostEnvironmentId?: string;
+
+  /**
+   * @public
+   * <p>The version number of the software running on the gateway appliance.</p>
+   */
+  SoftwareVersion?: string;
 }
 
 /**
@@ -7669,6 +7679,21 @@ export const ChapInfoFilterSensitiveLog = (obj: ChapInfo): any => ({
 export const DescribeChapCredentialsOutputFilterSensitiveLog = (obj: DescribeChapCredentialsOutput): any => ({
   ...obj,
   ...(obj.ChapCredentials && { ChapCredentials: obj.ChapCredentials.map((item) => ChapInfoFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGatewayInformationOutputFilterSensitiveLog = (obj: DescribeGatewayInformationOutput): any => ({
+  ...obj,
+  ...(obj.GatewayNetworkInterfaces && { GatewayNetworkInterfaces: SENSITIVE_STRING }),
 });
 
 /**

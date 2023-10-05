@@ -62,10 +62,6 @@ export interface RefreshCacheCommandOutput extends RefreshCacheOutput, __Metadat
  *                   <p>Wait at least 60 seconds between consecutive RefreshCache API requests.</p>
  *                </li>
  *                <li>
- *                   <p>RefreshCache does not evict cache entries if invoked consecutively within 60
- *                   seconds of a previous RefreshCache request.</p>
- *                </li>
- *                <li>
  *                   <p>If you invoke the RefreshCache API when two requests are already being
  *                   processed, any new request will cause an
  *                      <code>InvalidGatewayRequestException</code> error because too many requests

@@ -44,7 +44,8 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  *          make a request for notification. When the upload is done, Storage Gateway sends you
  *          notification through an Amazon CloudWatch Event. You can configure CloudWatch Events to
  *          send the notification through event targets such as Amazon SNS or Lambda function. This operation is only supported for S3 File Gateways.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-upload-notification">Getting file upload notification</a> in the <i>Storage Gateway User
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification">Getting
+ *             file upload notification</a> in the <i>Amazon S3 File Gateway User
  *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

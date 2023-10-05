@@ -14,7 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DescribeGatewayInformationInput, DescribeGatewayInformationOutput } from "../models/models_0";
+import {
+  DescribeGatewayInformationInput,
+  DescribeGatewayInformationOutput,
+  DescribeGatewayInformationOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_DescribeGatewayInformationCommand, se_DescribeGatewayInformationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
@@ -37,9 +41,9 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
 
 /**
  * @public
- * <p>Returns metadata about a gateway such as its name, network interfaces, configured time
- *          zone, and the state (whether the gateway is running or not). To specify which gateway to
- *          describe, use the Amazon Resource Name (ARN) of the gateway in your request.</p>
+ * <p>Returns metadata about a gateway such as its name, network interfaces, time zone,
+ *          status, and software version. To specify which gateway to describe, use the Amazon Resource
+ *          Name (ARN) of the gateway in your request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,6 +90,7 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  * //     "Small" || "Medium" || "Large",
  * //   ],
  * //   HostEnvironmentId: "STRING_VALUE",
+ * //   SoftwareVersion: "STRING_VALUE",
  * // };
  *
  * ```
@@ -185,7 +190,7 @@ export class DescribeGatewayInformationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeGatewayInformationOutputFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "StorageGateway_20130630",
         operation: "DescribeGatewayInformation",
