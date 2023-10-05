@@ -23,7 +23,7 @@ export const getEndpointUrlConfig = (serviceId: string): LoadedConfigSelectors<s
     // referenced in a profile in the shared configuration file.
 
     // ToDo: profile is selected one. It does not have access to other 'services' section.
-    // We should call loadSharedConfigFiles directly.
+    // The configFileSelector interface needs to be modified to pass ParsedIniData as optional second parameter.
 
     // The value provided by the global parameter from a profile in the shared configuration file.
     const endpointUrl = profile[CONFIG_ENDPOINT_URL];

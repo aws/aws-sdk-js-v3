@@ -46,12 +46,37 @@ describe(getEndpointUrlConfig.name, () => {
   });
 
   describe("configFileSelector", () => {
-    it("returns service specific endpoint from config file, if available", () => {
-      // ToDo
+    const profile = { [CONFIG_ENDPOINT_URL]: mockEndpoint };
+
+    // ToDo: Enable once support for services section is added.
+    it.skip.each([
+      ["foo", "foo"],
+      ["foobar", "foobar"],
+      ["foo bar", "foo_bar"],
+    ])("returns endpoint for '%s' from config file '%s'", (serviceId, serviceConfigId) => {
+      const serviceMockEndpoint = `${mockEndpoint}/${serviceConfigId}`;
+      const serviceSectionName = `services ${serviceConfigId}_dev`;
+
+      const profileWithServices = {
+        ...profile,
+        services: serviceSectionName,
+      };
+      const parsedIni = {
+        profileName: profileWithServices,
+        [serviceSectionName]: {
+          [serviceConfigId]: {
+            [CONFIG_ENDPOINT_URL]: serviceMockEndpoint,
+          },
+        },
+      };
+
+      // @ts-ignore
+      expect(endpointUrlConfig.environmentVariableSelector(profileWithServices, parsedIni)).toEqual(
+        serviceMockEndpoint
+      );
     });
 
     it("returns endpoint from config file, if available", () => {
-      const profile = { [CONFIG_ENDPOINT_URL]: mockEndpoint };
       expect(endpointUrlConfig.configFileSelector(profile)).toEqual(mockEndpoint);
     });
 
