@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.426.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.425.0...v3.426.0) (2023-10-05)
+
+
+### Features
+
+* **client-omics:** Add Etag Support for Omics Storage in ListReadSets and GetReadSetMetadata API ([9c5e142](https://github.com/aws/aws-sdk-js-v3/commit/9c5e142969bfe253e40f729035ebb52dbefe31c8))
+* **client-route-53:** Add hostedzonetype filter to ListHostedZones API. ([0cedc3d](https://github.com/aws/aws-sdk-js-v3/commit/0cedc3d3771b534cf6dd514ed6335b82d98da9cd))
+* **client-securityhub:** Added new resource detail objects to ASFF, including resources for AwsEventsEventbus, AwsEventsEndpoint, AwsDmsEndpoint, AwsDmsReplicationTask, AwsDmsReplicationInstance, AwsRoute53HostedZone, and AwsMskCluster ([e884a76](https://github.com/aws/aws-sdk-js-v3/commit/e884a76c6f4ac73aa25a478ea0052e0a452813fd))
+* **client-storage-gateway:** Add SoftwareVersion to response of DescribeGatewayInformation. ([79d3bd7](https://github.com/aws/aws-sdk-js-v3/commit/79d3bd74f34313ac52323b6e31622365dd51df0a))
+* **client-workspaces:** This release introduces Manage applications. This feature allows users to manage their WorkSpaces applications by associating or disassociating their WorkSpaces with applications. The DescribeWorkspaces API will now additionally return OperatingSystemName in its responses. ([7670b0f](https://github.com/aws/aws-sdk-js-v3/commit/7670b0f8676159ab467eb53732aa4489572ae696))
+* **clients:** update client endpoints as of 2023-10-05 ([6b15c41](https://github.com/aws/aws-sdk-js-v3/commit/6b15c41268d57df94529a79cc58ec677d6a8fb9d))
+
+
+### Reverts
+
+* Revert "Revert "feat(codegen): bump codegen version to 0.18.0 (#5310)" (#5320)" (#5322) ([d860565](https://github.com/aws/aws-sdk-js-v3/commit/d860565b1f041dcfce447076653c2dcfa7000a25)), closes [#5310](https://github.com/aws/aws-sdk-js-v3/issues/5310) [#5320](https://github.com/aws/aws-sdk-js-v3/issues/5320) [#5322](https://github.com/aws/aws-sdk-js-v3/issues/5322)
+
+
+
+
+
 # [3.425.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.424.0...v3.425.0) (2023-10-04)
 
 

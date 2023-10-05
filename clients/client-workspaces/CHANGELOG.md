@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.426.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.425.0...v3.426.0) (2023-10-05)
+
+
+### Features
+
+* **client-workspaces:** This release introduces Manage applications. This feature allows users to manage their WorkSpaces applications by associating or disassociating their WorkSpaces with applications. The DescribeWorkspaces API will now additionally return OperatingSystemName in its responses. ([7670b0f](https://github.com/aws/aws-sdk-js-v3/commit/7670b0f8676159ab467eb53732aa4489572ae696))
+
+
+
+
+
 # [3.425.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.424.0...v3.425.0) (2023-10-04)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces
