@@ -1,6 +1,6 @@
 ## New API Documentation
 
-We are excited to announce the availability of our new API documentation for AWS SDK for JavaScript v3. You can now access the [updated documentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/) to explore the new features and improvements. We welcome you to open a new [documentation issue](https://github.com/aws/aws-sdk-js-v3/issues/new/choose) if you have any suggestions or encounter any issues.
+We are excited to announce the [API documentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/) for AWS SDK for JavaScript v3. If you have any feedback, please open a [documentation issue](https://github.com/aws/aws-sdk-js-v3/issues/new/choose)
 
 # AWS SDK for JavaScript v3
 
