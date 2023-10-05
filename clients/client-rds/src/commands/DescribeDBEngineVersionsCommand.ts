@@ -38,7 +38,7 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
 
 /**
  * @public
- * <p>Returns a list of the available DB engines.</p>
+ * <p>Describes the properties of specific versions of DB engines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

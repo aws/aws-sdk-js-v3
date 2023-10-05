@@ -37,12 +37,11 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
 
 /**
  * @public
- * <p>The DeleteDBInstance action deletes a previously provisioned DB instance.
+ * <p>Deletes a previously provisioned DB instance.
  *           When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered.
- *           Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code> are not deleted.</p>
- *          <p>If you request a final DB snapshot
- *         the status of the Amazon RDS DB instance is <code>deleting</code> until the DB snapshot is created. The API action <code>DescribeDBInstance</code>
- *         is used to monitor the status of this operation. The action can't be canceled or reverted once submitted.</p>
+ *           However, manual DB snapshots of the DB instance aren't deleted.</p>
+ *          <p>If you request a final DB snapshot, the status of the Amazon RDS DB instance is <code>deleting</code> until the DB snapshot is created.
+ *         This operation can't be canceled or reverted after it begins. To monitor the status of this operation, use <code>DescribeDBInstance</code>.</p>
  *          <p>When a DB instance is in a failure state and has a status of <code>failed</code>, <code>incompatible-restore</code>,
  *           or <code>incompatible-network</code>, you can only delete it when you skip creation of the final snapshot with the <code>SkipFinalSnapshot</code> parameter.</p>
  *          <p>If the specified DB instance is part of an Amazon Aurora DB cluster, you can't delete the DB instance if both of the following
@@ -55,11 +54,12 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  *                <p>The DB instance is the only instance in the DB cluster.</p>
  *             </li>
  *          </ul>
- *          <p>To delete a DB instance in this case, first call the
- *                 <code>PromoteReadReplicaDBCluster</code> API action to promote the DB cluster so
- *             it's no longer a read replica. After the promotion completes, then call the
- *                 <code>DeleteDBInstance</code> API action to delete the final instance in the DB
- *             cluster.</p>
+ *          <p>To delete a DB instance in this case, first use the <code>PromoteReadReplicaDBCluster</code> operation to promote the DB cluster so that it's no longer a read replica.
+ *         After the promotion completes, use the <code>DeleteDBInstance</code> operation to delete the final instance in the DB cluster.</p>
+ *          <important>
+ *             <p>For RDS Custom DB instances, deleting the DB instance permanently deletes the EC2 instance and the associated EBS volumes. Make sure that you don't terminate or delete
+ *         these resources before you delete the DB instance. Otherwise, deleting the DB instance and creation of the final snapshot might fail.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
