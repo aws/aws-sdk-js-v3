@@ -54,6 +54,7 @@ export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, _
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
  *   DelegationSetId: "STRING_VALUE",
+ *   HostedZoneType: "PrivateHostedZone",
  * };
  * const command = new ListHostedZonesCommand(input);
  * const response = await client.send(command);

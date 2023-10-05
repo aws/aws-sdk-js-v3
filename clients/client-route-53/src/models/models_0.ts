@@ -1332,6 +1332,7 @@ export interface GeoLocation {
    * <p>For geolocation resource record sets, the two-letter code for a country.</p>
    *          <p>Amazon Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO standard 3166-1
    * 				alpha-2</a>.</p>
+   *          <p>Route 53 also supports the contry code <b>UA</b> forr Ukraine.</p>
    */
   CountryCode?: string;
 
@@ -2963,6 +2964,8 @@ export interface CreateHealthCheckRequest {
    * 					check, Route 53 creates the health check.</p>
    *             </li>
    *          </ul>
+   *          <p> Route 53 does not store the <code>CallerReference</code> for a deleted health check indefinitely.
+   * 			The <code>CallerReference</code> for a deleted health check will be deleted after a number of days.</p>
    */
   CallerReference: string | undefined;
 
@@ -5613,6 +5616,7 @@ export interface GetGeoLocationRequest {
    * @public
    * <p>Amazon Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO standard 3166-1
    * 				alpha-2</a>.</p>
+   *          <p>Route 53 also supports the contry code <b>UA</b> forr Ukraine.</p>
    */
   CountryCode?: string;
 
@@ -6632,9 +6636,9 @@ export interface ListHealthChecksRequest {
   /**
    * @public
    * <p>The maximum number of health checks that you want <code>ListHealthChecks</code> to
-   * 			return in response to the current request. Amazon Route 53 returns a maximum of 100
-   * 			items. If you set <code>MaxItems</code> to a value greater than 100, Route 53 returns
-   * 			only the first 100 health checks. </p>
+   * 			return in response to the current request. Amazon Route 53 returns a maximum of 1000
+   * 			items. If you set <code>MaxItems</code> to a value greater than 1000, Route 53 returns
+   * 			only the first 1000 health checks. </p>
    */
   MaxItems?: number;
 }
@@ -6688,6 +6692,19 @@ export interface ListHealthChecksResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const HostedZoneType = {
+  PRIVATE_HOSTED_ZONE: "PrivateHostedZone",
+} as const;
+
+/**
+ * @public
+ */
+export type HostedZoneType = (typeof HostedZoneType)[keyof typeof HostedZoneType];
+
+/**
+ * @public
  * <p>A request to retrieve a list of the public and private hosted zones that are
  * 			associated with the current Amazon Web Services account.</p>
  */
@@ -6722,6 +6739,14 @@ export interface ListHostedZonesRequest {
    * 			delegation set. </p>
    */
   DelegationSetId?: string;
+
+  /**
+   * @public
+   * <p>
+   * 			(Optional) Specifies if the hosted zone is private.
+   * 		</p>
+   */
+  HostedZoneType?: HostedZoneType | string;
 }
 
 /**

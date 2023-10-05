@@ -2056,6 +2056,7 @@ export const se_ListHostedZonesCommand = async (
     marker: [, input.Marker!],
     maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
     delegationsetid: [, input.DelegationSetId!],
+    hostedzonetype: [, input.HostedZoneType!],
   });
   let body: any;
   return new __HttpRequest({
