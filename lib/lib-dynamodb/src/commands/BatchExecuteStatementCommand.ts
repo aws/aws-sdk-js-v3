@@ -11,6 +11,7 @@ import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
+import { ALL_MEMBERS, ALL_VALUES } from "../../src/commands/utils";
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
@@ -58,41 +59,23 @@ export class BatchExecuteStatementCommand extends DynamoDBDocumentClientCommand<
   __BatchExecuteStatementCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [
-    {
-      key: "Statements",
-      children: {
-        children: [
-          {
-            key: "Parameters",
-            children: {}, // set/list of AttributeValue
-          },
-        ],
+  protected readonly inputKeyNodes = {
+    Statements: {
+      "*": {
+        Parameters: ALL_MEMBERS, // set/list of AttributeValue
       },
     },
-  ];
-  protected readonly outputKeyNodes = [
-    {
-      key: "Responses",
-      children: {
-        children: [
-          {
-            key: "Error",
-            children: [
-              {
-                key: "Item",
-                children: {}, // map with AttributeValue
-              },
-            ],
-          },
-          {
-            key: "Item",
-            children: {}, // map with AttributeValue
-          },
-        ],
+  };
+  protected readonly outputKeyNodes = {
+    Responses: {
+      "*": {
+        Error: {
+          Item: ALL_VALUES, // map with AttributeValue
+        },
+        Item: ALL_VALUES, // map with AttributeValue
       },
     },
-  ];
+  };
 
   protected readonly clientCommand: __BatchExecuteStatementCommand;
   public readonly middlewareStack: MiddlewareStack<

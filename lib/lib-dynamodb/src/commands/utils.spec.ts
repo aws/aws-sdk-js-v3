@@ -9,46 +9,63 @@ describe("utils", () => {
   const testCases = [
     {
       testName: "single key",
-      keyNodes: [{ key: "Item", children: {} }],
+      keyNodes: { Item: {} },
       nativeAttrObj: { Item: nativeAttrValue(1), ...notAttrValue },
       attrObj: { Item: attrValue(1), ...notAttrValue },
     },
     {
       testName: "multiple keys",
-      keyNodes: [
-        { key: "Item1", children: {} },
-        { key: "Item2", children: {} },
-      ],
+      keyNodes: { Item1: {}, Item2: {} },
       nativeAttrObj: { Item1: nativeAttrValue(1), Item2: nativeAttrValue(2), ...notAttrValue },
       attrObj: { Item1: attrValue(1), Item2: attrValue(2), ...notAttrValue },
     },
     {
       testName: "array",
-      keyNodes: [{ key: "Items", children: { children: {} } }],
+      keyNodes: { Items: { "*": {} } },
       nativeAttrObj: { Items: [nativeAttrValue(1), nativeAttrValue(2)], ...notAttrValue },
       attrObj: { Items: [attrValue(1), attrValue(2)], ...notAttrValue },
     },
     {
       testName: "secondary level",
-      keyNodes: [{ key: "Parent", children: [{ key: "Item", children: {} }] }],
+      keyNodes: {
+        Parent: {
+          Item: {},
+        },
+      },
       nativeAttrObj: { Parent: { Item: nativeAttrValue(1), ...notAttrValue }, ...notAttrValue },
       attrObj: { Parent: { Item: attrValue(1), ...notAttrValue }, ...notAttrValue },
     },
     {
       testName: "secondary level array",
-      keyNodes: [{ key: "Parent", children: [{ key: "Items", children: { children: {} } }] }],
+      keyNodes: {
+        Parent: {
+          Items: {
+            "*": [],
+          },
+        },
+      },
       nativeAttrObj: { Parent: { Items: [nativeAttrValue(1), nativeAttrValue(2)], ...notAttrValue }, ...notAttrValue },
       attrObj: { Parent: { Items: [attrValue(1), attrValue(2)], ...notAttrValue }, ...notAttrValue },
     },
     {
       testName: "all entries",
-      keyNodes: [{ key: "Parent", children: { children: {} } }],
+      keyNodes: {
+        Parent: {
+          "*": {},
+        },
+      },
       nativeAttrObj: { Parent: { key1: nativeAttrValue(1), key2: nativeAttrValue(2) }, ...notAttrValue },
       attrObj: { Parent: { key1: attrValue(1), key2: attrValue(2) }, ...notAttrValue },
     },
     {
       testName: "all entries single key",
-      keyNodes: [{ key: "Parent", children: { children: [{ key: "Item", children: {} }] } }],
+      keyNodes: {
+        Parent: {
+          "*": {
+            Item: {},
+          },
+        },
+      },
       nativeAttrObj: {
         Parent: {
           key1: { Item: nativeAttrValue(1), ...notAttrValue },
@@ -66,17 +83,14 @@ describe("utils", () => {
     },
     {
       testName: "all entries multiple keys",
-      keyNodes: [
-        {
-          key: "Parent",
-          children: {
-            children: [
-              { key: "Item1", children: {} },
-              { key: "Item2", children: {} },
-            ],
+      keyNodes: {
+        Parent: {
+          "*": {
+            Item1: {},
+            Item2: {},
           },
         },
-      ],
+      },
       nativeAttrObj: {
         Parent: {
           key1: { Item1: nativeAttrValue(1), Item2: nativeAttrValue(2), ...notAttrValue },
@@ -94,7 +108,15 @@ describe("utils", () => {
     },
     {
       testName: "all entries array",
-      keyNodes: [{ key: "Parent", children: { children: [{ key: "Items", children: { children: {} } }] } }],
+      keyNodes: {
+        Parent: {
+          "*": {
+            Items: {
+              "*": [],
+            },
+          },
+        },
+      },
       nativeAttrObj: {
         Parent: {
           key1: { Items: [nativeAttrValue(1), nativeAttrValue(2)], ...notAttrValue },

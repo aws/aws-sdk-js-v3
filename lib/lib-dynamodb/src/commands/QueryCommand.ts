@@ -9,6 +9,7 @@ import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
+import { ALL_MEMBERS, ALL_VALUES } from "../../src/commands/utils";
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
@@ -64,50 +65,26 @@ export class QueryCommand extends DynamoDBDocumentClientCommand<
   __QueryCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [
-    {
-      key: "KeyConditions",
-      children: {
-        children: [
-          {
-            key: "AttributeValueList",
-            children: {}, // set/list of AttributeValue
-          },
-        ],
+  protected readonly inputKeyNodes = {
+    KeyConditions: {
+      "*": {
+        AttributeValueList: ALL_MEMBERS, // set/list of AttributeValue
       },
     },
-    {
-      key: "QueryFilter",
-      children: {
-        children: [
-          {
-            key: "AttributeValueList",
-            children: {}, // set/list of AttributeValue
-          },
-        ],
+    QueryFilter: {
+      "*": {
+        AttributeValueList: ALL_MEMBERS, // set/list of AttributeValue
       },
     },
-    {
-      key: "ExclusiveStartKey",
-      children: {}, // map with AttributeValue
+    ExclusiveStartKey: ALL_VALUES, // map with AttributeValue
+    ExpressionAttributeValues: ALL_VALUES, // map with AttributeValue
+  };
+  protected readonly outputKeyNodes = {
+    Items: {
+      "*": ALL_VALUES, // map with AttributeValue
     },
-    {
-      key: "ExpressionAttributeValues",
-      children: {}, // map with AttributeValue
-    },
-  ];
-  protected readonly outputKeyNodes = [
-    {
-      key: "Items",
-      children: {
-        children: {}, // map with AttributeValue
-      },
-    },
-    {
-      key: "LastEvaluatedKey",
-      children: {}, // map with AttributeValue
-    },
-  ];
+    LastEvaluatedKey: ALL_VALUES, // map with AttributeValue
+  };
 
   protected readonly clientCommand: __QueryCommand;
   public readonly middlewareStack: MiddlewareStack<

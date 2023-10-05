@@ -2,13 +2,13 @@ import { marshallInput } from "./utils";
 
 describe("marshallInput and processObj", () => {
   it("marshallInput should not ignore falsy values", () => {
-    expect(
-      marshallInput({ Items: [0, false, null, ""] }, [{ key: "Items" }], { convertTopLevelContainer: true })
-    ).toEqual({
-      Items: {
-        L: [{ N: "0" }, { BOOL: false }, { NULL: true }, { S: "" }],
-      },
-    });
+    expect(marshallInput({ Items: [0, false, null, ""] }, { Items: null }, { convertTopLevelContainer: true })).toEqual(
+      {
+        Items: {
+          L: [{ N: "0" }, { BOOL: false }, { NULL: true }, { S: "" }],
+        },
+      }
+    );
   });
 });
 
@@ -23,22 +23,20 @@ describe("marshallInput for commands", () => {
         },
       },
     };
-    const inputKeyNodes = [
-      {
-        key: "KeyConditions",
-        children: {
-          children: [{ key: "AttributeValueList", children: {} }],
+    const inputKeyNodes = {
+      KeyConditions: {
+        "*": {
+          AttributeValueList: [],
         },
       },
-      {
-        key: "QueryFilter",
-        children: {
-          children: [{ key: "AttributeValueList" }],
+      QueryFilter: {
+        "*": {
+          AttributeValueList: null,
         },
       },
-      { key: "ExclusiveStartKey" },
-      { key: "ExpressionAttributeValues" },
-    ];
+      ExclusiveStartKey: null,
+      ExpressionAttributeValues: null,
+    };
     const output = {
       TableName: "TestTable",
       KeyConditions: { id: { AttributeValueList: [{ S: "test" }], ComparisonOperator: "EQ" } },
@@ -55,7 +53,9 @@ describe("marshallInput for commands", () => {
                         WHERE contains("col_1", ?)`,
       Parameters: ["some_param"],
     };
-    const inputKeyNodes = [{ key: "Parameters", children: {} }];
+    const inputKeyNodes = {
+      Parameters: [],
+    };
     const output = {
       Statement: input.Statement,
       Parameters: [{ S: "some_param" }],
@@ -76,14 +76,13 @@ describe("marshallInput for commands", () => {
         },
       ],
     };
-    const inputKeyNodes = [
-      {
-        key: "Statements",
-        children: {
-          children: [{ key: "Parameters", children: {} }],
+    const inputKeyNodes = {
+      Statements: {
+        "*": {
+          Parameters: [],
         },
       },
-    ];
+    };
     const output = {
       Statements: [
         {

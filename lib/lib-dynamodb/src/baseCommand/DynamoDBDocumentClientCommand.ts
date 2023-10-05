@@ -10,7 +10,7 @@ import {
   MiddlewareStack,
 } from "@smithy/types";
 
-import { KeyNode, marshallInput, unmarshallOutput } from "../commands/utils";
+import { KeyNodeChildren, marshallInput, unmarshallOutput } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
 
 // /** @public */
@@ -29,8 +29,8 @@ export abstract class DynamoDBDocumentClientCommand<
   BaseOutput extends object,
   ResolvedClientConfiguration
 > extends $Command<Input | BaseInput, Output | BaseOutput, ResolvedClientConfiguration> {
-  protected abstract readonly inputKeyNodes: KeyNode[];
-  protected abstract readonly outputKeyNodes: KeyNode[];
+  protected abstract readonly inputKeyNodes: KeyNodeChildren;
+  protected abstract readonly outputKeyNodes: KeyNodeChildren;
   protected abstract clientCommand: $Command<Input | BaseInput, Output | BaseOutput, ResolvedClientConfiguration>;
 
   public abstract middlewareStack: MiddlewareStack<Input | BaseInput, Output | BaseOutput>;

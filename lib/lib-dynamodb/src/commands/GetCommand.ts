@@ -8,6 +8,7 @@ import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
+import { ALL_VALUES } from "../../src/commands/utils";
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
@@ -46,18 +47,12 @@ export class GetCommand extends DynamoDBDocumentClientCommand<
   __GetItemCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [
-    {
-      key: "Key",
-      children: {}, // map with AttributeValue
-    },
-  ];
-  protected readonly outputKeyNodes = [
-    {
-      key: "Item",
-      children: {}, // map with AttributeValue
-    },
-  ];
+  protected readonly inputKeyNodes = {
+    Key: ALL_VALUES, // map with AttributeValue
+  };
+  protected readonly outputKeyNodes = {
+    Item: ALL_VALUES, // map with AttributeValue
+  };
 
   protected readonly clientCommand: __GetItemCommand;
   public readonly middlewareStack: MiddlewareStack<
