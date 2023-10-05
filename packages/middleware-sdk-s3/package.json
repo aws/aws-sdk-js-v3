@@ -11,6 +11,7 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "jest",
     "test:integration": "jest -c jest.config.integ.js",
+    "test:e2e": "jest -c jest.config.e2e.js",
     "extract:docs": "api-extractor run --local"
   },
   "main": "./dist-cjs/index.js",
