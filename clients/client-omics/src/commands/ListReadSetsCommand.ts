@@ -85,6 +85,11 @@ export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __Metad
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       statusMessage: "STRING_VALUE",
  * //       creationType: "STRING_VALUE",
+ * //       etag: { // ETag
+ * //         algorithm: "STRING_VALUE",
+ * //         source1: "STRING_VALUE",
+ * //         source2: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

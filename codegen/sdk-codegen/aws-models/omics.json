@@ -36,6 +36,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to abort multipart read set uploads",
         "smithy.api#documentation": "<p>\n      Stops a multipart upload.\n    </p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -820,6 +821,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to batch delete Read Sets in the given Sequence Store",
         "smithy.api#documentation": "<p>Deletes one or more read sets.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -1106,6 +1108,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to complete a multipart read set upload",
         "smithy.api#documentation": "<p>\n      Concludes a multipart upload once you have uploaded all the components.\n    </p>",
         "smithy.api#endpoint": {
           "hostPrefix": "storage-"
@@ -1559,6 +1562,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to create a multipart read set upload",
         "smithy.api#documentation": "<p>\n      Begins a multipart read set upload. \n    </p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -1755,10 +1759,8 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "aws.iam#actionPermissionDescription": "Grants permission to create a Reference Store",
+        "aws.iam#conditionKeys": ["aws:RequestTag/${TagKey}", "aws:TagKeys"],
         "smithy.api#documentation": "<p>Creates a reference store.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -2025,10 +2027,8 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "aws.iam#actionPermissionDescription": "Grants permission to create a Sequence Store",
+        "aws.iam#conditionKeys": ["aws:RequestTag/${TagKey}", "aws:TagKeys"],
         "smithy.api#documentation": "<p>Creates a sequence store.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -2737,6 +2737,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to delete a Reference in the given Reference Store",
         "smithy.api#documentation": "<p>Deletes a genome reference.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -2812,6 +2813,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to delete a Reference Store",
         "smithy.api#documentation": "<p>Deletes a genome reference store.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -3005,6 +3007,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to delete a Sequence Store",
         "smithy.api#documentation": "<p>Deletes a sequence store.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -3264,6 +3267,51 @@
           "min": 0,
           "max": 500
         }
+      }
+    },
+    "com.amazonaws.omics#ETag": {
+      "type": "structure",
+      "members": {
+        "algorithm": {
+          "target": "com.amazonaws.omics#ETagAlgorithm",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The algorithm used to calculate the read set’s ETag(s). </p>"
+          }
+        },
+        "source1": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ETag hash calculated on Source1 of the read set.\n    </p>"
+          }
+        },
+        "source2": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ETag hash calculated on Source2 of the read set.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      The entity tag (ETag) is a hash of the object representing its semantic content.\n    </p>"
+      }
+    },
+    "com.amazonaws.omics#ETagAlgorithm": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "FASTQ_MD5up",
+            "name": "FASTQ_MD5UP"
+          },
+          {
+            "value": "BAM_MD5up",
+            "name": "BAM_MD5UP"
+          },
+          {
+            "value": "CRAM_MD5up",
+            "name": "CRAM_MD5UP"
+          }
+        ]
       }
     },
     "com.amazonaws.omics#Encoding": {
@@ -4340,6 +4388,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to get a Read Set in the given Sequence Store",
         "smithy.api#documentation": "<p>Gets a file from a read set.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "storage-"
@@ -4380,6 +4429,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to get details about a Read Set activation job for the given Sequence Store",
         "smithy.api#documentation": "<p>Gets information about a read set activation job.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -4579,6 +4629,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to get details about a Read Set export job for the given Sequence Store",
         "smithy.api#documentation": "<p>Gets information about a read set export job.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -4785,6 +4836,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to get details about a Read Set import job for the given Sequence Store",
         "smithy.api#documentation": "<p>Gets information about a read set import job.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -4992,6 +5044,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to get details about a Read Set in the given Sequence Store",
         "smithy.api#documentation": "<p>Gets details about a read set.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -5127,6 +5180,12 @@
           "traits": {
             "smithy.api#documentation": "<p>\n      The creation type of the read set.\n    </p>"
           }
+        },
+        "etag": {
+          "target": "com.amazonaws.omics#ETag",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The entity tag (ETag) is a hash of the object meant to represent its semantic content.\n    </p>"
+          }
         }
       },
       "traits": {
@@ -5225,6 +5284,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to get a Reference in the given Reference Store",
         "smithy.api#documentation": "<p>Gets a reference file.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "storage-"
@@ -5265,6 +5325,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to get details about a Reference import job for the given Reference Store",
         "smithy.api#documentation": "<p>Gets information about a reference import job.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -5472,6 +5533,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to get details about a Reference in the given Reference Store",
         "smithy.api#documentation": "<p>Gets information about a genome reference's metadata.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -5680,6 +5742,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to get details about a Reference Store",
         "smithy.api#documentation": "<p>Gets information about a reference store.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -6574,6 +6637,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to get details about a Sequence Store",
         "smithy.api#documentation": "<p>Gets information about a sequence store.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -8213,6 +8277,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to list multipart read set uploads",
         "smithy.api#documentation": "<p>\n      Lists all multipart read set uploads and their statuses. \n    </p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -8313,6 +8378,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to list Read Set activation jobs for the given Sequence Store",
         "smithy.api#documentation": "<p>Retrieves a list of read set activation jobs.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -8419,6 +8485,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to list Read Set export jobs for the given Sequence Store",
         "smithy.api#documentation": "<p>Retrieves a list of read set export jobs.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -8525,6 +8592,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to list Read Set import jobs for the given Sequence Store",
         "smithy.api#documentation": "<p>Retrieves a list of read set import jobs.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -8637,6 +8705,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to list read set upload parts",
         "smithy.api#documentation": "<p>\n      This operation will list all parts in a requested multipart upload for a sequence store.\n    </p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -8758,6 +8827,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to list Read Sets in the given Sequence Store",
         "smithy.api#documentation": "<p>Retrieves a list of read sets.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -8865,6 +8935,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to list Reference import jobs for the given Reference Store",
         "smithy.api#documentation": "<p>Retrieves a list of reference import jobs.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -8968,6 +9039,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to list Reference Stores",
         "smithy.api#documentation": "<p>Retrieves a list of reference stores.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -9067,6 +9139,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to list References in the given Reference Store",
         "smithy.api#documentation": "<p>Retrieves a list of references.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -9511,6 +9584,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to list Sequence Stores",
         "smithy.api#documentation": "<p>Retrieves a list of sequence stores.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -10324,12 +10398,7 @@
             "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys"
           }
         },
-        "aws.iam#supportedPrincipalTypes": [
-          "Root",
-          "IAMUser",
-          "IAMRole",
-          "FederatedUser"
-        ],
+        "aws.iam#supportedPrincipalTypes": ["Root", "IAMUser", "IAMRole", "FederatedUser"],
         "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>This is the <i>AWS HealthOmics API Reference</i>. For an introduction to the service, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/\">What is AWS HealthOmics?</a> in the\n      <i>AWS HealthOmics User Guide</i>.</p>",
         "smithy.api#title": "Amazon Omics",
@@ -11562,6 +11631,12 @@
           "traits": {
             "smithy.api#documentation": "<p>\n      The creation type of the read set.\n    </p>"
           }
+        },
+        "etag": {
+          "target": "com.amazonaws.omics#ETag",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The entity tag (ETag) is a hash of the object representing  its semantic content.\n    </p>"
+          }
         }
       },
       "traits": {
@@ -11633,13 +11708,12 @@
         "aws.cloudformation#cfnResource": {
           "name": "ReadSet"
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "readSet"
-        }
+        },
+        "smithy.api#documentation": "Represents a resource that stores a single genomic sequence file"
       }
     },
     "com.amazonaws.omics#ReadSetStatus": {
@@ -12067,13 +12141,12 @@
         "aws.cloudformation#cfnResource": {
           "name": "Reference"
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "reference"
-        }
+        },
+        "smithy.api#documentation": "Represents a resource that stores a single genomic reference file"
       }
     },
     "com.amazonaws.omics#ReferenceStatus": {
@@ -12259,13 +12332,12 @@
         "aws.cloudformation#cfnResource": {
           "name": "ReferenceStore"
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "referenceStore"
-        }
+        },
+        "smithy.api#documentation": "Represents a resource that stores genomic reference data"
       }
     },
     "com.amazonaws.omics#ReferenceStreamingBlob": {
@@ -12542,9 +12614,7 @@
         "aws.cloudformation#cfnResource": {
           "name": "RunGroup"
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "runGroup"
@@ -12758,9 +12828,7 @@
         "aws.api#arn": {
           "template": "run/{id}"
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "run"
@@ -13219,13 +13287,12 @@
         "aws.cloudformation#cfnResource": {
           "name": "SequenceStore"
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "sequenceStore"
-        }
+        },
+        "smithy.api#documentation": "Represents a resource that stores genomic sequence data"
       }
     },
     "com.amazonaws.omics#ServiceQuotaExceededException": {
@@ -13570,6 +13637,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to start a Read Set activation job from the given Sequence Store",
         "smithy.api#documentation": "<p>Activates an archived read set. To reduce storage charges, Amazon Omics archives unused read\n       sets after 30 days.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -13703,6 +13771,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to start a Read Set export job from the given Sequence Store",
         "smithy.api#documentation": "<p>Exports a read set to Amazon S3.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -13836,6 +13905,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to start a Read Set import job into the given Sequence Store",
         "smithy.api#documentation": "<p>Starts a read set import job.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -14035,6 +14105,7 @@
         }
       ],
       "traits": {
+        "aws.iam#actionPermissionDescription": "Grants permission to start a Reference import job into the given Reference Store",
         "smithy.api#documentation": "<p>Starts a reference import job.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "control-storage-"
@@ -15682,6 +15753,7 @@
       ],
       "traits": {
         "aws.auth#unsignedPayload": {},
+        "aws.iam#actionPermissionDescription": "Grants permission to upload read set parts",
         "smithy.api#documentation": "<p>\n      This operation uploads a specific part of a read set. If you upload a new part using a previously used part number, the previously uploaded part will be overwritten. \n    </p>",
         "smithy.api#endpoint": {
           "hostPrefix": "storage-"
@@ -16477,9 +16549,7 @@
         "aws.cloudformation#cfnResource": {
           "name": "Workflow"
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "workflow"

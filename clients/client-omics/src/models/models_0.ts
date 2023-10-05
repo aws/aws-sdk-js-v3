@@ -3387,6 +3387,52 @@ export interface DeleteWorkflowRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const ETagAlgorithm = {
+  BAM_MD5UP: "BAM_MD5up",
+  CRAM_MD5UP: "CRAM_MD5up",
+  FASTQ_MD5UP: "FASTQ_MD5up",
+} as const;
+
+/**
+ * @public
+ */
+export type ETagAlgorithm = (typeof ETagAlgorithm)[keyof typeof ETagAlgorithm];
+
+/**
+ * @public
+ * <p>
+ *       The entity tag (ETag) is a hash of the object representing its semantic content.
+ *     </p>
+ */
+export interface ETag {
+  /**
+   * @public
+   * <p>
+   *       The algorithm used to calculate the read set’s ETag(s). </p>
+   */
+  algorithm?: ETagAlgorithm | string;
+
+  /**
+   * @public
+   * <p>
+   *       The ETag hash calculated on Source1 of the read set.
+   *     </p>
+   */
+  source1?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The ETag hash calculated on Source2 of the read set.
+   *     </p>
+   */
+  source2?: string;
+}
+
+/**
+ * @public
  * <p>A read set.</p>
  */
 export interface ExportReadSet {
@@ -4162,6 +4208,14 @@ export interface GetReadSetMetadataResponse {
    *     </p>
    */
   creationType?: CreationType | string;
+
+  /**
+   * @public
+   * <p>
+   *       The entity tag (ETag) is a hash of the object meant to represent its semantic content.
+   *     </p>
+   */
+  etag?: ETag;
 }
 
 /**
@@ -6092,6 +6146,14 @@ export interface ReadSetListItem {
    *     </p>
    */
   creationType?: CreationType | string;
+
+  /**
+   * @public
+   * <p>
+   *       The entity tag (ETag) is a hash of the object representing  its semantic content.
+   *     </p>
+   */
+  etag?: ETag;
 }
 
 /**

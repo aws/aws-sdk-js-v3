@@ -5726,6 +5726,7 @@ export const de_GetReadSetMetadataCommand = async (
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     creationType: __expectString,
     description: __expectString,
+    etag: _json,
     fileType: __expectString,
     files: _json,
     id: __expectString,
@@ -9509,6 +9510,8 @@ const de_AnnotationStoreVersionItems = (output: any, context: __SerdeContext): A
   return retVal;
 };
 
+// de_ETag omitted.
+
 // de_ExportReadSetDetail omitted.
 
 // de_ExportReadSetDetailList omitted.
@@ -9665,6 +9668,7 @@ const de_ReadSetListItem = (output: any, context: __SerdeContext): ReadSetListIt
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     creationType: __expectString,
     description: __expectString,
+    etag: _json,
     fileType: __expectString,
     id: __expectString,
     name: __expectString,
