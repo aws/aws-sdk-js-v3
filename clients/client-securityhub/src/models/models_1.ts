@@ -1,53 +1,180 @@
 // smithy-typescript generated code
 import {
-  Adjustment,
   AssociatedStandard,
   AvailabilityZone,
-  AwsAmazonMqBrokerDetails,
-  AwsApiGatewayRestApiDetails,
-  AwsApiGatewayStageDetails,
-  AwsApiGatewayV2ApiDetails,
-  AwsApiGatewayV2StageDetails,
-  AwsAppSyncGraphQlApiDetails,
-  AwsAthenaWorkGroupDetails,
-  AwsAutoScalingAutoScalingGroupDetails,
-  AwsAutoScalingLaunchConfigurationDetails,
-  AwsBackupBackupPlanDetails,
-  AwsBackupBackupVaultDetails,
-  AwsBackupRecoveryPointDetails,
-  AwsCertificateManagerCertificateDetails,
-  AwsCloudFormationStackDetails,
-  AwsCloudFrontDistributionDetails,
-  AwsCloudTrailTrailDetails,
-  AwsCloudWatchAlarmDetails,
-  AwsCodeBuildProjectDetails,
-  AwsDynamoDbTableDetails,
-  AwsEc2EipDetails,
-  AwsEc2InstanceDetails,
-  AwsEc2LaunchTemplateDetails,
-  AwsEc2NetworkAclDetails,
-  AwsEc2NetworkInterfaceDetails,
-  AwsEc2RouteTableDetails,
-  AwsEc2SecurityGroupDetails,
-  AwsEc2SubnetDetails,
-  AwsEc2TransitGatewayDetails,
-  AwsEc2VolumeDetails,
-  AwsEc2VpcDetails,
-  AwsEc2VpcEndpointServiceDetails,
-  AwsEc2VpcPeeringConnectionDetails,
-  AwsEc2VpnConnectionDetails,
-  AwsEcrContainerImageDetails,
-  AwsEcrRepositoryDetails,
-  AwsEcsClusterDetails,
   AwsEcsContainerDetails,
-  AwsEcsServiceDetails,
-  AwsEcsTaskDefinitionDetails,
-  AwsEcsTaskDetails,
-  AwsEfsAccessPointPosixUserDetails,
-  AwsEfsAccessPointRootDirectoryCreationInfoDetails,
   RelatedFinding,
   SeverityLabel,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Provides details on a container instance bind mount host volume.
+ *       </p>
+ */
+export interface AwsEcsTaskVolumeHostDetails {
+  /**
+   * @public
+   * <p>When the <code>host</code> parameter is used, specify a <code>sourcePath</code> to declare the path
+   * on the host container instance that's presented to the container.
+   *       </p>
+   */
+  SourcePath?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about a data volume that's used in a task definition.
+ *       </p>
+ */
+export interface AwsEcsTaskVolumeDetails {
+  /**
+   * @public
+   * <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and
+   * hyphens are allowed. This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>This parameter is specified when you use bind mount host volumes. The contents of the <code>host</code> parameter
+   * determine whether your bind mount host volume persists on the host container instance and where it's stored.
+   *       </p>
+   */
+  Host?: AwsEcsTaskVolumeHostDetails;
+}
+
+/**
+ * @public
+ * <p>Provides details about a task in a cluster.
+ *       </p>
+ */
+export interface AwsEcsTaskDetails {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cluster that hosts the task.
+   *       </p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the task definition that creates the task.
+   *       </p>
+   */
+  TaskDefinitionArn?: string;
+
+  /**
+   * @public
+   * <p>The version counter for the task.
+   *       </p>
+   */
+  Version?: string;
+
+  /**
+   * @public
+   * <p>The Unix timestamp for the time when the task was created. More specifically, it's for the time when
+   * the task entered the <code>PENDING</code> state.
+   *       </p>
+   */
+  CreatedAt?: string;
+
+  /**
+   * @public
+   * <p>The Unix timestamp for the time when the task started. More specifically, it's for the time when the
+   *          task transitioned from the <code>PENDING</code> state to the <code>RUNNING</code> state.
+   *    </p>
+   */
+  StartedAt?: string;
+
+  /**
+   * @public
+   * <p>The tag specified when a task is started. If an Amazon ECS service started the task, the
+   *          <code>startedBy</code> parameter contains the deployment ID of that service.
+   *       </p>
+   */
+  StartedBy?: string;
+
+  /**
+   * @public
+   * <p>The name of the task group that's associated with the task.
+   *       </p>
+   */
+  Group?: string;
+
+  /**
+   * @public
+   * <p>Details about the data volume that is used in a task definition.
+   *       </p>
+   */
+  Volumes?: AwsEcsTaskVolumeDetails[];
+
+  /**
+   * @public
+   * <p>The containers that are associated with the task.
+   *       </p>
+   */
+  Containers?: AwsEcsContainerDetails[];
+}
+
+/**
+ * @public
+ * <p>Provides details for all file system operations using this Amazon EFS access point.
+ *       </p>
+ */
+export interface AwsEfsAccessPointPosixUserDetails {
+  /**
+   * @public
+   * <p>The POSIX group ID used for all file system operations using this access point.
+   *       </p>
+   */
+  Gid?: string;
+
+  /**
+   * @public
+   * <p>Secondary POSIX group IDs used for all file system operations using this access point.
+   *       </p>
+   */
+  SecondaryGids?: string[];
+
+  /**
+   * @public
+   * <p>The POSIX user ID used for all file system operations using this access point.
+   *       </p>
+   */
+  Uid?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about the settings that Amazon EFS uses to create the root directory
+ * when a client connects to an access point.
+ *       </p>
+ */
+export interface AwsEfsAccessPointRootDirectoryCreationInfoDetails {
+  /**
+   * @public
+   * <p>Specifies the POSIX group ID to apply to the root directory.
+   *       </p>
+   */
+  OwnerGid?: string;
+
+  /**
+   * @public
+   * <p>Specifies the POSIX user ID to apply to the root directory.
+   *       </p>
+   */
+  OwnerUid?: string;
+
+  /**
+   * @public
+   * <p>Specifies the POSIX permissions to apply to the root directory, in the format of an octal number
+   * representing the file's mode bits.
+   *       </p>
+   */
+  Permissions?: string;
+}
 
 /**
  * @public
@@ -1527,6 +1654,220 @@ export interface AwsEventSchemasRegistryDetails {
 /**
  * @public
  * <p>
+ *             Provides details about the Amazon EventBridge event buses that the endpoint is associated with.</p>
+ */
+export interface AwsEventsEndpointEventBusesDetails {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the event bus that the endpoint is associated with.</p>
+   */
+  EventBusArn?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Indicates whether replication is enabled or disabled for the endpoint. If enabled, the endpoint can replicate all
+ *             events to a secondary Amazon Web Services Region.</p>
+ */
+export interface AwsEventsEndpointReplicationConfigDetails {
+  /**
+   * @public
+   * <p>
+   *             The state of event replication.</p>
+   */
+  State?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about the primary Amazon Web Services Region of the endpoint.</p>
+ */
+export interface AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the health check used by the endpoint to determine whether failover is triggered.</p>
+   */
+  HealthCheck?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             The Amazon Web Services Region that events are routed to when failover is triggered or event replication is enabled.</p>
+ */
+export interface AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails {
+  /**
+   * @public
+   * <p>
+   *             Defines the secondary Region.</p>
+   */
+  Route?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.</p>
+ */
+export interface AwsEventsEndpointRoutingConfigFailoverConfigDetails {
+  /**
+   * @public
+   * <p>
+   *             The main Region of the endpoint.</p>
+   */
+  Primary?: AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails;
+
+  /**
+   * @public
+   * <p>
+   *             The Region that events are routed to when failover is triggered or event replication is enabled.</p>
+   */
+  Secondary?: AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about the routing configuration of the endpoint.</p>
+ */
+export interface AwsEventsEndpointRoutingConfigDetails {
+  /**
+   * @public
+   * <p>
+   *             The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.</p>
+   */
+  FailoverConfig?: AwsEventsEndpointRoutingConfigFailoverConfigDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about an Amazon EventBridge global endpoint. The endpoint can improve your application’s
+ *             availability by making it Regional-fault tolerant.
+ *         </p>
+ */
+export interface AwsEventsEndpointDetails {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the endpoint.
+   *         </p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             A description of the endpoint.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The URL subdomain of the endpoint. For example, if <code>EndpointUrl</code> is
+   *             <code>https://abcde.veo.endpoints.event.amazonaws.com</code>, then the <code>EndpointId</code> is <code>abcde.veo</code>.</p>
+   */
+  EndpointId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The URL of the endpoint.</p>
+   */
+  EndpointUrl?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The event buses being used by the endpoint.</p>
+   */
+  EventBuses?: AwsEventsEndpointEventBusesDetails[];
+
+  /**
+   * @public
+   * <p>
+   *             The name of the endpoint.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Whether event replication was enabled or disabled for this endpoint. The default state is <code>ENABLED</code>, which
+   *             means you must supply a <code>RoleArn</code>. If you don't have a <code>RoleArn</code> or you don't want event
+   *             replication enabled, set the state to <code>DISABLED</code>.</p>
+   */
+  ReplicationConfig?: AwsEventsEndpointReplicationConfigDetails;
+
+  /**
+   * @public
+   * <p>
+   *             The ARN of the role used by event replication for the endpoint.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The routing configuration of the endpoint.</p>
+   */
+  RoutingConfig?: AwsEventsEndpointRoutingConfigDetails;
+
+  /**
+   * @public
+   * <p>
+   *             The current state of the endpoint.</p>
+   */
+  State?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The reason the endpoint is in its current state.</p>
+   */
+  StateReason?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about Amazon EventBridge event bus. An event bus is a router that receives events and delivers
+ *             them to zero or more destinations, or targets. This can be a custom event bus which you can use to receive events
+ *             from your custom applications and services, or it can be a partner event bus which can be matched to a partner event
+ *             source.</p>
+ */
+export interface AwsEventsEventbusDetails {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the account permitted to write events to the current account.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the event bus.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The policy that enables the external account to send events to your account.</p>
+   */
+  Policy?: string;
+}
+
+/**
+ * @public
+ * <p>
  *             An object that contains information on the status of CloudTrail as a data source for the detector.
  *         </p>
  */
@@ -2857,6 +3198,239 @@ export interface AwsLambdaLayerVersionDetails {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedDate?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Details for SASL/IAM client authentication.</p>
+ */
+export interface AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails {
+  /**
+   * @public
+   * <p>
+   *             Indicates whether SASL/IAM authentication is enabled or not.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ *             Details for SASL/SCRAM client authentication.</p>
+ */
+export interface AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails {
+  /**
+   * @public
+   * <p>
+   *             Indicates whether SASL/SCRAM authentication is enabled or not.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details for client authentication using SASL.</p>
+ */
+export interface AwsMskClusterClusterInfoClientAuthenticationSaslDetails {
+  /**
+   * @public
+   * <p>
+   *             Provides details for SASL client authentication using IAM. </p>
+   */
+  Iam?: AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Details for SASL client authentication using SCRAM.</p>
+   */
+  Scram?: AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details for client authentication using TLS.</p>
+ */
+export interface AwsMskClusterClusterInfoClientAuthenticationTlsDetails {
+  /**
+   * @public
+   * <p>
+   *             List of Amazon Web Services Private CA Amazon Resource Names (ARNs). Amazon Web Services Private CA enables creation of
+   * private certificate authority (CA) hierarchies, including root and subordinate CAs, without the investment and maintenance costs
+   * of operating an on-premises CA.</p>
+   */
+  CertificateAuthorityArnList?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether TLS authentication is enabled or not.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details for allowing no client authentication.
+ *         </p>
+ */
+export interface AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails {
+  /**
+   * @public
+   * <p>
+   *             Indicates whether unauthenticated is allowed or not.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about different modes of client authentication.</p>
+ */
+export interface AwsMskClusterClusterInfoClientAuthenticationDetails {
+  /**
+   * @public
+   * <p>
+   *             Provides details for client authentication using SASL.</p>
+   */
+  Sasl?: AwsMskClusterClusterInfoClientAuthenticationSaslDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details for allowing no client authentication.</p>
+   */
+  Unauthenticated?: AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details for client authentication using TLS.</p>
+   */
+  Tls?: AwsMskClusterClusterInfoClientAuthenticationTlsDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             The data-volume encryption details. You can't update encryption at rest settings for existing clusters.</p>
+ */
+export interface AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the KMS key for encrypting data at rest. If you don't specify a
+   * KMS key, MSK creates one for you and uses it.</p>
+   */
+  DataVolumeKMSKeyId?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             The settings for encrypting data in transit.</p>
+ */
+export interface AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails {
+  /**
+   * @public
+   * <p>
+   *             When set to <code>true</code>, it indicates that data communication among the broker nodes of the cluster is
+   *             encrypted. When set to <code>false</code>, the communication happens in plain text. The default value is
+   *             <code>true</code>.</p>
+   */
+  InCluster?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates the encryption setting for data in transit between clients and brokers.</p>
+   */
+  ClientBroker?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Includes encryption-related information, such as the KMS key used for encrypting data at rest and
+ * whether you want MSK to encrypt your data in transit.</p>
+ */
+export interface AwsMskClusterClusterInfoEncryptionInfoDetails {
+  /**
+   * @public
+   * <p>
+   *             The settings for encrypting data in transit.</p>
+   */
+  EncryptionInTransit?: AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails;
+
+  /**
+   * @public
+   * <p>
+   *             The data-volume encryption details. You can't update encryption at rest settings for existing clusters.</p>
+   */
+  EncryptionAtRest?: AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provide details about an Amazon MSK cluster.</p>
+ */
+export interface AwsMskClusterClusterInfoDetails {
+  /**
+   * @public
+   * <p>
+   *             Includes encryption-related information, such as the KMS key used for encrypting data at rest and
+   * whether you want Amazon MSK to encrypt your data in transit.</p>
+   */
+  EncryptionInfo?: AwsMskClusterClusterInfoEncryptionInfoDetails;
+
+  /**
+   * @public
+   * <p>
+   *             The current version of the MSK cluster.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The number of broker nodes in the cluster.</p>
+   */
+  NumberOfBrokerNodes?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the cluster.</p>
+   */
+  ClusterName?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Provides information for different modes of client authentication.</p>
+   */
+  ClientAuthentication?: AwsMskClusterClusterInfoClientAuthenticationDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster.
+ *         </p>
+ */
+export interface AwsMskClusterDetails {
+  /**
+   * @public
+   * <p>
+   *             Provides information about a cluster.</p>
+   */
+  ClusterInfo?: AwsMskClusterClusterInfoDetails;
 }
 
 /**
@@ -4426,6 +5000,13 @@ export interface AwsRdsDbClusterDetails {
    * <p>Whether the mapping of IAM accounts to database accounts is enabled.</p>
    */
   IamDatabaseAuthenticationEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates if minor version upgrades are automatically applied to the cluster.</p>
+   */
+  AutoMinorVersionUpgrade?: boolean;
 }
 
 /**
@@ -6573,6 +7154,153 @@ export interface AwsRedshiftClusterDetails {
    * <p>Information about the logging status of the cluster.</p>
    */
   LoggingStatus?: AwsRedshiftClusterLoggingStatus;
+}
+
+/**
+ * @public
+ * <p>
+ *             An object that contains an optional comment about your Amazon Route 53 hosted zone.</p>
+ */
+export interface AwsRoute53HostedZoneConfigDetails {
+  /**
+   * @public
+   * <p> Any comments that you include about the hosted zone.
+   *         </p>
+   */
+  Comment?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             An object that contains information about an Amazon Route 53 hosted zone. </p>
+ */
+export interface AwsRoute53HostedZoneObjectDetails {
+  /**
+   * @public
+   * <p>
+   *             The ID that Route 53 assigns to the hosted zone when you create it. </p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the domain. For public hosted zones, this is the name that you have registered with your DNS registrar.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An object that includes the <code>Comment</code> element.</p>
+   */
+  Config?: AwsRoute53HostedZoneConfigDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             The Amazon Resource Name (ARN) and other details of the Amazon CloudWatch Logs log group that Amazon Route 53 is
+ * publishing logs to.</p>
+ */
+export interface CloudWatchLogsLogGroupArnConfigDetails {
+  /**
+   * @public
+   * <p>
+   *             The ARN of the CloudWatch Logs log group that Route 53 is publishing logs to.</p>
+   */
+  CloudWatchLogsLogGroupArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The ID of the hosted zone that CloudWatch Logs is logging queries for. </p>
+   */
+  HostedZoneId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The ID for a DNS query logging configuration.
+   *         </p>
+   */
+  Id?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about a specified Amazon Route 53 configuration for DNS query logging.</p>
+ */
+export interface AwsRoute53QueryLoggingConfigDetails {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log group that Route 53 is publishing logs to.</p>
+   */
+  CloudWatchLogsLogGroupArn?: CloudWatchLogsLogGroupArnConfigDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             For private hosted zones, this is a complex type that contains information about an Amazon VPC.</p>
+ */
+export interface AwsRoute53HostedZoneVpcDetails {
+  /**
+   * @public
+   * <p>
+   *             The identifier of an Amazon VPC.
+   *         </p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Web Services Region that an Amazon VPC was created in.</p>
+   */
+  Region?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about a specified Amazon Route 53 hosted zone, including the four name servers assigned to
+ * the hosted zone. A hosted zone represents a collection of records that can be managed together, belonging to a single parent
+ * domain name.</p>
+ */
+export interface AwsRoute53HostedZoneDetails {
+  /**
+   * @public
+   * <p>
+   *             An object that contains information about the specified hosted zone.</p>
+   */
+  HostedZone?: AwsRoute53HostedZoneObjectDetails;
+
+  /**
+   * @public
+   * <p>
+   *             An object that contains information about the Amazon Virtual Private Clouds (Amazon VPCs) that are associated with
+   * the specified hosted zone.</p>
+   */
+  Vpcs?: AwsRoute53HostedZoneVpcDetails[];
+
+  /**
+   * @public
+   * <p>
+   *             An object that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.</p>
+   */
+  NameServers?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             An array that contains one <code>QueryLoggingConfig</code> element for each DNS query logging configuration that is
+   * associated with the current Amazon Web Services account.</p>
+   */
+  QueryLoggingConfig?: AwsRoute53QueryLoggingConfigDetails;
 }
 
 /**
@@ -9954,1696 +10682,4 @@ export interface AwsWafv2RulesActionDetails {
    *       </p>
    */
   Count?: AwsWafv2RulesActionCountDetails;
-}
-
-/**
- * @public
- * <p>
- *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
- *       </p>
- */
-export interface AwsWafv2VisibilityConfigDetails {
-  /**
-   * @public
-   * <p>
-   *          A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch. For the list of available
-   *          metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF metrics and dimensions</a> in the <i>WAF Developer Guide</i>.
-   *       </p>
-   */
-  CloudWatchMetricsEnabled?: boolean;
-
-  /**
-   * @public
-   * <p>
-   *          A name of the Amazon CloudWatch metric.
-   *       </p>
-   */
-  MetricName?: string;
-
-  /**
-   * @public
-   * <p>
-   *          A boolean indicating whether WAF should store a sampling of the web requests that match the rules.
-   *          You can view the sampled requests through the WAF console.
-   *       </p>
-   */
-  SampledRequestsEnabled?: boolean;
-}
-
-/**
- * @public
- * <p>
- *          Provides details about rules in a rule group. A rule identifies web requests that you want to allow, block, or count. Each rule includes one top-level Statement that WAF uses to identify matching web requests, and parameters that govern how WAF handles them.
- *       </p>
- */
-export interface AwsWafv2RulesDetails {
-  /**
-   * @public
-   * <p>
-   *          The action that WAF should take on a web request when it matches the rule statement. Settings at the web ACL level can override the rule action setting.
-   *       </p>
-   */
-  Action?: AwsWafv2RulesActionDetails;
-
-  /**
-   * @public
-   * <p>
-   *          The name of the rule.
-   *       </p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>
-   *          The action to use in the place of the action that results from the rule group evaluation.
-   *       </p>
-   */
-  OverrideAction?: string;
-
-  /**
-   * @public
-   * <p>
-   *          If you define more than one Rule in a WebACL, WAF evaluates each request against the Rules in order based on the value of <code>Priority</code>.
-   *          WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
-   *       </p>
-   */
-  Priority?: number;
-
-  /**
-   * @public
-   * <p>
-   *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
-   *       </p>
-   */
-  VisibilityConfig?: AwsWafv2VisibilityConfigDetails;
-}
-
-/**
- * @public
- * <p>
- *          Details about an WAFv2 rule group.
- *       </p>
- */
-export interface AwsWafv2RuleGroupDetails {
-  /**
-   * @public
-   * <p>
-   *          The web ACL capacity units (WCUs) required for this rule group.
-   *       </p>
-   */
-  Capacity?: number;
-
-  /**
-   * @public
-   * <p>
-   *          A description of the rule group that helps with identification.
-   *       </p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>
-   *          A unique identifier for the rule group.
-   *       </p>
-   */
-  Id?: string;
-
-  /**
-   * @public
-   * <p>
-   *          The name of the rule group. You cannot change the name of a rule group after you create it.
-   *       </p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>
-   *          The Amazon Resource Name (ARN) of the entity.
-   *       </p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>
-   *          The Rule statements used to identify the web requests that you want to allow, block, or count. Each rule includes one
-   *          top-level statement that WAF uses to identify matching web requests, and parameters that govern how
-   *          WAF handles them.
-   *       </p>
-   */
-  Rules?: AwsWafv2RulesDetails[];
-
-  /**
-   * @public
-   * <p>
-   *          Specifies whether the rule group is for an Amazon CloudFront distribution or for a regional application.
-   *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync
-   *          GraphQL API, or an Amazon Cognito user pool.
-   *       </p>
-   */
-  Scope?: string;
-
-  /**
-   * @public
-   * <p>
-   *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
-   *       </p>
-   */
-  VisibilityConfig?: AwsWafv2VisibilityConfigDetails;
-}
-
-/**
- * @public
- * <p>
- *          Used for CAPTCHA and challenge token settings. Determines how long a CAPTCHA or challenge timestamp remains valid after WAF updates it for a successful CAPTCHA or challenge response.
- *       </p>
- */
-export interface AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails {
-  /**
-   * @public
-   * <p>
-   *          The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by WAF.
-   *       </p>
-   */
-  ImmunityTime?: number;
-}
-
-/**
- * @public
- * <p>
- *          Specifies how WAF should handle CAPTCHA evaluations for rules that don't have their own <code>CaptchaConfig</code> settings.
- *       </p>
- */
-export interface AwsWafv2WebAclCaptchaConfigDetails {
-  /**
-   * @public
-   * <p>
-   *          Determines how long a CAPTCHA timestamp in the token remains valid after the client successfully solves a CAPTCHA puzzle.
-   *       </p>
-   */
-  ImmunityTimeProperty?: AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails;
-}
-
-/**
- * @public
- * <p>
- *          Specifies the action that Amazon CloudFront or WAF takes when a web request matches the conditions in the rule.
- *       </p>
- */
-export interface AwsWafv2WebAclActionDetails {
-  /**
-   * @public
-   * <p>
-   *          Specifies that WAF should allow requests by default.
-   *       </p>
-   */
-  Allow?: AwsWafv2ActionAllowDetails;
-
-  /**
-   * @public
-   * <p>
-   *          Specifies that WAF should block requests by default.
-   *       </p>
-   */
-  Block?: AwsWafv2ActionBlockDetails;
-}
-
-/**
- * @public
- * <p>
- *          Details about an WAFv2 web Access Control List (ACL).
- *       </p>
- */
-export interface AwsWafv2WebAclDetails {
-  /**
-   * @public
-   * <p>
-   *          The name of the web ACL.
-   *       </p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>
-   *          The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
-   *       </p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>
-   *          Indicates whether this web ACL is managed by Firewall Manager.
-   *       </p>
-   */
-  ManagedbyFirewallManager?: boolean;
-
-  /**
-   * @public
-   * <p>
-   *          A unique identifier for the web ACL.
-   *       </p>
-   */
-  Id?: string;
-
-  /**
-   * @public
-   * <p>
-   *          The web ACL capacity units (WCUs) currently being used by this web ACL.
-   *       </p>
-   */
-  Capacity?: number;
-
-  /**
-   * @public
-   * <p>
-   *          Specifies how WAF should handle CAPTCHA evaluations for rules that don't have their own
-   *          <code>CaptchaConfig</code> settings.
-   *       </p>
-   */
-  CaptchaConfig?: AwsWafv2WebAclCaptchaConfigDetails;
-
-  /**
-   * @public
-   * <p>
-   *          The action to perform if none of the Rules contained in the web ACL match.
-   *       </p>
-   */
-  DefaultAction?: AwsWafv2WebAclActionDetails;
-
-  /**
-   * @public
-   * <p>
-   *          A description of the web ACL that helps with identification.
-   *       </p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>
-   *          The Rule statements used to identify the web requests that you want to allow, block, or count. Each rule includes one
-   *          top-level statement that WAF uses to identify matching web requests, and parameters that govern how
-   *          WAF handles them.
-   *       </p>
-   */
-  Rules?: AwsWafv2RulesDetails[];
-
-  /**
-   * @public
-   * <p>
-   *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
-   *       </p>
-   */
-  VisibilityConfig?: AwsWafv2VisibilityConfigDetails;
-}
-
-/**
- * @public
- * <p>Details about the action that CloudFront or WAF takes when a web request matches the
- *          conditions in the rule. </p>
- */
-export interface WafAction {
-  /**
-   * @public
-   * <p>Specifies how you want WAF to respond to requests that match the settings in a
-   *          rule.</p>
-   *          <p>Valid settings include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALLOW</code> - WAF allows requests</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> - WAF blocks requests</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COUNT</code> - WAF increments a counter of the requests that
-   *                match all of the conditions in the rule. WAF then continues to inspect
-   *                the web request based on the remaining rules in the web ACL. You can't specify
-   *                   <code>COUNT</code> for the default action for a web ACL.</p>
-   *             </li>
-   *          </ul>
-   */
-  Type?: string;
-}
-
-/**
- * @public
- * <p>Details about a rule to exclude from a rule group.</p>
- */
-export interface WafExcludedRule {
-  /**
-   * @public
-   * <p>The unique identifier for the rule to exclude from the rule group.</p>
-   */
-  RuleId?: string;
-}
-
-/**
- * @public
- * <p>Details about an override action for a rule.</p>
- */
-export interface WafOverrideAction {
-  /**
-   * @public
-   * <p>
-   *             <code>COUNT</code> overrides the action specified by the individual rule within a
-   *             <code>RuleGroup</code> .</p>
-   *          <p>If set to <code>NONE</code>, the rule's action takes place.</p>
-   */
-  Type?: string;
-}
-
-/**
- * @public
- * <p>Details for a rule in an WAF web ACL.</p>
- */
-export interface AwsWafWebAclRule {
-  /**
-   * @public
-   * <p>Specifies the action that CloudFront or WAF takes when a web request matches the
-   *          conditions in the rule. </p>
-   */
-  Action?: WafAction;
-
-  /**
-   * @public
-   * <p>Rules to exclude from a rule group.</p>
-   */
-  ExcludedRules?: WafExcludedRule[];
-
-  /**
-   * @public
-   * <p>Use the <code>OverrideAction</code> to test your <code>RuleGroup</code>.</p>
-   *          <p>Any rule in a <code>RuleGroup</code> can potentially block a request. If you set the <code>OverrideAction</code> to
-   *             <code>None</code>, the <code>RuleGroup</code> blocks a request if any individual rule in the <code>RuleGroup</code>
-   *          matches the request and is configured to block that request.</p>
-   *          <p>However, if you first want to test the <code>RuleGroup</code>,
-   *          set the <code>OverrideAction</code> to <code>Count</code>. The <code>RuleGroup</code>
-   *          then overrides any block action specified by individual rules contained within the group.
-   *          Instead of blocking matching requests, those requests are counted.</p>
-   *          <p>
-   *             <code>ActivatedRule</code>|<code>OverrideAction</code> applies only when updating or
-   *          adding a <code>RuleGroup</code>
-   *          to a web ACL. In this case you do not use <code>ActivatedRule</code>
-   *             <code>Action</code>. For all other update requests,
-   *             <code>ActivatedRule</code>
-   *             <code>Action</code> is used instead of <code>ActivatedRule</code>
-   *             <code>OverrideAction</code>.</p>
-   */
-  OverrideAction?: WafOverrideAction;
-
-  /**
-   * @public
-   * <p>Specifies the order in which the rules in a web
-   *          ACL are evaluated. Rules with a lower value for <code>Priority</code> are
-   *          evaluated before rules with a higher value. The value must be a unique integer. If you add
-   *          multiple rules to a web ACL, the values do not need to be consecutive.</p>
-   */
-  Priority?: number;
-
-  /**
-   * @public
-   * <p>The identifier for a rule.</p>
-   */
-  RuleId?: string;
-
-  /**
-   * @public
-   * <p>The rule type.</p>
-   *          <p>Valid values: <code>REGULAR</code> | <code>RATE_BASED</code> | <code>GROUP</code>
-   *          </p>
-   *          <p>The default is <code>REGULAR</code>.</p>
-   */
-  Type?: string;
-}
-
-/**
- * @public
- * <p>Provides information about an WAF web access control list (web ACL).</p>
- */
-export interface AwsWafWebAclDetails {
-  /**
-   * @public
-   * <p>A friendly name or description of the web ACL. You can't change the name of a web ACL  after you create it.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The action to perform if none of the rules contained in the web ACL match.</p>
-   */
-  DefaultAction?: string;
-
-  /**
-   * @public
-   * <p>An array that contains the action for each rule in a web ACL, the priority of the rule, and the ID of the rule.</p>
-   */
-  Rules?: AwsWafWebAclRule[];
-
-  /**
-   * @public
-   * <p>A unique identifier for a web ACL.</p>
-   */
-  WebAclId?: string;
-}
-
-/**
- * @public
- * <p>Information about the encryption configuration for X-Ray.</p>
- */
-export interface AwsXrayEncryptionConfigDetails {
-  /**
-   * @public
-   * <p>The identifier of the KMS key that is used for encryption. Provided if <code>Type</code> is <code>KMS</code>.</p>
-   */
-  KeyId?: string;
-
-  /**
-   * @public
-   * <p>The current status of the encryption configuration. Valid values are <code>ACTIVE</code> or <code>UPDATING</code>.</p>
-   *          <p>When <code>Status</code> is equal to <code>UPDATING</code>, X-Ray might use both the old and new encryption.</p>
-   */
-  Status?: string;
-
-  /**
-   * @public
-   * <p>The type of encryption. <code>KMS</code> indicates that the encryption uses KMS keys. <code>NONE</code> indicates the default encryption.</p>
-   */
-  Type?: string;
-}
-
-/**
- * @public
- * <p>Describes the mounting of a volume in a container.
- *       </p>
- */
-export interface VolumeMount {
-  /**
-   * @public
-   * <p>The name of the volume.
-   *       </p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The path in the container at which the volume should be mounted.
-   *       </p>
-   */
-  MountPath?: string;
-}
-
-/**
- * @public
- * <p>Container details related to a finding.</p>
- */
-export interface ContainerDetails {
-  /**
-   * @public
-   * <p>The runtime of the container.
-   *       </p>
-   */
-  ContainerRuntime?: string;
-
-  /**
-   * @public
-   * <p>The name of the container related to a finding.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The identifier of the container image related to a finding.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * @public
-   * <p>The name of the container image related to a finding.</p>
-   */
-  ImageName?: string;
-
-  /**
-   * @public
-   * <p>Indicates when the container started.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  LaunchedAt?: string;
-
-  /**
-   * @public
-   * <p>Provides information about the mounting of a volume in a container.
-   *       </p>
-   */
-  VolumeMounts?: VolumeMount[];
-
-  /**
-   * @public
-   * <p>When this parameter is <code>true</code>, the container is given elevated privileges on the host
-   * container instance (similar to the root user).
-   *       </p>
-   */
-  Privileged?: boolean;
-}
-
-/**
- * @public
- * <p>Additional details about a resource related to a finding.</p>
- *          <p>To provide the details, use the object that corresponds to the resource type. For
- *          example, if the resource type is <code>AwsEc2Instance</code>, then you use the
- *             <code>AwsEc2Instance</code> object to provide the details.</p>
- *          <p>If the type-specific object does not contain all of the fields you want to populate,
- *          then you use the <code>Other</code> object to populate those additional fields.</p>
- *          <p>You also use the <code>Other</code> object to populate the details when the selected
- *          type does not have a corresponding object.</p>
- */
-export interface ResourceDetails {
-  /**
-   * @public
-   * <p>Details for an autoscaling group.</p>
-   */
-  AwsAutoScalingAutoScalingGroup?: AwsAutoScalingAutoScalingGroupDetails;
-
-  /**
-   * @public
-   * <p>Details for an CodeBuild project.</p>
-   */
-  AwsCodeBuildProject?: AwsCodeBuildProjectDetails;
-
-  /**
-   * @public
-   * <p>Details about a CloudFront distribution.</p>
-   */
-  AwsCloudFrontDistribution?: AwsCloudFrontDistributionDetails;
-
-  /**
-   * @public
-   * <p>Details about an EC2 instance related to a finding.</p>
-   */
-  AwsEc2Instance?: AwsEc2InstanceDetails;
-
-  /**
-   * @public
-   * <p>Details for an EC2 network interface.</p>
-   */
-  AwsEc2NetworkInterface?: AwsEc2NetworkInterfaceDetails;
-
-  /**
-   * @public
-   * <p>Details for an EC2 security group.</p>
-   */
-  AwsEc2SecurityGroup?: AwsEc2SecurityGroupDetails;
-
-  /**
-   * @public
-   * <p>Details for an Amazon EC2 volume.</p>
-   */
-  AwsEc2Volume?: AwsEc2VolumeDetails;
-
-  /**
-   * @public
-   * <p>Details for an Amazon EC2 VPC.</p>
-   */
-  AwsEc2Vpc?: AwsEc2VpcDetails;
-
-  /**
-   * @public
-   * <p>Details about an Elastic IP address.</p>
-   */
-  AwsEc2Eip?: AwsEc2EipDetails;
-
-  /**
-   * @public
-   * <p>Details about a subnet in Amazon EC2.</p>
-   */
-  AwsEc2Subnet?: AwsEc2SubnetDetails;
-
-  /**
-   * @public
-   * <p>Details about an EC2 network access control list (ACL).</p>
-   */
-  AwsEc2NetworkAcl?: AwsEc2NetworkAclDetails;
-
-  /**
-   * @public
-   * <p>Details about a load balancer.</p>
-   */
-  AwsElbv2LoadBalancer?: AwsElbv2LoadBalancerDetails;
-
-  /**
-   * @public
-   * <p>Details about an Elastic Beanstalk environment.</p>
-   */
-  AwsElasticBeanstalkEnvironment?: AwsElasticBeanstalkEnvironmentDetails;
-
-  /**
-   * @public
-   * <p>Details for an Elasticsearch domain.</p>
-   */
-  AwsElasticsearchDomain?: AwsElasticsearchDomainDetails;
-
-  /**
-   * @public
-   * <p>Details about an S3 bucket related to a finding.</p>
-   */
-  AwsS3Bucket?: AwsS3BucketDetails;
-
-  /**
-   * @public
-   * <p>Details about the Amazon S3 Public Access Block configuration for an account.</p>
-   */
-  AwsS3AccountPublicAccessBlock?: AwsS3AccountPublicAccessBlockDetails;
-
-  /**
-   * @public
-   * <p>Details about an S3 object related to a finding.</p>
-   */
-  AwsS3Object?: AwsS3ObjectDetails;
-
-  /**
-   * @public
-   * <p>Details about a Secrets Manager secret.</p>
-   */
-  AwsSecretsManagerSecret?: AwsSecretsManagerSecretDetails;
-
-  /**
-   * @public
-   * <p>Details about an IAM access key related to a finding.</p>
-   */
-  AwsIamAccessKey?: AwsIamAccessKeyDetails;
-
-  /**
-   * @public
-   * <p>Details about an IAM user.</p>
-   */
-  AwsIamUser?: AwsIamUserDetails;
-
-  /**
-   * @public
-   * <p>Details about an IAM permissions policy.</p>
-   */
-  AwsIamPolicy?: AwsIamPolicyDetails;
-
-  /**
-   * @public
-   * <p>Provides information about a version 2 stage for Amazon API Gateway.</p>
-   */
-  AwsApiGatewayV2Stage?: AwsApiGatewayV2StageDetails;
-
-  /**
-   * @public
-   * <p>Provides information about a version 2 API in Amazon API Gateway.</p>
-   */
-  AwsApiGatewayV2Api?: AwsApiGatewayV2ApiDetails;
-
-  /**
-   * @public
-   * <p>Details about a DynamoDB table.</p>
-   */
-  AwsDynamoDbTable?: AwsDynamoDbTableDetails;
-
-  /**
-   * @public
-   * <p>Provides information about a version 1 Amazon API Gateway stage.</p>
-   */
-  AwsApiGatewayStage?: AwsApiGatewayStageDetails;
-
-  /**
-   * @public
-   * <p>Provides information about a REST API in version 1 of Amazon API Gateway.</p>
-   */
-  AwsApiGatewayRestApi?: AwsApiGatewayRestApiDetails;
-
-  /**
-   * @public
-   * <p>Provides details about a CloudTrail trail.</p>
-   */
-  AwsCloudTrailTrail?: AwsCloudTrailTrailDetails;
-
-  /**
-   * @public
-   * <p>Provides information about the state of a patch on an instance based on the patch baseline that was used to patch the instance.</p>
-   */
-  AwsSsmPatchCompliance?: AwsSsmPatchComplianceDetails;
-
-  /**
-   * @public
-   * <p>Provides details about an Certificate Manager certificate.</p>
-   */
-  AwsCertificateManagerCertificate?: AwsCertificateManagerCertificateDetails;
-
-  /**
-   * @public
-   * <p>Contains details about an Amazon Redshift cluster.</p>
-   */
-  AwsRedshiftCluster?: AwsRedshiftClusterDetails;
-
-  /**
-   * @public
-   * <p>Contains details about a Classic Load Balancer.</p>
-   */
-  AwsElbLoadBalancer?: AwsElbLoadBalancerDetails;
-
-  /**
-   * @public
-   * <p>Contains details about an IAM group.</p>
-   */
-  AwsIamGroup?: AwsIamGroupDetails;
-
-  /**
-   * @public
-   * <p>Details about an IAM role.</p>
-   */
-  AwsIamRole?: AwsIamRoleDetails;
-
-  /**
-   * @public
-   * <p>Details about an KMS key.</p>
-   */
-  AwsKmsKey?: AwsKmsKeyDetails;
-
-  /**
-   * @public
-   * <p>Details about a Lambda function.</p>
-   */
-  AwsLambdaFunction?: AwsLambdaFunctionDetails;
-
-  /**
-   * @public
-   * <p>Details for a Lambda layer version.</p>
-   */
-  AwsLambdaLayerVersion?: AwsLambdaLayerVersionDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon RDS database instance.</p>
-   */
-  AwsRdsDbInstance?: AwsRdsDbInstanceDetails;
-
-  /**
-   * @public
-   * <p>Details about an SNS topic.</p>
-   */
-  AwsSnsTopic?: AwsSnsTopicDetails;
-
-  /**
-   * @public
-   * <p>Details about an SQS queue.</p>
-   */
-  AwsSqsQueue?: AwsSqsQueueDetails;
-
-  /**
-   * @public
-   * <p>Details for an WAF web ACL.</p>
-   */
-  AwsWafWebAcl?: AwsWafWebAclDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon RDS database snapshot.</p>
-   */
-  AwsRdsDbSnapshot?: AwsRdsDbSnapshotDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon RDS database cluster snapshot.</p>
-   */
-  AwsRdsDbClusterSnapshot?: AwsRdsDbClusterSnapshotDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon RDS database cluster.</p>
-   */
-  AwsRdsDbCluster?: AwsRdsDbClusterDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon ECS cluster.</p>
-   */
-  AwsEcsCluster?: AwsEcsClusterDetails;
-
-  /**
-   * @public
-   * <p>Provides information about a Docker container that's part of a task.
-   *       </p>
-   */
-  AwsEcsContainer?: AwsEcsContainerDetails;
-
-  /**
-   * @public
-   * <p>Details about a task definition. A task definition describes the container and volume definitions of an Amazon Elastic Container Service task.</p>
-   */
-  AwsEcsTaskDefinition?: AwsEcsTaskDefinitionDetails;
-
-  /**
-   * @public
-   * <p>Details about a container resource related to a finding.</p>
-   */
-  Container?: ContainerDetails;
-
-  /**
-   * @public
-   * <p>Details about a resource that are not available in a type-specific details object. Use
-   *          the <code>Other</code> object in the following cases.</p>
-   *          <ul>
-   *             <li>
-   *                <p>The type-specific object does not contain all of the fields that you want to
-   *                populate. In this case, first use the type-specific object to populate those fields.
-   *                Use the <code>Other</code> object to populate the fields that are missing from the
-   *                type-specific object.</p>
-   *             </li>
-   *             <li>
-   *                <p>The resource type does not have a corresponding object. This includes resources
-   *                for which the type is <code>Other</code>. </p>
-   *             </li>
-   *          </ul>
-   */
-  Other?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Details about an RDS event notification subscription.</p>
-   */
-  AwsRdsEventSubscription?: AwsRdsEventSubscriptionDetails;
-
-  /**
-   * @public
-   * <p>Details about a service within an ECS cluster.</p>
-   */
-  AwsEcsService?: AwsEcsServiceDetails;
-
-  /**
-   * @public
-   * <p>Provides details about a launch configuration.</p>
-   */
-  AwsAutoScalingLaunchConfiguration?: AwsAutoScalingLaunchConfigurationDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon EC2 VPN connection.</p>
-   */
-  AwsEc2VpnConnection?: AwsEc2VpnConnectionDetails;
-
-  /**
-   * @public
-   * <p>Information about an Amazon ECR image.</p>
-   */
-  AwsEcrContainerImage?: AwsEcrContainerImageDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon OpenSearch Service domain.</p>
-   */
-  AwsOpenSearchServiceDomain?: AwsOpenSearchServiceDomainDetails;
-
-  /**
-   * @public
-   * <p>Details about the service configuration for a VPC endpoint service.</p>
-   */
-  AwsEc2VpcEndpointService?: AwsEc2VpcEndpointServiceDetails;
-
-  /**
-   * @public
-   * <p>Information about the encryption configuration for X-Ray.</p>
-   */
-  AwsXrayEncryptionConfig?: AwsXrayEncryptionConfigDetails;
-
-  /**
-   * @public
-   * <p>Details about a rate-based rule for global resources.</p>
-   */
-  AwsWafRateBasedRule?: AwsWafRateBasedRuleDetails;
-
-  /**
-   * @public
-   * <p>Details about a rate-based rule for Regional resources.</p>
-   */
-  AwsWafRegionalRateBasedRule?: AwsWafRegionalRateBasedRuleDetails;
-
-  /**
-   * @public
-   * <p>Information about an Amazon Elastic Container Registry repository.</p>
-   */
-  AwsEcrRepository?: AwsEcrRepositoryDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon EKS cluster.</p>
-   */
-  AwsEksCluster?: AwsEksClusterDetails;
-
-  /**
-   * @public
-   * <p>Details about an Network Firewall firewall policy.</p>
-   */
-  AwsNetworkFirewallFirewallPolicy?: AwsNetworkFirewallFirewallPolicyDetails;
-
-  /**
-   * @public
-   * <p>Details about an Network Firewall firewall.</p>
-   */
-  AwsNetworkFirewallFirewall?: AwsNetworkFirewallFirewallDetails;
-
-  /**
-   * @public
-   * <p>Details about an Network Firewall rule group.</p>
-   */
-  AwsNetworkFirewallRuleGroup?: AwsNetworkFirewallRuleGroupDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon RDS DB security group.</p>
-   */
-  AwsRdsDbSecurityGroup?: AwsRdsDbSecurityGroupDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon Kinesis data stream.</p>
-   */
-  AwsKinesisStream?: AwsKinesisStreamDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon EC2 transit gateway that interconnects your virtual private clouds (VPC) and on-premises networks.</p>
-   */
-  AwsEc2TransitGateway?: AwsEc2TransitGatewayDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon EFS access point. An access point is an application-specific view into an EFS file system that
-   * applies an operating system user and group, and a file system path, to any file system request made through the access point.
-   *       </p>
-   */
-  AwsEfsAccessPoint?: AwsEfsAccessPointDetails;
-
-  /**
-   * @public
-   * <p>Details about an CloudFormation stack. A stack is a collection of Amazon Web Services resources that you can manage as a single unit.</p>
-   */
-  AwsCloudFormationStack?: AwsCloudFormationStackDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon CloudWatch alarm. An alarm allows you to monitor and receive alerts about your Amazon Web Services resources and applications across multiple Regions.</p>
-   */
-  AwsCloudWatchAlarm?: AwsCloudWatchAlarmDetails;
-
-  /**
-   * @public
-   * <p>Details about an Amazon EC2 VPC peering connection. A VPC peering connection is
-   *          a networking connection between two VPCs that enables you to route traffic between them
-   *          privately.
-   *       </p>
-   */
-  AwsEc2VpcPeeringConnection?: AwsEc2VpcPeeringConnectionDetails;
-
-  /**
-   * @public
-   * <p>Details about an WAF rule group for Regional resources.
-   *       </p>
-   */
-  AwsWafRegionalRuleGroup?: AwsWafRegionalRuleGroupDetails;
-
-  /**
-   * @public
-   * <p>Details about an WAF rule for Regional resources.
-   *       </p>
-   */
-  AwsWafRegionalRule?: AwsWafRegionalRuleDetails;
-
-  /**
-   * @public
-   * <p>Details about an WAF web access control list (web ACL) for Regional resources. </p>
-   */
-  AwsWafRegionalWebAcl?: AwsWafRegionalWebAclDetails;
-
-  /**
-   * @public
-   * <p>Details about an WAF rule for global resources.
-   *       </p>
-   */
-  AwsWafRule?: AwsWafRuleDetails;
-
-  /**
-   * @public
-   * <p>Details about an WAF rule group for global resources.
-   *       </p>
-   */
-  AwsWafRuleGroup?: AwsWafRuleGroupDetails;
-
-  /**
-   * @public
-   * <p>Details about a task in a cluster. </p>
-   */
-  AwsEcsTask?: AwsEcsTaskDetails;
-
-  /**
-   * @public
-   * <p>Provides details about an Backup backup vault.
-   *       </p>
-   */
-  AwsBackupBackupVault?: AwsBackupBackupVaultDetails;
-
-  /**
-   * @public
-   * <p>Provides details about an Backup backup plan.
-   *       </p>
-   */
-  AwsBackupBackupPlan?: AwsBackupBackupPlanDetails;
-
-  /**
-   * @public
-   * <p>Provides details about an Backup backup, or recovery point.
-   *       </p>
-   */
-  AwsBackupRecoveryPoint?: AwsBackupRecoveryPointDetails;
-
-  /**
-   * @public
-   * <p>
-   *          Specifies the properties for creating an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
-   *       </p>
-   */
-  AwsEc2LaunchTemplate?: AwsEc2LaunchTemplateDetails;
-
-  /**
-   * @public
-   * <p>
-   *          Provides details about an Amazon SageMaker notebook instance.
-   *       </p>
-   */
-  AwsSageMakerNotebookInstance?: AwsSageMakerNotebookInstanceDetails;
-
-  /**
-   * @public
-   * <p>
-   *          Details about an WAFv2 web Access Control List (ACL).
-   *       </p>
-   */
-  AwsWafv2WebAcl?: AwsWafv2WebAclDetails;
-
-  /**
-   * @public
-   * <p>
-   *          Details about an WAFv2 rule group.
-   *       </p>
-   */
-  AwsWafv2RuleGroup?: AwsWafv2RuleGroupDetails;
-
-  /**
-   * @public
-   * <p>
-   *          Provides details about a route table. A route table contains a set of rules, called routes, that
-   *          determine where to direct network traffic from your subnet or gateway.
-   *       </p>
-   */
-  AwsEc2RouteTable?: AwsEc2RouteTableDetails;
-
-  /**
-   * @public
-   * <p>
-   *             Provides details about AppSync message broker. A message broker allows software applications and
-   *             components to communicate using various programming languages, operating systems, and formal messaging protocols.
-   *         </p>
-   */
-  AwsAmazonMqBroker?: AwsAmazonMqBrokerDetails;
-
-  /**
-   * @public
-   * <p>
-   *             Provides details about an AppSync Graph QL API, which lets you query multiple databases, microservices,
-   *             and APIs from a single GraphQL endpoint.
-   *         </p>
-   */
-  AwsAppSyncGraphQlApi?: AwsAppSyncGraphQlApiDetails;
-
-  /**
-   * @public
-   * <p>
-   *             A schema defines the structure of events that are sent to Amazon EventBridge. Schema registries are containers for
-   *             schemas. They collect and organize schemas so that your schemas are in logical groups.
-   *         </p>
-   */
-  AwsEventSchemasRegistry?: AwsEventSchemasRegistryDetails;
-
-  /**
-   * @public
-   * <p>
-   *             Provides details about an Amazon GuardDuty detector. A detector is an object that represents the GuardDuty
-   *             service. A detector is required for GuardDuty to become operational.
-   *         </p>
-   */
-  AwsGuardDutyDetector?: AwsGuardDutyDetectorDetails;
-
-  /**
-   * @public
-   * <p>
-   *             Provides details about an Step Functions state machine, which is a workflow consisting of a series of event-driven steps.
-   *         </p>
-   */
-  AwsStepFunctionStateMachine?: AwsStepFunctionStateMachineDetails;
-
-  /**
-   * @public
-   * <p>
-   *             Provides information about an Amazon Athena workgroup. A workgroup helps you separate users, teams,
-   *             applications, or workloads. It also helps you set limits on data processing and track costs.
-   *         </p>
-   */
-  AwsAthenaWorkGroup?: AwsAthenaWorkGroupDetails;
-}
-
-/**
- * @public
- * @enum
- */
-export const Partition = {
-  AWS: "aws",
-  AWS_CN: "aws-cn",
-  AWS_US_GOV: "aws-us-gov",
-} as const;
-
-/**
- * @public
- */
-export type Partition = (typeof Partition)[keyof typeof Partition];
-
-/**
- * @public
- * <p>A resource related to a finding.</p>
- */
-export interface Resource {
-  /**
-   * @public
-   * <p>The type of the resource that details are provided for. If possible, set
-   *             <code>Type</code> to one of the supported resource types. For example, if the resource
-   *          is an EC2 instance, then set <code>Type</code> to <code>AwsEc2Instance</code>.</p>
-   *          <p>If the resource does not match any of the provided types, then set <code>Type</code> to
-   *             <code>Other</code>. </p>
-   */
-  Type: string | undefined;
-
-  /**
-   * @public
-   * <p>The canonical identifier for the given resource type.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * @public
-   * <p>The canonical Amazon Web Services partition name that the Region is assigned to.</p>
-   */
-  Partition?: Partition | string;
-
-  /**
-   * @public
-   * <p>The canonical Amazon Web Services external Region name where this resource is located.</p>
-   */
-  Region?: string;
-
-  /**
-   * @public
-   * <p>Identifies the role of the resource in the finding. A resource is either the actor or target of the finding activity,</p>
-   */
-  ResourceRole?: string;
-
-  /**
-   * @public
-   * <p>A list of Amazon Web Services tags associated with a resource at the time the finding was
-   *          processed.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Contains information about sensitive data that was detected on the resource.</p>
-   */
-  DataClassification?: DataClassificationDetails;
-
-  /**
-   * @public
-   * <p>Additional details about the resource related to a finding.</p>
-   */
-  Details?: ResourceDetails;
-}
-
-/**
- * @public
- * <p>The severity of the finding.</p>
- *          <p>The finding provider can provide the initial severity. The finding provider can only
- *          update the severity if it hasn't been updated using
- *          <code>BatchUpdateFindings</code>.</p>
- *          <p>The finding must have either <code>Label</code> or <code>Normalized</code> populated. If
- *          only one of these attributes is populated, then Security Hub automatically populates the other
- *          one. If neither attribute is populated, then the finding is invalid. <code>Label</code> is
- *          the preferred attribute.</p>
- */
-export interface Severity {
-  /**
-   * @public
-   * <p>Deprecated. This attribute is being deprecated. Instead of providing
-   *             <code>Product</code>, provide <code>Original</code>.</p>
-   *          <p>The native severity as defined by the Amazon Web Services service or integrated partner product that
-   *          generated the finding.</p>
-   */
-  Product?: number;
-
-  /**
-   * @public
-   * <p>The severity value of the finding. The allowed values are the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INFORMATIONAL</code> - No issue was found.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LOW</code> - The issue does not require action on its own.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIUM</code> - The issue must be addressed but not urgently.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIGH</code> - The issue must be addressed as a priority.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CRITICAL</code> - The issue must be remediated immediately to avoid it
-   *                escalating.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you provide <code>Normalized</code> and do not provide <code>Label</code>, then
-   *             <code>Label</code> is set automatically as follows. </p>
-   *          <ul>
-   *             <li>
-   *                <p>0 - <code>INFORMATIONAL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>1–39 - <code>LOW</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>40–69 - <code>MEDIUM</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>70–89 - <code>HIGH</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>90–100 - <code>CRITICAL</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Label?: SeverityLabel | string;
-
-  /**
-   * @public
-   * <p>Deprecated. The normalized severity of a finding. This attribute is being deprecated.
-   *          Instead of providing <code>Normalized</code>, provide <code>Label</code>.</p>
-   *          <p>If you provide <code>Label</code> and do not provide <code>Normalized</code>, then
-   *             <code>Normalized</code> is set automatically as follows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INFORMATIONAL</code> - 0</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LOW</code> - 1</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIUM</code> - 40</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIGH</code> - 70</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CRITICAL</code> - 90</p>
-   *             </li>
-   *          </ul>
-   */
-  Normalized?: number;
-
-  /**
-   * @public
-   * <p>The native severity from the finding product that generated the finding.</p>
-   */
-  Original?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ThreatIntelIndicatorCategory = {
-  BACKDOOR: "BACKDOOR",
-  CARD_STEALER: "CARD_STEALER",
-  COMMAND_AND_CONTROL: "COMMAND_AND_CONTROL",
-  DROP_SITE: "DROP_SITE",
-  EXPLOIT_SITE: "EXPLOIT_SITE",
-  KEYLOGGER: "KEYLOGGER",
-} as const;
-
-/**
- * @public
- */
-export type ThreatIntelIndicatorCategory =
-  (typeof ThreatIntelIndicatorCategory)[keyof typeof ThreatIntelIndicatorCategory];
-
-/**
- * @public
- * @enum
- */
-export const ThreatIntelIndicatorType = {
-  DOMAIN: "DOMAIN",
-  EMAIL_ADDRESS: "EMAIL_ADDRESS",
-  HASH_MD5: "HASH_MD5",
-  HASH_SHA1: "HASH_SHA1",
-  HASH_SHA256: "HASH_SHA256",
-  HASH_SHA512: "HASH_SHA512",
-  IPV4_ADDRESS: "IPV4_ADDRESS",
-  IPV6_ADDRESS: "IPV6_ADDRESS",
-  MUTEX: "MUTEX",
-  PROCESS: "PROCESS",
-  URL: "URL",
-} as const;
-
-/**
- * @public
- */
-export type ThreatIntelIndicatorType = (typeof ThreatIntelIndicatorType)[keyof typeof ThreatIntelIndicatorType];
-
-/**
- * @public
- * <p>Details about the threat intelligence related to a finding.</p>
- */
-export interface ThreatIntelIndicator {
-  /**
-   * @public
-   * <p>The type of threat intelligence indicator.</p>
-   */
-  Type?: ThreatIntelIndicatorType | string;
-
-  /**
-   * @public
-   * <p>The value of a threat intelligence indicator.</p>
-   */
-  Value?: string;
-
-  /**
-   * @public
-   * <p>The category of a threat intelligence indicator.</p>
-   */
-  Category?: ThreatIntelIndicatorCategory | string;
-
-  /**
-   * @public
-   * <p>Indicates when the most recent instance of a threat intelligence indicator was
-   *          observed.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  LastObservedAt?: string;
-
-  /**
-   * @public
-   * <p>The source of the threat intelligence indicator.</p>
-   */
-  Source?: string;
-
-  /**
-   * @public
-   * <p>The URL to the page or site where you can get more information about the threat
-   *          intelligence indicator.</p>
-   */
-  SourceUrl?: string;
-}
-
-/**
- * @public
- * <p>Provides information about the file paths that were affected by the threat.
- * 		</p>
- */
-export interface FilePaths {
-  /**
-   * @public
-   * <p>Path to the infected or suspicious file on the resource it was detected on.
-   * 		</p>
-   */
-  FilePath?: string;
-
-  /**
-   * @public
-   * <p>The name of the infected or suspicious file corresponding to the hash.
-   * 		</p>
-   */
-  FileName?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the resource on which the threat was detected.
-   * 		</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * @public
-   * <p>The hash value for the infected or suspicious file.
-   * 		</p>
-   */
-  Hash?: string;
-}
-
-/**
- * @public
- * <p>Provides information about the threat detected in a security finding and the file paths that were affected by the threat.
- * 		</p>
- */
-export interface Threat {
-  /**
-   * @public
-   * <p>The name of the threat.
-   * 		</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The severity of the threat.
-   * 		</p>
-   */
-  Severity?: string;
-
-  /**
-   * @public
-   * <p>This total number of items in which the threat has been detected.
-   * 		</p>
-   */
-  ItemCount?: number;
-
-  /**
-   * @public
-   * <p>Provides information about the file paths that were affected by the threat.
-   * 		</p>
-   */
-  FilePaths?: FilePaths[];
-}
-
-/**
- * @public
- * <p>
- *             Provides details about where a code vulnerability is located in your Lambda function.
- *         </p>
- */
-export interface CodeVulnerabilitiesFilePath {
-  /**
-   * @public
-   * <p>
-   *         	The line number of the last line of code in which the vulnerability is located.
-   *         </p>
-   */
-  EndLine?: number;
-
-  /**
-   * @public
-   * <p>
-   *             The name of the file in which the code vulnerability is located.
-   *         </p>
-   */
-  FileName?: string;
-
-  /**
-   * @public
-   * <p>
-   *             The file path to the code in which the vulnerability is located.
-   *         </p>
-   */
-  FilePath?: string;
-
-  /**
-   * @public
-   * <p>
-   *             The line number of the first line of code in which the vulnerability is located.
-   *         </p>
-   */
-  StartLine?: number;
-}
-
-/**
- * @public
- * <p>Provides details about the vulnerabilities found in your Lambda function code. This field pertains to findings that
- *             Security Hub receives from Amazon Inspector.
- *         </p>
- */
-export interface VulnerabilityCodeVulnerabilities {
-  /**
-   * @public
-   * <p>
-   *             The Common Weakness Enumeration (CWE) item associated with the detected code vulnerability.
-   *         </p>
-   */
-  Cwes?: string[];
-
-  /**
-   * @public
-   * <p>
-   *             Provides details about where a code vulnerability is located in your Lambda function.
-   *         </p>
-   */
-  FilePath?: CodeVulnerabilitiesFilePath;
-
-  /**
-   * @public
-   * <p>
-   *             The Amazon Resource Name (ARN) of the Lambda layer in which the code vulnerability is located.
-   *         </p>
-   */
-  SourceArn?: string;
-}
-
-/**
- * @public
- * <p>CVSS scores from the advisory related to the vulnerability.</p>
- */
-export interface Cvss {
-  /**
-   * @public
-   * <p>The version of CVSS for the CVSS score.</p>
-   */
-  Version?: string;
-
-  /**
-   * @public
-   * <p>The base CVSS score.</p>
-   */
-  BaseScore?: number;
-
-  /**
-   * @public
-   * <p>The base scoring vector for the CVSS score.</p>
-   */
-  BaseVector?: string;
-
-  /**
-   * @public
-   * <p>The origin of the original CVSS score and vector.</p>
-   */
-  Source?: string;
-
-  /**
-   * @public
-   * <p>Adjustments to the CVSS metrics.</p>
-   */
-  Adjustments?: Adjustment[];
-}
-
-/**
- * @public
- * @enum
- */
-export const VulnerabilityExploitAvailable = {
-  NO: "NO",
-  YES: "YES",
-} as const;
-
-/**
- * @public
- */
-export type VulnerabilityExploitAvailable =
-  (typeof VulnerabilityExploitAvailable)[keyof typeof VulnerabilityExploitAvailable];
-
-/**
- * @public
- * @enum
- */
-export const VulnerabilityFixAvailable = {
-  NO: "NO",
-  PARTIAL: "PARTIAL",
-  YES: "YES",
-} as const;
-
-/**
- * @public
- */
-export type VulnerabilityFixAvailable = (typeof VulnerabilityFixAvailable)[keyof typeof VulnerabilityFixAvailable];
-
-/**
- * @public
- * <p>A vendor that generates a vulnerability report.</p>
- */
-export interface VulnerabilityVendor {
-  /**
-   * @public
-   * <p>The name of the vendor.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>The URL of the vulnerability advisory.</p>
-   */
-  Url?: string;
-
-  /**
-   * @public
-   * <p>The severity that the vendor assigned to the vulnerability.</p>
-   */
-  VendorSeverity?: string;
-
-  /**
-   * @public
-   * <p>Indicates when the vulnerability advisory was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  VendorCreatedAt?: string;
-
-  /**
-   * @public
-   * <p>Indicates when the vulnerability advisory was last updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  VendorUpdatedAt?: string;
 }

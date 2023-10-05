@@ -319,6 +319,11 @@ import {
   AwsCodeBuildProjectSource,
   AwsCodeBuildProjectVpcConfig,
   AwsCorsConfiguration,
+  AwsDmsEndpointDetails,
+  AwsDmsReplicationInstanceDetails,
+  AwsDmsReplicationInstanceReplicationSubnetGroupDetails,
+  AwsDmsReplicationInstanceVpcSecurityGroupsDetails,
+  AwsDmsReplicationTaskDetails,
   AwsDynamoDbTableAttributeDefinition,
   AwsDynamoDbTableBillingModeSummary,
   AwsDynamoDbTableDetails,
@@ -456,11 +461,6 @@ import {
   AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails,
   AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
   AwsEcsTaskDefinitionVolumesHostDetails,
-  AwsEcsTaskDetails,
-  AwsEcsTaskVolumeDetails,
-  AwsEcsTaskVolumeHostDetails,
-  AwsEfsAccessPointPosixUserDetails,
-  AwsEfsAccessPointRootDirectoryCreationInfoDetails,
   AwsMountPoint,
   CidrBlockAssociation,
   City,
@@ -496,7 +496,12 @@ import {
 } from "../models/models_0";
 import {
   _Record,
+  AwsEcsTaskDetails,
+  AwsEcsTaskVolumeDetails,
+  AwsEcsTaskVolumeHostDetails,
   AwsEfsAccessPointDetails,
+  AwsEfsAccessPointPosixUserDetails,
+  AwsEfsAccessPointRootDirectoryCreationInfoDetails,
   AwsEfsAccessPointRootDirectoryDetails,
   AwsEksClusterDetails,
   AwsEksClusterLoggingClusterLoggingDetails,
@@ -535,6 +540,14 @@ import {
   AwsElbv2LoadBalancerAttribute,
   AwsElbv2LoadBalancerDetails,
   AwsEventSchemasRegistryDetails,
+  AwsEventsEndpointDetails,
+  AwsEventsEndpointEventBusesDetails,
+  AwsEventsEndpointReplicationConfigDetails,
+  AwsEventsEndpointRoutingConfigDetails,
+  AwsEventsEndpointRoutingConfigFailoverConfigDetails,
+  AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails,
+  AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails,
+  AwsEventsEventbusDetails,
   AwsGuardDutyDetectorDataSourcesCloudTrailDetails,
   AwsGuardDutyDetectorDataSourcesDetails,
   AwsGuardDutyDetectorDataSourcesDnsLogsDetails,
@@ -575,6 +588,17 @@ import {
   AwsLambdaFunctionTracingConfig,
   AwsLambdaFunctionVpcConfig,
   AwsLambdaLayerVersionDetails,
+  AwsMskClusterClusterInfoClientAuthenticationDetails,
+  AwsMskClusterClusterInfoClientAuthenticationSaslDetails,
+  AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails,
+  AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails,
+  AwsMskClusterClusterInfoClientAuthenticationTlsDetails,
+  AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails,
+  AwsMskClusterClusterInfoDetails,
+  AwsMskClusterClusterInfoEncryptionInfoDetails,
+  AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails,
+  AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails,
+  AwsMskClusterDetails,
   AwsNetworkFirewallFirewallDetails,
   AwsNetworkFirewallFirewallPolicyDetails,
   AwsNetworkFirewallFirewallSubnetMappingsDetails,
@@ -632,6 +656,11 @@ import {
   AwsRedshiftClusterResizeInfo,
   AwsRedshiftClusterRestoreStatus,
   AwsRedshiftClusterVpcSecurityGroup,
+  AwsRoute53HostedZoneConfigDetails,
+  AwsRoute53HostedZoneDetails,
+  AwsRoute53HostedZoneObjectDetails,
+  AwsRoute53HostedZoneVpcDetails,
+  AwsRoute53QueryLoggingConfigDetails,
   AwsS3AccountPublicAccessBlockDetails,
   AwsS3BucketBucketLifecycleConfigurationDetails,
   AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails,
@@ -701,30 +730,17 @@ import {
   AwsWafv2CustomHttpHeader,
   AwsWafv2CustomRequestHandlingDetails,
   AwsWafv2CustomResponseDetails,
-  AwsWafv2RuleGroupDetails,
   AwsWafv2RulesActionCaptchaDetails,
   AwsWafv2RulesActionCountDetails,
   AwsWafv2RulesActionDetails,
-  AwsWafv2RulesDetails,
-  AwsWafv2VisibilityConfigDetails,
-  AwsWafv2WebAclActionDetails,
-  AwsWafv2WebAclCaptchaConfigDetails,
-  AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails,
-  AwsWafv2WebAclDetails,
-  AwsWafWebAclDetails,
-  AwsWafWebAclRule,
-  AwsXrayEncryptionConfigDetails,
   Cell,
   ClassificationResult,
   ClassificationStatus,
-  CodeVulnerabilitiesFilePath,
+  CloudWatchLogsLogGroupArnConfigDetails,
   Compliance,
-  ContainerDetails,
   CustomDataIdentifiersDetections,
   CustomDataIdentifiersResult,
-  Cvss,
   DataClassificationDetails,
-  FilePaths,
   FindingProviderFields,
   FindingProviderSeverity,
   FirewallPolicyDetails,
@@ -747,8 +763,6 @@ import {
   Range,
   Recommendation,
   Remediation,
-  Resource,
-  ResourceDetails,
   RuleGroupDetails,
   RuleGroupSource,
   RuleGroupSourceCustomActionsDetails,
@@ -770,32 +784,40 @@ import {
   RuleGroupVariablesPortSetsDetails,
   SensitiveDataDetections,
   SensitiveDataResult,
-  Severity,
   StatelessCustomActionDefinition,
   StatelessCustomPublishMetricAction,
   StatelessCustomPublishMetricActionDimension,
   StatusReason,
-  Threat,
-  ThreatIntelIndicator,
-  VolumeMount,
-  VulnerabilityCodeVulnerabilities,
-  VulnerabilityVendor,
-  WafAction,
-  WafExcludedRule,
-  WafOverrideAction,
 } from "../models/models_1";
 import {
   AwsSecurityFinding,
   AwsSecurityFindingFilters,
   AwsSecurityFindingIdentifier,
+  AwsWafv2RuleGroupDetails,
+  AwsWafv2RulesDetails,
+  AwsWafv2VisibilityConfigDetails,
+  AwsWafv2WebAclActionDetails,
+  AwsWafv2WebAclCaptchaConfigDetails,
+  AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails,
+  AwsWafv2WebAclDetails,
+  AwsWafWebAclDetails,
+  AwsWafWebAclRule,
+  AwsXrayEncryptionConfigDetails,
   BooleanFilter,
+  CodeVulnerabilitiesFilePath,
+  ContainerDetails,
+  Cvss,
+  FilePaths,
   FindingHistoryRecord,
   Insight,
   Invitation,
   IpFilter,
   KeywordFilter,
   Member,
+  Resource,
   ResourceConflictException,
+  ResourceDetails,
+  Severity,
   SoftwarePackage,
   SortCriterion,
   StandardsControl,
@@ -804,8 +826,16 @@ import {
   StandardsControlAssociationSummary,
   StandardsControlAssociationUpdate,
   StandardsSubscriptionRequest,
+  Threat,
+  ThreatIntelIndicator,
   UpdateAutomationRulesRequestItem,
+  VolumeMount,
   Vulnerability,
+  VulnerabilityCodeVulnerabilities,
+  VulnerabilityVendor,
+  WafAction,
+  WafExcludedRule,
+  WafOverrideAction,
   Workflow,
 } from "../models/models_2";
 import { SecurityHubServiceException as __BaseException } from "../models/SecurityHubServiceException";
@@ -7248,6 +7278,18 @@ const se_AwsCloudWatchAlarmDetails = (input: AwsCloudWatchAlarmDetails, context:
 
 // se_AwsCorsConfiguration omitted.
 
+// se_AwsDmsEndpointDetails omitted.
+
+// se_AwsDmsReplicationInstanceDetails omitted.
+
+// se_AwsDmsReplicationInstanceReplicationSubnetGroupDetails omitted.
+
+// se_AwsDmsReplicationInstanceVpcSecurityGroupsDetails omitted.
+
+// se_AwsDmsReplicationInstanceVpcSecurityGroupsList omitted.
+
+// se_AwsDmsReplicationTaskDetails omitted.
+
 // se_AwsDynamoDbTableAttributeDefinition omitted.
 
 // se_AwsDynamoDbTableAttributeDefinitionList omitted.
@@ -7847,6 +7889,24 @@ const se_AwsEc2LaunchTemplateDetails = (input: AwsEc2LaunchTemplateDetails, cont
 
 // se_AwsEventSchemasRegistryDetails omitted.
 
+// se_AwsEventsEndpointDetails omitted.
+
+// se_AwsEventsEndpointEventBusesDetails omitted.
+
+// se_AwsEventsEndpointEventBusesList omitted.
+
+// se_AwsEventsEndpointReplicationConfigDetails omitted.
+
+// se_AwsEventsEndpointRoutingConfigDetails omitted.
+
+// se_AwsEventsEndpointRoutingConfigFailoverConfigDetails omitted.
+
+// se_AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails omitted.
+
+// se_AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails omitted.
+
+// se_AwsEventsEventbusDetails omitted.
+
 // se_AwsGuardDutyDetectorDataSourcesCloudTrailDetails omitted.
 
 // se_AwsGuardDutyDetectorDataSourcesDetails omitted.
@@ -7962,6 +8022,28 @@ const se_AwsKmsKeyDetails = (input: AwsKmsKeyDetails, context: __SerdeContext): 
 // se_AwsMountPoint omitted.
 
 // se_AwsMountPointList omitted.
+
+// se_AwsMskClusterClusterInfoClientAuthenticationDetails omitted.
+
+// se_AwsMskClusterClusterInfoClientAuthenticationSaslDetails omitted.
+
+// se_AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails omitted.
+
+// se_AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails omitted.
+
+// se_AwsMskClusterClusterInfoClientAuthenticationTlsDetails omitted.
+
+// se_AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails omitted.
+
+// se_AwsMskClusterClusterInfoDetails omitted.
+
+// se_AwsMskClusterClusterInfoEncryptionInfoDetails omitted.
+
+// se_AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails omitted.
+
+// se_AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails omitted.
+
+// se_AwsMskClusterDetails omitted.
 
 // se_AwsNetworkFirewallFirewallDetails omitted.
 
@@ -8198,6 +8280,20 @@ const se_AwsRedshiftClusterRestoreStatus = (input: AwsRedshiftClusterRestoreStat
 // se_AwsRedshiftClusterVpcSecurityGroup omitted.
 
 // se_AwsRedshiftClusterVpcSecurityGroups omitted.
+
+// se_AwsRoute53HostedZoneConfigDetails omitted.
+
+// se_AwsRoute53HostedZoneDetails omitted.
+
+// se_AwsRoute53HostedZoneNameServersList omitted.
+
+// se_AwsRoute53HostedZoneObjectDetails omitted.
+
+// se_AwsRoute53HostedZoneVpcDetails omitted.
+
+// se_AwsRoute53HostedZoneVpcsList omitted.
+
+// se_AwsRoute53QueryLoggingConfigDetails omitted.
 
 // se_AwsS3AccountPublicAccessBlockDetails omitted.
 
@@ -8593,6 +8689,8 @@ const se_BatchImportFindingsRequestFindingList = (input: AwsSecurityFinding[], c
 
 // se_ClassificationStatus omitted.
 
+// se_CloudWatchLogsLogGroupArnConfigDetails omitted.
+
 // se_CodeVulnerabilitiesFilePath omitted.
 
 // se_Compliance omitted.
@@ -8866,6 +8964,9 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsCloudTrailTrail: _json,
     AwsCloudWatchAlarm: (_) => se_AwsCloudWatchAlarmDetails(_, context),
     AwsCodeBuildProject: _json,
+    AwsDmsEndpoint: _json,
+    AwsDmsReplicationInstance: _json,
+    AwsDmsReplicationTask: _json,
     AwsDynamoDbTable: _json,
     AwsEc2Eip: _json,
     AwsEc2Instance: _json,
@@ -8895,6 +8996,8 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsElbLoadBalancer: _json,
     AwsElbv2LoadBalancer: _json,
     AwsEventSchemasRegistry: _json,
+    AwsEventsEndpoint: _json,
+    AwsEventsEventbus: _json,
     AwsGuardDutyDetector: _json,
     AwsIamAccessKey: _json,
     AwsIamGroup: _json,
@@ -8905,6 +9008,7 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsKmsKey: (_) => se_AwsKmsKeyDetails(_, context),
     AwsLambdaFunction: _json,
     AwsLambdaLayerVersion: _json,
+    AwsMskCluster: _json,
     AwsNetworkFirewallFirewall: _json,
     AwsNetworkFirewallFirewallPolicy: _json,
     AwsNetworkFirewallRuleGroup: (_) => se_AwsNetworkFirewallRuleGroupDetails(_, context),
@@ -8916,6 +9020,7 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsRdsDbSnapshot: _json,
     AwsRdsEventSubscription: _json,
     AwsRedshiftCluster: (_) => se_AwsRedshiftClusterDetails(_, context),
+    AwsRoute53HostedZone: _json,
     AwsS3AccountPublicAccessBlock: _json,
     AwsS3Bucket: _json,
     AwsS3Object: _json,
@@ -9755,6 +9860,18 @@ const de_AwsCloudWatchAlarmDetails = (output: any, context: __SerdeContext): Aws
 
 // de_AwsCorsConfiguration omitted.
 
+// de_AwsDmsEndpointDetails omitted.
+
+// de_AwsDmsReplicationInstanceDetails omitted.
+
+// de_AwsDmsReplicationInstanceReplicationSubnetGroupDetails omitted.
+
+// de_AwsDmsReplicationInstanceVpcSecurityGroupsDetails omitted.
+
+// de_AwsDmsReplicationInstanceVpcSecurityGroupsList omitted.
+
+// de_AwsDmsReplicationTaskDetails omitted.
+
 // de_AwsDynamoDbTableAttributeDefinition omitted.
 
 // de_AwsDynamoDbTableAttributeDefinitionList omitted.
@@ -10355,6 +10472,24 @@ const de_AwsEc2LaunchTemplateDetails = (output: any, context: __SerdeContext): A
 
 // de_AwsEventSchemasRegistryDetails omitted.
 
+// de_AwsEventsEndpointDetails omitted.
+
+// de_AwsEventsEndpointEventBusesDetails omitted.
+
+// de_AwsEventsEndpointEventBusesList omitted.
+
+// de_AwsEventsEndpointReplicationConfigDetails omitted.
+
+// de_AwsEventsEndpointRoutingConfigDetails omitted.
+
+// de_AwsEventsEndpointRoutingConfigFailoverConfigDetails omitted.
+
+// de_AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails omitted.
+
+// de_AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails omitted.
+
+// de_AwsEventsEventbusDetails omitted.
+
 // de_AwsGuardDutyDetectorDataSourcesCloudTrailDetails omitted.
 
 // de_AwsGuardDutyDetectorDataSourcesDetails omitted.
@@ -10470,6 +10605,28 @@ const de_AwsKmsKeyDetails = (output: any, context: __SerdeContext): AwsKmsKeyDet
 // de_AwsMountPoint omitted.
 
 // de_AwsMountPointList omitted.
+
+// de_AwsMskClusterClusterInfoClientAuthenticationDetails omitted.
+
+// de_AwsMskClusterClusterInfoClientAuthenticationSaslDetails omitted.
+
+// de_AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails omitted.
+
+// de_AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails omitted.
+
+// de_AwsMskClusterClusterInfoClientAuthenticationTlsDetails omitted.
+
+// de_AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails omitted.
+
+// de_AwsMskClusterClusterInfoDetails omitted.
+
+// de_AwsMskClusterClusterInfoEncryptionInfoDetails omitted.
+
+// de_AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails omitted.
+
+// de_AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails omitted.
+
+// de_AwsMskClusterDetails omitted.
 
 // de_AwsNetworkFirewallFirewallDetails omitted.
 
@@ -10706,6 +10863,20 @@ const de_AwsRedshiftClusterRestoreStatus = (output: any, context: __SerdeContext
 // de_AwsRedshiftClusterVpcSecurityGroup omitted.
 
 // de_AwsRedshiftClusterVpcSecurityGroups omitted.
+
+// de_AwsRoute53HostedZoneConfigDetails omitted.
+
+// de_AwsRoute53HostedZoneDetails omitted.
+
+// de_AwsRoute53HostedZoneNameServersList omitted.
+
+// de_AwsRoute53HostedZoneObjectDetails omitted.
+
+// de_AwsRoute53HostedZoneVpcDetails omitted.
+
+// de_AwsRoute53HostedZoneVpcsList omitted.
+
+// de_AwsRoute53QueryLoggingConfigDetails omitted.
 
 // de_AwsS3AccountPublicAccessBlockDetails omitted.
 
@@ -11107,6 +11278,8 @@ const de_AwsSecurityFindingList = (output: any, context: __SerdeContext): AwsSec
 // de_ClassificationResult omitted.
 
 // de_ClassificationStatus omitted.
+
+// de_CloudWatchLogsLogGroupArnConfigDetails omitted.
 
 // de_CodeVulnerabilitiesFilePath omitted.
 
@@ -11513,6 +11686,9 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsCloudTrailTrail: _json,
     AwsCloudWatchAlarm: (_: any) => de_AwsCloudWatchAlarmDetails(_, context),
     AwsCodeBuildProject: _json,
+    AwsDmsEndpoint: _json,
+    AwsDmsReplicationInstance: _json,
+    AwsDmsReplicationTask: _json,
     AwsDynamoDbTable: _json,
     AwsEc2Eip: _json,
     AwsEc2Instance: _json,
@@ -11542,6 +11718,8 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsElbLoadBalancer: _json,
     AwsElbv2LoadBalancer: _json,
     AwsEventSchemasRegistry: _json,
+    AwsEventsEndpoint: _json,
+    AwsEventsEventbus: _json,
     AwsGuardDutyDetector: _json,
     AwsIamAccessKey: _json,
     AwsIamGroup: _json,
@@ -11552,6 +11730,7 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsKmsKey: (_: any) => de_AwsKmsKeyDetails(_, context),
     AwsLambdaFunction: _json,
     AwsLambdaLayerVersion: _json,
+    AwsMskCluster: _json,
     AwsNetworkFirewallFirewall: _json,
     AwsNetworkFirewallFirewallPolicy: _json,
     AwsNetworkFirewallRuleGroup: (_: any) => de_AwsNetworkFirewallRuleGroupDetails(_, context),
@@ -11563,6 +11742,7 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsRdsDbSnapshot: _json,
     AwsRdsEventSubscription: _json,
     AwsRedshiftCluster: (_: any) => de_AwsRedshiftClusterDetails(_, context),
+    AwsRoute53HostedZone: _json,
     AwsS3AccountPublicAccessBlock: _json,
     AwsS3Bucket: _json,
     AwsS3Object: _json,

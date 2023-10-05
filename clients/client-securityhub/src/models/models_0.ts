@@ -6327,6 +6327,361 @@ export interface AwsCodeBuildProjectDetails {
 
 /**
  * @public
+ * <p>
+ *             Provides details about an Database Migration Service (DMS) endpoint. An endpoint provides connection, data
+ *             store type, and location information about your data store.
+ *         </p>
+ */
+export interface AwsDmsEndpointDetails {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) for the SSL certificate that encrypts connections between the DMS endpoint and the
+   *             replication instance.
+   *         </p>
+   */
+  CertificateArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the endpoint database.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the endpoint.
+   *         </p>
+   */
+  EndpointArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The database endpoint identifier.
+   *         </p>
+   */
+  EndpointIdentifier?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The type of endpoint. Valid values are source and target.
+   *         </p>
+   */
+  EndpointType?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The type of engine for the endpoint, depending on the <code>EndpointType</code> value.
+   *         </p>
+   */
+  EngineName?: string;
+
+  /**
+   * @public
+   * <p>
+   *             A value that can be used for cross-account validation.
+   *         </p>
+   */
+  ExternalId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Additional attributes associated with the connection.
+   *         </p>
+   */
+  ExtraConnectionAttributes?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An DMS key identifier that is used to encrypt the connection parameters for the endpoint.
+   *             If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses your default
+   *             encryption key. KMS creates the default encryption key for your Amazon Web Services account. Your
+   *             Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The port used to access the endpoint.
+   *         </p>
+   */
+  Port?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the server where the endpoint database resides.</p>
+   */
+  ServerName?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The SSL mode used to connect to the endpoint. The default is none.</p>
+   */
+  SslMode?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The user name to be used to log in to the endpoint database.
+   *         </p>
+   */
+  Username?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about the replication subnet group.</p>
+ */
+export interface AwsDmsReplicationInstanceReplicationSubnetGroupDetails {
+  /**
+   * @public
+   * <p>
+   *             The identifier of the replication subnet group.
+   *         </p>
+   */
+  ReplicationSubnetGroupIdentifier?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about the virtual private cloud (VPC) security group that’s associated with the replication instance.</p>
+ */
+export interface AwsDmsReplicationInstanceVpcSecurityGroupsDetails {
+  /**
+   * @public
+   * <p>
+   *             The identifier of the VPC security group that’s associated with the replication instance.
+   *         </p>
+   */
+  VpcSecurityGroupId?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about an Database Migration Service (DMS) replication instance. DMS uses a replication instance to connect to
+ *             your source data store, read the source data, and format the data for consumption by the target data store.
+ *         </p>
+ */
+export interface AwsDmsReplicationInstanceDetails {
+  /**
+   * @public
+   * <p>
+   *             The amount of storage (in gigabytes) that is allocated for the replication instance.
+   *         </p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * @public
+   * <p>
+   *         Indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance
+   *         window.
+   *         </p>
+   */
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             The Availability Zone that the replication instance is created in. The default value is a random, system-chosen
+   *             Availability Zone in the endpoint's Amazon Web Services Region, such as <code>us-east-1d</code>.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The engine version number of the replication instance. If an engine version number is not specified when a
+   *             replication instance is created, the default is the latest engine version available.
+   *         </p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An KMS key identifier that is used to encrypt the data on the replication instance. If you don't
+   *             specify a value for the <code>KmsKeyId</code> parameter, DMS uses your default encryption key.
+   *             KMS creates the default encryption key for your Amazon Web Services account. Your
+   *             Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Specifies whether the replication instance is deployed across multiple Availability Zones (AZs). You can't set the
+   *             <code>AvailabilityZone</code> parameter if the <code>MultiAZ</code> parameter is set to <code>true</code>.</p>
+   */
+  MultiAZ?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             The maintenance window times for the replication instance. Upgrades to the replication instance are performed during
+   *             this time.</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Specifies the accessibility options for the replication instance. A value of <code>true</code> represents an instance
+   *             with a public IP address. A value of <code>false</code> represents an instance with a private IP address. The default
+   *             value is <code>true</code>.</p>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             The compute and memory capacity of the replication instance as defined for the specified replication instance class. </p>
+   */
+  ReplicationInstanceClass?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The replication instance identifier.</p>
+   */
+  ReplicationInstanceIdentifier?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The subnet group for the replication instance.</p>
+   */
+  ReplicationSubnetGroup?: AwsDmsReplicationInstanceReplicationSubnetGroupDetails;
+
+  /**
+   * @public
+   * <p>
+   *             The virtual private cloud (VPC) security group for the replication instance.</p>
+   */
+  VpcSecurityGroups?: AwsDmsReplicationInstanceVpcSecurityGroupsDetails[];
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about an Database Migration Service (DMS) replication task. A replication task moves a set of data from the
+ *             source endpoint to the target endpoint.</p>
+ */
+export interface AwsDmsReplicationTaskDetails {
+  /**
+   * @public
+   * <p>
+   *             Indicates when you want a change data capture (CDC) operation to start. <code>CCdcStartPosition</code> or
+   *             <code>CCdcStartTime</code> specifies when you want a CDC operation to start. Only a value for one of these fields
+   *             is included.</p>
+   */
+  CdcStartPosition?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates the start time for a CDC operation. <code>CdcStartPosition</code> or <code>CCdcStartTime</code> specifies
+   *             when you want a CDC operation to start. Only a value for one of these fields is included.</p>
+   */
+  CdcStartTime?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates when you want a CDC operation to stop. The value can be either server time or commit time.</p>
+   */
+  CdcStopPosition?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The migration type.
+   *         </p>
+   */
+  MigrationType?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The identifier of the replication task.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *             A display name for the resource identifier at the end of the <code>EndpointArn</code> response parameter.
+   *             If you don't specify a <code>ResourceIdentifier</code> value, DMS generates a default identifier value for
+   *             the end of <code>EndpointArn</code>.</p>
+   */
+  ResourceIdentifier?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of a replication instance.
+   *         </p>
+   */
+  ReplicationInstanceArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The user-defined replication task identifier or name.</p>
+   */
+  ReplicationTaskIdentifier?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The settings for the replication task.</p>
+   */
+  ReplicationTaskSettings?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The ARN of the source endpoint.</p>
+   */
+  SourceEndpointArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The table mappings for the replication task, in JSON format.</p>
+   */
+  TableMappings?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The ARN of the target endpoint.</p>
+   */
+  TargetEndpointArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Supplemental information that the task requires to migrate the data for certain source and target endpoints.</p>
+   */
+  TaskData?: string;
+}
+
+/**
+ * @public
  * <p>Contains a definition of an attribute for the table.</p>
  */
 export interface AwsDynamoDbTableAttributeDefinition {
@@ -12517,173 +12872,12 @@ export interface AwsEcsTaskDefinitionDetails {
    * <p>The data volume definitions for the task.</p>
    */
   Volumes?: AwsEcsTaskDefinitionVolumesDetails[];
-}
-
-/**
- * @public
- * <p>Provides details on a container instance bind mount host volume.
- *       </p>
- */
-export interface AwsEcsTaskVolumeHostDetails {
-  /**
-   * @public
-   * <p>When the <code>host</code> parameter is used, specify a <code>sourcePath</code> to declare the path
-   * on the host container instance that's presented to the container.
-   *       </p>
-   */
-  SourcePath?: string;
-}
-
-/**
- * @public
- * <p>Provides information about a data volume that's used in a task definition.
- *       </p>
- */
-export interface AwsEcsTaskVolumeDetails {
-  /**
-   * @public
-   * <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and
-   * hyphens are allowed. This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>.
-   *       </p>
-   */
-  Name?: string;
 
   /**
    * @public
-   * <p>This parameter is specified when you use bind mount host volumes. The contents of the <code>host</code> parameter
-   * determine whether your bind mount host volume persists on the host container instance and where it's stored.
-   *       </p>
+   * <p>
+   *             The status of the task definition.
+   *         </p>
    */
-  Host?: AwsEcsTaskVolumeHostDetails;
-}
-
-/**
- * @public
- * <p>Provides details about a task in a cluster.
- *       </p>
- */
-export interface AwsEcsTaskDetails {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the cluster that hosts the task.
-   *       </p>
-   */
-  ClusterArn?: string;
-
-  /**
-   * @public
-   * <p>The ARN of the task definition that creates the task.
-   *       </p>
-   */
-  TaskDefinitionArn?: string;
-
-  /**
-   * @public
-   * <p>The version counter for the task.
-   *       </p>
-   */
-  Version?: string;
-
-  /**
-   * @public
-   * <p>The Unix timestamp for the time when the task was created. More specifically, it's for the time when
-   * the task entered the <code>PENDING</code> state.
-   *       </p>
-   */
-  CreatedAt?: string;
-
-  /**
-   * @public
-   * <p>The Unix timestamp for the time when the task started. More specifically, it's for the time when the
-   *          task transitioned from the <code>PENDING</code> state to the <code>RUNNING</code> state.
-   *    </p>
-   */
-  StartedAt?: string;
-
-  /**
-   * @public
-   * <p>The tag specified when a task is started. If an Amazon ECS service started the task, the
-   *          <code>startedBy</code> parameter contains the deployment ID of that service.
-   *       </p>
-   */
-  StartedBy?: string;
-
-  /**
-   * @public
-   * <p>The name of the task group that's associated with the task.
-   *       </p>
-   */
-  Group?: string;
-
-  /**
-   * @public
-   * <p>Details about the data volume that is used in a task definition.
-   *       </p>
-   */
-  Volumes?: AwsEcsTaskVolumeDetails[];
-
-  /**
-   * @public
-   * <p>The containers that are associated with the task.
-   *       </p>
-   */
-  Containers?: AwsEcsContainerDetails[];
-}
-
-/**
- * @public
- * <p>Provides details for all file system operations using this Amazon EFS access point.
- *       </p>
- */
-export interface AwsEfsAccessPointPosixUserDetails {
-  /**
-   * @public
-   * <p>The POSIX group ID used for all file system operations using this access point.
-   *       </p>
-   */
-  Gid?: string;
-
-  /**
-   * @public
-   * <p>Secondary POSIX group IDs used for all file system operations using this access point.
-   *       </p>
-   */
-  SecondaryGids?: string[];
-
-  /**
-   * @public
-   * <p>The POSIX user ID used for all file system operations using this access point.
-   *       </p>
-   */
-  Uid?: string;
-}
-
-/**
- * @public
- * <p>Provides information about the settings that Amazon EFS uses to create the root directory
- * when a client connects to an access point.
- *       </p>
- */
-export interface AwsEfsAccessPointRootDirectoryCreationInfoDetails {
-  /**
-   * @public
-   * <p>Specifies the POSIX group ID to apply to the root directory.
-   *       </p>
-   */
-  OwnerGid?: string;
-
-  /**
-   * @public
-   * <p>Specifies the POSIX user ID to apply to the root directory.
-   *       </p>
-   */
-  OwnerUid?: string;
-
-  /**
-   * @public
-   * <p>Specifies the POSIX permissions to apply to the root directory, in the format of an octal number
-   * representing the file's mode bits.
-   *       </p>
-   */
-  Permissions?: string;
+  Status?: string;
 }

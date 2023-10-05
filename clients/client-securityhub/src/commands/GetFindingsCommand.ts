@@ -2329,6 +2329,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 },
  * //               ],
  * //               IamDatabaseAuthenticationEnabled: true || false,
+ * //               AutoMinorVersionUpgrade: true || false,
  * //             },
  * //             AwsEcsCluster: { // AwsEcsClusterDetails
  * //               ClusterArn: "STRING_VALUE",
@@ -2577,6 +2578,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                   Name: "STRING_VALUE",
  * //                 },
  * //               ],
+ * //               Status: "STRING_VALUE",
  * //             },
  * //             Container: { // ContainerDetails
  * //               ContainerRuntime: "STRING_VALUE",
@@ -4028,6 +4030,147 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                   EncryptionConfiguration: { // AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails
  * //                     EncryptionOption: "STRING_VALUE",
  * //                     KmsKey: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //               },
+ * //             },
+ * //             AwsEventsEventbus: { // AwsEventsEventbusDetails
+ * //               Arn: "STRING_VALUE",
+ * //               Name: "STRING_VALUE",
+ * //               Policy: "STRING_VALUE",
+ * //             },
+ * //             AwsDmsEndpoint: { // AwsDmsEndpointDetails
+ * //               CertificateArn: "STRING_VALUE",
+ * //               DatabaseName: "STRING_VALUE",
+ * //               EndpointArn: "STRING_VALUE",
+ * //               EndpointIdentifier: "STRING_VALUE",
+ * //               EndpointType: "STRING_VALUE",
+ * //               EngineName: "STRING_VALUE",
+ * //               ExternalId: "STRING_VALUE",
+ * //               ExtraConnectionAttributes: "STRING_VALUE",
+ * //               KmsKeyId: "STRING_VALUE",
+ * //               Port: Number("int"),
+ * //               ServerName: "STRING_VALUE",
+ * //               SslMode: "STRING_VALUE",
+ * //               Username: "STRING_VALUE",
+ * //             },
+ * //             AwsEventsEndpoint: { // AwsEventsEndpointDetails
+ * //               Arn: "STRING_VALUE",
+ * //               Description: "STRING_VALUE",
+ * //               EndpointId: "STRING_VALUE",
+ * //               EndpointUrl: "STRING_VALUE",
+ * //               EventBuses: [ // AwsEventsEndpointEventBusesList
+ * //                 { // AwsEventsEndpointEventBusesDetails
+ * //                   EventBusArn: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               Name: "STRING_VALUE",
+ * //               ReplicationConfig: { // AwsEventsEndpointReplicationConfigDetails
+ * //                 State: "STRING_VALUE",
+ * //               },
+ * //               RoleArn: "STRING_VALUE",
+ * //               RoutingConfig: { // AwsEventsEndpointRoutingConfigDetails
+ * //                 FailoverConfig: { // AwsEventsEndpointRoutingConfigFailoverConfigDetails
+ * //                   Primary: { // AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails
+ * //                     HealthCheck: "STRING_VALUE",
+ * //                   },
+ * //                   Secondary: { // AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails
+ * //                     Route: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //               },
+ * //               State: "STRING_VALUE",
+ * //               StateReason: "STRING_VALUE",
+ * //             },
+ * //             AwsDmsReplicationTask: { // AwsDmsReplicationTaskDetails
+ * //               CdcStartPosition: "STRING_VALUE",
+ * //               CdcStartTime: "STRING_VALUE",
+ * //               CdcStopPosition: "STRING_VALUE",
+ * //               MigrationType: "STRING_VALUE",
+ * //               Id: "STRING_VALUE",
+ * //               ResourceIdentifier: "STRING_VALUE",
+ * //               ReplicationInstanceArn: "STRING_VALUE",
+ * //               ReplicationTaskIdentifier: "STRING_VALUE",
+ * //               ReplicationTaskSettings: "STRING_VALUE",
+ * //               SourceEndpointArn: "STRING_VALUE",
+ * //               TableMappings: "STRING_VALUE",
+ * //               TargetEndpointArn: "STRING_VALUE",
+ * //               TaskData: "STRING_VALUE",
+ * //             },
+ * //             AwsDmsReplicationInstance: { // AwsDmsReplicationInstanceDetails
+ * //               AllocatedStorage: Number("int"),
+ * //               AutoMinorVersionUpgrade: true || false,
+ * //               AvailabilityZone: "STRING_VALUE",
+ * //               EngineVersion: "STRING_VALUE",
+ * //               KmsKeyId: "STRING_VALUE",
+ * //               MultiAZ: true || false,
+ * //               PreferredMaintenanceWindow: "STRING_VALUE",
+ * //               PubliclyAccessible: true || false,
+ * //               ReplicationInstanceClass: "STRING_VALUE",
+ * //               ReplicationInstanceIdentifier: "STRING_VALUE",
+ * //               ReplicationSubnetGroup: { // AwsDmsReplicationInstanceReplicationSubnetGroupDetails
+ * //                 ReplicationSubnetGroupIdentifier: "STRING_VALUE",
+ * //               },
+ * //               VpcSecurityGroups: [ // AwsDmsReplicationInstanceVpcSecurityGroupsList
+ * //                 { // AwsDmsReplicationInstanceVpcSecurityGroupsDetails
+ * //                   VpcSecurityGroupId: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //             AwsRoute53HostedZone: { // AwsRoute53HostedZoneDetails
+ * //               HostedZone: { // AwsRoute53HostedZoneObjectDetails
+ * //                 Id: "STRING_VALUE",
+ * //                 Name: "STRING_VALUE",
+ * //                 Config: { // AwsRoute53HostedZoneConfigDetails
+ * //                   Comment: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               Vpcs: [ // AwsRoute53HostedZoneVpcsList
+ * //                 { // AwsRoute53HostedZoneVpcDetails
+ * //                   Id: "STRING_VALUE",
+ * //                   Region: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               NameServers: [ // AwsRoute53HostedZoneNameServersList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               QueryLoggingConfig: { // AwsRoute53QueryLoggingConfigDetails
+ * //                 CloudWatchLogsLogGroupArn: { // CloudWatchLogsLogGroupArnConfigDetails
+ * //                   CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ * //                   HostedZoneId: "STRING_VALUE",
+ * //                   Id: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             },
+ * //             AwsMskCluster: { // AwsMskClusterDetails
+ * //               ClusterInfo: { // AwsMskClusterClusterInfoDetails
+ * //                 EncryptionInfo: { // AwsMskClusterClusterInfoEncryptionInfoDetails
+ * //                   EncryptionInTransit: { // AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails
+ * //                     InCluster: true || false,
+ * //                     ClientBroker: "STRING_VALUE",
+ * //                   },
+ * //                   EncryptionAtRest: { // AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails
+ * //                     DataVolumeKMSKeyId: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //                 CurrentVersion: "STRING_VALUE",
+ * //                 NumberOfBrokerNodes: Number("int"),
+ * //                 ClusterName: "STRING_VALUE",
+ * //                 ClientAuthentication: { // AwsMskClusterClusterInfoClientAuthenticationDetails
+ * //                   Sasl: { // AwsMskClusterClusterInfoClientAuthenticationSaslDetails
+ * //                     Iam: { // AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails
+ * //                       Enabled: true || false,
+ * //                     },
+ * //                     Scram: { // AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails
+ * //                       Enabled: true || false,
+ * //                     },
+ * //                   },
+ * //                   Unauthenticated: { // AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails
+ * //                     Enabled: true || false,
+ * //                   },
+ * //                   Tls: { // AwsMskClusterClusterInfoClientAuthenticationTlsDetails
+ * //                     CertificateAuthorityArnList: "<StringList>",
+ * //                     Enabled: true || false,
  * //                   },
  * //                 },
  * //               },
