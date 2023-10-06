@@ -702,6 +702,11 @@ export interface ImportImageRequest {
   /**
    * @public
    * <p>The boot mode of the virtual machine.</p>
+   *          <note>
+   *             <p>The <code>uefi-preferred</code> boot mode isn't supported for importing images. For more
+   *     information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/prerequisites.html#vmimport-boot-modes">Boot modes</a> in
+   *     the <i>VM Import/Export User Guide</i>.</p>
+   *          </note>
    */
   BootMode?: BootModeValues | string;
 }
@@ -7460,8 +7465,6 @@ export interface ReleaseAddressRequest {
    * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises
    *       IP addresses.</p>
    *          <p>If you provide an incorrect network border group, you receive an <code>InvalidAddress.NotFound</code> error.</p>
-   *          <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you
-   *       receive an <code>InvalidParameterCombination</code> error.</p>
    */
   NetworkBorderGroup?: string;
 

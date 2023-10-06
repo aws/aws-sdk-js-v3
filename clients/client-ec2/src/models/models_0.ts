@@ -3051,8 +3051,6 @@ export interface AllocateAddressRequest {
    *       advertises IP addresses. Use this parameter to limit the IP address to this location. IP
    *       addresses cannot move between network border groups.</p>
    *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">DescribeAvailabilityZones</a> to view the network border groups.</p>
-   *          <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 Classic,
-   *       you receive an <code>InvalidParameterCombination</code> error.</p>
    */
   NetworkBorderGroup?: string;
 
@@ -7055,7 +7053,8 @@ export interface CancelConversionRequest {
 export interface CancelExportTaskRequest {
   /**
    * @public
-   * <p>The ID of the export task. This is the ID returned by <code>CreateInstanceExportTask</code>.</p>
+   * <p>The ID of the export task. This is the ID returned by the
+   *     <code>CreateInstanceExportTask</code> and <code>ExportImage</code> operations.</p>
    */
   ExportTaskId: string | undefined;
 }

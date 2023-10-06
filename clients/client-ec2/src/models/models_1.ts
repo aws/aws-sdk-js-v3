@@ -2340,6 +2340,14 @@ export interface OnDemandOptionsRequest {
   /**
    * @public
    * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay.</p>
+   *          <note>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>,
+   *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
+   *             for surplus credits. The <code>MaxTotalPrice</code> does not account for surplus
+   *             credits, and, if you use surplus credits, your final cost might be higher than what you
+   *             specified for <code>MaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
+   *                   Guide</i>.</p>
+   *          </note>
    */
   MaxTotalPrice?: string;
 }
@@ -2560,6 +2568,14 @@ export interface SpotOptionsRequest {
    *          <important>
    *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
    *          </important>
+   *          <note>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>,
+   *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
+   *             for surplus credits. The <code>MaxTotalPrice</code> does not account for surplus
+   *             credits, and, if you use surplus credits, your final cost might be higher than what you
+   *             specified for <code>MaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
+   *                   Guide</i>.</p>
+   *          </note>
    */
   MaxTotalPrice?: string;
 }
@@ -2772,7 +2788,7 @@ export interface CreateFleetRequest {
   /**
    * @public
    * <p>The key-value pair for tagging the EC2 Fleet request on creation. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging your resources</a>.</p>
+   *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tag your resources</a>.</p>
    *          <p>If the fleet type is <code>instant</code>, specify a resource type of <code>fleet</code>
    *          to tag the fleet or <code>instance</code> to tag the instances at launch.</p>
    *          <p>If the fleet type is <code>maintain</code> or <code>request</code>, specify a resource
@@ -6820,11 +6836,12 @@ export interface LaunchTemplateTagSpecificationRequest {
   /**
    * @public
    * <p>The type of resource to tag.</p>
-   *          <p>The <code>Valid Values</code> are all the resource types that can be tagged. However,
-   *             when creating a launch template, you can specify tags for the following resource types
+   *          <p>Valid Values lists all resource types for Amazon EC2 that can be tagged. When
+   *             you create a launch template, you can specify tags for the following resource types
    *             only: <code>instance</code> | <code>volume</code> | <code>elastic-gpu</code> |
-   *                 <code>network-interface</code> | <code>spot-instances-request</code>
-   *          </p>
+   *                 <code>network-interface</code> | <code>spot-instances-request</code>.
+   *             If the instance does include the resource type that you specify, the instance
+   *             launch fails. For example, not all instance types include an Elastic GPU.</p>
    *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
   ResourceType?: ResourceType | string;
@@ -7033,7 +7050,19 @@ export interface RequestLaunchTemplateData {
 
   /**
    * @public
-   * <p> The elastic inference accelerator for the instance. </p>
+   * <p>An elastic inference accelerator to associate with the instance. Elastic inference
+   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
+   *             your Deep Learning (DL) inference workloads.</p>
+   *          <p>You cannot specify accelerators from different generations in the same request.</p>
+   *          <note>
+   *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
+   *                 Elastic Inference (EI), and will help current customers migrate their workloads to
+   *                 options that offer better price and performance. After April 15, 2023, new customers
+   *                 will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker,
+   *                 Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during
+   *                 the past 30-day period are considered current customers and will be able to continue
+   *                 using the service.</p>
+   *          </note>
    */
   ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAccelerator[];
 
@@ -8250,7 +8279,19 @@ export interface ResponseLaunchTemplateData {
 
   /**
    * @public
-   * <p> The elastic inference accelerator for the instance. </p>
+   * <p>An elastic inference accelerator to associate with the instance. Elastic inference
+   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
+   *             your Deep Learning (DL) inference workloads.</p>
+   *          <p>You cannot specify accelerators from different generations in the same request.</p>
+   *          <note>
+   *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
+   *                 Elastic Inference (EI), and will help current customers migrate their workloads to
+   *                 options that offer better price and performance. After April 15, 2023, new customers
+   *                 will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker,
+   *                 Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during
+   *                 the past 30-day period are considered current customers and will be able to continue
+   *                 using the service.</p>
+   *          </note>
    */
   ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAcceleratorResponse[];
 

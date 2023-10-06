@@ -5873,6 +5873,14 @@ export interface OnDemandOptions {
   /**
    * @public
    * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay.</p>
+   *          <note>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>,
+   *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
+   *             for surplus credits. The <code>maxTotalPrice</code> does not account for surplus
+   *             credits, and, if you use surplus credits, your final cost might be higher than what you
+   *             specified for <code>maxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
+   *                   Guide</i>.</p>
+   *          </note>
    */
   MaxTotalPrice?: string;
 }
@@ -6046,6 +6054,14 @@ export interface SpotOptions {
    *          <important>
    *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
    *          </important>
+   *          <note>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>,
+   *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
+   *             for surplus credits. The <code>maxTotalPrice</code> does not account for surplus
+   *             credits, and, if you use surplus credits, your final cost might be higher than what you
+   *             specified for <code>maxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
+   *                   Guide</i>.</p>
+   *          </note>
    */
   MaxTotalPrice?: string;
 }
@@ -6243,14 +6259,14 @@ export interface FleetData {
   /**
    * @public
    * <p>Information about the instances that could not be launched by the fleet. Valid only when
-   *             <b>Type</b> is set to <code>instant</code>.</p>
+   *          <b>Type</b> is set to <code>instant</code>.</p>
    */
   Errors?: DescribeFleetError[];
 
   /**
    * @public
    * <p>Information about the instances that were launched by the fleet. Valid only when
-   *             <b>Type</b> is set to <code>instant</code>.</p>
+   *          <b>Type</b> is set to <code>instant</code>.</p>
    */
   Instances?: DescribeFleetsInstances[];
 
@@ -9726,10 +9742,6 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>license-pool</code> - </p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>maintenance-options.auto-recovery</code> - The current automatic
    *                     recovery behavior of the instance (<code>disabled</code> | <code>default</code>).</p>
    *             </li>
@@ -9778,18 +9790,19 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-interface.addresses.primary</code> - Specifies whether the IPv4
-   *                     address of the network interface is the primary private IPv4 address.</p>
+   *                   <code>network-interface.addresses.association.allocation-id</code> - The allocation ID.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-interface.addresses.private-ip-address</code> - The private IPv4
-   *                     address associated with the network interface.</p>
+   *                   <code>network-interface.addresses.association.association-id</code> - The association ID.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-interface.addresses.association.public-ip</code> - The ID of the
-   *                     association of an Elastic IP address (IPv4) with a network interface.</p>
+   *                   <code>network-interface.addresses.association.carrier-ip</code> - The carrier IP address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.addresses.association.customer-owned-ip</code> - The customer-owned IP address.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9798,13 +9811,26 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-interface.association.public-ip</code> - The address of the
-   *                     Elastic IP address (IPv4) bound to the network interface.</p>
+   *                   <code>network-interface.addresses.association.public-dns-name</code> - The public DNS name.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-interface.association.ip-owner-id</code> - The owner of the
-   *                     Elastic IP address (IPv4) associated with the network interface.</p>
+   *                   <code>network-interface.addresses.association.public-ip</code> - The ID of the
+   *                     association of an Elastic IP address (IPv4) with a network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.addresses.primary</code> - Specifies whether the IPv4
+   *                     address of the network interface is the primary private IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.addresses.private-dns-name</code> - The private DNS name.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.addresses.private-ip-address</code> - The private IPv4
+   *                     address associated with the network interface.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9819,8 +9845,45 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>network-interface.association.carrier-ip</code> - The customer-owned IP address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.association.customer-owned-ip</code> - The customer-owned IP address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.association.ip-owner-id</code> - The owner of the
+   *                     Elastic IP address (IPv4) associated with the network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.association.public-dns-name</code> - The public DNS name.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.association.public-ip</code> - The address of the
+   *                     Elastic IP address (IPv4) bound to the network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.attachment.attach-time</code> - The time that the
+   *                     network interface was attached to an instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>network-interface.attachment.attachment-id</code> - The ID of the
    *                     interface attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.attachment.delete-on-termination</code> - Specifies
+   *                     whether the attachment is deleted when an instance is terminated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.attachment.device-index</code> - The device index to
+   *                     which the network interface is attached.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9834,29 +9897,23 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-interface.attachment.device-index</code> - The device index to
-   *                     which the network interface is attached.</p>
+   *                   <code>network-interface.attachment.network-card-index</code> - The index of the network card.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>network-interface.attachment.status</code> - The status of the
    *                     attachment (<code>attaching</code> | <code>attached</code> |
-   *                         <code>detaching</code> | <code>detached</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface.attachment.attach-time</code> - The time that the
-   *                     network interface was attached to an instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface.attachment.delete-on-termination</code> - Specifies
-   *                     whether the attachment is deleted when an instance is terminated.</p>
+   *                     <code>detaching</code> | <code>detached</code>).</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>network-interface.availability-zone</code> - The Availability Zone for
    *                     the network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.deny-all-igw-traffic</code> - A Boolean that indicates whether
+   *                 a network interface with an IPv6 address is unreachable from the public internet.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9875,8 +9932,30 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>network-interface.ipv4-prefixes.ipv4-prefix</code> - The IPv4 prefixes that are assigned to the network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.ipv6-address</code> - The IPv6 address associated with the network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>network-interface.ipv6-addresses.ipv6-address</code> - The IPv6 address
    *                     associated with the network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.ipv6-addresses.is-primary-ipv6</code> - A Boolean that indicates whether this
+   *                     is the primary IPv6 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.ipv6-native</code> - A Boolean that indicates whether this is
+   *                     an IPv6 only network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.ipv6-prefixes.ipv6-prefix</code> - The IPv6 prefix assigned to the network interface.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9890,6 +9969,10 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>network-interface.outpost-arn</code> - The ARN of the Outpost.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>network-interface.owner-id</code> - The ID of the owner of the network
    *                     interface.</p>
    *             </li>
@@ -9897,6 +9980,14 @@ export interface DescribeInstancesRequest {
    *                <p>
    *                   <code>network-interface.private-dns-name</code> - The private DNS name of the
    *                     network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.private-ip-address</code> - The private IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.public-dns-name</code> - The public DNS name.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9925,6 +10016,14 @@ export interface DescribeInstancesRequest {
    *                <p>
    *                   <code>network-interface.subnet-id</code> - The ID of the subnet for the
    *                     network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.tag-key</code> - The key of a tag assigned to the network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.tag-value</code> - The value of a tag assigned to the network interface.</p>
    *             </li>
    *             <li>
    *                <p>

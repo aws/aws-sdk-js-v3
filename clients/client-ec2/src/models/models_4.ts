@@ -5483,8 +5483,23 @@ export interface DescribeNetworkInterfacesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>addresses.private-ip-address</code> - The private IPv4 addresses
-   *                     associated with the network interface.</p>
+   *                   <code>association.allocation-id</code> - The allocation ID returned when you
+   * 		                allocated the Elastic IP address (IPv4) for your network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>association.association-id</code> - The association ID returned when the
+   * 		                network interface was associated with an IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>addresses.association.owner-id</code> - The owner ID of the addresses associated with the network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>addresses.association.public-ip</code> - The association ID returned when
+   * 		                the network interface was associated with the Elastic IP address
+   * 		                (IPv4).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5493,23 +5508,8 @@ export interface DescribeNetworkInterfacesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>addresses.association.public-ip</code> - The association ID returned when
-   *                     the network interface was associated with the Elastic IP address
-   *                     (IPv4).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>addresses.association.owner-id</code> - The owner ID of the addresses associated with the network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>association.association-id</code> - The association ID returned when the
-   *                     network interface was associated with an IPv4 address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>association.allocation-id</code> - The allocation ID returned when you
-   *                     allocated the Elastic IP address (IPv4) for your network interface.</p>
+   *                   <code>addresses.private-ip-address</code> - The private IPv4 addresses
+   * 		                associated with the network interface.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5528,11 +5528,11 @@ export interface DescribeNetworkInterfacesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>attachment.attachment-id</code> - The ID of the interface attachment.</p>
+   *                   <code>attachment.attach-time</code> - The time that the network interface was attached to an instance.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>attachment.attach-time</code> - The time that the network interface was attached to an instance.</p>
+   *                   <code>attachment.attachment-id</code> - The ID of the interface attachment.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5568,21 +5568,22 @@ export interface DescribeNetworkInterfacesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>group-name</code> - The name of a security group associated with the network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with
    *                     the network interface.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>interface-type</code> - The type of network interface (<code>api_gateway_managed</code> |
-   * 		               <code>aws_codestar_connections_managed</code> | <code>branch</code> | <code>efa</code> |
-   * 		               <code>gateway_load_balancer</code> | <code>gateway_load_balancer_endpoint</code> | <code>global_accelerator_managed</code> |
-   * 		               <code>interface</code> | <code>iot_rules_managed</code> | <code>lambda</code> | <code>load_balancer</code> |
-   * 		               <code>nat_gateway</code> | <code>network_load_balancer</code> | <code>quicksight</code> |
-   * 		               <code>transit_gateway</code> | <code>trunk</code> | <code>vpc_endpoint</code>).</p>
+   * 		               <code>aws_codestar_connections_managed</code> | <code>branch</code> |
+   * 		               <code>ec2_instance_connect_endpoint</code> | <code>efa</code> | <code>efs</code> |
+   * 		               <code>gateway_load_balancer</code> | <code>gateway_load_balancer_endpoint</code> |
+   * 		               <code>global_accelerator_managed</code> |
+   * 		               <code>interface</code> | <code>iot_rules_managed</code> |
+   * 		               <code>lambda</code> | <code>load_balancer</code> |
+   * 		               <code>nat_gateway</code> | <code>network_load_balancer</code> |
+   * 		               <code>quicksight</code> |
+   * 		               <code>transit_gateway</code> | <code>trunk</code> |
+   * 		               <code>vpc_endpoint</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5598,12 +5599,12 @@ export interface DescribeNetworkInterfacesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>private-ip-address</code> - The private IPv4 address or addresses of the
-   *                     network interface.</p>
+   *                   <code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</p>
+   *                   <code>private-ip-address</code> - The private IPv4 address or addresses of the
+   *                     network interface.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9609,18 +9610,34 @@ export interface SpotFleetRequestConfigData {
    *             maximum amount you're willing to pay. When the maximum amount you're willing to pay is
    *             reached, the fleet stops launching instances even if it hasn’t met the target
    *             capacity.</p>
+   *          <note>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>,
+   *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
+   *             for surplus credits. The <code>onDemandMaxTotalPrice</code> does not account for surplus
+   *             credits, and, if you use surplus credits, your final cost might be higher than what you
+   *             specified for <code>onDemandMaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
+   *             Guide</i>.</p>
+   *          </note>
    */
   OnDemandMaxTotalPrice?: string;
 
   /**
    * @public
    * <p>The maximum amount per hour for Spot Instances that you're willing to pay. You can use
-   *             the <code>spotdMaxTotalPrice</code> parameter, the <code>onDemandMaxTotalPrice</code>
-   *             parameter, or both parameters to ensure that your fleet cost does not exceed your
-   *             budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request,
-   *             Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay.
-   *             When the maximum amount you're willing to pay is reached, the fleet stops launching
-   *             instances even if it hasn’t met the target capacity.</p>
+   *          the <code>spotMaxTotalPrice</code> parameter, the <code>onDemandMaxTotalPrice</code>
+   *          parameter, or both parameters to ensure that your fleet cost does not exceed your budget.
+   *          If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will
+   *          launch instances until it reaches the maximum amount you're willing to pay. When the
+   *          maximum amount you're willing to pay is reached, the fleet stops launching instances even
+   *          if it hasn’t met the target capacity.</p>
+   *          <note>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>,
+   *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
+   *             for surplus credits. The <code>spotMaxTotalPrice</code> does not account for surplus
+   *             credits, and, if you use surplus credits, your final cost might be higher than what you
+   *             specified for <code>spotMaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
+   *             Guide</i>.</p>
+   *          </note>
    */
   SpotMaxTotalPrice?: string;
 
@@ -9727,7 +9744,7 @@ export interface SpotFleetRequestConfigData {
    *                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">SpotFleetTagSpecification</a>
    *             </code> (valid only if you use
    *                 <code>LaunchSpecifications</code>). For information about tagging after launch, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your Resources</a>.</p>
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tag your resources</a>.</p>
    */
   TagSpecifications?: TagSpecification[];
 }
