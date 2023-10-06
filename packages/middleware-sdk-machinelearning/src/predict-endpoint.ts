@@ -24,8 +24,8 @@ export function predictEndpointMiddleware(options: { urlParser: UrlParser }): Bu
             path: endpoint.path,
             port: endpoint.port,
             protocol: endpoint.protocol,
-            query: endpoint.query,
-          };
+            query: endpoint.query ?? {},
+          } as HttpRequest;
         }
       }
       return next({
