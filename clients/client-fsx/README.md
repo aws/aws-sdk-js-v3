@@ -470,6 +470,14 @@ RestoreVolumeFromSnapshot
 </details>
 <details>
 <summary>
+StartMisconfiguredStateRecovery
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fsx/classes/startmisconfiguredstaterecoverycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fsx/interfaces/startmisconfiguredstaterecoverycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fsx/interfaces/startmisconfiguredstaterecoverycommandoutput.html)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

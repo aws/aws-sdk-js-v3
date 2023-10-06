@@ -32,6 +32,7 @@ export * from "./DisassociateFileSystemAliasesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ReleaseFileSystemNfsV3LocksCommand";
 export * from "./RestoreVolumeFromSnapshotCommand";
+export * from "./StartMisconfiguredStateRecoveryCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateDataRepositoryAssociationCommand";

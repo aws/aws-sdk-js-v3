@@ -163,6 +163,11 @@ import {
   RestoreVolumeFromSnapshotCommandInput,
   RestoreVolumeFromSnapshotCommandOutput,
 } from "./commands/RestoreVolumeFromSnapshotCommand";
+import {
+  StartMisconfiguredStateRecoveryCommand,
+  StartMisconfiguredStateRecoveryCommandInput,
+  StartMisconfiguredStateRecoveryCommandOutput,
+} from "./commands/StartMisconfiguredStateRecoveryCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -235,6 +240,7 @@ const commands = {
   ListTagsForResourceCommand,
   ReleaseFileSystemNfsV3LocksCommand,
   RestoreVolumeFromSnapshotCommand,
+  StartMisconfiguredStateRecoveryCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDataRepositoryAssociationCommand,
@@ -757,6 +763,23 @@ export interface FSx {
     args: RestoreVolumeFromSnapshotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RestoreVolumeFromSnapshotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMisconfiguredStateRecoveryCommand}
+   */
+  startMisconfiguredStateRecovery(
+    args: StartMisconfiguredStateRecoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMisconfiguredStateRecoveryCommandOutput>;
+  startMisconfiguredStateRecovery(
+    args: StartMisconfiguredStateRecoveryCommandInput,
+    cb: (err: any, data?: StartMisconfiguredStateRecoveryCommandOutput) => void
+  ): void;
+  startMisconfiguredStateRecovery(
+    args: StartMisconfiguredStateRecoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMisconfiguredStateRecoveryCommandOutput) => void
   ): void;
 
   /**

@@ -96,6 +96,7 @@ export const AdministrativeActionType = {
   FILE_SYSTEM_ALIAS_DISASSOCIATION: "FILE_SYSTEM_ALIAS_DISASSOCIATION",
   FILE_SYSTEM_UPDATE: "FILE_SYSTEM_UPDATE",
   IOPS_OPTIMIZATION: "IOPS_OPTIMIZATION",
+  MISCONFIGURED_STATE_RECOVERY: "MISCONFIGURED_STATE_RECOVERY",
   RELEASE_NFS_V3_LOCKS: "RELEASE_NFS_V3_LOCKS",
   SNAPSHOT_UPDATE: "SNAPSHOT_UPDATE",
   STORAGE_OPTIMIZATION: "STORAGE_OPTIMIZATION",
@@ -4906,7 +4907,7 @@ export interface LustreLogCreateConfiguration {
  *                </li>
  *                <li>
  *                   <p>
- *                      <code>ImportedChunkSize</code>
+ *                      <code>ImportedFileChunkSize</code>
  *                   </p>
  *                </li>
  *                <li>
@@ -5971,7 +5972,7 @@ export interface CreateFileSystemRequest {
    *                </li>
    *                <li>
    *                   <p>
-   *                      <code>ImportedChunkSize</code>
+   *                      <code>ImportedFileChunkSize</code>
    *                   </p>
    *                </li>
    *                <li>
@@ -6175,7 +6176,7 @@ export interface CreateFileSystemFromBackupRequest {
    *                </li>
    *                <li>
    *                   <p>
-   *                      <code>ImportedChunkSize</code>
+   *                      <code>ImportedFileChunkSize</code>
    *                   </p>
    *                </li>
    *                <li>
@@ -8920,6 +8921,25 @@ export interface RestoreVolumeFromSnapshotRequest {
 
 /**
  * @public
+ */
+export interface StartMisconfiguredStateRecoveryRequest {
+  /**
+   * @public
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * @public
+   * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
+   */
+  FileSystemId: string | undefined;
+}
+
+/**
+ * @public
  * <p>The request object for the <code>TagResource</code> operation.</p>
  */
 export interface TagResourceRequest {
@@ -10614,6 +10634,17 @@ export interface ReleaseFileSystemNfsV3LocksResponse {
 
 /**
  * @public
+ */
+export interface StartMisconfiguredStateRecoveryResponse {
+  /**
+   * @public
+   * <p>A description of a specific Amazon FSx file system.</p>
+   */
+  FileSystem?: FileSystem;
+}
+
+/**
+ * @public
  * <p>The response object for the <code>UpdateFileSystem</code> operation.</p>
  */
 export interface UpdateFileSystemResponse {
@@ -11149,6 +11180,16 @@ export const CreateVolumeResponseFilterSensitiveLog = (obj: CreateVolumeResponse
  */
 export const ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog = (
   obj: ReleaseFileSystemNfsV3LocksResponse
+): any => ({
+  ...obj,
+  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
+});
+
+/**
+ * @internal
+ */
+export const StartMisconfiguredStateRecoveryResponseFilterSensitiveLog = (
+  obj: StartMisconfiguredStateRecoveryResponse
 ): any => ({
   ...obj,
   ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),

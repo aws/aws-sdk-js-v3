@@ -109,6 +109,10 @@ import {
   RestoreVolumeFromSnapshotCommandInput,
   RestoreVolumeFromSnapshotCommandOutput,
 } from "../commands/RestoreVolumeFromSnapshotCommand";
+import {
+  StartMisconfiguredStateRecoveryCommandInput,
+  StartMisconfiguredStateRecoveryCommandOutput,
+} from "../commands/StartMisconfiguredStateRecoveryCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -263,6 +267,8 @@ import {
   SnapshotFilter,
   SnapshotNotFound,
   SourceBackupUnavailable,
+  StartMisconfiguredStateRecoveryRequest,
+  StartMisconfiguredStateRecoveryResponse,
   StorageVirtualMachine,
   StorageVirtualMachineFilter,
   StorageVirtualMachineNotFound,
@@ -724,6 +730,19 @@ export const se_RestoreVolumeFromSnapshotCommand = async (
   const headers: __HeaderBag = sharedHeaders("RestoreVolumeFromSnapshot");
   let body: any;
   body = JSON.stringify(se_RestoreVolumeFromSnapshotRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartMisconfiguredStateRecoveryCommand
+ */
+export const se_StartMisconfiguredStateRecoveryCommand = async (
+  input: StartMisconfiguredStateRecoveryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartMisconfiguredStateRecovery");
+  let body: any;
+  body = JSON.stringify(se_StartMisconfiguredStateRecoveryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2776,6 +2795,58 @@ const de_RestoreVolumeFromSnapshotCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1StartMisconfiguredStateRecoveryCommand
+ */
+export const de_StartMisconfiguredStateRecoveryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMisconfiguredStateRecoveryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartMisconfiguredStateRecoveryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartMisconfiguredStateRecoveryResponse(data, context);
+  const response: StartMisconfiguredStateRecoveryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMisconfiguredStateRecoveryCommandError
+ */
+const de_StartMisconfiguredStateRecoveryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMisconfiguredStateRecoveryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      throw await de_BadRequestRes(parsedOutput, context);
+    case "FileSystemNotFound":
+    case "com.amazonaws.fsx#FileSystemNotFound":
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -4243,6 +4314,19 @@ const se_RestoreVolumeFromSnapshotRequest = (input: RestoreVolumeFromSnapshotReq
 
 // se_SnapshotIds omitted.
 
+/**
+ * serializeAws_json1_1StartMisconfiguredStateRecoveryRequest
+ */
+const se_StartMisconfiguredStateRecoveryRequest = (
+  input: StartMisconfiguredStateRecoveryRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    FileSystemId: [],
+  });
+};
+
 // se_StorageVirtualMachineFilter omitted.
 
 // se_StorageVirtualMachineFilters omitted.
@@ -5086,6 +5170,18 @@ const de_Snapshots = (output: any, context: __SerdeContext): Snapshot[] => {
 };
 
 // de_SourceBackupUnavailable omitted.
+
+/**
+ * deserializeAws_json1_1StartMisconfiguredStateRecoveryResponse
+ */
+const de_StartMisconfiguredStateRecoveryResponse = (
+  output: any,
+  context: __SerdeContext
+): StartMisconfiguredStateRecoveryResponse => {
+  return take(output, {
+    FileSystem: (_: any) => de_FileSystem(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1StorageVirtualMachine
