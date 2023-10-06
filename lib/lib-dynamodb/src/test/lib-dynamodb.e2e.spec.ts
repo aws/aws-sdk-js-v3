@@ -39,7 +39,14 @@ describe(DynamoDBDocument.name, () => {
     }
   }
 
-  const TableName = "js-sdk-dynamodb-test";
+  // Random element limited to 0-99 to avoid concurrent build IO.
+  // Tables will be dropped at the end of the test.
+  // For faster test development, remove this random suffix and
+  // don't delete the table in afterAll().
+  // The table will in that case be re-used.
+  const randId = String((Math.random() * 99) | 0);
+
+  const TableName = `js-sdk-dynamodb-test-${randId}`;
 
   const log = {
     describe: null as null | DescribeTableCommandOutput,
@@ -386,6 +393,12 @@ describe(DynamoDBDocument.name, () => {
     }
   });
 
+  afterAll(async () => {
+    await dynamodb.deleteTable({
+      TableName,
+    });
+  });
+
   describe("updateTransformFunction", () => {
     it("modifies all fields of an object", () => {
       expect(updateTransform(data)).toEqual({
@@ -421,6 +434,10 @@ describe(DynamoDBDocument.name, () => {
 
   it("initializes using the static constructor", async () => {
     expect(doc).toBeInstanceOf(DynamoDBDocument);
+  });
+
+  it(`is using a random TableName=${TableName}`, async () => {
+    // to report the table name
   });
 
   it("describes the test table tables", async () => {
