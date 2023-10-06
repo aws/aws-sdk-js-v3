@@ -1,13 +1,13 @@
 import { Handler, MiddlewareStack } from "@smithy/types";
 
-import { KeyNode } from "../commands/utils";
+import { KeyNodeChildren } from "../commands/utils";
 import { DynamoDBDocumentClientCommand } from "./DynamoDBDocumentClientCommand";
 
 class AnyCommand extends DynamoDBDocumentClientCommand<{}, {}, {}, {}, {}> {
   public middlewareStack: MiddlewareStack<{}, {}>;
   public input: {};
-  protected inputKeyNodes: KeyNode[] = [];
-  protected outputKeyNodes: KeyNode[] = [];
+  protected inputKeyNodes: KeyNodeChildren = {};
+  protected outputKeyNodes: KeyNodeChildren = {};
 
   public argCaptor: [Function, object][] = [];
 

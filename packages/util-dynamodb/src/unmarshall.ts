@@ -12,16 +12,30 @@ export interface unmarshallOptions {
    * This allows for the safe round-trip transport of numbers of arbitrary size.
    */
   wrapNumbers?: boolean;
+  /**
+   * When true, skip wrapping the data in `{ M: data }` before converting.
+   *
+   * Default is true when using the DynamoDBDocumentClient,
+   * but false if directly using the unmarshall function (backwards compatibility).
+   */
+  convertWithoutMapWrapper?: boolean;
 }
 
 /**
  * Convert a DynamoDB record into a JavaScript object.
  *
- * @param {any} data - The DynamoDB record
- * @param {unmarshallOptions} options - An optional configuration object for `unmarshall`
+ * @param data - The DynamoDB record
+ * @param options - An optional configuration object for `unmarshall`
  */
 export const unmarshall = (
-  data: Record<string, AttributeValue>,
+  data: Record<string, AttributeValue> | AttributeValue,
   options?: unmarshallOptions
-): Record<string, NativeAttributeValue> =>
-  convertToNative({ M: data }, options) as Record<string, NativeAttributeValue>;
+): Record<string, NativeAttributeValue> => {
+  if (options?.convertWithoutMapWrapper) {
+    return convertToNative(data as AttributeValue, options);
+  }
+  return convertToNative({ M: data as Record<string, AttributeValue> }, options) as Record<
+    string,
+    NativeAttributeValue
+  >;
+};

@@ -19,13 +19,21 @@ export interface marshallOptions {
    * Whether to convert typeof object to map attribute.
    */
   convertClassInstanceToMap?: boolean;
+  /**
+   * Whether to convert the top level container
+   * if it is a map or list.
+   *
+   * Default is true when using the DynamoDBDocumentClient,
+   * but false if directly using the marshall function (backwards compatibility).
+   */
+  convertTopLevelContainer?: boolean;
 }
 
 /**
  * Convert a JavaScript object into a DynamoDB record.
  *
- * @param {any} data - The data to convert to a DynamoDB record
- * @param {marshallOptions} options - An optional configuration object for `marshall`
+ * @param data - The data to convert to a DynamoDB record
+ * @param options - An optional configuration object for `marshall`
  *
  */
 export function marshall(data: Set<string>, options?: marshallOptions): AttributeValue.SSMember;
@@ -49,7 +57,7 @@ export function marshall(data: unknown, options?: marshallOptions) {
   switch (key) {
     case "M":
     case "L":
-      return value;
+      return options?.convertTopLevelContainer ? attributeValue : value;
     case "SS":
     case "NS":
     case "BS":

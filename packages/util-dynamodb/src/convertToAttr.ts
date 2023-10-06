@@ -4,10 +4,10 @@ import { marshallOptions } from "./marshall";
 import { NativeAttributeBinary, NativeAttributeValue, NativeScalarAttributeValue } from "./models";
 
 /**
- * Convert a JavaScript value to its equivalent DynamoDB AttributeValue type
+ * Convert a JavaScript value to its equivalent DynamoDB AttributeValue type.
  *
- * @param {NativeAttributeValue} data - The data to convert to a DynamoDB AttributeValue
- * @param {marshallOptions} options - An optional configuration object for `convertToAttr`
+ * @param data - The data to convert to a DynamoDB AttributeValue.
+ * @param options - An optional configuration object for `convertToAttr`.
  */
 export const convertToAttr = (data: NativeAttributeValue, options?: marshallOptions): AttributeValue => {
   if (data === undefined) {
