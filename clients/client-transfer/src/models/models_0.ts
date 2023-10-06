@@ -923,7 +923,8 @@ export interface SftpConnectorConfig {
 
   /**
    * @public
-   * <p>The public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting. You can use the <code>ssh-keyscan</code> command against the SFTP server to retrieve the necessary key.</p>
+   * <p>The public portion of the host key, or keys, that are used to identify the external server to which you are connecting.
+   *       You can use the <code>ssh-keyscan</code> command against the SFTP server to retrieve the necessary key.</p>
    *          <p>The three standard SSH public key format elements are <code><key type></code>,
    *         <code><body base64></code>, and an optional <code><comment></code>, with spaces
    *       between each element. Specify only the  <code><key type></code> and <code><body
@@ -931,12 +932,12 @@ export interface SftpConnectorConfig {
    *          <p>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</p>
    *          <ul>
    *             <li>
-   *                <p>For RSA keys, the key type  is <code>ssh-rsa</code>.</p>
+   *                <p>For RSA keys, the <code><key type></code> string is <code>ssh-rsa</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For ECDSA keys, the key type is either <code>ecdsa-sha2-nistp256</code>,
-   *           <code>ecdsa-sha2-nistp384</code>, or <code>ecdsa-sha2-nistp521</code>, depending on the
-   *           size of the key you generated.</p>
+   *                <p>For ECDSA keys, the <code><key type></code> string is either
+   *             <code>ecdsa-sha2-nistp256</code>, <code>ecdsa-sha2-nistp384</code>, or
+   *             <code>ecdsa-sha2-nistp521</code>, depending on the size of the key you generated.</p>
    *             </li>
    *          </ul>
    */
