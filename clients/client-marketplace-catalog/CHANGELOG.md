@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.427.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.426.0...v3.427.0) (2023-10-06)
+
+
+### Features
+
+* **client-marketplace-catalog:** This release adds support for Document type as an alternative for stringified JSON for StartChangeSet, DescribeChangeSet and DescribeEntity APIs ([b689c24](https://github.com/aws/aws-sdk-js-v3/commit/b689c249053165c68ee2ab20a3e7f44965937a8c))
+
+
+
+
+
 # [3.425.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.424.0...v3.425.0) (2023-10-04)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-catalog

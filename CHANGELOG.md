@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.427.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.426.0...v3.427.0) (2023-10-06)
+
+
+### Bug Fixes
+
+* **middleware-sdk-machinelearning:** ensure request query is object ([#5331](https://github.com/aws/aws-sdk-js-v3/issues/5331)) ([55995ec](https://github.com/aws/aws-sdk-js-v3/commit/55995ecf3c976cd26e868e231f628f113c64773c))
+
+
+### Features
+
+* **client-ec2:** Documentation updates for Elastic Compute Cloud (EC2). ([fe0f676](https://github.com/aws/aws-sdk-js-v3/commit/fe0f6765d217c2d55faf7451baaf64c2a7f517a3))
+* **client-fsx:** After performing steps to repair the Active Directory configuration of a file system, use this action to initiate the process of attempting to recover to the file system. ([4da5b2d](https://github.com/aws/aws-sdk-js-v3/commit/4da5b2d22ce75f3f0485884d741b86b2dbed09d1))
+* **client-marketplace-catalog:** This release adds support for Document type as an alternative for stringified JSON for StartChangeSet, DescribeChangeSet and DescribeEntity APIs ([b689c24](https://github.com/aws/aws-sdk-js-v3/commit/b689c249053165c68ee2ab20a3e7f44965937a8c))
+* **client-quicksight:** NullOption in FilterListConfiguration; Dataset schema/table max length increased; Support total placement for pivot table visual; Lenient mode relaxes the validation to create resources with definition; Data sources can be added to folders; Redshift data sources support IAM Role-based authentication ([d1c37c9](https://github.com/aws/aws-sdk-js-v3/commit/d1c37c91a1d89eb5cc331fc8caee2bd40aa57333))
+* **client-transfer:** This release updates the max character limit of PreAuthenticationLoginBanner and PostAuthenticationLoginBanner to 4096 characters ([6b013c1](https://github.com/aws/aws-sdk-js-v3/commit/6b013c141cedb40304d131c640aba6fe78af5cd6))
+* **middleware-sdk-s3:** add middleware for following region redirects ([#5185](https://github.com/aws/aws-sdk-js-v3/issues/5185)) ([6e139f7](https://github.com/aws/aws-sdk-js-v3/commit/6e139f78cfe50c51f5a693f24a6c45088cdb29cd))
+
+
+
+
+
 # [3.426.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.425.0...v3.426.0) (2023-10-05)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.427.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.426.0...v3.427.0) (2023-10-06)
+
+
+### Features
+
+* **client-transfer:** This release updates the max character limit of PreAuthenticationLoginBanner and PostAuthenticationLoginBanner to 4096 characters ([6b013c1](https://github.com/aws/aws-sdk-js-v3/commit/6b013c141cedb40304d131c640aba6fe78af5cd6))
+
+
+
+
+
 # [3.425.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.424.0...v3.425.0) (2023-10-04)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer

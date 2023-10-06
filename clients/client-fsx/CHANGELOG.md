@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.427.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.426.0...v3.427.0) (2023-10-06)
+
+
+### Features
+
+* **client-fsx:** After performing steps to repair the Active Directory configuration of a file system, use this action to initiate the process of attempting to recover to the file system. ([4da5b2d](https://github.com/aws/aws-sdk-js-v3/commit/4da5b2d22ce75f3f0485884d741b86b2dbed09d1))
+
+
+
+
+
 # [3.425.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.424.0...v3.425.0) (2023-10-04)
 
 **Note:** Version bump only for package @aws-sdk/client-fsx
