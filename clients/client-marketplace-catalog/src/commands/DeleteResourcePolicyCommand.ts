@@ -41,7 +41,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
 
 /**
  * @public
- * <p>Deletes a resource-based policy on an Entity that is identified by its resource
+ * <p>Deletes a resource-based policy on an entity that is identified by its resource
  *             ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

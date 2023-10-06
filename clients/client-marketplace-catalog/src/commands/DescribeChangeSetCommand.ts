@@ -71,6 +71,7 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetRespons
  * //         Identifier: "STRING_VALUE",
  * //       },
  * //       Details: "STRING_VALUE",
+ * //       DetailsDocument: "DOCUMENT_VALUE",
  * //       ErrorDetailList: [ // ErrorDetailList
  * //         { // ErrorDetail
  * //           ErrorCode: "STRING_VALUE",

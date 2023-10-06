@@ -41,7 +41,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
 
 /**
  * @public
- * <p>Attaches a resource-based policy to an Entity. Examples of an entity include:
+ * <p>Attaches a resource-based policy to an entity. Examples of an entity include:
  *                 <code>AmiProduct</code> and <code>ContainerProduct</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

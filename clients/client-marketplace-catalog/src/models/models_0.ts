@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { DocumentType as __DocumentType } from "@smithy/types";
 
 import { MarketplaceCatalogServiceException as __BaseException } from "./MarketplaceCatalogServiceException";
 
@@ -182,7 +183,7 @@ export class ValidationException extends __BaseException {
 export interface DeleteResourcePolicyRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Entity resource that is associated with the
+   * <p>The Amazon Resource Name (ARN) of the entity resource that is associated with the
    *             resource policy.</p>
    */
   ResourceArn: string | undefined;
@@ -274,6 +275,12 @@ export interface ChangeSummary {
    *             change.</p>
    */
   Details?: string;
+
+  /**
+   * @public
+   * <p>The JSON value of the details specific to the change type of the requested change.</p>
+   */
+  DetailsDocument?: __DocumentType;
 
   /**
    * @public
@@ -442,6 +449,12 @@ export interface DescribeEntityResponse {
    * <p>This stringified JSON object includes the details of the entity.</p>
    */
   Details?: string;
+
+  /**
+   * @public
+   * <p>The JSON value of the details specific to the entity.</p>
+   */
+  DetailsDocument?: __DocumentType;
 }
 
 /**
@@ -472,7 +485,7 @@ export class ResourceNotSupportedException extends __BaseException {
 export interface GetResourcePolicyRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Entity resource that is associated with the
+   * <p>The Amazon Resource Name (ARN) of the entity resource that is associated with the
    *             resource policy.</p>
    */
   ResourceArn: string | undefined;
@@ -575,8 +588,9 @@ export interface Sort {
   /**
    * @public
    * <p>For <code>ListEntities</code>, supported attributes include
-   *                 <code>LastModifiedDate</code> (default), <code>Visibility</code>,
-   *                 <code>EntityId</code>, and <code>Name</code>.</p>
+   *                 <code>LastModifiedDate</code> (default) and <code>EntityId</code>. In addition to
+   *                 <code>LastModifiedDate</code> and <code>EntityId</code>, each
+   *                 <code>EntityType</code> might support additional fields.</p>
    *          <p>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code>
    *             and <code>EndTime</code>.</p>
    */
@@ -768,6 +782,14 @@ export interface ListEntitiesRequest {
    */
   MaxResults?: number;
 
+  /**
+   * @public
+   * <p>Filters the returned set of entities based on their owner. The default is
+   *                 <code>SELF</code>. To list entities shared with you
+   *             through AWS Resource Access Manager (AWS RAM), set to <code>SHARED</code>. Entities shared through the AWS Marketplace
+   *             Catalog API <code>PutResourcePolicy</code> operation can't be discovered through the
+   *                 <code>SHARED</code> parameter.</p>
+   */
   OwnershipType?: OwnershipType | string;
 }
 
@@ -890,8 +912,8 @@ export interface ListTagsForResourceResponse {
 export interface PutResourcePolicyRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Entity resource you want to associate with a
-   *             resource policy. </p>
+   * <p>The Amazon Resource Name (ARN) of the entity resource you want to associate with a
+   *             resource policy.</p>
    */
   ResourceArn: string | undefined;
 
@@ -940,7 +962,7 @@ export interface Change {
    * <p>Change types are single string values that describe your intention for the change.
    *             Each change type is unique for each <code>EntityType</code> provided in the change's
    *             scope. For more information on change types available for single-AMI products, see
-   *                 <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information on change
+   *                 <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information about change
    *             types available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
    */
   ChangeType: string | undefined;
@@ -959,12 +981,19 @@ export interface Change {
 
   /**
    * @public
-   * <p>This object contains details specific to the change type of the requested
-   *             change. For more
-   *             information on change types available for single-AMI products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information on change
+   * <p>This object contains details specific to the change type of the requested change. For
+   *             more information about change types available for single-AMI products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information about change
    *             types available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
    */
-  Details: string | undefined;
+  Details?: string;
+
+  /**
+   * @public
+   * <p>Alternative field that accepts a JSON value instead of a string for
+   *                 <code>ChangeType</code> details. You can use either <code>Details</code> or
+   *                 <code>DetailsDocument</code>, but not both.</p>
+   */
+  DetailsDocument?: __DocumentType;
 
   /**
    * @public

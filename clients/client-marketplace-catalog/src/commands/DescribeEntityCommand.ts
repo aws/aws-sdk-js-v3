@@ -60,6 +60,7 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  * //   EntityArn: "STRING_VALUE",
  * //   LastModifiedDate: "STRING_VALUE",
  * //   Details: "STRING_VALUE",
+ * //   DetailsDocument: "DOCUMENT_VALUE",
  * // };
  *
  * ```

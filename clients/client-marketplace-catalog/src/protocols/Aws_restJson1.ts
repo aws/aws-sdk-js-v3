@@ -13,6 +13,7 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
@@ -41,6 +42,7 @@ import { MarketplaceCatalogServiceException as __BaseException } from "../models
 import {
   AccessDeniedException,
   Change,
+  ChangeSummary,
   Entity,
   Filter,
   InternalServiceException,
@@ -330,7 +332,7 @@ export const se_StartChangeSetCommand = async (
   body = JSON.stringify(
     take(input, {
       Catalog: [],
-      ChangeSet: (_) => _json(_),
+      ChangeSet: (_) => se_RequestedChangeList(_, context),
       ChangeSetName: [],
       ChangeSetTags: (_) => _json(_),
       ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
@@ -540,7 +542,7 @@ export const de_DescribeChangeSetCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    ChangeSet: _json,
+    ChangeSet: (_) => de_ChangeSetDescription(_, context),
     ChangeSetArn: __expectString,
     ChangeSetId: __expectString,
     ChangeSetName: __expectString,
@@ -608,6 +610,7 @@ export const de_DescribeEntityCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Details: __expectString,
+    DetailsDocument: (_) => de_JsonDocumentType(_, context),
     EntityArn: __expectString,
     EntityIdentifier: __expectString,
     EntityType: __expectString,
@@ -1280,7 +1283,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-// se_Change omitted.
+/**
+ * serializeAws_restJson1Change
+ */
+const se_Change = (input: Change, context: __SerdeContext): any => {
+  return take(input, {
+    ChangeName: [],
+    ChangeType: [],
+    Details: [],
+    DetailsDocument: (_) => se_JsonDocumentType(_, context),
+    Entity: _json,
+    EntityTags: _json,
+  });
+};
 
 // se_Entity omitted.
 
@@ -1288,7 +1303,23 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_FilterList omitted.
 
-// se_RequestedChangeList omitted.
+/**
+ * serializeAws_restJson1JsonDocumentType
+ */
+const se_JsonDocumentType = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
+/**
+ * serializeAws_restJson1RequestedChangeList
+ */
+const se_RequestedChangeList = (input: Change[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Change(entry, context);
+    });
+};
 
 // se_Sort omitted.
 
@@ -1300,13 +1331,35 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ValueList omitted.
 
-// de_ChangeSetDescription omitted.
+/**
+ * deserializeAws_restJson1ChangeSetDescription
+ */
+const de_ChangeSetDescription = (output: any, context: __SerdeContext): ChangeSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ChangeSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_ChangeSetSummaryList omitted.
 
 // de_ChangeSetSummaryListItem omitted.
 
-// de_ChangeSummary omitted.
+/**
+ * deserializeAws_restJson1ChangeSummary
+ */
+const de_ChangeSummary = (output: any, context: __SerdeContext): ChangeSummary => {
+  return take(output, {
+    ChangeName: __expectString,
+    ChangeType: __expectString,
+    Details: __expectString,
+    DetailsDocument: (_: any) => de_JsonDocumentType(_, context),
+    Entity: _json,
+    ErrorDetailList: _json,
+  }) as any;
+};
 
 // de_Entity omitted.
 
@@ -1317,6 +1370,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_ErrorDetail omitted.
 
 // de_ErrorDetailList omitted.
+
+/**
+ * deserializeAws_restJson1JsonDocumentType
+ */
+const de_JsonDocumentType = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
 
 // de_ResourceIdList omitted.
 

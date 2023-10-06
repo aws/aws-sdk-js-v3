@@ -51,9 +51,9 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  *          <p>For example, you can't start the <code>ChangeSet</code> described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a> later in this topic because it contains two changes to run the same
  *             change type (<code>AddRevisions</code>) against the same entity
  *                 (<code>entity-id@1</code>).</p>
- *          <p>For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets"> Working with change sets</a>. For information on change types for single-AMI
- *             products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Als, for more information on change types
- *             available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
+ *          <p>For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets"> Working with change sets</a>. For information about change types for
+ *             single-AMI products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information about change
+ *             types available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +75,8 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  *           Value: "STRING_VALUE", // required
  *         },
  *       ],
- *       Details: "STRING_VALUE", // required
+ *       Details: "STRING_VALUE",
+ *       DetailsDocument: "DOCUMENT_VALUE",
  *       ChangeName: "STRING_VALUE",
  *     },
  *   ],
