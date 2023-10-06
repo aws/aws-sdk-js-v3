@@ -1737,6 +1737,26 @@ export interface FilterListConfiguration {
    *          </ul>
    */
   SelectAllOptions?: CategoryFilterSelectAllOptions | string;
+
+  /**
+   * @public
+   * <p>This option determines how null values should be treated when filtering data.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_VALUES</code>: Include null values in filtered results.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NULLS_ONLY</code>: Only include null values in filtered results.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NON_NULLS_ONLY</code>: Exclude null values from filtered results.</p>
+   *             </li>
+   *          </ul>
+   */
+  NullOption?: FilterNullOption | string;
 }
 
 /**

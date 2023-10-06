@@ -48,7 +48,7 @@ export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembers
  *   AwsAccountId: "STRING_VALUE", // required
  *   FolderId: "STRING_VALUE", // required
  *   MemberId: "STRING_VALUE", // required
- *   MemberType: "DASHBOARD" || "ANALYSIS" || "DATASET" || "TOPIC", // required
+ *   MemberType: "DASHBOARD" || "ANALYSIS" || "DATASET" || "DATASOURCE" || "TOPIC", // required
  * };
  * const command = new DeleteFolderMembershipCommand(input);
  * const response = await client.send(command);

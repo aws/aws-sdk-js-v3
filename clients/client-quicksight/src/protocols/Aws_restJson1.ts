@@ -993,7 +993,6 @@ import {
   DataPointDrillUpDownOption,
   DataPointMenuLabelOption,
   DataPointTooltipOption,
-  DataSet,
   DataSetConfiguration,
   DatasetMetadata,
   DatasetParameter,
@@ -1047,6 +1046,7 @@ import {
   ProjectOperation,
   RangeConstant,
   RdsParameters,
+  RedshiftIAMParameters,
   RedshiftParameters,
   RefreshFrequency,
   RefreshSchedule,
@@ -1107,11 +1107,13 @@ import {
   UnsupportedUserEditionException,
   UntagColumnOperation,
   UploadSettings,
+  ValidationStrategy,
   VisualAxisSortOption,
   VisualMenuOption,
   VpcConnectionProperties,
 } from "../models/models_2";
 import {
+  DataSet,
   DataSetRefreshProperties,
   DataSetSearchFilter,
   DataSetSummary,
@@ -1144,7 +1146,6 @@ import {
   SnapshotConfiguration,
   SnapshotDestinationConfiguration,
   SnapshotFileGroup,
-  SnapshotUserConfiguration,
   StatePersistenceConfigurations,
   Template,
   TemplateSummary,
@@ -1159,6 +1160,7 @@ import {
   VPCConnection,
   VPCConnectionSummary,
 } from "../models/models_3";
+import { SnapshotUserConfiguration } from "../models/models_4";
 import { QuickSightServiceException as __BaseException } from "../models/QuickSightServiceException";
 
 /**
@@ -1321,6 +1323,7 @@ export const se_CreateAnalysisCommand = async (
       SourceEntity: (_) => _json(_),
       Tags: (_) => _json(_),
       ThemeArn: [],
+      ValidationStrategy: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -1368,6 +1371,7 @@ export const se_CreateDashboardCommand = async (
       SourceEntity: (_) => _json(_),
       Tags: (_) => _json(_),
       ThemeArn: [],
+      ValidationStrategy: (_) => _json(_),
       VersionDescription: [],
     })
   );
@@ -1829,6 +1833,7 @@ export const se_CreateTemplateCommand = async (
       Permissions: (_) => _json(_),
       SourceEntity: (_) => _json(_),
       Tags: (_) => _json(_),
+      ValidationStrategy: (_) => _json(_),
       VersionDescription: [],
     })
   );
@@ -6235,6 +6240,7 @@ export const se_UpdateAnalysisCommand = async (
       Parameters: (_) => se__Parameters(_, context),
       SourceEntity: (_) => _json(_),
       ThemeArn: [],
+      ValidationStrategy: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -6321,6 +6327,7 @@ export const se_UpdateDashboardCommand = async (
       Parameters: (_) => se__Parameters(_, context),
       SourceEntity: (_) => _json(_),
       ThemeArn: [],
+      ValidationStrategy: (_) => _json(_),
       VersionDescription: [],
     })
   );
@@ -6928,6 +6935,7 @@ export const se_UpdateTemplateCommand = async (
       Definition: (_) => se_TemplateVersionDefinition(_, context),
       Name: [],
       SourceEntity: (_) => _json(_),
+      ValidationStrategy: (_) => _json(_),
       VersionDescription: [],
     })
   );
@@ -19889,6 +19897,8 @@ const se_DashboardVersionDefinition = (input: DashboardVersionDefinition, contex
 
 // se_DataBarsOptions omitted.
 
+// se_DatabaseGroupList omitted.
+
 // se_DatabricksParameters omitted.
 
 /**
@@ -22260,6 +22270,8 @@ const se_RadarChartVisual = (input: RadarChartVisual, context: __SerdeContext): 
 
 // se_RdsParameters omitted.
 
+// se_RedshiftIAMParameters omitted.
+
 // se_RedshiftParameters omitted.
 
 /**
@@ -23348,6 +23360,8 @@ const se_TreeMapVisual = (input: TreeMapVisual, context: __SerdeContext): any =>
 // se_UpdateResourcePermissionList omitted.
 
 // se_UploadSettings omitted.
+
+// se_ValidationStrategy omitted.
 
 /**
  * serializeAws_restJson1VisibleRangeOptions
@@ -24727,6 +24741,8 @@ const de_DashboardVersionSummaryList = (output: any, context: __SerdeContext): D
 // de_DataAggregation omitted.
 
 // de_DataBarsOptions omitted.
+
+// de_DatabaseGroupList omitted.
 
 // de_DatabricksParameters omitted.
 
@@ -27340,6 +27356,8 @@ const de_RadarChartVisual = (output: any, context: __SerdeContext): RadarChartVi
 // de_RangeEndsLabelType omitted.
 
 // de_RdsParameters omitted.
+
+// de_RedshiftIAMParameters omitted.
 
 // de_RedshiftParameters omitted.
 

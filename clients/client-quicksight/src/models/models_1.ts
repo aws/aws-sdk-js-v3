@@ -5102,6 +5102,7 @@ export interface SubtotalOptions {
  * @enum
  */
 export const TableTotalsPlacement = {
+  AUTO: "AUTO",
   END: "END",
   START: "START",
 } as const;

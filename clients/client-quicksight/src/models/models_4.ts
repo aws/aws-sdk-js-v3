@@ -36,11 +36,92 @@ import {
   ThemeConfiguration,
   TopicDetails,
   TopicRefreshSchedule,
+  ValidationStrategy,
   VPCConnectionAvailabilityStatus,
   VpcConnectionProperties,
   VPCConnectionResourceStatus,
 } from "./models_2";
-import { LinkSharingConfiguration, User, UserRole } from "./models_3";
+import { LinkSharingConfiguration, SnapshotAnonymousUser, SnapshotConfiguration, User, UserRole } from "./models_3";
+
+/**
+ * @public
+ * <p>A structure that contains information about the users that the dashboard snapshot is generated for.</p>
+ */
+export interface SnapshotUserConfiguration {
+  /**
+   * @public
+   * <p>An array of records that describe the anonymous users that the dashboard snapshot is generated for.</p>
+   */
+  AnonymousUsers?: SnapshotAnonymousUser[];
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardSnapshotJobRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the dashboard that you want to start a snapshot job for.
+   *         </p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * @public
+   * <p>An ID for the dashboard snapshot job. This ID is unique to the dashboard while the job is running. This ID can be used to poll the status of a job with a <code>DescribeDashboardSnapshotJob</code> while the job runs. You can reuse this ID for another job 24 hours after the current job is completed.</p>
+   */
+  SnapshotJobId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             A structure that contains information about the anonymous users that the generated snapshot is for. This API will not return information about registered Amazon QuickSight.</p>
+   */
+  UserConfiguration: SnapshotUserConfiguration | undefined;
+
+  /**
+   * @public
+   * <p>A structure that describes the configuration of the dashboard snapshot.</p>
+   */
+  SnapshotConfiguration: SnapshotConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardSnapshotJobResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the dashboard snapshot job.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the job. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+   */
+  SnapshotJobId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Web Services request ID for this operation.
+   *         </p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request</p>
+   */
+  Status?: number;
+}
 
 /**
  * @public
@@ -280,6 +361,12 @@ export interface UpdateAnalysisRequest {
    *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
    */
   Definition?: AnalysisDefinition;
+
+  /**
+   * @public
+   * <p>The option to relax the validation needed to update an analysis with definition objects. This skips the validation step for specific errors.</p>
+   */
+  ValidationStrategy?: ValidationStrategy;
 }
 
 /**
@@ -485,6 +572,12 @@ export interface UpdateDashboardRequest {
    *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
    */
   Definition?: DashboardVersionDefinition;
+
+  /**
+   * @public
+   * <p>The option to relax the validation needed to update a dashboard with definition objects. This skips the validation step for specific errors.</p>
+   */
+  ValidationStrategy?: ValidationStrategy;
 }
 
 /**
@@ -1479,6 +1572,12 @@ export interface UpdateTemplateRequest {
    *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
    */
   Definition?: TemplateVersionDefinition;
+
+  /**
+   * @public
+   * <p>The option to relax the validation needed to update a template with definition objects. This skips the validation step for specific errors.</p>
+   */
+  ValidationStrategy?: ValidationStrategy;
 }
 
 /**
@@ -2276,6 +2375,20 @@ export interface UpdateVPCConnectionResponse {
    */
   Status?: number;
 }
+
+/**
+ * @internal
+ */
+export const SnapshotUserConfigurationFilterSensitiveLog = (obj: SnapshotUserConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDashboardSnapshotJobRequestFilterSensitiveLog = (obj: StartDashboardSnapshotJobRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

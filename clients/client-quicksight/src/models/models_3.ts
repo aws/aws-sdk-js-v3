@@ -41,6 +41,8 @@ import {
   AssetBundleImportSourceFilterSensitiveLog,
   AssignmentStatus,
   BookmarksConfigurations,
+  ColumnGroup,
+  ColumnLevelPermissionRule,
   Dashboard,
   DashboardError,
   DashboardPublishOptions,
@@ -48,24 +50,29 @@ import {
   DashboardSummary,
   DashboardVersionDefinition,
   DashboardVersionSummary,
-  DataSet,
   DataSetConfiguration,
-  DataSetFilterAttribute,
-  DataSetFilterSensitiveLog,
   DataSetImportMode,
+  DatasetParameter,
+  DataSetUsageConfiguration,
   DataSourceParameters,
   DataSourceType,
+  FieldFolder,
   FolderType,
   Group,
   GroupMember,
   IdentityStore,
   IngestionStatus,
-  LookbackWindowSizeUnit,
+  LogicalTable,
+  LogicalTableFilterSensitiveLog,
   MemberType,
   NamespaceStatus,
+  OutputColumn,
+  PhysicalTable,
   RefreshSchedule,
   ResourcePermission,
   RowLevelPermissionDataSet,
+  RowLevelPermissionTagConfiguration,
+  RowLevelPermissionTagConfigurationFilterSensitiveLog,
   SharingModel,
   SslProperties,
   Tag,
@@ -80,6 +87,153 @@ import {
   VPCConnectionResourceStatus,
 } from "./models_2";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>Dataset.</p>
+ */
+export interface DataSet {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the dataset.</p>
+   */
+  DataSetId?: string;
+
+  /**
+   * @public
+   * <p>A display name for the dataset.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The time that this dataset was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time that this dataset was updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>Declares the physical tables that are available in the underlying data sources.</p>
+   */
+  PhysicalTableMap?: Record<string, PhysicalTable>;
+
+  /**
+   * @public
+   * <p>Configures the combination and transformation of the data from the physical
+   *             tables.</p>
+   */
+  LogicalTableMap?: Record<string, LogicalTable>;
+
+  /**
+   * @public
+   * <p>The list of columns after all transforms. These columns are available in templates,
+   *             analyses, and dashboards.</p>
+   */
+  OutputColumns?: OutputColumn[];
+
+  /**
+   * @public
+   * <p>A value that indicates whether you want to import the data into SPICE.</p>
+   */
+  ImportMode?: DataSetImportMode | string;
+
+  /**
+   * @public
+   * <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
+   *             imported into SPICE.</p>
+   */
+  ConsumedSpiceCapacityInBytes?: number;
+
+  /**
+   * @public
+   * <p>Groupings of columns that work together in certain Amazon QuickSight features.
+   *             Currently, only geospatial hierarchy is supported.</p>
+   */
+  ColumnGroups?: ColumnGroup[];
+
+  /**
+   * @public
+   * <p>The folder that contains fields and nested subfolders for your dataset.</p>
+   */
+  FieldFolders?: Record<string, FieldFolder>;
+
+  /**
+   * @public
+   * <p>The row-level security configuration for the dataset.</p>
+   */
+  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
+
+  /**
+   * @public
+   * <p>The element you can use to define tags for row-level security.</p>
+   */
+  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
+
+  /**
+   * @public
+   * <p>A set of one or more definitions of a <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+   *             </code>.</p>
+   */
+  ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
+
+  /**
+   * @public
+   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
+   */
+  DataSetUsageConfiguration?: DataSetUsageConfiguration;
+
+  /**
+   * @public
+   * <p>The parameters that are declared in a dataset.</p>
+   */
+  DatasetParameters?: DatasetParameter[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSetFilterAttribute = {
+  DATASET_NAME: "DATASET_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSetFilterAttribute = (typeof DataSetFilterAttribute)[keyof typeof DataSetFilterAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const LookbackWindowSizeUnit = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  WEEK: "WEEK",
+} as const;
+
+/**
+ * @public
+ */
+export type LookbackWindowSizeUnit = (typeof LookbackWindowSizeUnit)[keyof typeof LookbackWindowSizeUnit];
 
 /**
  * @public
@@ -9084,84 +9238,28 @@ export interface SnapshotAnonymousUser {
 }
 
 /**
- * @public
- * <p>A structure that contains information about the users that the dashboard snapshot is generated for.</p>
+ * @internal
  */
-export interface SnapshotUserConfiguration {
-  /**
-   * @public
-   * <p>An array of records that describe the anonymous users that the dashboard snapshot is generated for.</p>
-   */
-  AnonymousUsers?: SnapshotAnonymousUser[];
-}
-
-/**
- * @public
- */
-export interface StartDashboardSnapshotJobRequest {
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the dashboard that you want to start a snapshot job for.
-   *         </p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * @public
-   * <p>An ID for the dashboard snapshot job. This ID is unique to the dashboard while the job is running. This ID can be used to poll the status of a job with a <code>DescribeDashboardSnapshotJob</code> while the job runs. You can reuse this ID for another job 24 hours after the current job is completed.</p>
-   */
-  SnapshotJobId: string | undefined;
-
-  /**
-   * @public
-   * <p>
-   *             A structure that contains information about the anonymous users that the generated snapshot is for. This API will not return information about registered Amazon QuickSight.</p>
-   */
-  UserConfiguration: SnapshotUserConfiguration | undefined;
-
-  /**
-   * @public
-   * <p>A structure that describes the configuration of the dashboard snapshot.</p>
-   */
-  SnapshotConfiguration: SnapshotConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface StartDashboardSnapshotJobResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the dashboard snapshot job.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The ID of the job. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
-   */
-  SnapshotJobId?: string;
-
-  /**
-   * @public
-   * <p>
-   *             The Amazon Web Services request ID for this operation.
-   *         </p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request</p>
-   */
-  Status?: number;
-}
+export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
+  ...obj,
+  ...(obj.PhysicalTableMap && {
+    PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
+      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = value), acc),
+      {}
+    ),
+  }),
+  ...(obj.LogicalTableMap && {
+    LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
+      (acc: any, [key, value]: [string, LogicalTable]) => ((acc[key] = LogicalTableFilterSensitiveLog(value)), acc),
+      {}
+    ),
+  }),
+  ...(obj.RowLevelPermissionTagConfiguration && {
+    RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
+      obj.RowLevelPermissionTagConfiguration
+    ),
+  }),
+});
 
 /**
  * @internal
@@ -9315,18 +9413,4 @@ export const SnapshotAnonymousUserFilterSensitiveLog = (obj: SnapshotAnonymousUs
   ...(obj.RowLevelPermissionTags && {
     RowLevelPermissionTags: obj.RowLevelPermissionTags.map((item) => SessionTagFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const SnapshotUserConfigurationFilterSensitiveLog = (obj: SnapshotUserConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDashboardSnapshotJobRequestFilterSensitiveLog = (obj: StartDashboardSnapshotJobRequest): any => ({
-  ...obj,
 });

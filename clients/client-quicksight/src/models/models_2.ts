@@ -847,9 +847,40 @@ export interface RdsParameters {
 
 /**
  * @public
+ * <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+ *                <code>GetClusterCredentials</code>
+ *             </a>.</p>
+ */
+export interface RedshiftIAMParameters {
+  /**
+   * @public
+   * <p>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight service principal to assume the role.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+   */
+  DatabaseUser: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+   */
+  DatabaseGroups?: string[];
+
+  /**
+   * @public
+   * <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
+   */
+  AutoCreateDatabaseUser?: boolean;
+}
+
+/**
+ * @public
  * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
- *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
- *             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
+ *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
  */
 export interface RedshiftParameters {
   /**
@@ -876,6 +907,12 @@ export interface RedshiftParameters {
    *             provided.</p>
    */
   ClusterId?: string;
+
+  /**
+   * @public
+   * <p>An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster. This parameter can be used instead of <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html">DataSourceCredentials</a>.</p>
+   */
+  IAMParameters?: RedshiftIAMParameters;
 }
 
 /**
@@ -3475,6 +3512,32 @@ export interface ResourcePermission {
 
 /**
  * @public
+ * @enum
+ */
+export const ValidationStrategyMode = {
+  LENIENT: "LENIENT",
+  STRICT: "STRICT",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationStrategyMode = (typeof ValidationStrategyMode)[keyof typeof ValidationStrategyMode];
+
+/**
+ * @public
+ * <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+ */
+export interface ValidationStrategy {
+  /**
+   * @public
+   * <p>The mode of validation for the asset to be creaed or updated. When you set this value to <code>STRICT</code>, strict validation for every error is enforced. When you set this value to <code>LENIENT</code>, validation is skipped for specific UI errors.</p>
+   */
+  Mode: ValidationStrategyMode | string | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateAnalysisRequest {
   /**
@@ -3545,6 +3608,12 @@ export interface CreateAnalysisRequest {
    *             order for the request to be valid.</p>
    */
   Definition?: AnalysisDefinition;
+
+  /**
+   * @public
+   * <p>The option to relax the validation needed to create an analysis with definition objects. This skips the validation step for specific errors.</p>
+   */
+  ValidationStrategy?: ValidationStrategy;
 }
 
 /**
@@ -4083,6 +4152,12 @@ export interface CreateDashboardRequest {
    *             order for the request to be valid.</p>
    */
   Definition?: DashboardVersionDefinition;
+
+  /**
+   * @public
+   * <p>The option to relax the validation needed to create a dashboard with definition objects. This option skips the validation step for specific errors.</p>
+   */
+  ValidationStrategy?: ValidationStrategy;
 }
 
 /**
@@ -5724,6 +5799,7 @@ export const MemberType = {
   ANALYSIS: "ANALYSIS",
   DASHBOARD: "DASHBOARD",
   DATASET: "DATASET",
+  DATASOURCE: "DATASOURCE",
   TOPIC: "TOPIC",
 } as const;
 
@@ -6721,6 +6797,12 @@ export interface CreateTemplateRequest {
    * 			order for the request to be valid.</p>
    */
   Definition?: TemplateVersionDefinition;
+
+  /**
+   * @public
+   * <p>TThe option to relax the validation needed to create a template with definition objects. This skips the validation step for specific errors.</p>
+   */
+  ValidationStrategy?: ValidationStrategy;
 }
 
 /**
@@ -9105,153 +9187,6 @@ export interface OutputColumn {
 }
 
 /**
- * @public
- * <p>Dataset.</p>
- */
-export interface DataSet {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The ID of the dataset.</p>
-   */
-  DataSetId?: string;
-
-  /**
-   * @public
-   * <p>A display name for the dataset.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The time that this dataset was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * @public
-   * <p>The last time that this dataset was updated.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * @public
-   * <p>Declares the physical tables that are available in the underlying data sources.</p>
-   */
-  PhysicalTableMap?: Record<string, PhysicalTable>;
-
-  /**
-   * @public
-   * <p>Configures the combination and transformation of the data from the physical
-   *             tables.</p>
-   */
-  LogicalTableMap?: Record<string, LogicalTable>;
-
-  /**
-   * @public
-   * <p>The list of columns after all transforms. These columns are available in templates,
-   *             analyses, and dashboards.</p>
-   */
-  OutputColumns?: OutputColumn[];
-
-  /**
-   * @public
-   * <p>A value that indicates whether you want to import the data into SPICE.</p>
-   */
-  ImportMode?: DataSetImportMode | string;
-
-  /**
-   * @public
-   * <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
-   *             imported into SPICE.</p>
-   */
-  ConsumedSpiceCapacityInBytes?: number;
-
-  /**
-   * @public
-   * <p>Groupings of columns that work together in certain Amazon QuickSight features.
-   *             Currently, only geospatial hierarchy is supported.</p>
-   */
-  ColumnGroups?: ColumnGroup[];
-
-  /**
-   * @public
-   * <p>The folder that contains fields and nested subfolders for your dataset.</p>
-   */
-  FieldFolders?: Record<string, FieldFolder>;
-
-  /**
-   * @public
-   * <p>The row-level security configuration for the dataset.</p>
-   */
-  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
-
-  /**
-   * @public
-   * <p>The element you can use to define tags for row-level security.</p>
-   */
-  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
-
-  /**
-   * @public
-   * <p>A set of one or more definitions of a <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
-   *             </code>.</p>
-   */
-  ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
-
-  /**
-   * @public
-   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
-   */
-  DataSetUsageConfiguration?: DataSetUsageConfiguration;
-
-  /**
-   * @public
-   * <p>The parameters that are declared in a dataset.</p>
-   */
-  DatasetParameters?: DatasetParameter[];
-}
-
-/**
- * @public
- * @enum
- */
-export const DataSetFilterAttribute = {
-  DATASET_NAME: "DATASET_NAME",
-  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
-  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
-} as const;
-
-/**
- * @public
- */
-export type DataSetFilterAttribute = (typeof DataSetFilterAttribute)[keyof typeof DataSetFilterAttribute];
-
-/**
- * @public
- * @enum
- */
-export const LookbackWindowSizeUnit = {
-  DAY: "DAY",
-  HOUR: "HOUR",
-  WEEK: "WEEK",
-} as const;
-
-/**
- * @public
- */
-export type LookbackWindowSizeUnit = (typeof LookbackWindowSizeUnit)[keyof typeof LookbackWindowSizeUnit];
-
-/**
  * @internal
  */
 export const SnapshotJobResultFileGroupFilterSensitiveLog = (obj: SnapshotJobResultFileGroup): any => ({
@@ -9664,28 +9599,4 @@ export const TopicDetailsFilterSensitiveLog = (obj: TopicDetails): any => ({
  */
 export const CreateTopicRequestFilterSensitiveLog = (obj: CreateTopicRequest): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
-  ...obj,
-  ...(obj.PhysicalTableMap && {
-    PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = value), acc),
-      {}
-    ),
-  }),
-  ...(obj.LogicalTableMap && {
-    LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-      (acc: any, [key, value]: [string, LogicalTable]) => ((acc[key] = LogicalTableFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.RowLevelPermissionTagConfiguration && {
-    RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
-      obj.RowLevelPermissionTagConfiguration
-    ),
-  }),
 });

@@ -18,7 +18,7 @@ import {
   StartDashboardSnapshotJobRequest,
   StartDashboardSnapshotJobRequestFilterSensitiveLog,
   StartDashboardSnapshotJobResponse,
-} from "../models/models_3";
+} from "../models/models_4";
 import { de_StartDashboardSnapshotJobCommand, se_StartDashboardSnapshotJobCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

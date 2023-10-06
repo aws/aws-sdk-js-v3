@@ -117,6 +117,14 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         Port: Number("int"),
  * //         Database: "STRING_VALUE", // required
  * //         ClusterId: "STRING_VALUE",
+ * //         IAMParameters: { // RedshiftIAMParameters
+ * //           RoleArn: "STRING_VALUE", // required
+ * //           DatabaseUser: "STRING_VALUE", // required
+ * //           DatabaseGroups: [ // DatabaseGroupList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           AutoCreateDatabaseUser: true || false,
+ * //         },
  * //       },
  * //       S3Parameters: { // S3Parameters
  * //         ManifestFileLocation: { // ManifestFileLocation
@@ -223,6 +231,14 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //           Port: Number("int"),
  * //           Database: "STRING_VALUE", // required
  * //           ClusterId: "STRING_VALUE",
+ * //           IAMParameters: {
+ * //             RoleArn: "STRING_VALUE", // required
+ * //             DatabaseUser: "STRING_VALUE", // required
+ * //             DatabaseGroups: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             AutoCreateDatabaseUser: true || false,
+ * //           },
  * //         },
  * //         S3Parameters: {
  * //           ManifestFileLocation: {

@@ -858,7 +858,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                 },
  * //                 TotalOptions: { // TotalOptions
  * //                   TotalsVisibility: "HIDDEN" || "VISIBLE",
- * //                   Placement: "START" || "END",
+ * //                   Placement: "START" || "END" || "AUTO",
  * //                   ScrollStatus: "PINNED" || "SCROLLED",
  * //                   CustomLabel: "STRING_VALUE",
  * //                   TotalCellStyle: {
@@ -1363,7 +1363,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   },
  * //                   RowTotalOptions: { // PivotTotalOptions
  * //                     TotalsVisibility: "HIDDEN" || "VISIBLE",
- * //                     Placement: "START" || "END",
+ * //                     Placement: "START" || "END" || "AUTO",
  * //                     ScrollStatus: "PINNED" || "SCROLLED",
  * //                     CustomLabel: "STRING_VALUE",
  * //                     TotalCellStyle: "<TableCellStyle>",
@@ -1372,7 +1372,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   },
  * //                   ColumnTotalOptions: {
  * //                     TotalsVisibility: "HIDDEN" || "VISIBLE",
- * //                     Placement: "START" || "END",
+ * //                     Placement: "START" || "END" || "AUTO",
  * //                     ScrollStatus: "PINNED" || "SCROLLED",
  * //                     CustomLabel: "STRING_VALUE",
  * //                     TotalCellStyle: "<TableCellStyle>",
@@ -4342,6 +4342,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   MatchOperator: "EQUALS" || "DOES_NOT_EQUAL" || "CONTAINS" || "DOES_NOT_CONTAIN" || "STARTS_WITH" || "ENDS_WITH", // required
  * //                   CategoryValues: "<CategoryValueList>",
  * //                   SelectAllOptions: "FILTER_ALL_VALUES",
+ * //                   NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY",
  * //                 },
  * //                 CustomFilterListConfiguration: { // CustomFilterListConfiguration
  * //                   MatchOperator: "EQUALS" || "DOES_NOT_EQUAL" || "CONTAINS" || "DOES_NOT_CONTAIN" || "STARTS_WITH" || "ENDS_WITH", // required

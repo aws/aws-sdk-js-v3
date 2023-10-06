@@ -48,7 +48,7 @@ export interface CreateFolderMembershipCommandOutput extends CreateFolderMembers
  *   AwsAccountId: "STRING_VALUE", // required
  *   FolderId: "STRING_VALUE", // required
  *   MemberId: "STRING_VALUE", // required
- *   MemberType: "DASHBOARD" || "ANALYSIS" || "DATASET" || "TOPIC", // required
+ *   MemberType: "DASHBOARD" || "ANALYSIS" || "DATASET" || "DATASOURCE" || "TOPIC", // required
  * };
  * const command = new CreateFolderMembershipCommand(input);
  * const response = await client.send(command);
@@ -56,7 +56,7 @@ export interface CreateFolderMembershipCommandOutput extends CreateFolderMembers
  * //   Status: Number("int"),
  * //   FolderMember: { // FolderMember
  * //     MemberId: "STRING_VALUE",
- * //     MemberType: "DASHBOARD" || "ANALYSIS" || "DATASET" || "TOPIC",
+ * //     MemberType: "DASHBOARD" || "ANALYSIS" || "DATASET" || "DATASOURCE" || "TOPIC",
  * //   },
  * //   RequestId: "STRING_VALUE",
  * // };

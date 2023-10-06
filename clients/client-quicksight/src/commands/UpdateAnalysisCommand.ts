@@ -858,7 +858,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                 },
  *                 TotalOptions: { // TotalOptions
  *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
- *                   Placement: "START" || "END",
+ *                   Placement: "START" || "END" || "AUTO",
  *                   ScrollStatus: "PINNED" || "SCROLLED",
  *                   CustomLabel: "STRING_VALUE",
  *                   TotalCellStyle: {
@@ -1363,7 +1363,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                   },
  *                   RowTotalOptions: { // PivotTotalOptions
  *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
- *                     Placement: "START" || "END",
+ *                     Placement: "START" || "END" || "AUTO",
  *                     ScrollStatus: "PINNED" || "SCROLLED",
  *                     CustomLabel: "STRING_VALUE",
  *                     TotalCellStyle: "<TableCellStyle>",
@@ -1372,7 +1372,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                   },
  *                   ColumnTotalOptions: {
  *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
- *                     Placement: "START" || "END",
+ *                     Placement: "START" || "END" || "AUTO",
  *                     ScrollStatus: "PINNED" || "SCROLLED",
  *                     CustomLabel: "STRING_VALUE",
  *                     TotalCellStyle: "<TableCellStyle>",
@@ -4342,6 +4342,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                   MatchOperator: "EQUALS" || "DOES_NOT_EQUAL" || "CONTAINS" || "DOES_NOT_CONTAIN" || "STARTS_WITH" || "ENDS_WITH", // required
  *                   CategoryValues: "<CategoryValueList>",
  *                   SelectAllOptions: "FILTER_ALL_VALUES",
+ *                   NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY",
  *                 },
  *                 CustomFilterListConfiguration: { // CustomFilterListConfiguration
  *                   MatchOperator: "EQUALS" || "DOES_NOT_EQUAL" || "CONTAINS" || "DOES_NOT_CONTAIN" || "STARTS_WITH" || "ENDS_WITH", // required
@@ -4527,6 +4528,9 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *         SheetContentType: "PAGINATED" || "INTERACTIVE",
  *       },
  *     },
+ *   },
+ *   ValidationStrategy: { // ValidationStrategy
+ *     Mode: "STRICT" || "LENIENT", // required
  *   },
  * };
  * const command = new UpdateAnalysisCommand(input);
