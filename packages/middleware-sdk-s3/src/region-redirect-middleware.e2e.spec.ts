@@ -15,10 +15,15 @@ describe("S3 Global Client Test", () => {
   let callerID = null as unknown as GetCallerIdentityCommandOutput;
   let bucketNames = [] as string[];
 
+  // random element limited to 2 letters to avoid concurrent IO, and
+  // to limit bucket count to 676 if there is failure to delete them.
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const randId = alphabet[(Math.random() * alphabet.length) | 0] + alphabet[(Math.random() * alphabet.length) | 0];
+
   beforeAll(async () => {
-    jest.setTimeout(500000);
+    jest.setTimeout(60000);
     callerID = await stsClient.getCallerIdentity({});
-    bucketNames = regionConfigs.map((config) => `${callerID.Account}-redirect-${config.region}`);
+    bucketNames = regionConfigs.map((config) => `${callerID.Account}-${randId}-redirect-${config.region}`);
     await Promise.all(bucketNames.map((bucketName, index) => deleteBucket(s3Clients[index], bucketName)));
     await Promise.all(bucketNames.map((bucketName, index) => s3Clients[index].createBucket({ Bucket: bucketName })));
   });
@@ -35,7 +40,7 @@ describe("S3 Global Client Test", () => {
         await s3Client.putObject({ Bucket: bucketName, Key: objKey, Body: testValue });
       }
     }
-  }, 50000);
+  }, 60000);
 
   it("Should be able to get objects following region redirect", async () => {
     // Fetch and assert objects
@@ -47,7 +52,7 @@ describe("S3 Global Client Test", () => {
         expect(data).toEqual(testValue);
       }
     }
-  }, 50000);
+  }, 60000);
 
   it("Should delete objects following region redirect", async () => {
     for (const bucketName of bucketNames) {
@@ -56,7 +61,7 @@ describe("S3 Global Client Test", () => {
         await s3Client.deleteObject({ Bucket: bucketName, Key: objKey });
       }
     }
-  }, 50000);
+  }, 60000);
 });
 
 async function deleteBucket(s3: S3, bucketName: string) {
