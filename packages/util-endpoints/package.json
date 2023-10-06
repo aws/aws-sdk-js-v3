@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/node-config-provider": "^2.0.14",
+    "@smithy/node-config-provider": "^2.1.1",
     "tslib": "^2.5.0"
   },
   "engines": {
