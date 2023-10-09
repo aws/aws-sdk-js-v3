@@ -233,7 +233,7 @@ final class DocumentClientCommandGenerator implements Runnable {
             Shape collectionMemberTarget = model.expectShape(collectionMember.getTarget());
             if (collectionMemberTarget.isUnionShape()
                     && symbolProvider.toSymbol(collectionMemberTarget).getName().equals("AttributeValue")) {
-                writer.addImport("ALL_MEMBERS", null, "../src/commands/utils");
+                writer.addImport("ALL_MEMBERS", null, "./commands/utils");
                 writer.write("ALL_MEMBERS // set/list of AttributeValue");
                 return;
             }
@@ -243,7 +243,7 @@ final class DocumentClientCommandGenerator implements Runnable {
             });
         } else if (memberTarget.isUnionShape()) {
             if (symbolProvider.toSymbol(memberTarget).getName().equals("AttributeValue")) {
-                writer.addImport("SELF", null, "../src/commands/utils");
+                writer.addImport("SELF", null, "./commands/utils");
                 writer.write("SELF");
                 return;
             } else {
@@ -258,7 +258,7 @@ final class DocumentClientCommandGenerator implements Runnable {
             Shape mapMemberTarget = model.expectShape(mapMember.getTarget());
             if (mapMemberTarget.isUnionShape()
                     && symbolProvider.toSymbol(mapMemberTarget).getName().equals("AttributeValue")) {
-                writer.addImport("ALL_VALUES", null, "../src/commands/utils");
+                writer.addImport("ALL_VALUES", null, "./commands/utils");
                 writer.write("ALL_VALUES // map with AttributeValue");
                 return;
             } else {
