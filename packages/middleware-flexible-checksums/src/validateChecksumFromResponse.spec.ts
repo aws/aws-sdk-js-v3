@@ -5,12 +5,14 @@ import { ChecksumAlgorithm } from "./constants";
 import { getChecksum } from "./getChecksum";
 import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListForResponse";
 import { getChecksumLocationName } from "./getChecksumLocationName";
+import { isChecksumWithPartNumber } from "./isChecksumWithPartNumber";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
 jest.mock("./getChecksum");
 jest.mock("./getChecksumLocationName");
 jest.mock("./getChecksumAlgorithmListForResponse");
+jest.mock("./isChecksumWithPartNumber");
 jest.mock("./selectChecksumAlgorithmFunction");
 
 describe(validateChecksumFromResponse.name, () => {
@@ -30,6 +32,8 @@ describe(validateChecksumFromResponse.name, () => {
   const mockResponseAlgorithms = [ChecksumAlgorithm.CRC32, ChecksumAlgorithm.CRC32C];
 
   const mockOptions = {
+    clientName: "mockClientName",
+    commandName: "mockCommandName",
     config: mockConfig,
     responseAlgorithms: mockResponseAlgorithms,
   };
@@ -47,6 +51,7 @@ describe(validateChecksumFromResponse.name, () => {
   beforeEach(() => {
     (getChecksumLocationName as jest.Mock).mockImplementation((algorithm) => algorithm);
     (getChecksumAlgorithmListForResponse as jest.Mock).mockImplementation((responseAlgorithms) => responseAlgorithms);
+    (isChecksumWithPartNumber as jest.Mock).mockReturnValue(false);
     (selectChecksumAlgorithmFunction as jest.Mock).mockReturnValue(mockChecksumAlgorithmFn);
     (getChecksum as jest.Mock).mockResolvedValue(mockChecksum);
   });
@@ -81,6 +86,21 @@ describe(validateChecksumFromResponse.name, () => {
       expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
       expect(getChecksumLocationName).toHaveBeenCalledTimes(mockResponseAlgorithms.length);
     });
+
+    it("if checksum is for S3 whole-object multipart GET", async () => {
+      (isChecksumWithPartNumber as jest.Mock).mockReturnValue(true);
+      const responseWithChecksum = getMockResponseWithHeader(mockResponseAlgorithms[0], mockChecksum);
+      await validateChecksumFromResponse(responseWithChecksum, {
+        ...mockOptions,
+        clientName: "S3Client",
+        commandName: "GetObjectCommand",
+      });
+      expect(getChecksumLocationName).toHaveBeenCalledTimes(2);
+      expect(getChecksumLocationName).toHaveBeenNthCalledWith(1, mockResponseAlgorithms[0]);
+      expect(getChecksumLocationName).toHaveBeenNthCalledWith(2, mockResponseAlgorithms[1]);
+      expect(isChecksumWithPartNumber).toHaveBeenCalledTimes(1);
+      expect(isChecksumWithPartNumber).toHaveBeenCalledWith(mockChecksum);
+    });
   });
 
   describe("successful validation", () => {
@@ -88,6 +108,19 @@ describe(validateChecksumFromResponse.name, () => {
       expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
       expect(selectChecksumAlgorithmFunction).toHaveBeenCalledTimes(1);
       expect(getChecksum).toHaveBeenCalledTimes(1);
+    });
+
+    it("if checksum is for S3 GET without partnumber", async () => {
+      const responseWithChecksum = getMockResponseWithHeader(mockResponseAlgorithms[0], mockChecksum);
+      await validateChecksumFromResponse(responseWithChecksum, {
+        ...mockOptions,
+        clientName: "S3Client",
+        commandName: "GetObjectCommand",
+      });
+      expect(getChecksumLocationName).toHaveBeenCalledTimes(1);
+      expect(getChecksumLocationName).toHaveBeenCalledWith(mockResponseAlgorithms[0]);
+      expect(isChecksumWithPartNumber).toHaveBeenCalledTimes(1);
+      expect(isChecksumWithPartNumber).toHaveBeenCalledWith(mockChecksum);
     });
 
     it("when checksum is populated for first algorithm", async () => {

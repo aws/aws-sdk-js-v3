@@ -5,9 +5,12 @@ import { ChecksumAlgorithm } from "./constants";
 import { getChecksum } from "./getChecksum";
 import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListForResponse";
 import { getChecksumLocationName } from "./getChecksumLocationName";
+import { isChecksumWithPartNumber } from "./isChecksumWithPartNumber";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 
 export interface ValidateChecksumFromResponseOptions {
+  clientName: string;
+  commandName: string;
   config: PreviouslyResolved;
 
   /**
@@ -19,7 +22,7 @@ export interface ValidateChecksumFromResponseOptions {
 
 export const validateChecksumFromResponse = async (
   response: HttpResponse,
-  { config, responseAlgorithms }: ValidateChecksumFromResponseOptions
+  { clientName, commandName, config, responseAlgorithms }: ValidateChecksumFromResponseOptions
 ) => {
   // Verify checksum in response header.
   const checksumAlgorithms = getChecksumAlgorithmListForResponse(responseAlgorithms);
@@ -27,7 +30,17 @@ export const validateChecksumFromResponse = async (
   for (const algorithm of checksumAlgorithms) {
     const responseHeader = getChecksumLocationName(algorithm);
     const checksumFromResponse = responseHeaders[responseHeader];
+
     if (checksumFromResponse) {
+      const isS3WholeObjectMultipartGetResponseChecksum =
+        clientName === "S3Client" &&
+        commandName === "GetObjectCommand" &&
+        isChecksumWithPartNumber(checksumFromResponse);
+
+      if (isS3WholeObjectMultipartGetResponseChecksum) {
+        continue;
+      }
+
       const checksumAlgorithmFn = selectChecksumAlgorithmFunction(algorithm as ChecksumAlgorithm, config);
       const { streamHasher, base64Encoder } = config;
       const checksum = await getChecksum(responseBody, { streamHasher, checksumAlgorithmFn, base64Encoder });
