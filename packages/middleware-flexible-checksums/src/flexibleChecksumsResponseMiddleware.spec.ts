@@ -13,6 +13,10 @@ jest.mock("./validateChecksumFromResponse");
 
 describe(flexibleChecksumsResponseMiddleware.name, () => {
   const mockNext = jest.fn();
+  const mockContext = {
+    clientName: "mockClientName",
+    commandName: "mockCommandName",
+  };
 
   const mockConfig = {} as PreviouslyResolved;
   const mockRequestValidationModeMember = "ChecksumEnabled";
@@ -41,7 +45,7 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
     it("if not an instance of HttpRequest", async () => {
       const { isInstance } = HttpRequest;
       (isInstance as unknown as jest.Mock).mockReturnValue(false);
-      const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
+      const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, mockContext);
       await handler(mockArgs);
       expect(validateChecksumFromResponse).not.toHaveBeenCalled();
     });
@@ -50,13 +54,13 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
       it("if requestValidationModeMember is not defined", async () => {
         const mockMwConfig = Object.assign({}, mockMiddlewareConfig) as FlexibleChecksumsMiddlewareConfig;
         delete mockMwConfig.requestValidationModeMember;
-        const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMwConfig)(mockNext, {});
+        const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMwConfig)(mockNext, mockContext);
         await handler(mockArgs);
         expect(validateChecksumFromResponse).not.toHaveBeenCalled();
       });
 
       it("if requestValidationModeMember is not enabled in input", async () => {
-        const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
+        const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, mockContext);
         await handler({ ...mockArgs, input: {} });
         expect(validateChecksumFromResponse).not.toHaveBeenCalled();
       });
@@ -69,10 +73,12 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
     const handler = flexibleChecksumsResponseMiddleware(mockConfig, {
       ...mockMiddlewareConfig,
       responseAlgorithms: mockResponseAlgorithms,
-    })(mockNext, {});
+    })(mockNext, mockContext);
 
     await handler(mockArgs);
     expect(validateChecksumFromResponse).toHaveBeenCalledWith(mockResult.response, {
+      clientName: mockContext.clientName,
+      commandName: mockContext.commandName,
       config: mockConfig,
       responseAlgorithms: mockResponseAlgorithms,
     });
