@@ -2,13 +2,18 @@ import { HttpRequest } from "@smithy/protocol-http";
 import { DeserializeHandlerArguments } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
+import { ChecksumAlgorithm } from "./constants";
 import { flexibleChecksumsResponseMiddleware } from "./flexibleChecksumsResponseMiddleware";
+import { getChecksumLocationName } from "./getChecksumLocationName";
 import { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
+import { isChecksumWithPartNumber } from "./isChecksumWithPartNumber";
 import { isStreaming } from "./isStreaming";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
 jest.mock("@smithy/protocol-http");
+jest.mock("./isChecksumWithPartNumber");
 jest.mock("./isStreaming");
+jest.mock("./getChecksumLocationName");
 jest.mock("./validateChecksumFromResponse");
 
 describe(flexibleChecksumsResponseMiddleware.name, () => {
@@ -20,20 +25,32 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
 
   const mockConfig = {} as PreviouslyResolved;
   const mockRequestValidationModeMember = "ChecksumEnabled";
+  const mockResponseAlgorithms = [ChecksumAlgorithm.CRC32, ChecksumAlgorithm.CRC32C];
   const mockMiddlewareConfig = {
     requestValidationModeMember: mockRequestValidationModeMember,
+    responseAlgorithms: mockResponseAlgorithms,
   };
 
   const mockInput = { [mockRequestValidationModeMember]: "ENABLED" };
   const mockRequest = {};
   const mockArgs = { input: mockInput, request: mockRequest } as DeserializeHandlerArguments<any>;
-  const mockResult = { response: { body: "mockResponsebody" } };
+  const mockChecksum = "mockChecksum";
+  const mockResult = {
+    response: {
+      body: "mockResponsebody",
+      headers: {
+        [ChecksumAlgorithm.CRC32]: mockChecksum,
+      },
+    },
+  };
 
   beforeEach(() => {
     mockNext.mockResolvedValueOnce(mockResult);
     const { isInstance } = HttpRequest;
     (isInstance as unknown as jest.Mock).mockReturnValue(true);
+    (isChecksumWithPartNumber as jest.Mock).mockReturnValue(false);
     (isStreaming as jest.Mock).mockReturnValue(false);
+    (getChecksumLocationName as jest.Mock).mockImplementation((algorithm) => algorithm);
   });
 
   afterEach(() => {
@@ -64,23 +81,45 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
         await handler({ ...mockArgs, input: {} });
         expect(validateChecksumFromResponse).not.toHaveBeenCalled();
       });
+
+      it("if checksum is for S3 whole-object multipart GET", async () => {
+        (isChecksumWithPartNumber as jest.Mock).mockReturnValue(true);
+        const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {
+          clientName: "S3Client",
+          commandName: "GetObjectCommand",
+        });
+        await handler(mockArgs);
+        expect(isChecksumWithPartNumber).toHaveBeenCalledTimes(1);
+        expect(isChecksumWithPartNumber).toHaveBeenCalledWith(mockChecksum);
+        expect(validateChecksumFromResponse).not.toHaveBeenCalled();
+      });
     });
   });
 
-  it("validates checksum from the response header", async () => {
-    const mockResponseAlgorithms = ["ALGO1", "ALGO2"];
+  describe("validates checksum from response header", () => {
+    it("generic case", async () => {
+      const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, mockContext);
 
-    const handler = flexibleChecksumsResponseMiddleware(mockConfig, {
-      ...mockMiddlewareConfig,
-      responseAlgorithms: mockResponseAlgorithms,
-    })(mockNext, mockContext);
+      await handler(mockArgs);
+      expect(validateChecksumFromResponse).toHaveBeenCalledWith(mockResult.response, {
+        config: mockConfig,
+        responseAlgorithms: mockResponseAlgorithms,
+      });
+    });
 
-    await handler(mockArgs);
-    expect(validateChecksumFromResponse).toHaveBeenCalledWith(mockResult.response, {
-      clientName: mockContext.clientName,
-      commandName: mockContext.commandName,
-      config: mockConfig,
-      responseAlgorithms: mockResponseAlgorithms,
+    it("if checksum is for S3 GET without part number", async () => {
+      (isChecksumWithPartNumber as jest.Mock).mockReturnValue(false);
+      const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {
+        clientName: "S3Client",
+        commandName: "GetObjectCommand",
+      });
+      await handler(mockArgs);
+      expect(isChecksumWithPartNumber).toHaveBeenCalledTimes(1);
+      expect(isChecksumWithPartNumber).toHaveBeenCalledWith(mockChecksum);
+      expect(validateChecksumFromResponse).toHaveBeenCalledWith(mockResult.response, {
+        config: mockConfig,
+        responseAlgorithms: mockResponseAlgorithms,
+      });
     });
   });
 });

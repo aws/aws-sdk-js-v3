@@ -10,6 +10,10 @@ import {
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
+import { ChecksumAlgorithm } from "./constants";
+import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListForResponse";
+import { getChecksumLocationName } from "./getChecksumLocationName";
+import { isChecksumWithPartNumber } from "./isChecksumWithPartNumber";
 import { isStreaming } from "./isStreaming";
 import { createReadStreamOnBuffer } from "./streams/create-read-stream-on-buffer";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
@@ -65,6 +69,20 @@ export const flexibleChecksumsResponseMiddleware =
     let collectedStream: Uint8Array | undefined = undefined;
 
     const { requestValidationModeMember, responseAlgorithms } = middlewareConfig;
+
+    const { clientName, commandName } = context;
+    const isS3WholeObjectMultipartGetResponseChecksum =
+      clientName === "S3Client" &&
+      commandName === "GetObjectCommand" &&
+      getChecksumAlgorithmListForResponse(responseAlgorithms).every((algorithm: ChecksumAlgorithm) => {
+        const responseHeader = getChecksumLocationName(algorithm);
+        const checksumFromResponse = response.headers[responseHeader];
+        return !checksumFromResponse || isChecksumWithPartNumber(checksumFromResponse);
+      });
+    if (isS3WholeObjectMultipartGetResponseChecksum) {
+      return result;
+    }
+
     // @ts-ignore Element implicitly has an 'any' type for input[requestValidationModeMember]
     if (requestValidationModeMember && input[requestValidationModeMember] === "ENABLED") {
       const isStreamingBody = isStreaming(response.body);
@@ -74,10 +92,7 @@ export const flexibleChecksumsResponseMiddleware =
         response.body = createReadStreamOnBuffer(collectedStream);
       }
 
-      const { clientName, commandName } = context;
       await validateChecksumFromResponse(result.response as HttpResponse, {
-        clientName,
-        commandName,
         config,
         responseAlgorithms,
       });
