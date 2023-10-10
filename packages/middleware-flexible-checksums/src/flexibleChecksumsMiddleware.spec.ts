@@ -1,17 +1,15 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { BuildHandlerArguments, DeserializeHandlerArguments } from "@smithy/types";
+import { BuildHandlerArguments } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
 import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
-import { flexibleChecksumsResponseMiddleware } from "./flexibleChecksumsResponseMiddleware";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { hasHeader } from "./hasHeader";
 import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { stringHasher } from "./stringHasher";
-import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
 jest.mock("@smithy/protocol-http");
 jest.mock("./getChecksumAlgorithmForRequest");
@@ -20,7 +18,6 @@ jest.mock("./hasHeader");
 jest.mock("./isStreaming");
 jest.mock("./selectChecksumAlgorithmFunction");
 jest.mock("./stringHasher");
-jest.mock("./validateChecksumFromResponse");
 
 describe(flexibleChecksumsMiddleware.name, () => {
   const mockNext = jest.fn();
@@ -90,24 +87,6 @@ describe(flexibleChecksumsMiddleware.name, () => {
         expect(selectChecksumAlgorithmFunction).toHaveBeenCalledWith(ChecksumAlgorithm.MD5, mockConfig);
         expect(mockNext).toHaveBeenCalledWith(mockArgsWithChecksumHeader);
         expect(hasHeader).toHaveBeenCalledWith(mockChecksumLocationName, mockHeadersWithChecksumHeader);
-      });
-    });
-
-    describe("response validation", () => {
-      it("if requestValidationModeMember is not defined", async () => {
-        const handler = flexibleChecksumsMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
-        await handler(mockArgs);
-        expect(validateChecksumFromResponse).not.toHaveBeenCalled();
-      });
-
-      it("if requestValidationModeMember is not set to 'ENABLED' in input", async () => {
-        const mockRequestValidationModeMember = "mockRequestValidationModeMember";
-        const handler = flexibleChecksumsMiddleware(mockConfig, {
-          ...mockMiddlewareConfig,
-          requestValidationModeMember: mockRequestValidationModeMember,
-        })(mockNext, {});
-        await handler(mockArgs);
-        expect(validateChecksumFromResponse).not.toHaveBeenCalled();
       });
     });
   });
@@ -187,25 +166,6 @@ describe(flexibleChecksumsMiddleware.name, () => {
       expect(hasHeader).toHaveBeenCalledWith(mockChecksumLocationName, mockHeaders);
       expect(stringHasher).toHaveBeenCalledWith(mockChecksumAlgorithmFunction, mockRequest.body);
       expect(mockBase64Encoder).toHaveBeenCalledWith(mockRawChecksum);
-    });
-  });
-
-  it("validates checksum from the response header", async () => {
-    const mockRequestValidationModeMember = "mockRequestValidationModeMember";
-    const mockInput = { [mockRequestValidationModeMember]: "ENABLED" };
-    const mockResponseAlgorithms = ["ALGO1", "ALGO2"];
-
-    const responseHandler = flexibleChecksumsResponseMiddleware(mockConfig, {
-      ...mockMiddlewareConfig,
-      input: mockInput,
-      requestValidationModeMember: mockRequestValidationModeMember,
-      responseAlgorithms: mockResponseAlgorithms,
-    })(mockNext, {});
-
-    await responseHandler({ ...mockArgs, input: mockInput } as DeserializeHandlerArguments<any>);
-    expect(validateChecksumFromResponse).toHaveBeenCalledWith(mockResult.response, {
-      config: mockConfig,
-      responseAlgorithms: mockResponseAlgorithms,
     });
   });
 });
