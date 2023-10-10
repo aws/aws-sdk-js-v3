@@ -1,18 +1,11 @@
-import { BuildHandlerOptions, Pluggable } from "@smithy/types";
+import { Pluggable } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
+import { flexibleChecksumsMiddleware, flexibleChecksumsMiddlewareOptions } from "./flexibleChecksumsMiddleware";
 import {
   flexibleChecksumsResponseMiddleware,
   flexibleChecksumsResponseMiddlewareOptions,
 } from "./flexibleChecksumsResponseMiddleware";
-
-export const flexibleChecksumsMiddlewareOptions: BuildHandlerOptions = {
-  name: "flexibleChecksumsMiddleware",
-  step: "build",
-  tags: ["BODY_CHECKSUM"],
-  override: true,
-};
 
 export interface FlexibleChecksumsMiddlewareConfig {
   /**

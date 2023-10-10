@@ -2,6 +2,7 @@ import { HttpRequest } from "@smithy/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
+  BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
@@ -15,6 +16,13 @@ import { hasHeader } from "./hasHeader";
 import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { stringHasher } from "./stringHasher";
+
+export const flexibleChecksumsMiddlewareOptions: BuildHandlerOptions = {
+  name: "flexibleChecksumsMiddleware",
+  step: "build",
+  tags: ["BODY_CHECKSUM"],
+  override: true,
+};
 
 /**
  * @internal
