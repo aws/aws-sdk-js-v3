@@ -11,11 +11,27 @@ import {
 import { PreviouslyResolved } from "./configuration";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
-import { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
 import { hasHeader } from "./hasHeader";
 import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { stringHasher } from "./stringHasher";
+
+export interface FlexibleChecksumsRequestMiddlewareConfig {
+  /**
+   * The input object for the operation.
+   */
+  input: Object;
+
+  /**
+   * Indicates an operation requires a checksum in its HTTP request.
+   */
+  requestChecksumRequired: boolean;
+
+  /**
+   * Defines a top-level operation input member that is used to configure request checksum behavior.
+   */
+  requestAlgorithmMember?: string;
+}
 
 export const flexibleChecksumsMiddlewareOptions: BuildHandlerOptions = {
   name: "flexibleChecksumsMiddleware",
@@ -28,7 +44,7 @@ export const flexibleChecksumsMiddlewareOptions: BuildHandlerOptions = {
  * @internal
  */
 export const flexibleChecksumsMiddleware =
-  (config: PreviouslyResolved, middlewareConfig: FlexibleChecksumsMiddlewareConfig): BuildMiddleware<any, any> =>
+  (config: PreviouslyResolved, middlewareConfig: FlexibleChecksumsRequestMiddlewareConfig): BuildMiddleware<any, any> =>
   <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
   async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
     if (!HttpRequest.isInstance(args.request)) {

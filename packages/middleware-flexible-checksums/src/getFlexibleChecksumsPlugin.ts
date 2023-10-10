@@ -1,40 +1,20 @@
 import { Pluggable } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { flexibleChecksumsMiddleware, flexibleChecksumsMiddlewareOptions } from "./flexibleChecksumsMiddleware";
+import {
+  flexibleChecksumsMiddleware,
+  flexibleChecksumsMiddlewareOptions,
+  FlexibleChecksumsRequestMiddlewareConfig,
+} from "./flexibleChecksumsMiddleware";
 import {
   flexibleChecksumsResponseMiddleware,
+  FlexibleChecksumsResponseMiddlewareConfig,
   flexibleChecksumsResponseMiddlewareOptions,
 } from "./flexibleChecksumsResponseMiddleware";
 
-export interface FlexibleChecksumsMiddlewareConfig {
-  /**
-   * The input object for the operation.
-   */
-  input: Object;
-
-  /**
-   * Indicates an operation requires a checksum in its HTTP request.
-   */
-  requestChecksumRequired: boolean;
-
-  /**
-   * Defines a top-level operation input member that is used to configure request checksum behavior.
-   */
-  requestAlgorithmMember?: string;
-
-  /**
-   * Defines a top-level operation input member used to opt-in to best-effort validation
-   * of a checksum returned in the HTTP response of the operation.
-   */
-  requestValidationModeMember?: string;
-
-  /**
-   * Defines the checksum algorithms clients SHOULD look for when validating checksums
-   * returned in the HTTP response.
-   */
-  responseAlgorithms?: string[];
-}
+export interface FlexibleChecksumsMiddlewareConfig
+  extends FlexibleChecksumsRequestMiddlewareConfig,
+    FlexibleChecksumsResponseMiddlewareConfig {}
 
 export const getFlexibleChecksumsPlugin = (
   config: PreviouslyResolved,

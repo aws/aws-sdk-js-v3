@@ -9,10 +9,23 @@ import {
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
 import { isStreaming } from "./isStreaming";
 import { createReadStreamOnBuffer } from "./streams/create-read-stream-on-buffer";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
+
+export interface FlexibleChecksumsResponseMiddlewareConfig {
+  /**
+   * Defines a top-level operation input member used to opt-in to best-effort validation
+   * of a checksum returned in the HTTP response of the operation.
+   */
+  requestValidationModeMember?: string;
+
+  /**
+   * Defines the checksum algorithms clients SHOULD look for when validating checksums
+   * returned in the HTTP response.
+   */
+  responseAlgorithms?: string[];
+}
 
 /**
  * @internal
@@ -31,7 +44,10 @@ export const flexibleChecksumsResponseMiddlewareOptions: RelativeMiddlewareOptio
  * The validation counterpart to the flexibleChecksumsMiddleware.
  */
 export const flexibleChecksumsResponseMiddleware =
-  (config: PreviouslyResolved, middlewareConfig: FlexibleChecksumsMiddlewareConfig): DeserializeMiddleware<any, any> =>
+  (
+    config: PreviouslyResolved,
+    middlewareConfig: FlexibleChecksumsResponseMiddlewareConfig
+  ): DeserializeMiddleware<any, any> =>
   <Output extends MetadataBearer>(next: DeserializeHandler<any, Output>): DeserializeHandler<any, Output> =>
   async (args: DeserializeHandlerArguments<any>): Promise<DeserializeHandlerOutput<Output>> => {
     if (!HttpRequest.isInstance(args.request)) {
