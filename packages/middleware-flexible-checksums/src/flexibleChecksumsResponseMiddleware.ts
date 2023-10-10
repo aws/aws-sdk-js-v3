@@ -69,22 +69,21 @@ export const flexibleChecksumsResponseMiddleware =
     let collectedStream: Uint8Array | undefined = undefined;
 
     const { requestValidationModeMember, responseAlgorithms } = middlewareConfig;
-
-    const { clientName, commandName } = context;
-    const isS3WholeObjectMultipartGetResponseChecksum =
-      clientName === "S3Client" &&
-      commandName === "GetObjectCommand" &&
-      getChecksumAlgorithmListForResponse(responseAlgorithms).every((algorithm: ChecksumAlgorithm) => {
-        const responseHeader = getChecksumLocationName(algorithm);
-        const checksumFromResponse = response.headers[responseHeader];
-        return !checksumFromResponse || isChecksumWithPartNumber(checksumFromResponse);
-      });
-    if (isS3WholeObjectMultipartGetResponseChecksum) {
-      return result;
-    }
-
     // @ts-ignore Element implicitly has an 'any' type for input[requestValidationModeMember]
     if (requestValidationModeMember && input[requestValidationModeMember] === "ENABLED") {
+      const { clientName, commandName } = context;
+      const isS3WholeObjectMultipartGetResponseChecksum =
+        clientName === "S3Client" &&
+        commandName === "GetObjectCommand" &&
+        getChecksumAlgorithmListForResponse(responseAlgorithms).every((algorithm: ChecksumAlgorithm) => {
+          const responseHeader = getChecksumLocationName(algorithm);
+          const checksumFromResponse = response.headers[responseHeader];
+          return !checksumFromResponse || isChecksumWithPartNumber(checksumFromResponse);
+        });
+      if (isS3WholeObjectMultipartGetResponseChecksum) {
+        return result;
+      }
+
       const isStreamingBody = isStreaming(response.body);
 
       if (isStreamingBody) {
