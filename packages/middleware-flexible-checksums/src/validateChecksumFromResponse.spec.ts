@@ -50,35 +50,40 @@ describe(validateChecksumFromResponse.name, () => {
     jest.clearAllMocks();
   });
 
-  it("skip validation if response algorithms is empty", async () => {
-    const emptyAlgorithmsList = [];
-    await validateChecksumFromResponse(mockResponse, { config: mockConfig, responseAlgorithms: emptyAlgorithmsList });
-    expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(emptyAlgorithmsList);
-    expect(getChecksumLocationName).not.toHaveBeenCalled();
-  });
-
-  it("skip validation if updated algorithm list from response is empty", async () => {
-    (getChecksumAlgorithmListForResponse as jest.Mock).mockImplementation(() => []);
-    await validateChecksumFromResponse(mockResponse, {
-      config: mockConfig,
-      responseAlgorithms: mockResponseAlgorithms,
+  describe("skip validation", () => {
+    afterEach(() => {
+      expect(selectChecksumAlgorithmFunction).not.toHaveBeenCalled();
+      expect(getChecksum).not.toHaveBeenCalled();
     });
-    expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
-    expect(getChecksumLocationName).not.toHaveBeenCalled();
-  });
 
-  it("skip validation if checksum is not present in header", async () => {
-    await validateChecksumFromResponse(mockResponse, {
-      config: mockConfig,
-      responseAlgorithms: mockResponseAlgorithms,
+    it("if response algorithms is empty", async () => {
+      const emptyAlgorithmsList = [];
+      await validateChecksumFromResponse(mockResponse, { config: mockConfig, responseAlgorithms: emptyAlgorithmsList });
+      expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(emptyAlgorithmsList);
+      expect(getChecksumLocationName).not.toHaveBeenCalled();
     });
-    expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
-    expect(getChecksumLocationName).toHaveBeenCalledTimes(mockResponseAlgorithms.length);
-    expect(selectChecksumAlgorithmFunction).not.toHaveBeenCalled();
-    expect(getChecksum).not.toHaveBeenCalled();
+
+    it("if updated algorithm list from response is empty", async () => {
+      (getChecksumAlgorithmListForResponse as jest.Mock).mockImplementation(() => []);
+      await validateChecksumFromResponse(mockResponse, {
+        config: mockConfig,
+        responseAlgorithms: mockResponseAlgorithms,
+      });
+      expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
+      expect(getChecksumLocationName).not.toHaveBeenCalled();
+    });
+
+    it("if checksum is not present in header", async () => {
+      await validateChecksumFromResponse(mockResponse, {
+        config: mockConfig,
+        responseAlgorithms: mockResponseAlgorithms,
+      });
+      expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
+      expect(getChecksumLocationName).toHaveBeenCalledTimes(mockResponseAlgorithms.length);
+    });
   });
 
-  describe("successful validation for accurate checksum value", () => {
+  describe("successful validation", () => {
     afterEach(() => {
       expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
       expect(selectChecksumAlgorithmFunction).toHaveBeenCalledTimes(1);
