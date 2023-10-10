@@ -1,5 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { BuildHandlerArguments } from "@smithy/types";
+import { DeserializeHandlerArguments } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
 import { flexibleChecksumsResponseMiddleware } from "./flexibleChecksumsResponseMiddleware";
@@ -23,10 +23,8 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
     requestValidationModeMember: mockRequestValidationModeMember,
   };
 
-  const mockBody = { body: "mockRequestBody" };
-  const mockHeaders = { "content-length": 100, "content-encoding": "gzip" };
-  const mockRequest = { body: mockBody, headers: mockHeaders };
-  const mockArgs = { request: mockRequest } as BuildHandlerArguments<any>;
+  const mockRequest = {};
+  const mockArgs = { input: mockInput, request: mockRequest } as DeserializeHandlerArguments<any>;
   const mockResult = { response: { body: "mockResponsebody" } };
 
   beforeEach(() => {
@@ -61,7 +59,7 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
 
       it("if requestValidationModeMember is not enabled in input", async () => {
         const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
-        await handler({ ...mockArgs, input: mockInput });
+        await handler(mockArgs);
         expect(validateChecksumFromResponse).not.toHaveBeenCalled();
       });
     });
