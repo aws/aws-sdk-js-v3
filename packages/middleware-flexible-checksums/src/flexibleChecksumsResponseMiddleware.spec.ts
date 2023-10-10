@@ -14,13 +14,13 @@ jest.mock("./validateChecksumFromResponse");
 describe(flexibleChecksumsResponseMiddleware.name, () => {
   const mockNext = jest.fn();
 
-  const mockInput = {};
   const mockConfig = {} as PreviouslyResolved;
   const mockRequestValidationModeMember = "ChecksumEnabled";
   const mockMiddlewareConfig = {
     requestValidationModeMember: mockRequestValidationModeMember,
   };
 
+  const mockInput = { [mockRequestValidationModeMember]: "ENABLED" };
   const mockRequest = {};
   const mockArgs = { input: mockInput, request: mockRequest } as DeserializeHandlerArguments<any>;
   const mockResult = { response: { body: "mockResponsebody" } };
@@ -57,14 +57,13 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
 
       it("if requestValidationModeMember is not enabled in input", async () => {
         const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
-        await handler(mockArgs);
+        await handler({ ...mockArgs, input: {} });
         expect(validateChecksumFromResponse).not.toHaveBeenCalled();
       });
     });
   });
 
   it("validates checksum from the response header", async () => {
-    const mockInput = { [mockRequestValidationModeMember]: "ENABLED" };
     const mockResponseAlgorithms = ["ALGO1", "ALGO2"];
 
     const handler = flexibleChecksumsResponseMiddleware(mockConfig, {
@@ -72,7 +71,7 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
       responseAlgorithms: mockResponseAlgorithms,
     })(mockNext, {});
 
-    await handler({ ...mockArgs, input: mockInput });
+    await handler(mockArgs);
     expect(validateChecksumFromResponse).toHaveBeenCalledWith(mockResult.response, {
       config: mockConfig,
       responseAlgorithms: mockResponseAlgorithms,
