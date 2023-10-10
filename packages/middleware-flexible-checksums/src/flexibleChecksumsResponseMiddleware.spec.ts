@@ -14,10 +14,6 @@ jest.mock("./validateChecksumFromResponse");
 describe(flexibleChecksumsResponseMiddleware.name, () => {
   const mockNext = jest.fn();
 
-  const mockChecksum = "mockChecksum";
-  const mockChecksumAlgorithmFunction = jest.fn();
-  const mockChecksumLocationName = "mock-checksum-location-name";
-
   const mockInput = {};
   const mockConfig = {} as PreviouslyResolved;
   const mockRequestValidationModeMember = "ChecksumEnabled";
@@ -68,6 +64,23 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
         await handler({ ...mockArgs, input: mockInput });
         expect(validateChecksumFromResponse).not.toHaveBeenCalled();
       });
+    });
+  });
+
+  it("validates checksum from the response header", async () => {
+    const mockInput = { [mockRequestValidationModeMember]: "ENABLED" };
+    const mockResponseAlgorithms = ["ALGO1", "ALGO2"];
+
+    const handler = flexibleChecksumsResponseMiddleware(mockConfig, {
+      ...mockMiddlewareConfig,
+      input: mockInput,
+      responseAlgorithms: mockResponseAlgorithms,
+    })(mockNext, {});
+
+    await handler({ ...mockArgs, input: mockInput });
+    expect(validateChecksumFromResponse).toHaveBeenCalledWith(mockResult.response, {
+      config: mockConfig,
+      responseAlgorithms: mockResponseAlgorithms,
     });
   });
 });
