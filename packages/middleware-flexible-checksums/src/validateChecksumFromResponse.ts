@@ -9,9 +9,9 @@ import { isChecksumWithPartNumber } from "./isChecksumWithPartNumber";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 
 export interface ValidateChecksumFromResponseOptions {
-  clientName: string;
-  commandName: string;
   config: PreviouslyResolved;
+  clientName?: string;
+  commandName?: string;
 
   /**
    * Defines the checksum algorithms clients SHOULD look for when validating checksums

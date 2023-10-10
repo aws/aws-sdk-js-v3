@@ -4,6 +4,7 @@ import {
   DeserializeHandlerArguments,
   DeserializeHandlerOutput,
   DeserializeMiddleware,
+  HandlerExecutionContext,
   MetadataBearer,
   RelativeMiddlewareOptions,
 } from "@smithy/types";
@@ -48,7 +49,10 @@ export const flexibleChecksumsResponseMiddleware =
     config: PreviouslyResolved,
     middlewareConfig: FlexibleChecksumsResponseMiddlewareConfig
   ): DeserializeMiddleware<any, any> =>
-  <Output extends MetadataBearer>(next: DeserializeHandler<any, Output>): DeserializeHandler<any, Output> =>
+  <Output extends MetadataBearer>(
+    next: DeserializeHandler<any, Output>,
+    context: HandlerExecutionContext
+  ): DeserializeHandler<any, Output> =>
   async (args: DeserializeHandlerArguments<any>): Promise<DeserializeHandlerOutput<Output>> => {
     if (!HttpRequest.isInstance(args.request)) {
       return next(args);
@@ -70,7 +74,10 @@ export const flexibleChecksumsResponseMiddleware =
         response.body = createReadStreamOnBuffer(collectedStream);
       }
 
+      const { clientName, commandName } = context;
       await validateChecksumFromResponse(result.response as HttpResponse, {
+        clientName,
+        commandName,
         config,
         responseAlgorithms,
       });
