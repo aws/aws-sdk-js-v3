@@ -18,8 +18,6 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
   const mockConfig = {} as PreviouslyResolved;
   const mockRequestValidationModeMember = "ChecksumEnabled";
   const mockMiddlewareConfig = {
-    input: mockInput,
-    requestChecksumRequired: false,
     requestValidationModeMember: mockRequestValidationModeMember,
   };
 
@@ -71,7 +69,6 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
 
     const handler = flexibleChecksumsResponseMiddleware(mockConfig, {
       ...mockMiddlewareConfig,
-      input: mockInput,
       responseAlgorithms: mockResponseAlgorithms,
     })(mockNext, {});
 
