@@ -23,7 +23,8 @@ import {
   UpdateCommandOutput,
 } from "@aws-sdk/lib-dynamodb";
 
-jest.setTimeout(60000); // expected running time: 10s
+// expected running time: table creation (~20s) + operations 10s
+jest.setTimeout(180000);
 
 describe(DynamoDBDocument.name, () => {
   const dynamodb = new DynamoDB({ region: "us-west-2", maxAttempts: 10 });
@@ -157,7 +158,7 @@ describe(DynamoDBDocument.name, () => {
         })
         .catch(passError);
       await waitUntilTableExists(
-        { client: dynamodb, maxWaitTime: 60 },
+        { client: dynamodb, maxWaitTime: 120 },
         {
           TableName,
         }
