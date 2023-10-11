@@ -4,11 +4,16 @@ import {
   DeserializeHandlerArguments,
   DeserializeHandlerOutput,
   DeserializeMiddleware,
+  HandlerExecutionContext,
   MetadataBearer,
   RelativeMiddlewareOptions,
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
+import { ChecksumAlgorithm } from "./constants";
+import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListForResponse";
+import { getChecksumLocationName } from "./getChecksumLocationName";
+import { isChecksumWithPartNumber } from "./isChecksumWithPartNumber";
 import { isStreaming } from "./isStreaming";
 import { createReadStreamOnBuffer } from "./streams/create-read-stream-on-buffer";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
@@ -48,7 +53,10 @@ export const flexibleChecksumsResponseMiddleware =
     config: PreviouslyResolved,
     middlewareConfig: FlexibleChecksumsResponseMiddlewareConfig
   ): DeserializeMiddleware<any, any> =>
-  <Output extends MetadataBearer>(next: DeserializeHandler<any, Output>): DeserializeHandler<any, Output> =>
+  <Output extends MetadataBearer>(
+    next: DeserializeHandler<any, Output>,
+    context: HandlerExecutionContext
+  ): DeserializeHandler<any, Output> =>
   async (args: DeserializeHandlerArguments<any>): Promise<DeserializeHandlerOutput<Output>> => {
     if (!HttpRequest.isInstance(args.request)) {
       return next(args);
@@ -63,6 +71,19 @@ export const flexibleChecksumsResponseMiddleware =
     const { requestValidationModeMember, responseAlgorithms } = middlewareConfig;
     // @ts-ignore Element implicitly has an 'any' type for input[requestValidationModeMember]
     if (requestValidationModeMember && input[requestValidationModeMember] === "ENABLED") {
+      const { clientName, commandName } = context;
+      const isS3WholeObjectMultipartGetResponseChecksum =
+        clientName === "S3Client" &&
+        commandName === "GetObjectCommand" &&
+        getChecksumAlgorithmListForResponse(responseAlgorithms).every((algorithm: ChecksumAlgorithm) => {
+          const responseHeader = getChecksumLocationName(algorithm);
+          const checksumFromResponse = response.headers[responseHeader];
+          return !checksumFromResponse || isChecksumWithPartNumber(checksumFromResponse);
+        });
+      if (isS3WholeObjectMultipartGetResponseChecksum) {
+        return result;
+      }
+
       const isStreamingBody = isStreaming(response.body);
 
       if (isStreamingBody) {
