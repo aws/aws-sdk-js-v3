@@ -46,8 +46,9 @@ describe(DynamoDBDocument.name, () => {
   // don't delete the table in afterAll().
   // The table will in that case be re-used.
   const randId = String((Math.random() * 99) | 0);
+  const timestamp = (Date.now() / 1000) | 0;
 
-  const TableName = `js-sdk-dynamodb-test-${randId}`;
+  const TableName = `js-sdk-dynamodb-test-${timestamp}-${randId}`;
 
   const log = {
     describe: null as null | DescribeTableCommandOutput,
