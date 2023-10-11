@@ -40,12 +40,11 @@ describe(DynamoDBDocument.name, () => {
     }
   }
 
-  // Random element limited to 0-99 to avoid concurrent build IO.
   // Tables will be dropped at the end of the test.
   // For faster test development, remove this random suffix and
   // don't delete the table in afterAll().
   // The table will in that case be re-used.
-  const randId = String((Math.random() * 99) | 0);
+  const randId = (Math.random() + 1).toString(36).substring(2, 6);
   const timestamp = (Date.now() / 1000) | 0;
 
   const TableName = `js-sdk-dynamodb-test-${timestamp}-${randId}`;
