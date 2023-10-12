@@ -28,6 +28,7 @@ import {
   RouteTableAssociationState,
   Tag,
   TagSpecification,
+  TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
@@ -60,7 +61,6 @@ import {
   LaunchTemplate,
   LocalGatewayRoute,
   ManagedPrefixList,
-  MarketType,
   Placement,
   PlatformValues,
   RequestIpamResourceTag,
@@ -156,10 +156,100 @@ import {
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
+  TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ * <p>Describes a route table propagation.</p>
+ */
+export interface TransitGatewayRouteTablePropagation {
+  /**
+   * @public
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * @public
+   * <p>The type of resource. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | string;
+
+  /**
+   * @public
+   * <p>The state of the resource.</p>
+   */
+  State?: TransitGatewayPropagationState | string;
+
+  /**
+   * @public
+   * <p>The ID of the transit gateway route table announcement.</p>
+   */
+  TransitGatewayRouteTableAnnouncementId?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayRouteTablePropagationsResult {
+  /**
+   * @public
+   * <p>Information about the route table propagations.</p>
+   */
+  TransitGatewayRouteTablePropagations?: TransitGatewayRouteTablePropagation[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessEndpointPolicyRequest {
+  /**
+   * @public
+   * <p>The ID of the Verified Access endpoint.</p>
+   */
+  VerifiedAccessEndpointId: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetVerifiedAccessEndpointPolicyResult {
+  /**
+   * @public
+   * <p>The status of the Verified Access policy.</p>
+   */
+  PolicyEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>The Verified Access policy document.</p>
+   */
+  PolicyDocument?: string;
+}
 
 /**
  * @public
@@ -9131,115 +9221,6 @@ export interface ElasticInferenceAccelerator {
    *          <p>Default: 1</p>
    */
   Count?: number;
-}
-
-/**
- * @public
- * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For
- *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro
- *                 Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User
- *                 Guide</i>.</p>
- */
-export interface EnclaveOptionsRequest {
-  /**
-   * @public
-   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to
-   *                 <code>true</code>.</p>
-   */
-  Enabled?: boolean;
-}
-
-/**
- * @public
- * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
- *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
- *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
- */
-export interface HibernationOptionsRequest {
-  /**
-   * @public
-   * <p>Set to <code>true</code> to enable your instance for hibernation.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  Configured?: boolean;
-}
-
-/**
- * @public
- * <p>The options for Spot Instances.</p>
- */
-export interface SpotMarketOptions {
-  /**
-   * @public
-   * <p>The maximum hourly price that you're willing to pay for a Spot Instance. We do not
-   *             recommend using this parameter because it can lead to increased interruptions. If you do
-   *             not specify this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more
-   *                 frequently than if you do not specify this parameter.</p>
-   *          </important>
-   */
-  MaxPrice?: string;
-
-  /**
-   * @public
-   * <p>The Spot Instance request type. For <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances">RunInstances</a>, persistent
-   *             Spot Instance requests are only supported when the instance interruption behavior is
-   *             either <code>hibernate</code> or <code>stop</code>.</p>
-   */
-  SpotInstanceType?: SpotInstanceType | string;
-
-  /**
-   * @public
-   * <p>Deprecated.</p>
-   */
-  BlockDurationMinutes?: number;
-
-  /**
-   * @public
-   * <p>The end date of the request, in UTC format
-   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *             Supported only for persistent requests.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For a persistent request, the request remains active until the
-   *                         <code>ValidUntil</code> date and time is reached. Otherwise, the request
-   *                     remains active until you cancel it.</p>
-   *             </li>
-   *             <li>
-   *                <p>For a one-time request, <code>ValidUntil</code> is not supported. The request
-   *                     remains active until all instances launch or you cancel the request.</p>
-   *             </li>
-   *          </ul>
-   */
-  ValidUntil?: Date;
-
-  /**
-   * @public
-   * <p>The behavior when a Spot Instance is interrupted. The default is
-   *                 <code>terminate</code>.</p>
-   */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
-}
-
-/**
- * @public
- * <p>Describes the market (purchasing) option for the instances.</p>
- */
-export interface InstanceMarketOptionsRequest {
-  /**
-   * @public
-   * <p>The market type.</p>
-   */
-  MarketType?: MarketType | string;
-
-  /**
-   * @public
-   * <p>The options for Spot Instances.</p>
-   */
-  SpotOptions?: SpotMarketOptions;
 }
 
 /**

@@ -1297,6 +1297,7 @@ import {
   DisableImageBlockPublicAccessCommandInput,
   DisableImageBlockPublicAccessCommandOutput,
 } from "./commands/DisableImageBlockPublicAccessCommand";
+import { DisableImageCommandInput, DisableImageCommandOutput } from "./commands/DisableImageCommand";
 import {
   DisableImageDeprecationCommandInput,
   DisableImageDeprecationCommandOutput,
@@ -1402,6 +1403,7 @@ import {
   EnableImageBlockPublicAccessCommandInput,
   EnableImageBlockPublicAccessCommandOutput,
 } from "./commands/EnableImageBlockPublicAccessCommand";
+import { EnableImageCommandInput, EnableImageCommandOutput } from "./commands/EnableImageCommand";
 import {
   EnableImageDeprecationCommandInput,
   EnableImageDeprecationCommandOutput,
@@ -2461,6 +2463,7 @@ export type ServiceInputTypes =
   | DisableFastLaunchCommandInput
   | DisableFastSnapshotRestoresCommandInput
   | DisableImageBlockPublicAccessCommandInput
+  | DisableImageCommandInput
   | DisableImageDeprecationCommandInput
   | DisableIpamOrganizationAdminAccountCommandInput
   | DisableSerialConsoleAccessCommandInput
@@ -2488,6 +2491,7 @@ export type ServiceInputTypes =
   | EnableFastLaunchCommandInput
   | EnableFastSnapshotRestoresCommandInput
   | EnableImageBlockPublicAccessCommandInput
+  | EnableImageCommandInput
   | EnableImageDeprecationCommandInput
   | EnableIpamOrganizationAdminAccountCommandInput
   | EnableReachabilityAnalyzerOrganizationSharingCommandInput
@@ -3063,6 +3067,7 @@ export type ServiceOutputTypes =
   | DisableFastLaunchCommandOutput
   | DisableFastSnapshotRestoresCommandOutput
   | DisableImageBlockPublicAccessCommandOutput
+  | DisableImageCommandOutput
   | DisableImageDeprecationCommandOutput
   | DisableIpamOrganizationAdminAccountCommandOutput
   | DisableSerialConsoleAccessCommandOutput
@@ -3090,6 +3095,7 @@ export type ServiceOutputTypes =
   | EnableFastLaunchCommandOutput
   | EnableFastSnapshotRestoresCommandOutput
   | EnableImageBlockPublicAccessCommandOutput
+  | EnableImageCommandOutput
   | EnableImageDeprecationCommandOutput
   | EnableIpamOrganizationAdminAccountCommandOutput
   | EnableReachabilityAnalyzerOrganizationSharingCommandOutput

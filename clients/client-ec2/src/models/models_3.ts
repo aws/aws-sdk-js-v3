@@ -8098,6 +8098,12 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>source-instance-id</code> - The ID of the instance that the AMI was created from
+   *           if the AMI was created using CreateImage. This filter is applicable only if the AMI was
+   *           created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
    *           | <code>failed</code>).</p>
    *             </li>
@@ -8158,6 +8164,13 @@ export interface DescribeImagesRequest {
    *          </note>
    */
   IncludeDeprecated?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether to include disabled AMIs.</p>
+   *          <p>Default: No disabled AMIs are included in the response.</p>
+   */
+  IncludeDisabled?: boolean;
 
   /**
    * @public
@@ -8277,6 +8290,7 @@ export type DeviceType = (typeof DeviceType)[keyof typeof DeviceType];
 export const ImageState = {
   available: "available",
   deregistered: "deregistered",
+  disabled: "disabled",
   error: "error",
   failed: "failed",
   invalid: "invalid",
@@ -8435,7 +8449,8 @@ export interface Image {
 
   /**
    * @public
-   * <p>The hypervisor type of the image.</p>
+   * <p>The hypervisor type of the image. Only <code>xen</code> is supported. <code>ovm</code> is
+   *       not supported.</p>
    */
   Hypervisor?: HypervisorType | string;
 
@@ -8522,6 +8537,13 @@ export interface Image {
    *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   ImdsSupport?: ImdsSupportValues | string;
+
+  /**
+   * @public
+   * <p>The ID of the instance that the AMI was created from if the AMI was created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>. This field only appears if the AMI was created using
+   *       CreateImage.</p>
+   */
+  SourceInstanceId?: string;
 }
 
 /**

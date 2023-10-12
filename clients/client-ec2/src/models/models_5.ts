@@ -3167,6 +3167,36 @@ export interface DisableFastSnapshotRestoresResult {
 /**
  * @public
  */
+export interface DisableImageRequest {
+  /**
+   * @public
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DisableImageResult {
+  /**
+   * @public
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+/**
+ * @public
+ */
 export interface DisableImageBlockPublicAccessRequest {
   /**
    * @public
@@ -4407,6 +4437,36 @@ export interface EnableFastSnapshotRestoresResult {
    * <p>Information about the snapshots for which fast snapshot restores could not be enabled.</p>
    */
   Unsuccessful?: EnableFastSnapshotRestoreErrorItem[];
+}
+
+/**
+ * @public
+ */
+export interface EnableImageRequest {
+  /**
+   * @public
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface EnableImageResult {
+  /**
+   * @public
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
 }
 
 /**
@@ -8403,95 +8463,6 @@ export interface GetTransitGatewayRouteTablePropagationsRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-}
-
-/**
- * @public
- * <p>Describes a route table propagation.</p>
- */
-export interface TransitGatewayRouteTablePropagation {
-  /**
-   * @public
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * @public
-   * <p>The type of resource. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
-
-  /**
-   * @public
-   * <p>The state of the resource.</p>
-   */
-  State?: TransitGatewayPropagationState | string;
-
-  /**
-   * @public
-   * <p>The ID of the transit gateway route table announcement.</p>
-   */
-  TransitGatewayRouteTableAnnouncementId?: string;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayRouteTablePropagationsResult {
-  /**
-   * @public
-   * <p>Information about the route table propagations.</p>
-   */
-  TransitGatewayRouteTablePropagations?: TransitGatewayRouteTablePropagation[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetVerifiedAccessEndpointPolicyRequest {
-  /**
-   * @public
-   * <p>The ID of the Verified Access endpoint.</p>
-   */
-  VerifiedAccessEndpointId: string | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetVerifiedAccessEndpointPolicyResult {
-  /**
-   * @public
-   * <p>The status of the Verified Access policy.</p>
-   */
-  PolicyEnabled?: boolean;
-
-  /**
-   * @public
-   * <p>The Verified Access policy document.</p>
-   */
-  PolicyDocument?: string;
 }
 
 /**

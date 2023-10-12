@@ -7934,6 +7934,7 @@ export const CapacityReservationInstancePlatform = {
   RHEL_WITH_SQL_SERVER_STANDARD: "RHEL with SQL Server Standard",
   RHEL_WITH_SQL_SERVER_WEB: "RHEL with SQL Server Web",
   SUSE_LINUX: "SUSE Linux",
+  UBUNTU_PRO_LINUX: "Ubuntu Pro",
   WINDOWS: "Windows",
   WINDOWS_WITH_SQL_SERVER: "Windows with SQL Server",
   WINDOWS_WITH_SQL_SERVER_ENTERPRISE: "Windows with SQL Server Enterprise",

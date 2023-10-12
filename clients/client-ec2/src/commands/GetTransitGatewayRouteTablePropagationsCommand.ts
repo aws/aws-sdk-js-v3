@@ -15,10 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetTransitGatewayRouteTablePropagationsRequest,
-  GetTransitGatewayRouteTablePropagationsResult,
-} from "../models/models_5";
+import { GetTransitGatewayRouteTablePropagationsRequest } from "../models/models_5";
+import { GetTransitGatewayRouteTablePropagationsResult } from "../models/models_6";
 import {
   de_GetTransitGatewayRouteTablePropagationsCommand,
   se_GetTransitGatewayRouteTablePropagationsCommand,

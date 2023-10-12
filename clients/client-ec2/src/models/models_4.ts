@@ -10702,6 +10702,10 @@ export interface DescribeStoreImageTasksRequest {
    *           bucket. For the filter value, specify the bucket name.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>When you specify the <code>ImageIds</code> parameter, any filters that you specify are
+   *         ignored. To use the filters, you must remove the <code>ImageIds</code> parameter.</p>
+   *          </note>
    */
   Filters?: Filter[];
 
@@ -10716,8 +10720,8 @@ export interface DescribeStoreImageTasksRequest {
    * <p>The maximum number of items to return for this request.
    *          To get the next page of items, make another request with the token returned in the output.
    * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   *          <p>You cannot specify this parameter and the <code>ImageIDs</code> parameter
-   *       in the same call.</p>
+   *          <p>You cannot specify this parameter and the <code>ImageIds</code> parameter in the same
+   *       call.</p>
    */
   MaxResults?: number;
 }

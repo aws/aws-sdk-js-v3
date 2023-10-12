@@ -1829,6 +1829,11 @@ import {
   DisableImageBlockPublicAccessCommandOutput,
 } from "./commands/DisableImageBlockPublicAccessCommand";
 import {
+  DisableImageCommand,
+  DisableImageCommandInput,
+  DisableImageCommandOutput,
+} from "./commands/DisableImageCommand";
+import {
   DisableImageDeprecationCommand,
   DisableImageDeprecationCommandInput,
   DisableImageDeprecationCommandOutput,
@@ -1963,6 +1968,7 @@ import {
   EnableImageBlockPublicAccessCommandInput,
   EnableImageBlockPublicAccessCommandOutput,
 } from "./commands/EnableImageBlockPublicAccessCommand";
+import { EnableImageCommand, EnableImageCommandInput, EnableImageCommandOutput } from "./commands/EnableImageCommand";
 import {
   EnableImageDeprecationCommand,
   EnableImageDeprecationCommandInput,
@@ -3299,6 +3305,7 @@ const commands = {
   DisableEbsEncryptionByDefaultCommand,
   DisableFastLaunchCommand,
   DisableFastSnapshotRestoresCommand,
+  DisableImageCommand,
   DisableImageBlockPublicAccessCommand,
   DisableImageDeprecationCommand,
   DisableIpamOrganizationAdminAccountCommand,
@@ -3326,6 +3333,7 @@ const commands = {
   EnableEbsEncryptionByDefaultCommand,
   EnableFastLaunchCommand,
   EnableFastSnapshotRestoresCommand,
+  EnableImageCommand,
   EnableImageBlockPublicAccessCommand,
   EnableImageDeprecationCommand,
   EnableIpamOrganizationAdminAccountCommand,
@@ -9637,6 +9645,17 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DisableImageCommand}
+   */
+  disableImage(args: DisableImageCommandInput, options?: __HttpHandlerOptions): Promise<DisableImageCommandOutput>;
+  disableImage(args: DisableImageCommandInput, cb: (err: any, data?: DisableImageCommandOutput) => void): void;
+  disableImage(
+    args: DisableImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableImageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableImageBlockPublicAccessCommand}
    */
   disableImageBlockPublicAccess(
@@ -10093,6 +10112,17 @@ export interface EC2 {
     args: EnableFastSnapshotRestoresCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableFastSnapshotRestoresCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableImageCommand}
+   */
+  enableImage(args: EnableImageCommandInput, options?: __HttpHandlerOptions): Promise<EnableImageCommandOutput>;
+  enableImage(args: EnableImageCommandInput, cb: (err: any, data?: EnableImageCommandOutput) => void): void;
+  enableImage(
+    args: EnableImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableImageCommandOutput) => void
   ): void;
 
   /**

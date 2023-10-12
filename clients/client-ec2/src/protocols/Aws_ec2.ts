@@ -1271,6 +1271,7 @@ import {
   DisableImageBlockPublicAccessCommandInput,
   DisableImageBlockPublicAccessCommandOutput,
 } from "../commands/DisableImageBlockPublicAccessCommand";
+import { DisableImageCommandInput, DisableImageCommandOutput } from "../commands/DisableImageCommand";
 import {
   DisableImageDeprecationCommandInput,
   DisableImageDeprecationCommandOutput,
@@ -1376,6 +1377,7 @@ import {
   EnableImageBlockPublicAccessCommandInput,
   EnableImageBlockPublicAccessCommandOutput,
 } from "../commands/EnableImageBlockPublicAccessCommand";
+import { EnableImageCommandInput, EnableImageCommandOutput } from "../commands/EnableImageCommand";
 import {
   EnableImageDeprecationCommandInput,
   EnableImageDeprecationCommandOutput,
@@ -3371,6 +3373,8 @@ import {
   DisableImageBlockPublicAccessResult,
   DisableImageDeprecationRequest,
   DisableImageDeprecationResult,
+  DisableImageRequest,
+  DisableImageResult,
   DisableIpamOrganizationAdminAccountRequest,
   DisableIpamOrganizationAdminAccountResult,
   DisableSerialConsoleAccessRequest,
@@ -3426,6 +3430,8 @@ import {
   EnableImageBlockPublicAccessResult,
   EnableImageDeprecationRequest,
   EnableImageDeprecationResult,
+  EnableImageRequest,
+  EnableImageResult,
   EnableIpamOrganizationAdminAccountRequest,
   EnableIpamOrganizationAdminAccountResult,
   EnableReachabilityAnalyzerOrganizationSharingRequest,
@@ -3528,9 +3534,6 @@ import {
   GetTransitGatewayRouteTableAssociationsRequest,
   GetTransitGatewayRouteTableAssociationsResult,
   GetTransitGatewayRouteTablePropagationsRequest,
-  GetTransitGatewayRouteTablePropagationsResult,
-  GetVerifiedAccessEndpointPolicyRequest,
-  GetVerifiedAccessEndpointPolicyResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3561,7 +3564,6 @@ import {
   TransitGatewayPolicyTableEntry,
   TransitGatewayPropagation,
   TransitGatewayRouteTableAssociation,
-  TransitGatewayRouteTablePropagation,
   VerifiedAccessInstanceLoggingConfiguration,
   VerifiedAccessLogCloudWatchLogsDestination,
   VerifiedAccessLogDeliveryStatus,
@@ -3590,7 +3592,9 @@ import {
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
   ElasticInferenceAccelerator,
-  EnclaveOptionsRequest,
+  GetTransitGatewayRouteTablePropagationsResult,
+  GetVerifiedAccessEndpointPolicyRequest,
+  GetVerifiedAccessEndpointPolicyResult,
   GetVerifiedAccessGroupPolicyRequest,
   GetVerifiedAccessGroupPolicyResult,
   GetVpnConnectionDeviceSampleConfigurationRequest,
@@ -3599,7 +3603,6 @@ import {
   GetVpnConnectionDeviceTypesResult,
   GetVpnTunnelReplacementStatusRequest,
   GetVpnTunnelReplacementStatusResult,
-  HibernationOptionsRequest,
   ImageDiskContainer,
   ImageRecycleBinInfo,
   ImportClientVpnClientCertificateRevocationListRequest,
@@ -3618,7 +3621,6 @@ import {
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
-  InstanceMarketOptionsRequest,
   InstanceMonitoring,
   IpamCidrAuthorizationContext,
   LaunchPermissionModifications,
@@ -3853,12 +3855,12 @@ import {
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
   SnapshotRecycleBinInfo,
-  SpotMarketOptions,
   SuccessfulInstanceCreditSpecificationItem,
   TrafficMirrorFilterRuleField,
   TrafficMirrorSessionField,
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
+  TransitGatewayRouteTablePropagation,
   UnsuccessfulInstanceCreditSpecificationItem,
   UnsuccessfulInstanceCreditSpecificationItemError,
   UserBucket,
@@ -3871,7 +3873,10 @@ import {
   VpnConnectionDeviceType,
 } from "../models/models_6";
 import {
+  EnclaveOptionsRequest,
+  HibernationOptionsRequest,
   InstanceMaintenanceOptionsRequest,
+  InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
   InstanceStateChange,
   LaunchTemplateSpecification,
@@ -3897,6 +3902,7 @@ import {
   SearchTransitGatewayRoutesResult,
   SecurityGroupRuleDescription,
   SendDiagnosticInterruptRequest,
+  SpotMarketOptions,
   StartInstancesRequest,
   StartInstancesResult,
   StartNetworkInsightsAccessScopeAnalysisRequest,
@@ -10270,6 +10276,23 @@ export const se_DisableFastSnapshotRestoresCommand = async (
 };
 
 /**
+ * serializeAws_ec2DisableImageCommand
+ */
+export const se_DisableImageCommand = async (
+  input: DisableImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DisableImageRequest(input, context),
+    Action: "DisableImage",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2DisableImageBlockPublicAccessCommand
  */
 export const se_DisableImageBlockPublicAccessCommand = async (
@@ -10723,6 +10746,23 @@ export const se_EnableFastSnapshotRestoresCommand = async (
   body = buildFormUrlencodedString({
     ...se_EnableFastSnapshotRestoresRequest(input, context),
     Action: "EnableFastSnapshotRestores",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2EnableImageCommand
+ */
+export const se_EnableImageCommand = async (
+  input: EnableImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_EnableImageRequest(input, context),
+    Action: "EnableImage",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -28908,6 +28948,46 @@ const de_DisableFastSnapshotRestoresCommandError = async (
 };
 
 /**
+ * deserializeAws_ec2DisableImageCommand
+ */
+export const de_DisableImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableImageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DisableImageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisableImageResult(data, context);
+  const response: DisableImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DisableImageCommandError
+ */
+const de_DisableImageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableImageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_ec2DisableImageBlockPublicAccessCommand
  */
 export const de_DisableImageBlockPublicAccessCommand = async (
@@ -29965,6 +30045,46 @@ const de_EnableFastSnapshotRestoresCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableFastSnapshotRestoresCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_ec2EnableImageCommand
+ */
+export const de_EnableImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableImageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_EnableImageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EnableImageResult(data, context);
+  const response: EnableImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2EnableImageCommandError
+ */
+const de_EnableImageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -46688,6 +46808,9 @@ const se_DescribeImagesRequest = (input: DescribeImagesRequest, context: __Serde
   if (input.IncludeDeprecated != null) {
     entries["IncludeDeprecated"] = input.IncludeDeprecated;
   }
+  if (input.IncludeDisabled != null) {
+    entries["IncludeDisabled"] = input.IncludeDisabled;
+  }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
   }
@@ -50826,6 +50949,20 @@ const se_DisableImageDeprecationRequest = (input: DisableImageDeprecationRequest
 };
 
 /**
+ * serializeAws_ec2DisableImageRequest
+ */
+const se_DisableImageRequest = (input: DisableImageRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ImageId != null) {
+    entries["ImageId"] = input.ImageId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2DisableIpamOrganizationAdminAccountRequest
  */
 const se_DisableIpamOrganizationAdminAccountRequest = (
@@ -51631,6 +51768,20 @@ const se_EnableImageDeprecationRequest = (input: EnableImageDeprecationRequest, 
   }
   if (input.DeprecateAt != null) {
     entries["DeprecateAt"] = input.DeprecateAt.toISOString().split(".")[0] + "Z";
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2EnableImageRequest
+ */
+const se_EnableImageRequest = (input: EnableImageRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ImageId != null) {
+    entries["ImageId"] = input.ImageId;
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
@@ -74824,6 +74975,17 @@ const de_DisableImageDeprecationResult = (output: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_ec2DisableImageResult
+ */
+const de_DisableImageResult = (output: any, context: __SerdeContext): DisableImageResult => {
+  const contents: any = {};
+  if (output["return"] !== undefined) {
+    contents.Return = __parseBoolean(output["return"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DisableIpamOrganizationAdminAccountResult
  */
 const de_DisableIpamOrganizationAdminAccountResult = (
@@ -75818,6 +75980,17 @@ const de_EnableImageBlockPublicAccessResult = (
  * deserializeAws_ec2EnableImageDeprecationResult
  */
 const de_EnableImageDeprecationResult = (output: any, context: __SerdeContext): EnableImageDeprecationResult => {
+  const contents: any = {};
+  if (output["return"] !== undefined) {
+    contents.Return = __parseBoolean(output["return"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2EnableImageResult
+ */
+const de_EnableImageResult = (output: any, context: __SerdeContext): EnableImageResult => {
   const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
@@ -78672,6 +78845,9 @@ const de_Image = (output: any, context: __SerdeContext): Image => {
   }
   if (output["imdsSupport"] !== undefined) {
     contents.ImdsSupport = __expectString(output["imdsSupport"]);
+  }
+  if (output["sourceInstanceId"] !== undefined) {
+    contents.SourceInstanceId = __expectString(output["sourceInstanceId"]);
   }
   return contents;
 };

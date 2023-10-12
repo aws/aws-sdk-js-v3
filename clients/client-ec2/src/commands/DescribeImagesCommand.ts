@@ -69,6 +69,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  *     "STRING_VALUE",
  *   ],
  *   IncludeDeprecated: true || false,
+ *   IncludeDisabled: true || false,
  *   DryRun: true || false,
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
@@ -96,7 +97,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //         },
  * //       ],
  * //       RamdiskId: "STRING_VALUE",
- * //       State: "pending" || "available" || "invalid" || "deregistered" || "transient" || "failed" || "error",
+ * //       State: "pending" || "available" || "invalid" || "deregistered" || "transient" || "failed" || "error" || "disabled",
  * //       BlockDeviceMappings: [ // BlockDeviceMappingList
  * //         { // BlockDeviceMapping
  * //           DeviceName: "STRING_VALUE",
@@ -138,6 +139,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //       TpmSupport: "v2.0",
  * //       DeprecationTime: "STRING_VALUE",
  * //       ImdsSupport: "v2.0",
+ * //       SourceInstanceId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
