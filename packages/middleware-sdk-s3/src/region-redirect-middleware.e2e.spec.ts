@@ -21,7 +21,7 @@ describe("S3 Global Client Test", () => {
   const randId = alphabet[(Math.random() * alphabet.length) | 0] + alphabet[(Math.random() * alphabet.length) | 0];
 
   beforeAll(async () => {
-    jest.setTimeout(60000);
+    jest.setTimeout(100000);
     callerID = await stsClient.getCallerIdentity({});
     bucketNames = regionConfigs.map((config) => `${callerID.Account}-${randId}-redirect-${config.region}`);
     await Promise.all(bucketNames.map((bucketName, index) => deleteBucket(s3Clients[index], bucketName)));
@@ -40,7 +40,7 @@ describe("S3 Global Client Test", () => {
         await s3Client.putObject({ Bucket: bucketName, Key: objKey, Body: testValue });
       }
     }
-  }, 60000);
+  }, 100000);
 
   it("Should be able to get objects following region redirect", async () => {
     // Fetch and assert objects
@@ -52,7 +52,7 @@ describe("S3 Global Client Test", () => {
         expect(data).toEqual(testValue);
       }
     }
-  }, 60000);
+  }, 100000);
 
   it("Should delete objects following region redirect", async () => {
     for (const bucketName of bucketNames) {
@@ -61,7 +61,7 @@ describe("S3 Global Client Test", () => {
         await s3Client.deleteObject({ Bucket: bucketName, Key: objKey });
       }
     }
-  }, 60000);
+  }, 100000);
 });
 
 async function deleteBucket(s3: S3, bucketName: string) {
