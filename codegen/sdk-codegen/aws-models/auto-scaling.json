@@ -438,6 +438,16 @@
         "smithy.api#httpError": 400
       }
     },
+    "com.amazonaws.autoscaling#AnyPrintableAsciiStringMaxLen4000": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 4000
+        },
+        "smithy.api#pattern": "^[\\u0009\\u000A\\u000D\\u0020-\\u007e]+$"
+      }
+    },
     "com.amazonaws.autoscaling#AsciiStringMaxLen255": {
       "type": "string",
       "traits": {
@@ -474,9 +484,7 @@
             "title": "To attach an instance to an Auto Scaling group",
             "documentation": "This example attaches the specified instance to the specified Auto Scaling group.",
             "input": {
-              "InstanceIds": [
-                "i-93633f9b"
-              ],
+              "InstanceIds": ["i-93633f9b"],
               "AutoScalingGroupName": "my-auto-scaling-group"
             }
           }
@@ -580,9 +588,7 @@
             "documentation": "This example attaches the specified load balancer to the specified Auto Scaling group.",
             "input": {
               "AutoScalingGroupName": "my-auto-scaling-group",
-              "LoadBalancerNames": [
-                "my-load-balancer"
-              ]
+              "LoadBalancerNames": ["my-load-balancer"]
             }
           }
         ]
@@ -2965,9 +2971,7 @@
             "input": {
               "LaunchConfigurationName": "my-launch-config",
               "ImageId": "ami-12345678",
-              "SecurityGroups": [
-                "sg-eb2af88e"
-              ],
+              "SecurityGroups": ["sg-eb2af88e"],
               "InstanceType": "m3.medium",
               "IamInstanceProfile": "my-iam-role"
             }
@@ -3697,9 +3701,7 @@
             "title": "To describe an Auto Scaling group",
             "documentation": "This example describes the specified Auto Scaling group.",
             "input": {
-              "AutoScalingGroupNames": [
-                "my-auto-scaling-group"
-              ]
+              "AutoScalingGroupNames": ["my-auto-scaling-group"]
             },
             "output": {
               "AutoScalingGroups": [
@@ -3711,11 +3713,7 @@
                   "MaxSize": 5,
                   "DesiredCapacity": 2,
                   "DefaultCooldown": 300,
-                  "AvailabilityZones": [
-                    "us-west-2a",
-                    "us-west-2b",
-                    "us-west-2c"
-                  ],
+                  "AvailabilityZones": ["us-west-2a", "us-west-2b", "us-west-2c"],
                   "LoadBalancerNames": [],
                   "TargetGroupARNs": [],
                   "HealthCheckType": "EC2",
@@ -3745,9 +3743,7 @@
                   "VPCZoneIdentifier": "subnet-5ea0c127,subnet-6194ea3b,subnet-c934b782",
                   "EnabledMetrics": [],
                   "Tags": [],
-                  "TerminationPolicies": [
-                    "Default"
-                  ],
+                  "TerminationPolicies": ["Default"],
                   "NewInstancesProtectedFromScaleIn": false,
                   "ServiceLinkedRoleARN": "arn:aws:iam::123456789012:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
                   "TrafficSources": []
@@ -3864,9 +3860,7 @@
             "title": "To describe one or more Auto Scaling instances",
             "documentation": "This example describes the specified Auto Scaling instance.",
             "input": {
-              "InstanceIds": [
-                "i-05b4f7d5be44822a6"
-              ]
+              "InstanceIds": ["i-05b4f7d5be44822a6"]
             },
             "output": {
               "AutoScalingInstances": [
@@ -3975,7 +3969,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets information about the instance refreshes for the specified Auto Scaling group.</p>\n         <p>This operation is part of the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html\">instance refresh\n                feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group\n            after you make configuration changes.</p>\n         <p>To help you determine the status of an instance refresh, Amazon EC2 Auto Scaling returns information\n            about the instance refreshes you previously initiated, including their status, start\n            time, end time, the percentage of the instance refresh that is complete, and the number\n            of instances remaining to update before the instance refresh is complete. If a rollback\n            is initiated while an instance refresh is in progress, Amazon EC2 Auto Scaling also returns information\n            about the rollback of the instance refresh.</p>"
+        "smithy.api#documentation": "<p>Gets information about the instance refreshes for the specified Auto Scaling group.</p>\n         <p>This operation is part of the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html\">instance refresh\n                feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group\n            after you make configuration changes.</p>\n         <p>To help you determine the status of an instance refresh, Amazon EC2 Auto Scaling returns information\n            about the instance refreshes you previously initiated, including their status, start\n            time, end time, the percentage of the instance refresh that is complete, and the number\n            of instances remaining to update before the instance refresh is complete. If a rollback\n            is initiated while an instance refresh is in progress, Amazon EC2 Auto Scaling also returns information\n            about the rollback of the instance refresh.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxRecords"
+        }
       }
     },
     "com.amazonaws.autoscaling#DescribeInstanceRefreshesAnswer": {
@@ -4048,9 +4047,7 @@
             "title": "To describe Auto Scaling launch configurations",
             "documentation": "This example describes the specified launch configuration.",
             "input": {
-              "LaunchConfigurationNames": [
-                "my-launch-config"
-              ]
+              "LaunchConfigurationNames": ["my-launch-config"]
             },
             "output": {
               "LaunchConfigurations": [
@@ -4063,9 +4060,7 @@
                   "ImageId": "ami-043a5034",
                   "CreatedTime": "2014-05-07T17:39:28.599Z",
                   "BlockDeviceMappings": [],
-                  "SecurityGroups": [
-                    "sg-67ef0308"
-                  ],
+                  "SecurityGroups": ["sg-67ef0308"],
                   "LaunchConfigurationName": "my-launch-config",
                   "InstanceType": "t1.micro",
                   "AssociatePublicIpAddress": true
@@ -4102,10 +4097,7 @@
             "title": "To describe the available types of lifecycle hooks",
             "documentation": "This example describes the available lifecycle hook types.",
             "output": {
-              "LifecycleHookTypes": [
-                "autoscaling:EC2_INSTANCE_LAUNCHING",
-                "autoscaling:EC2_INSTANCE_TERMINATING"
-              ]
+              "LifecycleHookTypes": ["autoscaling:EC2_INSTANCE_LAUNCHING", "autoscaling:EC2_INSTANCE_TERMINATING"]
             }
           }
         ]
@@ -4225,7 +4217,12 @@
               ]
             }
           }
-        ]
+        ],
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxRecords"
+        }
       }
     },
     "com.amazonaws.autoscaling#DescribeLoadBalancerTargetGroupsRequest": {
@@ -4309,7 +4306,12 @@
               ]
             }
           }
-        ]
+        ],
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxRecords"
+        }
       }
     },
     "com.amazonaws.autoscaling#DescribeLoadBalancersRequest": {
@@ -4455,9 +4457,7 @@
             "title": "To describe Auto Scaling notification configurations",
             "documentation": "This example describes the notification configurations for the specified Auto Scaling group.",
             "input": {
-              "AutoScalingGroupNames": [
-                "my-auto-scaling-group"
-              ]
+              "AutoScalingGroupNames": ["my-auto-scaling-group"]
             },
             "output": {
               "NotificationConfigurations": [
@@ -4872,9 +4872,7 @@
             "input": {
               "Filters": [
                 {
-                  "Values": [
-                    "my-auto-scaling-group"
-                  ],
+                  "Values": ["my-auto-scaling-group"],
                   "Name": "auto-scaling-group"
                 }
               ]
@@ -5186,9 +5184,7 @@
             "title": "To detach an instance from an Auto Scaling group",
             "documentation": "This example detaches the specified instance from the specified Auto Scaling group.",
             "input": {
-              "InstanceIds": [
-                "i-93633f9b"
-              ],
+              "InstanceIds": ["i-93633f9b"],
               "AutoScalingGroupName": "my-auto-scaling-group",
               "ShouldDecrementDesiredCapacity": true
             },
@@ -5319,9 +5315,7 @@
             "documentation": "This example detaches the specified load balancer from the specified Auto Scaling group.",
             "input": {
               "AutoScalingGroupName": "my-auto-scaling-group",
-              "LoadBalancerNames": [
-                "my-load-balancer"
-              ]
+              "LoadBalancerNames": ["my-load-balancer"]
             }
           }
         ]
@@ -5426,9 +5420,7 @@
             "documentation": "This example disables collecting data for the GroupDesiredCapacity metric for the specified Auto Scaling group.",
             "input": {
               "AutoScalingGroupName": "my-auto-scaling-group",
-              "Metrics": [
-                "GroupDesiredCapacity"
-              ]
+              "Metrics": ["GroupDesiredCapacity"]
             }
           }
         ]
@@ -5606,9 +5598,7 @@
             "title": "To move instances into standby mode",
             "documentation": "This example puts the specified instance into standby mode.",
             "input": {
-              "InstanceIds": [
-                "i-93633f9b"
-              ],
+              "InstanceIds": ["i-93633f9b"],
               "AutoScalingGroupName": "my-auto-scaling-group",
               "ShouldDecrementDesiredCapacity": true
             },
@@ -5716,8 +5706,8 @@
             "input": {
               "AutoScalingGroupName": "my-auto-scaling-group",
               "PolicyName": "my-step-scale-out-policy",
-              "BreachThreshold": 50,
-              "MetricValue": 59
+              "BreachThreshold": 50.0,
+              "MetricValue": 59.0
             }
           }
         ]
@@ -5779,9 +5769,7 @@
             "title": "To move instances out of standby mode",
             "documentation": "This example moves the specified instance out of standby mode.",
             "input": {
-              "InstanceIds": [
-                "i-93633f9b"
-              ],
+              "InstanceIds": ["i-93633f9b"],
               "AutoScalingGroupName": "my-auto-scaling-group"
             },
             "output": {
@@ -6991,7 +6979,7 @@
           }
         },
         "NotificationMetadata": {
-          "target": "com.amazonaws.autoscaling#XmlStringMaxLen1023",
+          "target": "com.amazonaws.autoscaling#AnyPrintableAsciiStringMaxLen4000",
           "traits": {
             "smithy.api#documentation": "<p>Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the\n            notification target.</p>"
           }
@@ -7049,7 +7037,7 @@
           }
         },
         "NotificationMetadata": {
-          "target": "com.amazonaws.autoscaling#XmlStringMaxLen1023",
+          "target": "com.amazonaws.autoscaling#AnyPrintableAsciiStringMaxLen4000",
           "traits": {
             "smithy.api#documentation": "<p>Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to\n            the notification target.</p>"
           }
@@ -8440,7 +8428,7 @@
           }
         },
         "NotificationMetadata": {
-          "target": "com.amazonaws.autoscaling#XmlStringMaxLen1023",
+          "target": "com.amazonaws.autoscaling#AnyPrintableAsciiStringMaxLen4000",
           "traits": {
             "smithy.api#documentation": "<p>Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to\n            the notification target.</p>"
           }
@@ -8487,9 +8475,7 @@
             "input": {
               "AutoScalingGroupName": "my-auto-scaling-group",
               "TopicARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic",
-              "NotificationTypes": [
-                "autoscaling:TEST_NOTIFICATION"
-              ]
+              "NotificationTypes": ["autoscaling:TEST_NOTIFICATION"]
             }
           }
         ]
@@ -8551,7 +8537,7 @@
               "PolicyName": "alb1000-target-tracking-scaling-policy",
               "PolicyType": "TargetTrackingScaling",
               "TargetTrackingConfiguration": {
-                "TargetValue": 1000,
+                "TargetValue": 1000.0,
                 "PredefinedMetricSpecification": {
                   "PredefinedMetricType": "ALBRequestCountPerTarget",
                   "ResourceLabel": "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff"
@@ -9063,9 +9049,7 @@
             "documentation": "This example resumes the specified suspended scaling process for the specified Auto Scaling group.",
             "input": {
               "AutoScalingGroupName": "my-auto-scaling-group",
-              "ScalingProcesses": [
-                "AlarmNotification"
-              ]
+              "ScalingProcesses": ["AlarmNotification"]
             }
           }
         ]
@@ -9741,9 +9725,7 @@
             "title": "To enable instance protection for an instance",
             "documentation": "This example enables instance protection for the specified instance.",
             "input": {
-              "InstanceIds": [
-                "i-93633f9b"
-              ],
+              "InstanceIds": ["i-93633f9b"],
               "AutoScalingGroupName": "my-auto-scaling-group",
               "ProtectedFromScaleIn": true
             }
@@ -9861,9 +9843,7 @@
               "Preferences": {
                 "AutoRollback": true,
                 "AlarmSpecification": {
-                  "Alarms": [
-                    "my-alarm"
-                  ]
+                  "Alarms": ["my-alarm"]
                 },
                 "InstanceWarmup": 200,
                 "MinHealthyPercentage": 90
@@ -9974,9 +9954,7 @@
             "documentation": "This example suspends the specified scaling process for the specified Auto Scaling group.",
             "input": {
               "AutoScalingGroupName": "my-auto-scaling-group",
-              "ScalingProcesses": [
-                "AlarmNotification"
-              ]
+              "ScalingProcesses": ["AlarmNotification"]
             }
           }
         ]
