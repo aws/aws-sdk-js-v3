@@ -38,7 +38,9 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Creates a delivery channel object to deliver configuration
- * 			information to an Amazon S3 bucket and Amazon SNS topic.</p>
+ * 			information and other compliance information to an Amazon S3 bucket and Amazon SNS topic.
+ * 			For more information,
+ * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/notifications-for-AWS-Config.html">Notifications that Config Sends to an Amazon SNS topic</a>.</p>
  *          <p>Before you can create a delivery channel, you must create a
  * 			configuration recorder.</p>
  *          <p>You can use this action to change the Amazon S3 bucket or an

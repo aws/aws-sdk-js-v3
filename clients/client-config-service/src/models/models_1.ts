@@ -502,7 +502,8 @@ export interface PutConformancePackRequest {
    * @public
    * <p>The location of the file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to a conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same Region as the conformance pack. </p>
    *          <note>
-   *             <p>You must have access to read Amazon S3 bucket.</p>
+   *             <p>You must have access to read Amazon S3 bucket.
+   * 			In addition, in order to ensure a successful deployment, the template object must not be in an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">archived storage class</a> if this parameter is passed.</p>
    *          </note>
    */
   TemplateS3Uri?: string;
@@ -712,7 +713,8 @@ export interface PutOrganizationConformancePackRequest {
    * <p>Location of file containing the template body. The uri must point to the conformance pack template
    * 			(max size: 300 KB).</p>
    *          <note>
-   *             <p>You must have access to read Amazon S3 bucket.</p>
+   *             <p>You must have access to read Amazon S3 bucket.
+   * 			In addition, in order to ensure a successful deployment, the template object must not be in an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">archived storage class</a> if this parameter is passed.</p>
    *          </note>
    */
   TemplateS3Uri?: string;
