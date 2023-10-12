@@ -27,15 +27,9 @@
  *          use <code>GetProducts</code> to find specific products that you're interested in, such as
  *          an <code>AmazonEC2</code> instance, with a <code>Provisioned IOPS</code>
  *             <code>volumeType</code>.</p>
- *          <p>You can use the following endpoints for the Amazon Web Services Price List API:</p>
- *          <ul>
- *             <li>
- *                <p>https://api.pricing.us-east-1.amazonaws.com</p>
- *             </li>
- *             <li>
- *                <p>https://api.pricing.ap-south-1.amazonaws.com</p>
- *             </li>
- *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Using the
+ *          Amazon Web Services Price List API</a> in the <i>Billing User
+ *             Guide</i>.</p>
  *
  * @packageDocumentation
  */

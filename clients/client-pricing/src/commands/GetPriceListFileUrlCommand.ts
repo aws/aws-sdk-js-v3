@@ -42,10 +42,9 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  *                <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
  *             </i>
  *          </p>
- *          <p>This returns the URL that you can retrieve your Price List file from. This URL is based on
- *          the <code>PriceListArn</code> and <code>FileFormat</code> that you retrieve from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">
- *                <code>ListPriceLists</code>
- *             </a> response. </p>
+ *          <p>This returns the URL that you can retrieve your Price List file from. This URL is based
+ *          on the <code>PriceListArn</code> and <code>FileFormat</code> that you retrieve from the
+ *             <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a> response. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
