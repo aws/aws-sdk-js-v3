@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
+
+
+### Features
+
+* **client-controltower:** Added new EnabledControl resource details to ListEnabledControls API and added new GetEnabledControl API. ([784c6fb](https://github.com/aws/aws-sdk-js-v3/commit/784c6fb6561f80222b9d39f159b6f44ae4be5a2a))
+
+
+
+
+
 # [3.427.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.426.0...v3.427.0) (2023-10-06)
 
 **Note:** Version bump only for package @aws-sdk/client-controltower

@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** add e2e suite and bug fixes for lib-dynamodb ([#5306](https://github.com/aws/aws-sdk-js-v3/issues/5306)) ([2fe0a88](https://github.com/aws/aws-sdk-js-v3/commit/2fe0a883f8e5bb8ab855874072be62bc07441762))
+* **middleware-flexible-checksums:** skip checksum validation for s3 whole-object multipart GET ([#5345](https://github.com/aws/aws-sdk-js-v3/issues/5345)) ([6a6a75e](https://github.com/aws/aws-sdk-js-v3/commit/6a6a75e69dbc05750cab0ce83c2235f87c75b922))
+
+
+### Features
+
+* **client-auditmanager:** This release introduces a new limit to the awsAccounts parameter. When you create or update an assessment, there is now a limit of 200 AWS accounts that can be specified in the assessment scope. ([af41764](https://github.com/aws/aws-sdk-js-v3/commit/af417648f78d4ea2496633d11ad154f2935066bf))
+* **client-auto-scaling:** Update the NotificationMetadata field to only allow visible ascii characters. Add paginators to DescribeInstanceRefreshes, DescribeLoadBalancers, and DescribeLoadBalancerTargetGroups ([6727085](https://github.com/aws/aws-sdk-js-v3/commit/672708506bf6b4748142ed5126c1b788e8f47758))
+* **client-config-service:** Add enums for resource types supported by Config ([1cdcf43](https://github.com/aws/aws-sdk-js-v3/commit/1cdcf4309aabf6093fdf340538882f60cb9447bc))
+* **client-controltower:** Added new EnabledControl resource details to ListEnabledControls API and added new GetEnabledControl API. ([784c6fb](https://github.com/aws/aws-sdk-js-v3/commit/784c6fb6561f80222b9d39f159b6f44ae4be5a2a))
+* **client-customer-profiles:** Adds sensitive trait to various shapes in Customer Profiles Calculated Attribute API model. ([73c9229](https://github.com/aws/aws-sdk-js-v3/commit/73c9229645cd57746c812bc85b4d230bd6f70ffb))
+* **client-ec2:** This release adds Ubuntu Pro as a supported platform for On-Demand Capacity Reservations and adds support for setting an Amazon Machine Image (AMI) to disabled state. Disabling the AMI makes it private if it was previously shared, and prevents new EC2 instance launches from it. ([9c57ae3](https://github.com/aws/aws-sdk-js-v3/commit/9c57ae3280837f11350664050bb11d0ba768f149))
+* **client-glue:** Extending version control support to GitLab and Bitbucket from AWSGlue ([b683df3](https://github.com/aws/aws-sdk-js-v3/commit/b683df3c866f42d759c18b10be7007bf8e24f608))
+* **client-inspector2:** Add MacOs ec2 platform support ([2964c2f](https://github.com/aws/aws-sdk-js-v3/commit/2964c2f75c0e59c6bfd700bde7fe1bbecaef60c5))
+* **client-ivs-realtime:** Update GetParticipant to return additional metadata. ([4adb626](https://github.com/aws/aws-sdk-js-v3/commit/4adb62606861bc185678ff64d9871cc3930cefac))
+* **client-lambda:** Adds support for Lambda functions to access Dual-Stack subnets over IPv6, via an opt-in flag in CreateFunction and UpdateFunctionConfiguration APIs ([2bb63a0](https://github.com/aws/aws-sdk-js-v3/commit/2bb63a023100d2133b8050c1eb528f04444bd576))
+* **client-location:** This release adds endpoint updates for all AWS Location resource operations. ([f71b216](https://github.com/aws/aws-sdk-js-v3/commit/f71b2162e204e6bd55685b443964e34944040d66))
+* **client-machine-learning:** This release marks Password field as sensitive ([4d5eac6](https://github.com/aws/aws-sdk-js-v3/commit/4d5eac693235fa55b8f817a7b545befe0d0a30a6))
+* **client-rds:** This release adds support for adding a dedicated log volume to open-source RDS instances. ([634a983](https://github.com/aws/aws-sdk-js-v3/commit/634a98311610222f33aa38a6912eccda25ff6d5f))
+* **client-rekognition:** Amazon Rekognition introduces support for Custom Moderation. This allows the enhancement of accuracy for detect moderation labels operations by creating custom adapters tuned on customer data. ([87763f3](https://github.com/aws/aws-sdk-js-v3/commit/87763f3b71b3bdc7e07cafbbcf6be210e137d1e2))
+* **client-sagemaker:** Amazon SageMaker Canvas adds KendraSettings and DirectDeploySettings support for CanvasAppSettings ([685916c](https://github.com/aws/aws-sdk-js-v3/commit/685916ce1a1d171c083afe0800bd3c4124408caa))
+* **client-textract:** This release adds 9 new APIs for adapter and adapter version management, 3 new APIs for tagging, and updates AnalyzeDocument and StartDocumentAnalysis API parameters for using adapters. ([4ce1e29](https://github.com/aws/aws-sdk-js-v3/commit/4ce1e296e2ef4433d5463aa424028c4787ffc2ba))
+* **client-transcribe:** This release is to enable m4a format to customers ([8c24c28](https://github.com/aws/aws-sdk-js-v3/commit/8c24c2881d77f0ef0d3f68c4fd7e748a146b4d9b))
+* **clients:** update client endpoints as of 2023-10-12 ([3476339](https://github.com/aws/aws-sdk-js-v3/commit/3476339063e17ad92784cc44845be5675a7e7dd5))
+
+
+
+
+
 # [3.427.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.426.0...v3.427.0) (2023-10-06)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Canvas adds KendraSettings and DirectDeploySettings support for CanvasAppSettings ([685916c](https://github.com/aws/aws-sdk-js-v3/commit/685916ce1a1d171c083afe0800bd3c4124408caa))
+
+
+
+
+
 # [3.427.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.426.0...v3.427.0) (2023-10-06)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

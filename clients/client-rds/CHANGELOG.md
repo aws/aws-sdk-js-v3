@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
+
+
+### Features
+
+* **client-rds:** This release adds support for adding a dedicated log volume to open-source RDS instances. ([634a983](https://github.com/aws/aws-sdk-js-v3/commit/634a98311610222f33aa38a6912eccda25ff6d5f))
+
+
+
+
+
 # [3.427.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.426.0...v3.427.0) (2023-10-06)
 
 **Note:** Version bump only for package @aws-sdk/client-rds
