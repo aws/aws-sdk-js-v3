@@ -4471,13 +4471,18 @@ export interface UpdateJobFromSourceControlRequest {
 
   /**
    * @public
-   * <p>The provider for the remote repository.</p>
+   * <p>
+   *       The provider for the remote repository. Possible values: GITHUB, AWS_CODE_COMMIT, GITLAB, BITBUCKET.
+   *     </p>
    */
   Provider?: SourceControlProvider | string;
 
   /**
    * @public
-   * <p>The name of the remote repository that contains the job artifacts.</p>
+   * <p>The name of the remote repository that contains the job artifacts.
+   *       For BitBucket providers, <code>RepositoryName</code> should include <code>WorkspaceName</code>.
+   *       Use the format <code><WorkspaceName>/<RepositoryName></code>.
+   *     </p>
    */
   RepositoryName?: string;
 
@@ -4777,13 +4782,18 @@ export interface UpdateSourceControlFromJobRequest {
 
   /**
    * @public
-   * <p>The provider for the remote repository.</p>
+   * <p>
+   *       The provider for the remote repository. Possible values: GITHUB, AWS_CODE_COMMIT, GITLAB, BITBUCKET.
+   *     </p>
    */
   Provider?: SourceControlProvider | string;
 
   /**
    * @public
-   * <p>The name of the remote repository that contains the job artifacts.</p>
+   * <p>The name of the remote repository that contains the job artifacts.
+   *       For BitBucket providers, <code>RepositoryName</code> should include <code>WorkspaceName</code>.
+   *       Use the format <code><WorkspaceName>/<RepositoryName></code>.
+   *     </p>
    */
   RepositoryName?: string;
 

@@ -6551,7 +6551,9 @@ export type SourceControlAuthStrategy = (typeof SourceControlAuthStrategy)[keyof
  */
 export const SourceControlProvider = {
   AWS_CODE_COMMIT: "AWS_CODE_COMMIT",
+  BITBUCKET: "BITBUCKET",
   GITHUB: "GITHUB",
+  GITLAB: "GITLAB",
 } as const;
 
 /**

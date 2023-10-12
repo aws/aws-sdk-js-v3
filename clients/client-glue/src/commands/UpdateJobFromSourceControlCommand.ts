@@ -47,7 +47,7 @@ export interface UpdateJobFromSourceControlCommandOutput extends UpdateJobFromSo
  * const client = new GlueClient(config);
  * const input = { // UpdateJobFromSourceControlRequest
  *   JobName: "STRING_VALUE",
- *   Provider: "GITHUB" || "AWS_CODE_COMMIT",
+ *   Provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "AWS_CODE_COMMIT",
  *   RepositoryName: "STRING_VALUE",
  *   RepositoryOwner: "STRING_VALUE",
  *   BranchName: "STRING_VALUE",

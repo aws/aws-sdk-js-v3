@@ -1099,7 +1099,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //     },
  * //     ExecutionClass: "FLEX" || "STANDARD",
  * //     SourceControlDetails: { // SourceControlDetails
- * //       Provider: "GITHUB" || "AWS_CODE_COMMIT",
+ * //       Provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "AWS_CODE_COMMIT",
  * //       Repository: "STRING_VALUE",
  * //       Owner: "STRING_VALUE",
  * //       Branch: "STRING_VALUE",
