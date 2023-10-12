@@ -1,6 +1,8 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
 
+jest.setTimeout(100000);
+
 const testValue = "Hello S3 global client!";
 
 describe("S3 Global Client Test", () => {
@@ -21,7 +23,6 @@ describe("S3 Global Client Test", () => {
   const randId = alphabet[(Math.random() * alphabet.length) | 0] + alphabet[(Math.random() * alphabet.length) | 0];
 
   beforeAll(async () => {
-    jest.setTimeout(100000);
     callerID = await stsClient.getCallerIdentity({});
     bucketNames = regionConfigs.map((config) => `${callerID.Account}-${randId}-redirect-${config.region}`);
     await Promise.all(bucketNames.map((bucketName, index) => deleteBucket(s3Clients[index], bucketName)));
