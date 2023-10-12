@@ -38,7 +38,10 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
 /**
  * @public
  * <p>Lists the controls enabled by AWS Control Tower on the specified organizational unit and
- *       the accounts it contains.</p>
+ *       the accounts it contains. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
+ *                <i>the AWS Control Tower User Guide</i>
+ *             </a>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +59,15 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * //   enabledControls: [ // EnabledControls // required
  * //     { // EnabledControlSummary
  * //       controlIdentifier: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       targetIdentifier: "STRING_VALUE",
+ * //       statusSummary: { // EnablementStatusSummary
+ * //         status: "STRING_VALUE",
+ * //         lastOperationIdentifier: "STRING_VALUE",
+ * //       },
+ * //       driftStatusSummary: { // DriftStatusSummary
+ * //         driftStatus: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -70,8 +82,7 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.
- *       </p>
+ *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of request.</p>

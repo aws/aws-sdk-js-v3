@@ -37,9 +37,11 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
 
 /**
  * @public
- * <p>This API call turns off a control. It starts an asynchronous operation that deletes AWS resources on the specified
- *         organizational unit and the accounts it contains. The resources will vary according to the
- *         control that you specify.</p>
+ * <p>This API call turns off a control. It starts an asynchronous operation that deletes AWS
+ *       resources on the specified organizational unit and the accounts it contains. The resources
+ *       will vary according to the control that you specify. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
+ *                <i>the AWS Control Tower User Guide</i>
+ *             </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +67,7 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.
- *       </p>
+ *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
@@ -78,7 +79,7 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  *  <p>Request references a resource which does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded. The limit is 10 concurrent operations. </p>
+ *  <p>Request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p> Request was denied due to request throttling.</p>

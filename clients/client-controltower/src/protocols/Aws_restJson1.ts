@@ -25,6 +25,7 @@ import {
   GetControlOperationCommandInput,
   GetControlOperationCommandOutput,
 } from "../commands/GetControlOperationCommand";
+import { GetEnabledControlCommandInput, GetEnabledControlCommandOutput } from "../commands/GetEnabledControlCommand";
 import {
   ListEnabledControlsCommandInput,
   ListEnabledControlsCommandOutput,
@@ -117,6 +118,35 @@ export const se_GetControlOperationCommand = async (
   body = JSON.stringify(
     take(input, {
       operationIdentifier: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetEnabledControlCommand
+ */
+export const se_GetEnabledControlCommand = async (
+  input: GetEnabledControlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-enabled-control";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      enabledControlIdentifier: [],
     })
   );
   return new __HttpRequest({
@@ -319,6 +349,65 @@ const de_GetControlOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetControlOperationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.controltower#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.controltower#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.controltower#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.controltower#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.controltower#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetEnabledControlCommand
+ */
+export const de_GetEnabledControlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEnabledControlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetEnabledControlCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    enabledControlDetails: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetEnabledControlCommandError
+ */
+const de_GetEnabledControlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEnabledControlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -562,9 +651,19 @@ const de_ControlOperation = (output: any, context: __SerdeContext): ControlOpera
   }) as any;
 };
 
+// de_DriftStatusSummary omitted.
+
+// de_EnabledControlDetails omitted.
+
 // de_EnabledControls omitted.
 
 // de_EnabledControlSummary omitted.
+
+// de_EnablementStatusSummary omitted.
+
+// de_Region omitted.
+
+// de_TargetRegions omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
