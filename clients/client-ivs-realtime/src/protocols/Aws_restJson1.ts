@@ -1497,9 +1497,15 @@ const de_EventList = (output: any, context: __SerdeContext): Event[] => {
 const de_Participant = (output: any, context: __SerdeContext): Participant => {
   return take(output, {
     attributes: _json,
+    browserName: __expectString,
+    browserVersion: __expectString,
     firstJoinTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ispName: __expectString,
+    osName: __expectString,
+    osVersion: __expectString,
     participantId: __expectString,
     published: __expectBoolean,
+    sdkVersion: __expectString,
     state: __expectString,
     userId: __expectString,
   }) as any;

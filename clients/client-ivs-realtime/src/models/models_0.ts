@@ -534,6 +534,42 @@ export interface Participant {
    * <p>Whether the participant ever published to the stage session.</p>
    */
   published?: boolean;
+
+  /**
+   * @public
+   * <p>The participant’s Internet Service Provider.</p>
+   */
+  ispName?: string;
+
+  /**
+   * @public
+   * <p>The participant’s operating system.</p>
+   */
+  osName?: string;
+
+  /**
+   * @public
+   * <p>The participant’s operating system version.</p>
+   */
+  osVersion?: string;
+
+  /**
+   * @public
+   * <p>The participant’s browser.</p>
+   */
+  browserName?: string;
+
+  /**
+   * @public
+   * <p>The participant’s browser version.</p>
+   */
+  browserVersion?: string;
+
+  /**
+   * @public
+   * <p>The participant’s SDK version.</p>
+   */
+  sdkVersion?: string;
 }
 
 /**

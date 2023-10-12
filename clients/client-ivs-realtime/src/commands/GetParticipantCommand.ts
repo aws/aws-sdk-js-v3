@@ -61,6 +61,12 @@ export interface GetParticipantCommandOutput extends GetParticipantResponse, __M
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     published: true || false,
+ * //     ispName: "STRING_VALUE",
+ * //     osName: "STRING_VALUE",
+ * //     osVersion: "STRING_VALUE",
+ * //     browserName: "STRING_VALUE",
+ * //     browserVersion: "STRING_VALUE",
+ * //     sdkVersion: "STRING_VALUE",
  * //   },
  * // };
  *
