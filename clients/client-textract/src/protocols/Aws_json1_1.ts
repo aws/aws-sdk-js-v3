@@ -5,9 +5,12 @@ import {
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
   LazyJsonString as __LazyJsonString,
   limitedParseFloat32 as __limitedParseFloat32,
+  parseEpochTimestamp as __parseEpochTimestamp,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -17,11 +20,24 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import { AnalyzeDocumentCommandInput, AnalyzeDocumentCommandOutput } from "../commands/AnalyzeDocumentCommand";
 import { AnalyzeExpenseCommandInput, AnalyzeExpenseCommandOutput } from "../commands/AnalyzeExpenseCommand";
 import { AnalyzeIDCommandInput, AnalyzeIDCommandOutput } from "../commands/AnalyzeIDCommand";
+import { CreateAdapterCommandInput, CreateAdapterCommandOutput } from "../commands/CreateAdapterCommand";
+import {
+  CreateAdapterVersionCommandInput,
+  CreateAdapterVersionCommandOutput,
+} from "../commands/CreateAdapterVersionCommand";
+import { DeleteAdapterCommandInput, DeleteAdapterCommandOutput } from "../commands/DeleteAdapterCommand";
+import {
+  DeleteAdapterVersionCommandInput,
+  DeleteAdapterVersionCommandOutput,
+} from "../commands/DeleteAdapterVersionCommand";
 import { DetectDocumentTextCommandInput, DetectDocumentTextCommandOutput } from "../commands/DetectDocumentTextCommand";
+import { GetAdapterCommandInput, GetAdapterCommandOutput } from "../commands/GetAdapterCommand";
+import { GetAdapterVersionCommandInput, GetAdapterVersionCommandOutput } from "../commands/GetAdapterVersionCommand";
 import {
   GetDocumentAnalysisCommandInput,
   GetDocumentAnalysisCommandOutput,
@@ -36,6 +52,15 @@ import {
   GetLendingAnalysisSummaryCommandInput,
   GetLendingAnalysisSummaryCommandOutput,
 } from "../commands/GetLendingAnalysisSummaryCommand";
+import { ListAdaptersCommandInput, ListAdaptersCommandOutput } from "../commands/ListAdaptersCommand";
+import {
+  ListAdapterVersionsCommandInput,
+  ListAdapterVersionsCommandOutput,
+} from "../commands/ListAdapterVersionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import {
   StartDocumentAnalysisCommandInput,
   StartDocumentAnalysisCommandOutput,
@@ -52,8 +77,17 @@ import {
   StartLendingAnalysisCommandInput,
   StartLendingAnalysisCommandOutput,
 } from "../commands/StartLendingAnalysisCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateAdapterCommandInput, UpdateAdapterCommandOutput } from "../commands/UpdateAdapterCommand";
 import {
   AccessDeniedException,
+  Adapter,
+  AdapterOverview,
+  AdaptersConfig,
+  AdapterVersionDatasetConfig,
+  AdapterVersionEvaluationMetric,
+  AdapterVersionOverview,
   AnalyzeDocumentRequest,
   AnalyzeDocumentResponse,
   AnalyzeExpenseRequest,
@@ -64,12 +98,18 @@ import {
   BadDocumentException,
   Block,
   BoundingBox,
+  ConflictException,
   ContentClassifier,
+  CreateAdapterRequest,
+  CreateAdapterVersionRequest,
+  DeleteAdapterRequest,
+  DeleteAdapterVersionRequest,
   DetectDocumentTextRequest,
   DetectDocumentTextResponse,
   Document,
   DocumentLocation,
   DocumentTooLargeException,
+  EvaluationMetric,
   ExpenseCurrency,
   ExpenseDetection,
   ExpenseDocument,
@@ -78,6 +118,10 @@ import {
   Extraction,
   FeatureType,
   Geometry,
+  GetAdapterRequest,
+  GetAdapterResponse,
+  GetAdapterVersionRequest,
+  GetAdapterVersionResponse,
   GetDocumentAnalysisRequest,
   GetDocumentAnalysisResponse,
   GetDocumentTextDetectionRequest,
@@ -106,6 +150,11 @@ import {
   LimitExceededException,
   LineItemFields,
   LineItemGroup,
+  ListAdaptersRequest,
+  ListAdaptersResponse,
+  ListAdapterVersionsRequest,
+  ListAdapterVersionsResponse,
+  ListTagsForResourceRequest,
   NotificationChannel,
   OutputConfig,
   PageClassification,
@@ -114,14 +163,21 @@ import {
   ProvisionedThroughputExceededException,
   QueriesConfig,
   Query,
+  ResourceNotFoundException,
   S3Object,
+  ServiceQuotaExceededException,
   SignatureDetection,
   StartDocumentAnalysisRequest,
   StartDocumentTextDetectionRequest,
   StartExpenseAnalysisRequest,
   StartLendingAnalysisRequest,
+  TagResourceRequest,
   ThrottlingException,
   UnsupportedDocumentException,
+  UntagResourceRequest,
+  UpdateAdapterRequest,
+  UpdateAdapterResponse,
+  ValidationException,
 } from "../models/models_0";
 import { TextractServiceException as __BaseException } from "../models/TextractServiceException";
 
@@ -165,6 +221,58 @@ export const se_AnalyzeIDCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateAdapterCommand
+ */
+export const se_CreateAdapterCommand = async (
+  input: CreateAdapterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateAdapter");
+  let body: any;
+  body = JSON.stringify(se_CreateAdapterRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateAdapterVersionCommand
+ */
+export const se_CreateAdapterVersionCommand = async (
+  input: CreateAdapterVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateAdapterVersion");
+  let body: any;
+  body = JSON.stringify(se_CreateAdapterVersionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteAdapterCommand
+ */
+export const se_DeleteAdapterCommand = async (
+  input: DeleteAdapterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteAdapter");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteAdapterVersionCommand
+ */
+export const se_DeleteAdapterVersionCommand = async (
+  input: DeleteAdapterVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteAdapterVersion");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DetectDocumentTextCommand
  */
 export const se_DetectDocumentTextCommand = async (
@@ -174,6 +282,32 @@ export const se_DetectDocumentTextCommand = async (
   const headers: __HeaderBag = sharedHeaders("DetectDocumentText");
   let body: any;
   body = JSON.stringify(se_DetectDocumentTextRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetAdapterCommand
+ */
+export const se_GetAdapterCommand = async (
+  input: GetAdapterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetAdapter");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetAdapterVersionCommand
+ */
+export const se_GetAdapterVersionCommand = async (
+  input: GetAdapterVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetAdapterVersion");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -243,6 +377,45 @@ export const se_GetLendingAnalysisSummaryCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListAdaptersCommand
+ */
+export const se_ListAdaptersCommand = async (
+  input: ListAdaptersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAdapters");
+  let body: any;
+  body = JSON.stringify(se_ListAdaptersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListAdapterVersionsCommand
+ */
+export const se_ListAdapterVersionsCommand = async (
+  input: ListAdapterVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAdapterVersions");
+  let body: any;
+  body = JSON.stringify(se_ListAdapterVersionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StartDocumentAnalysisCommand
  */
 export const se_StartDocumentAnalysisCommand = async (
@@ -289,6 +462,45 @@ export const se_StartLendingAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartLendingAnalysis");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateAdapterCommand
+ */
+export const se_UpdateAdapterCommand = async (
+  input: UpdateAdapterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateAdapter");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -508,6 +720,295 @@ const de_AnalyzeIDCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateAdapterCommand
+ */
+export const de_CreateAdapterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAdapterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateAdapterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateAdapterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateAdapterCommandError
+ */
+const de_CreateAdapterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAdapterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.textract#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.textract#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.textract#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.textract#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.textract#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateAdapterVersionCommand
+ */
+export const de_CreateAdapterVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAdapterVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateAdapterVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateAdapterVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateAdapterVersionCommandError
+ */
+const de_CreateAdapterVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAdapterVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.textract#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.textract#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidKMSKeyException":
+    case "com.amazonaws.textract#InvalidKMSKeyException":
+      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.textract#InvalidS3ObjectException":
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.textract#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.textract#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.textract#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.textract#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteAdapterCommand
+ */
+export const de_DeleteAdapterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAdapterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteAdapterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteAdapterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteAdapterCommandError
+ */
+const de_DeleteAdapterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAdapterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.textract#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.textract#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.textract#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteAdapterVersionCommand
+ */
+export const de_DeleteAdapterVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAdapterVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteAdapterVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteAdapterVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteAdapterVersionCommandError
+ */
+const de_DeleteAdapterVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAdapterVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.textract#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.textract#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.textract#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DetectDocumentTextCommand
  */
 export const de_DetectDocumentTextCommand = async (
@@ -567,6 +1068,134 @@ const de_DetectDocumentTextCommandError = async (
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
       throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetAdapterCommand
+ */
+export const de_GetAdapterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAdapterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetAdapterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetAdapterResponse(data, context);
+  const response: GetAdapterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetAdapterCommandError
+ */
+const de_GetAdapterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAdapterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.textract#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.textract#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetAdapterVersionCommand
+ */
+export const de_GetAdapterVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAdapterVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetAdapterVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetAdapterVersionResponse(data, context);
+  const response: GetAdapterVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetAdapterVersionCommandError
+ */
+const de_GetAdapterVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAdapterVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.textract#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.textract#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -913,6 +1542,195 @@ const de_GetLendingAnalysisSummaryCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListAdaptersCommand
+ */
+export const de_ListAdaptersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAdaptersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListAdaptersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAdaptersResponse(data, context);
+  const response: ListAdaptersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAdaptersCommandError
+ */
+const de_ListAdaptersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAdaptersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.textract#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListAdapterVersionsCommand
+ */
+export const de_ListAdapterVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAdapterVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListAdapterVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAdapterVersionsResponse(data, context);
+  const response: ListAdapterVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAdapterVersionsCommandError
+ */
+const de_ListAdapterVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAdapterVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.textract#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.textract#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.textract#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.textract#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1StartDocumentAnalysisCommand
  */
 export const de_StartDocumentAnalysisCommand = async (
@@ -1229,6 +2047,204 @@ const de_StartLendingAnalysisCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.textract#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.textract#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.textract#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.textract#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.textract#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateAdapterCommand
+ */
+export const de_UpdateAdapterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAdapterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateAdapterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateAdapterResponse(data, context);
+  const response: UpdateAdapterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateAdapterCommandError
+ */
+const de_UpdateAdapterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAdapterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.textract#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.textract#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.textract#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1AccessDeniedExceptionRes
  */
 const de_AccessDeniedExceptionRes = async (
@@ -1254,6 +2270,19 @@ const de_BadDocumentExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new BadDocumentException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -1418,6 +2447,38 @@ const de_ProvisionedThroughputExceededExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ThrottlingExceptionRes
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
@@ -1447,10 +2508,34 @@ const de_UnsupportedDocumentExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+// se_Adapter omitted.
+
+// se_AdapterPages omitted.
+
+// se_Adapters omitted.
+
+// se_AdaptersConfig omitted.
+
+// se_AdapterVersionDatasetConfig omitted.
+
+/**
  * serializeAws_json1_1AnalyzeDocumentRequest
  */
 const se_AnalyzeDocumentRequest = (input: AnalyzeDocumentRequest, context: __SerdeContext): any => {
   return take(input, {
+    AdaptersConfig: _json,
     Document: (_) => se_Document(_, context),
     FeatureTypes: _json,
     HumanLoopConfig: _json,
@@ -1477,6 +2562,38 @@ const se_AnalyzeIDRequest = (input: AnalyzeIDRequest, context: __SerdeContext): 
 };
 
 // se_ContentClassifiers omitted.
+
+/**
+ * serializeAws_json1_1CreateAdapterRequest
+ */
+const se_CreateAdapterRequest = (input: CreateAdapterRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AdapterName: [],
+    AutoUpdate: [],
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    Description: [],
+    FeatureTypes: _json,
+    Tags: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_1CreateAdapterVersionRequest
+ */
+const se_CreateAdapterVersionRequest = (input: CreateAdapterVersionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AdapterId: [],
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    DatasetConfig: _json,
+    KMSKeyId: [],
+    OutputConfig: _json,
+    Tags: _json,
+  });
+};
+
+// se_DeleteAdapterRequest omitted.
+
+// se_DeleteAdapterVersionRequest omitted.
 
 /**
  * serializeAws_json1_1DetectDocumentTextRequest
@@ -1512,6 +2629,10 @@ const se_DocumentPages = (input: Document[], context: __SerdeContext): any => {
 
 // se_FeatureTypes omitted.
 
+// se_GetAdapterRequest omitted.
+
+// se_GetAdapterVersionRequest omitted.
+
 // se_GetDocumentAnalysisRequest omitted.
 
 // se_GetDocumentTextDetectionRequest omitted.
@@ -1525,6 +2646,33 @@ const se_DocumentPages = (input: Document[], context: __SerdeContext): any => {
 // se_HumanLoopConfig omitted.
 
 // se_HumanLoopDataAttributes omitted.
+
+/**
+ * serializeAws_json1_1ListAdaptersRequest
+ */
+const se_ListAdaptersRequest = (input: ListAdaptersRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AfterCreationTime: (_) => Math.round(_.getTime() / 1000),
+    BeforeCreationTime: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NextToken: [],
+  });
+};
+
+/**
+ * serializeAws_json1_1ListAdapterVersionsRequest
+ */
+const se_ListAdapterVersionsRequest = (input: ListAdapterVersionsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AdapterId: [],
+    AfterCreationTime: (_) => Math.round(_.getTime() / 1000),
+    BeforeCreationTime: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NextToken: [],
+  });
+};
+
+// se_ListTagsForResourceRequest omitted.
 
 // se_NotificationChannel omitted.
 
@@ -1548,7 +2696,92 @@ const se_DocumentPages = (input: Document[], context: __SerdeContext): any => {
 
 // se_StartLendingAnalysisRequest omitted.
 
+// se_TagKeyList omitted.
+
+// se_TagMap omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_UntagResourceRequest omitted.
+
+// se_UpdateAdapterRequest omitted.
+
 // de_AccessDeniedException omitted.
+
+/**
+ * deserializeAws_json1_1AdapterList
+ */
+const de_AdapterList = (output: any, context: __SerdeContext): AdapterOverview[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AdapterOverview(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1AdapterOverview
+ */
+const de_AdapterOverview = (output: any, context: __SerdeContext): AdapterOverview => {
+  return take(output, {
+    AdapterId: __expectString,
+    AdapterName: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FeatureTypes: _json,
+  }) as any;
+};
+
+// de_AdapterVersionDatasetConfig omitted.
+
+/**
+ * deserializeAws_json1_1AdapterVersionEvaluationMetric
+ */
+const de_AdapterVersionEvaluationMetric = (output: any, context: __SerdeContext): AdapterVersionEvaluationMetric => {
+  return take(output, {
+    AdapterVersion: (_: any) => de_EvaluationMetric(_, context),
+    Baseline: (_: any) => de_EvaluationMetric(_, context),
+    FeatureType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1AdapterVersionEvaluationMetrics
+ */
+const de_AdapterVersionEvaluationMetrics = (output: any, context: __SerdeContext): AdapterVersionEvaluationMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AdapterVersionEvaluationMetric(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1AdapterVersionList
+ */
+const de_AdapterVersionList = (output: any, context: __SerdeContext): AdapterVersionOverview[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AdapterVersionOverview(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1AdapterVersionOverview
+ */
+const de_AdapterVersionOverview = (output: any, context: __SerdeContext): AdapterVersionOverview => {
+  return take(output, {
+    AdapterId: __expectString,
+    AdapterVersion: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FeatureTypes: _json,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1AnalyzeDocumentResponse
@@ -1643,6 +2876,16 @@ const de_BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
   }) as any;
 };
 
+// de_ConflictException omitted.
+
+// de_CreateAdapterResponse omitted.
+
+// de_CreateAdapterVersionResponse omitted.
+
+// de_DeleteAdapterResponse omitted.
+
+// de_DeleteAdapterVersionResponse omitted.
+
 /**
  * deserializeAws_json1_1DetectDocumentTextResponse
  */
@@ -1667,6 +2910,17 @@ const de_DetectDocumentTextResponse = (output: any, context: __SerdeContext): De
 // de_DocumentTooLargeException omitted.
 
 // de_EntityTypes omitted.
+
+/**
+ * deserializeAws_json1_1EvaluationMetric
+ */
+const de_EvaluationMetric = (output: any, context: __SerdeContext): EvaluationMetric => {
+  return take(output, {
+    F1Score: __limitedParseFloat32,
+    Precision: __limitedParseFloat32,
+    Recall: __limitedParseFloat32,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1ExpenseCurrency
@@ -1776,6 +3030,8 @@ const de_ExtractionList = (output: any, context: __SerdeContext): Extraction[] =
   return retVal;
 };
 
+// de_FeatureTypes omitted.
+
 /**
  * deserializeAws_json1_1Geometry
  */
@@ -1783,6 +3039,40 @@ const de_Geometry = (output: any, context: __SerdeContext): Geometry => {
   return take(output, {
     BoundingBox: (_: any) => de_BoundingBox(_, context),
     Polygon: (_: any) => de_Polygon(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1GetAdapterResponse
+ */
+const de_GetAdapterResponse = (output: any, context: __SerdeContext): GetAdapterResponse => {
+  return take(output, {
+    AdapterId: __expectString,
+    AdapterName: __expectString,
+    AutoUpdate: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    FeatureTypes: _json,
+    Tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1GetAdapterVersionResponse
+ */
+const de_GetAdapterVersionResponse = (output: any, context: __SerdeContext): GetAdapterVersionResponse => {
+  return take(output, {
+    AdapterId: __expectString,
+    AdapterVersion: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetConfig: _json,
+    EvaluationMetrics: (_: any) => de_AdapterVersionEvaluationMetrics(_, context),
+    FeatureTypes: _json,
+    KMSKeyId: __expectString,
+    OutputConfig: _json,
+    Status: __expectString,
+    StatusMessage: __expectString,
+    Tags: _json,
   }) as any;
 };
 
@@ -2052,7 +3342,31 @@ const de_LineItemList = (output: any, context: __SerdeContext): LineItemFields[]
   return retVal;
 };
 
+/**
+ * deserializeAws_json1_1ListAdaptersResponse
+ */
+const de_ListAdaptersResponse = (output: any, context: __SerdeContext): ListAdaptersResponse => {
+  return take(output, {
+    Adapters: (_: any) => de_AdapterList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListAdapterVersionsResponse
+ */
+const de_ListAdapterVersionsResponse = (output: any, context: __SerdeContext): ListAdapterVersionsResponse => {
+  return take(output, {
+    AdapterVersions: (_: any) => de_AdapterVersionList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+// de_ListTagsForResourceResponse omitted.
+
 // de_NormalizedValue omitted.
+
+// de_OutputConfig omitted.
 
 /**
  * deserializeAws_json1_1PageClassification
@@ -2122,6 +3436,12 @@ const de_PredictionList = (output: any, context: __SerdeContext): Prediction[] =
 
 // de_RelationshipList omitted.
 
+// de_ResourceNotFoundException omitted.
+
+// de_S3Object omitted.
+
+// de_ServiceQuotaExceededException omitted.
+
 /**
  * deserializeAws_json1_1SignatureDetection
  */
@@ -2158,6 +3478,10 @@ const de_SignatureDetectionList = (output: any, context: __SerdeContext): Signat
 
 // de_StringList omitted.
 
+// de_TagMap omitted.
+
+// de_TagResourceResponse omitted.
+
 // de_ThrottlingException omitted.
 
 // de_UndetectedDocumentTypeList omitted.
@@ -2167,6 +3491,24 @@ const de_SignatureDetectionList = (output: any, context: __SerdeContext): Signat
 // de_UndetectedSignatureList omitted.
 
 // de_UnsupportedDocumentException omitted.
+
+// de_UntagResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_1UpdateAdapterResponse
+ */
+const de_UpdateAdapterResponse = (output: any, context: __SerdeContext): UpdateAdapterResponse => {
+  return take(output, {
+    AdapterId: __expectString,
+    AdapterName: __expectString,
+    AutoUpdate: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    FeatureTypes: _json,
+  }) as any;
+};
+
+// de_ValidationException omitted.
 
 // de_Warning omitted.
 

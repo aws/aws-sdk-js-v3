@@ -122,6 +122,17 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  *       },
  *     ],
  *   },
+ *   AdaptersConfig: { // AdaptersConfig
+ *     Adapters: [ // Adapters // required
+ *       { // Adapter
+ *         AdapterId: "STRING_VALUE", // required
+ *         Pages: [ // AdapterPages
+ *           "STRING_VALUE",
+ *         ],
+ *         Version: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new AnalyzeDocumentCommand(input);
  * const response = await client.send(command);

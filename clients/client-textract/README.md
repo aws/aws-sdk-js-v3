@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `TextractClient` and
-the commands you need, for example `GetDocumentAnalysisCommand`:
+the commands you need, for example `ListAdaptersCommand`:
 
 ```js
 // ES5 example
-const { TextractClient, GetDocumentAnalysisCommand } = require("@aws-sdk/client-textract");
+const { TextractClient, ListAdaptersCommand } = require("@aws-sdk/client-textract");
 ```
 
 ```ts
 // ES6+ example
-import { TextractClient, GetDocumentAnalysisCommand } from "@aws-sdk/client-textract";
+import { TextractClient, ListAdaptersCommand } from "@aws-sdk/client-textract";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new TextractClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetDocumentAnalysisCommand(params);
+const command = new ListAdaptersCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.Textract({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getDocumentAnalysis(params);
+  const data = await client.listAdapters(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .getDocumentAnalysis(params)
+  .listAdapters(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.getDocumentAnalysis(params, (err, data) => {
+client.listAdapters(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -231,10 +231,58 @@ AnalyzeID
 </details>
 <details>
 <summary>
+CreateAdapter
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/createadaptercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/createadaptercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/createadaptercommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateAdapterVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/createadapterversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/createadapterversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/createadapterversioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteAdapter
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/deleteadaptercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/deleteadaptercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/deleteadaptercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteAdapterVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/deleteadapterversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/deleteadapterversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/deleteadapterversioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 DetectDocumentText
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/detectdocumenttextcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/detectdocumenttextcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/detectdocumenttextcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAdapter
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/getadaptercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getadaptercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getadaptercommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAdapterVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/getadapterversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getadapterversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/getadapterversioncommandoutput.html)
 
 </details>
 <details>
@@ -279,6 +327,30 @@ GetLendingAnalysisSummary
 </details>
 <details>
 <summary>
+ListAdapters
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/listadapterscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/listadapterscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/listadapterscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAdapterVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/listadapterversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/listadapterversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/listadapterversionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartDocumentAnalysis
 </summary>
 
@@ -307,5 +379,29 @@ StartLendingAnalysis
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/startlendinganalysiscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/startlendinganalysiscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/startlendinganalysiscommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateAdapter
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/classes/updateadaptercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/updateadaptercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-textract/interfaces/updateadaptercommandoutput.html)
 
 </details>

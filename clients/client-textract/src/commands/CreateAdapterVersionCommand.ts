@@ -14,8 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { StartDocumentAnalysisRequest, StartDocumentAnalysisResponse } from "../models/models_0";
-import { de_StartDocumentAnalysisCommand, se_StartDocumentAnalysisCommand } from "../protocols/Aws_json1_1";
+import { CreateAdapterVersionRequest, CreateAdapterVersionResponse } from "../models/models_0";
+import { de_CreateAdapterVersionCommand, se_CreateAdapterVersionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -25,112 +25,68 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StartDocumentAnalysisCommand}.
+ * The input for {@link CreateAdapterVersionCommand}.
  */
-export interface StartDocumentAnalysisCommandInput extends StartDocumentAnalysisRequest {}
+export interface CreateAdapterVersionCommandInput extends CreateAdapterVersionRequest {}
 /**
  * @public
  *
- * The output of {@link StartDocumentAnalysisCommand}.
+ * The output of {@link CreateAdapterVersionCommand}.
  */
-export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysisResponse, __MetadataBearer {}
+export interface CreateAdapterVersionCommandOutput extends CreateAdapterVersionResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Starts the asynchronous analysis of an input document for relationships between detected
- *          items such as key-value pairs, tables, and selection elements.</p>
- *          <p>
- *             <code>StartDocumentAnalysis</code> can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The
- *          documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name
- *          of the document.
- *          </p>
- *          <p>
- *             <code>StartDocumentAnalysis</code> returns a job identifier
- *             (<code>JobId</code>) that you use to get the results of the operation. When text
- *          analysis is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS)
- *          topic that you specify in <code>NotificationChannel</code>. To get the results of the text
- *          analysis operation, first check that the status value published to the Amazon SNS topic is
- *             <code>SUCCEEDED</code>. If so, call <a>GetDocumentAnalysis</a>, and pass
- *          the job identifier (<code>JobId</code>) from the initial call to
- *             <code>StartDocumentAnalysis</code>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text Analysis</a>.</p>
+ * <p>Creates  a new version of an adapter. Operates on a provided AdapterId and a specified
+ *          dataset provided via the DatasetConfig argument. Requires that you
+ *          specify an Amazon S3 bucket with the OutputConfig argument. You can provide an optional KMSKeyId,
+ *          an optional ClientRequestToken, and optional tags.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TextractClient, StartDocumentAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
- * // const { TextractClient, StartDocumentAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * import { TextractClient, CreateAdapterVersionCommand } from "@aws-sdk/client-textract"; // ES Modules import
+ * // const { TextractClient, CreateAdapterVersionCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
- * const input = { // StartDocumentAnalysisRequest
- *   DocumentLocation: { // DocumentLocation
- *     S3Object: { // S3Object
+ * const input = { // CreateAdapterVersionRequest
+ *   AdapterId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   DatasetConfig: { // AdapterVersionDatasetConfig
+ *     ManifestS3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",
  *     },
  *   },
- *   FeatureTypes: [ // FeatureTypes // required
- *     "TABLES" || "FORMS" || "QUERIES" || "SIGNATURES" || "LAYOUT",
- *   ],
- *   ClientRequestToken: "STRING_VALUE",
- *   JobTag: "STRING_VALUE",
- *   NotificationChannel: { // NotificationChannel
- *     SNSTopicArn: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE", // required
- *   },
+ *   KMSKeyId: "STRING_VALUE",
  *   OutputConfig: { // OutputConfig
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Prefix: "STRING_VALUE",
  *   },
- *   KMSKeyId: "STRING_VALUE",
- *   QueriesConfig: { // QueriesConfig
- *     Queries: [ // Queries // required
- *       { // Query
- *         Text: "STRING_VALUE", // required
- *         Alias: "STRING_VALUE",
- *         Pages: [ // QueryPages
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- *   AdaptersConfig: { // AdaptersConfig
- *     Adapters: [ // Adapters // required
- *       { // Adapter
- *         AdapterId: "STRING_VALUE", // required
- *         Pages: [ // AdapterPages
- *           "STRING_VALUE",
- *         ],
- *         Version: "STRING_VALUE", // required
- *       },
- *     ],
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
  *   },
  * };
- * const command = new StartDocumentAnalysisCommand(input);
+ * const command = new CreateAdapterVersionCommand(input);
  * const response = await client.send(command);
- * // { // StartDocumentAnalysisResponse
- * //   JobId: "STRING_VALUE",
+ * // { // CreateAdapterVersionResponse
+ * //   AdapterId: "STRING_VALUE",
+ * //   AdapterVersion: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param StartDocumentAnalysisCommandInput - {@link StartDocumentAnalysisCommandInput}
- * @returns {@link StartDocumentAnalysisCommandOutput}
- * @see {@link StartDocumentAnalysisCommandInput} for command's `input` shape.
- * @see {@link StartDocumentAnalysisCommandOutput} for command's `response` shape.
+ * @param CreateAdapterVersionCommandInput - {@link CreateAdapterVersionCommandInput}
+ * @returns {@link CreateAdapterVersionCommandOutput}
+ * @see {@link CreateAdapterVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateAdapterVersionCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
  *             of an authorized user or IAM role to perform the operation.</p>
  *
- * @throws {@link BadDocumentException} (client fault)
- *  <p>Amazon Textract isn't able to read the document. For more information on the document
- *          limits in Amazon Textract, see <a>limits</a>.</p>
- *
- * @throws {@link DocumentTooLargeException} (client fault)
- *  <p>The document can't be processed because it's too large. The maximum document size for
- *          synchronous operations 10 MB. The maximum document size for asynchronous operations is 500
- *          MB for PDF files.</p>
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
  *  <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at
@@ -168,20 +124,25 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  *  <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
  *          contact Amazon Textract.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> Returned when an operation tried to access a nonexistent resource. </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Returned when a request cannot be completed as it would exceed a maximum service quota.</p>
+ *
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
  *
- * @throws {@link UnsupportedDocumentException} (client fault)
- *  <p>The format of the input document isn't supported. Documents for operations can be in
- *          PNG, JPEG, PDF, or TIFF format.</p>
+ * @throws {@link ValidationException} (client fault)
+ *  <p>  Indicates that a request was not valid. Check request for proper formatting. </p>
  *
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
  */
-export class StartDocumentAnalysisCommand extends $Command<
-  StartDocumentAnalysisCommandInput,
-  StartDocumentAnalysisCommandOutput,
+export class CreateAdapterVersionCommand extends $Command<
+  CreateAdapterVersionCommandInput,
+  CreateAdapterVersionCommandOutput,
   TextractClientResolvedConfig
 > {
   // Start section: command_properties
@@ -199,7 +160,7 @@ export class StartDocumentAnalysisCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StartDocumentAnalysisCommandInput) {
+  constructor(readonly input: CreateAdapterVersionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -212,17 +173,17 @@ export class StartDocumentAnalysisCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TextractClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartDocumentAnalysisCommandInput, StartDocumentAnalysisCommandOutput> {
+  ): Handler<CreateAdapterVersionCommandInput, CreateAdapterVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartDocumentAnalysisCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateAdapterVersionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "TextractClient";
-    const commandName = "StartDocumentAnalysisCommand";
+    const commandName = "CreateAdapterVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -231,7 +192,7 @@ export class StartDocumentAnalysisCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "Textract",
-        operation: "StartDocumentAnalysis",
+        operation: "CreateAdapterVersion",
       },
     };
     const { requestHandler } = configuration;
@@ -245,15 +206,15 @@ export class StartDocumentAnalysisCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StartDocumentAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartDocumentAnalysisCommand(input, context);
+  private serialize(input: CreateAdapterVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateAdapterVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDocumentAnalysisCommandOutput> {
-    return de_StartDocumentAnalysisCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAdapterVersionCommandOutput> {
+    return de_CreateAdapterVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

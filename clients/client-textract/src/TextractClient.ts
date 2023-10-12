@@ -53,7 +53,19 @@ import {
 import { AnalyzeDocumentCommandInput, AnalyzeDocumentCommandOutput } from "./commands/AnalyzeDocumentCommand";
 import { AnalyzeExpenseCommandInput, AnalyzeExpenseCommandOutput } from "./commands/AnalyzeExpenseCommand";
 import { AnalyzeIDCommandInput, AnalyzeIDCommandOutput } from "./commands/AnalyzeIDCommand";
+import { CreateAdapterCommandInput, CreateAdapterCommandOutput } from "./commands/CreateAdapterCommand";
+import {
+  CreateAdapterVersionCommandInput,
+  CreateAdapterVersionCommandOutput,
+} from "./commands/CreateAdapterVersionCommand";
+import { DeleteAdapterCommandInput, DeleteAdapterCommandOutput } from "./commands/DeleteAdapterCommand";
+import {
+  DeleteAdapterVersionCommandInput,
+  DeleteAdapterVersionCommandOutput,
+} from "./commands/DeleteAdapterVersionCommand";
 import { DetectDocumentTextCommandInput, DetectDocumentTextCommandOutput } from "./commands/DetectDocumentTextCommand";
+import { GetAdapterCommandInput, GetAdapterCommandOutput } from "./commands/GetAdapterCommand";
+import { GetAdapterVersionCommandInput, GetAdapterVersionCommandOutput } from "./commands/GetAdapterVersionCommand";
 import {
   GetDocumentAnalysisCommandInput,
   GetDocumentAnalysisCommandOutput,
@@ -68,6 +80,15 @@ import {
   GetLendingAnalysisSummaryCommandInput,
   GetLendingAnalysisSummaryCommandOutput,
 } from "./commands/GetLendingAnalysisSummaryCommand";
+import { ListAdaptersCommandInput, ListAdaptersCommandOutput } from "./commands/ListAdaptersCommand";
+import {
+  ListAdapterVersionsCommandInput,
+  ListAdapterVersionsCommandOutput,
+} from "./commands/ListAdapterVersionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import {
   StartDocumentAnalysisCommandInput,
   StartDocumentAnalysisCommandOutput,
@@ -84,6 +105,9 @@ import {
   StartLendingAnalysisCommandInput,
   StartLendingAnalysisCommandOutput,
 } from "./commands/StartLendingAnalysisCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAdapterCommandInput, UpdateAdapterCommandOutput } from "./commands/UpdateAdapterCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -102,16 +126,28 @@ export type ServiceInputTypes =
   | AnalyzeDocumentCommandInput
   | AnalyzeExpenseCommandInput
   | AnalyzeIDCommandInput
+  | CreateAdapterCommandInput
+  | CreateAdapterVersionCommandInput
+  | DeleteAdapterCommandInput
+  | DeleteAdapterVersionCommandInput
   | DetectDocumentTextCommandInput
+  | GetAdapterCommandInput
+  | GetAdapterVersionCommandInput
   | GetDocumentAnalysisCommandInput
   | GetDocumentTextDetectionCommandInput
   | GetExpenseAnalysisCommandInput
   | GetLendingAnalysisCommandInput
   | GetLendingAnalysisSummaryCommandInput
+  | ListAdapterVersionsCommandInput
+  | ListAdaptersCommandInput
+  | ListTagsForResourceCommandInput
   | StartDocumentAnalysisCommandInput
   | StartDocumentTextDetectionCommandInput
   | StartExpenseAnalysisCommandInput
-  | StartLendingAnalysisCommandInput;
+  | StartLendingAnalysisCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateAdapterCommandInput;
 
 /**
  * @public
@@ -120,16 +156,28 @@ export type ServiceOutputTypes =
   | AnalyzeDocumentCommandOutput
   | AnalyzeExpenseCommandOutput
   | AnalyzeIDCommandOutput
+  | CreateAdapterCommandOutput
+  | CreateAdapterVersionCommandOutput
+  | DeleteAdapterCommandOutput
+  | DeleteAdapterVersionCommandOutput
   | DetectDocumentTextCommandOutput
+  | GetAdapterCommandOutput
+  | GetAdapterVersionCommandOutput
   | GetDocumentAnalysisCommandOutput
   | GetDocumentTextDetectionCommandOutput
   | GetExpenseAnalysisCommandOutput
   | GetLendingAnalysisCommandOutput
   | GetLendingAnalysisSummaryCommandOutput
+  | ListAdapterVersionsCommandOutput
+  | ListAdaptersCommandOutput
+  | ListTagsForResourceCommandOutput
   | StartDocumentAnalysisCommandOutput
   | StartDocumentTextDetectionCommandOutput
   | StartExpenseAnalysisCommandOutput
-  | StartLendingAnalysisCommandOutput;
+  | StartLendingAnalysisCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAdapterCommandOutput;
 
 /**
  * @public

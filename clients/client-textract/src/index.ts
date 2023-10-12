@@ -11,6 +11,7 @@ export * from "./TextractClient";
 export * from "./Textract";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
+export * from "./pagination";
 export * from "./models";
 
 export { TextractServiceException } from "./models/TextractServiceException";
