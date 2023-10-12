@@ -897,6 +897,7 @@ import {
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DataSource,
+  DirectDeploySettings,
   EndpointInput,
   FileSystemConfig,
   FileSystemDataSource,
@@ -912,6 +913,7 @@ import {
   InputConfig,
   InstanceGroup,
   IntegerParameterRangeSpecification,
+  KendraSettings,
   KernelGatewayImageConfig,
   KernelSpec,
   MetadataProperties,
@@ -1040,8 +1042,6 @@ import {
   DeleteAssociationRequest,
   DeleteCodeRepositoryInput,
   DeleteContextRequest,
-  DeleteDataQualityJobDefinitionRequest,
-  DeleteDeviceFleetRequest,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -1192,6 +1192,8 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteDataQualityJobDefinitionRequest,
+  DeleteDeviceFleetRequest,
   DeleteDomainRequest,
   DeleteEdgeDeploymentPlanRequest,
   DeleteEdgeDeploymentStageRequest,
@@ -1361,7 +1363,6 @@ import {
   EdgePackagingJobSummary,
   EnableSagemakerServicecatalogPortfolioInput,
   Endpoint,
-  EndpointConfigSummary,
   FeatureParameter,
   FinalHyperParameterTuningJobObjectiveMetric,
   HyperParameterTrainingJobSummary,
@@ -1389,6 +1390,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  EndpointConfigSummary,
   EndpointSummary,
   Experiment,
   ExperimentSummary,
@@ -1566,8 +1568,6 @@ import {
   ModelCardSummary,
   ModelCardVersionSummary,
   ModelDashboardEndpoint,
-  ModelDashboardModelCard,
-  ModelDashboardMonitoringSchedule,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
   ModelPackageGroupSummary,
@@ -1601,6 +1601,8 @@ import {
 } from "../models/models_3";
 import {
   ModelDashboardModel,
+  ModelDashboardModelCard,
+  ModelDashboardMonitoringSchedule,
   ModelPackage,
   ModelPackageGroup,
   ModelVariantAction,
@@ -20060,6 +20062,8 @@ const se_DesiredWeightAndCapacityList = (input: DesiredWeightAndCapacity[], cont
 
 // se_DeviceSelectionConfig omitted.
 
+// se_DirectDeploySettings omitted.
+
 // se_DisableSagemakerServicecatalogPortfolioInput omitted.
 
 // se_DisassociateTrialComponentRequest omitted.
@@ -20315,6 +20319,8 @@ const se_InferenceExperimentSchedule = (input: InferenceExperimentSchedule, cont
 // se_JsonContentTypes omitted.
 
 // se_JupyterServerAppSettings omitted.
+
+// se_KendraSettings omitted.
 
 // se_KernelGatewayAppSettings omitted.
 
@@ -24407,6 +24413,8 @@ const de_DeviceSummary = (output: any, context: __SerdeContext): DeviceSummary =
   }) as any;
 };
 
+// de_DirectDeploySettings omitted.
+
 // de_DisableSagemakerServicecatalogPortfolioOutput omitted.
 
 // de_DisassociateTrialComponentResponse omitted.
@@ -25459,6 +25467,8 @@ const de_InferenceRecommendationsJobSteps = (
 // de_JsonContentTypes omitted.
 
 // de_JupyterServerAppSettings omitted.
+
+// de_KendraSettings omitted.
 
 // de_KernelGatewayAppSettings omitted.
 

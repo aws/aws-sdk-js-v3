@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DeleteDataQualityJobDefinitionRequest } from "../models/models_1";
+import { DeleteDataQualityJobDefinitionRequest } from "../models/models_2";
 import {
   de_DeleteDataQualityJobDefinitionCommand,
   se_DeleteDataQualityJobDefinitionCommand,

@@ -62,7 +62,6 @@ import {
   ModelCardSecurityConfig,
   ModelCardStatus,
   ModelClientConfig,
-  MonitoringScheduleConfig,
   MonitoringType,
   OfflineStoreConfig,
   OnlineStoreConfig,
@@ -85,9 +84,7 @@ import {
   EdgePackagingJobSummary,
   EMRStepMetadata,
   EndpointConfigSortKey,
-  EndpointConfigSummary,
   EndpointOutputConfiguration,
-  EndpointSortKey,
   EndpointStatus,
   ExecutionStatus,
   ExperimentSource,
@@ -136,6 +133,45 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Provides summary information for an endpoint configuration.</p>
+ */
+export interface EndpointConfigSummary {
+  /**
+   * @public
+   * <p>The name of the endpoint configuration.</p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the endpoint configuration.</p>
+   */
+  EndpointConfigArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A timestamp that shows when the endpoint configuration was created.</p>
+   */
+  CreationTime: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointSortKey = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+  Status: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointSortKey = (typeof EndpointSortKey)[keyof typeof EndpointSortKey];
 
 /**
  * @public
@@ -10560,159 +10596,6 @@ export interface TransformJob {
    * <p>Configuration to control how SageMaker captures inference data for batch transform jobs.</p>
    */
   DataCaptureConfig?: BatchDataCaptureConfig;
-}
-
-/**
- * @public
- * <p>The model card for a model displayed in the Amazon SageMaker Model Dashboard.</p>
- */
-export interface ModelDashboardModelCard {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for a model card.</p>
-   */
-  ModelCardArn?: string;
-
-  /**
-   * @public
-   * <p>The name of a model card.</p>
-   */
-  ModelCardName?: string;
-
-  /**
-   * @public
-   * <p>The model card version.</p>
-   */
-  ModelCardVersion?: number;
-
-  /**
-   * @public
-   * <p>The model card status.</p>
-   */
-  ModelCardStatus?: ModelCardStatus | string;
-
-  /**
-   * @public
-   * <p>The KMS Key ID (<code>KMSKeyId</code>) for encryption of model card information.</p>
-   */
-  SecurityConfig?: ModelCardSecurityConfig;
-
-  /**
-   * @public
-   * <p>A timestamp that indicates when the model card was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>A timestamp that indicates when the model card was last updated.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>The tags associated with a model card.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>For models created in SageMaker, this is the model ARN. For models created
-   *          outside of SageMaker, this is a user-customized string.</p>
-   */
-  ModelId?: string;
-
-  /**
-   * @public
-   * <p>A model card's risk rating. Can be low, medium, or high.</p>
-   */
-  RiskRating?: string;
-}
-
-/**
- * @public
- * <p>A monitoring schedule for a model displayed in the Amazon SageMaker Model Dashboard.</p>
- */
-export interface ModelDashboardMonitoringSchedule {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of a monitoring schedule.</p>
-   */
-  MonitoringScheduleArn?: string;
-
-  /**
-   * @public
-   * <p>The name of a monitoring schedule.</p>
-   */
-  MonitoringScheduleName?: string;
-
-  /**
-   * @public
-   * <p>The status of the monitoring schedule.</p>
-   */
-  MonitoringScheduleStatus?: ScheduleStatus | string;
-
-  /**
-   * @public
-   * <p>The monitor type of a model monitor.</p>
-   */
-  MonitoringType?: MonitoringType | string;
-
-  /**
-   * @public
-   * <p>If a monitoring job failed, provides the reason.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * @public
-   * <p>A timestamp that indicates when the monitoring schedule was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>A timestamp that indicates when the monitoring schedule was last updated.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>Configures the monitoring schedule and defines the monitoring job.</p>
-   */
-  MonitoringScheduleConfig?: MonitoringScheduleConfig;
-
-  /**
-   * @public
-   * <p>The endpoint which is monitored.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * @public
-   * <p>A JSON array where each element is a summary for a monitoring alert.</p>
-   */
-  MonitoringAlertSummaries?: MonitoringAlertSummary[];
-
-  /**
-   * @public
-   * <p>Summary of information about the last monitoring job to run.</p>
-   */
-  LastMonitoringExecutionSummary?: MonitoringExecutionSummary;
 }
 
 /**

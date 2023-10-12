@@ -46,7 +46,6 @@ import {
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
-  EdgePresetDeploymentType,
   GitConfig,
   HyperParameterTuningJobObjectiveType,
   InferenceSpecification,
@@ -95,6 +94,7 @@ import {
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
+  EdgePresetDeploymentType,
   EndpointInfo,
   ExecutionRoleIdentityConfig,
   ExperimentConfig,
@@ -176,6 +176,28 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DeleteDataQualityJobDefinitionRequest {
+  /**
+   * @public
+   * <p>The name of the data quality monitoring job definition to delete.</p>
+   */
+  JobDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDeviceFleetRequest {
+  /**
+   * @public
+   * <p>The name of the fleet to delete.</p>
+   */
+  DeviceFleetName: string | undefined;
+}
 
 /**
  * @public
@@ -7418,6 +7440,10 @@ export interface SelectiveExecutionConfig {
    *         Used to copy input collaterals needed for the selected steps to run.
    *         The execution status of the pipeline can be either <code>Failed</code>
    *         or <code>Success</code>.</p>
+   *          <p>This field is required if the steps you specify for
+   *           <code>SelectedSteps</code> depend on output collaterals from any non-specified pipeline
+   *           steps. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-selective-ex.html">Selective
+   *           Execution for Pipeline Steps</a>.</p>
    */
   SourcePipelineExecutionArn?: string;
 
@@ -10816,45 +10842,6 @@ export const EndpointConfigSortKey = {
  * @public
  */
 export type EndpointConfigSortKey = (typeof EndpointConfigSortKey)[keyof typeof EndpointConfigSortKey];
-
-/**
- * @public
- * <p>Provides summary information for an endpoint configuration.</p>
- */
-export interface EndpointConfigSummary {
-  /**
-   * @public
-   * <p>The name of the endpoint configuration.</p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the endpoint configuration.</p>
-   */
-  EndpointConfigArn: string | undefined;
-
-  /**
-   * @public
-   * <p>A timestamp that shows when the endpoint configuration was created.</p>
-   */
-  CreationTime: Date | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const EndpointSortKey = {
-  CreationTime: "CreationTime",
-  Name: "Name",
-  Status: "Status",
-} as const;
-
-/**
- * @public
- */
-export type EndpointSortKey = (typeof EndpointSortKey)[keyof typeof EndpointSortKey];
 
 /**
  * @internal

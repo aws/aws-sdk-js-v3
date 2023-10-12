@@ -7244,20 +7244,6 @@ export type CandidateSortBy = (typeof CandidateSortBy)[keyof typeof CandidateSor
  * @public
  * @enum
  */
-export const DataSourceName = {
-  SalesforceGenie: "SalesforceGenie",
-  Snowflake: "Snowflake",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceName = (typeof DataSourceName)[keyof typeof DataSourceName];
-
-/**
- * @public
- * @enum
- */
 export const FeatureStatus = {
   Disabled: "DISABLED",
   Enabled: "ENABLED",
@@ -7270,7 +7256,38 @@ export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
 
 /**
  * @public
- * <p>The Amazon SageMaker Canvas app setting where you configure OAuth for connecting to an external
+ * <p>The model deployment settings for the SageMaker Canvas application.</p>
+ *          <note>
+ *             <p>In order to enable model deployment for Canvas, the SageMaker Domain's or user profile's Amazon Web Services IAM
+ *       execution role must have the <code>AmazonSageMakerCanvasDirectDeployAccess</code> policy attached. You can also
+ *     turn on model deployment permissions through the SageMaker Domain's or user profile's settings in the SageMaker console.</p>
+ *          </note>
+ */
+export interface DirectDeploySettings {
+  /**
+   * @public
+   * <p>Describes whether model deployment permissions are enabled or disabled in the Canvas application.</p>
+   */
+  Status?: FeatureStatus | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceName = {
+  SalesforceGenie: "SalesforceGenie",
+  Snowflake: "Snowflake",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceName = (typeof DataSourceName)[keyof typeof DataSourceName];
+
+/**
+ * @public
+ * <p>The Amazon SageMaker Canvas application setting where you configure OAuth for connecting to an external
  *       data source, such as Snowflake.</p>
  */
 export interface IdentityProviderOAuthSetting {
@@ -7293,6 +7310,20 @@ export interface IdentityProviderOAuthSetting {
    *       identity provider, such as the client ID and secret, authorization URL, and token URL. </p>
    */
   SecretArn?: string;
+}
+
+/**
+ * @public
+ * <p>The Amazon SageMaker Canvas application setting where you configure
+ *       document querying.</p>
+ */
+export interface KendraSettings {
+  /**
+   * @public
+   * <p>Describes whether the document querying feature is enabled
+   *       or disabled in the Canvas application.</p>
+   */
+  Status?: FeatureStatus | string;
 }
 
 /**
@@ -7369,7 +7400,7 @@ export interface WorkspaceSettings {
 export interface CanvasAppSettings {
   /**
    * @public
-   * <p>Time series forecast settings for the Canvas application.</p>
+   * <p>Time series forecast settings for the SageMaker Canvas application.</p>
    */
   TimeSeriesForecastingSettings?: TimeSeriesForecastingSettings;
 
@@ -7390,6 +7421,18 @@ export interface CanvasAppSettings {
    * <p>The settings for connecting to an external data source with OAuth.</p>
    */
   IdentityProviderOAuthSettings?: IdentityProviderOAuthSetting[];
+
+  /**
+   * @public
+   * <p>The settings for document querying.</p>
+   */
+  KendraSettings?: KendraSettings;
+
+  /**
+   * @public
+   * <p>The model deployment settings for the SageMaker Canvas application.</p>
+   */
+  DirectDeploySettings?: DirectDeploySettings;
 }
 
 /**
@@ -11436,27 +11479,3 @@ export interface CreateDataQualityJobDefinitionRequest {
    */
   Tags?: Tag[];
 }
-
-/**
- * @public
- */
-export interface CreateDataQualityJobDefinitionResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the job definition.</p>
-   */
-  JobDefinitionArn: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const EdgePresetDeploymentType = {
-  GreengrassV2Component: "GreengrassV2Component",
-} as const;
-
-/**
- * @public
- */
-export type EdgePresetDeploymentType = (typeof EdgePresetDeploymentType)[keyof typeof EdgePresetDeploymentType];

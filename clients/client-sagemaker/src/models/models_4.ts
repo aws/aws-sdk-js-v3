@@ -40,11 +40,13 @@ import {
   InstanceMetadataServiceConfiguration,
   JobType,
   MemberDefinition,
+  ModelCardSecurityConfig,
   ModelCardStatus,
   ModelMetrics,
   ModelPackageValidationSpecification,
   ModelVariantConfig,
   MonitoringScheduleConfig,
+  MonitoringType,
   NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
@@ -91,11 +93,13 @@ import {
   ModelArtifacts,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
+  MonitoringExecutionSummary,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
   PipelineStatus,
   ProcessingJobStatus,
   ProjectStatus,
+  ScheduleStatus,
   SecondaryStatus,
   SecondaryStatusTransition,
   SelectiveExecutionConfig,
@@ -120,12 +124,164 @@ import {
   ModelCard,
   ModelCardFilterSensitiveLog,
   ModelDashboardEndpoint,
-  ModelDashboardModelCard,
-  ModelDashboardMonitoringSchedule,
+  MonitoringAlertSummary,
   Parameter,
   ResourceType,
   TransformJob,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>The model card for a model displayed in the Amazon SageMaker Model Dashboard.</p>
+ */
+export interface ModelDashboardModelCard {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for a model card.</p>
+   */
+  ModelCardArn?: string;
+
+  /**
+   * @public
+   * <p>The name of a model card.</p>
+   */
+  ModelCardName?: string;
+
+  /**
+   * @public
+   * <p>The model card version.</p>
+   */
+  ModelCardVersion?: number;
+
+  /**
+   * @public
+   * <p>The model card status.</p>
+   */
+  ModelCardStatus?: ModelCardStatus | string;
+
+  /**
+   * @public
+   * <p>The KMS Key ID (<code>KMSKeyId</code>) for encryption of model card information.</p>
+   */
+  SecurityConfig?: ModelCardSecurityConfig;
+
+  /**
+   * @public
+   * <p>A timestamp that indicates when the model card was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>A timestamp that indicates when the model card was last updated.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>The tags associated with a model card.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>For models created in SageMaker, this is the model ARN. For models created
+   *          outside of SageMaker, this is a user-customized string.</p>
+   */
+  ModelId?: string;
+
+  /**
+   * @public
+   * <p>A model card's risk rating. Can be low, medium, or high.</p>
+   */
+  RiskRating?: string;
+}
+
+/**
+ * @public
+ * <p>A monitoring schedule for a model displayed in the Amazon SageMaker Model Dashboard.</p>
+ */
+export interface ModelDashboardMonitoringSchedule {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of a monitoring schedule.</p>
+   */
+  MonitoringScheduleArn?: string;
+
+  /**
+   * @public
+   * <p>The name of a monitoring schedule.</p>
+   */
+  MonitoringScheduleName?: string;
+
+  /**
+   * @public
+   * <p>The status of the monitoring schedule.</p>
+   */
+  MonitoringScheduleStatus?: ScheduleStatus | string;
+
+  /**
+   * @public
+   * <p>The monitor type of a model monitor.</p>
+   */
+  MonitoringType?: MonitoringType | string;
+
+  /**
+   * @public
+   * <p>If a monitoring job failed, provides the reason.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>A timestamp that indicates when the monitoring schedule was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>A timestamp that indicates when the monitoring schedule was last updated.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>Configures the monitoring schedule and defines the monitoring job.</p>
+   */
+  MonitoringScheduleConfig?: MonitoringScheduleConfig;
+
+  /**
+   * @public
+   * <p>The endpoint which is monitored.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * @public
+   * <p>A JSON array where each element is a summary for a monitoring alert.</p>
+   */
+  MonitoringAlertSummaries?: MonitoringAlertSummary[];
+
+  /**
+   * @public
+   * <p>Summary of information about the last monitoring job to run.</p>
+   */
+  LastMonitoringExecutionSummary?: MonitoringExecutionSummary;
+}
 
 /**
  * @public

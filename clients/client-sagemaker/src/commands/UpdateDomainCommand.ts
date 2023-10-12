@@ -137,6 +137,12 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *           SecretArn: "STRING_VALUE",
  *         },
  *       ],
+ *       KendraSettings: { // KendraSettings
+ *         Status: "ENABLED" || "DISABLED",
+ *       },
+ *       DirectDeploySettings: { // DirectDeploySettings
+ *         Status: "ENABLED" || "DISABLED",
+ *       },
  *     },
  *   },
  *   DomainSettingsForUpdate: { // DomainSettingsForUpdate

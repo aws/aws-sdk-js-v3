@@ -152,6 +152,12 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  *           SecretArn: "STRING_VALUE",
  *         },
  *       ],
+ *       KendraSettings: { // KendraSettings
+ *         Status: "ENABLED" || "DISABLED",
+ *       },
+ *       DirectDeploySettings: { // DirectDeploySettings
+ *         Status: "ENABLED" || "DISABLED",
+ *       },
  *     },
  *   },
  * };

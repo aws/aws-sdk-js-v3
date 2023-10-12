@@ -43,7 +43,6 @@ import {
   ContentClassifier,
   ContinuousParameterRange,
   ConvergenceDetected,
-  EdgePresetDeploymentType,
   EndpointInput,
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
@@ -76,6 +75,30 @@ import {
   TransformResources,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateDataQualityJobDefinitionResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the job definition.</p>
+   */
+  JobDefinitionArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EdgePresetDeploymentType = {
+  GreengrassV2Component: "GreengrassV2Component",
+} as const;
+
+/**
+ * @public
+ */
+export type EdgePresetDeploymentType = (typeof EdgePresetDeploymentType)[keyof typeof EdgePresetDeploymentType];
 
 /**
  * @public
@@ -11962,28 +11985,6 @@ export interface DeleteContextResponse {
    * <p>The Amazon Resource Name (ARN) of the context.</p>
    */
   ContextArn?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteDataQualityJobDefinitionRequest {
-  /**
-   * @public
-   * <p>The name of the data quality monitoring job definition to delete.</p>
-   */
-  JobDefinitionName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDeviceFleetRequest {
-  /**
-   * @public
-   * <p>The name of the fleet to delete.</p>
-   */
-  DeviceFleetName: string | undefined;
 }
 
 /**

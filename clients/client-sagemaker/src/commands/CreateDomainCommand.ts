@@ -182,6 +182,12 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *           SecretArn: "STRING_VALUE",
  *         },
  *       ],
+ *       KendraSettings: { // KendraSettings
+ *         Status: "ENABLED" || "DISABLED",
+ *       },
+ *       DirectDeploySettings: { // DirectDeploySettings
+ *         Status: "ENABLED" || "DISABLED",
+ *       },
  *     },
  *   },
  *   SubnetIds: [ // Subnets // required

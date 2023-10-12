@@ -151,6 +151,12 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //           SecretArn: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       KendraSettings: { // KendraSettings
+ * //         Status: "ENABLED" || "DISABLED",
+ * //       },
+ * //       DirectDeploySettings: { // DirectDeploySettings
+ * //         Status: "ENABLED" || "DISABLED",
+ * //       },
  * //     },
  * //   },
  * //   AppNetworkAccessType: "PublicInternetOnly" || "VpcOnly",
