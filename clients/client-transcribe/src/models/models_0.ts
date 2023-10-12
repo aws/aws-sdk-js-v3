@@ -260,6 +260,7 @@ export interface Media {
 export const MediaFormat = {
   AMR: "amr",
   FLAC: "flac",
+  M4A: "m4a",
   MP3: "mp3",
   MP4: "mp4",
   OGG: "ogg",
