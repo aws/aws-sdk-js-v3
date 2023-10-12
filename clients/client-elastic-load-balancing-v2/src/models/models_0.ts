@@ -3183,6 +3183,17 @@ export interface LoadBalancerAttribute {
    *           default is <code>false</code>.</p>
    *             </li>
    *          </ul>
+   *          <p>The following attributes are supported by only Network Load Balancers:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>dns_record.client_routing_policy</code> - Indicates how traffic is
+   *           distributed among the load balancer Availability Zones. The possible values are
+   *           <code>availability_zone_affinity</code> with 100 percent zonal affinity,
+   *           <code>partial_availability_zone_affinity</code> with 85 percent zonal affinity,
+   *           and <code>any_availability_zone</code> with 0 percent zonal affinity.</p>
+   *             </li>
+   *          </ul>
    */
   Key?: string;
 
@@ -4424,6 +4435,8 @@ export interface SetSubnetsInput {
    *       Zones.</p>
    *          <p>[Network Load Balancers] You can specify subnets from one or more Availability
    *       Zones.</p>
+   *          <p>[Gateway Load Balancers] You can specify subnets from one or more Availability
+   *       Zones.</p>
    */
   Subnets?: string[];
 
@@ -4441,6 +4454,8 @@ export interface SetSubnetsInput {
    *       internet-facing load balancer. For internal load balancers, you can specify one private IP
    *       address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you
    *       can specify one IPv6 address per subnet.</p>
+   *          <p>[Gateway Load Balancers] You can specify subnets from one or more Availability
+   *       Zones.</p>
    */
   SubnetMappings?: SubnetMapping[];
 
@@ -4450,6 +4465,9 @@ export interface SetSubnetsInput {
    *       balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and
    *         <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify
    *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>
+   *          <p>[Gateway Load Balancers] The type of IP addresses used by the subnets for your load
+   *       balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and
+   *       <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>
    */
   IpAddressType?: IpAddressType | string;
 }
@@ -4467,6 +4485,7 @@ export interface SetSubnetsOutput {
   /**
    * @public
    * <p>[Network Load Balancers] The IP address type.</p>
+   *          <p>[Gateway Load Balancers] The IP address type.</p>
    */
   IpAddressType?: IpAddressType | string;
 }
