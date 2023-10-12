@@ -14383,6 +14383,9 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
   if (input.DBSystemId != null) {
     entries["DBSystemId"] = input.DBSystemId;
   }
+  if (input.DedicatedLogVolume != null) {
+    entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
+  }
   return entries;
 };
 
@@ -14554,6 +14557,9 @@ const se_CreateDBInstanceReadReplicaMessage = (
   }
   if (input.SourceDBClusterIdentifier != null) {
     entries["SourceDBClusterIdentifier"] = input.SourceDBClusterIdentifier;
+  }
+  if (input.DedicatedLogVolume != null) {
+    entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
   }
   return entries;
 };
@@ -17152,6 +17158,9 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
   if (input.Engine != null) {
     entries["Engine"] = input.Engine;
   }
+  if (input.DedicatedLogVolume != null) {
+    entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
+  }
   return entries;
 };
 
@@ -18488,6 +18497,9 @@ const se_RestoreDBInstanceFromDBSnapshotMessage = (
   if (input.AllocatedStorage != null) {
     entries["AllocatedStorage"] = input.AllocatedStorage;
   }
+  if (input.DedicatedLogVolume != null) {
+    entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
+  }
   return entries;
 };
 
@@ -18675,6 +18687,9 @@ const se_RestoreDBInstanceFromS3Message = (input: RestoreDBInstanceFromS3Message
   if (input.MasterUserSecretKmsKeyId != null) {
     entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
   }
+  if (input.DedicatedLogVolume != null) {
+    entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
+  }
   return entries;
 };
 
@@ -18849,6 +18864,9 @@ const se_RestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.AllocatedStorage != null) {
     entries["AllocatedStorage"] = input.AllocatedStorage;
+  }
+  if (input.DedicatedLogVolume != null) {
+    entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
   }
   return entries;
 };
@@ -21761,6 +21779,9 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   if (output["PercentProgress"] !== undefined) {
     contents.PercentProgress = __expectString(output["PercentProgress"]);
   }
+  if (output["DedicatedLogVolume"] !== undefined) {
+    contents.DedicatedLogVolume = __parseBoolean(output["DedicatedLogVolume"]);
+  }
   return contents;
 };
 
@@ -21874,6 +21895,9 @@ const de_DBInstanceAutomatedBackup = (output: any, context: __SerdeContext): DBI
   }
   if (output["AwsBackupRecoveryPointArn"] !== undefined) {
     contents.AwsBackupRecoveryPointArn = __expectString(output["AwsBackupRecoveryPointArn"]);
+  }
+  if (output["DedicatedLogVolume"] !== undefined) {
+    contents.DedicatedLogVolume = __parseBoolean(output["DedicatedLogVolume"]);
   }
   return contents;
 };
@@ -22830,6 +22854,9 @@ const de_DBSnapshot = (output: any, context: __SerdeContext): DBSnapshot => {
   }
   if (output["DBSystemId"] !== undefined) {
     contents.DBSystemId = __expectString(output["DBSystemId"]);
+  }
+  if (output["DedicatedLogVolume"] !== undefined) {
+    contents.DedicatedLogVolume = __parseBoolean(output["DedicatedLogVolume"]);
   }
   return contents;
 };
@@ -25462,6 +25489,9 @@ const de_OrderableDBInstanceOption = (output: any, context: __SerdeContext): Ord
   if (output["MaxStorageThroughputPerIops"] !== undefined) {
     contents.MaxStorageThroughputPerIops = __strictParseFloat(output["MaxStorageThroughputPerIops"]) as number;
   }
+  if (output["SupportsDedicatedLogVolume"] !== undefined) {
+    contents.SupportsDedicatedLogVolume = __parseBoolean(output["SupportsDedicatedLogVolume"]);
+  }
   return contents;
 };
 
@@ -25737,6 +25767,9 @@ const de_PendingModifiedValues = (output: any, context: __SerdeContext): Pending
   }
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
+  }
+  if (output["DedicatedLogVolume"] !== undefined) {
+    contents.DedicatedLogVolume = __parseBoolean(output["DedicatedLogVolume"]);
   }
   return contents;
 };
@@ -27072,6 +27105,9 @@ const de_ValidDBInstanceModificationsMessage = (
       __getArrayIfSingleItem(output["ValidProcessorFeatures"]["AvailableProcessorFeature"]),
       context
     );
+  }
+  if (output["SupportsDedicatedLogVolume"] !== undefined) {
+    contents.SupportsDedicatedLogVolume = __parseBoolean(output["SupportsDedicatedLogVolume"]);
   }
   return contents;
 };

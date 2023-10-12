@@ -116,6 +116,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   EnableCustomerOwnedIp: true || false,
  *   AllocatedStorage: Number("int"),
  *   SourceDBClusterIdentifier: "STRING_VALUE",
+ *   DedicatedLogVolume: true || false,
  * };
  * const command = new CreateDBInstanceReadReplicaCommand(input);
  * const response = await client.send(command);
@@ -212,6 +213,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //       ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
  * //       StorageThroughput: Number("int"),
  * //       Engine: "STRING_VALUE",
+ * //       DedicatedLogVolume: true || false,
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -337,6 +339,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //     PercentProgress: "STRING_VALUE",
+ * //     DedicatedLogVolume: true || false,
  * //   },
  * // };
  *

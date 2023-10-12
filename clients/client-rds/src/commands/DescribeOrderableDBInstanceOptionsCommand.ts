@@ -123,6 +123,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * //       MaxStorageThroughputPerDbInstance: Number("int"),
  * //       MinStorageThroughputPerIops: Number("double"),
  * //       MaxStorageThroughputPerIops: Number("double"),
+ * //       SupportsDedicatedLogVolume: true || false,
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

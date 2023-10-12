@@ -2640,6 +2640,12 @@ export interface DBSnapshot {
    *             manages your database files. The Oracle SID is also the name of your CDB.</p>
    */
   DBSystemId?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.</p>
+   */
+  DedicatedLogVolume?: boolean;
 }
 
 /**
@@ -7883,6 +7889,12 @@ export interface CreateDBInstanceMessage {
    *             the value defaults to <code>RDSCDB</code>. The Oracle SID is also the name of your CDB.</p>
    */
   DBSystemId?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.</p>
+   */
+  DedicatedLogVolume?: boolean;
 }
 
 /**
@@ -8369,6 +8381,12 @@ export interface PendingModifiedValues {
    * <p>The database engine of the DB instance.</p>
    */
   Engine?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.></p>
+   */
+  DedicatedLogVolume?: boolean;
 }
 
 /**
@@ -9052,6 +9070,12 @@ export interface DBInstance {
    * <p>The progress of the storage optimization operation as a percentage.</p>
    */
   PercentProgress?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.</p>
+   */
+  DedicatedLogVolume?: boolean;
 }
 
 /**
@@ -9802,6 +9826,12 @@ export interface CreateDBInstanceReadReplicaMessage {
    *          </ul>
    */
   SourceDBClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.</p>
+   */
+  DedicatedLogVolume?: boolean;
 }
 
 /**
@@ -12580,6 +12610,12 @@ export interface DBInstanceAutomatedBackup {
    * <p>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</p>
    */
   AwsBackupRecoveryPointArn?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.</p>
+   */
+  DedicatedLogVolume?: boolean;
 }
 
 /**

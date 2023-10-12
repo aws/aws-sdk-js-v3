@@ -118,6 +118,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *   StorageThroughput: Number("int"),
  *   DBClusterSnapshotIdentifier: "STRING_VALUE",
  *   AllocatedStorage: Number("int"),
+ *   DedicatedLogVolume: true || false,
  * };
  * const command = new RestoreDBInstanceFromDBSnapshotCommand(input);
  * const response = await client.send(command);
@@ -214,6 +215,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * //       ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
  * //       StorageThroughput: Number("int"),
  * //       Engine: "STRING_VALUE",
+ * //       DedicatedLogVolume: true || false,
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -339,6 +341,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //     PercentProgress: "STRING_VALUE",
+ * //     DedicatedLogVolume: true || false,
  * //   },
  * // };
  *

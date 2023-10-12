@@ -107,6 +107,7 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * //         AllowedValues: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SupportsDedicatedLogVolume: true || false,
  * //   },
  * // };
  *

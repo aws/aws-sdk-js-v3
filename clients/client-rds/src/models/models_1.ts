@@ -3286,6 +3286,12 @@ export interface OrderableDBInstanceOption {
    * <p>Maximum storage throughput to provisioned IOPS ratio for a DB instance.</p>
    */
   MaxStorageThroughputPerIops?: number;
+
+  /**
+   * @public
+   * <p>Indicates whether a DB instance supports using a dedicated log volume (DLV).</p>
+   */
+  SupportsDedicatedLogVolume?: boolean;
 }
 
 /**
@@ -4053,6 +4059,12 @@ export interface ValidDBInstanceModificationsMessage {
    * <p>Valid processor features for your DB instance.</p>
    */
   ValidProcessorFeatures?: AvailableProcessorFeature[];
+
+  /**
+   * @public
+   * <p>Indicates whether a DB instance supports using a dedicated log volume (DLV).</p>
+   */
+  SupportsDedicatedLogVolume?: boolean;
 }
 
 /**
@@ -6548,6 +6560,12 @@ export interface ModifyDBInstanceMessage {
    *          </ul>
    */
   Engine?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.</p>
+   */
+  DedicatedLogVolume?: boolean;
 }
 
 /**
@@ -9813,6 +9831,12 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *          </note>
    */
   AllocatedStorage?: number;
+
+  /**
+   * @public
+   * <p>Specifies whether to enable a dedicated log volume (DLV) for the DB instance.</p>
+   */
+  DedicatedLogVolume?: boolean;
 }
 
 /**
@@ -10395,6 +10419,12 @@ export interface RestoreDBInstanceFromS3Message {
    *             has a different default KMS key for each Amazon Web Services Region.</p>
    */
   MasterUserSecretKmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether to enable a dedicated log volume (DLV) for the DB instance.</p>
+   */
+  DedicatedLogVolume?: boolean;
 }
 
 /**
@@ -11018,6 +11048,12 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *          </note>
    */
   AllocatedStorage?: number;
+
+  /**
+   * @public
+   * <p>Specifies whether to enable a dedicated log volume (DLV) for the DB instance.</p>
+   */
+  DedicatedLogVolume?: boolean;
 }
 
 /**

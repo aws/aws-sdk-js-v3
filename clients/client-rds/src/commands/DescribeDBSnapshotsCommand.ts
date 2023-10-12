@@ -112,6 +112,7 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * //       SnapshotTarget: "STRING_VALUE",
  * //       StorageThroughput: Number("int"),
  * //       DBSystemId: "STRING_VALUE",
+ * //       DedicatedLogVolume: true || false,
  * //     },
  * //   ],
  * // };

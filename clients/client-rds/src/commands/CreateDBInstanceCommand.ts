@@ -131,6 +131,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   CACertificateIdentifier: "STRING_VALUE",
  *   DBSystemId: "STRING_VALUE",
+ *   DedicatedLogVolume: true || false,
  * };
  * const command = new CreateDBInstanceCommand(input);
  * const response = await client.send(command);
@@ -227,6 +228,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * //       ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
  * //       StorageThroughput: Number("int"),
  * //       Engine: "STRING_VALUE",
+ * //       DedicatedLogVolume: true || false,
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -352,6 +354,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //     PercentProgress: "STRING_VALUE",
+ * //     DedicatedLogVolume: true || false,
  * //   },
  * // };
  *
