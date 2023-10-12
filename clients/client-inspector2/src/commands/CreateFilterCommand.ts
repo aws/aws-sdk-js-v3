@@ -37,7 +37,7 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
 
 /**
  * @public
- * <p>Creates a filter resource using specified filter criteria.</p>
+ * <p>Creates a filter resource using specified filter criteria. When the filter action is set to <code>SUPPRESS</code> this action creates a suppression rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
