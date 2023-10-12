@@ -15,7 +15,11 @@ import {
 } from "@smithy/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { CreateDataSourceFromRDSInput, CreateDataSourceFromRDSOutput } from "../models/models_0";
+import {
+  CreateDataSourceFromRDSInput,
+  CreateDataSourceFromRDSInputFilterSensitiveLog,
+  CreateDataSourceFromRDSOutput,
+} from "../models/models_0";
 import { de_CreateDataSourceFromRDSCommand, se_CreateDataSourceFromRDSCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -157,7 +161,7 @@ export class CreateDataSourceFromRDSCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CreateDataSourceFromRDSInputFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonML_20141212",
