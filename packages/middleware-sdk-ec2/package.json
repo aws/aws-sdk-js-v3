@@ -23,10 +23,10 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/middleware-endpoint": "^2.0.11",
+    "@smithy/middleware-endpoint": "^2.1.0",
     "@smithy/protocol-http": "^3.0.7",
     "@smithy/signature-v4": "^2.0.0",
-    "@smithy/smithy-client": "^2.1.10",
+    "@smithy/smithy-client": "^2.1.11",
     "@smithy/types": "^2.3.5",
     "tslib": "^2.5.0"
   },
