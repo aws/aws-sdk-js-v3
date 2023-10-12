@@ -41,7 +41,7 @@ describe("S3 Global Client Test", () => {
         await s3Client.putObject({ Bucket: bucketName, Key: objKey, Body: testValue });
       }
     }
-  }, 100000);
+  });
 
   it("Should be able to get objects following region redirect", async () => {
     // Fetch and assert objects
@@ -53,7 +53,7 @@ describe("S3 Global Client Test", () => {
         expect(data).toEqual(testValue);
       }
     }
-  }, 100000);
+  });
 
   it("Should delete objects following region redirect", async () => {
     for (const bucketName of bucketNames) {
@@ -62,7 +62,7 @@ describe("S3 Global Client Test", () => {
         await s3Client.deleteObject({ Bucket: bucketName, Key: objKey });
       }
     }
-  }, 100000);
+  });
 });
 
 async function deleteBucket(s3: S3, bucketName: string) {
