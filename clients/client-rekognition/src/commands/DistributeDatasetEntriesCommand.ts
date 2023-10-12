@@ -37,7 +37,10 @@ export interface DistributeDatasetEntriesCommandOutput extends DistributeDataset
 
 /**
  * @public
- * <p>Distributes the entries (images) in a training dataset across the training dataset and the test dataset for a project.
+ * <note>
+ *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
+ *          </note>
+ *          <p>Distributes the entries (images) in a training dataset across the training dataset and the test dataset for a project.
  *          <code>DistributeDatasetEntries</code> moves 20% of the training dataset images to the test dataset.
  *          An entry is a JSON Line that describes an image.
  *       </p>

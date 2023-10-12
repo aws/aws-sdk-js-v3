@@ -37,14 +37,24 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
 
 /**
  * @public
- * <p>Creates a new version of a model and begins training.
- *          Models are managed as part of an Amazon Rekognition Custom Labels project.
- *          The response from <code>CreateProjectVersion</code>
- *          is an Amazon Resource Name (ARN) for the version of the model. </p>
- *          <p>Training uses the training and test datasets associated with the project.
- *          For more information, see Creating training and test dataset in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
- *       </p>
+ * <p>Creates a new version of Amazon Rekognition project (like a Custom Labels model or a custom adapter)
+ *          and begins training. Models and adapters are managed as part of a Rekognition project. The
+ *          response from <code>CreateProjectVersion</code> is an Amazon Resource Name (ARN) for the
+ *          project version. </p>
+ *          <p>The FeatureConfig operation argument allows you to configure specific model or adapter
+ *          settings. You can provide a description to the project version by using the
+ *          VersionDescription argment. Training can take a while to complete. You can get the current
+ *          status by calling <a>DescribeProjectVersions</a>. Training completed
+ *          successfully if the value of the <code>Status</code> field is
+ *             <code>TRAINING_COMPLETED</code>. Once training has successfully completed, call <a>DescribeProjectVersions</a> to get the training results and evaluate the
+ *          model.</p>
+ *          <p>This operation requires permissions to perform the
+ *             <code>rekognition:CreateProjectVersion</code> action.</p>
  *          <note>
+ *             <p>
+ *                <i>The following applies only to projects with Amazon Rekognition Custom Labels as the chosen
+ *                feature:</i>
+ *             </p>
  *             <p>You can train a model in a project that doesn't have associated datasets by specifying manifest files in the
  *          <code>TrainingData</code> and <code>TestingData</code> fields.
  *          </p>
@@ -55,18 +65,7 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  *             we recommend that you use the manifest
  *             files to create training and test datasets for the project.</p>
  *          </note>
- *          <p>Training takes a while to complete. You can get the current status by calling
- *          <a>DescribeProjectVersions</a>. Training completed successfully if
- *          the value of the <code>Status</code> field is <code>TRAINING_COMPLETED</code>.</p>
- *          <p>If training
- *          fails, see Debugging a failed model training in the <i>Amazon Rekognition Custom Labels</i> developer guide. </p>
- *          <p>Once training has successfully completed, call <a>DescribeProjectVersions</a> to
- *          get the training results and evaluate the model.  For more information, see Improving a trained Amazon Rekognition Custom Labels model
- *          in the <i>Amazon Rekognition Custom Labels</i> developers guide.
- *       </p>
- *          <p>After evaluating the model, you start the model
- *        by calling <a>StartProjectVersion</a>.</p>
- *          <p>This operation requires permissions to perform the <code>rekognition:CreateProjectVersion</code> action.</p>
+ *          <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,6 +110,12 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  *     "<keys>": "STRING_VALUE",
  *   },
  *   KmsKeyId: "STRING_VALUE",
+ *   VersionDescription: "STRING_VALUE",
+ *   FeatureConfig: { // CustomizationFeatureConfig
+ *     ContentModeration: { // CustomizationFeatureContentModerationConfig
+ *       ConfidenceThreshold: Number("float"),
+ *     },
+ *   },
  * };
  * const command = new CreateProjectVersionCommand(input);
  * const response = await client.send(command);
@@ -137,9 +142,11 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  *       operation again.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
- *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
- *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
+ *             concurrently, subsequent calls to start operations (ex:
+ *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
+ *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
+ *             the Amazon Rekognition service limit. </p>
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
  *  <p>The number of requests exceeded your throughput limit. If you want to increase this

@@ -37,9 +37,9 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
 
 /**
  * @public
- * <p>Lists and describes the versions of a model in an Amazon Rekognition Custom Labels project. You
- *          can specify up to 10 model versions in <code>ProjectVersionArns</code>. If
- *          you don't specify a value, descriptions for all model versions in the project are returned.</p>
+ * <p>Lists and describes the versions of an Amazon Rekognition project. You can specify up to 10 model or
+ *          adapter versions in <code>ProjectVersionArns</code>. If you don't specify a value,
+ *          descriptions for all model/adapter versions in the project are returned.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjectVersions</code>
  *             action.</p>
  * @example
@@ -64,7 +64,7 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
  * //       ProjectVersionArn: "STRING_VALUE",
  * //       CreationTimestamp: new Date("TIMESTAMP"),
  * //       MinInferenceUnits: Number("int"),
- * //       Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
+ * //       Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED" || "DEPRECATED" || "EXPIRED",
  * //       StatusMessage: "STRING_VALUE",
  * //       BillableTrainingTimeInSeconds: Number("long"),
  * //       TrainingEndTimestamp: new Date("TIMESTAMP"),
@@ -156,6 +156,14 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
  * //       KmsKeyId: "STRING_VALUE",
  * //       MaxInferenceUnits: Number("int"),
  * //       SourceProjectVersionArn: "STRING_VALUE",
+ * //       VersionDescription: "STRING_VALUE",
+ * //       Feature: "CONTENT_MODERATION" || "CUSTOM_LABELS",
+ * //       BaseModelVersion: "STRING_VALUE",
+ * //       FeatureConfig: { // CustomizationFeatureConfig
+ * //         ContentModeration: { // CustomizationFeatureContentModerationConfig
+ * //           ConfidenceThreshold: Number("float"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

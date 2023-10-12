@@ -7,17 +7,154 @@ import {
   DatasetChanges,
   DetectionFilter,
   FaceAttributes,
+  FaceDetail,
   KinesisVideoStreamStartSelector,
   LabelDetectionFeatureName,
   LabelDetectionSettings,
   NotificationChannel,
   ProjectVersionStatus,
   RegionOfInterest,
+  SearchedFaceDetails,
   SegmentType,
   StreamProcessorDataSharingPreference,
+  UserMatch,
   Video,
 } from "./models_0";
 import { RekognitionServiceException as __BaseException } from "./RekognitionServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const UnsearchedFaceReason = {
+  EXCEEDS_MAX_FACES: "EXCEEDS_MAX_FACES",
+  EXTREME_POSE: "EXTREME_POSE",
+  FACE_NOT_LARGEST: "FACE_NOT_LARGEST",
+  LOW_BRIGHTNESS: "LOW_BRIGHTNESS",
+  LOW_CONFIDENCE: "LOW_CONFIDENCE",
+  LOW_FACE_QUALITY: "LOW_FACE_QUALITY",
+  LOW_SHARPNESS: "LOW_SHARPNESS",
+  SMALL_BOUNDING_BOX: "SMALL_BOUNDING_BOX",
+} as const;
+
+/**
+ * @public
+ */
+export type UnsearchedFaceReason = (typeof UnsearchedFaceReason)[keyof typeof UnsearchedFaceReason];
+
+/**
+ * @public
+ * <p>Face details inferred from the image but not used for search. The response attribute
+ *       contains reasons for why a face wasn't used for Search. </p>
+ */
+export interface UnsearchedFace {
+  /**
+   * @public
+   * <p>Structure containing attributes of the face that the algorithm detected.</p>
+   *          <p>A <code>FaceDetail</code> object contains either the default facial attributes or all
+   *       facial attributes. The default attributes are <code>BoundingBox</code>,
+   *         <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and
+   *       <code>Quality</code>.</p>
+   *          <p>
+   *             <a>GetFaceDetection</a> is the only Amazon Rekognition Video stored video operation that can
+   *       return a <code>FaceDetail</code> object with all attributes. To specify which attributes to
+   *       return, use the <code>FaceAttributes</code> input parameter for <a>StartFaceDetection</a>. The following Amazon Rekognition Video operations return only the default
+   *       attributes. The corresponding Start operations don't have a <code>FaceAttributes</code> input
+   *       parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>GetCelebrityRecognition</p>
+   *             </li>
+   *             <li>
+   *                <p>GetPersonTracking</p>
+   *             </li>
+   *             <li>
+   *                <p>GetFaceSearch</p>
+   *             </li>
+   *          </ul>
+   *          <p>The Amazon Rekognition Image <a>DetectFaces</a> and <a>IndexFaces</a> operations
+   *       can return all facial attributes. To specify which attributes to return, use the
+   *         <code>Attributes</code> input parameter for <code>DetectFaces</code>. For
+   *         <code>IndexFaces</code>, use the <code>DetectAttributes</code> input parameter.</p>
+   */
+  FaceDetails?: FaceDetail;
+
+  /**
+   * @public
+   * <p> Reasons why a face wasn't used for Search. </p>
+   */
+  Reasons?: (UnsearchedFaceReason | string)[];
+}
+
+/**
+ * @public
+ */
+export interface SearchUsersByImageResponse {
+  /**
+   * @public
+   * <p>An array of UserID objects that matched the input face, along with the confidence in the
+   *       match. The returned structure will be empty if there are no matches. Returned if the
+   *       SearchUsersByImageResponse action is successful.</p>
+   */
+  UserMatches?: UserMatch[];
+
+  /**
+   * @public
+   * <p>Version number of the face detection model associated with the input collection
+   *       CollectionId.</p>
+   */
+  FaceModelVersion?: string;
+
+  /**
+   * @public
+   * <p>A list of FaceDetail objects containing the BoundingBox for the largest face in image, as
+   *       well as the confidence in the bounding box, that was searched for matches. If no valid face is
+   *       detected in the image the response will contain no SearchedFace object.</p>
+   */
+  SearchedFace?: SearchedFaceDetails;
+
+  /**
+   * @public
+   * <p>List of UnsearchedFace objects. Contains the face details infered from the specified image
+   *       but not used for search. Contains reasons that describe why a face wasn't used for Search.
+   *     </p>
+   */
+  UnsearchedFaces?: UnsearchedFace[];
+}
+
+/**
+ * @public
+ */
+export interface StartCelebrityRecognitionRequest {
+  /**
+   * @public
+   * <p>The video in which you want to recognize celebrities. The video must be stored
+   *       in an Amazon S3 bucket.</p>
+   */
+  Video: Video | undefined;
+
+  /**
+   * @public
+   * <p>Idempotent token used to identify the start request. If you use the same token with multiple
+   *     <code>StartCelebrityRecognition</code> requests, the same <code>JobId</code> is returned. Use
+   *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * @public
+   * <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the
+   *       celebrity recognition analysis to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
+   */
+  NotificationChannel?: NotificationChannel;
+
+  /**
+   * @public
+   * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
+   *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
+   */
+  JobTag?: string;
+}
 
 /**
  * @public
@@ -361,11 +498,6 @@ export interface StartProjectVersionRequest {
    * @public
    * <p>The minimum number of inference units to use. A single
    *       inference unit represents 1 hour of processing. </p>
-   *          <p>For information about the number
-   *             of transactions per second (TPS) that an inference unit can support, see
-   *             <i>Running a trained Amazon Rekognition Custom Labels model</i> in the
-   *             Amazon Rekognition Custom Labels Guide.
-   *          </p>
    *          <p>Use a higher number to increase the TPS throughput of your model. You are charged for the number
    *       of inference units that you use.
    *     </p>
@@ -670,7 +802,7 @@ export interface StartTextDetectionResponse {
 export interface StopProjectVersionRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p>
+   * <p>The Amazon Resource Name (ARN) of the model version that you want to stop.</p>
    *          <p>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code> action.</p>
    */
   ProjectVersionArn: string | undefined;

@@ -37,10 +37,14 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
 
 /**
  * @public
- * <p>Attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account. A
+ * <note>
+ *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
+ *          </note>
+ *          <p>Attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account. A
  *          project policy specifies that a trusted AWS account can copy a model version from a
- *          trusting AWS account to a project in the trusted AWS account. To copy a model version you use
- *        the <a>CopyProjectVersion</a> operation.</p>
+ *          trusting AWS account to a project in the trusted AWS account. To copy a model version
+ *          you use the <a>CopyProjectVersion</a> operation. Only applies to Custom Labels
+ *          projects.</p>
  *          <p>For more information about the format of a project policy document, see Attaching a project policy (SDK)
  *          in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
  *       </p>
@@ -91,9 +95,11 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  *  <p>The supplied revision id for the project policy is invalid.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
- *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
- *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
+ *             concurrently, subsequent calls to start operations (ex:
+ *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
+ *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
+ *             the Amazon Rekognition service limit. </p>
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
  *  <p>The format of the project policy document that you supplied to

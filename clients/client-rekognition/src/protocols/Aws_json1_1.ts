@@ -217,6 +217,9 @@ import {
   CreateProjectVersionRequest,
   CreateStreamProcessorRequest,
   CreateUserRequest,
+  CustomizationFeature,
+  CustomizationFeatureConfig,
+  CustomizationFeatureContentModerationConfig,
   CustomLabel,
   DatasetChanges,
   DatasetDescription,
@@ -373,7 +376,6 @@ import {
   SearchFacesRequest,
   SearchFacesResponse,
   SearchUsersByImageRequest,
-  SearchUsersByImageResponse,
   SearchUsersRequest,
   SearchUsersResponse,
   SegmentDetection,
@@ -382,7 +384,6 @@ import {
   SessionNotFoundException,
   ShotSegment,
   Smile,
-  StartCelebrityRecognitionRequest,
   StreamProcessorDataSharingPreference,
   StreamProcessorInput,
   StreamProcessorNotificationChannel,
@@ -396,13 +397,14 @@ import {
   ThrottlingException,
   TrainingData,
   UnindexedFace,
-  UnsearchedFace,
   UnsuccessfulFaceAssociation,
   UserMatch,
   Video,
   VideoMetadata,
 } from "../models/models_0";
 import {
+  SearchUsersByImageResponse,
+  StartCelebrityRecognitionRequest,
   StartContentModerationRequest,
   StartFaceDetectionRequest,
   StartFaceSearchRequest,
@@ -423,6 +425,7 @@ import {
   StreamProcessorParameterToDelete,
   StreamProcessorSettingsForUpdate,
   TagResourceRequest,
+  UnsearchedFace,
   UntagResourceRequest,
   UpdateDatasetEntriesRequest,
   UpdateStreamProcessorRequest,
@@ -530,7 +533,7 @@ export const se_CreateProjectVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateProjectVersion");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CreateProjectVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3123,6 +3126,12 @@ const de_DetectModerationLabelsCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceNotReadyException":
+    case "com.amazonaws.rekognition#ResourceNotReadyException":
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rekognition#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -6541,7 +6550,22 @@ const se_ConnectedHomeSettingsForUpdate = (input: ConnectedHomeSettingsForUpdate
 
 // se_CreateProjectRequest omitted.
 
-// se_CreateProjectVersionRequest omitted.
+/**
+ * serializeAws_json1_1CreateProjectVersionRequest
+ */
+const se_CreateProjectVersionRequest = (input: CreateProjectVersionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    FeatureConfig: (_) => se_CustomizationFeatureConfig(_, context),
+    KmsKeyId: [],
+    OutputConfig: _json,
+    ProjectArn: [],
+    Tags: _json,
+    TestingData: _json,
+    TrainingData: _json,
+    VersionDescription: [],
+    VersionName: [],
+  });
+};
 
 /**
  * serializeAws_json1_1CreateStreamProcessorRequest
@@ -6571,6 +6595,29 @@ const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext)
     UserId: [],
   });
 };
+
+/**
+ * serializeAws_json1_1CustomizationFeatureConfig
+ */
+const se_CustomizationFeatureConfig = (input: CustomizationFeatureConfig, context: __SerdeContext): any => {
+  return take(input, {
+    ContentModeration: (_) => se_CustomizationFeatureContentModerationConfig(_, context),
+  });
+};
+
+/**
+ * serializeAws_json1_1CustomizationFeatureContentModerationConfig
+ */
+const se_CustomizationFeatureContentModerationConfig = (
+  input: CustomizationFeatureContentModerationConfig,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ConfidenceThreshold: __serializeFloat,
+  });
+};
+
+// se_CustomizationFeatures omitted.
 
 /**
  * serializeAws_json1_1DatasetChanges
@@ -6680,6 +6727,7 @@ const se_DetectModerationLabelsRequest = (input: DetectModerationLabelsRequest, 
     HumanLoopConfig: _json,
     Image: (_) => se_Image(_, context),
     MinConfidence: __serializeFloat,
+    ProjectVersion: [],
   });
 };
 
@@ -7451,6 +7499,27 @@ const de_CoversBodyPart = (output: any, context: __SerdeContext): CoversBodyPart
 // de_CreateUserResponse omitted.
 
 /**
+ * deserializeAws_json1_1CustomizationFeatureConfig
+ */
+const de_CustomizationFeatureConfig = (output: any, context: __SerdeContext): CustomizationFeatureConfig => {
+  return take(output, {
+    ContentModeration: (_: any) => de_CustomizationFeatureContentModerationConfig(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CustomizationFeatureContentModerationConfig
+ */
+const de_CustomizationFeatureContentModerationConfig = (
+  output: any,
+  context: __SerdeContext
+): CustomizationFeatureContentModerationConfig => {
+  return take(output, {
+    ConfidenceThreshold: __limitedParseFloat32,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CustomLabel
  */
 const de_CustomLabel = (output: any, context: __SerdeContext): CustomLabel => {
@@ -7685,6 +7754,7 @@ const de_DetectModerationLabelsResponse = (output: any, context: __SerdeContext)
     HumanLoopActivationOutput: (_: any) => de_HumanLoopActivationOutput(_, context),
     ModerationLabels: (_: any) => de_ModerationLabels(_, context),
     ModerationModelVersion: __expectString,
+    ProjectVersion: __expectString,
   }) as any;
 };
 
@@ -8513,8 +8583,10 @@ const de_Pose = (output: any, context: __SerdeContext): Pose => {
  */
 const de_ProjectDescription = (output: any, context: __SerdeContext): ProjectDescription => {
   return take(output, {
+    AutoUpdate: __expectString,
     CreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Datasets: (_: any) => de_DatasetMetadataList(_, context),
+    Feature: __expectString,
     ProjectArn: __expectString,
     Status: __expectString,
   }) as any;
@@ -8563,9 +8635,12 @@ const de_ProjectPolicy = (output: any, context: __SerdeContext): ProjectPolicy =
  */
 const de_ProjectVersionDescription = (output: any, context: __SerdeContext): ProjectVersionDescription => {
   return take(output, {
+    BaseModelVersion: __expectString,
     BillableTrainingTimeInSeconds: __expectLong,
     CreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EvaluationResult: (_: any) => de_EvaluationResult(_, context),
+    Feature: __expectString,
+    FeatureConfig: (_: any) => de_CustomizationFeatureConfig(_, context),
     KmsKeyId: __expectString,
     ManifestSummary: _json,
     MaxInferenceUnits: __expectInt32,
@@ -8578,6 +8653,7 @@ const de_ProjectVersionDescription = (output: any, context: __SerdeContext): Pro
     TestingDataResult: _json,
     TrainingDataResult: _json,
     TrainingEndTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionDescription: __expectString,
   }) as any;
 };
 

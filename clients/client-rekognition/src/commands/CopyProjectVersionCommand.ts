@@ -37,7 +37,10 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
 
 /**
  * @public
- * <p>Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project. The source and
+ * <note>
+ *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
+ *          </note>
+ *          <p>Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project. The source and
  *          destination projects can be in different AWS accounts but must be in the same AWS Region.
  *          You can't copy a model to another AWS service.
  *
@@ -51,7 +54,9 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  *       </p>
  *          <p>If you are copying a model version to a project in the same AWS account, you don't need to create a project policy.</p>
  *          <note>
- *             <p>To copy a model, the destination project, source project, and source model version must already exist.</p>
+ *             <p>Copying project versions is supported only for Custom Labels models. </p>
+ *             <p>To copy a model, the destination project, source project, and source model version
+ *             must already exist.</p>
  *          </note>
  *          <p>Copying a model version takes a while to complete. To get the current status, call <a>DescribeProjectVersions</a> and check the value of <code>Status</code> in the
  *             <a>ProjectVersionDescription</a> object. The copy operation has finished when
@@ -102,9 +107,11 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  *       operation again.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
- *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
- *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
+ *             concurrently, subsequent calls to start operations (ex:
+ *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
+ *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
+ *             the Amazon Rekognition service limit. </p>
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
  *  <p>The number of requests exceeded your throughput limit. If you want to increase this

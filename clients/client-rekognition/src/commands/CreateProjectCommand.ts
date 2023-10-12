@@ -37,9 +37,12 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
 
 /**
  * @public
- * <p>Creates a new Amazon Rekognition Custom Labels project. A project is a group of resources (datasets, model versions)
- *          that you use to create and manage Amazon Rekognition Custom Labels models.  </p>
- *          <p>This operation requires permissions to perform the <code>rekognition:CreateProject</code> action.</p>
+ * <p>Creates a new Amazon Rekognition project. A project is a group of resources (datasets, model
+ *          versions) that you use to create and manage a Amazon Rekognition Custom Labels Model or custom adapter. You can
+ *          specify a feature to create the project with, if no feature is specified then Custom Labels
+ *          is used by default. For adapters, you can also choose whether or not to have the project
+ *          auto update by using the AutoUpdate argument. This operation requires permissions to
+ *          perform the <code>rekognition:CreateProject</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +51,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * const client = new RekognitionClient(config);
  * const input = { // CreateProjectRequest
  *   ProjectName: "STRING_VALUE", // required
+ *   Feature: "CONTENT_MODERATION" || "CUSTOM_LABELS",
+ *   AutoUpdate: "ENABLED" || "DISABLED",
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
@@ -74,9 +79,11 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  *       operation again.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
- *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
- *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
+ *             concurrently, subsequent calls to start operations (ex:
+ *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
+ *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
+ *             the Amazon Rekognition service limit. </p>
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
  *  <p>The number of requests exceeded your throughput limit. If you want to increase this

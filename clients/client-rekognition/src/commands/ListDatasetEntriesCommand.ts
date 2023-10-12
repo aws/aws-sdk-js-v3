@@ -37,7 +37,10 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
 
 /**
  * @public
- * <p>
+ * <note>
+ *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
+ *          </note>
+ *          <p>
  * Lists the entries (images) within a dataset. An entry is a
  * JSON Line that contains the information for a single image, including
  * the image location, assigned labels, and object location bounding boxes. For

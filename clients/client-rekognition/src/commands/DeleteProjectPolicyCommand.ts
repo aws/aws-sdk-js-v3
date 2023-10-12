@@ -37,7 +37,10 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
 
 /**
  * @public
- * <p>Deletes an existing project policy.</p>
+ * <note>
+ *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
+ *          </note>
+ *          <p>Deletes an existing project policy.</p>
  *          <p>To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. To attach a project policy to a project, call <a>PutProjectPolicy</a>.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:DeleteProjectPolicy</code> action.</p>
  * @example

@@ -37,7 +37,10 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
 
 /**
  * @public
- * <p>Gets a list of the project policies attached to a project.</p>
+ * <note>
+ *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
+ *          </note>
+ *          <p>Gets a list of the project policies attached to a project.</p>
  *          <p>To attach a project policy to a project, call <a>PutProjectPolicy</a>. To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:ListProjectPolicies</code> action.</p>
  * @example

@@ -37,7 +37,10 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
 
 /**
  * @public
- * <p>Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model. </p>
+ * <note>
+ *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
+ *          </note>
+ *          <p>Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model. </p>
  *          <p>You specify which version of a model version to use by using the <code>ProjectVersionArn</code> input
  *       parameter. </p>
  *          <p>You pass the input image as base64-encoded image bytes or as a reference to an image in
@@ -144,9 +147,11 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
- *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
- *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
+ *             concurrently, subsequent calls to start operations (ex:
+ *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
+ *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
+ *             the Amazon Rekognition service limit. </p>
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
  *  <p>The number of requests exceeded your throughput limit. If you want to increase this

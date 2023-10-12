@@ -37,8 +37,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
 
 /**
  * @public
- * <p>Deletes an Amazon Rekognition Custom Labels project.  To delete a project you must first delete all models associated
- *          with the project. To delete a model, see <a>DeleteProjectVersion</a>.</p>
+ * <p>Deletes a Amazon Rekognition project. To delete a project you must first delete all models or
+ *          adapters associated with the project. To delete a model or adapter, see <a>DeleteProjectVersion</a>.</p>
  *          <p>
  *             <code>DeleteProject</code> is an asynchronous operation. To check if the project is
  *          deleted, call <a>DescribeProjects</a>. The project is deleted when the project

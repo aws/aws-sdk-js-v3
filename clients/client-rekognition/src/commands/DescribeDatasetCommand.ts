@@ -37,7 +37,10 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
 
 /**
  * @public
- * <p>
+ * <note>
+ *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
+ *          </note>
+ *          <p>
  * Describes an Amazon Rekognition Custom Labels dataset. You can get information such as the current status of a dataset and
  * statistics about the images and labels in a dataset.
  * </p>

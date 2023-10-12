@@ -37,15 +37,17 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
 
 /**
  * @public
- * <p>Starts the running of the version of a model. Starting a model takes a while
- *       to complete. To check the current state of the model, use <a>DescribeProjectVersions</a>.</p>
+ * <note>
+ *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
+ *          </note>
+ *          <p>Starts the running of the version of a model. Starting a model takes a while to
+ *          complete. To check the current state of the model, use <a>DescribeProjectVersions</a>. </p>
  *          <p>Once the model is running, you can detect custom labels in new images by calling
  *          <a>DetectCustomLabels</a>.</p>
  *          <note>
  *             <p>You are charged for the amount of time that the model is running. To stop a running
  *       model, call <a>StopProjectVersion</a>.</p>
  *          </note>
- *          <p>For more information, see <i>Running a trained Amazon Rekognition Custom Labels model</i> in the Amazon Rekognition Custom Labels Guide.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>rekognition:StartProjectVersion</code> action.</p>
  * @example
@@ -62,7 +64,7 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  * const command = new StartProjectVersionCommand(input);
  * const response = await client.send(command);
  * // { // StartProjectVersionResponse
- * //   Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
+ * //   Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED" || "DEPRECATED" || "EXPIRED",
  * // };
  *
  * ```
@@ -84,9 +86,11 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  *       operation again.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
- *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
- *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
+ *             concurrently, subsequent calls to start operations (ex:
+ *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
+ *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
+ *             the Amazon Rekognition service limit. </p>
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
  *  <p>The number of requests exceeded your throughput limit. If you want to increase this

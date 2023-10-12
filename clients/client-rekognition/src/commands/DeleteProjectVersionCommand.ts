@@ -37,12 +37,11 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
 
 /**
  * @public
- * <p>Deletes an Amazon Rekognition Custom Labels model.  </p>
- *          <p>You can't delete a model if it is running or if it is training.
- *           To check the status of a model, use the <code>Status</code> field returned
- *          from <a>DescribeProjectVersions</a>.
- *          To stop a running model call <a>StopProjectVersion</a>. If the model
- *       is training, wait until it finishes.</p>
+ * <p>Deletes a Rekognition project model or project version, like a Amazon Rekognition Custom Labels model or a custom
+ *          adapter.</p>
+ *          <p>You can't delete a project version if it is running or if it is training. To check
+ *          the status of a project version, use the Status field returned from <a>DescribeProjectVersions</a>. To stop a project version call <a>StopProjectVersion</a>. If the project version is training, wait until it
+ *          finishes.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>rekognition:DeleteProjectVersion</code> action. </p>
  * @example
@@ -57,7 +56,7 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  * const command = new DeleteProjectVersionCommand(input);
  * const response = await client.send(command);
  * // { // DeleteProjectVersionResponse
- * //   Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
+ * //   Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED" || "DEPRECATED" || "EXPIRED",
  * // };
  *
  * ```

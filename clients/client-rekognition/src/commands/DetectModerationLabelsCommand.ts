@@ -50,6 +50,8 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  *       AWS
  *       CLI to call Amazon Rekognition operations, passing image bytes is not
  *       supported. The image must be either a PNG or JPEG formatted file. </p>
+ *          <p>You can specify an adapter to use when retrieving label predictions by providing a
+ *         <code>ProjectVersionArn</code> to the <code>ProjectVersion</code> argument.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +77,7 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  *       ],
  *     },
  *   },
+ *   ProjectVersion: "STRING_VALUE",
  * };
  * const command = new DetectModerationLabelsCommand(input);
  * const response = await client.send(command);
@@ -94,6 +97,7 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * //     ],
  * //     HumanLoopActivationConditionsEvaluationResults: "STRING_VALUE",
  * //   },
+ * //   ProjectVersion: "STRING_VALUE",
  * // };
  *
  * ```
@@ -132,6 +136,14 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
  *  <p>The number of requests exceeded your throughput limit. If you want to increase this
  *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ResourceNotReadyException} (client fault)
+ *  <p>The requested resource isn't ready. For example,
+ *          this exception occurs when you call <code>DetectCustomLabels</code> with a
+ *          model version that isn't deployed. </p>
  *
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
