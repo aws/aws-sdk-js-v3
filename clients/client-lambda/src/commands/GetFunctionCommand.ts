@@ -74,6 +74,7 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * //         "STRING_VALUE",
  * //       ],
  * //       VpcId: "STRING_VALUE",
+ * //       Ipv6AllowedForDualStack: true || false,
  * //     },
  * //     DeadLetterConfig: { // DeadLetterConfig
  * //       TargetArn: "STRING_VALUE",

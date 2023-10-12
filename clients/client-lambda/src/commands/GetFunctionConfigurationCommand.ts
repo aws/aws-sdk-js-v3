@@ -77,6 +77,7 @@ export interface GetFunctionConfigurationCommandOutput extends FunctionConfigura
  * //       "STRING_VALUE",
  * //     ],
  * //     VpcId: "STRING_VALUE",
+ * //     Ipv6AllowedForDualStack: true || false,
  * //   },
  * //   DeadLetterConfig: { // DeadLetterConfig
  * //     TargetArn: "STRING_VALUE",

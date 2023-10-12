@@ -109,6 +109,7 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *     SecurityGroupIds: [ // SecurityGroupIds
  *       "STRING_VALUE",
  *     ],
+ *     Ipv6AllowedForDualStack: true || false,
  *   },
  *   PackageType: "Zip" || "Image",
  *   DeadLetterConfig: { // DeadLetterConfig
@@ -178,6 +179,7 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * //       "STRING_VALUE",
  * //     ],
  * //     VpcId: "STRING_VALUE",
+ * //     Ipv6AllowedForDualStack: true || false,
  * //   },
  * //   DeadLetterConfig: { // DeadLetterConfig
  * //     TargetArn: "STRING_VALUE",

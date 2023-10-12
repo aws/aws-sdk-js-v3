@@ -77,6 +77,7 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  *     SecurityGroupIds: [ // SecurityGroupIds
  *       "STRING_VALUE",
  *     ],
+ *     Ipv6AllowedForDualStack: true || false,
  *   },
  *   Environment: { // Environment
  *     Variables: { // EnvironmentVariables
@@ -140,6 +141,7 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  * //       "STRING_VALUE",
  * //     ],
  * //     VpcId: "STRING_VALUE",
+ * //     Ipv6AllowedForDualStack: true || false,
  * //   },
  * //   DeadLetterConfig: { // DeadLetterConfig
  * //     TargetArn: "STRING_VALUE",

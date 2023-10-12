@@ -1744,6 +1744,12 @@ export interface VpcConfig {
    * <p>A list of VPC security group IDs.</p>
    */
   SecurityGroupIds?: string[];
+
+  /**
+   * @public
+   * <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
+   */
+  Ipv6AllowedForDualStack?: boolean;
 }
 
 /**
@@ -2236,6 +2242,12 @@ export interface VpcConfigResponse {
    * <p>The ID of the VPC.</p>
    */
   VpcId?: string;
+
+  /**
+   * @public
+   * <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
+   */
+  Ipv6AllowedForDualStack?: boolean;
 }
 
 /**
