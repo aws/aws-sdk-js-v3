@@ -178,6 +178,7 @@ describe(DynamoDBDocument.name, () => {
 
       log.read[id] = await doc
         .get({
+          ConsistentRead: true,
           TableName,
           Key: {
             id,
@@ -272,6 +273,7 @@ describe(DynamoDBDocument.name, () => {
     for (const [k] of Object.entries(data)) {
       log.executeTransactionReadBack[k] = await doc
         .get({
+          ConsistentRead: true,
           TableName,
           Key: {
             id: k + "-exec-transact",
@@ -291,6 +293,7 @@ describe(DynamoDBDocument.name, () => {
     for (const [k] of Object.entries(data)) {
       log.executeStatementReadBack[k] = await doc
         .get({
+          ConsistentRead: true,
           TableName,
           Key: {
             id: k + "-statement",
@@ -347,6 +350,7 @@ describe(DynamoDBDocument.name, () => {
           ":data1": data.list,
           ":data2": data.map,
         },
+        ConsistentRead: true,
       })
       .catch(passError);
 
@@ -368,6 +372,7 @@ describe(DynamoDBDocument.name, () => {
 
       log.updateReadBack[id] = await doc
         .get({
+          ConsistentRead: true,
           TableName,
           Key: {
             id,
