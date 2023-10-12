@@ -6236,6 +6236,16 @@ export const AttributeDetailsFilterSensitiveLog = (obj: AttributeDetails): any =
 /**
  * @internal
  */
+export const ListCalculatedAttributeDefinitionItemFilterSensitiveLog = (
+  obj: ListCalculatedAttributeDefinitionItem
+): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const ConditionsFilterSensitiveLog = (obj: Conditions): any => ({
   ...obj,
 });
@@ -6247,6 +6257,7 @@ export const CreateCalculatedAttributeDefinitionRequestFilterSensitiveLog = (
   obj: CreateCalculatedAttributeDefinitionRequest
 ): any => ({
   ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
   ...(obj.AttributeDetails && { AttributeDetails: SENSITIVE_STRING }),
   ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
   ...(obj.Statistic && { Statistic: SENSITIVE_STRING }),
@@ -6259,6 +6270,7 @@ export const CreateCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
   obj: CreateCalculatedAttributeDefinitionResponse
 ): any => ({
   ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
   ...(obj.AttributeDetails && { AttributeDetails: SENSITIVE_STRING }),
   ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
   ...(obj.Statistic && { Statistic: SENSITIVE_STRING }),
@@ -6317,6 +6329,7 @@ export const GetCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
   obj: GetCalculatedAttributeDefinitionResponse
 ): any => ({
   ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
   ...(obj.Statistic && { Statistic: SENSITIVE_STRING }),
   ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
   ...(obj.AttributeDetails && { AttributeDetails: SENSITIVE_STRING }),
@@ -6341,6 +6354,16 @@ export const GetProfileObjectTypeTemplateResponseFilterSensitiveLog = (
   ...obj,
   ...(obj.Fields && { Fields: SENSITIVE_STRING }),
   ...(obj.Keys && { Keys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListCalculatedAttributeDefinitionsResponseFilterSensitiveLog = (
+  obj: ListCalculatedAttributeDefinitionsResponse
+): any => ({
+  ...obj,
+  ...(obj.Items && { Items: SENSITIVE_STRING }),
 });
 
 /**
@@ -6448,6 +6471,7 @@ export const UpdateCalculatedAttributeDefinitionRequestFilterSensitiveLog = (
   obj: UpdateCalculatedAttributeDefinitionRequest
 ): any => ({
   ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
   ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
 });
 
@@ -6458,6 +6482,7 @@ export const UpdateCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
   obj: UpdateCalculatedAttributeDefinitionResponse
 ): any => ({
   ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
   ...(obj.Statistic && { Statistic: SENSITIVE_STRING }),
   ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
   ...(obj.AttributeDetails && { AttributeDetails: SENSITIVE_STRING }),
