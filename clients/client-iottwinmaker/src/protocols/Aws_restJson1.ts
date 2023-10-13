@@ -4110,9 +4110,9 @@ const de_ComponentsMap = (output: any, context: __SerdeContext): Record<string, 
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ComponentResponse(value, context);
+    acc[key as string] = de_ComponentResponse(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ComponentResponse>);
 };
 
 /**
@@ -4196,9 +4196,9 @@ const de_DataValueMap = (output: any, context: __SerdeContext): Record<string, D
     if (value === null) {
       return acc;
     }
-    acc[key] = de_DataValue(value, context);
+    acc[key as string] = de_DataValue(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, DataValue>);
 };
 
 // de_EntityPropertyReference omitted.
@@ -4317,10 +4317,10 @@ const de_PropertyDefinitionsResponse = (
       if (value === null) {
         return acc;
       }
-      acc[key] = de_PropertyDefinitionResponse(value, context);
+      acc[key as string] = de_PropertyDefinitionResponse(value, context);
       return acc;
     },
-    {}
+    {} as Record<string, PropertyDefinitionResponse>
   );
 };
 
@@ -4346,9 +4346,9 @@ const de_PropertyLatestValueMap = (output: any, context: __SerdeContext): Record
     if (value === null) {
       return acc;
     }
-    acc[key] = de_PropertyLatestValue(value, context);
+    acc[key as string] = de_PropertyLatestValue(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, PropertyLatestValue>);
 };
 
 // de_PropertyNames omitted.
@@ -4371,9 +4371,9 @@ const de_PropertyResponses = (output: any, context: __SerdeContext): Record<stri
     if (value === null) {
       return acc;
     }
-    acc[key] = de_PropertyResponse(value, context);
+    acc[key as string] = de_PropertyResponse(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, PropertyResponse>);
 };
 
 /**
@@ -4384,9 +4384,9 @@ const de_PropertyTableValue = (output: any, context: __SerdeContext): Record<str
     if (value === null) {
       return acc;
     }
-    acc[key] = de_DataValue(value, context);
+    acc[key as string] = de_DataValue(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, DataValue>);
 };
 
 /**

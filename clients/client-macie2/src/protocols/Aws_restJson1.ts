@@ -9178,10 +9178,10 @@ const de_Criterion = (output: any, context: __SerdeContext): Record<string, Crit
       if (value === null) {
         return acc;
       }
-      acc[key] = de_CriterionAdditionalProperties(value, context);
+      acc[key as string] = de_CriterionAdditionalProperties(value, context);
       return acc;
     },
-    {}
+    {} as Record<string, CriterionAdditionalProperties>
   );
 };
 
@@ -9985,9 +9985,9 @@ const de_SensitiveDataOccurrences = (output: any, context: __SerdeContext): Reco
     if (value === null) {
       return acc;
     }
-    acc[key] = de___listOfDetectedDataDetails(value, context);
+    acc[key as string] = de___listOfDetectedDataDetails(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, DetectedDataDetails[]>);
 };
 
 /**

@@ -9534,9 +9534,9 @@ const de_PlayerAttributeMap = (output: any, context: __SerdeContext): Record<str
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(value, context);
+    acc[key as string] = de_AttributeValue(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 /**
@@ -9547,9 +9547,9 @@ const de_PlayerAttributeStringDoubleMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    acc[key] = __limitedParseDouble(value) as any;
+    acc[key as string] = __limitedParseDouble(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 };
 
 // de_PlayerAttributeStringList omitted.

@@ -6270,7 +6270,7 @@ export interface ListDeploymentTargetsInput {
    *             </li>
    *          </ul>
    */
-  targetFilters?: Record<string, string[]>;
+  targetFilters?: Record<TargetFilterName, string[]>;
 }
 
 /**

@@ -2917,9 +2917,9 @@ const de_Annotations = (output: any, context: __SerdeContext): Record<string, Va
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ValuesWithServiceIds(value, context);
+    acc[key as string] = de_ValuesWithServiceIds(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ValueWithServiceIds[]>);
 };
 
 /**

@@ -349,7 +349,7 @@ export interface BatchGetMetricDataQuery {
    * <p>An object that contains mapping between <code>MetricDimensionName</code>
    *             and <code>MetricDimensionValue</code> to filter metrics by.</p>
    */
-  Dimensions?: Record<string, string>;
+  Dimensions?: Record<MetricDimensionName, string>;
 
   /**
    * @public
@@ -2831,7 +2831,7 @@ export interface MetricsDataSource {
    *             <code>MetricDimensionValue</code> to filter metrics by. Must contain a least 1
    *             dimension but no more than 3 unique ones.</p>
    */
-  Dimensions: Record<string, string[]> | undefined;
+  Dimensions: Record<MetricDimensionName, string[]> | undefined;
 
   /**
    * @public
@@ -6324,7 +6324,7 @@ export interface ListRecommendationsRequest {
    *               <code>STATUS</code> and <code>TYPE</code>
    *          </p>
    */
-  Filter?: Record<string, string>;
+  Filter?: Record<ListRecommendationsFilterKey, string>;
 
   /**
    * @public

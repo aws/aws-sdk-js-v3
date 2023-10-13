@@ -17940,9 +17940,9 @@ const de_CodeGenConfigurationNodes = (
     if (value === null) {
       return acc;
     }
-    acc[key] = de_CodeGenConfigurationNode(value, context);
+    acc[key as string] = de_CodeGenConfigurationNode(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, CodeGenConfigurationNode>);
 };
 
 // de_CodeGenEdge omitted.
@@ -18852,9 +18852,9 @@ const de_EvaluatedMetricsMap = (output: any, context: __SerdeContext): Record<st
     if (value === null) {
       return acc;
     }
-    acc[key] = __limitedParseDouble(value) as any;
+    acc[key as string] = __limitedParseDouble(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 };
 
 /**

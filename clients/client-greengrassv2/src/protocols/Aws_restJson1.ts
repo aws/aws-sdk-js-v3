@@ -3178,10 +3178,10 @@ const de_ComponentDeploymentSpecifications = (
       if (value === null) {
         return acc;
       }
-      acc[key] = de_ComponentDeploymentSpecification(value, context);
+      acc[key as string] = de_ComponentDeploymentSpecification(value, context);
       return acc;
     },
-    {}
+    {} as Record<string, ComponentDeploymentSpecification>
   );
 };
 

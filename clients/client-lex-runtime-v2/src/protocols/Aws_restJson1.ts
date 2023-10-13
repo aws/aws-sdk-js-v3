@@ -1495,10 +1495,10 @@ const de_SlotHintsIntentMap = (
       if (value === null) {
         return acc;
       }
-      acc[key] = de_SlotHintsSlotMap(value, context);
+      acc[key as string] = de_SlotHintsSlotMap(value, context);
       return acc;
     },
-    {}
+    {} as Record<string, Record<string, RuntimeHintDetails>>
   );
 };
 
@@ -1510,9 +1510,9 @@ const de_SlotHintsSlotMap = (output: any, context: __SerdeContext): Record<strin
     if (value === null) {
       return acc;
     }
-    acc[key] = de_RuntimeHintDetails(value, context);
+    acc[key as string] = de_RuntimeHintDetails(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, RuntimeHintDetails>);
 };
 
 /**
@@ -1523,9 +1523,9 @@ const de_Slots = (output: any, context: __SerdeContext): Record<string, Slot> =>
     if (value === null) {
       return acc;
     }
-    acc[key] = de_Slot(value, context);
+    acc[key as string] = de_Slot(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, Slot>);
 };
 
 // de_StringList omitted.

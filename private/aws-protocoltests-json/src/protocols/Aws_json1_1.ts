@@ -1307,9 +1307,9 @@ const de_MapOfKitchenSinks = (output: any, context: __SerdeContext): Record<stri
     if (value === null) {
       return acc;
     }
-    acc[key] = de_KitchenSink(value, context);
+    acc[key as string] = de_KitchenSink(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, KitchenSink>);
 };
 
 // de_MapOfListsOfStrings omitted.
@@ -1449,12 +1449,12 @@ const de_SparseStringList = (output: any, context: __SerdeContext): string[] => 
 const de_SparseStringMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 // de_StringList omitted.

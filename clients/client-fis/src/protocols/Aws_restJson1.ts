@@ -1480,9 +1480,9 @@ const de_ExperimentActionMap = (output: any, context: __SerdeContext): Record<st
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ExperimentAction(value, context);
+    acc[key as string] = de_ExperimentAction(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ExperimentAction>);
 };
 
 // de_ExperimentActionParameterMap omitted.

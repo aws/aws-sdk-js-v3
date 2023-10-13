@@ -5576,9 +5576,9 @@ const de_PublishedVersions = (output: any, context: __SerdeContext): Record<stri
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ManagedRuleSetVersion(value, context);
+    acc[key as string] = de_ManagedRuleSetVersion(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ManagedRuleSetVersion>);
 };
 
 // de_PutLoggingConfigurationResponse omitted.

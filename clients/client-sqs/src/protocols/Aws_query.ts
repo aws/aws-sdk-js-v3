@@ -2294,7 +2294,7 @@ const se_MessageBodyAttributeMap = (input: Record<string, MessageAttributeValue>
  * serializeAws_queryMessageBodySystemAttributeMap
  */
 const se_MessageBodySystemAttributeMap = (
-  input: Record<string, MessageSystemAttributeValue>,
+  input: Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -2363,7 +2363,7 @@ const se_PurgeQueueRequest = (input: PurgeQueueRequest, context: __SerdeContext)
 /**
  * serializeAws_queryQueueAttributeMap
  */
-const se_QueueAttributeMap = (input: Record<string, string>, context: __SerdeContext): any => {
+const se_QueueAttributeMap = (input: Record<QueueAttributeName, string>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
@@ -3124,7 +3124,10 @@ const de_MessageNotInflight = (output: any, context: __SerdeContext): MessageNot
 /**
  * deserializeAws_queryMessageSystemAttributeMap
  */
-const de_MessageSystemAttributeMap = (output: any, context: __SerdeContext): Record<string, string> => {
+const de_MessageSystemAttributeMap = (
+  output: any,
+  context: __SerdeContext
+): Record<MessageSystemAttributeName, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["Value"] === null) {
       return acc;
@@ -3153,7 +3156,7 @@ const de_PurgeQueueInProgress = (output: any, context: __SerdeContext): PurgeQue
 /**
  * deserializeAws_queryQueueAttributeMap
  */
-const de_QueueAttributeMap = (output: any, context: __SerdeContext): Record<string, string> => {
+const de_QueueAttributeMap = (output: any, context: __SerdeContext): Record<QueueAttributeName, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["Value"] === null) {
       return acc;

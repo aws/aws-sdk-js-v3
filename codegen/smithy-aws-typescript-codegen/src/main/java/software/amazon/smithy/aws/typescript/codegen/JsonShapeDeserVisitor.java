@@ -150,28 +150,31 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
         // Get the right serialization for each entry in the map. Undefined
         // outputs won't have this deserializer invoked.
-        writer.openBlock("return Object.entries(output).reduce((acc: $T, [key, value]: [$T, any]) => {",
-            "}, {});",
+        writer.openBlock("return Object.entries(output).reduce((acc: $T, [key, value]: [string, any]) => {",
+            "",
             symbolProvider.toSymbol(shape),
-            symbolProvider.toSymbol(shape.getKey()),
             () -> {
                 writer.openBlock("if (value === null) {", "}", () -> {
                     // Handle the sparse trait by short-circuiting null values
                     // from deserialization, and not including them if encountered
                     // when not sparse.
                     if (shape.hasTrait(SparseTrait.ID)) {
-                        writer.write("acc[key] = null as any;");
+                        writer.write("acc[key as $T] = null as any;", symbolProvider.toSymbol(shape.getKey()));
                     }
 
                     writer.write("return acc;");
                 });
 
                 // Dispatch to the output value provider for any additional handling.
-                writer.write("acc[key] = $L$L", target.accept(getMemberVisitor(shape.getValue(), "value")),
-                    usesExpect(target) ? " as any;" : ";");
+                writer.write("acc[key as $T] = $L$L",
+                    symbolProvider.toSymbol(shape.getKey()),
+                    target.accept(getMemberVisitor(shape.getValue(), "value")),
+                    usesExpect(target) ? " as any;" : ";"
+                );
                 writer.write("return acc;");
             }
         );
+        writer.writeInline("}, {} as $T);", symbolProvider.toSymbol(shape));
     }
 
     @Override

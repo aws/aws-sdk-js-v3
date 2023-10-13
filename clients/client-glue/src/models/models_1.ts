@@ -3844,7 +3844,7 @@ export interface Connection {
    *             </li>
    *          </ul>
    */
-  ConnectionProperties?: Record<string, string>;
+  ConnectionProperties?: Record<ConnectionPropertyKey, string>;
 
   /**
    * @public

@@ -3499,7 +3499,7 @@ export interface GetAccountSummaryResponse {
    * <p>A set of key–value pairs containing information about IAM entity usage and
    *             IAM quotas.</p>
    */
-  SummaryMap?: Record<string, number>;
+  SummaryMap?: Record<SummaryKeyType, number>;
 }
 
 /**

@@ -1093,14 +1093,14 @@ const de_EnumList = (output: any, context: __SerdeContext): EnumString[] => {
 /**
  * deserializeAws_restJson1EnumMap
  */
-const de_EnumMap = (output: any, context: __SerdeContext): Record<string, EnumString> => {
-  return Object.entries(output).reduce((acc: Record<string, EnumString>, [key, value]: [EnumString, any]) => {
+const de_EnumMap = (output: any, context: __SerdeContext): Record<EnumString, EnumString> => {
+  return Object.entries(output).reduce((acc: Record<EnumString, EnumString>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as EnumString] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<EnumString, EnumString>);
 };
 
 /**
@@ -1139,9 +1139,9 @@ const de_LengthMap = (output: any, context: __SerdeContext): Record<string, stri
     if (value === null) {
       return acc;
     }
-    acc[key] = de_LengthList(value, context);
+    acc[key as string] = de_LengthList(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, string[]>);
 };
 
 /**
@@ -1191,9 +1191,9 @@ const de_PatternMap = (output: any, context: __SerdeContext): Record<string, str
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 /**
@@ -1204,9 +1204,9 @@ const de_PatternMapOverride = (output: any, context: __SerdeContext): Record<str
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 /**

@@ -1062,7 +1062,7 @@ export interface PolicyComplianceDetail {
    * <p>Details about problems with dependent services, such as WAF or Config,
    *       and the error message received that indicates the problem with the service.</p>
    */
-  IssueInfoMap?: Record<string, string>;
+  IssueInfoMap?: Record<DependentServiceName, string>;
 }
 
 /**
@@ -1602,7 +1602,7 @@ export interface Policy {
    *             </li>
    *          </ul>
    */
-  IncludeMap?: Record<string, string[]>;
+  IncludeMap?: Record<CustomerPolicyScopeIdType, string[]>;
 
   /**
    * @public
@@ -1628,7 +1628,7 @@ export interface Policy {
    *             </li>
    *          </ul>
    */
-  ExcludeMap?: Record<string, string[]>;
+  ExcludeMap?: Record<CustomerPolicyScopeIdType, string[]>;
 
   /**
    * @public
@@ -4149,7 +4149,7 @@ export interface PolicyComplianceStatus {
    * <p>Details about problems with dependent services, such as WAF or Config,
    *       and the error message received that indicates the problem with the service.</p>
    */
-  IssueInfoMap?: Record<string, string>;
+  IssueInfoMap?: Record<DependentServiceName, string>;
 }
 
 /**

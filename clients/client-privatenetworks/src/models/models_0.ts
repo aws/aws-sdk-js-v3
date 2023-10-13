@@ -1571,7 +1571,7 @@ export interface ListDeviceIdentifiersRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<string, string[]>;
+  filters?: Record<DeviceIdentifierFilterKeys, string[]>;
 
   /**
    * @public
@@ -1647,7 +1647,7 @@ export interface ListNetworkResourcesRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<string, string[]>;
+  filters?: Record<NetworkResourceFilterKeys, string[]>;
 
   /**
    * @public
@@ -1717,7 +1717,7 @@ export interface ListNetworksRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<string, string[]>;
+  filters?: Record<NetworkFilterKeys, string[]>;
 
   /**
    * @public
@@ -1782,7 +1782,7 @@ export interface ListNetworkSitesRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<string, string[]>;
+  filters?: Record<NetworkSiteFilterKeys, string[]>;
 
   /**
    * @public
@@ -1875,7 +1875,7 @@ export interface ListOrdersRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<string, string[]>;
+  filters?: Record<OrderFilterKeys, string[]>;
 }
 
 /**

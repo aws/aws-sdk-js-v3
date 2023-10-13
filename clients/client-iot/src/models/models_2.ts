@@ -3093,7 +3093,7 @@ export interface UpdateAccountAuditConfigurationRequest {
    * @public
    * <p>Information about the targets to which audit notifications are sent.</p>
    */
-  auditNotificationTargetConfigurations?: Record<string, AuditNotificationTarget>;
+  auditNotificationTargetConfigurations?: Record<AuditNotificationType, AuditNotificationTarget>;
 
   /**
    * @public
@@ -3589,7 +3589,7 @@ export interface UpdateEventConfigurationsRequest {
    * @public
    * <p>The new event configuration values.</p>
    */
-  eventConfigurations?: Record<string, Configuration>;
+  eventConfigurations?: Record<EventType, Configuration>;
 }
 
 /**
@@ -4111,7 +4111,7 @@ export interface UpdateSecurityProfileRequest {
    * @public
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
-  alertTargets?: Record<string, AlertTarget>;
+  alertTargets?: Record<AlertTargetType, AlertTarget>;
 
   /**
    * @public
@@ -4199,7 +4199,7 @@ export interface UpdateSecurityProfileResponse {
    * @public
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
-  alertTargets?: Record<string, AlertTarget>;
+  alertTargets?: Record<AlertTargetType, AlertTarget>;
 
   /**
    * @public

@@ -26600,9 +26600,9 @@ const de_LogicalTableMap = (output: any, context: __SerdeContext): Record<string
     if (value === null) {
       return acc;
     }
-    acc[key] = de_LogicalTable(value, context);
+    acc[key as string] = de_LogicalTable(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, LogicalTable>);
 };
 
 // de_LogicalTableSource omitted.

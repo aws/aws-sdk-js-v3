@@ -272,7 +272,7 @@ export interface ApplicationComponent {
    * @public
    * <p> Workloads detected in the application component. </p>
    */
-  DetectedWorkload?: Record<string, Record<string, string>>;
+  DetectedWorkload?: Record<Tier, Record<string, string>>;
 }
 
 /**
@@ -1577,7 +1577,7 @@ export interface Problem {
    * @public
    * <p>Feedback provided by the user about the problem.</p>
    */
-  Feedback?: Record<string, FeedbackValue>;
+  Feedback?: Record<FeedbackKey, FeedbackValue>;
 
   /**
    * @public

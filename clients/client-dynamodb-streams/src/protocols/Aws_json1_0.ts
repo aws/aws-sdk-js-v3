@@ -397,9 +397,9 @@ const de_AttributeMap = (output: any, context: __SerdeContext): Record<string, A
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 /**
@@ -518,9 +518,9 @@ const de_MapAttributeValue = (output: any, context: __SerdeContext): Record<stri
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 // de_NumberSetAttributeValue omitted.

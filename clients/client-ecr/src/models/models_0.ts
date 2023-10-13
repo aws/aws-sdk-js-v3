@@ -1690,7 +1690,7 @@ export interface ImageScanFindingsSummary {
    * @public
    * <p>The image vulnerability counts, sorted by severity.</p>
    */
-  findingSeverityCounts?: Record<string, number>;
+  findingSeverityCounts?: Record<FindingSeverity, number>;
 }
 
 /**
@@ -2409,7 +2409,7 @@ export interface ImageScanFindings {
    * @public
    * <p>The image vulnerability counts, sorted by severity.</p>
    */
-  findingSeverityCounts?: Record<string, number>;
+  findingSeverityCounts?: Record<FindingSeverity, number>;
 
   /**
    * @public

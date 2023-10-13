@@ -1064,7 +1064,7 @@ export interface UserData {
    * <p>A map of available slots by channel. The key is a channel name. The value is an integer: the
    *    available number of slots. </p>
    */
-  AvailableSlotsByChannel?: Record<string, number>;
+  AvailableSlotsByChannel?: Record<Channel, number>;
 
   /**
    * @public
@@ -1072,14 +1072,14 @@ export interface UserData {
    *    maximum number of slots. This is calculated from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html">MediaConcurrency</a> of the
    *     <code>RoutingProfile</code> assigned to the agent. </p>
    */
-  MaxSlotsByChannel?: Record<string, number>;
+  MaxSlotsByChannel?: Record<Channel, number>;
 
   /**
    * @public
    * <p> A map of active slots by channel. The key is a channel name. The value is an integer: the
    *    number of active slots. </p>
    */
-  ActiveSlotsByChannel?: Record<string, number>;
+  ActiveSlotsByChannel?: Record<Channel, number>;
 
   /**
    * @public
