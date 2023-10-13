@@ -13309,7 +13309,7 @@ const se_AccessControlAllowHeadersList = (input: string[], context: __SerdeConte
  * serializeAws_restXmlAccessControlAllowMethodsList
  */
 const se_AccessControlAllowMethodsList = (
-  input: (ResponseHeadersPolicyAccessControlAllowMethodsValues | string)[],
+  input: ResponseHeadersPolicyAccessControlAllowMethodsValues[],
   context: __SerdeContext
 ): any => {
   return input
@@ -14590,7 +14590,7 @@ const se_LoggingConfig = (input: LoggingConfig, context: __SerdeContext): any =>
 /**
  * serializeAws_restXmlMethodsList
  */
-const se_MethodsList = (input: (Method | string)[], context: __SerdeContext): any => {
+const se_MethodsList = (input: Method[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -15767,7 +15767,7 @@ const se_SessionStickinessConfig = (input: SessionStickinessConfig, context: __S
 /**
  * serializeAws_restXmlSslProtocolsList
  */
-const se_SslProtocolsList = (input: (SslProtocol | string)[], context: __SerdeContext): any => {
+const se_SslProtocolsList = (input: SslProtocol[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -16134,7 +16134,7 @@ const de_AccessControlAllowHeadersList = (output: any, context: __SerdeContext):
 const de_AccessControlAllowMethodsList = (
   output: any,
   context: __SerdeContext
-): (ResponseHeadersPolicyAccessControlAllowMethodsValues | string)[] => {
+): ResponseHeadersPolicyAccessControlAllowMethodsValues[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -18175,7 +18175,7 @@ const de_LoggingConfig = (output: any, context: __SerdeContext): LoggingConfig =
 /**
  * deserializeAws_restXmlMethodsList
  */
-const de_MethodsList = (output: any, context: __SerdeContext): (Method | string)[] => {
+const de_MethodsList = (output: any, context: __SerdeContext): Method[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -19568,7 +19568,7 @@ const de_SignerList = (output: any, context: __SerdeContext): Signer[] => {
 /**
  * deserializeAws_restXmlSslProtocolsList
  */
-const de_SslProtocolsList = (output: any, context: __SerdeContext): (SslProtocol | string)[] => {
+const de_SslProtocolsList = (output: any, context: __SerdeContext): SslProtocol[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

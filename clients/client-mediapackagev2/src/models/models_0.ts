@@ -102,7 +102,7 @@ export class ConflictException extends __BaseException {
    * @public
    * <p>The type of ConflictException.</p>
    */
-  ConflictExceptionType?: ConflictExceptionType | string;
+  ConflictExceptionType?: ConflictExceptionType;
   /**
    * @internal
    */
@@ -242,7 +242,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The type of ValidationException.</p>
    */
-  ValidationExceptionType?: ValidationExceptionType | string;
+  ValidationExceptionType?: ValidationExceptionType;
   /**
    * @internal
    */
@@ -325,7 +325,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The specified resource type wasn't found.</p>
    */
-  ResourceTypeNotFound?: ResourceTypeNotFound | string;
+  ResourceTypeNotFound?: ResourceTypeNotFound;
   /**
    * @internal
    */
@@ -706,7 +706,7 @@ export interface ScteHls {
    *             </li>
    *          </ul>
    */
-  AdMarkerHls?: AdMarkerHls | string;
+  AdMarkerHls?: AdMarkerHls;
 }
 
 /**
@@ -826,13 +826,13 @@ export interface EncryptionMethod {
    * @public
    * <p>The encryption method to use.</p>
    */
-  TsEncryptionMethod?: TsEncryptionMethod | string;
+  TsEncryptionMethod?: TsEncryptionMethod;
 
   /**
    * @public
    * <p>The encryption method to use.</p>
    */
-  CmafEncryptionMethod?: CmafEncryptionMethod | string;
+  CmafEncryptionMethod?: CmafEncryptionMethod;
 }
 
 /**
@@ -925,7 +925,7 @@ export interface EncryptionContractConfiguration {
    *             </li>
    *          </ul>
    */
-  PresetSpeke20Audio: PresetSpeke20Audio | string | undefined;
+  PresetSpeke20Audio: PresetSpeke20Audio | undefined;
 
   /**
    * @public
@@ -981,7 +981,7 @@ export interface EncryptionContractConfiguration {
    *             </li>
    *          </ul>
    */
-  PresetSpeke20Video: PresetSpeke20Video | string | undefined;
+  PresetSpeke20Video: PresetSpeke20Video | undefined;
 }
 
 /**
@@ -1007,7 +1007,7 @@ export interface SpekeKeyProvider {
    * @public
    * <p>The DRM solution provider you're using to protect your content during distribution.</p>
    */
-  DrmSystems: (DrmSystem | string)[] | undefined;
+  DrmSystems: DrmSystem[] | undefined;
 
   /**
    * @public
@@ -1088,7 +1088,7 @@ export interface Scte {
    * @public
    * <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
    */
-  ScteFilter?: (ScteFilter | string)[];
+  ScteFilter?: ScteFilter[];
 }
 
 /**
@@ -1165,7 +1165,7 @@ export interface CreateOriginEndpointRequest {
    * @public
    * <p>The type of container to attach to this origin endpoint. A container type is a file format that encapsulates one or more media streams, such as audio and video, into a single file. You can't change the container type after you create the endpoint.</p>
    */
-  ContainerType: ContainerType | string | undefined;
+  ContainerType: ContainerType | undefined;
 
   /**
    * @public
@@ -1340,7 +1340,7 @@ export interface CreateOriginEndpointResponse {
    * @public
    * <p>The type of container attached to this origin endpoint.</p>
    */
-  ContainerType: ContainerType | string | undefined;
+  ContainerType: ContainerType | undefined;
 
   /**
    * @public
@@ -1474,7 +1474,7 @@ export interface GetOriginEndpointResponse {
    * @public
    * <p>The type of container attached to this origin endpoint.</p>
    */
-  ContainerType: ContainerType | string | undefined;
+  ContainerType: ContainerType | undefined;
 
   /**
    * @public
@@ -1635,7 +1635,7 @@ export interface OriginEndpointListConfiguration {
    * @public
    * <p>The type of container attached to this origin endpoint. A container type is a file format that encapsulates one or more media streams, such as audio and video, into a single file. </p>
    */
-  ContainerType: ContainerType | string | undefined;
+  ContainerType: ContainerType | undefined;
 
   /**
    * @public
@@ -1825,7 +1825,7 @@ export interface UpdateOriginEndpointRequest {
    * @public
    * <p>The type of container attached to this origin endpoint. A container type is a file format that encapsulates one or more media streams, such as audio and video, into a single file. </p>
    */
-  ContainerType: ContainerType | string | undefined;
+  ContainerType: ContainerType | undefined;
 
   /**
    * @public
@@ -1890,7 +1890,7 @@ export interface UpdateOriginEndpointResponse {
    * @public
    * <p>The type of container attached to this origin endpoint.</p>
    */
-  ContainerType: ContainerType | string | undefined;
+  ContainerType: ContainerType | undefined;
 
   /**
    * @public

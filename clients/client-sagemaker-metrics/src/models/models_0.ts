@@ -92,7 +92,7 @@ export interface BatchPutMetricsError {
    *             </li>
    *          </ul>
    */
-  Code?: PutMetricsErrorCode | string;
+  Code?: PutMetricsErrorCode;
 
   /**
    * @public

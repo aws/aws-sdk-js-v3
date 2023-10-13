@@ -152,7 +152,7 @@ export interface AdditionalAuthenticationProvider {
    * <p>The authentication type: API key, Identity and Access Management (IAM), OpenID
    *          Connect (OIDC), Amazon Cognito user pools, or Lambda.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: AuthenticationType;
 
   /**
    * @public
@@ -226,7 +226,7 @@ export interface ApiAssociation {
    *             </li>
    *          </ul>
    */
-  associationStatus?: AssociationStatus | string;
+  associationStatus?: AssociationStatus;
 
   /**
    * @public
@@ -321,7 +321,7 @@ export interface ApiCache {
    *             </li>
    *          </ul>
    */
-  apiCachingBehavior?: ApiCachingBehavior | string;
+  apiCachingBehavior?: ApiCachingBehavior;
 
   /**
    * @public
@@ -413,7 +413,7 @@ export interface ApiCache {
    *             </li>
    *          </ul>
    */
-  type?: ApiCacheType | string;
+  type?: ApiCacheType;
 
   /**
    * @public
@@ -446,7 +446,7 @@ export interface ApiCache {
    *             </li>
    *          </ul>
    */
-  status?: ApiCacheStatus | string;
+  status?: ApiCacheStatus;
 }
 
 /**
@@ -633,7 +633,7 @@ export interface AppSyncRuntime {
    * <p>The <code>name</code> of the runtime to use. Currently, the only allowed value is
    *             <code>APPSYNC_JS</code>.</p>
    */
-  name: RuntimeName | string | undefined;
+  name: RuntimeName | undefined;
 
   /**
    * @public
@@ -762,7 +762,7 @@ export class BadRequestException extends __BaseException {
    * <p>Provides context for the cause of the bad request. The only supported value is
    *             <code>CODE_ERROR</code>.</p>
    */
-  reason?: BadRequestReason | string;
+  reason?: BadRequestReason;
 
   /**
    * @public
@@ -855,7 +855,7 @@ export interface SourceApiAssociationConfig {
    *          source APIs are also made to the merged API. Auto merges use <code>MergedApiExecutionRoleArn</code> to perform
    *          merge operations.</p>
    */
-  mergeType?: MergeType | string;
+  mergeType?: MergeType;
 }
 
 /**
@@ -972,7 +972,7 @@ export interface SourceApiAssociation {
    * @public
    * <p>The state of the source API association.</p>
    */
-  sourceApiAssociationStatus?: SourceApiAssociationStatus | string;
+  sourceApiAssociationStatus?: SourceApiAssociationStatus;
 
   /**
    * @public
@@ -1149,7 +1149,7 @@ export interface AuthorizationConfig {
    *             </li>
    *          </ul>
    */
-  authorizationType: AuthorizationType | string | undefined;
+  authorizationType: AuthorizationType | undefined;
 
   /**
    * @public
@@ -1205,7 +1205,7 @@ export interface CreateApiCacheRequest {
    *             </li>
    *          </ul>
    */
-  apiCachingBehavior: ApiCachingBehavior | string | undefined;
+  apiCachingBehavior: ApiCachingBehavior | undefined;
 
   /**
    * @public
@@ -1284,7 +1284,7 @@ export interface CreateApiCacheRequest {
    *             </li>
    *          </ul>
    */
-  type: ApiCacheType | string | undefined;
+  type: ApiCacheType | undefined;
 }
 
 /**
@@ -1549,7 +1549,7 @@ export interface RelationalDatabaseDataSourceConfig {
    *             </li>
    *          </ul>
    */
-  relationalDatabaseSourceType?: RelationalDatabaseSourceType | string;
+  relationalDatabaseSourceType?: RelationalDatabaseSourceType;
 
   /**
    * @public
@@ -1604,7 +1604,7 @@ export interface CreateDataSourceRequest {
    * @public
    * <p>The type of the <code>DataSource</code>.</p>
    */
-  type: DataSourceType | string | undefined;
+  type: DataSourceType | undefined;
 
   /**
    * @public
@@ -1727,7 +1727,7 @@ export interface DataSource {
    *             </li>
    *          </ul>
    */
-  type?: DataSourceType | string;
+  type?: DataSourceType;
 
   /**
    * @public
@@ -1937,7 +1937,7 @@ export interface SyncConfig {
    *             </li>
    *          </ul>
    */
-  conflictHandler?: ConflictHandlerType | string;
+  conflictHandler?: ConflictHandlerType;
 
   /**
    * @public
@@ -1955,7 +1955,7 @@ export interface SyncConfig {
    *             </li>
    *          </ul>
    */
-  conflictDetection?: ConflictDetectionType | string;
+  conflictDetection?: ConflictDetectionType;
 
   /**
    * @public
@@ -2218,7 +2218,7 @@ export interface LogConfig {
    *             </li>
    *          </ul>
    */
-  fieldLogLevel: FieldLogLevel | string | undefined;
+  fieldLogLevel: FieldLogLevel | undefined;
 
   /**
    * @public
@@ -2271,7 +2271,7 @@ export interface UserPoolConfig {
    * <p>The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool
    *          configuration.</p>
    */
-  defaultAction: DefaultAction | string | undefined;
+  defaultAction: DefaultAction | undefined;
 
   /**
    * @public
@@ -2316,7 +2316,7 @@ export interface CreateGraphqlApiRequest {
    * <p>The authentication type: API key, Identity and Access Management (IAM), OpenID
    *          Connect (OIDC), Amazon Cognito user pools, or Lambda.</p>
    */
-  authenticationType: AuthenticationType | string | undefined;
+  authenticationType: AuthenticationType | undefined;
 
   /**
    * @public
@@ -2362,14 +2362,14 @@ export interface CreateGraphqlApiRequest {
    *          value is provided, the visibility will be set to <code>GLOBAL</code> by default. This value cannot be changed
    *          once the API has been created.</p>
    */
-  visibility?: GraphQLApiVisibility | string;
+  visibility?: GraphQLApiVisibility;
 
   /**
    * @public
    * <p>The value that indicates whether the GraphQL API is a standard API (<code>GRAPHQL</code>) or merged API
    *          (<code>MERGED</code>).</p>
    */
-  apiType?: GraphQLApiType | string;
+  apiType?: GraphQLApiType;
 
   /**
    * @public
@@ -2409,7 +2409,7 @@ export interface GraphqlApi {
    * @public
    * <p>The authentication type.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: AuthenticationType;
 
   /**
    * @public
@@ -2486,14 +2486,14 @@ export interface GraphqlApi {
    *          value is provided, the visibility will be set to <code>GLOBAL</code> by default. This value cannot be changed
    *          once the API has been created.</p>
    */
-  visibility?: GraphQLApiVisibility | string;
+  visibility?: GraphQLApiVisibility;
 
   /**
    * @public
    * <p>The value that indicates whether the GraphQL API is a standard API (<code>GRAPHQL</code>) or merged API
    *          (<code>MERGED</code>).</p>
    */
-  apiType?: GraphQLApiType | string;
+  apiType?: GraphQLApiType;
 
   /**
    * @public
@@ -2641,7 +2641,7 @@ export interface CreateResolverRequest {
    *             </li>
    *          </ul>
    */
-  kind?: ResolverKind | string;
+  kind?: ResolverKind;
 
   /**
    * @public
@@ -2743,7 +2743,7 @@ export interface Resolver {
    *             </li>
    *          </ul>
    */
-  kind?: ResolverKind | string;
+  kind?: ResolverKind;
 
   /**
    * @public
@@ -2832,7 +2832,7 @@ export interface CreateTypeRequest {
    * @public
    * <p>The type format: SDL or JSON.</p>
    */
-  format: TypeDefinitionFormat | string | undefined;
+  format: TypeDefinitionFormat | undefined;
 }
 
 /**
@@ -2868,7 +2868,7 @@ export interface Type {
    * @public
    * <p>The type format: SDL or JSON.</p>
    */
-  format?: TypeDefinitionFormat | string;
+  format?: TypeDefinitionFormat;
 }
 
 /**
@@ -3091,7 +3091,7 @@ export interface DisassociateMergedGraphqlApiResponse {
    * @public
    * <p>The state of the source API association.</p>
    */
-  sourceApiAssociationStatus?: SourceApiAssociationStatus | string;
+  sourceApiAssociationStatus?: SourceApiAssociationStatus;
 }
 
 /**
@@ -3119,7 +3119,7 @@ export interface DisassociateSourceGraphqlApiResponse {
    * @public
    * <p>The state of the source API association.</p>
    */
-  sourceApiAssociationStatus?: SourceApiAssociationStatus | string;
+  sourceApiAssociationStatus?: SourceApiAssociationStatus;
 }
 
 /**
@@ -3446,7 +3446,7 @@ export interface GetIntrospectionSchemaRequest {
    * @public
    * <p>The schema format: SDL or JSON.</p>
    */
-  format: OutputType | string | undefined;
+  format: OutputType | undefined;
 
   /**
    * @public
@@ -3560,7 +3560,7 @@ export interface GetSchemaCreationStatusResponse {
    * <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When
    *          the schema is in the ACTIVE state, you can add data.</p>
    */
-  status?: SchemaStatus | string;
+  status?: SchemaStatus;
 
   /**
    * @public
@@ -3617,7 +3617,7 @@ export interface GetTypeRequest {
    * @public
    * <p>The type format: SDL or JSON.</p>
    */
-  format: TypeDefinitionFormat | string | undefined;
+  format: TypeDefinitionFormat | undefined;
 }
 
 /**
@@ -3829,13 +3829,13 @@ export interface ListGraphqlApisRequest {
    * <p>The value that indicates whether the GraphQL API is a standard API (<code>GRAPHQL</code>) or merged API
    *          (<code>MERGED</code>).</p>
    */
-  apiType?: GraphQLApiType | string;
+  apiType?: GraphQLApiType;
 
   /**
    * @public
    * <p>The account owner of the GraphQL API.</p>
    */
-  owner?: Ownership | string;
+  owner?: Ownership;
 }
 
 /**
@@ -4077,7 +4077,7 @@ export interface ListTypesRequest {
    * @public
    * <p>The type format: SDL or JSON.</p>
    */
-  format: TypeDefinitionFormat | string | undefined;
+  format: TypeDefinitionFormat | undefined;
 
   /**
    * @public
@@ -4131,7 +4131,7 @@ export interface ListTypesByAssociationRequest {
    * @public
    * <p>The format type.</p>
    */
-  format: TypeDefinitionFormat | string | undefined;
+  format: TypeDefinitionFormat | undefined;
 
   /**
    * @public
@@ -4191,7 +4191,7 @@ export interface StartSchemaCreationResponse {
    * <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When
    *          the schema is in the ACTIVE state, you can add data.</p>
    */
-  status?: SchemaStatus | string;
+  status?: SchemaStatus;
 }
 
 /**
@@ -4219,7 +4219,7 @@ export interface StartSchemaMergeResponse {
    * @public
    * <p>The state of the source API association.</p>
    */
-  sourceApiAssociationStatus?: SourceApiAssociationStatus | string;
+  sourceApiAssociationStatus?: SourceApiAssociationStatus;
 }
 
 /**
@@ -4300,7 +4300,7 @@ export interface UpdateApiCacheRequest {
    *             </li>
    *          </ul>
    */
-  apiCachingBehavior: ApiCachingBehavior | string | undefined;
+  apiCachingBehavior: ApiCachingBehavior | undefined;
 
   /**
    * @public
@@ -4379,7 +4379,7 @@ export interface UpdateApiCacheRequest {
    *             </li>
    *          </ul>
    */
-  type: ApiCacheType | string | undefined;
+  type: ApiCacheType | undefined;
 }
 
 /**
@@ -4461,7 +4461,7 @@ export interface UpdateDataSourceRequest {
    * @public
    * <p>The new data source type.</p>
    */
-  type: DataSourceType | string | undefined;
+  type: DataSourceType | undefined;
 
   /**
    * @public
@@ -4676,7 +4676,7 @@ export interface UpdateGraphqlApiRequest {
    * @public
    * <p>The new authentication type for the <code>GraphqlApi</code> object.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: AuthenticationType;
 
   /**
    * @public
@@ -4804,7 +4804,7 @@ export interface UpdateResolverRequest {
    *             </li>
    *          </ul>
    */
-  kind?: ResolverKind | string;
+  kind?: ResolverKind;
 
   /**
    * @public
@@ -4923,7 +4923,7 @@ export interface UpdateTypeRequest {
    * @public
    * <p>The new type format: SDL or JSON.</p>
    */
-  format: TypeDefinitionFormat | string | undefined;
+  format: TypeDefinitionFormat | undefined;
 }
 
 /**

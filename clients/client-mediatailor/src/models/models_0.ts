@@ -163,7 +163,7 @@ export interface AdBreak {
    * @public
    * <p>The SCTE-35 ad insertion type. Accepted value: <code>SPLICE_INSERT</code>, <code>TIME_SIGNAL</code>.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -252,7 +252,7 @@ export interface Alert {
    * @public
    * <p>The category that MediaTailor assigns to the alert.</p>
    */
-  Category?: AlertCategory | string;
+  Category?: AlertCategory;
 }
 
 /**
@@ -286,7 +286,7 @@ export interface AvailMatchingCriteria {
    * @public
    * <p>For the <code>DynamicVariable</code> specified in <code>AvailMatchingCriteria</code>, the Operator that is used for the comparison.</p>
    */
-  Operator: Operator | string | undefined;
+  Operator: Operator | undefined;
 }
 
 /**
@@ -311,7 +311,7 @@ export interface LogConfigurationForChannel {
    * @public
    * <p>The log types.</p>
    */
-  LogTypes?: (LogType | string)[];
+  LogTypes?: LogType[];
 }
 
 /**
@@ -373,7 +373,7 @@ export interface HlsPlaylistSettings {
    * @public
    * <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
    */
-  AdMarkupType?: (AdMarkupType | string)[];
+  AdMarkupType?: AdMarkupType[];
 }
 
 /**
@@ -525,7 +525,7 @@ export interface HttpPackageConfiguration {
    * @public
    * <p>The streaming protocol for this package configuration. Supported values are <code>HLS</code> and <code>DASH</code>.</p>
    */
-  Type: Type | string | undefined;
+  Type: Type | undefined;
 }
 
 /**
@@ -614,7 +614,7 @@ export interface AvailSuppression {
    * @public
    * <p>Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to <code>BEHIND_LIVE_EDGE</code>, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to <code>AFTER_LIVE_EDGE</code>, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.</p>
    */
-  Mode?: Mode | string;
+  Mode?: Mode;
 
   /**
    * @public
@@ -626,7 +626,7 @@ export interface AvailSuppression {
    * @public
    * <p>Defines the policy to apply to the avail suppression mode. <code>BEHIND_LIVE_EDGE</code> will always use the full avail suppression policy. <code>AFTER_LIVE_EDGE</code> mode can be used to invoke partial ad break fills when a session starts mid-break.</p>
    */
-  FillPolicy?: FillPolicy | string;
+  FillPolicy?: FillPolicy;
 }
 
 /**
@@ -700,7 +700,7 @@ export interface DashConfiguration {
    * @public
    * <p>The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to <code>SINGLE_PERIOD</code>. The default setting is <code>MULTI_PERIOD</code>. For multi-period manifests, omit this setting or set it to <code>MULTI_PERIOD</code>.</p>
    */
-  OriginManifestType?: OriginManifestType | string;
+  OriginManifestType?: OriginManifestType;
 }
 
 /**
@@ -1079,7 +1079,7 @@ export interface ScheduleEntry {
    * @public
    * <p>The type of schedule entry.</p>
    */
-  ScheduleEntryType?: ScheduleEntryType | string;
+  ScheduleEntryType?: ScheduleEntryType;
 
   /**
    * @public
@@ -1176,7 +1176,7 @@ export interface AccessConfiguration {
    *          <p>• The <code>mediatailor.amazonaws.com</code> service principal must have permissions to read all top-level manifests referenced by the <code>VodSource</code> packaging configurations.</p>
    *          <p>• The caller of the API must have <code>s3:GetObject</code> IAM permissions to read all top level manifests referenced by your MediaTailor <code>VodSource</code> packaging configurations.</p>
    */
-  AccessType?: AccessType | string;
+  AccessType?: AccessType;
 
   /**
    * @public
@@ -1425,7 +1425,7 @@ export interface ConfigureLogsForChannelRequest {
    * @public
    * <p>The types of logs to collect.</p>
    */
-  LogTypes: (LogType | string)[] | undefined;
+  LogTypes: LogType[] | undefined;
 }
 
 /**
@@ -1442,7 +1442,7 @@ export interface ConfigureLogsForChannelResponse {
    * @public
    * <p>The types of logs collected.</p>
    */
-  LogTypes?: (LogType | string)[];
+  LogTypes?: LogType[];
 }
 
 /**
@@ -1535,7 +1535,7 @@ export interface CreateChannelRequest {
    *          <p>
    *             <code>LOOP</code> - The programs in the schedule play back-to-back in an endless loop. When the last program in the schedule stops playing, playback loops back to the first program in the schedule.</p>
    */
-  PlaybackMode: PlaybackMode | string | undefined;
+  PlaybackMode: PlaybackMode | undefined;
 
   /**
    * @public
@@ -1547,7 +1547,7 @@ export interface CreateChannelRequest {
    * @public
    * <p>The tier of the channel.</p>
    */
-  Tier?: Tier | string;
+  Tier?: Tier;
 }
 
 /**
@@ -1584,7 +1584,7 @@ export interface CreateChannelResponse {
    * @public
    * <p>Indicates whether the channel is in a running state or not.</p>
    */
-  ChannelState?: ChannelState | string;
+  ChannelState?: ChannelState;
 
   /**
    * @public
@@ -1676,7 +1676,7 @@ export interface DescribeChannelResponse {
    * @public
    * <p>Indicates whether the channel is in a running state or not.</p>
    */
-  ChannelState?: ChannelState | string;
+  ChannelState?: ChannelState;
 
   /**
    * @public
@@ -1851,7 +1851,7 @@ export interface Transition {
    * @public
    * <p>The position where this program will be inserted relative to the <code>RelativePosition</code>.</p>
    */
-  RelativePosition: RelativePosition | string | undefined;
+  RelativePosition: RelativePosition | undefined;
 
   /**
    * @public
@@ -2339,7 +2339,7 @@ export interface UpdateChannelResponse {
    * @public
    * <p>Returns the state whether the channel is running or not.</p>
    */
-  ChannelState?: ChannelState | string;
+  ChannelState?: ChannelState;
 
   /**
    * @public
@@ -2770,7 +2770,7 @@ export interface DashConfigurationForPut {
    * @public
    * <p>The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to <code>SINGLE_PERIOD</code>. The default setting is <code>MULTI_PERIOD</code>. For multi-period manifests, omit this setting or set it to <code>MULTI_PERIOD</code>.</p>
    */
-  OriginManifestType?: OriginManifestType | string;
+  OriginManifestType?: OriginManifestType;
 }
 
 /**

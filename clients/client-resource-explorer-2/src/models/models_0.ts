@@ -430,7 +430,7 @@ export interface CreateIndexOutput {
    *                 populates the index.</p>
    *          </note>
    */
-  State?: IndexState | string;
+  State?: IndexState;
 
   /**
    * @public
@@ -468,7 +468,7 @@ export interface DeleteIndexOutput {
    * @public
    * <p>Indicates the current state of the index. </p>
    */
-  State?: IndexState | string;
+  State?: IndexState;
 
   /**
    * @public
@@ -507,7 +507,7 @@ export interface ListIndexesInput {
    *                 <code>LOCAL</code> or <code>AGGREGATOR</code>.</p>
    *          <p>Use this option to discover the aggregator index for your account.</p>
    */
-  Type?: IndexType | string;
+  Type?: IndexType;
 
   /**
    * @public
@@ -588,7 +588,7 @@ export interface Index {
    *             </li>
    *          </ul>
    */
-  Type?: IndexType | string;
+  Type?: IndexType;
 }
 
 /**
@@ -662,7 +662,7 @@ export interface UpdateIndexTypeInput {
    *                 <code>AGGREGATOR</code>, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on cross-Region
    *                 search</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
    */
-  Type: IndexType | string | undefined;
+  Type: IndexType | undefined;
 }
 
 /**
@@ -679,14 +679,14 @@ export interface UpdateIndexTypeOutput {
    * @public
    * <p>Specifies the type of the specified index after the operation completes.</p>
    */
-  Type?: IndexType | string;
+  Type?: IndexType;
 
   /**
    * @public
    * <p>Indicates the state of the request to update the index. This operation is
    *             asynchronous. Call the <a>GetIndex</a> operation to check for changes.</p>
    */
-  State?: IndexState | string;
+  State?: IndexState;
 
   /**
    * @public
@@ -939,13 +939,13 @@ export interface GetIndexOutput {
    *             how it differs from a local index, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on cross-Region search
    *                 by creating an aggregator index</a>.</p>
    */
-  Type?: IndexType | string;
+  Type?: IndexType;
 
   /**
    * @public
    * <p>The current state of the index in this Amazon Web Services Region.</p>
    */
-  State?: IndexState | string;
+  State?: IndexState;
 
   /**
    * @public

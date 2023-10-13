@@ -2944,7 +2944,7 @@ const de_ConnectorConfigurationsMap = (
   context: __SerdeContext
 ): Record<string, ConnectorConfiguration> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, ConnectorConfiguration>, [key, value]: [ConnectorType | string, any]) => {
+    (acc: Record<string, ConnectorConfiguration>, [key, value]: [ConnectorType, any]) => {
       if (value === null) {
         return acc;
       }

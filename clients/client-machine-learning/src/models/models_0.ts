@@ -57,7 +57,7 @@ export interface AddTagsInput {
    * @public
    * <p>The type of the ML object to tag.</p>
    */
-  ResourceType: TaggableResourceType | string | undefined;
+  ResourceType: TaggableResourceType | undefined;
 }
 
 /**
@@ -75,7 +75,7 @@ export interface AddTagsOutput {
    * @public
    * <p>The type of the ML object that was tagged.</p>
    */
-  ResourceType?: TaggableResourceType | string;
+  ResourceType?: TaggableResourceType;
 }
 
 /**
@@ -1174,7 +1174,7 @@ export interface CreateMLModelInput {
    *          </ul>
    *         <p> For more information, see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon Machine Learning Developer Guide</a>.</p>
    */
-  MLModelType: MLModelType | string | undefined;
+  MLModelType: MLModelType | undefined;
 
   /**
    * @public
@@ -1333,7 +1333,7 @@ export interface RealtimeEndpointInfo {
    *             </li>
    *          </ul>
    */
-  EndpointStatus?: RealtimeEndpointStatus | string;
+  EndpointStatus?: RealtimeEndpointStatus;
 }
 
 /**
@@ -1509,7 +1509,7 @@ export interface DeleteTagsInput {
    * @public
    * <p>The type of the tagged ML object.</p>
    */
-  ResourceType: TaggableResourceType | string | undefined;
+  ResourceType: TaggableResourceType | undefined;
 }
 
 /**
@@ -1527,7 +1527,7 @@ export interface DeleteTagsOutput {
    * @public
    * <p>The type of the ML object from which tags were deleted.</p>
    */
-  ResourceType?: TaggableResourceType | string;
+  ResourceType?: TaggableResourceType;
 }
 
 /**
@@ -1605,7 +1605,7 @@ export interface DescribeBatchPredictionsInput {
    *             </li>
    *          </ul>
    */
-  FilterVariable?: BatchPredictionFilterVariable | string;
+  FilterVariable?: BatchPredictionFilterVariable;
 
   /**
    * @public
@@ -1685,7 +1685,7 @@ export interface DescribeBatchPredictionsInput {
    *          </ul>
    *         <p>Results are sorted by <code>FilterVariable</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -1800,7 +1800,7 @@ export interface BatchPrediction {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: EntityStatus;
 
   /**
    * @public
@@ -1913,7 +1913,7 @@ export interface DescribeDataSourcesInput {
    *             </li>
    *          </ul>
    */
-  FilterVariable?: DataSourceFilterVariable | string;
+  FilterVariable?: DataSourceFilterVariable;
 
   /**
    * @public
@@ -1993,7 +1993,7 @@ export interface DescribeDataSourcesInput {
    *          </ul>
    *         <p>Results are sorted by <code>FilterVariable</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -2159,7 +2159,7 @@ export interface DataSource {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: EntityStatus;
 
   /**
    * @public
@@ -2291,7 +2291,7 @@ export interface DescribeEvaluationsInput {
    *             </li>
    *          </ul>
    */
-  FilterVariable?: EvaluationFilterVariable | string;
+  FilterVariable?: EvaluationFilterVariable;
 
   /**
    * @public
@@ -2371,7 +2371,7 @@ export interface DescribeEvaluationsInput {
    *          </ul>
    *         <p>Results are sorted by <code>FilterVariable</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -2490,7 +2490,7 @@ export interface Evaluation {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: EntityStatus;
 
   /**
    * @public
@@ -2628,7 +2628,7 @@ export interface DescribeMLModelsInput {
    *             </li>
    *          </ul>
    */
-  FilterVariable?: MLModelFilterVariable | string;
+  FilterVariable?: MLModelFilterVariable;
 
   /**
    * @public
@@ -2708,7 +2708,7 @@ export interface DescribeMLModelsInput {
    *          </ul>
    *         <p>Results are sorted by <code>FilterVariable</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -2793,7 +2793,7 @@ export interface MLModel {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: EntityStatus;
 
   /**
    * @public
@@ -2873,7 +2873,7 @@ export interface MLModel {
    *             </li>
    *          </ul>
    */
-  Algorithm?: Algorithm | string;
+  Algorithm?: Algorithm;
 
   /**
    * @public
@@ -2896,7 +2896,7 @@ export interface MLModel {
    *             </li>
    *          </ul>
    */
-  MLModelType?: MLModelType | string;
+  MLModelType?: MLModelType;
 
   ScoreThreshold?: number;
   /**
@@ -2962,7 +2962,7 @@ export interface DescribeTagsInput {
    * @public
    * <p>The type of the ML object.</p>
    */
-  ResourceType: TaggableResourceType | string | undefined;
+  ResourceType: TaggableResourceType | undefined;
 }
 
 /**
@@ -2980,7 +2980,7 @@ export interface DescribeTagsOutput {
    * @public
    * <p>The type of the tagged ML object.</p>
    */
-  ResourceType?: TaggableResourceType | string;
+  ResourceType?: TaggableResourceType;
 
   /**
    * @public
@@ -3081,7 +3081,7 @@ export interface GetBatchPredictionOutput {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: EntityStatus;
 
   /**
    * @public
@@ -3237,7 +3237,7 @@ export interface GetDataSourceOutput {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: EntityStatus;
 
   /**
    * @public
@@ -3394,7 +3394,7 @@ export interface GetEvaluationOutput {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: EntityStatus;
 
   /**
    * @public
@@ -3537,7 +3537,7 @@ export interface GetMLModelOutput {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: EntityStatus;
 
   /**
    * @public
@@ -3623,7 +3623,7 @@ export interface GetMLModelOutput {
    *             </li>
    *          </ul>
    */
-  MLModelType?: MLModelType | string;
+  MLModelType?: MLModelType;
 
   /**
    * @public

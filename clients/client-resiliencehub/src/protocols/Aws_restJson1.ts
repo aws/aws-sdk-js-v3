@@ -5799,7 +5799,7 @@ const de_Cost = (output: any, context: __SerdeContext): Cost => {
  * deserializeAws_restJson1DisruptionResiliencyScore
  */
 const de_DisruptionResiliencyScore = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [DisruptionType | string, any]) => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [DisruptionType, any]) => {
     if (value === null) {
       return acc;
     }

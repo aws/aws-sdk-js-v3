@@ -83,7 +83,7 @@ export interface CreateParticipantTokenRequest {
    * <p>Set of capabilities that the user is allowed to perform in the stage. Default:
    *             <code>PUBLISH, SUBSCRIBE</code>.</p>
    */
-  capabilities?: (ParticipantTokenCapability | string)[];
+  capabilities?: ParticipantTokenCapability[];
 }
 
 /**
@@ -136,7 +136,7 @@ export interface ParticipantToken {
    * @public
    * <p>Set of capabilities that the user is allowed to perform in the stage.</p>
    */
-  capabilities?: (ParticipantTokenCapability | string)[];
+  capabilities?: ParticipantTokenCapability[];
 
   /**
    * @public
@@ -297,7 +297,7 @@ export interface ParticipantTokenConfiguration {
    * @public
    * <p>Set of capabilities that the user is allowed to perform in the stage.</p>
    */
-  capabilities?: (ParticipantTokenCapability | string)[];
+  capabilities?: ParticipantTokenCapability[];
 }
 
 /**
@@ -511,7 +511,7 @@ export interface Participant {
    * @public
    * <p>Whether the participant is connected to or disconnected from the stage.</p>
    */
-  state?: ParticipantState | string;
+  state?: ParticipantState;
 
   /**
    * @public
@@ -742,7 +742,7 @@ export interface Event {
    * @public
    * <p>The name of the event.</p>
    */
-  name?: EventName | string;
+  name?: EventName;
 
   /**
    * @public
@@ -776,7 +776,7 @@ export interface Event {
    *             <code>PUBLISHER_NOT_FOUND</code> indicates that the participant tried to subscribe to a
    *          publisher that doesn’t exist. </p>
    */
-  errorCode?: EventErrorCode | string;
+  errorCode?: EventErrorCode;
 }
 
 /**
@@ -837,7 +837,7 @@ export interface ListParticipantsRequest {
    *             <code>filterByUserId</code>, <code>filterByPublished</code>, or
    *             <code>filterByState</code> can be provided per request.</p>
    */
-  filterByState?: ParticipantState | string;
+  filterByState?: ParticipantState;
 
   /**
    * @public
@@ -877,7 +877,7 @@ export interface ParticipantSummary {
    * @public
    * <p>Whether the participant is connected to or disconnected from the stage.</p>
    */
-  state?: ParticipantState | string;
+  state?: ParticipantState;
 
   /**
    * @public

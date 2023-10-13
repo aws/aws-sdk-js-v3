@@ -47,7 +47,7 @@ export interface AcceptRule {
    * @public
    * <p>Specifies whether you want to accept the top prediction for all targets or none.</p>
    */
-  rule?: AcceptRuleBehavior | string;
+  rule?: AcceptRuleBehavior;
 
   /**
    * @public
@@ -539,7 +539,7 @@ export interface AcceptSubscriptionRequestOutput {
    * @public
    * <p>Specifies the status of the subscription request.</p>
    */
-  status: SubscriptionRequestStatus | string | undefined;
+  status: SubscriptionRequestStatus | undefined;
 
   /**
    * @public
@@ -615,7 +615,7 @@ export interface AssetListingDetails {
    * @public
    * <p>The status of an asset published in an Amazon DataZone catalog. </p>
    */
-  listingStatus: ListingStatus | string | undefined;
+  listingStatus: ListingStatus | undefined;
 }
 
 /**
@@ -1986,7 +1986,7 @@ export interface CancelSubscriptionOutput {
    * @public
    * <p>The status of the request to cancel the subscription.</p>
    */
-  status: SubscriptionStatus | string | undefined;
+  status: SubscriptionStatus | undefined;
 
   /**
    * @public
@@ -2104,7 +2104,7 @@ export interface ConfigurableEnvironmentAction {
    * @public
    * <p>The authentication type of a configurable action of a Amazon DataZone environment. </p>
    */
-  auth?: ConfigurableActionTypeAuthorization | string;
+  auth?: ConfigurableActionTypeAuthorization;
 
   /**
    * @public
@@ -2136,7 +2136,7 @@ export interface FilterExpression {
    * @public
    * <p>The search filter explresison type.</p>
    */
-  type: FilterExpressionType | string | undefined;
+  type: FilterExpressionType | undefined;
 
   /**
    * @public
@@ -2487,7 +2487,7 @@ export interface ScheduleConfiguration {
    * @public
    * <p>The timezone of the data source run. </p>
    */
-  timezone?: Timezone | string;
+  timezone?: Timezone;
 
   /**
    * @public
@@ -2556,7 +2556,7 @@ export interface CreateDataSourceInput {
    * @public
    * <p>Specifies whether the data source is enabled.</p>
    */
-  enableSetting?: EnableSetting | string;
+  enableSetting?: EnableSetting;
 
   /**
    * @public
@@ -2753,7 +2753,7 @@ export interface DataSourceErrorMessage {
    * <p>The type of the error message that is returned if the operation cannot be successfully
    *          completed.</p>
    */
-  errorType: DataSourceErrorType | string | undefined;
+  errorType: DataSourceErrorType | undefined;
 
   /**
    * @public
@@ -2814,7 +2814,7 @@ export interface CreateDataSourceOutput {
    * @public
    * <p>The status of the data source.</p>
    */
-  status?: DataSourceStatus | string;
+  status?: DataSourceStatus;
 
   /**
    * @public
@@ -2871,7 +2871,7 @@ export interface CreateDataSourceOutput {
    * @public
    * <p>Specifies whether the data source is enabled.</p>
    */
-  enableSetting?: EnableSetting | string;
+  enableSetting?: EnableSetting;
 
   /**
    * @public
@@ -2896,7 +2896,7 @@ export interface CreateDataSourceOutput {
    * @public
    * <p>The status of the last run of this data source.</p>
    */
-  lastRunStatus?: DataSourceRunStatus | string;
+  lastRunStatus?: DataSourceRunStatus;
 
   /**
    * @public
@@ -2954,13 +2954,13 @@ export interface SingleSignOn {
    * @public
    * <p>The type of single sign-on in Amazon DataZone.</p>
    */
-  type?: AuthType | string;
+  type?: AuthType;
 
   /**
    * @public
    * <p>The single sign-on user assignment in Amazon DataZone.</p>
    */
-  userAssignment?: UserAssignment | string;
+  userAssignment?: UserAssignment;
 }
 
 /**
@@ -3085,7 +3085,7 @@ export interface CreateDomainOutput {
    * @public
    * <p>The status of the Amazon DataZone domain.</p>
    */
-  status?: DomainStatus | string;
+  status?: DomainStatus;
 
   /**
    * @public
@@ -3248,13 +3248,13 @@ export interface Deployment {
    * @public
    * <p>The type of the last deployment of the environment.</p>
    */
-  deploymentType?: DeploymentType | string;
+  deploymentType?: DeploymentType;
 
   /**
    * @public
    * <p>The status of the last deployment of the environment.</p>
    */
-  deploymentStatus?: DeploymentStatus | string;
+  deploymentStatus?: DeploymentStatus;
 
   /**
    * @public
@@ -3500,7 +3500,7 @@ export interface CreateEnvironmentOutput {
    * @public
    * <p>The status of this Amazon DataZone environment.</p>
    */
-  status?: EnvironmentStatus | string;
+  status?: EnvironmentStatus;
 
   /**
    * @public
@@ -3761,7 +3761,7 @@ export interface CreateFormTypeInput {
    * @public
    * <p>The status of this Amazon DataZone metadata form type.</p>
    */
-  status?: FormTypeStatus | string;
+  status?: FormTypeStatus;
 
   /**
    * @public
@@ -3865,7 +3865,7 @@ export interface CreateGlossaryInput {
    * @public
    * <p>The status of this business glossary.</p>
    */
-  status?: GlossaryStatus | string;
+  status?: GlossaryStatus;
 
   /**
    * @public
@@ -3913,7 +3913,7 @@ export interface CreateGlossaryOutput {
    * @public
    * <p>The status of this business glossary.</p>
    */
-  status?: GlossaryStatus | string;
+  status?: GlossaryStatus;
 }
 
 /**
@@ -3974,7 +3974,7 @@ export interface CreateGlossaryTermInput {
    * @public
    * <p>The status of this business glossary term.</p>
    */
-  status?: GlossaryTermStatus | string;
+  status?: GlossaryTermStatus;
 
   /**
    * @public
@@ -4034,7 +4034,7 @@ export interface CreateGlossaryTermOutput {
    * @public
    * <p>The status of this business glossary term.</p>
    */
-  status: GlossaryTermStatus | string | undefined;
+  status: GlossaryTermStatus | undefined;
 
   /**
    * @public
@@ -4113,7 +4113,7 @@ export interface CreateGroupProfileOutput {
    * @public
    * <p>The status of the group profile.</p>
    */
-  status?: GroupProfileStatus | string;
+  status?: GroupProfileStatus;
 
   /**
    * @public
@@ -4155,7 +4155,7 @@ export interface CreateListingChangeSetInput {
    * @public
    * <p/>
    */
-  entityType: EntityType | string | undefined;
+  entityType: EntityType | undefined;
 
   /**
    * @public
@@ -4167,7 +4167,7 @@ export interface CreateListingChangeSetInput {
    * @public
    * <p/>
    */
-  action: ChangeAction | string | undefined;
+  action: ChangeAction | undefined;
 
   /**
    * @public
@@ -4196,7 +4196,7 @@ export interface CreateListingChangeSetOutput {
    * @public
    * <p/>
    */
-  status: ListingStatus | string | undefined;
+  status: ListingStatus | undefined;
 }
 
 /**
@@ -4373,7 +4373,7 @@ export interface CreateProjectMembershipInput {
    * @public
    * <p>The designation of the project membership.</p>
    */
-  designation: UserDesignation | string | undefined;
+  designation: UserDesignation | undefined;
 }
 
 /**
@@ -4535,7 +4535,7 @@ export interface SubscribedAsset {
    * @public
    * <p>The status of the asset for which the subscription grant is created.</p>
    */
-  status: SubscriptionGrantStatus | string | undefined;
+  status: SubscriptionGrantStatus | undefined;
 
   /**
    * @public
@@ -4696,7 +4696,7 @@ export interface CreateSubscriptionGrantOutput {
    * @public
    * <p>The status of the subscription grant.</p>
    */
-  status: SubscriptionGrantOverallStatus | string | undefined;
+  status: SubscriptionGrantOverallStatus | undefined;
 
   /**
    * @public
@@ -4842,7 +4842,7 @@ export interface CreateSubscriptionRequestOutput {
    * @public
    * <p>The status of the subscription request.</p>
    */
-  status: SubscriptionRequestStatus | string | undefined;
+  status: SubscriptionRequestStatus | undefined;
 
   /**
    * @public
@@ -5101,7 +5101,7 @@ export interface CreateUserProfileInput {
    * @public
    * <p>The user type of the user for which the user profile is created.</p>
    */
-  userType?: UserType | string;
+  userType?: UserType;
 
   /**
    * @public
@@ -5252,13 +5252,13 @@ export interface CreateUserProfileOutput {
    * @public
    * <p>The type of the user profile.</p>
    */
-  type?: UserProfileType | string;
+  type?: UserProfileType;
 
   /**
    * @public
    * <p>The status of the user profile.</p>
    */
-  status?: UserProfileStatus | string;
+  status?: UserProfileStatus;
 
   /**
    * @public
@@ -5415,7 +5415,7 @@ export interface DeleteDataSourceOutput {
    * @public
    * <p>The status of this data source.</p>
    */
-  status?: DataSourceStatus | string;
+  status?: DataSourceStatus;
 
   /**
    * @public
@@ -5465,7 +5465,7 @@ export interface DeleteDataSourceOutput {
    * <p>The enable setting of the data source that specifies whether the data source is enabled
    *          or disabled.</p>
    */
-  enableSetting?: EnableSetting | string;
+  enableSetting?: EnableSetting;
 
   /**
    * @public
@@ -5490,7 +5490,7 @@ export interface DeleteDataSourceOutput {
    * @public
    * <p>The status of the last run of this data source.</p>
    */
-  lastRunStatus?: DataSourceRunStatus | string;
+  lastRunStatus?: DataSourceRunStatus;
 
   /**
    * @public
@@ -5556,7 +5556,7 @@ export interface GetDataSourceOutput {
    * @public
    * <p>The status of the data source.</p>
    */
-  status?: DataSourceStatus | string;
+  status?: DataSourceStatus;
 
   /**
    * @public
@@ -5610,7 +5610,7 @@ export interface GetDataSourceOutput {
    * @public
    * <p>Specifies whether this data source is enabled or not.</p>
    */
-  enableSetting?: EnableSetting | string;
+  enableSetting?: EnableSetting;
 
   /**
    * @public
@@ -5635,7 +5635,7 @@ export interface GetDataSourceOutput {
    * @public
    * <p>The status of the last run of the data source.</p>
    */
-  lastRunStatus?: DataSourceRunStatus | string;
+  lastRunStatus?: DataSourceRunStatus;
 
   /**
    * @public
@@ -5708,7 +5708,7 @@ export interface ListDataSourcesInput {
    * @public
    * <p>The status of the data source.</p>
    */
-  status?: DataSourceStatus | string;
+  status?: DataSourceStatus;
 
   /**
    * @public
@@ -5777,13 +5777,13 @@ export interface DataSourceSummary {
    * @public
    * <p>The status of the data source.</p>
    */
-  status: DataSourceStatus | string | undefined;
+  status: DataSourceStatus | undefined;
 
   /**
    * @public
    * <p>Specifies whether the data source is enabled.</p>
    */
-  enableSetting?: EnableSetting | string;
+  enableSetting?: EnableSetting;
 
   /**
    * @public
@@ -5795,7 +5795,7 @@ export interface DataSourceSummary {
    * @public
    * <p>The status of the last data source run.</p>
    */
-  lastRunStatus?: DataSourceRunStatus | string;
+  lastRunStatus?: DataSourceRunStatus;
 
   /**
    * @public
@@ -5885,7 +5885,7 @@ export interface UpdateDataSourceInput {
    * <p>The enable setting to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
    */
-  enableSetting?: EnableSetting | string;
+  enableSetting?: EnableSetting;
 
   /**
    * @public
@@ -5936,7 +5936,7 @@ export interface UpdateDataSourceOutput {
    * @public
    * <p>The status to be updated as part of the <code>UpdateDataSource</code> action.</p>
    */
-  status?: DataSourceStatus | string;
+  status?: DataSourceStatus;
 
   /**
    * @public
@@ -5994,7 +5994,7 @@ export interface UpdateDataSourceOutput {
    * <p>The enable setting to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
    */
-  enableSetting?: EnableSetting | string;
+  enableSetting?: EnableSetting;
 
   /**
    * @public
@@ -6020,7 +6020,7 @@ export interface UpdateDataSourceOutput {
    * @public
    * <p>The last run status of the data source.</p>
    */
-  lastRunStatus?: DataSourceRunStatus | string;
+  lastRunStatus?: DataSourceRunStatus;
 
   /**
    * @public
@@ -6153,13 +6153,13 @@ export interface GetDataSourceRunOutput {
    * @public
    * <p>The status of this data source run.</p>
    */
-  status: DataSourceRunStatus | string | undefined;
+  status: DataSourceRunStatus | undefined;
 
   /**
    * @public
    * <p>The type of this data source run.</p>
    */
-  type: DataSourceRunType | string | undefined;
+  type: DataSourceRunType | undefined;
 
   /**
    * @public
@@ -6226,7 +6226,7 @@ export interface ListDataSourceRunsInput {
    * @public
    * <p>The status of the data source.</p>
    */
-  status?: DataSourceRunStatus | string;
+  status?: DataSourceRunStatus;
 
   /**
    * @public
@@ -6271,13 +6271,13 @@ export interface DataSourceRunSummary {
    * @public
    * <p>The type of the data source run.</p>
    */
-  type: DataSourceRunType | string | undefined;
+  type: DataSourceRunType | undefined;
 
   /**
    * @public
    * <p>The status of the data source run.</p>
    */
-  status: DataSourceRunStatus | string | undefined;
+  status: DataSourceRunStatus | undefined;
 
   /**
    * @public
@@ -6401,13 +6401,13 @@ export interface StartDataSourceRunOutput {
    * @public
    * <p>The status of the data source run.</p>
    */
-  status: DataSourceRunStatus | string | undefined;
+  status: DataSourceRunStatus | undefined;
 
   /**
    * @public
    * <p>The type of the data source run.</p>
    */
-  type: DataSourceRunType | string | undefined;
+  type: DataSourceRunType | undefined;
 
   /**
    * @public
@@ -6480,7 +6480,7 @@ export interface DataSourceRunActivity {
    * @public
    * <p>The status of the asset included in the data source run activity.</p>
    */
-  dataAssetStatus: DataAssetActivityStatus | string | undefined;
+  dataAssetStatus: DataAssetActivityStatus | undefined;
 
   /**
    * @public
@@ -6678,7 +6678,7 @@ export interface DeleteSubscriptionGrantOutput {
    * @public
    * <p>The status of the subscription grant that is deleted.</p>
    */
-  status: SubscriptionGrantOverallStatus | string | undefined;
+  status: SubscriptionGrantOverallStatus | undefined;
 
   /**
    * @public
@@ -6759,7 +6759,7 @@ export interface DeleteDomainOutput {
    * @public
    * <p>The status of the domain.</p>
    */
-  status: DomainStatus | string | undefined;
+  status: DomainStatus | undefined;
 }
 
 /**
@@ -6824,7 +6824,7 @@ export interface GetDomainOutput {
    * @public
    * <p>The status of the specified Amazon DataZone domain.</p>
    */
-  status: DomainStatus | string | undefined;
+  status: DomainStatus | undefined;
 
   /**
    * @public
@@ -6859,7 +6859,7 @@ export interface ListDomainsInput {
    * @public
    * <p>The status of the data source.</p>
    */
-  status?: DomainStatus | string;
+  status?: DomainStatus;
 
   /**
    * @public
@@ -6922,7 +6922,7 @@ export interface DomainSummary {
    * @public
    * <p>The status of the Amazon DataZone domain.</p>
    */
-  status: DomainStatus | string | undefined;
+  status: DomainStatus | undefined;
 
   /**
    * @public
@@ -7464,7 +7464,7 @@ export interface GetFormTypeOutput {
    * @public
    * <p>The status of the metadata form type.</p>
    */
-  status?: FormTypeStatus | string;
+  status?: FormTypeStatus;
 
   /**
    * @public
@@ -7594,7 +7594,7 @@ export interface GetEnvironmentOutput {
    * @public
    * <p>The status of this Amazon DataZone environment.</p>
    */
-  status?: EnvironmentStatus | string;
+  status?: EnvironmentStatus;
 
   /**
    * @public
@@ -7852,7 +7852,7 @@ export interface GetGroupProfileOutput {
    * @public
    * <p>The identifier of the group profile.</p>
    */
-  status?: GroupProfileStatus | string;
+  status?: GroupProfileStatus;
 
   /**
    * @public
@@ -8008,7 +8008,7 @@ export interface GetSubscriptionOutput {
    * @public
    * <p>The status of the subscription.</p>
    */
-  status: SubscriptionStatus | string | undefined;
+  status: SubscriptionStatus | undefined;
 
   /**
    * @public
@@ -8120,7 +8120,7 @@ export interface GetSubscriptionGrantOutput {
    * @public
    * <p>The status of the subscription grant.</p>
    */
-  status: SubscriptionGrantOverallStatus | string | undefined;
+  status: SubscriptionGrantOverallStatus | undefined;
 
   /**
    * @public
@@ -8185,7 +8185,7 @@ export interface GetSubscriptionRequestDetailsOutput {
    * @public
    * <p>The status of the subscription request.</p>
    */
-  status: SubscriptionRequestStatus | string | undefined;
+  status: SubscriptionRequestStatus | undefined;
 
   /**
    * @public
@@ -8368,7 +8368,7 @@ export interface GetUserProfileInput {
    * @public
    * <p>The type of the user profile.</p>
    */
-  type?: UserProfileType | string;
+  type?: UserProfileType;
 }
 
 /**
@@ -8392,13 +8392,13 @@ export interface GetUserProfileOutput {
    * @public
    * <p>The type of the user profile.</p>
    */
-  type?: UserProfileType | string;
+  type?: UserProfileType;
 
   /**
    * @public
    * <p>The status of the user profile.</p>
    */
-  status?: UserProfileStatus | string;
+  status?: UserProfileStatus;
 
   /**
    * @public
@@ -8484,7 +8484,7 @@ export interface GetGlossaryOutput {
    * @public
    * <p>The status of the business glossary.</p>
    */
-  status: GlossaryStatus | string | undefined;
+  status: GlossaryStatus | undefined;
 
   /**
    * @public
@@ -8544,7 +8544,7 @@ export interface UpdateGlossaryInput {
    * @public
    * <p>The status to be updated as part of the <code>UpdateGlossary</code> action.</p>
    */
-  status?: GlossaryStatus | string;
+  status?: GlossaryStatus;
 
   /**
    * @public
@@ -8593,7 +8593,7 @@ export interface UpdateGlossaryOutput {
    * @public
    * <p>The status to be updated as part of the <code>UpdateGlossary</code> action.</p>
    */
-  status?: GlossaryStatus | string;
+  status?: GlossaryStatus;
 }
 
 /**
@@ -8685,7 +8685,7 @@ export interface GetGlossaryTermOutput {
    * @public
    * <p>The status of the business glossary term.</p>
    */
-  status: GlossaryTermStatus | string | undefined;
+  status: GlossaryTermStatus | undefined;
 
   /**
    * @public
@@ -8766,7 +8766,7 @@ export interface UpdateGlossaryTermInput {
    * @public
    * <p>The status to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
    */
-  status?: GlossaryTermStatus | string;
+  status?: GlossaryTermStatus;
 }
 
 /**
@@ -8802,7 +8802,7 @@ export interface UpdateGlossaryTermOutput {
    * @public
    * <p>The status to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
    */
-  status: GlossaryTermStatus | string | undefined;
+  status: GlossaryTermStatus | undefined;
 
   /**
    * @public
@@ -8907,7 +8907,7 @@ export interface ListDataSourceRunActivitiesInput {
    * @public
    * <p>The status of the data source run.</p>
    */
-  status?: DataAssetActivityStatus | string;
+  status?: DataAssetActivityStatus;
 
   /**
    * @public
@@ -9249,7 +9249,7 @@ export interface ListEnvironmentsInput {
    * @public
    * <p>The status of the environments that you want to list.</p>
    */
-  status?: EnvironmentStatus | string;
+  status?: EnvironmentStatus;
 
   /**
    * @public
@@ -9390,7 +9390,7 @@ export interface EnvironmentSummary {
    * @public
    * <p>The status of the environment.</p>
    */
-  status?: EnvironmentStatus | string;
+  status?: EnvironmentStatus;
 }
 
 /**
@@ -9566,7 +9566,7 @@ export interface GetListingOutput {
    * @public
    * <p/>
    */
-  status?: ListingStatus | string;
+  status?: ListingStatus;
 }
 
 /**
@@ -9611,7 +9611,7 @@ export interface ListNotificationsInput {
    * @public
    * <p>The type of notifications.</p>
    */
-  type: NotificationType | string | undefined;
+  type: NotificationType | undefined;
 
   /**
    * @public
@@ -9635,7 +9635,7 @@ export interface ListNotificationsInput {
    * @public
    * <p>The task status of notifications.</p>
    */
-  taskStatus?: TaskStatus | string;
+  taskStatus?: TaskStatus;
 
   /**
    * @public
@@ -9681,7 +9681,7 @@ export interface NotificationResource {
    * @public
    * <p>The type of the resource mentioned in a notification.</p>
    */
-  type: NotificationResourceType | string | undefined;
+  type: NotificationResourceType | undefined;
 
   /**
    * @public
@@ -9734,7 +9734,7 @@ export interface Topic {
    * @public
    * <p>The role of the resource mentioned in a notification.</p>
    */
-  role: NotificationRole | string | undefined;
+  role: NotificationRole | undefined;
 }
 
 /**
@@ -9758,7 +9758,7 @@ export interface NotificationOutput {
    * @public
    * <p>The type of the notification.</p>
    */
-  type: NotificationType | string | undefined;
+  type: NotificationType | undefined;
 
   /**
    * @public
@@ -9782,7 +9782,7 @@ export interface NotificationOutput {
    * @public
    * <p>The status included in the notification.</p>
    */
-  status?: TaskStatus | string;
+  status?: TaskStatus;
 
   /**
    * @public
@@ -9879,13 +9879,13 @@ export interface ListProjectMembershipsInput {
    * @public
    * <p>The method by which you want to sort the project memberships.</p>
    */
-  sortBy?: SortFieldProject | string;
+  sortBy?: SortFieldProject;
 
   /**
    * @public
    * <p>The sort order of the project memberships.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
@@ -10000,7 +10000,7 @@ export interface ProjectMember {
    * @public
    * <p>The designated role of a project member.</p>
    */
-  designation: UserDesignation | string | undefined;
+  designation: UserDesignation | undefined;
 }
 
 /**
@@ -10197,13 +10197,13 @@ export interface ListSubscriptionGrantsInput {
    * @public
    * <p>Specifies the way of sorting the results of this action.</p>
    */
-  sortBy?: SortKey | string;
+  sortBy?: SortKey;
 
   /**
    * @public
    * <p>Specifies the sort order of this action.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
@@ -10284,7 +10284,7 @@ export interface SubscriptionGrantSummary {
    * @public
    * <p>The status of the subscription grant.</p>
    */
-  status: SubscriptionGrantOverallStatus | string | undefined;
+  status: SubscriptionGrantOverallStatus | undefined;
 
   /**
    * @public
@@ -10335,7 +10335,7 @@ export interface ListSubscriptionRequestsInput {
    * @public
    * <p>Specifies the status of the subscription requests.</p>
    */
-  status?: SubscriptionRequestStatus | string;
+  status?: SubscriptionRequestStatus;
 
   /**
    * @public
@@ -10359,13 +10359,13 @@ export interface ListSubscriptionRequestsInput {
    * @public
    * <p>Specifies the way to sort the results of this action.</p>
    */
-  sortBy?: SortKey | string;
+  sortBy?: SortKey;
 
   /**
    * @public
    * <p>Specifies the sort order for the results of this action.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
@@ -10424,7 +10424,7 @@ export interface SubscriptionRequestSummary {
    * @public
    * <p>The status of the subscription request.</p>
    */
-  status: SubscriptionRequestStatus | string | undefined;
+  status: SubscriptionRequestStatus | undefined;
 
   /**
    * @public
@@ -10513,7 +10513,7 @@ export interface ListSubscriptionsInput {
    * @public
    * <p>The status of the subscriptions that you want to list.</p>
    */
-  status?: SubscriptionStatus | string;
+  status?: SubscriptionStatus;
 
   /**
    * @public
@@ -10538,13 +10538,13 @@ export interface ListSubscriptionsInput {
    * @public
    * <p>Specifies the way in which the results of this action are to be sorted.</p>
    */
-  sortBy?: SortKey | string;
+  sortBy?: SortKey;
 
   /**
    * @public
    * <p>Specifies the sort order for the results of this action.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
@@ -10601,7 +10601,7 @@ export interface SubscriptionSummary {
    * @public
    * <p>The status of the subscription.</p>
    */
-  status: SubscriptionStatus | string | undefined;
+  status: SubscriptionStatus | undefined;
 
   /**
    * @public
@@ -10683,13 +10683,13 @@ export interface ListSubscriptionTargetsInput {
    * @public
    * <p>Specifies the way in which the results of this action are to be sorted.</p>
    */
-  sortBy?: SortKey | string;
+  sortBy?: SortKey;
 
   /**
    * @public
    * <p>Specifies the sort order for the results of this action.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public

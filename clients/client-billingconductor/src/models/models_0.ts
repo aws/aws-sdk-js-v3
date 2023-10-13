@@ -152,7 +152,7 @@ export class ConflictException extends __BaseException {
    * <p>Reason for the inconsistent state.
    *     </p>
    */
-  Reason?: ConflictExceptionReason | string;
+  Reason?: ConflictExceptionReason;
   /**
    * @internal
    */
@@ -424,7 +424,7 @@ export class ValidationException extends __BaseException {
    * <p>The reason the request's validation failed.
    *     </p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -515,7 +515,7 @@ export interface AssociateResourceError {
    * @public
    * <p>A static error code that's used to classify the type of failure.</p>
    */
-  Reason?: AssociateResourceErrorReason | string;
+  Reason?: AssociateResourceErrorReason;
 }
 
 /**
@@ -705,7 +705,7 @@ export interface ListBillingGroupsFilter {
    *       A list of billing groups to retrieve their current status for a specific time range
    *     </p>
    */
-  Statuses?: (BillingGroupStatus | string)[];
+  Statuses?: BillingGroupStatus[];
 
   /**
    * @public
@@ -819,7 +819,7 @@ export interface BillingGroupListElement {
    * @public
    * <p>The billing group status. Only one of the valid values can be used.</p>
    */
-  Status?: BillingGroupStatus | string;
+  Status?: BillingGroupStatus;
 
   /**
    * @public
@@ -890,7 +890,7 @@ export interface UpdateBillingGroupInput {
    * <p>The status of the billing group. Only one of the valid values can be used.
    *     </p>
    */
-  Status?: BillingGroupStatus | string;
+  Status?: BillingGroupStatus;
 
   /**
    * @public
@@ -978,7 +978,7 @@ export interface UpdateBillingGroupOutput {
    *       The status of the billing group. Only one of the valid values can be used.
    *     </p>
    */
-  Status?: BillingGroupStatus | string;
+  Status?: BillingGroupStatus;
 
   /**
    * @public
@@ -1193,19 +1193,19 @@ export interface LineItemFilter {
    * <p>The attribute of the line item filter. This specifies what attribute that you can filter
    *       on.</p>
    */
-  Attribute: LineItemFilterAttributeName | string | undefined;
+  Attribute: LineItemFilterAttributeName | undefined;
 
   /**
    * @public
    * <p>The match criteria of the line item filter. This parameter specifies whether not to include the resource value from the billing group total cost.</p>
    */
-  MatchOption: MatchOption | string | undefined;
+  MatchOption: MatchOption | undefined;
 
   /**
    * @public
    * <p>The values of the line item filter. This specifies the values to filter on. Currently, you can only exclude Savings Plan discounts.</p>
    */
-  Values: (LineItemFilterValue | string)[] | undefined;
+  Values: LineItemFilterValue[] | undefined;
 }
 
 /**
@@ -1263,7 +1263,7 @@ export interface CustomLineItemChargeDetails {
    * @public
    * <p>The type of the custom line item that indicates whether the charge is a fee or credit.</p>
    */
-  Type: CustomLineItemType | string | undefined;
+  Type: CustomLineItemType | undefined;
 
   /**
    * @public
@@ -1492,7 +1492,7 @@ export interface ListCustomLineItemChargeDetails {
    *       The type of the custom line item that indicates whether the charge is a <code>fee</code> or <code>credit</code>.
    *     </p>
    */
-  Type: CustomLineItemType | string | undefined;
+  Type: CustomLineItemType | undefined;
 
   /**
    * @public
@@ -1542,7 +1542,7 @@ export interface CustomLineItemListElement {
    * @public
    * <p>The custom line item's charge value currency. Only one of the valid values can be used.</p>
    */
-  CurrencyCode?: CurrencyCode | string;
+  CurrencyCode?: CurrencyCode;
 
   /**
    * @public
@@ -1684,7 +1684,7 @@ export interface CustomLineItemVersionListElement {
    * @public
    * <p>The charge value currency of the custom line item.</p>
    */
-  CurrencyCode?: CurrencyCode | string;
+  CurrencyCode?: CurrencyCode;
 
   /**
    * @public
@@ -1795,7 +1795,7 @@ export interface ListResourcesAssociatedToCustomLineItemFilter {
    *       The type of relationship between the custom line item and the associated resource.
    *     </p>
    */
-  Relationship?: CustomLineItemRelationship | string;
+  Relationship?: CustomLineItemRelationship;
 }
 
 /**
@@ -1862,7 +1862,7 @@ export interface ListResourcesAssociatedToCustomLineItemResponseElement {
    *       The type of relationship between the custom line item and the associated resource.
    *     </p>
    */
-  Relationship?: CustomLineItemRelationship | string;
+  Relationship?: CustomLineItemRelationship;
 
   /**
    * @public
@@ -2732,7 +2732,7 @@ export interface CreatePricingRuleInput {
    * <p> The scope of pricing rule that indicates if it's globally applicable, or it's
    *       service-specific. </p>
    */
-  Scope: PricingRuleScope | string | undefined;
+  Scope: PricingRuleScope | undefined;
 
   /**
    * @public
@@ -2740,7 +2740,7 @@ export interface CreatePricingRuleInput {
    *       The type of pricing rule.
    *     </p>
    */
-  Type: PricingRuleType | string | undefined;
+  Type: PricingRuleType | undefined;
 
   /**
    * @public
@@ -2940,13 +2940,13 @@ export interface PricingRuleListElement {
    * @public
    * <p>The scope of pricing rule that indicates if it is globally applicable, or if it is service-specific.</p>
    */
-  Scope?: PricingRuleScope | string;
+  Scope?: PricingRuleScope;
 
   /**
    * @public
    * <p>The type of pricing rule.</p>
    */
-  Type?: PricingRuleType | string;
+  Type?: PricingRuleType;
 
   /**
    * @public
@@ -3177,7 +3177,7 @@ export interface UpdatePricingRuleInput {
    *       The new pricing rule type.
    *     </p>
    */
-  Type?: PricingRuleType | string;
+  Type?: PricingRuleType;
 
   /**
    * @public
@@ -3227,7 +3227,7 @@ export interface UpdatePricingRuleOutput {
    * <p> The scope of pricing rule that indicates if it's globally applicable, or it's
    *       service-specific. </p>
    */
-  Scope?: PricingRuleScope | string;
+  Scope?: PricingRuleScope;
 
   /**
    * @public
@@ -3235,7 +3235,7 @@ export interface UpdatePricingRuleOutput {
    *       The new pricing rule type.
    *     </p>
    */
-  Type?: PricingRuleType | string;
+  Type?: PricingRuleType;
 
   /**
    * @public

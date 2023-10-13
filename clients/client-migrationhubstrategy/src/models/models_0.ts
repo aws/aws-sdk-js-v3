@@ -77,7 +77,7 @@ export namespace AnalysisStatusUnion {
    * <p>The status of the analysis.</p>
    */
   export interface RuntimeAnalysisStatusMember {
-    runtimeAnalysisStatus: RuntimeAnalysisStatus | string;
+    runtimeAnalysisStatus: RuntimeAnalysisStatus;
     srcCodeOrDbAnalysisStatus?: never;
     $unknown?: never;
   }
@@ -88,7 +88,7 @@ export namespace AnalysisStatusUnion {
    */
   export interface SrcCodeOrDbAnalysisStatusMember {
     runtimeAnalysisStatus?: never;
-    srcCodeOrDbAnalysisStatus: SrcCodeOrDbAnalysisStatus | string;
+    srcCodeOrDbAnalysisStatus: SrcCodeOrDbAnalysisStatus;
     $unknown?: never;
   }
 
@@ -102,8 +102,8 @@ export namespace AnalysisStatusUnion {
   }
 
   export interface Visitor<T> {
-    runtimeAnalysisStatus: (value: RuntimeAnalysisStatus | string) => T;
-    srcCodeOrDbAnalysisStatus: (value: SrcCodeOrDbAnalysisStatus | string) => T;
+    runtimeAnalysisStatus: (value: RuntimeAnalysisStatus) => T;
+    srcCodeOrDbAnalysisStatus: (value: SrcCodeOrDbAnalysisStatus) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -197,7 +197,7 @@ export namespace AnalyzerNameUnion {
    * <p>The binary analyzer names.</p>
    */
   export interface BinaryAnalyzerNameMember {
-    binaryAnalyzerName: BinaryAnalyzerName | string;
+    binaryAnalyzerName: BinaryAnalyzerName;
     runTimeAnalyzerName?: never;
     sourceCodeAnalyzerName?: never;
     $unknown?: never;
@@ -209,7 +209,7 @@ export namespace AnalyzerNameUnion {
    */
   export interface RunTimeAnalyzerNameMember {
     binaryAnalyzerName?: never;
-    runTimeAnalyzerName: RunTimeAnalyzerName | string;
+    runTimeAnalyzerName: RunTimeAnalyzerName;
     sourceCodeAnalyzerName?: never;
     $unknown?: never;
   }
@@ -221,7 +221,7 @@ export namespace AnalyzerNameUnion {
   export interface SourceCodeAnalyzerNameMember {
     binaryAnalyzerName?: never;
     runTimeAnalyzerName?: never;
-    sourceCodeAnalyzerName: SourceCodeAnalyzerName | string;
+    sourceCodeAnalyzerName: SourceCodeAnalyzerName;
     $unknown?: never;
   }
 
@@ -236,9 +236,9 @@ export namespace AnalyzerNameUnion {
   }
 
   export interface Visitor<T> {
-    binaryAnalyzerName: (value: BinaryAnalyzerName | string) => T;
-    runTimeAnalyzerName: (value: RunTimeAnalyzerName | string) => T;
-    sourceCodeAnalyzerName: (value: SourceCodeAnalyzerName | string) => T;
+    binaryAnalyzerName: (value: BinaryAnalyzerName) => T;
+    runTimeAnalyzerName: (value: RunTimeAnalyzerName) => T;
+    sourceCodeAnalyzerName: (value: SourceCodeAnalyzerName) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -304,7 +304,7 @@ export interface AntipatternReportResult {
    * @public
    * <p>The status of the anti-pattern report generation.</p>
    */
-  antipatternReportStatus?: AntipatternReportStatus | string;
+  antipatternReportStatus?: AntipatternReportStatus;
 
   /**
    * @public
@@ -337,7 +337,7 @@ export interface AntipatternSeveritySummary {
    * @public
    * <p> Contains the severity of anti-patterns. </p>
    */
-  severity?: Severity | string;
+  severity?: Severity;
 
   /**
    * @public
@@ -427,7 +427,7 @@ export interface AppUnitError {
    * @public
    * <p>The category of the error.</p>
    */
-  appUnitErrorCategory?: AppUnitErrorCategory | string;
+  appUnitErrorCategory?: AppUnitErrorCategory;
 }
 
 /**
@@ -534,7 +534,7 @@ export interface TransformationTool {
    * @public
    * <p> Name of the tool. </p>
    */
-  name?: TransformationToolName | string;
+  name?: TransformationToolName;
 
   /**
    * @public
@@ -564,13 +564,13 @@ export interface RecommendationSet {
    * @public
    * <p> The recommended target destination. </p>
    */
-  targetDestination?: TargetDestination | string;
+  targetDestination?: TargetDestination;
 
   /**
    * @public
    * <p> The recommended strategy. </p>
    */
-  strategy?: Strategy | string;
+  strategy?: Strategy;
 }
 
 /**
@@ -597,7 +597,7 @@ export interface Result {
    * @public
    * <p>The error in server analysis.</p>
    */
-  analysisType?: AnalysisType | string;
+  analysisType?: AnalysisType;
 
   /**
    * @public
@@ -677,7 +677,7 @@ export interface ApplicationComponentDetail {
    * <p> The status of analysis, if the application component has source code or an associated
    *       database. </p>
    */
-  analysisStatus?: SrcCodeOrDbAnalysisStatus | string;
+  analysisStatus?: SrcCodeOrDbAnalysisStatus;
 
   /**
    * @public
@@ -708,20 +708,20 @@ export interface ApplicationComponentDetail {
    * @public
    * <p> The type of application component. </p>
    */
-  appType?: AppType | string;
+  appType?: AppType;
 
   /**
    * @public
    * <p> The application component subtype.</p>
    */
-  resourceSubType?: ResourceSubType | string;
+  resourceSubType?: ResourceSubType;
 
   /**
    * @public
    * <p> Indicates whether the application component has been included for server recommendation
    *       or not. </p>
    */
-  inclusionStatus?: InclusionStatus | string;
+  inclusionStatus?: InclusionStatus;
 
   /**
    * @public
@@ -733,7 +733,7 @@ export interface ApplicationComponentDetail {
    * @public
    * <p> The status of the anti-pattern report generation.</p>
    */
-  antipatternReportStatus?: AntipatternReportStatus | string;
+  antipatternReportStatus?: AntipatternReportStatus;
 
   /**
    * @public
@@ -775,7 +775,7 @@ export interface ApplicationComponentDetail {
    * @public
    * <p>The status of the application unit.</p>
    */
-  runtimeStatus?: RuntimeAnalysisStatus | string;
+  runtimeStatus?: RuntimeAnalysisStatus;
 
   /**
    * @public
@@ -805,7 +805,7 @@ export interface ApplicationComponentStatusSummary {
    * @public
    * <p>The status of database analysis.</p>
    */
-  srcCodeOrDbAnalysisStatus?: SrcCodeOrDbAnalysisStatus | string;
+  srcCodeOrDbAnalysisStatus?: SrcCodeOrDbAnalysisStatus;
 
   /**
    * @public
@@ -847,7 +847,7 @@ export interface ApplicationComponentStrategy {
    * @public
    * <p> The recommendation status of a strategy for an application component. </p>
    */
-  status?: StrategyRecommendation | string;
+  status?: StrategyRecommendation;
 
   /**
    * @public
@@ -865,7 +865,7 @@ export interface ApplicationComponentSummary {
    * @public
    * <p> Contains the name of application types. </p>
    */
-  appType?: AppType | string;
+  appType?: AppType;
 
   /**
    * @public
@@ -914,7 +914,7 @@ export interface AwsManagedResources {
    * @public
    * <p> The choice of application destination that you specify. </p>
    */
-  targetDestination: (AwsManagedTargetDestination | string)[] | undefined;
+  targetDestination: AwsManagedTargetDestination[] | undefined;
 }
 
 /**
@@ -945,7 +945,7 @@ export interface NoManagementPreference {
    * @public
    * <p> The choice of application destination that you specify. </p>
    */
-  targetDestination: (NoPreferenceTargetDestination | string)[] | undefined;
+  targetDestination: NoPreferenceTargetDestination[] | undefined;
 }
 
 /**
@@ -974,7 +974,7 @@ export interface SelfManageResources {
    * @public
    * <p> Self-managed resources target destination. </p>
    */
-  targetDestination: (SelfManageTargetDestination | string)[] | undefined;
+  targetDestination: SelfManageTargetDestination[] | undefined;
 }
 
 /**
@@ -1086,7 +1086,7 @@ export interface StrategySummary {
    * @public
    * <p> The name of recommended strategy. </p>
    */
-  strategy?: Strategy | string;
+  strategy?: Strategy;
 
   /**
    * @public
@@ -1123,7 +1123,7 @@ export interface ServerStatusSummary {
    * @public
    * <p>The status of the run time.</p>
    */
-  runTimeAssessmentStatus?: RunTimeAssessmentStatus | string;
+  runTimeAssessmentStatus?: RunTimeAssessmentStatus;
 
   /**
    * @public
@@ -1159,7 +1159,7 @@ export interface ServerSummary {
    * @public
    * <p> Type of operating system for the servers. </p>
    */
-  ServerOsType?: ServerOsType | string;
+  ServerOsType?: ServerOsType;
 
   /**
    * @public
@@ -1213,7 +1213,7 @@ export interface AssessmentSummary {
    * @public
    * <p> The status of the anti-pattern report. </p>
    */
-  antipatternReportStatus?: AntipatternReportStatus | string;
+  antipatternReportStatus?: AntipatternReportStatus;
 
   /**
    * @public
@@ -1265,7 +1265,7 @@ export interface AssessmentTarget {
    * @public
    * <p>Condition of an assessment.</p>
    */
-  condition: Condition | string | undefined;
+  condition: Condition | undefined;
 
   /**
    * @public
@@ -1456,7 +1456,7 @@ export interface DataCollectionDetails {
    * @public
    * <p> The status of the assessment. </p>
    */
-  status?: AssessmentStatus | string;
+  status?: AssessmentStatus;
 
   /**
    * @public
@@ -1569,7 +1569,7 @@ export interface GetImportFileTaskResponse {
    * @public
    * <p> Status of import file task. </p>
    */
-  status?: ImportFileTaskStatus | string;
+  status?: ImportFileTaskStatus;
 
   /**
    * @public
@@ -1736,7 +1736,7 @@ export interface Heterogeneous {
    * @public
    * <p> The target database engine for heterogeneous database migration preference. </p>
    */
-  targetDatabaseEngine: (HeterogeneousTargetDatabaseEngine | string)[] | undefined;
+  targetDatabaseEngine: HeterogeneousTargetDatabaseEngine[] | undefined;
 }
 
 /**
@@ -1762,7 +1762,7 @@ export interface Homogeneous {
    * @public
    * <p> The target database engine for homogeneous database migration preferences. </p>
    */
-  targetDatabaseEngine?: (HomogeneousTargetDatabaseEngine | string)[];
+  targetDatabaseEngine?: HomogeneousTargetDatabaseEngine[];
 }
 
 /**
@@ -1797,7 +1797,7 @@ export interface NoDatabaseMigrationPreference {
    * @public
    * <p> The target database engine for database migration preference that you specify. </p>
    */
-  targetDatabaseEngine: (TargetDatabaseEngine | string)[] | undefined;
+  targetDatabaseEngine: TargetDatabaseEngine[] | undefined;
 }
 
 /**
@@ -1884,7 +1884,7 @@ export interface DatabasePreferences {
    * <p> Specifies whether you're interested in self-managed databases or databases managed by
    *       AWS. </p>
    */
-  databaseManagementPreference?: DatabaseManagementPreference | string;
+  databaseManagementPreference?: DatabaseManagementPreference;
 
   /**
    * @public
@@ -1962,7 +1962,7 @@ export interface GetPortfolioPreferencesResponse {
    * @public
    * <p>The classification for application component types.</p>
    */
-  applicationMode?: ApplicationMode | string;
+  applicationMode?: ApplicationMode;
 }
 
 /**
@@ -2017,7 +2017,7 @@ export interface RecommendationReportDetails {
    * @public
    * <p> The status of the recommendation report generation task. </p>
    */
-  status?: RecommendationReportStatus | string;
+  status?: RecommendationReportStatus;
 
   /**
    * @public
@@ -2118,7 +2118,7 @@ export interface ServerError {
    * @public
    * <p>The error category of server analysis.</p>
    */
-  serverErrorCategory?: ServerErrorCategory | string;
+  serverErrorCategory?: ServerErrorCategory;
 }
 
 /**
@@ -2175,7 +2175,7 @@ export interface OSInfo {
    * @public
    * <p> Information about the type of operating system. </p>
    */
-  type?: OSType | string;
+  type?: OSType;
 
   /**
    * @public
@@ -2241,7 +2241,7 @@ export interface ServerDetail {
    * @public
    * <p> The status of assessment for the server. </p>
    */
-  dataCollectionStatus?: RunTimeAssessmentStatus | string;
+  dataCollectionStatus?: RunTimeAssessmentStatus;
 
   /**
    * @public
@@ -2278,7 +2278,7 @@ export interface ServerDetail {
    * @public
    * <p> The status of the anti-pattern report generation. </p>
    */
-  antipatternReportStatus?: AntipatternReportStatus | string;
+  antipatternReportStatus?: AntipatternReportStatus;
 
   /**
    * @public
@@ -2355,7 +2355,7 @@ export interface ServerStrategy {
    * @public
    * <p> The recommendation status of the strategy for the server. </p>
    */
-  status?: StrategyRecommendation | string;
+  status?: StrategyRecommendation;
 
   /**
    * @public
@@ -2405,7 +2405,7 @@ export interface Group {
    * @public
    * <p> The key of the specific import group. </p>
    */
-  name?: GroupName | string;
+  name?: GroupName;
 
   /**
    * @public
@@ -2436,7 +2436,7 @@ export interface ListApplicationComponentsRequest {
    * @public
    * <p> Criteria for filtering the list of application components. </p>
    */
-  applicationComponentCriteria?: ApplicationComponentCriteria | string;
+  applicationComponentCriteria?: ApplicationComponentCriteria;
 
   /**
    * @public
@@ -2452,7 +2452,7 @@ export interface ListApplicationComponentsRequest {
    * <p> Specifies whether to sort by ascending (<code>ASC</code>) or descending
    *         (<code>DESC</code>) order. </p>
    */
-  sort?: SortOrder | string;
+  sort?: SortOrder;
 
   /**
    * @public
@@ -2561,13 +2561,13 @@ export interface IPAddressBasedRemoteInfo {
    * @public
    * <p>The type of authorization.</p>
    */
-  authType?: AuthType | string;
+  authType?: AuthType;
 
   /**
    * @public
    * <p>The type of the operating system.</p>
    */
-  osType?: OSType | string;
+  osType?: OSType;
 }
 
 /**
@@ -2592,7 +2592,7 @@ export interface PipelineInfo {
    * @public
    * <p>The type of pipeline.</p>
    */
-  pipelineType?: PipelineType | string;
+  pipelineType?: PipelineType;
 
   /**
    * @public
@@ -2628,7 +2628,7 @@ export interface VcenterBasedRemoteInfo {
    * @public
    * <p>The type of the operating system.</p>
    */
-  osType?: OSType | string;
+  osType?: OSType;
 }
 
 /**
@@ -2655,7 +2655,7 @@ export interface VersionControlInfo {
    * @public
    * <p>The type of version control.</p>
    */
-  versionControlType?: VersionControlType | string;
+  versionControlType?: VersionControlType;
 
   /**
    * @public
@@ -2727,7 +2727,7 @@ export interface Collector {
    * @public
    * <p> Indicates the health of a collector. </p>
    */
-  collectorHealth?: CollectorHealth | string;
+  collectorHealth?: CollectorHealth;
 
   /**
    * @public
@@ -2806,7 +2806,7 @@ export interface ImportFileTaskInformation {
    * @public
    * <p> Status of import file task. </p>
    */
-  status?: ImportFileTaskStatus | string;
+  status?: ImportFileTaskStatus;
 
   /**
    * @public
@@ -2908,7 +2908,7 @@ export interface ListServersRequest {
    * @public
    * <p> Criteria for filtering servers. </p>
    */
-  serverCriteria?: ServerCriteria | string;
+  serverCriteria?: ServerCriteria;
 
   /**
    * @public
@@ -2924,7 +2924,7 @@ export interface ListServersRequest {
    * <p> Specifies whether to sort by ascending (<code>ASC</code>) or descending
    *         (<code>DESC</code>) order. </p>
    */
-  sort?: SortOrder | string;
+  sort?: SortOrder;
 
   /**
    * @public
@@ -3011,7 +3011,7 @@ export interface PutPortfolioPreferencesRequest {
    * @public
    * <p>The classification for application component types.</p>
    */
-  applicationMode?: ApplicationMode | string;
+  applicationMode?: ApplicationMode;
 }
 
 /**
@@ -3119,7 +3119,7 @@ export interface StartImportFileTaskRequest {
    * <p>Specifies the source that the servers are coming from. By default, Strategy Recommendations assumes that
    *       the servers specified in the import file are available in AWS Application Discovery Service. </p>
    */
-  dataSourceType?: DataSourceType | string;
+  dataSourceType?: DataSourceType;
 
   /**
    * @public
@@ -3170,7 +3170,7 @@ export interface StartRecommendationReportGenerationRequest {
    * <p> The output format for the recommendation report file. The default format is Microsoft
    *       Excel. </p>
    */
-  outputFormat?: OutputFormat | string;
+  outputFormat?: OutputFormat;
 
   /**
    * @public
@@ -3231,7 +3231,7 @@ export interface SourceCode {
    * @public
    * <p> The type of repository to use for the source code. </p>
    */
-  versionControl?: VersionControl | string;
+  versionControl?: VersionControl;
 
   /**
    * @public
@@ -3262,21 +3262,21 @@ export interface StrategyOption {
    * @public
    * <p> Type of transformation. For example, Rehost, Replatform, and so on. </p>
    */
-  strategy?: Strategy | string;
+  strategy?: Strategy;
 
   /**
    * @public
    * <p> The name of the tool that can be used to transform an application component using this
    *       strategy. </p>
    */
-  toolName?: TransformationToolName | string;
+  toolName?: TransformationToolName;
 
   /**
    * @public
    * <p> Destination information about where the application component can migrate to. For
    *       example, <code>EC2</code>, <code>ECS</code>, and so on. </p>
    */
-  targetDestination?: TargetDestination | string;
+  targetDestination?: TargetDestination;
 
   /**
    * @public
@@ -3300,7 +3300,7 @@ export interface UpdateApplicationComponentConfigRequest {
    * <p> Indicates whether the application component has been included for server recommendation
    *       or not. </p>
    */
-  inclusionStatus?: InclusionStatus | string;
+  inclusionStatus?: InclusionStatus;
 
   /**
    * @public
@@ -3332,7 +3332,7 @@ export interface UpdateApplicationComponentConfigRequest {
    * @public
    * <p>The type of known component.</p>
    */
-  appType?: AppType | string;
+  appType?: AppType;
 }
 
 /**

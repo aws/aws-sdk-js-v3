@@ -108,7 +108,7 @@ export interface Channel {
    *         <code>LOW</code>. (Note: In the Amazon IVS console, <code>LOW</code> and <code>NORMAL</code>
    *       correspond to Ultra-low and Standard, respectively.)</p>
    */
-  latencyMode?: ChannelLatencyMode | string;
+  latencyMode?: ChannelLatencyMode;
 
   /**
    * @public
@@ -116,7 +116,7 @@ export interface Channel {
    *       exceed the allowable input resolution or bitrate, the stream probably will disconnect
    *       immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
    */
-  type?: ChannelType | string;
+  type?: ChannelType;
 
   /**
    * @public
@@ -168,7 +168,7 @@ export interface Channel {
    *       channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
    *       string (<code>""</code>).</p>
    */
-  preset?: TranscodePreset | string;
+  preset?: TranscodePreset;
 }
 
 /**
@@ -448,7 +448,7 @@ export interface CreateChannelRequest {
    *       Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and
    *       Standard, respectively.) Default: <code>LOW</code>.</p>
    */
-  latencyMode?: ChannelLatencyMode | string;
+  latencyMode?: ChannelLatencyMode;
 
   /**
    * @public
@@ -456,7 +456,7 @@ export interface CreateChannelRequest {
    *         exceed the allowable input resolution or bitrate, the stream probably will disconnect
    *         immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
    */
-  type?: ChannelType | string;
+  type?: ChannelType;
 
   /**
    * @public
@@ -494,7 +494,7 @@ export interface CreateChannelRequest {
    *       channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
    *       string (<code>""</code>).</p>
    */
-  preset?: TranscodePreset | string;
+  preset?: TranscodePreset;
 }
 
 /**
@@ -663,7 +663,7 @@ export interface RenditionConfiguration {
    *       set of renditions must be specified in the <code>renditions</code> field. Default:
    *         <code>ALL</code>.</p>
    */
-  renditionSelection?: RenditionConfigurationRenditionSelection | string;
+  renditionSelection?: RenditionConfigurationRenditionSelection;
 
   /**
    * @public
@@ -673,7 +673,7 @@ export interface RenditionConfiguration {
    *       best available rendition is recorded. For details on the resolution dimensions of each
    *       rendition, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/record-to-s3.html">Auto-Record to Amazon S3</a>.</p>
    */
-  renditions?: (RenditionConfigurationRendition | string)[];
+  renditions?: RenditionConfigurationRendition[];
 }
 
 /**
@@ -731,7 +731,7 @@ export interface ThumbnailConfiguration {
    * @public
    * <p>Thumbnail recording mode. Default: <code>INTERVAL</code>.</p>
    */
-  recordingMode?: RecordingMode | string;
+  recordingMode?: RecordingMode;
 
   /**
    * @public
@@ -756,7 +756,7 @@ export interface ThumbnailConfiguration {
    *       corresponding height and width dimensions, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/record-to-s3.html">Auto-Record to Amazon S3</a>. Default:
    *       Null (source resolution is returned).</p>
    */
-  resolution?: ThumbnailConfigurationResolution | string;
+  resolution?: ThumbnailConfigurationResolution;
 
   /**
    * @public
@@ -766,7 +766,7 @@ export interface ThumbnailConfiguration {
    *       overwrites it at the interval specified by <code>targetIntervalSeconds</code>. You can enable
    *       both <code>SEQUENTIAL</code> and <code>LATEST</code>. Default: <code>SEQUENTIAL</code>.</p>
    */
-  storage?: (ThumbnailConfigurationStorage | string)[];
+  storage?: ThumbnailConfigurationStorage[];
 }
 
 /**
@@ -860,7 +860,7 @@ export interface RecordingConfiguration {
    * <p>Indicates the current state of the recording configuration. When the state is
    *         <code>ACTIVE</code>, the configuration is ready for recording a channel stream.</p>
    */
-  state: RecordingConfigurationState | string | undefined;
+  state: RecordingConfigurationState | undefined;
 
   /**
    * @public
@@ -1210,13 +1210,13 @@ export interface _Stream {
    *       return it; instead, a "NotBroadcasting" error will indicate that the stream is not
    *       live.</p>
    */
-  state?: StreamState | string;
+  state?: StreamState;
 
   /**
    * @public
    * <p>The stream’s health.</p>
    */
-  health?: StreamHealth | string;
+  health?: StreamHealth;
 
   /**
    * @public
@@ -1571,7 +1571,7 @@ export interface ChannelSummary {
    *         <code>LOW</code>. (Note: In the Amazon IVS console, <code>LOW</code> and <code>NORMAL</code>
    *       correspond to Ultra-low and Standard, respectively.)</p>
    */
-  latencyMode?: ChannelLatencyMode | string;
+  latencyMode?: ChannelLatencyMode;
 
   /**
    * @public
@@ -1608,7 +1608,7 @@ export interface ChannelSummary {
    *       exceed the allowable input resolution or bitrate, the stream probably will disconnect
    *       immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
    */
-  type?: ChannelType | string;
+  type?: ChannelType;
 
   /**
    * @public
@@ -1618,7 +1618,7 @@ export interface ChannelSummary {
    *       channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
    *       string (<code>""</code>).</p>
    */
-  preset?: TranscodePreset | string;
+  preset?: TranscodePreset;
 }
 
 /**
@@ -1750,7 +1750,7 @@ export interface RecordingConfigurationSummary {
    * <p>Indicates the current state of the recording configuration. When the state is
    *         <code>ACTIVE</code>, the configuration is ready for recording a channel stream.</p>
    */
-  state: RecordingConfigurationState | string | undefined;
+  state: RecordingConfigurationState | undefined;
 
   /**
    * @public
@@ -1858,7 +1858,7 @@ export interface StreamFilters {
    * @public
    * <p>The stream’s health.</p>
    */
-  health?: StreamHealth | string;
+  health?: StreamHealth;
 }
 
 /**
@@ -1908,13 +1908,13 @@ export interface StreamSummary {
    *       return it; instead, a "NotBroadcasting" error will indicate that the stream is not
    *       live.</p>
    */
-  state?: StreamState | string;
+  state?: StreamState;
 
   /**
    * @public
    * <p>The stream’s health.</p>
    */
-  health?: StreamHealth | string;
+  health?: StreamHealth;
 
   /**
    * @public
@@ -2212,7 +2212,7 @@ export interface UpdateChannelRequest {
    *       Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and
    *       Standard, respectively.)</p>
    */
-  latencyMode?: ChannelLatencyMode | string;
+  latencyMode?: ChannelLatencyMode;
 
   /**
    * @public
@@ -2220,7 +2220,7 @@ export interface UpdateChannelRequest {
    *       exceed the allowable input resolution or bitrate, the stream probably will disconnect
    *       immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
    */
-  type?: ChannelType | string;
+  type?: ChannelType;
 
   /**
    * @public
@@ -2249,7 +2249,7 @@ export interface UpdateChannelRequest {
    *       channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
    *       string (<code>""</code>).</p>
    */
-  preset?: TranscodePreset | string;
+  preset?: TranscodePreset;
 }
 
 /**

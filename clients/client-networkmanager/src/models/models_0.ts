@@ -132,13 +132,13 @@ export interface Attachment {
    * @public
    * <p>The type of attachment.</p>
    */
-  AttachmentType?: AttachmentType | string;
+  AttachmentType?: AttachmentType;
 
   /**
    * @public
    * <p>The state of the attachment.</p>
    */
-  State?: AttachmentState | string;
+  State?: AttachmentState;
 
   /**
    * @public
@@ -402,7 +402,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason for the error.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -522,7 +522,7 @@ export interface ConnectPeerAssociation {
    * @public
    * <p>The state of the Connect peer association.</p>
    */
-  State?: ConnectPeerAssociationState | string;
+  State?: ConnectPeerAssociationState;
 }
 
 /**
@@ -669,7 +669,7 @@ export interface CustomerGatewayAssociation {
    * @public
    * <p>The association state.</p>
    */
-  State?: CustomerGatewayAssociationState | string;
+  State?: CustomerGatewayAssociationState;
 }
 
 /**
@@ -749,7 +749,7 @@ export interface LinkAssociation {
    * @public
    * <p>The state of the association.</p>
    */
-  LinkAssociationState?: LinkAssociationState | string;
+  LinkAssociationState?: LinkAssociationState;
 }
 
 /**
@@ -842,7 +842,7 @@ export interface TransitGatewayConnectPeerAssociation {
    * @public
    * <p>The state of the association.</p>
    */
-  State?: TransitGatewayConnectPeerAssociationState | string;
+  State?: TransitGatewayConnectPeerAssociationState;
 }
 
 /**
@@ -997,7 +997,7 @@ export interface ConnectAttachmentOptions {
    * @public
    * <p>The protocol used for the attachment connection.</p>
    */
-  Protocol?: TunnelProtocol | string;
+  Protocol?: TunnelProtocol;
 }
 
 /**
@@ -1103,7 +1103,7 @@ export interface Connection {
    * @public
    * <p>The state of the connection.</p>
    */
-  State?: ConnectionState | string;
+  State?: ConnectionState;
 
   /**
    * @public
@@ -1149,13 +1149,13 @@ export interface ConnectionHealth {
    * @public
    * <p>The connection type.</p>
    */
-  Type?: ConnectionType | string;
+  Type?: ConnectionType;
 
   /**
    * @public
    * <p>The connection status.</p>
    */
-  Status?: ConnectionStatus | string;
+  Status?: ConnectionStatus;
 
   /**
    * @public
@@ -1221,7 +1221,7 @@ export interface ConnectPeerConfiguration {
    * @public
    * <p>The protocol used for a Connect peer configuration.</p>
    */
-  Protocol?: TunnelProtocol | string;
+  Protocol?: TunnelProtocol;
 
   /**
    * @public
@@ -1279,7 +1279,7 @@ export interface ConnectPeer {
    * @public
    * <p>The state of the Connect peer.</p>
    */
-  State?: ConnectPeerState | string;
+  State?: ConnectPeerState;
 
   /**
    * @public
@@ -1333,7 +1333,7 @@ export interface ConnectPeerSummary {
    * @public
    * <p>The state of a Connect peer.</p>
    */
-  ConnectPeerState?: ConnectPeerState | string;
+  ConnectPeerState?: ConnectPeerState;
 
   /**
    * @public
@@ -1451,7 +1451,7 @@ export interface CoreNetwork {
    * @public
    * <p>The current state of a core network.</p>
    */
-  State?: CoreNetworkState | string;
+  State?: CoreNetworkState;
 
   /**
    * @public
@@ -1529,13 +1529,13 @@ export interface CoreNetworkChange {
    * @public
    * <p>The type of change.</p>
    */
-  Type?: ChangeType | string;
+  Type?: ChangeType;
 
   /**
    * @public
    * <p>The action to take for a core network.</p>
    */
-  Action?: ChangeAction | string;
+  Action?: ChangeAction;
 
   /**
    * @public
@@ -1601,13 +1601,13 @@ export interface CoreNetworkChangeEvent {
    * @public
    * <p>Describes the type of change event. </p>
    */
-  Type?: ChangeType | string;
+  Type?: ChangeType;
 
   /**
    * @public
    * <p>The action taken for the change event.</p>
    */
-  Action?: ChangeAction | string;
+  Action?: ChangeAction;
 
   /**
    * @public
@@ -1625,7 +1625,7 @@ export interface CoreNetworkChangeEvent {
    * @public
    * <p>The status of the core network change event.</p>
    */
-  Status?: ChangeStatus | string;
+  Status?: ChangeStatus;
 
   /**
    * @public
@@ -1693,7 +1693,7 @@ export interface CoreNetworkPolicy {
    * @public
    * <p>Whether a core network policy is the current LIVE policy or the most recently submitted policy.</p>
    */
-  Alias?: CoreNetworkPolicyAlias | string;
+  Alias?: CoreNetworkPolicyAlias;
 
   /**
    * @public
@@ -1711,7 +1711,7 @@ export interface CoreNetworkPolicy {
    * @public
    * <p>The state of a core network policy.</p>
    */
-  ChangeSetState?: ChangeSetState | string;
+  ChangeSetState?: ChangeSetState;
 
   /**
    * @public
@@ -1775,7 +1775,7 @@ export interface CoreNetworkPolicyVersion {
    * @public
    * <p>Whether a core network policy is the current policy or the most recently submitted policy.</p>
    */
-  Alias?: CoreNetworkPolicyAlias | string;
+  Alias?: CoreNetworkPolicyAlias;
 
   /**
    * @public
@@ -1793,7 +1793,7 @@ export interface CoreNetworkPolicyVersion {
    * @public
    * <p>The status of the policy version change set.</p>
    */
-  ChangeSetState?: ChangeSetState | string;
+  ChangeSetState?: ChangeSetState;
 }
 
 /**
@@ -1853,7 +1853,7 @@ export interface CoreNetworkSummary {
    * @public
    * <p>The state of a core network.</p>
    */
-  State?: CoreNetworkState | string;
+  State?: CoreNetworkState;
 
   /**
    * @public
@@ -2273,7 +2273,7 @@ export interface Device {
    * @public
    * <p>The device state.</p>
    */
-  State?: DeviceState | string;
+  State?: DeviceState;
 
   /**
    * @public
@@ -2360,7 +2360,7 @@ export interface GlobalNetwork {
    * @public
    * <p>The state of the global network.</p>
    */
-  State?: GlobalNetworkState | string;
+  State?: GlobalNetworkState;
 
   /**
    * @public
@@ -2509,7 +2509,7 @@ export interface Link {
    * @public
    * <p>The state of the link.</p>
    */
-  State?: LinkState | string;
+  State?: LinkState;
 
   /**
    * @public
@@ -2634,7 +2634,7 @@ export interface Site {
    * @public
    * <p>The state of the site.</p>
    */
-  State?: SiteState | string;
+  State?: SiteState;
 
   /**
    * @public
@@ -2803,13 +2803,13 @@ export interface Peering {
    * @public
    * <p>The type of peering. This will be <code>TRANSIT_GATEWAY</code>.</p>
    */
-  PeeringType?: PeeringType | string;
+  PeeringType?: PeeringType;
 
   /**
    * @public
    * <p>The current state of the peering connection. </p>
    */
-  State?: PeeringState | string;
+  State?: PeeringState;
 
   /**
    * @public
@@ -3339,7 +3339,7 @@ export interface TransitGatewayRegistrationStateReason {
    * @public
    * <p>The code for the state reason.</p>
    */
-  Code?: TransitGatewayRegistrationState | string;
+  Code?: TransitGatewayRegistrationState;
 
   /**
    * @public
@@ -3839,7 +3839,7 @@ export interface GetCoreNetworkPolicyRequest {
    * @public
    * <p>The alias of a core network policy </p>
    */
-  Alias?: CoreNetworkPolicyAlias | string;
+  Alias?: CoreNetworkPolicyAlias;
 }
 
 /**
@@ -4765,13 +4765,13 @@ export interface GetNetworkRoutesRequest {
    * @public
    * <p>The route states.</p>
    */
-  States?: (RouteState | string)[];
+  States?: RouteState[];
 
   /**
    * @public
    * <p>The route types.</p>
    */
-  Types?: (RouteType | string)[];
+  Types?: RouteType[];
 
   /**
    * @public
@@ -4849,13 +4849,13 @@ export interface NetworkRoute {
    * @public
    * <p>The route state. The possible values are <code>active</code> and <code>blackhole</code>.</p>
    */
-  State?: RouteState | string;
+  State?: RouteState;
 
   /**
    * @public
    * <p>The route type. The possible values are <code>propagated</code> and <code>static</code>.</p>
    */
-  Type?: RouteType | string;
+  Type?: RouteType;
 }
 
 /**
@@ -4892,7 +4892,7 @@ export interface GetNetworkRoutesResponse {
    * @public
    * <p>The route table type.</p>
    */
-  RouteTableType?: RouteTableType | string;
+  RouteTableType?: RouteTableType;
 
   /**
    * @public
@@ -5229,7 +5229,7 @@ export interface RouteAnalysisCompletion {
    * <p>The result of the analysis. If the status is <code>NOT_CONNECTED</code>, check the
    *             reason code.</p>
    */
-  ResultCode?: RouteAnalysisCompletionResultCode | string;
+  ResultCode?: RouteAnalysisCompletionResultCode;
 
   /**
    * @public
@@ -5273,7 +5273,7 @@ export interface RouteAnalysisCompletion {
    *             </li>
    *          </ul>
    */
-  ReasonCode?: RouteAnalysisCompletionReasonCode | string;
+  ReasonCode?: RouteAnalysisCompletionReasonCode;
 
   /**
    * @public
@@ -5414,7 +5414,7 @@ export interface RouteAnalysis {
    * @public
    * <p>The status of the route analysis.</p>
    */
-  Status?: RouteAnalysisStatus | string;
+  Status?: RouteAnalysisStatus;
 
   /**
    * @public
@@ -5706,7 +5706,7 @@ export interface ListAttachmentsRequest {
    * @public
    * <p>The type of attachment.</p>
    */
-  AttachmentType?: AttachmentType | string;
+  AttachmentType?: AttachmentType;
 
   /**
    * @public
@@ -5718,7 +5718,7 @@ export interface ListAttachmentsRequest {
    * @public
    * <p>The state of the attachment.</p>
    */
-  State?: AttachmentState | string;
+  State?: AttachmentState;
 
   /**
    * @public
@@ -5948,7 +5948,7 @@ export interface ListPeeringsRequest {
    * @public
    * <p>Returns a list of a peering requests.</p>
    */
-  PeeringType?: PeeringType | string;
+  PeeringType?: PeeringType;
 
   /**
    * @public
@@ -5960,7 +5960,7 @@ export interface ListPeeringsRequest {
    * @public
    * <p>Returns a list of the peering request states.</p>
    */
-  State?: PeeringState | string;
+  State?: PeeringState;
 
   /**
    * @public

@@ -121,7 +121,7 @@ export interface DescribeEventsMessage {
    *             </li>
    *          </ul>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -192,7 +192,7 @@ export interface Event {
    * @public
    * <p>The source type for this event.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -566,7 +566,7 @@ export interface LoggingStatus {
    * @public
    * <p>The log destination type. An enum with possible values of <code>s3</code> and <code>cloudwatch</code>.</p>
    */
-  LogDestinationType?: LogDestinationType | string;
+  LogDestinationType?: LogDestinationType;
 
   /**
    * @public
@@ -621,7 +621,7 @@ export interface NodeConfigurationOptionsFilter {
    * @public
    * <p>The name of the element to filter.</p>
    */
-  Name?: NodeConfigurationOptionsFilterName | string;
+  Name?: NodeConfigurationOptionsFilterName;
 
   /**
    * @public
@@ -631,7 +631,7 @@ export interface NodeConfigurationOptionsFilter {
    *             Provide two values to evaluate for 'between'.
    *             Provide a list of values for 'in'.</p>
    */
-  Operator?: OperatorType | string;
+  Operator?: OperatorType;
 
   /**
    * @public
@@ -655,7 +655,7 @@ export interface DescribeNodeConfigurationOptionsMessage {
    *             Specify "resize-cluster" to get configuration combinations for elastic resize based on an existing cluster.
    *         </p>
    */
-  ActionType: ActionType | string | undefined;
+  ActionType: ActionType | undefined;
 
   /**
    * @public
@@ -754,7 +754,7 @@ export interface NodeConfigurationOption {
    * @public
    * <p>The category of the node configuration recommendation.</p>
    */
-  Mode?: Mode | string;
+  Mode?: Mode;
 }
 
 /**
@@ -943,7 +943,7 @@ export interface PartnerIntegrationInfo {
    * @public
    * <p>The partner integration status.</p>
    */
-  Status?: PartnerIntegrationStatus | string;
+  Status?: PartnerIntegrationStatus;
 
   /**
    * @public
@@ -1146,7 +1146,7 @@ export interface ReservedNodeOffering {
    * @public
    * <p></p>
    */
-  ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
+  ReservedNodeOfferingType?: ReservedNodeOfferingType;
 }
 
 /**
@@ -1266,7 +1266,7 @@ export interface ScheduledActionFilter {
    * @public
    * <p>The type of element to filter. </p>
    */
-  Name: ScheduledActionFilterName | string | undefined;
+  Name: ScheduledActionFilterName | undefined;
 
   /**
    * @public
@@ -1304,7 +1304,7 @@ export interface DescribeScheduledActionsMessage {
    * @public
    * <p>The type of the scheduled actions to retrieve. </p>
    */
-  TargetActionType?: ScheduledActionTypeValues | string;
+  TargetActionType?: ScheduledActionTypeValues;
 
   /**
    * @public
@@ -1624,7 +1624,7 @@ export interface TableRestoreStatus {
    *                 <code>PENDING</code>, <code>IN_PROGRESS</code>
    *          </p>
    */
-  Status?: TableRestoreStatusType | string;
+  Status?: TableRestoreStatusType;
 
   /**
    * @public
@@ -1914,7 +1914,7 @@ export interface DescribeUsageLimitsMessage {
    * @public
    * <p>The feature type for which you want to describe usage limits.</p>
    */
-  FeatureType?: UsageLimitFeatureType | string;
+  FeatureType?: UsageLimitFeatureType;
 
   /**
    * @public
@@ -2140,7 +2140,7 @@ export interface EnableLoggingMessage {
    * @public
    * <p>The log destination type. An enum with possible values of <code>s3</code> and <code>cloudwatch</code>.</p>
    */
-  LogDestinationType?: LogDestinationType | string;
+  LogDestinationType?: LogDestinationType;
 
   /**
    * @public
@@ -2536,7 +2536,7 @@ export interface GetReservedNodeExchangeConfigurationOptionsInputMessage {
    * @public
    * <p>The action type of the reserved-node configuration. The action type can be an exchange initiated from either a snapshot or a resize.</p>
    */
-  ActionType: ReservedNodeExchangeActionType | string | undefined;
+  ActionType: ReservedNodeExchangeActionType | undefined;
 
   /**
    * @public
@@ -2742,7 +2742,7 @@ export interface ModifyAquaInputMessage {
    * @public
    * <p>This parameter is retired. Amazon Redshift automatically  determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
-  AquaConfigurationStatus?: AquaConfigurationStatus | string;
+  AquaConfigurationStatus?: AquaConfigurationStatus;
 }
 
 /**
@@ -3754,7 +3754,7 @@ export interface ModifyUsageLimitMessage {
    * <p>The new action that Amazon Redshift takes when the limit is reached.
    *             For more information about this parameter, see <a>UsageLimit</a>. </p>
    */
-  BreachAction?: UsageLimitBreachAction | string;
+  BreachAction?: UsageLimitBreachAction;
 }
 
 /**
@@ -4180,7 +4180,7 @@ export interface RestoreFromClusterSnapshotMessage {
    * @public
    * <p>This parameter is retired. It does not set the AQUA configuration status. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
-  AquaConfigurationStatus?: AquaConfigurationStatus | string;
+  AquaConfigurationStatus?: AquaConfigurationStatus;
 
   /**
    * @public
@@ -4492,7 +4492,7 @@ export interface UpdatePartnerStatusInputMessage {
    * @public
    * <p>The value of the updated status.</p>
    */
-  Status: PartnerIntegrationStatus | string | undefined;
+  Status: PartnerIntegrationStatus | undefined;
 
   /**
    * @public

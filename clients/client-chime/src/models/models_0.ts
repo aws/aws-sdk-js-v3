@@ -37,7 +37,7 @@ export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -141,7 +141,7 @@ export interface Account {
    *     <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration
    *                 Guide</i>.</p>
    */
-  AccountType?: AccountType | string;
+  AccountType?: AccountType;
 
   /**
    * @public
@@ -153,19 +153,19 @@ export interface Account {
    * @public
    * <p>The default license for the Amazon Chime account.</p>
    */
-  DefaultLicense?: License | string;
+  DefaultLicense?: License;
 
   /**
    * @public
    * <p>Supported licenses for the Amazon Chime account.</p>
    */
-  SupportedLicenses?: (License | string)[];
+  SupportedLicenses?: License[];
 
   /**
    * @public
    * <p>The status of the account.</p>
    */
-  AccountStatus?: AccountStatus | string;
+  AccountStatus?: AccountStatus;
 
   /**
    * @public
@@ -440,7 +440,7 @@ export interface AppInstanceStreamingConfiguration {
    * @public
    * <p>The type of data to be streamed.</p>
    */
-  AppInstanceDataType: AppInstanceDataType | string | undefined;
+  AppInstanceDataType: AppInstanceDataType | undefined;
 
   /**
    * @public
@@ -532,7 +532,7 @@ export interface AppInstanceUserMembershipSummary {
    * @public
    * <p>The type of <code>ChannelMembership</code>.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: ChannelMembershipType;
 
   /**
    * @public
@@ -564,7 +564,7 @@ export interface AudioArtifactsConfiguration {
    * @public
    * <p>The MUX type of the audio artifact configuration object.</p>
    */
-  MuxType: AudioMuxType | string | undefined;
+  MuxType: AudioMuxType | undefined;
 }
 
 /**
@@ -603,13 +603,13 @@ export interface ContentArtifactsConfiguration {
    * @public
    * <p>Indicates whether the content artifact is enabled or disabled.</p>
    */
-  State: ArtifactsState | string | undefined;
+  State: ArtifactsState | undefined;
 
   /**
    * @public
    * <p>The MUX type of the artifact configuration.</p>
    */
-  MuxType?: ContentMuxType | string;
+  MuxType?: ContentMuxType;
 }
 
 /**
@@ -634,13 +634,13 @@ export interface VideoArtifactsConfiguration {
    * @public
    * <p>Indicates whether the video artifact is enabled or disabled.</p>
    */
-  State: ArtifactsState | string | undefined;
+  State: ArtifactsState | undefined;
 
   /**
    * @public
    * <p>The MUX type of the video artifact configuration object.</p>
    */
-  MuxType?: VideoMuxType | string;
+  MuxType?: VideoMuxType;
 }
 
 /**
@@ -706,7 +706,7 @@ export interface PhoneNumberError {
    * @public
    * <p>The error code.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -734,7 +734,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorResponse {
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -758,7 +758,7 @@ export class BadRequestException extends __BaseException {
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -782,7 +782,7 @@ export class ForbiddenException extends __BaseException {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -806,7 +806,7 @@ export class NotFoundException extends __BaseException {
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -830,7 +830,7 @@ export class ServiceFailureException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -854,7 +854,7 @@ export class ServiceUnavailableException extends __BaseException {
 export class ThrottledClientException extends __BaseException {
   readonly name: "ThrottledClientException" = "ThrottledClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -878,7 +878,7 @@ export class ThrottledClientException extends __BaseException {
 export class UnauthorizedClientException extends __BaseException {
   readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -1052,7 +1052,7 @@ export interface BatchChannelMemberships {
    * @public
    * <p>The membership types set for the channel users.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: ChannelMembershipType;
 
   /**
    * @public
@@ -1150,7 +1150,7 @@ export interface BatchCreateAttendeeResponse {
 export class ResourceLimitExceededException extends __BaseException {
   readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -1185,7 +1185,7 @@ export interface BatchCreateChannelMembershipRequest {
    *             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported
    *          by moderators.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: ChannelMembershipType;
 
   /**
    * @public
@@ -1215,7 +1215,7 @@ export interface BatchCreateChannelMembershipError {
    * @public
    * <p>The error code.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -1271,7 +1271,7 @@ export interface MembershipItem {
    * @public
    * <p>The member role.</p>
    */
-  Role?: RoomMembershipRole | string;
+  Role?: RoomMembershipRole;
 }
 
 /**
@@ -1312,7 +1312,7 @@ export interface MemberError {
    * @public
    * <p>The error code.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -1387,7 +1387,7 @@ export interface UserError {
    * @public
    * <p>The error code.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -1468,7 +1468,7 @@ export interface UpdatePhoneNumberRequestItem {
    * @public
    * <p>The product type to update.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: PhoneNumberProductType;
 
   /**
    * @public
@@ -1529,13 +1529,13 @@ export interface UpdateUserRequestItem {
    * @public
    * <p>The user license type.</p>
    */
-  LicenseType?: License | string;
+  LicenseType?: License;
 
   /**
    * @public
    * <p>The user type.</p>
    */
-  UserType?: UserType | string;
+  UserType?: UserType;
 
   /**
    * @public
@@ -1613,7 +1613,7 @@ export interface Bot {
    * @public
    * <p>The bot type.</p>
    */
-  BotType?: BotType | string;
+  BotType?: BotType;
 
   /**
    * @public
@@ -1786,13 +1786,13 @@ export interface Channel {
    * @public
    * <p>The mode of the channel.</p>
    */
-  Mode?: ChannelMode | string;
+  Mode?: ChannelMode;
 
   /**
    * @public
    * <p>The channel's privacy setting.</p>
    */
-  Privacy?: ChannelPrivacy | string;
+  Privacy?: ChannelPrivacy;
 
   /**
    * @public
@@ -1882,7 +1882,7 @@ export interface ChannelMembership {
    * @public
    * <p>The membership type set for the channel member.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: ChannelMembershipType;
 
   /**
    * @public
@@ -1930,13 +1930,13 @@ export interface ChannelSummary {
    * @public
    * <p>The mode of the channel.</p>
    */
-  Mode?: ChannelMode | string;
+  Mode?: ChannelMode;
 
   /**
    * @public
    * <p>The privacy setting of the channel.</p>
    */
-  Privacy?: ChannelPrivacy | string;
+  Privacy?: ChannelPrivacy;
 
   /**
    * @public
@@ -2043,7 +2043,7 @@ export interface ChannelMessage {
    * @public
    * <p>The message type.</p>
    */
-  Type?: ChannelMessageType | string;
+  Type?: ChannelMessageType;
 
   /**
    * @public
@@ -2079,7 +2079,7 @@ export interface ChannelMessage {
    * @public
    * <p>The persistence setting for a channel message.</p>
    */
-  Persistence?: ChannelMessagePersistenceType | string;
+  Persistence?: ChannelMessagePersistenceType;
 }
 
 /**
@@ -2109,7 +2109,7 @@ export interface ChannelMessageSummary {
    * @public
    * <p>The type of message.</p>
    */
-  Type?: ChannelMessageType | string;
+  Type?: ChannelMessageType;
 
   /**
    * @public
@@ -2252,7 +2252,7 @@ export interface ChimeSdkMeetingConfiguration {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -2519,7 +2519,7 @@ export interface CreateChannelRequest {
    *          moderators, and channel members can add themselves and other members to unrestricted
    *          channels. Only administrators and moderators can add members to restricted channels.</p>
    */
-  Mode?: ChannelMode | string;
+  Mode?: ChannelMode;
 
   /**
    * @public
@@ -2527,7 +2527,7 @@ export interface CreateChannelRequest {
    *          channels aren't discoverable by users outside the channel. Public channels are discoverable
    *          by anyone in the <code>AppInstance</code>.</p>
    */
-  Privacy?: ChannelPrivacy | string;
+  Privacy?: ChannelPrivacy;
 
   /**
    * @public
@@ -2630,7 +2630,7 @@ export interface CreateChannelMembershipRequest {
    *             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported
    *          by moderators.</p>
    */
-  Type: ChannelMembershipType | string | undefined;
+  Type: ChannelMembershipType | undefined;
 
   /**
    * @public
@@ -2731,7 +2731,7 @@ export interface CreateMediaCapturePipelineRequest {
    * <p>Source type from which the media artifacts will be captured. A Chime SDK Meeting
    *             is the only supported source.</p>
    */
-  SourceType: MediaPipelineSourceType | string | undefined;
+  SourceType: MediaPipelineSourceType | undefined;
 
   /**
    * @public
@@ -2743,7 +2743,7 @@ export interface CreateMediaCapturePipelineRequest {
    * @public
    * <p>Destination type to which the media artifacts are saved. You must use an S3 bucket. </p>
    */
-  SinkType: MediaPipelineSinkType | string | undefined;
+  SinkType: MediaPipelineSinkType | undefined;
 
   /**
    * @public
@@ -2796,7 +2796,7 @@ export interface MediaCapturePipeline {
    * @public
    * <p>Source type from which media artifacts are saved. You must use <code>ChimeMeeting</code>.</p>
    */
-  SourceType?: MediaPipelineSourceType | string;
+  SourceType?: MediaPipelineSourceType;
 
   /**
    * @public
@@ -2808,13 +2808,13 @@ export interface MediaCapturePipeline {
    * @public
    * <p>The status of the media capture pipeline.</p>
    */
-  Status?: MediaPipelineStatus | string;
+  Status?: MediaPipelineStatus;
 
   /**
    * @public
    * <p>Destination type to which the media artifacts are saved. You must use an S3 Bucket.</p>
    */
-  SinkType?: MediaPipelineSinkType | string;
+  SinkType?: MediaPipelineSinkType;
 
   /**
    * @public
@@ -3239,7 +3239,7 @@ export interface CreatePhoneNumberOrderRequest {
    * @public
    * <p>The phone number product type.</p>
    */
-  ProductType: PhoneNumberProductType | string | undefined;
+  ProductType: PhoneNumberProductType | undefined;
 
   /**
    * @public
@@ -3278,7 +3278,7 @@ export interface OrderedPhoneNumber {
    * @public
    * <p>The phone number status.</p>
    */
-  Status?: OrderedPhoneNumberStatus | string;
+  Status?: OrderedPhoneNumberStatus;
 }
 
 /**
@@ -3312,13 +3312,13 @@ export interface PhoneNumberOrder {
    * @public
    * <p>The phone number order product type.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: PhoneNumberProductType;
 
   /**
    * @public
    * <p>The status of the phone number order.</p>
    */
-  Status?: PhoneNumberOrderStatus | string;
+  Status?: PhoneNumberOrderStatus;
 
   /**
    * @public
@@ -3429,19 +3429,19 @@ export interface CreateProxySessionRequest {
    * @public
    * <p>The proxy session capabilities.</p>
    */
-  Capabilities: (Capability | string)[] | undefined;
+  Capabilities: Capability[] | undefined;
 
   /**
    * @public
    * <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
    */
-  NumberSelectionBehavior?: NumberSelectionBehavior | string;
+  NumberSelectionBehavior?: NumberSelectionBehavior;
 
   /**
    * @public
    * <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
    */
-  GeoMatchLevel?: GeoMatchLevel | string;
+  GeoMatchLevel?: GeoMatchLevel;
 
   /**
    * @public
@@ -3510,7 +3510,7 @@ export interface ProxySession {
    * @public
    * <p>The status of the proxy session.</p>
    */
-  Status?: ProxySessionStatus | string;
+  Status?: ProxySessionStatus;
 
   /**
    * @public
@@ -3522,7 +3522,7 @@ export interface ProxySession {
    * @public
    * <p>The proxy session capabilities.</p>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: Capability[];
 
   /**
    * @public
@@ -3552,13 +3552,13 @@ export interface ProxySession {
    * @public
    * <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
    */
-  NumberSelectionBehavior?: NumberSelectionBehavior | string;
+  NumberSelectionBehavior?: NumberSelectionBehavior;
 
   /**
    * @public
    * <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
    */
-  GeoMatchLevel?: GeoMatchLevel | string;
+  GeoMatchLevel?: GeoMatchLevel;
 
   /**
    * @public
@@ -3680,7 +3680,7 @@ export interface CreateRoomMembershipRequest {
    * @public
    * <p>The role of the member.</p>
    */
-  Role?: RoomMembershipRole | string;
+  Role?: RoomMembershipRole;
 }
 
 /**
@@ -3713,7 +3713,7 @@ export interface Member {
    * @public
    * <p>The member type.</p>
    */
-  MemberType?: MemberType | string;
+  MemberType?: MemberType;
 
   /**
    * @public
@@ -3755,7 +3755,7 @@ export interface RoomMembership {
    * @public
    * <p>The membership role.</p>
    */
-  Role?: RoomMembershipRole | string;
+  Role?: RoomMembershipRole;
 
   /**
    * @public
@@ -3974,7 +3974,7 @@ export interface CreateSipRuleRequest {
    * @public
    * <p>The type of trigger assigned to the SIP rule in <code>TriggerValue</code>, currently <code>RequestUriHostname</code> or <code>ToPhoneNumber</code>.</p>
    */
-  TriggerType: SipRuleTriggerType | string | undefined;
+  TriggerType: SipRuleTriggerType | undefined;
 
   /**
    * @public
@@ -4028,7 +4028,7 @@ export interface SipRule {
    * <p>The type of trigger assigned to the SIP rule in <code>TriggerValue</code>, currently <code>RequestUriHostname</code> or
    *         <code>ToPhoneNumber</code>.</p>
    */
-  TriggerType?: SipRuleTriggerType | string;
+  TriggerType?: SipRuleTriggerType;
 
   /**
    * @public
@@ -4097,7 +4097,7 @@ export interface CreateUserRequest {
    * @public
    * <p>The user type.</p>
    */
-  UserType?: UserType | string;
+  UserType?: UserType;
 }
 
 /**
@@ -4169,25 +4169,25 @@ export interface User {
    * @public
    * <p>The license type for the user.</p>
    */
-  LicenseType?: License | string;
+  LicenseType?: License;
 
   /**
    * @public
    * <p>The user type.</p>
    */
-  UserType?: UserType | string;
+  UserType?: UserType;
 
   /**
    * @public
    * <p>The user registration status.</p>
    */
-  UserRegistrationStatus?: RegistrationStatus | string;
+  UserRegistrationStatus?: RegistrationStatus;
 
   /**
    * @public
    * <p>The user invite status.</p>
    */
-  UserInvitationStatus?: InviteStatus | string;
+  UserInvitationStatus?: InviteStatus;
 
   /**
    * @public
@@ -4257,7 +4257,7 @@ export interface CreateVoiceConnectorRequest {
    * .
    * </p>
    */
-  AwsRegion?: VoiceConnectorAwsRegion | string;
+  AwsRegion?: VoiceConnectorAwsRegion;
 
   /**
    * @public
@@ -4285,7 +4285,7 @@ export interface VoiceConnector {
    * <code>us-east-1</code>.
    * </p>
    */
-  AwsRegion?: VoiceConnectorAwsRegion | string;
+  AwsRegion?: VoiceConnectorAwsRegion;
 
   /**
    * @public
@@ -4470,7 +4470,7 @@ export interface DeleteAccountResponse {}
 export class UnprocessableEntityException extends __BaseException {
   readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -5397,19 +5397,19 @@ export interface EngineTranscribeMedicalSettings {
    * @public
    * <p>The language code specified for the Amazon Transcribe Medical engine.</p>
    */
-  LanguageCode: TranscribeMedicalLanguageCode | string | undefined;
+  LanguageCode: TranscribeMedicalLanguageCode | undefined;
 
   /**
    * @public
    * <p>The specialty specified for the Amazon Transcribe Medical engine.</p>
    */
-  Specialty: TranscribeMedicalSpecialty | string | undefined;
+  Specialty: TranscribeMedicalSpecialty | undefined;
 
   /**
    * @public
    * <p>The type of transcription.</p>
    */
-  Type: TranscribeMedicalType | string | undefined;
+  Type: TranscribeMedicalType | undefined;
 
   /**
    * @public
@@ -5421,14 +5421,14 @@ export interface EngineTranscribeMedicalSettings {
    * @public
    * <p>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region.</p>
    */
-  Region?: TranscribeMedicalRegion | string;
+  Region?: TranscribeMedicalRegion;
 
   /**
    * @public
    * <p>Labels all personally identifiable information (PII) identified in your transcript.  If you don't include <code>PiiEntityTypes</code>, all PII is identified.</p>
    *          <p>You can’t set <code>ContentIdentificationType</code> and <code>ContentRedactionType</code>.</p>
    */
-  ContentIdentificationType?: TranscribeMedicalContentIdentificationType | string;
+  ContentIdentificationType?: TranscribeMedicalContentIdentificationType;
 }
 
 /**
@@ -5555,7 +5555,7 @@ export interface EngineTranscribeSettings {
    * <p>Specify the language code that represents the language spoken.</p>
    *          <p>If you're unsure of the language spoken in your audio, consider using <code>IdentifyLanguage</code> to enable automatic language identification.</p>
    */
-  LanguageCode?: TranscribeLanguageCode | string;
+  LanguageCode?: TranscribeLanguageCode;
 
   /**
    * @public
@@ -5564,7 +5564,7 @@ export interface EngineTranscribeSettings {
    *          <p>To delete words, choose <code>remove</code>.</p>
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
    */
-  VocabularyFilterMethod?: TranscribeVocabularyFilterMethod | string;
+  VocabularyFilterMethod?: TranscribeVocabularyFilterMethod;
 
   /**
    * @public
@@ -5592,7 +5592,7 @@ export interface EngineTranscribeSettings {
    *             <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/transcription-options.html#choose-region">Choosing a transcription Region</a> in the
    *             <i>Amazon Chime SDK Developer Guide</i>.</p>
    */
-  Region?: TranscribeRegion | string;
+  Region?: TranscribeRegion;
 
   /**
    * @public
@@ -5605,21 +5605,21 @@ export interface EngineTranscribeSettings {
    * <p>Specify the level of stability to use when you enable partial results stabilization (<code>EnablePartialResultsStabilization</code>).</p>
    *          <p>Low stability provides the highest accuracy. High stability transcribes faster, but with slightly lower accuracy.</p>
    */
-  PartialResultsStability?: TranscribePartialResultsStability | string;
+  PartialResultsStability?: TranscribePartialResultsStability;
 
   /**
    * @public
    * <p>Labels all personally identifiable information (PII) identified in your transcript.  If you don't include <code>PiiEntityTypes</code>, all PII is identified.</p>
    *          <p>You can’t set <code>ContentIdentificationType</code> and <code>ContentRedactionType</code>.</p>
    */
-  ContentIdentificationType?: TranscribeContentIdentificationType | string;
+  ContentIdentificationType?: TranscribeContentIdentificationType;
 
   /**
    * @public
    * <p>Content redaction is performed at the segment level. If you don't include <code>PiiEntityTypes</code>, all PII is redacted.</p>
    *          <p>You can’t set <code>ContentIdentificationType</code> and <code>ContentRedactionType</code>.</p>
    */
-  ContentRedactionType?: TranscribeContentRedactionType | string;
+  ContentRedactionType?: TranscribeContentRedactionType;
 
   /**
    * @public
@@ -5669,7 +5669,7 @@ export interface EngineTranscribeSettings {
    * <p>Specify a preferred language from the subset of languages codes you specified in <code>LanguageOptions</code>.</p>
    *          <p>You can only use this parameter if you include <code>IdentifyLanguage</code> and <code>LanguageOptions</code>.</p>
    */
-  PreferredLanguage?: TranscribeLanguageCode | string;
+  PreferredLanguage?: TranscribeLanguageCode;
 
   /**
    * @public
@@ -6072,7 +6072,7 @@ export interface PhoneNumberAssociation {
    * <p>Defines the association with an Amazon Chime account ID, user ID, Amazon Chime Voice Connector
    *             ID, or Amazon Chime Voice Connector group ID.</p>
    */
-  Name?: PhoneNumberAssociationName | string;
+  Name?: PhoneNumberAssociationName;
 
   /**
    * @public
@@ -6186,19 +6186,19 @@ export interface PhoneNumber {
    * @public
    * <p>The phone number type.</p>
    */
-  Type?: PhoneNumberType | string;
+  Type?: PhoneNumberType;
 
   /**
    * @public
    * <p>The phone number product type.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: PhoneNumberProductType;
 
   /**
    * @public
    * <p>The phone number status.</p>
    */
-  Status?: PhoneNumberStatus | string;
+  Status?: PhoneNumberStatus;
 
   /**
    * @public
@@ -6222,7 +6222,7 @@ export interface PhoneNumber {
    * @public
    * <p>The outbound calling name status.</p>
    */
-  CallingNameStatus?: CallingNameStatus | string;
+  CallingNameStatus?: CallingNameStatus;
 
   /**
    * @public

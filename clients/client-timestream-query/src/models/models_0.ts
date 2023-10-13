@@ -221,7 +221,7 @@ export interface S3Configuration {
    * <p> Encryption at rest options for the error reports. If no encryption option is
    *             specified, Timestream will choose SSE_S3 as default. </p>
    */
-  EncryptionOption?: S3EncryptionOption | string;
+  EncryptionOption?: S3EncryptionOption;
 }
 
 /**
@@ -324,7 +324,7 @@ export interface DimensionMapping {
    * @public
    * <p>Type for the dimension. </p>
    */
-  DimensionValueType: DimensionValueType | string | undefined;
+  DimensionValueType: DimensionValueType | undefined;
 }
 
 /**
@@ -383,7 +383,7 @@ export interface MultiMeasureAttributeMapping {
    * @public
    * <p>Type of the attribute to be read from the source column.</p>
    */
-  MeasureValueType: ScalarMeasureValueType | string | undefined;
+  MeasureValueType: ScalarMeasureValueType | undefined;
 }
 
 /**
@@ -418,7 +418,7 @@ export interface MixedMeasureMapping {
    * <p>Type of the value that is to be read from sourceColumn. If the mapping is for MULTI,
    *             use MeasureValueType.MULTI.</p>
    */
-  MeasureValueType: MeasureValueType | string | undefined;
+  MeasureValueType: MeasureValueType | undefined;
 
   /**
    * @public
@@ -830,7 +830,7 @@ export interface ScheduledQueryRunSummary {
    * @public
    * <p>The status of a scheduled query run.</p>
    */
-  RunStatus?: ScheduledQueryRunStatus | string;
+  RunStatus?: ScheduledQueryRunStatus;
 
   /**
    * @public
@@ -899,7 +899,7 @@ export interface ScheduledQueryDescription {
    * @public
    * <p>State of the scheduled query. </p>
    */
-  State: ScheduledQueryState | string | undefined;
+  State: ScheduledQueryState | undefined;
 
   /**
    * @public
@@ -1074,7 +1074,7 @@ export interface ScheduledQuery {
    * @public
    * <p>State of scheduled query. </p>
    */
-  State: ScheduledQueryState | string | undefined;
+  State: ScheduledQueryState | undefined;
 
   /**
    * @public
@@ -1104,7 +1104,7 @@ export interface ScheduledQuery {
    * @public
    * <p>Status of the last scheduled query run.</p>
    */
-  LastRunStatus?: ScheduledQueryRunStatus | string;
+  LastRunStatus?: ScheduledQueryRunStatus;
 }
 
 /**
@@ -1413,7 +1413,7 @@ export interface UpdateScheduledQueryRequest {
    * @public
    * <p>State of the scheduled query. </p>
    */
-  State: ScheduledQueryState | string | undefined;
+  State: ScheduledQueryState | undefined;
 }
 
 /**
@@ -1451,7 +1451,7 @@ export interface Type {
    * <p>Indicates if the column is of type string, integer, Boolean, double, timestamp, date,
    *             time. </p>
    */
-  ScalarType?: ScalarType | string;
+  ScalarType?: ScalarType;
 
   /**
    * @public

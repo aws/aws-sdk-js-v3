@@ -1875,7 +1875,7 @@ const se_AddPermissionRequest = (input: AddPermissionRequest, context: __SerdeCo
 /**
  * serializeAws_queryAttributeNameList
  */
-const se_AttributeNameList = (input: (QueueAttributeName | string)[], context: __SerdeContext): any => {
+const se_AttributeNameList = (input: QueueAttributeName[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {

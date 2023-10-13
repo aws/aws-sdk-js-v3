@@ -99,7 +99,7 @@ export interface AffectedEntity {
    * <p>The most recent status of the entity affected by the event. The possible values are
    *             <code>IMPAIRED</code>, <code>UNIMPAIRED</code>, and <code>UNKNOWN</code>.</p>
    */
-  statusCode?: EntityStatusCode | string;
+  statusCode?: EntityStatusCode;
 
   /**
    * @public
@@ -191,7 +191,7 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
    *             </li>
    *          </ul>
    */
-  eventScopeCode?: EventScopeCode | string;
+  eventScopeCode?: EventScopeCode;
 
   /**
    * @public
@@ -291,7 +291,7 @@ export interface EntityFilter {
    * <p>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or
    *             <code>UNKNOWN</code>).</p>
    */
-  statusCodes?: (EntityStatusCode | string)[];
+  statusCodes?: EntityStatusCode[];
 }
 
 /**
@@ -394,7 +394,7 @@ export interface EntityAccountFilter {
    * @public
    * <p>A list of entity status codes.</p>
    */
-  statusCodes?: (EntityStatusCode | string)[];
+  statusCodes?: EntityStatusCode[];
 }
 
 /**
@@ -769,7 +769,7 @@ export interface EventFilter {
    * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
    * the <code>investigation</code> value isn't supported at this time.</p>
    */
-  eventTypeCategories?: (EventTypeCategory | string)[];
+  eventTypeCategories?: EventTypeCategory[];
 
   /**
    * @public
@@ -784,7 +784,7 @@ export interface EventFilter {
    * @public
    * <p>A list of event status codes.</p>
    */
-  eventStatusCodes?: (EventStatusCode | string)[];
+  eventStatusCodes?: EventStatusCode[];
 }
 
 /**
@@ -801,7 +801,7 @@ export interface DescribeEventAggregatesRequest {
    * @public
    * <p>The only currently supported value is <code>eventTypeCategory</code>.</p>
    */
-  aggregateField: EventAggregateField | string | undefined;
+  aggregateField: EventAggregateField | undefined;
 
   /**
    * @public
@@ -962,7 +962,7 @@ export interface Event {
    * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
    * the <code>investigation</code> value isn't supported at this time.</p>
    */
-  eventTypeCategory?: EventTypeCategory | string;
+  eventTypeCategory?: EventTypeCategory;
 
   /**
    * @public
@@ -999,7 +999,7 @@ export interface Event {
    * <p>The most recent status of the event. Possible values are <code>open</code>,
    *             <code>closed</code>, and <code>upcoming</code>.</p>
    */
-  statusCode?: EventStatusCode | string;
+  statusCode?: EventStatusCode;
 
   /**
    * @public
@@ -1023,7 +1023,7 @@ export interface Event {
    *             </li>
    *          </ul>
    */
-  eventScopeCode?: EventScopeCode | string;
+  eventScopeCode?: EventScopeCode;
 }
 
 /**
@@ -1355,13 +1355,13 @@ export interface OrganizationEventFilter {
    * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
    * the <code>investigation</code> value isn't supported at this time.</p>
    */
-  eventTypeCategories?: (EventTypeCategory | string)[];
+  eventTypeCategories?: EventTypeCategory[];
 
   /**
    * @public
    * <p>A list of event status codes.</p>
    */
-  eventStatusCodes?: (EventStatusCode | string)[];
+  eventStatusCodes?: EventStatusCode[];
 }
 
 /**
@@ -1434,7 +1434,7 @@ export interface OrganizationEvent {
    * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
    * the <code>investigation</code> value isn't supported at this time.</p>
    */
-  eventTypeCategory?: EventTypeCategory | string;
+  eventTypeCategory?: EventTypeCategory;
 
   /**
    * @public
@@ -1458,7 +1458,7 @@ export interface OrganizationEvent {
    *             </li>
    *          </ul>
    */
-  eventScopeCode?: EventScopeCode | string;
+  eventScopeCode?: EventScopeCode;
 
   /**
    * @public
@@ -1489,7 +1489,7 @@ export interface OrganizationEvent {
    * <p>The most recent status of the event. Possible values are <code>open</code>,
    *             <code>closed</code>, and <code>upcoming</code>.</p>
    */
-  statusCode?: EventStatusCode | string;
+  statusCode?: EventStatusCode;
 }
 
 /**
@@ -1536,7 +1536,7 @@ export interface EventTypeFilter {
    * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
    * the <code>investigation</code> value isn't supported at this time.</p>
    */
-  eventTypeCategories?: (EventTypeCategory | string)[];
+  eventTypeCategories?: EventTypeCategory[];
 }
 
 /**
@@ -1608,7 +1608,7 @@ export interface EventType {
    * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
    * the <code>investigation</code> value isn't supported at this time.</p>
    */
-  category?: EventTypeCategory | string;
+  category?: EventTypeCategory;
 }
 
 /**

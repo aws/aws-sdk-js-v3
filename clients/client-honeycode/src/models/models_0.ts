@@ -716,7 +716,7 @@ export interface UpsertRowsResult {
    *             The result of the upsert action.
    *         </p>
    */
-  upsertAction: UpsertAction | string | undefined;
+  upsertAction: UpsertAction | undefined;
 }
 
 /**
@@ -792,7 +792,7 @@ export interface Cell {
    * <p>The format of the cell. If this field is empty, then the format is either not specified in the
    *         workbook or the format is set to AUTO.</p>
    */
-  format?: Format | string;
+  format?: Format;
 
   /**
    * @public
@@ -891,7 +891,7 @@ export interface ColumnMetadata {
    * @public
    * <p>The format of the column.</p>
    */
-  format: Format | string | undefined;
+  format: Format | undefined;
 }
 
 /**
@@ -906,7 +906,7 @@ export interface DataItem {
    *             the data than the default format defined on the screen or the table.
    *         </p>
    */
-  overrideFormat?: Format | string;
+  overrideFormat?: Format;
 
   /**
    * @public
@@ -969,7 +969,7 @@ export interface DelimitedTextImportOptions {
    * @public
    * <p>The encoding of the data in the input file.</p>
    */
-  dataCharacterEncoding?: ImportDataCharacterEncoding | string;
+  dataCharacterEncoding?: ImportDataCharacterEncoding;
 }
 
 /**
@@ -1174,7 +1174,7 @@ export interface DescribeTableDataImportJobResult {
    *             The current status of the import job.
    *         </p>
    */
-  jobStatus: TableDataImportJobStatus | string | undefined;
+  jobStatus: TableDataImportJobStatus | undefined;
 
   /**
    * @public
@@ -1198,7 +1198,7 @@ export interface DescribeTableDataImportJobResult {
    *             If job status is failed, error code to understand reason for the failure.
    *         </p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: ErrorCode;
 }
 
 /**
@@ -1499,7 +1499,7 @@ export interface TableColumn {
    *             column format is the default value 'AUTO'.
    *         </p>
    */
-  format?: Format | string;
+  format?: Format;
 }
 
 /**
@@ -1873,7 +1873,7 @@ export interface StartTableDataImportJobRequest {
    *             The format of the data that is being imported. Currently the only option supported is "DELIMITED_TEXT".
    *         </p>
    */
-  dataFormat: ImportSourceDataFormat | string | undefined;
+  dataFormat: ImportSourceDataFormat | undefined;
 
   /**
    * @public
@@ -1928,7 +1928,7 @@ export interface StartTableDataImportJobResult {
    *             The status of the import job immediately after submitting the request.
    *         </p>
    */
-  jobStatus: TableDataImportJobStatus | string | undefined;
+  jobStatus: TableDataImportJobStatus | undefined;
 }
 
 /**

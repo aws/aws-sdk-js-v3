@@ -28,7 +28,7 @@ export class AccessDeniedException extends __BaseException {
    * @public
    * <p>A reason code for the exception.</p>
    */
-  reason?: AccessDeniedExceptionReason | string;
+  reason?: AccessDeniedExceptionReason;
 
   /**
    * @internal
@@ -76,7 +76,7 @@ export interface AggregateColumn {
    * @public
    * <p>Aggregation function that can be applied to aggregate column in query.</p>
    */
-  function: AggregateFunctionName | string | undefined;
+  function: AggregateFunctionName | undefined;
 }
 
 /**
@@ -118,7 +118,7 @@ export interface AggregationConstraint {
    * <p>The type of aggregation the constraint allows. The only valid value is currently
    *          `COUNT_DISTINCT`.</p>
    */
-  type: AggregationType | string | undefined;
+  type: AggregationType | undefined;
 }
 
 /**
@@ -191,7 +191,7 @@ export interface AnalysisParameter {
    * @public
    * <p>The type of parameter.</p>
    */
-  type: ParameterType | string | undefined;
+  type: ParameterType | undefined;
 
   /**
    * @public
@@ -277,14 +277,14 @@ export interface AnalysisRuleAggregation {
    * <p>Control that requires member who runs query to do a join with their configured table
    *          and/or other configured table in query.</p>
    */
-  joinRequired?: JoinRequiredOption | string;
+  joinRequired?: JoinRequiredOption;
 
   /**
    * @public
    * <p>Which logical operators (if any) are to be used in an INNER JOIN match condition.
    *          Default is <code>AND</code>.</p>
    */
-  allowedJoinOperators?: (JoinOperator | string)[];
+  allowedJoinOperators?: JoinOperator[];
 
   /**
    * @public
@@ -297,7 +297,7 @@ export interface AnalysisRuleAggregation {
    * <p>Set of scalar functions that are allowed to be used on dimension columns and the output
    *          of aggregation of metrics.</p>
    */
-  scalarFunctions: (ScalarFunctions | string)[] | undefined;
+  scalarFunctions: ScalarFunctions[] | undefined;
 
   /**
    * @public
@@ -344,7 +344,7 @@ export interface AnalysisRuleList {
    * <p>The logical operators (if any) that are to be used in an INNER JOIN match condition.
    *          Default is <code>AND</code>.</p>
    */
-  allowedJoinOperators?: (JoinOperator | string)[];
+  allowedJoinOperators?: JoinOperator[];
 
   /**
    * @public
@@ -493,7 +493,7 @@ export interface AnalysisRule {
    * @public
    * <p>The type of analysis rule.</p>
    */
-  type: AnalysisRuleType | string | undefined;
+  type: AnalysisRuleType | undefined;
 
   /**
    * @public
@@ -645,7 +645,7 @@ export interface AnalysisTemplate {
    * @public
    * <p>The format of the analysis template.</p>
    */
-  format: AnalysisFormat | string | undefined;
+  format: AnalysisFormat | undefined;
 
   /**
    * @public
@@ -708,13 +708,13 @@ export class ConflictException extends __BaseException {
    * @public
    * <p>The type of the conflicting resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
    * <p>A reason code for the exception.</p>
    */
-  reason?: ConflictExceptionReason | string;
+  reason?: ConflictExceptionReason;
 
   /**
    * @internal
@@ -758,7 +758,7 @@ export interface CreateAnalysisTemplateInput {
    * @public
    * <p>The format of the analysis template.</p>
    */
-  format: AnalysisFormat | string | undefined;
+  format: AnalysisFormat | undefined;
 
   /**
    * @public
@@ -831,7 +831,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The type of the missing resource.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @internal
@@ -947,7 +947,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>A reason code for the exception.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -1253,7 +1253,7 @@ export interface CollaborationAnalysisTemplate {
    * @public
    * <p>The format of the analysis template in the collaboration.</p>
    */
-  format: AnalysisFormat | string | undefined;
+  format: AnalysisFormat | undefined;
 
   /**
    * @public
@@ -1408,14 +1408,14 @@ export interface Schema {
    * <p>The analysis rule types associated with the schema. Currently, only one entry is
    *          present.</p>
    */
-  analysisRuleTypes: (AnalysisRuleType | string)[] | undefined;
+  analysisRuleTypes: AnalysisRuleType[] | undefined;
 
   /**
    * @public
    * <p>The analysis method for the schema. The only valid value is currently
    *          DIRECT_QUERY.</p>
    */
-  analysisMethod?: AnalysisMethod | string;
+  analysisMethod?: AnalysisMethod;
 
   /**
    * @public
@@ -1464,7 +1464,7 @@ export interface Schema {
    * @public
    * <p>The type of schema. The only valid value is currently `TABLE`.</p>
    */
-  type: SchemaType | string | undefined;
+  type: SchemaType | undefined;
 }
 
 /**
@@ -1550,7 +1550,7 @@ export interface MemberSpecification {
    * @public
    * <p>The abilities granted to the collaboration member.</p>
    */
-  memberAbilities: (MemberAbility | string)[] | undefined;
+  memberAbilities: MemberAbility[] | undefined;
 
   /**
    * @public
@@ -1600,7 +1600,7 @@ export interface CreateCollaborationInput {
    * @public
    * <p>The abilities granted to the collaboration creator.</p>
    */
-  creatorMemberAbilities: (MemberAbility | string)[] | undefined;
+  creatorMemberAbilities: MemberAbility[] | undefined;
 
   /**
    * @public
@@ -1620,7 +1620,7 @@ export interface CreateCollaborationInput {
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
-  queryLogStatus: CollaborationQueryLogStatus | string | undefined;
+  queryLogStatus: CollaborationQueryLogStatus | undefined;
 
   /**
    * @public
@@ -1708,7 +1708,7 @@ export interface Collaboration {
    * @public
    * <p>The status of a member in a collaboration.</p>
    */
-  memberStatus: MemberStatus | string | undefined;
+  memberStatus: MemberStatus | undefined;
 
   /**
    * @public
@@ -1733,7 +1733,7 @@ export interface Collaboration {
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
-  queryLogStatus: CollaborationQueryLogStatus | string | undefined;
+  queryLogStatus: CollaborationQueryLogStatus | undefined;
 }
 
 /**
@@ -1888,7 +1888,7 @@ export interface GetSchemaAnalysisRuleInput {
    * <p>The type of the schema analysis rule to retrieve. Schema analysis rules are uniquely
    *          identified by a combination of the collaboration, the schema name, and their type.</p>
    */
-  type: AnalysisRuleType | string | undefined;
+  type: AnalysisRuleType | undefined;
 }
 
 /**
@@ -2046,7 +2046,7 @@ export interface ListCollaborationsInput {
    * @public
    * <p>The caller's status in a collaboration.</p>
    */
-  memberStatus?: FilterableMemberStatus | string;
+  memberStatus?: FilterableMemberStatus;
 }
 
 /**
@@ -2102,7 +2102,7 @@ export interface CollaborationSummary {
    * @public
    * <p>The status of a member in a collaboration.</p>
    */
-  memberStatus: MemberStatus | string | undefined;
+  memberStatus: MemberStatus | undefined;
 
   /**
    * @public
@@ -2176,7 +2176,7 @@ export interface MemberSummary {
    * <p>The status of the member. Valid values are `INVITED`, `ACTIVE`, `LEFT`, and
    *          `REMOVED`.</p>
    */
-  status: MemberStatus | string | undefined;
+  status: MemberStatus | undefined;
 
   /**
    * @public
@@ -2188,7 +2188,7 @@ export interface MemberSummary {
    * @public
    * <p>The abilities granted to the collaboration member.</p>
    */
-  abilities: (MemberAbility | string)[] | undefined;
+  abilities: MemberAbility[] | undefined;
 
   /**
    * @public
@@ -2249,7 +2249,7 @@ export interface ListSchemasInput {
    * <p>If present, filter schemas by schema type. The only valid schema type is currently
    *          `TABLE`.</p>
    */
-  schemaType?: SchemaType | string;
+  schemaType?: SchemaType;
 
   /**
    * @public
@@ -2280,7 +2280,7 @@ export interface SchemaSummary {
    * @public
    * <p>The type of schema object. The only valid schema type is currently `TABLE`.</p>
    */
-  type: SchemaType | string | undefined;
+  type: SchemaType | undefined;
 
   /**
    * @public
@@ -2316,14 +2316,14 @@ export interface SchemaSummary {
    * @public
    * <p>The types of analysis rules that are associated with this schema object.</p>
    */
-  analysisRuleTypes: (AnalysisRuleType | string)[] | undefined;
+  analysisRuleTypes: AnalysisRuleType[] | undefined;
 
   /**
    * @public
    * <p>The analysis method for the associated schema. The only valid value is currently
    *          `DIRECT_QUERY`.</p>
    */
-  analysisMethod?: AnalysisMethod | string;
+  analysisMethod?: AnalysisMethod;
 }
 
 /**
@@ -2799,7 +2799,7 @@ export interface CreateConfiguredTableInput {
    * <p>The analysis method for the configured tables. The only valid value is currently
    *          `DIRECT_QUERY`.</p>
    */
-  analysisMethod: AnalysisMethod | string | undefined;
+  analysisMethod: AnalysisMethod | undefined;
 
   /**
    * @public
@@ -2879,14 +2879,14 @@ export interface ConfiguredTable {
    * <p>The types of analysis rules associated with this configured table. Currently, only one
    *          analysis rule may be associated with a configured table.</p>
    */
-  analysisRuleTypes: (ConfiguredTableAnalysisRuleType | string)[] | undefined;
+  analysisRuleTypes: ConfiguredTableAnalysisRuleType[] | undefined;
 
   /**
    * @public
    * <p>The analysis method for the configured table. The only valid value is currently
    *          `DIRECT_QUERY`.</p>
    */
-  analysisMethod: AnalysisMethod | string | undefined;
+  analysisMethod: AnalysisMethod | undefined;
 
   /**
    * @public
@@ -3035,7 +3035,7 @@ export interface CreateConfiguredTableAnalysisRuleInput {
    * @public
    * <p>The type of analysis rule.</p>
    */
-  analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
+  analysisRuleType: ConfiguredTableAnalysisRuleType | undefined;
 
   /**
    * @public
@@ -3072,7 +3072,7 @@ export interface ConfiguredTableAnalysisRule {
    * @public
    * <p>The type of configured table analysis rule.</p>
    */
-  type: ConfiguredTableAnalysisRuleType | string | undefined;
+  type: ConfiguredTableAnalysisRuleType | undefined;
 
   /**
    * @public
@@ -3131,7 +3131,7 @@ export interface DeleteConfiguredTableAnalysisRuleInput {
    * <p>The analysis rule type to be deleted. Configured table analysis rules are uniquely
    *          identified by their configured table identifier and analysis rule type.</p>
    */
-  analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
+  analysisRuleType: ConfiguredTableAnalysisRuleType | undefined;
 }
 
 /**
@@ -3178,7 +3178,7 @@ export interface GetConfiguredTableAnalysisRuleInput {
    * <p>The analysis rule to be retrieved. Configured table analysis rules are uniquely
    *          identified by their configured table identifier and analysis rule type.</p>
    */
-  analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
+  analysisRuleType: ConfiguredTableAnalysisRuleType | undefined;
 }
 
 /**
@@ -3249,14 +3249,14 @@ export interface ConfiguredTableSummary {
    * @public
    * <p>The types of analysis rules associated with this configured table.</p>
    */
-  analysisRuleTypes: (ConfiguredTableAnalysisRuleType | string)[] | undefined;
+  analysisRuleTypes: ConfiguredTableAnalysisRuleType[] | undefined;
 
   /**
    * @public
    * <p>The analysis method for the configured tables. The only valid value is currently
    *          `DIRECT_QUERY`.</p>
    */
-  analysisMethod: AnalysisMethod | string | undefined;
+  analysisMethod: AnalysisMethod | undefined;
 }
 
 /**
@@ -3328,7 +3328,7 @@ export interface UpdateConfiguredTableAnalysisRuleInput {
    * <p>The analysis rule type to be updated. Configured table analysis rules are uniquely
    *          identified by their configured table identifier and analysis rule type.</p>
    */
-  analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
+  analysisRuleType: ConfiguredTableAnalysisRuleType | undefined;
 
   /**
    * @public
@@ -3394,7 +3394,7 @@ export interface ProtectedQueryS3OutputConfiguration {
    * @public
    * <p>Intended file format of the result.</p>
    */
-  resultFormat: ResultFormat | string | undefined;
+  resultFormat: ResultFormat | undefined;
 
   /**
    * @public
@@ -3501,7 +3501,7 @@ export interface CreateMembershipInput {
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
-  queryLogStatus: MembershipQueryLogStatus | string | undefined;
+  queryLogStatus: MembershipQueryLogStatus | undefined;
 
   /**
    * @public
@@ -3601,20 +3601,20 @@ export interface Membership {
    * <p>The status of the membership. Valid values are `ACTIVE`, `REMOVED`, and
    *          `COLLABORATION_DELETED`.</p>
    */
-  status: MembershipStatus | string | undefined;
+  status: MembershipStatus | undefined;
 
   /**
    * @public
    * <p>The abilities granted to the collaboration member.</p>
    */
-  memberAbilities: (MemberAbility | string)[] | undefined;
+  memberAbilities: MemberAbility[] | undefined;
 
   /**
    * @public
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
-  queryLogStatus: MembershipQueryLogStatus | string | undefined;
+  queryLogStatus: MembershipQueryLogStatus | undefined;
 
   /**
    * @public
@@ -3951,7 +3951,7 @@ export interface ProtectedQuery {
    * @public
    * <p>The status of the query.</p>
    */
-  status: ProtectedQueryStatus | string | undefined;
+  status: ProtectedQueryStatus | undefined;
 
   /**
    * @public
@@ -4010,7 +4010,7 @@ export interface ListMembershipsInput {
    * @public
    * <p>A filter which will return only memberships in the specified status.</p>
    */
-  status?: MembershipStatus | string;
+  status?: MembershipStatus;
 }
 
 /**
@@ -4078,13 +4078,13 @@ export interface MembershipSummary {
    * <p>The status of the membership. Valid values are `ACTIVE`, `REMOVED`, and
    *          `COLLABORATION_DELETED`.</p>
    */
-  status: MembershipStatus | string | undefined;
+  status: MembershipStatus | undefined;
 
   /**
    * @public
    * <p>The abilities granted to the collaboration member.</p>
    */
-  memberAbilities: (MemberAbility | string)[] | undefined;
+  memberAbilities: MemberAbility[] | undefined;
 }
 
 /**
@@ -4119,7 +4119,7 @@ export interface ListProtectedQueriesInput {
    * @public
    * <p>A filter on the status of the protected query.</p>
    */
-  status?: ProtectedQueryStatus | string;
+  status?: ProtectedQueryStatus;
 
   /**
    * @public
@@ -4171,7 +4171,7 @@ export interface ProtectedQuerySummary {
    * <p>The status of the protected query. Value values are `SUBMITTED`, `STARTED`, `CANCELLED`,
    *          `CANCELLING`, `FAILED`, `SUCCESS`, `TIMED_OUT`.</p>
    */
-  status: ProtectedQueryStatus | string | undefined;
+  status: ProtectedQueryStatus | undefined;
 }
 
 /**
@@ -4213,7 +4213,7 @@ export interface StartProtectedQueryInput {
    * @public
    * <p>The type of the protected query to be started.</p>
    */
-  type: ProtectedQueryType | string | undefined;
+  type: ProtectedQueryType | undefined;
 
   /**
    * @public
@@ -4261,7 +4261,7 @@ export interface UpdateMembershipInput {
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
-  queryLogStatus?: MembershipQueryLogStatus | string;
+  queryLogStatus?: MembershipQueryLogStatus;
 
   /**
    * @public
@@ -4317,7 +4317,7 @@ export interface UpdateProtectedQueryInput {
    * <p>The target status of a query. Used to update the execution status of a currently running
    *          query.</p>
    */
-  targetStatus: TargetProtectedQueryStatus | string | undefined;
+  targetStatus: TargetProtectedQueryStatus | undefined;
 }
 
 /**

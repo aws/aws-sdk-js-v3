@@ -112,7 +112,7 @@ export interface EncryptionKey {
    * @public
    * <p>The type of encryption key used by Amazon Translate to encrypt this object.</p>
    */
-  Type: EncryptionKeyType | string | undefined;
+  Type: EncryptionKeyType | undefined;
 
   /**
    * @public
@@ -152,7 +152,7 @@ export interface ParallelDataConfig {
    * @public
    * <p>The format of the parallel data input file.</p>
    */
-  Format: ParallelDataFormat | string | undefined;
+  Format: ParallelDataFormat | undefined;
 }
 
 /**
@@ -252,7 +252,7 @@ export interface CreateParallelDataResponse {
    * <p>The status of the parallel data resource. When the resource is ready for you to use, the
    *       status is <code>ACTIVE</code>.</p>
    */
-  Status?: ParallelDataStatus | string;
+  Status?: ParallelDataStatus;
 }
 
 /**
@@ -416,7 +416,7 @@ export interface DeleteParallelDataResponse {
    * @public
    * <p>The status of the parallel data deletion.</p>
    */
-  Status?: ParallelDataStatus | string;
+  Status?: ParallelDataStatus;
 }
 
 /**
@@ -636,7 +636,7 @@ export interface TranslationSettings {
    *          <p>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages">Supported languages</a>
    *       in the Amazon Translate Developer Guide.</p>
    */
-  Formality?: Formality | string;
+  Formality?: Formality;
 
   /**
    * @public
@@ -653,7 +653,7 @@ export interface TranslationSettings {
    *       translation job won't mask profanity for any target
    *       language.</p>
    */
-  Profanity?: Profanity | string;
+  Profanity?: Profanity;
 }
 
 /**
@@ -677,7 +677,7 @@ export interface TextTranslationJobProperties {
    * @public
    * <p>The status of the translation job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -840,7 +840,7 @@ export interface ParallelDataProperties {
    * <p>The status of the parallel data resource. When the parallel data is ready for you to use,
    *       the status is <code>ACTIVE</code>.</p>
    */
-  Status?: ParallelDataStatus | string;
+  Status?: ParallelDataStatus;
 
   /**
    * @public
@@ -918,7 +918,7 @@ export interface ParallelDataProperties {
    * @public
    * <p>The status of the most recent update attempt for the parallel data resource.</p>
    */
-  LatestUpdateAttemptStatus?: ParallelDataStatus | string;
+  LatestUpdateAttemptStatus?: ParallelDataStatus;
 
   /**
    * @public
@@ -1008,7 +1008,7 @@ export interface GetTerminologyRequest {
    *       you must specify the same format as the input file that was imported to create it. Otherwise,
    *       Amazon Translate throws an error.</p>
    */
-  TerminologyDataFormat?: TerminologyDataFormat | string;
+  TerminologyDataFormat?: TerminologyDataFormat;
 }
 
 /**
@@ -1138,7 +1138,7 @@ export interface TerminologyProperties {
    *             </dd>
    *          </dl>
    */
-  Directionality?: Directionality | string;
+  Directionality?: Directionality;
 
   /**
    * @public
@@ -1157,7 +1157,7 @@ export interface TerminologyProperties {
    * @public
    * <p>The format of the custom terminology input file.</p>
    */
-  Format?: TerminologyDataFormat | string;
+  Format?: TerminologyDataFormat;
 }
 
 /**
@@ -1230,7 +1230,7 @@ export interface TerminologyData {
    * @public
    * <p>The data format of the custom terminology.</p>
    */
-  Format: TerminologyDataFormat | string | undefined;
+  Format: TerminologyDataFormat | undefined;
 
   /**
    * @public
@@ -1254,7 +1254,7 @@ export interface TerminologyData {
    *          <p>When you create a custom terminology resource without specifying the directionality, it
    *       behaves as uni-directional terminology, although this parameter will have a null value.</p>
    */
-  Directionality?: Directionality | string;
+  Directionality?: Directionality;
 }
 
 /**
@@ -1273,7 +1273,7 @@ export interface ImportTerminologyRequest {
    *       merge strategy is supported. In this case, the imported terminology will overwrite an existing
    *       terminology of the same name.</p>
    */
-  MergeStrategy: MergeStrategy | string | undefined;
+  MergeStrategy: MergeStrategy | undefined;
 
   /**
    * @public
@@ -1354,7 +1354,7 @@ export interface ListLanguagesRequest {
    * <p>The language code for the language to use to display the language names in the response.
    *       The language code is <code>en</code> by default. </p>
    */
-  DisplayLanguageCode?: DisplayLanguageCode | string;
+  DisplayLanguageCode?: DisplayLanguageCode;
 
   /**
    * @public
@@ -1401,7 +1401,7 @@ export interface ListLanguagesResponse {
    * @public
    * <p>The language code passed in with the request.</p>
    */
-  DisplayLanguageCode?: DisplayLanguageCode | string;
+  DisplayLanguageCode?: DisplayLanguageCode;
 
   /**
    * @public
@@ -1574,7 +1574,7 @@ export interface TextTranslationJobFilter {
    * @public
    * <p>Filters the list of jobs based by job status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -1782,7 +1782,7 @@ export interface StartTextTranslationJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -1847,7 +1847,7 @@ export interface StopTextTranslationJobResponse {
    * <p>The status of the designated job. Upon successful completion, the job's status will be
    *         <code>STOPPED</code>.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -2245,14 +2245,14 @@ export interface UpdateParallelDataResponse {
    *       request is accepted only if this status is either <code>ACTIVE</code> or
    *       <code>FAILED</code>.</p>
    */
-  Status?: ParallelDataStatus | string;
+  Status?: ParallelDataStatus;
 
   /**
    * @public
    * <p>The status of the parallel data update attempt. When the updated parallel data resource is
    *       ready for you to use, the status is <code>ACTIVE</code>.</p>
    */
-  LatestUpdateAttemptStatus?: ParallelDataStatus | string;
+  LatestUpdateAttemptStatus?: ParallelDataStatus;
 
   /**
    * @public

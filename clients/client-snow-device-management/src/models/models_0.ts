@@ -411,13 +411,13 @@ export interface PhysicalNetworkInterface {
    *       physical
    *       connector type.</p>
    */
-  physicalConnectorType?: PhysicalConnectorType | string;
+  physicalConnectorType?: PhysicalConnectorType;
 
   /**
    * @public
    * <p>A value that describes whether the IP address is dynamic or persistent.</p>
    */
-  ipAddressAssignment?: IpAddressAssignment | string;
+  ipAddressAssignment?: IpAddressAssignment;
 
   /**
    * @public
@@ -522,7 +522,7 @@ export interface DescribeDeviceOutput {
    * @public
    * <p>The current state of the device.</p>
    */
-  deviceState?: UnlockState | string;
+  deviceState?: UnlockState;
 
   /**
    * @public
@@ -582,7 +582,7 @@ export interface EbsInstanceBlockDevice {
    * @public
    * <p>The attachment state.</p>
    */
-  status?: AttachmentStatus | string;
+  status?: AttachmentStatus;
 
   /**
    * @public
@@ -704,7 +704,7 @@ export interface InstanceState {
    *       state
    *       of the instance.</p>
    */
-  name?: InstanceStateName | string;
+  name?: InstanceStateName;
 }
 
 /**
@@ -885,7 +885,7 @@ export interface DescribeExecutionOutput {
    * @public
    * <p>The current state of the execution.</p>
    */
-  state?: ExecutionState | string;
+  state?: ExecutionState;
 
   /**
    * @public
@@ -952,7 +952,7 @@ export interface DescribeTaskOutput {
    * @public
    * <p>The current state of the task.</p>
    */
-  state?: TaskState | string;
+  state?: TaskState;
 
   /**
    * @public
@@ -1031,7 +1031,7 @@ export interface ListExecutionsInput {
    * @public
    * <p>A structure used to filter the tasks by their current state.</p>
    */
-  state?: ExecutionState | string;
+  state?: ExecutionState;
 
   /**
    * @public
@@ -1073,7 +1073,7 @@ export interface ExecutionSummary {
    * @public
    * <p>The state of the execution.</p>
    */
-  state?: ExecutionState | string;
+  state?: ExecutionState;
 }
 
 /**
@@ -1234,7 +1234,7 @@ export interface ListTasksInput {
    * @public
    * <p>A structure used to filter the list of tasks.</p>
    */
-  state?: TaskState | string;
+  state?: TaskState;
 
   /**
    * @public
@@ -1270,7 +1270,7 @@ export interface TaskSummary {
    * @public
    * <p>The state of the task assigned to one or many devices.</p>
    */
-  state?: TaskState | string;
+  state?: TaskState;
 
   /**
    * @public

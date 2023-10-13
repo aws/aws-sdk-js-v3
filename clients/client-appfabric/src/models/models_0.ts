@@ -131,7 +131,7 @@ export interface AppAuthorization {
    * @public
    * <p>The authorization type.</p>
    */
-  authType: AuthType | string | undefined;
+  authType: AuthType | undefined;
 
   /**
    * @public
@@ -163,7 +163,7 @@ export interface AppAuthorization {
    *             </li>
    *          </ul>
    */
-  status: AppAuthorizationStatus | string | undefined;
+  status: AppAuthorizationStatus | undefined;
 
   /**
    * @public
@@ -182,7 +182,7 @@ export interface AppAuthorization {
    * <p>The user persona of the app authorization.</p>
    *          <p>This field should always be <code>admin</code>.</p>
    */
-  persona?: Persona | string;
+  persona?: Persona;
 
   /**
    * @public
@@ -251,7 +251,7 @@ export interface AppAuthorizationSummary {
    *             </li>
    *          </ul>
    */
-  status: AppAuthorizationStatus | string | undefined;
+  status: AppAuthorizationStatus | undefined;
 
   /**
    * @public
@@ -422,13 +422,13 @@ export interface AuditLogProcessingConfiguration {
    * @public
    * <p>The event schema in which the audit logs need to be formatted.</p>
    */
-  schema: Schema | string | undefined;
+  schema: Schema | undefined;
 
   /**
    * @public
    * <p>The format in which the audit logs need to be formatted.</p>
    */
-  format: Format | string | undefined;
+  format: Format | undefined;
 }
 
 /**
@@ -555,7 +555,7 @@ export interface UserAccessResultItem {
    *             </li>
    *          </ul>
    */
-  resultStatus?: ResultStatus | string;
+  resultStatus?: ResultStatus;
 
   /**
    * @public
@@ -764,7 +764,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -1052,7 +1052,7 @@ export interface CreateAppAuthorizationRequest {
    * @public
    * <p>The authorization type for the app authorization.</p>
    */
-  authType: AuthType | string | undefined;
+  authType: AuthType | undefined;
 
   /**
    * @public
@@ -1282,7 +1282,7 @@ export interface CreateIngestionRequest {
    * @public
    * <p>The ingestion type.</p>
    */
-  ingestionType: IngestionType | string | undefined;
+  ingestionType: IngestionType | undefined;
 
   /**
    * @public
@@ -1365,13 +1365,13 @@ export interface Ingestion {
    * @public
    * <p>The status of the ingestion.</p>
    */
-  state: IngestionState | string | undefined;
+  state: IngestionState | undefined;
 
   /**
    * @public
    * <p>The type of the ingestion.</p>
    */
-  ingestionType: IngestionType | string | undefined;
+  ingestionType: IngestionType | undefined;
 }
 
 /**
@@ -1576,7 +1576,7 @@ export interface IngestionDestination {
    *             </li>
    *          </ul>
    */
-  status?: IngestionDestinationStatus | string;
+  status?: IngestionDestinationStatus;
 
   /**
    * @public
@@ -2051,7 +2051,7 @@ export interface IngestionSummary {
    * @public
    * <p>The status of the ingestion.</p>
    */
-  state: IngestionState | string | undefined;
+  state: IngestionState | undefined;
 }
 
 /**

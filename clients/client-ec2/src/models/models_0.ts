@@ -273,7 +273,7 @@ export interface TagSpecification {
    * @public
    * <p>The type of resource to tag on creation.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -365,7 +365,7 @@ export interface AddressTransfer {
    * @public
    * <p>The Elastic IP address transfer status.</p>
    */
-  AddressTransferStatus?: AddressTransferStatus | string;
+  AddressTransferStatus?: AddressTransferStatus;
 }
 
 /**
@@ -523,7 +523,7 @@ export interface SubnetAssociation {
    * @public
    * <p>The state of the subnet association.</p>
    */
-  State?: TransitGatewayMulitcastDomainAssociationState | string;
+  State?: TransitGatewayMulitcastDomainAssociationState;
 }
 
 /**
@@ -553,7 +553,7 @@ export interface TransitGatewayMulticastDomainAssociations {
    * @public
    * <p>The type of resource, for example a VPC attachment.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
    * @public
@@ -651,7 +651,7 @@ export interface TransitGatewayPeeringAttachmentOptions {
    * @public
    * <p>Describes whether dynamic routing is enabled or disabled for the transit gateway peering attachment.</p>
    */
-  DynamicRouting?: DynamicRoutingValue | string;
+  DynamicRouting?: DynamicRoutingValue;
 }
 
 /**
@@ -743,7 +743,7 @@ export interface TransitGatewayPeeringAttachment {
    * @public
    * <p>The state of the transit gateway peering attachment. Note that the <code>initiating</code> state has been deprecated.</p>
    */
-  State?: TransitGatewayAttachmentState | string;
+  State?: TransitGatewayAttachmentState;
 
   /**
    * @public
@@ -839,19 +839,19 @@ export interface TransitGatewayVpcAttachmentOptions {
    * @public
    * <p>Indicates whether DNS support is enabled.</p>
    */
-  DnsSupport?: DnsSupportValue | string;
+  DnsSupport?: DnsSupportValue;
 
   /**
    * @public
    * <p>Indicates whether IPv6 support is disabled.</p>
    */
-  Ipv6Support?: Ipv6SupportValue | string;
+  Ipv6Support?: Ipv6SupportValue;
 
   /**
    * @public
    * <p>Indicates whether appliance mode support is enabled.</p>
    */
-  ApplianceModeSupport?: ApplianceModeSupportValue | string;
+  ApplianceModeSupport?: ApplianceModeSupportValue;
 }
 
 /**
@@ -887,7 +887,7 @@ export interface TransitGatewayVpcAttachment {
    * @public
    * <p>The state of the VPC attachment. Note that the <code>initiating</code> state has been deprecated.</p>
    */
-  State?: TransitGatewayAttachmentState | string;
+  State?: TransitGatewayAttachmentState;
 
   /**
    * @public
@@ -1146,7 +1146,7 @@ export interface VpcPeeringConnectionStateReason {
    * @public
    * <p>The status of the VPC peering connection.</p>
    */
-  Code?: VpcPeeringConnectionStateReasonCode | string;
+  Code?: VpcPeeringConnectionStateReasonCode;
 
   /**
    * @public
@@ -2357,7 +2357,7 @@ export interface PacketHeaderStatement {
    * @public
    * <p>The protocols.</p>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: Protocol[];
 }
 
 /**
@@ -2477,7 +2477,7 @@ export interface PacketHeaderStatementRequest {
    * @public
    * <p>The protocols.</p>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: Protocol[];
 }
 
 /**
@@ -2639,7 +2639,7 @@ export interface ActiveInstance {
    *             or the system status check is <code>impaired</code>, the health status of the instance
    *             is <code>unhealthy</code>. Otherwise, the health status is <code>healthy</code>.</p>
    */
-  InstanceHealth?: InstanceHealthStatus | string;
+  InstanceHealth?: InstanceHealthStatus;
 }
 
 /**
@@ -2685,7 +2685,7 @@ export interface AddedPrincipal {
    * @public
    * <p>The type of principal.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: PrincipalType;
 
   /**
    * @public
@@ -2786,7 +2786,7 @@ export interface Address {
    * @public
    * <p>The network (<code>vpc</code>).</p>
    */
-  Domain?: DomainType | string;
+  Domain?: DomainType;
 
   /**
    * @public
@@ -2994,7 +2994,7 @@ export interface ByoipCidr {
    * @public
    * <p>The state of the address pool.</p>
    */
-  State?: ByoipCidrState | string;
+  State?: ByoipCidrState;
 }
 
 /**
@@ -3030,7 +3030,7 @@ export interface AllocateAddressRequest {
    * @public
    * <p>The network (<code>vpc</code>).</p>
    */
-  Domain?: DomainType | string;
+  Domain?: DomainType;
 
   /**
    * @public
@@ -3110,7 +3110,7 @@ export interface AllocateAddressResult {
    * @public
    * <p>The network (<code>vpc</code>).</p>
    */
-  Domain?: DomainType | string;
+  Domain?: DomainType;
 
   /**
    * @public
@@ -3187,7 +3187,7 @@ export interface AllocateHostsRequest {
    *          <p>Default: <code>on</code>
    *          </p>
    */
-  AutoPlacement?: AutoPlacement | string;
+  AutoPlacement?: AutoPlacement;
 
   /**
    * @public
@@ -3248,7 +3248,7 @@ export interface AllocateHostsRequest {
    *          <p>Default: <code>off</code>
    *          </p>
    */
-  HostRecovery?: HostRecovery | string;
+  HostRecovery?: HostRecovery;
 
   /**
    * @public
@@ -3265,7 +3265,7 @@ export interface AllocateHostsRequest {
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html">Host
    *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  HostMaintenance?: HostMaintenance | string;
+  HostMaintenance?: HostMaintenance;
 
   /**
    * @public
@@ -3427,7 +3427,7 @@ export interface IpamPoolAllocation {
    * @public
    * <p>The type of the resource.</p>
    */
-  ResourceType?: IpamPoolAllocationResourceType | string;
+  ResourceType?: IpamPoolAllocationResourceType;
 
   /**
    * @public
@@ -3510,7 +3510,7 @@ export interface AllowedPrincipal {
    * @public
    * <p>The type of principal.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: PrincipalType;
 
   /**
    * @public
@@ -3868,7 +3868,7 @@ export interface NatGatewayAddress {
    * @public
    * <p>The address status.</p>
    */
-  Status?: NatGatewayAddressStatus | string;
+  Status?: NatGatewayAddressStatus;
 }
 
 /**
@@ -4005,7 +4005,7 @@ export interface AssociationStatus {
    * @public
    * <p>The state of the target network association.</p>
    */
-  Code?: AssociationStatusCode | string;
+  Code?: AssociationStatusCode;
 
   /**
    * @public
@@ -4202,7 +4202,7 @@ export interface IamInstanceProfileAssociation {
    * @public
    * <p>The state of the association.</p>
    */
-  State?: IamInstanceProfileAssociationState | string;
+  State?: IamInstanceProfileAssociationState;
 
   /**
    * @public
@@ -4345,7 +4345,7 @@ export interface InstanceEventWindowTimeRange {
    * @public
    * <p>The day on which the time range begins.</p>
    */
-  StartWeekDay?: WeekDay | string;
+  StartWeekDay?: WeekDay;
 
   /**
    * @public
@@ -4357,7 +4357,7 @@ export interface InstanceEventWindowTimeRange {
    * @public
    * <p>The day on which the time range ends.</p>
    */
-  EndWeekDay?: WeekDay | string;
+  EndWeekDay?: WeekDay;
 
   /**
    * @public
@@ -4405,7 +4405,7 @@ export interface InstanceEventWindow {
    * @public
    * <p>The current state of the event window.</p>
    */
-  State?: InstanceEventWindowState | string;
+  State?: InstanceEventWindowState;
 
   /**
    * @public
@@ -4568,7 +4568,7 @@ export interface IpamResourceDiscoveryAssociation {
    *             </li>
    *          </ul>
    */
-  ResourceDiscoveryStatus?: IpamAssociatedResourceDiscoveryStatus | string;
+  ResourceDiscoveryStatus?: IpamAssociatedResourceDiscoveryStatus;
 
   /**
    * @public
@@ -4612,7 +4612,7 @@ export interface IpamResourceDiscoveryAssociation {
    *             </li>
    *          </ul>
    */
-  State?: IpamResourceDiscoveryAssociationState | string;
+  State?: IpamResourceDiscoveryAssociationState;
 
   /**
    * @public
@@ -4738,7 +4738,7 @@ export interface RouteTableAssociationState {
    * @public
    * <p>The state of the association.</p>
    */
-  State?: RouteTableAssociationStateCode | string;
+  State?: RouteTableAssociationStateCode;
 
   /**
    * @public
@@ -4810,7 +4810,7 @@ export interface SubnetCidrBlockState {
    * @public
    * <p>The state of a CIDR block.</p>
    */
-  State?: SubnetCidrBlockStateCode | string;
+  State?: SubnetCidrBlockStateCode;
 
   /**
    * @public
@@ -4971,13 +4971,13 @@ export interface TransitGatewayPolicyTableAssociation {
    * @public
    * <p>The resource type for the transit gateway policy table association.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
    * @public
    * <p>The state of the transit gateway policy table association.</p>
    */
-  State?: TransitGatewayAssociationState | string;
+  State?: TransitGatewayAssociationState;
 }
 
 /**
@@ -5043,13 +5043,13 @@ export interface TransitGatewayAssociation {
    * @public
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
    * @public
    * <p>The state of the association.</p>
    */
-  State?: TransitGatewayAssociationState | string;
+  State?: TransitGatewayAssociationState;
 }
 
 /**
@@ -5153,7 +5153,7 @@ export interface TrunkInterfaceAssociation {
    * @public
    * <p>The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p>
    */
-  InterfaceProtocol?: InterfaceProtocolType | string;
+  InterfaceProtocol?: InterfaceProtocolType;
 
   /**
    * @public
@@ -5290,7 +5290,7 @@ export interface VpcCidrBlockState {
    * @public
    * <p>The state of the CIDR block.</p>
    */
-  State?: VpcCidrBlockStateCode | string;
+  State?: VpcCidrBlockStateCode;
 
   /**
    * @public
@@ -5650,19 +5650,19 @@ export interface VerifiedAccessTrustProviderCondensed {
    * @public
    * <p>The type of trust provider (user- or device-based).</p>
    */
-  TrustProviderType?: TrustProviderType | string;
+  TrustProviderType?: TrustProviderType;
 
   /**
    * @public
    * <p>The type of user-based trust provider.</p>
    */
-  UserTrustProviderType?: UserTrustProviderType | string;
+  UserTrustProviderType?: UserTrustProviderType;
 
   /**
    * @public
    * <p>The type of device-based trust provider.</p>
    */
-  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+  DeviceTrustProviderType?: DeviceTrustProviderType;
 }
 
 /**
@@ -5821,19 +5821,19 @@ export interface VerifiedAccessTrustProvider {
    * @public
    * <p>The type of Verified Access trust provider.</p>
    */
-  TrustProviderType?: TrustProviderType | string;
+  TrustProviderType?: TrustProviderType;
 
   /**
    * @public
    * <p>The type of user-based trust provider.</p>
    */
-  UserTrustProviderType?: UserTrustProviderType | string;
+  UserTrustProviderType?: UserTrustProviderType;
 
   /**
    * @public
    * <p>The type of device-based trust provider.</p>
    */
-  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+  DeviceTrustProviderType?: DeviceTrustProviderType;
 
   /**
    * @public
@@ -5973,7 +5973,7 @@ export interface VolumeAttachment {
    * @public
    * <p>The attachment state of the volume.</p>
    */
-  State?: VolumeAttachmentState | string;
+  State?: VolumeAttachmentState;
 
   /**
    * @public
@@ -6040,7 +6040,7 @@ export interface VpcAttachment {
    * @public
    * <p>The current state of the attachment.</p>
    */
-  State?: AttachmentStatus | string;
+  State?: AttachmentStatus;
 
   /**
    * @public
@@ -6136,7 +6136,7 @@ export interface ClientVpnAuthorizationRuleStatus {
    * @public
    * <p>The state of the authorization rule.</p>
    */
-  Code?: ClientVpnAuthorizationRuleStatusCode | string;
+  Code?: ClientVpnAuthorizationRuleStatusCode;
 
   /**
    * @public
@@ -6819,7 +6819,7 @@ export interface BundleTask {
    * @public
    * <p>The state of the task.</p>
    */
-  State?: BundleTaskState | string;
+  State?: BundleTaskState;
 
   /**
    * @public
@@ -6990,13 +6990,13 @@ export interface CapacityReservationFleetCancellationState {
    * @public
    * <p>The current state of the Capacity Reservation Fleet.</p>
    */
-  CurrentFleetState?: CapacityReservationFleetState | string;
+  CurrentFleetState?: CapacityReservationFleetState;
 
   /**
    * @public
    * <p>The previous state of the Capacity Reservation Fleet.</p>
    */
-  PreviousFleetState?: CapacityReservationFleetState | string;
+  PreviousFleetState?: CapacityReservationFleetState;
 
   /**
    * @public
@@ -7180,7 +7180,7 @@ export interface InstanceCount {
    * @public
    * <p>The states of the listed Reserved Instances.</p>
    */
-  State?: ListingState | string;
+  State?: ListingState;
 }
 
 /**
@@ -7213,7 +7213,7 @@ export interface PriceSchedule {
    * <p>The currency for transacting the Reserved Instance resale.
    * 				At this time, the only supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: CurrencyCodeValues;
 
   /**
    * @public
@@ -7290,7 +7290,7 @@ export interface ReservedInstancesListing {
    * @public
    * <p>The status of the Reserved Instance listing.</p>
    */
-  Status?: ListingStatus | string;
+  Status?: ListingStatus;
 
   /**
    * @public
@@ -7380,13 +7380,13 @@ export interface CancelSpotFleetRequestsSuccessItem {
    * @public
    * <p>The current state of the Spot Fleet request.</p>
    */
-  CurrentSpotFleetRequestState?: BatchState | string;
+  CurrentSpotFleetRequestState?: BatchState;
 
   /**
    * @public
    * <p>The previous state of the Spot Fleet request.</p>
    */
-  PreviousSpotFleetRequestState?: BatchState | string;
+  PreviousSpotFleetRequestState?: BatchState;
 
   /**
    * @public
@@ -7420,7 +7420,7 @@ export interface CancelSpotFleetRequestsError {
    * @public
    * <p>The error code.</p>
    */
-  Code?: CancelBatchErrorCode | string;
+  Code?: CancelBatchErrorCode;
 
   /**
    * @public
@@ -7519,7 +7519,7 @@ export interface CancelledSpotInstanceRequest {
    * @public
    * <p>The state of the Spot Instance request.</p>
    */
-  State?: CancelSpotInstanceRequestState | string;
+  State?: CancelSpotInstanceRequestState;
 }
 
 /**
@@ -7982,7 +7982,7 @@ export interface CreateCapacityReservationRequest {
    * @public
    * <p>The type of operating system for which to reserve capacity.</p>
    */
-  InstancePlatform: CapacityReservationInstancePlatform | string | undefined;
+  InstancePlatform: CapacityReservationInstancePlatform | undefined;
 
   /**
    * @public
@@ -8010,7 +8010,7 @@ export interface CreateCapacityReservationRequest {
    *             </li>
    *          </ul>
    */
-  Tenancy?: CapacityReservationTenancy | string;
+  Tenancy?: CapacityReservationTenancy;
 
   /**
    * @public
@@ -8068,7 +8068,7 @@ export interface CreateCapacityReservationRequest {
    *             </li>
    *          </ul>
    */
-  EndDateType?: EndDateType | string;
+  EndDateType?: EndDateType;
 
   /**
    * @public
@@ -8091,7 +8091,7 @@ export interface CreateCapacityReservationRequest {
    *          <p>Default: <code>open</code>
    *          </p>
    */
-  InstanceMatchCriteria?: InstanceMatchCriteria | string;
+  InstanceMatchCriteria?: InstanceMatchCriteria;
 
   /**
    * @public
@@ -8132,7 +8132,7 @@ export interface CapacityAllocation {
    * <p>The usage type. <code>used</code> indicates that the instance capacity is
    * 			in use by instances that are running in the Capacity Reservation.</p>
    */
-  AllocationType?: AllocationType | string;
+  AllocationType?: AllocationType;
 
   /**
    * @public
@@ -8198,7 +8198,7 @@ export interface CapacityReservation {
    * @public
    * <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
    */
-  InstancePlatform?: CapacityReservationInstancePlatform | string;
+  InstancePlatform?: CapacityReservationInstancePlatform;
 
   /**
    * @public
@@ -8220,7 +8220,7 @@ export interface CapacityReservation {
    *             </li>
    *          </ul>
    */
-  Tenancy?: CapacityReservationTenancy | string;
+  Tenancy?: CapacityReservationTenancy;
 
   /**
    * @public
@@ -8282,7 +8282,7 @@ export interface CapacityReservation {
    *             </li>
    *          </ul>
    */
-  State?: CapacityReservationState | string;
+  State?: CapacityReservationState;
 
   /**
    * @public
@@ -8313,7 +8313,7 @@ export interface CapacityReservation {
    *             </li>
    *          </ul>
    */
-  EndDateType?: EndDateType | string;
+  EndDateType?: EndDateType;
 
   /**
    * @public
@@ -8334,7 +8334,7 @@ export interface CapacityReservation {
    *             </li>
    *          </ul>
    */
-  InstanceMatchCriteria?: InstanceMatchCriteria | string;
+  InstanceMatchCriteria?: InstanceMatchCriteria;
 
   /**
    * @public
@@ -9173,13 +9173,13 @@ export interface ReservationFleetInstanceSpecification {
    * @public
    * <p>The instance type for which the Capacity Reservation Fleet reserves capacity.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
    * <p>The type of operating system for which the Capacity Reservation Fleet reserves capacity.</p>
    */
-  InstancePlatform?: CapacityReservationInstancePlatform | string;
+  InstancePlatform?: CapacityReservationInstancePlatform;
 
   /**
    * @public
@@ -9285,7 +9285,7 @@ export interface CreateCapacityReservationFleetRequest {
    *             </li>
    *          </ul>
    */
-  Tenancy?: FleetCapacityReservationTenancy | string;
+  Tenancy?: FleetCapacityReservationTenancy;
 
   /**
    * @public
@@ -9319,7 +9319,7 @@ export interface CreateCapacityReservationFleetRequest {
    * 			Availability Zone) run in the Capacity Reservations automatically. Instances do not need to
    * 			explicitly target a Capacity Reservation Fleet to use its reserved capacity.</p>
    */
-  InstanceMatchCriteria?: FleetInstanceMatchCriteria | string;
+  InstanceMatchCriteria?: FleetInstanceMatchCriteria;
 
   /**
    * @public
@@ -9356,13 +9356,13 @@ export interface FleetCapacityReservation {
    * @public
    * <p>The instance type for which the Capacity Reservation reserves capacity.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
    * <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
    */
-  InstancePlatform?: CapacityReservationInstancePlatform | string;
+  InstancePlatform?: CapacityReservationInstancePlatform;
 
   /**
    * @public
@@ -9427,7 +9427,7 @@ export interface CreateCapacityReservationFleetResult {
    * @public
    * <p>The status of the Capacity Reservation Fleet.</p>
    */
-  State?: CapacityReservationFleetState | string;
+  State?: CapacityReservationFleetState;
 
   /**
    * @public
@@ -9445,7 +9445,7 @@ export interface CreateCapacityReservationFleetResult {
    * @public
    * <p>The instance matching criteria for the Capacity Reservation Fleet.</p>
    */
-  InstanceMatchCriteria?: FleetInstanceMatchCriteria | string;
+  InstanceMatchCriteria?: FleetInstanceMatchCriteria;
 
   /**
    * @public
@@ -9469,7 +9469,7 @@ export interface CreateCapacityReservationFleetResult {
    * @public
    * <p>Indicates the tenancy of Capacity Reservation Fleet.</p>
    */
-  Tenancy?: FleetCapacityReservationTenancy | string;
+  Tenancy?: FleetCapacityReservationTenancy;
 
   /**
    * @public
@@ -9554,7 +9554,7 @@ export interface CarrierGateway {
    * @public
    * <p>The state of the carrier gateway.</p>
    */
-  State?: CarrierGatewayState | string;
+  State?: CarrierGatewayState;
 
   /**
    * @public

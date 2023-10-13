@@ -134,7 +134,7 @@ export interface SuiteDefinitionConfiguration {
    * @public
    * <p>Sets the MQTT protocol that is configured in the suite definition.</p>
    */
-  protocol?: Protocol | string;
+  protocol?: Protocol;
 }
 
 /**
@@ -265,7 +265,7 @@ export interface GetEndpointRequest {
    * @public
    * <p>The authentication method used during the device connection.</p>
    */
-  authenticationMethod?: AuthenticationMethod | string;
+  authenticationMethod?: AuthenticationMethod;
 }
 
 /**
@@ -511,7 +511,7 @@ export interface TestCaseScenario {
    *             </li>
    *          </ul>
    */
-  testCaseScenarioType?: TestCaseScenarioType | string;
+  testCaseScenarioType?: TestCaseScenarioType;
 
   /**
    * @public
@@ -554,7 +554,7 @@ export interface TestCaseScenario {
    *             </li>
    *          </ul>
    */
-  status?: TestCaseScenarioStatus | string;
+  status?: TestCaseScenarioStatus;
 
   /**
    * @public
@@ -633,7 +633,7 @@ export interface TestCaseRun {
    *             </li>
    *          </ul>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -764,7 +764,7 @@ export interface GetSuiteRunResponse {
    * @public
    * <p>Status for the test suite run.</p>
    */
-  status?: SuiteRunStatus | string;
+  status?: SuiteRunStatus;
 
   /**
    * @public
@@ -863,7 +863,7 @@ export interface SuiteDefinitionInformation {
    * @public
    * <p>Gets the MQTT protocol that is configured in the suite definition.</p>
    */
-  protocol?: Protocol | string;
+  protocol?: Protocol;
 
   /**
    * @public
@@ -973,7 +973,7 @@ export interface SuiteRunInformation {
    * @public
    * <p>Status of the suite run.</p>
    */
-  status?: SuiteRunStatus | string;
+  status?: SuiteRunStatus;
 
   /**
    * @public

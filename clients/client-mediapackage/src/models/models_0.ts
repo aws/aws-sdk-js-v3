@@ -256,7 +256,7 @@ export interface HarvestJob {
    * HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
    * include an explanation of why the HarvestJob failed.
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -323,7 +323,7 @@ export interface HlsManifest {
    * in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
    * that is greater than 0.
    */
-  AdMarkers?: AdMarkers | string;
+  AdMarkers?: AdMarkers;
 
   /**
    * @public
@@ -349,7 +349,7 @@ export interface HlsManifest {
    * When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
    * entry will be included in the media playlist.
    */
-  PlaylistType?: PlaylistType | string;
+  PlaylistType?: PlaylistType;
 
   /**
    * @public
@@ -383,7 +383,7 @@ export interface HlsManifest {
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: (__AdTriggersElement | string)[];
+  AdTriggers?: __AdTriggersElement[];
 
   /**
    * @public
@@ -396,7 +396,7 @@ export interface HlsManifest {
    * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
    * and are always treated as ads if specified in AdTriggers.
    */
-  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
+  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions;
 }
 
 /**
@@ -416,7 +416,7 @@ export interface HlsManifestCreateOrUpdateParameters {
    * in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
    * that is greater than 0.
    */
-  AdMarkers?: AdMarkers | string;
+  AdMarkers?: AdMarkers;
 
   /**
    * @public
@@ -424,7 +424,7 @@ export interface HlsManifestCreateOrUpdateParameters {
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: (__AdTriggersElement | string)[];
+  AdTriggers?: __AdTriggersElement[];
 
   /**
    * @public
@@ -437,7 +437,7 @@ export interface HlsManifestCreateOrUpdateParameters {
    * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
    * and are always treated as ads if specified in AdTriggers.
    */
-  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
+  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions;
 
   /**
    * @public
@@ -463,7 +463,7 @@ export interface HlsManifestCreateOrUpdateParameters {
    * When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
    * entry will be included in the media playlist.
    */
-  PlaylistType?: PlaylistType | string;
+  PlaylistType?: PlaylistType;
 
   /**
    * @public
@@ -571,13 +571,13 @@ export interface EncryptionContractConfiguration {
    * @public
    * A collection of audio encryption presets.
    */
-  PresetSpeke20Audio: PresetSpeke20Audio | string | undefined;
+  PresetSpeke20Audio: PresetSpeke20Audio | undefined;
 
   /**
    * @public
    * A collection of video encryption presets.
    */
-  PresetSpeke20Video: PresetSpeke20Video | string | undefined;
+  PresetSpeke20Video: PresetSpeke20Video | undefined;
 }
 
 /**
@@ -645,7 +645,7 @@ export interface CmafEncryption {
    * @public
    * The encryption method to use.
    */
-  EncryptionMethod?: CmafEncryptionMethod | string;
+  EncryptionMethod?: CmafEncryptionMethod;
 
   /**
    * @public
@@ -696,7 +696,7 @@ export interface StreamSelection {
    * @public
    * A directive that determines the order of streams in the output.
    */
-  StreamOrder?: StreamOrder | string;
+  StreamOrder?: StreamOrder;
 }
 
 /**
@@ -826,7 +826,7 @@ export interface DashPackage {
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: (__AdTriggersElement | string)[];
+  AdTriggers?: __AdTriggersElement[];
 
   /**
    * @public
@@ -839,7 +839,7 @@ export interface DashPackage {
    * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
    * and are always treated as ads if specified in AdTriggers.
    */
-  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
+  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions;
 
   /**
    * @public
@@ -857,7 +857,7 @@ export interface DashPackage {
    * @public
    * Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
    */
-  ManifestLayout?: ManifestLayout | string;
+  ManifestLayout?: ManifestLayout;
 
   /**
    * @public
@@ -884,13 +884,13 @@ export interface DashPackage {
    * be partitioned into more than one period. If the list contains "ADS", new periods will be created where
    * the Channel source contains SCTE-35 ad markers.
    */
-  PeriodTriggers?: (__PeriodTriggersElement | string)[];
+  PeriodTriggers?: __PeriodTriggersElement[];
 
   /**
    * @public
    * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled. When set to "DVB-DASH_2014", DVB-DASH 2014 compliant output is enabled.
    */
-  Profile?: Profile | string;
+  Profile?: Profile;
 
   /**
    * @public
@@ -903,7 +903,7 @@ export interface DashPackage {
    * @public
    * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
    */
-  SegmentTemplateFormat?: SegmentTemplateFormat | string;
+  SegmentTemplateFormat?: SegmentTemplateFormat;
 
   /**
    * @public
@@ -921,7 +921,7 @@ export interface DashPackage {
    * @public
    * Determines the type of UTCTiming included in the Media Presentation Description (MPD)
    */
-  UtcTiming?: UtcTiming | string;
+  UtcTiming?: UtcTiming;
 
   /**
    * @public
@@ -960,7 +960,7 @@ export interface HlsEncryption {
    * @public
    * The encryption method to use.
    */
-  EncryptionMethod?: EncryptionMethod | string;
+  EncryptionMethod?: EncryptionMethod;
 
   /**
    * @public
@@ -998,7 +998,7 @@ export interface HlsPackage {
    * in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
    * that is greater than 0.
    */
-  AdMarkers?: AdMarkers | string;
+  AdMarkers?: AdMarkers;
 
   /**
    * @public
@@ -1006,7 +1006,7 @@ export interface HlsPackage {
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: (__AdTriggersElement | string)[];
+  AdTriggers?: __AdTriggersElement[];
 
   /**
    * @public
@@ -1019,7 +1019,7 @@ export interface HlsPackage {
    * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
    * and are always treated as ads if specified in AdTriggers.
    */
-  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
+  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions;
 
   /**
    * @public
@@ -1045,7 +1045,7 @@ export interface HlsPackage {
    * When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
    * entry will be included in the media playlist.
    */
-  PlaylistType?: PlaylistType | string;
+  PlaylistType?: PlaylistType;
 
   /**
    * @public
@@ -1220,7 +1220,7 @@ export interface OriginEndpoint {
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  Origination?: Origination | string;
+  Origination?: Origination;
 
   /**
    * @public
@@ -1677,7 +1677,7 @@ export interface CreateHarvestJobResponse {
    * HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
    * include an explanation of why the HarvestJob failed.
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -1747,7 +1747,7 @@ export interface CreateOriginEndpointRequest {
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  Origination?: Origination | string;
+  Origination?: Origination;
 
   /**
    * @public
@@ -1852,7 +1852,7 @@ export interface CreateOriginEndpointResponse {
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  Origination?: Origination | string;
+  Origination?: Origination;
 
   /**
    * @public
@@ -2054,7 +2054,7 @@ export interface DescribeHarvestJobResponse {
    * HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
    * include an explanation of why the HarvestJob failed.
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -2144,7 +2144,7 @@ export interface DescribeOriginEndpointResponse {
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  Origination?: Origination | string;
+  Origination?: Origination;
 
   /**
    * @public
@@ -2597,7 +2597,7 @@ export interface UpdateOriginEndpointRequest {
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  Origination?: Origination | string;
+  Origination?: Origination;
 
   /**
    * @public
@@ -2696,7 +2696,7 @@ export interface UpdateOriginEndpointResponse {
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  Origination?: Origination | string;
+  Origination?: Origination;
 
   /**
    * @public

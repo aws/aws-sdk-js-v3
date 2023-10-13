@@ -1331,7 +1331,7 @@ export interface ExecuteFastResetInput {
    *             </li>
    *          </ul>
    */
-  action: Action | string | undefined;
+  action: Action | undefined;
 
   /**
    * @public
@@ -1894,7 +1894,7 @@ export interface ExecuteOpenCypherExplainQueryInput {
    * <p>The openCypher <code>explain</code> mode. Can be one of:
    *       <code>static</code>, <code>dynamic</code>, or <code>details</code>.</p>
    */
-  explainMode: OpenCypherExplainMode | string | undefined;
+  explainMode: OpenCypherExplainMode | undefined;
 }
 
 /**
@@ -2705,7 +2705,7 @@ export interface GetPropertygraphStreamInput {
    *             </li>
    *          </ul>
    */
-  iteratorType?: IteratorType | string;
+  iteratorType?: IteratorType;
 
   /**
    * @public
@@ -2728,7 +2728,7 @@ export interface GetPropertygraphStreamInput {
    * @public
    * <p>If set to TRUE, Neptune compresses the response using gzip encoding.</p>
    */
-  encoding?: Encoding | string;
+  encoding?: Encoding;
 }
 
 /**
@@ -2991,7 +2991,7 @@ export interface GetPropertygraphSummaryInput {
    * <p>Mode can take one of two values: <code>BASIC</code> (the default),
    *       and <code>DETAILED</code>.</p>
    */
-  mode?: GraphSummaryType | string;
+  mode?: GraphSummaryType;
 }
 
 /**
@@ -3184,7 +3184,7 @@ export interface GetRDFGraphSummaryInput {
    * <p>Mode can take one of two values: <code>BASIC</code> (the default),
    *       and <code>DETAILED</code>.</p>
    */
-  mode?: GraphSummaryType | string;
+  mode?: GraphSummaryType;
 }
 
 /**
@@ -3366,7 +3366,7 @@ export interface GetSparqlStreamInput {
    *             </li>
    *          </ul>
    */
-  iteratorType?: IteratorType | string;
+  iteratorType?: IteratorType;
 
   /**
    * @public
@@ -3389,7 +3389,7 @@ export interface GetSparqlStreamInput {
    * @public
    * <p>If set to TRUE, Neptune compresses the response using gzip encoding.</p>
    */
-  encoding?: Encoding | string;
+  encoding?: Encoding;
 }
 
 /**
@@ -3786,7 +3786,7 @@ export interface ManagePropertygraphStatisticsInput {
    *       <code>ENABLE_AUTOCOMPUTE</code>, or <code>REFRESH</code>, the last of
    *       which manually triggers DFE statistics generation.</p>
    */
-  mode?: StatisticsAutoGenerationMode | string;
+  mode?: StatisticsAutoGenerationMode;
 }
 
 /**
@@ -3829,7 +3829,7 @@ export interface ManageSparqlStatisticsInput {
    *       <code>ENABLE_AUTOCOMPUTE</code>, or <code>REFRESH</code>, the last of
    *       which manually triggers DFE statistics generation.</p>
    */
-  mode?: StatisticsAutoGenerationMode | string;
+  mode?: StatisticsAutoGenerationMode;
 }
 
 /**
@@ -4061,13 +4061,13 @@ export interface StartLoaderJobInput {
    *             </li>
    *          </ul>
    */
-  format: Format | string | undefined;
+  format: Format | undefined;
 
   /**
    * @public
    * <p>The Amazon region of the S3 bucket. This must match the Amazon Region of the DB cluster.</p>
    */
-  s3BucketRegion: S3BucketRegion | string | undefined;
+  s3BucketRegion: S3BucketRegion | undefined;
 
   /**
    * @public
@@ -4121,7 +4121,7 @@ export interface StartLoaderJobInput {
    *             </li>
    *          </ul>
    */
-  mode?: Mode | string;
+  mode?: Mode;
 
   /**
    * @public
@@ -4181,7 +4181,7 @@ export interface StartLoaderJobInput {
    *       <code>LOAD_DATA_DEADLOCK</code> error. You can generally fix the issue by setting
    *       <code>parallelism</code> to a lower setting and retrying the load command.</p>
    */
-  parallelism?: Parallelism | string;
+  parallelism?: Parallelism;
 
   /**
    * @public

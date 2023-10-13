@@ -100,7 +100,7 @@ export interface InboundConnectionStatus {
    *             </li>
    *          </ul>
    */
-  StatusCode?: InboundConnectionStatusCode | string;
+  StatusCode?: InboundConnectionStatusCode;
 
   /**
    * @public
@@ -180,7 +180,7 @@ export interface InboundConnection {
    * @public
    * <p>The connection mode.</p>
    */
-  ConnectionMode?: ConnectionMode | string;
+  ConnectionMode?: ConnectionMode;
 }
 
 /**
@@ -317,7 +317,7 @@ export interface OptionStatus {
    * @public
    * <p>The state of the entity.</p>
    */
-  State: OptionState | string | undefined;
+  State: OptionState | undefined;
 
   /**
    * @public
@@ -893,7 +893,7 @@ export interface DomainPackageDetails {
    * @public
    * <p>The type of package.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: PackageType;
 
   /**
    * @public
@@ -911,7 +911,7 @@ export interface DomainPackageDetails {
    * @public
    * <p>State of the association.</p>
    */
-  DomainPackageStatus?: DomainPackageStatus | string;
+  DomainPackageStatus?: DomainPackageStatus;
 
   /**
    * @public
@@ -1006,7 +1006,7 @@ export interface AuthorizedPrincipal {
    * @public
    * <p>The type of principal.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: PrincipalType;
 
   /**
    * @public
@@ -1094,7 +1094,7 @@ export interface ServiceSoftwareOptions {
    * @public
    * <p>The status of your service software update.</p>
    */
-  UpdateStatus?: DeploymentStatus | string;
+  UpdateStatus?: DeploymentStatus;
 
   /**
    * @public
@@ -1173,7 +1173,7 @@ export interface Duration {
    * @public
    * <p>The unit of measurement for the duration of a maintenance schedule.</p>
    */
-  Unit?: TimeUnit | string;
+  Unit?: TimeUnit;
 }
 
 /**
@@ -1220,7 +1220,7 @@ export interface AutoTuneOptionsInput {
    * @public
    * <p>Whether Auto-Tune is enabled or disabled.</p>
    */
-  DesiredState?: AutoTuneDesiredState | string;
+  DesiredState?: AutoTuneDesiredState;
 
   /**
    * @public
@@ -1397,7 +1397,7 @@ export interface ClusterConfig {
    * @public
    * <p>Instance type of data nodes in the cluster.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: OpenSearchPartitionInstanceType;
 
   /**
    * @public
@@ -1430,7 +1430,7 @@ export interface ClusterConfig {
    * @public
    * <p>OpenSearch Service instance type of the dedicated master nodes in the cluster.</p>
    */
-  DedicatedMasterType?: OpenSearchPartitionInstanceType | string;
+  DedicatedMasterType?: OpenSearchPartitionInstanceType;
 
   /**
    * @public
@@ -1449,7 +1449,7 @@ export interface ClusterConfig {
    * @public
    * <p>The instance type for the cluster's warm nodes.</p>
    */
-  WarmType?: OpenSearchWarmPartitionInstanceType | string;
+  WarmType?: OpenSearchWarmPartitionInstanceType;
 
   /**
    * @public
@@ -1547,7 +1547,7 @@ export interface DomainEndpointOptions {
    *             </li>
    *          </ul>
    */
-  TLSSecurityPolicy?: TLSSecurityPolicy | string;
+  TLSSecurityPolicy?: TLSSecurityPolicy;
 
   /**
    * @public
@@ -1602,7 +1602,7 @@ export interface EBSOptions {
    * @public
    * <p>Specifies the type of EBS volumes attached to data nodes.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -1996,7 +1996,7 @@ export interface AutoTuneOptionsOutput {
    * @public
    * <p>The current state of Auto-Tune on the domain.</p>
    */
-  State?: AutoTuneState | string;
+  State?: AutoTuneState;
 
   /**
    * @public
@@ -2323,7 +2323,7 @@ export interface CrossClusterSearchConnectionProperties {
    * @public
    * <p>Status of SkipUnavailable param for outbound connection.</p>
    */
-  SkipUnavailable?: SkipUnavailableStatus | string;
+  SkipUnavailable?: SkipUnavailableStatus;
 }
 
 /**
@@ -2374,7 +2374,7 @@ export interface CreateOutboundConnectionRequest {
    * @public
    * <p>The connection mode.</p>
    */
-  ConnectionMode?: ConnectionMode | string;
+  ConnectionMode?: ConnectionMode;
 
   /**
    * @public
@@ -2464,7 +2464,7 @@ export interface OutboundConnectionStatus {
    *             </li>
    *          </ul>
    */
-  StatusCode?: OutboundConnectionStatusCode | string;
+  StatusCode?: OutboundConnectionStatusCode;
 
   /**
    * @public
@@ -2514,7 +2514,7 @@ export interface CreateOutboundConnectionResponse {
    * @public
    * <p>The connection mode.</p>
    */
-  ConnectionMode?: ConnectionMode | string;
+  ConnectionMode?: ConnectionMode;
 
   /**
    * @public
@@ -2556,7 +2556,7 @@ export interface CreatePackageRequest {
    * @public
    * <p>The type of package.</p>
    */
-  PackageType: PackageType | string | undefined;
+  PackageType: PackageType | undefined;
 
   /**
    * @public
@@ -2612,7 +2612,7 @@ export interface PackageDetails {
    * @public
    * <p>The type of package.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: PackageType;
 
   /**
    * @public
@@ -2624,7 +2624,7 @@ export interface PackageDetails {
    * @public
    * <p>The current status of the package. The available options are <code>AVAILABLE</code>, <code>COPYING</code>, <code>COPY_FAILED</code>, <code>VALIDATNG</code>, <code>VALIDATION_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
    */
-  PackageStatus?: PackageStatus | string;
+  PackageStatus?: PackageStatus;
 
   /**
    * @public
@@ -2740,7 +2740,7 @@ export interface VpcEndpoint {
    * @public
    * <p>The current status of the endpoint.</p>
    */
-  Status?: VpcEndpointStatus | string;
+  Status?: VpcEndpointStatus;
 
   /**
    * @public
@@ -2861,7 +2861,7 @@ export interface OutboundConnection {
    * @public
    * <p>The connection mode.</p>
    */
-  ConnectionMode?: ConnectionMode | string;
+  ConnectionMode?: ConnectionMode;
 
   /**
    * @public
@@ -2945,7 +2945,7 @@ export interface VpcEndpointSummary {
    * @public
    * <p>The current status of the endpoint.</p>
    */
-  Status?: VpcEndpointStatus | string;
+  Status?: VpcEndpointStatus;
 }
 
 /**
@@ -3058,7 +3058,7 @@ export interface ScheduledAutoTuneDetails {
    * @public
    * <p>The type of Auto-Tune action.</p>
    */
-  ActionType?: ScheduledAutoTuneActionType | string;
+  ActionType?: ScheduledAutoTuneActionType;
 
   /**
    * @public
@@ -3071,7 +3071,7 @@ export interface ScheduledAutoTuneDetails {
    * <p>The severity of the Auto-Tune action. Valid values are <code>LOW</code>,
    *    <code>MEDIUM</code>, and <code>HIGH</code>.</p>
    */
-  Severity?: ScheduledAutoTuneSeverityType | string;
+  Severity?: ScheduledAutoTuneSeverityType;
 }
 
 /**
@@ -3110,7 +3110,7 @@ export interface AutoTune {
    * @public
    * <p>The type of Auto-Tune action.</p>
    */
-  AutoTuneType?: AutoTuneType | string;
+  AutoTuneType?: AutoTuneType;
 
   /**
    * @public
@@ -3226,7 +3226,7 @@ export interface ChangeProgressStatusDetails {
    * @public
    * <p>The overall status of the domain configuration change.</p>
    */
-  Status?: OverallChangeStatus | string;
+  Status?: OverallChangeStatus;
 
   /**
    * @public
@@ -3302,7 +3302,7 @@ export interface AutoTuneOptions {
    * @public
    * <p>Whether Auto-Tune is enabled or disabled.</p>
    */
-  DesiredState?: AutoTuneDesiredState | string;
+  DesiredState?: AutoTuneDesiredState;
 
   /**
    * @public
@@ -3311,7 +3311,7 @@ export interface AutoTuneOptions {
    *    specify <code>DEFAULT_ROLLBACK</code>, you must include a <code>MaintenanceSchedule</code> in the
    *    request. Otherwise, OpenSearch Service is unable to perform the rollback.</p>
    */
-  RollbackOnDisable?: RollbackOnDisable | string;
+  RollbackOnDisable?: RollbackOnDisable;
 
   /**
    * @public
@@ -3357,7 +3357,7 @@ export interface AutoTuneStatus {
    * @public
    * <p>The current state of Auto-Tune on the domain.</p>
    */
-  State: AutoTuneState | string | undefined;
+  State: AutoTuneState | undefined;
 
   /**
    * @public
@@ -3819,7 +3819,7 @@ export interface AvailabilityZoneInfo {
    *             </li>
    *          </ul>
    */
-  ZoneStatus?: ZoneStatus | string;
+  ZoneStatus?: ZoneStatus;
 
   /**
    * @public
@@ -3891,7 +3891,7 @@ export interface DescribeDomainHealthResponse {
    *             </li>
    *          </ul>
    */
-  DomainState?: DomainState | string;
+  DomainState?: DomainState;
 
   /**
    * @public
@@ -3950,7 +3950,7 @@ export interface DescribeDomainHealthResponse {
    *             </li>
    *          </ul>
    */
-  MasterNode?: MasterNodeStatus | string;
+  MasterNode?: MasterNodeStatus;
 
   /**
    * @public
@@ -3974,7 +3974,7 @@ export interface DescribeDomainHealthResponse {
    *             </li>
    *          </ul>
    */
-  ClusterHealth?: DomainHealth | string;
+  ClusterHealth?: DomainHealth;
 
   /**
    * @public
@@ -4073,7 +4073,7 @@ export interface DomainNodesStatus {
    * @public
    * <p>Indicates whether the nodes is a data, master, or ultrawarm node.</p>
    */
-  NodeType?: NodeType | string;
+  NodeType?: NodeType;
 
   /**
    * @public
@@ -4085,13 +4085,13 @@ export interface DomainNodesStatus {
    * @public
    * <p>The instance type information of the node.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: OpenSearchPartitionInstanceType;
 
   /**
    * @public
    * <p>Indicates if the node is active or in standby.</p>
    */
-  NodeStatus?: NodeStatus | string;
+  NodeStatus?: NodeStatus;
 
   /**
    * @public
@@ -4104,7 +4104,7 @@ export interface DomainNodesStatus {
    * <p>If the nodes has EBS storage, indicates if the volume type is GP2 or GP3. Only applicable
    *    for data nodes. </p>
    */
-  StorageVolumeType?: VolumeType | string;
+  StorageVolumeType?: VolumeType;
 
   /**
    * @public
@@ -4397,7 +4397,7 @@ export interface DescribeInstanceTypeLimitsRequest {
    * @public
    * <p>The OpenSearch Service instance type for which you need limit information.</p>
    */
-  InstanceType: OpenSearchPartitionInstanceType | string | undefined;
+  InstanceType: OpenSearchPartitionInstanceType | undefined;
 
   /**
    * @public
@@ -4625,7 +4625,7 @@ export interface DescribePackagesFilter {
    * @public
    * <p>Any field from <code>PackageDetails</code>.</p>
    */
-  Name?: DescribePackagesFilterName | string;
+  Name?: DescribePackagesFilterName;
 
   /**
    * @public
@@ -4761,7 +4761,7 @@ export interface ReservedInstanceOffering {
    * @public
    * <p>The OpenSearch instance type offered by the Reserved Instance offering.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: OpenSearchPartitionInstanceType;
 
   /**
    * @public
@@ -4792,7 +4792,7 @@ export interface ReservedInstanceOffering {
    * @public
    * <p>Payment option for the Reserved Instance offering</p>
    */
-  PaymentOption?: ReservedInstancePaymentOption | string;
+  PaymentOption?: ReservedInstancePaymentOption;
 
   /**
    * @public
@@ -4885,7 +4885,7 @@ export interface ReservedInstance {
    * @public
    * <p>The OpenSearch instance type offered by theReserved Instance offering.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: OpenSearchPartitionInstanceType;
 
   /**
    * @public
@@ -4934,7 +4934,7 @@ export interface ReservedInstance {
    * @public
    * <p>The payment option as defined in the Reserved Instance offering.</p>
    */
-  PaymentOption?: ReservedInstancePaymentOption | string;
+  PaymentOption?: ReservedInstancePaymentOption;
 
   /**
    * @public
@@ -5006,7 +5006,7 @@ export interface VpcEndpointError {
    * @public
    * <p>The code associated with the error.</p>
    */
-  ErrorCode?: VpcEndpointErrorCode | string;
+  ErrorCode?: VpcEndpointErrorCode;
 
   /**
    * @public
@@ -5264,7 +5264,7 @@ export interface UpgradeStepItem {
    *             </li>
    *          </ul>
    */
-  UpgradeStep?: UpgradeStep | string;
+  UpgradeStep?: UpgradeStep;
 
   /**
    * @public
@@ -5284,7 +5284,7 @@ export interface UpgradeStepItem {
    *             </li>
    *          </ul>
    */
-  UpgradeStepStatus?: UpgradeStatus | string;
+  UpgradeStepStatus?: UpgradeStatus;
 
   /**
    * @public
@@ -5336,7 +5336,7 @@ export interface UpgradeHistory {
    *             </li>
    *          </ul>
    */
-  UpgradeStatus?: UpgradeStatus | string;
+  UpgradeStatus?: UpgradeStatus;
 
   /**
    * @public
@@ -5387,13 +5387,13 @@ export interface GetUpgradeStatusResponse {
    * @public
    * <p>One of three steps that an upgrade or upgrade eligibility check goes through.</p>
    */
-  UpgradeStep?: UpgradeStep | string;
+  UpgradeStep?: UpgradeStep;
 
   /**
    * @public
    * <p>The status of the current step that an upgrade is on.</p>
    */
-  StepStatus?: UpgradeStatus | string;
+  StepStatus?: UpgradeStatus;
 
   /**
    * @public
@@ -5425,7 +5425,7 @@ export interface ListDomainNamesRequest {
    * @public
    * <p>Filters the output by domain engine type.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: EngineType;
 }
 
 /**
@@ -5444,7 +5444,7 @@ export interface DomainInfo {
    * <p>The type of search engine that the domain is running.<code>OpenSearch</code> for an
    *    OpenSearch engine, or <code>Elasticsearch</code> for a legacy Elasticsearch OSS engine.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: EngineType;
 }
 
 /**
@@ -5563,7 +5563,7 @@ export interface InstanceTypeDetails {
    * @public
    * <p>The instance type.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: OpenSearchPartitionInstanceType;
 
   /**
    * @public
@@ -5735,13 +5735,13 @@ export interface ScheduledAction {
    * @public
    * <p>The type of action that will be taken on the domain.</p>
    */
-  Type: ActionType | string | undefined;
+  Type: ActionType | undefined;
 
   /**
    * @public
    * <p>The severity of the action.</p>
    */
-  Severity: ActionSeverity | string | undefined;
+  Severity: ActionSeverity | undefined;
 
   /**
    * @public
@@ -5759,13 +5759,13 @@ export interface ScheduledAction {
    * @public
    * <p>Whether the action was scheduled manually (<code>CUSTOMER</code>, or by OpenSearch Service automatically (<code>SYSTEM</code>).</p>
    */
-  ScheduledBy?: ScheduledBy | string;
+  ScheduledBy?: ScheduledBy;
 
   /**
    * @public
    * <p>The current status of the scheduled action.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: ActionStatus;
 
   /**
    * @public
@@ -6134,7 +6134,7 @@ export interface StartServiceSoftwareUpdateRequest {
    *          <p>Default: <code>NOW</code> if you don't specify a value for <code>DesiredStartTime</code>,
    *    and <code>TIMESTAMP</code> if you do.</p>
    */
-  ScheduleAt?: ScheduleAt | string;
+  ScheduleAt?: ScheduleAt;
 
   /**
    * @public
@@ -6314,7 +6314,7 @@ export interface UpdateDomainConfigRequest {
    *             </li>
    *          </ul>
    */
-  DryRunMode?: DryRunMode | string;
+  DryRunMode?: DryRunMode;
 
   /**
    * @public
@@ -6445,7 +6445,7 @@ export interface UpdateScheduledActionRequest {
    * <p>The type of action to reschedule. Can be one of <code>SERVICE_SOFTWARE_UPDATE</code>,
    *    <code>JVM_HEAP_SIZE_TUNING</code>, or <code>JVM_YOUNG_GEN_TUNING</code>. To retrieve this value, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a> request.</p>
    */
-  ActionType: ActionType | string | undefined;
+  ActionType: ActionType | undefined;
 
   /**
    * @public
@@ -6469,7 +6469,7 @@ export interface UpdateScheduledActionRequest {
    *             </li>
    *          </ul>
    */
-  ScheduleAt: ScheduleAt | string | undefined;
+  ScheduleAt: ScheduleAt | undefined;
 
   /**
    * @public

@@ -149,7 +149,7 @@ export interface CustomizedLoadMetricSpecification {
    * @public
    * <p>The statistic of the metric. The only valid value is <code>Sum</code>.</p>
    */
-  Statistic: MetricStatistic | string | undefined;
+  Statistic: MetricStatistic | undefined;
 
   /**
    * @public
@@ -187,7 +187,7 @@ export interface PredefinedLoadMetricSpecification {
    * @public
    * <p>The metric type.</p>
    */
-  PredefinedLoadMetricType: LoadMetricType | string | undefined;
+  PredefinedLoadMetricType: LoadMetricType | undefined;
 
   /**
    * @public
@@ -346,7 +346,7 @@ export interface CustomizedScalingMetricSpecification {
    * @public
    * <p>The statistic of the metric.</p>
    */
-  Statistic: MetricStatistic | string | undefined;
+  Statistic: MetricStatistic | undefined;
 
   /**
    * @public
@@ -391,7 +391,7 @@ export interface PredefinedScalingMetricSpecification {
    * <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
    *          Auto Scaling groups, Spot Fleet requests, and ECS services.</p>
    */
-  PredefinedScalingMetricType: ScalingMetricType | string | undefined;
+  PredefinedScalingMetricType: ScalingMetricType | undefined;
 
   /**
    * @public
@@ -519,7 +519,7 @@ export interface ScalingInstruction {
    * @public
    * <p>The namespace of the AWS service.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -592,7 +592,7 @@ export interface ScalingInstruction {
    *            </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public
@@ -672,7 +672,7 @@ export interface ScalingInstruction {
    *          </ul>
    *          <p>Only valid when configuring predictive scaling.</p>
    */
-  PredictiveScalingMaxCapacityBehavior?: PredictiveScalingMaxCapacityBehavior | string;
+  PredictiveScalingMaxCapacityBehavior?: PredictiveScalingMaxCapacityBehavior;
 
   /**
    * @public
@@ -693,7 +693,7 @@ export interface ScalingInstruction {
    *          Otherwise, AWS Auto Scaling forecasts capacity but does not create any scheduled scaling actions
    *          based on the capacity forecast. </p>
    */
-  PredictiveScalingMode?: PredictiveScalingMode | string;
+  PredictiveScalingMode?: PredictiveScalingMode;
 
   /**
    * @public
@@ -706,7 +706,7 @@ export interface ScalingInstruction {
    *          50. If there are more than 50 policies to be replaced, AWS Auto Scaling keeps all existing policies
    *          and does not create new ones.</p>
    */
-  ScalingPolicyUpdateBehavior?: ScalingPolicyUpdateBehavior | string;
+  ScalingPolicyUpdateBehavior?: ScalingPolicyUpdateBehavior;
 
   /**
    * @public
@@ -928,7 +928,7 @@ export interface ScalingPolicy {
    * @public
    * <p>The type of scaling policy.</p>
    */
-  PolicyType: PolicyType | string | undefined;
+  PolicyType: PolicyType | undefined;
 
   /**
    * @public
@@ -974,7 +974,7 @@ export interface ScalingPlanResource {
    * @public
    * <p>The namespace of the AWS service.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -1047,7 +1047,7 @@ export interface ScalingPlanResource {
    *            </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public
@@ -1077,7 +1077,7 @@ export interface ScalingPlanResource {
    *             </li>
    *          </ul>
    */
-  ScalingStatusCode: ScalingStatusCode | string | undefined;
+  ScalingStatusCode: ScalingStatusCode | undefined;
 
   /**
    * @public
@@ -1258,7 +1258,7 @@ export interface ScalingPlan {
    *             </li>
    *          </ul>
    */
-  StatusCode: ScalingPlanStatusCode | string | undefined;
+  StatusCode: ScalingPlanStatusCode | undefined;
 
   /**
    * @public
@@ -1335,7 +1335,7 @@ export interface GetScalingPlanResourceForecastDataRequest {
    * <p>The namespace of the AWS service. The only valid value is <code>autoscaling</code>.
    *       </p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -1350,7 +1350,7 @@ export interface GetScalingPlanResourceForecastDataRequest {
    * <p>The scalable dimension for the resource. The only valid value is
    *             <code>autoscaling:autoScalingGroup:DesiredCapacity</code>. </p>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public
@@ -1378,7 +1378,7 @@ export interface GetScalingPlanResourceForecastDataRequest {
    *             </li>
    *          </ul>
    */
-  ForecastDataType: ForecastDataType | string | undefined;
+  ForecastDataType: ForecastDataType | undefined;
 
   /**
    * @public

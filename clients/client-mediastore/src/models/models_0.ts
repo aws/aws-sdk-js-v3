@@ -77,7 +77,7 @@ export interface Container {
    *          is creating the container, the status is <code>CREATING</code>. When the endpoint is
    *          available, the status changes to <code>ACTIVE</code>.</p>
    */
-  Status?: ContainerStatus | string;
+  Status?: ContainerStatus;
 
   /**
    * @public
@@ -169,7 +169,7 @@ export interface CorsRule {
    *          <p>Each CORS rule must contain at least one <code>AllowedMethods</code> and one
    *             <code>AllowedOrigins</code> element.</p>
    */
-  AllowedMethods?: (MethodName | string)[];
+  AllowedMethods?: MethodName[];
 
   /**
    * @public
@@ -561,7 +561,7 @@ export interface MetricPolicy {
    * @public
    * <p>A setting to enable or disable metrics at the container level.</p>
    */
-  ContainerLevelMetrics: ContainerLevelMetrics | string | undefined;
+  ContainerLevelMetrics: ContainerLevelMetrics | undefined;
 
   /**
    * @public

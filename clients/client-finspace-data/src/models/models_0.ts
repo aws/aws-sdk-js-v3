@@ -280,7 +280,7 @@ export interface CreateChangesetRequest {
    *             </li>
    *          </ul>
    */
-  changeType: ChangeType | string | undefined;
+  changeType: ChangeType | undefined;
 
   /**
    * @public
@@ -568,7 +568,7 @@ export interface ColumnDefinition {
    *             </li>
    *          </ul>
    */
-  dataType?: ColumnDataType | string;
+  dataType?: ColumnDataType;
 
   /**
    * @public
@@ -644,7 +644,7 @@ export interface CreateDatasetRequest {
    *             </li>
    *          </ul>
    */
-  kind: DatasetKind | string | undefined;
+  kind: DatasetKind | undefined;
 
   /**
    * @public
@@ -738,7 +738,7 @@ export interface DataViewDestinationTypeParams {
    *             </li>
    *          </ul>
    */
-  s3DestinationExportFileFormat?: ExportFileFormat | string;
+  s3DestinationExportFileFormat?: ExportFileFormat;
 
   /**
    * @public
@@ -876,7 +876,7 @@ export interface CreatePermissionGroupRequest {
    *             </li>
    *          </ul>
    */
-  applicationPermissions: (ApplicationPermission | string)[] | undefined;
+  applicationPermissions: ApplicationPermission[] | undefined;
 
   /**
    * @public
@@ -934,7 +934,7 @@ export interface CreateUserRequest {
    *             </li>
    *          </ul>
    */
-  type: UserType | string | undefined;
+  type: UserType | undefined;
 
   /**
    * @public
@@ -962,7 +962,7 @@ export interface CreateUserRequest {
    *             </li>
    *          </ul>
    */
-  apiAccess?: ApiAccess | string;
+  apiAccess?: ApiAccess;
 
   /**
    * @public
@@ -1228,7 +1228,7 @@ export interface ChangesetErrorInfo {
    *             </li>
    *          </ul>
    */
-  errorCategory?: ErrorCategory | string;
+  errorCategory?: ErrorCategory;
 }
 
 /**
@@ -1289,7 +1289,7 @@ export interface GetChangesetResponse {
    *             </li>
    *          </ul>
    */
-  changeType?: ChangeType | string;
+  changeType?: ChangeType;
 
   /**
    * @public
@@ -1313,7 +1313,7 @@ export interface GetChangesetResponse {
    * @public
    * <p>The status of Changeset creation operation.</p>
    */
-  status?: IngestionStatus | string;
+  status?: IngestionStatus;
 
   /**
    * @public
@@ -1411,7 +1411,7 @@ export interface GetDatasetResponse {
    *             </li>
    *          </ul>
    */
-  kind?: DatasetKind | string;
+  kind?: DatasetKind;
 
   /**
    * @public
@@ -1465,7 +1465,7 @@ export interface GetDatasetResponse {
    *             </li>
    *          </ul>
    */
-  status?: DatasetStatus | string;
+  status?: DatasetStatus;
 }
 
 /**
@@ -1540,7 +1540,7 @@ export interface DataViewErrorInfo {
    *             </li>
    *          </ul>
    */
-  errorCategory?: ErrorCategory | string;
+  errorCategory?: ErrorCategory;
 }
 
 /**
@@ -1672,7 +1672,7 @@ export interface GetDataViewResponse {
    *             </li>
    *          </ul>
    */
-  status?: DataViewStatus | string;
+  status?: DataViewStatus;
 }
 
 /**
@@ -1814,7 +1814,7 @@ export interface PermissionGroup {
    *             </li>
    *          </ul>
    */
-  applicationPermissions?: (ApplicationPermission | string)[];
+  applicationPermissions?: ApplicationPermission[];
 
   /**
    * @public
@@ -1848,7 +1848,7 @@ export interface PermissionGroup {
    *             </li>
    *          </ul>
    */
-  membershipStatus?: PermissionGroupMembershipStatus | string;
+  membershipStatus?: PermissionGroupMembershipStatus;
 }
 
 /**
@@ -1976,7 +1976,7 @@ export interface GetUserResponse {
    *             </li>
    *          </ul>
    */
-  status?: UserStatus | string;
+  status?: UserStatus;
 
   /**
    * @public
@@ -2012,7 +2012,7 @@ export interface GetUserResponse {
    *             </li>
    *          </ul>
    */
-  type?: UserType | string;
+  type?: UserType;
 
   /**
    * @public
@@ -2028,7 +2028,7 @@ export interface GetUserResponse {
    *             </li>
    *          </ul>
    */
-  apiAccess?: ApiAccess | string;
+  apiAccess?: ApiAccess;
 
   /**
    * @public
@@ -2101,7 +2101,7 @@ export interface GetWorkingLocationRequest {
    *             </li>
    *          </ul>
    */
-  locationType?: LocationType | string;
+  locationType?: LocationType;
 }
 
 /**
@@ -2195,7 +2195,7 @@ export interface ChangesetSummary {
    *             </li>
    *          </ul>
    */
-  changeType?: ChangeType | string;
+  changeType?: ChangeType;
 
   /**
    * @public
@@ -2241,7 +2241,7 @@ export interface ChangesetSummary {
    *             </li>
    *          </ul>
    */
-  status?: IngestionStatus | string;
+  status?: IngestionStatus;
 
   /**
    * @public
@@ -2347,7 +2347,7 @@ export interface Dataset {
    *             </li>
    *          </ul>
    */
-  kind?: DatasetKind | string;
+  kind?: DatasetKind;
 
   /**
    * @public
@@ -2507,7 +2507,7 @@ export interface DataViewSummary {
    *             </li>
    *          </ul>
    */
-  status?: DataViewStatus | string;
+  status?: DataViewStatus;
 
   /**
    * @public
@@ -2649,7 +2649,7 @@ export interface PermissionGroupByUser {
    *             </li>
    *          </ul>
    */
-  membershipStatus?: PermissionGroupMembershipStatus | string;
+  membershipStatus?: PermissionGroupMembershipStatus;
 }
 
 /**
@@ -2715,7 +2715,7 @@ export interface User {
    *             </li>
    *          </ul>
    */
-  status?: UserStatus | string;
+  status?: UserStatus;
 
   /**
    * @public
@@ -2749,7 +2749,7 @@ export interface User {
    *             </li>
    *          </ul>
    */
-  type?: UserType | string;
+  type?: UserType;
 
   /**
    * @public
@@ -2765,7 +2765,7 @@ export interface User {
    *             </li>
    *          </ul>
    */
-  apiAccess?: ApiAccess | string;
+  apiAccess?: ApiAccess;
 
   /**
    * @public
@@ -2876,7 +2876,7 @@ export interface UserByPermissionGroup {
    *             </li>
    *          </ul>
    */
-  status?: UserStatus | string;
+  status?: UserStatus;
 
   /**
    * @public
@@ -2910,7 +2910,7 @@ export interface UserByPermissionGroup {
    *             </li>
    *          </ul>
    */
-  type?: UserType | string;
+  type?: UserType;
 
   /**
    * @public
@@ -2926,7 +2926,7 @@ export interface UserByPermissionGroup {
    *             </li>
    *          </ul>
    */
-  apiAccess?: ApiAccess | string;
+  apiAccess?: ApiAccess;
 
   /**
    * @public
@@ -2952,7 +2952,7 @@ export interface UserByPermissionGroup {
    *             </li>
    *          </ul>
    */
-  membershipStatus?: PermissionGroupMembershipStatus | string;
+  membershipStatus?: PermissionGroupMembershipStatus;
 }
 
 /**
@@ -3153,7 +3153,7 @@ export interface UpdateDatasetRequest {
    *             </li>
    *          </ul>
    */
-  kind: DatasetKind | string | undefined;
+  kind: DatasetKind | undefined;
 
   /**
    * @public
@@ -3245,7 +3245,7 @@ export interface UpdatePermissionGroupRequest {
    *             </li>
    *          </ul>
    */
-  applicationPermissions?: (ApplicationPermission | string)[];
+  applicationPermissions?: ApplicationPermission[];
 
   /**
    * @public
@@ -3289,7 +3289,7 @@ export interface UpdateUserRequest {
    *             </li>
    *          </ul>
    */
-  type?: UserType | string;
+  type?: UserType;
 
   /**
    * @public
@@ -3317,7 +3317,7 @@ export interface UpdateUserRequest {
    *             </li>
    *          </ul>
    */
-  apiAccess?: ApiAccess | string;
+  apiAccess?: ApiAccess;
 
   /**
    * @public

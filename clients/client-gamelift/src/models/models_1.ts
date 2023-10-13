@@ -132,14 +132,14 @@ export interface UpdateGameServerInput {
    *             you can't change a the status from <code>UTILIZED</code> to
    *             <code>AVAILABLE</code>.</p>
    */
-  UtilizationStatus?: GameServerUtilizationStatus | string;
+  UtilizationStatus?: GameServerUtilizationStatus;
 
   /**
    * @public
    * <p>Indicates health status of the game server. A request that includes this parameter
    *             updates the game server's <i>LastHealthCheckTime</i> timestamp. </p>
    */
-  HealthCheck?: GameServerHealthCheck | string;
+  HealthCheck?: GameServerHealthCheck;
 }
 
 /**
@@ -193,7 +193,7 @@ export interface UpdateGameServerGroupInput {
    *             in the event of a forced game server group deletion (see ). An exception to this is with Spot
    *             Instances, which can be terminated by Amazon Web Services regardless of protection status. This property is set to <code>NO_PROTECTION</code> by default.</p>
    */
-  GameServerProtectionPolicy?: GameServerProtectionPolicy | string;
+  GameServerProtectionPolicy?: GameServerProtectionPolicy;
 
   /**
    * @public
@@ -224,7 +224,7 @@ export interface UpdateGameServerGroupInput {
    *             </li>
    *          </ul>
    */
-  BalancingStrategy?: BalancingStrategy | string;
+  BalancingStrategy?: BalancingStrategy;
 }
 
 /**
@@ -265,7 +265,7 @@ export interface UpdateGameSessionInput {
    * @public
    * <p>A policy that determines whether the game session is accepting new players.</p>
    */
-  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy | string;
+  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy;
 
   /**
    * @public
@@ -284,7 +284,7 @@ export interface UpdateGameSessionInput {
    *             </li>
    *          </ul>
    */
-  ProtectionPolicy?: ProtectionPolicy | string;
+  ProtectionPolicy?: ProtectionPolicy;
 }
 
 /**
@@ -478,7 +478,7 @@ export interface UpdateMatchmakingConfigurationInput {
    *                 with FlexMatch</a>. Automatic backfill is not available when
    *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
-  BackfillMode?: BackfillMode | string;
+  BackfillMode?: BackfillMode;
 
   /**
    * @public
@@ -497,7 +497,7 @@ export interface UpdateMatchmakingConfigurationInput {
    *             </li>
    *          </ul>
    */
-  FlexMatchMode?: FlexMatchMode | string;
+  FlexMatchMode?: FlexMatchMode;
 }
 
 /**

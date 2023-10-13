@@ -560,7 +560,7 @@ export interface GetBulkPublishDetailsResponse {
    *       <p>SUCCEEDED - All data for the identity pool has been published to the configured stream</p>
    *       <p>FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.</p>
    */
-  BulkPublishStatus?: BulkPublishStatus | string;
+  BulkPublishStatus?: BulkPublishStatus;
 
   /**
    * @public
@@ -643,7 +643,7 @@ export interface CognitoStreams {
    *       <p>ENABLED - Streaming of updates to identity pool is enabled.</p>
    *       <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p>
    */
-  StreamingStatus?: StreamingStatus | string;
+  StreamingStatus?: StreamingStatus;
 }
 
 /**
@@ -1035,7 +1035,7 @@ export interface RegisterDeviceRequest {
    * @public
    * <p>The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</p>
    */
-  Platform: Platform | string | undefined;
+  Platform: Platform | undefined;
 
   /**
    * @public
@@ -1302,7 +1302,7 @@ export interface RecordPatch {
    * @public
    * An operation, either replace or remove.
    */
-  Op: Operation | string | undefined;
+  Op: Operation | undefined;
 
   /**
    * @public

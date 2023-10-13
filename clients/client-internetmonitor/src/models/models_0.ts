@@ -137,7 +137,7 @@ export interface LocalHealthEventsConfig {
    * <p>The status of whether Internet Monitor creates a health event based on a threshold percentage set for a local health score. The status can be <code>ENABLED</code>
    * 		or <code>DISABLED</code>.</p>
    */
-  Status?: LocalHealthEventsConfigStatus | string;
+  Status?: LocalHealthEventsConfigStatus;
 
   /**
    * @public
@@ -231,7 +231,7 @@ export interface S3Config {
    * @public
    * <p>The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket.</p>
    */
-  LogDeliveryStatus?: LogDeliveryStatus | string;
+  LogDeliveryStatus?: LogDeliveryStatus;
 }
 
 /**
@@ -351,7 +351,7 @@ export interface CreateMonitorOutput {
    * @public
    * <p>The status of a monitor.</p>
    */
-  Status: MonitorConfigState | string | undefined;
+  Status: MonitorConfigState | undefined;
 }
 
 /**
@@ -525,7 +525,7 @@ export interface NetworkImpairment {
    * @public
    * <p>Type of network impairment.</p>
    */
-  NetworkEventType: TriangulationEventType | string | undefined;
+  NetworkEventType: TriangulationEventType | undefined;
 }
 
 /**
@@ -732,7 +732,7 @@ export interface ImpactedLocation {
    * @public
    * <p>The status of the health event at an impacted location.</p>
    */
-  Status: HealthEventStatus | string | undefined;
+  Status: HealthEventStatus | undefined;
 
   /**
    * @public
@@ -814,7 +814,7 @@ export interface GetHealthEventOutput {
    * @public
    * <p>The status of a health event.</p>
    */
-  Status: HealthEventStatus | string | undefined;
+  Status: HealthEventStatus | undefined;
 
   /**
    * @public
@@ -828,7 +828,7 @@ export interface GetHealthEventOutput {
    * @public
    * <p>The type of impairment of a specific health event.</p>
    */
-  ImpactType: HealthEventImpactType | string | undefined;
+  ImpactType: HealthEventImpactType | undefined;
 
   /**
    * @public
@@ -894,7 +894,7 @@ export interface GetMonitorOutput {
    * @public
    * <p>The status of the monitor.</p>
    */
-  Status: MonitorConfigState | string | undefined;
+  Status: MonitorConfigState | undefined;
 
   /**
    * @public
@@ -912,7 +912,7 @@ export interface GetMonitorOutput {
    * @public
    * <p>The health of the data processing for the monitor.</p>
    */
-  ProcessingStatus?: MonitorProcessingStatusCode | string;
+  ProcessingStatus?: MonitorProcessingStatusCode;
 
   /**
    * @public
@@ -1012,7 +1012,7 @@ export interface HealthEvent {
    * @public
    * <p>Health event list member.</p>
    */
-  Status: HealthEventStatus | string | undefined;
+  Status: HealthEventStatus | undefined;
 
   /**
    * @public
@@ -1026,7 +1026,7 @@ export interface HealthEvent {
    * @public
    * <p>The type of impairment for a health event.</p>
    */
-  ImpactType: HealthEventImpactType | string | undefined;
+  ImpactType: HealthEventImpactType | undefined;
 
   /**
    * @public
@@ -1073,7 +1073,7 @@ export interface ListHealthEventsInput {
    * @public
    * <p>The status of a health event.</p>
    */
-  EventStatus?: HealthEventStatus | string;
+  EventStatus?: HealthEventStatus;
 }
 
 /**
@@ -1225,13 +1225,13 @@ export interface Monitor {
    * @public
    * <p>The status of a monitor.</p>
    */
-  Status: MonitorConfigState | string | undefined;
+  Status: MonitorConfigState | undefined;
 
   /**
    * @public
    * <p>The health of data processing for the monitor.</p>
    */
-  ProcessingStatus?: MonitorProcessingStatusCode | string;
+  ProcessingStatus?: MonitorProcessingStatusCode;
 }
 
 /**
@@ -1305,7 +1305,7 @@ export interface UpdateMonitorInput {
    * <p>The status for a monitor. The accepted values for <code>Status</code> with the <code>UpdateMonitor</code> API call are the following: <code>ACTIVE</code> and
    * 			<code>INACTIVE</code>. The following values are <i>not</i> accepted: <code>PENDING</code>, and <code>ERROR</code>.</p>
    */
-  Status?: MonitorConfigState | string;
+  Status?: MonitorConfigState;
 
   /**
    * @public
@@ -1361,7 +1361,7 @@ export interface UpdateMonitorOutput {
    * @public
    * <p>The status of a monitor.</p>
    */
-  Status: MonitorConfigState | string | undefined;
+  Status: MonitorConfigState | undefined;
 }
 
 /**

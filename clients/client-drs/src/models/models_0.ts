@@ -147,7 +147,7 @@ export interface ParticipatingResource {
    * @public
    * <p>The launch status of a participating resource.</p>
    */
-  launchStatus?: LaunchStatus | string;
+  launchStatus?: LaunchStatus;
 }
 
 /**
@@ -196,7 +196,7 @@ export interface LaunchActionParameter {
    * @public
    * <p>Type.</p>
    */
-  type?: LaunchActionParameterType | string;
+  type?: LaunchActionParameterType;
 }
 
 /**
@@ -234,7 +234,7 @@ export interface LaunchAction {
    * @public
    * <p>Launch action type.</p>
    */
-  type?: LaunchActionType | string;
+  type?: LaunchActionType;
 
   /**
    * @public
@@ -282,7 +282,7 @@ export interface LaunchAction {
    * @public
    * <p>Launch action category.</p>
    */
-  category?: LaunchActionCategory | string;
+  category?: LaunchActionCategory;
 }
 
 /**
@@ -321,7 +321,7 @@ export interface LaunchActionRun {
    * @public
    * <p>Run status.</p>
    */
-  status?: LaunchActionRunStatus | string;
+  status?: LaunchActionRunStatus;
 
   /**
    * @public
@@ -369,7 +369,7 @@ export interface ParticipatingServer {
    * @public
    * <p>The launch status of a participating server.</p>
    */
-  launchStatus?: LaunchStatus | string;
+  launchStatus?: LaunchStatus;
 
   /**
    * @public
@@ -429,13 +429,13 @@ export interface Job {
    * @public
    * <p>The type of the Job.</p>
    */
-  type?: JobType | string;
+  type?: JobType;
 
   /**
    * @public
    * <p>A string representing who initiated the Job.</p>
    */
-  initiatedBy?: InitiatedBy | string;
+  initiatedBy?: InitiatedBy;
 
   /**
    * @public
@@ -453,7 +453,7 @@ export interface Job {
    * @public
    * <p>The status of the Job.</p>
    */
-  status?: JobStatus | string;
+  status?: JobStatus;
 
   /**
    * @public
@@ -743,7 +743,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>Validation exception reason.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -873,7 +873,7 @@ export interface DataReplicationError {
    * @public
    * <p>Error in data replication.</p>
    */
-  error?: DataReplicationErrorString | string;
+  error?: DataReplicationErrorString;
 
   /**
    * @public
@@ -933,13 +933,13 @@ export interface DataReplicationInitiationStep {
    * @public
    * <p>The name of the step.</p>
    */
-  name?: DataReplicationInitiationStepName | string;
+  name?: DataReplicationInitiationStepName;
 
   /**
    * @public
    * <p>The status of the step.</p>
    */
-  status?: DataReplicationInitiationStepStatus | string;
+  status?: DataReplicationInitiationStepStatus;
 }
 
 /**
@@ -1051,7 +1051,7 @@ export interface DataReplicationInfo {
    * @public
    * <p>The state of the data replication.</p>
    */
-  dataReplicationState?: DataReplicationState | string;
+  dataReplicationState?: DataReplicationState;
 
   /**
    * @public
@@ -1123,7 +1123,7 @@ export interface LifeCycleLastLaunchInitiated {
    * @public
    * <p>The Job type that was used to last launch the Source Server.</p>
    */
-  type?: LastLaunchType | string;
+  type?: LastLaunchType;
 }
 
 /**
@@ -1141,7 +1141,7 @@ export interface LifeCycleLastLaunch {
    * @public
    * <p>Status of Source Server's last launch.</p>
    */
-  status?: LaunchStatus | string;
+  status?: LaunchStatus;
 }
 
 /**
@@ -1389,7 +1389,7 @@ export interface StagingArea {
    *             (b) EXTENDED - Source server is extended from a staging source server. In this case, the value of stagingSourceServerArn is pointing to the Arn of the source server in the staging account.
    *             (c) EXTENSION_ERROR - Some issue occurred when accessing staging source server. In this case, errorMessage field will contain an error message that explains what happened.</p>
    */
-  status?: ExtensionStatus | string;
+  status?: ExtensionStatus;
 
   /**
    * @public
@@ -1442,7 +1442,7 @@ export interface SourceServer {
    * @public
    * <p>The status of the last recovery launch of this Source Server.</p>
    */
-  lastLaunchResult?: LastLaunchResult | string;
+  lastLaunchResult?: LastLaunchResult;
 
   /**
    * @public
@@ -1478,7 +1478,7 @@ export interface SourceServer {
    * @public
    * <p>Replication direction of the Source Server.</p>
    */
-  replicationDirection?: ReplicationDirection | string;
+  replicationDirection?: ReplicationDirection;
 
   /**
    * @public
@@ -1560,13 +1560,13 @@ export interface CreateLaunchConfigurationTemplateRequest {
    * @public
    * <p>Launch disposition.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Target instance type right-sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -1626,13 +1626,13 @@ export interface LaunchConfigurationTemplate {
    * @public
    * <p>Launch disposition.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Target instance type right-sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -1754,7 +1754,7 @@ export interface PITPolicyRule {
    * @public
    * <p>The units used to measure the interval and retentionDuration.</p>
    */
-  units: PITPolicyRuleUnits | string | undefined;
+  units: PITPolicyRuleUnits | undefined;
 
   /**
    * @public
@@ -1813,13 +1813,13 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskType | string | undefined;
+  defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
    * @public
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption: ReplicationConfigurationEbsEncryption | string | undefined;
+  ebsEncryption: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
    * @public
@@ -1837,7 +1837,7 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * @public
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting: ReplicationConfigurationDataPlaneRouting | string | undefined;
+  dataPlaneRouting: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
    * @public
@@ -1920,13 +1920,13 @@ export interface ReplicationConfigurationTemplate {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
 
   /**
    * @public
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption;
 
   /**
    * @public
@@ -1944,7 +1944,7 @@ export interface ReplicationConfigurationTemplate {
    * @public
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
 
   /**
    * @public
@@ -2317,7 +2317,7 @@ export interface JobLog {
    * @public
    * <p>The event represents the type of a log.</p>
    */
-  event?: JobLogEvent | string;
+  event?: JobLogEvent;
 
   /**
    * @public
@@ -2532,7 +2532,7 @@ export interface RecoveryInstanceDataReplicationError {
    * @public
    * <p>Error in data replication.</p>
    */
-  error?: FailbackReplicationError | string;
+  error?: FailbackReplicationError;
 
   /**
    * @public
@@ -2599,13 +2599,13 @@ export interface RecoveryInstanceDataReplicationInitiationStep {
    * @public
    * <p>The name of the step.</p>
    */
-  name?: RecoveryInstanceDataReplicationInitiationStepName | string;
+  name?: RecoveryInstanceDataReplicationInitiationStepName;
 
   /**
    * @public
    * <p>The status of the step.</p>
    */
-  status?: RecoveryInstanceDataReplicationInitiationStepStatus | string;
+  status?: RecoveryInstanceDataReplicationInitiationStepStatus;
 }
 
 /**
@@ -2714,7 +2714,7 @@ export interface RecoveryInstanceDataReplicationInfo {
    * @public
    * <p>The state of the data replication.</p>
    */
-  dataReplicationState?: RecoveryInstanceDataReplicationState | string;
+  dataReplicationState?: RecoveryInstanceDataReplicationState;
 
   /**
    * @public
@@ -2814,7 +2814,7 @@ export interface RecoveryInstanceFailback {
    * @public
    * <p>The state of the failback process that this Recovery Instance is in.</p>
    */
-  state?: FailbackState | string;
+  state?: FailbackState;
 
   /**
    * @public
@@ -2850,7 +2850,7 @@ export interface RecoveryInstanceFailback {
    * @public
    * <p>The launch type (Recovery / Drill) of the last launch for the failback replication of this recovery instance.</p>
    */
-  failbackLaunchType?: FailbackLaunchType | string;
+  failbackLaunchType?: FailbackLaunchType;
 }
 
 /**
@@ -2954,7 +2954,7 @@ export interface RecoveryInstance {
    * @public
    * <p>The state of the EC2 instance for this Recovery Instance.</p>
    */
-  ec2InstanceState?: EC2InstanceState | string;
+  ec2InstanceState?: EC2InstanceState;
 
   /**
    * @public
@@ -3020,7 +3020,7 @@ export interface RecoveryInstance {
    * @public
    * <p>Environment (On Premises / AWS) of the instance that the recovery instance originated from.</p>
    */
-  originEnvironment?: OriginEnvironment | string;
+  originEnvironment?: OriginEnvironment;
 
   /**
    * @public
@@ -3098,7 +3098,7 @@ export interface DescribeRecoverySnapshotsRequest {
    * @public
    * <p>The sorted ordering by which to return Recovery Snapshots.</p>
    */
-  order?: RecoverySnapshotsOrder | string;
+  order?: RecoverySnapshotsOrder;
 
   /**
    * @public
@@ -3293,7 +3293,7 @@ export interface RecoveryLifeCycle {
    * @public
    * <p>The status of the last recovery status of this Source Network.</p>
    */
-  lastRecoveryResult?: RecoveryResult | string;
+  lastRecoveryResult?: RecoveryResult;
 }
 
 /**
@@ -3349,7 +3349,7 @@ export interface SourceNetwork {
    *             (c) PROTECTED - Source Network was replicated successfully and is being synchronized for changes.
    *             (d) ERROR - Source Network replication has failed</p>
    */
-  replicationStatus?: ReplicationStatus | string;
+  replicationStatus?: ReplicationStatus;
 
   /**
    * @public
@@ -3515,13 +3515,13 @@ export interface UpdateLaunchConfigurationTemplateRequest {
    * @public
    * <p>Launch disposition.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Target instance type right-sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -3799,7 +3799,7 @@ export interface PutLaunchActionRequest {
    * @public
    * <p>Launch action category.</p>
    */
-  category: LaunchActionCategory | string | undefined;
+  category: LaunchActionCategory | undefined;
 
   /**
    * @public
@@ -3840,7 +3840,7 @@ export interface PutLaunchActionResponse {
    * @public
    * <p>Launch action type.</p>
    */
-  type?: LaunchActionType | string;
+  type?: LaunchActionType;
 
   /**
    * @public
@@ -3888,7 +3888,7 @@ export interface PutLaunchActionResponse {
    * @public
    * <p>Launch action category.</p>
    */
-  category?: LaunchActionCategory | string;
+  category?: LaunchActionCategory;
 }
 
 /**
@@ -4093,13 +4093,13 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
 
   /**
    * @public
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption;
 
   /**
    * @public
@@ -4117,7 +4117,7 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * @public
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
 
   /**
    * @public
@@ -4299,13 +4299,13 @@ export interface LaunchConfiguration {
    * @public
    * <p>The state of the Recovery Instance in EC2 after the recovery operation.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Whether Elastic Disaster Recovery should try to automatically choose the instance type that best matches the OS, CPU, and RAM of your Source Server.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -4384,7 +4384,7 @@ export interface ReplicationConfigurationReplicatedDisk {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  stagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
+  stagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType;
 
   /**
    * @public
@@ -4402,7 +4402,7 @@ export interface ReplicationConfigurationReplicatedDisk {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication when <code>stagingDiskType</code> is set to Auto. This is a read-only field.</p>
    */
-  optimizedStagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
+  optimizedStagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType;
 }
 
 /**
@@ -4455,7 +4455,7 @@ export interface ReplicationConfiguration {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
 
   /**
    * @public
@@ -4467,7 +4467,7 @@ export interface ReplicationConfiguration {
    * @public
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption;
 
   /**
    * @public
@@ -4485,7 +4485,7 @@ export interface ReplicationConfiguration {
    * @public
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
 
   /**
    * @public
@@ -4639,13 +4639,13 @@ export interface UpdateLaunchConfigurationRequest {
    * @public
    * <p>The state of the Recovery Instance in EC2 after the recovery operation.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Whether Elastic Disaster Recovery should try to automatically choose the instance type that best matches the OS, CPU, and RAM of your Source Server.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -4722,7 +4722,7 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
 
   /**
    * @public
@@ -4734,7 +4734,7 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption;
 
   /**
    * @public
@@ -4752,7 +4752,7 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
 
   /**
    * @public

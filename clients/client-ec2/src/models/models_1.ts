@@ -72,7 +72,7 @@ export interface ClientVpnAuthenticationRequest {
    * @public
    * <p>The type of client authentication to be used.</p>
    */
-  Type?: ClientVpnAuthenticationType | string;
+  Type?: ClientVpnAuthenticationType;
 
   /**
    * @public
@@ -247,7 +247,7 @@ export interface CreateClientVpnEndpointRequest {
    *          <p>Default value: <code>udp</code>
    *          </p>
    */
-  TransportProtocol?: TransportProtocol | string;
+  TransportProtocol?: TransportProtocol;
 
   /**
    * @public
@@ -310,7 +310,7 @@ export interface CreateClientVpnEndpointRequest {
    *          <p>Default Value: <code>enabled</code>
    *          </p>
    */
-  SelfServicePortal?: SelfServicePortal | string;
+  SelfServicePortal?: SelfServicePortal;
 
   /**
    * @public
@@ -384,7 +384,7 @@ export interface ClientVpnEndpointStatus {
    *             </li>
    *          </ul>
    */
-  Code?: ClientVpnEndpointStatusCode | string;
+  Code?: ClientVpnEndpointStatusCode;
 
   /**
    * @public
@@ -499,7 +499,7 @@ export interface ClientVpnRouteStatus {
    * @public
    * <p>The state of the Client VPN endpoint route.</p>
    */
-  Code?: ClientVpnRouteStatusCode | string;
+  Code?: ClientVpnRouteStatusCode;
 
   /**
    * @public
@@ -713,7 +713,7 @@ export interface CreateCustomerGatewayRequest {
    * <p>The type of VPN connection that this customer gateway supports
    *             (<code>ipsec.1</code>).</p>
    */
-  Type: GatewayType | string | undefined;
+  Type: GatewayType | undefined;
 
   /**
    * @public
@@ -867,7 +867,7 @@ export interface PrivateDnsNameOptionsOnLaunch {
    *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
    *             names use the instance IPv4 address or the instance ID.</p>
    */
-  HostnameType?: HostnameType | string;
+  HostnameType?: HostnameType;
 
   /**
    * @public
@@ -967,7 +967,7 @@ export interface Subnet {
    * @public
    * <p>The current state of the subnet.</p>
    */
-  State?: SubnetState | string;
+  State?: SubnetState;
 
   /**
    * @public
@@ -1113,7 +1113,7 @@ export interface Vpc {
    * @public
    * <p>The current state of the VPC.</p>
    */
-  State?: VpcState | string;
+  State?: VpcState;
 
   /**
    * @public
@@ -1131,7 +1131,7 @@ export interface Vpc {
    * @public
    * <p>The allowed tenancy of instances launched into the VPC.</p>
    */
-  InstanceTenancy?: Tenancy | string;
+  InstanceTenancy?: Tenancy;
 
   /**
    * @public
@@ -1327,7 +1327,7 @@ export interface InternetGatewayAttachment {
    * 				<code>available</code> when attached to a VPC; otherwise, this value is not
    * 			returned.</p>
    */
-  State?: AttachmentStatus | string;
+  State?: AttachmentStatus;
 
   /**
    * @public
@@ -1730,7 +1730,7 @@ export interface InstanceRequirementsRequest {
    *          </note>
    *          <p>Default: Any manufacturer</p>
    */
-  CpuManufacturers?: (CpuManufacturer | string)[];
+  CpuManufacturers?: CpuManufacturer[];
 
   /**
    * @public
@@ -1768,7 +1768,7 @@ export interface InstanceRequirementsRequest {
    *          <p>For previous generation instance types, specify <code>previous</code>.</p>
    *          <p>Default: Current and previous generation instance types</p>
    */
-  InstanceGenerations?: (InstanceGeneration | string)[];
+  InstanceGenerations?: InstanceGeneration[];
 
   /**
    * @public
@@ -1825,7 +1825,7 @@ export interface InstanceRequirementsRequest {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BareMetal?: BareMetal | string;
+  BareMetal?: BareMetal;
 
   /**
    * @public
@@ -1845,7 +1845,7 @@ export interface InstanceRequirementsRequest {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BurstablePerformance?: BurstablePerformance | string;
+  BurstablePerformance?: BurstablePerformance;
 
   /**
    * @public
@@ -1885,7 +1885,7 @@ export interface InstanceRequirementsRequest {
    *          <p>Default: <code>included</code>
    *          </p>
    */
-  LocalStorage?: LocalStorage | string;
+  LocalStorage?: LocalStorage;
 
   /**
    * @public
@@ -1902,7 +1902,7 @@ export interface InstanceRequirementsRequest {
    *          <p>Default: <code>hdd</code> and <code>ssd</code>
    *          </p>
    */
-  LocalStorageTypes?: (LocalStorageType | string)[];
+  LocalStorageTypes?: LocalStorageType[];
 
   /**
    * @public
@@ -1936,7 +1936,7 @@ export interface InstanceRequirementsRequest {
    *          </ul>
    *          <p>Default: Any accelerator type</p>
    */
-  AcceleratorTypes?: (AcceleratorType | string)[];
+  AcceleratorTypes?: AcceleratorType[];
 
   /**
    * @public
@@ -1966,7 +1966,7 @@ export interface InstanceRequirementsRequest {
    *          </ul>
    *          <p>Default: Any manufacturer</p>
    */
-  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+  AcceleratorManufacturers?: AcceleratorManufacturer[];
 
   /**
    * @public
@@ -2002,7 +2002,7 @@ export interface InstanceRequirementsRequest {
    *          </ul>
    *          <p>Default: Any accelerator</p>
    */
-  AcceleratorNames?: (AcceleratorName | string)[];
+  AcceleratorNames?: AcceleratorName[];
 
   /**
    * @public
@@ -2091,7 +2091,7 @@ export interface Placement {
    *             for T3 instances that are configured for the <code>unlimited</code> CPU credit
    *             option.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: Tenancy;
 
   /**
    * @public
@@ -2130,7 +2130,7 @@ export interface FleetLaunchTemplateOverridesRequest {
    *                <code>InstanceRequirements</code>.</p>
    *          </note>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -2280,7 +2280,7 @@ export interface CapacityReservationOptionsRequest {
    *          <p>If you do not specify a value, the fleet fulfils the On-Demand capacity according to the
    *          chosen On-Demand allocation strategy.</p>
    */
-  UsageStrategy?: FleetCapacityReservationUsageStrategy | string;
+  UsageStrategy?: FleetCapacityReservationUsageStrategy;
 }
 
 /**
@@ -2301,7 +2301,7 @@ export interface OnDemandOptionsRequest {
    *          <p>Default: <code>lowest-price</code>
    *          </p>
    */
-  AllocationStrategy?: FleetOnDemandAllocationStrategy | string;
+  AllocationStrategy?: FleetOnDemandAllocationStrategy;
 
   /**
    * @public
@@ -2422,7 +2422,7 @@ export interface FleetSpotCapacityRebalanceRequest {
    *          then, after a delay that you specify (in <code>TerminationDelay</code>), terminates the
    *          instances that received a rebalance notification.</p>
    */
-  ReplacementStrategy?: FleetReplacementStrategy | string;
+  ReplacementStrategy?: FleetReplacementStrategy;
 
   /**
    * @public
@@ -2501,7 +2501,7 @@ export interface SpotOptionsRequest {
    *          <p>Default: <code>lowest-price</code>
    *          </p>
    */
-  AllocationStrategy?: SpotAllocationStrategy | string;
+  AllocationStrategy?: SpotAllocationStrategy;
 
   /**
    * @public
@@ -2516,7 +2516,7 @@ export interface SpotOptionsRequest {
    *          <p>Default: <code>terminate</code>
    *          </p>
    */
-  InstanceInterruptionBehavior?: SpotInstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: SpotInstanceInterruptionBehavior;
 
   /**
    * @public
@@ -2649,14 +2649,14 @@ export interface TargetCapacitySpecificationRequest {
    * <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
    *          <code>On-Demand</code>.</p>
    */
-  DefaultTargetCapacityType?: DefaultTargetCapacityType | string;
+  DefaultTargetCapacityType?: DefaultTargetCapacityType;
 
   /**
    * @public
    * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
    *          <p>Default: <code>units</code> (translates to number of instances)</p>
    */
-  TargetCapacityUnitType?: TargetCapacityUnitType | string;
+  TargetCapacityUnitType?: TargetCapacityUnitType;
 }
 
 /**
@@ -2712,7 +2712,7 @@ export interface CreateFleetRequest {
    *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
    *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
-  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
+  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy;
 
   /**
    * @public
@@ -2759,7 +2759,7 @@ export interface CreateFleetRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html">EC2 Fleet
    *             request types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  Type?: FleetType | string;
+  Type?: FleetType;
 
   /**
    * @public
@@ -3058,7 +3058,7 @@ export interface InstanceRequirements {
    *          </note>
    *          <p>Default: Any manufacturer</p>
    */
-  CpuManufacturers?: (CpuManufacturer | string)[];
+  CpuManufacturers?: CpuManufacturer[];
 
   /**
    * @public
@@ -3096,7 +3096,7 @@ export interface InstanceRequirements {
    *          <p>For previous generation instance types, specify <code>previous</code>.</p>
    *          <p>Default: Current and previous generation instance types</p>
    */
-  InstanceGenerations?: (InstanceGeneration | string)[];
+  InstanceGenerations?: InstanceGeneration[];
 
   /**
    * @public
@@ -3153,7 +3153,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BareMetal?: BareMetal | string;
+  BareMetal?: BareMetal;
 
   /**
    * @public
@@ -3173,7 +3173,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BurstablePerformance?: BurstablePerformance | string;
+  BurstablePerformance?: BurstablePerformance;
 
   /**
    * @public
@@ -3214,7 +3214,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>included</code>
    *          </p>
    */
-  LocalStorage?: LocalStorage | string;
+  LocalStorage?: LocalStorage;
 
   /**
    * @public
@@ -3231,7 +3231,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>hdd</code> and <code>ssd</code>
    *          </p>
    */
-  LocalStorageTypes?: (LocalStorageType | string)[];
+  LocalStorageTypes?: LocalStorageType[];
 
   /**
    * @public
@@ -3265,7 +3265,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any accelerator type</p>
    */
-  AcceleratorTypes?: (AcceleratorType | string)[];
+  AcceleratorTypes?: AcceleratorType[];
 
   /**
    * @public
@@ -3295,7 +3295,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any manufacturer</p>
    */
-  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+  AcceleratorManufacturers?: AcceleratorManufacturer[];
 
   /**
    * @public
@@ -3331,7 +3331,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any accelerator</p>
    */
-  AcceleratorNames?: (AcceleratorName | string)[];
+  AcceleratorNames?: AcceleratorName[];
 
   /**
    * @public
@@ -3394,7 +3394,7 @@ export interface FleetLaunchTemplateOverrides {
    *                <code>InstanceRequirements</code>.</p>
    *          </note>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -3516,7 +3516,7 @@ export interface CreateFleetError {
    * @public
    * <p>Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.</p>
    */
-  Lifecycle?: InstanceLifecycle | string;
+  Lifecycle?: InstanceLifecycle;
 
   /**
    * @public
@@ -3562,7 +3562,7 @@ export interface CreateFleetInstance {
    * @public
    * <p>Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.</p>
    */
-  Lifecycle?: InstanceLifecycle | string;
+  Lifecycle?: InstanceLifecycle;
 
   /**
    * @public
@@ -3574,14 +3574,14 @@ export interface CreateFleetInstance {
    * @public
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
    * <p>The value is <code>Windows</code> for Windows instances. Otherwise, the value is
    *          blank.</p>
    */
-  Platform?: PlatformValues | string;
+  Platform?: PlatformValues;
 }
 
 /**
@@ -3632,7 +3632,7 @@ export interface DestinationOptionsRequest {
    * @public
    * <p>The format for the flow log. The default is <code>plain-text</code>.</p>
    */
-  FileFormat?: DestinationFileFormat | string;
+  FileFormat?: DestinationFileFormat;
 
   /**
    * @public
@@ -3751,7 +3751,7 @@ export interface CreateFlowLogsRequest {
    * @public
    * <p>The type of resource to monitor.</p>
    */
-  ResourceType: FlowLogsResourceType | string | undefined;
+  ResourceType: FlowLogsResourceType | undefined;
 
   /**
    * @public
@@ -3759,7 +3759,7 @@ export interface CreateFlowLogsRequest {
    *             This parameter is not supported for transit gateway resource types. It is required for
    *             the other resource types.</p>
    */
-  TrafficType?: TrafficType | string;
+  TrafficType?: TrafficType;
 
   /**
    * @public
@@ -3767,7 +3767,7 @@ export interface CreateFlowLogsRequest {
    *          <p>Default: <code>cloud-watch-logs</code>
    *          </p>
    */
-  LogDestinationType?: LogDestinationType | string;
+  LogDestinationType?: LogDestinationType;
 
   /**
    * @public
@@ -4041,7 +4041,7 @@ export interface EbsBlockDevice {
    *                 <i>Amazon EC2 User Guide</i>. If the volume type is <code>io1</code> or
    *                 <code>io2</code>, you must specify the IOPS that the volume supports.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -4350,7 +4350,7 @@ export interface Ec2InstanceConnectEndpoint {
    * @public
    * <p>The current state of the EC2 Instance Connect Endpoint.</p>
    */
-  State?: Ec2InstanceConnectEndpointState | string;
+  State?: Ec2InstanceConnectEndpointState;
 
   /**
    * @public
@@ -4458,7 +4458,7 @@ export interface InstanceEventWindowTimeRangeRequest {
    * @public
    * <p>The day on which the time range begins.</p>
    */
-  StartWeekDay?: WeekDay | string;
+  StartWeekDay?: WeekDay;
 
   /**
    * @public
@@ -4470,7 +4470,7 @@ export interface InstanceEventWindowTimeRangeRequest {
    * @public
    * <p>The day on which the time range ends.</p>
    */
-  EndWeekDay?: WeekDay | string;
+  EndWeekDay?: WeekDay;
 
   /**
    * @public
@@ -4595,13 +4595,13 @@ export interface ExportToS3TaskSpecification {
    * <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
    *    exported.</p>
    */
-  ContainerFormat?: ContainerFormat | string;
+  ContainerFormat?: ContainerFormat;
 
   /**
    * @public
    * <p>The format for the exported image.</p>
    */
-  DiskImageFormat?: DiskImageFormat | string;
+  DiskImageFormat?: DiskImageFormat;
 
   /**
    * @public
@@ -4660,7 +4660,7 @@ export interface CreateInstanceExportTaskRequest {
    * @public
    * <p>The target virtualization environment.</p>
    */
-  TargetEnvironment: ExportEnvironment | string | undefined;
+  TargetEnvironment: ExportEnvironment | undefined;
 
   /**
    * @public
@@ -4679,13 +4679,13 @@ export interface ExportToS3Task {
    * <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
    *    exported.</p>
    */
-  ContainerFormat?: ContainerFormat | string;
+  ContainerFormat?: ContainerFormat;
 
   /**
    * @public
    * <p>The format for the exported image.</p>
    */
-  DiskImageFormat?: DiskImageFormat | string;
+  DiskImageFormat?: DiskImageFormat;
 
   /**
    * @public
@@ -4717,7 +4717,7 @@ export interface InstanceExportDetails {
    * @public
    * <p>The target virtualization environment.</p>
    */
-  TargetEnvironment?: ExportEnvironment | string;
+  TargetEnvironment?: ExportEnvironment;
 }
 
 /**
@@ -4769,7 +4769,7 @@ export interface ExportTask {
    * @public
    * <p>The state of the export task.</p>
    */
-  State?: ExportTaskState | string;
+  State?: ExportTaskState;
 
   /**
    * @public
@@ -4997,7 +4997,7 @@ export interface Ipam {
    * @public
    * <p>The state of the IPAM.</p>
    */
-  State?: IpamState | string;
+  State?: IpamState;
 
   /**
    * @public
@@ -5122,7 +5122,7 @@ export interface CreateIpamPoolRequest {
    * @public
    * <p>The IP protocol assigned to this IPAM pool. You must choose either IPv4 or IPv6 protocol for a pool.</p>
    */
-  AddressFamily: AddressFamily | string | undefined;
+  AddressFamily: AddressFamily | undefined;
 
   /**
    * @public
@@ -5187,14 +5187,14 @@ export interface CreateIpamPoolRequest {
    * @public
    * <p>Limits which service in Amazon Web Services that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.</p>
    */
-  AwsService?: IpamPoolAwsService | string;
+  AwsService?: IpamPoolAwsService;
 
   /**
    * @public
    * <p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>byoip</code>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *          By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool if PublicIpSource is <code>amazon</code>. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  PublicIpSource?: IpamPoolPublicIpSource | string;
+  PublicIpSource?: IpamPoolPublicIpSource;
 }
 
 /**
@@ -5293,7 +5293,7 @@ export interface IpamPool {
    * @public
    * <p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
    */
-  IpamScopeType?: IpamScopeType | string;
+  IpamScopeType?: IpamScopeType;
 
   /**
    * @public
@@ -5324,7 +5324,7 @@ export interface IpamPool {
    * @public
    * <p>The state of the IPAM pool.</p>
    */
-  State?: IpamPoolState | string;
+  State?: IpamPoolState;
 
   /**
    * @public
@@ -5361,7 +5361,7 @@ export interface IpamPool {
    * @public
    * <p>The address family of the pool.</p>
    */
-  AddressFamily?: AddressFamily | string;
+  AddressFamily?: AddressFamily;
 
   /**
    * @public
@@ -5399,14 +5399,14 @@ export interface IpamPool {
    * @public
    * <p>Limits which service in Amazon Web Services that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.</p>
    */
-  AwsService?: IpamPoolAwsService | string;
+  AwsService?: IpamPoolAwsService;
 
   /**
    * @public
    * <p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>BYOIP</code>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *          By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  PublicIpSource?: IpamPoolPublicIpSource | string;
+  PublicIpSource?: IpamPoolPublicIpSource;
 }
 
 /**
@@ -5582,7 +5582,7 @@ export interface IpamResourceDiscovery {
    *             </li>
    *          </ul>
    */
-  State?: IpamResourceDiscoveryState | string;
+  State?: IpamResourceDiscoveryState;
 
   /**
    * @public
@@ -5704,7 +5704,7 @@ export interface IpamScope {
    * @public
    * <p>The type of the scope.</p>
    */
-  IpamScopeType?: IpamScopeType | string;
+  IpamScopeType?: IpamScopeType;
 
   /**
    * @public
@@ -5728,7 +5728,7 @@ export interface IpamScope {
    * @public
    * <p>The state of the IPAM scope.</p>
    */
-  State?: IpamScopeState | string;
+  State?: IpamScopeState;
 
   /**
    * @public
@@ -5802,7 +5802,7 @@ export interface CreateKeyPairRequest {
    *          <p>Default: <code>rsa</code>
    *          </p>
    */
-  KeyType?: KeyType | string;
+  KeyType?: KeyType;
 
   /**
    * @public
@@ -5816,7 +5816,7 @@ export interface CreateKeyPairRequest {
    *          <p>Default: <code>pem</code>
    *          </p>
    */
-  KeyFormat?: KeyFormat | string;
+  KeyFormat?: KeyFormat;
 }
 
 /**
@@ -5954,7 +5954,7 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
    * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -6060,7 +6060,7 @@ export interface LaunchTemplateCapacityReservationSpecificationRequest {
    *             </li>
    *          </ul>
    */
-  CapacityReservationPreference?: CapacityReservationPreference | string;
+  CapacityReservationPreference?: CapacityReservationPreference;
 
   /**
    * @public
@@ -6110,7 +6110,7 @@ export interface LaunchTemplateCpuOptionsRequest {
    *             with M6a, R6a, and C6a instance types only. For more information, see
    *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
    */
-  AmdSevSnp?: AmdSevSnpSpecification | string;
+  AmdSevSnp?: AmdSevSnpSpecification;
 }
 
 /**
@@ -6289,7 +6289,7 @@ export interface LaunchTemplateSpotMarketOptionsRequest {
    * @public
    * <p>The Spot Instance request type.</p>
    */
-  SpotInstanceType?: SpotInstanceType | string;
+  SpotInstanceType?: SpotInstanceType;
 
   /**
    * @public
@@ -6322,7 +6322,7 @@ export interface LaunchTemplateSpotMarketOptionsRequest {
    * <p>The behavior when a Spot Instance is interrupted. The default is
    *                 <code>terminate</code>.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior;
 }
 
 /**
@@ -6334,7 +6334,7 @@ export interface LaunchTemplateInstanceMarketOptionsRequest {
    * @public
    * <p>The market type.</p>
    */
-  MarketType?: MarketType | string;
+  MarketType?: MarketType;
 
   /**
    * @public
@@ -6380,7 +6380,7 @@ export interface LaunchTemplateInstanceMaintenanceOptionsRequest {
    * <p>Disables the automatic recovery behavior of your instance or sets it to default. For
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
    */
-  AutoRecovery?: LaunchTemplateAutoRecoveryState | string;
+  AutoRecovery?: LaunchTemplateAutoRecoveryState;
 }
 
 /**
@@ -6473,7 +6473,7 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
    *          <p>Default: <code>optional</code>
    *          </p>
    */
-  HttpTokens?: LaunchTemplateHttpTokensState | string;
+  HttpTokens?: LaunchTemplateHttpTokensState;
 
   /**
    * @public
@@ -6494,7 +6494,7 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
    *                 your instance metadata. </p>
    *          </note>
    */
-  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState | string;
+  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState;
 
   /**
    * @public
@@ -6502,7 +6502,7 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6 | string;
+  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6;
 
   /**
    * @public
@@ -6513,7 +6513,7 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState | string;
+  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState;
 }
 
 /**
@@ -6767,7 +6767,7 @@ export interface LaunchTemplatePlacementRequest {
    * <p>The tenancy of the instance. An instance with a
    *             tenancy of dedicated runs on single-tenant hardware.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: Tenancy;
 
   /**
    * @public
@@ -6810,7 +6810,7 @@ export interface LaunchTemplatePrivateDnsNameOptionsRequest {
    *             name must be based on the instance ID. For dual-stack subnets, you can specify whether
    *             DNS names use the instance IPv4 address or the instance ID.</p>
    */
-  HostnameType?: HostnameType | string;
+  HostnameType?: HostnameType;
 
   /**
    * @public
@@ -6844,7 +6844,7 @@ export interface LaunchTemplateTagSpecificationRequest {
    *             launch fails. For example, not all instance types include an Elastic GPU.</p>
    *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -6948,7 +6948,7 @@ export interface RequestLaunchTemplateData {
    *          <p>If you specify <code>InstanceType</code>, you can't specify
    *                 <code>InstanceRequirements</code>.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -7001,7 +7001,7 @@ export interface RequestLaunchTemplateData {
    *          <p>Default: <code>stop</code>
    *          </p>
    */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior;
 
   /**
    * @public
@@ -7471,7 +7471,7 @@ export interface LaunchTemplateEbsBlockDevice {
    * @public
    * <p>The volume type.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -7551,7 +7551,7 @@ export interface LaunchTemplateCapacityReservationSpecificationResponse {
    *             </li>
    *          </ul>
    */
-  CapacityReservationPreference?: CapacityReservationPreference | string;
+  CapacityReservationPreference?: CapacityReservationPreference;
 
   /**
    * @public
@@ -7583,7 +7583,7 @@ export interface LaunchTemplateCpuOptions {
    * <p>Indicates whether the instance is enabled for AMD SEV-SNP. For more information, see
    *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
    */
-  AmdSevSnp?: AmdSevSnpSpecification | string;
+  AmdSevSnp?: AmdSevSnpSpecification;
 }
 
 /**
@@ -7697,7 +7697,7 @@ export interface LaunchTemplateSpotMarketOptions {
    * @public
    * <p>The Spot Instance request type.</p>
    */
-  SpotInstanceType?: SpotInstanceType | string;
+  SpotInstanceType?: SpotInstanceType;
 
   /**
    * @public
@@ -7719,7 +7719,7 @@ export interface LaunchTemplateSpotMarketOptions {
    * @public
    * <p>The behavior when a Spot Instance is interrupted.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior;
 }
 
 /**
@@ -7731,7 +7731,7 @@ export interface LaunchTemplateInstanceMarketOptions {
    * @public
    * <p>The market type.</p>
    */
-  MarketType?: MarketType | string;
+  MarketType?: MarketType;
 
   /**
    * @public
@@ -7762,7 +7762,7 @@ export interface LaunchTemplateInstanceMaintenanceOptions {
    * <p>Disables the automatic recovery behavior of your instance or sets it to
    *             default.</p>
    */
-  AutoRecovery?: LaunchTemplateAutoRecoveryState | string;
+  AutoRecovery?: LaunchTemplateAutoRecoveryState;
 }
 
 /**
@@ -7796,7 +7796,7 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *             <code>applied</code> - The metadata options have been successfully applied on the
    *             instance.</p>
    */
-  State?: LaunchTemplateInstanceMetadataOptionsState | string;
+  State?: LaunchTemplateInstanceMetadataOptionsState;
 
   /**
    * @public
@@ -7813,7 +7813,7 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *          <p>Default: <code>optional</code>
    *          </p>
    */
-  HttpTokens?: LaunchTemplateHttpTokensState | string;
+  HttpTokens?: LaunchTemplateHttpTokensState;
 
   /**
    * @public
@@ -7833,7 +7833,7 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *                 your instance metadata. </p>
    *          </note>
    */
-  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState | string;
+  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState;
 
   /**
    * @public
@@ -7841,7 +7841,7 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6 | string;
+  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6;
 
   /**
    * @public
@@ -7852,7 +7852,7 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState | string;
+  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState;
 }
 
 /**
@@ -8082,7 +8082,7 @@ export interface LaunchTemplatePlacement {
    * <p>The tenancy of the instance. An instance with a
    *             tenancy of <code>dedicated</code> runs on single-tenant hardware. </p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: Tenancy;
 
   /**
    * @public
@@ -8120,7 +8120,7 @@ export interface LaunchTemplatePrivateDnsNameOptions {
    * @public
    * <p>The type of hostname to assign to an instance.</p>
    */
-  HostnameType?: HostnameType | string;
+  HostnameType?: HostnameType;
 
   /**
    * @public
@@ -8146,7 +8146,7 @@ export interface LaunchTemplateTagSpecification {
    * @public
    * <p>The type of resource to tag.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -8218,7 +8218,7 @@ export interface ResponseLaunchTemplateData {
    * @public
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -8256,7 +8256,7 @@ export interface ResponseLaunchTemplateData {
    * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
    *             instance (using the operating system command for system shutdown).</p>
    */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior;
 
   /**
    * @public
@@ -8561,13 +8561,13 @@ export interface LocalGatewayRoute {
    * @public
    * <p>The route type.</p>
    */
-  Type?: LocalGatewayRouteType | string;
+  Type?: LocalGatewayRouteType;
 
   /**
    * @public
    * <p>The state of the route.</p>
    */
-  State?: LocalGatewayRouteState | string;
+  State?: LocalGatewayRouteState;
 
   /**
    * @public
@@ -8657,7 +8657,7 @@ export interface CreateLocalGatewayRouteTableRequest {
    *       The mode of the local gateway route table.
    *       </p>
    */
-  Mode?: LocalGatewayRouteTableMode | string;
+  Mode?: LocalGatewayRouteTableMode;
 
   /**
    * @public
@@ -8812,7 +8812,7 @@ export interface LocalGatewayRouteTable {
    * @public
    * <p>The mode of the local gateway route table.</p>
    */
-  Mode?: LocalGatewayRouteTableMode | string;
+  Mode?: LocalGatewayRouteTableMode;
 
   /**
    * @public
@@ -9130,7 +9130,7 @@ export interface ManagedPrefixList {
    * @public
    * <p>The current state of the prefix list.</p>
    */
-  State?: PrefixListState | string;
+  State?: PrefixListState;
 
   /**
    * @public
@@ -9246,7 +9246,7 @@ export interface CreateNatGatewayRequest {
    * <p>Indicates whether the NAT gateway supports public or private connectivity.
    *           The default is public connectivity.</p>
    */
-  ConnectivityType?: ConnectivityType | string;
+  ConnectivityType?: ConnectivityType;
 
   /**
    * @public
@@ -9431,7 +9431,7 @@ export interface NatGateway {
    *             </li>
    *          </ul>
    */
-  State?: NatGatewayState | string;
+  State?: NatGatewayState;
 
   /**
    * @public
@@ -9455,7 +9455,7 @@ export interface NatGateway {
    * @public
    * <p>Indicates whether the NAT gateway supports public or private connectivity.</p>
    */
-  ConnectivityType?: ConnectivityType | string;
+  ConnectivityType?: ConnectivityType;
 }
 
 /**
@@ -9601,7 +9601,7 @@ export interface NetworkAclEntry {
    * @public
    * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
    */
-  RuleAction?: RuleAction | string;
+  RuleAction?: RuleAction;
 
   /**
    * @public
@@ -9736,7 +9736,7 @@ export interface CreateNetworkAclEntryRequest {
    * @public
    * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
    */
-  RuleAction: RuleAction | string | undefined;
+  RuleAction: RuleAction | undefined;
 
   /**
    * @public
@@ -9942,7 +9942,7 @@ export interface CreateNetworkInsightsPathRequest {
    * @public
    * <p>The protocol.</p>
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: Protocol | undefined;
 
   /**
    * @public
@@ -10098,7 +10098,7 @@ export interface NetworkInsightsPath {
    * @public
    * <p>The protocol.</p>
    */
-  Protocol?: Protocol | string;
+  Protocol?: Protocol;
 
   /**
    * @public
@@ -10262,7 +10262,7 @@ export interface CreateNetworkInterfaceRequest {
    * <p>The type of network interface. The default is <code>interface</code>.</p>
    *          <p>The only supported values are <code>interface</code>, <code>efa</code>, and <code>trunk</code>.</p>
    */
-  InterfaceType?: NetworkInterfaceCreationType | string;
+  InterfaceType?: NetworkInterfaceCreationType;
 
   /**
    * @public
@@ -10436,7 +10436,7 @@ export interface NetworkInterfaceAttachment {
    * @public
    * <p>The attachment state.</p>
    */
-  Status?: AttachmentStatus | string;
+  Status?: AttachmentStatus;
 
   /**
    * @public
@@ -10608,7 +10608,7 @@ export interface NetworkInterface {
    * @public
    * <p>The type of network interface.</p>
    */
-  InterfaceType?: NetworkInterfaceType | string;
+  InterfaceType?: NetworkInterfaceType;
 
   /**
    * @public
@@ -10692,7 +10692,7 @@ export interface NetworkInterface {
    * @public
    * <p>The status of the network interface.</p>
    */
-  Status?: NetworkInterfaceStatus | string;
+  Status?: NetworkInterfaceStatus;
 
   /**
    * @public
@@ -10793,7 +10793,7 @@ export interface CreateNetworkInterfacePermissionRequest {
    * @public
    * <p>The type of permission to grant.</p>
    */
-  Permission: InterfacePermissionType | string | undefined;
+  Permission: InterfacePermissionType | undefined;
 
   /**
    * @public
@@ -10830,7 +10830,7 @@ export interface NetworkInterfacePermissionState {
    * @public
    * <p>The state of the permission.</p>
    */
-  State?: NetworkInterfacePermissionStateCode | string;
+  State?: NetworkInterfacePermissionStateCode;
 
   /**
    * @public
@@ -10872,7 +10872,7 @@ export interface NetworkInterfacePermission {
    * @public
    * <p>The type of permission.</p>
    */
-  Permission?: InterfacePermissionType | string;
+  Permission?: InterfacePermissionType;
 
   /**
    * @public
@@ -10946,7 +10946,7 @@ export interface CreatePlacementGroupRequest {
    * @public
    * <p>The placement strategy.</p>
    */
-  Strategy?: PlacementStrategy | string;
+  Strategy?: PlacementStrategy;
 
   /**
    * @public
@@ -10974,7 +10974,7 @@ export interface CreatePlacementGroupRequest {
    *             </li>
    *          </ul>
    */
-  SpreadLevel?: SpreadLevel | string;
+  SpreadLevel?: SpreadLevel;
 }
 
 /**
@@ -11008,13 +11008,13 @@ export interface PlacementGroup {
    * @public
    * <p>The state of the placement group.</p>
    */
-  State?: PlacementGroupState | string;
+  State?: PlacementGroupState;
 
   /**
    * @public
    * <p>The placement strategy.</p>
    */
-  Strategy?: PlacementStrategy | string;
+  Strategy?: PlacementStrategy;
 
   /**
    * @public
@@ -11046,7 +11046,7 @@ export interface PlacementGroup {
    * <p>The spread level for the placement group. <i>Only</i> Outpost placement
    *             groups can be spread across hosts.</p>
    */
-  SpreadLevel?: SpreadLevel | string;
+  SpreadLevel?: SpreadLevel;
 }
 
 /**

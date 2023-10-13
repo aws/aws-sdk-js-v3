@@ -365,7 +365,7 @@ export interface BackendAPIAuthType {
    * @public
    * <p>Describes the authentication mode.</p>
    */
-  Mode?: Mode | string;
+  Mode?: Mode;
 
   /**
    * @public
@@ -399,7 +399,7 @@ export interface BackendAPIConflictResolution {
    * @public
    * <p>The strategy for conflict resolution.</p>
    */
-  ResolutionStrategy?: ResolutionStrategy | string;
+  ResolutionStrategy?: ResolutionStrategy;
 }
 
 /**
@@ -613,7 +613,7 @@ export interface CreateBackendAuthForgotPasswordConfig {
    * @public
    * <p><b>(DEPRECATED)</b> Describes which mode to use (either SMS or email) to deliver messages to app users who want to recover their password.</p>
    */
-  DeliveryMethod: DeliveryMethod | string | undefined;
+  DeliveryMethod: DeliveryMethod | undefined;
 
   /**
    * @public
@@ -666,7 +666,7 @@ export interface Settings {
    * @public
    * <p>The supported MFA types.</p>
    */
-  MfaTypes?: (MfaTypesElement | string)[];
+  MfaTypes?: MfaTypesElement[];
 
   /**
    * @public
@@ -684,7 +684,7 @@ export interface CreateBackendAuthMFAConfig {
    * @public
    * <p>Describes whether MFA should be [ON, OFF, or OPTIONAL] for authentication in your Amplify project.</p>
    */
-  MFAMode: MFAMode | string | undefined;
+  MFAMode: MFAMode | undefined;
 
   /**
    * @public
@@ -817,13 +817,13 @@ export interface CreateBackendAuthOAuthConfig {
    * @public
    * <p>The OAuth grant type that you use to allow app users to authenticate from your Amplify app.</p>
    */
-  OAuthGrantType: OAuthGrantType | string | undefined;
+  OAuthGrantType: OAuthGrantType | undefined;
 
   /**
    * @public
    * <p>List of OAuth-related flows used to allow your app users to authenticate from your Amplify app.</p>
    */
-  OAuthScopes: (OAuthScopesElement | string)[] | undefined;
+  OAuthScopes: OAuthScopesElement[] | undefined;
 
   /**
    * @public
@@ -853,7 +853,7 @@ export interface CreateBackendAuthPasswordPolicyConfig {
    * @public
    * <p>Additional constraints for the password used to access the backend of your Amplify project.</p>
    */
-  AdditionalConstraints?: (AdditionalConstraintsElement | string)[];
+  AdditionalConstraints?: AdditionalConstraintsElement[];
 
   /**
    * @public
@@ -917,7 +917,7 @@ export interface CreateBackendAuthVerificationMessageConfig {
    * @public
    * <p>The type of verification message to send.</p>
    */
-  DeliveryMethod: DeliveryMethod | string | undefined;
+  DeliveryMethod: DeliveryMethod | undefined;
 
   /**
    * @public
@@ -965,13 +965,13 @@ export interface CreateBackendAuthUserPoolConfig {
    * @public
    * <p>The required attributes to sign up new users in the user pool.</p>
    */
-  RequiredSignUpAttributes: (RequiredSignUpAttributesElement | string)[] | undefined;
+  RequiredSignUpAttributes: RequiredSignUpAttributesElement[] | undefined;
 
   /**
    * @public
    * <p>Describes the sign-in methods that your Amplify app users use to log in using the Amazon Cognito user pool, configured as a part of your Amplify project.</p>
    */
-  SignInMethod: SignInMethod | string | undefined;
+  SignInMethod: SignInMethod | undefined;
 
   /**
    * @public
@@ -995,7 +995,7 @@ export interface CreateBackendAuthResourceConfig {
    * @public
    * <p>Defines whether you want to configure only authentication or both authentication and authorization settings.</p>
    */
-  AuthResources: AuthResources | string | undefined;
+  AuthResources: AuthResources | undefined;
 
   /**
    * @public
@@ -1007,7 +1007,7 @@ export interface CreateBackendAuthResourceConfig {
    * @public
    * <p>Defines the service name to use when configuring an authentication resource in your Amplify project.</p>
    */
-  Service: Service | string | undefined;
+  Service: Service | undefined;
 
   /**
    * @public
@@ -1173,13 +1173,13 @@ export interface BackendStoragePermissions {
    * @public
    * <p>Lists all authenticated user read, write, and delete permissions for your S3 bucket.</p>
    */
-  Authenticated: (AuthenticatedElement | string)[] | undefined;
+  Authenticated: AuthenticatedElement[] | undefined;
 
   /**
    * @public
    * <p>Lists all unauthenticated user read, write, and delete permissions for your S3 bucket.</p>
    */
-  UnAuthenticated?: (UnAuthenticatedElement | string)[];
+  UnAuthenticated?: UnAuthenticatedElement[];
 }
 
 /**
@@ -1216,7 +1216,7 @@ export interface CreateBackendStorageResourceConfig {
    * @public
    * <p>The name of the storage service.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: ServiceName | undefined;
 }
 
 /**
@@ -1539,7 +1539,7 @@ export interface DeleteBackendStorageRequest {
    * @public
    * <p>The name of the storage service.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: ServiceName | undefined;
 }
 
 /**
@@ -1846,7 +1846,7 @@ export interface GetBackendAPIModelsResponse {
    * @public
    * <p>The current status of the request.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -2041,7 +2041,7 @@ export interface GetBackendStorageResourceConfig {
    * @public
    * <p>The name of the storage service.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: ServiceName | undefined;
 }
 
 /**
@@ -2229,7 +2229,7 @@ export interface ImportBackendStorageRequest {
    * @public
    * <p>The name of the storage service.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: ServiceName | undefined;
 }
 
 /**
@@ -2594,7 +2594,7 @@ export interface UpdateBackendAuthForgotPasswordConfig {
    * @public
    * <p><b>(DEPRECATED)</b> Describes which mode to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>
    */
-  DeliveryMethod?: DeliveryMethod | string;
+  DeliveryMethod?: DeliveryMethod;
 
   /**
    * @public
@@ -2618,7 +2618,7 @@ export interface UpdateBackendAuthMFAConfig {
    * @public
    * <p>The MFA mode for the backend of your Amplify project.</p>
    */
-  MFAMode?: MFAMode | string;
+  MFAMode?: MFAMode;
 
   /**
    * @public
@@ -2642,13 +2642,13 @@ export interface UpdateBackendAuthOAuthConfig {
    * @public
    * <p>The OAuth grant type to allow app users to authenticate from your Amplify app.</p>
    */
-  OAuthGrantType?: OAuthGrantType | string;
+  OAuthGrantType?: OAuthGrantType;
 
   /**
    * @public
    * <p>The list of OAuth-related flows that can allow users to authenticate from your Amplify app.</p>
    */
-  OAuthScopes?: (OAuthScopesElement | string)[];
+  OAuthScopes?: OAuthScopesElement[];
 
   /**
    * @public
@@ -2678,7 +2678,7 @@ export interface UpdateBackendAuthPasswordPolicyConfig {
    * @public
    * <p>Describes additional constraints on password requirements to sign in to the auth resource, configured as a part of your Amplify project.</p>
    */
-  AdditionalConstraints?: (AdditionalConstraintsElement | string)[];
+  AdditionalConstraints?: AdditionalConstraintsElement[];
 
   /**
    * @public
@@ -2696,7 +2696,7 @@ export interface UpdateBackendAuthVerificationMessageConfig {
    * @public
    * <p>The type of verification message to send.</p>
    */
-  DeliveryMethod: DeliveryMethod | string | undefined;
+  DeliveryMethod: DeliveryMethod | undefined;
 
   /**
    * @public
@@ -2756,7 +2756,7 @@ export interface UpdateBackendAuthResourceConfig {
    * @public
    * <p>Defines the service name to use when configuring an authentication resource in your Amplify project.</p>
    */
-  AuthResources: AuthResources | string | undefined;
+  AuthResources: AuthResources | undefined;
 
   /**
    * @public
@@ -2768,7 +2768,7 @@ export interface UpdateBackendAuthResourceConfig {
    * @public
    * <p>Defines the service name to use when configuring an authentication resource in your Amplify project.</p>
    */
-  Service: Service | string | undefined;
+  Service: Service | undefined;
 
   /**
    * @public
@@ -3029,7 +3029,7 @@ export interface UpdateBackendStorageResourceConfig {
    * @public
    * <p>The name of the storage service.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: ServiceName | undefined;
 }
 
 /**

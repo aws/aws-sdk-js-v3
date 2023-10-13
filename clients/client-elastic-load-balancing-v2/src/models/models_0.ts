@@ -89,7 +89,7 @@ export interface AuthenticateCognitoActionConfig {
    *             </li>
    *          </ul>
    */
-  OnUnauthenticatedRequest?: AuthenticateCognitoActionConditionalBehaviorEnum | string;
+  OnUnauthenticatedRequest?: AuthenticateCognitoActionConditionalBehaviorEnum;
 }
 
 /**
@@ -202,7 +202,7 @@ export interface AuthenticateOidcActionConfig {
    *             </li>
    *          </ul>
    */
-  OnUnauthenticatedRequest?: AuthenticateOidcActionConditionalBehaviorEnum | string;
+  OnUnauthenticatedRequest?: AuthenticateOidcActionConditionalBehaviorEnum;
 
   /**
    * @public
@@ -378,7 +378,7 @@ export interface RedirectActionConfig {
    * <p>The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP
    *       302).</p>
    */
-  StatusCode: RedirectActionStatusCodeEnum | string | undefined;
+  StatusCode: RedirectActionStatusCodeEnum | undefined;
 }
 
 /**
@@ -410,7 +410,7 @@ export interface Action {
    * @public
    * <p>The type of action.</p>
    */
-  Type: ActionTypeEnum | string | undefined;
+  Type: ActionTypeEnum | undefined;
 
   /**
    * @public
@@ -918,7 +918,7 @@ export interface CreateListenerInput {
    *       protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load
    *       Balancer.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: ProtocolEnum;
 
   /**
    * @public
@@ -1020,7 +1020,7 @@ export interface Listener {
    * @public
    * <p>The protocol for connections from clients to the load balancer.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: ProtocolEnum;
 
   /**
    * @public
@@ -1471,7 +1471,7 @@ export interface CreateLoadBalancerInput {
    *          <p>The default is an Internet-facing load balancer.</p>
    *          <p>You cannot specify a scheme for a Gateway Load Balancer.</p>
    */
-  Scheme?: LoadBalancerSchemeEnum | string;
+  Scheme?: LoadBalancerSchemeEnum;
 
   /**
    * @public
@@ -1483,7 +1483,7 @@ export interface CreateLoadBalancerInput {
    * @public
    * <p>The type of load balancer. The default is <code>application</code>.</p>
    */
-  Type?: LoadBalancerTypeEnum | string;
+  Type?: LoadBalancerTypeEnum;
 
   /**
    * @public
@@ -1491,7 +1491,7 @@ export interface CreateLoadBalancerInput {
    *       are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
    *       addresses). </p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -1530,7 +1530,7 @@ export interface LoadBalancerState {
    *       needs to scale, its state is<code>active_impaired</code>. If the load balancer could not be
    *       set up, its state is <code>failed</code>.</p>
    */
-  Code?: LoadBalancerStateEnum | string;
+  Code?: LoadBalancerStateEnum;
 
   /**
    * @public
@@ -1585,7 +1585,7 @@ export interface LoadBalancer {
    *       Therefore, internal load balancers can route requests only from clients with access to the VPC
    *       for the load balancer.</p>
    */
-  Scheme?: LoadBalancerSchemeEnum | string;
+  Scheme?: LoadBalancerSchemeEnum;
 
   /**
    * @public
@@ -1603,7 +1603,7 @@ export interface LoadBalancer {
    * @public
    * <p>The type of load balancer.</p>
    */
-  Type?: LoadBalancerTypeEnum | string;
+  Type?: LoadBalancerTypeEnum;
 
   /**
    * @public
@@ -1623,7 +1623,7 @@ export interface LoadBalancer {
    *       are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
    *       addresses).</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -2343,7 +2343,7 @@ export interface CreateTargetGroupInput {
    *       GENEVE. A TCP_UDP listener must be associated with a TCP_UDP target group. If the target is a
    *       Lambda function, this parameter does not apply.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: ProtocolEnum;
 
   /**
    * @public
@@ -2376,7 +2376,7 @@ export interface CreateTargetGroupInput {
    *       protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, and TCP_UDP protocols are
    *       not supported for health checks.</p>
    */
-  HealthCheckProtocol?: ProtocolEnum | string;
+  HealthCheckProtocol?: ProtocolEnum;
 
   /**
    * @public
@@ -2478,7 +2478,7 @@ export interface CreateTargetGroupInput {
    *             </li>
    *          </ul>
    */
-  TargetType?: TargetTypeEnum | string;
+  TargetType?: TargetTypeEnum;
 
   /**
    * @public
@@ -2492,7 +2492,7 @@ export interface CreateTargetGroupInput {
    *         <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,
    *       the IP address type defaults to <code>ipv4</code>.</p>
    */
-  IpAddressType?: TargetGroupIpAddressTypeEnum | string;
+  IpAddressType?: TargetGroupIpAddressTypeEnum;
 }
 
 /**
@@ -2516,7 +2516,7 @@ export interface TargetGroup {
    * @public
    * <p>The protocol to use for routing traffic to the targets.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: ProtocolEnum;
 
   /**
    * @public
@@ -2536,7 +2536,7 @@ export interface TargetGroup {
    * <p>The protocol to use to connect with the target. The GENEVE, TLS, UDP, and TCP_UDP
    *       protocols are not supported for health checks.</p>
    */
-  HealthCheckProtocol?: ProtocolEnum | string;
+  HealthCheckProtocol?: ProtocolEnum;
 
   /**
    * @public
@@ -2606,7 +2606,7 @@ export interface TargetGroup {
    *       Lambda function as a target), or <code>alb</code> (register a single Application Load Balancer
    *       as a target).</p>
    */
-  TargetType?: TargetTypeEnum | string;
+  TargetType?: TargetTypeEnum;
 
   /**
    * @public
@@ -2621,7 +2621,7 @@ export interface TargetGroup {
    *         <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,
    *       the IP address type defaults to <code>ipv4</code>.</p>
    */
-  IpAddressType?: TargetGroupIpAddressTypeEnum | string;
+  IpAddressType?: TargetGroupIpAddressTypeEnum;
 }
 
 /**
@@ -3340,7 +3340,7 @@ export interface DescribeSSLPoliciesInput {
    * <p> The type of load balancer. The default lists the SSL policies for all load
    *       balancers.</p>
    */
-  LoadBalancerType?: LoadBalancerTypeEnum | string;
+  LoadBalancerType?: LoadBalancerTypeEnum;
 }
 
 /**
@@ -3777,7 +3777,7 @@ export interface TargetHealth {
    * @public
    * <p>The state of the target.</p>
    */
-  State?: TargetHealthStateEnum | string;
+  State?: TargetHealthStateEnum;
 
   /**
    * @public
@@ -3870,7 +3870,7 @@ export interface TargetHealth {
    *             </li>
    *          </ul>
    */
-  Reason?: TargetHealthReasonEnum | string;
+  Reason?: TargetHealthReasonEnum;
 
   /**
    * @public
@@ -3962,7 +3962,7 @@ export interface ModifyListenerInput {
    *       TCP_UDP protocols. You can’t change the protocol to UDP or TCP_UDP if dual-stack mode is
    *       enabled. You cannot specify a protocol for a Gateway Load Balancer.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: ProtocolEnum;
 
   /**
    * @public
@@ -4116,7 +4116,7 @@ export interface ModifyTargetGroupInput {
    *       protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP
    *       protocols are not supported for health checks.</p>
    */
-  HealthCheckProtocol?: ProtocolEnum | string;
+  HealthCheckProtocol?: ProtocolEnum;
 
   /**
    * @public
@@ -4299,7 +4299,7 @@ export interface SetIpAddressTypeInput {
    *         <code>dualstack</code> (for IPv4 and IPv6 addresses).  You can’t specify <code>dualstack</code> for a load balancer
    *       with a UDP or TCP_UDP listener.</p>
    */
-  IpAddressType: IpAddressType | string | undefined;
+  IpAddressType: IpAddressType | undefined;
 }
 
 /**
@@ -4310,7 +4310,7 @@ export interface SetIpAddressTypeOutput {
    * @public
    * <p>The IP address type.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 }
 
 /**
@@ -4389,9 +4389,7 @@ export interface SetSecurityGroupsInput {
    * <p>Indicates whether to evaluate inbound security group rules for traffic sent to a
    *       Network Load Balancer through Amazon Web Services PrivateLink. The default is <code>on</code>.</p>
    */
-  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?:
-    | EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum
-    | string;
+  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum;
 }
 
 /**
@@ -4409,9 +4407,7 @@ export interface SetSecurityGroupsOutput {
    * <p>Indicates whether to evaluate inbound security group rules for traffic sent to a
    *       Network Load Balancer through Amazon Web Services PrivateLink.</p>
    */
-  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?:
-    | EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum
-    | string;
+  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum;
 }
 
 /**
@@ -4469,7 +4465,7 @@ export interface SetSubnetsInput {
    *       balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and
    *       <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 }
 
 /**
@@ -4487,5 +4483,5 @@ export interface SetSubnetsOutput {
    * <p>[Network Load Balancers] The IP address type.</p>
    *          <p>[Gateway Load Balancers] The IP address type.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 }

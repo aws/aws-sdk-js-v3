@@ -35,7 +35,7 @@ export interface UnlockDelay {
    * <p>The unit of time in which to measure the unlock delay. Currently, the unlock delay can
    *       be measure only in days.</p>
    */
-  UnlockDelayUnit: UnlockDelayUnit | string | undefined;
+  UnlockDelayUnit: UnlockDelayUnit | undefined;
 }
 
 /**
@@ -113,7 +113,7 @@ export interface RetentionPeriod {
    * <p>The unit of time in which the retention period is measured. Currently, only <code>DAYS</code>
    *       is supported.</p>
    */
-  RetentionPeriodUnit: RetentionPeriodUnit | string | undefined;
+  RetentionPeriodUnit: RetentionPeriodUnit | undefined;
 }
 
 /**
@@ -162,7 +162,7 @@ export interface CreateRuleRequest {
    *       and EBS-backed AMIs are supported. To retain snapshots, specify <code>EBS_SNAPSHOT</code>. To
    *       retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -245,7 +245,7 @@ export interface CreateRuleResponse {
    * @public
    * <p>The resource type retained by the retention rule.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -259,7 +259,7 @@ export interface CreateRuleResponse {
    * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
    *       state retain resources.</p>
    */
-  Status?: RuleStatus | string;
+  Status?: RuleStatus;
 
   /**
    * @public
@@ -294,7 +294,7 @@ export interface CreateRuleResponse {
    *             </li>
    *          </ul>
    */
-  LockState?: LockState | string;
+  LockState?: LockState;
 }
 
 /**
@@ -345,7 +345,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  Reason?: ServiceQuotaExceededExceptionReason | string;
+  Reason?: ServiceQuotaExceededExceptionReason;
   /**
    * @internal
    */
@@ -387,7 +387,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: ValidationExceptionReason;
   /**
    * @internal
    */
@@ -428,7 +428,7 @@ export class ConflictException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  Reason?: ConflictExceptionReason | string;
+  Reason?: ConflictExceptionReason;
   /**
    * @internal
    */
@@ -486,7 +486,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  Reason?: ResourceNotFoundExceptionReason | string;
+  Reason?: ResourceNotFoundExceptionReason;
   /**
    * @internal
    */
@@ -533,7 +533,7 @@ export interface GetRuleResponse {
    * @public
    * <p>The resource type retained by the retention rule.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -553,7 +553,7 @@ export interface GetRuleResponse {
    * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
    *       state retain resources.</p>
    */
-  Status?: RuleStatus | string;
+  Status?: RuleStatus;
 
   /**
    * @public
@@ -588,7 +588,7 @@ export interface GetRuleResponse {
    *             </li>
    *          </ul>
    */
-  LockState?: LockState | string;
+  LockState?: LockState;
 
   /**
    * @public
@@ -624,7 +624,7 @@ export interface ListRulesRequest {
    *       <code>EBS_SNAPSHOT</code>. To list retention rules that retain EBS-backed AMIs, specify
    *       <code>EC2_IMAGE</code>.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -638,7 +638,7 @@ export interface ListRulesRequest {
    * <p>The lock state of the retention rules to list. Only retention rules with the specified
    *       lock state are returned.</p>
    */
-  LockState?: LockState | string;
+  LockState?: LockState;
 }
 
 /**
@@ -691,7 +691,7 @@ export interface RuleSummary {
    *             </li>
    *          </ul>
    */
-  LockState?: LockState | string;
+  LockState?: LockState;
 }
 
 /**
@@ -770,7 +770,7 @@ export interface LockRuleResponse {
    * @public
    * <p>The resource type retained by the retention rule.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -790,7 +790,7 @@ export interface LockRuleResponse {
    * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
    *       state retain resources.</p>
    */
-  Status?: RuleStatus | string;
+  Status?: RuleStatus;
 
   /**
    * @public
@@ -825,7 +825,7 @@ export interface LockRuleResponse {
    *             </li>
    *          </ul>
    */
-  LockState?: LockState | string;
+  LockState?: LockState;
 }
 
 /**
@@ -881,7 +881,7 @@ export interface UnlockRuleResponse {
    * @public
    * <p>The resource type retained by the retention rule.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -901,7 +901,7 @@ export interface UnlockRuleResponse {
    * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
    *       state retain resources.</p>
    */
-  Status?: RuleStatus | string;
+  Status?: RuleStatus;
 
   /**
    * @public
@@ -936,7 +936,7 @@ export interface UnlockRuleResponse {
    *             </li>
    *          </ul>
    */
-  LockState?: LockState | string;
+  LockState?: LockState;
 
   /**
    * @public
@@ -998,7 +998,7 @@ export interface UpdateRuleRequest {
    *       after creation.</p>
    *          </note>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -1040,7 +1040,7 @@ export interface UpdateRuleResponse {
    * @public
    * <p>The resource type retained by the retention rule.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -1054,7 +1054,7 @@ export interface UpdateRuleResponse {
    * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
    *       state retain resources.</p>
    */
-  Status?: RuleStatus | string;
+  Status?: RuleStatus;
 
   /**
    * @public
@@ -1083,7 +1083,7 @@ export interface UpdateRuleResponse {
    *             </li>
    *          </ul>
    */
-  LockState?: LockState | string;
+  LockState?: LockState;
 
   /**
    * @public

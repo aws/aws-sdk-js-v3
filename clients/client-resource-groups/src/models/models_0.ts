@@ -43,13 +43,13 @@ export interface AccountSettings {
    * @public
    * <p>The desired target status of the group lifecycle events feature. If</p>
    */
-  GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus | string;
+  GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus;
 
   /**
    * @public
    * <p>The current status of the group lifecycle events feature.</p>
    */
-  GroupLifecycleEventsStatus?: GroupLifecycleEventsStatus | string;
+  GroupLifecycleEventsStatus?: GroupLifecycleEventsStatus;
 
   /**
    * @public
@@ -196,7 +196,7 @@ export interface ResourceQuery {
    *             </li>
    *          </ul>
    */
-  Type: QueryType | string | undefined;
+  Type: QueryType | undefined;
 
   /**
    * @public
@@ -434,7 +434,7 @@ export interface GroupConfiguration {
    * @public
    * <p>The current status of an attempt to update the group configuration.</p>
    */
-  Status?: GroupConfigurationStatus | string;
+  Status?: GroupConfigurationStatus;
 
   /**
    * @public
@@ -873,7 +873,7 @@ export interface ResourceFilter {
    * @public
    * <p>The name of the filter. Filter names are case-sensitive.</p>
    */
-  Name: ResourceFilterName | string | undefined;
+  Name: ResourceFilterName | undefined;
 
   /**
    * @public
@@ -994,7 +994,7 @@ export interface QueryError {
    * @public
    * <p>Specifies the error code that was raised.</p>
    */
-  ErrorCode?: QueryErrorCode | string;
+  ErrorCode?: QueryErrorCode;
 
   /**
    * @public
@@ -1050,7 +1050,7 @@ export interface ResourceStatus {
    * @public
    * <p>The current status.</p>
    */
-  Name?: ResourceStatusValue | string;
+  Name?: ResourceStatusValue;
 }
 
 /**
@@ -1171,7 +1171,7 @@ export interface GroupFilter {
    * @public
    * <p>The name of the filter. Filter names are case-sensitive.</p>
    */
-  Name: GroupFilterName | string | undefined;
+  Name: GroupFilterName | undefined;
 
   /**
    * @public
@@ -1530,7 +1530,7 @@ export interface UpdateAccountSettingsInput {
    * @public
    * <p>Specifies whether you want to turn <a href="https://docs.aws.amazon.com/ARG/latest/userguide/monitor-groups.html">group lifecycle events</a> on or off.</p>
    */
-  GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus | string;
+  GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus;
 }
 
 /**

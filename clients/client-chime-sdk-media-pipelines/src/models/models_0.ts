@@ -28,7 +28,7 @@ export interface ActiveSpeakerOnlyConfiguration {
    * @public
    * <p>The position of the <code>ActiveSpeakerOnly</code> video tile.</p>
    */
-  ActiveSpeakerPosition?: ActiveSpeakerPosition | string;
+  ActiveSpeakerPosition?: ActiveSpeakerPosition;
 }
 
 /**
@@ -121,7 +121,7 @@ export interface PostCallAnalyticsSettings {
    * @public
    * <p>The content redaction output settings for a post-call analysis task.</p>
    */
-  ContentRedactionOutput?: ContentRedactionOutput | string;
+  ContentRedactionOutput?: ContentRedactionOutput;
 
   /**
    * @public
@@ -155,7 +155,7 @@ export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
    * @public
    * <p>The language code in the configuration.</p>
    */
-  LanguageCode: CallAnalyticsLanguageCode | string | undefined;
+  LanguageCode: CallAnalyticsLanguageCode | undefined;
 
   /**
    * @public
@@ -185,7 +185,7 @@ export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
    *          <p>To delete words, choose <code>remove</code>.</p>
    *          <p>To flag words without changing them, choose <code>tag</code>. </p>
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+  VocabularyFilterMethod?: VocabularyFilterMethod;
 
   /**
    * @public
@@ -214,7 +214,7 @@ export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result stabilization</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  PartialResultsStability?: PartialResultsStability | string;
+  PartialResultsStability?: PartialResultsStability;
 
   /**
    * @public
@@ -224,7 +224,7 @@ export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable information</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  ContentIdentificationType?: ContentType | string;
+  ContentIdentificationType?: ContentType;
 
   /**
    * @public
@@ -234,7 +234,7 @@ export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable information</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  ContentRedactionType?: ContentType | string;
+  ContentRedactionType?: ContentType;
 
   /**
    * @public
@@ -279,7 +279,7 @@ export interface AmazonTranscribeProcessorConfiguration {
    *          <p>For a list of languages that real-time Call Analytics supports, see the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages table</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  LanguageCode?: CallAnalyticsLanguageCode | string;
+  LanguageCode?: CallAnalyticsLanguageCode;
 
   /**
    * @public
@@ -301,7 +301,7 @@ export interface AmazonTranscribeProcessorConfiguration {
    * @public
    * <p>The vocabulary filtering method used in your Call Analytics transcription.</p>
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+  VocabularyFilterMethod?: VocabularyFilterMethod;
 
   /**
    * @public
@@ -326,7 +326,7 @@ export interface AmazonTranscribeProcessorConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result stabilization</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  PartialResultsStability?: PartialResultsStability | string;
+  PartialResultsStability?: PartialResultsStability;
 
   /**
    * @public
@@ -340,7 +340,7 @@ export interface AmazonTranscribeProcessorConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable information</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  ContentIdentificationType?: ContentType | string;
+  ContentIdentificationType?: ContentType;
 
   /**
    * @public
@@ -350,7 +350,7 @@ export interface AmazonTranscribeProcessorConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable information</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  ContentRedactionType?: ContentType | string;
+  ContentRedactionType?: ContentType;
 
   /**
    * @public
@@ -396,7 +396,7 @@ export interface AmazonTranscribeProcessorConfiguration {
    * @public
    * <p>The preferred language for the transcription.</p>
    */
-  PreferredLanguage?: CallAnalyticsLanguageCode | string;
+  PreferredLanguage?: CallAnalyticsLanguageCode;
 
   /**
    * @public
@@ -434,7 +434,7 @@ export interface AudioConcatenationConfiguration {
    * @public
    * <p>Enables or disables the configuration object.</p>
    */
-  State: AudioArtifactsConcatenationState | string | undefined;
+  State: AudioArtifactsConcatenationState | undefined;
 }
 
 /**
@@ -463,7 +463,7 @@ export interface CompositedVideoConcatenationConfiguration {
    * @public
    * <p>Enables or disables the configuration object.</p>
    */
-  State: ArtifactsConcatenationState | string | undefined;
+  State: ArtifactsConcatenationState | undefined;
 }
 
 /**
@@ -476,7 +476,7 @@ export interface ContentConcatenationConfiguration {
    * @public
    * <p>Enables or disables the configuration object.</p>
    */
-  State: ArtifactsConcatenationState | string | undefined;
+  State: ArtifactsConcatenationState | undefined;
 }
 
 /**
@@ -488,7 +488,7 @@ export interface DataChannelConcatenationConfiguration {
    * @public
    * <p>Enables or disables the configuration object.</p>
    */
-  State: ArtifactsConcatenationState | string | undefined;
+  State: ArtifactsConcatenationState | undefined;
 }
 
 /**
@@ -500,7 +500,7 @@ export interface MeetingEventsConcatenationConfiguration {
    * @public
    * <p>Enables or disables the configuration object.</p>
    */
-  State: ArtifactsConcatenationState | string | undefined;
+  State: ArtifactsConcatenationState | undefined;
 }
 
 /**
@@ -512,7 +512,7 @@ export interface TranscriptionMessagesConcatenationConfiguration {
    * @public
    * <p>Enables or disables the configuration object.</p>
    */
-  State: ArtifactsConcatenationState | string | undefined;
+  State: ArtifactsConcatenationState | undefined;
 }
 
 /**
@@ -524,7 +524,7 @@ export interface VideoConcatenationConfiguration {
    * @public
    * <p>Enables or disables the configuration object.</p>
    */
-  State: ArtifactsConcatenationState | string | undefined;
+  State: ArtifactsConcatenationState | undefined;
 }
 
 /**
@@ -599,7 +599,7 @@ export interface AudioArtifactsConfiguration {
    * @public
    * <p>The MUX type of the audio artifact configuration object.</p>
    */
-  MuxType: AudioMuxType | string | undefined;
+  MuxType: AudioMuxType | undefined;
 }
 
 /**
@@ -669,13 +669,13 @@ export interface HorizontalLayoutConfiguration {
    * @public
    * <p>Sets the automatic ordering of the video tiles.</p>
    */
-  TileOrder?: TileOrder | string;
+  TileOrder?: TileOrder;
 
   /**
    * @public
    * <p>Sets the position of horizontal tiles.</p>
    */
-  TilePosition?: HorizontalTilePosition | string;
+  TilePosition?: HorizontalTilePosition;
 
   /**
    * @public
@@ -715,7 +715,7 @@ export interface PresenterOnlyConfiguration {
    * @public
    * <p>Defines the position of the presenter video tile. Default: <code>TopRight</code>.</p>
    */
-  PresenterPosition?: PresenterPosition | string;
+  PresenterPosition?: PresenterPosition;
 }
 
 /**
@@ -741,13 +741,13 @@ export interface VerticalLayoutConfiguration {
    * @public
    * <p>Sets the automatic ordering of the video tiles.</p>
    */
-  TileOrder?: TileOrder | string;
+  TileOrder?: TileOrder;
 
   /**
    * @public
    * <p>Sets the position of vertical tiles.</p>
    */
-  TilePosition?: VerticalTilePosition | string;
+  TilePosition?: VerticalTilePosition;
 
   /**
    * @public
@@ -813,13 +813,13 @@ export interface VideoAttribute {
    * @public
    * <p>Defines the border color of all video tiles.</p>
    */
-  BorderColor?: BorderColor | string;
+  BorderColor?: BorderColor;
 
   /**
    * @public
    * <p>Defines the highlight color for the active video tile.</p>
    */
-  HighlightColor?: HighlightColor | string;
+  HighlightColor?: HighlightColor;
 
   /**
    * @public
@@ -837,7 +837,7 @@ export interface GridViewConfiguration {
    * @public
    * <p>Defines the layout of the video tiles when content sharing is enabled.</p>
    */
-  ContentShareLayout: ContentShareLayoutOption | string | undefined;
+  ContentShareLayout: ContentShareLayoutOption | undefined;
 
   /**
    * @public
@@ -873,7 +873,7 @@ export interface GridViewConfiguration {
    * @public
    * <p>The orientation setting, horizontal or vertical.</p>
    */
-  CanvasOrientation?: CanvasOrientation | string;
+  CanvasOrientation?: CanvasOrientation;
 }
 
 /**
@@ -912,13 +912,13 @@ export interface CompositedVideoArtifactsConfiguration {
    * @public
    * <p>The layout setting, such as <code>GridView</code> in the configuration object.</p>
    */
-  Layout?: LayoutOption | string;
+  Layout?: LayoutOption;
 
   /**
    * @public
    * <p>The video resolution setting in the configuration object. Default: HD at 1280 x 720. FHD resolution: 1920 x 1080.</p>
    */
-  Resolution?: ResolutionOption | string;
+  Resolution?: ResolutionOption;
 
   /**
    * @public
@@ -963,13 +963,13 @@ export interface ContentArtifactsConfiguration {
    * @public
    * <p>Indicates whether the content artifact is enabled or disabled.</p>
    */
-  State: ArtifactsState | string | undefined;
+  State: ArtifactsState | undefined;
 
   /**
    * @public
    * <p>The MUX type of the artifact configuration.</p>
    */
-  MuxType?: ContentMuxType | string;
+  MuxType?: ContentMuxType;
 }
 
 /**
@@ -994,13 +994,13 @@ export interface VideoArtifactsConfiguration {
    * @public
    * <p>Indicates whether the video artifact is enabled or disabled.</p>
    */
-  State: ArtifactsState | string | undefined;
+  State: ArtifactsState | undefined;
 
   /**
    * @public
    * <p>The MUX type of the video artifact configuration object.</p>
    */
-  MuxType?: VideoMuxType | string;
+  MuxType?: VideoMuxType;
 }
 
 /**
@@ -1073,7 +1073,7 @@ export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @public
@@ -1125,7 +1125,7 @@ export interface ChannelDefinition {
    * @public
    * <p>Specifies whether the audio in a channel belongs to the <code>AGENT</code> or <code>CUSTOMER</code>.</p>
    */
-  ParticipantRole?: ParticipantRole | string;
+  ParticipantRole?: ParticipantRole;
 }
 
 /**
@@ -1231,7 +1231,7 @@ export interface CreateMediaCapturePipelineRequest {
    * <p>Source type from which the media artifacts are captured. A Chime SDK Meeting is the only
    *          supported source.</p>
    */
-  SourceType: MediaPipelineSourceType | string | undefined;
+  SourceType: MediaPipelineSourceType | undefined;
 
   /**
    * @public
@@ -1243,7 +1243,7 @@ export interface CreateMediaCapturePipelineRequest {
    * @public
    * <p>Destination type to which the media artifacts are saved. You must use an S3 bucket.</p>
    */
-  SinkType: MediaPipelineSinkType | string | undefined;
+  SinkType: MediaPipelineSinkType | undefined;
 
   /**
    * @public
@@ -1313,7 +1313,7 @@ export interface MediaCapturePipeline {
    * <p>Source type from which media artifacts are saved. You must use
    *          <code>ChimeMeeting</code>.</p>
    */
-  SourceType?: MediaPipelineSourceType | string;
+  SourceType?: MediaPipelineSourceType;
 
   /**
    * @public
@@ -1325,14 +1325,14 @@ export interface MediaCapturePipeline {
    * @public
    * <p>The status of the media pipeline.</p>
    */
-  Status?: MediaPipelineStatus | string;
+  Status?: MediaPipelineStatus;
 
   /**
    * @public
    * <p>Destination type to which the media artifacts are saved. You must use an S3
    *          Bucket.</p>
    */
-  SinkType?: MediaPipelineSinkType | string;
+  SinkType?: MediaPipelineSinkType;
 
   /**
    * @public
@@ -1379,7 +1379,7 @@ export interface CreateMediaCapturePipelineResponse {
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @public
@@ -1409,7 +1409,7 @@ export class ForbiddenException extends __BaseException {
 export class ResourceLimitExceededException extends __BaseException {
   readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @public
@@ -1439,7 +1439,7 @@ export class ResourceLimitExceededException extends __BaseException {
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @public
@@ -1469,7 +1469,7 @@ export class ServiceFailureException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @public
@@ -1499,7 +1499,7 @@ export class ServiceUnavailableException extends __BaseException {
 export class ThrottledClientException extends __BaseException {
   readonly name: "ThrottledClientException" = "ThrottledClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @public
@@ -1529,7 +1529,7 @@ export class ThrottledClientException extends __BaseException {
 export class UnauthorizedClientException extends __BaseException {
   readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @public
@@ -1586,7 +1586,7 @@ export interface ConcatenationSink {
    * @public
    * <p>The type of data sink in the configuration object.</p>
    */
-  Type: ConcatenationSinkType | string | undefined;
+  Type: ConcatenationSinkType | undefined;
 
   /**
    * @public
@@ -1648,7 +1648,7 @@ export interface ConcatenationSource {
    * @public
    * <p>The type of concatenation source in a configuration object.</p>
    */
-  Type: ConcatenationSourceType | string | undefined;
+  Type: ConcatenationSourceType | undefined;
 
   /**
    * @public
@@ -1720,7 +1720,7 @@ export interface MediaConcatenationPipeline {
    * @public
    * <p>The status of the concatenation pipeline.</p>
    */
-  Status?: MediaPipelineStatus | string;
+  Status?: MediaPipelineStatus;
 
   /**
    * @public
@@ -1806,7 +1806,7 @@ export interface FragmentSelector {
    * <p>The origin of the timestamps to use, <code>Server</code> or <code>Producer</code>. For more information, see
    *          <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_StartSelector.html">StartSelectorType</a> in the <i>Amazon Kinesis Video Streams Developer Guide</i>.</p>
    */
-  FragmentSelectorType: FragmentSelectorType | string | undefined;
+  FragmentSelectorType: FragmentSelectorType | undefined;
 
   /**
    * @public
@@ -1916,7 +1916,7 @@ export interface KinesisVideoStreamSourceRuntimeConfiguration {
    * <p>Specifies the encoding of your input audio. Supported format: PCM (only signed 16-bit little-endian audio formats, which does not include WAV)</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  MediaEncoding: MediaEncoding | string | undefined;
+  MediaEncoding: MediaEncoding | undefined;
 
   /**
    * @public
@@ -1957,7 +1957,7 @@ export interface S3RecordingSinkRuntimeConfiguration {
    * @public
    * <p>The file format for the media files sent to the Amazon S3 bucket.</p>
    */
-  RecordingFileFormat: RecordingFileFormat | string | undefined;
+  RecordingFileFormat: RecordingFileFormat | undefined;
 }
 
 /**
@@ -2059,13 +2059,13 @@ export interface MediaInsightsPipelineElementStatus {
    * @public
    * <p>The type of status.</p>
    */
-  Type?: MediaInsightsPipelineConfigurationElementType | string;
+  Type?: MediaInsightsPipelineConfigurationElementType;
 
   /**
    * @public
    * <p>The element's status.</p>
    */
-  Status?: MediaPipelineElementStatus | string;
+  Status?: MediaPipelineElementStatus;
 }
 
 /**
@@ -2095,7 +2095,7 @@ export interface MediaInsightsPipeline {
    * @public
    * <p>The status of a media insights pipeline.</p>
    */
-  Status?: MediaPipelineStatus | string;
+  Status?: MediaPipelineStatus;
 
   /**
    * @public
@@ -2152,7 +2152,7 @@ export interface CreateMediaInsightsPipelineResponse {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @public
@@ -2214,7 +2214,7 @@ export interface S3RecordingSinkConfiguration {
    * @public
    * <p>The default file format for the media files sent to the Amazon S3 bucket.</p>
    */
-  RecordingFileFormat?: RecordingFileFormat | string;
+  RecordingFileFormat?: RecordingFileFormat;
 }
 
 /**
@@ -2265,13 +2265,13 @@ export interface VoiceAnalyticsProcessorConfiguration {
    * @public
    * <p>The status of the speaker search task.</p>
    */
-  SpeakerSearchStatus?: VoiceAnalyticsConfigurationStatus | string;
+  SpeakerSearchStatus?: VoiceAnalyticsConfigurationStatus;
 
   /**
    * @public
    * <p>The status of the voice tone analysis task.</p>
    */
-  VoiceToneAnalysisStatus?: VoiceAnalyticsConfigurationStatus | string;
+  VoiceToneAnalysisStatus?: VoiceAnalyticsConfigurationStatus;
 }
 
 /**
@@ -2295,7 +2295,7 @@ export interface MediaInsightsPipelineConfigurationElement {
    * @public
    * <p>The element type.</p>
    */
-  Type: MediaInsightsPipelineConfigurationElementType | string | undefined;
+  Type: MediaInsightsPipelineConfigurationElementType | undefined;
 
   /**
    * @public
@@ -2418,7 +2418,7 @@ export interface SentimentConfiguration {
    * @public
    * <p>The type of sentiment, <code>POSITIVE</code>, <code>NEGATIVE</code>, or <code>NEUTRAL</code>.</p>
    */
-  SentimentType: SentimentType | string | undefined;
+  SentimentType: SentimentType | undefined;
 
   /**
    * @public
@@ -2451,7 +2451,7 @@ export interface RealTimeAlertRule {
    * @public
    * <p>The type of alert rule.</p>
    */
-  Type: RealTimeAlertRuleType | string | undefined;
+  Type: RealTimeAlertRuleType | undefined;
 
   /**
    * @public
@@ -2613,7 +2613,7 @@ export interface LiveConnectorRTMPConfiguration {
    * @public
    * <p>The audio channels set for the RTMP configuration</p>
    */
-  AudioChannels?: AudioChannelsOption | string;
+  AudioChannels?: AudioChannelsOption;
 
   /**
    * @public
@@ -2644,7 +2644,7 @@ export interface LiveConnectorSinkConfiguration {
    * @public
    * <p>The sink configuration's sink type.</p>
    */
-  SinkType: LiveConnectorSinkType | string | undefined;
+  SinkType: LiveConnectorSinkType | undefined;
 
   /**
    * @public
@@ -2682,7 +2682,7 @@ export interface ChimeSdkMeetingLiveConnectorConfiguration {
    * @public
    * <p>The configuration object's multiplex type.</p>
    */
-  MuxType: LiveConnectorMuxType | string | undefined;
+  MuxType: LiveConnectorMuxType | undefined;
 
   /**
    * @public
@@ -2719,7 +2719,7 @@ export interface LiveConnectorSourceConfiguration {
    * @public
    * <p>The source configuration's media source type.</p>
    */
-  SourceType: LiveConnectorSourceType | string | undefined;
+  SourceType: LiveConnectorSourceType | undefined;
 
   /**
    * @public
@@ -2790,7 +2790,7 @@ export interface MediaLiveConnectorPipeline {
    * @public
    * <p>The connector pipeline's status.</p>
    */
-  Status?: MediaPipelineStatus | string;
+  Status?: MediaPipelineStatus;
 
   /**
    * @public
@@ -2824,7 +2824,7 @@ export interface CreateMediaLiveConnectorPipelineResponse {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @public
@@ -2939,7 +2939,7 @@ export interface KinesisVideoStreamPoolConfiguration {
    * @public
    * <p>The status of the video stream pool in the configuration. </p>
    */
-  PoolStatus?: KinesisVideoStreamPoolStatus | string;
+  PoolStatus?: KinesisVideoStreamPoolStatus;
 
   /**
    * @public
@@ -3020,7 +3020,7 @@ export interface MediaStreamSink {
    * @public
    * <p>The media stream sink's type.</p>
    */
-  SinkType: MediaStreamPipelineSinkType | string | undefined;
+  SinkType: MediaStreamPipelineSinkType | undefined;
 
   /**
    * @public
@@ -3032,7 +3032,7 @@ export interface MediaStreamSink {
    * @public
    * <p>The media stream sink's media stream type.</p>
    */
-  MediaStreamType: MediaStreamType | string | undefined;
+  MediaStreamType: MediaStreamType | undefined;
 }
 
 /**
@@ -3044,7 +3044,7 @@ export interface MediaStreamSource {
    * @public
    * <p>The type of media stream source.</p>
    */
-  SourceType: MediaPipelineSourceType | string | undefined;
+  SourceType: MediaPipelineSourceType | undefined;
 
   /**
    * @public
@@ -3115,7 +3115,7 @@ export interface MediaStreamPipeline {
    * @public
    * <p>The status of the media stream pipeline.</p>
    */
-  Status?: MediaPipelineStatus | string;
+  Status?: MediaPipelineStatus;
 
   /**
    * @public
@@ -3360,7 +3360,7 @@ export interface SpeakerSearchTask {
    * @public
    * <p>The status of the speaker search task.</p>
    */
-  SpeakerSearchTaskStatus?: MediaPipelineTaskStatus | string;
+  SpeakerSearchTaskStatus?: MediaPipelineTaskStatus;
 
   /**
    * @public
@@ -3418,7 +3418,7 @@ export interface VoiceToneAnalysisTask {
    * @public
    * <p>The status of a voice tone analysis task.</p>
    */
-  VoiceToneAnalysisTaskStatus?: MediaPipelineTaskStatus | string;
+  VoiceToneAnalysisTaskStatus?: MediaPipelineTaskStatus;
 
   /**
    * @public
@@ -3778,7 +3778,7 @@ export interface StartVoiceToneAnalysisTaskRequest {
    * @public
    * <p>The language code.</p>
    */
-  LanguageCode: VoiceAnalyticsLanguageCode | string | undefined;
+  LanguageCode: VoiceAnalyticsLanguageCode | undefined;
 
   /**
    * @public
@@ -3951,7 +3951,7 @@ export interface UpdateMediaInsightsPipelineStatusRequest {
    * @public
    * <p>The requested status of the media insights pipeline.</p>
    */
-  UpdateStatus: MediaPipelineStatusUpdate | string | undefined;
+  UpdateStatus: MediaPipelineStatusUpdate | undefined;
 }
 
 /**

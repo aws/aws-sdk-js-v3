@@ -199,7 +199,7 @@ export interface LFTagPolicyResource {
    * @public
    * <p>The resource type for which the LF-tag policy applies.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -746,13 +746,13 @@ export interface BatchPermissionsRequestEntry {
    * @public
    * <p>The permissions to be granted.</p>
    */
-  Permissions?: (Permission | string)[];
+  Permissions?: Permission[];
 
   /**
    * @public
    * <p>Indicates if the option to pass permissions is granted.</p>
    */
-  PermissionsWithGrantOption?: (Permission | string)[];
+  PermissionsWithGrantOption?: Permission[];
 }
 
 /**
@@ -932,7 +932,7 @@ export interface CommitTransactionResponse {
    * @public
    * <p>The status of the transaction.</p>
    */
-  TransactionStatus?: TransactionStatus | string;
+  TransactionStatus?: TransactionStatus;
 }
 
 /**
@@ -1394,7 +1394,7 @@ export interface TransactionDescription {
    * @public
    * <p>A status of ACTIVE, COMMITTED, or ABORTED.</p>
    */
-  TransactionStatus?: TransactionStatus | string;
+  TransactionStatus?: TransactionStatus;
 
   /**
    * @public
@@ -1502,7 +1502,7 @@ export interface PrincipalPermissions {
    * @public
    * <p>The permissions that are granted to the principal.</p>
    */
-  Permissions?: (Permission | string)[];
+  Permissions?: Permission[];
 }
 
 /**
@@ -1655,13 +1655,13 @@ export interface PrincipalResourcePermissions {
    * @public
    * <p>The permissions to be granted or revoked on the resource.</p>
    */
-  Permissions?: (Permission | string)[];
+  Permissions?: Permission[];
 
   /**
    * @public
    * <p>Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).</p>
    */
-  PermissionsWithGrantOption?: (Permission | string)[];
+  PermissionsWithGrantOption?: Permission[];
 
   /**
    * @public
@@ -1796,7 +1796,7 @@ export interface GetQueryStateResponse {
    *             </li>
    *          </ul>
    */
-  State: QueryStateString | string | undefined;
+  State: QueryStateString | undefined;
 }
 
 /**
@@ -2229,7 +2229,7 @@ export interface GetTemporaryGluePartitionCredentialsRequest {
    * @public
    * <p>Filters the request based on the user having been granted a list of specified permissions on the requested resource(s).</p>
    */
-  Permissions?: (Permission | string)[];
+  Permissions?: Permission[];
 
   /**
    * @public
@@ -2247,7 +2247,7 @@ export interface GetTemporaryGluePartitionCredentialsRequest {
    * @public
    * <p>A list of supported permission types for the partition. Valid values are <code>COLUMN_PERMISSION</code> and <code>CELL_FILTER_PERMISSION</code>.</p>
    */
-  SupportedPermissionTypes?: (PermissionType | string)[];
+  SupportedPermissionTypes?: PermissionType[];
 }
 
 /**
@@ -2319,7 +2319,7 @@ export interface GetTemporaryGlueTableCredentialsRequest {
    * @public
    * <p>Filters the request based on the user having been granted a list of specified permissions on the requested resource(s).</p>
    */
-  Permissions?: (Permission | string)[];
+  Permissions?: Permission[];
 
   /**
    * @public
@@ -2337,7 +2337,7 @@ export interface GetTemporaryGlueTableCredentialsRequest {
    * @public
    * <p>A list of supported permission types for the table. Valid values are <code>COLUMN_PERMISSION</code> and <code>CELL_FILTER_PERMISSION</code>.</p>
    */
-  SupportedPermissionTypes?: (PermissionType | string)[];
+  SupportedPermissionTypes?: PermissionType[];
 }
 
 /**
@@ -2528,13 +2528,13 @@ export interface GrantPermissionsRequest {
    * @public
    * <p>The permissions granted to the principal on the resource. Lake Formation defines privileges to grant and revoke access to metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Lake Formation requires that each principal be authorized to perform a specific task on Lake Formation resources. </p>
    */
-  Permissions: (Permission | string)[] | undefined;
+  Permissions: Permission[] | undefined;
 
   /**
    * @public
    * <p>Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the <code>Privileges</code>.</p>
    */
-  PermissionsWithGrantOption?: (Permission | string)[];
+  PermissionsWithGrantOption?: Permission[];
 }
 
 /**
@@ -2688,7 +2688,7 @@ export interface ListLFTagsRequest {
    * @public
    * <p>If resource share type is <code>ALL</code>, returns both in-account LF-tags and shared LF-tags that the requester has permission to view. If resource share type is <code>FOREIGN</code>, returns all share LF-tags that the requester can view. If no resource share type is passed, lists LF-tags in the given catalog ID that the requester has permission to view.</p>
    */
-  ResourceShareType?: ResourceShareType | string;
+  ResourceShareType?: ResourceShareType;
 
   /**
    * @public
@@ -2760,7 +2760,7 @@ export interface ListPermissionsRequest {
    * @public
    * <p>Specifies a resource type to filter the permissions returned.</p>
    */
-  ResourceType?: DataLakeResourceType | string;
+  ResourceType?: DataLakeResourceType;
 
   /**
    * @public
@@ -2852,13 +2852,13 @@ export interface FilterCondition {
    * @public
    * <p>The field to filter in the filter condition.</p>
    */
-  Field?: FieldNameString | string;
+  Field?: FieldNameString;
 
   /**
    * @public
    * <p>The comparison operator used in the filter condition.</p>
    */
-  ComparisonOperator?: ComparisonOperator | string;
+  ComparisonOperator?: ComparisonOperator;
 
   /**
    * @public
@@ -2948,7 +2948,7 @@ export interface ListTableStorageOptimizersRequest {
    * @public
    * <p>The specific type of storage optimizers to list. The supported value is <code>compaction</code>.</p>
    */
-  StorageOptimizerType?: OptimizerType | string;
+  StorageOptimizerType?: OptimizerType;
 
   /**
    * @public
@@ -2972,7 +2972,7 @@ export interface StorageOptimizer {
    * @public
    * <p>The specific type of storage optimizer. The supported value is <code>compaction</code>.</p>
    */
-  StorageOptimizerType?: OptimizerType | string;
+  StorageOptimizerType?: OptimizerType;
 
   /**
    * @public
@@ -3049,7 +3049,7 @@ export interface ListTransactionsRequest {
    * @public
    * <p> A filter indicating the status of transactions to return. Options are ALL | COMPLETED | COMMITTED | ABORTED | ACTIVE. The default is <code>ALL</code>.</p>
    */
-  StatusFilter?: TransactionStatusFilter | string;
+  StatusFilter?: TransactionStatusFilter;
 
   /**
    * @public
@@ -3207,13 +3207,13 @@ export interface RevokePermissionsRequest {
    * <p>The permissions revoked to the principal on the resource. For information about permissions, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security
    *       and Access Control to Metadata and Data</a>.</p>
    */
-  Permissions: (Permission | string)[] | undefined;
+  Permissions: Permission[] | undefined;
 
   /**
    * @public
    * <p>Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals.</p>
    */
-  PermissionsWithGrantOption?: (Permission | string)[];
+  PermissionsWithGrantOption?: Permission[];
 }
 
 /**
@@ -3448,7 +3448,7 @@ export interface StartTransactionRequest {
    * @public
    * <p>Indicates whether this transaction should be read only or read and write. Writes made using a read-only transaction ID will be rejected. Read-only transactions do not need to be committed. </p>
    */
-  TransactionType?: TransactionType | string;
+  TransactionType?: TransactionType;
 }
 
 /**

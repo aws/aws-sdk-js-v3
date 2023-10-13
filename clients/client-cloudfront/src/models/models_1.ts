@@ -330,7 +330,7 @@ export interface StreamingDistributionConfig {
    * <p>A complex type that contains information about price class for this streaming
    * 			distribution.</p>
    */
-  PriceClass?: PriceClass | string;
+  PriceClass?: PriceClass;
 
   /**
    * @public
@@ -1334,7 +1334,7 @@ export interface DescribeFunctionRequest {
    * @public
    * <p>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: FunctionStage;
 }
 
 /**
@@ -1734,7 +1734,7 @@ export interface GetFunctionRequest {
    * @public
    * <p>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: FunctionStage;
 }
 
 /**
@@ -2248,7 +2248,7 @@ export interface ListCachePoliciesRequest {
    *             </li>
    *          </ul>
    */
-  Type?: CachePolicyType | string;
+  Type?: CachePolicyType;
 
   /**
    * @public
@@ -2696,7 +2696,7 @@ export interface DistributionSummary {
    * <p>A complex type that contains information about price class for this streaming
    * 			distribution.</p>
    */
-  PriceClass: PriceClass | string | undefined;
+  PriceClass: PriceClass | undefined;
 
   /**
    * @public
@@ -2730,7 +2730,7 @@ export interface DistributionSummary {
    * 			CloudFront. The default value for new web distributions is <code>http2</code>. Viewers that
    * 			don't support <code>HTTP/2</code> will automatically use an earlier version.</p>
    */
-  HttpVersion: HttpVersion | string | undefined;
+  HttpVersion: HttpVersion | undefined;
 
   /**
    * @public
@@ -3336,7 +3336,7 @@ export interface ListFunctionsRequest {
    * <p>An optional filter to return only the functions that are in the specified stage,
    * 			either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: FunctionStage;
 }
 
 /**
@@ -3622,7 +3622,7 @@ export interface OriginAccessControlSummary {
    * <p>The signing protocol of the origin access control. The signing protocol determines how
    * 			CloudFront signs (authenticates) requests. The only valid value is <code>sigv4</code>.</p>
    */
-  SigningProtocol: OriginAccessControlSigningProtocols | string | undefined;
+  SigningProtocol: OriginAccessControlSigningProtocols | undefined;
 
   /**
    * @public
@@ -3649,13 +3649,13 @@ export interface OriginAccessControlSummary {
    *             </li>
    *          </ul>
    */
-  SigningBehavior: OriginAccessControlSigningBehaviors | string | undefined;
+  SigningBehavior: OriginAccessControlSigningBehaviors | undefined;
 
   /**
    * @public
    * <p>The type of origin that this origin access control is for.</p>
    */
-  OriginAccessControlOriginType: OriginAccessControlOriginTypes | string | undefined;
+  OriginAccessControlOriginType: OriginAccessControlOriginTypes | undefined;
 }
 
 /**
@@ -3749,7 +3749,7 @@ export interface ListOriginRequestPoliciesRequest {
    *             </li>
    *          </ul>
    */
-  Type?: OriginRequestPolicyType | string;
+  Type?: OriginRequestPolicyType;
 
   /**
    * @public
@@ -3777,7 +3777,7 @@ export interface OriginRequestPolicySummary {
    * <p>The type of origin request policy, either <code>managed</code> (created by Amazon Web Services) or
    * 				<code>custom</code> (created in this Amazon Web Services account).</p>
    */
-  Type: OriginRequestPolicyType | string | undefined;
+  Type: OriginRequestPolicyType | undefined;
 
   /**
    * @public
@@ -4039,7 +4039,7 @@ export interface ListResponseHeadersPoliciesRequest {
    *             </li>
    *          </ul>
    */
-  Type?: ResponseHeadersPolicyType | string;
+  Type?: ResponseHeadersPolicyType;
 
   /**
    * @public
@@ -4068,7 +4068,7 @@ export interface ResponseHeadersPolicySummary {
    * <p>The type of response headers policy, either <code>managed</code> (created by Amazon Web Services) or
    * 				<code>custom</code> (created in this Amazon Web Services account).</p>
    */
-  Type: ResponseHeadersPolicyType | string | undefined;
+  Type: ResponseHeadersPolicyType | undefined;
 
   /**
    * @public
@@ -4222,7 +4222,7 @@ export interface StreamingDistributionSummary {
    * <p>A complex type that contains information about price class for this streaming
    * 			distribution.</p>
    */
-  PriceClass: PriceClass | string | undefined;
+  PriceClass: PriceClass | undefined;
 
   /**
    * @public
@@ -4407,7 +4407,7 @@ export interface TestFunctionRequest {
    * <p>The stage of the function that you are testing, either <code>DEVELOPMENT</code> or
    * 				<code>LIVE</code>.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: FunctionStage;
 
   /**
    * @public

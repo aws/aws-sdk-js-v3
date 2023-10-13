@@ -87,7 +87,7 @@ export interface AccountGateResult {
    *             </li>
    *          </ul>
    */
-  Status?: AccountGateStatus | string;
+  Status?: AccountGateStatus;
 
   /**
    * @public
@@ -243,7 +243,7 @@ export interface ActivateTypeInput {
    *          <p>Conditional: You must specify <code>PublicTypeArn</code>, or <code>TypeName</code>, <code>Type</code>, and
    *     <code>PublisherId</code>.</p>
    */
-  Type?: ThirdPartyType | string;
+  Type?: ThirdPartyType;
 
   /**
    * @public
@@ -318,7 +318,7 @@ export interface ActivateTypeInput {
    *             </li>
    *          </ul>
    */
-  VersionBump?: VersionBump | string;
+  VersionBump?: VersionBump;
 
   /**
    * @public
@@ -469,7 +469,7 @@ export interface TypeConfigurationIdentifier {
    * @public
    * <p>The type of extension.</p>
    */
-  Type?: ThirdPartyType | string;
+  Type?: ThirdPartyType;
 
   /**
    * @public
@@ -813,7 +813,7 @@ export interface ResourceTargetDefinition {
    * <p>Indicates which resource attribute is triggering this update, such as a change in the resource attribute's
    *     <code>Metadata</code>, <code>Properties</code>, or <code>Tags</code>.</p>
    */
-  Attribute?: ResourceAttribute | string;
+  Attribute?: ResourceAttribute;
 
   /**
    * @public
@@ -830,7 +830,7 @@ export interface ResourceTargetDefinition {
    *    behavior for that <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a> in the
    *    CloudFormation User Guide.</p>
    */
-  RequiresRecreation?: RequiresRecreation | string;
+  RequiresRecreation?: RequiresRecreation;
 }
 
 /**
@@ -860,7 +860,7 @@ export interface ResourceChangeDetail {
    *    resource is recreated, it will have a new physical ID, so all references to that resource will also be
    *    updated.</p>
    */
-  Evaluation?: EvaluationType | string;
+  Evaluation?: EvaluationType;
 
   /**
    * @public
@@ -895,7 +895,7 @@ export interface ResourceChangeDetail {
    *             </li>
    *          </ul>
    */
-  ChangeSource?: ChangeSource | string;
+  ChangeSource?: ChangeSource;
 
   /**
    * @public
@@ -971,7 +971,7 @@ export interface ResourceChange {
    *     <code>Modify</code> (changes a resource), <code>Remove</code> (deletes a resource), <code>Import</code> (imports a
    *    resource), or <code>Dynamic</code> (exact action for the resource can't be determined).</p>
    */
-  Action?: ChangeAction | string;
+  Action?: ChangeAction;
 
   /**
    * @public
@@ -1005,14 +1005,14 @@ export interface ResourceChange {
    *    value depends on the change with the most impact. A <code>RequiresRecreation</code> value of <code>Always</code> has
    *    the most impact, followed by <code>Conditionally</code>, and then <code>Never</code>.</p>
    */
-  Replacement?: Replacement | string;
+  Replacement?: Replacement;
 
   /**
    * @public
    * <p>For the <code>Modify</code> action, indicates which resource attribute is triggering this update, such as a
    *    change in the resource attribute's <code>Metadata</code>, <code>Properties</code>, or <code>Tags</code>.</p>
    */
-  Scope?: (ResourceAttribute | string)[];
+  Scope?: ResourceAttribute[];
 
   /**
    * @public
@@ -1059,7 +1059,7 @@ export interface Change {
    * <p>The type of entity that CloudFormation changes. Currently, the only entity type is
    *    <code>Resource</code>.</p>
    */
-  Type?: ChangeType | string;
+  Type?: ChangeType;
 
   /**
    * @public
@@ -1124,7 +1124,7 @@ export interface ChangeSetHookResourceTargetDetails {
    * @public
    * <p>Specifies the action of the resource.</p>
    */
-  ResourceAction?: ChangeAction | string;
+  ResourceAction?: ChangeAction;
 }
 
 /**
@@ -1149,7 +1149,7 @@ export interface ChangeSetHookTargetDetails {
    * @public
    * <p>The name of the type.</p>
    */
-  TargetType?: HookTargetType | string;
+  TargetType?: HookTargetType;
 
   /**
    * @public
@@ -1167,7 +1167,7 @@ export interface ChangeSetHook {
    * @public
    * <p>Specifies the points in provisioning logic where a hook is invoked.</p>
    */
-  InvocationPoint?: HookInvocationPoint | string;
+  InvocationPoint?: HookInvocationPoint;
 
   /**
    * @public
@@ -1183,7 +1183,7 @@ export interface ChangeSetHook {
    *             </li>
    *          </ul>
    */
-  FailureMode?: HookFailureMode | string;
+  FailureMode?: HookFailureMode;
 
   /**
    * @public
@@ -1364,14 +1364,14 @@ export interface ChangeSetSummary {
    *    state because CloudFormation is still creating it or in an <code>OBSOLETE</code> state because the stack was
    *    already updated.</p>
    */
-  ExecutionStatus?: ExecutionStatus | string;
+  ExecutionStatus?: ExecutionStatus;
 
   /**
    * @public
    * <p>The state of the change set, such as <code>CREATE_IN_PROGRESS</code>, <code>CREATE_COMPLETE</code>, or
    *     <code>FAILED</code>.</p>
    */
-  Status?: ChangeSetStatus | string;
+  Status?: ChangeSetStatus;
 
   /**
    * @public
@@ -1810,7 +1810,7 @@ export interface CreateChangeSetInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: Capability[];
 
   /**
    * @public
@@ -1894,7 +1894,7 @@ export interface CreateChangeSetInput {
    *    create a change set for a new stack or the <code>CREATE</code> type to create a change set for an existing
    *    stack.</p>
    */
-  ChangeSetType?: ChangeSetType | string;
+  ChangeSetType?: ChangeSetType;
 
   /**
    * @public
@@ -1938,7 +1938,7 @@ export interface CreateChangeSetInput {
    *      set for the parent stack, any failure in a child stack will cause the parent stack creation to fail and all stacks to
    *      be deleted.</p>
    */
-  OnStackFailure?: OnStackFailure | string;
+  OnStackFailure?: OnStackFailure;
 }
 
 /**
@@ -2192,7 +2192,7 @@ export interface CreateStackInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: Capability[];
 
   /**
    * @public
@@ -2231,7 +2231,7 @@ export interface CreateStackInput {
    *          <p>Default: <code>ROLLBACK</code>
    *          </p>
    */
-  OnFailure?: OnFailure | string;
+  OnFailure?: OnFailure;
 
   /**
    * @public
@@ -2361,7 +2361,7 @@ export interface DeploymentTargets {
    *             </li>
    *          </ul>
    */
-  AccountFilterType?: AccountFilterType | string;
+  AccountFilterType?: AccountFilterType;
 }
 
 /**
@@ -2390,7 +2390,7 @@ export interface StackSetOperationPreferences {
    * <p>The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a
    *    time.</p>
    */
-  RegionConcurrencyType?: RegionConcurrencyType | string;
+  RegionConcurrencyType?: RegionConcurrencyType;
 
   /**
    * @public
@@ -2549,7 +2549,7 @@ export interface CreateStackInstancesInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -2852,7 +2852,7 @@ export interface CreateStackSetInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: Capability[];
 
   /**
    * @public
@@ -2902,7 +2902,7 @@ export interface CreateStackSetInput {
    *             </li>
    *          </ul>
    */
-  PermissionModel?: PermissionModels | string;
+  PermissionModel?: PermissionModels;
 
   /**
    * @public
@@ -2934,7 +2934,7 @@ export interface CreateStackSetInput {
    *          <p>Stack sets with service-managed permissions are created in the management account, including stack
    *    sets that are created by delegated administrators.</p>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 
   /**
    * @public
@@ -3014,7 +3014,7 @@ export interface DeactivateTypeInput {
    * <p>The extension type.</p>
    *          <p>Conditional: You must specify either <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>
    */
-  Type?: ThirdPartyType | string;
+  Type?: ThirdPartyType;
 
   /**
    * @public
@@ -3201,7 +3201,7 @@ export interface DeleteStackInstancesInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -3242,7 +3242,7 @@ export interface DeleteStackSetInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -3304,7 +3304,7 @@ export interface DeregisterTypeInput {
    * <p>The kind of extension.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
-  Type?: RegistryType | string;
+  Type?: RegistryType;
 
   /**
    * @public
@@ -3438,14 +3438,14 @@ export interface DescribeChangeSetOutput {
    *    state because CloudFormation is still creating it or in an <code>OBSOLETE</code> state because the stack was
    *    already updated.</p>
    */
-  ExecutionStatus?: ExecutionStatus | string;
+  ExecutionStatus?: ExecutionStatus;
 
   /**
    * @public
    * <p>The current status of the change set, such as <code>CREATE_IN_PROGRESS</code>, <code>CREATE_COMPLETE</code>, or
    *     <code>FAILED</code>.</p>
    */
-  Status?: ChangeSetStatus | string;
+  Status?: ChangeSetStatus;
 
   /**
    * @public
@@ -3472,7 +3472,7 @@ export interface DescribeChangeSetOutput {
    * <p>If you execute the change set, the list of capabilities that were explicitly acknowledged when the change set
    *    was created.</p>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: Capability[];
 
   /**
    * @public
@@ -3538,7 +3538,7 @@ export interface DescribeChangeSetOutput {
    *             </li>
    *          </ul>
    */
-  OnStackFailure?: OnStackFailure | string;
+  OnStackFailure?: OnStackFailure;
 }
 
 /**
@@ -3598,7 +3598,7 @@ export interface DescribeChangeSetHooksOutput {
    * @public
    * <p>Provides the status of the change set hook.</p>
    */
-  Status?: ChangeSetHooksStatus | string;
+  Status?: ChangeSetHooksStatus;
 
   /**
    * @public
@@ -3644,7 +3644,7 @@ export interface DescribeOrganizationsAccessInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -3670,7 +3670,7 @@ export interface DescribeOrganizationsAccessOutput {
    * @public
    * <p>Presents the status of the <code>OrganizationAccess</code>.</p>
    */
-  Status?: OrganizationStatus | string;
+  Status?: OrganizationStatus;
 }
 
 /**
@@ -3729,13 +3729,13 @@ export interface DescribePublisherOutput {
    * @public
    * <p>Whether the publisher is verified. Currently, all registered publishers are verified.</p>
    */
-  PublisherStatus?: PublisherStatus | string;
+  PublisherStatus?: PublisherStatus;
 
   /**
    * @public
    * <p>The type of account used as the identity provider when registering this publisher with CloudFormation.</p>
    */
-  IdentityProvider?: IdentityProvider | string;
+  IdentityProvider?: IdentityProvider;
 
   /**
    * @public
@@ -3830,7 +3830,7 @@ export interface DescribeStackDriftDetectionStatusOutput {
    *             </li>
    *          </ul>
    */
-  StackDriftStatus?: StackDriftStatus | string;
+  StackDriftStatus?: StackDriftStatus;
 
   /**
    * @public
@@ -3855,7 +3855,7 @@ export interface DescribeStackDriftDetectionStatusOutput {
    *             </li>
    *          </ul>
    */
-  DetectionStatus: StackDriftDetectionStatus | string | undefined;
+  DetectionStatus: StackDriftDetectionStatus | undefined;
 
   /**
    * @public
@@ -4007,7 +4007,7 @@ export interface StackEvent {
    * @public
    * <p>Current status of the resource.</p>
    */
-  ResourceStatus?: ResourceStatus | string;
+  ResourceStatus?: ResourceStatus;
 
   /**
    * @public
@@ -4046,7 +4046,7 @@ export interface StackEvent {
    * @public
    * <p>Provides the status of the change set hook.</p>
    */
-  HookStatus?: HookStatus | string;
+  HookStatus?: HookStatus;
 
   /**
    * @public
@@ -4058,7 +4058,7 @@ export interface StackEvent {
    * @public
    * <p>Invocation points are points in provisioning logic where hooks are initiated.</p>
    */
-  HookInvocationPoint?: HookInvocationPoint | string;
+  HookInvocationPoint?: HookInvocationPoint;
 
   /**
    * @public
@@ -4074,7 +4074,7 @@ export interface StackEvent {
    *             </li>
    *          </ul>
    */
-  HookFailureMode?: HookFailureMode | string;
+  HookFailureMode?: HookFailureMode;
 }
 
 /**
@@ -4135,7 +4135,7 @@ export interface DescribeStackInstanceInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -4204,7 +4204,7 @@ export interface StackInstanceComprehensiveStatus {
    *             </li>
    *          </ul>
    */
-  DetailedStatus?: StackInstanceDetailedStatus | string;
+  DetailedStatus?: StackInstanceDetailedStatus;
 }
 
 /**
@@ -4294,7 +4294,7 @@ export interface StackInstance {
    *             </li>
    *          </ul>
    */
-  Status?: StackInstanceStatus | string;
+  Status?: StackInstanceStatus;
 
   /**
    * @public
@@ -4342,7 +4342,7 @@ export interface StackInstance {
    *             </li>
    *          </ul>
    */
-  DriftStatus?: StackDriftStatus | string;
+  DriftStatus?: StackDriftStatus;
 
   /**
    * @public
@@ -4467,7 +4467,7 @@ export interface StackResourceDriftInformation {
    *             </li>
    *          </ul>
    */
-  StackResourceDriftStatus: StackResourceDriftStatus | string | undefined;
+  StackResourceDriftStatus: StackResourceDriftStatus | undefined;
 
   /**
    * @public
@@ -4522,7 +4522,7 @@ export interface StackResourceDetail {
    * @public
    * <p>Current status of the resource.</p>
    */
-  ResourceStatus: ResourceStatus | string | undefined;
+  ResourceStatus: ResourceStatus | undefined;
 
   /**
    * @public
@@ -4605,7 +4605,7 @@ export interface DescribeStackResourceDriftsInput {
    *             </li>
    *          </ul>
    */
-  StackResourceDriftStatusFilters?: (StackResourceDriftStatus | string)[];
+  StackResourceDriftStatusFilters?: StackResourceDriftStatus[];
 
   /**
    * @public
@@ -4703,7 +4703,7 @@ export interface PropertyDifference {
    *             </li>
    *          </ul>
    */
-  DifferenceType: DifferenceType | string | undefined;
+  DifferenceType: DifferenceType | undefined;
 }
 
 /**
@@ -4800,7 +4800,7 @@ export interface StackResourceDrift {
    *             </li>
    *          </ul>
    */
-  StackResourceDriftStatus: StackResourceDriftStatus | string | undefined;
+  StackResourceDriftStatus: StackResourceDriftStatus | undefined;
 
   /**
    * @public
@@ -4929,7 +4929,7 @@ export interface StackResource {
    * @public
    * <p>Current status of the resource.</p>
    */
-  ResourceStatus: ResourceStatus | string | undefined;
+  ResourceStatus: ResourceStatus | undefined;
 
   /**
    * @public
@@ -5039,7 +5039,7 @@ export interface StackDriftInformation {
    *             </li>
    *          </ul>
    */
-  StackDriftStatus: StackDriftStatus | string | undefined;
+  StackDriftStatus: StackDriftStatus | undefined;
 
   /**
    * @public
@@ -5179,7 +5179,7 @@ export interface Stack {
    * @public
    * <p>Current status of the stack.</p>
    */
-  StackStatus: StackStatus | string | undefined;
+  StackStatus: StackStatus | undefined;
 
   /**
    * @public
@@ -5219,7 +5219,7 @@ export interface Stack {
    * @public
    * <p>The capabilities allowed in the stack.</p>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: Capability[];
 
   /**
    * @public
@@ -5332,7 +5332,7 @@ export interface DescribeStackSetInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -5402,7 +5402,7 @@ export interface StackSetDriftDetectionDetails {
    *             </li>
    *          </ul>
    */
-  DriftStatus?: StackSetDriftStatus | string;
+  DriftStatus?: StackSetDriftStatus;
 
   /**
    * @public
@@ -5431,7 +5431,7 @@ export interface StackSetDriftDetectionDetails {
    *             </li>
    *          </ul>
    */
-  DriftDetectionStatus?: StackSetDriftDetectionStatus | string;
+  DriftDetectionStatus?: StackSetDriftDetectionStatus;
 
   /**
    * @public
@@ -5532,7 +5532,7 @@ export interface StackSet {
    * @public
    * <p>The status of the stack set.</p>
    */
-  Status?: StackSetStatus | string;
+  Status?: StackSetStatus;
 
   /**
    * @public
@@ -5553,7 +5553,7 @@ export interface StackSet {
    *     Resources in CloudFormation Templates.</a>
    *          </p>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: Capability[];
 
   /**
    * @public
@@ -5616,7 +5616,7 @@ export interface StackSet {
    *             </li>
    *          </ul>
    */
-  PermissionModel?: PermissionModels | string;
+  PermissionModel?: PermissionModels;
 
   /**
    * @public
@@ -5683,7 +5683,7 @@ export interface DescribeStackSetOperationInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -5756,7 +5756,7 @@ export interface StackSetOperation {
    *    Update operations affect both the stack set itself, in addition to <i>all</i> associated stack set
    *    instances.</p>
    */
-  Action?: StackSetOperationAction | string;
+  Action?: StackSetOperationAction;
 
   /**
    * @public
@@ -5794,7 +5794,7 @@ export interface StackSetOperation {
    *             </li>
    *          </ul>
    */
-  Status?: StackSetOperationStatus | string;
+  Status?: StackSetOperationStatus;
 
   /**
    * @public
@@ -5894,7 +5894,7 @@ export interface DescribeTypeInput {
    * <p>The kind of extension.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
-  Type?: RegistryType | string;
+  Type?: RegistryType;
 
   /**
    * @public
@@ -6045,7 +6045,7 @@ export interface DescribeTypeOutput {
    * @public
    * <p>The kind of extension.</p>
    */
-  Type?: RegistryType | string;
+  Type?: RegistryType;
 
   /**
    * @public
@@ -6103,7 +6103,7 @@ export interface DescribeTypeOutput {
    *             </li>
    *          </ul>
    */
-  TypeTestsStatus?: TypeTestsStatus | string;
+  TypeTestsStatus?: TypeTestsStatus;
 
   /**
    * @public
@@ -6162,7 +6162,7 @@ export interface DescribeTypeOutput {
    *             </li>
    *          </ul>
    */
-  ProvisioningType?: ProvisioningType | string;
+  ProvisioningType?: ProvisioningType;
 
   /**
    * @public
@@ -6182,7 +6182,7 @@ export interface DescribeTypeOutput {
    *          </ul>
    *          <p>For public third-party extensions, CloudFormation returns <code>null</code>.</p>
    */
-  DeprecatedStatus?: DeprecatedStatus | string;
+  DeprecatedStatus?: DeprecatedStatus;
 
   /**
    * @public
@@ -6229,7 +6229,7 @@ export interface DescribeTypeOutput {
    *             </li>
    *          </ul>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -6369,7 +6369,7 @@ export interface DescribeTypeRegistrationOutput {
    * @public
    * <p>The current status of the extension registration request.</p>
    */
-  ProgressStatus?: RegistrationStatus | string;
+  ProgressStatus?: RegistrationStatus;
 
   /**
    * @public
@@ -6496,7 +6496,7 @@ export interface DetectStackSetDriftInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -6696,7 +6696,7 @@ export interface GetTemplateInput {
    *          <p>If the template doesn't include transforms, <code>Original</code> and <code>Processed</code> return the same
    *    template. By default, CloudFormation specifies <code>Processed</code>.</p>
    */
-  TemplateStage?: TemplateStage | string;
+  TemplateStage?: TemplateStage;
 }
 
 /**
@@ -6719,7 +6719,7 @@ export interface GetTemplateOutput {
    *    available. After CloudFormation finishes creating the change set, the <code>Processed</code> template becomes
    *    available.</p>
    */
-  StagesAvailable?: (TemplateStage | string)[];
+  StagesAvailable?: TemplateStage[];
 }
 
 /**
@@ -6796,7 +6796,7 @@ export interface GetTemplateSummaryInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 
   /**
    * @public
@@ -6928,7 +6928,7 @@ export interface GetTemplateSummaryOutput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM
    *     Resources in CloudFormation Templates</a>.</p>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: Capability[];
 
   /**
    * @public
@@ -7034,7 +7034,7 @@ export interface ImportStacksToStackSetInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -7257,7 +7257,7 @@ export interface ListStackInstanceResourceDriftsInput {
    *             </li>
    *          </ul>
    */
-  StackInstanceResourceDriftStatuses?: (StackResourceDriftStatus | string)[];
+  StackInstanceResourceDriftStatuses?: StackResourceDriftStatus[];
 
   /**
    * @public
@@ -7297,7 +7297,7 @@ export interface ListStackInstanceResourceDriftsInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -7374,7 +7374,7 @@ export interface StackInstanceResourceDriftsSummary {
    *             </li>
    *          </ul>
    */
-  StackResourceDriftStatus: StackResourceDriftStatus | string | undefined;
+  StackResourceDriftStatus: StackResourceDriftStatus | undefined;
 
   /**
    * @public
@@ -7429,7 +7429,7 @@ export interface StackInstanceFilter {
    * @public
    * <p>The type of filter to apply.</p>
    */
-  Name?: StackInstanceFilterName | string;
+  Name?: StackInstanceFilterName;
 
   /**
    * @public
@@ -7500,7 +7500,7 @@ export interface ListStackInstancesInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -7564,7 +7564,7 @@ export interface StackInstanceSummary {
    *             </li>
    *          </ul>
    */
-  Status?: StackInstanceStatus | string;
+  Status?: StackInstanceStatus;
 
   /**
    * @public
@@ -7612,7 +7612,7 @@ export interface StackInstanceSummary {
    *             </li>
    *          </ul>
    */
-  DriftStatus?: StackDriftStatus | string;
+  DriftStatus?: StackDriftStatus;
 
   /**
    * @public
@@ -7710,7 +7710,7 @@ export interface StackResourceDriftInformationSummary {
    *             </li>
    *          </ul>
    */
-  StackResourceDriftStatus: StackResourceDriftStatus | string | undefined;
+  StackResourceDriftStatus: StackResourceDriftStatus | undefined;
 
   /**
    * @public
@@ -7753,7 +7753,7 @@ export interface StackResourceSummary {
    * @public
    * <p>Current status of the resource.</p>
    */
-  ResourceStatus: ResourceStatus | string | undefined;
+  ResourceStatus: ResourceStatus | undefined;
 
   /**
    * @public
@@ -7812,7 +7812,7 @@ export interface ListStacksInput {
    * <p>Stack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified
    *    status codes. For a complete list of stack status codes, see the <code>StackStatus</code> parameter of the <a>Stack</a> data type.</p>
    */
-  StackStatusFilter?: (StackStatus | string)[];
+  StackStatusFilter?: StackStatus[];
 }
 
 /**
@@ -7847,7 +7847,7 @@ export interface StackDriftInformationSummary {
    *             </li>
    *          </ul>
    */
-  StackDriftStatus: StackDriftStatus | string | undefined;
+  StackDriftStatus: StackDriftStatus | undefined;
 
   /**
    * @public
@@ -7903,7 +7903,7 @@ export interface StackSummary {
    * @public
    * <p>The current status of the stack.</p>
    */
-  StackStatus: StackStatus | string | undefined;
+  StackStatus: StackStatus | undefined;
 
   /**
    * @public
@@ -7980,7 +7980,7 @@ export interface OperationResultFilter {
    * @public
    * <p>The type of filter to apply.</p>
    */
-  Name?: OperationResultFilterName | string;
+  Name?: OperationResultFilterName;
 
   /**
    * @public
@@ -8040,7 +8040,7 @@ export interface ListStackSetOperationResultsInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 
   /**
    * @public
@@ -8115,7 +8115,7 @@ export interface StackSetOperationResultSummary {
    *             </li>
    *          </ul>
    */
-  Status?: StackSetOperationResultStatus | string;
+  Status?: StackSetOperationResultStatus;
 
   /**
    * @public
@@ -8204,7 +8204,7 @@ export interface ListStackSetOperationsInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -8224,7 +8224,7 @@ export interface StackSetOperationSummary {
    *    operations affect only the specified stack instances that are associated with the specified stack set. Update
    *    operations affect both the stack set itself and <i>all</i> associated stack set instances.</p>
    */
-  Action?: StackSetOperationAction | string;
+  Action?: StackSetOperationAction;
 
   /**
    * @public
@@ -8262,7 +8262,7 @@ export interface StackSetOperationSummary {
    *             </li>
    *          </ul>
    */
-  Status?: StackSetOperationStatus | string;
+  Status?: StackSetOperationStatus;
 
   /**
    * @public
@@ -8349,7 +8349,7 @@ export interface ListStackSetsInput {
    * @public
    * <p>The status of the stack sets that you want to get summary information about.</p>
    */
-  Status?: StackSetStatus | string;
+  Status?: StackSetStatus;
 
   /**
    * @public
@@ -8367,7 +8367,7 @@ export interface ListStackSetsInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -8397,7 +8397,7 @@ export interface StackSetSummary {
    * @public
    * <p>The status of the stack set.</p>
    */
-  Status?: StackSetStatus | string;
+  Status?: StackSetStatus;
 
   /**
    * @public
@@ -8422,7 +8422,7 @@ export interface StackSetSummary {
    *             </li>
    *          </ul>
    */
-  PermissionModel?: PermissionModels | string;
+  PermissionModel?: PermissionModels;
 
   /**
    * @public
@@ -8451,7 +8451,7 @@ export interface StackSetSummary {
    *             </li>
    *          </ul>
    */
-  DriftStatus?: StackDriftStatus | string;
+  DriftStatus?: StackDriftStatus;
 
   /**
    * @public
@@ -8497,7 +8497,7 @@ export interface ListTypeRegistrationsInput {
    * <p>The kind of extension.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
-  Type?: RegistryType | string;
+  Type?: RegistryType;
 
   /**
    * @public
@@ -8518,7 +8518,7 @@ export interface ListTypeRegistrationsInput {
    * <p>The current status of the extension registration request.</p>
    *          <p>The default is <code>IN_PROGRESS</code>.</p>
    */
-  RegistrationStatusFilter?: RegistrationStatus | string;
+  RegistrationStatusFilter?: RegistrationStatus;
 
   /**
    * @public
@@ -8595,7 +8595,7 @@ export interface TypeFilters {
    *             </li>
    *          </ul>
    */
-  Category?: Category | string;
+  Category?: Category;
 
   /**
    * @public
@@ -8642,7 +8642,7 @@ export interface ListTypesInput {
    *          </ul>
    *          <p>The default is <code>PRIVATE</code>.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -8668,7 +8668,7 @@ export interface ListTypesInput {
    *          </ul>
    *          <p>The default is <code>FULLY_MUTABLE</code>.</p>
    */
-  ProvisioningType?: ProvisioningType | string;
+  ProvisioningType?: ProvisioningType;
 
   /**
    * @public
@@ -8685,13 +8685,13 @@ export interface ListTypesInput {
    *             </li>
    *          </ul>
    */
-  DeprecatedStatus?: DeprecatedStatus | string;
+  DeprecatedStatus?: DeprecatedStatus;
 
   /**
    * @public
    * <p>The type of extension.</p>
    */
-  Type?: RegistryType | string;
+  Type?: RegistryType;
 
   /**
    * @public
@@ -8729,7 +8729,7 @@ export interface TypeSummary {
    * @public
    * <p>The kind of extension.</p>
    */
-  Type?: RegistryType | string;
+  Type?: RegistryType;
 
   /**
    * @public
@@ -8824,7 +8824,7 @@ export interface TypeSummary {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Registering your account to publish CloudFormation extensions</a> in the <i> CFN-CLI User Guide for Extension
    *    Development</i>.</p>
    */
-  PublisherIdentity?: IdentityProvider | string;
+  PublisherIdentity?: IdentityProvider;
 
   /**
    * @public
@@ -8870,7 +8870,7 @@ export interface ListTypeVersionsInput {
    * <p>The kind of the extension.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
-  Type?: RegistryType | string;
+  Type?: RegistryType;
 
   /**
    * @public
@@ -8920,7 +8920,7 @@ export interface ListTypeVersionsInput {
    *          </ul>
    *          <p>The default is <code>LIVE</code>.</p>
    */
-  DeprecatedStatus?: DeprecatedStatus | string;
+  DeprecatedStatus?: DeprecatedStatus;
 
   /**
    * @public
@@ -8939,7 +8939,7 @@ export interface TypeVersionSummary {
    * @public
    * <p>The kind of extension.</p>
    */
-  Type?: RegistryType | string;
+  Type?: RegistryType;
 
   /**
    * @public
@@ -9023,7 +9023,7 @@ export interface PublishTypeInput {
    * <p>The type of the extension.</p>
    *          <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>
    */
-  Type?: ThirdPartyType | string;
+  Type?: ThirdPartyType;
 
   /**
    * @public
@@ -9176,14 +9176,14 @@ export interface RecordHandlerProgressInput {
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
    *    CLI</a>.</p>
    */
-  OperationStatus: OperationStatus | string | undefined;
+  OperationStatus: OperationStatus | undefined;
 
   /**
    * @public
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
    *    CLI</a>.</p>
    */
-  CurrentOperationStatus?: OperationStatus | string;
+  CurrentOperationStatus?: OperationStatus;
 
   /**
    * @public
@@ -9197,7 +9197,7 @@ export interface RecordHandlerProgressInput {
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
    *    CLI</a>.</p>
    */
-  ErrorCode?: HandlerErrorCode | string;
+  ErrorCode?: HandlerErrorCode;
 
   /**
    * @public
@@ -9262,7 +9262,7 @@ export interface RegisterTypeInput {
    * @public
    * <p>The kind of extension.</p>
    */
-  Type?: RegistryType | string;
+  Type?: RegistryType;
 
   /**
    * @public
@@ -9501,7 +9501,7 @@ export interface SetTypeConfigurationInput {
    *          <p>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code> and
    *    <code>TypeName</code>.</p>
    */
-  Type?: ThirdPartyType | string;
+  Type?: ThirdPartyType;
 }
 
 /**
@@ -9533,7 +9533,7 @@ export interface SetTypeDefaultVersionInput {
    * <p>The kind of extension.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
-  Type?: RegistryType | string;
+  Type?: RegistryType;
 
   /**
    * @public
@@ -9600,7 +9600,7 @@ export interface SignalResourceInput {
    * <p>The status of the signal, which is either success or failure. A failure signal causes CloudFormation to
    *    immediately fail the stack creation or update.</p>
    */
-  Status: ResourceSignalStatus | string | undefined;
+  Status: ResourceSignalStatus | undefined;
 }
 
 /**
@@ -9636,7 +9636,7 @@ export interface StopStackSetOperationInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -9660,7 +9660,7 @@ export interface TestTypeInput {
    * <p>The type of the extension to test.</p>
    *          <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>
    */
-  Type?: ThirdPartyType | string;
+  Type?: ThirdPartyType;
 
   /**
    * @public
@@ -9880,7 +9880,7 @@ export interface UpdateStackInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: Capability[];
 
   /**
    * @public
@@ -10099,7 +10099,7 @@ export interface UpdateStackInstancesInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 }
 
 /**
@@ -10256,7 +10256,7 @@ export interface UpdateStackSetInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: Capability[];
 
   /**
    * @public
@@ -10348,7 +10348,7 @@ export interface UpdateStackSetInput {
    *             </li>
    *          </ul>
    */
-  PermissionModel?: PermissionModels | string;
+  PermissionModel?: PermissionModels;
 
   /**
    * @public
@@ -10418,7 +10418,7 @@ export interface UpdateStackSetInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: CallAs;
 
   /**
    * @public
@@ -10547,7 +10547,7 @@ export interface ValidateTemplateOutput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM
    *     Resources in CloudFormation Templates</a>.</p>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: Capability[];
 
   /**
    * @public

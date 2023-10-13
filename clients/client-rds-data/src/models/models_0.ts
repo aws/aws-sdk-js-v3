@@ -458,7 +458,7 @@ export interface ResultSetOptions {
    *                 We recommend converting to String, especially when working with currency values.</p>
    *         </note>
    */
-  decimalReturnType?: DecimalReturnType | string;
+  decimalReturnType?: DecimalReturnType;
 
   /**
    * @public
@@ -468,7 +468,7 @@ export interface ResultSetOptions {
    *         precision of numeric values might cause truncation or rounding errors.
    *         </p>
    */
-  longReturnType?: LongReturnType | string;
+  longReturnType?: LongReturnType;
 }
 
 /**
@@ -836,7 +836,7 @@ export interface SqlParameter {
    *             </li>
    *          </ul>
    */
-  typeHint?: TypeHint | string;
+  typeHint?: TypeHint;
 }
 
 /**
@@ -1197,7 +1197,7 @@ export interface ExecuteStatementRequest {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API</a>
    *           in the <i>Amazon Aurora User Guide</i>.</p>
    */
-  formatRecordsAs?: RecordsFormatType | string;
+  formatRecordsAs?: RecordsFormatType;
 }
 
 /**

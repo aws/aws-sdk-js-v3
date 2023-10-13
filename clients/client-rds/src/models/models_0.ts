@@ -1414,7 +1414,7 @@ export interface ExportTask {
    * @public
    * <p>The type of source for the export.</p>
    */
-  SourceType?: ExportSourceType | string;
+  SourceType?: ExportSourceType;
 }
 
 /**
@@ -5687,13 +5687,13 @@ export interface DBCluster {
    *            Database events such as a change or access generate an activity stream event.
    *            The database session can handle these events either synchronously or asynchronously.</p>
    */
-  ActivityStreamMode?: ActivityStreamMode | string;
+  ActivityStreamMode?: ActivityStreamMode;
 
   /**
    * @public
    * <p>The status of the database activity stream.</p>
    */
-  ActivityStreamStatus?: ActivityStreamStatus | string;
+  ActivityStreamStatus?: ActivityStreamStatus;
 
   /**
    * @public
@@ -5738,7 +5738,7 @@ export interface DBCluster {
    * @public
    * <p>The status of write forwarding for a secondary cluster in an Aurora global database.</p>
    */
-  GlobalWriteForwardingStatus?: WriteForwardingStatus | string;
+  GlobalWriteForwardingStatus?: WriteForwardingStatus;
 
   /**
    * @public
@@ -5904,7 +5904,7 @@ export interface DBCluster {
    * <p>Indicates whether an Aurora DB cluster has in-cluster write forwarding enabled, not enabled, requested, or is in the process
    *             of enabling it.</p>
    */
-  LocalWriteForwardingStatus?: LocalWriteForwardingStatus | string;
+  LocalWriteForwardingStatus?: LocalWriteForwardingStatus;
 
   /**
    * @public
@@ -8361,7 +8361,7 @@ export interface PendingModifiedValues {
    *             <code>all-paused</code>, the instance pauses automation for the duration set by
    *             <code>--resume-full-automation-mode-minutes</code>.</p>
    */
-  AutomationMode?: AutomationMode | string;
+  AutomationMode?: AutomationMode;
 
   /**
    * @public
@@ -8631,7 +8631,7 @@ export interface DBInstance {
    *             <p>This attribute is only supported in RDS for Oracle.</p>
    *          </note>
    */
-  ReplicaMode?: ReplicaMode | string;
+  ReplicaMode?: ReplicaMode;
 
   /**
    * @public
@@ -8934,7 +8934,7 @@ export interface DBInstance {
    * @public
    * <p>The status of the database activity stream.</p>
    */
-  ActivityStreamStatus?: ActivityStreamStatus | string;
+  ActivityStreamStatus?: ActivityStreamStatus;
 
   /**
    * @public
@@ -8954,7 +8954,7 @@ export interface DBInstance {
    * <p>The mode of the database activity stream. Database events such as a change or access generate
    *             an activity stream event. RDS for Oracle always handles these events asynchronously.</p>
    */
-  ActivityStreamMode?: ActivityStreamMode | string;
+  ActivityStreamMode?: ActivityStreamMode;
 
   /**
    * @public
@@ -8969,7 +8969,7 @@ export interface DBInstance {
    *             <code>all paused</code>, the instance pauses automation for the duration set by
    *             <code>--resume-full-automation-mode-minutes</code>.</p>
    */
-  AutomationMode?: AutomationMode | string;
+  AutomationMode?: AutomationMode;
 
   /**
    * @public
@@ -9027,7 +9027,7 @@ export interface DBInstance {
    * @public
    * <p>The status of the policy state of the activity stream.</p>
    */
-  ActivityStreamPolicyStatus?: ActivityStreamPolicyStatus | string;
+  ActivityStreamPolicyStatus?: ActivityStreamPolicyStatus;
 
   /**
    * @public
@@ -9709,7 +9709,7 @@ export interface CreateDBInstanceReadReplicaMessage {
    *          <p>For RDS Custom, you must specify this parameter and set it to <code>mounted</code>. The value won't be set by default.
    *             After replica creation, you can manage the open mode manually.</p>
    */
-  ReplicaMode?: ReplicaMode | string;
+  ReplicaMode?: ReplicaMode;
 
   /**
    * @public
@@ -10093,7 +10093,7 @@ export interface UserAuthConfig {
    * @public
    * <p>The type of authentication that the proxy uses for connections from the proxy to the underlying database.</p>
    */
-  AuthScheme?: AuthScheme | string;
+  AuthScheme?: AuthScheme;
 
   /**
    * @public
@@ -10107,13 +10107,13 @@ export interface UserAuthConfig {
    * <p>A value that indicates whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy.
    *         The <code>ENABLED</code> value is valid only for proxies with RDS for Microsoft SQL Server.</p>
    */
-  IAMAuth?: IAMAuthMode | string;
+  IAMAuth?: IAMAuthMode;
 
   /**
    * @public
    * <p>The type of authentication the proxy uses for connections from clients.</p>
    */
-  ClientPasswordAuthType?: ClientPasswordAuthType | string;
+  ClientPasswordAuthType?: ClientPasswordAuthType;
 }
 
 /**
@@ -10149,7 +10149,7 @@ export interface CreateDBProxyRequest {
    *         For Aurora PostgreSQL and RDS for PostgreSQL databases, specify <code>POSTGRESQL</code>. For RDS for Microsoft SQL Server, specify
    *         <code>SQLSERVER</code>.</p>
    */
-  EngineFamily: EngineFamily | string | undefined;
+  EngineFamily: EngineFamily | undefined;
 
   /**
    * @public
@@ -10228,7 +10228,7 @@ export interface UserAuthConfigInfo {
    * @public
    * <p>The type of authentication that the proxy uses for connections from the proxy to the underlying database.</p>
    */
-  AuthScheme?: AuthScheme | string;
+  AuthScheme?: AuthScheme;
 
   /**
    * @public
@@ -10242,13 +10242,13 @@ export interface UserAuthConfigInfo {
    * <p>Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy.
    *         The <code>ENABLED</code> value is valid only for proxies with RDS for Microsoft SQL Server.</p>
    */
-  IAMAuth?: IAMAuthMode | string;
+  IAMAuth?: IAMAuthMode;
 
   /**
    * @public
    * <p>The type of authentication the proxy uses for connections from clients.</p>
    */
-  ClientPasswordAuthType?: ClientPasswordAuthType | string;
+  ClientPasswordAuthType?: ClientPasswordAuthType;
 }
 
 /**
@@ -10296,7 +10296,7 @@ export interface DBProxy {
    *         proxy is ready to handle requests. Other values indicate that you must wait for
    *         the proxy to be ready, or take some action to resolve an issue.</p>
    */
-  Status?: DBProxyStatus | string;
+  Status?: DBProxyStatus;
 
   /**
    * @public
@@ -10487,7 +10487,7 @@ export interface CreateDBProxyEndpointRequest {
    *         or only read operations. The default is <code>READ_WRITE</code>. The only role that proxies for RDS for Microsoft SQL Server
    *         support is <code>READ_WRITE</code>.</p>
    */
-  TargetRole?: DBProxyEndpointTargetRole | string;
+  TargetRole?: DBProxyEndpointTargetRole;
 
   /**
    * @public
@@ -10551,7 +10551,7 @@ export interface DBProxyEndpoint {
    *         endpoint is ready to handle requests. Other values indicate that you must wait for
    *         the endpoint to be ready, or take some action to resolve an issue.</p>
    */
-  Status?: DBProxyEndpointStatus | string;
+  Status?: DBProxyEndpointStatus;
 
   /**
    * @public
@@ -10588,7 +10588,7 @@ export interface DBProxyEndpoint {
    * @public
    * <p>A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.</p>
    */
-  TargetRole?: DBProxyEndpointTargetRole | string;
+  TargetRole?: DBProxyEndpointTargetRole;
 
   /**
    * @public
@@ -11331,7 +11331,7 @@ export interface FailoverState {
    *             </li>
    *          </ul>
    */
-  Status?: FailoverStatus | string;
+  Status?: FailoverStatus;
 
   /**
    * @public
@@ -11401,13 +11401,13 @@ export interface GlobalClusterMember {
    * @public
    * <p>The status of write forwarding for a secondary cluster in the global cluster.</p>
    */
-  GlobalWriteForwardingStatus?: WriteForwardingStatus | string;
+  GlobalWriteForwardingStatus?: WriteForwardingStatus;
 
   /**
    * @public
    * <p>The status of synchronization of each Aurora DB cluster in the global cluster.</p>
    */
-  SynchronizationStatus?: GlobalClusterMemberSynchronizationStatus | string;
+  SynchronizationStatus?: GlobalClusterMemberSynchronizationStatus;
 }
 
 /**
@@ -13745,7 +13745,7 @@ export interface Parameter {
    * @public
    * <p>Indicates when to apply parameter updates.</p>
    */
-  ApplyMethod?: ApplyMethod | string;
+  ApplyMethod?: ApplyMethod;
 
   /**
    * @public

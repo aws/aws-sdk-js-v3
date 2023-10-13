@@ -308,14 +308,14 @@ export interface SigningConfigurationOverrides {
    * <p>A specified override of the default encryption algorithm that is used in a code signing
    * 			job.</p>
    */
-  encryptionAlgorithm?: EncryptionAlgorithm | string;
+  encryptionAlgorithm?: EncryptionAlgorithm;
 
   /**
    * @public
    * <p>A specified override of the default hash algorithm that is used in a code signing
    * 			job.</p>
    */
-  hashAlgorithm?: HashAlgorithm | string;
+  hashAlgorithm?: HashAlgorithm;
 }
 
 /**
@@ -355,7 +355,7 @@ export interface SigningPlatformOverrides {
    * 			signing image has the payload embedded in it. With <code>JSONDetached</code>, the
    * 			payload is not be embedded in the signing image.</p>
    */
-  signingImageFormat?: ImageFormat | string;
+  signingImageFormat?: ImageFormat;
 }
 
 /**
@@ -566,7 +566,7 @@ export interface DescribeSigningJobResponse {
    * @public
    * <p>Status of the signing job.</p>
    */
-  status?: SigningStatus | string;
+  status?: SigningStatus;
 
   /**
    * @public
@@ -641,13 +641,13 @@ export interface EncryptionAlgorithmOptions {
    * @public
    * <p>The set of accepted encryption algorithms that are allowed in a code signing job.</p>
    */
-  allowedValues: (EncryptionAlgorithm | string)[] | undefined;
+  allowedValues: EncryptionAlgorithm[] | undefined;
 
   /**
    * @public
    * <p>The default encryption algorithm that is used by a code signing job.</p>
    */
-  defaultValue: EncryptionAlgorithm | string | undefined;
+  defaultValue: EncryptionAlgorithm | undefined;
 }
 
 /**
@@ -720,13 +720,13 @@ export interface HashAlgorithmOptions {
    * @public
    * <p>The set of accepted hash algorithms allowed in a code signing job.</p>
    */
-  allowedValues: (HashAlgorithm | string)[] | undefined;
+  allowedValues: HashAlgorithm[] | undefined;
 
   /**
    * @public
    * <p>The default hash algorithm that is used in a code signing job.</p>
    */
-  defaultValue: HashAlgorithm | string | undefined;
+  defaultValue: HashAlgorithm | undefined;
 }
 
 /**
@@ -756,13 +756,13 @@ export interface SigningImageFormat {
    * @public
    * <p>The supported formats of a code signing image.</p>
    */
-  supportedFormats: (ImageFormat | string)[] | undefined;
+  supportedFormats: ImageFormat[] | undefined;
 
   /**
    * @public
    * <p>The default format of a code signing image.</p>
    */
-  defaultFormat: ImageFormat | string | undefined;
+  defaultFormat: ImageFormat | undefined;
 }
 
 /**
@@ -797,7 +797,7 @@ export interface GetSigningPlatformResponse {
    * @public
    * <p>The category type of the target signing platform.</p>
    */
-  category?: Category | string;
+  category?: Category;
 
   /**
    * @public
@@ -897,7 +897,7 @@ export interface SignatureValidityPeriod {
    * @public
    * <p>The time unit for signature validity.</p>
    */
-  type?: ValidityType | string;
+  type?: ValidityType;
 }
 
 /**
@@ -986,7 +986,7 @@ export interface GetSigningProfileResponse {
    * @public
    * <p>The status of the target signing profile.</p>
    */
-  status?: SigningProfileStatus | string;
+  status?: SigningProfileStatus;
 
   /**
    * @public
@@ -1091,7 +1091,7 @@ export interface ListSigningJobsRequest {
    * @public
    * <p>A status value with which to filter your results.</p>
    */
-  status?: SigningStatus | string;
+  status?: SigningStatus;
 
   /**
    * @public
@@ -1194,7 +1194,7 @@ export interface SigningJob {
    * @public
    * <p>The status of the signing job.</p>
    */
-  status?: SigningStatus | string;
+  status?: SigningStatus;
 
   /**
    * @public
@@ -1333,7 +1333,7 @@ export interface SigningPlatform {
    * @public
    * <p>The category of a code signing platform.</p>
    */
-  category?: Category | string;
+  category?: Category;
 
   /**
    * @public
@@ -1415,7 +1415,7 @@ export interface ListSigningProfilesRequest {
    * <p>Filters results to return only signing jobs with statuses in the specified
    * 			list.</p>
    */
-  statuses?: (SigningProfileStatus | string)[];
+  statuses?: SigningProfileStatus[];
 }
 
 /**
@@ -1476,7 +1476,7 @@ export interface SigningProfile {
    * @public
    * <p>The status of a code signing profile.</p>
    */
-  status?: SigningProfileStatus | string;
+  status?: SigningProfileStatus;
 
   /**
    * @public

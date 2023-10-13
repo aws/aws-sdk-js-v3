@@ -148,7 +148,7 @@ export interface AggregateOperation {
    *          <p>Possible aggregation functions include: avg countDistinct, count, first, last, kurtosis, max, min, skewness,
    *       stddev_samp, stddev_pop, sum, sumDistinct, var_samp, var_pop</p>
    */
-  AggFunc: AggFunction | string | undefined;
+  AggFunc: AggFunction | undefined;
 }
 
 /**
@@ -1477,7 +1477,7 @@ export interface Blueprint {
    *             </li>
    *          </ul>
    */
-  Status?: BlueprintStatus | string;
+  Status?: BlueprintStatus;
 
   /**
    * @public
@@ -1563,7 +1563,7 @@ export interface LastCrawlInfo {
    * @public
    * <p>Status of the last crawl.</p>
    */
-  Status?: LastCrawlStatus | string;
+  Status?: LastCrawlStatus;
 
   /**
    * @public
@@ -1627,7 +1627,7 @@ export interface LineageConfiguration {
    *             </li>
    *          </ul>
    */
-  CrawlerLineageSettings?: CrawlerLineageSettings | string;
+  CrawlerLineageSettings?: CrawlerLineageSettings;
 }
 
 /**
@@ -1657,7 +1657,7 @@ export interface RecrawlPolicy {
    *          <p>A value of <code>CRAWL_NEW_FOLDERS_ONLY</code> specifies crawling only folders that were added since the last crawler run.</p>
    *          <p>A value of <code>CRAWL_EVENT_MODE</code> specifies crawling only the changes identified by Amazon S3 events.</p>
    */
-  RecrawlBehavior?: RecrawlBehavior | string;
+  RecrawlBehavior?: RecrawlBehavior;
 }
 
 /**
@@ -1692,7 +1692,7 @@ export interface Schedule {
    * @public
    * <p>The state of the schedule.</p>
    */
-  State?: ScheduleState | string;
+  State?: ScheduleState;
 }
 
 /**
@@ -1733,13 +1733,13 @@ export interface SchemaChangePolicy {
    * @public
    * <p>The update behavior when the crawler finds a changed schema.</p>
    */
-  UpdateBehavior?: UpdateBehavior | string;
+  UpdateBehavior?: UpdateBehavior;
 
   /**
    * @public
    * <p>The deletion behavior when the crawler finds a deleted object.</p>
    */
-  DeleteBehavior?: DeleteBehavior | string;
+  DeleteBehavior?: DeleteBehavior;
 }
 
 /**
@@ -1955,7 +1955,7 @@ export interface JdbcTarget {
    * <p>Specify a value of <code>RAWTYPES</code> or <code>COMMENTS</code> to enable additional metadata in table responses. <code>RAWTYPES</code> provides the native-level datatype. <code>COMMENTS</code> provides comments associated with a column or table in the database.</p>
    *          <p>If you do not need additional metadata, keep the field empty.</p>
    */
-  EnableAdditionalMetadata?: (JdbcMetadataEntry | string)[];
+  EnableAdditionalMetadata?: JdbcMetadataEntry[];
 }
 
 /**
@@ -2147,7 +2147,7 @@ export interface Crawler {
    * @public
    * <p>Indicates whether the crawler is running, or whether a run is pending.</p>
    */
-  State?: CrawlerState | string;
+  State?: CrawlerState;
 
   /**
    * @public
@@ -2396,7 +2396,7 @@ export interface DataQualityRuleResult {
    * @public
    * <p>A pass or fail status for the rule.</p>
    */
-  Result?: DataQualityRuleResultStatus | string;
+  Result?: DataQualityRuleResultStatus;
 
   /**
    * @public
@@ -2607,7 +2607,7 @@ export interface DevEndpoint {
    *          <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
    *             <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -3076,7 +3076,7 @@ export interface KinesisStreamingSourceOptions {
    * <p>The starting position in the Kinesis data stream to read data from. The possible values are <code>"latest"</code>, <code>"trim_horizon"</code>, <code>"earliest"</code>, or a timestamp string in UTC format in the pattern <code>yyyy-mm-ddTHH:MM:SSZ</code> (where <code>Z</code> represents a UTC timezone offset with a +/-. For example: "2023-04-04T08:00:00-04:00"). The default value is <code>"latest"</code>.</p>
    *          <p>Note: Using a value that is a timestamp string in UTC format for "startingPosition" is supported only for Glue version 4.0 or later.</p>
    */
-  StartingPosition?: StartingPosition | string;
+  StartingPosition?: StartingPosition;
 
   /**
    * @public
@@ -3363,7 +3363,7 @@ export interface DirectJDBCSource {
    * @public
    * <p>The connection type of the JDBC source.</p>
    */
-  ConnectionType: JDBCConnectionType | string | undefined;
+  ConnectionType: JDBCConnectionType | undefined;
 
   /**
    * @public
@@ -3617,7 +3617,7 @@ export interface TransformConfigParameter {
    * @public
    * <p>Specifies the parameter type in the config file of the dynamic transform.</p>
    */
-  Type: ParamType | string | undefined;
+  Type: ParamType | undefined;
 
   /**
    * @public
@@ -3641,7 +3641,7 @@ export interface TransformConfigParameter {
    * @public
    * <p>Specifies the list type of the parameter in the config file of the dynamic transform.</p>
    */
-  ListType?: ParamType | string;
+  ListType?: ParamType;
 
   /**
    * @public
@@ -3795,7 +3795,7 @@ export interface DQStopJobOnFailureOptions {
    * @public
    * <p>When to stop job if your data quality evaluation fails. Options are Immediate or AfterDataLoad.</p>
    */
-  StopJobOnFailureTiming?: DQStopJobOnFailureTiming | string;
+  StopJobOnFailureTiming?: DQStopJobOnFailureTiming;
 }
 
 /**
@@ -3825,7 +3825,7 @@ export interface EvaluateDataQuality {
    * @public
    * <p>The output of your data quality evaluation.</p>
    */
-  Output?: DQTransformOutput | string;
+  Output?: DQTransformOutput;
 
   /**
    * @public
@@ -3960,7 +3960,7 @@ export interface FilterValue {
    * @public
    * <p>The type of filter value.</p>
    */
-  Type: FilterValueType | string | undefined;
+  Type: FilterValueType | undefined;
 
   /**
    * @public
@@ -3978,7 +3978,7 @@ export interface FilterExpression {
    * @public
    * <p>The type of operation to perform in the expression.</p>
    */
-  Operation: FilterOperation | string | undefined;
+  Operation: FilterOperation | undefined;
 
   /**
    * @public
@@ -4028,7 +4028,7 @@ export interface Filter {
    * @public
    * <p>The operator used to filter rows by comparing the key value to a specified value.</p>
    */
-  LogicalOperator: FilterLogicalOperator | string | undefined;
+  LogicalOperator: FilterLogicalOperator | undefined;
 
   /**
    * @public
@@ -4120,7 +4120,7 @@ export interface CatalogSchemaChangePolicy {
    * @public
    * <p>The update behavior when the crawler finds a changed schema.</p>
    */
-  UpdateBehavior?: UpdateCatalogBehavior | string;
+  UpdateBehavior?: UpdateCatalogBehavior;
 }
 
 /**
@@ -4293,7 +4293,7 @@ export interface JDBCConnectorOptions {
    * @public
    * <p>Custom data type mapping that builds a mapping from a JDBC data type to an Glue data type. For example, the option <code>"dataTypeMapping":\{"FLOAT":"STRING"\}</code> maps data fields of JDBC type <code>FLOAT</code> into the Java <code>String</code> type by calling the <code>ResultSet.getString()</code> method of the driver, and uses it to build the Glue record. The <code>ResultSet</code> object is implemented by each driver, so the behavior is specific to the driver you use. Refer to the documentation for your JDBC driver to understand how the driver performs the conversions.</p>
    */
-  DataTypeMapping?: Record<string, GlueRecordType | string>;
+  DataTypeMapping?: Record<string, GlueRecordType>;
 }
 
 /**
@@ -4461,7 +4461,7 @@ export interface Join {
    * @public
    * <p>Specifies the type of join to be performed on the datasets.</p>
    */
-  JoinType: JoinType | string | undefined;
+  JoinType: JoinType | undefined;
 
   /**
    * @public
@@ -4699,7 +4699,7 @@ export interface PIIDetection {
    * @public
    * <p>Indicates the type of PIIDetection transform. </p>
    */
-  PiiType: PiiType | string | undefined;
+  PiiType: PiiType | undefined;
 
   /**
    * @public
@@ -5243,7 +5243,7 @@ export interface S3CsvSource {
    * @public
    * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: CompressionType;
 
   /**
    * @public
@@ -5291,7 +5291,7 @@ export interface S3CsvSource {
    * @public
    * <p>Specifies the delimiter character. The default is a comma: ",", but any other character can be specified.</p>
    */
-  Separator: Separator | string | undefined;
+  Separator: Separator | undefined;
 
   /**
    * @public
@@ -5303,7 +5303,7 @@ export interface S3CsvSource {
    * @public
    * <p>Specifies the character to use for quoting. The default is a double quote: <code>'"'</code>. Set this to <code>-1</code> to turn off quoting entirely.</p>
    */
-  QuoteChar: QuoteChar | string | undefined;
+  QuoteChar: QuoteChar | undefined;
 
   /**
    * @public
@@ -5438,7 +5438,7 @@ export interface DirectSchemaChangePolicy {
    * @public
    * <p>The update behavior when the crawler finds a changed schema.</p>
    */
-  UpdateBehavior?: UpdateCatalogBehavior | string;
+  UpdateBehavior?: UpdateCatalogBehavior;
 
   /**
    * @public
@@ -5486,13 +5486,13 @@ export interface S3DeltaDirectTarget {
    * @public
    * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
    */
-  Compression: DeltaTargetCompressionType | string | undefined;
+  Compression: DeltaTargetCompressionType | undefined;
 
   /**
    * @public
    * <p>Specifies the data output format for the target.</p>
    */
-  Format: TargetFormat | string | undefined;
+  Format: TargetFormat | undefined;
 
   /**
    * @public
@@ -5582,7 +5582,7 @@ export interface S3DirectTarget {
    * @public
    * <p>Specifies the data output format for the target.</p>
    */
-  Format: TargetFormat | string | undefined;
+  Format: TargetFormat | undefined;
 
   /**
    * @public
@@ -5641,7 +5641,7 @@ export interface S3GlueParquetTarget {
    * @public
    * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
    */
-  Compression?: ParquetCompressionType | string;
+  Compression?: ParquetCompressionType;
 
   /**
    * @public
@@ -5741,7 +5741,7 @@ export interface S3HudiDirectTarget {
    * @public
    * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
    */
-  Compression: HudiTargetCompressionType | string | undefined;
+  Compression: HudiTargetCompressionType | undefined;
 
   /**
    * @public
@@ -5753,7 +5753,7 @@ export interface S3HudiDirectTarget {
    * @public
    * <p>Specifies the data output format for the target.</p>
    */
-  Format: TargetFormat | string | undefined;
+  Format: TargetFormat | undefined;
 
   /**
    * @public
@@ -5825,7 +5825,7 @@ export interface S3JsonSource {
    * @public
    * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: CompressionType;
 
   /**
    * @public
@@ -5909,7 +5909,7 @@ export interface S3ParquetSource {
    * @public
    * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
    */
-  CompressionType?: ParquetCompressionType | string;
+  CompressionType?: ParquetCompressionType;
 
   /**
    * @public
@@ -6451,7 +6451,7 @@ export interface Union {
    *          <p>Specify <code>ALL</code> to join all rows from data sources to the resulting DynamicFrame. The resulting union does not remove duplicate rows.</p>
    *          <p>Specify <code>DISTINCT</code> to remove duplicate rows in the resulting DynamicFrame.</p>
    */
-  UnionType: UnionType | string | undefined;
+  UnionType: UnionType | undefined;
 }
 
 /**
@@ -6570,7 +6570,7 @@ export interface SourceControlDetails {
    * @public
    * <p>The provider for the remote repository.</p>
    */
-  Provider?: SourceControlProvider | string;
+  Provider?: SourceControlProvider;
 
   /**
    * @public
@@ -6606,7 +6606,7 @@ export interface SourceControlDetails {
    * @public
    * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
    */
-  AuthStrategy?: SourceControlAuthStrategy | string;
+  AuthStrategy?: SourceControlAuthStrategy;
 
   /**
    * @public
@@ -6753,7 +6753,7 @@ export class FederationSourceException extends __BaseException {
    * @public
    * <p>The error code of the problem.</p>
    */
-  FederationSourceErrorCode?: FederationSourceErrorCode | string;
+  FederationSourceErrorCode?: FederationSourceErrorCode;
 
   /**
    * @public
@@ -6913,7 +6913,7 @@ export interface Condition {
    * @public
    * <p>A logical operator.</p>
    */
-  LogicalOperator?: LogicalOperator | string;
+  LogicalOperator?: LogicalOperator;
 
   /**
    * @public
@@ -6926,7 +6926,7 @@ export interface Condition {
    * @public
    * <p>The condition state. Currently, the only job states that a trigger can listen for are <code>SUCCEEDED</code>, <code>STOPPED</code>, <code>FAILED</code>, and <code>TIMEOUT</code>. The only crawler states that a trigger can listen for are <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>CANCELLED</code>.</p>
    */
-  State?: JobRunState | string;
+  State?: JobRunState;
 
   /**
    * @public
@@ -6938,7 +6938,7 @@ export interface Condition {
    * @public
    * <p>The state of the crawler to which this condition applies.</p>
    */
-  CrawlState?: CrawlState | string;
+  CrawlState?: CrawlState;
 }
 
 /**
@@ -6965,7 +6965,7 @@ export interface Predicate {
    * <p>An optional field if only one condition is listed. If multiple conditions are listed, then
    *       this field is required.</p>
    */
-  Logical?: Logical | string;
+  Logical?: Logical;
 
   /**
    * @public
@@ -7037,13 +7037,13 @@ export interface Trigger {
    * @public
    * <p>The type of trigger that this is.</p>
    */
-  Type?: TriggerType | string;
+  Type?: TriggerType;
 
   /**
    * @public
    * <p>The current state of the trigger.</p>
    */
-  State?: TriggerState | string;
+  State?: TriggerState;
 
   /**
    * @public
@@ -7160,7 +7160,7 @@ export interface Crawl {
    * @public
    * <p>The state of the crawler.</p>
    */
-  State?: CrawlState | string;
+  State?: CrawlState;
 
   /**
    * @public
@@ -7282,7 +7282,7 @@ export interface JobRun {
    * @public
    * <p>The current state of the job run. For more information about the statuses of jobs that have terminated abnormally, see <a href="https://docs.aws.amazon.com/glue/latest/dg/job-run-statuses.html">Glue Job Run Statuses</a>.</p>
    */
-  JobRunState?: JobRunState | string;
+  JobRunState?: JobRunState;
 
   /**
    * @public
@@ -7393,7 +7393,7 @@ export interface JobRun {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -7452,7 +7452,7 @@ export interface JobRun {
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
-  ExecutionClass?: ExecutionClass | string;
+  ExecutionClass?: ExecutionClass;
 }
 
 /**
@@ -7503,7 +7503,7 @@ export interface Node {
    * @public
    * <p>The type of Glue component represented by the node.</p>
    */
-  Type?: NodeType | string;
+  Type?: NodeType;
 
   /**
    * @public
@@ -7691,7 +7691,7 @@ export interface WorkflowRun {
    * @public
    * <p>The status of the workflow run.</p>
    */
-  Status?: WorkflowRunStatus | string;
+  Status?: WorkflowRunStatus;
 
   /**
    * @public
@@ -8047,7 +8047,7 @@ export interface CancelMLTaskRunResponse {
    * @public
    * <p>The status for this run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: TaskStatusType;
 }
 
 /**
@@ -8127,7 +8127,7 @@ export interface CheckSchemaVersionValidityInput {
    * @public
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat: DataFormat | string | undefined;
+  DataFormat: DataFormat | undefined;
 
   /**
    * @public
@@ -8250,7 +8250,7 @@ export interface CreateCsvClassifierRequest {
    * @public
    * <p>Indicates whether the CSV file contains a header.</p>
    */
-  ContainsHeader?: CsvHeaderOption | string;
+  ContainsHeader?: CsvHeaderOption;
 
   /**
    * @public
@@ -8286,7 +8286,7 @@ export interface CreateCsvClassifierRequest {
    * @public
    * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
    */
-  Serde?: CsvSerdeOption | string;
+  Serde?: CsvSerdeOption;
 }
 
 /**
@@ -8611,7 +8611,7 @@ export interface ConnectionInput {
    *          <p>For more information about how optional ConnectionProperties are used to configure features in Glue, consult <a href="https://docs.aws.amazon.com/glue/latest/dg/connection-defining.html">Glue connection properties</a>.</p>
    *          <p>For more information about how optional ConnectionProperties are used to configure features in Glue Studio, consult <a href="https://docs.aws.amazon.com/glue/latest/ug/connectors-chapter.html">Using connectors and connections</a>.</p>
    */
-  ConnectionType: ConnectionType | string | undefined;
+  ConnectionType: ConnectionType | undefined;
 
   /**
    * @public
@@ -8915,7 +8915,7 @@ export interface PrincipalPermissions {
    * @public
    * <p>The permissions that are granted to the principal.</p>
    */
-  Permissions?: (Permission | string)[];
+  Permissions?: Permission[];
 }
 
 /**
@@ -9224,7 +9224,7 @@ export interface CreateDevEndpointRequest {
    *          <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
    *             <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -9339,7 +9339,7 @@ export interface CreateDevEndpointResponse {
    * @public
    * <p>The type of predefined worker that is allocated to the development endpoint. May be a value of Standard, G.1X, or G.2X.</p>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public

@@ -256,7 +256,7 @@ export interface EndpointSummary {
    *          <p>To get a list of endpoints with a specified status, use the <code>StatusEquals</code>
    *             filter with a call to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListEndpoints.html">ListEndpoints</a>.</p>
    */
-  EndpointStatus: EndpointStatus | string | undefined;
+  EndpointStatus: EndpointStatus | undefined;
 }
 
 /**
@@ -481,7 +481,7 @@ export interface FeatureGroup {
    * @public
    * <p>A <code>FeatureGroup</code> status.</p>
    */
-  FeatureGroupStatus?: FeatureGroupStatus | string;
+  FeatureGroupStatus?: FeatureGroupStatus;
 
   /**
    * @public
@@ -579,7 +579,7 @@ export interface FeatureGroupSummary {
    *             <code>Creating</code>, <code>Created</code>, <code>CreateFail</code>,
    *             <code>Deleting</code> or <code>DetailFail</code>. </p>
    */
-  FeatureGroupStatus?: FeatureGroupStatus | string;
+  FeatureGroupStatus?: FeatureGroupStatus;
 
   /**
    * @public
@@ -617,7 +617,7 @@ export interface FeatureMetadata {
    * @public
    * <p>The data type of the feature.</p>
    */
-  FeatureType?: FeatureType | string;
+  FeatureType?: FeatureType;
 
   /**
    * @public
@@ -857,7 +857,7 @@ export interface Filter {
    *             </dd>
    *          </dl>
    */
-  Operator?: Operator | string;
+  Operator?: Operator;
 
   /**
    * @public
@@ -891,7 +891,7 @@ export interface FlowDefinitionSummary {
    * @public
    * <p>The status of the flow definition. Valid values:</p>
    */
-  FlowDefinitionStatus: FlowDefinitionStatus | string | undefined;
+  FlowDefinitionStatus: FlowDefinitionStatus | undefined;
 
   /**
    * @public
@@ -1048,7 +1048,7 @@ export interface GetSagemakerServicecatalogPortfolioStatusOutput {
    * @public
    * <p>Whether Service Catalog is enabled or disabled in SageMaker.</p>
    */
-  Status?: SagemakerServicecatalogStatus | string;
+  Status?: SagemakerServicecatalogStatus;
 }
 
 /**
@@ -1241,7 +1241,7 @@ export interface GetSearchSuggestionsRequest {
    * @public
    * <p>The name of the SageMaker resource to search for.</p>
    */
-  Resource: ResourceType | string | undefined;
+  Resource: ResourceType | undefined;
 
   /**
    * @public
@@ -1322,7 +1322,7 @@ export interface HubContentInfo {
    * @public
    * <p>The type of hub content.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: HubContentType | undefined;
 
   /**
    * @public
@@ -1352,7 +1352,7 @@ export interface HubContentInfo {
    * @public
    * <p>The status of the hub content.</p>
    */
-  HubContentStatus: HubContentStatus | string | undefined;
+  HubContentStatus: HubContentStatus | undefined;
 
   /**
    * @public
@@ -1415,7 +1415,7 @@ export interface HubInfo {
    * @public
    * <p>The status of the hub.</p>
    */
-  HubStatus: HubStatus | string | undefined;
+  HubStatus: HubStatus | undefined;
 
   /**
    * @public
@@ -1511,7 +1511,7 @@ export interface HyperParameterTuningJobSearchEntity {
    * @public
    * <p>The status of a hyperparameter tuning job.</p>
    */
-  HyperParameterTuningJobStatus?: HyperParameterTuningJobStatus | string;
+  HyperParameterTuningJobStatus?: HyperParameterTuningJobStatus;
 
   /**
    * @public
@@ -1646,7 +1646,7 @@ export interface HyperParameterTuningJobSummary {
    *             tuning
    *             job.</p>
    */
-  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | string | undefined;
+  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | undefined;
 
   /**
    * @public
@@ -1655,7 +1655,7 @@ export interface HyperParameterTuningJobSummary {
    *             evaluate
    *             at each iteration.</p>
    */
-  Strategy: HyperParameterTuningJobStrategyType | string | undefined;
+  Strategy: HyperParameterTuningJobStrategyType | undefined;
 
   /**
    * @public
@@ -1746,7 +1746,7 @@ export interface Image {
    * @public
    * <p>The status of the image.</p>
    */
-  ImageStatus: ImageStatus | string | undefined;
+  ImageStatus: ImageStatus | undefined;
 
   /**
    * @public
@@ -1818,7 +1818,7 @@ export interface ImageVersion {
    * @public
    * <p>The status of the version.</p>
    */
-  ImageVersionStatus: ImageVersionStatus | string | undefined;
+  ImageVersionStatus: ImageVersionStatus | undefined;
 
   /**
    * @public
@@ -1882,7 +1882,7 @@ export interface ImportHubContentRequest {
    * @public
    * <p>The type of hub content to import.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: HubContentType | undefined;
 
   /**
    * @public
@@ -1965,7 +1965,7 @@ export interface InferenceExperimentSummary {
    * @public
    * <p>The type of the inference experiment.</p>
    */
-  Type: InferenceExperimentType | string | undefined;
+  Type: InferenceExperimentType | undefined;
 
   /**
    * @public
@@ -1978,7 +1978,7 @@ export interface InferenceExperimentSummary {
    * @public
    * <p>The status of the inference experiment.</p>
    */
-  Status: InferenceExperimentStatus | string | undefined;
+  Status: InferenceExperimentStatus | undefined;
 
   /**
    * @public
@@ -2056,7 +2056,7 @@ export interface InferenceRecommendationsJob {
    * @public
    * <p>The recommendation job type.</p>
    */
-  JobType: RecommendationJobType | string | undefined;
+  JobType: RecommendationJobType | undefined;
 
   /**
    * @public
@@ -2068,7 +2068,7 @@ export interface InferenceRecommendationsJob {
    * @public
    * <p>The status of the job.</p>
    */
-  Status: RecommendationJobStatus | string | undefined;
+  Status: RecommendationJobStatus | undefined;
 
   /**
    * @public
@@ -2194,7 +2194,7 @@ export interface InferenceRecommendationsJobStep {
    *          <p>
    *             <code>BENCHMARK</code>: Evaluate the performance of your model on different instance types.</p>
    */
-  StepType: RecommendationStepType | string | undefined;
+  StepType: RecommendationStepType | undefined;
 
   /**
    * @public
@@ -2206,7 +2206,7 @@ export interface InferenceRecommendationsJobStep {
    * @public
    * <p>The current status of the benchmark.</p>
    */
-  Status: RecommendationJobStatus | string | undefined;
+  Status: RecommendationJobStatus | undefined;
 
   /**
    * @public
@@ -2317,7 +2317,7 @@ export interface LabelingJobSummary {
    * @public
    * <p>The current status of the labeling job. </p>
    */
-  LabelingJobStatus: LabelingJobStatus | string | undefined;
+  LabelingJobStatus: LabelingJobStatus | undefined;
 
   /**
    * @public
@@ -2498,13 +2498,13 @@ export interface ListActionsRequest {
    * @public
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortActionsBy | string;
+  SortBy?: SortActionsBy;
 
   /**
    * @public
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -2581,13 +2581,13 @@ export interface ListAlgorithmsInput {
    * <p>The parameter by which to sort the results. The default is
    *             <code>CreationTime</code>.</p>
    */
-  SortBy?: AlgorithmSortBy | string;
+  SortBy?: AlgorithmSortBy;
 
   /**
    * @public
    * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -2716,13 +2716,13 @@ export interface ListAppImageConfigsRequest {
    * @public
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: AppImageConfigSortKey | string;
+  SortBy?: AppImageConfigSortKey;
 
   /**
    * @public
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -2766,13 +2766,13 @@ export interface ListAppsRequest {
    * @public
    * <p>The sort order for the results. The default is Ascending.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The parameter by which to sort the results. The default is CreationTime.</p>
    */
-  SortBy?: AppSortKey | string;
+  SortBy?: AppSortKey;
 
   /**
    * @public
@@ -2856,13 +2856,13 @@ export interface ListArtifactsRequest {
    * @public
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortArtifactsBy | string;
+  SortBy?: SortArtifactsBy;
 
   /**
    * @public
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -2944,7 +2944,7 @@ export interface ListAssociationsRequest {
    * @public
    * <p>A filter that returns only associations of the specified type.</p>
    */
-  AssociationType?: AssociationEdgeType | string;
+  AssociationType?: AssociationEdgeType;
 
   /**
    * @public
@@ -2962,13 +2962,13 @@ export interface ListAssociationsRequest {
    * @public
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortAssociationsBy | string;
+  SortBy?: SortAssociationsBy;
 
   /**
    * @public
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -3039,19 +3039,19 @@ export interface ListAutoMLJobsRequest {
    * @public
    * <p>Request a list of jobs, using a filter for status.</p>
    */
-  StatusEquals?: AutoMLJobStatus | string;
+  StatusEquals?: AutoMLJobStatus;
 
   /**
    * @public
    * <p>The sort order for the results. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: AutoMLSortOrder | string;
+  SortOrder?: AutoMLSortOrder;
 
   /**
    * @public
    * <p>The parameter by which to sort the results. The default is <code>Name</code>.</p>
    */
-  SortBy?: AutoMLSortBy | string;
+  SortBy?: AutoMLSortBy;
 
   /**
    * @public
@@ -3099,7 +3099,7 @@ export interface ListCandidatesForAutoMLJobRequest {
    * @public
    * <p>List the candidates for the job and filter by status.</p>
    */
-  StatusEquals?: CandidateStatus | string;
+  StatusEquals?: CandidateStatus;
 
   /**
    * @public
@@ -3111,14 +3111,14 @@ export interface ListCandidatesForAutoMLJobRequest {
    * @public
    * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: AutoMLSortOrder | string;
+  SortOrder?: AutoMLSortOrder;
 
   /**
    * @public
    * <p>The parameter by which to sort the results. The default is
    *          <code>Descending</code>.</p>
    */
-  SortBy?: CandidateSortBy | string;
+  SortBy?: CandidateSortBy;
 
   /**
    * @public
@@ -3209,13 +3209,13 @@ export interface ListCodeRepositoriesInput {
    * @public
    * <p>The field to sort results by. The default is <code>Name</code>.</p>
    */
-  SortBy?: CodeRepositorySortBy | string;
+  SortBy?: CodeRepositorySortBy;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: CodeRepositorySortOrder | string;
+  SortOrder?: CodeRepositorySortOrder;
 }
 
 /**
@@ -3330,19 +3330,19 @@ export interface ListCompilationJobsRequest {
    * <p>A filter that retrieves model compilation jobs with a specific
    *                 <code>CompilationJobStatus</code> status.</p>
    */
-  StatusEquals?: CompilationJobStatus | string;
+  StatusEquals?: CompilationJobStatus;
 
   /**
    * @public
    * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: ListCompilationJobsSortBy | string;
+  SortBy?: ListCompilationJobsSortBy;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -3410,13 +3410,13 @@ export interface ListContextsRequest {
    * @public
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortContextsBy | string;
+  SortBy?: SortContextsBy;
 
   /**
    * @public
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -3479,14 +3479,14 @@ export interface ListDataQualityJobDefinitionsRequest {
    * @public
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringJobDefinitionSortKey | string;
+  SortBy?: MonitoringJobDefinitionSortKey;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *    The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -3639,13 +3639,13 @@ export interface ListDeviceFleetsRequest {
    * @public
    * <p>The column to sort by.</p>
    */
-  SortBy?: ListDeviceFleetsSortBy | string;
+  SortBy?: ListDeviceFleetsSortBy;
 
   /**
    * @public
    * <p>What direction to sort in.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -3832,13 +3832,13 @@ export interface ListEdgeDeploymentPlansRequest {
    *             <code>NAME</code>, <code>DEVICEFLEETNAME</code>, <code>CREATIONTIME</code>,
    *                 <code>LASTMODIFIEDTIME</code>.</p>
    */
-  SortBy?: ListEdgeDeploymentPlansSortBy | string;
+  SortBy?: ListEdgeDeploymentPlansSortBy;
 
   /**
    * @public
    * <p>The direction of the sorting (ascending or descending).</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -3932,19 +3932,19 @@ export interface ListEdgePackagingJobsRequest {
    * @public
    * <p>The job status to filter for.</p>
    */
-  StatusEquals?: EdgePackagingJobStatus | string;
+  StatusEquals?: EdgePackagingJobStatus;
 
   /**
    * @public
    * <p>Use to specify what column to sort by.</p>
    */
-  SortBy?: ListEdgePackagingJobsSortBy | string;
+  SortBy?: ListEdgePackagingJobsSortBy;
 
   /**
    * @public
    * <p>What direction to sort by.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -3986,13 +3986,13 @@ export interface ListEndpointConfigsInput {
    * @public
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: EndpointConfigSortKey | string;
+  SortBy?: EndpointConfigSortKey;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: OrderKey | string;
+  SortOrder?: OrderKey;
 
   /**
    * @public
@@ -4056,13 +4056,13 @@ export interface ListEndpointsInput {
    * @public
    * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: EndpointSortKey | string;
+  SortBy?: EndpointSortKey;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: OrderKey | string;
+  SortOrder?: OrderKey;
 
   /**
    * @public
@@ -4118,7 +4118,7 @@ export interface ListEndpointsInput {
    * @public
    * <p> A filter that returns only endpoints with the specified status.</p>
    */
-  StatusEquals?: EndpointStatus | string;
+  StatusEquals?: EndpointStatus;
 }
 
 /**
@@ -4173,13 +4173,13 @@ export interface ListExperimentsRequest {
    * @public
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortExperimentsBy | string;
+  SortBy?: SortExperimentsBy;
 
   /**
    * @public
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -4228,14 +4228,14 @@ export interface ListFeatureGroupsRequest {
    * @public
    * <p>A <code>FeatureGroup</code> status. Filters by <code>FeatureGroup</code> status. </p>
    */
-  FeatureGroupStatusEquals?: FeatureGroupStatus | string;
+  FeatureGroupStatusEquals?: FeatureGroupStatus;
 
   /**
    * @public
    * <p>An <code>OfflineStore</code> status. Filters by <code>OfflineStore</code> status.
    *       </p>
    */
-  OfflineStoreStatusEquals?: OfflineStoreStatusValue | string;
+  OfflineStoreStatusEquals?: OfflineStoreStatusValue;
 
   /**
    * @public
@@ -4255,13 +4255,13 @@ export interface ListFeatureGroupsRequest {
    * @public
    * <p>The order in which feature groups are listed.</p>
    */
-  SortOrder?: FeatureGroupSortOrder | string;
+  SortOrder?: FeatureGroupSortOrder;
 
   /**
    * @public
    * <p>The value on which the feature group list is sorted.</p>
    */
-  SortBy?: FeatureGroupSortBy | string;
+  SortBy?: FeatureGroupSortBy;
 
   /**
    * @public
@@ -4313,7 +4313,7 @@ export interface ListFlowDefinitionsRequest {
    * @public
    * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -4359,7 +4359,7 @@ export interface ListHubContentsRequest {
    * @public
    * <p>The type of hub content to list.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: HubContentType | undefined;
 
   /**
    * @public
@@ -4389,13 +4389,13 @@ export interface ListHubContentsRequest {
    * @public
    * <p>Sort hub content versions by either name or creation time.</p>
    */
-  SortBy?: HubContentSortBy | string;
+  SortBy?: HubContentSortBy;
 
   /**
    * @public
    * <p>Sort hubs by ascending or descending order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -4441,7 +4441,7 @@ export interface ListHubContentVersionsRequest {
    * @public
    * <p>The type of hub content to list versions of.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: HubContentType | undefined;
 
   /**
    * @public
@@ -4477,13 +4477,13 @@ export interface ListHubContentVersionsRequest {
    * @public
    * <p>Sort hub content versions by either name or creation time.</p>
    */
-  SortBy?: HubContentSortBy | string;
+  SortBy?: HubContentSortBy;
 
   /**
    * @public
    * <p>Sort hub content versions by ascending or descending order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -4553,13 +4553,13 @@ export interface ListHubsRequest {
    * @public
    * <p>Sort hubs by either name or creation time.</p>
    */
-  SortBy?: HubSortBy | string;
+  SortBy?: HubSortBy;
 
   /**
    * @public
    * <p>Sort hubs by ascending or descending order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -4611,7 +4611,7 @@ export interface ListHumanTaskUisRequest {
    * @public
    * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -4667,13 +4667,13 @@ export interface ListHyperParameterTuningJobsRequest {
    * @public
    * <p>The field to sort results by. The default is <code>Name</code>.</p>
    */
-  SortBy?: HyperParameterTuningJobSortByOptions | string;
+  SortBy?: HyperParameterTuningJobSortByOptions;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -4714,7 +4714,7 @@ export interface ListHyperParameterTuningJobsRequest {
    * @public
    * <p>A filter that returns only tuning jobs with the specified status.</p>
    */
-  StatusEquals?: HyperParameterTuningJobStatus | string;
+  StatusEquals?: HyperParameterTuningJobStatus;
 }
 
 /**
@@ -4790,13 +4790,13 @@ export interface ListImagesRequest {
    * @public
    * <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
    */
-  SortBy?: ImageSortBy | string;
+  SortBy?: ImageSortBy;
 
   /**
    * @public
    * <p>The sort order. The default value is <code>DESCENDING</code>.</p>
    */
-  SortOrder?: ImageSortOrder | string;
+  SortOrder?: ImageSortOrder;
 }
 
 /**
@@ -4867,13 +4867,13 @@ export interface ListImageVersionsRequest {
    * @public
    * <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
    */
-  SortBy?: ImageVersionSortBy | string;
+  SortBy?: ImageVersionSortBy;
 
   /**
    * @public
    * <p>The sort order. The default value is <code>DESCENDING</code>.</p>
    */
-  SortOrder?: ImageVersionSortOrder | string;
+  SortOrder?: ImageVersionSortOrder;
 }
 
 /**
@@ -4924,7 +4924,7 @@ export interface ListInferenceExperimentsRequest {
    *            Selects inference experiments of this type. For the possible types of inference experiments, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html">CreateInferenceExperiment</a>.
    *        </p>
    */
-  Type?: InferenceExperimentType | string;
+  Type?: InferenceExperimentType;
 
   /**
    * @public
@@ -4932,7 +4932,7 @@ export interface ListInferenceExperimentsRequest {
    *            Selects inference experiments which are in this status. For the possible statuses, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html">DescribeInferenceExperiment</a>.
    *        </p>
    */
-  StatusEquals?: InferenceExperimentStatus | string;
+  StatusEquals?: InferenceExperimentStatus;
 
   /**
    * @public
@@ -4962,13 +4962,13 @@ export interface ListInferenceExperimentsRequest {
    * @public
    * <p>The column by which to sort the listed inference experiments.</p>
    */
-  SortBy?: SortInferenceExperimentsBy | string;
+  SortBy?: SortInferenceExperimentsBy;
 
   /**
    * @public
    * <p>The direction of sorting (ascending or descending).</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -5056,19 +5056,19 @@ export interface ListInferenceRecommendationsJobsRequest {
    * @public
    * <p>A filter that retrieves only inference recommendations jobs with a specific status.</p>
    */
-  StatusEquals?: RecommendationJobStatus | string;
+  StatusEquals?: RecommendationJobStatus;
 
   /**
    * @public
    * <p>The parameter by which to sort the results.</p>
    */
-  SortBy?: ListInferenceRecommendationsJobsSortBy | string;
+  SortBy?: ListInferenceRecommendationsJobsSortBy;
 
   /**
    * @public
    * <p>The sort order for the results.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -5128,7 +5128,7 @@ export interface ListInferenceRecommendationsJobStepsRequest {
    * @public
    * <p>A filter to return benchmarks of a specified status. If this field is left empty, then all benchmarks are returned.</p>
    */
-  Status?: RecommendationJobStatus | string;
+  Status?: RecommendationJobStatus;
 
   /**
    * @public
@@ -5136,7 +5136,7 @@ export interface ListInferenceRecommendationsJobStepsRequest {
    *          <p>
    *             <code>BENCHMARK</code>: Evaluate the performance of your model on different instance types.</p>
    */
-  StepType?: RecommendationStepType | string;
+  StepType?: RecommendationStepType;
 
   /**
    * @public
@@ -5240,19 +5240,19 @@ export interface ListLabelingJobsRequest {
    * @public
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortBy | string;
+  SortBy?: SortBy;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
    * <p>A filter that retrieves only labeling jobs with a specific status.</p>
    */
-  StatusEquals?: LabelingJobStatus | string;
+  StatusEquals?: LabelingJobStatus;
 }
 
 /**
@@ -5338,13 +5338,13 @@ export interface ListLabelingJobsForWorkteamRequest {
    * @public
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: ListLabelingJobsForWorkteamSortByOptions | string;
+  SortBy?: ListLabelingJobsForWorkteamSortByOptions;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -5401,13 +5401,13 @@ export interface ListLineageGroupsRequest {
    * <p>The parameter by which to sort the results. The default is
    *          <code>CreationTime</code>.</p>
    */
-  SortBy?: SortLineageGroupsBy | string;
+  SortBy?: SortLineageGroupsBy;
 
   /**
    * @public
    * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -5457,14 +5457,14 @@ export interface ListModelBiasJobDefinitionsRequest {
    * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field.
    *    The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringJobDefinitionSortKey | string;
+  SortBy?: MonitoringJobDefinitionSortKey;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *    The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -5585,19 +5585,19 @@ export interface ListModelCardExportJobsRequest {
    * @public
    * <p>Only list model card export jobs with the specified status.</p>
    */
-  StatusEquals?: ModelCardExportJobStatus | string;
+  StatusEquals?: ModelCardExportJobStatus;
 
   /**
    * @public
    * <p>Sort model card export jobs by either name or creation time. Sorts by creation time by default.</p>
    */
-  SortBy?: ModelCardExportJobSortBy | string;
+  SortBy?: ModelCardExportJobSortBy;
 
   /**
    * @public
    * <p>Sort model card export jobs by ascending or descending order.</p>
    */
-  SortOrder?: ModelCardExportJobSortOrder | string;
+  SortOrder?: ModelCardExportJobSortOrder;
 
   /**
    * @public
@@ -5635,7 +5635,7 @@ export interface ModelCardExportJobSummary {
    * @public
    * <p>The completion status of the model card export job.</p>
    */
-  Status: ModelCardExportJobStatus | string | undefined;
+  Status: ModelCardExportJobStatus | undefined;
 
   /**
    * @public
@@ -5740,7 +5740,7 @@ export interface ListModelCardsRequest {
    * @public
    * <p>Only list model cards with the specified approval status.</p>
    */
-  ModelCardStatus?: ModelCardStatus | string;
+  ModelCardStatus?: ModelCardStatus;
 
   /**
    * @public
@@ -5754,13 +5754,13 @@ export interface ListModelCardsRequest {
    * @public
    * <p>Sort model cards by either name or creation time. Sorts by creation time by default.</p>
    */
-  SortBy?: ModelCardSortBy | string;
+  SortBy?: ModelCardSortBy;
 
   /**
    * @public
    * <p>Sort model cards by ascending or descending order.</p>
    */
-  SortOrder?: ModelCardSortOrder | string;
+  SortOrder?: ModelCardSortOrder;
 }
 
 /**
@@ -5803,7 +5803,7 @@ export interface ModelCardSummary {
    *             </li>
    *          </ul>
    */
-  ModelCardStatus: ModelCardStatus | string | undefined;
+  ModelCardStatus: ModelCardStatus | undefined;
 
   /**
    * @public
@@ -5881,7 +5881,7 @@ export interface ListModelCardVersionsRequest {
    * @public
    * <p>Only list model card versions with the specified approval status.</p>
    */
-  ModelCardStatus?: ModelCardStatus | string;
+  ModelCardStatus?: ModelCardStatus;
 
   /**
    * @public
@@ -5895,13 +5895,13 @@ export interface ListModelCardVersionsRequest {
    * @public
    * <p>Sort listed model card versions by version. Sorts by version by default.</p>
    */
-  SortBy?: ModelCardVersionSortBy | string;
+  SortBy?: ModelCardVersionSortBy;
 
   /**
    * @public
    * <p>Sort model card versions by ascending or descending order.</p>
    */
-  SortOrder?: ModelCardSortOrder | string;
+  SortOrder?: ModelCardSortOrder;
 }
 
 /**
@@ -5944,7 +5944,7 @@ export interface ModelCardVersionSummary {
    *             </li>
    *          </ul>
    */
-  ModelCardStatus: ModelCardStatus | string | undefined;
+  ModelCardStatus: ModelCardStatus | undefined;
 
   /**
    * @public
@@ -5998,14 +5998,14 @@ export interface ListModelExplainabilityJobDefinitionsRequest {
    * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field.
    *    The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringJobDefinitionSortKey | string;
+  SortBy?: MonitoringJobDefinitionSortKey;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *    The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -6085,7 +6085,7 @@ export interface ModelMetadataFilter {
    * @public
    * <p>The name of the of the model to filter by.</p>
    */
-  Name: ModelMetadataFilterType | string | undefined;
+  Name: ModelMetadataFilterType | undefined;
 
   /**
    * @public
@@ -6244,13 +6244,13 @@ export interface ListModelPackageGroupsInput {
    * @public
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: ModelPackageGroupSortBy | string;
+  SortBy?: ModelPackageGroupSortBy;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -6286,7 +6286,7 @@ export interface ModelPackageGroupSummary {
    * @public
    * <p>The status of the model group.</p>
    */
-  ModelPackageGroupStatus: ModelPackageGroupStatus | string | undefined;
+  ModelPackageGroupStatus: ModelPackageGroupStatus | undefined;
 }
 
 /**
@@ -6372,7 +6372,7 @@ export interface ListModelPackagesInput {
    * <p>A filter that returns only the model packages with the specified approval
    *             status.</p>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: ModelApprovalStatus;
 
   /**
    * @public
@@ -6400,7 +6400,7 @@ export interface ListModelPackagesInput {
    *             </li>
    *          </ul>
    */
-  ModelPackageType?: ModelPackageType | string;
+  ModelPackageType?: ModelPackageType;
 
   /**
    * @public
@@ -6415,13 +6415,13 @@ export interface ListModelPackagesInput {
    * <p>The parameter by which to sort the results. The default is
    *             <code>CreationTime</code>.</p>
    */
-  SortBy?: ModelPackageSortBy | string;
+  SortBy?: ModelPackageSortBy;
 
   /**
    * @public
    * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -6470,7 +6470,7 @@ export interface ModelPackageSummary {
    * @public
    * <p>The overall status of the model package.</p>
    */
-  ModelPackageStatus: ModelPackageStatus | string | undefined;
+  ModelPackageStatus: ModelPackageStatus | undefined;
 
   /**
    * @public
@@ -6491,7 +6491,7 @@ export interface ModelPackageSummary {
    *             </li>
    *          </ul>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: ModelApprovalStatus;
 }
 
 /**
@@ -6528,14 +6528,14 @@ export interface ListModelQualityJobDefinitionsRequest {
    * @public
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringJobDefinitionSortKey | string;
+  SortBy?: MonitoringJobDefinitionSortKey;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *    The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -6614,13 +6614,13 @@ export interface ListModelsInput {
    * @public
    * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: ModelSortKey | string;
+  SortBy?: ModelSortKey;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: OrderKey | string;
+  SortOrder?: OrderKey;
 
   /**
    * @public
@@ -6750,14 +6750,14 @@ export interface ListMonitoringAlertHistoryRequest {
    * @public
    * <p>The field used to sort results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringAlertHistorySortKey | string;
+  SortBy?: MonitoringAlertHistorySortKey;
 
   /**
    * @public
    * <p>The sort order, whether <code>Ascending</code> or <code>Descending</code>, of the alert
    *          history. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -6789,7 +6789,7 @@ export interface ListMonitoringAlertHistoryRequest {
    * @public
    * <p>A filter that retrieves only alerts with a specific status.</p>
    */
-  StatusEquals?: MonitoringAlertStatus | string;
+  StatusEquals?: MonitoringAlertStatus;
 }
 
 /**
@@ -6821,7 +6821,7 @@ export interface MonitoringAlertHistorySummary {
    * @public
    * <p>The current alert status of an alert.</p>
    */
-  AlertStatus: MonitoringAlertStatus | string | undefined;
+  AlertStatus: MonitoringAlertStatus | undefined;
 }
 
 /**
@@ -6921,7 +6921,7 @@ export interface MonitoringAlertSummary {
    * @public
    * <p>The current status of an alert.</p>
    */
-  AlertStatus: MonitoringAlertStatus | string | undefined;
+  AlertStatus: MonitoringAlertStatus | undefined;
 
   /**
    * @public
@@ -6999,14 +6999,14 @@ export interface ListMonitoringExecutionsRequest {
    * <p>Whether to sort the results by the <code>Status</code>, <code>CreationTime</code>, or
    *    <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringExecutionSortKey | string;
+  SortBy?: MonitoringExecutionSortKey;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *    The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -7061,7 +7061,7 @@ export interface ListMonitoringExecutionsRequest {
    * @public
    * <p>A filter that retrieves only jobs with a specific status.</p>
    */
-  StatusEquals?: ExecutionStatus | string;
+  StatusEquals?: ExecutionStatus;
 
   /**
    * @public
@@ -7075,7 +7075,7 @@ export interface ListMonitoringExecutionsRequest {
    * <p>A filter that returns only the monitoring job runs of the specified monitoring
    *          type.</p>
    */
-  MonitoringTypeEquals?: MonitoringType | string;
+  MonitoringTypeEquals?: MonitoringType;
 }
 
 /**
@@ -7126,14 +7126,14 @@ export interface ListMonitoringSchedulesRequest {
    * <p>Whether to sort the results by the <code>Status</code>, <code>CreationTime</code>, or
    *    <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringScheduleSortKey | string;
+  SortBy?: MonitoringScheduleSortKey;
 
   /**
    * @public
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *    The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -7182,7 +7182,7 @@ export interface ListMonitoringSchedulesRequest {
    * @public
    * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
    */
-  StatusEquals?: ScheduleStatus | string;
+  StatusEquals?: ScheduleStatus;
 
   /**
    * @public
@@ -7196,7 +7196,7 @@ export interface ListMonitoringSchedulesRequest {
    * <p>A filter that returns only the monitoring schedules for the specified monitoring
    *          type.</p>
    */
-  MonitoringTypeEquals?: MonitoringType | string;
+  MonitoringTypeEquals?: MonitoringType;
 }
 
 /**
@@ -7232,7 +7232,7 @@ export interface MonitoringScheduleSummary {
    * @public
    * <p>The status of the monitoring schedule.</p>
    */
-  MonitoringScheduleStatus: ScheduleStatus | string | undefined;
+  MonitoringScheduleStatus: ScheduleStatus | undefined;
 
   /**
    * @public
@@ -7250,7 +7250,7 @@ export interface MonitoringScheduleSummary {
    * @public
    * <p>The type of the monitoring job definition that the schedule is for.</p>
    */
-  MonitoringType?: MonitoringType | string;
+  MonitoringType?: MonitoringType;
 }
 
 /**
@@ -7324,13 +7324,13 @@ export interface ListNotebookInstanceLifecycleConfigsInput {
    * @public
    * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: NotebookInstanceLifecycleConfigSortKey | string;
+  SortBy?: NotebookInstanceLifecycleConfigSortKey;
 
   /**
    * @public
    * <p>The sort order for results.</p>
    */
-  SortOrder?: NotebookInstanceLifecycleConfigSortOrder | string;
+  SortOrder?: NotebookInstanceLifecycleConfigSortOrder;
 
   /**
    * @public
@@ -7474,13 +7474,13 @@ export interface ListNotebookInstancesInput {
    * @public
    * <p>The field to sort results by. The default is <code>Name</code>.</p>
    */
-  SortBy?: NotebookInstanceSortKey | string;
+  SortBy?: NotebookInstanceSortKey;
 
   /**
    * @public
    * <p>The sort order for results. </p>
    */
-  SortOrder?: NotebookInstanceSortOrder | string;
+  SortOrder?: NotebookInstanceSortOrder;
 
   /**
    * @public
@@ -7521,7 +7521,7 @@ export interface ListNotebookInstancesInput {
    * @public
    * <p>A filter that returns only notebook instances with the specified status.</p>
    */
-  StatusEquals?: NotebookInstanceStatus | string;
+  StatusEquals?: NotebookInstanceStatus;
 
   /**
    * @public
@@ -7568,7 +7568,7 @@ export interface NotebookInstanceSummary {
    * @public
    * <p>The status of the notebook instance.</p>
    */
-  NotebookInstanceStatus?: NotebookInstanceStatus | string;
+  NotebookInstanceStatus?: NotebookInstanceStatus;
 
   /**
    * @public
@@ -7581,7 +7581,7 @@ export interface NotebookInstanceSummary {
    * @public
    * <p>The type of ML compute instance that the notebook instance is running on.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -7689,13 +7689,13 @@ export interface ListPipelineExecutionsRequest {
    * @public
    * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
    */
-  SortBy?: SortPipelineExecutionsBy | string;
+  SortBy?: SortPipelineExecutionsBy;
 
   /**
    * @public
    * <p>The sort order for results.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -7732,7 +7732,7 @@ export interface PipelineExecutionSummary {
    * @public
    * <p>The status of the pipeline execution.</p>
    */
-  PipelineExecutionStatus?: PipelineExecutionStatus | string;
+  PipelineExecutionStatus?: PipelineExecutionStatus;
 
   /**
    * @public
@@ -7800,7 +7800,7 @@ export interface ListPipelineExecutionStepsRequest {
    * @public
    * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -8164,7 +8164,7 @@ export interface PipelineExecutionStep {
    * @public
    * <p>The status of the step execution.</p>
    */
-  StepStatus?: StepStatus | string;
+  StepStatus?: StepStatus;
 
   /**
    * @public
@@ -8323,13 +8323,13 @@ export interface ListPipelinesRequest {
    * @public
    * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
    */
-  SortBy?: SortPipelinesBy | string;
+  SortBy?: SortPipelinesBy;
 
   /**
    * @public
    * <p>The sort order for results.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -8459,19 +8459,19 @@ export interface ListProcessingJobsRequest {
    * @public
    * <p>A filter that retrieves only processing jobs with a specific status.</p>
    */
-  StatusEquals?: ProcessingJobStatus | string;
+  StatusEquals?: ProcessingJobStatus;
 
   /**
    * @public
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortBy | string;
+  SortBy?: SortBy;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -8527,7 +8527,7 @@ export interface ProcessingJobSummary {
    * @public
    * <p>The status of the processing job.</p>
    */
-  ProcessingJobStatus: ProcessingJobStatus | string | undefined;
+  ProcessingJobStatus: ProcessingJobStatus | undefined;
 
   /**
    * @public
@@ -8633,13 +8633,13 @@ export interface ListProjectsInput {
    * @public
    * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: ProjectSortBy | string;
+  SortBy?: ProjectSortBy;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: ProjectSortOrder | string;
+  SortOrder?: ProjectSortOrder;
 }
 
 /**
@@ -8681,7 +8681,7 @@ export interface ProjectSummary {
    * @public
    * <p>The status of the project.</p>
    */
-  ProjectStatus: ProjectStatus | string | undefined;
+  ProjectStatus: ProjectStatus | undefined;
 }
 
 /**
@@ -8759,13 +8759,13 @@ export interface ListResourceCatalogsRequest {
    * @public
    * <p> The order in which the resource catalogs are listed. </p>
    */
-  SortOrder?: ResourceCatalogSortOrder | string;
+  SortOrder?: ResourceCatalogSortOrder;
 
   /**
    * @public
    * <p> The value on which the resource catalog list is sorted. </p>
    */
-  SortBy?: ResourceCatalogSortBy | string;
+  SortBy?: ResourceCatalogSortBy;
 
   /**
    * @public
@@ -8868,13 +8868,13 @@ export interface ListSpacesRequest {
    * @public
    * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The parameter by which to sort the results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: SpaceSortKey | string;
+  SortBy?: SpaceSortKey;
 
   /**
    * @public
@@ -8910,7 +8910,7 @@ export interface SpaceDetails {
    * @public
    * <p>The status.</p>
    */
-  Status?: SpaceStatus | string;
+  Status?: SpaceStatus;
 
   /**
    * @public
@@ -9041,7 +9041,7 @@ export interface ListStudioLifecycleConfigsRequest {
    * @public
    * <p>A parameter to search for the App Type to which the Lifecycle Configuration is attached.</p>
    */
-  AppTypeEquals?: StudioLifecycleConfigAppType | string;
+  AppTypeEquals?: StudioLifecycleConfigAppType;
 
   /**
    * @public
@@ -9071,13 +9071,13 @@ export interface ListStudioLifecycleConfigsRequest {
    * @public
    * <p>The property used to sort results. The default value is CreationTime.</p>
    */
-  SortBy?: StudioLifecycleConfigSortKey | string;
+  SortBy?: StudioLifecycleConfigSortKey;
 
   /**
    * @public
    * <p>The sort order. The default value is Descending.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -9113,7 +9113,7 @@ export interface StudioLifecycleConfigDetails {
    * @public
    * <p>The App type to which the Lifecycle Configuration is attached.</p>
    */
-  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | string;
+  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType;
 }
 
 /**
@@ -9279,25 +9279,25 @@ export interface ListTrainingJobsRequest {
    * @public
    * <p>A filter that retrieves only training jobs with a specific status.</p>
    */
-  StatusEquals?: TrainingJobStatus | string;
+  StatusEquals?: TrainingJobStatus;
 
   /**
    * @public
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortBy | string;
+  SortBy?: SortBy;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
    * <p>A filter that retrieves only training jobs with a specific warm pool status.</p>
    */
-  WarmPoolStatusEquals?: WarmPoolResourceStatus | string;
+  WarmPoolStatusEquals?: WarmPoolResourceStatus;
 }
 
 /**
@@ -9341,7 +9341,7 @@ export interface TrainingJobSummary {
    * @public
    * <p>The status of the training job.</p>
    */
-  TrainingJobStatus: TrainingJobStatus | string | undefined;
+  TrainingJobStatus: TrainingJobStatus | undefined;
 
   /**
    * @public
@@ -9413,7 +9413,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobRequest {
    * @public
    * <p>A filter that returns only training jobs with the specified status.</p>
    */
-  StatusEquals?: TrainingJobStatus | string;
+  StatusEquals?: TrainingJobStatus;
 
   /**
    * @public
@@ -9421,13 +9421,13 @@ export interface ListTrainingJobsForHyperParameterTuningJobRequest {
    *          <p>If the value of this field is <code>FinalObjectiveMetricValue</code>, any training
    *             jobs that did not return an objective metric are not listed.</p>
    */
-  SortBy?: TrainingJobSortByOptions | string;
+  SortBy?: TrainingJobSortByOptions;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -9491,19 +9491,19 @@ export interface ListTransformJobsRequest {
    * @public
    * <p>A filter that retrieves only transform jobs with a specific status.</p>
    */
-  StatusEquals?: TransformJobStatus | string;
+  StatusEquals?: TransformJobStatus;
 
   /**
    * @public
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortBy | string;
+  SortBy?: SortBy;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -9568,7 +9568,7 @@ export interface TransformJobSummary {
    * @public
    * <p>The status of the transform job.</p>
    */
-  TransformJobStatus: TransformJobStatus | string | undefined;
+  TransformJobStatus: TransformJobStatus | undefined;
 
   /**
    * @public
@@ -9657,13 +9657,13 @@ export interface ListTrialComponentsRequest {
    * @public
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortTrialComponentsBy | string;
+  SortBy?: SortTrialComponentsBy;
 
   /**
    * @public
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -9830,13 +9830,13 @@ export interface ListTrialsRequest {
    * @public
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortTrialsBy | string;
+  SortBy?: SortTrialsBy;
 
   /**
    * @public
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -9951,13 +9951,13 @@ export interface ListUserProfilesRequest {
    * @public
    * <p>The sort order for the results. The default is Ascending.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The parameter by which to sort the results. The default is CreationTime.</p>
    */
-  SortBy?: UserProfileSortKey | string;
+  SortBy?: UserProfileSortKey;
 
   /**
    * @public
@@ -9993,7 +9993,7 @@ export interface UserProfileDetails {
    * @public
    * <p>The status.</p>
    */
-  Status?: UserProfileStatus | string;
+  Status?: UserProfileStatus;
 
   /**
    * @public
@@ -10049,13 +10049,13 @@ export interface ListWorkforcesRequest {
    * @public
    * <p>Sort workforces using the workforce name or creation date.</p>
    */
-  SortBy?: ListWorkforcesSortByOptions | string;
+  SortBy?: ListWorkforcesSortByOptions;
 
   /**
    * @public
    * <p>Sort workforces in ascending or descending order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -10115,13 +10115,13 @@ export interface ListWorkteamsRequest {
    * @public
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: ListWorkteamsSortByOptions | string;
+  SortBy?: ListWorkteamsSortByOptions;
 
   /**
    * @public
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -10294,7 +10294,7 @@ export interface ModelCard {
    *             </li>
    *          </ul>
    */
-  ModelCardStatus?: ModelCardStatus | string;
+  ModelCardStatus?: ModelCardStatus;
 
   /**
    * @public
@@ -10387,7 +10387,7 @@ export interface ModelDashboardEndpoint {
    * @public
    * <p>The endpoint status.</p>
    */
-  EndpointStatus: EndpointStatus | string | undefined;
+  EndpointStatus: EndpointStatus | undefined;
 }
 
 /**
@@ -10437,7 +10437,7 @@ export interface TransformJob {
    *             </li>
    *          </ul>
    */
-  TransformJobStatus?: TransformJobStatus | string;
+  TransformJobStatus?: TransformJobStatus;
 
   /**
    * @public
@@ -10487,7 +10487,7 @@ export interface TransformJob {
    *       A record is a single unit of input data that inference can be made on. For example, a single
    *       line in a CSV file is a record.</p>
    */
-  BatchStrategy?: BatchStrategy | string;
+  BatchStrategy?: BatchStrategy;
 
   /**
    * @public

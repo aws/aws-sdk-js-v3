@@ -80,7 +80,7 @@ export interface SidewalkListDevice {
    * @public
    * <p>The status of the Sidewalk devices, such as provisioned or registered.</p>
    */
-  Status?: WirelessDeviceSidewalkStatus | string;
+  Status?: WirelessDeviceSidewalkStatus;
 }
 
 /**
@@ -104,7 +104,7 @@ export interface WirelessDeviceStatistics {
    * @public
    * <p>The wireless device type.</p>
    */
-  Type?: WirelessDeviceType | string;
+  Type?: WirelessDeviceType;
 
   /**
    * @public
@@ -143,7 +143,7 @@ export interface WirelessDeviceStatistics {
    * @public
    * <p>The status of a wireless device in a FUOTA task.</p>
    */
-  FuotaDeviceStatus?: FuotaDeviceStatus | string;
+  FuotaDeviceStatus?: FuotaDeviceStatus;
 
   /**
    * @public
@@ -293,7 +293,7 @@ export interface ListWirelessGatewayTaskDefinitionsRequest {
    * <p>A filter to list only the wireless gateway task definitions that use this task
    *             definition type.</p>
    */
-  TaskDefinitionType?: WirelessGatewayTaskDefinitionType | string;
+  TaskDefinitionType?: WirelessGatewayTaskDefinitionType;
 }
 
 /**
@@ -364,13 +364,13 @@ export interface SemtechGnssConfiguration {
    * @public
    * <p>The status indicating whether the solver is enabled.</p>
    */
-  Status: PositionConfigurationStatus | string | undefined;
+  Status: PositionConfigurationStatus | undefined;
 
   /**
    * @public
    * <p>Whether forward error correction is enabled.</p>
    */
-  Fec: PositionConfigurationFec | string | undefined;
+  Fec: PositionConfigurationFec | undefined;
 }
 
 /**
@@ -400,7 +400,7 @@ export interface PutPositionConfigurationRequest {
    * <p>Resource type of the resource for which you want to update the position
    *             configuration.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: PositionResourceType | undefined;
 
   /**
    * @public
@@ -446,7 +446,7 @@ export interface PutResourceLogLevelRequest {
    *                 <code>ERROR</code> to display less verbose logs containing only error information,
    *             or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: LogLevel | undefined;
 }
 
 /**
@@ -578,7 +578,7 @@ export interface SidewalkSendDataToDevice {
    * <p>Sidewalk device message type. Default value is
    *             <code>CUSTOM_COMMAND_ID_NOTIFY</code>.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -1009,7 +1009,7 @@ export interface UpdateDestinationRequest {
    * @public
    * <p>The type of value in <code>Expression</code>.</p>
    */
-  ExpressionType?: ExpressionType | string;
+  ExpressionType?: ExpressionType;
 
   /**
    * @public
@@ -1166,7 +1166,7 @@ export interface UpdateLogLevelsByResourceTypesRequest {
    *                 <code>ERROR</code> to display less verbose logs containing only error information,
    *             or to <code>INFO</code> for more detailed logs.</p>
    */
-  DefaultLogLevel?: LogLevel | string;
+  DefaultLogLevel?: LogLevel;
 
   /**
    * @public
@@ -1322,7 +1322,7 @@ export interface UpdatePartnerAccountRequest {
    * @public
    * <p>The partner type.</p>
    */
-  PartnerType: PartnerType | string | undefined;
+  PartnerType: PartnerType | undefined;
 }
 
 /**
@@ -1344,7 +1344,7 @@ export interface UpdatePositionRequest {
    * @public
    * <p>Resource type of the resource for which position is updated.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: PositionResourceType | undefined;
 
   /**
    * @public
@@ -1372,7 +1372,7 @@ export interface UpdateResourceEventConfigurationRequest {
    * @public
    * <p>Identifier type of the particular resource identifier for event configuration.</p>
    */
-  IdentifierType: IdentifierType | string | undefined;
+  IdentifierType: IdentifierType | undefined;
 
   /**
    * @public
@@ -1380,7 +1380,7 @@ export interface UpdateResourceEventConfigurationRequest {
    *             <code>PartnerAccountId</code>
    *          </p>
    */
-  PartnerType?: EventNotificationPartnerType | string;
+  PartnerType?: EventNotificationPartnerType;
 
   /**
    * @public
@@ -1434,7 +1434,7 @@ export interface UpdateResourcePositionRequest {
    * <p>The type of resource for which position information is updated, which can be a wireless device or a
    *            wireless gateway.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: PositionResourceType | undefined;
 
   /**
    * @public
@@ -1566,7 +1566,7 @@ export interface UpdateWirelessDeviceRequest {
    * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning
    *             information.</p>
    */
-  Positioning?: PositioningConfigStatus | string;
+  Positioning?: PositioningConfigStatus;
 }
 
 /**

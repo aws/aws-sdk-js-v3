@@ -392,13 +392,13 @@ export interface SearchResourcesSortCriteria {
    * @public
    * <p>The property to sort the results by.</p>
    */
-  attributeName?: SearchResourcesSortAttributeName | string;
+  attributeName?: SearchResourcesSortAttributeName;
 
   /**
    * @public
    * <p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: OrderBy;
 }
 
 /**
@@ -591,7 +591,7 @@ export interface UpdateAutomatedDiscoveryConfigurationRequest {
    * @public
    * <p>The new status of automated sensitive data discovery for the account. Valid values are: ENABLED, start or resume automated sensitive data discovery activities for the account; and, DISABLED, stop performing automated sensitive data discovery activities for the account.</p> <p>When you enable automated sensitive data discovery for the first time, Amazon Macie uses default configuration settings to determine which data sources to analyze and which managed data identifiers to use. To change these settings, use the UpdateClassificationScope and UpdateSensitivityInspectionTemplate operations, respectively. If you change the settings and subsequently disable the configuration, Amazon Macie retains your changes.</p>
    */
-  status: AutomatedDiscoveryStatus | string | undefined;
+  status: AutomatedDiscoveryStatus | undefined;
 }
 
 /**
@@ -613,7 +613,7 @@ export interface UpdateClassificationJobRequest {
    * @public
    * <p>The new status for the job. Valid values are:</p> <ul><li><p>CANCELLED - Stops the job permanently and cancels it. This value is valid only if the job's current status is IDLE, PAUSED, RUNNING, or USER_PAUSED.</p> <p>If you specify this value and the job's current status is RUNNING, Amazon Macie immediately begins to stop all processing tasks for the job. You can't resume or restart a job after you cancel it.</p></li> <li><p>RUNNING - Resumes the job. This value is valid only if the job's current status is USER_PAUSED.</p> <p>If you paused the job while it was actively running and you specify this value less than 30 days after you paused the job, Macie immediately resumes processing from the point where you paused the job. Otherwise, Macie resumes the job according to the schedule and other settings for the job.</p></li> <li><p>USER_PAUSED - Pauses the job temporarily. This value is valid only if the job's current status is IDLE, PAUSED, or RUNNING. If you specify this value and the job's current status is RUNNING, Macie immediately begins to pause all processing tasks for the job.</p> <p>If you pause a one-time job and you don't resume it within 30 days, the job expires and Macie cancels the job. If you pause a recurring job when its status is RUNNING and you don't resume it within 30 days, the job run expires and Macie cancels the run. To check the expiration date, refer to the UserPausedDetails.jobExpiresAt property.</p></li></ul>
    */
-  jobStatus: JobStatus | string | undefined;
+  jobStatus: JobStatus | undefined;
 }
 
 /**
@@ -636,7 +636,7 @@ export interface S3ClassificationScopeExclusionUpdate {
    * @public
    * <p>Specifies how to apply the changes to the exclusion list. Valid values are:</p> <ul><li><p>ADD - Append the specified bucket names to the current list.</p></li> <li><p>REMOVE - Remove the specified bucket names from the current list.</p></li> <li><p>REPLACE - Overwrite the current list with the specified list of bucket names. If you specify this value, Amazon Macie removes all existing names from the list and adds all the specified names to the list.</p></li></ul>
    */
-  operation: ClassificationScopeUpdateOperation | string | undefined;
+  operation: ClassificationScopeUpdateOperation | undefined;
 }
 
 /**
@@ -681,7 +681,7 @@ export interface UpdateFindingsFilterRequest {
    * @public
    * <p>The action to perform on findings that match the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
    */
-  action?: FindingsFilterAction | string;
+  action?: FindingsFilterAction;
 
   /**
    * @public
@@ -745,13 +745,13 @@ export interface UpdateMacieSessionRequest {
    * @public
    * <p>Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).</p>
    */
-  findingPublishingFrequency?: FindingPublishingFrequency | string;
+  findingPublishingFrequency?: FindingPublishingFrequency;
 
   /**
    * @public
    * <p>Specifies a new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>
    */
-  status?: MacieStatus | string;
+  status?: MacieStatus;
 }
 
 /**
@@ -773,7 +773,7 @@ export interface UpdateMemberSessionRequest {
    * @public
    * <p>Specifies the new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>
    */
-  status: MacieStatus | string | undefined;
+  status: MacieStatus | undefined;
 }
 
 /**

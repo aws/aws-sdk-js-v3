@@ -32,7 +32,7 @@ export interface AdminAccount {
    * @public
    * <p>The current status of the account as the delegated Amazon Macie administrator account for the organization.</p>
    */
-  status?: AdminStatus | string;
+  status?: AdminStatus;
 }
 
 /**
@@ -187,13 +187,13 @@ export interface JobDetails {
    * @public
    * <p>Specifies whether any one-time or recurring jobs are configured to analyze data in the bucket. Possible values are:</p> <ul><li><p>TRUE - The bucket is explicitly included in the bucket definition (S3BucketDefinitionForJob) for one or more jobs and at least one of those jobs has a status other than CANCELLED. Or the bucket matched the bucket criteria (S3BucketCriteriaForJob) for at least one job that previously ran.</p></li> <li><p>FALSE - The bucket isn't explicitly included in the bucket definition (S3BucketDefinitionForJob) for any jobs, all the jobs that explicitly include the bucket in their bucket definitions have a status of CANCELLED, or the bucket didn't match the bucket criteria (S3BucketCriteriaForJob) for any jobs that previously ran.</p></li> <li><p>UNKNOWN - An exception occurred when Amazon Macie attempted to retrieve job data for the bucket.</p></li></ul>
    */
-  isDefinedInJob?: IsDefinedInJob | string;
+  isDefinedInJob?: IsDefinedInJob;
 
   /**
    * @public
    * <p>Specifies whether any recurring jobs are configured to analyze data in the bucket. Possible values are:</p> <ul><li><p>TRUE - The bucket is explicitly included in the bucket definition (S3BucketDefinitionForJob) for one or more recurring jobs or the bucket matches the bucket criteria (S3BucketCriteriaForJob) for one or more recurring jobs. At least one of those jobs has a status other than CANCELLED.</p></li> <li><p>FALSE - The bucket isn't explicitly included in the bucket definition (S3BucketDefinitionForJob) for any recurring jobs, the bucket doesn't match the bucket criteria (S3BucketCriteriaForJob) for any recurring jobs, or all the recurring jobs that are configured to analyze data in the bucket have a status of CANCELLED.</p></li> <li><p>UNKNOWN - An exception occurred when Amazon Macie attempted to retrieve job data for the bucket.</p></li></ul>
    */
-  isMonitoredByJob?: IsMonitoredByJob | string;
+  isMonitoredByJob?: IsMonitoredByJob;
 
   /**
    * @public
@@ -388,7 +388,7 @@ export interface BucketPublicAccess {
    * @public
    * <p>Specifies whether the bucket is publicly accessible due to the combination of permissions settings that apply to the bucket. Possible values are:</p> <ul><li><p>NOT_PUBLIC - The bucket isn't publicly accessible.</p></li> <li><p>PUBLIC - The bucket is publicly accessible.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket is publicly accessible.</p></li></ul>
    */
-  effectivePermission?: EffectivePermission | string;
+  effectivePermission?: EffectivePermission;
 
   /**
    * @public
@@ -451,7 +451,7 @@ export interface BucketServerSideEncryption {
    * @public
    * <p>The server-side encryption algorithm that's used by default to encrypt objects that are added to the bucket. Possible values are:</p> <ul><li><p>AES256 - New objects are encrypted with an Amazon S3 managed key. They use SSE-S3 encryption.</p></li> <li><p>aws:kms - New objects are encrypted with an KMS key (kmsMasterKeyId), either an Amazon Web Services managed key or a customer managed key. They use SSE-KMS encryption.</p></li> <li><p>NONE - The bucket's default encryption settings don't specify server-side encryption behavior for new objects.</p></li></ul>
    */
-  type?: Type | string;
+  type?: Type;
 }
 
 /**
@@ -527,7 +527,7 @@ export interface BucketMetadata {
    * @public
    * <p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are added to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include a valid server-side encryption header.</p></li> <li><p>TRUE - The bucket doesn't have a bucket policy or it has a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, it doesn't require PutObject requests to include a valid server-side encryption header.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket policy requires server-side encryption of new objects.</p></li></ul> <p>Valid server-side encryption headers are: x-amz-server-side-encryption with a value of AES256 or aws:kms, and x-amz-server-side-encryption-customer-algorithm with a value of AES256.</p>
    */
-  allowsUnencryptedObjectUploads?: AllowsUnencryptedObjectUploads | string;
+  allowsUnencryptedObjectUploads?: AllowsUnencryptedObjectUploads;
 
   /**
    * @public
@@ -563,7 +563,7 @@ export interface BucketMetadata {
    * @public
    * <p>The error code for an error that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. If this value is ACCESS_DENIED, Macie doesn't have permission to retrieve the information. For example, the bucket has a restrictive bucket policy and Amazon S3 denied the request. If this value is null, Macie was able to retrieve and process the information.</p>
    */
-  errorCode?: BucketMetadataErrorCode | string;
+  errorCode?: BucketMetadataErrorCode;
 
   /**
    * @public
@@ -635,7 +635,7 @@ export interface BucketMetadata {
    * @public
    * <p>Specifies whether the bucket is shared with another Amazon Web Services account, an Amazon CloudFront origin access identity (OAI), or a CloudFront origin access control (OAC). Possible values are:</p> <ul><li><p>EXTERNAL - The bucket is shared with one or more of the following or any combination of the following: a CloudFront OAI, a CloudFront OAC, or an Amazon Web Services account that isn't part of your Amazon Macie organization.</p></li> <li><p>INTERNAL - The bucket is shared with one or more Amazon Web Services accounts that are part of your Amazon Macie organization. It isn't shared with a CloudFront OAI or OAC.</p></li> <li><p>NOT_SHARED - The bucket isn't shared with another Amazon Web Services account, a CloudFront OAI, or a CloudFront OAC.</p></li> <li><p>UNKNOWN - Amazon Macie wasn't able to evaluate the shared access settings for the bucket.</p></li></ul> <p>An <i>Amazon Macie organization</i> is a set of Macie accounts that are centrally managed as a group of related accounts through Organizations or by Macie invitation.</p>
    */
-  sharedAccess?: SharedAccess | string;
+  sharedAccess?: SharedAccess;
 
   /**
    * @public
@@ -737,13 +737,13 @@ export interface SimpleCriterionForJob {
    * @public
    * <p>The operator to use in the condition. Valid values are EQ (equals) and NE (not equals).</p>
    */
-  comparator?: JobComparator | string;
+  comparator?: JobComparator;
 
   /**
    * @public
    * <p>The property to use in the condition.</p>
    */
-  key?: SimpleCriterionKeyForJob | string;
+  key?: SimpleCriterionKeyForJob;
 
   /**
    * @public
@@ -779,7 +779,7 @@ export interface TagCriterionForJob {
    * @public
    * <p>The operator to use in the condition. Valid values are EQ (equals) and NE (not equals).</p>
    */
-  comparator?: JobComparator | string;
+  comparator?: JobComparator;
 
   /**
    * @public
@@ -907,7 +907,7 @@ export interface Detection {
    * @public
    * <p>The type of data identifier that detected the sensitive data. Possible values are: CUSTOM, for a custom data identifier; and, MANAGED, for a managed data identifier.</p>
    */
-  type?: DataIdentifierType | string;
+  type?: DataIdentifierType;
 }
 
 /**
@@ -1167,7 +1167,7 @@ export interface SensitiveDataItem {
    * @public
    * <p>The category of sensitive data that was detected. For example: CREDENTIALS, for credentials data such as private keys or Amazon Web Services secret access keys; FINANCIAL_INFORMATION, for financial data such as credit card numbers; or, PERSONAL_INFORMATION, for personal health information, such as health insurance identification numbers, or personally identifiable information, such as passport numbers.</p>
    */
-  category?: SensitiveDataItemCategory | string;
+  category?: SensitiveDataItemCategory;
 
   /**
    * @public
@@ -1269,7 +1269,7 @@ export interface ClassificationDetails {
    * @public
    * <p>Specifies how Amazon Macie found the sensitive data that produced the finding. Possible values are: SENSITIVE_DATA_DISCOVERY_JOB, for a classification job; and, AUTOMATED_SENSITIVE_DATA_DISCOVERY, for automated sensitive data discovery.</p>
    */
-  originType?: OriginType | string;
+  originType?: OriginType;
 
   /**
    * @public
@@ -1330,7 +1330,7 @@ export interface FindingAction {
    * @public
    * <p>The type of action that occurred for the affected resource. This value is typically AWS_API_CALL, which indicates that an entity invoked an API operation for the resource.</p>
    */
-  actionType?: FindingActionType | string;
+  actionType?: FindingActionType;
 
   /**
    * @public
@@ -1756,7 +1756,7 @@ export interface UserIdentity {
    * @public
    * <p>The type of entity that performed the action.</p>
    */
-  type?: UserIdentityType | string;
+  type?: UserIdentityType;
 }
 
 /**
@@ -1826,7 +1826,7 @@ export interface ServerSideEncryption {
    * @public
    * <p>The server-side encryption algorithm that's used when storing data in the bucket or object. If default encryption settings aren't configured for the bucket or the object isn't encrypted using server-side encryption, this value is NONE.</p>
    */
-  encryptionType?: EncryptionType | string;
+  encryptionType?: EncryptionType;
 
   /**
    * @public
@@ -1862,7 +1862,7 @@ export interface S3Bucket {
    * @public
    * <p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are added to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include a valid server-side encryption header.</p></li> <li><p>TRUE - The bucket doesn't have a bucket policy or it has a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, it doesn't require PutObject requests to include a valid server-side encryption header.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket policy requires server-side encryption of new objects.</p></li></ul> <p>Valid server-side encryption headers are: x-amz-server-side-encryption with a value of AES256 or aws:kms, and x-amz-server-side-encryption-customer-algorithm with a value of AES256.</p>
    */
-  allowsUnencryptedObjectUploads?: AllowsUnencryptedObjectUploads | string;
+  allowsUnencryptedObjectUploads?: AllowsUnencryptedObjectUploads;
 
   /**
    * @public
@@ -1991,7 +1991,7 @@ export interface S3Object {
    * @public
    * <p>The storage class of the object.</p>
    */
-  storageClass?: StorageClass | string;
+  storageClass?: StorageClass;
 
   /**
    * @public
@@ -2048,7 +2048,7 @@ export interface Severity {
    * @public
    * <p>The qualitative representation of the finding's severity, ranging from Low (least severe) to High (most severe).</p>
    */
-  description?: SeverityDescription | string;
+  description?: SeverityDescription;
 
   /**
    * @public
@@ -2101,7 +2101,7 @@ export interface Finding {
    * @public
    * <p>The category of the finding. Possible values are: CLASSIFICATION, for a sensitive data finding; and, POLICY, for a policy finding.</p>
    */
-  category?: FindingCategory | string;
+  category?: FindingCategory;
 
   /**
    * @public
@@ -2185,7 +2185,7 @@ export interface Finding {
    * @public
    * <p>The type of the finding.</p>
    */
-  type?: FindingType | string;
+  type?: FindingType;
 
   /**
    * @public
@@ -2217,7 +2217,7 @@ export interface FindingsFilterListItem {
    * @public
    * <p>The action that's performed on findings that match the filter criteria. Possible values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
    */
-  action?: FindingsFilterAction | string;
+  action?: FindingsFilterAction;
 
   /**
    * @public
@@ -2311,7 +2311,7 @@ export interface Invitation {
    * @public
    * <p>The status of the relationship between the account that sent the invitation and the account that received the invitation.</p>
    */
-  relationshipStatus?: RelationshipStatus | string;
+  relationshipStatus?: RelationshipStatus;
 }
 
 /**
@@ -2339,13 +2339,13 @@ export interface SimpleScopeTerm {
    * @public
    * <p>The operator to use in the condition. Valid values for each supported property (key) are:</p> <ul><li><p>OBJECT_EXTENSION - EQ (equals) or NE (not equals)</p></li> <li><p>OBJECT_KEY - STARTS_WITH</p></li> <li><p>OBJECT_LAST_MODIFIED_DATE - Any operator except CONTAINS</p></li> <li><p>OBJECT_SIZE - Any operator except CONTAINS</p></li></ul>
    */
-  comparator?: JobComparator | string;
+  comparator?: JobComparator;
 
   /**
    * @public
    * <p>The object property to use in the condition.</p>
    */
-  key?: ScopeFilterKey | string;
+  key?: ScopeFilterKey;
 
   /**
    * @public
@@ -2394,7 +2394,7 @@ export interface TagScopeTerm {
    * @public
    * <p>The operator to use in the condition. Valid values are EQ (equals) or NE (not equals).</p>
    */
-  comparator?: JobComparator | string;
+  comparator?: JobComparator;
 
   /**
    * @public
@@ -2412,7 +2412,7 @@ export interface TagScopeTerm {
    * @public
    * <p>The type of object to apply the condition to.</p>
    */
-  target?: TagTarget | string;
+  target?: TagTarget;
 }
 
 /**
@@ -2536,7 +2536,7 @@ export interface LastRunErrorStatus {
    * @public
    * <p>Specifies whether any account- or bucket-level access errors occurred when the job ran. For a recurring job, this value indicates the error status of the job's most recent run. Possible values are:</p> <ul><li><p>ERROR - One or more errors occurred. Amazon Macie didn't process all the data specified for the job.</p></li> <li><p>NONE - No errors occurred. Macie processed all the data specified for the job.</p></li></ul>
    */
-  code?: LastRunErrorStatusCode | string;
+  code?: LastRunErrorStatusCode;
 }
 
 /**
@@ -2596,13 +2596,13 @@ export interface JobSummary {
    * @public
    * <p>The current status of the job. Possible values are:</p> <ul><li><p>CANCELLED - You cancelled the job or, if it's a one-time job, you paused the job and didn't resume it within 30 days.</p></li> <li><p>COMPLETE - For a one-time job, Amazon Macie finished processing the data specified for the job. This value doesn't apply to recurring jobs.</p></li> <li><p>IDLE - For a recurring job, the previous scheduled run is complete and the next scheduled run is pending. This value doesn't apply to one-time jobs.</p></li> <li><p>PAUSED - Macie started running the job but additional processing would exceed the monthly sensitive data discovery quota for your account or one or more member accounts that the job analyzes data for.</p></li> <li><p>RUNNING - For a one-time job, the job is in progress. For a recurring job, a scheduled run is in progress.</p></li> <li><p>USER_PAUSED - You paused the job. If you paused the job while it had a status of RUNNING and you don't resume it within 30 days of pausing it, the job or job run will expire and be cancelled, depending on the job's type. To check the expiration date, refer to the UserPausedDetails.jobExpiresAt property.</p></li></ul>
    */
-  jobStatus?: JobStatus | string;
+  jobStatus?: JobStatus;
 
   /**
    * @public
    * <p>The schedule for running the job. Possible values are:</p> <ul><li><p>ONE_TIME - The job runs only once.</p></li> <li><p>SCHEDULED - The job runs on a daily, weekly, or monthly basis.</p></li></ul>
    */
-  jobType?: JobType | string;
+  jobType?: JobType;
 
   /**
    * @public
@@ -2648,13 +2648,13 @@ export interface ListJobsFilterTerm {
    * @public
    * <p>The operator to use to filter the results.</p>
    */
-  comparator?: JobComparator | string;
+  comparator?: JobComparator;
 
   /**
    * @public
    * <p>The property to use to filter the results.</p>
    */
-  key?: ListJobsFilterKey | string;
+  key?: ListJobsFilterKey;
 
   /**
    * @public
@@ -2672,7 +2672,7 @@ export interface ManagedDataIdentifierSummary {
    * @public
    * <p>The category of sensitive data that the managed data identifier detects: CREDENTIALS, for credentials data such as private keys or Amazon Web Services secret access keys; FINANCIAL_INFORMATION, for financial data such as credit card numbers; or, PERSONAL_INFORMATION, for personal health information, such as health insurance identification numbers, or personally identifiable information, such as passport numbers.</p>
    */
-  category?: SensitiveDataItemCategory | string;
+  category?: SensitiveDataItemCategory;
 
   /**
    * @public
@@ -2714,7 +2714,7 @@ export interface MatchingBucket {
    * @public
    * <p>The error code for an error that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. If this value is ACCESS_DENIED, Macie doesn't have permission to retrieve the information. For example, the bucket has a restrictive bucket policy and Amazon S3 denied the request. If this value is null, Macie was able to retrieve and process the information.</p>
    */
-  errorCode?: BucketMetadataErrorCode | string;
+  errorCode?: BucketMetadataErrorCode;
 
   /**
    * @public
@@ -2834,7 +2834,7 @@ export interface Member {
    * @public
    * <p>The current status of the relationship between the account and the administrator account.</p>
    */
-  relationshipStatus?: RelationshipStatus | string;
+  relationshipStatus?: RelationshipStatus;
 
   /**
    * @public
@@ -2913,13 +2913,13 @@ export interface SearchResourcesSimpleCriterion {
    * @public
    * <p>The operator to use in the condition. Valid values are EQ (equals) and NE (not equals).</p>
    */
-  comparator?: SearchResourcesComparator | string;
+  comparator?: SearchResourcesComparator;
 
   /**
    * @public
    * <p>The property to use in the condition.</p>
    */
-  key?: SearchResourcesSimpleCriterionKey | string;
+  key?: SearchResourcesSimpleCriterionKey;
 
   /**
    * @public
@@ -2955,7 +2955,7 @@ export interface SearchResourcesTagCriterion {
    * @public
    * <p>The operator to use in the condition. Valid values are EQ (equals) and NE (not equals).</p>
    */
-  comparator?: SearchResourcesComparator | string;
+  comparator?: SearchResourcesComparator;
 
   /**
    * @public
@@ -3015,7 +3015,7 @@ export interface SuppressDataIdentifier {
    * @public
    * <p>The type of data identifier that detected the sensitive data. Possible values are: CUSTOM, for a custom data identifier; and, MANAGED, for a managed data identifier.</p>
    */
-  type?: DataIdentifierType | string;
+  type?: DataIdentifierType;
 }
 
 /**
@@ -3064,7 +3064,7 @@ export interface UnprocessedAccount {
    * @public
    * <p>The source of the issue or delay in processing the request.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: ErrorCode;
 
   /**
    * @public
@@ -3114,7 +3114,7 @@ export interface ServiceLimit {
    * @public
    * <p>The unit of measurement for the value specified by the value field.</p>
    */
-  unit?: Unit | string;
+  unit?: Unit;
 
   /**
    * @public
@@ -3148,7 +3148,7 @@ export interface UsageByAccount {
    * @public
    * <p>The type of currency that the value for the metric (estimatedCost) is reported in.</p>
    */
-  currency?: Currency | string;
+  currency?: Currency;
 
   /**
    * @public
@@ -3166,7 +3166,7 @@ export interface UsageByAccount {
    * @public
    * <p>The name of the metric. Possible values are: AUTOMATED_OBJECT_MONITORING, to monitor S3 objects for automated sensitive data discovery; AUTOMATED_SENSITIVE_DATA_DISCOVERY, to analyze S3 objects for automated sensitive data discovery; DATA_INVENTORY_EVALUATION, to monitor S3 buckets; and, SENSITIVE_DATA_DISCOVERY, to run classification jobs.</p>
    */
-  type?: UsageType | string;
+  type?: UsageType;
 }
 
 /**
@@ -3244,13 +3244,13 @@ export interface UsageStatisticsFilter {
    * @public
    * <p>The operator to use in the condition. If the value for the key property is accountId, this value must be CONTAINS. If the value for the key property is any other supported field, this value can be EQ, GT, GTE, LT, LTE, or NE.</p>
    */
-  comparator?: UsageStatisticsFilterComparator | string;
+  comparator?: UsageStatisticsFilterComparator;
 
   /**
    * @public
    * <p>The field to use in the condition.</p>
    */
-  key?: UsageStatisticsFilterKey | string;
+  key?: UsageStatisticsFilterKey;
 
   /**
    * @public
@@ -3268,7 +3268,7 @@ export interface UsageTotal {
    * @public
    * <p>The type of currency that the value for the metric (estimatedCost) is reported in.</p>
    */
-  currency?: Currency | string;
+  currency?: Currency;
 
   /**
    * @public
@@ -3280,7 +3280,7 @@ export interface UsageTotal {
    * @public
    * <p>The name of the metric. Possible values are: AUTOMATED_OBJECT_MONITORING, to monitor S3 objects for automated sensitive data discovery; AUTOMATED_SENSITIVE_DATA_DISCOVERY, to analyze S3 objects for automated sensitive data discovery; DATA_INVENTORY_EVALUATION, to monitor S3 buckets; and, SENSITIVE_DATA_DISCOVERY, to run classification jobs.</p>
    */
-  type?: UsageType | string;
+  type?: UsageType;
 }
 
 /**
@@ -3534,7 +3534,7 @@ export interface AllowListStatus {
    * @public
    * <p>The current status of the allow list. If the list's criteria specify a regular expression (regex), this value is typically OK. Amazon Macie can compile the expression.</p> <p>If the list's criteria specify an S3 object, possible values are:</p> <ul><li><p>OK - Macie can retrieve and parse the contents of the object.</p></li> <li><p>S3_OBJECT_ACCESS_DENIED - Macie isn't allowed to access the object or the object is encrypted with a customer managed KMS key that Macie isn't allowed to use. Check the bucket policy and other permissions settings for the bucket and the object. If the object is encrypted, also ensure that it's encrypted with a key that Macie is allowed to use.</p></li> <li><p>S3_OBJECT_EMPTY - Macie can retrieve the object but the object doesn't contain any content. Ensure that the object contains the correct entries. Also ensure that the list's criteria specify the correct bucket and object names.</p></li> <li><p>S3_OBJECT_NOT_FOUND - The object doesn't exist in Amazon S3. Ensure that the list's criteria specify the correct bucket and object names.</p></li> <li><p>S3_OBJECT_OVERSIZE - Macie can retrieve the object. However, the object contains too many entries or its storage size exceeds the quota for an allow list. Try breaking the list into multiple files and ensure that each file doesn't exceed any quotas. Then configure list settings in Macie for each file.</p></li> <li><p>S3_THROTTLED - Amazon S3 throttled the request to retrieve the object. Wait a few minutes and then try again.</p></li> <li><p>S3_USER_ACCESS_DENIED - Amazon S3 denied the request to retrieve the object. If the specified object exists, you're not allowed to access it or it's encrypted with an KMS key that you're not allowed to use. Work with your Amazon Web Services administrator to ensure that the list's criteria specify the correct bucket and object names, and you have read access to the bucket and the object. If the object is encrypted, also ensure that it's encrypted with a key that you're allowed to use.</p></li> <li><p>UNKNOWN_ERROR - A transient or internal error occurred when Macie attempted to retrieve or parse the object. Wait a few minutes and then try again. A list can also have this status if it's encrypted with a key that Amazon S3 and Macie can't access or use.</p></li></ul>
    */
-  code: AllowListStatusCode | string | undefined;
+  code: AllowListStatusCode | undefined;
 
   /**
    * @public
@@ -3790,7 +3790,7 @@ export interface BucketSortCriteria {
    * @public
    * <p>The sort order to apply to the results, based on the value specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: OrderBy;
 }
 
 /**
@@ -4075,7 +4075,7 @@ export interface WeeklySchedule {
    * @public
    * <p>The day of the week when Amazon Macie runs the job.</p>
    */
-  dayOfWeek?: DayOfWeek | string;
+  dayOfWeek?: DayOfWeek;
 }
 
 /**
@@ -4140,7 +4140,7 @@ export interface CreateClassificationJobRequest {
    * @public
    * <p>The schedule for running the job. Valid values are:</p> <ul><li><p>ONE_TIME - Run the job only once. If you specify this value, don't specify a value for the scheduleFrequency property.</p></li> <li><p>SCHEDULED - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the scheduleFrequency property to define the recurrence pattern for the job.</p></li></ul>
    */
-  jobType: JobType | string | undefined;
+  jobType: JobType | undefined;
 
   /**
    * @public
@@ -4152,7 +4152,7 @@ export interface CreateClassificationJobRequest {
    * @public
    * <p>The selection type to apply when determining which managed data identifiers the job uses to analyze data. Valid values are:</p> <ul><li><p>ALL - Use all managed data identifiers. If you specify this value, don't specify any values for the managedDataIdentifierIds property.</p></li> <li><p>EXCLUDE - Use all managed data identifiers except the ones specified by the managedDataIdentifierIds property.</p></li> <li><p>INCLUDE - Use only the managed data identifiers specified by the managedDataIdentifierIds property.</p></li> <li><p>NONE - Don't use any managed data identifiers. If you specify this value, specify at least one value for the customDataIdentifierIds property and don't specify any values for the managedDataIdentifierIds property.</p></li> <li><p>RECOMMENDED (default) - Use the recommended set of managed data identifiers. If you specify this value, don't specify any values for the managedDataIdentifierIds property.</p></li></ul> <p>If you don't specify a value for this property, the job uses the recommended set of managed data identifiers.</p> <p>If the job is a recurring job and you specify ALL or EXCLUDE, each job run automatically uses new managed data identifiers that are released. If you specify RECOMMENDED for a recurring job, each job run automatically uses all the managed data identifiers that are in the recommended set when the run starts.</p> <p>For information about individual managed data identifiers or to determine which ones are in the recommended set, see <a href="https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html">Using managed data identifiers</a> and <a href="https://docs.aws.amazon.com/macie/latest/user/discovery-jobs-mdis-recommended.html">Recommended managed data identifiers</a> in the <i>Amazon Macie User Guide</i>.</p>
    */
-  managedDataIdentifierSelector?: ManagedDataIdentifierSelector | string;
+  managedDataIdentifierSelector?: ManagedDataIdentifierSelector;
 
   /**
    * @public
@@ -4232,7 +4232,7 @@ export interface SeverityLevel {
    * @public
    * <p>The severity to assign to a finding: if the number of occurrences is greater than or equal to the specified threshold (occurrencesThreshold); and, if applicable, the number of occurrences is less than the threshold for the next consecutive severity level for the custom data identifier, moving from LOW to HIGH.</p>
    */
-  severity: DataIdentifierSeverity | string | undefined;
+  severity: DataIdentifierSeverity | undefined;
 }
 
 /**
@@ -4373,7 +4373,7 @@ export interface CreateFindingsFilterRequest {
    * @public
    * <p>The action to perform on findings that match the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
    */
-  action: FindingsFilterAction | string | undefined;
+  action: FindingsFilterAction | undefined;
 
   /**
    * @public
@@ -4499,7 +4499,7 @@ export interface CreateSampleFindingsRequest {
    * @public
    * <p>An array of finding types, one for each type of sample finding to create. To create a sample of every type of finding that Amazon Macie supports, don't include this array in your request.</p>
    */
-  findingTypes?: (FindingType | string)[];
+  findingTypes?: FindingType[];
 }
 
 /**
@@ -4752,13 +4752,13 @@ export interface DescribeClassificationJobResponse {
    * @public
    * <p>The current status of the job. Possible values are:</p> <ul><li><p>CANCELLED - You cancelled the job or, if it's a one-time job, you paused the job and didn't resume it within 30 days.</p></li> <li><p>COMPLETE - For a one-time job, Amazon Macie finished processing the data specified for the job. This value doesn't apply to recurring jobs.</p></li> <li><p>IDLE - For a recurring job, the previous scheduled run is complete and the next scheduled run is pending. This value doesn't apply to one-time jobs.</p></li> <li><p>PAUSED - Macie started running the job but additional processing would exceed the monthly sensitive data discovery quota for your account or one or more member accounts that the job analyzes data for.</p></li> <li><p>RUNNING - For a one-time job, the job is in progress. For a recurring job, a scheduled run is in progress.</p></li> <li><p>USER_PAUSED - You paused the job. If you paused the job while it had a status of RUNNING and you don't resume it within 30 days of pausing it, the job or job run will expire and be cancelled, depending on the job's type. To check the expiration date, refer to the UserPausedDetails.jobExpiresAt property.</p></li></ul>
    */
-  jobStatus?: JobStatus | string;
+  jobStatus?: JobStatus;
 
   /**
    * @public
    * <p>The schedule for running the job. Possible values are:</p> <ul><li><p>ONE_TIME - The job runs only once.</p></li> <li><p>SCHEDULED - The job runs on a daily, weekly, or monthly basis. The scheduleFrequency property indicates the recurrence pattern for the job.</p></li></ul>
    */
-  jobType?: JobType | string;
+  jobType?: JobType;
 
   /**
    * @public
@@ -4782,7 +4782,7 @@ export interface DescribeClassificationJobResponse {
    * @public
    * <p>The selection type that determines which managed data identifiers the job uses when it analyzes data. Possible values are:</p> <ul><li><p>ALL - Use all managed data identifiers.</p></li> <li><p>EXCLUDE - Use all managed data identifiers except the ones specified by the managedDataIdentifierIds property.</p></li> <li><p>INCLUDE - Use only the managed data identifiers specified by the managedDataIdentifierIds property.</p></li> <li><p>NONE - Don't use any managed data identifiers. Use only custom data identifiers (customDataIdentifierIds).</p></li> <li><p>RECOMMENDED (default) - Use the recommended set of managed data identifiers.</p></li></ul> <p>If this value is null, the job uses the recommended set of managed data identifiers.</p> <p>If the job is a recurring job and this value is ALL or EXCLUDE, each job run automatically uses new managed data identifiers that are released. If this value is null or RECOMMENDED for a recurring job, each job run uses all the managed data identifiers that are in the recommended set when the run starts.</p> <p>For information about individual managed data identifiers or to determine which ones are in the recommended set, see <a href="https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html">Using managed data identifiers</a> and <a href="https://docs.aws.amazon.com/macie/latest/user/discovery-jobs-mdis-recommended.html">Recommended managed data identifiers</a> in the <i>Amazon Macie User Guide</i>.</p>
    */
-  managedDataIdentifierSelector?: ManagedDataIdentifierSelector | string;
+  managedDataIdentifierSelector?: ManagedDataIdentifierSelector;
 
   /**
    * @public
@@ -4954,13 +4954,13 @@ export interface EnableMacieRequest {
    * @public
    * <p>Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).</p>
    */
-  findingPublishingFrequency?: FindingPublishingFrequency | string;
+  findingPublishingFrequency?: FindingPublishingFrequency;
 
   /**
    * @public
    * <p>Specifies the new status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to ENABLED.</p>
    */
-  status?: MacieStatus | string;
+  status?: MacieStatus;
 }
 
 /**
@@ -5014,13 +5014,13 @@ export interface FindingStatisticsSortCriteria {
    * @public
    * <p>The grouping to sort the results by. Valid values are: count, sort the results by the number of findings in each group of results; and, groupKey, sort the results by the name of each group of results.</p>
    */
-  attributeName?: FindingStatisticsSortAttributeName | string;
+  attributeName?: FindingStatisticsSortAttributeName;
 
   /**
    * @public
    * <p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: OrderBy;
 }
 
 /**
@@ -5152,7 +5152,7 @@ export interface GetAutomatedDiscoveryConfigurationResponse {
    * @public
    * <p>The current status of the automated sensitive data discovery configuration for the account. Possible values are: ENABLED, use the specified settings to perform automated sensitive data discovery activities for the account; and, DISABLED, don't perform automated sensitive data discovery activities for the account.</p>
    */
-  status?: AutomatedDiscoveryStatus | string;
+  status?: AutomatedDiscoveryStatus;
 }
 
 /**
@@ -5432,7 +5432,7 @@ export interface SortCriteria {
    * @public
    * <p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: OrderBy;
 }
 
 /**
@@ -5482,7 +5482,7 @@ export interface GetFindingsFilterResponse {
    * @public
    * <p>The action that's performed on findings that match the filter criteria (findingCriteria). Possible values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
    */
-  action?: FindingsFilterAction | string;
+  action?: FindingsFilterAction;
 
   /**
    * @public
@@ -5591,7 +5591,7 @@ export interface GetFindingStatisticsRequest {
    * @public
    * <p>The finding property to use to group the query results. Valid values are:</p> <ul><li><p>classificationDetails.jobId - The unique identifier for the classification job that produced the finding.</p></li> <li><p>resourcesAffected.s3Bucket.name - The name of the S3 bucket that the finding applies to.</p></li> <li><p>severity.description - The severity level of the finding, such as High or Medium.</p></li> <li><p>type - The type of finding, such as Policy:IAMUser/S3BucketPublic and SensitiveData:S3Object/Personal.</p></li></ul>
    */
-  groupBy: GroupBy | string | undefined;
+  groupBy: GroupBy | undefined;
 
   /**
    * @public
@@ -5652,7 +5652,7 @@ export interface GetMacieSessionResponse {
    * @public
    * <p>The frequency with which Amazon Macie publishes updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).</p>
    */
-  findingPublishingFrequency?: FindingPublishingFrequency | string;
+  findingPublishingFrequency?: FindingPublishingFrequency;
 
   /**
    * @public
@@ -5664,7 +5664,7 @@ export interface GetMacieSessionResponse {
    * @public
    * <p>The current status of the Amazon Macie account. Possible values are: PAUSED, the account is enabled but all Macie activities are suspended (paused) for the account; and, ENABLED, the account is enabled and all Macie activities are enabled for the account.</p>
    */
-  status?: MacieStatus | string;
+  status?: MacieStatus;
 
   /**
    * @public
@@ -5744,7 +5744,7 @@ export interface GetMemberResponse {
    * @public
    * <p>The current status of the relationship between the account and the administrator account.</p>
    */
-  relationshipStatus?: RelationshipStatus | string;
+  relationshipStatus?: RelationshipStatus;
 
   /**
    * @public
@@ -5893,7 +5893,7 @@ export interface RevealConfiguration {
    * @public
    * <p>The status of the configuration for the Amazon Macie account. In a request, valid values are: ENABLED, enable the configuration for the account; and, DISABLED, disable the configuration for the account. In a response, possible values are: ENABLED, the configuration is currently enabled for the account; and, DISABLED, the configuration is currently disabled for the account.</p>
    */
-  status: RevealStatus | string | undefined;
+  status: RevealStatus | undefined;
 }
 
 /**
@@ -5953,7 +5953,7 @@ export interface GetSensitiveDataOccurrencesResponse {
    * @public
    * <p>The status of the request to retrieve occurrences of sensitive data reported by the finding. Possible values are:</p> <ul><li><p>ERROR - An error occurred when Amazon Macie attempted to locate, retrieve, or encrypt the sensitive data. The error value indicates the nature of the error that occurred.</p></li> <li><p>PROCESSING - Macie is processing the request.</p></li> <li><p>SUCCESS - Macie successfully located, retrieved, and encrypted the sensitive data.</p></li></ul>
    */
-  status?: RevealRequestStatus | string;
+  status?: RevealRequestStatus;
 }
 
 /**
@@ -5995,13 +5995,13 @@ export interface GetSensitiveDataOccurrencesAvailabilityResponse {
    * @public
    * <p>Specifies whether occurrences of sensitive data can be retrieved for the finding. Possible values are: AVAILABLE, the sensitive data can be retrieved; and, UNAVAILABLE, the sensitive data can't be retrieved. If this value is UNAVAILABLE, the reasons array indicates why the data can't be retrieved.</p>
    */
-  code?: AvailabilityCode | string;
+  code?: AvailabilityCode;
 
   /**
    * @public
    * <p>Specifies why occurrences of sensitive data can't be retrieved for the finding. Possible values are:</p> <ul><li><p>INVALID_CLASSIFICATION_RESULT - Amazon Macie can't verify the location of the sensitive data to retrieve. There isn't a corresponding sensitive data discovery result for the finding. Or the sensitive data discovery result specified by the classificationDetails.detailedResultsLocation field of the finding isn't available, is malformed or corrupted, or uses an unsupported storage format.</p></li> <li><p>OBJECT_EXCEEDS_SIZE_QUOTA - The storage size of the affected S3 object exceeds the size quota for retrieving occurrences of sensitive data.</p></li> <li><p>OBJECT_UNAVAILABLE - The affected S3 object isn't available. The object might have been renamed, moved, or deleted. Or the object was changed after Macie created the finding.</p></li> <li><p>UNSUPPORTED_FINDING_TYPE - The specified finding isn't a sensitive data finding.</p></li> <li><p>UNSUPPORTED_OBJECT_TYPE - The affected S3 object uses a file or storage format that Macie doesn't support for retrieving occurrences of sensitive data.</p></li></ul> <p>This value is null if sensitive data can be retrieved for the finding.</p>
    */
-  reasons?: (UnavailabilityReasonCode | string)[];
+  reasons?: UnavailabilityReasonCode[];
 }
 
 /**
@@ -6111,13 +6111,13 @@ export interface UsageStatisticsSortBy {
    * @public
    * <p>The field to sort the results by.</p>
    */
-  key?: UsageStatisticsSortKey | string;
+  key?: UsageStatisticsSortKey;
 
   /**
    * @public
    * <p>The sort order to apply to the results, based on the value for the field specified by the key property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: OrderBy;
 }
 
 /**
@@ -6166,7 +6166,7 @@ export interface GetUsageStatisticsRequest {
    * @public
    * <p>The inclusive time period to query usage data for. Valid values are: MONTH_TO_DATE, for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days. If you don't specify a value, Amazon Macie provides usage data for the preceding 30 days.</p>
    */
-  timeRange?: TimeRange | string;
+  timeRange?: TimeRange;
 }
 
 /**
@@ -6189,7 +6189,7 @@ export interface GetUsageStatisticsResponse {
    * @public
    * <p>The inclusive time period that the usage data applies to. Possible values are: MONTH_TO_DATE, for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days.</p>
    */
-  timeRange?: TimeRange | string;
+  timeRange?: TimeRange;
 }
 
 /**
@@ -6211,7 +6211,7 @@ export interface GetUsageTotalsResponse {
    * @public
    * <p>The inclusive time period that the usage data applies to. Possible values are: MONTH_TO_DATE, for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days.</p>
    */
-  timeRange?: TimeRange | string;
+  timeRange?: TimeRange;
 
   /**
    * @public
@@ -6297,13 +6297,13 @@ export interface ListJobsSortCriteria {
    * @public
    * <p>The property to sort the results by.</p>
    */
-  attributeName?: ListJobsSortAttributeName | string;
+  attributeName?: ListJobsSortAttributeName;
 
   /**
    * @public
    * <p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: OrderBy;
 }
 
 /**

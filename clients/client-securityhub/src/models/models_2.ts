@@ -1398,7 +1398,7 @@ export interface Resource {
    * @public
    * <p>The canonical Amazon Web Services partition name that the Region is assigned to.</p>
    */
-  Partition?: Partition | string;
+  Partition?: Partition;
 
   /**
    * @public
@@ -1504,7 +1504,7 @@ export interface Severity {
    *             </li>
    *          </ul>
    */
-  Label?: SeverityLabel | string;
+  Label?: SeverityLabel;
 
   /**
    * @public
@@ -1595,7 +1595,7 @@ export interface ThreatIntelIndicator {
    * @public
    * <p>The type of threat intelligence indicator.</p>
    */
-  Type?: ThreatIntelIndicatorType | string;
+  Type?: ThreatIntelIndicatorType;
 
   /**
    * @public
@@ -1607,7 +1607,7 @@ export interface ThreatIntelIndicator {
    * @public
    * <p>The category of a threat intelligence indicator.</p>
    */
-  Category?: ThreatIntelIndicatorCategory | string;
+  Category?: ThreatIntelIndicatorCategory;
 
   /**
    * @public
@@ -2023,7 +2023,7 @@ export interface Vulnerability {
    *             </li>
    *          </ul>
    */
-  FixAvailable?: VulnerabilityFixAvailable | string;
+  FixAvailable?: VulnerabilityFixAvailable;
 
   /**
    * @public
@@ -2037,7 +2037,7 @@ export interface Vulnerability {
    * <p>Whether an exploit is available for a finding.
    * 		</p>
    */
-  ExploitAvailable?: VulnerabilityExploitAvailable | string;
+  ExploitAvailable?: VulnerabilityExploitAvailable;
 
   /**
    * @public
@@ -2094,7 +2094,7 @@ export interface Workflow {
    *             </li>
    *          </ul>
    */
-  Status?: WorkflowStatus | string;
+  Status?: WorkflowStatus;
 }
 
 /**
@@ -2356,7 +2356,7 @@ export interface AwsSecurityFinding {
    * @public
    * <p>Indicates the veracity of a finding. </p>
    */
-  VerificationState?: VerificationState | string;
+  VerificationState?: VerificationState;
 
   /**
    * @public
@@ -2364,7 +2364,7 @@ export interface AwsSecurityFinding {
    *
    * <p>The workflow state of a finding. </p>
    */
-  WorkflowState?: WorkflowState | string;
+  WorkflowState?: WorkflowState;
 
   /**
    * @public
@@ -2376,7 +2376,7 @@ export interface AwsSecurityFinding {
    * @public
    * <p>The record state of a finding.</p>
    */
-  RecordState?: RecordState | string;
+  RecordState?: RecordState;
 
   /**
    * @public
@@ -3323,7 +3323,7 @@ export interface StandardsStatusReason {
    * @public
    * <p>The reason code that represents the reason for the current status of a standard subscription.</p>
    */
-  StatusReasonCode: StatusReasonCode | string | undefined;
+  StatusReasonCode: StatusReasonCode | undefined;
 }
 
 /**
@@ -3376,7 +3376,7 @@ export interface StandardsSubscription {
    *             </li>
    *          </ul>
    */
-  StandardsStatus: StandardsStatus | string | undefined;
+  StandardsStatus: StandardsStatus | undefined;
 
   /**
    * @public
@@ -3570,7 +3570,7 @@ export interface SecurityControl {
    *          <i>Security Hub User Guide</i>.
    *       </p>
    */
-  SeverityRating: SeverityRating | string | undefined;
+  SeverityRating: SeverityRating | undefined;
 
   /**
    * @public
@@ -3578,7 +3578,7 @@ export interface SecurityControl {
    *          The enablement status of a security control in a specific standard.
    *       </p>
    */
-  SecurityControlStatus: ControlStatus | string | undefined;
+  SecurityControlStatus: ControlStatus | undefined;
 }
 
 /**
@@ -3616,7 +3616,7 @@ export interface UnprocessedSecurityControl {
    *          The error code for the unprocessed security control.
    *       </p>
    */
-  ErrorCode: UnprocessedErrorCode | string | undefined;
+  ErrorCode: UnprocessedErrorCode | undefined;
 
   /**
    * @public
@@ -3726,7 +3726,7 @@ export interface StandardsControlAssociationDetail {
    *          Specifies whether a control is enabled or disabled in a specified standard.
    *       </p>
    */
-  AssociationStatus: AssociationStatus | string | undefined;
+  AssociationStatus: AssociationStatus | undefined;
 
   /**
    * @public
@@ -3799,7 +3799,7 @@ export interface UnprocessedStandardsControlAssociation {
    * <p>The error code for the unprocessed standard and control association.
    *       </p>
    */
-  ErrorCode: UnprocessedErrorCode | string | undefined;
+  ErrorCode: UnprocessedErrorCode | undefined;
 
   /**
    * @public
@@ -3917,7 +3917,7 @@ export interface UpdateAutomationRulesRequestItem {
    *             </a>.
    *       </p>
    */
-  RuleStatus?: RuleStatus | string;
+  RuleStatus?: RuleStatus;
 
   /**
    * @public
@@ -4058,7 +4058,7 @@ export interface BatchUpdateFindingsRequest {
    *             </li>
    *          </ul>
    */
-  VerificationState?: VerificationState | string;
+  VerificationState?: VerificationState;
 
   /**
    * @public
@@ -4255,7 +4255,7 @@ export interface StandardsControlAssociationUpdate {
    * @public
    * <p>The desired enablement status of the control in the standard.</p>
    */
-  AssociationStatus: AssociationStatus | string | undefined;
+  AssociationStatus: AssociationStatus | undefined;
 
   /**
    * @public
@@ -4297,7 +4297,7 @@ export interface UnprocessedStandardsControlAssociationUpdate {
    * <p>The error code for the unprocessed update of the control's enablement status in the
    *          specified standard.</p>
    */
-  ErrorCode: UnprocessedErrorCode | string | undefined;
+  ErrorCode: UnprocessedErrorCode | undefined;
 
   /**
    * @public
@@ -4414,7 +4414,7 @@ export interface CreateAutomationRuleRequest {
    *             </a>.
    *       </p>
    */
-  RuleStatus?: RuleStatus | string;
+  RuleStatus?: RuleStatus;
 
   /**
    * @public
@@ -4852,7 +4852,7 @@ export interface DescribeHubResponse {
    *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 23,
    *          2023.</p>
    */
-  ControlFindingGenerator?: ControlFindingGenerator | string;
+  ControlFindingGenerator?: ControlFindingGenerator;
 }
 
 /**
@@ -4888,7 +4888,7 @@ export interface DescribeOrganizationConfigurationResponse {
    *          accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
    *          accounts.</p>
    */
-  AutoEnableStandards?: AutoEnableStandards | string;
+  AutoEnableStandards?: AutoEnableStandards;
 }
 
 /**
@@ -4989,7 +4989,7 @@ export interface Product {
    *             </li>
    *          </ul>
    */
-  IntegrationTypes?: (IntegrationType | string)[];
+  IntegrationTypes?: IntegrationType[];
 
   /**
    * @public
@@ -5173,7 +5173,7 @@ export interface StandardsControl {
    * <p>The current status of the security standard control. Indicates whether the control is
    *          enabled or disabled. Security Hub does not check against disabled controls.</p>
    */
-  ControlStatus?: ControlStatus | string;
+  ControlStatus?: ControlStatus;
 
   /**
    * @public
@@ -5220,7 +5220,7 @@ export interface StandardsControl {
    *          <p>The finding severity is based on an assessment of how easy it would be to compromise Amazon Web Services
    *          resources if the issue is detected.</p>
    */
-  SeverityRating?: SeverityRating | string;
+  SeverityRating?: SeverityRating;
 
   /**
    * @public
@@ -5395,7 +5395,7 @@ export interface EnableSecurityHubRequest {
    *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 23,
    *          2023.</p>
    */
-  ControlFindingGenerator?: ControlFindingGenerator | string;
+  ControlFindingGenerator?: ControlFindingGenerator;
 }
 
 /**
@@ -5482,7 +5482,7 @@ export interface FindingHistoryUpdateSource {
    *             </a> (by a Security Hub customer).
    *       </p>
    */
-  Type?: FindingHistoryUpdateSourceType | string;
+  Type?: FindingHistoryUpdateSourceType;
 
   /**
    * @public
@@ -5810,7 +5810,7 @@ export interface SortCriterion {
    * @public
    * <p>The order used to sort findings.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -6532,7 +6532,7 @@ export interface SecurityControlDefinition {
    *          <i>Security Hub User Guide</i>.
    *       </p>
    */
-  SeverityRating: SeverityRating | string | undefined;
+  SeverityRating: SeverityRating | undefined;
 
   /**
    * @public
@@ -6540,7 +6540,7 @@ export interface SecurityControlDefinition {
    *          Specifies whether a security control is available in the current Amazon Web Services Region.
    *       </p>
    */
-  CurrentRegionAvailability: RegionAvailabilityStatus | string | undefined;
+  CurrentRegionAvailability: RegionAvailabilityStatus | undefined;
 }
 
 /**
@@ -6634,7 +6634,7 @@ export interface StandardsControlAssociationSummary {
    *          The enablement status of a control in a specific standard.
    *       </p>
    */
-  AssociationStatus: AssociationStatus | string | undefined;
+  AssociationStatus: AssociationStatus | undefined;
 
   /**
    * @public
@@ -6879,7 +6879,7 @@ export interface UpdateFindingsRequest {
    * @public
    * <p>The updated record state for the finding.</p>
    */
-  RecordState?: RecordState | string;
+  RecordState?: RecordState;
 }
 
 /**
@@ -6941,7 +6941,7 @@ export interface UpdateOrganizationConfigurationRequest {
    *          <p>By default, this parameter is equal to <code>DEFAULT</code>, and new member accounts are automatically enabled with default Security Hub standards.</p>
    *          <p>To opt out of enabling default standards for new member accounts, set this parameter equal to <code>NONE</code>.</p>
    */
-  AutoEnableStandards?: AutoEnableStandards | string;
+  AutoEnableStandards?: AutoEnableStandards;
 }
 
 /**
@@ -6973,7 +6973,7 @@ export interface UpdateSecurityHubConfigurationRequest {
    *       for a control check when the check applies to multiple enabled standards.</p>
    *          <p>For accounts that are part of an organization, this value can only be updated in the administrator account.</p>
    */
-  ControlFindingGenerator?: ControlFindingGenerator | string;
+  ControlFindingGenerator?: ControlFindingGenerator;
 }
 
 /**
@@ -6995,7 +6995,7 @@ export interface UpdateStandardsControlRequest {
    * @public
    * <p>The updated status of the security standard control.</p>
    */
-  ControlStatus?: ControlStatus | string;
+  ControlStatus?: ControlStatus;
 
   /**
    * @public

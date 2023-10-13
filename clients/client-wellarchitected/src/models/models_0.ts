@@ -88,7 +88,7 @@ export interface AdditionalResources {
    * @public
    * <p>Type of additional resource for a custom lens.</p>
    */
-  Type?: AdditionalResourceType | string;
+  Type?: AdditionalResourceType;
 
   /**
    * @public
@@ -144,13 +144,13 @@ export interface ChoiceAnswer {
    * @public
    * <p>The status of a choice.</p>
    */
-  Status?: ChoiceStatus | string;
+  Status?: ChoiceStatus;
 
   /**
    * @public
    * <p>The reason why a choice is non-applicable to a question in your workload.</p>
    */
-  Reason?: ChoiceReason | string;
+  Reason?: ChoiceReason;
 
   /**
    * @public
@@ -322,7 +322,7 @@ export interface Answer {
    * @public
    * <p>The risk for a given workload, lens review, pillar, or question.</p>
    */
-  Risk?: Risk | string;
+  Risk?: Risk;
 
   /**
    * @public
@@ -335,7 +335,7 @@ export interface Answer {
    * @public
    * <p>The reason why the question is not applicable to your workload.</p>
    */
-  Reason?: AnswerReason | string;
+  Reason?: AnswerReason;
 }
 
 /**
@@ -353,13 +353,13 @@ export interface ChoiceAnswerSummary {
    * @public
    * <p>The status of a choice.</p>
    */
-  Status?: ChoiceStatus | string;
+  Status?: ChoiceStatus;
 
   /**
    * @public
    * <p>The reason why a choice is non-applicable to a question in your workload.</p>
    */
-  Reason?: ChoiceReason | string;
+  Reason?: ChoiceReason;
 }
 
 /**
@@ -429,19 +429,19 @@ export interface AnswerSummary {
    * @public
    * <p>The risk for a given workload, lens review, pillar, or question.</p>
    */
-  Risk?: Risk | string;
+  Risk?: Risk;
 
   /**
    * @public
    * <p>The reason why a choice is non-applicable to a question in your workload.</p>
    */
-  Reason?: AnswerReason | string;
+  Reason?: AnswerReason;
 
   /**
    * @public
    * <p>The type of the question.</p>
    */
-  QuestionType?: QuestionType | string;
+  QuestionType?: QuestionType;
 }
 
 /**
@@ -660,7 +660,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason why the request failed validation.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -774,7 +774,7 @@ export interface CheckDetail {
    * @public
    * <p>Provider of the check related to the best practice.</p>
    */
-  Provider?: CheckProvider | string;
+  Provider?: CheckProvider;
 
   /**
    * @public
@@ -805,7 +805,7 @@ export interface CheckDetail {
    * @public
    * <p>Status associated to the check.</p>
    */
-  Status?: CheckStatus | string;
+  Status?: CheckStatus;
 
   /**
    * @public
@@ -823,7 +823,7 @@ export interface CheckDetail {
    * @public
    * <p>Reason associated to the check.</p>
    */
-  Reason?: CheckFailureReason | string;
+  Reason?: CheckFailureReason;
 
   /**
    * @public
@@ -853,7 +853,7 @@ export interface CheckSummary {
    * @public
    * <p>Provider of the check related to the best practice.</p>
    */
-  Provider?: CheckProvider | string;
+  Provider?: CheckProvider;
 
   /**
    * @public
@@ -896,7 +896,7 @@ export interface CheckSummary {
    * @public
    * <p>Status associated to the check.</p>
    */
-  Status?: CheckStatus | string;
+  Status?: CheckStatus;
 
   /**
    * @public
@@ -940,13 +940,13 @@ export interface ChoiceUpdate {
    * @public
    * <p>The status of a choice.</p>
    */
-  Status: ChoiceStatus | string | undefined;
+  Status: ChoiceStatus | undefined;
 
   /**
    * @public
    * <p>The reason why a choice is non-applicable to a question in your workload.</p>
    */
-  Reason?: ChoiceReason | string;
+  Reason?: ChoiceReason;
 
   /**
    * @public
@@ -970,7 +970,7 @@ export interface QuestionMetric {
    * @public
    * <p>The risk for a given workload, lens review, pillar, or question.</p>
    */
-  Risk?: Risk | string;
+  Risk?: Risk;
 
   /**
    * @public
@@ -1050,7 +1050,7 @@ export interface ConsolidatedReportMetric {
    * @public
    * <p>The metric type of a metric in the consolidated report. Currently only WORKLOAD metric types are supported.</p>
    */
-  MetricType?: MetricType | string;
+  MetricType?: MetricType;
 
   /**
    * @public
@@ -1596,14 +1596,14 @@ export interface WorkloadDiscoveryConfig {
    * @public
    * <p>Discovery integration status in respect to Trusted Advisor for the workload.</p>
    */
-  TrustedAdvisorIntegrationStatus?: TrustedAdvisorIntegrationStatus | string;
+  TrustedAdvisorIntegrationStatus?: TrustedAdvisorIntegrationStatus;
 
   /**
    * @public
    * <p>The mode to use for identifying resources associated with the workload.</p>
    *          <p>You can specify <code>WORKLOAD_METADATA</code>, <code>APP_REGISTRY</code>, or both.</p>
    */
-  WorkloadResourceDefinition?: (DefinitionType | string)[];
+  WorkloadResourceDefinition?: DefinitionType[];
 }
 
 /**
@@ -1643,7 +1643,7 @@ export interface CreateWorkloadInput {
    * @public
    * <p>The environment for the workload.</p>
    */
-  Environment: WorkloadEnvironment | string | undefined;
+  Environment: WorkloadEnvironment | undefined;
 
   /**
    * @public
@@ -1949,7 +1949,7 @@ export interface CreateWorkloadShareInput {
    * @public
    * <p>Permission granted on a share request.</p>
    */
-  PermissionType: PermissionType | string | undefined;
+  PermissionType: PermissionType | undefined;
 
   /**
    * @public
@@ -2036,7 +2036,7 @@ export interface DeleteLensInput {
    * @public
    * <p>The status of the lens to be deleted.</p>
    */
-  LensStatus: LensStatusType | string | undefined;
+  LensStatus: LensStatusType | undefined;
 }
 
 /**
@@ -2460,7 +2460,7 @@ export interface GetConsolidatedReportInput {
    *          <p>For <code>PDF</code>, <code>Base64String</code> is returned. For <code>JSON</code>,
    *             <code>Metrics</code> is returned.</p>
    */
-  Format: ReportFormat | string | undefined;
+  Format: ReportFormat | undefined;
 
   /**
    * @public
@@ -2736,7 +2736,7 @@ export interface LensReview {
    * @public
    * <p>The status of the lens.</p>
    */
-  LensStatus?: LensStatus | string;
+  LensStatus?: LensStatus;
 
   /**
    * @public
@@ -2949,7 +2949,7 @@ export interface QuestionDifference {
    * @public
    * <p>Indicates the type of change to the question.</p>
    */
-  DifferenceStatus?: DifferenceStatus | string;
+  DifferenceStatus?: DifferenceStatus;
 }
 
 /**
@@ -2974,7 +2974,7 @@ export interface PillarDifference {
    * @public
    * <p>Indicates the type of change to the pillar.</p>
    */
-  DifferenceStatus?: DifferenceStatus | string;
+  DifferenceStatus?: DifferenceStatus;
 
   /**
    * @public
@@ -3114,7 +3114,7 @@ export interface Workload {
    * @public
    * <p>The environment for the workload.</p>
    */
-  Environment?: WorkloadEnvironment | string;
+  Environment?: WorkloadEnvironment;
 
   /**
    * @public
@@ -3331,7 +3331,7 @@ export interface Workload {
    * @public
    * <p>The improvement status for a workload.</p>
    */
-  ImprovementStatus?: WorkloadImprovementStatus | string;
+  ImprovementStatus?: WorkloadImprovementStatus;
 
   /**
    * @public
@@ -3828,7 +3828,7 @@ export interface ReviewTemplate {
    * @public
    * <p>The latest status of a review template.</p>
    */
-  UpdateStatus?: ReviewTemplateUpdateStatus | string;
+  UpdateStatus?: ReviewTemplateUpdateStatus;
 
   /**
    * @public
@@ -3977,7 +3977,7 @@ export interface ReviewTemplateAnswer {
    * @public
    * <p>The status of whether or not this question has been answered.</p>
    */
-  AnswerStatus?: ReviewTemplateAnswerStatus | string;
+  AnswerStatus?: ReviewTemplateAnswerStatus;
 
   /**
    * @public
@@ -3990,7 +3990,7 @@ export interface ReviewTemplateAnswer {
    * @public
    * <p>The reason why the question is not applicable to your review template.</p>
    */
-  Reason?: AnswerReason | string;
+  Reason?: AnswerReason;
 }
 
 /**
@@ -4119,7 +4119,7 @@ export interface ReviewTemplateLensReview {
    * @public
    * <p>The status of the lens.</p>
    */
-  LensStatus?: LensStatus | string;
+  LensStatus?: LensStatus;
 
   /**
    * @public
@@ -4268,7 +4268,7 @@ export interface ImportLensOutput {
    * @public
    * <p>The status of the imported lens.</p>
    */
-  Status?: ImportLensStatus | string;
+  Status?: ImportLensStatus;
 }
 
 /**
@@ -4299,7 +4299,7 @@ export interface ImprovementSummary {
    * @public
    * <p>The risk for a given workload, lens review, pillar, or question.</p>
    */
-  Risk?: Risk | string;
+  Risk?: Risk;
 
   /**
    * @public
@@ -4356,7 +4356,7 @@ export interface LensReviewSummary {
    * @public
    * <p>The status of the lens.</p>
    */
-  LensStatus?: LensStatus | string;
+  LensStatus?: LensStatus;
 
   /**
    * @public
@@ -4425,7 +4425,7 @@ export interface LensShareSummary {
    * @public
    * <p>The status of the share request.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: ShareStatus;
 
   /**
    * @public
@@ -4483,7 +4483,7 @@ export interface LensSummary {
    * @public
    * <p>The type of the lens.</p>
    */
-  LensType?: LensType | string;
+  LensType?: LensType;
 
   /**
    * @public
@@ -4519,7 +4519,7 @@ export interface LensSummary {
    * @public
    * <p>The status of the lens.</p>
    */
-  LensStatus?: LensStatus | string;
+  LensStatus?: LensStatus;
 }
 
 /**
@@ -4656,7 +4656,7 @@ export interface ListAnswersInput {
    * @public
    * <p>The priority of the question.</p>
    */
-  QuestionPriority?: QuestionPriority | string;
+  QuestionPriority?: QuestionPriority;
 }
 
 /**
@@ -4860,13 +4860,13 @@ export interface ListLensesInput {
    * @public
    * <p>The type of lenses to be returned.</p>
    */
-  LensType?: LensType | string;
+  LensType?: LensType;
 
   /**
    * @public
    * <p>The status of lenses to be returned.</p>
    */
-  LensStatus?: LensStatusType | string;
+  LensStatus?: LensStatusType;
 
   /**
    * @public
@@ -4947,7 +4947,7 @@ export interface ListLensReviewImprovementsInput {
    * @public
    * <p>The priority of the question.</p>
    */
-  QuestionPriority?: QuestionPriority | string;
+  QuestionPriority?: QuestionPriority;
 }
 
 /**
@@ -5101,7 +5101,7 @@ export interface ListLensSharesInput {
    * @public
    * <p>The status of the share request.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: ShareStatus;
 }
 
 /**
@@ -5200,7 +5200,7 @@ export interface WorkloadSummary {
    * @public
    * <p>The improvement status for a workload.</p>
    */
-  ImprovementStatus?: WorkloadImprovementStatus | string;
+  ImprovementStatus?: WorkloadImprovementStatus;
 
   /**
    * @public
@@ -5326,7 +5326,7 @@ export interface NotificationSummary {
    * @public
    * <p>The type of notification.</p>
    */
-  Type?: NotificationType | string;
+  Type?: NotificationType;
 
   /**
    * @public
@@ -5410,7 +5410,7 @@ export interface ProfileNotificationSummary {
    * @public
    * <p>Type of notification.</p>
    */
-  Type?: ProfileNotificationType | string;
+  Type?: ProfileNotificationType;
 
   /**
    * @public
@@ -5485,7 +5485,7 @@ export interface ListProfilesInput {
    * @public
    * <p>Profile owner type.</p>
    */
-  ProfileOwnerType?: ProfileOwnerType | string;
+  ProfileOwnerType?: ProfileOwnerType;
 
   /**
    * @public
@@ -5597,7 +5597,7 @@ export interface ListProfileSharesInput {
    * @public
    * <p>The status of the share request.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: ShareStatus;
 }
 
 /**
@@ -5622,7 +5622,7 @@ export interface ProfileShareSummary {
    * @public
    * <p>The status of the share request.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: ShareStatus;
 
   /**
    * @public
@@ -5744,19 +5744,19 @@ export interface ReviewTemplateAnswerSummary {
    * @public
    * <p>The status of whether or not this question has been answered.</p>
    */
-  AnswerStatus?: ReviewTemplateAnswerStatus | string;
+  AnswerStatus?: ReviewTemplateAnswerStatus;
 
   /**
    * @public
    * <p>The reason why a choice is not-applicable to a question in the review template.</p>
    */
-  Reason?: AnswerReason | string;
+  Reason?: AnswerReason;
 
   /**
    * @public
    * <p>The type of question.</p>
    */
-  QuestionType?: QuestionType | string;
+  QuestionType?: QuestionType;
 }
 
 /**
@@ -5857,7 +5857,7 @@ export interface ReviewTemplateSummary {
    * @public
    * <p>The latest status of a review template.</p>
    */
-  UpdateStatus?: ReviewTemplateUpdateStatus | string;
+  UpdateStatus?: ReviewTemplateUpdateStatus;
 }
 
 /**
@@ -5915,7 +5915,7 @@ export interface ListShareInvitationsInput {
    * @public
    * <p>The type of share invitations to be returned.</p>
    */
-  ShareResourceType?: ShareResourceType | string;
+  ShareResourceType?: ShareResourceType;
 
   /**
    * @public
@@ -5972,13 +5972,13 @@ export interface ShareInvitationSummary {
    * @public
    * <p>Permission granted on a share request.</p>
    */
-  PermissionType?: PermissionType | string;
+  PermissionType?: PermissionType;
 
   /**
    * @public
    * <p>The resource type of the share invitation.</p>
    */
-  ShareResourceType?: ShareResourceType | string;
+  ShareResourceType?: ShareResourceType;
 
   /**
    * @public
@@ -6104,7 +6104,7 @@ export interface ListTemplateSharesInput {
    * @public
    * <p>The status of the share request.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: ShareStatus;
 }
 
 /**
@@ -6129,7 +6129,7 @@ export interface TemplateShareSummary {
    * @public
    * <p>The status of the share request.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: ShareStatus;
 
   /**
    * @public
@@ -6237,7 +6237,7 @@ export interface ListWorkloadSharesInput {
    * @public
    * <p>The status of the share request.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: ShareStatus;
 }
 
 /**
@@ -6262,13 +6262,13 @@ export interface WorkloadShareSummary {
    * @public
    * <p>Permission granted on a share request.</p>
    */
-  PermissionType?: PermissionType | string;
+  PermissionType?: PermissionType;
 
   /**
    * @public
    * <p>The status of the share request.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: ShareStatus;
 
   /**
    * @public
@@ -6330,7 +6330,7 @@ export interface ShareInvitation {
    * @public
    * <p>The resource type of the share invitation.</p>
    */
-  ShareResourceType?: ShareResourceType | string;
+  ShareResourceType?: ShareResourceType;
 
   /**
    * @public
@@ -6490,7 +6490,7 @@ export interface UpdateAnswerInput {
    * @public
    * <p>The reason why a question is not applicable to your workload.</p>
    */
-  Reason?: AnswerReason | string;
+  Reason?: AnswerReason;
 }
 
 /**
@@ -6538,13 +6538,13 @@ export interface UpdateGlobalSettingsInput {
    * @public
    * <p>The status of organization sharing settings.</p>
    */
-  OrganizationSharingStatus?: OrganizationSharingStatus | string;
+  OrganizationSharingStatus?: OrganizationSharingStatus;
 
   /**
    * @public
    * <p>The status of discovery support settings.</p>
    */
-  DiscoveryIntegrationStatus?: DiscoveryIntegrationStatus | string;
+  DiscoveryIntegrationStatus?: DiscoveryIntegrationStatus;
 }
 
 /**
@@ -6750,7 +6750,7 @@ export interface UpdateReviewTemplateAnswerInput {
    * @public
    * <p>The update reason.</p>
    */
-  Reason?: AnswerReason | string;
+  Reason?: AnswerReason;
 }
 
 /**
@@ -6853,7 +6853,7 @@ export interface UpdateShareInvitationInput {
    * @public
    * <p>Share invitation action taken by contributor.</p>
    */
-  ShareInvitationAction: ShareInvitationAction | string | undefined;
+  ShareInvitationAction: ShareInvitationAction | undefined;
 }
 
 /**
@@ -6896,7 +6896,7 @@ export interface UpdateWorkloadInput {
    * @public
    * <p>The environment for the workload.</p>
    */
-  Environment?: WorkloadEnvironment | string;
+  Environment?: WorkloadEnvironment;
 
   /**
    * @public
@@ -7108,7 +7108,7 @@ export interface UpdateWorkloadInput {
    * @public
    * <p>The improvement status for a workload.</p>
    */
-  ImprovementStatus?: WorkloadImprovementStatus | string;
+  ImprovementStatus?: WorkloadImprovementStatus;
 
   /**
    * @public
@@ -7156,7 +7156,7 @@ export interface UpdateWorkloadShareInput {
    * @public
    * <p>Permission granted on a share request.</p>
    */
-  PermissionType: PermissionType | string | undefined;
+  PermissionType: PermissionType | undefined;
 }
 
 /**
@@ -7187,13 +7187,13 @@ export interface WorkloadShare {
    * @public
    * <p>Permission granted on a share request.</p>
    */
-  PermissionType?: PermissionType | string;
+  PermissionType?: PermissionType;
 
   /**
    * @public
    * <p>The status of the share request.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: ShareStatus;
 
   /**
    * @public

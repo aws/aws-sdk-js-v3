@@ -170,7 +170,7 @@ export interface SetUserPoolMfaConfigRequest {
    *             </li>
    *          </ul>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: UserPoolMfaType;
 }
 
 /**
@@ -208,7 +208,7 @@ export interface SetUserPoolMfaConfigResponse {
    *             </li>
    *          </ul>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: UserPoolMfaType;
 }
 
 /**
@@ -503,7 +503,7 @@ export interface UpdateAuthEventFeedbackRequest {
    *             <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you
    *             don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
    */
-  FeedbackValue: FeedbackValueType | string | undefined;
+  FeedbackValue: FeedbackValueType | undefined;
 }
 
 /**
@@ -533,7 +533,7 @@ export interface UpdateDeviceStatusRequest {
    * @public
    * <p>The status of whether a device is remembered.</p>
    */
-  DeviceRememberedStatus?: DeviceRememberedStatusType | string;
+  DeviceRememberedStatus?: DeviceRememberedStatusType;
 }
 
 /**
@@ -781,7 +781,7 @@ export interface UpdateUserPoolRequest {
    *         send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
    *         <code>UpdateUserPool</code> API request.</p>
    */
-  DeletionProtection?: DeletionProtectionType | string;
+  DeletionProtection?: DeletionProtectionType;
 
   /**
    * @public
@@ -794,7 +794,7 @@ export interface UpdateUserPoolRequest {
    * <p>The attributes that are automatically verified when Amazon Cognito requests to update user
    *             pools.</p>
    */
-  AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
+  AutoVerifiedAttributes?: VerifiedAttributeType[];
 
   /**
    * @public
@@ -858,7 +858,7 @@ export interface UpdateUserPoolRequest {
    *             </li>
    *          </ul>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: UserPoolMfaType;
 
   /**
    * @public
@@ -1068,7 +1068,7 @@ export interface UpdateUserPoolClientRequest {
    * You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>,
    * like <code>ALLOW_USER_SRP_AUTH</code>.</p>
    */
-  ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
+  ExplicitAuthFlows?: ExplicitAuthFlowsType[];
 
   /**
    * @public
@@ -1154,7 +1154,7 @@ export interface UpdateUserPoolClientRequest {
    *             </dd>
    *          </dl>
    */
-  AllowedOAuthFlows?: (OAuthFlowType | string)[];
+  AllowedOAuthFlows?: OAuthFlowType[];
 
   /**
    * @public
@@ -1232,7 +1232,7 @@ export interface UpdateUserPoolClientRequest {
    *             </li>
    *          </ul>
    */
-  PreventUserExistenceErrors?: PreventUserExistenceErrorTypes | string;
+  PreventUserExistenceErrors?: PreventUserExistenceErrorTypes;
 
   /**
    * @public
@@ -1392,7 +1392,7 @@ export interface VerifySoftwareTokenResponse {
    * @public
    * <p>The status of the verify software token.</p>
    */
-  Status?: VerifySoftwareTokenResponseType | string;
+  Status?: VerifySoftwareTokenResponseType;
 
   /**
    * @public

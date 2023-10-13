@@ -78,13 +78,13 @@ export interface AccountModification {
    * @public
    * <p>The state of the modification to the configuration of BYOL.</p>
    */
-  ModificationState?: DedicatedTenancyModificationStateEnum | string;
+  ModificationState?: DedicatedTenancyModificationStateEnum;
 
   /**
    * @public
    * <p>The status of BYOL (whether BYOL is being enabled or disabled).</p>
    */
-  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum | string;
+  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum;
 
   /**
    * @public
@@ -210,7 +210,7 @@ export interface AssociationStateReason {
    * @public
    * <p>The error code of the association deployment failure.</p>
    */
-  ErrorCode?: AssociationErrorCode | string;
+  ErrorCode?: AssociationErrorCode;
 
   /**
    * @public
@@ -240,7 +240,7 @@ export interface ApplicationResourceAssociation {
    * @public
    * <p>The resource type of the associated resource.</p>
    */
-  AssociatedResourceType?: ApplicationAssociatedResourceType | string;
+  AssociatedResourceType?: ApplicationAssociatedResourceType;
 
   /**
    * @public
@@ -258,7 +258,7 @@ export interface ApplicationResourceAssociation {
    * @public
    * <p>The status of the application resource association.</p>
    */
-  State?: AssociationState | string;
+  State?: AssociationState;
 
   /**
    * @public
@@ -498,7 +498,7 @@ export interface WorkspaceResourceAssociation {
    * @public
    * <p>The resource types of the associated resource.</p>
    */
-  AssociatedResourceType?: WorkSpaceAssociatedResourceType | string;
+  AssociatedResourceType?: WorkSpaceAssociatedResourceType;
 
   /**
    * @public
@@ -516,7 +516,7 @@ export interface WorkspaceResourceAssociation {
    * @public
    * <p>The status of the WorkSpace resource association.</p>
    */
-  State?: AssociationState | string;
+  State?: AssociationState;
 
   /**
    * @public
@@ -764,7 +764,7 @@ export interface ComputeType {
    * @public
    * <p>The compute type.</p>
    */
-  Name?: Compute | string;
+  Name?: Compute;
 }
 
 /**
@@ -877,13 +877,13 @@ export interface WorkspaceBundle {
    * @public
    * <p>The state of the WorkSpace bundle.</p>
    */
-  State?: WorkspaceBundleState | string;
+  State?: WorkspaceBundleState;
 
   /**
    * @public
    * <p>The type of WorkSpace bundle.</p>
    */
-  BundleType?: BundleType | string;
+  BundleType?: BundleType;
 }
 
 /**
@@ -901,7 +901,7 @@ export interface BundleResourceAssociation {
    * @public
    * <p>The resource type of the associated resources.</p>
    */
-  AssociatedResourceType?: BundleAssociatedResourceType | string;
+  AssociatedResourceType?: BundleAssociatedResourceType;
 
   /**
    * @public
@@ -925,7 +925,7 @@ export interface BundleResourceAssociation {
    * @public
    * <p>The status of the bundle resource association.</p>
    */
-  State?: AssociationState | string;
+  State?: AssociationState;
 
   /**
    * @public
@@ -959,7 +959,7 @@ export interface CertificateBasedAuthProperties {
    * @public
    * <p>The status of the certificate-based authentication properties.</p>
    */
-  Status?: CertificateBasedAuthStatusEnum | string;
+  Status?: CertificateBasedAuthStatusEnum;
 
   /**
    * @public
@@ -1025,7 +1025,7 @@ export interface ClientProperties {
    *          When enabled, users can choose to reconnect to their WorkSpaces without re-entering their
    *          credentials. </p>
    */
-  ReconnectEnabled?: ReconnectEnum | string;
+  ReconnectEnabled?: ReconnectEnum;
 
   /**
    * @public
@@ -1034,7 +1034,7 @@ export interface ClientProperties {
    *          When enabled, the log files will be sent to WorkSpaces automatically and will be applied to all
    *          users in the specified directory.</p>
    */
-  LogUploadEnabled?: LogUploadEnum | string;
+  LogUploadEnabled?: LogUploadEnum;
 }
 
 /**
@@ -1096,7 +1096,7 @@ export interface ConnectionAliasAssociation {
    * @public
    * <p>The association status of the connection alias.</p>
    */
-  AssociationStatus?: AssociationStatus | string;
+  AssociationStatus?: AssociationStatus;
 
   /**
    * @public
@@ -1159,7 +1159,7 @@ export interface ConnectionAlias {
    * @public
    * <p>The current state of the connection alias.</p>
    */
-  State?: ConnectionAliasState | string;
+  State?: ConnectionAliasState;
 
   /**
    * @public
@@ -1556,7 +1556,7 @@ export interface PendingCreateStandbyWorkspacesRequest {
    * @public
    * <p>The operational state of the standby WorkSpace.</p>
    */
-  State?: WorkspaceState | string;
+  State?: WorkspaceState;
 
   /**
    * @public
@@ -1767,7 +1767,7 @@ export interface OperatingSystem {
    * @public
    * <p>The operating system.</p>
    */
-  Type?: OperatingSystemType | string;
+  Type?: OperatingSystemType;
 }
 
 /**
@@ -1832,7 +1832,7 @@ export interface CreateWorkspaceImageResult {
    * @public
    * <p>The availability status of the image.</p>
    */
-  State?: WorkspaceImageState | string;
+  State?: WorkspaceImageState;
 
   /**
    * @public
@@ -1842,7 +1842,7 @@ export interface CreateWorkspaceImageResult {
    *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm">
    *             Bring Your Own Windows Desktop Images.</a>.</p>
    */
-  RequiredTenancy?: WorkspaceImageRequiredTenancy | string;
+  RequiredTenancy?: WorkspaceImageRequiredTenancy;
 
   /**
    * @public
@@ -1924,7 +1924,7 @@ export interface WorkspaceProperties {
    *             <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</p>
    *          </note>
    */
-  RunningMode?: RunningMode | string;
+  RunningMode?: RunningMode;
 
   /**
    * @public
@@ -1954,7 +1954,7 @@ export interface WorkspaceProperties {
    * <p>The compute type. For more information, see <a href="http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles">Amazon WorkSpaces
    *          Bundles</a>.</p>
    */
-  ComputeTypeName?: Compute | string;
+  ComputeTypeName?: Compute;
 
   /**
    * @public
@@ -1976,13 +1976,13 @@ export interface WorkspaceProperties {
    *             </ul>
    *          </note>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: Protocol[];
 
   /**
    * @public
    * <p>The name of the operating system.</p>
    */
-  OperatingSystemName?: OperatingSystemName | string;
+  OperatingSystemName?: OperatingSystemName;
 }
 
 /**
@@ -2114,13 +2114,13 @@ export interface ModificationState {
    * @public
    * <p>The resource.</p>
    */
-  Resource?: ModificationResourceEnum | string;
+  Resource?: ModificationResourceEnum;
 
   /**
    * @public
    * <p>The modification state.</p>
    */
-  State?: ModificationStateEnum | string;
+  State?: ModificationStateEnum;
 }
 
 /**
@@ -2160,13 +2160,13 @@ export interface RelatedWorkspaceProperties {
    * @public
    * <p>Indicates the state of the WorkSpace.</p>
    */
-  State?: WorkspaceState | string;
+  State?: WorkspaceState;
 
   /**
    * @public
    * <p>Indicates the type of WorkSpace.</p>
    */
-  Type?: StandbyWorkspaceRelationshipType | string;
+  Type?: StandbyWorkspaceRelationshipType;
 }
 
 /**
@@ -2210,7 +2210,7 @@ export interface Workspace {
    *             has been successfully terminated.</p>
    *          </note>
    */
-  State?: WorkspaceState | string;
+  State?: WorkspaceState;
 
   /**
    * @public
@@ -2557,7 +2557,7 @@ export interface DeleteClientBrandingRequest {
    * @public
    * <p>The device type for which you want to delete client branding.</p>
    */
-  Platforms: (ClientDeviceType | string)[] | undefined;
+  Platforms: ClientDeviceType[] | undefined;
 }
 
 /**
@@ -2747,7 +2747,7 @@ export interface DescribeAccountResult {
    * @public
    * <p>The status of BYOL (whether BYOL is enabled or disabled).</p>
    */
-  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum | string;
+  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum;
 
   /**
    * @public
@@ -2816,7 +2816,7 @@ export interface DescribeApplicationAssociationsRequest {
    * @public
    * <p>The resource type of the associated resources.</p>
    */
-  AssociatedResourceTypes: (ApplicationAssociatedResourceType | string)[] | undefined;
+  AssociatedResourceTypes: ApplicationAssociatedResourceType[] | undefined;
 }
 
 /**
@@ -2865,19 +2865,19 @@ export interface DescribeApplicationsRequest {
    * @public
    * <p>The compute types supported by the applications.</p>
    */
-  ComputeTypeNames?: (Compute | string)[];
+  ComputeTypeNames?: Compute[];
 
   /**
    * @public
    * <p>The license availability for the applications.</p>
    */
-  LicenseType?: WorkSpaceApplicationLicenseType | string;
+  LicenseType?: WorkSpaceApplicationLicenseType;
 
   /**
    * @public
    * <p>The operating systems supported by the applications.</p>
    */
-  OperatingSystemNames?: (OperatingSystemName | string)[];
+  OperatingSystemNames?: OperatingSystemName[];
 
   /**
    * @public
@@ -2941,7 +2941,7 @@ export interface WorkSpaceApplication {
    * @public
    * <p>The license availability for the applications.</p>
    */
-  LicenseType?: WorkSpaceApplicationLicenseType | string;
+  LicenseType?: WorkSpaceApplicationLicenseType;
 
   /**
    * @public
@@ -2959,19 +2959,19 @@ export interface WorkSpaceApplication {
    * @public
    * <p>The status of WorkSpace application.</p>
    */
-  State?: WorkSpaceApplicationState | string;
+  State?: WorkSpaceApplicationState;
 
   /**
    * @public
    * <p>The supported compute types of the WorkSpace application.</p>
    */
-  SupportedComputeTypeNames?: (Compute | string)[];
+  SupportedComputeTypeNames?: Compute[];
 
   /**
    * @public
    * <p>The supported operating systems of the WorkSpace application.</p>
    */
-  SupportedOperatingSystemNames?: (OperatingSystemName | string)[];
+  SupportedOperatingSystemNames?: OperatingSystemName[];
 }
 
 /**
@@ -3005,7 +3005,7 @@ export interface DescribeBundleAssociationsRequest {
    * @public
    * <p>The resource types of the associated resource.</p>
    */
-  AssociatedResourceTypes: (BundleAssociatedResourceType | string)[] | undefined;
+  AssociatedResourceTypes: BundleAssociatedResourceType[] | undefined;
 }
 
 /**
@@ -3357,7 +3357,7 @@ export interface DescribeImageAssociationsRequest {
    * @public
    * <p>The resource types of the associated resource.</p>
    */
-  AssociatedResourceTypes: (ImageAssociatedResourceType | string)[] | undefined;
+  AssociatedResourceTypes: ImageAssociatedResourceType[] | undefined;
 }
 
 /**
@@ -3375,7 +3375,7 @@ export interface ImageResourceAssociation {
    * @public
    * <p>The resource type of the associated resources.</p>
    */
-  AssociatedResourceType?: ImageAssociatedResourceType | string;
+  AssociatedResourceType?: ImageAssociatedResourceType;
 
   /**
    * @public
@@ -3399,7 +3399,7 @@ export interface ImageResourceAssociation {
    * @public
    * <p>The status of the image resource association.</p>
    */
-  State?: AssociationState | string;
+  State?: AssociationState;
 
   /**
    * @public
@@ -3529,7 +3529,7 @@ export interface DescribeWorkspaceAssociationsRequest {
    * @public
    * <p>The resource types of the associated resources.</p>
    */
-  AssociatedResourceTypes: (WorkSpaceAssociatedResourceType | string)[] | undefined;
+  AssociatedResourceTypes: WorkSpaceAssociatedResourceType[] | undefined;
 }
 
 /**
@@ -3666,7 +3666,7 @@ export interface SamlProperties {
    *             </li>
    *          </ul>
    */
-  Status?: SamlStatusEnum | string;
+  Status?: SamlStatusEnum;
 
   /**
    * @public
@@ -3696,33 +3696,33 @@ export interface SelfservicePermissions {
    * @public
    * <p>Specifies whether users can restart their WorkSpace.</p>
    */
-  RestartWorkspace?: ReconnectEnum | string;
+  RestartWorkspace?: ReconnectEnum;
 
   /**
    * @public
    * <p>Specifies whether users can increase the volume size of the drives on their
    *          WorkSpace.</p>
    */
-  IncreaseVolumeSize?: ReconnectEnum | string;
+  IncreaseVolumeSize?: ReconnectEnum;
 
   /**
    * @public
    * <p>Specifies whether users can change the compute type (bundle) for their WorkSpace.</p>
    */
-  ChangeComputeType?: ReconnectEnum | string;
+  ChangeComputeType?: ReconnectEnum;
 
   /**
    * @public
    * <p>Specifies whether users can switch the running mode of their WorkSpace.</p>
    */
-  SwitchRunningMode?: ReconnectEnum | string;
+  SwitchRunningMode?: ReconnectEnum;
 
   /**
    * @public
    * <p>Specifies whether users can rebuild the operating system of a WorkSpace to its original
    *          state.</p>
    */
-  RebuildWorkspace?: ReconnectEnum | string;
+  RebuildWorkspace?: ReconnectEnum;
 }
 
 /**
@@ -3767,50 +3767,50 @@ export interface WorkspaceAccessProperties {
    * @public
    * <p>Indicates whether users can use Windows clients to access their WorkSpaces.</p>
    */
-  DeviceTypeWindows?: AccessPropertyValue | string;
+  DeviceTypeWindows?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can use macOS clients to access their WorkSpaces.</p>
    */
-  DeviceTypeOsx?: AccessPropertyValue | string;
+  DeviceTypeOsx?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can access their WorkSpaces through a web browser.</p>
    */
-  DeviceTypeWeb?: AccessPropertyValue | string;
+  DeviceTypeWeb?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can use iOS devices to access their WorkSpaces.</p>
    */
-  DeviceTypeIos?: AccessPropertyValue | string;
+  DeviceTypeIos?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can use Android and Android-compatible Chrome OS devices to
    *          access their WorkSpaces.</p>
    */
-  DeviceTypeAndroid?: AccessPropertyValue | string;
+  DeviceTypeAndroid?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can use Chromebooks to access their WorkSpaces.</p>
    */
-  DeviceTypeChromeOs?: AccessPropertyValue | string;
+  DeviceTypeChromeOs?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can use zero client devices to access their WorkSpaces.</p>
    */
-  DeviceTypeZeroClient?: AccessPropertyValue | string;
+  DeviceTypeZeroClient?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can use Linux clients to access their WorkSpaces.</p>
    */
-  DeviceTypeLinux?: AccessPropertyValue | string;
+  DeviceTypeLinux?: AccessPropertyValue;
 }
 
 /**
@@ -3872,7 +3872,7 @@ export interface WorkspaceDirectory {
    * @public
    * <p>The directory type.</p>
    */
-  DirectoryType?: WorkspaceDirectoryType | string;
+  DirectoryType?: WorkspaceDirectoryType;
 
   /**
    * @public
@@ -3889,7 +3889,7 @@ export interface WorkspaceDirectory {
    *             DescribeWorkspaceDirectories</a>. If the directory ID isn't returned, then the
    *          directory has been successfully deregistered.</p>
    */
-  State?: WorkspaceDirectoryState | string;
+  State?: WorkspaceDirectoryState;
 
   /**
    * @public
@@ -3915,7 +3915,7 @@ export interface WorkspaceDirectory {
    *          (BYOL), this value must be set to <code>DEDICATED</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring
    *             Your Own Windows Desktop Images</a>.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: Tenancy;
 
   /**
    * @public
@@ -4048,7 +4048,7 @@ export interface DescribeWorkspaceImagesRequest {
    * @public
    * <p>The type (owned or shared) of the image.</p>
    */
-  ImageType?: ImageType | string;
+  ImageType?: ImageType;
 
   /**
    * @public
@@ -4113,7 +4113,7 @@ export interface ErrorDetails {
    * @public
    * <p>Indicates the error code returned.</p>
    */
-  ErrorCode?: WorkspaceImageErrorDetailCode | string;
+  ErrorCode?: WorkspaceImageErrorDetailCode;
 
   /**
    * @public
@@ -4179,7 +4179,7 @@ export interface WorkspaceImage {
    * @public
    * <p>The status of the image.</p>
    */
-  State?: WorkspaceImageState | string;
+  State?: WorkspaceImageState;
 
   /**
    * @public
@@ -4188,7 +4188,7 @@ export interface WorkspaceImage {
    *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring Your Own Windows
    *             Desktop Images</a>.</p>
    */
-  RequiredTenancy?: WorkspaceImageRequiredTenancy | string;
+  RequiredTenancy?: WorkspaceImageRequiredTenancy;
 
   /**
    * @public
@@ -4350,7 +4350,7 @@ export interface WorkspaceConnectionStatus {
    * <p>The connection state of the WorkSpace. The connection state is unknown if the WorkSpace
    *          is stopped.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -4749,7 +4749,7 @@ export interface ImportWorkspaceImageRequest {
    *             allow-listed to use these values. For more information, see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</p>
    *          </note>
    */
-  IngestionProcess: WorkspaceImageIngestionProcess | string | undefined;
+  IngestionProcess: WorkspaceImageIngestionProcess | undefined;
 
   /**
    * @public
@@ -4785,7 +4785,7 @@ export interface ImportWorkspaceImageRequest {
    *             </ul>
    *          </note>
    */
-  Applications?: (Application | string)[];
+  Applications?: Application[];
 }
 
 /**
@@ -4906,7 +4906,7 @@ export interface ModifyAccountRequest {
    * @public
    * <p>The status of BYOL.</p>
    */
-  DedicatedTenancySupport?: DedicatedTenancySupportEnum | string;
+  DedicatedTenancySupport?: DedicatedTenancySupportEnum;
 
   /**
    * @public
@@ -4944,7 +4944,7 @@ export interface ModifyCertificateBasedAuthPropertiesRequest {
    * @public
    * <p>The properties of the certificate-based authentication you want to delete.</p>
    */
-  PropertiesToDelete?: (DeletableCertificateBasedAuthProperty | string)[];
+  PropertiesToDelete?: DeletableCertificateBasedAuthProperty[];
 }
 
 /**
@@ -5006,7 +5006,7 @@ export interface ModifySamlPropertiesRequest {
    *             </li>
    *          </ul>
    */
-  PropertiesToDelete?: (DeletableSamlProperty | string)[];
+  PropertiesToDelete?: DeletableSamlProperty[];
 }
 
 /**
@@ -5227,7 +5227,7 @@ export interface ModifyWorkspaceStateRequest {
    * @public
    * <p>The WorkSpace state.</p>
    */
-  WorkspaceState: TargetWorkspaceState | string | undefined;
+  WorkspaceState: TargetWorkspaceState | undefined;
 }
 
 /**
@@ -5350,7 +5350,7 @@ export interface RegisterWorkspaceDirectoryRequest {
    *          BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring Your Own Windows
    *             Desktop Images</a>.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: Tenancy;
 
   /**
    * @public

@@ -4455,10 +4455,7 @@ const se_DisassociateEnvironmentOperationsRoleMessage = (
 /**
  * serializeAws_queryEnvironmentHealthAttributes
  */
-const se_EnvironmentHealthAttributes = (
-  input: (EnvironmentHealthAttribute | string)[],
-  context: __SerdeContext
-): any => {
+const se_EnvironmentHealthAttributes = (input: EnvironmentHealthAttribute[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -4523,7 +4520,7 @@ const se_EnvironmentTier = (input: EnvironmentTier, context: __SerdeContext): an
 /**
  * serializeAws_queryInstancesHealthAttributes
  */
-const se_InstancesHealthAttributes = (input: (InstancesHealthAttribute | string)[], context: __SerdeContext): any => {
+const se_InstancesHealthAttributes = (input: InstancesHealthAttribute[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {

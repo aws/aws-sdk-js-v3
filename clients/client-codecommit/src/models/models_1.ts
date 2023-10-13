@@ -120,13 +120,13 @@ export interface ListRepositoriesInput {
    * @public
    * <p>The criteria used to sort the results of a list repositories operation.</p>
    */
-  sortBy?: SortByEnum | string;
+  sortBy?: SortByEnum;
 
   /**
    * @public
    * <p>The order in which to sort the results of a list repositories operation.</p>
    */
-  order?: OrderEnum | string;
+  order?: OrderEnum;
 }
 
 /**
@@ -393,7 +393,7 @@ export interface MergeBranchesBySquashInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum;
 
   /**
    * @public
@@ -401,7 +401,7 @@ export interface MergeBranchesBySquashInput {
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
 
   /**
    * @public
@@ -493,7 +493,7 @@ export interface MergeBranchesByThreeWayInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum;
 
   /**
    * @public
@@ -501,7 +501,7 @@ export interface MergeBranchesByThreeWayInput {
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
 
   /**
    * @public
@@ -662,7 +662,7 @@ export interface MergePullRequestBySquashInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum;
 
   /**
    * @public
@@ -670,7 +670,7 @@ export interface MergePullRequestBySquashInput {
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
 
   /**
    * @public
@@ -749,7 +749,7 @@ export interface MergePullRequestByThreeWayInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum;
 
   /**
    * @public
@@ -757,7 +757,7 @@ export interface MergePullRequestByThreeWayInput {
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
 
   /**
    * @public
@@ -870,7 +870,7 @@ export interface OverridePullRequestApprovalRulesInput {
    * <p>Whether you want to set aside approval rule requirements for the pull request (OVERRIDE) or revoke a previous override and apply
    *         approval rule requirements (REVOKE). REVOKE status is not stored.</p>
    */
-  overrideStatus: OverrideStatus | string | undefined;
+  overrideStatus: OverrideStatus | undefined;
 }
 
 /**
@@ -1369,7 +1369,7 @@ export interface PutFileInput {
    * <p>The file mode permissions of the blob. Valid file mode permissions are listed
    *             here.</p>
    */
-  fileMode?: FileModeTypeEnum | string;
+  fileMode?: FileModeTypeEnum;
 
   /**
    * @public
@@ -2232,7 +2232,7 @@ export interface UpdatePullRequestApprovalStateInput {
    * @public
    * <p>The approval state to associate with the user on the pull request.</p>
    */
-  approvalState: ApprovalState | string | undefined;
+  approvalState: ApprovalState | undefined;
 }
 
 /**
@@ -2320,7 +2320,7 @@ export interface UpdatePullRequestStatusInput {
    *             from <code>OPEN</code> to <code>OPEN</code>, <code>OPEN</code> to <code>CLOSED</code> or
    *             from <code>CLOSED</code> to <code>CLOSED</code>.</p>
    */
-  pullRequestStatus: PullRequestStatusEnum | string | undefined;
+  pullRequestStatus: PullRequestStatusEnum | undefined;
 }
 
 /**

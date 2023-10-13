@@ -112,7 +112,7 @@ export interface Highlight {
    * @public
    * <p>The highlight type. </p>
    */
-  Type?: HighlightType | string;
+  Type?: HighlightType;
 }
 
 /**
@@ -175,7 +175,7 @@ export interface AdditionalResultAttribute {
    * @public
    * <p>The data type of the <code>Value</code> property.</p>
    */
-  ValueType: AdditionalResultAttributeValueType | string | undefined;
+  ValueType: AdditionalResultAttributeValueType | undefined;
 
   /**
    * @public
@@ -339,7 +339,7 @@ export interface AlfrescoConfiguration {
    * <p>Specify whether to index document libraries, wikis, or blogs. You can specify one or
    *             more of these options.</p>
    */
-  EntityFilter?: (AlfrescoEntity | string)[];
+  EntityFilter?: AlfrescoEntity[];
 
   /**
    * @public
@@ -434,7 +434,7 @@ export interface EntityConfiguration {
    * <p>Specifies whether you are configuring a <code>User</code> or a
    *             <code>Group</code>.</p>
    */
-  EntityType: EntityType | string | undefined;
+  EntityType: EntityType | undefined;
 }
 
 /**
@@ -645,7 +645,7 @@ export interface EntityPersonaConfiguration {
    *             information on these personas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience">Providing
    *                 access to your search page</a>.</p>
    */
-  Persona: Persona | string | undefined;
+  Persona: Persona | undefined;
 }
 
 /**
@@ -796,7 +796,7 @@ export interface AttributeSuggestionsDescribeConfig {
    *             and you haven't set your <code>SuggestionTypes</code> preference to <code>DOCUMENT_ATTRIBUTES</code>,
    *             then Amazon Kendra uses the query history.</p>
    */
-  AttributeSuggestionsMode?: AttributeSuggestionsMode | string;
+  AttributeSuggestionsMode?: AttributeSuggestionsMode;
 }
 
 /**
@@ -899,7 +899,7 @@ export interface AttributeSuggestionsUpdateConfig {
    *             <code>SuggestionTypes</code> preference to <code>DOCUMENT_ATTRIBUTES</code>, then
    *             Amazon Kendra uses the query history.</p>
    */
-  AttributeSuggestionsMode?: AttributeSuggestionsMode | string;
+  AttributeSuggestionsMode?: AttributeSuggestionsMode;
 }
 
 /**
@@ -1027,7 +1027,7 @@ export interface BatchDeleteDocumentResponseFailedDocument {
    * @public
    * <p>The error code for why the document couldn't be removed from the index.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -1106,7 +1106,7 @@ export interface BatchDeleteFeaturedResultsSetError {
    * <p>The error code for why the set of featured results couldn't be removed
    *             from the index.</p>
    */
-  ErrorCode: ErrorCode | string | undefined;
+  ErrorCode: ErrorCode | undefined;
 
   /**
    * @public
@@ -1231,7 +1231,7 @@ export interface Status {
    *          <p>If the document was submitted for deletion, the status is <code>NOT_FOUND</code> after
    *             the document is deleted.</p>
    */
-  DocumentStatus?: DocumentStatus | string;
+  DocumentStatus?: DocumentStatus;
 
   /**
    * @public
@@ -1262,7 +1262,7 @@ export interface BatchGetDocumentStatusResponseError {
    * @public
    * <p>Indicates the source of the error.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -1346,7 +1346,7 @@ export interface DocumentAttributeCondition {
    * <p>The condition operator.</p>
    *          <p>For example, you can use 'Contains' to partially match a string.</p>
    */
-  Operator: ConditionOperator | string | undefined;
+  Operator: ConditionOperator | undefined;
 
   /**
    * @public
@@ -1554,13 +1554,13 @@ export interface Principal {
    * @public
    * <p>The type of principal.</p>
    */
-  Type: PrincipalType | string | undefined;
+  Type: PrincipalType | undefined;
 
   /**
    * @public
    * <p>Whether to allow or deny document access to the principal.</p>
    */
-  Access: ReadAccessType | string | undefined;
+  Access: ReadAccessType | undefined;
 
   /**
    * @public
@@ -1680,7 +1680,7 @@ export interface Document {
    *             of the HTML documents, you must add the <code>HTML</code> start and closing tags
    *             (<code><HTML>content</HTML></code>) around the content.</p>
    */
-  ContentType?: ContentType | string;
+  ContentType?: ContentType;
 
   /**
    * @public
@@ -1749,7 +1749,7 @@ export interface BatchPutDocumentResponseFailedDocument {
    * @public
    * <p>The type of error that caused the document to fail to be indexed.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -2050,7 +2050,7 @@ export interface ConfluenceAttachmentToIndexFieldMapping {
    * <p>The name of the field in the data source. </p>
    *          <p>You must first create the index field using the <code>UpdateIndex</code> API. </p>
    */
-  DataSourceFieldName?: ConfluenceAttachmentFieldName | string;
+  DataSourceFieldName?: ConfluenceAttachmentFieldName;
 
   /**
    * @public
@@ -2142,7 +2142,7 @@ export interface ConfluenceBlogToIndexFieldMapping {
    * @public
    * <p>The name of the field in the data source. </p>
    */
-  DataSourceFieldName?: ConfluenceBlogFieldName | string;
+  DataSourceFieldName?: ConfluenceBlogFieldName;
 
   /**
    * @public
@@ -2216,7 +2216,7 @@ export interface ConfluencePageToIndexFieldMapping {
    * @public
    * <p>The name of the field in the data source.</p>
    */
-  DataSourceFieldName?: ConfluencePageFieldName | string;
+  DataSourceFieldName?: ConfluencePageFieldName;
 
   /**
    * @public
@@ -2312,7 +2312,7 @@ export interface ConfluenceSpaceToIndexFieldMapping {
    * @public
    * <p>The name of the field in the data source. </p>
    */
-  DataSourceFieldName?: ConfluenceSpaceFieldName | string;
+  DataSourceFieldName?: ConfluenceSpaceFieldName;
 
   /**
    * @public
@@ -2428,7 +2428,7 @@ export interface ConfluenceConfiguration {
    * @public
    * <p>The version or the type of Confluence installation to connect to.</p>
    */
-  Version: ConfluenceVersion | string | undefined;
+  Version: ConfluenceVersion | undefined;
 
   /**
    * @public
@@ -2507,7 +2507,7 @@ export interface ConfluenceConfiguration {
    *             password, or a personal access token. You can use a personal access token for Confluence
    *             Server.</p>
    */
-  AuthenticationType?: ConfluenceAuthenticationType | string;
+  AuthenticationType?: ConfluenceAuthenticationType;
 }
 
 /**
@@ -2642,7 +2642,7 @@ export interface SqlConfiguration {
    *          <p>For MySQL databases, you must enable the <code>ansi_quotes</code> option when you set
    *             this field to <code>DOUBLE_QUOTES</code>.</p>
    */
-  QueryIdentifiersEnclosingOption?: QueryIdentifiersEnclosingOption | string;
+  QueryIdentifiersEnclosingOption?: QueryIdentifiersEnclosingOption;
 }
 
 /**
@@ -2655,7 +2655,7 @@ export interface DatabaseConfiguration {
    * @public
    * <p>The type of database engine that runs the database.</p>
    */
-  DatabaseEngineType: DatabaseEngineType | string | undefined;
+  DatabaseEngineType: DatabaseEngineType | undefined;
 
   /**
    * @public
@@ -2724,7 +2724,7 @@ export interface FsxConfiguration {
    * <p>The Amazon FSx file system type. Windows is currently the only supported
    *             type.</p>
    */
-  FileSystemType: FsxFileSystemType | string | undefined;
+  FileSystemType: FsxFileSystemType | undefined;
 
   /**
    * @public
@@ -2932,7 +2932,7 @@ export interface GitHubConfiguration {
    * <p>The type of GitHub service you want to connect to—GitHub Enterprise Cloud
    *             (SaaS) or GitHub Enterprise Server (on premises).</p>
    */
-  Type?: Type | string;
+  Type?: Type;
 
   /**
    * @public
@@ -3270,7 +3270,7 @@ export interface JiraConfiguration {
    * <p>Specify whether to crawl comments, attachments, and work logs. You can specify one or
    *             more of these options.</p>
    */
-  IssueSubEntityFilter?: (IssueSubEntity | string)[];
+  IssueSubEntityFilter?: IssueSubEntity[];
 
   /**
    * @public
@@ -3713,7 +3713,7 @@ export interface SalesforceChatterFeedConfiguration {
    *             indexed. When you specify <code>STANDARD_USER</code> only documents for Salesforce
    *             standard users are documented. You can specify both.</p>
    */
-  IncludeFilterTypes?: (SalesforceChatterFeedIncludeFilterType | string)[];
+  IncludeFilterTypes?: SalesforceChatterFeedIncludeFilterType[];
 }
 
 /**
@@ -3807,7 +3807,7 @@ export interface SalesforceKnowledgeArticleConfiguration {
    * <p>Specifies the document states that should be included when Amazon Kendra indexes
    *             knowledge articles. You must specify at least one state.</p>
    */
-  IncludedStates: (SalesforceKnowledgeArticleState | string)[] | undefined;
+  IncludedStates: SalesforceKnowledgeArticleState[] | undefined;
 
   /**
    * @public
@@ -3881,7 +3881,7 @@ export interface SalesforceStandardObjectConfiguration {
    * @public
    * <p>The name of the standard object.</p>
    */
-  Name: SalesforceStandardObjectName | string | undefined;
+  Name: SalesforceStandardObjectName | undefined;
 
   /**
    * @public
@@ -4196,7 +4196,7 @@ export interface ServiceNowConfiguration {
    * <p>The identifier of the release that the ServiceNow host is running. If the host is not
    *             running the <code>LONDON</code> release, use <code>OTHERS</code>.</p>
    */
-  ServiceNowBuildVersion: ServiceNowBuildVersionType | string | undefined;
+  ServiceNowBuildVersion: ServiceNowBuildVersionType | undefined;
 
   /**
    * @public
@@ -4222,7 +4222,7 @@ export interface ServiceNowConfiguration {
    *             client secret using the ServiceNow console. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html">Using a
    *                 ServiceNow data source</a>.</p>
    */
-  AuthenticationType?: ServiceNowAuthenticationType | string;
+  AuthenticationType?: ServiceNowAuthenticationType;
 }
 
 /**
@@ -4266,7 +4266,7 @@ export interface SharePointConfiguration {
    * @public
    * <p>The version of Microsoft SharePoint that you use.</p>
    */
-  SharePointVersion: SharePointVersion | string | undefined;
+  SharePointVersion: SharePointVersion | undefined;
 
   /**
    * @public
@@ -4369,7 +4369,7 @@ export interface SharePointConfiguration {
    *             name and password, or OAuth authentication of user name, password, client ID, and client
    *             secret, or AD App-only authentication of client secret.</p>
    */
-  AuthenticationType?: SharePointOnlineAuthenticationType | string;
+  AuthenticationType?: SharePointOnlineAuthenticationType;
 
   /**
    * @public
@@ -4448,7 +4448,7 @@ export interface SlackConfiguration {
    * <p>Specify whether to index public channels, private channels, group messages, and direct
    *             messages. You can specify one or more of these options.</p>
    */
-  SlackEntityList: (SlackEntity | string)[] | undefined;
+  SlackEntityList: SlackEntity[] | undefined;
 
   /**
    * @public
@@ -4615,7 +4615,7 @@ export interface SeedUrlConfiguration {
    *          </ul>
    *          <p>The default mode is set to <code>HOST_ONLY</code>.</p>
    */
-  WebCrawlerMode?: WebCrawlerMode | string;
+  WebCrawlerMode?: WebCrawlerMode;
 }
 
 /**
@@ -5053,7 +5053,7 @@ export interface CreateDataSourceRequest {
    * @public
    * <p>The type of data source repository. For example, <code>SHAREPOINT</code>.</p>
    */
-  Type: DataSourceType | string | undefined;
+  Type: DataSourceType | undefined;
 
   /**
    * @public
@@ -5348,7 +5348,7 @@ export interface CreateFaqRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html">Adding questions and
    *             answers</a>.</p>
    */
-  FileFormat?: FaqFileFormat | string;
+  FileFormat?: FaqFileFormat;
 
   /**
    * @public
@@ -5451,7 +5451,7 @@ export interface CreateFeaturedResultsSetRequest {
    *             featured results must be unique per featured results set for each index,
    *             whether the status is <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
    */
-  Status?: FeaturedResultsSetStatus | string;
+  Status?: FeaturedResultsSetStatus;
 
   /**
    * @public
@@ -5514,7 +5514,7 @@ export interface FeaturedResultsSet {
    *             featured results must be unique per featured results set for each index,
    *             whether the status is <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
    */
-  Status?: FeaturedResultsSetStatus | string;
+  Status?: FeaturedResultsSetStatus;
 
   /**
    * @public
@@ -5718,7 +5718,7 @@ export interface UserGroupResolutionConfiguration {
    *          IAM Identity Center (successor to Single Sign-On) is currently the only available mode. Your users and groups
    *          must exist in an IAM Identity Center identity source in order to use this mode.</p>
    */
-  UserGroupResolutionMode: UserGroupResolutionMode | string | undefined;
+  UserGroupResolutionMode: UserGroupResolutionMode | undefined;
 }
 
 /**
@@ -5762,7 +5762,7 @@ export interface JwtTokenTypeConfiguration {
    * @public
    * <p>The location of the key.</p>
    */
-  KeyLocation: KeyLocation | string | undefined;
+  KeyLocation: KeyLocation | undefined;
 
   /**
    * @public
@@ -5839,7 +5839,7 @@ export interface CreateIndexRequest {
    *       is <code>ENTERPRISE_EDITION</code>.</p>
    *          <p>For more information on quota limits for Enterprise and Developer editions, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</p>
    */
-  Edition?: IndexEdition | string;
+  Edition?: IndexEdition;
 
   /**
    * @public
@@ -5902,7 +5902,7 @@ export interface CreateIndexRequest {
    *             </dd>
    *          </dl>
    */
-  UserContextPolicy?: UserContextPolicy | string;
+  UserContextPolicy?: UserContextPolicy;
 
   /**
    * @public
@@ -6352,7 +6352,7 @@ export interface DescribeDataSourceResponse {
    * @public
    * <p>The type of the data source. For example, <code>SHAREPOINT</code>.</p>
    */
-  Type?: DataSourceType | string;
+  Type?: DataSourceType;
 
   /**
    * @public
@@ -6393,7 +6393,7 @@ export interface DescribeDataSourceResponse {
    *       the data source is ready to use. When the status is <code>FAILED</code>, the
    *         <code>ErrorMessage</code> field contains the reason that the data source failed.</p>
    */
-  Status?: DataSourceStatus | string;
+  Status?: DataSourceStatus;
 
   /**
    * @public
@@ -6478,7 +6478,7 @@ export interface ExperienceEndpoint {
    *             is <code>HOME</code>, which is a unique and fully hosted URL to the home page
    *             of your Amazon Kendra experience.</p>
    */
-  EndpointType?: EndpointType | string;
+  EndpointType?: EndpointType;
 
   /**
    * @public
@@ -6566,7 +6566,7 @@ export interface DescribeExperienceResponse {
    *             status is <code>FAILED</code>, the <code>ErrorMessage</code> field contains
    *             the reason that this failed.</p>
    */
-  Status?: ExperienceStatus | string;
+  Status?: ExperienceStatus;
 
   /**
    * @public
@@ -6669,7 +6669,7 @@ export interface DescribeFaqResponse {
    * <p>The status of the FAQ. It is ready to use when the status is
    *             <code>ACTIVE</code>.</p>
    */
-  Status?: FaqStatus | string;
+  Status?: FaqStatus;
 
   /**
    * @public
@@ -6689,7 +6689,7 @@ export interface DescribeFaqResponse {
    * @public
    * <p>The file format used by the input files for the FAQ.</p>
    */
-  FileFormat?: FaqFileFormat | string;
+  FileFormat?: FaqFileFormat;
 
   /**
    * @public
@@ -6799,7 +6799,7 @@ export interface DescribeFeaturedResultsSetResponse {
    *             featured results must be unique per featured results set for each index,
    *             whether the status is <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
    */
-  Status?: FeaturedResultsSetStatus | string;
+  Status?: FeaturedResultsSetStatus;
 
   /**
    * @public
@@ -6940,7 +6940,7 @@ export interface Relevance {
    *             than a priority 5 task.</p>
    *          <p>Only applies to <code>LONG</code> and <code>DOUBLE</code> fields.</p>
    */
-  RankOrder?: Order | string;
+  RankOrder?: Order;
 
   /**
    * @public
@@ -7025,7 +7025,7 @@ export interface DocumentMetadataConfiguration {
    * @public
    * <p>The data type of the index field. </p>
    */
-  Type: DocumentAttributeValueType | string | undefined;
+  Type: DocumentAttributeValueType | undefined;
 
   /**
    * @public
@@ -7130,7 +7130,7 @@ export interface DescribeIndexResponse {
    * <p>The Amazon Kendra edition used for the index. You decide the edition when you create
    *       the index.</p>
    */
-  Edition?: IndexEdition | string;
+  Edition?: IndexEdition;
 
   /**
    * @public
@@ -7152,7 +7152,7 @@ export interface DescribeIndexResponse {
    *       for use. If the <code>Status</code> field value is <code>FAILED</code>, the
    *         <code>ErrorMessage</code> field contains a message that explains why.</p>
    */
-  Status?: IndexStatus | string;
+  Status?: IndexStatus;
 
   /**
    * @public
@@ -7214,7 +7214,7 @@ export interface DescribeIndexResponse {
    * @public
    * <p>The user context policy for the Amazon Kendra index.</p>
    */
-  UserContextPolicy?: UserContextPolicy | string;
+  UserContextPolicy?: UserContextPolicy;
 
   /**
    * @public
@@ -7279,7 +7279,7 @@ export interface GroupOrderingIdSummary {
    *             can be either <code>PROCESSING</code>, <code>SUCCEEDED</code>, <code>DELETING</code>,
    *                 <code>DELETED</code>, or <code>FAILED</code>.</p>
    */
-  Status?: PrincipalMappingStatus | string;
+  Status?: PrincipalMappingStatus;
 
   /**
    * @public
@@ -7437,7 +7437,7 @@ export interface DescribeQuerySuggestionsBlockListResponse {
    * <p>The current status of the block list. When the value is
    *             <code>ACTIVE</code>, the block list is ready for use.</p>
    */
-  Status?: QuerySuggestionsBlockListStatus | string;
+  Status?: QuerySuggestionsBlockListStatus;
 
   /**
    * @public
@@ -7545,7 +7545,7 @@ export interface DescribeQuerySuggestionsConfigResponse {
    *             the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html">UpdateQuerySuggestionsConfig</a>
    *             API.</p>
    */
-  Mode?: Mode | string;
+  Mode?: Mode;
 
   /**
    * @public
@@ -7554,7 +7554,7 @@ export interface DescribeQuerySuggestionsConfigResponse {
    *          <p>Active means the current settings apply and Updating means your
    *             changed settings are in the process of applying.</p>
    */
-  Status?: QuerySuggestionsStatus | string;
+  Status?: QuerySuggestionsStatus;
 
   /**
    * @public
@@ -7698,7 +7698,7 @@ export interface DescribeThesaurusResponse {
    *       thesaurus file is still active.
    *       </p>
    */
-  Status?: ThesaurusStatus | string;
+  Status?: ThesaurusStatus;
 
   /**
    * @public
@@ -8045,7 +8045,7 @@ export interface GetSnapshotsRequest {
    *             </li>
    *          </ul>
    */
-  Interval: Interval | string | undefined;
+  Interval: Interval | undefined;
 
   /**
    * @public
@@ -8053,7 +8053,7 @@ export interface GetSnapshotsRequest {
    *          <p>For more information about the metrics you can view, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/search-analytics.html">Gaining insights with search
    *                 analytics</a>.</p>
    */
-  MetricType: MetricType | string | undefined;
+  MetricType: MetricType | undefined;
 
   /**
    * @public
@@ -8232,7 +8232,7 @@ export interface DataSourceSummary {
    * @public
    * <p>The type of the data source.</p>
    */
-  Type?: DataSourceType | string;
+  Type?: DataSourceType;
 
   /**
    * @public
@@ -8251,7 +8251,7 @@ export interface DataSourceSummary {
    * <p>The status of the data source. When the status is <code>ACTIVE</code> the data source is
    *       ready to use.</p>
    */
-  Status?: DataSourceStatus | string;
+  Status?: DataSourceStatus;
 
   /**
    * @public
@@ -8343,7 +8343,7 @@ export interface ListDataSourceSyncJobsRequest {
    * <p>Only returns synchronization jobs with the <code>Status</code> field equal to the
    *       specified status.</p>
    */
-  StatusFilter?: DataSourceSyncJobStatus | string;
+  StatusFilter?: DataSourceSyncJobStatus;
 }
 
 /**
@@ -8417,7 +8417,7 @@ export interface DataSourceSyncJob {
    *         <code>FAILED</code>, the <code>ErrorCode</code> and <code>ErrorMessage</code> fields give
    *       you the reason for the failure.</p>
    */
-  Status?: DataSourceSyncJobStatus | string;
+  Status?: DataSourceSyncJobStatus;
 
   /**
    * @public
@@ -8432,7 +8432,7 @@ export interface DataSourceSyncJob {
    * <p>If the <code>Status</code> field is set to <code>FAILED</code>, the <code>ErrorCode</code>
    *       field indicates the reason the synchronization failed.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -8523,7 +8523,7 @@ export interface PersonasSummary {
    *             these personas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience">Providing
    *                 access to your search page</a>.</p>
    */
-  Persona?: Persona | string;
+  Persona?: Persona;
 
   /**
    * @public
@@ -8637,7 +8637,7 @@ export interface ExperienceEntitiesSummary {
    * @public
    * <p>Shows the type as <code>User</code> or <code>Group</code>.</p>
    */
-  EntityType?: EntityType | string;
+  EntityType?: EntityType;
 
   /**
    * @public
@@ -8719,7 +8719,7 @@ export interface ExperiencesSummary {
    * @public
    * <p>The processing status of your Amazon Kendra experience.</p>
    */
-  Status?: ExperienceStatus | string;
+  Status?: ExperienceStatus;
 
   /**
    * @public
@@ -8796,7 +8796,7 @@ export interface FaqSummary {
    * <p>The current status of the FAQ. When the status is <code>ACTIVE</code> the FAQ is ready
    *             for use.</p>
    */
-  Status?: FaqStatus | string;
+  Status?: FaqStatus;
 
   /**
    * @public
@@ -8814,7 +8814,7 @@ export interface FaqSummary {
    * @public
    * <p>The file type used to create the FAQ. </p>
    */
-  FileFormat?: FaqFileFormat | string;
+  FileFormat?: FaqFileFormat;
 
   /**
    * @public
@@ -8899,7 +8899,7 @@ export interface FeaturedResultsSetSummary {
    *             featured results must be unique per featured results set for each index,
    *             whether the status is <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
    */
-  Status?: FeaturedResultsSetStatus | string;
+  Status?: FeaturedResultsSetStatus;
 
   /**
    * @public
@@ -9055,7 +9055,7 @@ export interface IndexConfigurationSummary {
    * <p>Indicates whether the index is a Enterprise Edition index or a Developer Edition index.
    *     </p>
    */
-  Edition?: IndexEdition | string;
+  Edition?: IndexEdition;
 
   /**
    * @public
@@ -9074,7 +9074,7 @@ export interface IndexConfigurationSummary {
    * <p>The current status of the index. When the status is <code>ACTIVE</code>, the index is
    *       ready to search.</p>
    */
-  Status: IndexStatus | string | undefined;
+  Status: IndexStatus | undefined;
 }
 
 /**
@@ -9151,7 +9151,7 @@ export interface QuerySuggestionsBlockListSummary {
    * @public
    * <p>The status of the block list.</p>
    */
-  Status?: QuerySuggestionsBlockListStatus | string;
+  Status?: QuerySuggestionsBlockListStatus;
 
   /**
    * @public
@@ -9289,7 +9289,7 @@ export interface ThesaurusSummary {
    * @public
    * <p>The status of the thesaurus.</p>
    */
-  Status?: ThesaurusStatus | string;
+  Status?: ThesaurusStatus;
 
   /**
    * @public
@@ -9559,7 +9559,7 @@ export interface SortingConfiguration {
    * <p>The order that the results should be returned in. In case of ties, the relevance
    *             assigned to the result by Amazon Kendra is used as the tie-breaker.</p>
    */
-  SortOrder: SortOrder | string | undefined;
+  SortOrder: SortOrder | undefined;
 }
 
 /**
@@ -9601,7 +9601,7 @@ export interface FeaturedResultsItem {
    *             a response could include a question-answer type that's relevant to the
    *             query.</p>
    */
-  Type?: QueryResultType | string;
+  Type?: QueryResultType;
 
   /**
    * @public
@@ -9691,7 +9691,7 @@ export interface ScoreAttributes {
    * @public
    * <p>A relative ranking for how relevant the response is to the query.</p>
    */
-  ScoreConfidence?: ScoreConfidence | string;
+  ScoreConfidence?: ScoreConfidence;
 }
 
 /**

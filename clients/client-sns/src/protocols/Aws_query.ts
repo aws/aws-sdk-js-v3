@@ -5451,7 +5451,7 @@ const de_NotFoundException = (output: any, context: __SerdeContext): NotFoundExc
 /**
  * deserializeAws_queryNumberCapabilityList
  */
-const de_NumberCapabilityList = (output: any, context: __SerdeContext): (NumberCapability | string)[] => {
+const de_NumberCapabilityList = (output: any, context: __SerdeContext): NumberCapability[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

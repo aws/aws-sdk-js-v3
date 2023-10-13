@@ -259,7 +259,7 @@ export interface ProvisioningTemplateSummary {
    *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
    *       </p>
    */
-  type?: TemplateType | string;
+  type?: TemplateType;
 }
 
 /**
@@ -464,7 +464,7 @@ export interface ScheduledAuditMetadata {
    * @public
    * <p>How often the scheduled audit occurs.</p>
    */
-  frequency?: AuditFrequency | string;
+  frequency?: AuditFrequency;
 
   /**
    * @public
@@ -480,7 +480,7 @@ export interface ScheduledAuditMetadata {
    * <p>The day of the week on which the scheduled audit is run (if the
    *           <code>frequency</code> is "WEEKLY" or "BIWEEKLY").</p>
    */
-  dayOfWeek?: DayOfWeek | string;
+  dayOfWeek?: DayOfWeek;
 }
 
 /**
@@ -1002,7 +1002,7 @@ export interface ListThingRegistrationTaskReportsRequest {
    * @public
    * <p>The type of task report.</p>
    */
-  reportType: ReportType | string | undefined;
+  reportType: ReportType | undefined;
 
   /**
    * @public
@@ -1033,7 +1033,7 @@ export interface ListThingRegistrationTaskReportsResponse {
    * @public
    * <p>The type of task report.</p>
    */
-  reportType?: ReportType | string;
+  reportType?: ReportType;
 
   /**
    * @public
@@ -1064,7 +1064,7 @@ export interface ListThingRegistrationTasksRequest {
    * @public
    * <p>The status of the bulk thing provisioning task.</p>
    */
-  status?: Status | string;
+  status?: Status;
 }
 
 /**
@@ -1462,7 +1462,7 @@ export interface TopicRuleDestinationSummary {
    *             </dd>
    *          </dl>
    */
-  status?: TopicRuleDestinationStatus | string;
+  status?: TopicRuleDestinationStatus;
 
   /**
    * @public
@@ -1607,7 +1607,7 @@ export interface ListV2LoggingLevelsRequest {
    * <p>The type of resource for which you are configuring logging. Must be
    *             <code>THING_Group</code>.</p>
    */
-  targetType?: LogTargetType | string;
+  targetType?: LogTargetType;
 
   /**
    * @public
@@ -1633,7 +1633,7 @@ export interface LogTarget {
    * @public
    * <p>The target type.</p>
    */
-  targetType: LogTargetType | string | undefined;
+  targetType: LogTargetType | undefined;
 
   /**
    * @public
@@ -1657,7 +1657,7 @@ export interface LogTargetConfiguration {
    * @public
    * <p>The logging level.</p>
    */
-  logLevel?: LogLevel | string;
+  logLevel?: LogLevel;
 }
 
 /**
@@ -1711,7 +1711,7 @@ export interface ListViolationEventsRequest {
    *       The criteria for a behavior.
    *     </p>
    */
-  behaviorCriteriaType?: BehaviorCriteriaType | string;
+  behaviorCriteriaType?: BehaviorCriteriaType;
 
   /**
    * @public
@@ -1725,7 +1725,7 @@ export interface ListViolationEventsRequest {
    * @public
    * <p>The verification state of the violation (detect alarm).</p>
    */
-  verificationState?: VerificationState | string;
+  verificationState?: VerificationState;
 
   /**
    * @public
@@ -1802,13 +1802,13 @@ export interface ViolationEvent {
    * @public
    * <p>The type of violation event.</p>
    */
-  violationEventType?: ViolationEventType | string;
+  violationEventType?: ViolationEventType;
 
   /**
    * @public
    * <p>The verification state of the violation (detect alarm).</p>
    */
-  verificationState?: VerificationState | string;
+  verificationState?: VerificationState;
 
   /**
    * @public
@@ -1856,7 +1856,7 @@ export interface PutVerificationStateOnViolationRequest {
    * @public
    * <p>The verification state of the violation.</p>
    */
-  verificationState: VerificationState | string | undefined;
+  verificationState: VerificationState | undefined;
 
   /**
    * @public
@@ -1936,7 +1936,7 @@ export interface RegisterCACertificateRequest {
    *             certificate mode</a>.
    *       </p>
    */
-  certificateMode?: CertificateMode | string;
+  certificateMode?: CertificateMode;
 }
 
 /**
@@ -2031,7 +2031,7 @@ export interface RegisterCertificateRequest {
    * <p>The status of the register certificate request. Valid values that you can use include
    *          <code>ACTIVE</code>, <code>INACTIVE</code>, and <code>REVOKED</code>.</p>
    */
-  status?: CertificateStatus | string;
+  status?: CertificateStatus;
 }
 
 /**
@@ -2066,7 +2066,7 @@ export interface RegisterCertificateWithoutCARequest {
    * @public
    * <p>The status of the register certificate request.</p>
    */
-  status?: CertificateStatus | string;
+  status?: CertificateStatus;
 }
 
 /**
@@ -2487,7 +2487,7 @@ export interface LoggingOptionsPayload {
    * @public
    * <p>The log level.</p>
    */
-  logLevel?: LogLevel | string;
+  logLevel?: LogLevel;
 }
 
 /**
@@ -2516,7 +2516,7 @@ export interface SetV2LoggingLevelRequest {
    * @public
    * <p>The log level.</p>
    */
-  logLevel: LogLevel | string | undefined;
+  logLevel: LogLevel | undefined;
 }
 
 /**
@@ -2533,7 +2533,7 @@ export interface SetV2LoggingOptionsRequest {
    * @public
    * <p>The default logging level.</p>
    */
-  defaultLogLevel?: LogLevel | string;
+  defaultLogLevel?: LogLevel;
 
   /**
    * @public
@@ -3200,7 +3200,7 @@ export interface UpdateAuthorizerRequest {
    * @public
    * <p>The status of the update authorizer request.</p>
    */
-  status?: AuthorizerStatus | string;
+  status?: AuthorizerStatus;
 
   /**
    * @public
@@ -3283,14 +3283,14 @@ export interface UpdateCACertificateRequest {
    *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
    *          should not be used.</p>
    */
-  newStatus?: CACertificateStatus | string;
+  newStatus?: CACertificateStatus;
 
   /**
    * @public
    * <p>The new value for the auto registration status. Valid values are: "ENABLE" or
    *          "DISABLE".</p>
    */
-  newAutoRegistrationStatus?: AutoRegistrationStatus | string;
+  newAutoRegistrationStatus?: AutoRegistrationStatus;
 
   /**
    * @public
@@ -3328,7 +3328,7 @@ export interface UpdateCertificateRequest {
    *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
    *          should not be used.</p>
    */
-  newStatus: CertificateStatus | string | undefined;
+  newStatus: CertificateStatus | undefined;
 }
 
 /**
@@ -3383,7 +3383,7 @@ export interface UpdateCustomMetricResponse {
    *             <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p>
    *          </important>
    */
-  metricType?: CustomMetricType | string;
+  metricType?: CustomMetricType;
 
   /**
    * @public
@@ -3449,7 +3449,7 @@ export interface UpdateDimensionResponse {
    * @public
    * <p>The type of the dimension.</p>
    */
-  type?: DimensionType | string;
+  type?: DimensionType;
 
   /**
    * @public
@@ -3490,7 +3490,7 @@ export interface UpdateDomainConfigurationRequest {
    * @public
    * <p>The status to which the domain configuration should be updated.</p>
    */
-  domainConfigurationStatus?: DomainConfigurationStatus | string;
+  domainConfigurationStatus?: DomainConfigurationStatus;
 
   /**
    * @public
@@ -3654,7 +3654,7 @@ export interface UpdateFleetMetricRequest {
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
    *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
    */
-  unit?: FleetMetricUnit | string;
+  unit?: FleetMetricUnit;
 
   /**
    * @public
@@ -3911,7 +3911,7 @@ export interface UpdatePackageVersionRequest {
    * @public
    * <p>The status that the package version should be assigned. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    */
-  action?: PackageVersionAction | string;
+  action?: PackageVersionAction;
 
   /**
    * @public
@@ -4035,7 +4035,7 @@ export interface UpdateScheduledAuditRequest {
    *       <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the
    *       system.</p>
    */
-  frequency?: AuditFrequency | string;
+  frequency?: AuditFrequency;
 
   /**
    * @public
@@ -4056,7 +4056,7 @@ export interface UpdateScheduledAuditRequest {
    *       be one of <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>. This field is required if the
    *             "frequency" parameter is set to <code>WEEKLY</code> or <code>BIWEEKLY</code>.</p>
    */
-  dayOfWeek?: DayOfWeek | string;
+  dayOfWeek?: DayOfWeek;
 
   /**
    * @public
@@ -4471,7 +4471,7 @@ export interface UpdateTopicRuleDestinationRequest {
    *             </dd>
    *          </dl>
    */
-  status: TopicRuleDestinationStatus | string | undefined;
+  status: TopicRuleDestinationStatus | undefined;
 }
 
 /**

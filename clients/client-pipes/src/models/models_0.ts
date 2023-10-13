@@ -41,7 +41,7 @@ export interface AwsVpcConfiguration {
    * <p>Specifies whether the task's elastic network interface receives a public IP address. You can specify <code>ENABLED</code> only when
    *          <code>LaunchType</code> in <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
    */
-  AssignPublicIp?: AssignPublicIp | string;
+  AssignPublicIp?: AssignPublicIp;
 }
 
 /**
@@ -104,7 +104,7 @@ export interface BatchResourceRequirement {
    * @public
    * <p>The type of resource to assign to a container. The supported resources include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
    */
-  Type: BatchResourceRequirementType | string | undefined;
+  Type: BatchResourceRequirementType | undefined;
 
   /**
    * @public
@@ -340,7 +340,7 @@ export interface BatchJobDependency {
    * @public
    * <p>The type of the job dependency.</p>
    */
-  Type?: BatchJobDependencyType | string;
+  Type?: BatchJobDependencyType;
 }
 
 /**
@@ -622,7 +622,7 @@ export interface PipeSourceDynamoDBStreamParameters {
    * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    */
-  OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams | string;
+  OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams;
 
   /**
    * @public
@@ -654,7 +654,7 @@ export interface PipeSourceDynamoDBStreamParameters {
    * @public
    * <p>(Streams only) The position in a stream from which to start reading.</p>
    */
-  StartingPosition: DynamoDBStreamStartPosition | string | undefined;
+  StartingPosition: DynamoDBStreamStartPosition | undefined;
 }
 
 /**
@@ -720,7 +720,7 @@ export interface PipeSourceKinesisStreamParameters {
    * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    */
-  OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams | string;
+  OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams;
 
   /**
    * @public
@@ -752,7 +752,7 @@ export interface PipeSourceKinesisStreamParameters {
    * @public
    * <p>(Streams only) The position in a stream from which to start reading.</p>
    */
-  StartingPosition: KinesisStreamStartPosition | string | undefined;
+  StartingPosition: KinesisStreamStartPosition | undefined;
 
   /**
    * @public
@@ -846,7 +846,7 @@ export interface PipeSourceManagedStreamingKafkaParameters {
    * @public
    * <p>(Streams only) The position in a stream from which to start reading.</p>
    */
-  StartingPosition?: MSKStartPosition | string;
+  StartingPosition?: MSKStartPosition;
 
   /**
    * @public
@@ -1050,7 +1050,7 @@ export interface PipeSourceSelfManagedKafkaParameters {
    * @public
    * <p>(Streams only) The position in a stream from which to start reading.</p>
    */
-  StartingPosition?: SelfManagedKafkaStartPosition | string;
+  StartingPosition?: SelfManagedKafkaStartPosition;
 
   /**
    * @public
@@ -1333,7 +1333,7 @@ export interface EcsEnvironmentFile {
    * @public
    * <p>The file type to use. The only supported value is <code>s3</code>.</p>
    */
-  type: EcsEnvironmentFileType | string | undefined;
+  type: EcsEnvironmentFileType | undefined;
 
   /**
    * @public
@@ -1371,7 +1371,7 @@ export interface EcsResourceRequirement {
    * <p>The type of resource to assign to a container. The supported values are
    *          <code>GPU</code> or <code>InferenceAccelerator</code>.</p>
    */
-  type: EcsResourceRequirementType | string | undefined;
+  type: EcsResourceRequirementType | undefined;
 
   /**
    * @public
@@ -1580,7 +1580,7 @@ export interface PlacementConstraint {
    *          group is running on a different container instance. Use memberOf to restrict the selection to
    *          a group of valid candidates. </p>
    */
-  type?: PlacementConstraintType | string;
+  type?: PlacementConstraintType;
 
   /**
    * @public
@@ -1621,7 +1621,7 @@ export interface PlacementStrategy {
    *          field parameter. For example, if you binpack on memory, a task is placed on the instance with
    *          the least amount of remaining memory (but still enough to run the task). </p>
    */
-  type?: PlacementStrategyType | string;
+  type?: PlacementStrategyType;
 
   /**
    * @public
@@ -1692,7 +1692,7 @@ export interface PipeTargetEcsTaskParameters {
    *          is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">Fargate on Amazon ECS</a> in
    *          the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  LaunchType?: LaunchType | string;
+  LaunchType?: LaunchType;
 
   /**
    * @public
@@ -1769,7 +1769,7 @@ export interface PipeTargetEcsTaskParameters {
    *          is specified, the tags are not propagated. Tags can only be propagated to the task during task
    *          creation. To add tags to a task after task creation, use the <code>TagResource</code> API action. </p>
    */
-  PropagateTags?: PropagateTags | string;
+  PropagateTags?: PropagateTags;
 
   /**
    * @public
@@ -1915,7 +1915,7 @@ export interface PipeTargetLambdaFunctionParameters {
    *             </li>
    *          </ul>
    */
-  InvocationType?: PipeTargetInvocationType | string;
+  InvocationType?: PipeTargetInvocationType;
 }
 
 /**
@@ -2023,7 +2023,7 @@ export interface PipeTargetStateMachineParameters {
    * @public
    * <p>Specify whether to wait for the state machine to finish or not.</p>
    */
-  InvocationType?: PipeTargetInvocationType | string;
+  InvocationType?: PipeTargetInvocationType;
 }
 
 /**
@@ -2128,7 +2128,7 @@ export interface CreatePipeRequest {
    * @public
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: RequestedPipeState;
 
   /**
    * @public
@@ -2222,13 +2222,13 @@ export interface CreatePipeResponse {
    * @public
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: RequestedPipeState;
 
   /**
    * @public
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: PipeState;
 
   /**
    * @public
@@ -2471,13 +2471,13 @@ export interface DeletePipeResponse {
    * @public
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeStateDescribeResponse | string;
+  DesiredState?: RequestedPipeStateDescribeResponse;
 
   /**
    * @public
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: PipeState;
 
   /**
    * @public
@@ -2529,13 +2529,13 @@ export interface DescribePipeResponse {
    * @public
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeStateDescribeResponse | string;
+  DesiredState?: RequestedPipeStateDescribeResponse;
 
   /**
    * @public
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: PipeState;
 
   /**
    * @public
@@ -2619,13 +2619,13 @@ export interface ListPipesRequest {
    * @public
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: RequestedPipeState;
 
   /**
    * @public
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: PipeState;
 
   /**
    * @public
@@ -2675,13 +2675,13 @@ export interface Pipe {
    * @public
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: RequestedPipeState;
 
   /**
    * @public
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: PipeState;
 
   /**
    * @public
@@ -2792,13 +2792,13 @@ export interface StartPipeResponse {
    * @public
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: RequestedPipeState;
 
   /**
    * @public
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: PipeState;
 
   /**
    * @public
@@ -2844,13 +2844,13 @@ export interface StopPipeResponse {
    * @public
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: RequestedPipeState;
 
   /**
    * @public
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: PipeState;
 
   /**
    * @public
@@ -2911,7 +2911,7 @@ export interface UpdatePipeSourceDynamoDBStreamParameters {
    * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    */
-  OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams | string;
+  OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams;
 
   /**
    * @public
@@ -2962,7 +2962,7 @@ export interface UpdatePipeSourceKinesisStreamParameters {
    * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    */
-  OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams | string;
+  OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams;
 
   /**
    * @public
@@ -3168,7 +3168,7 @@ export interface UpdatePipeRequest {
    * @public
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: RequestedPipeState;
 
   /**
    * @public
@@ -3227,13 +3227,13 @@ export interface UpdatePipeResponse {
    * @public
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: RequestedPipeState;
 
   /**
    * @public
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: PipeState;
 
   /**
    * @public

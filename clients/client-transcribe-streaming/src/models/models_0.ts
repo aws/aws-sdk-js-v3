@@ -88,7 +88,7 @@ export interface Item {
    * <p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken words) and
    *       <code>PUNCTUATION</code>.</p>
    */
-  Type?: ItemType | string;
+  Type?: ItemType;
 
   /**
    * @public
@@ -201,7 +201,7 @@ export interface ChannelDefinition {
    * <p>Specify the speaker you want to define. Omitting this parameter is equivalent to
    *       specifying both participants.</p>
    */
-  ParticipantRole: ParticipantRole | string | undefined;
+  ParticipantRole: ParticipantRole | undefined;
 }
 
 /**
@@ -269,7 +269,7 @@ export interface PostCallAnalyticsSettings {
    *          <p>Note that to include <code>ContentRedactionOutput</code> in your request, you must
    *       enable content redaction (<code>ContentRedactionType</code>).</p>
    */
-  ContentRedactionOutput?: ContentRedactionOutput | string;
+  ContentRedactionOutput?: ContentRedactionOutput;
 
   /**
    * @public
@@ -490,7 +490,7 @@ export interface CallAnalyticsItem {
    * <p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken words) and
    *       <code>PUNCTUATION</code>.</p>
    */
-  Type?: ItemType | string;
+  Type?: ItemType;
 
   /**
    * @public
@@ -758,7 +758,7 @@ export interface UtteranceEvent {
    * <p>Provides the role of the speaker for each audio channel, either <code>CUSTOMER</code> or
    *       <code>AGENT</code>.</p>
    */
-  ParticipantRole?: ParticipantRole | string;
+  ParticipantRole?: ParticipantRole;
 
   /**
    * @public
@@ -798,7 +798,7 @@ export interface UtteranceEvent {
    * @public
    * <p>Provides the sentiment that was detected in the specified segment.</p>
    */
-  Sentiment?: Sentiment | string;
+  Sentiment?: Sentiment;
 
   /**
    * @public
@@ -1041,7 +1041,7 @@ export interface LanguageWithScore {
    * @public
    * <p>The language code of the identified language.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -1130,7 +1130,7 @@ export interface MedicalItem {
    * <p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken
    *             words) and <code>PUNCTUATION</code>.</p>
    */
-  Type?: ItemType | string;
+  Type?: ItemType;
 
   /**
    * @public
@@ -1500,7 +1500,7 @@ export interface Result {
    * @public
    * <p>The language code that represents the language spoken in your audio stream.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -1557,7 +1557,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *       <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
    *         languages</a> table.</p>
    */
-  LanguageCode: CallAnalyticsLanguageCode | string | undefined;
+  LanguageCode: CallAnalyticsLanguageCode | undefined;
 
   /**
    * @public
@@ -1583,7 +1583,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a>.</p>
    */
-  MediaEncoding: MediaEncoding | string | undefined;
+  MediaEncoding: MediaEncoding | undefined;
 
   /**
    * @public
@@ -1629,7 +1629,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *          <p>To delete words, choose <code>remove</code>.</p>
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+  VocabularyFilterMethod?: VocabularyFilterMethod;
 
   /**
    * @public
@@ -1660,7 +1660,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result
    *       stabilization</a>.</p>
    */
-  PartialResultsStability?: PartialResultsStability | string;
+  PartialResultsStability?: PartialResultsStability;
 
   /**
    * @public
@@ -1673,7 +1673,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
    */
-  ContentIdentificationType?: ContentIdentificationType | string;
+  ContentIdentificationType?: ContentIdentificationType;
 
   /**
    * @public
@@ -1686,7 +1686,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
    */
-  ContentRedactionType?: ContentRedactionType | string;
+  ContentRedactionType?: ContentRedactionType;
 
   /**
    * @public
@@ -1719,7 +1719,7 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
    * @public
    * <p>Provides the language code that you specified in your Call Analytics request.</p>
    */
-  LanguageCode?: CallAnalyticsLanguageCode | string;
+  LanguageCode?: CallAnalyticsLanguageCode;
 
   /**
    * @public
@@ -1731,7 +1731,7 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
    * @public
    * <p>Provides the media encoding you specified in your Call Analytics request.</p>
    */
-  MediaEncoding?: MediaEncoding | string;
+  MediaEncoding?: MediaEncoding;
 
   /**
    * @public
@@ -1762,7 +1762,7 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
    * @public
    * <p>Provides the vocabulary filtering method used in your Call Analytics transcription.</p>
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+  VocabularyFilterMethod?: VocabularyFilterMethod;
 
   /**
    * @public
@@ -1781,19 +1781,19 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
    * @public
    * <p>Provides the stabilization level used for your transcription.</p>
    */
-  PartialResultsStability?: PartialResultsStability | string;
+  PartialResultsStability?: PartialResultsStability;
 
   /**
    * @public
    * <p>Shows whether content identification was enabled for your Call Analytics transcription.</p>
    */
-  ContentIdentificationType?: ContentIdentificationType | string;
+  ContentIdentificationType?: ContentIdentificationType;
 
   /**
    * @public
    * <p>Shows whether content redaction was enabled for your Call Analytics transcription.</p>
    */
-  ContentRedactionType?: ContentRedactionType | string;
+  ContentRedactionType?: ContentRedactionType;
 
   /**
    * @public
@@ -1827,7 +1827,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    *             <p>Amazon Transcribe Medical only supports US English (<code>en-US</code>).</p>
    *          </important>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -1854,7 +1854,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a>.</p>
    */
-  MediaEncoding: MediaEncoding | string | undefined;
+  MediaEncoding: MediaEncoding | undefined;
 
   /**
    * @public
@@ -1867,7 +1867,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    * @public
    * <p>Specify the medical specialty contained in your audio.</p>
    */
-  Specialty: Specialty | string | undefined;
+  Specialty: Specialty | undefined;
 
   /**
    * @public
@@ -1875,7 +1875,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    *             provider dictating patient notes and <code>CONVERSATION</code> for a dialogue between a
    *             patient and a medical professional.</p>
    */
-  Type: Type | string | undefined;
+  Type: Type | undefined;
 
   /**
    * @public
@@ -1928,7 +1928,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html">Identifying personal health information (PHI) in a
    *             transcription</a>.</p>
    */
-  ContentIdentificationType?: MedicalContentIdentificationType | string;
+  ContentIdentificationType?: MedicalContentIdentificationType;
 }
 
 /**
@@ -1946,7 +1946,7 @@ export interface StartMedicalStreamTranscriptionResponse {
    * <p>Provides the language code that you specified in your request. This must be
    *                 <code>en-US</code>.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -1958,7 +1958,7 @@ export interface StartMedicalStreamTranscriptionResponse {
    * @public
    * <p>Provides the media encoding you specified in your request.</p>
    */
-  MediaEncoding?: MediaEncoding | string;
+  MediaEncoding?: MediaEncoding;
 
   /**
    * @public
@@ -1970,13 +1970,13 @@ export interface StartMedicalStreamTranscriptionResponse {
    * @public
    * <p>Provides the medical specialty that you specified in your request.</p>
    */
-  Specialty?: Specialty | string;
+  Specialty?: Specialty;
 
   /**
    * @public
    * <p>Provides the type of audio you specified in your request.</p>
    */
-  Type?: Type | string;
+  Type?: Type;
 
   /**
    * @public
@@ -2012,7 +2012,7 @@ export interface StartMedicalStreamTranscriptionResponse {
    * @public
    * <p>Shows whether content identification was enabled for your transcription.</p>
    */
-  ContentIdentificationType?: MedicalContentIdentificationType | string;
+  ContentIdentificationType?: MedicalContentIdentificationType;
 }
 
 /**
@@ -2028,7 +2028,7 @@ export interface StartStreamTranscriptionRequest {
    *       <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
    *         languages</a> table.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -2054,7 +2054,7 @@ export interface StartStreamTranscriptionRequest {
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a>.</p>
    */
-  MediaEncoding: MediaEncoding | string | undefined;
+  MediaEncoding: MediaEncoding | undefined;
 
   /**
    * @public
@@ -2112,7 +2112,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>To delete words, choose <code>remove</code>.</p>
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+  VocabularyFilterMethod?: VocabularyFilterMethod;
 
   /**
    * @public
@@ -2158,7 +2158,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result
    *       stabilization</a>.</p>
    */
-  PartialResultsStability?: PartialResultsStability | string;
+  PartialResultsStability?: PartialResultsStability;
 
   /**
    * @public
@@ -2171,7 +2171,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
    */
-  ContentIdentificationType?: ContentIdentificationType | string;
+  ContentIdentificationType?: ContentIdentificationType;
 
   /**
    * @public
@@ -2184,7 +2184,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
    */
-  ContentRedactionType?: ContentRedactionType | string;
+  ContentRedactionType?: ContentRedactionType;
 
   /**
    * @public
@@ -2258,7 +2258,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>You can only use this parameter if you've included <code>IdentifyLanguage</code> and
    *         <code>LanguageOptions</code> in your request.</p>
    */
-  PreferredLanguage?: LanguageCode | string;
+  PreferredLanguage?: LanguageCode;
 
   /**
    * @public
@@ -2490,7 +2490,7 @@ export interface StartStreamTranscriptionResponse {
    * @public
    * <p>Provides the language code that you specified in your request.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -2502,7 +2502,7 @@ export interface StartStreamTranscriptionResponse {
    * @public
    * <p>Provides the media encoding you specified in your request.</p>
    */
-  MediaEncoding?: MediaEncoding | string;
+  MediaEncoding?: MediaEncoding;
 
   /**
    * @public
@@ -2533,7 +2533,7 @@ export interface StartStreamTranscriptionResponse {
    * @public
    * <p>Provides the vocabulary filtering method used in your transcription.</p>
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+  VocabularyFilterMethod?: VocabularyFilterMethod;
 
   /**
    * @public
@@ -2563,19 +2563,19 @@ export interface StartStreamTranscriptionResponse {
    * @public
    * <p>Provides the stabilization level used for your transcription.</p>
    */
-  PartialResultsStability?: PartialResultsStability | string;
+  PartialResultsStability?: PartialResultsStability;
 
   /**
    * @public
    * <p>Shows whether content identification was enabled for your transcription.</p>
    */
-  ContentIdentificationType?: ContentIdentificationType | string;
+  ContentIdentificationType?: ContentIdentificationType;
 
   /**
    * @public
    * <p>Shows whether content redaction was enabled for your transcription.</p>
    */
-  ContentRedactionType?: ContentRedactionType | string;
+  ContentRedactionType?: ContentRedactionType;
 
   /**
    * @public
@@ -2606,7 +2606,7 @@ export interface StartStreamTranscriptionResponse {
    * @public
    * <p>Provides the preferred language that you specified in your request.</p>
    */
-  PreferredLanguage?: LanguageCode | string;
+  PreferredLanguage?: LanguageCode;
 
   /**
    * @public

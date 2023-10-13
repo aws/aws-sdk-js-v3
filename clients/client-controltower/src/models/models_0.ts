@@ -280,7 +280,7 @@ export interface ControlOperation {
    * @public
    * <p>One of <code>ENABLE_CONTROL</code> or <code>DISABLE_CONTROL</code>.</p>
    */
-  operationType?: ControlOperationType | string;
+  operationType?: ControlOperationType;
 
   /**
    * @public
@@ -298,7 +298,7 @@ export interface ControlOperation {
    * @public
    * <p>One of <code>IN_PROGRESS</code>, <code>SUCEEDED</code>, or <code>FAILED</code>.</p>
    */
-  status?: ControlOperationStatus | string;
+  status?: ControlOperationStatus;
 
   /**
    * @public
@@ -383,7 +383,7 @@ export interface DriftStatusSummary {
    *             </li>
    *          </ul>
    */
-  driftStatus?: DriftStatus | string;
+  driftStatus?: DriftStatus;
 }
 
 /**
@@ -427,7 +427,7 @@ export interface EnablementStatusSummary {
    *             </li>
    *          </ul>
    */
-  status?: EnablementStatus | string;
+  status?: EnablementStatus;
 
   /**
    * @public

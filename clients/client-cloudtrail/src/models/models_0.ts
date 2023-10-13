@@ -1236,7 +1236,7 @@ export interface CancelQueryResponse {
    * <p>Shows the status of a query after a <code>CancelQuery</code> request. Typically, the
    *          values shown are either <code>RUNNING</code> or <code>CANCELLED</code>.</p>
    */
-  QueryStatus: QueryStatus | string | undefined;
+  QueryStatus: QueryStatus | undefined;
 }
 
 /**
@@ -1474,7 +1474,7 @@ export interface Destination {
    * <p>The type of destination for events arriving from a channel. For channels used for a CloudTrail Lake integration, the value is <code>EventDataStore</code>. For service-linked channels,
    *          the value is <code>AWS_SERVICE</code>. </p>
    */
-  Type: DestinationType | string | undefined;
+  Type: DestinationType | undefined;
 
   /**
    * @public
@@ -1787,7 +1787,7 @@ export interface CreateEventDataStoreResponse {
    * @public
    * <p>The status of event data store creation.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: EventDataStoreStatus;
 
   /**
    * @public
@@ -3225,7 +3225,7 @@ export interface DescribeQueryResponse {
    *          <code>TIMED_OUT</code>, or <code>CANCELLED</code>
    *          </p>
    */
-  QueryStatus?: QueryStatus | string;
+  QueryStatus?: QueryStatus;
 
   /**
    * @public
@@ -3252,7 +3252,7 @@ export interface DescribeQueryResponse {
    * @public
    * <p>The delivery status.</p>
    */
-  DeliveryStatus?: DeliveryStatus | string;
+  DeliveryStatus?: DeliveryStatus;
 }
 
 /**
@@ -3590,7 +3590,7 @@ export interface GetEventDataStoreResponse {
    * @public
    * <p>The status of an event data store.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: EventDataStoreStatus;
 
   /**
    * @public
@@ -3963,7 +3963,7 @@ export interface EventSelector {
    *             <code>RunInstances</code> is a write-only API operation.</p>
    *          <p> By default, the value is <code>All</code>.</p>
    */
-  ReadWriteType?: ReadWriteType | string;
+  ReadWriteType?: ReadWriteType;
 
   /**
    * @public
@@ -4170,7 +4170,7 @@ export interface GetImportResponse {
    * @public
    * <p> The status of the import. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: ImportStatus;
 
   /**
    * @public
@@ -4284,7 +4284,7 @@ export interface InsightSelector {
    *          API calls that result in error codes. The error is shown if the API call is
    *          unsuccessful.</p>
    */
-  InsightType?: InsightType | string;
+  InsightType?: InsightType;
 }
 
 /**
@@ -4403,7 +4403,7 @@ export interface GetQueryResultsResponse {
    *             <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
    *             <code>CANCELLED</code>.</p>
    */
-  QueryStatus?: QueryStatus | string;
+  QueryStatus?: QueryStatus;
 
   /**
    * @public
@@ -4785,7 +4785,7 @@ export interface EventDataStore {
    *
    * <p>The status of an event data store.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: EventDataStoreStatus;
 
   /**
    * @public
@@ -4912,7 +4912,7 @@ export interface ImportFailureListItem {
    * @public
    * <p> The status of the import. </p>
    */
-  Status?: ImportFailureStatus | string;
+  Status?: ImportFailureStatus;
 
   /**
    * @public
@@ -4970,7 +4970,7 @@ export interface ListImportsRequest {
    * @public
    * <p> The status of the import. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: ImportStatus;
 
   /**
    * @public
@@ -4994,7 +4994,7 @@ export interface ImportsListItem {
    * @public
    * <p> The status of the import. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: ImportStatus;
 
   /**
    * @public
@@ -5262,7 +5262,7 @@ export interface ListQueriesRequest {
    *             <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
    *             <code>CANCELLED</code>.</p>
    */
-  QueryStatus?: QueryStatus | string;
+  QueryStatus?: QueryStatus;
 }
 
 /**
@@ -5283,7 +5283,7 @@ export interface Query {
    *             <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
    *             <code>CANCELLED</code>.</p>
    */
-  QueryStatus?: QueryStatus | string;
+  QueryStatus?: QueryStatus;
 
   /**
    * @public
@@ -5530,7 +5530,7 @@ export interface LookupAttribute {
    * @public
    * <p>Specifies an attribute on which to filter the events returned.</p>
    */
-  AttributeKey: LookupAttributeKey | string | undefined;
+  AttributeKey: LookupAttributeKey | undefined;
 
   /**
    * @public
@@ -5572,7 +5572,7 @@ export interface LookupEventsRequest {
    *             <code>insight</code> as the value of <code>EventCategory</code>, no Insights events are
    *          returned.</p>
    */
-  EventCategory?: EventCategory | string;
+  EventCategory?: EventCategory;
 
   /**
    * @public
@@ -6107,7 +6107,7 @@ export interface RestoreEventDataStoreResponse {
    * @public
    * <p>The status of the event data store.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: EventDataStoreStatus;
 
   /**
    * @public
@@ -6298,7 +6298,7 @@ export interface StartImportResponse {
    *          finishes with a status of <code>COMPLETED</code> if there were no failures, or
    *             <code>FAILED</code> if there were failures. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: ImportStatus;
 
   /**
    * @public
@@ -6489,7 +6489,7 @@ export interface StopImportResponse {
    * @public
    * <p> The status of the import. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: ImportStatus;
 
   /**
    * @public
@@ -6727,7 +6727,7 @@ export interface UpdateEventDataStoreResponse {
    * @public
    * <p>The status of an event data store.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: EventDataStoreStatus;
 
   /**
    * @public

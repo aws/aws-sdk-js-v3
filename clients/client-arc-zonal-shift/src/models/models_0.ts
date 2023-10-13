@@ -74,7 +74,7 @@ export class ConflictException extends __BaseException {
    * @public
    * <p>The reason for the conflict exception.</p>
    */
-  reason: ConflictExceptionReason | string | undefined;
+  reason: ConflictExceptionReason | undefined;
 
   /**
    * @public
@@ -187,7 +187,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason for the validation exception.</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @internal
@@ -278,7 +278,7 @@ export interface ZonalShift {
    *             </li>
    *          </ul>
    */
-  status: ZonalShiftStatus | string | undefined;
+  status: ZonalShiftStatus | undefined;
 
   /**
    * @public
@@ -310,7 +310,7 @@ export interface ZonalShiftInResource {
    * <p>An <code>appliedStatus</code> for a zonal shift for a resource can have one of two values: <code>APPLIED</code>
    *    		or <code>NOT_APPLIED</code>. </p>
    */
-  appliedStatus: AppliedStatus | string | undefined;
+  appliedStatus: AppliedStatus | undefined;
 
   /**
    * @public
@@ -485,7 +485,7 @@ export interface ListZonalShiftsRequest {
    *             </li>
    *          </ul>
    */
-  status?: ZonalShiftStatus | string;
+  status?: ZonalShiftStatus;
 
   /**
    * @public
@@ -562,7 +562,7 @@ export interface ZonalShiftSummary {
    *             </li>
    *          </ul>
    */
-  status: ZonalShiftStatus | string | undefined;
+  status: ZonalShiftStatus | undefined;
 
   /**
    * @public

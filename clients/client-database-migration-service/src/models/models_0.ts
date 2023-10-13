@@ -609,7 +609,7 @@ export interface DocDbDataProviderSettings {
    * <p>The SSL mode used to connect to the DocumentDB data provider.
    *          The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -640,7 +640,7 @@ export interface MariaDbDataProviderSettings {
    * <p>The SSL mode used to connect to the MariaDB data provider.
    *          The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -677,7 +677,7 @@ export interface MicrosoftSqlServerDataProviderSettings {
    * <p>The SSL mode used to connect to the Microsoft SQL Server data provider.
    *          The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -743,7 +743,7 @@ export interface MongoDbDataProviderSettings {
    * <p>The SSL mode used to connect to the MongoDB data provider.
    *          The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -755,7 +755,7 @@ export interface MongoDbDataProviderSettings {
    * @public
    * <p>The authentication type for the database connection. Valid values are PASSWORD or NO.</p>
    */
-  AuthType?: AuthTypeValue | string;
+  AuthType?: AuthTypeValue;
 
   /**
    * @public
@@ -769,7 +769,7 @@ export interface MongoDbDataProviderSettings {
    * @public
    * <p>The authentication method for connecting to the data provider. Valid values are DEFAULT, MONGODB_CR, or SCRAM_SHA_1.</p>
    */
-  AuthMechanism?: AuthMechanismValue | string;
+  AuthMechanism?: AuthMechanismValue;
 }
 
 /**
@@ -794,7 +794,7 @@ export interface MySqlDataProviderSettings {
    * <p>The SSL mode used to connect to the MySQL data provider.
    *          The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -831,7 +831,7 @@ export interface OracleDataProviderSettings {
    * <p>The SSL mode used to connect to the Oracle data provider.
    *          The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -906,7 +906,7 @@ export interface PostgreSqlDataProviderSettings {
    * <p>The SSL mode used to connect to the PostgreSQL data provider.
    *          The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -1342,7 +1342,7 @@ export interface DocDbSettings {
    *          <p>Default value is <code>"none"</code>. Specify <code>"none"</code> to use document mode.
    *          Specify <code>"one"</code> to use table mode.</p>
    */
-  NestingLevel?: NestingLevelValue | string;
+  NestingLevel?: NestingLevelValue;
 
   /**
    * @public
@@ -1556,7 +1556,7 @@ export interface GcpMySQLSettings {
    *          <p>Example: <code>targetDbType=MULTIPLE_DATABASES</code>
    *          </p>
    */
-  TargetDbType?: TargetDbType | string;
+  TargetDbType?: TargetDbType;
 
   /**
    * @public
@@ -1816,7 +1816,7 @@ export interface KafkaSettings {
    *             <code>JSON</code> (default) or <code>JSON_UNFORMATTED</code> (a single line with no
    *          tab).</p>
    */
-  MessageFormat?: MessageFormatValue | string;
+  MessageFormat?: MessageFormatValue;
 
   /**
    * @public
@@ -1879,7 +1879,7 @@ export interface KafkaSettings {
    *          <code>ssl-encryption</code>, <code>ssl-authentication</code>, and <code>sasl-ssl</code>.
    *          <code>sasl-ssl</code> requires <code>SaslUsername</code> and <code>SaslPassword</code>.</p>
    */
-  SecurityProtocol?: KafkaSecurityProtocol | string;
+  SecurityProtocol?: KafkaSecurityProtocol;
 
   /**
    * @public
@@ -1938,14 +1938,14 @@ export interface KafkaSettings {
    *          parameter to <code>PLAIN.</code>
    *          </p>
    */
-  SaslMechanism?: KafkaSaslMechanism | string;
+  SaslMechanism?: KafkaSaslMechanism;
 
   /**
    * @public
    * <p>Sets hostname verification
    *          for the certificate. This setting is supported in DMS version 3.5.1 and later. </p>
    */
-  SslEndpointIdentificationAlgorithm?: KafkaSslEndpointIdentificationAlgorithm | string;
+  SslEndpointIdentificationAlgorithm?: KafkaSslEndpointIdentificationAlgorithm;
 }
 
 /**
@@ -1966,7 +1966,7 @@ export interface KinesisSettings {
    * <p>The output format for the records created on the endpoint. The message format is
    *          <code>JSON</code> (default) or <code>JSON_UNFORMATTED</code> (a single line with no tab).</p>
    */
-  MessageFormat?: MessageFormatValue | string;
+  MessageFormat?: MessageFormatValue;
 
   /**
    * @public
@@ -2149,7 +2149,7 @@ export interface MicrosoftSQLServerSettings {
    *          time. Therefore, if you need to run parallel DMS tasks
    *          against the same database, use the default method.</p>
    */
-  SafeguardPolicy?: SafeguardPolicy | string;
+  SafeguardPolicy?: SafeguardPolicy;
 
   /**
    * @public
@@ -2221,7 +2221,7 @@ export interface MicrosoftSQLServerSettings {
    * @public
    * <p>Indicates the mode used to fetch CDC data.</p>
    */
-  TlogAccessMode?: TlogAccessMode | string;
+  TlogAccessMode?: TlogAccessMode;
 
   /**
    * @public
@@ -2273,7 +2273,7 @@ export interface MongoDbSettings {
    *          <p>When when set to <code>"no"</code>, user name and password parameters are not used and
    *          can be empty. </p>
    */
-  AuthType?: AuthTypeValue | string;
+  AuthType?: AuthTypeValue;
 
   /**
    * @public
@@ -2283,7 +2283,7 @@ export interface MongoDbSettings {
    *             <code>"scram_sha_1"</code>. This setting isn't used when <code>AuthType</code> is
    *          set to <code>"no"</code>.</p>
    */
-  AuthMechanism?: AuthMechanismValue | string;
+  AuthMechanism?: AuthMechanismValue;
 
   /**
    * @public
@@ -2291,7 +2291,7 @@ export interface MongoDbSettings {
    *          <p>Default value is <code>"none"</code>. Specify <code>"none"</code> to use document mode.
    *          Specify <code>"one"</code> to use table mode.</p>
    */
-  NestingLevel?: NestingLevelValue | string;
+  NestingLevel?: NestingLevelValue;
 
   /**
    * @public
@@ -2433,7 +2433,7 @@ export interface MySQLSettings {
    *          <p>Example: <code>targetDbType=MULTIPLE_DATABASES</code>
    *          </p>
    */
-  TargetDbType?: TargetDbType | string;
+  TargetDbType?: TargetDbType;
 
   /**
    * @public
@@ -2811,7 +2811,7 @@ export interface OracleSettings {
    *          <p>Example: <code>charLengthSemantics=CHAR;</code>
    *          </p>
    */
-  CharLengthSemantics?: CharLengthSemantics | string;
+  CharLengthSemantics?: CharLengthSemantics;
 
   /**
    * @public
@@ -3239,7 +3239,7 @@ export interface PostgreSQLSettings {
    * @public
    * <p>Specifies the plugin to use to create a replication slot.</p>
    */
-  PluginName?: PluginNameValue | string;
+  PluginName?: PluginNameValue;
 
   /**
    * @public
@@ -3292,13 +3292,13 @@ export interface PostgreSQLSettings {
    * @public
    * <p>When true, DMS migrates LONG values as VARCHAR.</p>
    */
-  MapLongVarcharAs?: LongVarcharMappingType | string;
+  MapLongVarcharAs?: LongVarcharMappingType;
 
   /**
    * @public
    * <p>Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.</p>
    */
-  DatabaseMode?: DatabaseMode | string;
+  DatabaseMode?: DatabaseMode;
 
   /**
    * @public
@@ -3364,7 +3364,7 @@ export interface RedisSettings {
    *          <p>The <code>plaintext</code> option doesn't provide Transport Layer Security (TLS)
    *          encryption for traffic between endpoint and database.</p>
    */
-  SslSecurityProtocol?: SslSecurityProtocolValue | string;
+  SslSecurityProtocol?: SslSecurityProtocolValue;
 
   /**
    * @public
@@ -3374,7 +3374,7 @@ export interface RedisSettings {
    *          <code>auth-role</code> option requires <code>AuthUserName</code> and <code>AuthPassword</code> values
    *          to be provided.</p>
    */
-  AuthType?: RedisAuthTypeValue | string;
+  AuthType?: RedisAuthTypeValue;
 
   /**
    * @public
@@ -3523,7 +3523,7 @@ export interface RedshiftSettings {
    *             <code>"s3:PutObject", "s3:ListBucket"</code>
    *          </p>
    */
-  EncryptionMode?: EncryptionModeValue | string;
+  EncryptionMode?: EncryptionModeValue;
 
   /**
    * @public
@@ -3863,7 +3863,7 @@ export interface S3Settings {
    *          the target files. Either set this parameter to NONE (the default) or don't use it to leave the files uncompressed.
    *          This parameter applies to both .csv and .parquet file formats. </p>
    */
-  CompressionType?: CompressionTypeValue | string;
+  CompressionType?: CompressionTypeValue;
 
   /**
    * @public
@@ -3937,7 +3937,7 @@ export interface S3Settings {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionModeValue | string;
+  EncryptionMode?: EncryptionModeValue;
 
   /**
    * @public
@@ -3969,7 +3969,7 @@ export interface S3Settings {
    *             </li>
    *          </ul>
    */
-  DataFormat?: DataFormatValue | string;
+  DataFormat?: DataFormatValue;
 
   /**
    * @public
@@ -3993,7 +3993,7 @@ export interface S3Settings {
    *             </li>
    *          </ul>
    */
-  EncodingType?: EncodingTypeValue | string;
+  EncodingType?: EncodingTypeValue;
 
   /**
    * @public
@@ -4027,7 +4027,7 @@ export interface S3Settings {
    * <p>The version of the Apache Parquet format that you want to use: <code>parquet_1_0</code>
    *          (the default) or <code>parquet_2_0</code>.</p>
    */
-  ParquetVersion?: ParquetVersionValue | string;
+  ParquetVersion?: ParquetVersionValue;
 
   /**
    * @public
@@ -4190,14 +4190,14 @@ export interface S3Settings {
    * <p>Identifies the sequence of the date format to use during folder partitioning. The default value is
    *          <code>YYYYMMDD</code>. Use this parameter when <code>DatePartitionedEnabled</code> is set to <code>true</code>.</p>
    */
-  DatePartitionSequence?: DatePartitionSequenceValue | string;
+  DatePartitionSequence?: DatePartitionSequenceValue;
 
   /**
    * @public
    * <p>Specifies a date separating delimiter to use during folder partitioning. The default value is
    *          <code>SLASH</code>. Use this parameter when <code>DatePartitionedEnabled</code> is set to <code>true</code>.</p>
    */
-  DatePartitionDelimiter?: DatePartitionDelimiterValue | string;
+  DatePartitionDelimiter?: DatePartitionDelimiterValue;
 
   /**
    * @public
@@ -4295,7 +4295,7 @@ export interface S3Settings {
    *          AWS_EXEC_READ, BUCKET_OWNER_READ, and
    *          BUCKET_OWNER_FULL_CONTROL.</p>
    */
-  CannedAclForObjects?: CannedAclForObjectsValue | string;
+  CannedAclForObjects?: CannedAclForObjectsValue;
 
   /**
    * @public
@@ -4550,7 +4550,7 @@ export interface CreateEndpointMessage {
    * @public
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  EndpointType: ReplicationEndpointTypeValue | string | undefined;
+  EndpointType: ReplicationEndpointTypeValue | undefined;
 
   /**
    * @public
@@ -4634,7 +4634,7 @@ export interface CreateEndpointMessage {
    * <p>The Secure Sockets Layer (SSL) mode to use for the SSL connection. The default is <code>none</code>
    *          </p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -4885,7 +4885,7 @@ export interface Endpoint {
    * @public
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  EndpointType?: ReplicationEndpointTypeValue | string;
+  EndpointType?: ReplicationEndpointTypeValue;
 
   /**
    * @public
@@ -4969,7 +4969,7 @@ export interface Endpoint {
    * @public
    * <p>The SSL mode used to connect to the endpoint. The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -6088,7 +6088,7 @@ export interface CreateReplicationConfigMessage {
    *             </li>
    *          </ul>
    */
-  ReplicationType: MigrationTypeValue | string | undefined;
+  ReplicationType: MigrationTypeValue | undefined;
 
   /**
    * @public
@@ -6170,7 +6170,7 @@ export interface ReplicationConfig {
    * @public
    * <p>The type of the replication.</p>
    */
-  ReplicationType?: MigrationTypeValue | string;
+  ReplicationType?: MigrationTypeValue;
 
   /**
    * @public
@@ -6998,7 +6998,7 @@ export interface CreateReplicationTaskMessage {
    * <p>The migration type. Valid values: <code>full-load</code> | <code>cdc</code> | <code>full-load-and-cdc</code>
    *          </p>
    */
-  MigrationType: MigrationTypeValue | string | undefined;
+  MigrationType: MigrationTypeValue | undefined;
 
   /**
    * @public
@@ -7205,7 +7205,7 @@ export interface ReplicationTask {
    * @public
    * <p>The type of migration.</p>
    */
-  MigrationType?: MigrationTypeValue | string;
+  MigrationType?: MigrationTypeValue;
 
   /**
    * @public
@@ -8063,7 +8063,7 @@ export interface DescribeApplicableIndividualAssessmentsMessage {
    * @public
    * <p>Name of the migration type that each provided individual assessment must support.</p>
    */
-  MigrationType?: MigrationTypeValue | string;
+  MigrationType?: MigrationTypeValue;
 
   /**
    * @public
@@ -8416,7 +8416,7 @@ export interface EndpointSetting {
    * @public
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  Type?: EndpointSettingTypeValue | string;
+  Type?: EndpointSettingTypeValue;
 
   /**
    * @public
@@ -8541,7 +8541,7 @@ export interface SupportedEndpointType {
    * @public
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  EndpointType?: ReplicationEndpointTypeValue | string;
+  EndpointType?: ReplicationEndpointTypeValue;
 
   /**
    * @public
@@ -8633,7 +8633,7 @@ export interface EngineVersion {
    * @public
    * <p>The release status of the replication instance version.</p>
    */
-  ReleaseStatus?: ReleaseStatusValues | string;
+  ReleaseStatus?: ReleaseStatusValues;
 
   /**
    * @public
@@ -8770,7 +8770,7 @@ export interface DescribeEventsMessage {
    * <p>The type of DMS resource that generates events.</p>
    *          <p>Valid values: replication-instance | replication-task</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -8839,7 +8839,7 @@ export interface Event {
    * <p> The type of DMS resource that generates events. </p>
    *          <p>Valid values: replication-instance | endpoint | replication-task</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -9163,7 +9163,7 @@ export interface CollectorHealthCheck {
    * @public
    * <p>The status of the Fleet Advisor collector.</p>
    */
-  CollectorStatus?: CollectorStatus | string;
+  CollectorStatus?: CollectorStatus;
 
   /**
    * @public
@@ -9247,7 +9247,7 @@ export interface CollectorResponse {
    * @public
    * <p>Whether the collector version is up to date.</p>
    */
-  VersionStatus?: VersionStatus | string;
+  VersionStatus?: VersionStatus;
 
   /**
    * @public
@@ -10439,7 +10439,7 @@ export interface OrderableReplicationInstance {
    *             <p>DMS supports the <code>ReleaseStatus</code> parameter in versions 3.1.4 and later.</p>
    *          </note>
    */
-  ReleaseStatus?: ReleaseStatusValues | string;
+  ReleaseStatus?: ReleaseStatusValues;
 }
 
 /**
@@ -10947,7 +10947,7 @@ export interface RefreshSchemasStatus {
    * @public
    * <p>The status of the schema.</p>
    */
-  Status?: RefreshSchemasStatusTypeValue | string;
+  Status?: RefreshSchemasStatusTypeValue;
 
   /**
    * @public
@@ -11325,7 +11325,7 @@ export interface Replication {
    * @public
    * <p>The type of the serverless replication.</p>
    */
-  ReplicationType?: MigrationTypeValue | string;
+  ReplicationType?: MigrationTypeValue;
 
   /**
    * @public
@@ -12305,7 +12305,7 @@ export interface ExportMetadataModelAssessmentMessage {
    * @public
    * <p>The file format of the assessment file.</p>
    */
-  AssessmentReportTypes?: (AssessmentReportType | string)[];
+  AssessmentReportTypes?: AssessmentReportType[];
 }
 
 /**

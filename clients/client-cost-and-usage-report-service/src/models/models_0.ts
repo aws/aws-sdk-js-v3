@@ -243,25 +243,25 @@ export interface ReportDefinition {
    * @public
    * <p>The length of time covered by the report. </p>
    */
-  TimeUnit: TimeUnit | string | undefined;
+  TimeUnit: TimeUnit | undefined;
 
   /**
    * @public
    * <p>The format that AWS saves the report in.</p>
    */
-  Format: ReportFormat | string | undefined;
+  Format: ReportFormat | undefined;
 
   /**
    * @public
    * <p>The compression format that AWS uses for the report.</p>
    */
-  Compression: CompressionFormat | string | undefined;
+  Compression: CompressionFormat | undefined;
 
   /**
    * @public
    * <p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>
    */
-  AdditionalSchemaElements: (SchemaElement | string)[] | undefined;
+  AdditionalSchemaElements: SchemaElement[] | undefined;
 
   /**
    * @public
@@ -280,13 +280,13 @@ export interface ReportDefinition {
    * @public
    * <p>The region of the S3 bucket that AWS delivers the report into.</p>
    */
-  S3Region: AWSRegion | string | undefined;
+  S3Region: AWSRegion | undefined;
 
   /**
    * @public
    * <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
    */
-  AdditionalArtifacts?: (AdditionalArtifact | string)[];
+  AdditionalArtifacts?: AdditionalArtifact[];
 
   /**
    * @public
@@ -300,7 +300,7 @@ export interface ReportDefinition {
    * <p>Whether you want Amazon Web Services to overwrite the previous version of each report or
    *          to deliver the report in addition to the previous versions.</p>
    */
-  ReportVersioning?: ReportVersioning | string;
+  ReportVersioning?: ReportVersioning;
 
   /**
    * @public

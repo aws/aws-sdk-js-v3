@@ -173,7 +173,7 @@ export interface UpdateAccessKeyRequest {
    *             that the key can be used for programmatic calls to Amazon Web Services, while <code>Inactive</code>
    *             means that the key cannot be used.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 }
 
 /**
@@ -579,7 +579,7 @@ export interface UpdateServiceSpecificCredentialRequest {
    * @public
    * <p>The status to be assigned to the service-specific credential.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 }
 
 /**
@@ -608,7 +608,7 @@ export interface UpdateSigningCertificateRequest {
    *             certificate can be used for programmatic calls to Amazon Web Services <code>Inactive</code> means that
    *             the certificate cannot be used.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 }
 
 /**
@@ -637,7 +637,7 @@ export interface UpdateSSHPublicKeyRequest {
    *             be used for authentication with an CodeCommit repository. <code>Inactive</code> means that
    *             the key cannot be used.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 }
 
 /**

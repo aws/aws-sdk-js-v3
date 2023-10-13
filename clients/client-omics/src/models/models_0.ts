@@ -268,7 +268,7 @@ export interface AcceptShareResponse {
    * The status of an analytics store share.
    * </p>
    */
-  status?: ShareStatus | string;
+  status?: ShareStatus;
 }
 
 /**
@@ -319,7 +319,7 @@ export interface ActivateReadSetFilter {
    * @public
    * <p>The filter's status.</p>
    */
-  status?: ReadSetActivationJobStatus | string;
+  status?: ReadSetActivationJobStatus;
 
   /**
    * @public
@@ -355,7 +355,7 @@ export interface ActivateReadSetJobItem {
    * @public
    * <p>The job's status.</p>
    */
-  status: ReadSetActivationJobStatus | string | undefined;
+  status: ReadSetActivationJobStatus | undefined;
 
   /**
    * @public
@@ -402,7 +402,7 @@ export interface ActivateReadSetSourceItem {
    * @public
    * <p>The source's status.</p>
    */
-  status: ReadSetActivationJobItemStatus | string | undefined;
+  status: ReadSetActivationJobItemStatus | undefined;
 
   /**
    * @public
@@ -462,7 +462,7 @@ export interface AnnotationImportItemDetail {
    * @public
    * <p>The item's job status.</p>
    */
-  jobStatus: JobStatus | string | undefined;
+  jobStatus: JobStatus | undefined;
 }
 
 /**
@@ -683,7 +683,7 @@ export interface GetAnnotationImportResponse {
    * @public
    * <p>The job's status.</p>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 
   /**
    * @public
@@ -745,7 +745,7 @@ export interface ListAnnotationImportJobsFilter {
    * @public
    * <p>A status to filter on.</p>
    */
-  status?: JobStatus | string;
+  status?: JobStatus;
 
   /**
    * @public
@@ -818,7 +818,7 @@ export interface AnnotationImportJobItem {
    * @public
    * <p>The job's status.</p>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 
   /**
    * @public
@@ -995,7 +995,7 @@ export interface SseConfig {
    * @public
    * <p>The encryption type.</p>
    */
-  type: EncryptionType | string | undefined;
+  type: EncryptionType | undefined;
 
   /**
    * @public
@@ -1131,7 +1131,7 @@ export interface TsvStoreOptions {
    * @public
    * <p>The store's annotation type.</p>
    */
-  annotationType?: AnnotationType | string;
+  annotationType?: AnnotationType;
 
   /**
    * @public
@@ -1143,7 +1143,7 @@ export interface TsvStoreOptions {
    * @public
    * <p>The store's schema.</p>
    */
-  schema?: Record<string, SchemaValueType | string>[];
+  schema?: Record<string, SchemaValueType>[];
 }
 
 /**
@@ -1230,7 +1230,7 @@ export interface CreateAnnotationStoreRequest {
    * @public
    * <p>The annotation file format of the store.</p>
    */
-  storeFormat: StoreFormat | string | undefined;
+  storeFormat: StoreFormat | undefined;
 
   /**
    * @public
@@ -1291,7 +1291,7 @@ export interface CreateAnnotationStoreResponse {
    * @public
    * <p>The annotation file format of the store.</p>
    */
-  storeFormat?: StoreFormat | string;
+  storeFormat?: StoreFormat;
 
   /**
    * @public
@@ -1303,7 +1303,7 @@ export interface CreateAnnotationStoreResponse {
    * @public
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: StoreStatus | undefined;
 
   /**
    * @public
@@ -1351,7 +1351,7 @@ export interface DeleteAnnotationStoreResponse {
    * @public
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: StoreStatus | undefined;
 }
 
 /**
@@ -1385,7 +1385,7 @@ export interface GetAnnotationStoreResponse {
    * @public
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: StoreStatus | undefined;
 
   /**
    * @public
@@ -1439,7 +1439,7 @@ export interface GetAnnotationStoreResponse {
    * @public
    * <p>The store's annotation file format.</p>
    */
-  storeFormat?: StoreFormat | string;
+  storeFormat?: StoreFormat;
 
   /**
    * @public
@@ -1471,7 +1471,7 @@ export interface ListAnnotationStoresFilter {
    * @public
    * <p>A status to filter on.</p>
    */
-  status?: StoreStatus | string;
+  status?: StoreStatus;
 }
 
 /**
@@ -1524,7 +1524,7 @@ export interface AnnotationStoreItem {
    * @public
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: StoreStatus | undefined;
 
   /**
    * @public
@@ -1542,7 +1542,7 @@ export interface AnnotationStoreItem {
    * @public
    * <p>The store's file format.</p>
    */
-  storeFormat: StoreFormat | string | undefined;
+  storeFormat: StoreFormat | undefined;
 
   /**
    * @public
@@ -1635,7 +1635,7 @@ export interface UpdateAnnotationStoreResponse {
    * @public
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: StoreStatus | undefined;
 
   /**
    * @public
@@ -1671,7 +1671,7 @@ export interface UpdateAnnotationStoreResponse {
    * @public
    * <p>The annotation file format of the store.</p>
    */
-  storeFormat?: StoreFormat | string;
+  storeFormat?: StoreFormat;
 }
 
 /**
@@ -1687,7 +1687,7 @@ export interface TsvVersionOptions {
    * The store version's annotation type.
    * </p>
    */
-  annotationType?: AnnotationType | string;
+  annotationType?: AnnotationType;
 
   /**
    * @public
@@ -1703,7 +1703,7 @@ export interface TsvVersionOptions {
    * The TSV schema for an annotation store version.
    * </p>
    */
-  schema?: Record<string, SchemaValueType | string>[];
+  schema?: Record<string, SchemaValueType>[];
 }
 
 /**
@@ -1875,7 +1875,7 @@ export interface CreateAnnotationStoreVersionResponse {
    * The status of a annotation store version.
    * </p>
    */
-  status: VersionStatus | string | undefined;
+  status: VersionStatus | undefined;
 
   /**
    * @public
@@ -1999,7 +1999,7 @@ export interface GetAnnotationStoreVersionResponse {
    * The status of an annotation store version.
    * </p>
    */
-  status: VersionStatus | string | undefined;
+  status: VersionStatus | undefined;
 
   /**
    * @public
@@ -2095,7 +2095,7 @@ export interface ListAnnotationStoreVersionsFilter {
    * The status of an annotation store version.
    * </p>
    */
-  status?: VersionStatus | string;
+  status?: VersionStatus;
 }
 
 /**
@@ -2164,7 +2164,7 @@ export interface AnnotationStoreVersionItem {
    * The status of an annotation store version.
    * </p>
    */
-  status: VersionStatus | string | undefined;
+  status: VersionStatus | undefined;
 
   /**
    * @public
@@ -2307,7 +2307,7 @@ export interface UpdateAnnotationStoreVersionResponse {
    * The status of an annotation store version.
    * </p>
    */
-  status: VersionStatus | string | undefined;
+  status: VersionStatus | undefined;
 
   /**
    * @public
@@ -2463,7 +2463,7 @@ export interface CompleteReadSetUploadPartListItem {
    *       The source file of the part being uploaded.
    *     </p>
    */
-  partSource: ReadSetPartSource | string | undefined;
+  partSource: ReadSetPartSource | undefined;
 
   /**
    * @public
@@ -2557,7 +2557,7 @@ export interface CreateMultipartReadSetUploadRequest {
    *       The type of file being uploaded.
    *     </p>
    */
-  sourceFileType: FileType | string | undefined;
+  sourceFileType: FileType | undefined;
 
   /**
    * @public
@@ -2642,7 +2642,7 @@ export interface CreateMultipartReadSetUploadResponse {
    *       The file type of the read set source.
    *     </p>
    */
-  sourceFileType: FileType | string | undefined;
+  sourceFileType: FileType | undefined;
 
   /**
    * @public
@@ -2996,7 +2996,7 @@ export interface CreateShareResponse {
    *       The status of a share.
    *     </p>
    */
-  status?: ShareStatus | string;
+  status?: ShareStatus;
 
   /**
    * @public
@@ -3062,7 +3062,7 @@ export interface CreateVariantStoreResponse {
    * @public
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: StoreStatus | undefined;
 
   /**
    * @public
@@ -3130,7 +3130,7 @@ export interface CreateWorkflowRequest {
    * @public
    * <p>An engine for the workflow.</p>
    */
-  engine?: WorkflowEngine | string;
+  engine?: WorkflowEngine;
 
   /**
    * @public
@@ -3180,7 +3180,7 @@ export interface CreateWorkflowRequest {
    *       The computational accelerator specified to run the workflow.
    *     </p>
    */
-  accelerators?: Accelerators | string;
+  accelerators?: Accelerators;
 }
 
 /**
@@ -3221,7 +3221,7 @@ export interface CreateWorkflowResponse {
    * @public
    * <p>The workflow's status.</p>
    */
-  status?: WorkflowStatus | string;
+  status?: WorkflowStatus;
 
   /**
    * @public
@@ -3343,7 +3343,7 @@ export interface DeleteShareResponse {
    *       The status of the share being deleted.
    *     </p>
    */
-  status?: ShareStatus | string;
+  status?: ShareStatus;
 }
 
 /**
@@ -3371,7 +3371,7 @@ export interface DeleteVariantStoreResponse {
    * @public
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: StoreStatus | undefined;
 }
 
 /**
@@ -3412,7 +3412,7 @@ export interface ETag {
    * <p>
    *       The algorithm used to calculate the read set’s ETag(s). </p>
    */
-  algorithm?: ETagAlgorithm | string;
+  algorithm?: ETagAlgorithm;
 
   /**
    * @public
@@ -3474,7 +3474,7 @@ export interface ExportReadSetDetail {
    * @public
    * <p>The set's status.</p>
    */
-  status: ReadSetExportJobItemStatus | string | undefined;
+  status: ReadSetExportJobItemStatus | undefined;
 
   /**
    * @public
@@ -3511,7 +3511,7 @@ export interface ExportReadSetFilter {
    * @public
    * <p>A status to filter on.</p>
    */
-  status?: ReadSetExportJobStatus | string;
+  status?: ReadSetExportJobStatus;
 
   /**
    * @public
@@ -3553,7 +3553,7 @@ export interface ExportReadSetJobDetail {
    * @public
    * <p>The job's status.</p>
    */
-  status: ReadSetExportJobStatus | string | undefined;
+  status: ReadSetExportJobStatus | undefined;
 
   /**
    * @public
@@ -3613,7 +3613,7 @@ export interface Filter {
    * The status of an annotation store version.
    * </p>
    */
-  status?: (ShareStatus | string)[];
+  status?: ShareStatus[];
 }
 
 /**
@@ -3651,7 +3651,7 @@ export interface GetReadSetRequest {
    * @public
    * <p>The file to retrieve.</p>
    */
-  file?: ReadSetFile | string;
+  file?: ReadSetFile;
 
   /**
    * @public
@@ -3729,7 +3729,7 @@ export interface GetReadSetActivationJobResponse {
    * @public
    * <p>The job's status.</p>
    */
-  status: ReadSetActivationJobStatus | string | undefined;
+  status: ReadSetActivationJobStatus | undefined;
 
   /**
    * @public
@@ -3799,7 +3799,7 @@ export interface GetReadSetExportJobResponse {
    * @public
    * <p>The job's status.</p>
    */
-  status: ReadSetExportJobStatus | string | undefined;
+  status: ReadSetExportJobStatus | undefined;
 
   /**
    * @public
@@ -3892,13 +3892,13 @@ export interface ImportReadSetSourceItem {
    * @public
    * <p>The source's file type.</p>
    */
-  sourceFileType: FileType | string | undefined;
+  sourceFileType: FileType | undefined;
 
   /**
    * @public
    * <p>The source's status.</p>
    */
-  status: ReadSetImportJobItemStatus | string | undefined;
+  status: ReadSetImportJobItemStatus | undefined;
 
   /**
    * @public
@@ -3994,7 +3994,7 @@ export interface GetReadSetImportJobResponse {
    * @public
    * <p>The job's status.</p>
    */
-  status: ReadSetImportJobStatus | string | undefined;
+  status: ReadSetImportJobStatus | undefined;
 
   /**
    * @public
@@ -4149,7 +4149,7 @@ export interface GetReadSetMetadataResponse {
    * @public
    * <p>The read set's status.</p>
    */
-  status: ReadSetStatus | string | undefined;
+  status: ReadSetStatus | undefined;
 
   /**
    * @public
@@ -4167,7 +4167,7 @@ export interface GetReadSetMetadataResponse {
    * @public
    * <p>The read set's file type.</p>
    */
-  fileType: FileType | string | undefined;
+  fileType: FileType | undefined;
 
   /**
    * @public
@@ -4207,7 +4207,7 @@ export interface GetReadSetMetadataResponse {
    *       The creation type of the read set.
    *     </p>
    */
-  creationType?: CreationType | string;
+  creationType?: CreationType;
 
   /**
    * @public
@@ -4264,7 +4264,7 @@ export interface GetReferenceRequest {
    * @public
    * <p>The file to retrieve.</p>
    */
-  file?: ReferenceFile | string;
+  file?: ReferenceFile;
 }
 
 /**
@@ -4327,7 +4327,7 @@ export interface ImportReferenceSourceItem {
    * @public
    * <p>The source's status.</p>
    */
-  status: ReferenceImportJobItemStatus | string | undefined;
+  status: ReferenceImportJobItemStatus | undefined;
 
   /**
    * @public
@@ -4399,7 +4399,7 @@ export interface GetReferenceImportJobResponse {
    * @public
    * <p>The job's status.</p>
    */
-  status: ReferenceImportJobStatus | string | undefined;
+  status: ReferenceImportJobStatus | undefined;
 
   /**
    * @public
@@ -4508,7 +4508,7 @@ export interface GetReferenceMetadataResponse {
    * @public
    * <p>The reference's status.</p>
    */
-  status?: ReferenceStatus | string;
+  status?: ReferenceStatus;
 
   /**
    * @public
@@ -4620,7 +4620,7 @@ export interface GetRunRequest {
    * @public
    * <p>The run's export format.</p>
    */
-  export?: (RunExport | string)[];
+  export?: RunExport[];
 }
 
 /**
@@ -4707,7 +4707,7 @@ export interface GetRunResponse {
    * @public
    * <p>The run's status.</p>
    */
-  status?: RunStatus | string;
+  status?: RunStatus;
 
   /**
    * @public
@@ -4719,7 +4719,7 @@ export interface GetRunResponse {
    * @public
    * <p>The run's workflow type.</p>
    */
-  workflowType?: WorkflowType | string;
+  workflowType?: WorkflowType;
 
   /**
    * @public
@@ -4785,7 +4785,7 @@ export interface GetRunResponse {
    * @public
    * <p>The run's log level.</p>
    */
-  logLevel?: RunLogLevel | string;
+  logLevel?: RunLogLevel;
 
   /**
    * @public
@@ -4835,13 +4835,13 @@ export interface GetRunResponse {
    *       The computational accelerator used to run the workflow.
    *     </p>
    */
-  accelerators?: Accelerators | string;
+  accelerators?: Accelerators;
 
   /**
    * @public
    * <p>The run's retention mode.</p>
    */
-  retentionMode?: RunRetentionMode | string;
+  retentionMode?: RunRetentionMode;
 }
 
 /**
@@ -4966,7 +4966,7 @@ export interface GetRunTaskResponse {
    * @public
    * <p>The task's status.</p>
    */
-  status?: TaskStatus | string;
+  status?: TaskStatus;
 
   /**
    * @public
@@ -5151,7 +5151,7 @@ export interface ShareDetails {
    *       The status of a share.
    *     </p>
    */
-  status?: ShareStatus | string;
+  status?: ShareStatus;
 
   /**
    * @public
@@ -5225,7 +5225,7 @@ export interface VariantImportItemDetail {
    * @public
    * <p>The item's job status.</p>
    */
-  jobStatus: JobStatus | string | undefined;
+  jobStatus: JobStatus | undefined;
 
   /**
    * @public
@@ -5260,7 +5260,7 @@ export interface GetVariantImportResponse {
    * @public
    * <p>The job's status.</p>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 
   /**
    * @public
@@ -5338,7 +5338,7 @@ export interface GetVariantStoreResponse {
    * @public
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: StoreStatus | undefined;
 
   /**
    * @public
@@ -5422,13 +5422,13 @@ export interface GetWorkflowRequest {
    * @public
    * <p>The workflow's type.</p>
    */
-  type?: WorkflowType | string;
+  type?: WorkflowType;
 
   /**
    * @public
    * <p>The export format for the workflow.</p>
    */
-  export?: (WorkflowExport | string)[];
+  export?: WorkflowExport[];
 }
 
 /**
@@ -5451,13 +5451,13 @@ export interface GetWorkflowResponse {
    * @public
    * <p>The workflow's status.</p>
    */
-  status?: WorkflowStatus | string;
+  status?: WorkflowStatus;
 
   /**
    * @public
    * <p>The workflow's type.</p>
    */
-  type?: WorkflowType | string;
+  type?: WorkflowType;
 
   /**
    * @public
@@ -5475,7 +5475,7 @@ export interface GetWorkflowResponse {
    * @public
    * <p>The workflow's engine.</p>
    */
-  engine?: WorkflowEngine | string;
+  engine?: WorkflowEngine;
 
   /**
    * @public
@@ -5538,7 +5538,7 @@ export interface GetWorkflowResponse {
    * <p>
    *       The computational accelerator specified to run the workflow. </p>
    */
-  accelerators?: Accelerators | string;
+  accelerators?: Accelerators;
 }
 
 /**
@@ -5550,7 +5550,7 @@ export interface ImportReadSetFilter {
    * @public
    * <p>A status to filter on.</p>
    */
-  status?: ReadSetImportJobStatus | string;
+  status?: ReadSetImportJobStatus;
 
   /**
    * @public
@@ -5592,7 +5592,7 @@ export interface ImportReadSetJobItem {
    * @public
    * <p>The job's status.</p>
    */
-  status: ReadSetImportJobStatus | string | undefined;
+  status: ReadSetImportJobStatus | undefined;
 
   /**
    * @public
@@ -5616,7 +5616,7 @@ export interface ImportReferenceFilter {
    * @public
    * <p>A status to filter on.</p>
    */
-  status?: ReferenceImportJobStatus | string;
+  status?: ReferenceImportJobStatus;
 
   /**
    * @public
@@ -5658,7 +5658,7 @@ export interface ImportReferenceJobItem {
    * @public
    * <p>The job's status.</p>
    */
-  status: ReferenceImportJobStatus | string | undefined;
+  status: ReferenceImportJobStatus | undefined;
 
   /**
    * @public
@@ -5731,7 +5731,7 @@ export interface MultipartReadSetUploadListItem {
    *       The type of file the read set originated from.
    *     </p>
    */
-  sourceFileType: FileType | string | undefined;
+  sourceFileType: FileType | undefined;
 
   /**
    * @public
@@ -5972,7 +5972,7 @@ export interface ReadSetFilter {
    * @public
    * <p>A status to filter on.</p>
    */
-  status?: ReadSetStatus | string;
+  status?: ReadSetStatus;
 
   /**
    * @public
@@ -6022,7 +6022,7 @@ export interface ReadSetFilter {
    *       The creation type of the read set.
    *     </p>
    */
-  creationType?: CreationType | string;
+  creationType?: CreationType;
 }
 
 /**
@@ -6093,7 +6093,7 @@ export interface ReadSetListItem {
    * @public
    * <p>The read set's status.</p>
    */
-  status: ReadSetStatus | string | undefined;
+  status: ReadSetStatus | undefined;
 
   /**
    * @public
@@ -6117,7 +6117,7 @@ export interface ReadSetListItem {
    * @public
    * <p>The read set's file type.</p>
    */
-  fileType: FileType | string | undefined;
+  fileType: FileType | undefined;
 
   /**
    * @public
@@ -6145,7 +6145,7 @@ export interface ReadSetListItem {
    *       The creation type of the read set.
    *     </p>
    */
-  creationType?: CreationType | string;
+  creationType?: CreationType;
 
   /**
    * @public
@@ -6223,7 +6223,7 @@ export interface ListReadSetUploadPartsRequest {
    *       The source file for the upload part.
    *     </p>
    */
-  partSource: ReadSetPartSource | string | undefined;
+  partSource: ReadSetPartSource | undefined;
 
   /**
    * @public
@@ -6279,7 +6279,7 @@ export interface ReadSetUploadPartListItem {
    *       The origin of the part being direct uploaded.
    *     </p>
    */
-  partSource: ReadSetPartSource | string | undefined;
+  partSource: ReadSetPartSource | undefined;
 
   /**
    * @public
@@ -6465,7 +6465,7 @@ export interface ReferenceListItem {
    * @public
    * <p>The reference's status.</p>
    */
-  status?: ReferenceStatus | string;
+  status?: ReferenceStatus;
 
   /**
    * @public
@@ -6745,7 +6745,7 @@ export interface ListRunsRequest {
    *       The status of a run.
    *     </p>
    */
-  status?: RunStatus | string;
+  status?: RunStatus;
 }
 
 /**
@@ -6769,7 +6769,7 @@ export interface RunListItem {
    * @public
    * <p>The run's status.</p>
    */
-  status?: RunStatus | string;
+  status?: RunStatus;
 
   /**
    * @public
@@ -6845,7 +6845,7 @@ export interface ListRunTasksRequest {
    * @public
    * <p>Filter the list by status.</p>
    */
-  status?: TaskStatus | string;
+  status?: TaskStatus;
 
   /**
    * @public
@@ -6875,7 +6875,7 @@ export interface TaskListItem {
    * @public
    * <p>The task's status.</p>
    */
-  status?: TaskStatus | string;
+  status?: TaskStatus;
 
   /**
    * @public
@@ -7091,7 +7091,7 @@ export interface ListSharesRequest {
    *       The account that owns the analytics store shared.
    *     </p>
    */
-  resourceOwner: ResourceOwner | string | undefined;
+  resourceOwner: ResourceOwner | undefined;
 
   /**
    * @public
@@ -7170,7 +7170,7 @@ export interface ListVariantImportJobsFilter {
    * @public
    * <p>A status to filter on.</p>
    */
-  status?: JobStatus | string;
+  status?: JobStatus;
 
   /**
    * @public
@@ -7235,7 +7235,7 @@ export interface VariantImportJobItem {
    * @public
    * <p>The job's status.</p>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 
   /**
    * @public
@@ -7296,7 +7296,7 @@ export interface ListVariantStoresFilter {
    * @public
    * <p>A status to filter on.</p>
    */
-  status?: StoreStatus | string;
+  status?: StoreStatus;
 }
 
 /**
@@ -7349,7 +7349,7 @@ export interface VariantStoreItem {
    * @public
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: StoreStatus | undefined;
 
   /**
    * @public
@@ -7425,7 +7425,7 @@ export interface ListWorkflowsRequest {
    * @public
    * <p>The workflows' type.</p>
    */
-  type?: WorkflowType | string;
+  type?: WorkflowType;
 
   /**
    * @public
@@ -7473,13 +7473,13 @@ export interface WorkflowListItem {
    * @public
    * <p>The workflow's status.</p>
    */
-  status?: WorkflowStatus | string;
+  status?: WorkflowStatus;
 
   /**
    * @public
    * <p>The workflow's type.</p>
    */
-  type?: WorkflowType | string;
+  type?: WorkflowType;
 
   /**
    * @public
@@ -7604,7 +7604,7 @@ export interface StartReferenceImportJobResponse {
    * @public
    * <p>The job's status.</p>
    */
-  status: ReferenceImportJobStatus | string | undefined;
+  status: ReferenceImportJobStatus | undefined;
 
   /**
    * @public
@@ -7670,7 +7670,7 @@ export interface StartRunRequest {
    * @public
    * <p>The run's workflow type.</p>
    */
-  workflowType?: WorkflowType | string;
+  workflowType?: WorkflowType;
 
   /**
    * @public
@@ -7724,7 +7724,7 @@ export interface StartRunRequest {
    * @public
    * <p>A log level for the run.</p>
    */
-  logLevel?: RunLogLevel | string;
+  logLevel?: RunLogLevel;
 
   /**
    * @public
@@ -7742,7 +7742,7 @@ export interface StartRunRequest {
    * @public
    * <p>The retention mode for the run.</p>
    */
-  retentionMode?: RunRetentionMode | string;
+  retentionMode?: RunRetentionMode;
 }
 
 /**
@@ -7765,7 +7765,7 @@ export interface StartRunResponse {
    * @public
    * <p>The run's status.</p>
    */
-  status?: RunStatus | string;
+  status?: RunStatus;
 
   /**
    * @public
@@ -7829,7 +7829,7 @@ export interface StartReadSetActivationJobResponse {
    * @public
    * <p>The job's status.</p>
    */
-  status: ReadSetActivationJobStatus | string | undefined;
+  status: ReadSetActivationJobStatus | undefined;
 
   /**
    * @public
@@ -7899,7 +7899,7 @@ export interface StartReadSetExportJobResponse {
    * @public
    * <p>The job's status.</p>
    */
-  status: ReadSetExportJobStatus | string | undefined;
+  status: ReadSetExportJobStatus | undefined;
 
   /**
    * @public
@@ -7923,7 +7923,7 @@ export interface StartReadSetImportJobSourceItem {
    * @public
    * <p>The source's file type.</p>
    */
-  sourceFileType: FileType | string | undefined;
+  sourceFileType: FileType | undefined;
 
   /**
    * @public
@@ -8023,7 +8023,7 @@ export interface StartReadSetImportJobResponse {
    * @public
    * <p>The job's status.</p>
    */
-  status: ReadSetImportJobStatus | string | undefined;
+  status: ReadSetImportJobStatus | undefined;
 
   /**
    * @public
@@ -8058,7 +8058,7 @@ export interface UploadReadSetPartRequest {
    *       The source file for an upload part.
    *     </p>
    */
-  partSource: ReadSetPartSource | string | undefined;
+  partSource: ReadSetPartSource | undefined;
 
   /**
    * @public
@@ -8231,7 +8231,7 @@ export interface UpdateVariantStoreResponse {
    * @public
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: StoreStatus | undefined;
 
   /**
    * @public

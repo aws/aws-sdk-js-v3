@@ -181,7 +181,7 @@ export interface ComputeAttributes {
    *             </li>
    *          </ul>
    */
-  State?: ComputeAssetState | string;
+  State?: ComputeAssetState;
 
   /**
    * @public
@@ -212,7 +212,7 @@ export interface AssetInfo {
    * @public
    * <p> The type of the asset. </p>
    */
-  AssetType?: AssetType | string;
+  AssetType?: AssetType;
 
   /**
    * @public
@@ -290,7 +290,7 @@ export class ConflictException extends __BaseException {
    * @public
    * <p>The type of the resource causing the conflict.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
   /**
    * @internal
    */
@@ -440,7 +440,7 @@ export interface CatalogItem {
    * @public
    * <p> The status of a catalog item. </p>
    */
-  ItemStatus?: CatalogItemStatus | string;
+  ItemStatus?: CatalogItemStatus;
 
   /**
    * @public
@@ -470,7 +470,7 @@ export interface CatalogItem {
    * @public
    * <p> The supported storage options for the catalog item. </p>
    */
-  SupportedStorage?: (SupportedStorageEnum | string)[];
+  SupportedStorage?: SupportedStorageEnum[];
 }
 
 /**
@@ -596,13 +596,13 @@ export interface CreateOrderInput {
    * @public
    * <p>The payment option.</p>
    */
-  PaymentOption: PaymentOption | string | undefined;
+  PaymentOption: PaymentOption | undefined;
 
   /**
    * @public
    * <p>The payment terms.</p>
    */
-  PaymentTerm?: PaymentTerm | string;
+  PaymentTerm?: PaymentTerm;
 }
 
 /**
@@ -654,7 +654,7 @@ export interface ShipmentInformation {
    * @public
    * <p> The carrier of the shipment. </p>
    */
-  ShipmentCarrier?: ShipmentCarrier | string;
+  ShipmentCarrier?: ShipmentCarrier;
 }
 
 /**
@@ -705,7 +705,7 @@ export interface LineItem {
    * @public
    * <p>The status of the line item.</p>
    */
-  Status?: LineItemStatus | string;
+  Status?: LineItemStatus;
 
   /**
    * @public
@@ -816,7 +816,7 @@ export interface Order {
    *           <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
    *          </note>
    */
-  Status?: OrderStatus | string;
+  Status?: OrderStatus;
 
   /**
    * @public
@@ -828,7 +828,7 @@ export interface Order {
    * @public
    * <p>The payment option for the order.</p>
    */
-  PaymentOption?: PaymentOption | string;
+  PaymentOption?: PaymentOption;
 
   /**
    * @public
@@ -846,13 +846,13 @@ export interface Order {
    * @public
    * <p>The payment term.</p>
    */
-  PaymentTerm?: PaymentTerm | string;
+  PaymentTerm?: PaymentTerm;
 
   /**
    * @public
    * <p>The type of order.</p>
    */
-  OrderType?: OrderType | string;
+  OrderType?: OrderType;
 }
 
 /**
@@ -946,7 +946,7 @@ export interface CreateOutpostInput {
    * @public
    * <p> The type of hardware for this Outpost. </p>
    */
-  SupportedHardwareType?: SupportedHardwareType | string;
+  SupportedHardwareType?: SupportedHardwareType;
 }
 
 /**
@@ -1024,7 +1024,7 @@ export interface Outpost {
    * @public
    * <p> The hardware type. </p>
    */
-  SupportedHardwareType?: SupportedHardwareType | string;
+  SupportedHardwareType?: SupportedHardwareType;
 }
 
 /**
@@ -1205,43 +1205,43 @@ export interface RackPhysicalProperties {
    * @public
    * <p>The power draw available at the hardware placement position for the rack. </p>
    */
-  PowerDrawKva?: PowerDrawKva | string;
+  PowerDrawKva?: PowerDrawKva;
 
   /**
    * @public
    * <p>The power option that you can provide for hardware.</p>
    */
-  PowerPhase?: PowerPhase | string;
+  PowerPhase?: PowerPhase;
 
   /**
    * @public
    * <p>The power connector for the hardware. </p>
    */
-  PowerConnector?: PowerConnector | string;
+  PowerConnector?: PowerConnector;
 
   /**
    * @public
    * <p>The position of the power feed.</p>
    */
-  PowerFeedDrop?: PowerFeedDrop | string;
+  PowerFeedDrop?: PowerFeedDrop;
 
   /**
    * @public
    * <p>The uplink speed the rack supports for the connection to the Region. </p>
    */
-  UplinkGbps?: UplinkGbps | string;
+  UplinkGbps?: UplinkGbps;
 
   /**
    * @public
    * <p>The number of uplinks each Outpost network device.</p>
    */
-  UplinkCount?: UplinkCount | string;
+  UplinkCount?: UplinkCount;
 
   /**
    * @public
    * <p>The type of fiber used to attach the Outpost to the network. </p>
    */
-  FiberOpticCableType?: FiberOpticCableType | string;
+  FiberOpticCableType?: FiberOpticCableType;
 
   /**
    * @public
@@ -1252,14 +1252,14 @@ export interface RackPhysicalProperties {
    *         in the Amazon Web Services Outposts User Guide.
    *         </p>
    */
-  OpticalStandard?: OpticalStandard | string;
+  OpticalStandard?: OpticalStandard;
 
   /**
    * @public
    * <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000 lbs
    *       (907 kg). </p>
    */
-  MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs | string;
+  MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs;
 }
 
 /**
@@ -1627,7 +1627,7 @@ export interface GetSiteAddressInput {
    * @public
    * <p>The type of the address you request. </p>
    */
-  AddressType: AddressType | string | undefined;
+  AddressType: AddressType | undefined;
 }
 
 /**
@@ -1644,7 +1644,7 @@ export interface GetSiteAddressOutput {
    * @public
    * <p>The type of the address you receive. </p>
    */
-  AddressType?: AddressType | string;
+  AddressType?: AddressType;
 
   /**
    * @public
@@ -1685,7 +1685,7 @@ export interface ListAssetsInput {
    * @public
    * <p>Filters the results by state.</p>
    */
-  StatusFilter?: (AssetState | string)[];
+  StatusFilter?: AssetState[];
 }
 
 /**
@@ -1725,13 +1725,13 @@ export interface ListCatalogItemsInput {
    * @public
    * <p>Filters the results by item class.</p>
    */
-  ItemClassFilter?: (CatalogItemClass | string)[];
+  ItemClassFilter?: CatalogItemClass[];
 
   /**
    * @public
    * <p>Filters the results by storage option.</p>
    */
-  SupportedStorageFilter?: (SupportedStorageEnum | string)[];
+  SupportedStorageFilter?: SupportedStorageEnum[];
 
   /**
    * @public
@@ -1801,7 +1801,7 @@ export interface OrderSummary {
    * @public
    * <p>The type of order.</p>
    */
-  OrderType?: OrderType | string;
+  OrderType?: OrderType;
 
   /**
    * @public
@@ -1834,7 +1834,7 @@ export interface OrderSummary {
    *           <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
    *          </note>
    */
-  Status?: OrderStatus | string;
+  Status?: OrderStatus;
 
   /**
    * @public
@@ -2114,7 +2114,7 @@ export interface UpdateOutpostInput {
    * @public
    * <p> The type of hardware for this Outpost. </p>
    */
-  SupportedHardwareType?: SupportedHardwareType | string;
+  SupportedHardwareType?: SupportedHardwareType;
 }
 
 /**
@@ -2182,7 +2182,7 @@ export interface UpdateSiteAddressInput {
    * @public
    * <p> The type of the address. </p>
    */
-  AddressType: AddressType | string | undefined;
+  AddressType: AddressType | undefined;
 
   /**
    * @public
@@ -2199,7 +2199,7 @@ export interface UpdateSiteAddressOutput {
    * @public
    * <p> The type of the address. </p>
    */
-  AddressType?: AddressType | string;
+  AddressType?: AddressType;
 
   /**
    * @public
@@ -2222,7 +2222,7 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    * @public
    * <p>The power draw, in kVA, available at the hardware placement position for the rack.</p>
    */
-  PowerDrawKva?: PowerDrawKva | string;
+  PowerDrawKva?: PowerDrawKva;
 
   /**
    * @public
@@ -2236,7 +2236,7 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *             </li>
    *          </ul>
    */
-  PowerPhase?: PowerPhase | string;
+  PowerPhase?: PowerPhase;
 
   /**
    * @public
@@ -2274,19 +2274,19 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *             </li>
    *          </ul>
    */
-  PowerConnector?: PowerConnector | string;
+  PowerConnector?: PowerConnector;
 
   /**
    * @public
    * <p>Indicates whether the power feed comes above or below the rack. </p>
    */
-  PowerFeedDrop?: PowerFeedDrop | string;
+  PowerFeedDrop?: PowerFeedDrop;
 
   /**
    * @public
    * <p>The uplink speed the rack should support for the connection to the Region. </p>
    */
-  UplinkGbps?: UplinkGbps | string;
+  UplinkGbps?: UplinkGbps;
 
   /**
    * @public
@@ -2306,13 +2306,13 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *             </li>
    *          </ul>
    */
-  UplinkCount?: UplinkCount | string;
+  UplinkCount?: UplinkCount;
 
   /**
    * @public
    * <p>The type of fiber that you will use to attach the Outpost to your network. </p>
    */
-  FiberOpticCableType?: FiberOpticCableType | string;
+  FiberOpticCableType?: FiberOpticCableType;
 
   /**
    * @public
@@ -2377,14 +2377,14 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *             </li>
    *          </ul>
    */
-  OpticalStandard?: OpticalStandard | string;
+  OpticalStandard?: OpticalStandard;
 
   /**
    * @public
    * <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000lbs.
    *     </p>
    */
-  MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs | string;
+  MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs;
 }
 
 /**

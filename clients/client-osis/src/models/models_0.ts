@@ -242,7 +242,7 @@ export interface Pipeline {
    * @public
    * <p>The current status of the pipeline.</p>
    */
-  Status?: PipelineStatus | string;
+  Status?: PipelineStatus;
 
   /**
    * @public
@@ -540,7 +540,7 @@ export interface ChangeProgressStage {
    * @public
    * <p>The current status of the stage that the change is in.</p>
    */
-  Status?: ChangeProgressStageStatuses | string;
+  Status?: ChangeProgressStageStatuses;
 
   /**
    * @public
@@ -586,7 +586,7 @@ export interface ChangeProgressStatus {
    * @public
    * <p>The overall status of the pipeline configuration change.</p>
    */
-  Status?: ChangeProgressStatuses | string;
+  Status?: ChangeProgressStatuses;
 
   /**
    * @public
@@ -689,7 +689,7 @@ export interface PipelineSummary {
    * @public
    * <p>The current status of the pipeline.</p>
    */
-  Status?: PipelineStatus | string;
+  Status?: PipelineStatus;
 
   /**
    * @public

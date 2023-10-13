@@ -264,7 +264,7 @@ export interface Authorizer {
    * @public
    * <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
    */
-  type?: AuthorizerType | string;
+  type?: AuthorizerType;
 
   /**
    * @public
@@ -558,7 +558,7 @@ export interface CreateAuthorizerRequest {
    * @public
    * <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
    */
-  type: AuthorizerType | string | undefined;
+  type: AuthorizerType | undefined;
 
   /**
    * @public
@@ -756,7 +756,7 @@ export interface CreateDeploymentRequest {
    * @public
    * <p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">Enabling API caching to enhance responsiveness</a>.</p>
    */
-  cacheClusterSize?: CacheClusterSize | string;
+  cacheClusterSize?: CacheClusterSize;
 
   /**
    * @public
@@ -882,7 +882,7 @@ export interface DocumentationPartLocation {
    * @public
    * <p>The type of API entity to which the documentation content applies. Valid values are <code>API</code>, <code>AUTHORIZER</code>, <code>MODEL</code>, <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>,  <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. Content inheritance does not apply to any entity of the <code>API</code>, <code>AUTHORIZER</code>, <code>METHOD</code>,  <code>MODEL</code>, <code>REQUEST_BODY</code>, or <code>RESOURCE</code> type.</p>
    */
-  type: DocumentationPartType | string | undefined;
+  type: DocumentationPartType | undefined;
 
   /**
    * @public
@@ -1035,7 +1035,7 @@ export interface EndpointConfiguration {
    * @public
    * <p>A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is <code>"EDGE"</code>. For a regional API and its custom domain name, the endpoint type is <code>REGIONAL</code>. For a private API, the endpoint type is <code>PRIVATE</code>.</p>
    */
-  types?: (EndpointType | string)[];
+  types?: EndpointType[];
 
   /**
    * @public
@@ -1151,7 +1151,7 @@ export interface CreateDomainNameRequest {
    * @public
    * <p>The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
    */
-  securityPolicy?: SecurityPolicy | string;
+  securityPolicy?: SecurityPolicy;
 
   /**
    * @public
@@ -1295,7 +1295,7 @@ export interface DomainName {
    * @public
    * <p>The status of the DomainName migration. The valid values are <code>AVAILABLE</code> and <code>UPDATING</code>. If the status is <code>UPDATING</code>, the domain cannot be modified further until the existing operation is complete. If it is <code>AVAILABLE</code>, the domain can be updated.</p>
    */
-  domainNameStatus?: DomainNameStatus | string;
+  domainNameStatus?: DomainNameStatus;
 
   /**
    * @public
@@ -1307,7 +1307,7 @@ export interface DomainName {
    * @public
    * <p>The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
    */
-  securityPolicy?: SecurityPolicy | string;
+  securityPolicy?: SecurityPolicy;
 
   /**
    * @public
@@ -1551,7 +1551,7 @@ export interface IntegrationResponse {
    * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
    *          <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
    */
-  contentHandling?: ContentHandlingStrategy | string;
+  contentHandling?: ContentHandlingStrategy;
 }
 
 /**
@@ -1603,7 +1603,7 @@ export interface Integration {
    * <p>Specifies an API method integration type. The valid value is one of the following:</p>
    *          <p>For the HTTP and HTTP proxy integrations, each integration can specify a protocol (<code>http/https</code>), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a <code>connectionType</code> of <code>VPC_LINK</code> is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.</p>
    */
-  type?: IntegrationType | string;
+  type?: IntegrationType;
 
   /**
    * @public
@@ -1636,7 +1636,7 @@ export interface Integration {
    * @public
    * <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
    */
-  connectionType?: ConnectionType | string;
+  connectionType?: ConnectionType;
 
   /**
    * @public
@@ -1687,7 +1687,7 @@ export interface Integration {
    * <p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
    *          <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehavior</code> is configured to support payload pass-through.</p>
    */
-  contentHandling?: ContentHandlingStrategy | string;
+  contentHandling?: ContentHandlingStrategy;
 
   /**
    * @public
@@ -1907,7 +1907,7 @@ export interface CreateRestApiRequest {
    *       request. <code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code>
    *       from a custom authorizer.</p>
    */
-  apiKeySource?: ApiKeySourceType | string;
+  apiKeySource?: ApiKeySourceType;
 
   /**
    * @public
@@ -1997,7 +1997,7 @@ export interface RestApi {
    *       request. <code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code>
    *       from a custom authorizer.</p>
    */
-  apiKeySource?: ApiKeySourceType | string;
+  apiKeySource?: ApiKeySourceType;
 
   /**
    * @public
@@ -2102,7 +2102,7 @@ export interface CreateStageRequest {
    * @public
    * <p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">Enabling API caching to enhance responsiveness</a>.</p>
    */
-  cacheClusterSize?: CacheClusterSize | string;
+  cacheClusterSize?: CacheClusterSize;
 
   /**
    * @public
@@ -2233,7 +2233,7 @@ export interface MethodSetting {
    * @public
    * <p>Specifies how to handle unauthorized requests for cache invalidation.</p>
    */
-  unauthorizedCacheControlHeaderStrategy?: UnauthorizedCacheControlHeaderStrategy | string;
+  unauthorizedCacheControlHeaderStrategy?: UnauthorizedCacheControlHeaderStrategy;
 }
 
 /**
@@ -2275,13 +2275,13 @@ export interface Stage {
    * @public
    * <p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">Enabling API caching to enhance responsiveness</a>.</p>
    */
-  cacheClusterSize?: CacheClusterSize | string;
+  cacheClusterSize?: CacheClusterSize;
 
   /**
    * @public
    * <p>The status of the cache cluster for the stage, if enabled.</p>
    */
-  cacheClusterStatus?: CacheClusterStatus | string;
+  cacheClusterStatus?: CacheClusterStatus;
 
   /**
    * @public
@@ -2381,7 +2381,7 @@ export interface QuotaSettings {
    * @public
    * <p>The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".</p>
    */
-  period?: QuotaPeriodType | string;
+  period?: QuotaPeriodType;
 }
 
 /**
@@ -2616,7 +2616,7 @@ export interface VpcLink {
    * @public
    * <p>The status of the VPC link. The valid values are <code>AVAILABLE</code>, <code>PENDING</code>, <code>DELETING</code>, or <code>FAILED</code>. Deploying an API will wait if the status is <code>PENDING</code> and will fail if the status is <code>DELETING</code>.  </p>
    */
-  status?: VpcLinkStatus | string;
+  status?: VpcLinkStatus;
 
   /**
    * @public
@@ -2806,7 +2806,7 @@ export interface DeleteGatewayResponseRequest {
    * @public
    * <p>The response type of the associated GatewayResponse.</p>
    */
-  responseType: GatewayResponseType | string | undefined;
+  responseType: GatewayResponseType | undefined;
 }
 
 /**
@@ -3480,7 +3480,7 @@ export interface GetDocumentationPartsRequest {
    * @public
    * <p>The type of API entities of the to-be-retrieved documentation parts. </p>
    */
-  type?: DocumentationPartType | string;
+  type?: DocumentationPartType;
 
   /**
    * @public
@@ -3510,7 +3510,7 @@ export interface GetDocumentationPartsRequest {
    * @public
    * <p>The status of the API documentation parts to retrieve. Valid values are <code>DOCUMENTED</code> for retrieving DocumentationPart resources with content and <code>UNDOCUMENTED</code> for DocumentationPart resources without content.</p>
    */
-  locationStatus?: LocationStatusType | string;
+  locationStatus?: LocationStatusType;
 }
 
 /**
@@ -3691,7 +3691,7 @@ export interface GatewayResponse {
    * @public
    * <p>The response type of the associated GatewayResponse.</p>
    */
-  responseType?: GatewayResponseType | string;
+  responseType?: GatewayResponseType;
 
   /**
    * @public
@@ -3734,7 +3734,7 @@ export interface GetGatewayResponseRequest {
    * @public
    * <p>The response type of the associated GatewayResponse.</p>
    */
-  responseType: GatewayResponseType | string | undefined;
+  responseType: GatewayResponseType | undefined;
 }
 
 /**
@@ -4670,7 +4670,7 @@ export interface ImportApiKeysRequest {
    * @public
    * <p>A query parameter to specify the input format to imported API keys. Currently, only the <code>csv</code> format is supported.</p>
    */
-  format: ApiKeysFormat | string | undefined;
+  format: ApiKeysFormat | undefined;
 
   /**
    * @public
@@ -4726,7 +4726,7 @@ export interface ImportDocumentationPartsRequest {
    * @public
    * <p>A query parameter to indicate whether to overwrite (<code>overwrite</code>) any existing DocumentationParts definition or to merge (<code>merge</code>) the new definition into the existing one. The default value is <code>merge</code>.</p>
    */
-  mode?: PutMode | string;
+  mode?: PutMode;
 
   /**
    * @public
@@ -4784,7 +4784,7 @@ export interface PutGatewayResponseRequest {
    * @public
    * <p>The response type of the associated GatewayResponse</p>
    */
-  responseType: GatewayResponseType | string | undefined;
+  responseType: GatewayResponseType | undefined;
 
   /**
    * @public
@@ -4832,7 +4832,7 @@ export interface PutIntegrationRequest {
    * @public
    * <p>Specifies a put integration input's type.</p>
    */
-  type: IntegrationType | string | undefined;
+  type: IntegrationType | undefined;
 
   /**
    * @public
@@ -4865,7 +4865,7 @@ export interface PutIntegrationRequest {
    * @public
    * <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
    */
-  connectionType?: ConnectionType | string;
+  connectionType?: ConnectionType;
 
   /**
    * @public
@@ -4915,7 +4915,7 @@ export interface PutIntegrationRequest {
    * <p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
    *          <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehavior</code> is configured to support payload pass-through.</p>
    */
-  contentHandling?: ContentHandlingStrategy | string;
+  contentHandling?: ContentHandlingStrategy;
 
   /**
    * @public
@@ -4983,7 +4983,7 @@ export interface PutIntegrationResponseRequest {
    * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
    *          <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
    */
-  contentHandling?: ContentHandlingStrategy | string;
+  contentHandling?: ContentHandlingStrategy;
 }
 
 /**
@@ -5116,7 +5116,7 @@ export interface PutRestApiRequest {
    * <p>The <code>mode</code> query parameter to specify the update mode. Valid values are "merge" and "overwrite". By default,
    *         the update mode is "merge".</p>
    */
-  mode?: PutMode | string;
+  mode?: PutMode;
 
   /**
    * @public
@@ -5408,7 +5408,7 @@ export interface PatchOperation {
    *             resource. Support of the operations depends on specific operational contexts. Attempts
    *             to apply an unsupported operation on a resource will return an error message..</p>
    */
-  op?: Op | string;
+  op?: Op;
 
   /**
    * @public
@@ -5643,7 +5643,7 @@ export interface UpdateGatewayResponseRequest {
    * @public
    * <p>The response type of the associated GatewayResponse.</p>
    */
-  responseType: GatewayResponseType | string | undefined;
+  responseType: GatewayResponseType | undefined;
 
   /**
    * @public

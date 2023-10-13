@@ -204,7 +204,7 @@ export interface CodegenGenericDataRelationshipType {
    * @public
    * <p>The data relationship type.</p>
    */
-  type: GenericDataRelationshipType | string | undefined;
+  type: GenericDataRelationshipType | undefined;
 
   /**
    * @public
@@ -264,7 +264,7 @@ export interface CodegenGenericDataField {
    * @public
    * <p>The data type for the generic data field.</p>
    */
-  dataType: CodegenGenericDataFieldDataType | string | undefined;
+  dataType: CodegenGenericDataFieldDataType | undefined;
 
   /**
    * @public
@@ -342,7 +342,7 @@ export interface CodegenJobGenericDataSchema {
    * @public
    * <p>The type of the data source for the schema. Currently, the only valid value is an Amplify <code>DataStore</code>.</p>
    */
-  dataSourceType: CodegenJobGenericDataSourceType | string | undefined;
+  dataSourceType: CodegenJobGenericDataSourceType | undefined;
 
   /**
    * @public
@@ -535,19 +535,19 @@ export interface ReactStartCodegenJobData {
    * @public
    * <p>The JavaScript module type.</p>
    */
-  module?: JSModule | string;
+  module?: JSModule;
 
   /**
    * @public
    * <p>The ECMAScript specification to use.</p>
    */
-  target?: JSTarget | string;
+  target?: JSTarget;
 
   /**
    * @public
    * <p>The file type to use for a JavaScript project.</p>
    */
-  script?: JSScript | string;
+  script?: JSScript;
 
   /**
    * @public
@@ -678,7 +678,7 @@ export interface CodegenJob {
    * @public
    * <p>The status of the code generation job.</p>
    */
-  status?: CodegenJobStatus | string;
+  status?: CodegenJobStatus;
 
   /**
    * @public
@@ -986,7 +986,7 @@ export interface SortProperty {
    * @public
    * <p>The direction of the sort, either ascending or descending.</p>
    */
-  direction: SortDirection | string | undefined;
+  direction: SortDirection | undefined;
 }
 
 /**
@@ -1256,7 +1256,7 @@ export interface ExchangeCodeForTokenRequest {
    * @public
    * <p>The third-party provider for the token. The only valid value is <code>figma</code>.</p>
    */
-  provider: TokenProviders | string | undefined;
+  provider: TokenProviders | undefined;
 
   /**
    * @public
@@ -1321,7 +1321,7 @@ export namespace FieldPosition {
    * <p>The field position is fixed and doesn't change in relation to other fields.</p>
    */
   export interface FixedMember {
-    fixed: FixedPosition | string;
+    fixed: FixedPosition;
     rightOf?: never;
     below?: never;
     $unknown?: never;
@@ -1360,7 +1360,7 @@ export namespace FieldPosition {
   }
 
   export interface Visitor<T> {
-    fixed: (value: FixedPosition | string) => T;
+    fixed: (value: FixedPosition) => T;
     rightOf: (value: string) => T;
     below: (value: string) => T;
     _: (name: string, value: any) => T;
@@ -1422,7 +1422,7 @@ export interface FormCTA {
    * @public
    * <p>The position of the button.</p>
    */
-  position?: FormButtonsPosition | string;
+  position?: FormButtonsPosition;
 
   /**
    * @public
@@ -1472,7 +1472,7 @@ export interface FormDataTypeConfig {
    * @public
    * <p>The data source type, either an Amplify DataStore model or a custom data type.</p>
    */
-  dataSourceType: FormDataSourceType | string | undefined;
+  dataSourceType: FormDataSourceType | undefined;
 
   /**
    * @public
@@ -1509,7 +1509,7 @@ export interface FileUploaderFieldConfig {
    *       permissions associated with each access level, see <a href="https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/">File access
    *         levels</a> in the <i>Amplify documentation</i>.</p>
    */
-  accessLevel: StorageAccessLevel | string | undefined;
+  accessLevel: StorageAccessLevel | undefined;
 
   /**
    * @public
@@ -1917,7 +1917,7 @@ export interface FormSummary {
    * @public
    * <p>The type of operation to perform on the form.</p>
    */
-  formActionType: FormActionType | string | undefined;
+  formActionType: FormActionType | undefined;
 
   /**
    * @public
@@ -2065,7 +2065,7 @@ export interface RefreshTokenRequest {
    * @public
    * <p>The third-party provider for the token. The only valid value is <code>figma</code>.</p>
    */
-  provider: TokenProviders | string | undefined;
+  provider: TokenProviders | undefined;
 
   /**
    * @public
@@ -3073,7 +3073,7 @@ export interface CreateFormData {
    * @public
    * <p>Specifies whether to perform a create or update action on the form.</p>
    */
-  formActionType: FormActionType | string | undefined;
+  formActionType: FormActionType | undefined;
 
   /**
    * @public
@@ -3117,7 +3117,7 @@ export interface CreateFormData {
    * @public
    * <p>Specifies an icon or decoration to display on the form.</p>
    */
-  labelDecorator?: LabelDecorator | string;
+  labelDecorator?: LabelDecorator;
 }
 
 /**
@@ -3155,7 +3155,7 @@ export interface Form {
    * @public
    * <p>The operation to perform on the specified form.</p>
    */
-  formActionType: FormActionType | string | undefined;
+  formActionType: FormActionType | undefined;
 
   /**
    * @public
@@ -3204,7 +3204,7 @@ export interface Form {
    * @public
    * <p>Specifies an icon or decoration to display on the form.</p>
    */
-  labelDecorator?: LabelDecorator | string;
+  labelDecorator?: LabelDecorator;
 }
 
 /**
@@ -3228,7 +3228,7 @@ export interface UpdateFormData {
    * @public
    * <p>Specifies whether to perform a create or update action on the form.</p>
    */
-  formActionType?: FormActionType | string;
+  formActionType?: FormActionType;
 
   /**
    * @public
@@ -3266,7 +3266,7 @@ export interface UpdateFormData {
    * @public
    * <p>Specifies an icon or decoration to display on the form.</p>
    */
-  labelDecorator?: LabelDecorator | string;
+  labelDecorator?: LabelDecorator;
 }
 
 /**

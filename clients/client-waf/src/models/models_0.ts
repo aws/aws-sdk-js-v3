@@ -53,7 +53,7 @@ export interface WafAction {
    *             </li>
    *          </ul>
    */
-  Type: WafActionType | string | undefined;
+  Type: WafActionType | undefined;
 }
 
 /**
@@ -110,7 +110,7 @@ export interface WafOverrideAction {
    * <p>
    *             <code>COUNT</code> overrides the action specified by the individual rule within a <code>RuleGroup</code> . If set to <code>NONE</code>, the rule's action will take place.</p>
    */
-  Type: WafOverrideActionType | string | undefined;
+  Type: WafOverrideActionType | undefined;
 }
 
 /**
@@ -205,7 +205,7 @@ export interface ActivatedRule {
    * <p>The rule type, either <code>REGULAR</code>, as defined by <a>Rule</a>, <code>RATE_BASED</code>, as defined by <a>RateBasedRule</a>, or <code>GROUP</code>, as defined by <a>RuleGroup</a>. The default is REGULAR. Although this field is optional, be aware that if you try to add a RATE_BASED rule to a web ACL without setting the type, the  <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule with the specified ID, which does not exist.
    * 			</p>
    */
-  Type?: WafRuleType | string;
+  Type?: WafRuleType;
 
   /**
    * @public
@@ -346,7 +346,7 @@ export interface FieldToMatch {
    * 		          </li>
    *          </ul>
    */
-  Type: MatchFieldType | string | undefined;
+  Type: MatchFieldType | undefined;
 
   /**
    * @public
@@ -578,7 +578,7 @@ export interface ByteMatchTuple {
    *          </p>
    * 		       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>
    */
-  TextTransformation: TextTransformation | string | undefined;
+  TextTransformation: TextTransformation | undefined;
 
   /**
    * @public
@@ -628,7 +628,7 @@ export interface ByteMatchTuple {
    *          </p>
    * 		       <p>The value of <code>TargetString</code> must appear at the end of the specified part of the web request.</p>
    */
-  PositionalConstraint: PositionalConstraint | string | undefined;
+  PositionalConstraint: PositionalConstraint | undefined;
 }
 
 /**
@@ -841,9 +841,9 @@ export type ParameterExceptionReason = (typeof ParameterExceptionReason)[keyof t
 export class WAFInvalidParameterException extends __BaseException {
   readonly name: "WAFInvalidParameterException" = "WAFInvalidParameterException";
   readonly $fault: "client" = "client";
-  field?: ParameterExceptionField | string;
+  field?: ParameterExceptionField;
   parameter?: string;
-  reason?: ParameterExceptionReason | string;
+  reason?: ParameterExceptionReason;
   /**
    * @internal
    */
@@ -1210,13 +1210,13 @@ export interface GeoMatchConstraint {
    * @public
    * <p>The type of geographical area you want AWS WAF to search for. Currently <code>Country</code> is the only valid value.</p>
    */
-  Type: GeoMatchConstraintType | string | undefined;
+  Type: GeoMatchConstraintType | undefined;
 
   /**
    * @public
    * <p>The country that you want AWS WAF to search for.</p>
    */
-  Value: GeoMatchConstraintValue | string | undefined;
+  Value: GeoMatchConstraintValue | undefined;
 }
 
 /**
@@ -1320,7 +1320,7 @@ export interface IPSetDescriptor {
    * @public
    * <p>Specify <code>IPV4</code> or <code>IPV6</code>.</p>
    */
-  Type: IPSetDescriptorType | string | undefined;
+  Type: IPSetDescriptorType | undefined;
 
   /**
    * @public
@@ -1479,7 +1479,7 @@ export interface CreateRateBasedRuleRequest {
    *          address are subject to the <code>RateLimit</code> that is specified in
    *          the <code>RateBasedRule</code>.</p>
    */
-  RateKey: RateKey | string | undefined;
+  RateKey: RateKey | undefined;
 
   /**
    * @public
@@ -1556,7 +1556,7 @@ export interface Predicate {
    * @public
    * <p>The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.</p>
    */
-  Type: PredicateType | string | undefined;
+  Type: PredicateType | undefined;
 
   /**
    * @public
@@ -1635,7 +1635,7 @@ export interface RateBasedRule {
    *          address are subject to the <code>RateLimit</code> that is specified in the
    *             <code>RateBasedRule</code>.</p>
    */
-  RateKey: RateKey | string | undefined;
+  RateKey: RateKey | undefined;
 
   /**
    * @public
@@ -1870,7 +1870,7 @@ export interface RegexMatchTuple {
    *          </p>
    * 		       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>
    */
-  TextTransformation: TextTransformation | string | undefined;
+  TextTransformation: TextTransformation | undefined;
 
   /**
    * @public
@@ -2385,7 +2385,7 @@ export interface SizeConstraint {
    *          </p>
    * 		       <p>Use this option to decode a URL-encoded value.</p>
    */
-  TextTransformation: TextTransformation | string | undefined;
+  TextTransformation: TextTransformation | undefined;
 
   /**
    * @public
@@ -2412,7 +2412,7 @@ export interface SizeConstraint {
    *             <b>GT</b>: Used to test if the <code>Size</code> is strictly greater than the size of the <code>FieldToMatch</code>
    *          </p>
    */
-  ComparisonOperator: ComparisonOperator | string | undefined;
+  ComparisonOperator: ComparisonOperator | undefined;
 
   /**
    * @public
@@ -2619,7 +2619,7 @@ export interface SqlInjectionMatchTuple {
    *          </p>
    * 		       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>
    */
-  TextTransformation: TextTransformation | string | undefined;
+  TextTransformation: TextTransformation | undefined;
 }
 
 /**
@@ -2905,7 +2905,7 @@ export type MigrationErrorType = (typeof MigrationErrorType)[keyof typeof Migrat
 export class WAFEntityMigrationException extends __BaseException {
   readonly name: "WAFEntityMigrationException" = "WAFEntityMigrationException";
   readonly $fault: "client" = "client";
-  MigrationErrorType?: MigrationErrorType | string;
+  MigrationErrorType?: MigrationErrorType;
   MigrationErrorReason?: string;
   /**
    * @internal
@@ -3116,7 +3116,7 @@ export interface XssMatchTuple {
    *          </p>
    * 		       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>
    */
-  TextTransformation: TextTransformation | string | undefined;
+  TextTransformation: TextTransformation | undefined;
 }
 
 /**
@@ -3735,7 +3735,7 @@ export interface GetChangeTokenStatusResponse {
    * @public
    * <p>The status of the change token.</p>
    */
-  ChangeTokenStatus?: ChangeTokenStatus | string;
+  ChangeTokenStatus?: ChangeTokenStatus;
 }
 
 /**
@@ -5727,7 +5727,7 @@ export interface ByteMatchSetUpdate {
    * @public
    * <p>Specifies whether to insert or delete a <a>ByteMatchTuple</a>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: ChangeAction | undefined;
 
   /**
    * @public
@@ -5845,7 +5845,7 @@ export interface GeoMatchSetUpdate {
    * @public
    * <p>Specifies whether to insert or delete a country with <a>UpdateGeoMatchSet</a>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: ChangeAction | undefined;
 
   /**
    * @public
@@ -5921,7 +5921,7 @@ export interface IPSetUpdate {
    * @public
    * <p>Specifies whether to insert or delete an IP address with <a>UpdateIPSet</a>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: ChangeAction | undefined;
 
   /**
    * @public
@@ -5999,7 +5999,7 @@ export interface RuleUpdate {
    * <p>Specify <code>INSERT</code> to add a <code>Predicate</code> to a <code>Rule</code>. Use <code>DELETE</code> to remove a
    * 			<code>Predicate</code> from a <code>Rule</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: ChangeAction | undefined;
 
   /**
    * @public
@@ -6073,7 +6073,7 @@ export interface RegexMatchSetUpdate {
    * @public
    * <p>Specifies whether to insert or delete a <a>RegexMatchTuple</a>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: ChangeAction | undefined;
 
   /**
    * @public
@@ -6139,7 +6139,7 @@ export interface RegexPatternSetUpdate {
    * @public
    * <p>Specifies whether to insert or delete a <code>RegexPatternString</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: ChangeAction | undefined;
 
   /**
    * @public
@@ -6277,7 +6277,7 @@ export interface RuleGroupUpdate {
    * <p>Specify <code>INSERT</code> to add an <code>ActivatedRule</code> to a <code>RuleGroup</code>. Use <code>DELETE</code> to remove an
    *          <code>ActivatedRule</code> from a <code>RuleGroup</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: ChangeAction | undefined;
 
   /**
    * @public
@@ -6347,7 +6347,7 @@ export interface SizeConstraintSetUpdate {
    * <p>Specify <code>INSERT</code> to add a <a>SizeConstraintSetUpdate</a> to a <a>SizeConstraintSet</a>.
    * 			Use <code>DELETE</code> to remove a <code>SizeConstraintSetUpdate</code> from a <code>SizeConstraintSet</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: ChangeAction | undefined;
 
   /**
    * @public
@@ -6433,7 +6433,7 @@ export interface SqlInjectionMatchSetUpdate {
    * <p>Specify <code>INSERT</code> to add a <a>SqlInjectionMatchSetUpdate</a> to a <a>SqlInjectionMatchSet</a>.
    * 			Use <code>DELETE</code> to remove a <code>SqlInjectionMatchSetUpdate</code> from a <code>SqlInjectionMatchSet</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: ChangeAction | undefined;
 
   /**
    * @public
@@ -6515,7 +6515,7 @@ export interface WebACLUpdate {
    * @public
    * <p>Specifies whether to insert a <code>Rule</code> into or delete a <code>Rule</code> from a <code>WebACL</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: ChangeAction | undefined;
 
   /**
    * @public
@@ -6635,7 +6635,7 @@ export interface XssMatchSetUpdate {
    *             <code>DELETE</code> to remove an
    *          <code>XssMatchSetUpdate</code> from an <code>XssMatchSet</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: ChangeAction | undefined;
 
   /**
    * @public

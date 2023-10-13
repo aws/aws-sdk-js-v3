@@ -102,7 +102,7 @@ export interface CreateClusterInput {
    * @public
    * <p>The authentication type for the Elastic DocumentDB cluster.</p>
    */
-  authType: Auth | string | undefined;
+  authType: Auth | undefined;
 
   /**
    * @public
@@ -249,7 +249,7 @@ export interface Cluster {
    * @public
    * <p>The status of the Elastic DocumentDB cluster.</p>
    */
-  status: Status | string | undefined;
+  status: Status | undefined;
 
   /**
    * @public
@@ -273,7 +273,7 @@ export interface Cluster {
    * @public
    * <p>The authentication type for the Elastic DocumentDB cluster.</p>
    */
-  authType: Auth | string | undefined;
+  authType: Auth | undefined;
 
   /**
    * @public
@@ -442,7 +442,7 @@ export class ValidationException extends __BaseException {
    * <p>The reason why the validation exception occurred (one of <code>unknownOperation</code>,
    *       <code>cannotParse</code>, <code>fieldValidationFailed</code>, or <code>other</code>).</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -533,7 +533,7 @@ export interface ClusterSnapshot {
    * @public
    * <p>The status of the Elastic DocumentDB snapshot.</p>
    */
-  status: Status | string | undefined;
+  status: Status | undefined;
 
   /**
    * @public
@@ -725,7 +725,7 @@ export interface ClusterInList {
    * @public
    * <p>The status of the Elastic DocumentDB cluster.</p>
    */
-  status: Status | string | undefined;
+  status: Status | undefined;
 }
 
 /**
@@ -796,7 +796,7 @@ export interface ClusterSnapshotInList {
    * @public
    * <p>The status of the Elastic DocumentDB snapshot.</p>
    */
-  status: Status | string | undefined;
+  status: Status | undefined;
 
   /**
    * @public
@@ -965,7 +965,7 @@ export interface UpdateClusterInput {
    * @public
    * <p>The authentication type for the Elastic DocumentDB cluster.</p>
    */
-  authType?: Auth | string;
+  authType?: Auth;
 
   /**
    * @public

@@ -103,7 +103,7 @@ export class ConflictException extends __BaseException {
    * @public
    * <p>The type of the resource.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: ResourceType | undefined;
   /**
    * @internal
    */
@@ -261,7 +261,7 @@ export interface DatasetMetadata {
    * @public
    * <p>The status for the dataset.</p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 
   /**
    * @public
@@ -327,7 +327,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The type of the resource.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: ResourceType | undefined;
   /**
    * @internal
    */
@@ -363,7 +363,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    * @public
    * <p>The type of the resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -641,7 +641,7 @@ export interface ModelMetadata {
    * @public
    * <p>The status of the model.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -794,7 +794,7 @@ export interface DatasetDescription {
    * @public
    * <p>The status of the dataset.</p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 
   /**
    * @public
@@ -1029,7 +1029,7 @@ export interface ModelDescription {
    * @public
    * <p>The status of the model.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -1186,7 +1186,7 @@ export interface TargetPlatform {
    *          that is currently supported.
    *       </p>
    */
-  Os: TargetPlatformOs | string | undefined;
+  Os: TargetPlatformOs | undefined;
 
   /**
    * @public
@@ -1194,7 +1194,7 @@ export interface TargetPlatform {
    *          X86_64 (64-bit version of the x86 instruction set) and ARM_64 (ARMv8 64-bit CPU).
    *       </p>
    */
-  Arch: TargetPlatformArch | string | undefined;
+  Arch: TargetPlatformArch | undefined;
 
   /**
    * @public
@@ -1215,7 +1215,7 @@ export interface TargetPlatform {
    *             </li>
    *          </ul>
    */
-  Accelerator?: TargetPlatformAccelerator | string;
+  Accelerator?: TargetPlatformAccelerator;
 }
 
 /**
@@ -1247,7 +1247,7 @@ export interface GreengrassConfiguration {
    *
    * </p>
    */
-  TargetDevice?: TargetDevice | string;
+  TargetDevice?: TargetDevice;
 
   /**
    * @public
@@ -1450,7 +1450,7 @@ export interface ModelPackagingDescription {
    * The status of the model packaging job.
    * </p>
    */
-  Status?: ModelPackagingJobStatus | string;
+  Status?: ModelPackagingJobStatus;
 
   /**
    * @public
@@ -1815,7 +1815,7 @@ export interface ModelPackagingJobMetadata {
    * <p>The status of the model packaging job.
    * </p>
    */
-  Status?: ModelPackagingJobStatus | string;
+  Status?: ModelPackagingJobStatus;
 
   /**
    * @public
@@ -2041,7 +2041,7 @@ export interface StartModelResponse {
    * @public
    * <p>The current running status of the model.</p>
    */
-  Status?: ModelHostingStatus | string;
+  Status?: ModelHostingStatus;
 }
 
 /**
@@ -2162,7 +2162,7 @@ export interface StopModelResponse {
    * @public
    * <p>The status of the model.</p>
    */
-  Status?: ModelHostingStatus | string;
+  Status?: ModelHostingStatus;
 }
 
 /**
@@ -2260,7 +2260,7 @@ export interface UpdateDatasetEntriesResponse {
    * @public
    * <p>The status of the dataset update.</p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 }
 
 /**

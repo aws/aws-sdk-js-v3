@@ -2344,7 +2344,7 @@ const de_DatasourcePackageIngestDetails = (
   context: __SerdeContext
 ): Record<string, DatasourcePackageIngestDetail> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, DatasourcePackageIngestDetail>, [key, value]: [DatasourcePackage | string, any]) => {
+    (acc: Record<string, DatasourcePackageIngestDetail>, [key, value]: [DatasourcePackage, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2363,7 +2363,7 @@ const de_DatasourcePackageIngestHistory = (
   context: __SerdeContext
 ): Record<string, Record<string, TimestampForCollection>> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, Record<string, TimestampForCollection>>, [key, value]: [DatasourcePackage | string, any]) => {
+    (acc: Record<string, Record<string, TimestampForCollection>>, [key, value]: [DatasourcePackage, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2416,7 +2416,7 @@ const de_LastIngestStateChangeDates = (
   context: __SerdeContext
 ): Record<string, TimestampForCollection> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, TimestampForCollection>, [key, value]: [DatasourcePackageIngestState | string, any]) => {
+    (acc: Record<string, TimestampForCollection>, [key, value]: [DatasourcePackageIngestState, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2515,7 +2515,7 @@ const de_VolumeUsageByDatasourcePackage = (
   context: __SerdeContext
 ): Record<string, DatasourcePackageUsageInfo> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, DatasourcePackageUsageInfo>, [key, value]: [DatasourcePackage | string, any]) => {
+    (acc: Record<string, DatasourcePackageUsageInfo>, [key, value]: [DatasourcePackage, any]) => {
       if (value === null) {
         return acc;
       }

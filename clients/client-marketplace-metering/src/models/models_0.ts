@@ -188,7 +188,7 @@ export interface UsageRecordResult {
    *             </li>
    *          </ul>
    */
-  Status?: UsageRecordResultStatus | string;
+  Status?: UsageRecordResultStatus;
 }
 
 /**

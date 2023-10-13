@@ -41,7 +41,7 @@ export interface AccessControlTranslation {
    * @public
    * <p>Specifies the replica ownership.</p>
    */
-  Owner: OwnerOverride | string | undefined;
+  Owner: OwnerOverride | undefined;
 }
 
 /**
@@ -91,7 +91,7 @@ export interface AccessPoint {
    *          the access point allows access from the public internet, subject to the access point and bucket access
    *          policies.</p>
    */
-  NetworkOrigin: NetworkOrigin | string | undefined;
+  NetworkOrigin: NetworkOrigin | undefined;
 
   /**
    * @public
@@ -597,7 +597,7 @@ export interface AsyncOperation {
    * @public
    * <p>The specific operation for the asynchronous request.</p>
    */
-  Operation?: AsyncOperationName | string;
+  Operation?: AsyncOperationName;
 
   /**
    * @public
@@ -795,7 +795,7 @@ export interface ObjectLambdaTransformationConfiguration {
    *             <code>GetObject</code>, <code>ListObjects</code>, <code>HeadObject</code>, and
    *             <code>ListObjectsV2</code>.</p>
    */
-  Actions: (ObjectLambdaTransformationConfigurationAction | string)[] | undefined;
+  Actions: ObjectLambdaTransformationConfigurationAction[] | undefined;
 
   /**
    * @public
@@ -827,7 +827,7 @@ export interface ObjectLambdaConfiguration {
    *             <code>GetObject-PartNumber</code>, <code>HeadObject-Range</code>, and
    *             <code>HeadObject-PartNumber</code>.</p>
    */
-  AllowedFeatures?: (ObjectLambdaAllowedFeature | string)[];
+  AllowedFeatures?: ObjectLambdaAllowedFeature[];
 
   /**
    * @public
@@ -891,7 +891,7 @@ export interface ObjectLambdaAccessPointAlias {
    * <p>The status of the Object Lambda Access Point alias. If the status is <code>PROVISIONING</code>, the Object Lambda Access Point is provisioning the alias and the alias is not ready for use yet. If
    *          the status is <code>READY</code>, the Object Lambda Access Point alias is successfully provisioned and ready for use.</p>
    */
-  Status?: ObjectLambdaAccessPointAliasStatus | string;
+  Status?: ObjectLambdaAccessPointAliasStatus;
 }
 
 /**
@@ -1008,7 +1008,7 @@ export interface CreateBucketConfiguration {
    *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
    *          </note>
    */
-  LocationConstraint?: BucketLocationConstraint | string;
+  LocationConstraint?: BucketLocationConstraint;
 }
 
 /**
@@ -1022,7 +1022,7 @@ export interface CreateBucketRequest {
    *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
    *          </note>
    */
-  ACL?: BucketCannedACL | string;
+  ACL?: BucketCannedACL;
 
   /**
    * @public
@@ -1215,14 +1215,14 @@ export interface JobManifestSpec {
    * @public
    * <p>Indicates which of the available formats the specified manifest uses.</p>
    */
-  Format: JobManifestFormat | string | undefined;
+  Format: JobManifestFormat | undefined;
 
   /**
    * @public
    * <p>If the specified manifest object is in the <code>S3BatchOperations_CSV_20180820</code>
    *          format, this element describes which columns contain the required data.</p>
    */
-  Fields?: (JobManifestFieldName | string)[];
+  Fields?: JobManifestFieldName[];
 }
 
 /**
@@ -1291,7 +1291,7 @@ export interface JobManifestGeneratorFilter {
    * <p>If provided, the generated manifest should include only source bucket objects that have
    *          one of the specified Replication statuses.</p>
    */
-  ObjectReplicationStatuses?: (ReplicationStatus | string)[];
+  ObjectReplicationStatuses?: ReplicationStatus[];
 }
 
 /**
@@ -1379,7 +1379,7 @@ export interface S3ManifestOutputLocation {
    * @public
    * <p>The format of the generated manifest.</p>
    */
-  ManifestFormat: GeneratedManifestFormat | string | undefined;
+  ManifestFormat: GeneratedManifestFormat | undefined;
 }
 
 /**
@@ -1535,7 +1535,7 @@ export interface S3InitiateRestoreObjectOperation {
    * <p>S3 Batch Operations supports <code>STANDARD</code> and <code>BULK</code> retrieval tiers, but
    *          not the <code>EXPEDITED</code> retrieval tier.</p>
    */
-  GlacierJobTier?: S3GlacierJobTier | string;
+  GlacierJobTier?: S3GlacierJobTier;
 }
 
 /**
@@ -1562,7 +1562,7 @@ export interface S3Grantee {
    * @public
    * <p></p>
    */
-  TypeIdentifier?: S3GranteeTypeIdentifier | string;
+  TypeIdentifier?: S3GranteeTypeIdentifier;
 
   /**
    * @public
@@ -1609,7 +1609,7 @@ export interface S3Grant {
    * @public
    * <p></p>
    */
-  Permission?: S3Permission | string;
+  Permission?: S3Permission;
 }
 
 /**
@@ -1682,7 +1682,7 @@ export interface S3AccessControlPolicy {
    * @public
    * <p></p>
    */
-  CannedAccessControlList?: S3CannedAccessControlList | string;
+  CannedAccessControlList?: S3CannedAccessControlList;
 }
 
 /**
@@ -1816,7 +1816,7 @@ export interface S3ObjectMetadata {
    * @public
    * <p></p>
    */
-  SSEAlgorithm?: S3SSEAlgorithm | string;
+  SSEAlgorithm?: S3SSEAlgorithm;
 }
 
 /**
@@ -1911,7 +1911,7 @@ export interface S3CopyObjectOperation {
    * @public
    * <p></p>
    */
-  CannedAccessControlList?: S3CannedAccessControlList | string;
+  CannedAccessControlList?: S3CannedAccessControlList;
 
   /**
    * @public
@@ -1923,7 +1923,7 @@ export interface S3CopyObjectOperation {
    * @public
    * <p></p>
    */
-  MetadataDirective?: S3MetadataDirective | string;
+  MetadataDirective?: S3MetadataDirective;
 
   /**
    * @public
@@ -1963,7 +1963,7 @@ export interface S3CopyObjectOperation {
    * @public
    * <p></p>
    */
-  StorageClass?: S3StorageClass | string;
+  StorageClass?: S3StorageClass;
 
   /**
    * @public
@@ -1997,13 +1997,13 @@ export interface S3CopyObjectOperation {
    * @public
    * <p>The legal hold status to be applied to all objects in the Batch Operations job.</p>
    */
-  ObjectLockLegalHoldStatus?: S3ObjectLockLegalHoldStatus | string;
+  ObjectLockLegalHoldStatus?: S3ObjectLockLegalHoldStatus;
 
   /**
    * @public
    * <p>The retention mode to be applied to all objects in the Batch Operations job.</p>
    */
-  ObjectLockMode?: S3ObjectLockMode | string;
+  ObjectLockMode?: S3ObjectLockMode;
 
   /**
    * @public
@@ -2030,7 +2030,7 @@ export interface S3CopyObjectOperation {
    *          information,
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  ChecksumAlgorithm?: S3ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: S3ChecksumAlgorithm;
 }
 
 /**
@@ -2044,7 +2044,7 @@ export interface S3ObjectLockLegalHold {
    * <p>The Object Lock legal hold status to be applied to all objects in the Batch Operations
    *          job.</p>
    */
-  Status: S3ObjectLockLegalHoldStatus | string | undefined;
+  Status: S3ObjectLockLegalHoldStatus | undefined;
 }
 
 /**
@@ -2102,7 +2102,7 @@ export interface S3Retention {
    * <p>The Object Lock retention mode to be applied to all objects in the Batch Operations
    *          job.</p>
    */
-  Mode?: S3ObjectLockRetentionMode | string;
+  Mode?: S3ObjectLockRetentionMode;
 }
 
 /**
@@ -2280,7 +2280,7 @@ export interface JobReport {
    * @public
    * <p>The format of the specified job-completion report.</p>
    */
-  Format?: JobReportFormat | string;
+  Format?: JobReportFormat;
 
   /**
    * @public
@@ -2301,7 +2301,7 @@ export interface JobReport {
    * <p>Indicates whether the job-completion report will include details of all tasks or only
    *          failed tasks.</p>
    */
-  ReportScope?: JobReportScope | string;
+  ReportScope?: JobReportScope;
 }
 
 /**
@@ -2843,7 +2843,7 @@ export interface S3GeneratedManifestDescriptor {
    * @public
    * <p>The format of the generated manifest.</p>
    */
-  Format?: GeneratedManifestFormat | string;
+  Format?: GeneratedManifestFormat;
 
   /**
    * @public
@@ -2956,7 +2956,7 @@ export interface JobDescriptor {
    * @public
    * <p>The current status of the specified job.</p>
    */
-  Status?: JobStatus | string;
+  Status?: JobStatus;
 
   /**
    * @public
@@ -3140,7 +3140,7 @@ export interface GetAccessPointResult {
    *          policies.</p>
    *          <p>This will always be true for an Amazon S3 on Outposts access point</p>
    */
-  NetworkOrigin?: NetworkOrigin | string;
+  NetworkOrigin?: NetworkOrigin;
 
   /**
    * @public
@@ -3616,7 +3616,7 @@ export interface NoncurrentVersionTransition {
    * @public
    * <p>The class of storage used to store the object.</p>
    */
-  StorageClass?: TransitionStorageClass | string;
+  StorageClass?: TransitionStorageClass;
 }
 
 /**
@@ -3659,7 +3659,7 @@ export interface Transition {
    * @public
    * <p>The storage class to which you want the object to transition.</p>
    */
-  StorageClass?: TransitionStorageClass | string;
+  StorageClass?: TransitionStorageClass;
 }
 
 /**
@@ -3691,7 +3691,7 @@ export interface LifecycleRule {
    * <p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not
    *          currently being applied.</p>
    */
-  Status: ExpirationStatus | string | undefined;
+  Status: ExpirationStatus | undefined;
 
   /**
    * @public
@@ -3821,7 +3821,7 @@ export interface DeleteMarkerReplication {
    * @public
    * <p>Indicates whether to replicate delete markers.</p>
    */
-  Status: DeleteMarkerReplicationStatus | string | undefined;
+  Status: DeleteMarkerReplicationStatus | undefined;
 }
 
 /**
@@ -3886,7 +3886,7 @@ export interface Metrics {
    * @public
    * <p>Specifies whether replication metrics are enabled. </p>
    */
-  Status: MetricsStatus | string | undefined;
+  Status: MetricsStatus | undefined;
 
   /**
    * @public
@@ -3927,7 +3927,7 @@ export interface ReplicationTime {
    * @public
    * <p>Specifies whether S3 Replication Time Control (S3 RTC) is enabled. </p>
    */
-  Status: ReplicationTimeStatus | string | undefined;
+  Status: ReplicationTimeStatus | undefined;
 
   /**
    * @public
@@ -4026,7 +4026,7 @@ export interface Destination {
    *             <p>Values other than <code>OUTPOSTS</code> are not supported by Amazon S3 on Outposts. </p>
    *          </note>
    */
-  StorageClass?: ReplicationStorageClass | string;
+  StorageClass?: ReplicationStorageClass;
 }
 
 /**
@@ -4056,7 +4056,7 @@ export interface ExistingObjectReplication {
    * @public
    * <p>Specifies whether Amazon S3 replicates existing source bucket objects. </p>
    */
-  Status: ExistingObjectReplicationStatus | string | undefined;
+  Status: ExistingObjectReplicationStatus | undefined;
 }
 
 /**
@@ -4170,7 +4170,7 @@ export interface ReplicaModifications {
    * <p>Specifies whether S3 on Outposts replicates modifications to object metadata on
    *          replicas.</p>
    */
-  Status: ReplicaModificationsStatus | string | undefined;
+  Status: ReplicaModificationsStatus | undefined;
 }
 
 /**
@@ -4202,7 +4202,7 @@ export interface SseKmsEncryptedObjects {
    * <p>Specifies whether Amazon S3 replicates objects that are created with server-side encryption
    *          by using an KMS key stored in Key Management Service.</p>
    */
-  Status: SseKmsEncryptedObjectsStatus | string | undefined;
+  Status: SseKmsEncryptedObjectsStatus | undefined;
 }
 
 /**
@@ -4307,7 +4307,7 @@ export interface ReplicationRule {
    * @public
    * <p>Specifies whether the rule is enabled.</p>
    */
-  Status: ReplicationRuleStatus | string | undefined;
+  Status: ReplicationRuleStatus | undefined;
 
   /**
    * @public
@@ -4470,7 +4470,7 @@ export interface GetBucketVersioningResult {
    * @public
    * <p>The versioning state of the S3 on Outposts bucket.</p>
    */
-  Status?: BucketVersioningStatus | string;
+  Status?: BucketVersioningStatus;
 
   /**
    * @public
@@ -4478,7 +4478,7 @@ export interface GetBucketVersioningResult {
    *          element is returned only if the bucket has been configured with MFA delete. If MFA delete
    *          has never been configured for the bucket, this element is not returned.</p>
    */
-  MFADelete?: MFADeleteStatus | string;
+  MFADelete?: MFADeleteStatus;
 }
 
 /**
@@ -4616,7 +4616,7 @@ export interface MultiRegionAccessPointReport {
    *          Multi-Region Access Point. If a Multi-Region Access Point has a status of <code>PARTIALLY_DELETED</code>, you can retry a delete
    *          request to finish the deletion of the Multi-Region Access Point.</p>
    */
-  Status?: MultiRegionAccessPointStatus | string;
+  Status?: MultiRegionAccessPointStatus;
 
   /**
    * @public
@@ -5003,13 +5003,13 @@ export interface S3BucketDestination {
    * @public
    * <p></p>
    */
-  Format: Format | string | undefined;
+  Format: Format | undefined;
 
   /**
    * @public
    * <p>The schema version of the export file.</p>
    */
-  OutputSchemaVersion: OutputSchemaVersion | string | undefined;
+  OutputSchemaVersion: OutputSchemaVersion | undefined;
 
   /**
    * @public
@@ -5405,7 +5405,7 @@ export interface ListJobsRequest {
    * <p>The <code>List Jobs</code> request returns jobs that match the statuses listed in this
    *          element.</p>
    */
-  JobStatuses?: (JobStatus | string)[];
+  JobStatuses?: JobStatus[];
 
   /**
    * @public
@@ -5470,7 +5470,7 @@ export interface JobListDescriptor {
    * <p>The operation that the specified job is configured to run on every object listed in the
    *          manifest.</p>
    */
-  Operation?: OperationName | string;
+  Operation?: OperationName;
 
   /**
    * @public
@@ -5482,7 +5482,7 @@ export interface JobListDescriptor {
    * @public
    * <p>The specified job's current status.</p>
    */
-  Status?: JobStatus | string;
+  Status?: JobStatus;
 
   /**
    * @public
@@ -5955,13 +5955,13 @@ export interface VersioningConfiguration {
    * <p>Specifies whether MFA delete is enabled or disabled in the bucket versioning
    *          configuration for the S3 on Outposts bucket.</p>
    */
-  MFADelete?: MFADelete | string;
+  MFADelete?: MFADelete;
 
   /**
    * @public
    * <p>Sets the versioning state of the S3 on Outposts bucket.</p>
    */
-  Status?: BucketVersioningStatus | string;
+  Status?: BucketVersioningStatus;
 }
 
 /**
@@ -6287,7 +6287,7 @@ export interface UpdateJobStatusRequest {
    * @public
    * <p>The status that you want to move the specified job to.</p>
    */
-  RequestedJobStatus: RequestedJobStatus | string | undefined;
+  RequestedJobStatus: RequestedJobStatus | undefined;
 
   /**
    * @public
@@ -6311,7 +6311,7 @@ export interface UpdateJobStatusResult {
    * @public
    * <p>The current status for the specified job.</p>
    */
-  Status?: JobStatus | string;
+  Status?: JobStatus;
 
   /**
    * @public

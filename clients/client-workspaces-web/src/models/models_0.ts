@@ -238,7 +238,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>Reason the request failed validation</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -751,7 +751,7 @@ export interface CreateIdentityProviderRequest {
    * @public
    * <p>The identity provider type.</p>
    */
-  identityProviderType: IdentityProviderType | string | undefined;
+  identityProviderType: IdentityProviderType | undefined;
 
   /**
    * @public
@@ -982,7 +982,7 @@ export interface IdentityProvider {
    * @public
    * <p>The identity provider type.</p>
    */
-  identityProviderType?: IdentityProviderType | string;
+  identityProviderType?: IdentityProviderType;
 
   /**
    * @public
@@ -1198,7 +1198,7 @@ export interface IdentityProviderSummary {
    * @public
    * <p>The identity provider type.</p>
    */
-  identityProviderType?: IdentityProviderType | string;
+  identityProviderType?: IdentityProviderType;
 }
 
 /**
@@ -1238,7 +1238,7 @@ export interface UpdateIdentityProviderRequest {
    * @public
    * <p>The type of the identity provider.</p>
    */
-  identityProviderType?: IdentityProviderType | string;
+  identityProviderType?: IdentityProviderType;
 
   /**
    * @public
@@ -2017,7 +2017,7 @@ export interface CreatePortalRequest {
    *          integration), plus user and group access to your web portal, can be configured in the IAM
    *          Identity Center.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: AuthenticationType;
 }
 
 /**
@@ -2203,19 +2203,19 @@ export interface Portal {
    * @public
    * <p>The renderer that is used in streaming sessions.</p>
    */
-  rendererType?: RendererType | string;
+  rendererType?: RendererType;
 
   /**
    * @public
    * <p>The browser that users see when using a streaming session.</p>
    */
-  browserType?: BrowserType | string;
+  browserType?: BrowserType;
 
   /**
    * @public
    * <p>The status of the web portal.</p>
    */
-  portalStatus?: PortalStatus | string;
+  portalStatus?: PortalStatus;
 
   /**
    * @public
@@ -2288,7 +2288,7 @@ export interface Portal {
    *          integration), plus user and group access to your web portal, can be configured in the IAM
    *          Identity Center.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: AuthenticationType;
 
   /**
    * @public
@@ -2368,19 +2368,19 @@ export interface PortalSummary {
    * @public
    * <p>The renderer that is used in streaming sessions.</p>
    */
-  rendererType?: RendererType | string;
+  rendererType?: RendererType;
 
   /**
    * @public
    * <p>The browser type of the web portal.</p>
    */
-  browserType?: BrowserType | string;
+  browserType?: BrowserType;
 
   /**
    * @public
    * <p>The status of the web portal.</p>
    */
-  portalStatus?: PortalStatus | string;
+  portalStatus?: PortalStatus;
 
   /**
    * @public
@@ -2447,7 +2447,7 @@ export interface PortalSummary {
    *          integration), plus user and group access to your web portal, can be configured in the IAM
    *          Identity Center.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: AuthenticationType;
 
   /**
    * @public
@@ -2505,7 +2505,7 @@ export interface UpdatePortalRequest {
    *          integration), plus user and group access to your web portal, can be configured in the IAM
    *          Identity Center.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: AuthenticationType;
 }
 
 /**
@@ -3206,34 +3206,34 @@ export interface CreateUserSettingsRequest {
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
-  copyAllowed: EnabledType | string | undefined;
+  copyAllowed: EnabledType | undefined;
 
   /**
    * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
-  pasteAllowed: EnabledType | string | undefined;
+  pasteAllowed: EnabledType | undefined;
 
   /**
    * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
-  downloadAllowed: EnabledType | string | undefined;
+  downloadAllowed: EnabledType | undefined;
 
   /**
    * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
-  uploadAllowed: EnabledType | string | undefined;
+  uploadAllowed: EnabledType | undefined;
 
   /**
    * @public
    * <p>Specifies whether the user can print to the local device.</p>
    */
-  printAllowed: EnabledType | string | undefined;
+  printAllowed: EnabledType | undefined;
 
   /**
    * @public
@@ -3345,34 +3345,34 @@ export interface UserSettings {
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
-  copyAllowed?: EnabledType | string;
+  copyAllowed?: EnabledType;
 
   /**
    * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
-  pasteAllowed?: EnabledType | string;
+  pasteAllowed?: EnabledType;
 
   /**
    * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
-  downloadAllowed?: EnabledType | string;
+  downloadAllowed?: EnabledType;
 
   /**
    * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
-  uploadAllowed?: EnabledType | string;
+  uploadAllowed?: EnabledType;
 
   /**
    * @public
    * <p>Specifies whether the user can print to the local device.</p>
    */
-  printAllowed?: EnabledType | string;
+  printAllowed?: EnabledType;
 
   /**
    * @public
@@ -3437,34 +3437,34 @@ export interface UserSettingsSummary {
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
-  copyAllowed?: EnabledType | string;
+  copyAllowed?: EnabledType;
 
   /**
    * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
-  pasteAllowed?: EnabledType | string;
+  pasteAllowed?: EnabledType;
 
   /**
    * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
-  downloadAllowed?: EnabledType | string;
+  downloadAllowed?: EnabledType;
 
   /**
    * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
-  uploadAllowed?: EnabledType | string;
+  uploadAllowed?: EnabledType;
 
   /**
    * @public
    * <p>Specifies whether the user can print to the local device.</p>
    */
-  printAllowed?: EnabledType | string;
+  printAllowed?: EnabledType;
 
   /**
    * @public
@@ -3517,34 +3517,34 @@ export interface UpdateUserSettingsRequest {
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
-  copyAllowed?: EnabledType | string;
+  copyAllowed?: EnabledType;
 
   /**
    * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
-  pasteAllowed?: EnabledType | string;
+  pasteAllowed?: EnabledType;
 
   /**
    * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
-  downloadAllowed?: EnabledType | string;
+  downloadAllowed?: EnabledType;
 
   /**
    * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
-  uploadAllowed?: EnabledType | string;
+  uploadAllowed?: EnabledType;
 
   /**
    * @public
    * <p>Specifies whether the user can print to the local device.</p>
    */
-  printAllowed?: EnabledType | string;
+  printAllowed?: EnabledType;
 
   /**
    * @public

@@ -52,7 +52,7 @@ export interface AcknowledgeJobOutput {
    * @public
    * <p>Whether the job worker has received the specified job.</p>
    */
-  status?: JobStatus | string;
+  status?: JobStatus;
 }
 
 /**
@@ -151,7 +151,7 @@ export interface AcknowledgeThirdPartyJobOutput {
    * @public
    * <p>The status information for the third party job, if any.</p>
    */
-  status?: JobStatus | string;
+  status?: JobStatus;
 }
 
 /**
@@ -276,7 +276,7 @@ export interface ActionConfigurationProperty {
    * @public
    * <p>The type of the configuration property.</p>
    */
-  type?: ActionConfigurationPropertyType | string;
+  type?: ActionConfigurationPropertyType;
 }
 
 /**
@@ -344,7 +344,7 @@ export interface ActionTypeId {
    *             </li>
    *          </ul>
    */
-  category: ActionCategory | string | undefined;
+  category: ActionCategory | undefined;
 
   /**
    * @public
@@ -353,7 +353,7 @@ export interface ActionTypeId {
    *             structure: <code>AWS</code>, <code>ThirdParty</code>, and <code>Custom</code>. For more
    *             information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid Action Types and Providers in CodePipeline</a>.</p>
    */
-  owner: ActionOwner | string | undefined;
+  owner: ActionOwner | undefined;
 
   /**
    * @public
@@ -542,7 +542,7 @@ export interface ActionExecution {
    * <p>The status of the action, or for a completed action, the last status of the
    *             action.</p>
    */
-  status?: ActionExecutionStatus | string;
+  status?: ActionExecutionStatus;
 
   /**
    * @public
@@ -791,7 +791,7 @@ export interface ActionExecutionDetail {
    * <p> The status of the action execution. Status categories are <code>InProgress</code>,
    *                 <code>Succeeded</code>, and <code>Failed</code>.</p>
    */
-  status?: ActionExecutionStatus | string;
+  status?: ActionExecutionStatus;
 
   /**
    * @public
@@ -1107,7 +1107,7 @@ export interface ActionTypeExecutor {
    * <p>The integration model used to create and update the action type, <code>Lambda</code>
    *             or <code>JobWorker</code>. </p>
    */
-  type: ExecutorType | string | undefined;
+  type: ExecutorType | undefined;
 
   /**
    * @public
@@ -1171,7 +1171,7 @@ export interface ActionTypeIdentifier {
    *             </li>
    *          </ul>
    */
-  category: ActionCategory | string | undefined;
+  category: ActionCategory | undefined;
 
   /**
    * @public
@@ -1421,7 +1421,7 @@ export interface ApprovalResult {
    * <p>The response submitted by a reviewer assigned to an approval action
    *             request.</p>
    */
-  status: ApprovalStatus | string | undefined;
+  status: ApprovalStatus | undefined;
 }
 
 /**
@@ -1465,7 +1465,7 @@ export interface ArtifactLocation {
    * @public
    * <p>The type of artifact in the location.</p>
    */
-  type?: ArtifactLocationType | string;
+  type?: ArtifactLocationType;
 
   /**
    * @public
@@ -1590,7 +1590,7 @@ export interface EncryptionKey {
    * <p>The type of encryption key, such as an Amazon Web Services KMS key. When creating or
    *             updating a pipeline, the value must be set to 'KMS'.</p>
    */
-  type: EncryptionKeyType | string | undefined;
+  type: EncryptionKeyType | undefined;
 }
 
 /**
@@ -1621,7 +1621,7 @@ export interface ArtifactStore {
    * @public
    * <p>The type of the artifact store, such as S3.</p>
    */
-  type: ArtifactStoreType | string | undefined;
+  type: ArtifactStoreType | undefined;
 
   /**
    * @public
@@ -1697,7 +1697,7 @@ export interface BlockerDeclaration {
    * @public
    * <p>Reserved for future use.</p>
    */
-  type: BlockerType | string | undefined;
+  type: BlockerType | undefined;
 }
 
 /**
@@ -1748,7 +1748,7 @@ export interface CreateCustomActionTypeInput {
    * <p>The category of the custom action, such as a build action or a test
    *             action.</p>
    */
-  category: ActionCategory | string | undefined;
+  category: ActionCategory | undefined;
 
   /**
    * @public
@@ -2113,7 +2113,7 @@ export interface DeleteCustomActionTypeInput {
    * <p>The category of the custom action that you want to delete, such as source or
    *             deploy.</p>
    */
-  category: ActionCategory | string | undefined;
+  category: ActionCategory | undefined;
 
   /**
    * @public
@@ -2234,7 +2234,7 @@ export interface DisableStageTransitionInput {
    *             from the stage after they have been processed by the actions in that stage
    *             (outbound).</p>
    */
-  transitionType: StageTransitionType | string | undefined;
+  transitionType: StageTransitionType | undefined;
 
   /**
    * @public
@@ -2310,7 +2310,7 @@ export interface EnableStageTransitionInput {
    *             actions in that stage (inbound) or whether already processed artifacts are allowed to
    *             transition to the next stage (outbound).</p>
    */
-  transitionType: StageTransitionType | string | undefined;
+  transitionType: StageTransitionType | undefined;
 }
 
 /**
@@ -2354,7 +2354,7 @@ export interface GetActionTypeInput {
    *             </li>
    *          </ul>
    */
-  category: ActionCategory | string | undefined;
+  category: ActionCategory | undefined;
 
   /**
    * @public
@@ -2752,7 +2752,7 @@ export interface PipelineExecution {
    *             </li>
    *          </ul>
    */
-  status?: PipelineExecutionStatus | string;
+  status?: PipelineExecutionStatus;
 
   /**
    * @public
@@ -2851,7 +2851,7 @@ export interface StageExecution {
    *                 stage execution could be completed.</p>
    *          </note>
    */
-  status: StageExecutionStatus | string | undefined;
+  status: StageExecutionStatus | undefined;
 }
 
 /**
@@ -3198,7 +3198,7 @@ export interface ListActionTypesInput {
    * @public
    * <p>Filters the list of action types to those created by a specified entity.</p>
    */
-  actionOwnerFilter?: ActionOwner | string;
+  actionOwnerFilter?: ActionOwner;
 
   /**
    * @public
@@ -3341,7 +3341,7 @@ export interface ExecutionTrigger {
    * <p>The type of change-detection method, command, or user interaction that started a
    *             pipeline execution.</p>
    */
-  triggerType?: TriggerType | string;
+  triggerType?: TriggerType;
 
   /**
    * @public
@@ -3392,7 +3392,7 @@ export interface PipelineExecutionSummary {
    *             </li>
    *          </ul>
    */
-  status?: PipelineExecutionStatus | string;
+  status?: PipelineExecutionStatus;
 
   /**
    * @public
@@ -3742,7 +3742,7 @@ export interface WebhookDefinition {
    *             </li>
    *          </ul>
    */
-  authentication: WebhookAuthenticationType | string | undefined;
+  authentication: WebhookAuthenticationType | undefined;
 
   /**
    * @public
@@ -4116,7 +4116,7 @@ export interface FailureDetails {
    * @public
    * <p>The type of the failure.</p>
    */
-  type: FailureType | string | undefined;
+  type: FailureType | undefined;
 
   /**
    * @public
@@ -4518,7 +4518,7 @@ export interface RetryStageExecutionInput {
    * <p>The scope of the retry attempt. Currently, the only supported value is
    *             FAILED_ACTIONS.</p>
    */
-  retryMode: StageRetryMode | string | undefined;
+  retryMode: StageRetryMode | undefined;
 }
 
 /**

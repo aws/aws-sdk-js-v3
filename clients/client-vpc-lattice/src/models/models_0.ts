@@ -278,7 +278,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason.</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -1072,7 +1072,7 @@ export interface CreateListenerRequest {
    * @public
    * <p>The listener protocol HTTP or HTTPS.</p>
    */
-  protocol: ListenerProtocol | string | undefined;
+  protocol: ListenerProtocol | undefined;
 
   /**
    * @public
@@ -1133,7 +1133,7 @@ export interface CreateListenerResponse {
    * @public
    * <p>The protocol of the listener.</p>
    */
-  protocol?: ListenerProtocol | string;
+  protocol?: ListenerProtocol;
 
   /**
    * @public
@@ -1364,7 +1364,7 @@ export interface CreateServiceRequest {
    *             </li>
    *          </ul>
    */
-  authType?: AuthType | string;
+  authType?: AuthType;
 }
 
 /**
@@ -1456,13 +1456,13 @@ export interface CreateServiceResponse {
    * <p>The status. If the status is <code>CREATE_FAILED</code>, you will have to delete and
    *    recreate the service.</p>
    */
-  status?: ServiceStatus | string;
+  status?: ServiceStatus;
 
   /**
    * @public
    * <p>The type of IAM policy.</p>
    */
-  authType?: AuthType | string;
+  authType?: AuthType;
 
   /**
    * @public
@@ -1505,7 +1505,7 @@ export interface CreateServiceNetworkRequest {
    *             </li>
    *          </ul>
    */
-  authType?: AuthType | string;
+  authType?: AuthType;
 
   /**
    * @public
@@ -1540,7 +1540,7 @@ export interface CreateServiceNetworkResponse {
    * @public
    * <p>The type of IAM policy.</p>
    */
-  authType?: AuthType | string;
+  authType?: AuthType;
 }
 
 /**
@@ -1623,7 +1623,7 @@ export interface CreateServiceNetworkServiceAssociationResponse {
    * @public
    * <p>The operation's status.</p>
    */
-  status?: ServiceNetworkServiceAssociationStatus | string;
+  status?: ServiceNetworkServiceAssociationStatus;
 
   /**
    * @public
@@ -1748,7 +1748,7 @@ export interface CreateServiceNetworkVpcAssociationResponse {
    * @public
    * <p>The operation's status.</p>
    */
-  status?: ServiceNetworkVpcAssociationStatus | string;
+  status?: ServiceNetworkVpcAssociationStatus;
 
   /**
    * @public
@@ -1865,14 +1865,14 @@ export interface HealthCheckConfig {
    * <p>The protocol used when performing health checks on targets. The possible protocols are
    *     <code>HTTP</code> and <code>HTTPS</code>. The default is <code>HTTP</code>.</p>
    */
-  protocol?: TargetGroupProtocol | string;
+  protocol?: TargetGroupProtocol;
 
   /**
    * @public
    * <p>The protocol version used when performing health checks on targets. The possible protocol
    *    versions are <code>HTTP1</code> and <code>HTTP2</code>.</p>
    */
-  protocolVersion?: HealthCheckProtocolVersion | string;
+  protocolVersion?: HealthCheckProtocolVersion;
 
   /**
    * @public
@@ -2011,20 +2011,20 @@ export interface TargetGroupConfig {
    * <p>The protocol to use for routing traffic to the targets. Default is the protocol of a target
    *    group.</p>
    */
-  protocol?: TargetGroupProtocol | string;
+  protocol?: TargetGroupProtocol;
 
   /**
    * @public
    * <p>The protocol version. Default value is <code>HTTP1</code>.</p>
    */
-  protocolVersion?: TargetGroupProtocolVersion | string;
+  protocolVersion?: TargetGroupProtocolVersion;
 
   /**
    * @public
    * <p>The type of IP address used for the target group. The possible values are <code>ipv4</code> and <code>ipv6</code>.
    *    This is an optional parameter. If not specified, the IP address type defaults to <code>ipv4</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 
   /**
    * @public
@@ -2042,7 +2042,7 @@ export interface TargetGroupConfig {
    * @public
    * Lambda event structure version
    */
-  lambdaEventStructureVersion?: LambdaEventStructureVersion | string;
+  lambdaEventStructureVersion?: LambdaEventStructureVersion;
 }
 
 /**
@@ -2088,7 +2088,7 @@ export interface CreateTargetGroupRequest {
    * @public
    * <p>The type of target group.</p>
    */
-  type: TargetGroupType | string | undefined;
+  type: TargetGroupType | undefined;
 
   /**
    * @public
@@ -2171,7 +2171,7 @@ export interface CreateTargetGroupResponse {
    * @public
    * <p>The type of target group.</p>
    */
-  type?: TargetGroupType | string;
+  type?: TargetGroupType;
 
   /**
    * @public
@@ -2186,7 +2186,7 @@ export interface CreateTargetGroupResponse {
    *     <code>CREATE_FAILED</code>. However, if you retry it while the status is
    *     <code>CREATE_IN_PROGRESS</code>, there is no change in the status. </p>
    */
-  status?: TargetGroupStatus | string;
+  status?: TargetGroupStatus;
 }
 
 /**
@@ -2310,7 +2310,7 @@ export interface DeleteServiceResponse {
    *    However, if you retry it while the status is <code>DELETE_IN_PROGRESS</code>, the status doesn't
    *    change.</p>
    */
-  status?: ServiceStatus | string;
+  status?: ServiceStatus;
 }
 
 /**
@@ -2356,7 +2356,7 @@ export interface DeleteServiceNetworkServiceAssociationResponse {
    *     <code>DELETE_FAILED</code>. However, if you retry it when the status is
    *     <code>DELETE_IN_PROGRESS</code>, there is no change in the status.</p>
    */
-  status?: ServiceNetworkServiceAssociationStatus | string;
+  status?: ServiceNetworkServiceAssociationStatus;
 
   /**
    * @public
@@ -2392,7 +2392,7 @@ export interface DeleteServiceNetworkVpcAssociationResponse {
    *    However, if you retry it when the status is <code>DELETE_IN_PROGRESS</code>, there is no change
    *    in the status.</p>
    */
-  status?: ServiceNetworkVpcAssociationStatus | string;
+  status?: ServiceNetworkVpcAssociationStatus;
 
   /**
    * @public
@@ -2434,7 +2434,7 @@ export interface DeleteTargetGroupResponse {
    *    However, if you retry it while the status is <code>DELETE_IN_PROGRESS</code>, the status doesn't
    *    change.</p>
    */
-  status?: TargetGroupStatus | string;
+  status?: TargetGroupStatus;
 }
 
 /**
@@ -2557,7 +2557,7 @@ export interface GetAuthPolicyResponse {
    *    information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service
    *     network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
    */
-  state?: AuthPolicyState | string;
+  state?: AuthPolicyState;
 
   /**
    * @public
@@ -2616,7 +2616,7 @@ export interface GetListenerResponse {
    * @public
    * <p>The listener protocol.</p>
    */
-  protocol?: ListenerProtocol | string;
+  protocol?: ListenerProtocol;
 
   /**
    * @public
@@ -2827,13 +2827,13 @@ export interface GetServiceResponse {
    * @public
    * <p>The status of the service.</p>
    */
-  status?: ServiceStatus | string;
+  status?: ServiceStatus;
 
   /**
    * @public
    * <p>The type of IAM policy.</p>
    */
-  authType?: AuthType | string;
+  authType?: AuthType;
 
   /**
    * @public
@@ -2897,7 +2897,7 @@ export interface GetServiceNetworkResponse {
    * @public
    * <p>The type of IAM policy.</p>
    */
-  authType?: AuthType | string;
+  authType?: AuthType;
 
   /**
    * @public
@@ -2937,7 +2937,7 @@ export interface GetServiceNetworkServiceAssociationResponse {
    * @public
    * <p>The status of the association.</p>
    */
-  status?: ServiceNetworkServiceAssociationStatus | string;
+  status?: ServiceNetworkServiceAssociationStatus;
 
   /**
    * @public
@@ -3043,7 +3043,7 @@ export interface GetServiceNetworkVpcAssociationResponse {
    * @public
    * <p>The status of the association.</p>
    */
-  status?: ServiceNetworkVpcAssociationStatus | string;
+  status?: ServiceNetworkVpcAssociationStatus;
 
   /**
    * @public
@@ -3150,7 +3150,7 @@ export interface GetTargetGroupResponse {
    * @public
    * <p>The target group type.</p>
    */
-  type?: TargetGroupType | string;
+  type?: TargetGroupType;
 
   /**
    * @public
@@ -3175,7 +3175,7 @@ export interface GetTargetGroupResponse {
    * @public
    * <p>The status.</p>
    */
-  status?: TargetGroupStatus | string;
+  status?: TargetGroupStatus;
 
   /**
    * @public
@@ -3246,7 +3246,7 @@ export interface ListenerSummary {
    * @public
    * <p>The listener protocol.</p>
    */
-  protocol?: ListenerProtocol | string;
+  protocol?: ListenerProtocol;
 
   /**
    * @public
@@ -3333,7 +3333,7 @@ export interface UpdateListenerResponse {
    * @public
    * <p>The protocol of the listener.</p>
    */
-  protocol?: ListenerProtocol | string;
+  protocol?: ListenerProtocol;
 
   /**
    * @public
@@ -3584,7 +3584,7 @@ export interface ServiceNetworkServiceAssociationSummary {
    * @public
    * <p>The status. If the deletion fails, try to delete again.</p>
    */
-  status?: ServiceNetworkServiceAssociationStatus | string;
+  status?: ServiceNetworkServiceAssociationStatus;
 
   /**
    * @public
@@ -3720,7 +3720,7 @@ export interface ServiceNetworkVpcAssociationSummary {
    * @public
    * <p>The status.</p>
    */
-  status?: ServiceNetworkVpcAssociationStatus | string;
+  status?: ServiceNetworkVpcAssociationStatus;
 
   /**
    * @public
@@ -3851,7 +3851,7 @@ export interface ServiceSummary {
    * @public
    * <p>The status.</p>
    */
-  status?: ServiceStatus | string;
+  status?: ServiceStatus;
 }
 
 /**
@@ -3919,7 +3919,7 @@ export interface ListTargetGroupsRequest {
    * @public
    * <p>The target group type.</p>
    */
-  targetGroupType?: TargetGroupType | string;
+  targetGroupType?: TargetGroupType;
 }
 
 /**
@@ -3949,7 +3949,7 @@ export interface TargetGroupSummary {
    * @public
    * <p>The target group type.</p>
    */
-  type?: TargetGroupType | string;
+  type?: TargetGroupType;
 
   /**
    * @public
@@ -3967,14 +3967,14 @@ export interface TargetGroupSummary {
    * @public
    * <p>The protocol of the target group.</p>
    */
-  protocol?: TargetGroupProtocol | string;
+  protocol?: TargetGroupProtocol;
 
   /**
    * @public
    * <p>The type of IP address used for the target group. The possible values are <code>ipv4</code> and <code>ipv6</code>.
    *    This is an optional parameter. If not specified, the IP address type defaults to <code>ipv4</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 
   /**
    * @public
@@ -3993,7 +3993,7 @@ export interface TargetGroupSummary {
    * @public
    * <p>The status.</p>
    */
-  status?: TargetGroupStatus | string;
+  status?: TargetGroupStatus;
 
   /**
    * @public
@@ -4005,7 +4005,7 @@ export interface TargetGroupSummary {
    * @public
    * Lambda event structure version
    */
-  lambdaEventStructureVersion?: LambdaEventStructureVersion | string;
+  lambdaEventStructureVersion?: LambdaEventStructureVersion;
 }
 
 /**
@@ -4142,7 +4142,7 @@ export interface TargetSummary {
    *             </li>
    *          </ul>
    */
-  status?: TargetStatus | string;
+  status?: TargetStatus;
 
   /**
    * @public
@@ -4205,7 +4205,7 @@ export interface PutAuthPolicyResponse {
    *    information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service
    *     network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
    */
-  state?: AuthPolicyState | string;
+  state?: AuthPolicyState;
 }
 
 /**
@@ -4349,7 +4349,7 @@ export interface UpdateServiceRequest {
    *             </li>
    *          </ul>
    */
-  authType?: AuthType | string;
+  authType?: AuthType;
 }
 
 /**
@@ -4390,7 +4390,7 @@ export interface UpdateServiceResponse {
    * @public
    * <p>The type of IAM policy.</p>
    */
-  authType?: AuthType | string;
+  authType?: AuthType;
 }
 
 /**
@@ -4417,7 +4417,7 @@ export interface UpdateServiceNetworkRequest {
    *             </li>
    *          </ul>
    */
-  authType: AuthType | string | undefined;
+  authType: AuthType | undefined;
 }
 
 /**
@@ -4446,7 +4446,7 @@ export interface UpdateServiceNetworkResponse {
    * @public
    * <p>The type of IAM policy.</p>
    */
-  authType?: AuthType | string;
+  authType?: AuthType;
 }
 
 /**
@@ -4488,7 +4488,7 @@ export interface UpdateServiceNetworkVpcAssociationResponse {
    *    However, if you retry it while the status is <code>DELETE_IN_PROGRESS</code>, there is no change
    *    in the status.</p>
    */
-  status?: ServiceNetworkVpcAssociationStatus | string;
+  status?: ServiceNetworkVpcAssociationStatus;
 
   /**
    * @public
@@ -4602,7 +4602,7 @@ export interface UpdateTargetGroupResponse {
    * @public
    * <p>The target group type.</p>
    */
-  type?: TargetGroupType | string;
+  type?: TargetGroupType;
 
   /**
    * @public
@@ -4614,7 +4614,7 @@ export interface UpdateTargetGroupResponse {
    * @public
    * <p>The status.</p>
    */
-  status?: TargetGroupStatus | string;
+  status?: TargetGroupStatus;
 }
 
 /**

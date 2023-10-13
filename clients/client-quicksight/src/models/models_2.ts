@@ -95,7 +95,7 @@ export interface AssetBundleExportJobAnalysisOverrideProperties {
    * @public
    * <p>A list of <code>Analysis</code> resource properties to generate variables for in the returned CloudFormation template.</p>
    */
-  Properties: (AssetBundleExportJobAnalysisPropertyToOverride | string)[] | undefined;
+  Properties: AssetBundleExportJobAnalysisPropertyToOverride[] | undefined;
 }
 
 /**
@@ -127,7 +127,7 @@ export interface AssetBundleExportJobDashboardOverrideProperties {
    * @public
    * <p>A list of <code>Dashboard</code> resource properties to generate variables for in the returned CloudFormation template.</p>
    */
-  Properties: (AssetBundleExportJobDashboardPropertyToOverride | string)[] | undefined;
+  Properties: AssetBundleExportJobDashboardPropertyToOverride[] | undefined;
 }
 
 /**
@@ -159,7 +159,7 @@ export interface AssetBundleExportJobDataSetOverrideProperties {
    * @public
    * <p>A list of <code>DataSet</code> resource properties to generate variables for in the returned CloudFormation template.</p>
    */
-  Properties: (AssetBundleExportJobDataSetPropertyToOverride | string)[] | undefined;
+  Properties: AssetBundleExportJobDataSetPropertyToOverride[] | undefined;
 }
 
 /**
@@ -207,7 +207,7 @@ export interface AssetBundleExportJobDataSourceOverrideProperties {
    * @public
    * <p>A list of <code>DataSource</code> resource properties to generate variables for in the returned CloudFormation template.</p>
    */
-  Properties: (AssetBundleExportJobDataSourcePropertyToOverride | string)[] | undefined;
+  Properties: AssetBundleExportJobDataSourcePropertyToOverride[] | undefined;
 }
 
 /**
@@ -239,7 +239,7 @@ export interface AssetBundleExportJobRefreshScheduleOverrideProperties {
    * @public
    * <p>A list of <code>RefreshSchedule</code> resource properties to generate variables for in the returned CloudFormation template.</p>
    */
-  Properties: (AssetBundleExportJobRefreshSchedulePropertyToOverride | string)[] | undefined;
+  Properties: AssetBundleExportJobRefreshSchedulePropertyToOverride[] | undefined;
 }
 
 /**
@@ -283,7 +283,7 @@ export interface AssetBundleExportJobThemeOverrideProperties {
    * @public
    * <p>A list of <code>Theme</code> resource properties to generate variables for in the returned CloudFormation template.</p>
    */
-  Properties: (AssetBundleExportJobThemePropertyToOverride | string)[] | undefined;
+  Properties: AssetBundleExportJobThemePropertyToOverride[] | undefined;
 }
 
 /**
@@ -317,7 +317,7 @@ export interface AssetBundleExportJobVPCConnectionOverrideProperties {
    * @public
    * <p>A list of <code>VPCConnection</code> resource properties to generate variables for in the returned CloudFormation template.</p>
    */
-  Properties: (AssetBundleExportJobVPCConnectionPropertyToOverride | string)[] | undefined;
+  Properties: AssetBundleExportJobVPCConnectionPropertyToOverride[] | undefined;
 }
 
 /**
@@ -437,7 +437,7 @@ export interface AssetBundleExportJobSummary {
    * @public
    * <p>The current status of the export job.</p>
    */
-  JobStatus?: AssetBundleExportJobStatus | string;
+  JobStatus?: AssetBundleExportJobStatus;
 
   /**
    * @public
@@ -467,7 +467,7 @@ export interface AssetBundleExportJobSummary {
    * @public
    * <p>The format for the export job.</p>
    */
-  ExportFormat?: AssetBundleExportFormat | string;
+  ExportFormat?: AssetBundleExportFormat;
 }
 
 /**
@@ -2186,7 +2186,7 @@ export interface AssetBundleImportJobSummary {
    * @public
    * <p>The current status of the import job.</p>
    */
-  JobStatus?: AssetBundleImportJobStatus | string;
+  JobStatus?: AssetBundleImportJobStatus;
 
   /**
    * @public
@@ -2210,7 +2210,7 @@ export interface AssetBundleImportJobSummary {
    * @public
    * <p>The failure action for the import job.</p>
    */
-  FailureAction?: AssetBundleImportFailureAction | string;
+  FailureAction?: AssetBundleImportFailureAction;
 }
 
 /**
@@ -2500,7 +2500,7 @@ export class ResourceExistsException extends __BaseException {
    * @public
    * <p>The resource type for this request.</p>
    */
-  ResourceType?: ExceptionResourceType | string;
+  ResourceType?: ExceptionResourceType;
 
   /**
    * @public
@@ -2535,7 +2535,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The resource type for this request.</p>
    */
-  ResourceType?: ExceptionResourceType | string;
+  ResourceType?: ExceptionResourceType;
 
   /**
    * @public
@@ -2617,7 +2617,7 @@ export interface CastColumnTypeOperation {
    * @public
    * <p>New column data type.</p>
    */
-  NewColumnType: ColumnDataType | string | undefined;
+  NewColumnType: ColumnDataType | undefined;
 
   /**
    * @public
@@ -2740,7 +2740,7 @@ export interface GeoSpatialColumnGroup {
    * @public
    * <p>Country code.</p>
    */
-  CountryCode?: GeoSpatialCountryCode | string;
+  CountryCode?: GeoSpatialCountryCode;
 
   /**
    * @public
@@ -2889,7 +2889,7 @@ export interface ColumnTag {
    * @public
    * <p>A geospatial role for a column.</p>
    */
-  ColumnGeographicRole?: GeoSpatialDataRole | string;
+  ColumnGeographicRole?: GeoSpatialDataRole;
 
   /**
    * @public
@@ -2936,7 +2936,7 @@ export interface ComparativeOrder {
    * @public
    * <p>The ordering type for a column. Valid values for this structure are <code>GREATER_IS_BETTER</code>, <code>LESSER_IS_BETTER</code> and <code>SPECIFIED</code>.</p>
    */
-  UseOrdering?: ColumnOrderingType | string;
+  UseOrdering?: ColumnOrderingType;
 
   /**
    * @public
@@ -2948,7 +2948,7 @@ export interface ComparativeOrder {
    * @public
    * <p>The treat of undefined specified values. Valid values for this structure are <code>LEAST</code> and <code>MOST</code>.</p>
    */
-  TreatUndefinedSpecifiedValues?: UndefinedSpecifiedValueType | string;
+  TreatUndefinedSpecifiedValues?: UndefinedSpecifiedValueType;
 }
 
 /**
@@ -3127,7 +3127,7 @@ export class ResourceUnavailableException extends __BaseException {
    * @public
    * <p>The resource type for this request.</p>
    */
-  ResourceType?: ExceptionResourceType | string;
+  ResourceType?: ExceptionResourceType;
 
   /**
    * @public
@@ -3184,7 +3184,7 @@ export interface CreateAccountSubscriptionRequest {
    *             </li>
    *          </ul>
    */
-  Edition: Edition | string | undefined;
+  Edition: Edition | undefined;
 
   /**
    * @public
@@ -3192,7 +3192,7 @@ export interface CreateAccountSubscriptionRequest {
    *          <p>If you choose <code>ACTIVE_DIRECTORY</code>, provide an <code>ActiveDirectoryName</code>
    *             and an <code>AdminGroup</code> associated with your Active Directory.</p>
    */
-  AuthenticationMethod: AuthenticationMethodOption | string | undefined;
+  AuthenticationMethod: AuthenticationMethodOption | undefined;
 
   /**
    * @public
@@ -3533,7 +3533,7 @@ export interface ValidationStrategy {
    * @public
    * <p>The mode of validation for the asset to be creaed or updated. When you set this value to <code>STRICT</code>, strict validation for every error is enforced. When you set this value to <code>LENIENT</code>, validation is skipped for specific UI errors.</p>
    */
-  Mode: ValidationStrategyMode | string | undefined;
+  Mode: ValidationStrategyMode | undefined;
 }
 
 /**
@@ -3636,7 +3636,7 @@ export interface CreateAnalysisResponse {
    * @public
    * <p>The status of the creation of the analysis. </p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: ResourceStatus;
 
   /**
    * @public
@@ -3663,7 +3663,7 @@ export class LimitExceededException extends __BaseException {
    * @public
    * <p>Limit exceeded.</p>
    */
-  ResourceType?: ExceptionResourceType | string;
+  ResourceType?: ExceptionResourceType;
 
   /**
    * @public
@@ -3739,7 +3739,7 @@ export interface DataPointDrillUpDownOption {
    * @public
    * <p>The status of the drill down options of data points.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: DashboardBehavior;
 }
 
 /**
@@ -3751,7 +3751,7 @@ export interface DataPointMenuLabelOption {
    * @public
    * <p>The status of the data point menu options.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: DashboardBehavior;
 }
 
 /**
@@ -3763,7 +3763,7 @@ export interface DataPointTooltipOption {
    * @public
    * <p>The status of the data point tool tip options.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: DashboardBehavior;
 }
 
 /**
@@ -3775,7 +3775,7 @@ export interface ExportToCSVOption {
    * @public
    * <p>Availability status.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: DashboardBehavior;
 }
 
 /**
@@ -3787,7 +3787,7 @@ export interface ExportWithHiddenFieldsOption {
    * @public
    * <p>The status of the export with hidden fields options.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: DashboardBehavior;
 }
 
 /**
@@ -3813,7 +3813,7 @@ export interface SheetControlsOption {
    * @public
    * <p>Visibility state.</p>
    */
-  VisibilityState?: DashboardUIState | string;
+  VisibilityState?: DashboardUIState;
 }
 
 /**
@@ -3825,7 +3825,7 @@ export interface SheetLayoutElementMaximizationOption {
    * @public
    * <p>The status of the sheet layout maximization options of a dashbaord.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: DashboardBehavior;
 }
 
 /**
@@ -3837,7 +3837,7 @@ export interface VisualAxisSortOption {
    * @public
    * <p>The availaiblity status of a visual's axis sort options.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: DashboardBehavior;
 }
 
 /**
@@ -3849,7 +3849,7 @@ export interface VisualMenuOption {
    * @public
    * <p>The availaiblity status of a visual's menu options.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: DashboardBehavior;
 }
 
 /**
@@ -3861,7 +3861,7 @@ export interface ExportHiddenFieldsOption {
    * @public
    * <p>The status of the export hidden fields options of a dashbaord.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: DashboardBehavior;
 }
 
 /**
@@ -4187,7 +4187,7 @@ export interface CreateDashboardResponse {
    * @public
    * <p>The status of the dashboard creation request.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: ResourceStatus;
 
   /**
    * @public
@@ -4249,13 +4249,13 @@ export interface DateTimeDatasetParameter {
    * @public
    * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
    */
-  ValueType: DatasetParameterValueType | string | undefined;
+  ValueType: DatasetParameterValueType | undefined;
 
   /**
    * @public
    * <p>The time granularity of the date time parameter.</p>
    */
-  TimeGranularity?: TimeGranularity | string;
+  TimeGranularity?: TimeGranularity;
 
   /**
    * @public
@@ -4297,7 +4297,7 @@ export interface DecimalDatasetParameter {
    * @public
    * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
    */
-  ValueType: DatasetParameterValueType | string | undefined;
+  ValueType: DatasetParameterValueType | undefined;
 
   /**
    * @public
@@ -4339,7 +4339,7 @@ export interface IntegerDatasetParameter {
    * @public
    * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
    */
-  ValueType: DatasetParameterValueType | string | undefined;
+  ValueType: DatasetParameterValueType | undefined;
 
   /**
    * @public
@@ -4381,7 +4381,7 @@ export interface StringDatasetParameter {
    * @public
    * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
    */
-  ValueType: DatasetParameterValueType | string | undefined;
+  ValueType: DatasetParameterValueType | undefined;
 
   /**
    * @public
@@ -4604,7 +4604,7 @@ export interface UntagColumnOperation {
    * @public
    * <p>The column tags to remove from this column.</p>
    */
-  TagNames: (ColumnTagName | string)[] | undefined;
+  TagNames: ColumnTagName[] | undefined;
 }
 
 /**
@@ -4861,7 +4861,7 @@ export interface JoinInstruction {
    * @public
    * <p>The type of join that it is.</p>
    */
-  Type: JoinType | string | undefined;
+  Type: JoinType | undefined;
 
   /**
    * @public
@@ -4956,7 +4956,7 @@ export interface InputColumn {
    * @public
    * <p>The data type of the column.</p>
    */
-  Type: InputColumnDataType | string | undefined;
+  Type: InputColumnDataType | undefined;
 }
 
 /**
@@ -5066,7 +5066,7 @@ export interface UploadSettings {
    * @public
    * <p>File format.</p>
    */
-  Format?: FileFormat | string;
+  Format?: FileFormat;
 
   /**
    * @public
@@ -5084,7 +5084,7 @@ export interface UploadSettings {
    * @public
    * <p>Text qualifier.</p>
    */
-  TextQualifier?: TextQualifier | string;
+  TextQualifier?: TextQualifier;
 
   /**
    * @public
@@ -5264,20 +5264,20 @@ export interface RowLevelPermissionDataSet {
    * <p>The type of permissions to use when interpreting the permissions for RLS. <code>DENY_ACCESS</code>
    *         is included for backward compatibility only.</p>
    */
-  PermissionPolicy: RowLevelPermissionPolicy | string | undefined;
+  PermissionPolicy: RowLevelPermissionPolicy | undefined;
 
   /**
    * @public
    * <p>The user or group rules associated with the dataset that contains permissions for RLS.</p>
    *          <p>By default, <code>FormatVersion</code> is <code>VERSION_1</code>. When <code>FormatVersion</code> is <code>VERSION_1</code>, <code>UserName</code> and <code>GroupName</code> are required. When <code>FormatVersion</code> is <code>VERSION_2</code>, <code>UserARN</code> and <code>GroupARN</code> are required, and <code>Namespace</code> must not exist.</p>
    */
-  FormatVersion?: RowLevelPermissionFormatVersion | string;
+  FormatVersion?: RowLevelPermissionFormatVersion;
 
   /**
    * @public
    * <p>The status of the row-level security permission dataset. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -5319,7 +5319,7 @@ export interface RowLevelPermissionTagConfiguration {
    * @public
    * <p>The status of row-level security tags. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -5372,7 +5372,7 @@ export interface CreateDataSetRequest {
    * @public
    * <p>Indicates whether you want to import the data into SPICE.</p>
    */
-  ImportMode: DataSetImportMode | string | undefined;
+  ImportMode: DataSetImportMode | undefined;
 
   /**
    * @public
@@ -5603,7 +5603,7 @@ export interface CreateDataSourceRequest {
    * 			list of all data sources, use <code>ListDataSources</code>.</p>
    *          <p>Use <code>AMAZON_ELASTICSEARCH</code> for Amazon OpenSearch Service.</p>
    */
-  Type: DataSourceType | string | undefined;
+  Type: DataSourceType | undefined;
 
   /**
    * @public
@@ -5664,7 +5664,7 @@ export interface CreateDataSourceResponse {
    * @public
    * <p>The status of creating the data source.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: ResourceStatus;
 
   /**
    * @public
@@ -5732,7 +5732,7 @@ export interface CreateFolderRequest {
    * @public
    * <p>The type of folder. By default, <code>folderType</code> is <code>SHARED</code>.</p>
    */
-  FolderType?: FolderType | string;
+  FolderType?: FolderType;
 
   /**
    * @public
@@ -5759,7 +5759,7 @@ export interface CreateFolderRequest {
    * @public
    * <p>An optional parameter that determines the sharing scope of the folder. The default value for this parameter is <code>ACCOUNT</code>.</p>
    */
-  SharingModel?: SharingModel | string;
+  SharingModel?: SharingModel;
 }
 
 /**
@@ -5834,7 +5834,7 @@ export interface CreateFolderMembershipRequest {
    * @public
    * <p>The member type of the asset that you want to add to a folder.</p>
    */
-  MemberType: MemberType | string | undefined;
+  MemberType: MemberType | undefined;
 }
 
 /**
@@ -5852,7 +5852,7 @@ export interface FolderMember {
    * @public
    * <p>The type of asset that it is.</p>
    */
-  MemberType?: MemberType | string;
+  MemberType?: MemberType;
 }
 
 /**
@@ -6077,7 +6077,7 @@ export interface CreateIAMPolicyAssignmentRequest {
    *             </li>
    *          </ul>
    */
-  AssignmentStatus: AssignmentStatus | string | undefined;
+  AssignmentStatus: AssignmentStatus | undefined;
 
   /**
    * @public
@@ -6139,7 +6139,7 @@ export interface CreateIAMPolicyAssignmentResponse {
    *             </li>
    *          </ul>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: AssignmentStatus;
 
   /**
    * @public
@@ -6208,7 +6208,7 @@ export interface CreateIngestionRequest {
    * @public
    * <p>The type of ingestion that you want to create.</p>
    */
-  IngestionType?: IngestionType | string;
+  IngestionType?: IngestionType;
 }
 
 /**
@@ -6249,7 +6249,7 @@ export interface CreateIngestionResponse {
    * @public
    * <p>The ingestion status.</p>
    */
-  IngestionStatus?: IngestionStatus | string;
+  IngestionStatus?: IngestionStatus;
 
   /**
    * @public
@@ -6298,7 +6298,7 @@ export interface CreateNamespaceRequest {
    * <p>Specifies the type of your user identity directory. Currently, this supports users
    *             with an identity type of <code>QUICKSIGHT</code>.</p>
    */
-  IdentityStore: IdentityStore | string | undefined;
+  IdentityStore: IdentityStore | undefined;
 
   /**
    * @public
@@ -6355,14 +6355,14 @@ export interface CreateNamespaceResponse {
    *             the case of a non-retryable error, refer to the error message for follow-up
    *             tasks.</p>
    */
-  CreationStatus?: NamespaceStatus | string;
+  CreationStatus?: NamespaceStatus;
 
   /**
    * @public
    * <p>Specifies the type of your user identity directory. Currently, this supports users
    *             with an identity type of <code>QUICKSIGHT</code>.</p>
    */
-  IdentityStore?: IdentityStore | string;
+  IdentityStore?: IdentityStore;
 
   /**
    * @public
@@ -6423,7 +6423,7 @@ export interface ScheduleRefreshOnEntity {
    * @public
    * <p>The day of the week that you want to schedule a refresh on.</p>
    */
-  DayOfWeek?: DayOfWeek | string;
+  DayOfWeek?: DayOfWeek;
 
   /**
    * @public
@@ -6467,7 +6467,7 @@ export interface RefreshFrequency {
    *             </li>
    *          </ul>
    */
-  Interval: RefreshInterval | string | undefined;
+  Interval: RefreshInterval | undefined;
 
   /**
    * @public
@@ -6526,7 +6526,7 @@ export interface RefreshSchedule {
    *          </ul>
    *          <p>For more information on full and incremental refreshes, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html">Refreshing SPICE data</a> in the <i>Amazon QuickSight User Guide</i>.</p>
    */
-  RefreshType: IngestionType | string | undefined;
+  RefreshType: IngestionType | undefined;
 
   /**
    * @public
@@ -6832,7 +6832,7 @@ export interface CreateTemplateResponse {
    * @public
    * <p>The template creation status.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: ResourceStatus;
 
   /**
    * @public
@@ -7285,7 +7285,7 @@ export interface CreateThemeResponse {
    * @public
    * <p>The theme creation status.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: ResourceStatus;
 
   /**
    * @public
@@ -7479,7 +7479,7 @@ export interface DisplayFormatOptions {
    * @public
    * <p>Determines the decimal separator.</p>
    */
-  DecimalSeparator?: TopicNumericSeparatorSymbol | string;
+  DecimalSeparator?: TopicNumericSeparatorSymbol;
 
   /**
    * @public
@@ -7518,7 +7518,7 @@ export interface DisplayFormatOptions {
    *          <code>BILLIONS</code>,
    *          and <code>TRILLIONS</code>.</p>
    */
-  UnitScaler?: NumberScale | string;
+  UnitScaler?: NumberScale;
 
   /**
    * @public
@@ -7544,7 +7544,7 @@ export interface DefaultFormatting {
    *             <code>PERCENT</code>, <code>CURRENCY</code>, <code>NUMBER</code>, <code>DATE</code>, and
    *             <code>STRING</code>.</p>
    */
-  DisplayFormat?: DisplayFormat | string;
+  DisplayFormat?: DisplayFormat;
 
   /**
    * @public
@@ -7666,13 +7666,13 @@ export interface TopicCalculatedField {
    * @public
    * <p>The column data role for a calculated field. Valid values for this structure are <code>DIMENSION</code> and <code>MEASURE</code>.</p>
    */
-  ColumnDataRole?: ColumnDataRole | string;
+  ColumnDataRole?: ColumnDataRole;
 
   /**
    * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity?: TopicTimeGranularity | string;
+  TimeGranularity?: TopicTimeGranularity;
 
   /**
    * @public
@@ -7687,7 +7687,7 @@ export interface TopicCalculatedField {
    *          <code>DISTINCT_COUNT</code>,
    *          and <code>AVERAGE</code>.</p>
    */
-  Aggregation?: DefaultAggregation | string;
+  Aggregation?: DefaultAggregation;
 
   /**
    * @public
@@ -7710,7 +7710,7 @@ export interface TopicCalculatedField {
    *             <code>STDEV</code>, <code>STDEVP</code>, <code>VAR</code>,
    *          <code>VARP</code>, and <code>PERCENTILE</code>.</p>
    */
-  AllowedAggregations?: (AuthorSpecifiedAggregation | string)[];
+  AllowedAggregations?: AuthorSpecifiedAggregation[];
 
   /**
    * @public
@@ -7720,7 +7720,7 @@ export interface TopicCalculatedField {
    *             <code>AVERAGE</code>, <code>STDEV</code>, <code>STDEVP</code>, <code>VAR</code>,
    *             <code>VARP</code>, and <code>PERCENTILE</code>.</p>
    */
-  NotAllowedAggregations?: (AuthorSpecifiedAggregation | string)[];
+  NotAllowedAggregations?: AuthorSpecifiedAggregation[];
 
   /**
    * @public
@@ -7775,14 +7775,14 @@ export interface TopicColumn {
    * @public
    * <p>The role of the column in the data. Valid values are <code>DIMENSION</code> and <code>MEASURE</code>.</p>
    */
-  ColumnDataRole?: ColumnDataRole | string;
+  ColumnDataRole?: ColumnDataRole;
 
   /**
    * @public
    * <p>The type of aggregation that is performed on the column data when
    *          it's queried.</p>
    */
-  Aggregation?: DefaultAggregation | string;
+  Aggregation?: DefaultAggregation;
 
   /**
    * @public
@@ -7813,7 +7813,7 @@ export interface TopicColumn {
    * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity?: TopicTimeGranularity | string;
+  TimeGranularity?: TopicTimeGranularity;
 
   /**
    * @public
@@ -7824,7 +7824,7 @@ export interface TopicColumn {
    *          <code>VARP</code>,
    *          and <code>PERCENTILE</code>.</p>
    */
-  AllowedAggregations?: (AuthorSpecifiedAggregation | string)[];
+  AllowedAggregations?: AuthorSpecifiedAggregation[];
 
   /**
    * @public
@@ -7835,7 +7835,7 @@ export interface TopicColumn {
    *          <code>VARP</code>,
    *          and <code>PERCENTILE</code>.</p>
    */
-  NotAllowedAggregations?: (AuthorSpecifiedAggregation | string)[];
+  NotAllowedAggregations?: AuthorSpecifiedAggregation[];
 
   /**
    * @public
@@ -7873,7 +7873,7 @@ export interface DataAggregation {
    * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  DatasetRowDateGranularity?: TopicTimeGranularity | string;
+  DatasetRowDateGranularity?: TopicTimeGranularity;
 
   /**
    * @public
@@ -7891,7 +7891,7 @@ export interface TopicCategoryFilterConstant {
    * @public
    * <p>The type of category filter constant. This element is used to specify whether a constant is a singular or collective. Valid values are <code>SINGULAR</code> and <code>COLLECTIVE</code>.</p>
    */
-  ConstantType?: ConstantType | string;
+  ConstantType?: ConstantType;
 
   /**
    * @public
@@ -7915,13 +7915,13 @@ export interface TopicCategoryFilter {
    * @public
    * <p>The category filter function. Valid values for this structure are <code>EXACT</code> and <code>CONTAINS</code>.</p>
    */
-  CategoryFilterFunction?: CategoryFilterFunction | string;
+  CategoryFilterFunction?: CategoryFilterFunction;
 
   /**
    * @public
    * <p>The category filter type. This element is used to specify whether a filter is a simple category filter or an inverse category filter.</p>
    */
-  CategoryFilterType?: CategoryFilterType | string;
+  CategoryFilterType?: CategoryFilterType;
 
   /**
    * @public
@@ -7963,7 +7963,7 @@ export interface TopicRangeFilterConstant {
    * @public
    * <p>The data type of the constant value that is used in a range filter. Valid values for this structure are <code>RANGE</code>.</p>
    */
-  ConstantType?: ConstantType | string;
+  ConstantType?: ConstantType;
 
   /**
    * @public
@@ -8057,7 +8057,7 @@ export interface TopicSingularFilterConstant {
    * @public
    * <p>The type of the singular filter constant. Valid values for this structure are <code>SINGULAR</code>.</p>
    */
-  ConstantType?: ConstantType | string;
+  ConstantType?: ConstantType;
 
   /**
    * @public
@@ -8086,7 +8086,7 @@ export interface TopicNumericEqualityFilter {
    *             <code>VAR</code>,
    *          and <code>VARP</code>.</p>
    */
-  Aggregation?: NamedFilterAggType | string;
+  Aggregation?: NamedFilterAggType;
 }
 
 /**
@@ -8119,7 +8119,7 @@ export interface TopicNumericRangeFilter {
    *             <code>VAR</code>,
    *          and <code>VARP</code>.</p>
    */
-  Aggregation?: NamedFilterAggType | string;
+  Aggregation?: NamedFilterAggType;
 }
 
 /**
@@ -8149,13 +8149,13 @@ export interface TopicRelativeDateFilter {
    * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity?: TopicTimeGranularity | string;
+  TimeGranularity?: TopicTimeGranularity;
 
   /**
    * @public
    * <p>The function to be used in a relative date filter to determine the range of dates to include in the results. Valid values for this structure are <code>BEFORE</code>, <code>AFTER</code>, and <code>BETWEEN</code>.</p>
    */
-  RelativeDateFilterFunction?: TopicRelativeDateFilterFunction | string;
+  RelativeDateFilterFunction?: TopicRelativeDateFilterFunction;
 
   /**
    * @public
@@ -8183,7 +8183,7 @@ export interface TopicFilter {
    *          <code>CONDITIONAL_VALUE_FILTER</code>,
    *          and <code>NAMED_VALUE_FILTER</code>.</p>
    */
-  FilterClass?: FilterClass | string;
+  FilterClass?: FilterClass;
 
   /**
    * @public
@@ -8211,7 +8211,7 @@ export interface TopicFilter {
    *          <code>DATE_RANGE_FILTER</code>,
    *          and <code>RELATIVE_DATE_FILTER</code>.</p>
    */
-  FilterType?: NamedFilterType | string;
+  FilterType?: NamedFilterType;
 
   /**
    * @public
@@ -8283,7 +8283,7 @@ export interface NamedEntityDefinitionMetric {
    *          <code>MEDIAN</code>,
    *          and <code>CUSTOM</code>.</p>
    */
-  Aggregation?: NamedEntityAggType | string;
+  Aggregation?: NamedEntityAggType;
 
   /**
    * @public
@@ -8342,7 +8342,7 @@ export interface NamedEntityDefinition {
    * @public
    * <p>The property role. Valid values for this structure are <code>PRIMARY</code> and <code>ID</code>.</p>
    */
-  PropertyRole?: PropertyRole | string;
+  PropertyRole?: PropertyRole;
 
   /**
    * @public
@@ -8350,7 +8350,7 @@ export interface NamedEntityDefinition {
    *             <code>DIMENSION</code>,
    *          and <code>MEASURE</code>.</p>
    */
-  PropertyUsage?: PropertyUsage | string;
+  PropertyUsage?: PropertyUsage;
 
   /**
    * @public
@@ -8624,7 +8624,7 @@ export interface TopicRefreshSchedule {
    *          <code>WEEKLY</code>,
    *          and <code>MONTHLY</code>.</p>
    */
-  TopicScheduleType?: TopicScheduleType | string;
+  TopicScheduleType?: TopicScheduleType;
 }
 
 /**
@@ -8815,13 +8815,13 @@ export interface CreateVPCConnectionResponse {
    * @public
    * <p>The status of the creation of the VPC connection.</p>
    */
-  CreationStatus?: VPCConnectionResourceStatus | string;
+  CreationStatus?: VPCConnectionResourceStatus;
 
   /**
    * @public
    * <p>The availability status of the VPC connection.</p>
    */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus | string;
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus;
 
   /**
    * @public
@@ -8867,7 +8867,7 @@ export interface DashboardError {
    * @public
    * <p>Type.</p>
    */
-  Type?: DashboardErrorType | string;
+  Type?: DashboardErrorType;
 
   /**
    * @public
@@ -8909,7 +8909,7 @@ export interface DashboardVersion {
    * @public
    * <p>The HTTP status of the request.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: ResourceStatus;
 
   /**
    * @public
@@ -9027,7 +9027,7 @@ export interface DashboardSearchFilter {
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"DASHBOARD_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DASHBOARD_NAME</code>.</p>
    */
-  Operator: FilterOperator | string | undefined;
+  Operator: FilterOperator | undefined;
 
   /**
    * @public
@@ -9061,7 +9061,7 @@ export interface DashboardSearchFilter {
    *             </li>
    *          </ul>
    */
-  Name?: DashboardFilterAttribute | string;
+  Name?: DashboardFilterAttribute;
 
   /**
    * @public
@@ -9147,7 +9147,7 @@ export interface DashboardVersionSummary {
    * @public
    * <p>The HTTP status of the request.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: ResourceStatus;
 
   /**
    * @public
@@ -9183,7 +9183,7 @@ export interface OutputColumn {
    * @public
    * <p>The type.</p>
    */
-  Type?: ColumnDataType | string;
+  Type?: ColumnDataType;
 }
 
 /**

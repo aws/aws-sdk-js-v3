@@ -52,10 +52,10 @@ export interface AllQueryStringTypesInput {
   queryBooleanList?: boolean[];
   queryTimestamp?: Date;
   queryTimestampList?: Date[];
-  queryEnum?: FooEnum | string;
-  queryEnumList?: (FooEnum | string)[];
-  queryIntegerEnum?: IntegerEnum | number;
-  queryIntegerEnumList?: (IntegerEnum | number)[];
+  queryEnum?: FooEnum;
+  queryEnumList?: FooEnum[];
+  queryIntegerEnum?: IntegerEnum;
+  queryIntegerEnumList?: IntegerEnum[];
   queryParamsMapOfStrings?: Record<string, string>;
 }
 
@@ -156,7 +156,7 @@ export interface HostLabelInput {
  * @public
  */
 export interface FlattenedXmlMapInputOutput {
-  myMap?: Record<string, FooEnum | string>;
+  myMap?: Record<string, FooEnum>;
 }
 
 /**
@@ -414,16 +414,16 @@ export interface InputAndOutputWithHeadersIO {
   headerIntegerList?: number[];
   headerBooleanList?: boolean[];
   headerTimestampList?: Date[];
-  headerEnum?: FooEnum | string;
-  headerEnumList?: (FooEnum | string)[];
+  headerEnum?: FooEnum;
+  headerEnumList?: FooEnum[];
 }
 
 /**
  * @public
  */
 export interface NestedXmlMapsInputOutput {
-  nestedMap?: Record<string, Record<string, FooEnum | string>>;
-  flatNestedMap?: Record<string, Record<string, FooEnum | string>>;
+  nestedMap?: Record<string, Record<string, FooEnum>>;
+  flatNestedMap?: Record<string, Record<string, FooEnum>>;
 }
 
 /**
@@ -547,8 +547,8 @@ export interface XmlListsInputOutput {
   integerList?: number[];
   booleanList?: boolean[];
   timestampList?: Date[];
-  enumList?: (FooEnum | string)[];
-  intEnumList?: (IntegerEnum | number)[];
+  enumList?: FooEnum[];
+  intEnumList?: IntegerEnum[];
   /**
    * @public
    * A list of lists of strings.
@@ -582,24 +582,24 @@ export interface XmlEmptyStringsInputOutput {
  * @public
  */
 export interface XmlEnumsInputOutput {
-  fooEnum1?: FooEnum | string;
-  fooEnum2?: FooEnum | string;
-  fooEnum3?: FooEnum | string;
-  fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: Record<string, FooEnum | string>;
+  fooEnum1?: FooEnum;
+  fooEnum2?: FooEnum;
+  fooEnum3?: FooEnum;
+  fooEnumList?: FooEnum[];
+  fooEnumSet?: FooEnum[];
+  fooEnumMap?: Record<string, FooEnum>;
 }
 
 /**
  * @public
  */
 export interface XmlIntEnumsInputOutput {
-  intEnum1?: IntegerEnum | number;
-  intEnum2?: IntegerEnum | number;
-  intEnum3?: IntegerEnum | number;
-  intEnumList?: (IntegerEnum | number)[];
-  intEnumSet?: (IntegerEnum | number)[];
-  intEnumMap?: Record<string, IntegerEnum | number>;
+  intEnum1?: IntegerEnum;
+  intEnum2?: IntegerEnum;
+  intEnum3?: IntegerEnum;
+  intEnumList?: IntegerEnum[];
+  intEnumSet?: IntegerEnum[];
+  intEnumMap?: Record<string, IntegerEnum>;
 }
 
 /**

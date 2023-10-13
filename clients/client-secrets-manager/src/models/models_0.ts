@@ -377,7 +377,7 @@ export interface ReplicationStatusType {
    * @public
    * <p>The status can be <code>InProgress</code>, <code>Failed</code>, or <code>InSync</code>.</p>
    */
-  Status?: StatusType | string;
+  Status?: StatusType;
 
   /**
    * @public
@@ -961,7 +961,7 @@ export interface Filter {
    *             </li>
    *          </ul>
    */
-  Key?: FilterNameStringType | string;
+  Key?: FilterNameStringType;
 
   /**
    * @public
@@ -1247,7 +1247,7 @@ export interface ListSecretsRequest {
    * @public
    * <p>Secrets are listed by <code>CreatedDate</code>. </p>
    */
-  SortOrder?: SortOrderType | string;
+  SortOrder?: SortOrderType;
 }
 
 /**

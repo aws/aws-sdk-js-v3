@@ -149,7 +149,7 @@ export interface ModifyEndpointMessage {
    * @public
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  EndpointType?: ReplicationEndpointTypeValue | string;
+  EndpointType?: ReplicationEndpointTypeValue;
 
   /**
    * @public
@@ -211,7 +211,7 @@ export interface ModifyEndpointMessage {
    * @public
    * <p>The SSL mode used to connect to the endpoint.  The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -677,7 +677,7 @@ export interface ModifyReplicationConfigMessage {
    * @public
    * <p>The type of replication.</p>
    */
-  ReplicationType?: MigrationTypeValue | string;
+  ReplicationType?: MigrationTypeValue;
 
   /**
    * @public
@@ -971,7 +971,7 @@ export interface ModifyReplicationTaskMessage {
    * <p>The migration type. Valid values: <code>full-load</code> | <code>cdc</code> | <code>full-load-and-cdc</code>
    *          </p>
    */
-  MigrationType?: MigrationTypeValue | string;
+  MigrationType?: MigrationTypeValue;
 
   /**
    * @public
@@ -1203,7 +1203,7 @@ export interface ReloadReplicationTablesMessage {
    *          it if validation is enabled. Specify <code>validate-only</code> to re-validate the table.
    *          This option applies only when validation is enabled for the replication. </p>
    */
-  ReloadOption?: ReloadOptionValue | string;
+  ReloadOption?: ReloadOptionValue;
 }
 
 /**
@@ -1242,7 +1242,7 @@ export interface ReloadTablesMessage {
    *          <p>Valid values: data-reload, validate-only</p>
    *          <p>Default value is data-reload.</p>
    */
-  ReloadOption?: ReloadOptionValue | string;
+  ReloadOption?: ReloadOptionValue;
 }
 
 /**
@@ -1409,7 +1409,7 @@ export interface StartMetadataModelExportAsScriptMessage {
    * @public
    * <p>Whether to export the metadata model from the source or the target.</p>
    */
-  Origin: OriginTypeValue | string | undefined;
+  Origin: OriginTypeValue | undefined;
 
   /**
    * @public
@@ -1485,7 +1485,7 @@ export interface StartMetadataModelImportMessage {
    * @public
    * <p>Whether to load metadata to the source or target database.</p>
    */
-  Origin: OriginTypeValue | string | undefined;
+  Origin: OriginTypeValue | undefined;
 
   /**
    * @public
@@ -1622,7 +1622,7 @@ export interface StartReplicationTaskMessage {
    *          use <code>reload-target</code>. Otherwise use <code>resume-processing</code>, to replicate the
    *          changes from the last stop position.</p>
    */
-  StartReplicationTaskType: StartReplicationTaskTypeValue | string | undefined;
+  StartReplicationTaskType: StartReplicationTaskTypeValue | undefined;
 
   /**
    * @public

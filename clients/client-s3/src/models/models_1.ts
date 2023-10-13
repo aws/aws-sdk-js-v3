@@ -29,7 +29,7 @@ export interface PutObjectLockConfigurationOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: RequestCharged;
 }
 
 /**
@@ -59,7 +59,7 @@ export interface PutObjectLockConfigurationRequest {
    *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: RequestPayer;
 
   /**
    * @public
@@ -84,7 +84,7 @@ export interface PutObjectLockConfigurationRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: ChecksumAlgorithm;
 
   /**
    * @public
@@ -102,7 +102,7 @@ export interface PutObjectRetentionOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: RequestCharged;
 }
 
 /**
@@ -141,7 +141,7 @@ export interface PutObjectRetentionRequest {
    *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: RequestPayer;
 
   /**
    * @public
@@ -173,7 +173,7 @@ export interface PutObjectRetentionRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: ChecksumAlgorithm;
 
   /**
    * @public
@@ -237,7 +237,7 @@ export interface PutObjectTaggingRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: ChecksumAlgorithm;
 
   /**
    * @public
@@ -260,7 +260,7 @@ export interface PutObjectTaggingRequest {
    *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: RequestPayer;
 }
 
 /**
@@ -293,7 +293,7 @@ export interface PutPublicAccessBlockRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: ChecksumAlgorithm;
 
   /**
    * @public
@@ -339,7 +339,7 @@ export interface RestoreObjectOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: RequestCharged;
 
   /**
    * @public
@@ -373,7 +373,7 @@ export interface GlacierJobParameters {
    * @public
    * <p>Retrieval tier at which the restore will be processed.</p>
    */
-  Tier: Tier | string | undefined;
+  Tier: Tier | undefined;
 }
 
 /**
@@ -386,7 +386,7 @@ export interface Encryption {
    * <p>The server-side encryption algorithm used when storing job results in Amazon S3 (for example,
    *          AES256, <code>aws:kms</code>).</p>
    */
-  EncryptionType: ServerSideEncryption | string | undefined;
+  EncryptionType: ServerSideEncryption | undefined;
 
   /**
    * @public
@@ -450,7 +450,7 @@ export interface S3Location {
    * @public
    * <p>The canned ACL to apply to the restore results.</p>
    */
-  CannedACL?: ObjectCannedACL | string;
+  CannedACL?: ObjectCannedACL;
 
   /**
    * @public
@@ -474,7 +474,7 @@ export interface S3Location {
    * @public
    * <p>The class of storage used to store the restore results.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: StorageClass;
 }
 
 /**
@@ -559,7 +559,7 @@ export interface CSVInput {
    *             </li>
    *          </ul>
    */
-  FileHeaderInfo?: FileHeaderInfo | string;
+  FileHeaderInfo?: FileHeaderInfo;
 
   /**
    * @public
@@ -638,7 +638,7 @@ export interface JSONInput {
    * @public
    * <p>The type of JSON. Valid values: Document, Lines.</p>
    */
-  Type?: JSONType | string;
+  Type?: JSONType;
 }
 
 /**
@@ -663,7 +663,7 @@ export interface InputSerialization {
    * <p>Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value:
    *          NONE.</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: CompressionType;
 
   /**
    * @public
@@ -712,7 +712,7 @@ export interface CSVOutput {
    *             </li>
    *          </ul>
    */
-  QuoteFields?: QuoteFields | string;
+  QuoteFields?: QuoteFields;
 
   /**
    * @public
@@ -790,7 +790,7 @@ export interface SelectParameters {
    * @public
    * <p>The type of the provided expression (for example, SQL).</p>
    */
-  ExpressionType: ExpressionType | string | undefined;
+  ExpressionType: ExpressionType | undefined;
 
   /**
    * @public
@@ -843,13 +843,13 @@ export interface RestoreRequest {
    * @public
    * <p>Type of restore request.</p>
    */
-  Type?: RestoreRequestType | string;
+  Type?: RestoreRequestType;
 
   /**
    * @public
    * <p>Retrieval tier at which the restore will be processed.</p>
    */
-  Tier?: Tier | string;
+  Tier?: Tier;
 
   /**
    * @public
@@ -912,7 +912,7 @@ export interface RestoreObjectRequest {
    *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: RequestPayer;
 
   /**
    * @public
@@ -924,7 +924,7 @@ export interface RestoreObjectRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: ChecksumAlgorithm;
 
   /**
    * @public
@@ -1259,7 +1259,7 @@ export interface SelectObjectContentRequest {
    * @public
    * <p>The type of the provided expression (for example, SQL).</p>
    */
-  ExpressionType: ExpressionType | string | undefined;
+  ExpressionType: ExpressionType | undefined;
 
   /**
    * @public
@@ -1324,7 +1324,7 @@ export interface UploadPartOutput {
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
    *             <code>AES256</code>, <code>aws:kms</code>).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: ServerSideEncryption;
 
   /**
    * @public
@@ -1402,7 +1402,7 @@ export interface UploadPartOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: RequestCharged;
 }
 
 /**
@@ -1453,7 +1453,7 @@ export interface UploadPartRequest {
    *          <p>This checksum algorithm must be the same for all parts and it match the checksum value
    *          supplied in the <code>CreateMultipartUpload</code> request.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: ChecksumAlgorithm;
 
   /**
    * @public
@@ -1544,7 +1544,7 @@ export interface UploadPartRequest {
    *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: RequestPayer;
 
   /**
    * @public
@@ -1629,7 +1629,7 @@ export interface UploadPartCopyOutput {
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
    *             <code>AES256</code>, <code>aws:kms</code>).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: ServerSideEncryption;
 
   /**
    * @public
@@ -1665,7 +1665,7 @@ export interface UploadPartCopyOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: RequestCharged;
 }
 
 /**
@@ -1820,7 +1820,7 @@ export interface UploadPartCopyRequest {
    *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: RequestPayer;
 
   /**
    * @public
@@ -2118,13 +2118,13 @@ export interface WriteGetObjectResponseRequest {
    * <p>Indicates whether an object stored in Amazon S3 has Object Lock enabled. For more information
    *          about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Object Lock</a>.</p>
    */
-  ObjectLockMode?: ObjectLockMode | string;
+  ObjectLockMode?: ObjectLockMode;
 
   /**
    * @public
    * <p>Indicates whether an object stored in Amazon S3 has an active legal hold.</p>
    */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
+  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus;
 
   /**
    * @public
@@ -2143,14 +2143,14 @@ export interface WriteGetObjectResponseRequest {
    * <p>Indicates if request involves bucket that is either a source or destination in a
    *          Replication rule. For more information about S3 Replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication</a>.</p>
    */
-  ReplicationStatus?: ReplicationStatus | string;
+  ReplicationStatus?: ReplicationStatus;
 
   /**
    * @public
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: RequestCharged;
 
   /**
    * @public
@@ -2164,7 +2164,7 @@ export interface WriteGetObjectResponseRequest {
    * <p> The server-side encryption algorithm used when storing requested object in Amazon S3 (for
    *          example, AES256, <code>aws:kms</code>).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: ServerSideEncryption;
 
   /**
    * @public
@@ -2195,7 +2195,7 @@ export interface WriteGetObjectResponseRequest {
    *          objects except for S3 Standard storage class objects.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: StorageClass;
 
   /**
    * @public

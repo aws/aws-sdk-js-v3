@@ -2971,7 +2971,7 @@ const se_AlarmNames = (input: string[], context: __SerdeContext): any => {
 /**
  * serializeAws_queryAlarmTypes
  */
-const se_AlarmTypes = (input: (AlarmType | string)[], context: __SerdeContext): any => {
+const se_AlarmTypes = (input: AlarmType[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -3027,7 +3027,7 @@ const se_AnomalyDetectorExcludedTimeRanges = (input: Range[], context: __SerdeCo
 /**
  * serializeAws_queryAnomalyDetectorTypes
  */
-const se_AnomalyDetectorTypes = (input: (AnomalyDetectorType | string)[], context: __SerdeContext): any => {
+const se_AnomalyDetectorTypes = (input: AnomalyDetectorType[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -4704,7 +4704,7 @@ const se_StartMetricStreamsInput = (input: StartMetricStreamsInput, context: __S
 /**
  * serializeAws_queryStatistics
  */
-const se_Statistics = (input: (Statistic | string)[], context: __SerdeContext): any => {
+const se_Statistics = (input: Statistic[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {

@@ -339,7 +339,7 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * const input = {
  *   "AutoScalingGroupName": "my-asg",
  *   "DesiredCapacity": 4,
- *   "DesiredCapacityTypes": "units",
+ *   "DesiredCapacityType": "units",
  *   "MaxSize": 100,
  *   "MinSize": 0,
  *   "MixedInstancesPolicy": {

@@ -172,7 +172,7 @@ export interface ApplicationConfig {
    * @public
    * <p>Application type, which can be specified to obtain real-time position information of your LoRaWAN device.</p>
    */
-  Type?: ApplicationConfigType | string;
+  Type?: ApplicationConfigType;
 
   /**
    * @public
@@ -1219,7 +1219,7 @@ export interface CertificateList {
    * @public
    * <p>The certificate chain algorithm provided by sidewalk.</p>
    */
-  SigningAlg: SigningAlg | string | undefined;
+  SigningAlg: SigningAlg | undefined;
 
   /**
    * @public
@@ -1267,7 +1267,7 @@ export interface LoRaWANConnectionStatusEventNotificationConfigurations {
    * <p>Denotes whether the gateway EUI connection status event topic is enabled or
    *             disabled.</p>
    */
-  GatewayEuiEventTopic?: EventNotificationTopicStatus | string;
+  GatewayEuiEventTopic?: EventNotificationTopicStatus;
 }
 
 /**
@@ -1287,7 +1287,7 @@ export interface ConnectionStatusEventConfiguration {
    * <p>Denotes whether the wireless gateway ID connection status event topic is enabled or
    *             disabled.</p>
    */
-  WirelessGatewayIdEventTopic?: EventNotificationTopicStatus | string;
+  WirelessGatewayIdEventTopic?: EventNotificationTopicStatus;
 }
 
 /**
@@ -1300,7 +1300,7 @@ export interface LoRaWANConnectionStatusResourceTypeEventConfiguration {
    * <p>Denotes whether the wireless gateway connection status event topic is enabled or
    *             disabled.</p>
    */
-  WirelessGatewayEventTopic?: EventNotificationTopicStatus | string;
+  WirelessGatewayEventTopic?: EventNotificationTopicStatus;
 }
 
 /**
@@ -1345,7 +1345,7 @@ export interface CreateDestinationRequest {
    * @public
    * <p>The type of value in <code>Expression</code>.</p>
    */
-  ExpressionType: ExpressionType | string | undefined;
+  ExpressionType: ExpressionType | undefined;
 
   /**
    * @public
@@ -1616,7 +1616,7 @@ export interface LoRaWANFuotaTask {
    * @public
    * <p>Supported RfRegions</p>
    */
-  RfRegion?: SupportedRfRegion | string;
+  RfRegion?: SupportedRfRegion;
 }
 
 /**
@@ -1740,13 +1740,13 @@ export interface LoRaWANMulticast {
    * @public
    * <p>Supported RfRegions</p>
    */
-  RfRegion?: SupportedRfRegion | string;
+  RfRegion?: SupportedRfRegion;
 
   /**
    * @public
    * <p>DlClass for LoRaWAM, valid values are ClassB and ClassC.</p>
    */
-  DlClass?: DlClass | string;
+  DlClass?: DlClass;
 }
 
 /**
@@ -1860,7 +1860,7 @@ export interface TraceContent {
    *             FrameInfo to debug the communication between your LoRaWAN end devices and the network
    *             server.</p>
    */
-  WirelessDeviceFrameInfo?: WirelessDeviceFrameInfo | string;
+  WirelessDeviceFrameInfo?: WirelessDeviceFrameInfo;
 
   /**
    * @public
@@ -1868,7 +1868,7 @@ export interface TraceContent {
    *                 <code>ERROR</code> to display less verbose logs containing only error information,
    *             or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: LogLevel;
 
   /**
    * @public
@@ -1876,7 +1876,7 @@ export interface TraceContent {
    *             <code>FrameInfo</code> of your multicast group resources for the trace content. Use
    *         FrameInfo to debug the multicast communication between your LoRaWAN end devices and the network server.</p>
    */
-  MulticastFrameInfo?: MulticastFrameInfo | string;
+  MulticastFrameInfo?: MulticastFrameInfo;
 }
 
 /**
@@ -2253,7 +2253,7 @@ export interface CreateWirelessDeviceRequest {
    * @public
    * <p>The wireless device type.</p>
    */
-  Type: WirelessDeviceType | string | undefined;
+  Type: WirelessDeviceType | undefined;
 
   /**
    * @public
@@ -2300,7 +2300,7 @@ export interface CreateWirelessDeviceRequest {
    * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning
    *             information.</p>
    */
-  Positioning?: PositioningConfigStatus | string;
+  Positioning?: PositioningConfigStatus;
 
   /**
    * @public
@@ -2481,7 +2481,7 @@ export interface CreateWirelessGatewayTaskResponse {
    * @public
    * <p>The status of the request.</p>
    */
-  Status?: WirelessGatewayTaskStatus | string;
+  Status?: WirelessGatewayTaskStatus;
 }
 
 /**
@@ -2759,7 +2759,7 @@ export interface DeleteQueuedMessagesRequest {
    * @public
    * <p>The wireless device type, which can be either Sidewalk or LoRaWAN.</p>
    */
-  WirelessDeviceType?: WirelessDeviceType | string;
+  WirelessDeviceType?: WirelessDeviceType;
 }
 
 /**
@@ -2878,7 +2878,7 @@ export interface DeregisterWirelessDeviceRequest {
    * <p>The type of wireless device to deregister from AWS IoT Wireless, which can be <code>LoRaWAN</code>
    *          or <code>Sidewalk</code>.</p>
    */
-  WirelessDeviceType?: WirelessDeviceType | string;
+  WirelessDeviceType?: WirelessDeviceType;
 }
 
 /**
@@ -2907,7 +2907,7 @@ export interface Destinations {
    * @public
    * <p>The type of value in <code>Expression</code>.</p>
    */
-  ExpressionType?: ExpressionType | string;
+  ExpressionType?: ExpressionType;
 
   /**
    * @public
@@ -2977,7 +2977,7 @@ export interface SidewalkEventNotificationConfigurations {
    * @public
    * <p>Denotes whether the Amazon ID event topic is enabled or disabled.</p>
    */
-  AmazonIdEventTopic?: EventNotificationTopicStatus | string;
+  AmazonIdEventTopic?: EventNotificationTopicStatus;
 }
 
 /**
@@ -2998,7 +2998,7 @@ export interface DeviceRegistrationStateEventConfiguration {
    * <p>Denotes whether the wireless device ID device registration state event topic is
    *             enabled or disabled.</p>
    */
-  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
+  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus;
 }
 
 /**
@@ -3011,7 +3011,7 @@ export interface SidewalkResourceTypeEventConfiguration {
    * @public
    * <p>Denotes whether the wireless device join event topic is enabled or disabled.</p>
    */
-  WirelessDeviceEventTopic?: EventNotificationTopicStatus | string;
+  WirelessDeviceEventTopic?: EventNotificationTopicStatus;
 }
 
 /**
@@ -3071,7 +3071,7 @@ export interface DisassociateAwsAccountFromPartnerAccountRequest {
    * @public
    * <p>The partner type.</p>
    */
-  PartnerType: PartnerType | string | undefined;
+  PartnerType: PartnerType | undefined;
 }
 
 /**
@@ -3240,7 +3240,7 @@ export interface ParticipatingGateways {
    * <p>Indicates whether to send the downlink message in sequential mode or concurrent mode,
    *             or to use only the chosen gateways from the previous uplink message transmission.</p>
    */
-  DownlinkMode: DownlinkMode | string | undefined;
+  DownlinkMode: DownlinkMode | undefined;
 
   /**
    * @public
@@ -3335,7 +3335,7 @@ export interface LoRaWANJoinEventNotificationConfigurations {
    * @public
    * <p>Denotes whether the Dev EUI join event topic is enabled or disabled.</p>
    */
-  DevEuiEventTopic?: EventNotificationTopicStatus | string;
+  DevEuiEventTopic?: EventNotificationTopicStatus;
 }
 
 /**
@@ -3354,7 +3354,7 @@ export interface JoinEventConfiguration {
    * @public
    * <p>Denotes whether the wireless device ID join event topic is enabled or disabled.</p>
    */
-  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
+  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus;
 }
 
 /**
@@ -3376,7 +3376,7 @@ export interface MessageDeliveryStatusEventConfiguration {
    * <p>Denotes whether the wireless device ID message delivery status event topic is enabled
    *             or disabled.</p>
    */
-  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
+  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus;
 }
 
 /**
@@ -3397,7 +3397,7 @@ export interface ProximityEventConfiguration {
    * <p>Denotes whether the wireless device ID proximity event topic is enabled or
    *             disabled.</p>
    */
-  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
+  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus;
 }
 
 /**
@@ -3482,13 +3482,13 @@ export interface EventConfigurationItem {
    * @public
    * <p>Identifier type of the particular resource identifier for event configuration.</p>
    */
-  IdentifierType?: IdentifierType | string;
+  IdentifierType?: IdentifierType;
 
   /**
    * @public
    * <p>Partner type of the resource if the identifier type is PartnerAccountId.</p>
    */
-  PartnerType?: EventNotificationPartnerType | string;
+  PartnerType?: EventNotificationPartnerType;
 
   /**
    * @public
@@ -3614,7 +3614,7 @@ export interface GetDestinationResponse {
    * @public
    * <p>The type of value in <code>Expression</code>.</p>
    */
-  ExpressionType?: ExpressionType | string;
+  ExpressionType?: ExpressionType;
 
   /**
    * @public
@@ -3713,7 +3713,7 @@ export interface LoRaWANJoinResourceTypeEventConfiguration {
    * @public
    * <p>Denotes whether the wireless device join event topic is enabled or disabled.</p>
    */
-  WirelessDeviceEventTopic?: EventNotificationTopicStatus | string;
+  WirelessDeviceEventTopic?: EventNotificationTopicStatus;
 }
 
 /**
@@ -3841,7 +3841,7 @@ export interface GetFuotaTaskResponse {
    * @public
    * <p>The status of a FUOTA task.</p>
    */
-  Status?: FuotaTaskStatus | string;
+  Status?: FuotaTaskStatus;
 
   /**
    * @public
@@ -3946,7 +3946,7 @@ export interface WirelessDeviceEventLogOption {
    * @public
    * <p>The event for a log message, if the log message is tied to a wireless device.</p>
    */
-  Event: WirelessDeviceEvent | string | undefined;
+  Event: WirelessDeviceEvent | undefined;
 
   /**
    * @public
@@ -3954,7 +3954,7 @@ export interface WirelessDeviceEventLogOption {
    *                 <code>ERROR</code> to display less verbose logs containing only error information,
    *             or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: LogLevel | undefined;
 }
 
 /**
@@ -3967,7 +3967,7 @@ export interface WirelessDeviceLogOption {
    * @public
    * <p>The wireless device type.</p>
    */
-  Type: WirelessDeviceType | string | undefined;
+  Type: WirelessDeviceType | undefined;
 
   /**
    * @public
@@ -3975,7 +3975,7 @@ export interface WirelessDeviceLogOption {
    *                 <code>ERROR</code> to display less verbose logs containing only error information,
    *             or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: LogLevel | undefined;
 
   /**
    * @public
@@ -4010,7 +4010,7 @@ export interface WirelessGatewayEventLogOption {
    * @public
    * <p>The event for a log message, if the log message is tied to a wireless gateway.</p>
    */
-  Event: WirelessGatewayEvent | string | undefined;
+  Event: WirelessGatewayEvent | undefined;
 
   /**
    * @public
@@ -4018,7 +4018,7 @@ export interface WirelessGatewayEventLogOption {
    *                 <code>ERROR</code> to display less verbose logs containing only error information,
    *             or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: LogLevel | undefined;
 }
 
 /**
@@ -4044,7 +4044,7 @@ export interface WirelessGatewayLogOption {
    * @public
    * <p>The wireless gateway type.</p>
    */
-  Type: WirelessGatewayType | string | undefined;
+  Type: WirelessGatewayType | undefined;
 
   /**
    * @public
@@ -4052,7 +4052,7 @@ export interface WirelessGatewayLogOption {
    *                 <code>ERROR</code> to display less verbose logs containing only error information,
    *             or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: LogLevel | undefined;
 
   /**
    * @public
@@ -4071,7 +4071,7 @@ export interface GetLogLevelsByResourceTypesResponse {
    *                 <code>ERROR</code> to display less verbose logs containing only error information,
    *             or to <code>INFO</code> for more detailed logs.</p>
    */
-  DefaultLogLevel?: LogLevel | string;
+  DefaultLogLevel?: LogLevel;
 
   /**
    * @public
@@ -4107,13 +4107,13 @@ export interface LoRaWANMulticastGet {
    * @public
    * <p>Supported RfRegions</p>
    */
-  RfRegion?: SupportedRfRegion | string;
+  RfRegion?: SupportedRfRegion;
 
   /**
    * @public
    * <p>DlClass for LoRaWAM, valid values are ClassB and ClassC.</p>
    */
-  DlClass?: DlClass | string;
+  DlClass?: DlClass;
 
   /**
    * @public
@@ -4309,7 +4309,7 @@ export interface GetPartnerAccountRequest {
    * @public
    * <p>The partner type.</p>
    */
-  PartnerType: PartnerType | string | undefined;
+  PartnerType: PartnerType | undefined;
 }
 
 /**
@@ -4381,7 +4381,7 @@ export interface GetPositionRequest {
    * @public
    * <p>Resource type of the resource for which position information is retrieved.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: PositionResourceType | undefined;
 }
 
 /**
@@ -4433,13 +4433,13 @@ export interface GetPositionResponse {
    * @public
    * <p>The type of solver used to identify the position of the resource.</p>
    */
-  SolverType?: PositionSolverType | string;
+  SolverType?: PositionSolverType;
 
   /**
    * @public
    * <p>The vendor of the positioning solver.</p>
    */
-  SolverProvider?: PositionSolverProvider | string;
+  SolverProvider?: PositionSolverProvider;
 
   /**
    * @public
@@ -4468,7 +4468,7 @@ export interface GetPositionConfigurationRequest {
    * @public
    * <p>Resource type of the resource for which position configuration is retrieved.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: PositionResourceType | undefined;
 }
 
 /**
@@ -4509,25 +4509,25 @@ export interface SemtechGnssDetail {
    * @public
    * <p>The vendor of the solver object.</p>
    */
-  Provider?: PositionSolverProvider | string;
+  Provider?: PositionSolverProvider;
 
   /**
    * @public
    * <p>The type of positioning solver used.</p>
    */
-  Type?: PositionSolverType | string;
+  Type?: PositionSolverType;
 
   /**
    * @public
    * <p>The status indicating whether the solver is enabled.</p>
    */
-  Status?: PositionConfigurationStatus | string;
+  Status?: PositionConfigurationStatus;
 
   /**
    * @public
    * <p>Whether forward error correction is enabled.</p>
    */
-  Fec?: PositionConfigurationFec | string;
+  Fec?: PositionConfigurationFec;
 }
 
 /**
@@ -4706,14 +4706,14 @@ export interface GetResourceEventConfigurationRequest {
    * @public
    * <p>Identifier type of the particular resource identifier for event configuration.</p>
    */
-  IdentifierType: IdentifierType | string | undefined;
+  IdentifierType: IdentifierType | undefined;
 
   /**
    * @public
    * <p>Partner type of the resource if the identifier type is
    *             <code>PartnerAccountId</code>.</p>
    */
-  PartnerType?: EventNotificationPartnerType | string;
+  PartnerType?: EventNotificationPartnerType;
 }
 
 /**
@@ -4780,7 +4780,7 @@ export interface GetResourceLogLevelResponse {
    *                 <code>ERROR</code> to display less verbose logs containing only error information,
    *             or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: LogLevel;
 }
 
 /**
@@ -4800,7 +4800,7 @@ export interface GetResourcePositionRequest {
    * <p>The type of resource for which position information is retrieved, which can be a
    *             wireless device or a wireless gateway.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: PositionResourceType | undefined;
 }
 
 /**
@@ -4840,7 +4840,7 @@ export interface GetServiceEndpointRequest {
    *             for the Configuration and Update Server endpoint, or <code>LNS</code> for the LoRaWAN
    *             Network Server endpoint or <code>CLAIM</code> for the global endpoint.</p>
    */
-  ServiceType?: WirelessGatewayServiceType | string;
+  ServiceType?: WirelessGatewayServiceType;
 }
 
 /**
@@ -4851,7 +4851,7 @@ export interface GetServiceEndpointResponse {
    * @public
    * <p>The endpoint's service type.</p>
    */
-  ServiceType?: WirelessGatewayServiceType | string;
+  ServiceType?: WirelessGatewayServiceType;
 
   /**
    * @public
@@ -5056,7 +5056,7 @@ export interface GetWirelessDeviceRequest {
    * @public
    * <p>The type of identifier used in <code>identifier</code>.</p>
    */
-  IdentifierType: WirelessDeviceIdType | string | undefined;
+  IdentifierType: WirelessDeviceIdType | undefined;
 }
 
 /**
@@ -5127,7 +5127,7 @@ export interface SidewalkDevice {
    * @public
    * <p>The Sidewalk device status, such as provisioned or registered.</p>
    */
-  Status?: WirelessDeviceSidewalkStatus | string;
+  Status?: WirelessDeviceSidewalkStatus;
 }
 
 /**
@@ -5138,7 +5138,7 @@ export interface GetWirelessDeviceResponse {
    * @public
    * <p>The wireless device type.</p>
    */
-  Type?: WirelessDeviceType | string;
+  Type?: WirelessDeviceType;
 
   /**
    * @public
@@ -5200,7 +5200,7 @@ export interface GetWirelessDeviceResponse {
    * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning
    *             information.</p>
    */
-  Positioning?: PositioningConfigStatus | string;
+  Positioning?: PositioningConfigStatus;
 }
 
 /**
@@ -5288,7 +5288,7 @@ export interface GetWirelessDeviceImportTaskResponse {
    * @public
    * <p>The import task status.</p>
    */
-  Status?: ImportTaskStatus | string;
+  Status?: ImportTaskStatus;
 
   /**
    * @public
@@ -5414,19 +5414,19 @@ export interface SidewalkDeviceMetadata {
    * @public
    * <p>Sidewalk device battery level.</p>
    */
-  BatteryLevel?: BatteryLevel | string;
+  BatteryLevel?: BatteryLevel;
 
   /**
    * @public
    * <p>Sidewalk device status notification.</p>
    */
-  Event?: Event | string;
+  Event?: Event;
 
   /**
    * @public
    * <p>Device state defines the device status of sidewalk device.</p>
    */
-  DeviceState?: DeviceState | string;
+  DeviceState?: DeviceState;
 }
 
 /**
@@ -5490,7 +5490,7 @@ export interface GetWirelessGatewayRequest {
    * @public
    * <p>The type of identifier used in <code>identifier</code>.</p>
    */
-  IdentifierType: WirelessGatewayIdType | string | undefined;
+  IdentifierType: WirelessGatewayIdType | undefined;
 }
 
 /**
@@ -5638,7 +5638,7 @@ export interface GetWirelessGatewayStatisticsResponse {
    * @public
    * <p>The connection status of the wireless gateway.</p>
    */
-  ConnectionStatus?: ConnectionStatus | string;
+  ConnectionStatus?: ConnectionStatus;
 }
 
 /**
@@ -5687,7 +5687,7 @@ export interface GetWirelessGatewayTaskResponse {
    * @public
    * <p>The status of the request.</p>
    */
-  Status?: WirelessGatewayTaskStatus | string;
+  Status?: WirelessGatewayTaskStatus;
 }
 
 /**
@@ -5763,7 +5763,7 @@ export interface ImportedSidewalkDevice {
    * @public
    * <p>The onboarding status of the Sidewalk device in the import task.</p>
    */
-  OnboardingStatus?: OnboardStatus | string;
+  OnboardingStatus?: OnboardStatus;
 
   /**
    * @public
@@ -5849,7 +5849,7 @@ export interface ListDeviceProfilesRequest {
    * <p>A filter to list only device profiles that use this type, which can be <code>LoRaWAN</code>
    *          or <code>Sidewalk</code>.</p>
    */
-  DeviceProfileType?: DeviceProfileType | string;
+  DeviceProfileType?: DeviceProfileType;
 }
 
 /**
@@ -5896,7 +5896,7 @@ export interface ListDevicesForWirelessDeviceImportTaskRequest {
    * @public
    * <p>The status of the devices in the import task.</p>
    */
-  Status?: OnboardStatus | string;
+  Status?: OnboardStatus;
 }
 
 /**
@@ -5932,7 +5932,7 @@ export interface ListEventConfigurationsRequest {
    * @public
    * <p>Resource type to filter event configurations.</p>
    */
-  ResourceType: EventNotificationResourceType | string | undefined;
+  ResourceType: EventNotificationResourceType | undefined;
 
   /**
    * @public
@@ -6222,7 +6222,7 @@ export interface ListPositionConfigurationsRequest {
    * @public
    * <p>Resource type for which position configurations are listed.</p>
    */
-  ResourceType?: PositionResourceType | string;
+  ResourceType?: PositionResourceType;
 
   /**
    * @public
@@ -6254,7 +6254,7 @@ export interface PositionConfigurationItem {
    * @public
    * <p>Resource type of the resource for the position configuration.</p>
    */
-  ResourceType?: PositionResourceType | string;
+  ResourceType?: PositionResourceType;
 
   /**
    * @public
@@ -6316,7 +6316,7 @@ export interface ListQueuedMessagesRequest {
    * @public
    * <p>The wireless device type, whic can be either Sidewalk or LoRaWAN.</p>
    */
-  WirelessDeviceType?: WirelessDeviceType | string;
+  WirelessDeviceType?: WirelessDeviceType;
 }
 
 /**
@@ -6479,7 +6479,7 @@ export interface WirelessDeviceImportTask {
    * @public
    * <p>The status information of the wireless device import task.</p>
    */
-  Status?: ImportTaskStatus | string;
+  Status?: ImportTaskStatus;
 
   /**
    * @public
@@ -6574,7 +6574,7 @@ export interface ListWirelessDevicesRequest {
    * @public
    * <p>A filter to list only the wireless devices that use this wireless device type.</p>
    */
-  WirelessDeviceType?: WirelessDeviceType | string;
+  WirelessDeviceType?: WirelessDeviceType;
 
   /**
    * @public

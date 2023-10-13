@@ -34,7 +34,7 @@ export interface RecoveryOptionType {
    * @public
    * <p>The recovery method for a user.</p>
    */
-  Name: RecoveryOptionNameType | string | undefined;
+  Name: RecoveryOptionNameType | undefined;
 }
 
 /**
@@ -102,7 +102,7 @@ export interface AccountTakeoverActionType {
    *             </li>
    *          </ul>
    */
-  EventAction: AccountTakeoverEventActionType | string | undefined;
+  EventAction: AccountTakeoverEventActionType | undefined;
 }
 
 /**
@@ -293,7 +293,7 @@ export interface SchemaAttributeType {
    * @public
    * <p>The data format of the values for your attribute.</p>
    */
-  AttributeDataType?: AttributeDataType | string;
+  AttributeDataType?: AttributeDataType;
 
   /**
    * @public
@@ -866,7 +866,7 @@ export interface AdminCreateUserRequest {
    *                 <code>SUPPRESS</code> to suppress sending the message. You can specify only one
    *             value.</p>
    */
-  MessageAction?: MessageActionType | string;
+  MessageAction?: MessageActionType;
 
   /**
    * @public
@@ -874,7 +874,7 @@ export interface AdminCreateUserRequest {
    *             Specify <code>"SMS"</code> if the phone number will be used. The default value is
    *                 <code>"SMS"</code>. You can specify more than one value.</p>
    */
-  DesiredDeliveryMediums?: (DeliveryMediumType | string)[];
+  DesiredDeliveryMediums?: DeliveryMediumType[];
 
   /**
    * @public
@@ -926,7 +926,7 @@ export interface MFAOptionType {
    * <p>The delivery medium to send the MFA code. You can use this parameter to set only the
    *                 <code>SMS</code> delivery medium value.</p>
    */
-  DeliveryMedium?: DeliveryMediumType | string;
+  DeliveryMedium?: DeliveryMediumType;
 
   /**
    * @public
@@ -1017,7 +1017,7 @@ export interface UserType {
    *             </li>
    *          </ul>
    */
-  UserStatus?: UserStatusType | string;
+  UserStatus?: UserStatusType;
 
   /**
    * @public
@@ -1610,7 +1610,7 @@ export interface AdminGetUserResponse {
    *             </li>
    *          </ul>
    */
-  UserStatus?: UserStatusType | string;
+  UserStatus?: UserStatusType;
 
   /**
    * @public
@@ -1798,7 +1798,7 @@ export interface AdminInitiateAuthRequest {
    *             </li>
    *          </ul>
    */
-  AuthFlow: AuthFlowType | string | undefined;
+  AuthFlow: AuthFlowType | undefined;
 
   /**
    * @public
@@ -2093,7 +2093,7 @@ export interface AdminInitiateAuthResponse {
    *             </li>
    *          </ul>
    */
-  ChallengeName?: ChallengeNameType | string;
+  ChallengeName?: ChallengeNameType;
 
   /**
    * @public
@@ -2486,13 +2486,13 @@ export interface ChallengeResponseType {
    * @public
    * <p>The challenge name.</p>
    */
-  ChallengeName?: ChallengeName | string;
+  ChallengeName?: ChallengeName;
 
   /**
    * @public
    * <p>The challenge response.</p>
    */
-  ChallengeResponse?: ChallengeResponse | string;
+  ChallengeResponse?: ChallengeResponse;
 }
 
 /**
@@ -2558,7 +2558,7 @@ export interface EventFeedbackType {
    *             <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you
    *             don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
    */
-  FeedbackValue: FeedbackValueType | string | undefined;
+  FeedbackValue: FeedbackValueType | undefined;
 
   /**
    * @public
@@ -2627,13 +2627,13 @@ export interface EventRiskType {
    * @public
    * <p>The risk decision.</p>
    */
-  RiskDecision?: RiskDecisionType | string;
+  RiskDecision?: RiskDecisionType;
 
   /**
    * @public
    * <p>The risk level.</p>
    */
-  RiskLevel?: RiskLevelType | string;
+  RiskLevel?: RiskLevelType;
 
   /**
    * @public
@@ -2675,7 +2675,7 @@ export interface AuthEventType {
    * @public
    * <p>The event type.</p>
    */
-  EventType?: EventType | string;
+  EventType?: EventType;
 
   /**
    * @public
@@ -2687,7 +2687,7 @@ export interface AuthEventType {
    * @public
    * <p>The event response.</p>
    */
-  EventResponse?: EventResponseType | string;
+  EventResponse?: EventResponseType;
 
   /**
    * @public
@@ -2881,7 +2881,7 @@ export interface AdminRespondToAuthChallengeRequest {
    * @public
    * <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
    */
-  ChallengeName: ChallengeNameType | string | undefined;
+  ChallengeName: ChallengeNameType | undefined;
 
   /**
    * @public
@@ -3043,7 +3043,7 @@ export interface AdminRespondToAuthChallengeResponse {
    * @public
    * <p>The name of the challenge. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
    */
-  ChallengeName?: ChallengeNameType | string;
+  ChallengeName?: ChallengeNameType;
 
   /**
    * @public
@@ -3311,7 +3311,7 @@ export interface AdminUpdateAuthEventFeedbackRequest {
    *             <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you
    *             don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
    */
-  FeedbackValue: FeedbackValueType | string | undefined;
+  FeedbackValue: FeedbackValueType | undefined;
 }
 
 /**
@@ -3360,7 +3360,7 @@ export interface AdminUpdateDeviceStatusRequest {
    * @public
    * <p>The status indicating whether a device has been remembered or not.</p>
    */
-  DeviceRememberedStatus?: DeviceRememberedStatusType | string;
+  DeviceRememberedStatus?: DeviceRememberedStatusType;
 }
 
 /**
@@ -4073,7 +4073,7 @@ export interface CreateIdentityProviderRequest {
    * @public
    * <p>The IdP type.</p>
    */
-  ProviderType: IdentityProviderTypeType | string | undefined;
+  ProviderType: IdentityProviderTypeType | undefined;
 
   /**
    * @public
@@ -4228,7 +4228,7 @@ export interface IdentityProviderType {
    * @public
    * <p>The IdP type.</p>
    */
-  ProviderType?: IdentityProviderTypeType | string;
+  ProviderType?: IdentityProviderTypeType;
 
   /**
    * @public
@@ -4636,7 +4636,7 @@ export interface UserImportJobType {
    *             </li>
    *          </ul>
    */
-  Status?: UserImportJobStatusType | string;
+  Status?: UserImportJobStatusType;
 
   /**
    * @public
@@ -4844,7 +4844,7 @@ export interface EmailConfigurationType {
    *             </dd>
    *          </dl>
    */
-  EmailSendingAccount?: EmailSendingAccountType | string;
+  EmailSendingAccount?: EmailSendingAccountType;
 
   /**
    * @public
@@ -4905,7 +4905,7 @@ export interface CustomEmailLambdaVersionConfigType {
    * <p>Signature of the "request" attribute in the "event" information Amazon Cognito passes to your
    *             custom email Lambda function. The only supported value is <code>V1_0</code>.</p>
    */
-  LambdaVersion: CustomEmailSenderLambdaVersionType | string | undefined;
+  LambdaVersion: CustomEmailSenderLambdaVersionType | undefined;
 
   /**
    * @public
@@ -4939,7 +4939,7 @@ export interface CustomSMSLambdaVersionConfigType {
    * <p>Signature of the "request" attribute in the "event" information that Amazon Cognito passes to
    *             your custom SMS Lambda function. The only supported value is <code>V1_0</code>.</p>
    */
-  LambdaVersion: CustomSMSSenderLambdaVersionType | string | undefined;
+  LambdaVersion: CustomSMSSenderLambdaVersionType | undefined;
 
   /**
    * @public
@@ -5184,7 +5184,7 @@ export interface UserAttributeUpdateSettingsType {
    *             operations that change attribute values can immediately update a user’s
    *                 <code>email</code> or <code>phone_number</code> attribute.</p>
    */
-  AttributesRequireVerificationBeforeUpdate?: (VerifiedAttributeType | string)[];
+  AttributesRequireVerificationBeforeUpdate?: VerifiedAttributeType[];
 }
 
 /**
@@ -5248,7 +5248,7 @@ export interface UserPoolAddOnsType {
    * @public
    * <p>The operating mode of advanced security features in your user pool.</p>
    */
-  AdvancedSecurityMode: AdvancedSecurityModeType | string | undefined;
+  AdvancedSecurityMode: AdvancedSecurityModeType | undefined;
 }
 
 /**
@@ -5313,7 +5313,7 @@ export interface VerificationMessageTemplateType {
    * @public
    * <p>The default email option.</p>
    */
-  DefaultEmailOption?: DefaultEmailOptionType | string;
+  DefaultEmailOption?: DefaultEmailOptionType;
 }
 
 /**
@@ -5343,7 +5343,7 @@ export interface CreateUserPoolRequest {
    *         send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
    *         <code>UpdateUserPool</code> API request.</p>
    */
-  DeletionProtection?: DeletionProtectionType | string;
+  DeletionProtection?: DeletionProtectionType;
 
   /**
    * @public
@@ -5365,21 +5365,21 @@ export interface CreateUserPoolRequest {
    * @public
    * <p>The attributes to be auto-verified. Possible values: <b>email</b>, <b>phone_number</b>.</p>
    */
-  AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
+  AutoVerifiedAttributes?: VerifiedAttributeType[];
 
   /**
    * @public
    * <p>Attributes supported as an alias for this user pool. Possible values: <b>phone_number</b>, <b>email</b>, or
    *                 <b>preferred_username</b>.</p>
    */
-  AliasAttributes?: (AliasAttributeType | string)[];
+  AliasAttributes?: AliasAttributeType[];
 
   /**
    * @public
    * <p>Specifies whether a user can use an email address or phone number as a username when
    *             they sign up.</p>
    */
-  UsernameAttributes?: (UsernameAttributeType | string)[];
+  UsernameAttributes?: UsernameAttributeType[];
 
   /**
    * @public
@@ -5416,7 +5416,7 @@ export interface CreateUserPoolRequest {
    * @public
    * <p>Specifies MFA configuration details.</p>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: UserPoolMfaType;
 
   /**
    * @public
@@ -5560,7 +5560,7 @@ export interface UserPoolType {
    *         send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
    *         <code>UpdateUserPool</code> API request.</p>
    */
-  DeletionProtection?: DeletionProtectionType | string;
+  DeletionProtection?: DeletionProtectionType;
 
   /**
    * @public
@@ -5574,7 +5574,7 @@ export interface UserPoolType {
    *
    * <p>The status of a user pool.</p>
    */
-  Status?: StatusType | string;
+  Status?: StatusType;
 
   /**
    * @public
@@ -5605,20 +5605,20 @@ export interface UserPoolType {
    * @public
    * <p>The attributes that are auto-verified in a user pool.</p>
    */
-  AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
+  AutoVerifiedAttributes?: VerifiedAttributeType[];
 
   /**
    * @public
    * <p>The attributes that are aliased in a user pool.</p>
    */
-  AliasAttributes?: (AliasAttributeType | string)[];
+  AliasAttributes?: AliasAttributeType[];
 
   /**
    * @public
    * <p>Specifies whether a user can use an email address or phone number as a username when
    *             they sign up.</p>
    */
-  UsernameAttributes?: (UsernameAttributeType | string)[];
+  UsernameAttributes?: UsernameAttributeType[];
 
   /**
    * @public
@@ -5680,7 +5680,7 @@ export interface UserPoolType {
    *             </li>
    *          </ul>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: UserPoolMfaType;
 
   /**
    * @public
@@ -5926,7 +5926,7 @@ export interface TokenValidityUnitsType {
    *                 <code>AccessTokenValidity</code> duration can range from five minutes to one
    *             day.</p>
    */
-  AccessToken?: TimeUnitsType | string;
+  AccessToken?: TimeUnitsType;
 
   /**
    * @public
@@ -5935,7 +5935,7 @@ export interface TokenValidityUnitsType {
    *             parameter. The default <code>IdTokenValidity</code> time unit is hours.
    *                 <code>IdTokenValidity</code> duration can range from five minutes to one day.</p>
    */
-  IdToken?: TimeUnitsType | string;
+  IdToken?: TimeUnitsType;
 
   /**
    * @public
@@ -5946,7 +5946,7 @@ export interface TokenValidityUnitsType {
    *                 <code>RefreshTokenValidity</code> duration can range from 60 minutes to 10
    *             years.</p>
    */
-  RefreshToken?: TimeUnitsType | string;
+  RefreshToken?: TimeUnitsType;
 }
 
 /**
@@ -6091,7 +6091,7 @@ export interface CreateUserPoolClientRequest {
    * You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>,
    * like <code>ALLOW_USER_SRP_AUTH</code>.</p>
    */
-  ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
+  ExplicitAuthFlows?: ExplicitAuthFlowsType[];
 
   /**
    * @public
@@ -6178,7 +6178,7 @@ export interface CreateUserPoolClientRequest {
    *             </dd>
    *          </dl>
    */
-  AllowedOAuthFlows?: (OAuthFlowType | string)[];
+  AllowedOAuthFlows?: OAuthFlowType[];
 
   /**
    * @public
@@ -6257,7 +6257,7 @@ export interface CreateUserPoolClientRequest {
    *             </li>
    *          </ul>
    */
-  PreventUserExistenceErrors?: PreventUserExistenceErrorTypes | string;
+  PreventUserExistenceErrors?: PreventUserExistenceErrorTypes;
 
   /**
    * @public
@@ -6440,7 +6440,7 @@ export interface UserPoolClientType {
    * You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>,
    * like <code>ALLOW_USER_SRP_AUTH</code>.</p>
    */
-  ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
+  ExplicitAuthFlows?: ExplicitAuthFlowsType[];
 
   /**
    * @public
@@ -6526,7 +6526,7 @@ export interface UserPoolClientType {
    *             </dd>
    *          </dl>
    */
-  AllowedOAuthFlows?: (OAuthFlowType | string)[];
+  AllowedOAuthFlows?: OAuthFlowType[];
 
   /**
    * @public
@@ -6604,7 +6604,7 @@ export interface UserPoolClientType {
    *             </li>
    *          </ul>
    */
-  PreventUserExistenceErrors?: PreventUserExistenceErrorTypes | string;
+  PreventUserExistenceErrors?: PreventUserExistenceErrorTypes;
 
   /**
    * @public
@@ -7012,7 +7012,7 @@ export interface CompromisedCredentialsActionsType {
    * @public
    * <p>The event action.</p>
    */
-  EventAction: CompromisedCredentialsEventActionType | string | undefined;
+  EventAction: CompromisedCredentialsEventActionType | undefined;
 }
 
 /**
@@ -7040,7 +7040,7 @@ export interface CompromisedCredentialsRiskConfigurationType {
    * <p>Perform the action for these events. The default is to perform all events if no event
    *             filter is specified.</p>
    */
-  EventFilter?: (EventFilterType | string)[];
+  EventFilter?: EventFilterType[];
 
   /**
    * @public
@@ -7290,7 +7290,7 @@ export interface DomainDescriptionType {
    * @public
    * <p>The domain status.</p>
    */
-  Status?: DomainStatusType | string;
+  Status?: DomainStatusType;
 
   /**
    * @public
@@ -7425,7 +7425,7 @@ export interface CodeDeliveryDetailsType {
    * @public
    * <p>The method that Amazon Cognito used to send the code.</p>
    */
-  DeliveryMedium?: DeliveryMediumType | string;
+  DeliveryMedium?: DeliveryMediumType;
 
   /**
    * @public
@@ -7633,13 +7633,13 @@ export interface LogConfigurationType {
    * <p>The <code>errorlevel</code> selection of logs that a user pool sends for detailed
    *             activity logging.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: LogLevel | undefined;
 
   /**
    * @public
    * <p>The source of events that your user pool sends for detailed activity logging.</p>
    */
-  EventSource: EventSourceName | string | undefined;
+  EventSource: EventSourceName | undefined;
 
   /**
    * @public
@@ -7986,7 +7986,7 @@ export interface GetUserPoolMfaConfigResponse {
    *             </li>
    *          </ul>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: UserPoolMfaType;
 }
 
 /**
@@ -8062,7 +8062,7 @@ export interface InitiateAuthRequest {
    *          <p>
    *             <code>ADMIN_NO_SRP_AUTH</code> isn't a valid value.</p>
    */
-  AuthFlow: AuthFlowType | string | undefined;
+  AuthFlow: AuthFlowType | undefined;
 
   /**
    * @public
@@ -8267,7 +8267,7 @@ export interface InitiateAuthResponse {
    *             </li>
    *          </ul>
    */
-  ChallengeName?: ChallengeNameType | string;
+  ChallengeName?: ChallengeNameType;
 
   /**
    * @public
@@ -8421,7 +8421,7 @@ export interface ProviderDescription {
    * @public
    * <p>The IdP type.</p>
    */
-  ProviderType?: IdentityProviderTypeType | string;
+  ProviderType?: IdentityProviderTypeType;
 
   /**
    * @public
@@ -8680,7 +8680,7 @@ export interface UserPoolDescriptionType {
    *
    * <p>The user pool status in a user pool description.</p>
    */
-  Status?: StatusType | string;
+  Status?: StatusType;
 
   /**
    * @public
@@ -9026,7 +9026,7 @@ export interface RespondToAuthChallengeRequest {
    *          <p>
    *             <code>ADMIN_NO_SRP_AUTH</code> isn't a valid value.</p>
    */
-  ChallengeName: ChallengeNameType | string | undefined;
+  ChallengeName: ChallengeNameType | undefined;
 
   /**
    * @public
@@ -9173,7 +9173,7 @@ export interface RespondToAuthChallengeResponse {
    * @public
    * <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
    */
-  ChallengeName?: ChallengeNameType | string;
+  ChallengeName?: ChallengeNameType;
 
   /**
    * @public

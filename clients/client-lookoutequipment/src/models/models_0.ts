@@ -173,7 +173,7 @@ export interface CreateDatasetResponse {
    * @public
    * <p>Indicates the status of the <code>CreateDataset</code> operation. </p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 }
 
 /**
@@ -429,7 +429,7 @@ export interface CreateInferenceSchedulerRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/understanding-inference-process.html">Understanding
    *             the inference process</a>.</p>
    */
-  DataUploadFrequency: DataUploadFrequency | string | undefined;
+  DataUploadFrequency: DataUploadFrequency | undefined;
 
   /**
    * @public
@@ -509,7 +509,7 @@ export interface CreateInferenceSchedulerResponse {
    * @public
    * <p>Indicates the status of the <code>CreateInferenceScheduler</code> operation. </p>
    */
-  Status?: InferenceSchedulerStatus | string;
+  Status?: InferenceSchedulerStatus;
 }
 
 /**
@@ -578,7 +578,7 @@ export interface CreateLabelRequest {
    * @public
    * <p> Indicates whether a labeled event represents an anomaly. </p>
    */
-  Rating: LabelRating | string | undefined;
+  Rating: LabelRating | undefined;
 
   /**
    * @public
@@ -727,7 +727,7 @@ export interface DataPreProcessingConfiguration {
    *          and the value for a 1 hour rate is <i>PT1H</i>
    *          </p>
    */
-  TargetSamplingRate?: TargetSamplingRate | string;
+  TargetSamplingRate?: TargetSamplingRate;
 }
 
 /**
@@ -905,7 +905,7 @@ export interface CreateModelResponse {
    * @public
    * <p>Indicates the status of the <code>CreateModel</code> operation. </p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 }
 
 /**
@@ -972,7 +972,7 @@ export interface CreateRetrainingSchedulerRequest {
    *          model. In <code>MANUAL</code> mode, the new models will not be used <a href="https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/versioning-model.html#model-activation">until they
    *             are manually activated</a>.</p>
    */
-  PromoteMode?: ModelPromoteMode | string;
+  PromoteMode?: ModelPromoteMode;
 
   /**
    * @public
@@ -1018,7 +1018,7 @@ export interface CreateRetrainingSchedulerResponse {
    * @public
    * <p>The status of the retraining scheduler. </p>
    */
-  Status?: RetrainingSchedulerStatus | string;
+  Status?: RetrainingSchedulerStatus;
 }
 
 /**
@@ -1418,7 +1418,7 @@ export interface DescribeDataIngestionJobResponse {
    * @public
    * <p>Indicates the status of the <code>DataIngestionJob</code> operation. </p>
    */
-  Status?: IngestionJobStatus | string;
+  Status?: IngestionJobStatus;
 
   /**
    * @public
@@ -1519,7 +1519,7 @@ export interface DescribeDatasetResponse {
    * @public
    * <p>Indicates the status of the dataset. </p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 
   /**
    * @public
@@ -1646,7 +1646,7 @@ export interface DescribeInferenceSchedulerResponse {
    * @public
    * <p>Indicates the status of the inference scheduler. </p>
    */
-  Status?: InferenceSchedulerStatus | string;
+  Status?: InferenceSchedulerStatus;
 
   /**
    * @public
@@ -1668,7 +1668,7 @@ export interface DescribeInferenceSchedulerResponse {
    *          frequency also determines how often Amazon Lookout for Equipment starts a scheduled inference on your data. In
    *          this example, it starts once every 5 minutes. </p>
    */
-  DataUploadFrequency?: DataUploadFrequency | string;
+  DataUploadFrequency?: DataUploadFrequency;
 
   /**
    * @public
@@ -1715,7 +1715,7 @@ export interface DescribeInferenceSchedulerResponse {
    * <p>Indicates whether the latest execution for the inference scheduler was Anomalous
    *          (anomalous events found) or Normal (no anomalous events found).</p>
    */
-  LatestInferenceResult?: LatestInferenceResult | string;
+  LatestInferenceResult?: LatestInferenceResult;
 }
 
 /**
@@ -1773,7 +1773,7 @@ export interface DescribeLabelResponse {
    * @public
    * <p> Indicates whether a labeled event represents an anomaly. </p>
    */
-  Rating?: LabelRating | string;
+  Rating?: LabelRating;
 
   /**
    * @public
@@ -1976,7 +1976,7 @@ export interface DescribeModelResponse {
    * <p>Specifies the current status of the model being described. Status describes the status
    *          of the most recent action of the model. </p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -2114,7 +2114,7 @@ export interface DescribeModelResponse {
    * @public
    * <p>Indicates the status of the most recent scheduled retraining run. </p>
    */
-  LatestScheduledRetrainingStatus?: ModelVersionStatus | string;
+  LatestScheduledRetrainingStatus?: ModelVersionStatus;
 
   /**
    * @public
@@ -2158,7 +2158,7 @@ export interface DescribeModelResponse {
    * @public
    * <p>Indicates the status of the retraining scheduler. </p>
    */
-  RetrainingSchedulerStatus?: RetrainingSchedulerStatus | string;
+  RetrainingSchedulerStatus?: RetrainingSchedulerStatus;
 }
 
 /**
@@ -2226,13 +2226,13 @@ export interface DescribeModelVersionResponse {
    * @public
    * <p>The current status of the model version.</p>
    */
-  Status?: ModelVersionStatus | string;
+  Status?: ModelVersionStatus;
 
   /**
    * @public
    * <p>Indicates whether this model version was created by training or by importing.</p>
    */
-  SourceType?: ModelVersionSourceType | string;
+  SourceType?: ModelVersionSourceType;
 
   /**
    * @public
@@ -2412,7 +2412,7 @@ export interface DescribeModelVersionResponse {
    * <p>Indicates whether the model version was promoted to be the active version after
    *          retraining or if there was an error with or cancellation of the retraining. </p>
    */
-  AutoPromotionResult?: AutoPromotionResult | string;
+  AutoPromotionResult?: AutoPromotionResult;
 
   /**
    * @public
@@ -2517,7 +2517,7 @@ export interface DescribeRetrainingSchedulerResponse {
    * @public
    * <p>The status of the retraining scheduler. </p>
    */
-  Status?: RetrainingSchedulerStatus | string;
+  Status?: RetrainingSchedulerStatus;
 
   /**
    * @public
@@ -2526,7 +2526,7 @@ export interface DescribeRetrainingSchedulerResponse {
    *             <code>MANUAL</code> mode, the new models are not used until they are <a href="https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/versioning-model.html#model-activation">manually
    *             activated</a>.</p>
    */
-  PromoteMode?: ModelPromoteMode | string;
+  PromoteMode?: ModelPromoteMode;
 
   /**
    * @public
@@ -2600,7 +2600,7 @@ export interface ImportDatasetResponse {
    * @public
    * <p>The status of the <code>ImportDataset</code> operation.</p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 
   /**
    * @public
@@ -2701,7 +2701,7 @@ export interface ImportModelVersionRequest {
    *             </li>
    *          </ul>
    */
-  InferenceDataImportStrategy?: InferenceDataImportStrategy | string;
+  InferenceDataImportStrategy?: InferenceDataImportStrategy;
 }
 
 /**
@@ -2736,7 +2736,7 @@ export interface ImportModelVersionResponse {
    * @public
    * <p>The status of the <code>ImportModelVersion</code> operation. </p>
    */
-  Status?: ModelVersionStatus | string;
+  Status?: ModelVersionStatus;
 }
 
 /**
@@ -2766,7 +2766,7 @@ export interface ListDataIngestionJobsRequest {
    * @public
    * <p>Indicates the status of the data ingestion job. </p>
    */
-  Status?: IngestionJobStatus | string;
+  Status?: IngestionJobStatus;
 }
 
 /**
@@ -2804,7 +2804,7 @@ export interface DataIngestionJobSummary {
    * @public
    * <p>Indicates the status of the data ingestion job. </p>
    */
-  Status?: IngestionJobStatus | string;
+  Status?: IngestionJobStatus;
 }
 
 /**
@@ -2872,7 +2872,7 @@ export interface DatasetSummary {
    * @public
    * <p>Indicates the status of the dataset. </p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 
   /**
    * @public
@@ -3059,7 +3059,7 @@ export interface ListInferenceExecutionsRequest {
    * @public
    * <p>The status of the inference execution. </p>
    */
-  Status?: InferenceExecutionStatus | string;
+  Status?: InferenceExecutionStatus;
 }
 
 /**
@@ -3140,7 +3140,7 @@ export interface InferenceExecutionSummary {
    * @public
    * <p>Indicates the status of the inference execution. </p>
    */
-  Status?: InferenceExecutionStatus | string;
+  Status?: InferenceExecutionStatus;
 
   /**
    * @public
@@ -3216,7 +3216,7 @@ export interface ListInferenceSchedulersRequest {
    * @public
    * <p>Specifies the current status of the inference schedulers.</p>
    */
-  Status?: InferenceSchedulerStatus | string;
+  Status?: InferenceSchedulerStatus;
 }
 
 /**
@@ -3254,7 +3254,7 @@ export interface InferenceSchedulerSummary {
    * @public
    * <p>Indicates the status of the inference scheduler. </p>
    */
-  Status?: InferenceSchedulerStatus | string;
+  Status?: InferenceSchedulerStatus;
 
   /**
    * @public
@@ -3276,14 +3276,14 @@ export interface InferenceSchedulerSummary {
    *          This frequency also determines how often Amazon Lookout for Equipment starts a scheduled inference on your
    *          data. In this example, it starts once every 5 minutes. </p>
    */
-  DataUploadFrequency?: DataUploadFrequency | string;
+  DataUploadFrequency?: DataUploadFrequency;
 
   /**
    * @public
    * <p>Indicates whether the latest execution for the inference scheduler was Anomalous
    *          (anomalous events found) or Normal (no anomalous events found).</p>
    */
-  LatestInferenceResult?: LatestInferenceResult | string;
+  LatestInferenceResult?: LatestInferenceResult;
 }
 
 /**
@@ -3465,7 +3465,7 @@ export interface LabelSummary {
    * @public
    * <p> Indicates whether a labeled event represents an anomaly. </p>
    */
-  Rating?: LabelRating | string;
+  Rating?: LabelRating;
 
   /**
    * @public
@@ -3527,7 +3527,7 @@ export interface ListModelsRequest {
    * @public
    * <p>The status of the machine learning model. </p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -3577,7 +3577,7 @@ export interface ModelSummary {
    * @public
    * <p>Indicates the status of the machine learning model. </p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -3604,7 +3604,7 @@ export interface ModelSummary {
    * @public
    * <p>Indicates the status of the most recent scheduled retraining run. </p>
    */
-  LatestScheduledRetrainingStatus?: ModelVersionStatus | string;
+  LatestScheduledRetrainingStatus?: ModelVersionStatus;
 
   /**
    * @public
@@ -3629,7 +3629,7 @@ export interface ModelSummary {
    * @public
    * <p>Indicates the status of the retraining scheduler. </p>
    */
-  RetrainingSchedulerStatus?: RetrainingSchedulerStatus | string;
+  RetrainingSchedulerStatus?: RetrainingSchedulerStatus;
 }
 
 /**
@@ -3681,13 +3681,13 @@ export interface ListModelVersionsRequest {
    * @public
    * <p>Filter the results based on the current status of the model version.</p>
    */
-  Status?: ModelVersionStatus | string;
+  Status?: ModelVersionStatus;
 
   /**
    * @public
    * <p>Filter the results based on the way the model version was generated.</p>
    */
-  SourceType?: ModelVersionSourceType | string;
+  SourceType?: ModelVersionSourceType;
 
   /**
    * @public
@@ -3754,13 +3754,13 @@ export interface ModelVersionSummary {
    * @public
    * <p>The current status of the model version.</p>
    */
-  Status?: ModelVersionStatus | string;
+  Status?: ModelVersionStatus;
 
   /**
    * @public
    * <p>Indicates how this model version was generated.</p>
    */
-  SourceType?: ModelVersionSourceType | string;
+  SourceType?: ModelVersionSourceType;
 }
 
 /**
@@ -3800,7 +3800,7 @@ export interface ListRetrainingSchedulersRequest {
    * <p>Specify this field to only list retraining schedulers whose status matches the value you
    *          specify. </p>
    */
-  Status?: RetrainingSchedulerStatus | string;
+  Status?: RetrainingSchedulerStatus;
 
   /**
    * @public
@@ -3838,7 +3838,7 @@ export interface RetrainingSchedulerSummary {
    * @public
    * <p>The status of the retraining scheduler. </p>
    */
-  Status?: RetrainingSchedulerStatus | string;
+  Status?: RetrainingSchedulerStatus;
 
   /**
    * @public
@@ -3936,7 +3936,7 @@ export interface CategoricalValues {
    * <p> Indicates whether there is a potential data issue related to categorical values.
    *       </p>
    */
-  Status: StatisticalIssueStatus | string | undefined;
+  Status: StatisticalIssueStatus | undefined;
 
   /**
    * @public
@@ -3974,7 +3974,7 @@ export interface LargeTimestampGaps {
    * <p> Indicates whether there is a potential data issue related to large gaps in timestamps.
    *       </p>
    */
-  Status: StatisticalIssueStatus | string | undefined;
+  Status: StatisticalIssueStatus | undefined;
 
   /**
    * @public
@@ -4014,13 +4014,13 @@ export interface MonotonicValues {
    * <p> Indicates whether there is a potential data issue related to having monotonic values.
    *       </p>
    */
-  Status: StatisticalIssueStatus | string | undefined;
+  Status: StatisticalIssueStatus | undefined;
 
   /**
    * @public
    * <p> Indicates the monotonicity of values. Can be INCREASING, DECREASING, or STATIC. </p>
    */
-  Monotonicity?: Monotonicity | string;
+  Monotonicity?: Monotonicity;
 }
 
 /**
@@ -4033,7 +4033,7 @@ export interface MultipleOperatingModes {
    * <p> Indicates whether there is a potential data issue related to having multiple operating
    *          modes. </p>
    */
-  Status: StatisticalIssueStatus | string | undefined;
+  Status: StatisticalIssueStatus | undefined;
 }
 
 /**
@@ -4270,7 +4270,7 @@ export interface StartDataIngestionJobResponse {
    * @public
    * <p>Indicates the status of the <code>StartDataIngestionJob</code> operation. </p>
    */
-  Status?: IngestionJobStatus | string;
+  Status?: IngestionJobStatus;
 }
 
 /**
@@ -4317,7 +4317,7 @@ export interface StartInferenceSchedulerResponse {
    * @public
    * <p>Indicates the status of the inference scheduler. </p>
    */
-  Status?: InferenceSchedulerStatus | string;
+  Status?: InferenceSchedulerStatus;
 }
 
 /**
@@ -4351,7 +4351,7 @@ export interface StartRetrainingSchedulerResponse {
    * @public
    * <p>The status of the retraining scheduler. </p>
    */
-  Status?: RetrainingSchedulerStatus | string;
+  Status?: RetrainingSchedulerStatus;
 }
 
 /**
@@ -4399,7 +4399,7 @@ export interface StopInferenceSchedulerResponse {
    * @public
    * <p>Indicates the status of the inference scheduler. </p>
    */
-  Status?: InferenceSchedulerStatus | string;
+  Status?: InferenceSchedulerStatus;
 }
 
 /**
@@ -4433,7 +4433,7 @@ export interface StopRetrainingSchedulerResponse {
    * @public
    * <p>The status of the retraining scheduler. </p>
    */
-  Status?: RetrainingSchedulerStatus | string;
+  Status?: RetrainingSchedulerStatus;
 }
 
 /**
@@ -4579,7 +4579,7 @@ export interface UpdateInferenceSchedulerRequest {
    *          minutes. This frequency also determines how often Amazon Lookout for Equipment starts a scheduled inference on
    *          your data. In this example, it starts once every 5 minutes. </p>
    */
-  DataUploadFrequency?: DataUploadFrequency | string;
+  DataUploadFrequency?: DataUploadFrequency;
 
   /**
    * @public
@@ -4696,5 +4696,5 @@ export interface UpdateRetrainingSchedulerRequest {
    *          model. In <code>MANUAL</code> mode, the new models will not be used <a href="https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/versioning-model.html#model-activation">until they
    *             are manually activated</a>.</p>
    */
-  PromoteMode?: ModelPromoteMode | string;
+  PromoteMode?: ModelPromoteMode;
 }

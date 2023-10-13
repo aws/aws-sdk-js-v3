@@ -197,7 +197,7 @@ export interface CreateLedgerRequest {
    *             the security of your ledger data.</p>
    *          </note>
    */
-  PermissionsMode: PermissionsMode | string | undefined;
+  PermissionsMode: PermissionsMode | undefined;
 
   /**
    * @public
@@ -301,7 +301,7 @@ export interface CreateLedgerResponse {
    * @public
    * <p>The current status of the ledger.</p>
    */
-  State?: LedgerState | string;
+  State?: LedgerState;
 
   /**
    * @public
@@ -314,7 +314,7 @@ export interface CreateLedgerResponse {
    * @public
    * <p>The permissions mode of the ledger that you created.</p>
    */
-  PermissionsMode?: PermissionsMode | string;
+  PermissionsMode?: PermissionsMode;
 
   /**
    * @public
@@ -576,7 +576,7 @@ export interface JournalKinesisStreamDescription {
    * @public
    * <p>The current state of the QLDB journal stream.</p>
    */
-  Status: StreamStatus | string | undefined;
+  Status: StreamStatus | undefined;
 
   /**
    * @public
@@ -591,7 +591,7 @@ export interface JournalKinesisStreamDescription {
    *             <code>IMPAIRED</code> or <code>FAILED</code>. This is not applicable to streams that
    *          have other status values.</p>
    */
-  ErrorCause?: ErrorCause | string;
+  ErrorCause?: ErrorCause;
 
   /**
    * @public
@@ -673,7 +673,7 @@ export interface S3EncryptionConfiguration {
    *             Using Server-Side Encryption</a> in the <i>Amazon S3 Developer
    *          Guide</i>.</p>
    */
-  ObjectEncryptionType: S3ObjectEncryptionType | string | undefined;
+  ObjectEncryptionType: S3ObjectEncryptionType | undefined;
 
   /**
    * @public
@@ -783,7 +783,7 @@ export interface JournalS3ExportDescription {
    * @public
    * <p>The current state of the journal export job.</p>
    */
-  Status: ExportStatus | string | undefined;
+  Status: ExportStatus | undefined;
 
   /**
    * @public
@@ -826,7 +826,7 @@ export interface JournalS3ExportDescription {
    * @public
    * <p>The output format of the exported journal data.</p>
    */
-  OutputFormat?: OutputFormat | string;
+  OutputFormat?: OutputFormat;
 }
 
 /**
@@ -915,7 +915,7 @@ export interface LedgerEncryptionDescription {
    *             </li>
    *          </ul>
    */
-  EncryptionStatus: EncryptionStatus | string | undefined;
+  EncryptionStatus: EncryptionStatus | undefined;
 
   /**
    * @public
@@ -947,7 +947,7 @@ export interface DescribeLedgerResponse {
    * @public
    * <p>The current status of the ledger.</p>
    */
-  State?: LedgerState | string;
+  State?: LedgerState;
 
   /**
    * @public
@@ -960,7 +960,7 @@ export interface DescribeLedgerResponse {
    * @public
    * <p>The permissions mode of the ledger.</p>
    */
-  PermissionsMode?: PermissionsMode | string;
+  PermissionsMode?: PermissionsMode;
 
   /**
    * @public
@@ -1051,7 +1051,7 @@ export interface ExportJournalToS3Request {
    *          exports with analytics tools such as Amazon Athena and Glue
    *          because these services can parse newline-delimited JSON automatically.</p>
    */
-  OutputFormat?: OutputFormat | string;
+  OutputFormat?: OutputFormat;
 }
 
 /**
@@ -1408,7 +1408,7 @@ export interface LedgerSummary {
    * @public
    * <p>The current status of the ledger.</p>
    */
-  State?: LedgerState | string;
+  State?: LedgerState;
 
   /**
    * @public
@@ -1699,7 +1699,7 @@ export interface UpdateLedgerResponse {
    * @public
    * <p>The current status of the ledger.</p>
    */
-  State?: LedgerState | string;
+  State?: LedgerState;
 
   /**
    * @public
@@ -1769,7 +1769,7 @@ export interface UpdateLedgerPermissionsModeRequest {
    *             the security of your ledger data.</p>
    *          </note>
    */
-  PermissionsMode: PermissionsMode | string | undefined;
+  PermissionsMode: PermissionsMode | undefined;
 }
 
 /**
@@ -1792,7 +1792,7 @@ export interface UpdateLedgerPermissionsModeResponse {
    * @public
    * <p>The current permissions mode of the ledger.</p>
    */
-  PermissionsMode?: PermissionsMode | string;
+  PermissionsMode?: PermissionsMode;
 }
 
 /**

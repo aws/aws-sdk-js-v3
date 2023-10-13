@@ -369,7 +369,7 @@ export interface DescribeChangeSetResponse {
    * @public
    * <p>The status of the change request.</p>
    */
-  Status?: ChangeStatus | string;
+  Status?: ChangeStatus;
 
   /**
    * @public
@@ -378,7 +378,7 @@ export interface DescribeChangeSetResponse {
    *             the <code>ErrorDetailList</code>), or <code>SERVER_FAULT</code>, which means that there
    *             is a problem in the system, and you should retry your request.</p>
    */
-  FailureCode?: FailureCode | string;
+  FailureCode?: FailureCode;
 
   /**
    * @public
@@ -601,7 +601,7 @@ export interface Sort {
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The
    *             default value is <code>DESCENDING</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -687,7 +687,7 @@ export interface ChangeSetSummaryListItem {
    * @public
    * <p>The current status of the change set.</p>
    */
-  Status?: ChangeStatus | string;
+  Status?: ChangeStatus;
 
   /**
    * @public
@@ -704,7 +704,7 @@ export interface ChangeSetSummaryListItem {
    *                 <code>SERVER_FAULT</code>, which means that there is a problem in the system, and
    *             you should retry your request.</p>
    */
-  FailureCode?: FailureCode | string;
+  FailureCode?: FailureCode;
 }
 
 /**
@@ -790,7 +790,7 @@ export interface ListEntitiesRequest {
    *             Catalog API <code>PutResourcePolicy</code> operation can't be discovered through the
    *                 <code>SHARED</code> parameter.</p>
    */
-  OwnershipType?: OwnershipType | string;
+  OwnershipType?: OwnershipType;
 }
 
 /**

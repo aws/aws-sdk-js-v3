@@ -264,7 +264,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason why it failed service validation.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -374,7 +374,7 @@ export interface CreateApplicationRequest {
    * @public
    * <p>The type of the target platform for this application.</p>
    */
-  engineType: EngineType | string | undefined;
+  engineType: EngineType | undefined;
 
   /**
    * @public
@@ -1037,7 +1037,7 @@ export interface DeployedVersionSummary {
    * @public
    * <p>The status of the deployment.</p>
    */
-  status: DeploymentLifecycle | string | undefined;
+  status: DeploymentLifecycle | undefined;
 
   /**
    * @public
@@ -1077,7 +1077,7 @@ export interface ApplicationVersionSummary {
    * @public
    * <p>The status of the application.</p>
    */
-  status: ApplicationVersionLifecycle | string | undefined;
+  status: ApplicationVersionLifecycle | undefined;
 
   /**
    * @public
@@ -1166,7 +1166,7 @@ export interface GetApplicationResponse {
    * @public
    * <p>The status of the application.</p>
    */
-  status: ApplicationLifecycle | string | undefined;
+  status: ApplicationLifecycle | undefined;
 
   /**
    * @public
@@ -1184,7 +1184,7 @@ export interface GetApplicationResponse {
    * @public
    * <p>The type of the target platform for the application.</p>
    */
-  engineType: EngineType | string | undefined;
+  engineType: EngineType | undefined;
 
   /**
    * @public
@@ -1317,7 +1317,7 @@ export interface GetApplicationVersionResponse {
    * @public
    * <p>The status of the application version.</p>
    */
-  status: ApplicationVersionLifecycle | string | undefined;
+  status: ApplicationVersionLifecycle | undefined;
 
   /**
    * @public
@@ -1512,13 +1512,13 @@ export interface GetBatchJobExecutionResponse {
    * @public
    * <p>The type of job.</p>
    */
-  jobType?: BatchJobType | string;
+  jobType?: BatchJobType;
 
   /**
    * @public
    * <p>The status of the batch job execution.</p>
    */
-  status: BatchJobExecutionStatus | string | undefined;
+  status: BatchJobExecutionStatus | undefined;
 
   /**
    * @public
@@ -1904,7 +1904,7 @@ export interface GetDataSetImportTaskResponse {
    * @public
    * <p>The status of the task.</p>
    */
-  status: DataSetTaskLifecycle | string | undefined;
+  status: DataSetTaskLifecycle | undefined;
 
   /**
    * @public
@@ -1962,7 +1962,7 @@ export interface GetDeploymentResponse {
    * @public
    * <p>The status of the deployment.</p>
    */
-  status: DeploymentLifecycle | string | undefined;
+  status: DeploymentLifecycle | undefined;
 
   /**
    * @public
@@ -2061,13 +2061,13 @@ export interface ApplicationSummary {
    * @public
    * <p>The status of the application.</p>
    */
-  status: ApplicationLifecycle | string | undefined;
+  status: ApplicationLifecycle | undefined;
 
   /**
    * @public
    * <p>The type of the target platform for this application.</p>
    */
-  engineType: EngineType | string | undefined;
+  engineType: EngineType | undefined;
 
   /**
    * @public
@@ -2092,14 +2092,14 @@ export interface ApplicationSummary {
    * @public
    * <p>Indicates the status of the latest version of the application.</p>
    */
-  versionStatus?: ApplicationVersionLifecycle | string;
+  versionStatus?: ApplicationVersionLifecycle;
 
   /**
    * @public
    * <p>Indicates either an ongoing deployment or if the application has ever deployed
    *          successfully.</p>
    */
-  deploymentStatus?: ApplicationDeploymentLifecycle | string;
+  deploymentStatus?: ApplicationDeploymentLifecycle;
 
   /**
    * @public
@@ -2345,7 +2345,7 @@ export interface ListBatchJobExecutionsRequest {
    * @public
    * <p>The status of the batch job executions.</p>
    */
-  status?: BatchJobExecutionStatus | string;
+  status?: BatchJobExecutionStatus;
 
   /**
    * @public
@@ -2393,13 +2393,13 @@ export interface BatchJobExecutionSummary {
    * @public
    * <p>The type of a particular batch job execution.</p>
    */
-  jobType?: BatchJobType | string;
+  jobType?: BatchJobType;
 
   /**
    * @public
    * <p>The status of a particular batch job execution.</p>
    */
-  status: BatchJobExecutionStatus | string | undefined;
+  status: BatchJobExecutionStatus | undefined;
 
   /**
    * @public
@@ -2487,7 +2487,7 @@ export interface DataSetImportTask {
    * @public
    * <p>The status of the data set import task.</p>
    */
-  status: DataSetTaskLifecycle | string | undefined;
+  status: DataSetTaskLifecycle | undefined;
 
   /**
    * @public
@@ -2667,7 +2667,7 @@ export interface DeploymentSummary {
    * @public
    * <p>The current status of the deployment.</p>
    */
-  status: DeploymentLifecycle | string | undefined;
+  status: DeploymentLifecycle | undefined;
 
   /**
    * @public
@@ -2945,7 +2945,7 @@ export interface CreateEnvironmentRequest {
    * @public
    * <p>The engine type for the runtime environment.</p>
    */
-  engineType: EngineType | string | undefined;
+  engineType: EngineType | undefined;
 
   /**
    * @public
@@ -3142,13 +3142,13 @@ export interface GetEnvironmentResponse {
    * @public
    * <p>The status of the runtime environment.</p>
    */
-  status: EnvironmentLifecycle | string | undefined;
+  status: EnvironmentLifecycle | undefined;
 
   /**
    * @public
    * <p>The target platform for the runtime environment.</p>
    */
-  engineType: EngineType | string | undefined;
+  engineType: EngineType | undefined;
 
   /**
    * @public
@@ -3275,7 +3275,7 @@ export interface ListEnvironmentsRequest {
    * @public
    * <p>The engine type for the runtime environment.</p>
    */
-  engineType?: EngineType | string;
+  engineType?: EngineType;
 }
 
 /**
@@ -3312,13 +3312,13 @@ export interface EnvironmentSummary {
    * @public
    * <p>The status of the runtime environment</p>
    */
-  status: EnvironmentLifecycle | string | undefined;
+  status: EnvironmentLifecycle | undefined;
 
   /**
    * @public
    * <p>The target platform for the runtime environment.</p>
    */
-  engineType: EngineType | string | undefined;
+  engineType: EngineType | undefined;
 
   /**
    * @public
@@ -3428,7 +3428,7 @@ export interface ListEngineVersionsRequest {
    * @public
    * <p>The type of target platform.</p>
    */
-  engineType?: EngineType | string;
+  engineType?: EngineType;
 
   /**
    * @public

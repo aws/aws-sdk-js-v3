@@ -278,7 +278,7 @@ export interface CreateClusterRequest {
    *             </li>
    *          </ul>
    */
-  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType | string;
+  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType;
 }
 
 /**
@@ -460,7 +460,7 @@ export interface SSEDescription {
    *             </li>
    *          </ul>
    */
-  Status?: SSEStatus | string;
+  Status?: SSEStatus;
 }
 
 /**
@@ -593,7 +593,7 @@ export interface Cluster {
    *             </li>
    *          </ul>
    */
-  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType | string;
+  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType;
 }
 
 /**
@@ -1460,7 +1460,7 @@ export interface Parameter {
    * <p>Determines whether the parameter can be applied to any nodes, or only nodes of a
    *             particular type.</p>
    */
-  ParameterType?: ParameterType | string;
+  ParameterType?: ParameterType;
 
   /**
    * @public
@@ -1503,7 +1503,7 @@ export interface Parameter {
    * @public
    * <p>Whether the customer is allowed to modify the parameter.</p>
    */
-  IsModifiable?: IsModifiable | string;
+  IsModifiable?: IsModifiable;
 
   /**
    * @public
@@ -1511,7 +1511,7 @@ export interface Parameter {
    *                 <code>requires-reboot</code> indicates that a new value for this parameter will only
    *             take effect if a node is rebooted.</p>
    */
-  ChangeType?: ChangeType | string;
+  ChangeType?: ChangeType;
 }
 
 /**
@@ -1562,7 +1562,7 @@ export interface DescribeEventsRequest {
    * <p>The event source to retrieve events for. If no value is specified, all events are
    *             returned.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -1622,7 +1622,7 @@ export interface Event {
    * <p>Specifies the origin of this event - a cluster, a parameter group, a node ID,
    *             etc.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public

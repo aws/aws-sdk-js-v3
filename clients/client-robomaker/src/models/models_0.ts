@@ -145,7 +145,7 @@ export interface ComputeResponse {
    * @public
    * <p>Compute type response information for the simulation job.</p>
    */
-  computeType?: ComputeType | string;
+  computeType?: ComputeType;
 
   /**
    * @public
@@ -218,7 +218,7 @@ export interface DataSource {
    *          an Amazon S3 prefix, or a file.</p>
    *          <p>If you don't specify a field, the default value is <code>File</code>.</p>
    */
-  type?: DataSourceType | string;
+  type?: DataSourceType;
 
   /**
    * @public
@@ -487,7 +487,7 @@ export interface Tool {
    *          will cause your tool to be restarted. <code>FAIL</code> will cause your job to exit. The
    *          default is <code>RESTART</code>. </p>
    */
-  exitBehavior?: ExitBehavior | string;
+  exitBehavior?: ExitBehavior;
 }
 
 /**
@@ -549,7 +549,7 @@ export interface UploadConfiguration {
    *             </dd>
    *          </dl>
    */
-  uploadBehavior: UploadBehavior | string | undefined;
+  uploadBehavior: UploadBehavior | undefined;
 }
 
 /**
@@ -767,7 +767,7 @@ export interface SimulationJob {
    * @public
    * <p>Status of the simulation job.</p>
    */
-  status?: SimulationJobStatus | string;
+  status?: SimulationJobStatus;
 
   /**
    * @public
@@ -798,13 +798,13 @@ export interface SimulationJob {
    *             </dd>
    *          </dl>
    */
-  failureBehavior?: FailureBehavior | string;
+  failureBehavior?: FailureBehavior;
 
   /**
    * @public
    * <p>The failure code of the simulation job if it failed.</p>
    */
-  failureCode?: SimulationJobErrorCode | string;
+  failureCode?: SimulationJobErrorCode;
 
   /**
    * @public
@@ -1059,7 +1059,7 @@ export interface Compute {
    * @public
    * <p>Compute type information for the simulation job.</p>
    */
-  computeType?: ComputeType | string;
+  computeType?: ComputeType;
 
   /**
    * @public
@@ -1318,7 +1318,7 @@ export interface CreateDeploymentJobResponse {
    * @public
    * <p>The status of the deployment job.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: DeploymentStatus;
 
   /**
    * @public
@@ -1396,7 +1396,7 @@ export interface CreateDeploymentJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: DeploymentJobErrorCode | string;
+  failureCode?: DeploymentJobErrorCode;
 
   /**
    * @public
@@ -1519,7 +1519,7 @@ export interface CreateRobotRequest {
    * @public
    * <p>The target architecture of the robot.</p>
    */
-  architecture: Architecture | string | undefined;
+  architecture: Architecture | undefined;
 
   /**
    * @public
@@ -1566,7 +1566,7 @@ export interface CreateRobotResponse {
    * @public
    * <p>The target architecture of the robot.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: Architecture;
 
   /**
    * @public
@@ -1649,13 +1649,13 @@ export interface RobotSoftwareSuite {
    * @public
    * <p>The name of the robot software suite (ROS distribution).</p>
    */
-  name?: RobotSoftwareSuiteType | string;
+  name?: RobotSoftwareSuiteType;
 
   /**
    * @public
    * <p>The version of the robot software suite (ROS distribution).</p>
    */
-  version?: RobotSoftwareSuiteVersionType | string;
+  version?: RobotSoftwareSuiteVersionType;
 }
 
 /**
@@ -1679,7 +1679,7 @@ export interface SourceConfig {
    * @public
    * <p>The target processor architecture for the application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: Architecture;
 }
 
 /**
@@ -1746,7 +1746,7 @@ export interface Source {
    * @public
    * <p>The taget processor architecture for the application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: Architecture;
 }
 
 /**
@@ -1918,7 +1918,7 @@ export interface RenderingEngine {
    * @public
    * <p>The name of the rendering engine.</p>
    */
-  name?: RenderingEngineType | string;
+  name?: RenderingEngineType;
 
   /**
    * @public
@@ -1952,7 +1952,7 @@ export interface SimulationSoftwareSuite {
    * @public
    * <p>The name of the simulation software suite.</p>
    */
-  name?: SimulationSoftwareSuiteType | string;
+  name?: SimulationSoftwareSuiteType;
 
   /**
    * @public
@@ -2212,7 +2212,7 @@ export interface DataSourceConfig {
    *          an Amazon S3 prefix, or a file.</p>
    *          <p>If you don't specify a field, the default value is <code>File</code>.</p>
    */
-  type?: DataSourceType | string;
+  type?: DataSourceType;
 
   /**
    * @public
@@ -2309,7 +2309,7 @@ export interface CreateSimulationJobRequest {
    *             </dd>
    *          </dl>
    */
-  failureBehavior?: FailureBehavior | string;
+  failureBehavior?: FailureBehavior;
 
   /**
    * @public
@@ -2370,7 +2370,7 @@ export interface CreateSimulationJobResponse {
    * @public
    * <p>The status of the simulation job.</p>
    */
-  status?: SimulationJobStatus | string;
+  status?: SimulationJobStatus;
 
   /**
    * @public
@@ -2390,7 +2390,7 @@ export interface CreateSimulationJobResponse {
    * @public
    * <p>the failure behavior for the simulation job.</p>
    */
-  failureBehavior?: FailureBehavior | string;
+  failureBehavior?: FailureBehavior;
 
   /**
    * @public
@@ -2457,7 +2457,7 @@ export interface CreateSimulationJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: SimulationJobErrorCode | string;
+  failureCode?: SimulationJobErrorCode;
 
   /**
    * @public
@@ -2601,7 +2601,7 @@ export interface SimulationJobRequest {
    *             </dd>
    *          </dl>
    */
-  failureBehavior?: FailureBehavior | string;
+  failureBehavior?: FailureBehavior;
 
   /**
    * @public
@@ -2770,7 +2770,7 @@ export interface CreateWorldExportJobResponse {
    *             </dd>
    *          </dl>
    */
-  status?: WorldExportJobStatus | string;
+  status?: WorldExportJobStatus;
 
   /**
    * @public
@@ -2811,7 +2811,7 @@ export interface CreateWorldExportJobResponse {
    *          </dl>
    *          <p>For more information about troubleshooting WorldForge, see <a href="https://docs.aws.amazon.com/robomaker/latest/dg/troubleshooting-worldforge.html">Troubleshooting Simulation WorldForge</a>. </p>
    */
-  failureCode?: WorldExportJobErrorCode | string;
+  failureCode?: WorldExportJobErrorCode;
 
   /**
    * @public
@@ -2987,7 +2987,7 @@ export interface CreateWorldGenerationJobResponse {
    *             </dd>
    *          </dl>
    */
-  status?: WorldGenerationJobStatus | string;
+  status?: WorldGenerationJobStatus;
 
   /**
    * @public
@@ -3023,7 +3023,7 @@ export interface CreateWorldGenerationJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: WorldGenerationJobErrorCode | string;
+  failureCode?: WorldGenerationJobErrorCode;
 
   /**
    * @public
@@ -3264,7 +3264,7 @@ export interface DeploymentJob {
    * @public
    * <p>The status of the deployment job.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: DeploymentStatus;
 
   /**
    * @public
@@ -3288,7 +3288,7 @@ export interface DeploymentJob {
    * @public
    * <p>The deployment job failure code.</p>
    */
-  failureCode?: DeploymentJobErrorCode | string;
+  failureCode?: DeploymentJobErrorCode;
 
   /**
    * @public
@@ -3396,7 +3396,7 @@ export interface ProgressDetail {
    *             </dd>
    *          </dl>
    */
-  currentProgress?: RobotDeploymentStep | string;
+  currentProgress?: RobotDeploymentStep;
 
   /**
    * @public
@@ -3467,7 +3467,7 @@ export interface RobotDeployment {
    * @public
    * <p>The status of the robot deployment.</p>
    */
-  status?: RobotStatus | string;
+  status?: RobotStatus;
 
   /**
    * @public
@@ -3485,7 +3485,7 @@ export interface RobotDeployment {
    * @public
    * <p>The robot deployment failure code.</p>
    */
-  failureCode?: DeploymentJobErrorCode | string;
+  failureCode?: DeploymentJobErrorCode;
 }
 
 /**
@@ -3508,7 +3508,7 @@ export interface DescribeDeploymentJobResponse {
    * @public
    * <p>The status of the deployment job.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: DeploymentStatus;
 
   /**
    * @public
@@ -3532,7 +3532,7 @@ export interface DescribeDeploymentJobResponse {
    * @public
    * <p>The deployment job failure code.</p>
    */
-  failureCode?: DeploymentJobErrorCode | string;
+  failureCode?: DeploymentJobErrorCode;
 
   /**
    * @public
@@ -3591,7 +3591,7 @@ export interface Robot {
    * @public
    * <p>The status of the robot.</p>
    */
-  status?: RobotStatus | string;
+  status?: RobotStatus;
 
   /**
    * @public
@@ -3609,7 +3609,7 @@ export interface Robot {
    * @public
    * <p>The architecture of the robot.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: Architecture;
 
   /**
    * @public
@@ -3656,7 +3656,7 @@ export interface DescribeFleetResponse {
    * @public
    * <p>The status of the last deployment.</p>
    */
-  lastDeploymentStatus?: DeploymentStatus | string;
+  lastDeploymentStatus?: DeploymentStatus;
 
   /**
    * @public
@@ -3714,7 +3714,7 @@ export interface DescribeRobotResponse {
    * @public
    * <p>The status of the fleet.</p>
    */
-  status?: RobotStatus | string;
+  status?: RobotStatus;
 
   /**
    * @public
@@ -3732,7 +3732,7 @@ export interface DescribeRobotResponse {
    * @public
    * <p>The target architecture of the robot application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: Architecture;
 
   /**
    * @public
@@ -3965,7 +3965,7 @@ export interface DescribeSimulationJobResponse {
    * @public
    * <p>The status of the simulation job.</p>
    */
-  status?: SimulationJobStatus | string;
+  status?: SimulationJobStatus;
 
   /**
    * @public
@@ -3985,7 +3985,7 @@ export interface DescribeSimulationJobResponse {
    * @public
    * <p>The failure behavior for the simulation job.</p>
    */
-  failureBehavior?: FailureBehavior | string;
+  failureBehavior?: FailureBehavior;
 
   /**
    * @public
@@ -4052,7 +4052,7 @@ export interface DescribeSimulationJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: SimulationJobErrorCode | string;
+  failureCode?: SimulationJobErrorCode;
 
   /**
    * @public
@@ -4182,7 +4182,7 @@ export interface SimulationJobSummary {
    * @public
    * <p>The status of the simulation job.</p>
    */
-  status?: SimulationJobStatus | string;
+  status?: SimulationJobStatus;
 
   /**
    * @public
@@ -4206,7 +4206,7 @@ export interface SimulationJobSummary {
    * @public
    * <p>The compute type for the simulation job summary.</p>
    */
-  computeType?: ComputeType | string;
+  computeType?: ComputeType;
 }
 
 /**
@@ -4230,7 +4230,7 @@ export interface FailedCreateSimulationJobRequest {
    * @public
    * <p>The failure code.</p>
    */
-  failureCode?: SimulationJobErrorCode | string;
+  failureCode?: SimulationJobErrorCode;
 
   /**
    * @public
@@ -4337,7 +4337,7 @@ export interface DescribeSimulationJobBatchResponse {
    *             </dd>
    *          </dl>
    */
-  status?: SimulationJobBatchStatus | string;
+  status?: SimulationJobBatchStatus;
 
   /**
    * @public
@@ -4370,7 +4370,7 @@ export interface DescribeSimulationJobBatchResponse {
    * @public
    * <p>The failure code of the simulation job batch.</p>
    */
-  failureCode?: SimulationJobBatchErrorCode | string;
+  failureCode?: SimulationJobBatchErrorCode;
 
   /**
    * @public
@@ -4511,7 +4511,7 @@ export interface DescribeWorldExportJobResponse {
    *             </dd>
    *          </dl>
    */
-  status?: WorldExportJobStatus | string;
+  status?: WorldExportJobStatus;
 
   /**
    * @public
@@ -4546,7 +4546,7 @@ export interface DescribeWorldExportJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: WorldExportJobErrorCode | string;
+  failureCode?: WorldExportJobErrorCode;
 
   /**
    * @public
@@ -4631,7 +4631,7 @@ export interface WorldFailure {
    *             </dd>
    *          </dl>
    */
-  failureCode?: WorldGenerationJobErrorCode | string;
+  failureCode?: WorldGenerationJobErrorCode;
 
   /**
    * @public
@@ -4734,7 +4734,7 @@ export interface DescribeWorldGenerationJobResponse {
    *             </dd>
    *          </dl>
    */
-  status?: WorldGenerationJobStatus | string;
+  status?: WorldGenerationJobStatus;
 
   /**
    * @public
@@ -4770,7 +4770,7 @@ export interface DescribeWorldGenerationJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: WorldGenerationJobErrorCode | string;
+  failureCode?: WorldGenerationJobErrorCode;
 
   /**
    * @public
@@ -4924,7 +4924,7 @@ export interface Fleet {
    * @public
    * <p>The status of the last fleet deployment.</p>
    */
-  lastDeploymentStatus?: DeploymentStatus | string;
+  lastDeploymentStatus?: DeploymentStatus;
 
   /**
    * @public
@@ -5456,7 +5456,7 @@ export interface SimulationJobBatchSummary {
    *             </dd>
    *          </dl>
    */
-  status?: SimulationJobBatchStatus | string;
+  status?: SimulationJobBatchStatus;
 
   /**
    * @public
@@ -5655,7 +5655,7 @@ export interface WorldExportJobSummary {
    *             </dd>
    *          </dl>
    */
-  status?: WorldExportJobStatus | string;
+  status?: WorldExportJobStatus;
 
   /**
    * @public
@@ -5790,7 +5790,7 @@ export interface WorldGenerationJobSummary {
    *             </dd>
    *          </dl>
    */
-  status?: WorldGenerationJobStatus | string;
+  status?: WorldGenerationJobStatus;
 
   /**
    * @public
@@ -6144,7 +6144,7 @@ export interface StartSimulationJobBatchResponse {
    *             </dd>
    *          </dl>
    */
-  status?: SimulationJobBatchStatus | string;
+  status?: SimulationJobBatchStatus;
 
   /**
    * @public
@@ -6170,7 +6170,7 @@ export interface StartSimulationJobBatchResponse {
    * @public
    * <p>The failure code if the simulation job batch failed.</p>
    */
-  failureCode?: SimulationJobBatchErrorCode | string;
+  failureCode?: SimulationJobBatchErrorCode;
 
   /**
    * @public
@@ -6244,7 +6244,7 @@ export interface SyncDeploymentJobResponse {
    * @public
    * <p>The status of the synchronization job.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: DeploymentStatus;
 
   /**
    * @public
@@ -6329,7 +6329,7 @@ export interface SyncDeploymentJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: DeploymentJobErrorCode | string;
+  failureCode?: DeploymentJobErrorCode;
 
   /**
    * @public

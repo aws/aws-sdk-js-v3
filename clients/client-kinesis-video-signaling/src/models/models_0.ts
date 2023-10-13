@@ -61,7 +61,7 @@ export interface GetIceServerConfigRequest {
    * <p>Specifies the desired service. Currently, <code>TURN</code> is the only valid
    *             value.</p>
    */
-  Service?: Service | string;
+  Service?: Service;
 
   /**
    * @public

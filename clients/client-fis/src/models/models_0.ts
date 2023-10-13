@@ -720,7 +720,7 @@ export interface ExperimentActionState {
    * @public
    * <p>The state of the action.</p>
    */
-  status?: ExperimentActionStatus | string;
+  status?: ExperimentActionStatus;
 
   /**
    * @public
@@ -865,7 +865,7 @@ export interface ExperimentState {
    * @public
    * <p>The state of the experiment.</p>
    */
-  status?: ExperimentStatus | string;
+  status?: ExperimentStatus;
 
   /**
    * @public

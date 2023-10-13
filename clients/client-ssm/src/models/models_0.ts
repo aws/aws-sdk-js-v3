@@ -147,7 +147,7 @@ export interface AddTagsToResourceRequest {
    *     <code>mi-1a2b3c4d5e6f</code>.</p>
    *          </note>
    */
-  ResourceType: ResourceTypeForTagging | string | undefined;
+  ResourceType: ResourceTypeForTagging | undefined;
 
   /**
    * @public
@@ -369,7 +369,7 @@ export interface AlarmStateInformation {
    * @public
    * <p>The state of your CloudWatch alarm.</p>
    */
-  State: ExternalAlarmState | string | undefined;
+  State: ExternalAlarmState | undefined;
 }
 
 /**
@@ -1251,7 +1251,7 @@ export interface CreateAssociationRequest {
    * @public
    * <p>The severity level to assign to the association.</p>
    */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
+  ComplianceSeverity?: AssociationComplianceSeverity;
 
   /**
    * @public
@@ -1265,7 +1265,7 @@ export interface CreateAssociationRequest {
    *    managed by State Manager. It is managed by your direct call to the <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    */
-  SyncCompliance?: AssociationSyncCompliance | string;
+  SyncCompliance?: AssociationSyncCompliance;
 
   /**
    * @public
@@ -1387,7 +1387,7 @@ export interface AssociationStatus {
    * @public
    * <p>The status.</p>
    */
-  Name: AssociationStatusName | string | undefined;
+  Name: AssociationStatusName | undefined;
 
   /**
    * @public
@@ -1543,7 +1543,7 @@ export interface AssociationDescription {
    * @public
    * <p>The severity level that is assigned to the association.</p>
    */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
+  ComplianceSeverity?: AssociationComplianceSeverity;
 
   /**
    * @public
@@ -1558,7 +1558,7 @@ export interface AssociationDescription {
    *     <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    */
-  SyncCompliance?: AssociationSyncCompliance | string;
+  SyncCompliance?: AssociationSyncCompliance;
 
   /**
    * @public
@@ -1924,7 +1924,7 @@ export interface CreateAssociationBatchRequestEntry {
    * @public
    * <p>The severity level to assign to the association.</p>
    */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
+  ComplianceSeverity?: AssociationComplianceSeverity;
 
   /**
    * @public
@@ -1939,7 +1939,7 @@ export interface CreateAssociationBatchRequestEntry {
    *     <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    */
-  SyncCompliance?: AssociationSyncCompliance | string;
+  SyncCompliance?: AssociationSyncCompliance;
 
   /**
    * @public
@@ -2033,7 +2033,7 @@ export interface FailedCreateAssociation {
    * @public
    * <p>The source of the failure.</p>
    */
-  Fault?: Fault | string;
+  Fault?: Fault;
 }
 
 /**
@@ -2079,7 +2079,7 @@ export interface AttachmentsSource {
    * <p>The key of a key-value pair that identifies the location of an attachment to a
    *    document.</p>
    */
-  Key?: AttachmentsSourceKey | string;
+  Key?: AttachmentsSourceKey;
 
   /**
    * @public
@@ -2301,14 +2301,14 @@ export interface CreateDocumentRequest {
    *     reserved for AppConfig.</p>
    *          </note>
    */
-  DocumentType?: DocumentType | string;
+  DocumentType?: DocumentType;
 
   /**
    * @public
    * <p>Specify the document format for the request. The document format can be JSON, YAML, or TEXT.
    *    JSON is the default format.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: DocumentFormat;
 
   /**
    * @public
@@ -2403,7 +2403,7 @@ export interface DocumentParameter {
    * @public
    * <p>The type of parameter. The type can be either String or StringList.</p>
    */
-  Type?: DocumentParameterType | string;
+  Type?: DocumentParameterType;
 
   /**
    * @public
@@ -2466,7 +2466,7 @@ export interface ReviewInformation {
    * @public
    * <p>The current status of the document review request.</p>
    */
-  Status?: ReviewStatus | string;
+  Status?: ReviewStatus;
 
   /**
    * @public
@@ -2520,7 +2520,7 @@ export interface DocumentDescription {
    *             <p>Sha1 hashes have been deprecated.</p>
    *          </note>
    */
-  HashType?: DocumentHashType | string;
+  HashType?: DocumentHashType;
 
   /**
    * @public
@@ -2557,7 +2557,7 @@ export interface DocumentDescription {
    * @public
    * <p>The status of the SSM document.</p>
    */
-  Status?: DocumentStatus | string;
+  Status?: DocumentStatus;
 
   /**
    * @public
@@ -2589,13 +2589,13 @@ export interface DocumentDescription {
    * @public
    * <p>The list of operating system (OS) platforms compatible with this SSM document. </p>
    */
-  PlatformTypes?: (PlatformType | string)[];
+  PlatformTypes?: PlatformType[];
 
   /**
    * @public
    * <p>The type of document.</p>
    */
-  DocumentType?: DocumentType | string;
+  DocumentType?: DocumentType;
 
   /**
    * @public
@@ -2619,7 +2619,7 @@ export interface DocumentDescription {
    * @public
    * <p>The document format, either JSON or YAML.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: DocumentFormat;
 
   /**
    * @public
@@ -2677,7 +2677,7 @@ export interface DocumentDescription {
    * @public
    * <p>The current status of the review.</p>
    */
-  ReviewStatus?: ReviewStatus | string;
+  ReviewStatus?: ReviewStatus;
 
   /**
    * @public
@@ -3041,7 +3041,7 @@ export interface OpsItemDataValue {
    * <p>The type of key-value pair. Valid types include <code>SearchableString</code> and
    *     <code>String</code>.</p>
    */
-  Type?: OpsItemDataType | string;
+  Type?: OpsItemDataType;
 }
 
 /**
@@ -3508,7 +3508,7 @@ export interface PatchFilter {
    *          <p>Run the <a>DescribePatchProperties</a> command to view lists of valid keys for
    *    each operating system type.</p>
    */
-  Key: PatchFilterKey | string | undefined;
+  Key: PatchFilterKey | undefined;
 
   /**
    * @public
@@ -3546,7 +3546,7 @@ export interface PatchRule {
    * @public
    * <p>A compliance severity level for all approved patches in a patch baseline.</p>
    */
-  ComplianceLevel?: PatchComplianceLevel | string;
+  ComplianceLevel?: PatchComplianceLevel;
 
   /**
    * @public
@@ -3680,7 +3680,7 @@ export interface CreatePatchBaselineRequest {
    * <p>Defines the operating system the patch baseline applies to. The default value is
    *     <code>WINDOWS</code>.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -3715,7 +3715,7 @@ export interface CreatePatchBaselineRequest {
    *    missing, this value describes the severity of the compliance violation. The default value is
    *     <code>UNSPECIFIED</code>.</p>
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesComplianceLevel?: PatchComplianceLevel;
 
   /**
    * @public
@@ -3760,7 +3760,7 @@ export interface CreatePatchBaselineRequest {
    *             </li>
    *          </ul>
    */
-  RejectedPatchesAction?: PatchAction | string;
+  RejectedPatchesAction?: PatchAction;
 
   /**
    * @public
@@ -3866,7 +3866,7 @@ export interface ResourceDataSyncS3Destination {
    * @public
    * <p>A supported sync format. The following format is currently supported: JsonSerDe</p>
    */
-  SyncFormat: ResourceDataSyncS3Format | string | undefined;
+  SyncFormat: ResourceDataSyncS3Format | undefined;
 
   /**
    * @public
@@ -4315,7 +4315,7 @@ export interface DeleteInventoryRequest {
    *          <p>DeleteSchema: This option deletes the specified custom type from the Inventory service. You
    *    can recreate the schema later, if you want.</p>
    */
-  SchemaDeleteOption?: InventorySchemaDeleteOption | string;
+  SchemaDeleteOption?: InventorySchemaDeleteOption;
 
   /**
    * @public
@@ -4965,7 +4965,7 @@ export interface DescribeActivationsFilter {
    * @public
    * <p>The name of the filter.</p>
    */
-  FilterKey?: DescribeActivationsFilterKeys | string;
+  FilterKey?: DescribeActivationsFilterKeys;
 
   /**
    * @public
@@ -5168,7 +5168,7 @@ export interface AssociationExecutionFilter {
    * @public
    * <p>The key value used in the request.</p>
    */
-  Key: AssociationExecutionFilterKey | string | undefined;
+  Key: AssociationExecutionFilterKey | undefined;
 
   /**
    * @public
@@ -5180,7 +5180,7 @@ export interface AssociationExecutionFilter {
    * @public
    * <p>The filter type specified in the request.</p>
    */
-  Type: AssociationFilterOperatorType | string | undefined;
+  Type: AssociationFilterOperatorType | undefined;
 }
 
 /**
@@ -5348,7 +5348,7 @@ export interface AssociationExecutionTargetsFilter {
    * @public
    * <p>The key value used in the request.</p>
    */
-  Key: AssociationExecutionTargetsFilterKey | string | undefined;
+  Key: AssociationExecutionTargetsFilterKey | undefined;
 
   /**
    * @public
@@ -5527,7 +5527,7 @@ export interface AutomationExecutionFilter {
    * @public
    * <p>One or more keys to limit the results.</p>
    */
-  Key: AutomationExecutionFilterKey | string | undefined;
+  Key: AutomationExecutionFilterKey | undefined;
 
   /**
    * @public
@@ -5751,7 +5751,7 @@ export interface AutomationExecutionMetadata {
    * @public
    * <p>The status of the execution.</p>
    */
-  AutomationExecutionStatus?: AutomationExecutionStatus | string;
+  AutomationExecutionStatus?: AutomationExecutionStatus;
 
   /**
    * @public
@@ -5788,7 +5788,7 @@ export interface AutomationExecutionMetadata {
    * @public
    * <p>The Automation execution mode.</p>
    */
-  Mode?: ExecutionMode | string;
+  Mode?: ExecutionMode;
 
   /**
    * @public
@@ -5864,7 +5864,7 @@ export interface AutomationExecutionMetadata {
    *    Amazon Web Services accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running Automation workflows in multiple Amazon Web Services Regions and accounts</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
    */
-  AutomationType?: AutomationType | string;
+  AutomationType?: AutomationType;
 
   /**
    * @public
@@ -5883,7 +5883,7 @@ export interface AutomationExecutionMetadata {
    * <p>The subtype of the Automation operation. Currently, the only supported value is
    *     <code>ChangeRequest</code>.</p>
    */
-  AutomationSubtype?: AutomationSubtype | string;
+  AutomationSubtype?: AutomationSubtype;
 
   /**
    * @public
@@ -6033,7 +6033,7 @@ export interface StepExecutionFilter {
    * <p>One or more keys to limit the results. Valid filter keys include the following: StepName,
    *    Action, StepExecutionId, StepExecutionStatus, StartTimeBefore, StartTimeAfter.</p>
    */
-  Key: StepExecutionFilterKey | string | undefined;
+  Key: StepExecutionFilterKey | undefined;
 
   /**
    * @public
@@ -6160,7 +6160,7 @@ export interface StepExecution {
    * @public
    * <p>The execution status for this step.</p>
    */
-  StepStatus?: AutomationExecutionStatus | string;
+  StepStatus?: AutomationExecutionStatus;
 
   /**
    * @public
@@ -6773,7 +6773,7 @@ export interface DescribeDocumentPermissionRequest {
    * <p>The permission type for the document. The permission type can be
    *    <i>Share</i>.</p>
    */
-  PermissionType: DocumentPermissionType | string | undefined;
+  PermissionType: DocumentPermissionType | undefined;
 
   /**
    * @public
@@ -6961,13 +6961,13 @@ export interface PatchStatus {
    * @public
    * <p>The approval status of a patch.</p>
    */
-  DeploymentStatus?: PatchDeploymentStatus | string;
+  DeploymentStatus?: PatchDeploymentStatus;
 
   /**
    * @public
    * <p>The compliance severity level for a patch.</p>
    */
-  ComplianceLevel?: PatchComplianceLevel | string;
+  ComplianceLevel?: PatchComplianceLevel;
 
   /**
    * @public
@@ -7270,7 +7270,7 @@ export interface InstanceInformationFilter {
    * @public
    * <p>The name of the filter. </p>
    */
-  key: InstanceInformationFilterKey | string | undefined;
+  key: InstanceInformationFilterKey | undefined;
 
   /**
    * @public
@@ -7400,7 +7400,7 @@ export interface InstanceInformation {
    *             <p>The status <code>Inactive</code> has been deprecated and is no longer in use.</p>
    *          </note>
    */
-  PingStatus?: PingStatus | string;
+  PingStatus?: PingStatus;
 
   /**
    * @public
@@ -7427,7 +7427,7 @@ export interface InstanceInformation {
    * @public
    * <p>The operating system platform type. </p>
    */
-  PlatformType?: PlatformType | string;
+  PlatformType?: PlatformType;
 
   /**
    * @public
@@ -7467,7 +7467,7 @@ export interface InstanceInformation {
    * @public
    * <p>The type of instance. Instances are either EC2 instances or managed instances. </p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -7530,7 +7530,7 @@ export interface InstanceInformation {
    * <p>The type of the source resource. For IoT Greengrass devices, <code>SourceType</code>
    *    is <code>AWS::IoT::Thing</code>. </p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 }
 
 /**
@@ -7697,7 +7697,7 @@ export interface PatchComplianceData {
    * <p>The state of the patch on the managed node, such as INSTALLED or FAILED.</p>
    *          <p>For descriptions of each patch state, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch">About patch compliance</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  State: PatchComplianceDataState | string | undefined;
+  State: PatchComplianceDataState | undefined;
 
   /**
    * @public
@@ -7949,7 +7949,7 @@ export interface InstancePatchState {
    *             </li>
    *          </ul>
    */
-  Operation: PatchOperationType | string | undefined;
+  Operation: PatchOperationType | undefined;
 
   /**
    * @public
@@ -7981,7 +7981,7 @@ export interface InstancePatchState {
    *             </li>
    *          </ul>
    */
-  RebootOption?: RebootOption | string;
+  RebootOption?: RebootOption;
 
   /**
    * @public
@@ -8127,7 +8127,7 @@ export interface InstancePatchStateFilter {
    * @public
    * <p>The type of comparison that should be performed for the value.</p>
    */
-  Type: InstancePatchStateOperatorType | string | undefined;
+  Type: InstancePatchStateOperatorType | undefined;
 }
 
 /**
@@ -8256,7 +8256,7 @@ export interface InventoryDeletionStatusItem {
    * @public
    * <p>The status of the operation. Possible values are InProgress and Complete.</p>
    */
-  LastStatus?: InventoryDeletionStatus | string;
+  LastStatus?: InventoryDeletionStatus;
 
   /**
    * @public
@@ -8455,7 +8455,7 @@ export interface MaintenanceWindowExecution {
    * @public
    * <p>The status of the execution.</p>
    */
-  Status?: MaintenanceWindowExecutionStatus | string;
+  Status?: MaintenanceWindowExecutionStatus;
 
   /**
    * @public
@@ -8585,7 +8585,7 @@ export interface MaintenanceWindowExecutionTaskInvocationIdentity {
    * @public
    * <p>The task type.</p>
    */
-  TaskType?: MaintenanceWindowTaskType | string;
+  TaskType?: MaintenanceWindowTaskType;
 
   /**
    * @public
@@ -8597,7 +8597,7 @@ export interface MaintenanceWindowExecutionTaskInvocationIdentity {
    * @public
    * <p>The status of the task invocation.</p>
    */
-  Status?: MaintenanceWindowExecutionStatus | string;
+  Status?: MaintenanceWindowExecutionStatus;
 
   /**
    * @public
@@ -8708,7 +8708,7 @@ export interface MaintenanceWindowExecutionTaskIdentity {
    * @public
    * <p>The status of the task execution.</p>
    */
-  Status?: MaintenanceWindowExecutionStatus | string;
+  Status?: MaintenanceWindowExecutionStatus;
 
   /**
    * @public
@@ -8739,7 +8739,7 @@ export interface MaintenanceWindowExecutionTaskIdentity {
    * @public
    * <p>The type of task that ran.</p>
    */
-  TaskType?: MaintenanceWindowTaskType | string;
+  TaskType?: MaintenanceWindowTaskType;
 
   /**
    * @public
@@ -8937,7 +8937,7 @@ export interface DescribeMaintenanceWindowScheduleRequest {
    * <p>The type of resource you want to retrieve information about. For example,
    *     <code>INSTANCE</code>.</p>
    */
-  ResourceType?: MaintenanceWindowResourceType | string;
+  ResourceType?: MaintenanceWindowResourceType;
 
   /**
    * @public
@@ -9019,7 +9019,7 @@ export interface DescribeMaintenanceWindowsForTargetRequest {
    * <p>The type of resource you want to retrieve information about. For example,
    *     <code>INSTANCE</code>.</p>
    */
-  ResourceType: MaintenanceWindowResourceType | string | undefined;
+  ResourceType: MaintenanceWindowResourceType | undefined;
 
   /**
    * @public
@@ -9126,7 +9126,7 @@ export interface MaintenanceWindowTarget {
    * @public
    * <p>The type of target that is being registered with the maintenance window.</p>
    */
-  ResourceType?: MaintenanceWindowResourceType | string;
+  ResourceType?: MaintenanceWindowResourceType;
 
   /**
    * @public
@@ -9302,7 +9302,7 @@ export interface MaintenanceWindowTask {
    * @public
    * <p>The type of task.</p>
    */
-  Type?: MaintenanceWindowTaskType | string;
+  Type?: MaintenanceWindowTaskType;
 
   /**
    * @public
@@ -9397,7 +9397,7 @@ export interface MaintenanceWindowTask {
    * <p>The specification for whether tasks should continue to run after the cutoff time specified
    *    in the maintenance windows is reached. </p>
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior;
 
   /**
    * @public

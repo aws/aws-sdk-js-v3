@@ -1078,7 +1078,7 @@ const se_ValidationExceptionFieldList = (input: ValidationExceptionField[], cont
 /**
  * deserializeAws_restJson1EnumList
  */
-const de_EnumList = (output: any, context: __SerdeContext): (EnumString | string)[] => {
+const de_EnumList = (output: any, context: __SerdeContext): EnumString[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1093,17 +1093,14 @@ const de_EnumList = (output: any, context: __SerdeContext): (EnumString | string
 /**
  * deserializeAws_restJson1EnumMap
  */
-const de_EnumMap = (output: any, context: __SerdeContext): Record<string, EnumString | string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, EnumString | string>, [key, value]: [EnumString | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
+const de_EnumMap = (output: any, context: __SerdeContext): Record<string, EnumString> => {
+  return Object.entries(output).reduce((acc: Record<string, EnumString>, [key, value]: [EnumString, any]) => {
+    if (value === null) {
       return acc;
-    },
-    {}
-  );
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
 };
 
 /**
@@ -1342,7 +1339,7 @@ const de_DateTimeSet = (output: any, context: __SerdeContext): Date[] => {
 /**
  * deserializeAws_restJson1FooEnumSet
  */
-const de_FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const de_FooEnumSet = (output: any, context: __SerdeContext): FooEnum[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1394,7 +1391,7 @@ const de_HttpDateSet = (output: any, context: __SerdeContext): Date[] => {
 /**
  * deserializeAws_restJson1IntegerEnumSet
  */
-const de_IntegerEnumSet = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+const de_IntegerEnumSet = (output: any, context: __SerdeContext): IntegerEnum[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(

@@ -90,7 +90,7 @@ export interface Compliance {
    * 			support the <code>NOT_APPLICABLE</code> value for the
    * 				<code>Compliance</code> data type.</p>
    */
-  ComplianceType?: ComplianceType | string;
+  ComplianceType?: ComplianceType;
 
   /**
    * @public
@@ -166,7 +166,7 @@ export interface AggregateConformancePackCompliance {
    * @public
    * <p>The compliance status of the conformance pack.</p>
    */
-  ComplianceType?: ConformancePackComplianceType | string;
+  ComplianceType?: ConformancePackComplianceType;
 
   /**
    * @public
@@ -305,7 +305,7 @@ export interface AggregateConformancePackComplianceFilters {
    * @public
    * <p>The compliance status of the conformance pack.</p>
    */
-  ComplianceType?: ConformancePackComplianceType | string;
+  ComplianceType?: ConformancePackComplianceType;
 
   /**
    * @public
@@ -416,7 +416,7 @@ export interface AggregatedSourceStatus {
    * @public
    * <p>The source account or an organization.</p>
    */
-  SourceType?: AggregatedSourceType | string;
+  SourceType?: AggregatedSourceType;
 
   /**
    * @public
@@ -442,7 +442,7 @@ export interface AggregatedSourceStatus {
    *             </li>
    *          </ul>
    */
-  LastUpdateStatus?: AggregatedSourceStatusType | string;
+  LastUpdateStatus?: AggregatedSourceStatusType;
 
   /**
    * @public
@@ -509,7 +509,7 @@ export interface EvaluationResultQualifier {
    * @public
    * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
    */
-  EvaluationMode?: EvaluationMode | string;
+  EvaluationMode?: EvaluationMode;
 }
 
 /**
@@ -562,7 +562,7 @@ export interface AggregateEvaluationResult {
    * 				<code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code>
    * 			value.</p>
    */
-  ComplianceType?: ComplianceType | string;
+  ComplianceType?: ComplianceType;
 
   /**
    * @public
@@ -1009,7 +1009,7 @@ export interface AggregateResourceIdentifier {
    * @public
    * <p>The type of the Amazon Web Services resource.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -1113,7 +1113,7 @@ export interface BaseConfigurationItem {
    *             </li>
    *          </ul>
    */
-  configurationItemStatus?: ConfigurationItemStatus | string;
+  configurationItemStatus?: ConfigurationItemStatus;
 
   /**
    * @public
@@ -1132,7 +1132,7 @@ export interface BaseConfigurationItem {
    * @public
    * <p>The type of Amazon Web Services resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -1265,7 +1265,7 @@ export interface ResourceKey {
    * @public
    * <p>The resource type.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -1444,7 +1444,7 @@ export interface ConfigExportDeliveryInfo {
    * @public
    * <p>Status of the last attempted delivery.</p>
    */
-  lastStatus?: DeliveryStatus | string;
+  lastStatus?: DeliveryStatus;
 
   /**
    * @public
@@ -1502,7 +1502,7 @@ export interface EvaluationModeConfiguration {
    * @public
    * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
    */
-  Mode?: EvaluationMode | string;
+  Mode?: EvaluationMode;
 }
 
 /**
@@ -1654,7 +1654,7 @@ export interface SourceDetail {
    * <p>The source of the event, such as an Amazon Web Services service, that triggers
    * 			Config to evaluate your Amazon Web Services resources.</p>
    */
-  EventSource?: EventSource | string;
+  EventSource?: EventSource;
 
   /**
    * @public
@@ -1695,7 +1695,7 @@ export interface SourceDetail {
    * 				<code>ConfigurationItemChangeNotification</code> and one for
    * 				<code>OversizedConfigurationItemChangeNotification</code>.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -1716,7 +1716,7 @@ export interface SourceDetail {
    * 				is the frequency of this rule. </p>
    *          </note>
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency;
 }
 
 /**
@@ -1732,7 +1732,7 @@ export interface Source {
    *          <p>Config Managed Rules are predefined rules owned by Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Config Managed Rules</a> in the <i>Config developer guide</i>.</p>
    *          <p>Config Custom Rules are rules that you can develop either with Guard (<code>CUSTOM_POLICY</code>) or Lambda (<code>CUSTOM_LAMBDA</code>). For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html">Config Custom Rules </a> in the <i>Config developer guide</i>.</p>
    */
-  Owner: Owner | string | undefined;
+  Owner: Owner | undefined;
 
   /**
    * @public
@@ -1865,7 +1865,7 @@ export interface ConfigRule {
    * 				parameter.</p>
    *          </note>
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency;
 
   /**
    * @public
@@ -1886,7 +1886,7 @@ export interface ConfigRule {
    * 			Config deletes the rule, the rule and all of its evaluations are
    * 			erased and are no longer available.</p>
    */
-  ConfigRuleState?: ConfigRuleState | string;
+  ConfigRuleState?: ConfigRuleState;
 
   /**
    * @public
@@ -1927,7 +1927,7 @@ export interface ConfigRuleComplianceFilters {
    * 				<code>NOT_APPLICABLE</code> and the
    * 				<code>INSUFFICIENT_DATA</code> values.</p>
    */
-  ComplianceType?: ComplianceType | string;
+  ComplianceType?: ComplianceType;
 
   /**
    * @public
@@ -2161,7 +2161,7 @@ export interface ConfigSnapshotDeliveryProperties {
    * <p>The frequency with which Config delivers configuration
    * 			snapshots.</p>
    */
-  deliveryFrequency?: MaximumExecutionFrequency | string;
+  deliveryFrequency?: MaximumExecutionFrequency;
 }
 
 /**
@@ -2178,7 +2178,7 @@ export interface ConfigStreamDeliveryInfo {
    * 				<a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html">DeliveryChannel</a> for Config is optional. If the SNS
    * 			delivery is turned off, the last status will be <b>Not_Applicable</b>.</p>
    */
-  lastStatus?: DeliveryStatus | string;
+  lastStatus?: DeliveryStatus;
 
   /**
    * @public
@@ -2289,7 +2289,7 @@ export interface Relationship {
    * @public
    * <p>The resource type of the related resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -2359,7 +2359,7 @@ export interface ConfigurationItem {
    *             </li>
    *          </ul>
    */
-  configurationItemStatus?: ConfigurationItemStatus | string;
+  configurationItemStatus?: ConfigurationItemStatus;
 
   /**
    * @public
@@ -2388,7 +2388,7 @@ export interface ConfigurationItem {
    * @public
    * <p>The type of Amazon Web Services resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -2510,7 +2510,7 @@ export interface ExclusionByResourceTypes {
    * <p>A comma-separated list of resource types to exclude from recording by the configuration
    * 			recorder.</p>
    */
-  resourceTypes?: (ResourceType | string)[];
+  resourceTypes?: ResourceType[];
 }
 
 /**
@@ -2606,7 +2606,7 @@ export interface RecordingStrategy {
    *             </ul>
    *          </note>
    */
-  useOnly?: RecordingStrategyType | string;
+  useOnly?: RecordingStrategyType;
 }
 
 /**
@@ -2744,7 +2744,7 @@ export interface RecordingGroup {
    * 				even if the specified resource type is not supported in the Amazon Web Services Region where you set up Config.</p>
    *          </note>
    */
-  resourceTypes?: (ResourceType | string)[];
+  resourceTypes?: ResourceType[];
 
   /**
    * @public
@@ -2941,7 +2941,7 @@ export interface ConfigurationRecorderStatus {
    * @public
    * <p>The status of the latest recording event processed by the recorder.</p>
    */
-  lastStatus?: RecorderStatus | string;
+  lastStatus?: RecorderStatus;
 
   /**
    * @public
@@ -2978,7 +2978,7 @@ export interface ConformancePackComplianceFilters {
    * <p>Filters the results by compliance.</p>
    *          <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
    */
-  ComplianceType?: ConformancePackComplianceType | string;
+  ComplianceType?: ConformancePackComplianceType;
 }
 
 /**
@@ -3035,7 +3035,7 @@ export interface ConformancePackComplianceSummary {
    * @public
    * <p>The status of the conformance pack.</p>
    */
-  ConformancePackComplianceStatus: ConformancePackComplianceType | string | undefined;
+  ConformancePackComplianceStatus: ConformancePackComplianceType | undefined;
 }
 
 /**
@@ -3163,7 +3163,7 @@ export interface ConformancePackEvaluationFilters {
    * <p>Filters the results by compliance.</p>
    *          <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
    */
-  ComplianceType?: ConformancePackComplianceType | string;
+  ComplianceType?: ConformancePackComplianceType;
 
   /**
    * @public
@@ -3190,7 +3190,7 @@ export interface ConformancePackEvaluationResult {
    * @public
    * <p>The compliance type. The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
    */
-  ComplianceType: ConformancePackComplianceType | string | undefined;
+  ComplianceType: ConformancePackComplianceType | undefined;
 
   /**
    * @public
@@ -3232,7 +3232,7 @@ export interface ConformancePackRuleCompliance {
    * @public
    * <p>Compliance of the Config rule.</p>
    */
-  ComplianceType?: ConformancePackComplianceType | string;
+  ComplianceType?: ConformancePackComplianceType;
 
   /**
    * @public
@@ -3304,7 +3304,7 @@ export interface ConformancePackStatusDetail {
    *             </li>
    *          </ul>
    */
-  ConformancePackState: ConformancePackState | string | undefined;
+  ConformancePackState: ConformancePackState | undefined;
 
   /**
    * @public
@@ -4350,7 +4350,7 @@ export interface DescribeComplianceByConfigRuleRequest {
    * @public
    * <p>Filters the results by compliance.</p>
    */
-  ComplianceTypes?: (ComplianceType | string)[];
+  ComplianceTypes?: ComplianceType[];
 
   /**
    * @public
@@ -4408,7 +4408,7 @@ export interface DescribeComplianceByResourceRequest {
    * @public
    * <p>Filters the results by compliance.</p>
    */
-  ComplianceTypes?: (ComplianceType | string)[];
+  ComplianceTypes?: ComplianceType[];
 
   /**
    * @public
@@ -4513,7 +4513,7 @@ export interface DescribeConfigRulesFilters {
    * @public
    * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
    */
-  EvaluationMode?: EvaluationMode | string;
+  EvaluationMode?: EvaluationMode;
 }
 
 /**
@@ -4638,7 +4638,7 @@ export interface DescribeConfigurationAggregatorSourcesStatusRequest {
    *             </li>
    *          </ul>
    */
-  UpdateStatus?: (AggregatedSourceStatusType | string)[];
+  UpdateStatus?: AggregatedSourceStatusType[];
 
   /**
    * @public
@@ -5003,7 +5003,7 @@ export interface OrganizationCustomPolicyRuleMetadataNoPolicy {
    *             </li>
    *          </ul>
    */
-  OrganizationConfigRuleTriggerTypes?: (OrganizationConfigRuleTriggerTypeNoSN | string)[];
+  OrganizationConfigRuleTriggerTypes?: OrganizationConfigRuleTriggerTypeNoSN[];
 
   /**
    * @public
@@ -5017,7 +5017,7 @@ export interface OrganizationCustomPolicyRuleMetadataNoPolicy {
    * 			Config Custom Policy rule is triggered when Config delivers
    * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency;
 
   /**
    * @public
@@ -5111,7 +5111,7 @@ export interface OrganizationCustomRuleMetadata {
    *             </li>
    *          </ul>
    */
-  OrganizationConfigRuleTriggerTypes: (OrganizationConfigRuleTriggerType | string)[] | undefined;
+  OrganizationConfigRuleTriggerTypes: OrganizationConfigRuleTriggerType[] | undefined;
 
   /**
    * @public
@@ -5128,7 +5128,7 @@ export interface OrganizationCustomRuleMetadata {
    * 			value for the <code>MaximumExecutionFrequency</code> parameter.</p>
    *          </note>
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency;
 
   /**
    * @public
@@ -5191,7 +5191,7 @@ export interface OrganizationManagedRuleMetadata {
    * 			value for the <code>MaximumExecutionFrequency</code> parameter.</p>
    *          </note>
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency;
 
   /**
    * @public
@@ -5389,7 +5389,7 @@ export interface OrganizationConfigRuleStatus {
    *             </li>
    *          </ul>
    */
-  OrganizationRuleStatus: OrganizationRuleStatus | string | undefined;
+  OrganizationRuleStatus: OrganizationRuleStatus | undefined;
 
   /**
    * @public
@@ -5633,7 +5633,7 @@ export interface OrganizationConformancePackStatus {
    *             </li>
    *          </ul>
    */
-  Status: OrganizationResourceStatus | string | undefined;
+  Status: OrganizationResourceStatus | undefined;
 
   /**
    * @public
@@ -5795,7 +5795,7 @@ export interface ResourceValue {
    * @public
    * <p>The value is a resource ID.</p>
    */
-  Value: ResourceValueType | string | undefined;
+  Value: ResourceValueType | undefined;
 }
 
 /**
@@ -5856,7 +5856,7 @@ export interface RemediationConfiguration {
    * @public
    * <p>The type of the target. Target executes remediation. For example, SSM document.</p>
    */
-  TargetType: RemediationTargetType | string | undefined;
+  TargetType: RemediationTargetType | undefined;
 
   /**
    * @public
@@ -6097,7 +6097,7 @@ export interface RemediationExecutionStep {
    * @public
    * <p>The valid status of the step.</p>
    */
-  State?: RemediationExecutionStepState | string;
+  State?: RemediationExecutionStepState;
 
   /**
    * @public
@@ -6134,7 +6134,7 @@ export interface RemediationExecutionStatus {
    * @public
    * <p>ENUM of the values.</p>
    */
-  State?: RemediationExecutionState | string;
+  State?: RemediationExecutionState;
 
   /**
    * @public
@@ -6270,7 +6270,7 @@ export interface Evaluation {
    * 			request. For example, an Lambda function for a custom Config
    * 			rule cannot pass an <code>INSUFFICIENT_DATA</code> value to Config.</p>
    */
-  ComplianceType: ComplianceType | string | undefined;
+  ComplianceType: ComplianceType | undefined;
 
   /**
    * @public
@@ -6326,7 +6326,7 @@ export interface EvaluationResult {
    * 			Config does not support the <code>INSUFFICIENT_DATA</code> value
    * 			for the <code>EvaluationResult</code> data type.</p>
    */
-  ComplianceType?: ComplianceType | string;
+  ComplianceType?: ComplianceType;
 
   /**
    * @public
@@ -6381,7 +6381,7 @@ export interface EvaluationStatus {
    * @public
    * <p>The status of an execution. The valid values are In_Progress, Succeeded or Failed. </p>
    */
-  Status: ResourceEvaluationStatus | string | undefined;
+  Status: ResourceEvaluationStatus | undefined;
 
   /**
    * @public
@@ -6411,7 +6411,7 @@ export interface ExternalEvaluation {
    * @public
    * <p>The compliance of the Amazon Web Services resource. The valid values are <code>COMPLIANT, NON_COMPLIANT, </code> and <code>NOT_APPLICABLE</code>.</p>
    */
-  ComplianceType: ComplianceType | string | undefined;
+  ComplianceType: ComplianceType | undefined;
 
   /**
    * @public
@@ -6515,7 +6515,7 @@ export interface GetAggregateComplianceDetailsByConfigRuleRequest {
    * 					<code>INSUFFICIENT_DATA</code> values.</p>
    *          </note>
    */
-  ComplianceType?: ComplianceType | string;
+  ComplianceType?: ComplianceType;
 
   /**
    * @public
@@ -6572,7 +6572,7 @@ export interface GetAggregateConfigRuleComplianceSummaryRequest {
    * @public
    * <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
    */
-  GroupByKey?: ConfigRuleComplianceSummaryGroupKey | string;
+  GroupByKey?: ConfigRuleComplianceSummaryGroupKey;
 
   /**
    * @public
@@ -6634,7 +6634,7 @@ export interface GetAggregateConformancePackComplianceSummaryRequest {
    * @public
    * <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
    */
-  GroupByKey?: AggregateConformancePackComplianceSummaryGroupKey | string;
+  GroupByKey?: AggregateConformancePackComplianceSummaryGroupKey;
 
   /**
    * @public
@@ -6681,7 +6681,7 @@ export interface ResourceCountFilters {
    * @public
    * <p>The type of the Amazon Web Services resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -6731,7 +6731,7 @@ export interface GetAggregateDiscoveredResourceCountsRequest {
    * @public
    * <p>The key to group the resource counts.</p>
    */
-  GroupByKey?: ResourceCountGroupKey | string;
+  GroupByKey?: ResourceCountGroupKey;
 
   /**
    * @public
@@ -6880,7 +6880,7 @@ export interface GetComplianceDetailsByConfigRuleRequest {
    *          <p>
    *             <code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot be used as a <code>ComplianceType</code> for filtering results.</p>
    */
-  ComplianceTypes?: (ComplianceType | string)[];
+  ComplianceTypes?: ComplianceType[];
 
   /**
    * @public
@@ -6944,7 +6944,7 @@ export interface GetComplianceDetailsByResourceRequest {
    *          <p>
    *             <code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot be used as a <code>ComplianceType</code> for filtering results.</p>
    */
-  ComplianceTypes?: (ComplianceType | string)[];
+  ComplianceTypes?: ComplianceType[];
 
   /**
    * @public
@@ -7195,7 +7195,7 @@ export interface ResourceCount {
    * <p>The resource type (for example,
    * 				<code>"AWS::EC2::Instance"</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -7333,7 +7333,7 @@ export interface StatusDetailFilters {
    *             </li>
    *          </ul>
    */
-  MemberAccountRuleStatus?: MemberAccountRuleStatus | string;
+  MemberAccountRuleStatus?: MemberAccountRuleStatus;
 }
 
 /**
@@ -7429,7 +7429,7 @@ export interface MemberAccountStatus {
    *             </li>
    *          </ul>
    */
-  MemberAccountRuleStatus: MemberAccountRuleStatus | string | undefined;
+  MemberAccountRuleStatus: MemberAccountRuleStatus | undefined;
 
   /**
    * @public
@@ -7547,7 +7547,7 @@ export interface OrganizationResourceDetailedStatusFilters {
    *             </li>
    *          </ul>
    */
-  Status?: OrganizationResourceDetailedStatus | string;
+  Status?: OrganizationResourceDetailedStatus;
 }
 
 /**
@@ -7646,7 +7646,7 @@ export interface OrganizationConformancePackDetailedStatus {
    *             </li>
    *          </ul>
    */
-  Status: OrganizationResourceDetailedStatus | string | undefined;
+  Status: OrganizationResourceDetailedStatus | undefined;
 
   /**
    * @public
@@ -7718,7 +7718,7 @@ export interface GetResourceConfigHistoryRequest {
    * @public
    * <p>The resource type.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -7749,7 +7749,7 @@ export interface GetResourceConfigHistoryRequest {
    * 			default, the results are listed in reverse chronological
    * 			order.</p>
    */
-  chronologicalOrder?: ChronologicalOrder | string;
+  chronologicalOrder?: ChronologicalOrder;
 
   /**
    * @public
@@ -7869,7 +7869,7 @@ export interface ResourceDetails {
    * 				and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and property types reference</a> in the CloudFormation User Guide.</p>
    *          </note>
    */
-  ResourceConfigurationSchemaType?: ResourceConfigurationSchemaType | string;
+  ResourceConfigurationSchemaType?: ResourceConfigurationSchemaType;
 }
 
 /**
@@ -7886,7 +7886,7 @@ export interface GetResourceEvaluationSummaryResponse {
    * @public
    * <p>Lists results of the mode that you requested to retrieve the resource evaluation summary. The valid values are Detective or Proactive.</p>
    */
-  EvaluationMode?: EvaluationMode | string;
+  EvaluationMode?: EvaluationMode;
 
   /**
    * @public
@@ -7904,7 +7904,7 @@ export interface GetResourceEvaluationSummaryResponse {
    * @public
    * <p>The compliance status of the resource evaluation summary.</p>
    */
-  Compliance?: ComplianceType | string;
+  Compliance?: ComplianceType;
 
   /**
    * @public
@@ -8298,7 +8298,7 @@ export interface ListAggregateDiscoveredResourcesRequest {
    * @public
    * <p>The type of resources that you want Config to list in the response.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -8379,7 +8379,7 @@ export interface ListConformancePackComplianceScoresRequest {
    *          <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack. Conformance pack compliance scores are sorted in reverse alphabetical order if you enter <code>DESCENDING</code>.</p>
    *          <p>You can sort conformance pack compliance scores by the numerical value of the compliance score by entering <code>SCORE</code> in the <code>SortBy</code> action. When compliance scores are sorted by <code>SCORE</code>, conformance packs with a compliance score of <code>INSUFFICIENT_DATA</code> will be last when sorting by ascending order and first when sorting by descending order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -8387,7 +8387,7 @@ export interface ListConformancePackComplianceScoresRequest {
    *          <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack.
    * 			Enter <code>SCORE</code>, to sort conformance pack compliance scores by the numerical value of the compliance score.</p>
    */
-  SortBy?: SortBy | string;
+  SortBy?: SortBy;
 
   /**
    * @public
@@ -8429,7 +8429,7 @@ export interface ListDiscoveredResourcesRequest {
    * <p>The type of resources that you want Config to list in the
    * 			response.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -8481,7 +8481,7 @@ export interface ResourceIdentifier {
    * @public
    * <p>The type of resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -8550,7 +8550,7 @@ export interface ResourceEvaluationFilters {
    * @public
    * <p>Filters all resource evaluations results based on an evaluation mode. the valid value for this API is <code>Proactive</code>.</p>
    */
-  EvaluationMode?: EvaluationMode | string;
+  EvaluationMode?: EvaluationMode;
 
   /**
    * @public
@@ -8604,7 +8604,7 @@ export interface ResourceEvaluation {
    * @public
    * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
    */
-  EvaluationMode?: EvaluationMode | string;
+  EvaluationMode?: EvaluationMode;
 
   /**
    * @public

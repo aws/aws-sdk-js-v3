@@ -116,7 +116,7 @@ export interface GetRoutingControlStateResponse {
    * @public
    * <p>The state of the routing control.</p>
    */
-  RoutingControlState: RoutingControlState | string | undefined;
+  RoutingControlState: RoutingControlState | undefined;
 
   /**
    * @public
@@ -258,7 +258,7 @@ export class ValidationException extends __BaseException {
    * @public
    * Reason the request failed validation
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -340,7 +340,7 @@ export interface RoutingControl {
    * <p>The current state of the routing control. When a routing control state is On, traffic flows to a cell. When
    * 			the state is Off, traffic does not flow. </p>
    */
-  RoutingControlState?: RoutingControlState | string;
+  RoutingControlState?: RoutingControlState;
 }
 
 /**
@@ -422,7 +422,7 @@ export interface UpdateRoutingControlStateRequest {
    * @public
    * <p>The state of the routing control. You can set the value to be On or Off.</p>
    */
-  RoutingControlState: RoutingControlState | string | undefined;
+  RoutingControlState: RoutingControlState | undefined;
 
   /**
    * @public
@@ -455,7 +455,7 @@ export interface UpdateRoutingControlStateEntry {
    * @public
    * <p>The routing control state in a set of routing control state entries.</p>
    */
-  RoutingControlState: RoutingControlState | string | undefined;
+  RoutingControlState: RoutingControlState | undefined;
 }
 
 /**

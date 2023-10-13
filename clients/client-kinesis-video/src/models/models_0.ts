@@ -155,13 +155,13 @@ export interface ChannelInfo {
    * @public
    * <p>The type of the signaling channel.</p>
    */
-  ChannelType?: ChannelType | string;
+  ChannelType?: ChannelType;
 
   /**
    * @public
    * <p>Current status of the signaling channel.</p>
    */
-  ChannelStatus?: Status | string;
+  ChannelStatus?: Status;
 
   /**
    * @public
@@ -209,7 +209,7 @@ export interface ChannelNameCondition {
    * <p>A comparison operator. Currently, you can only specify the <code>BEGINS_WITH</code>
    *             operator, which finds signaling channels whose names begin with a given prefix.</p>
    */
-  ComparisonOperator?: ComparisonOperator | string;
+  ComparisonOperator?: ComparisonOperator;
 
   /**
    * @public
@@ -317,7 +317,7 @@ export interface CreateSignalingChannelInput {
    * <p>A type of the signaling channel that you are creating. Currently,
    *                 <code>SINGLE_MASTER</code> is the only supported channel type. </p>
    */
-  ChannelType?: ChannelType | string;
+  ChannelType?: ChannelType;
 
   /**
    * @public
@@ -743,7 +743,7 @@ export interface LocalSizeConfig {
    * @public
    * <p>The strategy to perform when a stream’s <code>MaxLocalMediaSizeInMB</code> limit is reached.</p>
    */
-  StrategyOnFullSize?: StrategyOnFullSize | string;
+  StrategyOnFullSize?: StrategyOnFullSize;
 }
 
 /**
@@ -838,7 +838,7 @@ export interface LastRecorderStatus {
    * @public
    * <p>The status of the latest recorder job.</p>
    */
-  RecorderStatus?: RecorderStatus | string;
+  RecorderStatus?: RecorderStatus;
 }
 
 /**
@@ -883,7 +883,7 @@ export interface LastUploaderStatus {
    * @public
    * <p>The status of the latest uploader job.</p>
    */
-  UploaderStatus?: UploaderStatus | string;
+  UploaderStatus?: UploaderStatus;
 }
 
 /**
@@ -939,7 +939,7 @@ export interface MediaSourceConfig {
    *             <p>Preview only supports the <code>RTSP_URI</code> media source URI format .</p>
    *          </note>
    */
-  MediaUriType: MediaUriType | string | undefined;
+  MediaUriType: MediaUriType | undefined;
 }
 
 /**
@@ -1103,7 +1103,7 @@ export interface DescribeEdgeConfigurationOutput {
    * @public
    * <p>The latest status of the edge configuration update.</p>
    */
-  SyncStatus?: SyncStatus | string;
+  SyncStatus?: SyncStatus;
 
   /**
    * @public
@@ -1211,13 +1211,13 @@ export interface ImageGenerationConfiguration {
    * @public
    * <p>Indicates whether the <code>ContinuousImageGenerationConfigurations</code> API is enabled or disabled.</p>
    */
-  Status: ConfigurationStatus | string | undefined;
+  Status: ConfigurationStatus | undefined;
 
   /**
    * @public
    * <p>The origin of the Server or Producer timestamps to use to generate the images.</p>
    */
-  ImageSelectorType: ImageSelectorType | string | undefined;
+  ImageSelectorType: ImageSelectorType | undefined;
 
   /**
    * @public
@@ -1236,7 +1236,7 @@ export interface ImageGenerationConfiguration {
    * @public
    * <p>The accepted image format.</p>
    */
-  Format: Format | string | undefined;
+  Format: Format | undefined;
 
   /**
    * @public
@@ -1388,7 +1388,7 @@ export interface MediaStorageConfiguration {
    * @public
    * <p>The status of the media storage configuration.</p>
    */
-  Status: MediaStorageConfigurationStatus | string | undefined;
+  Status: MediaStorageConfigurationStatus | undefined;
 }
 
 /**
@@ -1440,7 +1440,7 @@ export interface NotificationConfiguration {
    * @public
    * <p>Indicates if a notification configuration is enabled or disabled.</p>
    */
-  Status: ConfigurationStatus | string | undefined;
+  Status: ConfigurationStatus | undefined;
 
   /**
    * @public
@@ -1552,7 +1552,7 @@ export interface StreamInfo {
    * @public
    * <p>The status of the stream.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -1601,7 +1601,7 @@ export interface GetDataEndpointInput {
    * @public
    * <p>The name of the API action for which to get an endpoint.</p>
    */
-  APIName: APIName | string | undefined;
+  APIName: APIName | undefined;
 }
 
 /**
@@ -1629,7 +1629,7 @@ export interface SingleMasterChannelEndpointConfiguration {
    *             API returns a websocket endpoint. If <code>HTTPS</code> is specified, this API returns
    *             an <code>HTTPS</code> endpoint.</p>
    */
-  Protocols?: (ChannelProtocol | string)[];
+  Protocols?: ChannelProtocol[];
 
   /**
    * @public
@@ -1640,7 +1640,7 @@ export interface SingleMasterChannelEndpointConfiguration {
    *             specified, this API returns an endpoint that a client can use only to send offers to
    *             another <code>MASTER</code> client on this signaling channel. </p>
    */
-  Role?: ChannelRole | string;
+  Role?: ChannelRole;
 }
 
 /**
@@ -1674,7 +1674,7 @@ export interface ResourceEndpointListItem {
    * <p>The protocol of the signaling channel returned by the
    *                 <code>GetSignalingChannelEndpoint</code> API.</p>
    */
-  Protocol?: ChannelProtocol | string;
+  Protocol?: ChannelProtocol;
 
   /**
    * @public
@@ -1774,7 +1774,7 @@ export interface ListEdgeAgentConfigurationsEdgeConfig {
    * @public
    * <p>The current sync status of the stream's edge configuration.</p>
    */
-  SyncStatus?: SyncStatus | string;
+  SyncStatus?: SyncStatus;
 
   /**
    * @public
@@ -1864,7 +1864,7 @@ export interface StreamNameCondition {
    * <p>A comparison operator. Currently, you can specify only the <code>BEGINS_WITH</code>
    *             operator, which finds streams whose names start with a given prefix.</p>
    */
-  ComparisonOperator?: ComparisonOperator | string;
+  ComparisonOperator?: ComparisonOperator;
 
   /**
    * @public
@@ -2083,7 +2083,7 @@ export interface StartEdgeConfigurationUpdateOutput {
    *             status will be set to the <code>SYNCING</code> state. Use the <code>DescribeEdgeConfiguration</code> API
    *             to get the latest status of the edge configuration.</p>
    */
-  SyncStatus?: SyncStatus | string;
+  SyncStatus?: SyncStatus;
 
   /**
    * @public
@@ -2250,7 +2250,7 @@ export interface UpdateDataRetentionInput {
    * @public
    * <p>Indicates whether you want to increase or decrease the retention period.</p>
    */
-  Operation: UpdateDataRetentionOperation | string | undefined;
+  Operation: UpdateDataRetentionOperation | undefined;
 
   /**
    * @public

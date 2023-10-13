@@ -459,7 +459,7 @@ export interface UserIdentity {
    * @public
    * <p>The role assigned to the user in a Amazon CodeCatalyst space or project when the event occurred.</p>
    */
-  userType: UserType | string | undefined;
+  userType: UserType | undefined;
 
   /**
    * @public
@@ -525,7 +525,7 @@ export interface EventLogEntry {
    * @public
    * <p>The type of the event.</p>
    */
-  operationType: OperationType | string | undefined;
+  operationType: OperationType | undefined;
 
   /**
    * @public
@@ -905,7 +905,7 @@ export interface CreateDevEnvironmentRequest {
    * @public
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    */
-  instanceType: _InstanceType | string | undefined;
+  instanceType: _InstanceType | undefined;
 
   /**
    * @public
@@ -1128,7 +1128,7 @@ export interface GetDevEnvironmentResponse {
    * @public
    * <p>The current status of the Dev Environment.</p>
    */
-  status: DevEnvironmentStatus | string | undefined;
+  status: DevEnvironmentStatus | undefined;
 
   /**
    * @public
@@ -1158,7 +1158,7 @@ export interface GetDevEnvironmentResponse {
    * @public
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    */
-  instanceType: _InstanceType | string | undefined;
+  instanceType: _InstanceType | undefined;
 
   /**
    * @public
@@ -1271,7 +1271,7 @@ export interface DevEnvironmentSummary {
    * @public
    * <p>The status of the Dev Environment. </p>
    */
-  status: DevEnvironmentStatus | string | undefined;
+  status: DevEnvironmentStatus | undefined;
 
   /**
    * @public
@@ -1301,7 +1301,7 @@ export interface DevEnvironmentSummary {
    * @public
    * <p>The Amazon EC2 instace type used for the Dev Environment. </p>
    */
-  instanceType: _InstanceType | string | undefined;
+  instanceType: _InstanceType | undefined;
 
   /**
    * @public
@@ -1454,7 +1454,7 @@ export interface StartDevEnvironmentRequest {
    * @public
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    */
-  instanceType?: _InstanceType | string;
+  instanceType?: _InstanceType;
 
   /**
    * @public
@@ -1489,7 +1489,7 @@ export interface StartDevEnvironmentResponse {
    * @public
    * <p>The status of the Dev Environment. </p>
    */
-  status: DevEnvironmentStatus | string | undefined;
+  status: DevEnvironmentStatus | undefined;
 }
 
 /**
@@ -1533,7 +1533,7 @@ export interface DevEnvironmentSessionConfiguration {
    * @public
    * <p>The type of the session.</p>
    */
-  sessionType: DevEnvironmentSessionType | string | undefined;
+  sessionType: DevEnvironmentSessionType | undefined;
 
   /**
    * @public
@@ -1673,7 +1673,7 @@ export interface StopDevEnvironmentResponse {
    * @public
    * <p>The status of the Dev Environment. </p>
    */
-  status: DevEnvironmentStatus | string | undefined;
+  status: DevEnvironmentStatus | undefined;
 }
 
 /**
@@ -1775,7 +1775,7 @@ export interface UpdateDevEnvironmentRequest {
    *             <p>Changing this value will cause a restart of the Dev Environment if it is running.</p>
    *          </note>
    */
-  instanceType?: _InstanceType | string;
+  instanceType?: _InstanceType;
 
   /**
    * @public
@@ -1833,7 +1833,7 @@ export interface UpdateDevEnvironmentResponse {
    * @public
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    */
-  instanceType?: _InstanceType | string;
+  instanceType?: _InstanceType;
 
   /**
    * @public
@@ -1934,7 +1934,7 @@ export interface ProjectListFilter {
    * @public
    * <p>A key that can be used to sort results.</p>
    */
-  key: FilterKey | string | undefined;
+  key: FilterKey | undefined;
 
   /**
    * @public
@@ -1946,7 +1946,7 @@ export interface ProjectListFilter {
    * @public
    * <p>The operator used to compare the fields.</p>
    */
-  comparisonOperator?: ComparisonOperator | string;
+  comparisonOperator?: ComparisonOperator;
 }
 
 /**

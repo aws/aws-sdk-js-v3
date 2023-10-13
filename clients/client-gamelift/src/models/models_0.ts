@@ -39,7 +39,7 @@ export interface AcceptMatchInput {
    * @public
    * <p>Player response to the proposed match.</p>
    */
-  AcceptanceType: AcceptanceType | string | undefined;
+  AcceptanceType: AcceptanceType | undefined;
 }
 
 /**
@@ -180,7 +180,7 @@ export interface RoutingStrategy {
    *             </li>
    *          </ul>
    */
-  Type?: RoutingStrategyType | string;
+  Type?: RoutingStrategyType;
 
   /**
    * @public
@@ -459,7 +459,7 @@ export interface Build {
    *             </li>
    *          </ul>
    */
-  Status?: BuildStatus | string;
+  Status?: BuildStatus;
 
   /**
    * @public
@@ -474,7 +474,7 @@ export interface Build {
    * <p>Operating system that the game server binaries are built to run on. This value
    *             determines the type of fleet resources that you can use for this build.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -528,7 +528,7 @@ export interface CertificateConfiguration {
    *             </li>
    *          </ul>
    */
-  CertificateType: CertificateType | string | undefined;
+  CertificateType: CertificateType | undefined;
 }
 
 /**
@@ -560,7 +560,7 @@ export interface ClaimFilterOption {
    * <p>List of instance statuses that game servers may be claimed on. If provided, the list must contain the
    *             <code>ACTIVE</code> status.</p>
    */
-  InstanceStatuses?: (FilterInstanceStatus | string)[];
+  InstanceStatuses?: FilterInstanceStatus[];
 }
 
 /**
@@ -685,7 +685,7 @@ export interface GameServer {
    *             update its utilization status. After one minute, the game server claim status reverts to
    *             null.</p>
    */
-  ClaimStatus?: GameServerClaimStatus | string;
+  ClaimStatus?: GameServerClaimStatus;
 
   /**
    * @public
@@ -705,7 +705,7 @@ export interface GameServer {
    *             </li>
    *          </ul>
    */
-  UtilizationStatus?: GameServerUtilizationStatus | string;
+  UtilizationStatus?: GameServerUtilizationStatus;
 
   /**
    * @public
@@ -1085,7 +1085,7 @@ export interface Compute {
    * <p>Current status of the compute. A compute must have an <code>ACTIVE</code> status to
    *             host game sessions.</p>
    */
-  ComputeStatus?: ComputeStatus | string;
+  ComputeStatus?: ComputeStatus;
 
   /**
    * @public
@@ -1104,13 +1104,13 @@ export interface Compute {
    * @public
    * <p>The type of operating system on the compute resource.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
    * <p>The Amazon EC2 instance type that the fleet uses. For registered computes in an Amazon GameLift Anywhere fleet, this property is empty. </p>
    */
-  Type?: EC2InstanceType | string;
+  Type?: EC2InstanceType;
 
   /**
    * @public
@@ -1342,7 +1342,7 @@ export interface CreateBuildInput {
    *                 builds.</p>
    *          </note>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -1444,7 +1444,7 @@ export interface IpPermission {
    * @public
    * <p>The network communication protocol used by the fleet.</p>
    */
-  Protocol: IpProtocol | string | undefined;
+  Protocol: IpProtocol | undefined;
 }
 
 /**
@@ -1672,7 +1672,7 @@ export interface CreateFleetInput {
    *             including CPU, memory, storage, and networking capacity. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance Types</a> for detailed descriptions
    *             of Amazon EC2 instance types.</p>
    */
-  EC2InstanceType?: EC2InstanceType | string;
+  EC2InstanceType?: EC2InstanceType;
 
   /**
    * @public
@@ -1702,7 +1702,7 @@ export interface CreateFleetInput {
    *             </li>
    *          </ul>
    */
-  NewGameSessionProtectionPolicy?: ProtectionPolicy | string;
+  NewGameSessionProtectionPolicy?: ProtectionPolicy;
 
   /**
    * @public
@@ -1758,7 +1758,7 @@ export interface CreateFleetInput {
    *             property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This property cannot be changed after the
    *             fleet is created.</p>
    */
-  FleetType?: FleetType | string;
+  FleetType?: FleetType;
 
   /**
    * @public
@@ -1819,7 +1819,7 @@ export interface CreateFleetInput {
    *             compute resources with Amazon GameLift Anywhere or use Amazon EC2 instances with managed
    *             Amazon GameLift. By default, this property is set to <code>EC2</code>.</p>
    */
-  ComputeType?: ComputeType | string;
+  ComputeType?: ComputeType;
 
   /**
    * @public
@@ -1890,7 +1890,7 @@ export interface FleetAttributes {
    *             property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This property cannot be changed after the
    *             fleet is created.</p>
    */
-  FleetType?: FleetType | string;
+  FleetType?: FleetType;
 
   /**
    * @public
@@ -1899,7 +1899,7 @@ export interface FleetAttributes {
    *                 <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance Types</a>
    *             for detailed descriptions.</p>
    */
-  InstanceType?: EC2InstanceType | string;
+  InstanceType?: EC2InstanceType;
 
   /**
    * @public
@@ -1962,7 +1962,7 @@ export interface FleetAttributes {
    *             </li>
    *          </ul>
    */
-  Status?: FleetStatus | string;
+  Status?: FleetStatus;
 
   /**
    * @public
@@ -2038,14 +2038,14 @@ export interface FleetAttributes {
    *             </li>
    *          </ul>
    */
-  NewGameSessionProtectionPolicy?: ProtectionPolicy | string;
+  NewGameSessionProtectionPolicy?: ProtectionPolicy;
 
   /**
    * @public
    * <p>The operating system of the fleet's computing resources. A fleet's operating system is
    *             determined by the OS of the build or script that is deployed on this fleet.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -2071,7 +2071,7 @@ export interface FleetAttributes {
    * @public
    * <p>A list of fleet activity that has been suspended using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a> . This includes fleet auto-scaling.</p>
    */
-  StoppedActions?: (FleetAction | string)[];
+  StoppedActions?: FleetAction[];
 
   /**
    * @public
@@ -2100,7 +2100,7 @@ export interface FleetAttributes {
    *             compute resources with Amazon GameLift Anywhere or use Amazon EC2 instances with managed
    *             Amazon GameLift.</p>
    */
-  ComputeType?: ComputeType | string;
+  ComputeType?: ComputeType;
 
   /**
    * @public
@@ -2166,7 +2166,7 @@ export interface LocationState {
    * @public
    * <p>The life-cycle status of a fleet location. </p>
    */
-  Status?: FleetStatus | string;
+  Status?: FleetStatus;
 }
 
 /**
@@ -2444,7 +2444,7 @@ export interface InstanceDefinition {
    * @public
    * <p>An Amazon EC2 instance type designation.</p>
    */
-  InstanceType: GameServerGroupInstanceType | string | undefined;
+  InstanceType: GameServerGroupInstanceType | undefined;
 
   /**
    * @public
@@ -2599,7 +2599,7 @@ export interface CreateGameServerGroupInput {
    *             </li>
    *          </ul>
    */
-  BalancingStrategy?: BalancingStrategy | string;
+  BalancingStrategy?: BalancingStrategy;
 
   /**
    * @public
@@ -2610,7 +2610,7 @@ export interface CreateGameServerGroupInput {
    *             in the event of a forced game server group deletion (see ). An exception to this is with Spot
    *             Instances, which can be terminated by Amazon Web Services regardless of protection status. This property is set to <code>NO_PROTECTION</code> by default.</p>
    */
-  GameServerProtectionPolicy?: GameServerProtectionPolicy | string;
+  GameServerProtectionPolicy?: GameServerProtectionPolicy;
 
   /**
    * @public
@@ -2736,7 +2736,7 @@ export interface GameServerGroup {
    *             </li>
    *          </ul>
    */
-  BalancingStrategy?: BalancingStrategy | string;
+  BalancingStrategy?: BalancingStrategy;
 
   /**
    * @public
@@ -2747,7 +2747,7 @@ export interface GameServerGroup {
    *             in the event of a forced game server group deletion (see ). An exception to this is with Spot
    *             Instances, which can be terminated by Amazon Web Services regardless of protection status. </p>
    */
-  GameServerProtectionPolicy?: GameServerProtectionPolicy | string;
+  GameServerProtectionPolicy?: GameServerProtectionPolicy;
 
   /**
    * @public
@@ -2799,7 +2799,7 @@ export interface GameServerGroup {
    *             </li>
    *          </ul>
    */
-  Status?: GameServerGroupStatus | string;
+  Status?: GameServerGroupStatus;
 
   /**
    * @public
@@ -2813,7 +2813,7 @@ export interface GameServerGroup {
    * <p>A list of activities that are currently suspended for this game server group. If this
    *             property is empty, all activities are occurring.</p>
    */
-  SuspendedActions?: (GameServerGroupAction | string)[];
+  SuspendedActions?: GameServerGroupAction[];
 
   /**
    * @public
@@ -3071,7 +3071,7 @@ export interface GameSession {
    * <p>Current status of the game session. A game session must have an <code>ACTIVE</code>
    *             status to have player sessions.</p>
    */
-  Status?: GameSessionStatus | string;
+  Status?: GameSessionStatus;
 
   /**
    * @public
@@ -3079,7 +3079,7 @@ export interface GameSession {
    *             indicates that the game session was hosted on a spot instance that was reclaimed,
    *             causing the active game session to be terminated.</p>
    */
-  StatusReason?: GameSessionStatusReason | string;
+  StatusReason?: GameSessionStatusReason;
 
   /**
    * @public
@@ -3120,7 +3120,7 @@ export interface GameSession {
    * @public
    * <p>Indicates whether or not the game session is accepting new players.</p>
    */
-  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy | string;
+  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy;
 
   /**
    * @public
@@ -3364,7 +3364,7 @@ export interface PriorityConfiguration {
    *             </li>
    *          </ul>
    */
-  PriorityOrder?: (PriorityType | string)[];
+  PriorityOrder?: PriorityType[];
 
   /**
    * @public
@@ -3706,7 +3706,7 @@ export interface CreateMatchmakingConfigurationInput {
    *                 with FlexMatch</a>. Automatic backfill is not available when
    *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
-  BackfillMode?: BackfillMode | string;
+  BackfillMode?: BackfillMode;
 
   /**
    * @public
@@ -3725,7 +3725,7 @@ export interface CreateMatchmakingConfigurationInput {
    *             </li>
    *          </ul>
    */
-  FlexMatchMode?: FlexMatchMode | string;
+  FlexMatchMode?: FlexMatchMode;
 
   /**
    * @public
@@ -3862,7 +3862,7 @@ export interface MatchmakingConfiguration {
    *             in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">Backfill existing games with FlexMatch</a>. Automatic backfill is not available
    *             when <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
-  BackfillMode?: BackfillMode | string;
+  BackfillMode?: BackfillMode;
 
   /**
    * @public
@@ -3881,7 +3881,7 @@ export interface MatchmakingConfiguration {
    *             </li>
    *          </ul>
    */
-  FlexMatchMode?: FlexMatchMode | string;
+  FlexMatchMode?: FlexMatchMode;
 }
 
 /**
@@ -4132,7 +4132,7 @@ export interface PlayerSession {
    *             </li>
    *          </ul>
    */
-  Status?: PlayerSessionStatus | string;
+  Status?: PlayerSessionStatus;
 
   /**
    * @public
@@ -4640,7 +4640,7 @@ export interface DeleteGameServerGroupInput {
    *             </li>
    *          </ul>
    */
-  DeleteOption?: GameServerGroupDeleteOption | string;
+  DeleteOption?: GameServerGroupDeleteOption;
 }
 
 /**
@@ -4924,7 +4924,7 @@ export interface DescribeEC2InstanceLimitsInput {
    *             storage, and networking capacity. Do not specify a value for this parameter to retrieve
    *             limits for all instance types.</p>
    */
-  EC2InstanceType?: EC2InstanceType | string;
+  EC2InstanceType?: EC2InstanceType;
 
   /**
    * @public
@@ -4948,7 +4948,7 @@ export interface EC2InstanceLimit {
    * <p>The name of an Amazon EC2 instance type. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance Types</a> for detailed
    *             descriptions. </p>
    */
-  EC2InstanceType?: EC2InstanceType | string;
+  EC2InstanceType?: EC2InstanceType;
 
   /**
    * @public
@@ -5138,7 +5138,7 @@ export interface FleetCapacity {
    *             networking capacity. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud
    *                 Instance Types</a> for detailed descriptions.</p>
    */
-  InstanceType?: EC2InstanceType | string;
+  InstanceType?: EC2InstanceType;
 
   /**
    * @public
@@ -5495,7 +5495,7 @@ export interface Event {
    *             </li>
    *          </ul>
    */
-  EventCode?: EventCode | string;
+  EventCode?: EventCode;
 
   /**
    * @public
@@ -5594,7 +5594,7 @@ export interface LocationAttributes {
    * @public
    * <p>A list of fleet actions that have been suspended in the fleet location.</p>
    */
-  StoppedActions?: (FleetAction | string)[];
+  StoppedActions?: FleetAction[];
 
   /**
    * @public
@@ -5603,7 +5603,7 @@ export interface LocationAttributes {
    *                 <code>StartFleetActions</code> has been requested but the update has not yet been
    *             completed for the location.</p>
    */
-  UpdateStatus?: LocationUpdateStatus | string;
+  UpdateStatus?: LocationUpdateStatus;
 }
 
 /**
@@ -5802,7 +5802,7 @@ export interface DescribeFleetPortSettingsOutput {
    *             location. A status of <code>PENDING_UPDATE</code> indicates that an update was requested
    *             for the fleet but has not yet been completed for the location.</p>
    */
-  UpdateStatus?: LocationUpdateStatus | string;
+  UpdateStatus?: LocationUpdateStatus;
 
   /**
    * @public
@@ -5993,7 +5993,7 @@ export interface GameServerInstance {
    * @public
    * <p>Current status of the game server instance</p>
    */
-  InstanceStatus?: GameServerInstanceStatus | string;
+  InstanceStatus?: GameServerInstanceStatus;
 }
 
 /**
@@ -6094,7 +6094,7 @@ export interface GameSessionDetail {
    *             </li>
    *          </ul>
    */
-  ProtectionPolicy?: ProtectionPolicy | string;
+  ProtectionPolicy?: ProtectionPolicy;
 }
 
 /**
@@ -6252,7 +6252,7 @@ export interface GameSessionPlacement {
    *             </li>
    *          </ul>
    */
-  Status?: GameSessionPlacementState | string;
+  Status?: GameSessionPlacementState;
 
   /**
    * @public
@@ -6597,13 +6597,13 @@ export interface Instance {
    * @public
    * <p>Operating system that is running on this EC2 instance. </p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
    * <p>EC2 instance type that defines the computing resources of this instance. </p>
    */
-  Type?: EC2InstanceType | string;
+  Type?: EC2InstanceType;
 
   /**
    * @public
@@ -6630,7 +6630,7 @@ export interface Instance {
    *             </li>
    *          </ul>
    */
-  Status?: InstanceStatus | string;
+  Status?: InstanceStatus;
 
   /**
    * @public
@@ -6894,7 +6894,7 @@ export interface MatchmakingTicket {
    *                 CANCELLED, TIMED_OUT) can be resubmitted as new requests with new ticket IDs.</p>
    *          </note>
    */
-  Status?: MatchmakingConfigurationStatus | string;
+  Status?: MatchmakingConfigurationStatus;
 
   /**
    * @public
@@ -7231,7 +7231,7 @@ export interface DescribeScalingPoliciesInput {
    *             </li>
    *          </ul>
    */
-  StatusFilter?: ScalingStatusType | string;
+  StatusFilter?: ScalingStatusType;
 
   /**
    * @public
@@ -7393,7 +7393,7 @@ export interface ScalingPolicy {
    *             </li>
    *          </ul>
    */
-  Status?: ScalingStatusType | string;
+  Status?: ScalingStatusType;
 
   /**
    * @public
@@ -7424,13 +7424,13 @@ export interface ScalingPolicy {
    *             </li>
    *          </ul>
    */
-  ScalingAdjustmentType?: ScalingAdjustmentType | string;
+  ScalingAdjustmentType?: ScalingAdjustmentType;
 
   /**
    * @public
    * <p>Comparison operator to use when measuring a metric against the threshold value.</p>
    */
-  ComparisonOperator?: ComparisonOperatorType | string;
+  ComparisonOperator?: ComparisonOperatorType;
 
   /**
    * @public
@@ -7515,7 +7515,7 @@ export interface ScalingPolicy {
    *             </li>
    *          </ul>
    */
-  MetricName?: MetricName | string;
+  MetricName?: MetricName;
 
   /**
    * @public
@@ -7527,7 +7527,7 @@ export interface ScalingPolicy {
    *                 <i>ScalingAdjustmentType</i>, and
    *                 <i>ScalingAdjustment</i>.</p>
    */
-  PolicyType?: PolicyType | string;
+  PolicyType?: PolicyType;
 
   /**
    * @public
@@ -7541,7 +7541,7 @@ export interface ScalingPolicy {
    *             status <code>PENDING_UPDATE</code> indicates that an update was requested for the fleet
    *             but has not yet been completed for the location.</p>
    */
-  UpdateStatus?: LocationUpdateStatus | string;
+  UpdateStatus?: LocationUpdateStatus;
 
   /**
    * @public
@@ -7947,7 +7947,7 @@ export interface InstanceAccess {
    * @public
    * <p>Operating system that is running on the instance.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -7991,7 +7991,7 @@ export interface ListAliasesInput {
    *             </li>
    *          </ul>
    */
-  RoutingStrategyType?: RoutingStrategyType | string;
+  RoutingStrategyType?: RoutingStrategyType;
 
   /**
    * @public
@@ -8058,7 +8058,7 @@ export interface ListBuildsInput {
    *             </li>
    *          </ul>
    */
-  Status?: BuildStatus | string;
+  Status?: BuildStatus;
 
   /**
    * @public
@@ -8252,7 +8252,7 @@ export interface ListGameServersInput {
    *                 <code>DESCENDING</code> to retrieve newest game servers first. If this parameter is
    *             left empty, game servers are returned in no particular order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -8306,7 +8306,7 @@ export interface ListLocationsInput {
    * @public
    * <p>Filters the list for <code>AWS</code> or <code>CUSTOM</code> locations.</p>
    */
-  Filters?: (LocationFilter | string)[];
+  Filters?: LocationFilter[];
 
   /**
    * @public
@@ -8444,7 +8444,7 @@ export interface PutScalingPolicyInput {
    *             </li>
    *          </ul>
    */
-  ScalingAdjustmentType?: ScalingAdjustmentType | string;
+  ScalingAdjustmentType?: ScalingAdjustmentType;
 
   /**
    * @public
@@ -8457,7 +8457,7 @@ export interface PutScalingPolicyInput {
    * <p>Comparison operator to use when measuring the metric against the threshold
    *             value.</p>
    */
-  ComparisonOperator?: ComparisonOperatorType | string;
+  ComparisonOperator?: ComparisonOperatorType;
 
   /**
    * @public
@@ -8536,7 +8536,7 @@ export interface PutScalingPolicyInput {
    *             </li>
    *          </ul>
    */
-  MetricName: MetricName | string | undefined;
+  MetricName: MetricName | undefined;
 
   /**
    * @public
@@ -8548,7 +8548,7 @@ export interface PutScalingPolicyInput {
    *                 <i>ScalingAdjustmentType</i>, and
    *                 <i>ScalingAdjustment</i>.</p>
    */
-  PolicyType?: PolicyType | string;
+  PolicyType?: PolicyType;
 
   /**
    * @public
@@ -8749,7 +8749,7 @@ export interface ResumeGameServerGroupInput {
    * @public
    * <p>The activity to resume for this game server group.</p>
    */
-  ResumeActions: (GameServerGroupAction | string)[] | undefined;
+  ResumeActions: GameServerGroupAction[] | undefined;
 }
 
 /**
@@ -8929,7 +8929,7 @@ export interface StartFleetActionsInput {
    * @public
    * <p>List of actions to restart on the fleet.</p>
    */
-  Actions: (FleetAction | string)[] | undefined;
+  Actions: FleetAction[] | undefined;
 
   /**
    * @public
@@ -9154,7 +9154,7 @@ export interface StopFleetActionsInput {
    * @public
    * <p>List of actions to suspend on the fleet. </p>
    */
-  Actions: (FleetAction | string)[] | undefined;
+  Actions: FleetAction[] | undefined;
 
   /**
    * @public
@@ -9234,7 +9234,7 @@ export interface SuspendGameServerGroupInput {
    * @public
    * <p>The activity to suspend for this game server group.</p>
    */
-  SuspendActions: (GameServerGroupAction | string)[] | undefined;
+  SuspendActions: GameServerGroupAction[] | undefined;
 }
 
 /**
@@ -9421,7 +9421,7 @@ export interface UpdateFleetAttributesInput {
    *             </li>
    *          </ul>
    */
-  NewGameSessionProtectionPolicy?: ProtectionPolicy | string;
+  NewGameSessionProtectionPolicy?: ProtectionPolicy;
 
   /**
    * @public

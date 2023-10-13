@@ -191,7 +191,7 @@ export interface ProjectDetails {
    *             Synchronization state for a project.
    *         </p>
    */
-  state?: ProjectState | string;
+  state?: ProjectState;
 
   /**
    * @public
@@ -536,7 +536,7 @@ export interface BundleDetails {
    *             Developer desktop or mobile app or website platforms.
    *         </p>
    */
-  availablePlatforms?: (Platform | string)[];
+  availablePlatforms?: Platform[];
 }
 
 /**
@@ -625,7 +625,7 @@ export interface ExportBundleRequest {
    *             Developer desktop or target application platform.
    *         </p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 }
 
 /**

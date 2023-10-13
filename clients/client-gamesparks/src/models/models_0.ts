@@ -151,7 +151,7 @@ export interface GameDetails {
    * @public
    * <p>The state of the game.</p>
    */
-  State?: GameState | string;
+  State?: GameState;
 
   /**
    * @public
@@ -490,7 +490,7 @@ export interface StageDetails {
    * @public
    * <p>The state of the stage.</p>
    */
-  State?: StageState | string;
+  State?: StageState;
 
   /**
    * @public
@@ -592,7 +592,7 @@ export interface DeploymentResult {
    * @public
    * <p>The type of deployment result.</p>
    */
-  ResultCode?: ResultCode | string;
+  ResultCode?: ResultCode;
 
   /**
    * @public
@@ -938,7 +938,7 @@ export interface GeneratedCodeJobDetails {
    * @public
    * <p>The status of the generated code job</p>
    */
-  Status?: GeneratedCodeJobState | string;
+  Status?: GeneratedCodeJobState;
 
   /**
    * @public
@@ -1116,13 +1116,13 @@ export interface StageDeploymentDetails {
    * @public
    * <p>The type of action of the stage deployment.</p>
    */
-  DeploymentAction?: DeploymentAction | string;
+  DeploymentAction?: DeploymentAction;
 
   /**
    * @public
    * <p>The state of the deployment.</p>
    */
-  DeploymentState?: DeploymentState | string;
+  DeploymentState?: DeploymentState;
 
   /**
    * @public
@@ -1339,7 +1339,7 @@ export interface GameSummary {
    * @public
    * <p>The state of the game.</p>
    */
-  State?: GameState | string;
+  State?: GameState;
 
   /**
    * @public
@@ -1564,13 +1564,13 @@ export interface StageDeploymentSummary {
    * @public
    * <p>The type of action of the deployment.</p>
    */
-  DeploymentAction?: DeploymentAction | string;
+  DeploymentAction?: DeploymentAction;
 
   /**
    * @public
    * <p>The state of the deployment.</p>
    */
-  DeploymentState?: DeploymentState | string;
+  DeploymentState?: DeploymentState;
 
   /**
    * @public
@@ -1668,7 +1668,7 @@ export interface StageSummary {
    * @public
    * <p>The state of the stage.</p>
    */
-  State?: StageState | string;
+  State?: StageState;
 
   /**
    * @public
@@ -1942,7 +1942,7 @@ export interface SectionModification {
    *       Content can be added, deleted, or replaced within a section.
    *       </p>
    */
-  Operation: Operation | string | undefined;
+  Operation: Operation | undefined;
 
   /**
    * @public

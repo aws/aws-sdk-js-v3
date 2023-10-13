@@ -394,7 +394,7 @@ export interface CreateGatewayInput {
    * @public
    * <p>The type of created gateway.</p>
    */
-  GatewayType: GatewayType | string | undefined;
+  GatewayType: GatewayType | undefined;
 
   /**
    * @public
@@ -528,7 +528,7 @@ export interface GatewayDetails {
    * @public
    * <p>The type of the gateway type.</p>
    */
-  GatewayType?: GatewayType | string;
+  GatewayType?: GatewayType;
 
   /**
    * @public
@@ -620,7 +620,7 @@ export interface Gateway {
    * @public
    * <p>The type of the gateway.</p>
    */
-  GatewayType?: GatewayType | string;
+  GatewayType?: GatewayType;
 
   /**
    * @public
@@ -904,7 +904,7 @@ export interface HypervisorDetails {
    *          <p>The possible states are <code>PENDING</code>, <code>ONLINE</code>,
    *       <code>OFFLINE</code>, or <code>ERROR</code>.</p>
    */
-  State?: HypervisorState | string;
+  State?: HypervisorState;
 
   /**
    * @public
@@ -923,7 +923,7 @@ export interface HypervisorDetails {
    * @public
    * <p>This is the most recent status for the indicated metadata sync.</p>
    */
-  LatestMetadataSyncStatus?: SyncMetadataStatus | string;
+  LatestMetadataSyncStatus?: SyncMetadataStatus;
 }
 
 /**
@@ -1148,7 +1148,7 @@ export interface Hypervisor {
    * @public
    * <p>The state of the hypervisor.</p>
    */
-  State?: HypervisorState | string;
+  State?: HypervisorState;
 }
 
 /**

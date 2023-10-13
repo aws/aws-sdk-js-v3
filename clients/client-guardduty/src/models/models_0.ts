@@ -342,7 +342,7 @@ export interface FreeTrialFeatureConfigurationResult {
    * @public
    * <p>The name of the feature for which the free trial is configured.</p>
    */
-  Name?: FreeTrialFeatureResult | string;
+  Name?: FreeTrialFeatureResult;
 
   /**
    * @public
@@ -990,7 +990,7 @@ export interface AdminAccount {
    * @public
    * <p>Indicates whether the account is enabled as the delegated administrator.</p>
    */
-  AdminStatus?: AdminStatus | string;
+  AdminStatus?: AdminStatus;
 }
 
 /**
@@ -1130,7 +1130,7 @@ export interface CloudTrailConfigurationResult {
    * @public
    * <p>Describes whether CloudTrail is enabled as a data source for the detector.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: DataSourceStatus | undefined;
 }
 
 /**
@@ -1430,7 +1430,7 @@ export interface CoverageEksClusterDetails {
    *             <code>MANUAL</code> indicates that you are responsible to deploy, update, and manage
    *       the Amazon EKS add-on GuardDuty agent for this resource.</p>
    */
-  ManagementType?: ManagementType | string;
+  ManagementType?: ManagementType;
 }
 
 /**
@@ -1487,7 +1487,7 @@ export interface CoverageFilterCriterion {
    *       <code>CLUSTER_NAME</code> has been deprecated.</p>
    *          </note>
    */
-  CriterionKey?: CoverageFilterCriterionKey | string;
+  CriterionKey?: CoverageFilterCriterionKey;
 
   /**
    * @public
@@ -1524,7 +1524,7 @@ export interface CoverageResourceDetails {
    * @public
    * <p>The type of Amazon Web Services resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 }
 
 /**
@@ -1560,7 +1560,7 @@ export interface CoverageResource {
    * @public
    * <p>Represents the status of the EKS cluster coverage.</p>
    */
-  CoverageStatus?: CoverageStatus | string;
+  CoverageStatus?: CoverageStatus;
 
   /**
    * @public
@@ -1623,13 +1623,13 @@ export interface CoverageSortCriteria {
    *       <code>CLUSTER_NAME</code> has been deprecated.</p>
    *          </note>
    */
-  AttributeName?: CoverageSortKey | string;
+  AttributeName?: CoverageSortKey;
 
   /**
    * @public
    * <p>The order in which the sorted findings are to be displayed.</p>
    */
-  OrderBy?: OrderBy | string;
+  OrderBy?: OrderBy;
 }
 
 /**
@@ -1786,13 +1786,13 @@ export interface DetectorAdditionalConfiguration {
    * @public
    * <p>Name of the additional configuration.</p>
    */
-  Name?: FeatureAdditionalConfiguration | string;
+  Name?: FeatureAdditionalConfiguration;
 
   /**
    * @public
    * <p>Status of the additional configuration.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 }
 
 /**
@@ -1822,13 +1822,13 @@ export interface DetectorFeatureConfiguration {
    * @public
    * <p>The name of the feature.</p>
    */
-  Name?: DetectorFeature | string;
+  Name?: DetectorFeature;
 
   /**
    * @public
    * <p>The status of the feature.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -1872,7 +1872,7 @@ export interface CreateDetectorRequest {
    * @public
    * <p>A value that specifies how frequently updated findings are exported.</p>
    */
-  FindingPublishingFrequency?: FindingPublishingFrequency | string;
+  FindingPublishingFrequency?: FindingPublishingFrequency;
 
   /**
    * @public
@@ -1907,7 +1907,7 @@ export interface EbsVolumesResult {
    * @public
    * <p>Describes whether scanning EBS volumes is enabled as a data source.</p>
    */
-  Status?: DataSourceStatus | string;
+  Status?: DataSourceStatus;
 
   /**
    * @public
@@ -2038,7 +2038,7 @@ export interface CreateFilterRequest {
    * @public
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
-  Action?: FilterAction | string;
+  Action?: FilterAction;
 
   /**
    * @public
@@ -2405,7 +2405,7 @@ export interface CreateIPSetRequest {
    * @public
    * <p>The format of the file that contains the IPSet.</p>
    */
-  Format: IpSetFormat | string | undefined;
+  Format: IpSetFormat | undefined;
 
   /**
    * @public
@@ -2543,7 +2543,7 @@ export interface CreatePublishingDestinationRequest {
    * <p>The type of resource for the publishing destination. Currently only Amazon S3 buckets are
    *       supported.</p>
    */
-  DestinationType: DestinationType | string | undefined;
+  DestinationType: DestinationType | undefined;
 
   /**
    * @public
@@ -2632,7 +2632,7 @@ export interface CreateThreatIntelSetRequest {
    * @public
    * <p>The format of the file that contains the ThreatIntelSet.</p>
    */
-  Format: ThreatIntelSetFormat | string | undefined;
+  Format: ThreatIntelSetFormat | undefined;
 
   /**
    * @public
@@ -2717,7 +2717,7 @@ export interface DNSLogsConfigurationResult {
    * @public
    * <p>Denotes whether DNS logs is enabled as a data source.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: DataSourceStatus | undefined;
 }
 
 /**
@@ -2729,7 +2729,7 @@ export interface FlowLogsConfigurationResult {
    * @public
    * <p>Denotes whether VPC flow logs is enabled as a data source.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: DataSourceStatus | undefined;
 }
 
 /**
@@ -2741,7 +2741,7 @@ export interface KubernetesAuditLogsConfigurationResult {
    * @public
    * <p>A value that describes whether Kubernetes audit logs are enabled as a data source.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: DataSourceStatus | undefined;
 }
 
 /**
@@ -2766,7 +2766,7 @@ export interface S3LogsConfigurationResult {
    * <p>A value that describes whether S3 data event logs are automatically enabled for new
    *       members of the organization.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: DataSourceStatus | undefined;
 }
 
 /**
@@ -3060,7 +3060,7 @@ export interface FilterCriterion {
    *       <code>CLUSTER_NAME</code> has been deprecated.</p>
    *          </note>
    */
-  CriterionKey?: CriterionKey | string;
+  CriterionKey?: CriterionKey;
 
   /**
    * @public
@@ -3098,7 +3098,7 @@ export interface SortCriteria {
    * @public
    * <p>The order by which the sorted findings are to be displayed.</p>
    */
-  OrderBy?: OrderBy | string;
+  OrderBy?: OrderBy;
 }
 
 /**
@@ -3226,7 +3226,7 @@ export interface ScanResultDetails {
    * @public
    * <p>An enum value representing possible scan results.</p>
    */
-  ScanResult?: ScanResult | string;
+  ScanResult?: ScanResult;
 }
 
 /**
@@ -3306,7 +3306,7 @@ export interface Scan {
    * @public
    * <p>An enum value representing possible scan statuses.</p>
    */
-  ScanStatus?: ScanStatus | string;
+  ScanStatus?: ScanStatus;
 
   /**
    * @public
@@ -3372,7 +3372,7 @@ export interface Scan {
    * @public
    * <p>Specifies the scan type that invoked the malware scan.</p>
    */
-  ScanType?: ScanType | string;
+  ScanType?: ScanType;
 }
 
 /**
@@ -3567,7 +3567,7 @@ export interface OrganizationAdditionalConfigurationResult {
    * <p>The name of the additional configuration that is configured for the member accounts within
    *       the organization.</p>
    */
-  Name?: OrgFeatureAdditionalConfiguration | string;
+  Name?: OrgFeatureAdditionalConfiguration;
 
   /**
    * @public
@@ -3598,7 +3598,7 @@ export interface OrganizationAdditionalConfigurationResult {
    *             </li>
    *          </ul>
    */
-  AutoEnable?: OrgFeatureStatus | string;
+  AutoEnable?: OrgFeatureStatus;
 }
 
 /**
@@ -3629,7 +3629,7 @@ export interface OrganizationFeatureConfigurationResult {
    * <p>The name of the feature that is configured for the member accounts within the
    *       organization.</p>
    */
-  Name?: OrgFeature | string;
+  Name?: OrgFeature;
 
   /**
    * @public
@@ -3657,7 +3657,7 @@ export interface OrganizationFeatureConfigurationResult {
    *             </li>
    *          </ul>
    */
-  AutoEnable?: OrgFeatureStatus | string;
+  AutoEnable?: OrgFeatureStatus;
 
   /**
    * @public
@@ -3735,7 +3735,7 @@ export interface DescribeOrganizationConfigurationResponse {
    *             </li>
    *          </ul>
    */
-  AutoEnableOrganizationMembers?: AutoEnableMembers | string;
+  AutoEnableOrganizationMembers?: AutoEnableMembers;
 }
 
 /**
@@ -3787,13 +3787,13 @@ export interface DescribePublishingDestinationResponse {
    * <p>The type of publishing destination. Currently, only Amazon S3 buckets are
    *       supported.</p>
    */
-  DestinationType: DestinationType | string | undefined;
+  DestinationType: DestinationType | undefined;
 
   /**
    * @public
    * <p>The status of the publishing destination.</p>
    */
-  Status: PublishingStatus | string | undefined;
+  Status: PublishingStatus | undefined;
 
   /**
    * @public
@@ -3827,13 +3827,13 @@ export interface Destination {
    * <p>The type of resource used for the publishing destination. Currently, only Amazon S3
    *       buckets are supported.</p>
    */
-  DestinationType: DestinationType | string | undefined;
+  DestinationType: DestinationType | undefined;
 
   /**
    * @public
    * <p>The status of the publishing destination.</p>
    */
-  Status: PublishingStatus | string | undefined;
+  Status: PublishingStatus | undefined;
 }
 
 /**
@@ -3845,13 +3845,13 @@ export interface DetectorAdditionalConfigurationResult {
    * @public
    * <p>Name of the additional configuration.</p>
    */
-  Name?: FeatureAdditionalConfiguration | string;
+  Name?: FeatureAdditionalConfiguration;
 
   /**
    * @public
    * <p>Status of the additional configuration.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -3891,13 +3891,13 @@ export interface DetectorFeatureConfigurationResult {
    * @public
    * <p>Indicates the name of the feature that can be enabled for the detector.</p>
    */
-  Name?: DetectorFeatureResult | string;
+  Name?: DetectorFeatureResult;
 
   /**
    * @public
    * <p>Indicates the status of the feature that is enabled for the detector.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -4267,7 +4267,7 @@ export interface EbsVolumeScanDetails {
    * @public
    * <p>Specifies the scan type that invoked the malware scan.</p>
    */
-  ScanType?: ScanType | string;
+  ScanType?: ScanType;
 }
 
 /**
@@ -5797,7 +5797,7 @@ export interface GetCoverageStatisticsRequest {
    * @public
    * <p>Represents the statistics type used to aggregate the coverage details.</p>
    */
-  StatisticsType: (CoverageStatisticsType | string)[] | undefined;
+  StatisticsType: CoverageStatisticsType[] | undefined;
 }
 
 /**
@@ -5837,7 +5837,7 @@ export interface GetDetectorResponse {
    * @public
    * <p>The publishing frequency of the finding.</p>
    */
-  FindingPublishingFrequency?: FindingPublishingFrequency | string;
+  FindingPublishingFrequency?: FindingPublishingFrequency;
 
   /**
    * @public
@@ -5849,7 +5849,7 @@ export interface GetDetectorResponse {
    * @public
    * <p>The detector status.</p>
    */
-  Status: DetectorStatus | string | undefined;
+  Status: DetectorStatus | undefined;
 
   /**
    * @public
@@ -5915,7 +5915,7 @@ export interface GetFilterResponse {
    * @public
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
-  Action: FilterAction | string | undefined;
+  Action: FilterAction | undefined;
 
   /**
    * @public
@@ -5987,7 +5987,7 @@ export interface GetFindingsStatisticsRequest {
    * @public
    * <p>The types of finding statistics to retrieve.</p>
    */
-  FindingStatisticTypes: (FindingStatisticType | string)[] | undefined;
+  FindingStatisticTypes: FindingStatisticType[] | undefined;
 
   /**
    * @public
@@ -6073,7 +6073,7 @@ export interface GetIPSetResponse {
    * @public
    * <p>The format of the file that contains the IPSet.</p>
    */
-  Format: IpSetFormat | string | undefined;
+  Format: IpSetFormat | undefined;
 
   /**
    * @public
@@ -6085,7 +6085,7 @@ export interface GetIPSetResponse {
    * @public
    * <p>The status of IPSet file that was uploaded.</p>
    */
-  Status: IpSetStatus | string | undefined;
+  Status: IpSetStatus | undefined;
 
   /**
    * @public
@@ -6187,7 +6187,7 @@ export interface GetMalwareScanSettingsResponse {
    * @public
    * <p>An enum value representing possible snapshot preservation settings.</p>
    */
-  EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
+  EbsSnapshotPreservation?: EbsSnapshotPreservation;
 }
 
 /**
@@ -6269,14 +6269,14 @@ export interface MemberAdditionalConfigurationResult {
    * <p>Indicates the name of the additional configuration that is set for the member
    *       account.</p>
    */
-  Name?: OrgFeatureAdditionalConfiguration | string;
+  Name?: OrgFeatureAdditionalConfiguration;
 
   /**
    * @public
    * <p>Indicates the status of the additional configuration that is set for the member
    *       account.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -6295,13 +6295,13 @@ export interface MemberFeaturesConfigurationResult {
    * @public
    * <p>Indicates the name of the feature that is enabled for the detector.</p>
    */
-  Name?: OrgFeature | string;
+  Name?: OrgFeature;
 
   /**
    * @public
    * <p>Indicates the status of the feature that is enabled for the detector.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -6538,7 +6538,7 @@ export interface GetThreatIntelSetResponse {
    * @public
    * <p>The format of the threatIntelSet.</p>
    */
-  Format: ThreatIntelSetFormat | string | undefined;
+  Format: ThreatIntelSetFormat | undefined;
 
   /**
    * @public
@@ -6550,7 +6550,7 @@ export interface GetThreatIntelSetResponse {
    * @public
    * <p>The status of threatIntelSet file uploaded.</p>
    */
-  Status: ThreatIntelSetStatus | string | undefined;
+  Status: ThreatIntelSetStatus | undefined;
 
   /**
    * @public
@@ -6597,7 +6597,7 @@ export interface UsageCriteria {
    *
    * <p>The data sources to aggregate usage statistics from.</p>
    */
-  DataSources?: (DataSource | string)[];
+  DataSources?: DataSource[];
 
   /**
    * @public
@@ -6610,7 +6610,7 @@ export interface UsageCriteria {
    * @public
    * <p>The features to aggregate usage statistics from.</p>
    */
-  Features?: (UsageFeature | string)[];
+  Features?: UsageFeature[];
 }
 
 /**
@@ -6645,7 +6645,7 @@ export interface GetUsageStatisticsRequest {
    * @public
    * <p>The type of usage statistics to retrieve.</p>
    */
-  UsageStatisticType: UsageStatisticType | string | undefined;
+  UsageStatisticType: UsageStatisticType | undefined;
 
   /**
    * @public
@@ -6721,7 +6721,7 @@ export interface UsageDataSourceResult {
    * @public
    * <p>The data source type that generated usage.</p>
    */
-  DataSource?: DataSource | string;
+  DataSource?: DataSource;
 
   /**
    * @public
@@ -6739,7 +6739,7 @@ export interface UsageFeatureResult {
    * @public
    * <p>The feature that generated the usage cost.</p>
    */
-  Feature?: UsageFeature | string;
+  Feature?: UsageFeature;
 
   /**
    * @public

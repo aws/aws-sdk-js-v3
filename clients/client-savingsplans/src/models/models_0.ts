@@ -182,7 +182,7 @@ export interface SavingsPlanRateFilter {
    * @public
    * <p>The filter name.</p>
    */
-  name?: SavingsPlanRateFilterName | string;
+  name?: SavingsPlanRateFilterName;
 
   /**
    * @public
@@ -277,7 +277,7 @@ export interface SavingsPlanRateProperty {
    * @public
    * <p>The property name.</p>
    */
-  name?: SavingsPlanRatePropertyKey | string;
+  name?: SavingsPlanRatePropertyKey;
 
   /**
    * @public
@@ -333,25 +333,25 @@ export interface SavingsPlanRate {
    * @public
    * <p>The currency.</p>
    */
-  currency?: CurrencyCode | string;
+  currency?: CurrencyCode;
 
   /**
    * @public
    * <p>The unit.</p>
    */
-  unit?: SavingsPlanRateUnit | string;
+  unit?: SavingsPlanRateUnit;
 
   /**
    * @public
    * <p>The product type.</p>
    */
-  productType?: SavingsPlanProductType | string;
+  productType?: SavingsPlanProductType;
 
   /**
    * @public
    * <p>The service.</p>
    */
-  serviceCode?: SavingsPlanRateServiceCode | string;
+  serviceCode?: SavingsPlanRateServiceCode;
 
   /**
    * @public
@@ -426,7 +426,7 @@ export interface SavingsPlanFilter {
    * @public
    * <p>The filter name.</p>
    */
-  name?: SavingsPlansFilterName | string;
+  name?: SavingsPlansFilterName;
 
   /**
    * @public
@@ -486,7 +486,7 @@ export interface DescribeSavingsPlansRequest {
    * @public
    * <p>The states.</p>
    */
-  states?: (SavingsPlanState | string)[];
+  states?: SavingsPlanState[];
 
   /**
    * @public
@@ -570,7 +570,7 @@ export interface SavingsPlan {
    * @public
    * <p>The state.</p>
    */
-  state?: SavingsPlanState | string;
+  state?: SavingsPlanState;
 
   /**
    * @public
@@ -588,25 +588,25 @@ export interface SavingsPlan {
    * @public
    * <p>The plan type.</p>
    */
-  savingsPlanType?: SavingsPlanType | string;
+  savingsPlanType?: SavingsPlanType;
 
   /**
    * @public
    * <p>The payment option.</p>
    */
-  paymentOption?: SavingsPlanPaymentOption | string;
+  paymentOption?: SavingsPlanPaymentOption;
 
   /**
    * @public
    * <p>The product types.</p>
    */
-  productTypes?: (SavingsPlanProductType | string)[];
+  productTypes?: SavingsPlanProductType[];
 
   /**
    * @public
    * <p>The currency.</p>
    */
-  currency?: CurrencyCode | string;
+  currency?: CurrencyCode;
 
   /**
    * @public
@@ -685,7 +685,7 @@ export interface SavingsPlanOfferingRateFilterElement {
    * @public
    * <p>The filter name.</p>
    */
-  name?: SavingsPlanRateFilterAttribute | string;
+  name?: SavingsPlanRateFilterAttribute;
 
   /**
    * @public
@@ -708,25 +708,25 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
    * @public
    * <p>The payment options.</p>
    */
-  savingsPlanPaymentOptions?: (SavingsPlanPaymentOption | string)[];
+  savingsPlanPaymentOptions?: SavingsPlanPaymentOption[];
 
   /**
    * @public
    * <p>The plan types.</p>
    */
-  savingsPlanTypes?: (SavingsPlanType | string)[];
+  savingsPlanTypes?: SavingsPlanType[];
 
   /**
    * @public
    * <p>The AWS products.</p>
    */
-  products?: (SavingsPlanProductType | string)[];
+  products?: SavingsPlanProductType[];
 
   /**
    * @public
    * <p>The services.</p>
    */
-  serviceCodes?: (SavingsPlanRateServiceCode | string)[];
+  serviceCodes?: SavingsPlanRateServiceCode[];
 
   /**
    * @public
@@ -793,13 +793,13 @@ export interface ParentSavingsPlanOffering {
    * @public
    * <p>The payment option.</p>
    */
-  paymentOption?: SavingsPlanPaymentOption | string;
+  paymentOption?: SavingsPlanPaymentOption;
 
   /**
    * @public
    * <p>The plan type.</p>
    */
-  planType?: SavingsPlanType | string;
+  planType?: SavingsPlanType;
 
   /**
    * @public
@@ -811,7 +811,7 @@ export interface ParentSavingsPlanOffering {
    * @public
    * <p>The currency.</p>
    */
-  currency?: CurrencyCode | string;
+  currency?: CurrencyCode;
 
   /**
    * @public
@@ -841,19 +841,19 @@ export interface SavingsPlanOfferingRate {
    * @public
    * <p>The unit.</p>
    */
-  unit?: SavingsPlanRateUnit | string;
+  unit?: SavingsPlanRateUnit;
 
   /**
    * @public
    * <p>The product type.</p>
    */
-  productType?: SavingsPlanProductType | string;
+  productType?: SavingsPlanProductType;
 
   /**
    * @public
    * <p>The service.</p>
    */
-  serviceCode?: SavingsPlanRateServiceCode | string;
+  serviceCode?: SavingsPlanRateServiceCode;
 
   /**
    * @public
@@ -916,7 +916,7 @@ export interface SavingsPlanOfferingFilterElement {
    * @public
    * <p>The filter name.</p>
    */
-  name?: SavingsPlanOfferingFilterAttribute | string;
+  name?: SavingsPlanOfferingFilterAttribute;
 
   /**
    * @public
@@ -939,19 +939,19 @@ export interface DescribeSavingsPlansOfferingsRequest {
    * @public
    * <p>The payment options.</p>
    */
-  paymentOptions?: (SavingsPlanPaymentOption | string)[];
+  paymentOptions?: SavingsPlanPaymentOption[];
 
   /**
    * @public
    * <p>The product type.</p>
    */
-  productType?: SavingsPlanProductType | string;
+  productType?: SavingsPlanProductType;
 
   /**
    * @public
    * <p>The plan type.</p>
    */
-  planTypes?: (SavingsPlanType | string)[];
+  planTypes?: SavingsPlanType[];
 
   /**
    * @public
@@ -963,7 +963,7 @@ export interface DescribeSavingsPlansOfferingsRequest {
    * @public
    * <p>The currencies.</p>
    */
-  currencies?: (CurrencyCode | string)[];
+  currencies?: CurrencyCode[];
 
   /**
    * @public
@@ -1033,7 +1033,7 @@ export interface SavingsPlanOfferingProperty {
    * @public
    * <p>The property name.</p>
    */
-  name?: SavingsPlanOfferingPropertyKey | string;
+  name?: SavingsPlanOfferingPropertyKey;
 
   /**
    * @public
@@ -1057,13 +1057,13 @@ export interface SavingsPlanOffering {
    * @public
    * <p>The product type.</p>
    */
-  productTypes?: (SavingsPlanProductType | string)[];
+  productTypes?: SavingsPlanProductType[];
 
   /**
    * @public
    * <p>The plan type.</p>
    */
-  planType?: SavingsPlanType | string;
+  planType?: SavingsPlanType;
 
   /**
    * @public
@@ -1075,7 +1075,7 @@ export interface SavingsPlanOffering {
    * @public
    * <p>The payment option.</p>
    */
-  paymentOption?: SavingsPlanPaymentOption | string;
+  paymentOption?: SavingsPlanPaymentOption;
 
   /**
    * @public
@@ -1087,7 +1087,7 @@ export interface SavingsPlanOffering {
    * @public
    * <p>The currency.</p>
    */
-  currency?: CurrencyCode | string;
+  currency?: CurrencyCode;
 
   /**
    * @public

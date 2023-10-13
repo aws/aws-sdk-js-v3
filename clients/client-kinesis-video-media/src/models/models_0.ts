@@ -121,7 +121,7 @@ export interface StartSelector {
    *           <code>startSelector</code>.</p>
    *          </note>
    */
-  StartSelectorType: StartSelectorType | string | undefined;
+  StartSelectorType: StartSelectorType | undefined;
 
   /**
    * @public

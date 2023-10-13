@@ -5214,7 +5214,7 @@ export interface Parameter {
    * @public
    * <p>Indicates when to apply parameter updates.</p>
    */
-  ApplyMethod?: ApplyMethod | string;
+  ApplyMethod?: ApplyMethod;
 }
 
 /**
@@ -6320,7 +6320,7 @@ export interface DescribeEventsMessage {
    * <p>The event source to retrieve events for. If no value is specified, all events are
    *       returned.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -6395,7 +6395,7 @@ export interface Event {
    * @public
    * <p>Specifies the source type for this event.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public

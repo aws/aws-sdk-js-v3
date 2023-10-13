@@ -49,7 +49,7 @@ export interface Target {
    * @public
    * <p>The target type is always an <code>ACCOUNT</code>.</p>
    */
-  Type: TargetType | string | undefined;
+  Type: TargetType | undefined;
 
   /**
    * @public

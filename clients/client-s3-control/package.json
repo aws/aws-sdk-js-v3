@@ -46,7 +46,7 @@
     "@smithy/md5-js": "^2.0.11",
     "@smithy/middleware-apply-body-checksum": "^2.0.13",
     "@smithy/middleware-content-length": "^2.0.13",
-    "@smithy/middleware-endpoint": "^2.1.0",
+    "@smithy/middleware-endpoint": "^2.1.1",
     "@smithy/middleware-retry": "^2.0.16",
     "@smithy/middleware-serde": "^2.0.11",
     "@smithy/middleware-stack": "^2.0.5",

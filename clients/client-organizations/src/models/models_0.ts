@@ -64,7 +64,7 @@ export interface HandshakeParty {
    * @public
    * <p>The type of party.</p>
    */
-  Type: HandshakePartyType | string | undefined;
+  Type: HandshakePartyType | undefined;
 }
 
 /**
@@ -155,7 +155,7 @@ export class AccessDeniedForDependencyException extends __BaseException {
   readonly name: "AccessDeniedForDependencyException" = "AccessDeniedForDependencyException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: AccessDeniedForDependencyExceptionReason | string;
+  Reason?: AccessDeniedForDependencyExceptionReason;
   /**
    * @internal
    */
@@ -328,7 +328,7 @@ export class HandshakeConstraintViolationException extends __BaseException {
   readonly name: "HandshakeConstraintViolationException" = "HandshakeConstraintViolationException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: HandshakeConstraintViolationExceptionReason | string;
+  Reason?: HandshakeConstraintViolationExceptionReason;
   /**
    * @internal
    */
@@ -540,7 +540,7 @@ export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: InvalidInputExceptionReason | string;
+  Reason?: InvalidInputExceptionReason;
   /**
    * @internal
    */
@@ -678,13 +678,13 @@ export interface Account {
    * @public
    * <p>The status of the account in the organization.</p>
    */
-  Status?: AccountStatus | string;
+  Status?: AccountStatus;
 
   /**
    * @public
    * <p>The method by which the account joined the organization.</p>
    */
-  JoinedMethod?: AccountJoinedMethod | string;
+  JoinedMethod?: AccountJoinedMethod;
 
   /**
    * @public
@@ -1124,7 +1124,7 @@ export class ConstraintViolationException extends __BaseException {
   readonly name: "ConstraintViolationException" = "ConstraintViolationException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: ConstraintViolationExceptionReason | string;
+  Reason?: ConstraintViolationExceptionReason;
   /**
    * @internal
    */
@@ -1466,7 +1466,7 @@ export interface CreateAccountRequest {
    *             IAM users and roles with the required permissions can access billing information for
    *             the new account.</p>
    */
-  IamUserAccessToBilling?: IAMUserAccessToBilling | string;
+  IamUserAccessToBilling?: IAMUserAccessToBilling;
 
   /**
    * @public
@@ -1552,7 +1552,7 @@ export interface CreateAccountStatus {
    * @public
    * <p>The status of the asynchronous request to create an Amazon Web Services account.</p>
    */
-  State?: CreateAccountState | string;
+  State?: CreateAccountState;
 
   /**
    * @public
@@ -1650,7 +1650,7 @@ export interface CreateAccountStatus {
    *             </li>
    *          </ul>
    */
-  FailureReason?: CreateAccountFailureReason | string;
+  FailureReason?: CreateAccountFailureReason;
 }
 
 /**
@@ -1793,7 +1793,7 @@ export interface CreateGovCloudAccountRequest {
    *             IAM users and roles with the required permissions can access billing information for
    *             the new account.</p>
    */
-  IamUserAccessToBilling?: IAMUserAccessToBilling | string;
+  IamUserAccessToBilling?: IAMUserAccessToBilling;
 
   /**
    * @public
@@ -1868,7 +1868,7 @@ export interface CreateOrganizationRequest {
    *             </li>
    *          </ul>
    */
-  FeatureSet?: OrganizationFeatureSet | string;
+  FeatureSet?: OrganizationFeatureSet;
 }
 
 /**
@@ -1911,7 +1911,7 @@ export interface PolicyTypeSummary {
    * @public
    * <p>The name of the policy type.</p>
    */
-  Type?: PolicyType | string;
+  Type?: PolicyType;
 
   /**
    * @public
@@ -1919,7 +1919,7 @@ export interface PolicyTypeSummary {
    *             of the specified type to a root or to an OU or account in that root, it must be
    *             available in the organization and enabled for that root.</p>
    */
-  Status?: PolicyTypeStatus | string;
+  Status?: PolicyTypeStatus;
 }
 
 /**
@@ -1953,7 +1953,7 @@ export interface Organization {
    *             functionality is available. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling all features
    *                 in your organization</a> in the <i>Organizations User Guide</i>.</p>
    */
-  FeatureSet?: OrganizationFeatureSet | string;
+  FeatureSet?: OrganizationFeatureSet;
 
   /**
    * @public
@@ -2191,7 +2191,7 @@ export interface CreatePolicyRequest {
    *             </li>
    *          </ul>
    */
-  Type: PolicyType | string | undefined;
+  Type: PolicyType | undefined;
 
   /**
    * @public
@@ -2249,7 +2249,7 @@ export interface PolicySummary {
    * @public
    * <p>The type of policy.</p>
    */
-  Type?: PolicyType | string;
+  Type?: PolicyType;
 
   /**
    * @public
@@ -2660,7 +2660,7 @@ export interface DescribeEffectivePolicyRequest {
    *             </li>
    *          </ul>
    */
-  PolicyType: EffectivePolicyType | string | undefined;
+  PolicyType: EffectivePolicyType | undefined;
 
   /**
    * @public
@@ -2700,7 +2700,7 @@ export interface EffectivePolicy {
    * @public
    * <p>The policy type.</p>
    */
-  PolicyType?: EffectivePolicyType | string;
+  PolicyType?: EffectivePolicyType;
 }
 
 /**
@@ -2992,7 +2992,7 @@ export interface DisablePolicyTypeRequest {
    *             </li>
    *          </ul>
    */
-  PolicyType: PolicyType | string | undefined;
+  PolicyType: PolicyType | undefined;
 }
 
 /**
@@ -3133,7 +3133,7 @@ export interface EnablePolicyTypeRequest {
    *             </li>
    *          </ul>
    */
-  PolicyType: PolicyType | string | undefined;
+  PolicyType: PolicyType | undefined;
 }
 
 /**
@@ -3498,7 +3498,7 @@ export interface ListChildrenRequest {
    * @public
    * <p>Filters the output to include only the specified child type.</p>
    */
-  ChildType: ChildType | string | undefined;
+  ChildType: ChildType | undefined;
 
   /**
    * @public
@@ -3554,7 +3554,7 @@ export interface Child {
    * @public
    * <p>The type of this child entity.</p>
    */
-  Type?: ChildType | string;
+  Type?: ChildType;
 }
 
 /**
@@ -3586,7 +3586,7 @@ export interface ListCreateAccountStatusRequest {
    * <p>A list of one or more states that you want included in the response. If this parameter
    *             isn't present, all requests are included in the response.</p>
    */
-  States?: (CreateAccountState | string)[];
+  States?: CreateAccountState[];
 
   /**
    * @public
@@ -3705,14 +3705,14 @@ export interface DelegatedAdministrator {
    * @public
    * <p>The status of the delegated administrator's account in the organization.</p>
    */
-  Status?: AccountStatus | string;
+  Status?: AccountStatus;
 
   /**
    * @public
    * <p>The method by which the delegated administrator's account joined the
    *             organization.</p>
    */
-  JoinedMethod?: AccountJoinedMethod | string;
+  JoinedMethod?: AccountJoinedMethod;
 
   /**
    * @public
@@ -3836,7 +3836,7 @@ export interface HandshakeFilter {
    *          <p>If you specify <code>ActionType</code>, you cannot also specify
    *                 <code>ParentHandshakeId</code>.</p>
    */
-  ActionType?: ActionType | string;
+  ActionType?: ActionType;
 
   /**
    * @public
@@ -4117,7 +4117,7 @@ export interface Parent {
    * @public
    * <p>The type of the parent entity.</p>
    */
-  Type?: ParentType | string;
+  Type?: ParentType;
 }
 
 /**
@@ -4171,7 +4171,7 @@ export interface ListPoliciesRequest {
    *             </li>
    *          </ul>
    */
-  Filter: PolicyType | string | undefined;
+  Filter: PolicyType | undefined;
 
   /**
    * @public
@@ -4275,7 +4275,7 @@ export interface ListPoliciesForTargetRequest {
    *             </li>
    *          </ul>
    */
-  Filter: PolicyType | string | undefined;
+  Filter: PolicyType | undefined;
 
   /**
    * @public
@@ -4536,7 +4536,7 @@ export interface PolicyTargetSummary {
    * @public
    * <p>The type of the policy target.</p>
    */
-  Type?: TargetType | string;
+  Type?: TargetType;
 }
 
 /**
@@ -4979,7 +4979,7 @@ export interface HandshakeResource {
    *             </li>
    *          </ul>
    */
-  Type?: HandshakeResourceType | string;
+  Type?: HandshakeResourceType;
 
   /**
    * @public
@@ -5067,7 +5067,7 @@ export interface Handshake {
    *             </li>
    *          </ul>
    */
-  State?: HandshakeState | string;
+  State?: HandshakeState;
 
   /**
    * @public
@@ -5113,7 +5113,7 @@ export interface Handshake {
    *             </li>
    *          </ul>
    */
-  Action?: ActionType | string;
+  Action?: ActionType;
 
   /**
    * @public

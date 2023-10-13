@@ -169,7 +169,7 @@ export interface GetUnfilteredPartitionMetadataRequest {
    * @public
    * <p>(Required) A list of supported permission types. </p>
    */
-  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+  SupportedPermissionTypes: PermissionType[] | undefined;
 }
 
 /**
@@ -361,7 +361,7 @@ export interface GetUnfilteredPartitionsMetadataRequest {
    * @public
    * <p>A list of supported permission types. </p>
    */
-  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+  SupportedPermissionTypes: PermissionType[] | undefined;
 
   /**
    * @public
@@ -457,7 +457,7 @@ export interface GetUnfilteredTableMetadataRequest {
    * @public
    * <p>(Required) A list of supported permission types. </p>
    */
-  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+  SupportedPermissionTypes: PermissionType[] | undefined;
 }
 
 /**
@@ -566,7 +566,7 @@ export interface UserDefinedFunction {
    * @public
    * <p>The owner type.</p>
    */
-  OwnerType?: PrincipalType | string;
+  OwnerType?: PrincipalType;
 
   /**
    * @public
@@ -949,7 +949,7 @@ export interface CrawlsFilter {
    *             </li>
    *          </ul>
    */
-  FieldName?: FieldName | string;
+  FieldName?: FieldName;
 
   /**
    * @public
@@ -981,7 +981,7 @@ export interface CrawlsFilter {
    *             </li>
    *          </ul>
    */
-  FilterOperator?: FilterOperator | string;
+  FilterOperator?: FilterOperator;
 
   /**
    * @public
@@ -1050,7 +1050,7 @@ export interface CrawlerHistory {
    * @public
    * <p>The state of the crawl.</p>
    */
-  State?: CrawlerHistoryState | string;
+  State?: CrawlerHistoryState;
 
   /**
    * @public
@@ -1332,7 +1332,7 @@ export interface DataQualityRuleRecommendationRunDescription {
    * @public
    * <p>The status for this run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: TaskStatusType;
 
   /**
    * @public
@@ -1426,7 +1426,7 @@ export interface DataQualityRulesetEvaluationRunDescription {
    * @public
    * <p>The status for this run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: TaskStatusType;
 
   /**
    * @public
@@ -1781,7 +1781,7 @@ export interface RegistryListItem {
    * @public
    * <p>The status of the registry.</p>
    */
-  Status?: RegistryStatus | string;
+  Status?: RegistryStatus;
 
   /**
    * @public
@@ -1869,7 +1869,7 @@ export interface SchemaListItem {
    * @public
    * <p>The status of the schema.</p>
    */
-  SchemaStatus?: SchemaStatus | string;
+  SchemaStatus?: SchemaStatus;
 
   /**
    * @public
@@ -1959,7 +1959,7 @@ export interface SchemaVersionListItem {
    * @public
    * <p>The status of the schema version.</p>
    */
-  Status?: SchemaVersionStatus | string;
+  Status?: SchemaVersionStatus;
 
   /**
    * @public
@@ -2241,7 +2241,7 @@ export interface PutResourcePolicyRequest {
    *         <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a
    *       null value is used, the call does not depend on the existence of a policy.</p>
    */
-  PolicyExistsCondition?: ExistCondition | string;
+  PolicyExistsCondition?: ExistCondition;
 
   /**
    * @public
@@ -2259,7 +2259,7 @@ export interface PutResourcePolicyRequest {
    *          <p>Must be set to <code>'TRUE'</code> if you have already used the Management Console to
    *       grant cross-account access, otherwise the call fails. Default is 'FALSE'.</p>
    */
-  EnableHybrid?: EnableHybridValues | string;
+  EnableHybrid?: EnableHybridValues;
 }
 
 /**
@@ -2554,7 +2554,7 @@ export interface RegisterSchemaVersionResponse {
    * @public
    * <p>The status of the schema version.</p>
    */
-  Status?: SchemaVersionStatus | string;
+  Status?: SchemaVersionStatus;
 }
 
 /**
@@ -2831,7 +2831,7 @@ export interface PropertyPredicate {
    * @public
    * <p>The comparator used to compare this property to others.</p>
    */
-  Comparator?: Comparator | string;
+  Comparator?: Comparator;
 }
 
 /**
@@ -2863,7 +2863,7 @@ export interface SortCriterion {
    * @public
    * <p>An ascending or descending sort.</p>
    */
-  Sort?: Sort | string;
+  Sort?: Sort;
 }
 
 /**
@@ -2922,7 +2922,7 @@ export interface SearchTablesRequest {
    *             </li>
    *          </ul>
    */
-  ResourceShareType?: ResourceShareType | string;
+  ResourceShareType?: ResourceShareType;
 }
 
 /**
@@ -3385,7 +3385,7 @@ export interface StartJobRunRequest {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -3399,7 +3399,7 @@ export interface StartJobRunRequest {
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
-  ExecutionClass?: ExecutionClass | string;
+  ExecutionClass?: ExecutionClass;
 }
 
 /**
@@ -3829,7 +3829,7 @@ export interface UpdateCsvClassifierRequest {
    * @public
    * <p>Indicates whether the CSV file contains a header.</p>
    */
-  ContainsHeader?: CsvHeaderOption | string;
+  ContainsHeader?: CsvHeaderOption;
 
   /**
    * @public
@@ -3865,7 +3865,7 @@ export interface UpdateCsvClassifierRequest {
    * @public
    * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
    */
-  Serde?: CsvSerdeOption | string;
+  Serde?: CsvSerdeOption;
 }
 
 /**
@@ -4475,7 +4475,7 @@ export interface UpdateJobFromSourceControlRequest {
    *       The provider for the remote repository. Possible values: GITHUB, AWS_CODE_COMMIT, GITLAB, BITBUCKET.
    *     </p>
    */
-  Provider?: SourceControlProvider | string;
+  Provider?: SourceControlProvider;
 
   /**
    * @public
@@ -4514,7 +4514,7 @@ export interface UpdateJobFromSourceControlRequest {
    * @public
    * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
    */
-  AuthStrategy?: SourceControlAuthStrategy | string;
+  AuthStrategy?: SourceControlAuthStrategy;
 
   /**
    * @public
@@ -4601,7 +4601,7 @@ export interface UpdateMLTransformRequest {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -4738,7 +4738,7 @@ export interface UpdateSchemaInput {
    * @public
    * <p>The new compatibility setting for the schema.</p>
    */
-  Compatibility?: Compatibility | string;
+  Compatibility?: Compatibility;
 
   /**
    * @public
@@ -4786,7 +4786,7 @@ export interface UpdateSourceControlFromJobRequest {
    *       The provider for the remote repository. Possible values: GITHUB, AWS_CODE_COMMIT, GITLAB, BITBUCKET.
    *     </p>
    */
-  Provider?: SourceControlProvider | string;
+  Provider?: SourceControlProvider;
 
   /**
    * @public
@@ -4825,7 +4825,7 @@ export interface UpdateSourceControlFromJobRequest {
    * @public
    * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
    */
-  AuthStrategy?: SourceControlAuthStrategy | string;
+  AuthStrategy?: SourceControlAuthStrategy;
 
   /**
    * @public
@@ -5756,7 +5756,7 @@ export interface CreateJobRequest {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -5770,7 +5770,7 @@ export interface CreateJobRequest {
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
-  ExecutionClass?: ExecutionClass | string;
+  ExecutionClass?: ExecutionClass;
 
   /**
    * @public
@@ -5943,7 +5943,7 @@ export interface Job {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -5991,7 +5991,7 @@ export interface Job {
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
-  ExecutionClass?: ExecutionClass | string;
+  ExecutionClass?: ExecutionClass;
 
   /**
    * @public
@@ -6147,7 +6147,7 @@ export interface JobUpdate {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -6195,7 +6195,7 @@ export interface JobUpdate {
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
-  ExecutionClass?: ExecutionClass | string;
+  ExecutionClass?: ExecutionClass;
 
   /**
    * @public

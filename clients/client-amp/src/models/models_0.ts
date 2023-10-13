@@ -127,7 +127,7 @@ export interface AlertManagerDefinitionStatus {
    * @public
    * Status code of this definition.
    */
-  statusCode: AlertManagerDefinitionStatusCode | string | undefined;
+  statusCode: AlertManagerDefinitionStatusCode | undefined;
 
   /**
    * @public
@@ -345,7 +345,7 @@ export class ValidationException extends __BaseException {
    * @public
    * Reason the request failed validation.
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -607,7 +607,7 @@ export interface WorkspaceStatus {
    * @public
    * Status code of this workspace.
    */
-  statusCode: WorkspaceStatusCode | string | undefined;
+  statusCode: WorkspaceStatusCode | undefined;
 }
 
 /**
@@ -884,7 +884,7 @@ export interface LoggingConfigurationStatus {
    * @public
    * Status code of the logging configuration.
    */
-  statusCode: LoggingConfigurationStatusCode | string | undefined;
+  statusCode: LoggingConfigurationStatusCode | undefined;
 
   /**
    * @public
@@ -1101,7 +1101,7 @@ export interface RuleGroupsNamespaceStatus {
    * @public
    * Status code of this namespace.
    */
-  statusCode: RuleGroupsNamespaceStatusCode | string | undefined;
+  statusCode: RuleGroupsNamespaceStatusCode | undefined;
 
   /**
    * @public

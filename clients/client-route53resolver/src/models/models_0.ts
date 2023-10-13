@@ -121,7 +121,7 @@ export interface AssociateFirewallRuleGroupRequest {
    * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
    *        When you create the association, the default setting is <code>DISABLED</code>. </p>
    */
-  MutationProtection?: MutationProtectionStatus | string;
+  MutationProtection?: MutationProtectionStatus;
 
   /**
    * @public
@@ -193,7 +193,7 @@ export interface FirewallRuleGroupAssociation {
    * @public
    * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. </p>
    */
-  MutationProtection?: MutationProtectionStatus | string;
+  MutationProtection?: MutationProtectionStatus;
 
   /**
    * @public
@@ -206,7 +206,7 @@ export interface FirewallRuleGroupAssociation {
    * @public
    * <p>The current status of the association.</p>
    */
-  Status?: FirewallRuleGroupAssociationStatus | string;
+  Status?: FirewallRuleGroupAssociationStatus;
 
   /**
    * @public
@@ -559,7 +559,7 @@ export interface ResolverEndpoint {
    *             </li>
    *          </ul>
    */
-  Direction?: ResolverEndpointDirection | string;
+  Direction?: ResolverEndpointDirection;
 
   /**
    * @public
@@ -620,7 +620,7 @@ export interface ResolverEndpoint {
    *             </li>
    *          </ul>
    */
-  Status?: ResolverEndpointStatus | string;
+  Status?: ResolverEndpointStatus;
 
   /**
    * @public
@@ -646,7 +646,7 @@ export interface ResolverEndpoint {
    * 			The Resolver endpoint IP address type.
    * 		</p>
    */
-  ResolverEndpointType?: ResolverEndpointType | string;
+  ResolverEndpointType?: ResolverEndpointType;
 
   /**
    * @public
@@ -859,7 +859,7 @@ export interface ResolverQueryLogConfigAssociation {
    *             </li>
    *          </ul>
    */
-  Status?: ResolverQueryLogConfigAssociationStatus | string;
+  Status?: ResolverQueryLogConfigAssociationStatus;
 
   /**
    * @public
@@ -876,7 +876,7 @@ export interface ResolverQueryLogConfigAssociation {
    *          </ul>
    *          <p>If the value of <code>Status</code> is a value other than <code>FAILED</code>, <code>Error</code> is null. </p>
    */
-  Error?: ResolverQueryLogConfigAssociationError | string;
+  Error?: ResolverQueryLogConfigAssociationError;
 
   /**
    * @public
@@ -985,7 +985,7 @@ export interface ResolverRuleAssociation {
    * @public
    * <p>A code that specifies the current status of the association between a Resolver rule and a VPC.</p>
    */
-  Status?: ResolverRuleAssociationStatus | string;
+  Status?: ResolverRuleAssociationStatus;
 
   /**
    * @public
@@ -1152,7 +1152,7 @@ export interface FirewallDomainList {
    * @public
    * <p>The status of the domain list.  </p>
    */
-  Status?: FirewallDomainListStatus | string;
+  Status?: FirewallDomainListStatus;
 
   /**
    * @public
@@ -1251,7 +1251,7 @@ export interface CreateFirewallRuleRequest {
    *             </li>
    *          </ul>
    */
-  Action: Action | string | undefined;
+  Action: Action | undefined;
 
   /**
    * @public
@@ -1273,7 +1273,7 @@ export interface CreateFirewallRuleRequest {
    *          </ul>
    *          <p>This setting is required if the rule action setting is <code>BLOCK</code>.</p>
    */
-  BlockResponse?: BlockResponse | string;
+  BlockResponse?: BlockResponse;
 
   /**
    * @public
@@ -1287,7 +1287,7 @@ export interface CreateFirewallRuleRequest {
    * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
    */
-  BlockOverrideDnsType?: BlockOverrideDnsType | string;
+  BlockOverrideDnsType?: BlockOverrideDnsType;
 
   /**
    * @public
@@ -1350,7 +1350,7 @@ export interface FirewallRule {
    *             </li>
    *          </ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -1370,7 +1370,7 @@ export interface FirewallRule {
    *             </li>
    *          </ul>
    */
-  BlockResponse?: BlockResponse | string;
+  BlockResponse?: BlockResponse;
 
   /**
    * @public
@@ -1382,7 +1382,7 @@ export interface FirewallRule {
    * @public
    * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    */
-  BlockOverrideDnsType?: BlockOverrideDnsType | string;
+  BlockOverrideDnsType?: BlockOverrideDnsType;
 
   /**
    * @public
@@ -1510,7 +1510,7 @@ export interface FirewallRuleGroup {
    * @public
    * <p>The status of the domain list.  </p>
    */
-  Status?: FirewallRuleGroupStatus | string;
+  Status?: FirewallRuleGroupStatus;
 
   /**
    * @public
@@ -1538,7 +1538,7 @@ export interface FirewallRuleGroup {
    * <p>Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another
    *               Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: ShareStatus;
 
   /**
    * @public
@@ -1694,7 +1694,7 @@ export interface OutpostResolver {
    * @public
    * <p>Status of the Resolver.</p>
    */
-  Status?: OutpostResolverStatus | string;
+  Status?: OutpostResolverStatus;
 
   /**
    * @public
@@ -1813,7 +1813,7 @@ export interface CreateResolverEndpointRequest {
    *             </li>
    *          </ul>
    */
-  Direction: ResolverEndpointDirection | string | undefined;
+  Direction: ResolverEndpointDirection | undefined;
 
   /**
    * @public
@@ -1836,7 +1836,7 @@ export interface CreateResolverEndpointRequest {
    * 			endpoint type is applied to all IP addresses.
    * 		</p>
    */
-  ResolverEndpointType?: ResolverEndpointType | string;
+  ResolverEndpointType?: ResolverEndpointType;
 
   /**
    * @public
@@ -1994,14 +1994,14 @@ export interface ResolverQueryLogConfig {
    *             </li>
    *          </ul>
    */
-  Status?: ResolverQueryLogConfigStatus | string;
+  Status?: ResolverQueryLogConfigStatus;
 
   /**
    * @public
    * <p>An indication of whether the query logging configuration is shared with other Amazon Web Services accounts, or was shared with the current account by another
    * 			Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: ShareStatus;
 
   /**
    * @public
@@ -2125,7 +2125,7 @@ export interface CreateResolverRuleRequest {
    * 			<code>SYSTEM</code> for <code>RuleType</code>.</p>
    *          <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
    */
-  RuleType: RuleTypeOption | string | undefined;
+  RuleType: RuleTypeOption | undefined;
 
   /**
    * @public
@@ -2217,7 +2217,7 @@ export interface ResolverRule {
    * @public
    * <p>A code that specifies the current status of the Resolver rule.</p>
    */
-  Status?: ResolverRuleStatus | string;
+  Status?: ResolverRuleStatus;
 
   /**
    * @public
@@ -2235,7 +2235,7 @@ export interface ResolverRule {
    * 			<code>SYSTEM</code> for <code>RuleType</code>.</p>
    *          <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
    */
-  RuleType?: RuleTypeOption | string;
+  RuleType?: RuleTypeOption;
 
   /**
    * @public
@@ -2267,7 +2267,7 @@ export interface ResolverRule {
    * <p>Whether the rule is shared and, if so, whether the current account is sharing the rule with
    * 			another account, or another account is sharing the rule with the current account.</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: ShareStatus;
 
   /**
    * @public
@@ -2905,7 +2905,7 @@ export interface FirewallConfig {
    *          </ul>
    *          <p>This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association. </p>
    */
-  FirewallFailOpen?: FirewallFailOpenStatus | string;
+  FirewallFailOpen?: FirewallFailOpenStatus;
 }
 
 /**
@@ -3021,7 +3021,7 @@ export interface FirewallRuleGroupMetadata {
    * <p>Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another
    *               Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: ShareStatus;
 }
 
 /**
@@ -3240,7 +3240,7 @@ export interface ResolverConfig {
    *             </li>
    *          </ul>
    */
-  AutodefinedReverse?: ResolverAutodefinedReverseStatus | string;
+  AutodefinedReverse?: ResolverAutodefinedReverseStatus;
 }
 
 /**
@@ -3330,7 +3330,7 @@ export interface ResolverDnssecConfig {
    *             </li>
    *          </ul>
    */
-  ValidationStatus?: ResolverDNSSECValidationStatus | string;
+  ValidationStatus?: ResolverDNSSECValidationStatus;
 }
 
 /**
@@ -3535,7 +3535,7 @@ export interface ImportFirewallDomainsRequest {
    * @public
    * <p>What you want DNS Firewall to do with the domains that are listed in the file. This must be set to <code>REPLACE</code>, which updates the domain list to exactly match the list in the file. </p>
    */
-  Operation: FirewallDomainImportOperation | string | undefined;
+  Operation: FirewallDomainImportOperation | undefined;
 
   /**
    * @public
@@ -3567,7 +3567,7 @@ export interface ImportFirewallDomainsResponse {
    * @public
    * <p>Status of the import request.</p>
    */
-  Status?: FirewallDomainListStatus | string;
+  Status?: FirewallDomainListStatus;
 
   /**
    * @public
@@ -3703,7 +3703,7 @@ export interface IpAddressResponse {
    * @public
    * <p>A status code that gives the current status of the request.</p>
    */
-  Status?: IpAddressStatus | string;
+  Status?: IpAddressStatus;
 
   /**
    * @public
@@ -3891,7 +3891,7 @@ export interface ListFirewallRuleGroupAssociationsRequest {
    * @public
    * <p>The association <code>Status</code> setting that you want DNS Firewall to filter on for the list. If you don't specify this, then DNS Firewall returns all associations, regardless of status.</p>
    */
-  Status?: FirewallRuleGroupAssociationStatus | string;
+  Status?: FirewallRuleGroupAssociationStatus;
 
   /**
    * @public
@@ -4012,7 +4012,7 @@ export interface ListFirewallRulesRequest {
    *             </li>
    *          </ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -4435,7 +4435,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    * 				you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p>
    *          </note>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -4594,7 +4594,7 @@ export interface ListResolverQueryLogConfigsRequest {
    * 				you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p>
    *          </note>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -5087,7 +5087,7 @@ export interface UpdateFirewallConfigRequest {
    *          </ul>
    *          <p>This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association. </p>
    */
-  FirewallFailOpen: FirewallFailOpenStatus | string | undefined;
+  FirewallFailOpen: FirewallFailOpenStatus | undefined;
 }
 
 /**
@@ -5129,7 +5129,7 @@ export interface UpdateFirewallDomainsRequest {
    *             </li>
    *          </ul>
    */
-  Operation: FirewallDomainUpdateOperation | string | undefined;
+  Operation: FirewallDomainUpdateOperation | undefined;
 
   /**
    * @public
@@ -5176,7 +5176,7 @@ export interface UpdateFirewallDomainsResponse {
    * @public
    * <p>Status of the <code>UpdateFirewallDomains</code> request.</p>
    */
-  Status?: FirewallDomainListStatus | string;
+  Status?: FirewallDomainListStatus;
 
   /**
    * @public
@@ -5229,7 +5229,7 @@ export interface UpdateFirewallRuleRequest {
    *             </li>
    *          </ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -5249,7 +5249,7 @@ export interface UpdateFirewallRuleRequest {
    *             </li>
    *          </ul>
    */
-  BlockResponse?: BlockResponse | string;
+  BlockResponse?: BlockResponse;
 
   /**
    * @public
@@ -5261,7 +5261,7 @@ export interface UpdateFirewallRuleRequest {
    * @public
    * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    */
-  BlockOverrideDnsType?: BlockOverrideDnsType | string;
+  BlockOverrideDnsType?: BlockOverrideDnsType;
 
   /**
    * @public
@@ -5312,7 +5312,7 @@ export interface UpdateFirewallRuleGroupAssociationRequest {
    * @public
    * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. </p>
    */
-  MutationProtection?: MutationProtectionStatus | string;
+  MutationProtection?: MutationProtectionStatus;
 
   /**
    * @public
@@ -5399,7 +5399,7 @@ export interface UpdateResolverConfigRequest {
    *          </note>
    *          <p></p>
    */
-  AutodefinedReverseFlag: AutodefinedReverseFlag | string | undefined;
+  AutodefinedReverseFlag: AutodefinedReverseFlag | undefined;
 }
 
 /**
@@ -5443,7 +5443,7 @@ export interface UpdateResolverDnssecConfigRequest {
    * <p>The new value that you are specifying for DNSSEC validation for the VPC. The value can be <code>ENABLE</code>
    * 			or <code>DISABLE</code>. Be aware that it can take time for a validation status change to be completed.</p>
    */
-  Validation: Validation | string | undefined;
+  Validation: Validation | undefined;
 }
 
 /**
@@ -5502,7 +5502,7 @@ export interface UpdateResolverEndpointRequest {
    * 		</p>
    *          <p>Updating to <code>IPV6</code> type isn't currently supported.</p>
    */
-  ResolverEndpointType?: ResolverEndpointType | string;
+  ResolverEndpointType?: ResolverEndpointType;
 
   /**
    * @public

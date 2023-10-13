@@ -79,7 +79,7 @@ export interface ApiGatewayProxyConfig {
    * @public
    * <p>The type of API Gateway endpoint created. </p>
    */
-  EndpointType?: ApiGatewayEndpointType | string;
+  EndpointType?: ApiGatewayEndpointType;
 
   /**
    * @public
@@ -104,7 +104,7 @@ export interface ApiGatewayProxyInput {
    *     endpoint (Amazon Web Services PrivateLink) availability, see <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/vpc-interface-endpoints.html">Access
    *       Refactor Spaces using an interface endpoint (Amazon Web Services PrivateLink)</a>.</p>
    */
-  EndpointType?: ApiGatewayEndpointType | string;
+  EndpointType?: ApiGatewayEndpointType;
 
   /**
    * @public
@@ -153,7 +153,7 @@ export interface ApiGatewayProxySummary {
    * @public
    * <p>The type of API Gateway endpoint created. </p>
    */
-  EndpointType?: ApiGatewayEndpointType | string;
+  EndpointType?: ApiGatewayEndpointType;
 
   /**
    * @public
@@ -243,7 +243,7 @@ export interface ErrorResponse {
    * @public
    * <p>The error code associated with the error. </p>
    */
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
 
   /**
    * @public
@@ -267,7 +267,7 @@ export interface ErrorResponse {
    * @public
    * <p>The type of resource. </p>
    */
-  ResourceType?: ErrorResourceType | string;
+  ResourceType?: ErrorResourceType;
 
   /**
    * @public
@@ -341,7 +341,7 @@ export interface ApplicationSummary {
    * @public
    * <p>The proxy type of the proxy created within the application. </p>
    */
-  ProxyType?: ProxyType | string;
+  ProxyType?: ProxyType;
 
   /**
    * @public
@@ -353,7 +353,7 @@ export interface ApplicationSummary {
    * @public
    * <p>The current state of the application. </p>
    */
-  State?: ApplicationState | string;
+  State?: ApplicationState;
 
   /**
    * @public
@@ -441,7 +441,7 @@ export interface CreateApplicationRequest {
    * @public
    * <p>The proxy type of the proxy created within the application. </p>
    */
-  ProxyType: ProxyType | string | undefined;
+  ProxyType: ProxyType | undefined;
 
   /**
    * @public
@@ -520,7 +520,7 @@ export interface CreateApplicationResponse {
    * @public
    * <p>The proxy type of the proxy created within the application. </p>
    */
-  ProxyType?: ProxyType | string;
+  ProxyType?: ProxyType;
 
   /**
    * @public
@@ -533,7 +533,7 @@ export interface CreateApplicationResponse {
    * @public
    * <p>The current state of the application. </p>
    */
-  State?: ApplicationState | string;
+  State?: ApplicationState;
 
   /**
    * @public
@@ -763,7 +763,7 @@ export interface CreateEnvironmentRequest {
    * @public
    * <p>The network fabric type of the environment.</p>
    */
-  NetworkFabricType: NetworkFabricType | string | undefined;
+  NetworkFabricType: NetworkFabricType | undefined;
 
   /**
    * @public
@@ -827,7 +827,7 @@ export interface CreateEnvironmentResponse {
    * @public
    * <p>The network fabric type of the environment.</p>
    */
-  NetworkFabricType?: NetworkFabricType | string;
+  NetworkFabricType?: NetworkFabricType;
 
   /**
    * @public
@@ -839,7 +839,7 @@ export interface CreateEnvironmentResponse {
    * @public
    * <p>The current state of the environment. </p>
    */
-  State?: EnvironmentState | string;
+  State?: EnvironmentState;
 
   /**
    * @public
@@ -884,7 +884,7 @@ export interface DefaultRouteInput {
    * <p>If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after the
    *       route is created. </p>
    */
-  ActivationState?: RouteActivationState | string;
+  ActivationState?: RouteActivationState;
 }
 
 /**
@@ -938,14 +938,14 @@ export interface UriPathRouteInput {
    * <p>If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after the
    *       route is created. </p>
    */
-  ActivationState: RouteActivationState | string | undefined;
+  ActivationState: RouteActivationState | undefined;
 
   /**
    * @public
    * <p>A list of HTTP methods to match. An empty list matches all values. If a method is present,
    *       only HTTP requests using that method are forwarded to this route’s service. </p>
    */
-  Methods?: (HttpMethod | string)[];
+  Methods?: HttpMethod[];
 
   /**
    * @public
@@ -992,7 +992,7 @@ export interface CreateRouteRequest {
    *       before any other routes can be created. <code>URI_PATH</code> indicates a route that is based
    *       on a URI path.</p>
    */
-  RouteType: RouteType | string | undefined;
+  RouteType: RouteType | undefined;
 
   /**
    * @public
@@ -1075,7 +1075,7 @@ export interface CreateRouteResponse {
    * @public
    * <p>The route type of the route.</p>
    */
-  RouteType?: RouteType | string;
+  RouteType?: RouteType;
 
   /**
    * @public
@@ -1102,7 +1102,7 @@ export interface CreateRouteResponse {
    *         <code>INACTIVE</code> as user inputs. <code>FAILED</code> is a route state that is system
    *       generated.</p>
    */
-  State?: RouteState | string;
+  State?: RouteState;
 
   /**
    * @public
@@ -1210,7 +1210,7 @@ export interface CreateServiceRequest {
    * @public
    * <p>The type of endpoint to use for the service. The type can be a URL in a VPC or an Lambda function.</p>
    */
-  EndpointType: ServiceEndpointType | string | undefined;
+  EndpointType: ServiceEndpointType | undefined;
 
   /**
    * @public
@@ -1319,7 +1319,7 @@ export interface CreateServiceResponse {
    * @public
    * <p>The endpoint type of the service.</p>
    */
-  EndpointType?: ServiceEndpointType | string;
+  EndpointType?: ServiceEndpointType;
 
   /**
    * @public
@@ -1337,7 +1337,7 @@ export interface CreateServiceResponse {
    * @public
    * <p>The current state of the service. </p>
    */
-  State?: ServiceState | string;
+  State?: ServiceState;
 
   /**
    * @public
@@ -1407,7 +1407,7 @@ export interface DeleteApplicationResponse {
    * @public
    * <p>The current state of the application. </p>
    */
-  State?: ApplicationState | string;
+  State?: ApplicationState;
 
   /**
    * @public
@@ -1453,7 +1453,7 @@ export interface DeleteEnvironmentResponse {
    * @public
    * <p>The current state of the environment. </p>
    */
-  State?: EnvironmentState | string;
+  State?: EnvironmentState;
 
   /**
    * @public
@@ -1533,7 +1533,7 @@ export interface DeleteRouteResponse {
    * @public
    * <p>The current state of the route. </p>
    */
-  State?: RouteState | string;
+  State?: RouteState;
 
   /**
    * @public
@@ -1608,7 +1608,7 @@ export interface DeleteServiceResponse {
    * @public
    * <p>The current state of the service. </p>
    */
-  State?: ServiceState | string;
+  State?: ServiceState;
 
   /**
    * @public
@@ -1651,7 +1651,7 @@ export interface EnvironmentSummary {
    * @public
    * <p>The network fabric type of the environment. </p>
    */
-  NetworkFabricType?: NetworkFabricType | string;
+  NetworkFabricType?: NetworkFabricType;
 
   /**
    * @public
@@ -1669,7 +1669,7 @@ export interface EnvironmentSummary {
    * @public
    * <p>The current state of the environment. </p>
    */
-  State?: EnvironmentState | string;
+  State?: EnvironmentState;
 
   /**
    * @public
@@ -1813,7 +1813,7 @@ export interface GetApplicationResponse {
    * @public
    * <p>The proxy type of the proxy created within the application. </p>
    */
-  ProxyType?: ProxyType | string;
+  ProxyType?: ProxyType;
 
   /**
    * @public
@@ -1825,7 +1825,7 @@ export interface GetApplicationResponse {
    * @public
    * <p>The current state of the application. </p>
    */
-  State?: ApplicationState | string;
+  State?: ApplicationState;
 
   /**
    * @public
@@ -1895,7 +1895,7 @@ export interface GetEnvironmentResponse {
    * @public
    * <p>The network fabric type of the environment. </p>
    */
-  NetworkFabricType?: NetworkFabricType | string;
+  NetworkFabricType?: NetworkFabricType;
 
   /**
    * @public
@@ -1913,7 +1913,7 @@ export interface GetEnvironmentResponse {
    * @public
    * <p>The current state of the environment. </p>
    */
-  State?: EnvironmentState | string;
+  State?: EnvironmentState;
 
   /**
    * @public
@@ -2023,7 +2023,7 @@ export interface GetRouteResponse {
    * @public
    * <p>The type of route.</p>
    */
-  RouteType?: RouteType | string;
+  RouteType?: RouteType;
 
   /**
    * @public
@@ -2056,7 +2056,7 @@ export interface GetRouteResponse {
    * <p>A list of HTTP methods to match. An empty list matches all values. If a method is present,
    *       only HTTP requests using that method are forwarded to this route’s service. </p>
    */
-  Methods?: (HttpMethod | string)[];
+  Methods?: HttpMethod[];
 
   /**
    * @public
@@ -2076,7 +2076,7 @@ export interface GetRouteResponse {
    * @public
    * <p>The current state of the route. </p>
    */
-  State?: RouteState | string;
+  State?: RouteState;
 
   /**
    * @public
@@ -2224,7 +2224,7 @@ export interface GetServiceResponse {
    * @public
    * <p>The endpoint type of the service.</p>
    */
-  EndpointType?: ServiceEndpointType | string;
+  EndpointType?: ServiceEndpointType;
 
   /**
    * @public
@@ -2246,7 +2246,7 @@ export interface GetServiceResponse {
    * @public
    * <p>The current state of the service. </p>
    */
-  State?: ServiceState | string;
+  State?: ServiceState;
 
   /**
    * @public
@@ -2487,7 +2487,7 @@ export interface RouteSummary {
    * @public
    * <p>The route type of the route. </p>
    */
-  RouteType?: RouteType | string;
+  RouteType?: RouteType;
 
   /**
    * @public
@@ -2519,7 +2519,7 @@ export interface RouteSummary {
    * <p>A list of HTTP methods to match. An empty list matches all values. If a method is present,
    *       only HTTP requests using that method are forwarded to this route’s service. </p>
    */
-  Methods?: (HttpMethod | string)[];
+  Methods?: HttpMethod[];
 
   /**
    * @public
@@ -2539,7 +2539,7 @@ export interface RouteSummary {
    * @public
    * <p>The current state of the route. </p>
    */
-  State?: RouteState | string;
+  State?: RouteState;
 
   /**
    * @public
@@ -2705,7 +2705,7 @@ export interface ServiceSummary {
    * @public
    * <p>The endpoint type of the service. </p>
    */
-  EndpointType?: ServiceEndpointType | string;
+  EndpointType?: ServiceEndpointType;
 
   /**
    * @public
@@ -2723,7 +2723,7 @@ export interface ServiceSummary {
    * @public
    * <p>The current state of the service. </p>
    */
-  State?: ServiceState | string;
+  State?: ServiceState;
 
   /**
    * @public
@@ -2883,7 +2883,7 @@ export interface UpdateRouteRequest {
    * <p> If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after the
    *       route is updated. </p>
    */
-  ActivationState: RouteActivationState | string | undefined;
+  ActivationState: RouteActivationState | undefined;
 }
 
 /**
@@ -2924,7 +2924,7 @@ export interface UpdateRouteResponse {
    * @public
    * <p> The current state of the route. </p>
    */
-  State?: RouteState | string;
+  State?: RouteState;
 
   /**
    * @public

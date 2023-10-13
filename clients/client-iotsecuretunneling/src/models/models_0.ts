@@ -85,7 +85,7 @@ export interface ConnectionState {
    * <p>The connection status of the tunnel. Valid values are <code>CONNECTED</code> and
    * 				<code>DISCONNECTED</code>.</p>
    */
-  status?: ConnectionStatus | string;
+  status?: ConnectionStatus;
 
   /**
    * @public
@@ -194,7 +194,7 @@ export interface Tunnel {
    * @public
    * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
    */
-  status?: TunnelStatus | string;
+  status?: TunnelStatus;
 
   /**
    * @public
@@ -325,7 +325,7 @@ export interface TunnelSummary {
    * @public
    * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
    */
-  status?: TunnelStatus | string;
+  status?: TunnelStatus;
 
   /**
    * @public
@@ -459,7 +459,7 @@ export interface RotateTunnelAccessTokenRequest {
    * <p>The mode of the client that will use the client token, which can be either the source
    * 			or destination, or both source and destination.</p>
    */
-  clientMode: ClientMode | string | undefined;
+  clientMode: ClientMode | undefined;
 
   /**
    * @public

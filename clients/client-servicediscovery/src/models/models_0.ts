@@ -557,7 +557,7 @@ export interface DnsRecord {
    *             </dd>
    *          </dl>
    */
-  Type: RecordType | string | undefined;
+  Type: RecordType | undefined;
 
   /**
    * @public
@@ -651,7 +651,7 @@ export interface DnsConfig {
    *             </dd>
    *          </dl>
    */
-  RoutingPolicy?: RoutingPolicy | string;
+  RoutingPolicy?: RoutingPolicy;
 
   /**
    * @public
@@ -778,7 +778,7 @@ export interface HealthCheckConfig {
    *     Determines Whether an Endpoint Is Healthy</a> in the
    *    <i>Route 53 Developer Guide</i>.</p>
    */
-  Type: HealthCheckType | string | undefined;
+  Type: HealthCheckType | undefined;
 
   /**
    * @public
@@ -998,7 +998,7 @@ export interface CreateServiceRequest {
    *     <code>DiscoverInstances</code> API operation. No DNS records is registered for the service
    *    instances. The only valid value is <code>HTTP</code>.</p>
    */
-  Type?: ServiceTypeOption | string;
+  Type?: ServiceTypeOption;
 }
 
 /**
@@ -1090,7 +1090,7 @@ export interface Service {
    *             </dd>
    *          </dl>
    */
-  Type?: ServiceType | string;
+  Type?: ServiceType;
 
   /**
    * @public
@@ -1456,7 +1456,7 @@ export interface DiscoverInstancesRequest {
    *             </dd>
    *          </dl>
    */
-  HealthStatus?: HealthStatusFilter | string;
+  HealthStatus?: HealthStatusFilter;
 }
 
 /**
@@ -1511,7 +1511,7 @@ export interface HttpInstanceSummary {
    * <p>If you configured health checking in the service, the current health status of the service
    *    instance.</p>
    */
-  HealthStatus?: HealthStatus | string;
+  HealthStatus?: HealthStatus;
 
   /**
    * @public
@@ -1873,7 +1873,7 @@ export interface GetInstancesHealthStatusResponse {
    * <p>A complex type that contains the IDs and the health status of the instances that you
    *    specified in the <code>GetInstancesHealthStatus</code> request.</p>
    */
-  Status?: Record<string, HealthStatus | string>;
+  Status?: Record<string, HealthStatus>;
 
   /**
    * @public
@@ -1986,7 +1986,7 @@ export interface Namespace {
    *             </dd>
    *          </dl>
    */
-  Type?: NamespaceType | string;
+  Type?: NamespaceType;
 
   /**
    * @public
@@ -2109,7 +2109,7 @@ export interface Operation {
    * @public
    * <p>The name of the operation that's associated with the specified ID.</p>
    */
-  Type?: OperationType | string;
+  Type?: OperationType;
 
   /**
    * @public
@@ -2133,7 +2133,7 @@ export interface Operation {
    *             </dd>
    *          </dl>
    */
-  Status?: OperationStatus | string;
+  Status?: OperationStatus;
 
   /**
    * @public
@@ -2450,7 +2450,7 @@ export interface NamespaceFilter {
    *             </li>
    *          </ul>
    */
-  Name: NamespaceFilterName | string | undefined;
+  Name: NamespaceFilterName | undefined;
 
   /**
    * @public
@@ -2495,7 +2495,7 @@ export interface NamespaceFilter {
    *             </li>
    *          </ul>
    */
-  Condition?: FilterCondition | string;
+  Condition?: FilterCondition;
 }
 
 /**
@@ -2562,7 +2562,7 @@ export interface NamespaceSummary {
    * @public
    * <p>The type of the namespace, either public or private.</p>
    */
-  Type?: NamespaceType | string;
+  Type?: NamespaceType;
 
   /**
    * @public
@@ -2668,7 +2668,7 @@ export interface OperationFilter {
    *             </li>
    *          </ul>
    */
-  Name: OperationFilterName | string | undefined;
+  Name: OperationFilterName | undefined;
 
   /**
    * @public
@@ -2731,7 +2731,7 @@ export interface OperationFilter {
    *             </li>
    *          </ul>
    */
-  Condition?: FilterCondition | string;
+  Condition?: FilterCondition;
 }
 
 /**
@@ -2807,7 +2807,7 @@ export interface OperationSummary {
    *             </li>
    *          </ul>
    */
-  Status?: OperationStatus | string;
+  Status?: OperationStatus;
 }
 
 /**
@@ -2858,7 +2858,7 @@ export interface ServiceFilter {
    * @public
    * <p>Specify <code>NAMESPACE_ID</code>.</p>
    */
-  Name: ServiceFilterName | string | undefined;
+  Name: ServiceFilterName | undefined;
 
   /**
    * @public
@@ -2879,7 +2879,7 @@ export interface ServiceFilter {
    *             </li>
    *          </ul>
    */
-  Condition?: FilterCondition | string;
+  Condition?: FilterCondition;
 }
 
 /**
@@ -2962,7 +2962,7 @@ export interface ServiceSummary {
    *             </dd>
    *          </dl>
    */
-  Type?: ServiceType | string;
+  Type?: ServiceType;
 
   /**
    * @public
@@ -3497,7 +3497,7 @@ export interface UpdateInstanceCustomHealthStatusRequest {
    * @public
    * <p>The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.</p>
    */
-  Status: CustomHealthStatus | string | undefined;
+  Status: CustomHealthStatus | undefined;
 }
 
 /**

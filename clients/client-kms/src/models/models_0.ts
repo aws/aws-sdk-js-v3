@@ -714,7 +714,7 @@ export interface CreateCustomKeyStoreRequest {
    *       of Amazon Web Services, enter <code>EXTERNAL_KEY_STORE</code>. You cannot change this property after the key
    *       store is created.</p>
    */
-  CustomKeyStoreType?: CustomKeyStoreType | string;
+  CustomKeyStoreType?: CustomKeyStoreType;
 
   /**
    * @public
@@ -836,7 +836,7 @@ export interface CreateCustomKeyStoreRequest {
    *       VPC endpoint service, the proxy can be hosted within the VPC or outside of Amazon Web Services such as in
    *       your corporate data center.</p>
    */
-  XksProxyConnectivity?: XksProxyConnectivityType | string;
+  XksProxyConnectivity?: XksProxyConnectivityType;
 }
 
 /**
@@ -1238,7 +1238,7 @@ export interface CreateGrantRequest {
    *       KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant
    *         operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  Operations: (GrantOperation | string)[] | undefined;
+  Operations: GrantOperation[] | undefined;
 
   /**
    * @public
@@ -1566,7 +1566,7 @@ export interface CreateKeyRequest {
    *             </li>
    *          </ul>
    */
-  KeyUsage?: KeyUsageType | string;
+  KeyUsage?: KeyUsageType;
 
   /**
    * @public
@@ -1577,7 +1577,7 @@ export interface CreateKeyRequest {
    *       way. Only the names differ. We recommend that you use <code>KeySpec</code> parameter in your
    *       code. However, to avoid breaking changes, KMS supports both parameters.</p>
    */
-  CustomerMasterKeySpec?: CustomerMasterKeySpec | string;
+  CustomerMasterKeySpec?: CustomerMasterKeySpec;
 
   /**
    * @public
@@ -1696,7 +1696,7 @@ export interface CreateKeyRequest {
    *             </li>
    *          </ul>
    */
-  KeySpec?: KeySpec | string;
+  KeySpec?: KeySpec;
 
   /**
    * @public
@@ -1720,7 +1720,7 @@ export interface CreateKeyRequest {
    *       the <code>XksKeyId</code> parameter to identify the associated external key. The
    *         <code>KeySpec</code> value must be <code>SYMMETRIC_DEFAULT</code>.</p>
    */
-  Origin?: OriginType | string;
+  Origin?: OriginType;
 
   /**
    * @public
@@ -1940,7 +1940,7 @@ export interface MultiRegionConfiguration {
    * <p>Indicates whether the KMS key is a <code>PRIMARY</code> or <code>REPLICA</code>
    *       key.</p>
    */
-  MultiRegionKeyType?: MultiRegionKeyType | string;
+  MultiRegionKeyType?: MultiRegionKeyType;
 
   /**
    * @public
@@ -2048,7 +2048,7 @@ export interface KeyMetadata {
    * @public
    * <p>The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key.</p>
    */
-  KeyUsage?: KeyUsageType | string;
+  KeyUsage?: KeyUsageType;
 
   /**
    * @public
@@ -2056,7 +2056,7 @@ export interface KeyMetadata {
    *          <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in
    *       the <i>Key Management Service Developer Guide</i>.</p>
    */
-  KeyState?: KeyState | string;
+  KeyState?: KeyState;
 
   /**
    * @public
@@ -2086,7 +2086,7 @@ export interface KeyMetadata {
    *         <code>AWS_CLOUDHSM</code>, the key material was created in the CloudHSM cluster associated with
    *       a custom key store.</p>
    */
-  Origin?: OriginType | string;
+  Origin?: OriginType;
 
   /**
    * @public
@@ -2109,14 +2109,14 @@ export interface KeyMetadata {
    * <p>Specifies whether the KMS key's key material expires. This value is present only when
    *         <code>Origin</code> is <code>EXTERNAL</code>, otherwise this value is omitted.</p>
    */
-  ExpirationModel?: ExpirationModelType | string;
+  ExpirationModel?: ExpirationModelType;
 
   /**
    * @public
    * <p>The manager of the KMS key. KMS keys in your Amazon Web Services account are either customer managed or
    *       Amazon Web Services managed. For more information about the difference, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys">KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  KeyManager?: KeyManagerType | string;
+  KeyManager?: KeyManagerType;
 
   /**
    * @public
@@ -2127,13 +2127,13 @@ export interface KeyMetadata {
    *       value. We recommend that you use the <code>KeySpec</code> field in your code. However, to
    *       avoid breaking changes, KMS supports both fields.</p>
    */
-  CustomerMasterKeySpec?: CustomerMasterKeySpec | string;
+  CustomerMasterKeySpec?: CustomerMasterKeySpec;
 
   /**
    * @public
    * <p>Describes the type of key material in the KMS key.</p>
    */
-  KeySpec?: KeySpec | string;
+  KeySpec?: KeySpec;
 
   /**
    * @public
@@ -2142,7 +2142,7 @@ export interface KeyMetadata {
    *          <p>This value is present only when the <code>KeyUsage</code> of the KMS key is
    *         <code>ENCRYPT_DECRYPT</code>.</p>
    */
-  EncryptionAlgorithms?: (EncryptionAlgorithmSpec | string)[];
+  EncryptionAlgorithms?: EncryptionAlgorithmSpec[];
 
   /**
    * @public
@@ -2151,7 +2151,7 @@ export interface KeyMetadata {
    *          <p>This field appears only when the <code>KeyUsage</code> of the KMS key is
    *         <code>SIGN_VERIFY</code>.</p>
    */
-  SigningAlgorithms?: (SigningAlgorithmSpec | string)[];
+  SigningAlgorithms?: SigningAlgorithmSpec[];
 
   /**
    * @public
@@ -2211,7 +2211,7 @@ export interface KeyMetadata {
    *          <p>This value is present only when the <code>KeyUsage</code> of the KMS key is
    *         <code>GENERATE_VERIFY_MAC</code>.</p>
    */
-  MacAlgorithms?: (MacAlgorithmSpec | string)[];
+  MacAlgorithms?: MacAlgorithmSpec[];
 
   /**
    * @public
@@ -2403,7 +2403,7 @@ export interface XksProxyConfigurationType {
    * <p>Indicates whether the external key store proxy uses a public endpoint or an Amazon VPC endpoint
    *       service to communicate with KMS.</p>
    */
-  Connectivity?: XksProxyConnectivityType | string;
+  Connectivity?: XksProxyConnectivityType;
 
   /**
    * @public
@@ -2493,7 +2493,7 @@ export interface CustomKeyStoresListEntry {
    *       For help resolving a connection failure, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting a custom key store</a> in the
    *       <i>Key Management Service Developer Guide</i>.</p>
    */
-  ConnectionState?: ConnectionStateType | string;
+  ConnectionState?: ConnectionStateType;
 
   /**
    * @public
@@ -2681,7 +2681,7 @@ export interface CustomKeyStoresListEntry {
    *             </li>
    *          </ul>
    */
-  ConnectionErrorCode?: ConnectionErrorCodeType | string;
+  ConnectionErrorCode?: ConnectionErrorCodeType;
 
   /**
    * @public
@@ -2695,7 +2695,7 @@ export interface CustomKeyStoresListEntry {
    *       key store backed by an CloudHSM cluster. <code>EXTERNAL_KEY_STORE</code> indicates a custom key
    *       store backed by an external key store proxy and external key manager outside of Amazon Web Services.</p>
    */
-  CustomKeyStoreType?: CustomKeyStoreType | string;
+  CustomKeyStoreType?: CustomKeyStoreType;
 
   /**
    * @public
@@ -2770,7 +2770,7 @@ export interface RecipientInfo {
    *       Enclave to encrypt plaintext values for the response. The only valid value is
    *         <code>RSAES_OAEP_SHA_256</code>.</p>
    */
-  KeyEncryptionAlgorithm?: KeyEncryptionMechanism | string;
+  KeyEncryptionAlgorithm?: KeyEncryptionMechanism;
 
   /**
    * @public
@@ -2853,7 +2853,7 @@ export interface DecryptRequest {
    *       key. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the only supported
    *       algorithm that is valid for symmetric encryption KMS keys.</p>
    */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  EncryptionAlgorithm?: EncryptionAlgorithmSpec;
 
   /**
    * @public
@@ -2901,7 +2901,7 @@ export interface DecryptResponse {
    * @public
    * <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
    */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  EncryptionAlgorithm?: EncryptionAlgorithmSpec;
 
   /**
    * @public
@@ -3403,7 +3403,7 @@ export interface EncryptRequest {
    *       you are using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
    *          <p>The SM2PKE algorithm is only available in China Regions.</p>
    */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  EncryptionAlgorithm?: EncryptionAlgorithmSpec;
 
   /**
    * @public
@@ -3433,7 +3433,7 @@ export interface EncryptResponse {
    * @public
    * <p>The encryption algorithm that was used to encrypt the plaintext.</p>
    */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  EncryptionAlgorithm?: EncryptionAlgorithmSpec;
 }
 
 /**
@@ -3521,7 +3521,7 @@ export interface GenerateDataKeyRequest {
    *          <p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code>
    *       parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
    */
-  KeySpec?: DataKeySpec | string;
+  KeySpec?: DataKeySpec;
 
   /**
    * @public
@@ -3646,7 +3646,7 @@ export interface GenerateDataKeyPairRequest {
    * <p>Determines the type of data key pair that is generated. </p>
    *          <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC KMS keys only to sign and verify, are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
    */
-  KeyPairSpec: DataKeyPairSpec | string | undefined;
+  KeyPairSpec: DataKeyPairSpec | undefined;
 
   /**
    * @public
@@ -3716,7 +3716,7 @@ export interface GenerateDataKeyPairResponse {
    * @public
    * <p>The type of data key pair that was generated.</p>
    */
-  KeyPairSpec?: DataKeyPairSpec | string;
+  KeyPairSpec?: DataKeyPairSpec;
 
   /**
    * @public
@@ -3782,7 +3782,7 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
    * <p>Determines the type of data key pair that is generated.</p>
    *          <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC KMS keys only to sign and verify, are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
    */
-  KeyPairSpec: DataKeyPairSpec | string | undefined;
+  KeyPairSpec: DataKeyPairSpec | undefined;
 
   /**
    * @public
@@ -3826,7 +3826,7 @@ export interface GenerateDataKeyPairWithoutPlaintextResponse {
    * @public
    * <p>The type of data key pair that was generated.</p>
    */
-  KeyPairSpec?: DataKeyPairSpec | string;
+  KeyPairSpec?: DataKeyPairSpec;
 }
 
 /**
@@ -3881,7 +3881,7 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
    * <p>The length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key,
    *       or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
    */
-  KeySpec?: DataKeySpec | string;
+  KeySpec?: DataKeySpec;
 
   /**
    * @public
@@ -3954,7 +3954,7 @@ export interface GenerateMacRequest {
    *       algorithms that your HMAC KMS key supports, use the <a>DescribeKey</a> operation
    *       and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</p>
    */
-  MacAlgorithm: MacAlgorithmSpec | string | undefined;
+  MacAlgorithm: MacAlgorithmSpec | undefined;
 
   /**
    * @public
@@ -3988,7 +3988,7 @@ export interface GenerateMacResponse {
    * @public
    * <p>The MAC algorithm that was used to generate the HMAC.</p>
    */
-  MacAlgorithm?: MacAlgorithmSpec | string;
+  MacAlgorithm?: MacAlgorithmSpec;
 
   /**
    * @public
@@ -4217,7 +4217,7 @@ export interface GetParametersForImportRequest {
    *             </li>
    *          </ul>
    */
-  WrappingAlgorithm: AlgorithmSpec | string | undefined;
+  WrappingAlgorithm: AlgorithmSpec | undefined;
 
   /**
    * @public
@@ -4227,7 +4227,7 @@ export interface GetParametersForImportRequest {
    *          <p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key.
    *       Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p>
    */
-  WrappingKeySpec: WrappingKeySpec | string | undefined;
+  WrappingKeySpec: WrappingKeySpec | undefined;
 }
 
 /**
@@ -4333,13 +4333,13 @@ export interface GetPublicKeyResponse {
    *       value. We recommend that you use the <code>KeySpec</code> field in your code. However, to
    *       avoid breaking changes, KMS supports both fields.</p>
    */
-  CustomerMasterKeySpec?: CustomerMasterKeySpec | string;
+  CustomerMasterKeySpec?: CustomerMasterKeySpec;
 
   /**
    * @public
    * <p>The type of the of the public key that was downloaded.</p>
    */
-  KeySpec?: KeySpec | string;
+  KeySpec?: KeySpec;
 
   /**
    * @public
@@ -4348,7 +4348,7 @@ export interface GetPublicKeyResponse {
    *          <p>This information is critical. If a public key with <code>SIGN_VERIFY</code> key usage
    *       encrypts data outside of KMS, the ciphertext cannot be decrypted. </p>
    */
-  KeyUsage?: KeyUsageType | string;
+  KeyUsage?: KeyUsageType;
 
   /**
    * @public
@@ -4358,7 +4358,7 @@ export interface GetPublicKeyResponse {
    *          <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
    *       is <code>ENCRYPT_DECRYPT</code>.</p>
    */
-  EncryptionAlgorithms?: (EncryptionAlgorithmSpec | string)[];
+  EncryptionAlgorithms?: EncryptionAlgorithmSpec[];
 
   /**
    * @public
@@ -4366,7 +4366,7 @@ export interface GetPublicKeyResponse {
    *          <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
    *       is <code>SIGN_VERIFY</code>.</p>
    */
-  SigningAlgorithms?: (SigningAlgorithmSpec | string)[];
+  SigningAlgorithms?: SigningAlgorithmSpec[];
 }
 
 /**
@@ -4425,7 +4425,7 @@ export interface GrantListEntry {
    * @public
    * <p>The list of operations permitted by the grant.</p>
    */
-  Operations?: (GrantOperation | string)[];
+  Operations?: GrantOperation[];
 
   /**
    * @public
@@ -4508,7 +4508,7 @@ export interface ImportKeyMaterialRequest {
    *       current import after the request completes. To change either value, you must reimport the key
    *       material.</p>
    */
-  ExpirationModel?: ExpirationModelType | string;
+  ExpirationModel?: ExpirationModelType;
 }
 
 /**
@@ -5237,7 +5237,7 @@ export interface ReEncryptRequest {
    *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
    *       key.</p>
    */
-  SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec;
 
   /**
    * @public
@@ -5247,7 +5247,7 @@ export interface ReEncryptRequest {
    *          <p>This parameter is required only when the destination KMS key is an asymmetric KMS
    *       key.</p>
    */
-  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec;
 
   /**
    * @public
@@ -5292,13 +5292,13 @@ export interface ReEncryptResponse {
    * <p>The encryption algorithm that was used to decrypt the ciphertext before it was
    *       reencrypted.</p>
    */
-  SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec;
 
   /**
    * @public
    * <p>The encryption algorithm that was used to reencrypt the data.</p>
    */
-  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec;
 }
 
 /**
@@ -5619,7 +5619,7 @@ export interface ScheduleKeyDeletionResponse {
    *          <p>For more information about how key state affects the use of a KMS key, see
    *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  KeyState?: KeyState | string;
+  KeyState?: KeyState;
 
   /**
    * @public
@@ -5710,7 +5710,7 @@ export interface SignRequest {
    *             </li>
    *          </ul>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -5727,7 +5727,7 @@ export interface SignRequest {
    *       KMS key. When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include
    *       RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</p>
    */
-  SigningAlgorithm: SigningAlgorithmSpec | string | undefined;
+  SigningAlgorithm: SigningAlgorithmSpec | undefined;
 
   /**
    * @public
@@ -5772,7 +5772,7 @@ export interface SignResponse {
    * @public
    * <p>The signing algorithm that was used to sign the message.</p>
    */
-  SigningAlgorithm?: SigningAlgorithmSpec | string;
+  SigningAlgorithm?: SigningAlgorithmSpec;
 }
 
 /**
@@ -6002,7 +6002,7 @@ export interface UpdateCustomKeyStoreRequest {
    *       the <code>XksProxyVpcEndpointServiceName</code> value.</p>
    *          <p>To change this value, the external key store must be disconnected.</p>
    */
-  XksProxyConnectivity?: XksProxyConnectivityType | string;
+  XksProxyConnectivity?: XksProxyConnectivityType;
 }
 
 /**
@@ -6160,7 +6160,7 @@ export interface VerifyRequest {
    *             </li>
    *          </ul>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -6173,7 +6173,7 @@ export interface VerifyRequest {
    * <p>The signing algorithm that was used to sign the message. If you submit a different
    *       algorithm, the signature verification fails.</p>
    */
-  SigningAlgorithm: SigningAlgorithmSpec | string | undefined;
+  SigningAlgorithm: SigningAlgorithmSpec | undefined;
 
   /**
    * @public
@@ -6215,7 +6215,7 @@ export interface VerifyResponse {
    * @public
    * <p>The signing algorithm that was used to verify the signature.</p>
    */
-  SigningAlgorithm?: SigningAlgorithmSpec | string;
+  SigningAlgorithm?: SigningAlgorithmSpec;
 }
 
 /**
@@ -6247,7 +6247,7 @@ export interface VerifyMacRequest {
    *       was used to compute the HMAC. This algorithm must be supported by the HMAC KMS key identified
    *       by the <code>KeyId</code> parameter.</p>
    */
-  MacAlgorithm: MacAlgorithmSpec | string | undefined;
+  MacAlgorithm: MacAlgorithmSpec | undefined;
 
   /**
    * @public
@@ -6299,7 +6299,7 @@ export interface VerifyMacResponse {
    * @public
    * <p>The MAC algorithm used in the verification.</p>
    */
-  MacAlgorithm?: MacAlgorithmSpec | string;
+  MacAlgorithm?: MacAlgorithmSpec;
 }
 
 /**

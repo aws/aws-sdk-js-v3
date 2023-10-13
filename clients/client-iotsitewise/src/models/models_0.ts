@@ -178,7 +178,7 @@ export interface AccessPolicySummary {
    * <p>The permissions for the access policy. Note that a project <code>ADMINISTRATOR</code> is
    *       also known as a project owner.</p>
    */
-  permission: Permission | string | undefined;
+  permission: Permission | undefined;
 
   /**
    * @public
@@ -266,7 +266,7 @@ export interface AggregatedValue {
    * @public
    * <p>The quality of the aggregated data.</p>
    */
-  quality?: Quality | string;
+  quality?: Quality;
 
   /**
    * @public
@@ -363,7 +363,7 @@ export interface PropertyNotification {
    * @public
    * <p>The current notification state.</p>
    */
-  state: PropertyNotificationState | string | undefined;
+  state: PropertyNotificationState | undefined;
 }
 
 /**
@@ -402,7 +402,7 @@ export interface AssetProperty {
    * @public
    * <p>The data type of the asset property.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: PropertyDataType | undefined;
 
   /**
    * @public
@@ -486,7 +486,7 @@ export interface AssetErrorDetails {
    * @public
    * <p>The error code.</p>
    */
-  code: AssetErrorCode | string | undefined;
+  code: AssetErrorCode | undefined;
 
   /**
    * @public
@@ -572,7 +572,7 @@ export interface ForwardingConfig {
    * @public
    * <p>The forwarding state for the given property. </p>
    */
-  state: ForwardingConfigState | string | undefined;
+  state: ForwardingConfigState | undefined;
 }
 
 /**
@@ -629,7 +629,7 @@ export interface MetricProcessingConfig {
    * @public
    * <p>The compute location for the given metric property. </p>
    */
-  computeLocation: ComputeLocation | string | undefined;
+  computeLocation: ComputeLocation | undefined;
 }
 
 /**
@@ -834,7 +834,7 @@ export interface TransformProcessingConfig {
    * @public
    * <p>The compute location for the given transform property. </p>
    */
-  computeLocation: ComputeLocation | string | undefined;
+  computeLocation: ComputeLocation | undefined;
 
   /**
    * @public
@@ -935,7 +935,7 @@ export interface AssetModelProperty {
    * @public
    * <p>The data type of the asset model property.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: PropertyDataType | undefined;
 
   /**
    * @public
@@ -1016,7 +1016,7 @@ export interface AssetModelPropertyDefinition {
    *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to
    *       identify the type of the structure for this property.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: PropertyDataType | undefined;
 
   /**
    * @public
@@ -1143,7 +1143,7 @@ export interface AssetModelPropertySummary {
    * @public
    * <p>The data type of the property.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: PropertyDataType | undefined;
 
   /**
    * @public
@@ -1229,7 +1229,7 @@ export interface DetailedError {
    * @public
    * <p>The error code. </p>
    */
-  code: DetailedErrorCode | string | undefined;
+  code: DetailedErrorCode | undefined;
 
   /**
    * @public
@@ -1247,7 +1247,7 @@ export interface ErrorDetails {
    * @public
    * <p>The error code.</p>
    */
-  code: ErrorCode | string | undefined;
+  code: ErrorCode | undefined;
 
   /**
    * @public
@@ -1272,7 +1272,7 @@ export interface AssetModelStatus {
    * @public
    * <p>The current state of the asset model.</p>
    */
-  state: AssetModelState | string | undefined;
+  state: AssetModelState | undefined;
 
   /**
    * @public
@@ -1446,7 +1446,7 @@ export interface AssetPropertyValue {
    * @public
    * <p>The quality of the asset property value.</p>
    */
-  quality?: Quality | string;
+  quality?: Quality;
 }
 
 /**
@@ -1488,7 +1488,7 @@ export interface AssetRelationshipSummary {
    *             </li>
    *          </ul>
    */
-  relationshipType: AssetRelationshipType | string | undefined;
+  relationshipType: AssetRelationshipType | undefined;
 }
 
 /**
@@ -1519,7 +1519,7 @@ export interface AssetStatus {
    * @public
    * <p>The current status of the asset.</p>
    */
-  state: AssetState | string | undefined;
+  state: AssetState | undefined;
 
   /**
    * @public
@@ -2033,7 +2033,7 @@ export interface BatchGetAssetPropertyAggregatesEntry {
    * @public
    * <p>The data aggregating function.</p>
    */
-  aggregateTypes: (AggregateType | string)[] | undefined;
+  aggregateTypes: AggregateType[] | undefined;
 
   /**
    * @public
@@ -2057,7 +2057,7 @@ export interface BatchGetAssetPropertyAggregatesEntry {
    * @public
    * <p>The quality by which to filter asset data.</p>
    */
-  qualities?: (Quality | string)[];
+  qualities?: Quality[];
 
   /**
    * @public
@@ -2065,7 +2065,7 @@ export interface BatchGetAssetPropertyAggregatesEntry {
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
    */
-  timeOrdering?: TimeOrdering | string;
+  timeOrdering?: TimeOrdering;
 }
 
 /**
@@ -2128,7 +2128,7 @@ export interface BatchGetAssetPropertyAggregatesErrorEntry {
    * @public
    * <p>The error code.</p>
    */
-  errorCode: BatchGetAssetPropertyAggregatesErrorCode | string | undefined;
+  errorCode: BatchGetAssetPropertyAggregatesErrorCode | undefined;
 
   /**
    * @public
@@ -2167,7 +2167,7 @@ export interface BatchGetAssetPropertyAggregatesErrorInfo {
    * @public
    * <p>The error code.</p>
    */
-  errorCode: BatchGetAssetPropertyAggregatesErrorCode | string | undefined;
+  errorCode: BatchGetAssetPropertyAggregatesErrorCode | undefined;
 
   /**
    * @public
@@ -2191,7 +2191,7 @@ export interface BatchGetAssetPropertyAggregatesSkippedEntry {
    * @public
    * <p>The completion status of each entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
    */
-  completionStatus: BatchEntryCompletionStatus | string | undefined;
+  completionStatus: BatchEntryCompletionStatus | undefined;
 
   /**
    * @public
@@ -2359,7 +2359,7 @@ export interface BatchGetAssetPropertyValueErrorEntry {
    * @public
    * <p>The error code.</p>
    */
-  errorCode: BatchGetAssetPropertyValueErrorCode | string | undefined;
+  errorCode: BatchGetAssetPropertyValueErrorCode | undefined;
 
   /**
    * @public
@@ -2383,7 +2383,7 @@ export interface BatchGetAssetPropertyValueErrorInfo {
    * @public
    * <p>The error code.</p>
    */
-  errorCode: BatchGetAssetPropertyValueErrorCode | string | undefined;
+  errorCode: BatchGetAssetPropertyValueErrorCode | undefined;
 
   /**
    * @public
@@ -2407,7 +2407,7 @@ export interface BatchGetAssetPropertyValueSkippedEntry {
    * @public
    * <p>The completion status of each entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> request.</p>
    */
-  completionStatus: BatchEntryCompletionStatus | string | undefined;
+  completionStatus: BatchEntryCompletionStatus | undefined;
 
   /**
    * @public
@@ -2526,7 +2526,7 @@ export interface BatchGetAssetPropertyValueHistoryEntry {
    * @public
    * <p>The quality by which to filter asset data.</p>
    */
-  qualities?: (Quality | string)[];
+  qualities?: Quality[];
 
   /**
    * @public
@@ -2534,7 +2534,7 @@ export interface BatchGetAssetPropertyValueHistoryEntry {
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
    */
-  timeOrdering?: TimeOrdering | string;
+  timeOrdering?: TimeOrdering;
 }
 
 /**
@@ -2597,7 +2597,7 @@ export interface BatchGetAssetPropertyValueHistoryErrorEntry {
    * @public
    * <p>The error code.</p>
    */
-  errorCode: BatchGetAssetPropertyValueHistoryErrorCode | string | undefined;
+  errorCode: BatchGetAssetPropertyValueHistoryErrorCode | undefined;
 
   /**
    * @public
@@ -2621,7 +2621,7 @@ export interface BatchGetAssetPropertyValueHistoryErrorInfo {
    * @public
    * <p>The error code.</p>
    */
-  errorCode: BatchGetAssetPropertyValueHistoryErrorCode | string | undefined;
+  errorCode: BatchGetAssetPropertyValueHistoryErrorCode | undefined;
 
   /**
    * @public
@@ -2645,7 +2645,7 @@ export interface BatchGetAssetPropertyValueHistorySkippedEntry {
    * @public
    * <p>The completion status of each entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValueHistory.html">BatchGetAssetPropertyValueHistory</a> API.</p>
    */
-  completionStatus: BatchEntryCompletionStatus | string | undefined;
+  completionStatus: BatchEntryCompletionStatus | undefined;
 
   /**
    * @public
@@ -2791,7 +2791,7 @@ export interface BatchPutAssetPropertyError {
    * @public
    * <p>The error code.</p>
    */
-  errorCode: BatchPutAssetPropertyValueErrorCode | string | undefined;
+  errorCode: BatchPutAssetPropertyValueErrorCode | undefined;
 
   /**
    * @public
@@ -2857,7 +2857,7 @@ export interface CreateAccessPolicyRequest {
    * @public
    * <p>The permission level for this access policy. Note that a project <code>ADMINISTRATOR</code> is also known as a project owner.</p>
    */
-  accessPolicyPermission: Permission | string | undefined;
+  accessPolicyPermission: Permission | undefined;
 
   /**
    * @public
@@ -3122,7 +3122,7 @@ export interface Csv {
    * @public
    * <p>The column names specified in the .csv file.</p>
    */
-  columnNames?: (ColumnName | string)[];
+  columnNames?: ColumnName[];
 }
 
 /**
@@ -3250,7 +3250,7 @@ export interface CreateBulkImportJobResponse {
    *             </li>
    *          </ul>
    */
-  jobStatus: JobStatus | string | undefined;
+  jobStatus: JobStatus | undefined;
 }
 
 /**
@@ -3442,7 +3442,7 @@ export interface ImageFile {
    * @public
    * <p>The file type of the image.</p>
    */
-  type: ImageFileType | string | undefined;
+  type: ImageFileType | undefined;
 }
 
 /**
@@ -3519,7 +3519,7 @@ export interface CreatePortalRequest {
    *          <p>Default: <code>SSO</code>
    *          </p>
    */
-  portalAuthMode?: AuthMode | string;
+  portalAuthMode?: AuthMode;
 
   /**
    * @public
@@ -3565,7 +3565,7 @@ export interface MonitorErrorDetails {
    * @public
    * <p>The error code.</p>
    */
-  code?: MonitorErrorCode | string;
+  code?: MonitorErrorCode;
 
   /**
    * @public
@@ -3600,7 +3600,7 @@ export interface PortalStatus {
    * @public
    * <p>The current state of the portal.</p>
    */
-  state: PortalState | string | undefined;
+  state: PortalState | undefined;
 
   /**
    * @public
@@ -3949,7 +3949,7 @@ export interface DescribeAccessPolicyResponse {
    * <p>The access policy permission. Note that a project <code>ADMINISTRATOR</code> is also known
    *       as a project owner.</p>
    */
-  accessPolicyPermission: Permission | string | undefined;
+  accessPolicyPermission: Permission | undefined;
 
   /**
    * @public
@@ -4204,7 +4204,7 @@ export interface Property {
    * @public
    * <p>The property data type.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: PropertyDataType | undefined;
 
   /**
    * @public
@@ -4349,7 +4349,7 @@ export interface DescribeBulkImportJobResponse {
    *             </li>
    *          </ul>
    */
-  jobStatus: JobStatus | string | undefined;
+  jobStatus: JobStatus | undefined;
 
   /**
    * @public
@@ -4470,7 +4470,7 @@ export interface ConfigurationErrorDetails {
    * @public
    * <p>The error code.</p>
    */
-  code: ErrorCode | string | undefined;
+  code: ErrorCode | undefined;
 
   /**
    * @public
@@ -4503,7 +4503,7 @@ export interface ConfigurationStatus {
    * @public
    * <p>The current state of the configuration.</p>
    */
-  state: ConfigurationState | string | undefined;
+  state: ConfigurationState | undefined;
 
   /**
    * @public
@@ -4534,7 +4534,7 @@ export interface DescribeDefaultEncryptionConfigurationResponse {
    * @public
    * <p>The type of encryption used for the encryption configuration.</p>
    */
-  encryptionType: EncryptionType | string | undefined;
+  encryptionType: EncryptionType | undefined;
 
   /**
    * @public
@@ -4612,7 +4612,7 @@ export interface GatewayCapabilitySummary {
    *             </li>
    *          </ul>
    */
-  capabilitySyncStatus: CapabilitySyncStatus | string | undefined;
+  capabilitySyncStatus: CapabilitySyncStatus | undefined;
 }
 
 /**
@@ -4729,7 +4729,7 @@ export interface DescribeGatewayCapabilityConfigurationResponse {
    *             </li>
    *          </ul>
    */
-  capabilitySyncStatus: CapabilitySyncStatus | string | undefined;
+  capabilitySyncStatus: CapabilitySyncStatus | undefined;
 }
 
 /**
@@ -4761,7 +4761,7 @@ export interface LoggingOptions {
    * @public
    * <p>The IoT SiteWise logging verbosity level.</p>
    */
-  level: LoggingLevel | string | undefined;
+  level: LoggingLevel | undefined;
 }
 
 /**
@@ -4893,7 +4893,7 @@ export interface DescribePortalResponse {
    * @public
    * <p>The service to use to authenticate users to the portal.</p>
    */
-  portalAuthMode?: AuthMode | string;
+  portalAuthMode?: AuthMode;
 
   /**
    * @public
@@ -5082,7 +5082,7 @@ export interface DescribeStorageConfigurationResponse {
    *             </li>
    *          </ul>
    */
-  storageType: StorageType | string | undefined;
+  storageType: StorageType | undefined;
 
   /**
    * @public
@@ -5110,7 +5110,7 @@ export interface DescribeStorageConfigurationResponse {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a>
    *     in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  disassociatedDataStorage?: DisassociatedDataStorageState | string;
+  disassociatedDataStorage?: DisassociatedDataStorageState;
 
   /**
    * @public
@@ -5187,7 +5187,7 @@ export interface DescribeTimeSeriesResponse {
    * <p>The data type of the time series.</p>
    *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to identify the type of the structure for this time series.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: PropertyDataType | undefined;
 
   /**
    * @public
@@ -5311,7 +5311,7 @@ export interface GetAssetPropertyAggregatesRequest {
    * @public
    * <p>The data aggregating function.</p>
    */
-  aggregateTypes: (AggregateType | string)[] | undefined;
+  aggregateTypes: AggregateType[] | undefined;
 
   /**
    * @public
@@ -5323,7 +5323,7 @@ export interface GetAssetPropertyAggregatesRequest {
    * @public
    * <p>The quality by which to filter asset data.</p>
    */
-  qualities?: (Quality | string)[];
+  qualities?: Quality[];
 
   /**
    * @public
@@ -5343,7 +5343,7 @@ export interface GetAssetPropertyAggregatesRequest {
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
    */
-  timeOrdering?: TimeOrdering | string;
+  timeOrdering?: TimeOrdering;
 
   /**
    * @public
@@ -5463,7 +5463,7 @@ export interface GetAssetPropertyValueHistoryRequest {
    * @public
    * <p>The quality by which to filter asset data.</p>
    */
-  qualities?: (Quality | string)[];
+  qualities?: Quality[];
 
   /**
    * @public
@@ -5471,7 +5471,7 @@ export interface GetAssetPropertyValueHistoryRequest {
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
    */
-  timeOrdering?: TimeOrdering | string;
+  timeOrdering?: TimeOrdering;
 
   /**
    * @public
@@ -5569,7 +5569,7 @@ export interface GetInterpolatedAssetPropertyValuesRequest {
    * <p>The quality of the asset property value. You can use this parameter as a filter to choose
    *       only the asset property values that have a specific quality.</p>
    */
-  quality: Quality | string | undefined;
+  quality: Quality | undefined;
 
   /**
    * @public
@@ -5725,7 +5725,7 @@ export interface ListAccessPoliciesRequest {
    * <p>The type of identity (IAM Identity Center user, IAM Identity Center group, or IAM user). This parameter is required
    *       if you specify <code>identityId</code>.</p>
    */
-  identityType?: IdentityType | string;
+  identityType?: IdentityType;
 
   /**
    * @public
@@ -5739,7 +5739,7 @@ export interface ListAccessPoliciesRequest {
    * <p>The type of resource (portal or project). This parameter is required if you specify
    *         <code>resourceId</code>.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -5843,7 +5843,7 @@ export interface ListAssetModelPropertiesRequest {
    *          <p>Default: <code>BASE</code>
    *          </p>
    */
-  filter?: ListAssetModelPropertiesFilter | string;
+  filter?: ListAssetModelPropertiesFilter;
 }
 
 /**
@@ -5953,7 +5953,7 @@ export interface ListAssetPropertiesRequest {
    *          <p>Default: <code>BASE</code>
    *          </p>
    */
-  filter?: ListAssetPropertiesFilter | string;
+  filter?: ListAssetPropertiesFilter;
 }
 
 /**
@@ -6009,7 +6009,7 @@ export interface ListAssetRelationshipsRequest {
    *             </li>
    *          </ul>
    */
-  traversalType: TraversalType | string | undefined;
+  traversalType: TraversalType | undefined;
 
   /**
    * @public
@@ -6098,7 +6098,7 @@ export interface ListAssetsRequest {
    *          <p>Default: <code>ALL</code>
    *          </p>
    */
-  filter?: ListAssetsFilter | string;
+  filter?: ListAssetsFilter;
 }
 
 /**
@@ -6170,7 +6170,7 @@ export interface ListAssociatedAssetsRequest {
    *          <p>Default: <code>CHILD</code>
    *          </p>
    */
-  traversalDirection?: TraversalDirection | string;
+  traversalDirection?: TraversalDirection;
 
   /**
    * @public
@@ -6242,7 +6242,7 @@ export interface ListBulkImportJobsRequest {
    * @public
    * <p>You can use a filter to select the bulk import jobs that you want to retrieve.</p>
    */
-  filter?: ListBulkImportJobsFilter | string;
+  filter?: ListBulkImportJobsFilter;
 }
 
 /**
@@ -6294,7 +6294,7 @@ export interface JobSummary {
    *             </li>
    *          </ul>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 }
 
 /**
@@ -6784,7 +6784,7 @@ export interface ListTimeSeriesRequest {
    *             </li>
    *          </ul>
    */
-  timeSeriesType?: ListTimeSeriesType | string;
+  timeSeriesType?: ListTimeSeriesType;
 }
 
 /**
@@ -6821,7 +6821,7 @@ export interface TimeSeriesSummary {
    * <p>The data type of the time series.</p>
    *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to identify the type of the structure for this time series.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: PropertyDataType | undefined;
 
   /**
    * @public
@@ -6880,7 +6880,7 @@ export interface PutDefaultEncryptionConfigurationRequest {
    * @public
    * <p>The type of encryption used for the encryption configuration.</p>
    */
-  encryptionType: EncryptionType | string | undefined;
+  encryptionType: EncryptionType | undefined;
 
   /**
    * @public
@@ -6898,7 +6898,7 @@ export interface PutDefaultEncryptionConfigurationResponse {
    * @public
    * <p>The type of encryption used for the encryption configuration.</p>
    */
-  encryptionType: EncryptionType | string | undefined;
+  encryptionType: EncryptionType | undefined;
 
   /**
    * @public
@@ -6953,7 +6953,7 @@ export interface PutStorageConfigurationRequest {
    *             </li>
    *          </ul>
    */
-  storageType: StorageType | string | undefined;
+  storageType: StorageType | undefined;
 
   /**
    * @public
@@ -6982,7 +6982,7 @@ export interface PutStorageConfigurationRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a>
    *     in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  disassociatedDataStorage?: DisassociatedDataStorageState | string;
+  disassociatedDataStorage?: DisassociatedDataStorageState;
 
   /**
    * @public
@@ -7012,7 +7012,7 @@ export interface PutStorageConfigurationResponse {
    *             </li>
    *          </ul>
    */
-  storageType: StorageType | string | undefined;
+  storageType: StorageType | undefined;
 
   /**
    * @public
@@ -7040,7 +7040,7 @@ export interface PutStorageConfigurationResponse {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a>
    *     in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  disassociatedDataStorage?: DisassociatedDataStorageState | string;
+  disassociatedDataStorage?: DisassociatedDataStorageState;
 
   /**
    * @public
@@ -7156,7 +7156,7 @@ export interface UpdateAccessPolicyRequest {
    * @public
    * <p>The permission level for this access policy. Note that a project <code>ADMINISTRATOR</code> is also known as a project owner.</p>
    */
-  accessPolicyPermission: Permission | string | undefined;
+  accessPolicyPermission: Permission | undefined;
 
   /**
    * @public
@@ -7313,7 +7313,7 @@ export interface UpdateAssetPropertyRequest {
    *       updates to a unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting with other services</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>If you omit this parameter, the notification state is set to <code>DISABLED</code>.</p>
    */
-  propertyNotificationState?: PropertyNotificationState | string;
+  propertyNotificationState?: PropertyNotificationState;
 
   /**
    * @public
@@ -7446,7 +7446,7 @@ export interface UpdateGatewayCapabilityConfigurationResponse {
    *          <p>After you update a capability configuration, its sync status is <code>OUT_OF_SYNC</code>
    *       until the gateway receives and applies or rejects the updated configuration.</p>
    */
-  capabilitySyncStatus: CapabilitySyncStatus | string | undefined;
+  capabilitySyncStatus: CapabilitySyncStatus | undefined;
 }
 
 /**

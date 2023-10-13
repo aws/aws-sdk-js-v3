@@ -98,7 +98,7 @@ export interface AddStorageSystemRequest {
    *         later.</p>
    *          </note>
    */
-  SystemType: DiscoverySystemType | string | undefined;
+  SystemType: DiscoverySystemType | undefined;
 
   /**
    * @public
@@ -240,7 +240,7 @@ export interface AgentListEntry {
    * <p>The status of an agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/understand-agent-statuses.html">DataSync agent
    *         statuses</a>.</p>
    */
-  Status?: AgentStatus | string;
+  Status?: AgentStatus;
 }
 
 /**
@@ -448,7 +448,7 @@ export interface CreateLocationAzureBlobRequest {
    * @public
    * <p>Specifies the authentication method DataSync uses to access your Azure Blob Storage. DataSync can access blob storage using a shared access signature (SAS).</p>
    */
-  AuthenticationType: AzureBlobAuthenticationType | string | undefined;
+  AuthenticationType: AzureBlobAuthenticationType | undefined;
 
   /**
    * @public
@@ -462,13 +462,13 @@ export interface CreateLocationAzureBlobRequest {
    *       them into Azure Blob Storage. Currently, DataSync only supports moving data into
    *       Azure Blob Storage as block blobs. For more information on blob types, see the <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs">Azure Blob Storage documentation</a>.</p>
    */
-  BlobType?: AzureBlobType | string;
+  BlobType?: AzureBlobType;
 
   /**
    * @public
    * <p>Specifies the access tier that you want your objects or files transferred into. This only applies when using the location as a transfer destination. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">Access tiers</a>.</p>
    */
-  AccessTier?: AzureAccessTier | string;
+  AccessTier?: AzureAccessTier;
 
   /**
    * @public
@@ -608,7 +608,7 @@ export interface CreateLocationEfsRequest {
    *       role using <code>FileSystemAccessRoleArn</code>, you must set this parameter to
    *         <code>TLS1_2</code>.</p>
    */
-  InTransitEncryption?: EfsInTransitEncryption | string;
+  InTransitEncryption?: EfsInTransitEncryption;
 }
 
 /**
@@ -722,7 +722,7 @@ export interface NfsMountOptions {
    *             <p>DataSync currently only supports NFS version 3 with Amazon FSx for NetApp ONTAP locations.</p>
    *          </note>
    */
-  Version?: NfsVersion | string;
+  Version?: NfsVersion;
 }
 
 /**
@@ -800,7 +800,7 @@ export interface SmbMountOptions {
    *             </li>
    *          </ul>
    */
-  Version?: SmbVersion | string;
+  Version?: SmbVersion;
 }
 
 /**
@@ -1168,7 +1168,7 @@ export interface QopConfiguration {
    *       your <code>hadoop.rpc.protection</code> setting in your <code>core-site.xml</code> file on
    *       your Hadoop cluster.</p>
    */
-  RpcProtection?: HdfsRpcProtection | string;
+  RpcProtection?: HdfsRpcProtection;
 
   /**
    * @public
@@ -1176,7 +1176,7 @@ export interface QopConfiguration {
    *       corresponds to your <code>dfs.data.transfer.protection</code> setting in the
    *         <code>hdfs-site.xml</code> file on your Hadoop cluster.</p>
    */
-  DataTransferProtection?: HdfsDataTransferProtection | string;
+  DataTransferProtection?: HdfsDataTransferProtection;
 }
 
 /**
@@ -1234,7 +1234,7 @@ export interface CreateLocationHdfsRequest {
    * @public
    * <p>The type of authentication used to determine the identity of the user. </p>
    */
-  AuthenticationType: HdfsAuthenticationType | string | undefined;
+  AuthenticationType: HdfsAuthenticationType | undefined;
 
   /**
    * @public
@@ -1417,7 +1417,7 @@ export interface CreateLocationObjectStorageRequest {
    * @public
    * <p>Specifies the protocol that your object storage server uses to communicate.</p>
    */
-  ServerProtocol?: ObjectStorageServerProtocol | string;
+  ServerProtocol?: ObjectStorageServerProtocol;
 
   /**
    * @public
@@ -1562,7 +1562,7 @@ export interface CreateLocationS3Request {
    *       can affect your S3 storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
    *         when working with S3 storage classes in DataSync</a>.</p>
    */
-  S3StorageClass?: S3StorageClass | string;
+  S3StorageClass?: S3StorageClass;
 
   /**
    * @public
@@ -1711,7 +1711,7 @@ export interface FilterRule {
    * <p>The type of filter rule to apply. DataSync only supports the SIMPLE_PATTERN
    *       rule type.</p>
    */
-  FilterType?: FilterType | string;
+  FilterType?: FilterType;
 
   /**
    * @public
@@ -1950,7 +1950,7 @@ export interface Options {
    *       the transfer. All data transmissions are still integrity-checked with checksum verification
    *       during the transfer.</p>
    */
-  VerifyMode?: VerifyMode | string;
+  VerifyMode?: VerifyMode;
 
   /**
    * @public
@@ -1963,7 +1963,7 @@ export interface Options {
    *       storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
    *         when working with Amazon S3 storage classes in DataSync</a>.</p>
    */
-  OverwriteMode?: OverwriteMode | string;
+  OverwriteMode?: OverwriteMode;
 
   /**
    * @public
@@ -1988,7 +1988,7 @@ export interface Options {
    *           <code>NONE</code>. </p>
    *          </note>
    */
-  Atime?: Atime | string;
+  Atime?: Atime;
 
   /**
    * @public
@@ -2008,7 +2008,7 @@ export interface Options {
    *         to <code>NONE</code>. </p>
    *          </note>
    */
-  Mtime?: Mtime | string;
+  Mtime?: Mtime;
 
   /**
    * @public
@@ -2021,7 +2021,7 @@ export interface Options {
    *          <p>
    *             <code>NONE</code>: Ignore UID and GID. </p>
    */
-  Uid?: Uid | string;
+  Uid?: Uid;
 
   /**
    * @public
@@ -2034,7 +2034,7 @@ export interface Options {
    *          <p>
    *             <code>NONE</code>: Ignore UID and GID.</p>
    */
-  Gid?: Gid | string;
+  Gid?: Gid;
 
   /**
    * @public
@@ -2055,7 +2055,7 @@ export interface Options {
    *           <code>TransferMode</code> to <code>ALL</code>. When you transfer all data, DataSync doesn't scan your destination location and doesn't know what to delete.</p>
    *          </note>
    */
-  PreserveDeletedFiles?: PreserveDeletedFiles | string;
+  PreserveDeletedFiles?: PreserveDeletedFiles;
 
   /**
    * @public
@@ -2075,7 +2075,7 @@ export interface Options {
    *             <code>PRESERVE</code>: Preserve character and block device metadata. This option
    *       currently isn't supported for Amazon EFS. </p>
    */
-  PreserveDevices?: PreserveDevices | string;
+  PreserveDevices?: PreserveDevices;
 
   /**
    * @public
@@ -2092,7 +2092,7 @@ export interface Options {
    *             <p>DataSync can preserve extant permissions of a source location.</p>
    *          </note>
    */
-  PosixPermissions?: PosixPermissions | string;
+  PosixPermissions?: PosixPermissions;
 
   /**
    * @public
@@ -2108,7 +2108,7 @@ export interface Options {
    *       when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#running-multiple-tasks">running multiple
    *         tasks</a>. This is <code>ENABLED</code> by default.</p>
    */
-  TaskQueueing?: TaskQueueing | string;
+  TaskQueueing?: TaskQueueing;
 
   /**
    * @public
@@ -2119,7 +2119,7 @@ export interface Options {
    *         <code>TRANSFER</code> publishes logs for every file or object that is transferred and
    *       integrity checked.</p>
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: LogLevel;
 
   /**
    * @public
@@ -2133,7 +2133,7 @@ export interface Options {
    *             <code>ALL</code>: DataSync copies all source location content to the destination
    *       (without comparing what's in the destination).</p>
    */
-  TransferMode?: TransferMode | string;
+  TransferMode?: TransferMode;
 
   /**
    * @public
@@ -2181,7 +2181,7 @@ export interface Options {
    *       objects are owned by the user that was provided for accessing the destination location. DACLs
    *       and SACLs are set based on the destination server’s configuration. </p>
    */
-  SecurityDescriptorCopyFlags?: SmbSecurityDescriptorCopyFlags | string;
+  SecurityDescriptorCopyFlags?: SmbSecurityDescriptorCopyFlags;
 
   /**
    * @public
@@ -2191,7 +2191,7 @@ export interface Options {
    *          <p>Default Value: <code>PRESERVE</code>
    *          </p>
    */
-  ObjectTags?: ObjectTags | string;
+  ObjectTags?: ObjectTags;
 }
 
 /**
@@ -2299,7 +2299,7 @@ export interface ReportOverride {
    * <p>Specifies whether your task report includes errors only or successes and errors.</p>
    *          <p>For example, your report might mostly include only what didn't go well in your transfer (<code>ERRORS_ONLY</code>). At the same time, you want to verify that your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">task filter</a> is working correctly. In this situation, you can get a list of what files DataSync successfully skipped and if something transferred that you didn't to transfer (<code>SUCCESSES_AND_ERRORS</code>).</p>
    */
-  ReportLevel?: ReportLevel | string;
+  ReportLevel?: ReportLevel;
 }
 
 /**
@@ -2364,7 +2364,7 @@ export interface TaskReportConfig {
    *             </li>
    *          </ul>
    */
-  OutputType?: ReportOutputType | string;
+  OutputType?: ReportOutputType;
 
   /**
    * @public
@@ -2382,13 +2382,13 @@ export interface TaskReportConfig {
    *             </li>
    *          </ul>
    */
-  ReportLevel?: ReportLevel | string;
+  ReportLevel?: ReportLevel;
 
   /**
    * @public
    * <p>Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html">enable versioning on your bucket</a>. Keep in mind that setting this to <code>INCLUDE</code> can increase the duration of your task execution.</p>
    */
-  ObjectVersionIds?: ObjectVersionIds | string;
+  ObjectVersionIds?: ObjectVersionIds;
 
   /**
    * @public
@@ -2632,7 +2632,7 @@ export interface DescribeAgentResponse {
    *       the issue that caused the unhealthy state is resolved, the agent returns to ONLINE
    *       status.</p>
    */
-  Status?: AgentStatus | string;
+  Status?: AgentStatus;
 
   /**
    * @public
@@ -2651,7 +2651,7 @@ export interface DescribeAgentResponse {
    * <p>The type of endpoint that your agent is connected to. If the endpoint is a VPC endpoint,
    *       the agent is not accessible over the public internet. </p>
    */
-  EndpointType?: EndpointType | string;
+  EndpointType?: EndpointType;
 
   /**
    * @public
@@ -2717,7 +2717,7 @@ export interface DescribeDiscoveryJobResponse {
    * @public
    * <p>Indicates the status of a discovery job. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#discovery-job-statuses-table">Discovery job statuses</a>.</p>
    */
-  Status?: DiscoveryJobStatus | string;
+  Status?: DiscoveryJobStatus;
 
   /**
    * @public
@@ -2763,7 +2763,7 @@ export interface DescribeLocationAzureBlobResponse {
    * @public
    * <p>The authentication method DataSync uses to access your Azure Blob Storage. DataSync can access blob storage using a shared access signature (SAS).</p>
    */
-  AuthenticationType?: AzureBlobAuthenticationType | string;
+  AuthenticationType?: AzureBlobAuthenticationType;
 
   /**
    * @public
@@ -2771,13 +2771,13 @@ export interface DescribeLocationAzureBlobResponse {
    *       Azure Blob Storage. Currently, DataSync only supports moving data into Azure Blob
    *       Storage as block blobs. For more information on blob types, see the <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs">Azure Blob Storage documentation</a>.</p>
    */
-  BlobType?: AzureBlobType | string;
+  BlobType?: AzureBlobType;
 
   /**
    * @public
    * <p>The access tier that you want your objects or files transferred into. This only applies when using the location as a transfer destination. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">Access tiers</a>.</p>
    */
-  AccessTier?: AzureAccessTier | string;
+  AccessTier?: AzureAccessTier;
 
   /**
    * @public
@@ -2853,7 +2853,7 @@ export interface DescribeLocationEfsResponse {
    * <p>Describes whether DataSync uses Transport Layer Security (TLS) encryption when
    *       copying data to or from the Amazon EFS file system.</p>
    */
-  InTransitEncryption?: EfsInTransitEncryption | string;
+  InTransitEncryption?: EfsInTransitEncryption;
 }
 
 /**
@@ -3131,7 +3131,7 @@ export interface DescribeLocationHdfsResponse {
    * @public
    * <p>The type of authentication used to determine the identity of the user. </p>
    */
-  AuthenticationType?: HdfsAuthenticationType | string;
+  AuthenticationType?: HdfsAuthenticationType;
 
   /**
    * @public
@@ -3259,7 +3259,7 @@ export interface DescribeLocationObjectStorageResponse {
    * @public
    * <p>The protocol that your object storage system uses to communicate.</p>
    */
-  ServerProtocol?: ObjectStorageServerProtocol | string;
+  ServerProtocol?: ObjectStorageServerProtocol;
 
   /**
    * @public
@@ -3319,7 +3319,7 @@ export interface DescribeLocationS3Response {
    *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
    *         when working with S3 storage classes in DataSync</a>.</p>
    */
-  S3StorageClass?: S3StorageClass | string;
+  S3StorageClass?: S3StorageClass;
 
   /**
    * @public
@@ -3463,7 +3463,7 @@ export interface DescribeStorageSystemResponse {
    *       </p>
    *          </note>
    */
-  SystemType?: DiscoverySystemType | string;
+  SystemType?: DiscoverySystemType;
 
   /**
    * @public
@@ -3489,7 +3489,7 @@ export interface DescribeStorageSystemResponse {
    * @public
    * <p>Indicates whether your DataSync agent can connect to your on-premises storage system.</p>
    */
-  ConnectivityStatus?: StorageSystemConnectivityStatus | string;
+  ConnectivityStatus?: StorageSystemConnectivityStatus;
 
   /**
    * @public
@@ -3542,7 +3542,7 @@ export interface DescribeStorageSystemResourceMetricsRequest {
    * @public
    * <p>Specifies the kind of storage system resource that you want information about.</p>
    */
-  ResourceType: DiscoveryResourceType | string | undefined;
+  ResourceType: DiscoveryResourceType | undefined;
 
   /**
    * @public
@@ -3733,7 +3733,7 @@ export interface ResourceMetrics {
    * @public
    * <p>The type of on-premises storage system resource.</p>
    */
-  ResourceType?: DiscoveryResourceType | string;
+  ResourceType?: DiscoveryResourceType;
 }
 
 /**
@@ -3782,7 +3782,7 @@ export interface DescribeStorageSystemResourcesRequest {
    * @public
    * <p>Specifies what kind of storage system resources that you want information about.</p>
    */
-  ResourceType: DiscoveryResourceType | string | undefined;
+  ResourceType: DiscoveryResourceType | undefined;
 
   /**
    * @public
@@ -4001,7 +4001,7 @@ export interface NetAppONTAPCluster {
    *       or can't be determined.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#recommendation-statuses-table">Recommendation statuses</a>.</p>
    */
-  RecommendationStatus?: RecommendationStatus | string;
+  RecommendationStatus?: RecommendationStatus;
 
   /**
    * @public
@@ -4097,7 +4097,7 @@ export interface NetAppONTAPSVM {
    *       can't be determined.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#recommendation-statuses-table">Recommendation statuses</a>.</p>
    */
-  RecommendationStatus?: RecommendationStatus | string;
+  RecommendationStatus?: RecommendationStatus;
 
   /**
    * @public
@@ -4205,7 +4205,7 @@ export interface NetAppONTAPVolume {
    *       or can't be determined.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#recommendation-statuses-table">Recommendation statuses</a>.</p>
    */
-  RecommendationStatus?: RecommendationStatus | string;
+  RecommendationStatus?: RecommendationStatus;
 
   /**
    * @public
@@ -4310,7 +4310,7 @@ export interface DescribeTaskResponse {
    *          <p>For detailed information about task execution statuses, see Understanding
    *       Task Statuses in the <i>DataSync User Guide</i>.</p>
    */
-  Status?: TaskStatus | string;
+  Status?: TaskStatus;
 
   /**
    * @public
@@ -4460,7 +4460,7 @@ export interface ReportResult {
    * <p>Indicates whether DataSync is still working on your report, created a report, or
    *       can't create a complete report.</p>
    */
-  Status?: PhaseStatus | string;
+  Status?: PhaseStatus;
 
   /**
    * @public
@@ -4494,7 +4494,7 @@ export interface TaskExecutionResultDetail {
    * @public
    * <p>The status of the PREPARING phase.</p>
    */
-  PrepareStatus?: PhaseStatus | string;
+  PrepareStatus?: PhaseStatus;
 
   /**
    * @public
@@ -4514,7 +4514,7 @@ export interface TaskExecutionResultDetail {
    * @public
    * <p>The status of the TRANSFERRING phase.</p>
    */
-  TransferStatus?: PhaseStatus | string;
+  TransferStatus?: PhaseStatus;
 
   /**
    * @public
@@ -4527,7 +4527,7 @@ export interface TaskExecutionResultDetail {
    * @public
    * <p>The status of the VERIFYING phase.</p>
    */
-  VerifyStatus?: PhaseStatus | string;
+  VerifyStatus?: PhaseStatus;
 
   /**
    * @public
@@ -4584,7 +4584,7 @@ export interface DescribeTaskExecutionResponse {
    * @public
    * <p>The status of the task execution. </p>
    */
-  Status?: TaskExecutionStatus | string;
+  Status?: TaskExecutionStatus;
 
   /**
    * @public
@@ -4733,7 +4733,7 @@ export interface DiscoveryJobListEntry {
    * @public
    * <p>The status of a discovery job. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#discovery-job-statuses-table">Discovery job statuses</a>.</p>
    */
-  Status?: DiscoveryJobStatus | string;
+  Status?: DiscoveryJobStatus;
 }
 
 /**
@@ -4759,7 +4759,7 @@ export interface GenerateRecommendationsRequest {
    * <p>Specifies the type of resource in your storage system that you want recommendations
    *       on.</p>
    */
-  ResourceType: DiscoveryResourceType | string | undefined;
+  ResourceType: DiscoveryResourceType | undefined;
 }
 
 /**
@@ -4903,7 +4903,7 @@ export interface LocationFilter {
    *       available for it (for example, <code>LocationType</code> for
    *       <code>ListLocations</code>).</p>
    */
-  Name: LocationFilterName | string | undefined;
+  Name: LocationFilterName | undefined;
 
   /**
    * @public
@@ -4917,7 +4917,7 @@ export interface LocationFilter {
    * <p>The operator that is used to compare filter values (for example, <code>Equals</code> or
    *         <code>Contains</code>).</p>
    */
-  Operator: Operator | string | undefined;
+  Operator: Operator | undefined;
 }
 
 /**
@@ -5148,7 +5148,7 @@ export interface TaskExecutionListEntry {
    * @public
    * <p>The status of a task execution.</p>
    */
-  Status?: TaskExecutionStatus | string;
+  Status?: TaskExecutionStatus;
 }
 
 /**
@@ -5199,7 +5199,7 @@ export interface TaskFilter {
    * <p>The name of the filter being used. Each API call supports a list of filters that are
    *       available for it. For example, <code>LocationId</code> for <code>ListTasks</code>.</p>
    */
-  Name: TaskFilterName | string | undefined;
+  Name: TaskFilterName | undefined;
 
   /**
    * @public
@@ -5213,7 +5213,7 @@ export interface TaskFilter {
    * <p>The operator that is used to compare filter values (for example, <code>Equals</code> or
    *         <code>Contains</code>).</p>
    */
-  Operator: Operator | string | undefined;
+  Operator: Operator | undefined;
 }
 
 /**
@@ -5262,7 +5262,7 @@ export interface TaskListEntry {
    * @public
    * <p>The status of the task.</p>
    */
-  Status?: TaskStatus | string;
+  Status?: TaskStatus;
 
   /**
    * @public
@@ -5554,7 +5554,7 @@ export interface UpdateLocationAzureBlobRequest {
    * @public
    * <p>Specifies the authentication method DataSync uses to access your Azure Blob Storage. DataSync can access blob storage using a shared access signature (SAS).</p>
    */
-  AuthenticationType?: AzureBlobAuthenticationType | string;
+  AuthenticationType?: AzureBlobAuthenticationType;
 
   /**
    * @public
@@ -5568,13 +5568,13 @@ export interface UpdateLocationAzureBlobRequest {
    *       them into Azure Blob Storage. Currently, DataSync only supports moving data into
    *       Azure Blob Storage as block blobs. For more information on blob types, see the <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs">Azure Blob Storage documentation</a>.</p>
    */
-  BlobType?: AzureBlobType | string;
+  BlobType?: AzureBlobType;
 
   /**
    * @public
    * <p>Specifies the access tier that you want your objects or files transferred into. This only applies when using the location as a transfer destination. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">Access tiers</a>.</p>
    */
-  AccessTier?: AzureAccessTier | string;
+  AccessTier?: AzureAccessTier;
 
   /**
    * @public
@@ -5645,7 +5645,7 @@ export interface UpdateLocationHdfsRequest {
    * @public
    * <p>The type of authentication used to determine the identity of the user. </p>
    */
-  AuthenticationType?: HdfsAuthenticationType | string;
+  AuthenticationType?: HdfsAuthenticationType;
 
   /**
    * @public
@@ -5749,7 +5749,7 @@ export interface UpdateLocationObjectStorageRequest {
    * @public
    * <p>Specifies the protocol that your object storage server uses to communicate.</p>
    */
-  ServerProtocol?: ObjectStorageServerProtocol | string;
+  ServerProtocol?: ObjectStorageServerProtocol;
 
   /**
    * @public

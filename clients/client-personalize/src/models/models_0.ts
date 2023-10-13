@@ -745,7 +745,7 @@ export interface CreateDatasetExportJobRequest {
    *         <code>ALL</code> for both types. The default value is <code>PUT</code>.
    *     </p>
    */
-  ingestionMode?: IngestionMode | string;
+  ingestionMode?: IngestionMode;
 
   /**
    * @public
@@ -825,7 +825,7 @@ export interface CreateDatasetGroupRequest {
    *       don't specify a domain, you create a Custom dataset group with solution
    *       versions that you deploy with a campaign. </p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 
   /**
    * @public
@@ -848,7 +848,7 @@ export interface CreateDatasetGroupResponse {
    * @public
    * <p>The domain for the new Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -934,7 +934,7 @@ export interface CreateDatasetImportJobRequest {
    *             </li>
    *          </ul>
    */
-  importMode?: ImportMode | string;
+  importMode?: ImportMode;
 
   /**
    * @public
@@ -1239,7 +1239,7 @@ export interface CreateSchemaRequest {
    * <p>The domain for the schema. If you are creating a schema for a dataset in a Domain dataset group, specify
    *     the domain you chose when you created the Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -1481,7 +1481,7 @@ export interface OptimizationObjective {
    * @public
    * <p>Specifies how Amazon Personalize balances the importance of your optimization objective versus relevance.</p>
    */
-  objectiveSensitivity?: ObjectiveSensitivity | string;
+  objectiveSensitivity?: ObjectiveSensitivity;
 }
 
 /**
@@ -1673,7 +1673,7 @@ export interface CreateSolutionVersionRequest {
    *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a> recipe.</p>
    *          </important>
    */
-  trainingMode?: TrainingMode | string;
+  trainingMode?: TrainingMode;
 
   /**
    * @public
@@ -2402,7 +2402,7 @@ export interface DatasetExportJob {
    *       console, PutEvents, PutUsers and PutItems operations), or <code>ALL</code>
    *       for both types. The default value is <code>PUT</code>. </p>
    */
-  ingestionMode?: IngestionMode | string;
+  ingestionMode?: IngestionMode;
 
   /**
    * @public
@@ -2569,7 +2569,7 @@ export interface DatasetGroup {
    * @public
    * <p>The domain of a Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -2677,7 +2677,7 @@ export interface DatasetImportJob {
    * <p>The import mode used by the dataset import job to import new
    *       records.</p>
    */
-  importMode?: ImportMode | string;
+  importMode?: ImportMode;
 
   /**
    * @public
@@ -3333,7 +3333,7 @@ export interface DatasetSchema {
    * @public
    * <p>The domain of a schema that you created for a dataset in a Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -3640,7 +3640,7 @@ export interface SolutionVersion {
    *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a> recipe.</p>
    *          </important>
    */
-  trainingMode?: TrainingMode | string;
+  trainingMode?: TrainingMode;
 
   /**
    * @public
@@ -4235,7 +4235,7 @@ export interface DatasetGroupSummary {
    * @public
    * <p>The domain of a Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -4337,7 +4337,7 @@ export interface DatasetImportJobSummary {
    *       data</a>.
    *     </p>
    */
-  importMode?: ImportMode | string;
+  importMode?: ImportMode;
 }
 
 /**
@@ -4787,7 +4787,7 @@ export interface ListRecipesRequest {
    * @public
    * <p>The default is <code>SERVICE</code>.</p>
    */
-  recipeProvider?: RecipeProvider | string;
+  recipeProvider?: RecipeProvider;
 
   /**
    * @public
@@ -4809,7 +4809,7 @@ export interface ListRecipesRequest {
    *       for this domain are included in the response. If you don't specify a domain, all recipes are returned.
    *     </p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -4852,7 +4852,7 @@ export interface RecipeSummary {
    * @public
    * <p>The domain of the recipe (if the recipe is a Domain dataset group use case).</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -5031,7 +5031,7 @@ export interface DatasetSchemaSummary {
    * @public
    * <p>The domain of a schema that you created for a dataset in a Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**

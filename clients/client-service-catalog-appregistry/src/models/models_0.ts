@@ -312,7 +312,7 @@ export interface AssociateResourceRequest {
    * @public
    * <p>The type of resource of which the application will be associated.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -708,7 +708,7 @@ export interface DisassociateResourceRequest {
    * @public
    * <p>The type of the resource that is being disassociated.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -787,7 +787,7 @@ export interface ResourceGroup {
    *          <p>
    *             <code>UPDATE_FAILED</code> if the resource group could not update successfully.</p>
    */
-  state?: ResourceGroupState | string;
+  state?: ResourceGroupState;
 
   /**
    * @public
@@ -897,7 +897,7 @@ export interface GetAssociatedResourceRequest {
    * @public
    * <p>The type of resource associated with the application.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -1190,7 +1190,7 @@ export interface ResourceInfo {
    *       about the Service Catalog App Registry resource type.
    *     </p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -1338,7 +1338,7 @@ export interface SyncResourceRequest {
    * @public
    * <p>The type of resource of which the application will be associated.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -1381,7 +1381,7 @@ export interface SyncResourceResponse {
    * @public
    * <p>The results of the output if an application is associated with an ARN value, which could be <code>syncStarted</code> or None.</p>
    */
-  actionTaken?: SyncAction | string;
+  actionTaken?: SyncAction;
 }
 
 /**

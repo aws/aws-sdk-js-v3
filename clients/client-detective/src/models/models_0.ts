@@ -44,7 +44,7 @@ export class AccessDeniedException extends __BaseException {
    * @public
    * <p>The SDK default error code associated with the access denied exception.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -56,7 +56,7 @@ export class AccessDeniedException extends __BaseException {
    * @public
    * <p>The error code associated with the access denied exception.</p>
    */
-  SubErrorCode?: ErrorCode | string;
+  SubErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -159,7 +159,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The error code associated with the validation failure.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -653,7 +653,7 @@ export interface MemberDetail {
    *          graph are not included. In the organization behavior graph, organization accounts that the
    *             Detective administrator account did not enable are not included.</p>
    */
-  Status?: MemberStatus | string;
+  Status?: MemberStatus;
 
   /**
    * @public
@@ -674,7 +674,7 @@ export interface MemberDetail {
    *             </li>
    *          </ul>
    */
-  DisabledReason?: MemberDisabledReason | string;
+  DisabledReason?: MemberDisabledReason;
 
   /**
    * @public
@@ -739,7 +739,7 @@ export interface MemberDetail {
    *          <p>For an account that was invited to a behavior graph, the type is
    *          <code>INVITATION</code>. </p>
    */
-  InvitationType?: InvitationType | string;
+  InvitationType?: InvitationType;
 
   /**
    * @public
@@ -751,7 +751,7 @@ export interface MemberDetail {
    * @public
    * <p>The state of a data source package for the behavior graph.</p>
    */
-  DatasourcePackageIngestStates?: Record<string, DatasourcePackageIngestState | string>;
+  DatasourcePackageIngestStates?: Record<string, DatasourcePackageIngestState>;
 }
 
 /**
@@ -969,7 +969,7 @@ export interface DatasourcePackageIngestDetail {
    * @public
    * <p>Details on which data source packages are ingested for a member account.</p>
    */
-  DatasourcePackageIngestState?: DatasourcePackageIngestState | string;
+  DatasourcePackageIngestState?: DatasourcePackageIngestState;
 
   /**
    * @public
@@ -1297,7 +1297,7 @@ export interface UpdateDatasourcePackagesRequest {
    * @public
    * <p>The data source package start for the behavior graph.</p>
    */
-  DatasourcePackages: (DatasourcePackage | string)[] | undefined;
+  DatasourcePackages: DatasourcePackage[] | undefined;
 }
 
 /**

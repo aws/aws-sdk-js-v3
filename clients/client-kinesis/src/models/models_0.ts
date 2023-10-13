@@ -220,7 +220,7 @@ export interface Consumer {
    * <p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code>
    *             states.</p>
    */
-  ConsumerStatus: ConsumerStatus | string | undefined;
+  ConsumerStatus: ConsumerStatus | undefined;
 
   /**
    * @public
@@ -257,7 +257,7 @@ export interface ConsumerDescription {
    * <p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code>
    *             states.</p>
    */
-  ConsumerStatus: ConsumerStatus | string | undefined;
+  ConsumerStatus: ConsumerStatus | undefined;
 
   /**
    * @public
@@ -297,7 +297,7 @@ export interface StreamModeDetails {
    * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
    *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
    */
-  StreamMode: StreamMode | string | undefined;
+  StreamMode: StreamMode | undefined;
 }
 
 /**
@@ -572,7 +572,7 @@ export interface EnhancedMetrics {
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
-  ShardLevelMetrics?: (MetricsName | string)[];
+  ShardLevelMetrics?: MetricsName[];
 }
 
 /**
@@ -695,7 +695,7 @@ export interface StreamDescription {
    *             </li>
    *          </ul>
    */
-  StreamStatus: StreamStatus | string | undefined;
+  StreamStatus: StreamStatus | undefined;
 
   /**
    * @public
@@ -752,7 +752,7 @@ export interface StreamDescription {
    *             </li>
    *          </ul>
    */
-  EncryptionType?: EncryptionType | string;
+  EncryptionType?: EncryptionType;
 
   /**
    * @public
@@ -906,7 +906,7 @@ export interface StreamDescriptionSummary {
    *             </li>
    *          </ul>
    */
-  StreamStatus: StreamStatus | string | undefined;
+  StreamStatus: StreamStatus | undefined;
 
   /**
    * @public
@@ -949,7 +949,7 @@ export interface StreamDescriptionSummary {
    *             </li>
    *          </ul>
    */
-  EncryptionType?: EncryptionType | string;
+  EncryptionType?: EncryptionType;
 
   /**
    * @public
@@ -1073,7 +1073,7 @@ export interface DisableEnhancedMonitoringInput {
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
-  ShardLevelMetrics: (MetricsName | string)[] | undefined;
+  ShardLevelMetrics: MetricsName[] | undefined;
 
   /**
    * @public
@@ -1098,14 +1098,14 @@ export interface EnhancedMonitoringOutput {
    * <p>Represents the current state of the metrics that are in the enhanced state before the
    *             operation.</p>
    */
-  CurrentShardLevelMetrics?: (MetricsName | string)[];
+  CurrentShardLevelMetrics?: MetricsName[];
 
   /**
    * @public
    * <p>Represents the list of all the metrics that would be in the enhanced state after the
    *             operation.</p>
    */
-  DesiredShardLevelMetrics?: (MetricsName | string)[];
+  DesiredShardLevelMetrics?: MetricsName[];
 
   /**
    * @public
@@ -1176,7 +1176,7 @@ export interface EnableEnhancedMonitoringInput {
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
-  ShardLevelMetrics: (MetricsName | string)[] | undefined;
+  ShardLevelMetrics: MetricsName[] | undefined;
 
   /**
    * @public
@@ -1302,7 +1302,7 @@ export interface _Record {
    *             </li>
    *          </ul>
    */
-  EncryptionType?: EncryptionType | string;
+  EncryptionType?: EncryptionType;
 }
 
 /**
@@ -1558,7 +1558,7 @@ export interface GetShardIteratorInput {
    *             </li>
    *          </ul>
    */
-  ShardIteratorType: ShardIteratorType | string | undefined;
+  ShardIteratorType: ShardIteratorType | undefined;
 
   /**
    * @public
@@ -1713,7 +1713,7 @@ export interface ShardFilter {
    *             </li>
    *          </ul>
    */
-  Type: ShardFilterType | string | undefined;
+  Type: ShardFilterType | undefined;
 
   /**
    * @public
@@ -2004,7 +2004,7 @@ export interface StreamSummary {
    * @public
    * <p>The status of the stream.</p>
    */
-  StreamStatus: StreamStatus | string | undefined;
+  StreamStatus: StreamStatus | undefined;
 
   /**
    * @public
@@ -2271,7 +2271,7 @@ export interface PutRecordOutput {
    *             </li>
    *          </ul>
    */
-  EncryptionType?: EncryptionType | string;
+  EncryptionType?: EncryptionType;
 }
 
 /**
@@ -2409,7 +2409,7 @@ export interface PutRecordsOutput {
    *             </li>
    *          </ul>
    */
-  EncryptionType?: EncryptionType | string;
+  EncryptionType?: EncryptionType;
 }
 
 /**
@@ -2518,7 +2518,7 @@ export interface StartStreamEncryptionInput {
    * @public
    * <p>The encryption type to use. The only valid value is <code>KMS</code>.</p>
    */
-  EncryptionType: EncryptionType | string | undefined;
+  EncryptionType: EncryptionType | undefined;
 
   /**
    * @public
@@ -2577,7 +2577,7 @@ export interface StopStreamEncryptionInput {
    * @public
    * <p>The encryption type. The only valid value is <code>KMS</code>.</p>
    */
-  EncryptionType: EncryptionType | string | undefined;
+  EncryptionType: EncryptionType | undefined;
 
   /**
    * @public
@@ -2646,7 +2646,7 @@ export interface StartingPosition {
    *             <code>LATEST</code>: Start streaming just after the most recent record in the shard,
    *             so that you always read the most recent data in the shard.</p>
    */
-  Type: ShardIteratorType | string | undefined;
+  Type: ShardIteratorType | undefined;
 
   /**
    * @public
@@ -3059,7 +3059,7 @@ export interface UpdateShardCountInput {
    * @public
    * <p>The scaling type. Uniform scaling creates shards of equal size.</p>
    */
-  ScalingType: ScalingType | string | undefined;
+  ScalingType: ScalingType | undefined;
 
   /**
    * @public

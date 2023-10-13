@@ -68,7 +68,7 @@ export interface ApplicationSummary {
    * @public
    * <p>The current state of the web application.</p>
    */
-  applicationState?: ApplicationState | string;
+  applicationState?: ApplicationState;
 }
 
 /**
@@ -300,7 +300,7 @@ export interface DescribeApplicationResponse {
    * @public
    * <p>The current state of the web application.</p>
    */
-  applicationState: ApplicationState | string | undefined;
+  applicationState: ApplicationState | undefined;
 
   /**
    * @public

@@ -242,7 +242,7 @@ export interface AliasICPRecordal {
    *             </li>
    *          </ul>
    */
-  ICPRecordalStatus?: ICPRecordalStatus | string;
+  ICPRecordalStatus?: ICPRecordalStatus;
 }
 
 /**
@@ -297,7 +297,7 @@ export interface CachedMethods {
    * <p>A complex type that contains the HTTP methods that you want CloudFront to cache responses
    * 			to.</p>
    */
-  Items: (Method | string)[] | undefined;
+  Items: Method[] | undefined;
 }
 
 /**
@@ -337,7 +337,7 @@ export interface AllowedMethods {
    * <p>A complex type that contains the HTTP methods that you want CloudFront to process and
    * 			forward to your origin.</p>
    */
-  Items: (Method | string)[] | undefined;
+  Items: Method[] | undefined;
 
   /**
    * @public
@@ -550,7 +550,7 @@ export interface CookiePreference {
    *          <p>Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an
    * 			Amazon S3 origin, specify none for the <code>Forward</code> element.</p>
    */
-  Forward: ItemSelection | string | undefined;
+  Forward: ItemSelection | undefined;
 
   /**
    * @public
@@ -752,7 +752,7 @@ export interface FunctionAssociation {
    * 				(<code>origin-request</code> and <code>origin-response</code>) with a CloudFront
    * 			function.</p>
    */
-  EventType: EventType | string | undefined;
+  EventType: EventType | undefined;
 }
 
 /**
@@ -822,7 +822,7 @@ export interface LambdaFunctionAssociation {
    *             </li>
    *          </ul>
    */
-  EventType: EventType | string | undefined;
+  EventType: EventType | undefined;
 
   /**
    * @public
@@ -1045,7 +1045,7 @@ export interface CacheBehavior {
    * 					Expiration</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    *          </note>
    */
-  ViewerProtocolPolicy: ViewerProtocolPolicy | string | undefined;
+  ViewerProtocolPolicy: ViewerProtocolPolicy | undefined;
 
   /**
    * @public
@@ -1294,7 +1294,7 @@ export interface CachePolicyCookiesConfig {
    *             </li>
    *          </ul>
    */
-  CookieBehavior: CachePolicyCookieBehavior | string | undefined;
+  CookieBehavior: CachePolicyCookieBehavior | undefined;
 
   /**
    * @public
@@ -1343,7 +1343,7 @@ export interface CachePolicyHeadersConfig {
    *             </li>
    *          </ul>
    */
-  HeaderBehavior: CachePolicyHeaderBehavior | string | undefined;
+  HeaderBehavior: CachePolicyHeaderBehavior | undefined;
 
   /**
    * @public
@@ -1429,7 +1429,7 @@ export interface CachePolicyQueryStringsConfig {
    *             </li>
    *          </ul>
    */
-  QueryStringBehavior: CachePolicyQueryStringBehavior | string | undefined;
+  QueryStringBehavior: CachePolicyQueryStringBehavior | undefined;
 
   /**
    * @public
@@ -1752,7 +1752,7 @@ export interface CachePolicySummary {
    * <p>The type of cache policy, either <code>managed</code> (created by Amazon Web Services) or
    * 				<code>custom</code> (created in this Amazon Web Services account).</p>
    */
-  Type: CachePolicyType | string | undefined;
+  Type: CachePolicyType | undefined;
 
   /**
    * @public
@@ -2105,7 +2105,7 @@ export interface DefaultCacheBehavior {
    * 					Expiration</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    *          </note>
    */
-  ViewerProtocolPolicy: ViewerProtocolPolicy | string | undefined;
+  ViewerProtocolPolicy: ViewerProtocolPolicy | undefined;
 
   /**
    * @public
@@ -2546,7 +2546,7 @@ export interface OriginSslProtocols {
    * @public
    * <p>A list that contains allowed SSL/TLS protocols for this distribution.</p>
    */
-  Items: (SslProtocol | string)[] | undefined;
+  Items: SslProtocol[] | undefined;
 }
 
 /**
@@ -2593,7 +2593,7 @@ export interface CustomOriginConfig {
    *             </li>
    *          </ul>
    */
-  OriginProtocolPolicy: OriginProtocolPolicy | string | undefined;
+  OriginProtocolPolicy: OriginProtocolPolicy | undefined;
 
   /**
    * @public
@@ -2897,7 +2897,7 @@ export interface GeoRestriction {
    *             </li>
    *          </ul>
    */
-  RestrictionType: GeoRestrictionType | string | undefined;
+  RestrictionType: GeoRestrictionType | undefined;
 
   /**
    * @public
@@ -3112,7 +3112,7 @@ export interface ViewerCertificate {
    *          <p>If the distribution uses the CloudFront domain name such as
    * 				<code>d111111abcdef8.cloudfront.net</code>, don't set a value for this field.</p>
    */
-  SSLSupportMethod?: SSLSupportMethod | string;
+  SSLSupportMethod?: SSLSupportMethod;
 
   /**
    * @public
@@ -3143,7 +3143,7 @@ export interface ViewerCertificate {
    * 			sets the security policy to <code>TLSv1</code> regardless of the value that you set
    * 			here.</p>
    */
-  MinimumProtocolVersion?: MinimumProtocolVersion | string;
+  MinimumProtocolVersion?: MinimumProtocolVersion;
 
   /**
    * @public
@@ -3193,7 +3193,7 @@ export interface ViewerCertificate {
    *             </li>
    *          </ul>
    */
-  CertificateSource?: CertificateSource | string;
+  CertificateSource?: CertificateSource;
 }
 
 /**
@@ -3317,7 +3317,7 @@ export interface DistributionConfig {
    * 			100) map to CloudFront regions, see <a href="http://aws.amazon.com/cloudfront/pricing/">Amazon CloudFront
    * 				Pricing</a>.</p>
    */
-  PriceClass?: PriceClass | string;
+  PriceClass?: PriceClass;
 
   /**
    * @public
@@ -3371,7 +3371,7 @@ export interface DistributionConfig {
    * 			migration, see <a href="https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration">Connection Migration</a> at RFC 9000. For more information about supported
    * 			TLSv1.3 ciphers, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported protocols and ciphers between viewers and CloudFront</a>.</p>
    */
-  HttpVersion?: HttpVersion | string;
+  HttpVersion?: HttpVersion;
 
   /**
    * @public
@@ -5299,7 +5299,7 @@ export interface TrafficConfig {
    * @public
    * <p>The type of traffic configuration.</p>
    */
-  Type: ContinuousDeploymentPolicyType | string | undefined;
+  Type: ContinuousDeploymentPolicyType | undefined;
 }
 
 /**
@@ -5697,7 +5697,7 @@ export interface ContentTypeProfile {
    * @public
    * <p>The format for a field-level encryption content type-profile mapping.</p>
    */
-  Format: Format | string | undefined;
+  Format: Format | undefined;
 
   /**
    * @public
@@ -6370,7 +6370,7 @@ export interface FunctionConfig {
    * @public
    * <p>The function's runtime environment verion.</p>
    */
-  Runtime: FunctionRuntime | string | undefined;
+  Runtime: FunctionRuntime | undefined;
 }
 
 /**
@@ -6434,7 +6434,7 @@ export interface FunctionMetadata {
    *          <p>When a function is in the <code>LIVE</code> stage, you can attach the function to a
    * 			distribution's cache behavior, using the function's ARN.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: FunctionStage;
 
   /**
    * @public
@@ -6923,7 +6923,7 @@ export interface RealtimeMetricsSubscriptionConfig {
    * <p>A flag that indicates whether additional CloudWatch metrics are enabled for a given
    * 			CloudFront distribution.</p>
    */
-  RealtimeMetricsSubscriptionStatus: RealtimeMetricsSubscriptionStatus | string | undefined;
+  RealtimeMetricsSubscriptionStatus: RealtimeMetricsSubscriptionStatus | undefined;
 }
 
 /**
@@ -7058,7 +7058,7 @@ export interface OriginAccessControlConfig {
    * <p>The signing protocol of the origin access control, which determines how CloudFront signs
    * 			(authenticates) requests. The only valid value is <code>sigv4</code>.</p>
    */
-  SigningProtocol: OriginAccessControlSigningProtocols | string | undefined;
+  SigningProtocol: OriginAccessControlSigningProtocols | undefined;
 
   /**
    * @public
@@ -7093,13 +7093,13 @@ export interface OriginAccessControlConfig {
    *             </li>
    *          </ul>
    */
-  SigningBehavior: OriginAccessControlSigningBehaviors | string | undefined;
+  SigningBehavior: OriginAccessControlSigningBehaviors | undefined;
 
   /**
    * @public
    * <p>The type of origin that this origin access control is for.</p>
    */
-  OriginAccessControlOriginType: OriginAccessControlOriginTypes | string | undefined;
+  OriginAccessControlOriginType: OriginAccessControlOriginTypes | undefined;
 }
 
 /**
@@ -7258,7 +7258,7 @@ export interface OriginRequestPolicyCookiesConfig {
    *             </li>
    *          </ul>
    */
-  CookieBehavior: OriginRequestPolicyCookieBehavior | string | undefined;
+  CookieBehavior: OriginRequestPolicyCookieBehavior | undefined;
 
   /**
    * @public
@@ -7331,7 +7331,7 @@ export interface OriginRequestPolicyHeadersConfig {
    *             </li>
    *          </ul>
    */
-  HeaderBehavior: OriginRequestPolicyHeaderBehavior | string | undefined;
+  HeaderBehavior: OriginRequestPolicyHeaderBehavior | undefined;
 
   /**
    * @public
@@ -7397,7 +7397,7 @@ export interface OriginRequestPolicyQueryStringsConfig {
    *             </li>
    *          </ul>
    */
-  QueryStringBehavior: OriginRequestPolicyQueryStringBehavior | string | undefined;
+  QueryStringBehavior: OriginRequestPolicyQueryStringBehavior | undefined;
 
   /**
    * @public
@@ -8081,7 +8081,7 @@ export interface ResponseHeadersPolicyAccessControlAllowMethods {
    *             <code>ALL</code> is a special value that includes all of the listed HTTP
    * 			methods.</p>
    */
-  Items: (ResponseHeadersPolicyAccessControlAllowMethodsValues | string)[] | undefined;
+  Items: ResponseHeadersPolicyAccessControlAllowMethodsValues[] | undefined;
 }
 
 /**
@@ -8355,7 +8355,7 @@ export interface ResponseHeadersPolicyFrameOptions {
    * 				<code>DENY</code> and <code>SAMEORIGIN</code>.</p>
    *          <p>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
    */
-  FrameOption: FrameOptionsList | string | undefined;
+  FrameOption: FrameOptionsList | undefined;
 }
 
 /**
@@ -8442,7 +8442,7 @@ export interface ResponseHeadersPolicyReferrerPolicy {
    *          </ul>
    *          <p>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> in the MDN Web Docs.</p>
    */
-  ReferrerPolicy: ReferrerPolicyList | string | undefined;
+  ReferrerPolicy: ReferrerPolicyList | undefined;
 }
 
 /**

@@ -224,7 +224,7 @@ export interface CreateEnvironmentEC2Request {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html">Accessing no-ingress EC2 instances with
    *         Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.</p>
    */
-  connectionType?: ConnectionType | string;
+  connectionType?: ConnectionType;
 
   /**
    * @public
@@ -409,7 +409,7 @@ export interface CreateEnvironmentMembershipRequest {
    *             </li>
    *          </ul>
    */
-  permissions: MemberPermissions | string | undefined;
+  permissions: MemberPermissions | undefined;
 }
 
 /**
@@ -451,7 +451,7 @@ export interface EnvironmentMember {
    *             </li>
    *          </ul>
    */
-  permissions: Permissions | string | undefined;
+  permissions: Permissions | undefined;
 
   /**
    * @public
@@ -567,7 +567,7 @@ export interface DescribeEnvironmentMembershipsRequest {
    *          </ul>
    *          <p>If no value is specified, information about all environment members are returned.</p>
    */
-  permissions?: (Permissions | string)[];
+  permissions?: Permissions[];
 
   /**
    * @public
@@ -665,7 +665,7 @@ export interface EnvironmentLifecycle {
    *             </li>
    *          </ul>
    */
-  status?: EnvironmentLifecycleStatus | string;
+  status?: EnvironmentLifecycleStatus;
 
   /**
    * @public
@@ -755,14 +755,14 @@ export interface Environment {
    *             </li>
    *          </ul>
    */
-  type: EnvironmentType | string | undefined;
+  type: EnvironmentType | undefined;
 
   /**
    * @public
    * <p>The connection type used for connecting to an Amazon EC2 environment. <code>CONNECT_SSH</code>
    *       is selected by default.</p>
    */
-  connectionType?: ConnectionType | string;
+  connectionType?: ConnectionType;
 
   /**
    * @public
@@ -839,7 +839,7 @@ export interface Environment {
    *             </li>
    *          </ul>
    */
-  managedCredentialsStatus?: ManagedCredentialsStatus | string;
+  managedCredentialsStatus?: ManagedCredentialsStatus;
 }
 
 /**
@@ -921,7 +921,7 @@ export interface DescribeEnvironmentStatusResult {
    *             </li>
    *          </ul>
    */
-  status: EnvironmentStatus | string | undefined;
+  status: EnvironmentStatus | undefined;
 
   /**
    * @public
@@ -1121,7 +1121,7 @@ export interface UpdateEnvironmentRequest {
    *       owner.</p>
    *          </note>
    */
-  managedCredentialsAction?: ManagedCredentialsAction | string;
+  managedCredentialsAction?: ManagedCredentialsAction;
 }
 
 /**
@@ -1162,7 +1162,7 @@ export interface UpdateEnvironmentMembershipRequest {
    *             </li>
    *          </ul>
    */
-  permissions: MemberPermissions | string | undefined;
+  permissions: MemberPermissions | undefined;
 }
 
 /**

@@ -229,7 +229,7 @@ export interface RejectRule {
    * @public
    * <p>Specifies whether you want to reject the top prediction for all targets or none.</p>
    */
-  rule?: RejectRuleBehavior | string;
+  rule?: RejectRuleBehavior;
 
   /**
    * @public
@@ -361,7 +361,7 @@ export interface RejectSubscriptionRequestOutput {
    * @public
    * <p>The status of the subscription request.</p>
    */
-  status: SubscriptionRequestStatus | string | undefined;
+  status: SubscriptionRequestStatus | undefined;
 
   /**
    * @public
@@ -461,7 +461,7 @@ export interface RevokeSubscriptionOutput {
    * @public
    * <p>The status of the revoked subscription.</p>
    */
-  status: SubscriptionStatus | string | undefined;
+  status: SubscriptionStatus | undefined;
 
   /**
    * @public
@@ -574,7 +574,7 @@ export interface SearchSort {
    * @public
    * <p>The order detail of the wya to sort search results.</p>
    */
-  order?: SortOrder | string;
+  order?: SortOrder;
 }
 
 /**
@@ -616,7 +616,7 @@ export interface GlossaryItem {
    * @public
    * <p>The business glossary status.</p>
    */
-  status: GlossaryStatus | string | undefined;
+  status: GlossaryStatus | undefined;
 
   /**
    * @public
@@ -694,7 +694,7 @@ export interface GlossaryTermItem {
    * @public
    * <p>The status of the business glossary term.</p>
    */
-  status: GlossaryTermStatus | string | undefined;
+  status: GlossaryTermStatus | undefined;
 
   /**
    * @public
@@ -868,7 +868,7 @@ export interface SearchGroupProfilesInput {
    * @public
    * <p>The group type for which to search.</p>
    */
-  groupType: GroupSearchType | string | undefined;
+  groupType: GroupSearchType | undefined;
 
   /**
    * @public
@@ -919,7 +919,7 @@ export interface GroupProfileSummary {
    * @public
    * <p>The status of a group profile.</p>
    */
-  status?: GroupProfileStatus | string;
+  status?: GroupProfileStatus;
 
   /**
    * @public
@@ -1064,7 +1064,7 @@ export interface FormTypeData {
    * @public
    * <p>The status of the form type.</p>
    */
-  status?: FormTypeStatus | string;
+  status?: FormTypeStatus;
 
   /**
    * @public
@@ -1224,7 +1224,7 @@ export interface SearchUserProfilesInput {
    * @public
    * <p>Specifies the user type for the <code>SearchUserProfiles</code> action.</p>
    */
-  userType: UserSearchType | string | undefined;
+  userType: UserSearchType | undefined;
 
   /**
    * @public
@@ -1275,13 +1275,13 @@ export interface UserProfileSummary {
    * @public
    * <p>The type of the user profile.</p>
    */
-  type?: UserProfileType | string;
+  type?: UserProfileType;
 
   /**
    * @public
    * <p>The status of the user profile.</p>
    */
-  status?: UserProfileStatus | string;
+  status?: UserProfileStatus;
 
   /**
    * @public
@@ -1482,7 +1482,7 @@ export interface UpdateEnvironmentOutput {
    * @public
    * <p>The status to be updated as part of the <code>UpdateEnvironment</code> action.</p>
    */
-  status?: EnvironmentStatus | string;
+  status?: EnvironmentStatus;
 
   /**
    * @public
@@ -1688,7 +1688,7 @@ export interface UpdateGroupProfileInput {
    * @public
    * <p>The status of the group profile that is updated.</p>
    */
-  status: GroupProfileStatus | string | undefined;
+  status: GroupProfileStatus | undefined;
 }
 
 /**
@@ -1711,7 +1711,7 @@ export interface UpdateGroupProfileOutput {
    * @public
    * <p>The status of the group profile that is updated.</p>
    */
-  status?: GroupProfileStatus | string;
+  status?: GroupProfileStatus;
 
   /**
    * @public
@@ -1838,7 +1838,7 @@ export interface UpdateSubscriptionGrantStatusInput {
    * <p>The status to be updated as part of the <code>UpdateSubscriptionGrantStatus</code>
    *          action.</p>
    */
-  status: SubscriptionGrantStatus | string | undefined;
+  status: SubscriptionGrantStatus | undefined;
 
   /**
    * @public
@@ -1915,7 +1915,7 @@ export interface UpdateSubscriptionGrantStatusOutput {
    * <p>The status to be updated as part of the <code>UpdateSubscriptionGrantStatus</code>
    *          action.</p>
    */
-  status: SubscriptionGrantOverallStatus | string | undefined;
+  status: SubscriptionGrantOverallStatus | undefined;
 
   /**
    * @public
@@ -1987,7 +1987,7 @@ export interface UpdateSubscriptionRequestOutput {
    * @public
    * <p>The status of the subscription request.</p>
    */
-  status: SubscriptionRequestStatus | string | undefined;
+  status: SubscriptionRequestStatus | undefined;
 
   /**
    * @public
@@ -2223,13 +2223,13 @@ export interface UpdateUserProfileInput {
    * @public
    * <p>The type of the user profile that are to be updated.</p>
    */
-  type?: UserProfileType | string;
+  type?: UserProfileType;
 
   /**
    * @public
    * <p>The status of the user profile that are to be updated.</p>
    */
-  status: UserProfileStatus | string | undefined;
+  status: UserProfileStatus | undefined;
 }
 
 /**
@@ -2252,13 +2252,13 @@ export interface UpdateUserProfileOutput {
    * @public
    * <p>The type of the user profile.</p>
    */
-  type?: UserProfileType | string;
+  type?: UserProfileType;
 
   /**
    * @public
    * <p>The status of the user profile.</p>
    */
-  status?: UserProfileStatus | string;
+  status?: UserProfileStatus;
 
   /**
    * @public
@@ -2378,7 +2378,7 @@ export interface SearchInput {
    * @public
    * <p>The scope of the search.</p>
    */
-  searchScope: InventorySearchScope | string | undefined;
+  searchScope: InventorySearchScope | undefined;
 
   /**
    * @public
@@ -2408,7 +2408,7 @@ export interface SearchInput {
    * @public
    * <p>Specifies additional attributes for the <code>Search</code> action.</p>
    */
-  additionalAttributes?: (SearchOutputAdditionalAttribute | string)[];
+  additionalAttributes?: SearchOutputAdditionalAttribute[];
 }
 
 /**
@@ -2470,7 +2470,7 @@ export interface SearchListingsInput {
    * @public
    * <p>Specifies additional attributes for the search.</p>
    */
-  additionalAttributes?: (SearchOutputAdditionalAttribute | string)[];
+  additionalAttributes?: SearchOutputAdditionalAttribute[];
 }
 
 /**
@@ -2509,7 +2509,7 @@ export interface SearchTypesInput {
    * @public
    * <p>Specifies the scope of the search for types.</p>
    */
-  searchScope: TypesSearchScope | string | undefined;
+  searchScope: TypesSearchScope | undefined;
 
   /**
    * @public

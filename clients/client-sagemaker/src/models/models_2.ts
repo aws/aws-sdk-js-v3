@@ -223,7 +223,7 @@ export interface RetentionPolicy {
    * <p>The default is <code>Retain</code>, which specifies to keep the data stored on the EFS volume.</p>
    *          <p>Specify <code>Delete</code> to delete the data stored on the EFS volume.</p>
    */
-  HomeEfsFileSystem?: RetentionType | string;
+  HomeEfsFileSystem?: RetentionType;
 }
 
 /**
@@ -384,7 +384,7 @@ export interface DeleteHubContentRequest {
    * @public
    * <p>The type of content that you want to delete from a hub.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: HubContentType | undefined;
 
   /**
    * @public
@@ -842,7 +842,7 @@ export interface RealTimeInferenceRecommendation {
    * @public
    * <p>The recommended instance type for Real-Time Inference.</p>
    */
-  InstanceType: ProductionVariantInstanceType | string | undefined;
+  InstanceType: ProductionVariantInstanceType | undefined;
 
   /**
    * @public
@@ -880,7 +880,7 @@ export interface DeploymentRecommendation {
    *          is unable to provide a default recommendation for the model using the information provided. If the deployment status is <code>IN_PROGRESS</code>,
    *          retry your API call after a few seconds to get a <code>COMPLETED</code> deployment recommendation.</p>
    */
-  RecommendationStatus: RecommendationStatus | string | undefined;
+  RecommendationStatus: RecommendationStatus | undefined;
 
   /**
    * @public
@@ -918,7 +918,7 @@ export interface EdgeDeploymentStatus {
    * @public
    * <p>The general status of the current stage.</p>
    */
-  StageStatus: StageStatus | string | undefined;
+  StageStatus: StageStatus | undefined;
 
   /**
    * @public
@@ -1062,7 +1062,7 @@ export interface DescribeActionResponse {
    * @public
    * <p>The status of the action.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: ActionStatus;
 
   /**
    * @public
@@ -1171,7 +1171,7 @@ export interface DescribeAlgorithmOutput {
    * @public
    * <p>The current status of the algorithm.</p>
    */
-  AlgorithmStatus: AlgorithmStatus | string | undefined;
+  AlgorithmStatus: AlgorithmStatus | undefined;
 
   /**
    * @public
@@ -1213,7 +1213,7 @@ export interface DescribeAppRequest {
    * @public
    * <p>The type of app.</p>
    */
-  AppType: AppType | string | undefined;
+  AppType: AppType | undefined;
 
   /**
    * @public
@@ -1242,7 +1242,7 @@ export interface DescribeAppResponse {
    * @public
    * <p>The type of app.</p>
    */
-  AppType?: AppType | string;
+  AppType?: AppType;
 
   /**
    * @public
@@ -1266,7 +1266,7 @@ export interface DescribeAppResponse {
    * @public
    * <p>The status.</p>
    */
-  Status?: AppStatus | string;
+  Status?: AppStatus;
 
   /**
    * @public
@@ -1476,7 +1476,7 @@ export interface ResolvedAttributes {
    * @public
    * <p>The problem type.</p>
    */
-  ProblemType?: ProblemType | string;
+  ProblemType?: ProblemType;
 
   /**
    * @public
@@ -1531,7 +1531,7 @@ export interface DescribeAutoMLJobResponse {
    * @public
    * <p>Returns the job's problem type.</p>
    */
-  ProblemType?: ProblemType | string;
+  ProblemType?: ProblemType;
 
   /**
    * @public
@@ -1581,13 +1581,13 @@ export interface DescribeAutoMLJobResponse {
    * @public
    * <p>Returns the status of the AutoML job.</p>
    */
-  AutoMLJobStatus: AutoMLJobStatus | string | undefined;
+  AutoMLJobStatus: AutoMLJobStatus | undefined;
 
   /**
    * @public
    * <p>Returns the secondary status of the AutoML job.</p>
    */
-  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | string | undefined;
+  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | undefined;
 
   /**
    * @public
@@ -1724,13 +1724,13 @@ export interface DescribeAutoMLJobV2Response {
    * @public
    * <p>Returns the status of the AutoML job V2.</p>
    */
-  AutoMLJobStatus: AutoMLJobStatus | string | undefined;
+  AutoMLJobStatus: AutoMLJobStatus | undefined;
 
   /**
    * @public
    * <p>Returns the secondary status of the AutoML job V2.</p>
    */
-  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | string | undefined;
+  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | undefined;
 
   /**
    * @public
@@ -1774,7 +1774,7 @@ export interface DescribeAutoMLJobV2Response {
    * @public
    * <p>Returns the name of the problem type configuration set for the AutoML job V2.</p>
    */
-  AutoMLProblemTypeConfigName?: AutoMLProblemTypeConfigName | string;
+  AutoMLProblemTypeConfigName?: AutoMLProblemTypeConfigName;
 }
 
 /**
@@ -1886,7 +1886,7 @@ export interface DescribeCompilationJobResponse {
    * @public
    * <p>The status of the model compilation job.</p>
    */
-  CompilationJobStatus: CompilationJobStatus | string | undefined;
+  CompilationJobStatus: CompilationJobStatus | undefined;
 
   /**
    * @public
@@ -2424,7 +2424,7 @@ export interface DescribeDomainResponse {
    * @public
    * <p>The status.</p>
    */
-  Status?: DomainStatus | string;
+  Status?: DomainStatus;
 
   /**
    * @public
@@ -2448,7 +2448,7 @@ export interface DescribeDomainResponse {
    * @public
    * <p>The domain's authentication mode.</p>
    */
-  AuthMode?: AuthMode | string;
+  AuthMode?: AuthMode;
 
   /**
    * @public
@@ -2474,7 +2474,7 @@ export interface DescribeDomainResponse {
    *             </li>
    *          </ul>
    */
-  AppNetworkAccessType?: AppNetworkAccessType | string;
+  AppNetworkAccessType?: AppNetworkAccessType;
 
   /**
    * @public
@@ -2523,7 +2523,7 @@ export interface DescribeDomainResponse {
    *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
    *             provided.</p>
    */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
+  AppSecurityGroupManagement?: AppSecurityGroupManagement;
 
   /**
    * @public
@@ -2687,7 +2687,7 @@ export interface EdgePresetDeploymentOutput {
    * <p>The deployment type created by SageMaker Edge Manager. Currently only
    *      supports Amazon Web Services IoT Greengrass Version 2 components.</p>
    */
-  Type: EdgePresetDeploymentType | string | undefined;
+  Type: EdgePresetDeploymentType | undefined;
 
   /**
    * @public
@@ -2699,7 +2699,7 @@ export interface EdgePresetDeploymentOutput {
    * @public
    * <p>The status of the deployable resource.</p>
    */
-  Status?: EdgePresetDeploymentStatus | string;
+  Status?: EdgePresetDeploymentStatus;
 
   /**
    * @public
@@ -2764,7 +2764,7 @@ export interface DescribeEdgePackagingJobResponse {
    * @public
    * <p>The current status of the packaging job.</p>
    */
-  EdgePackagingJobStatus: EdgePackagingJobStatus | string | undefined;
+  EdgePackagingJobStatus: EdgePackagingJobStatus | undefined;
 
   /**
    * @public
@@ -2888,7 +2888,7 @@ export interface ProductionVariantStatus {
    *             </li>
    *          </ul>
    */
-  Status: VariantStatus | string | undefined;
+  Status: VariantStatus | undefined;
 
   /**
    * @public
@@ -2956,7 +2956,7 @@ export interface PendingProductionVariantSummary {
    * @public
    * <p>The type of instances associated with the variant.</p>
    */
-  InstanceType?: ProductionVariantInstanceType | string;
+  InstanceType?: ProductionVariantInstanceType;
 
   /**
    * @public
@@ -2965,7 +2965,7 @@ export interface PendingProductionVariantSummary {
    *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
    *                 Inference in Amazon SageMaker</a>.</p>
    */
-  AcceleratorType?: ProductionVariantAcceleratorType | string;
+  AcceleratorType?: ProductionVariantAcceleratorType;
 
   /**
    * @public
@@ -3182,7 +3182,7 @@ export interface DescribeEndpointOutput {
    *             </li>
    *          </ul>
    */
-  EndpointStatus: EndpointStatus | string | undefined;
+  EndpointStatus: EndpointStatus | undefined;
 
   /**
    * @public
@@ -3465,7 +3465,7 @@ export interface LastUpdateStatus {
    * @public
    * <p>A value that indicates whether the update was made successful.</p>
    */
-  Status: LastUpdateStatusValue | string | undefined;
+  Status: LastUpdateStatusValue | undefined;
 
   /**
    * @public
@@ -3498,7 +3498,7 @@ export interface OfflineStoreStatus {
    * @public
    * <p>An <code>OfflineStore</code> status.</p>
    */
-  Status: OfflineStoreStatusValue | string | undefined;
+  Status: OfflineStoreStatusValue | undefined;
 
   /**
    * @public
@@ -3601,7 +3601,7 @@ export interface DescribeFeatureGroupResponse {
    * @public
    * <p>The status of the feature group.</p>
    */
-  FeatureGroupStatus?: FeatureGroupStatus | string;
+  FeatureGroupStatus?: FeatureGroupStatus;
 
   /**
    * @public
@@ -3717,7 +3717,7 @@ export interface DescribeFeatureMetadataResponse {
    * @public
    * <p>The data type of the feature.</p>
    */
-  FeatureType: FeatureType | string | undefined;
+  FeatureType: FeatureType | undefined;
 
   /**
    * @public
@@ -3793,7 +3793,7 @@ export interface DescribeFlowDefinitionResponse {
    * @public
    * <p>The status of the flow definition. Valid values are listed below.</p>
    */
-  FlowDefinitionStatus: FlowDefinitionStatus | string | undefined;
+  FlowDefinitionStatus: FlowDefinitionStatus | undefined;
 
   /**
    * @public
@@ -3913,7 +3913,7 @@ export interface DescribeHubResponse {
    * @public
    * <p>The status of the hub.</p>
    */
-  HubStatus: HubStatus | string | undefined;
+  HubStatus: HubStatus | undefined;
 
   /**
    * @public
@@ -3948,7 +3948,7 @@ export interface DescribeHubContentRequest {
    * @public
    * <p>The type of content in the hub.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: HubContentType | undefined;
 
   /**
    * @public
@@ -4024,7 +4024,7 @@ export interface DescribeHubContentResponse {
    * @public
    * <p>The type of hub content.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: HubContentType | undefined;
 
   /**
    * @public
@@ -4084,7 +4084,7 @@ export interface DescribeHubContentResponse {
    * @public
    * <p>The status of the hub content.</p>
    */
-  HubContentStatus: HubContentStatus | string | undefined;
+  HubContentStatus: HubContentStatus | undefined;
 
   /**
    * @public
@@ -4163,7 +4163,7 @@ export interface DescribeHumanTaskUiResponse {
    * @public
    * <p>The status of the human task user interface (worker task template). Valid values are listed below.</p>
    */
-  HumanTaskUiStatus?: HumanTaskUiStatus | string;
+  HumanTaskUiStatus?: HumanTaskUiStatus;
 
   /**
    * @public
@@ -4201,7 +4201,7 @@ export interface FinalHyperParameterTuningJobObjectiveMetric {
    * <p>Select if you want to minimize or maximize the objective metric during hyperparameter
    *             tuning. </p>
    */
-  Type?: HyperParameterTuningJobObjectiveType | string;
+  Type?: HyperParameterTuningJobObjectiveType;
 
   /**
    * @public
@@ -4292,7 +4292,7 @@ export interface HyperParameterTrainingJobSummary {
    *             status
    *             of the training job.</p>
    */
-  TrainingJobStatus: TrainingJobStatus | string | undefined;
+  TrainingJobStatus: TrainingJobStatus | undefined;
 
   /**
    * @public
@@ -4349,7 +4349,7 @@ export interface HyperParameterTrainingJobSummary {
    *             </li>
    *          </ul>
    */
-  ObjectiveStatus?: ObjectiveStatus | string;
+  ObjectiveStatus?: ObjectiveStatus;
 }
 
 /**
@@ -4522,7 +4522,7 @@ export interface DescribeHyperParameterTuningJobResponse {
    * <p>The status of the tuning job: InProgress, Completed, Failed, Stopping, or
    *             Stopped.</p>
    */
-  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | string | undefined;
+  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | undefined;
 
   /**
    * @public
@@ -4685,7 +4685,7 @@ export interface DescribeImageResponse {
    * @public
    * <p>The status of the image.</p>
    */
-  ImageStatus?: ImageStatus | string;
+  ImageStatus?: ImageStatus;
 
   /**
    * @public
@@ -4784,7 +4784,7 @@ export interface DescribeImageVersionResponse {
    * @public
    * <p>The status of the version.</p>
    */
-  ImageVersionStatus?: ImageVersionStatus | string;
+  ImageVersionStatus?: ImageVersionStatus;
 
   /**
    * @public
@@ -4820,7 +4820,7 @@ export interface DescribeImageVersionResponse {
    *             </li>
    *          </ul>
    */
-  VendorGuidance?: VendorGuidance | string;
+  VendorGuidance?: VendorGuidance;
 
   /**
    * @public
@@ -4840,7 +4840,7 @@ export interface DescribeImageVersionResponse {
    *             </li>
    *          </ul>
    */
-  JobType?: JobType | string;
+  JobType?: JobType;
 
   /**
    * @public
@@ -4868,7 +4868,7 @@ export interface DescribeImageVersionResponse {
    *             </li>
    *          </ul>
    */
-  Processor?: Processor | string;
+  Processor?: Processor;
 
   /**
    * @public
@@ -4917,7 +4917,7 @@ export interface EndpointMetadata {
    *            The status of the endpoint. For possible values of the status of an endpoint, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_EndpointSummary.html">EndpointSummary</a>.
    *        </p>
    */
-  EndpointStatus?: EndpointStatus | string;
+  EndpointStatus?: EndpointStatus;
 
   /**
    * @public
@@ -5001,7 +5001,7 @@ export interface ModelVariantConfigSummary {
    *             </li>
    *          </ul>
    */
-  Status: ModelVariantStatus | string | undefined;
+  Status: ModelVariantStatus | undefined;
 }
 
 /**
@@ -5044,7 +5044,7 @@ export interface DescribeInferenceExperimentResponse {
    * @public
    * <p>The type of the inference experiment.</p>
    */
-  Type: InferenceExperimentType | string | undefined;
+  Type: InferenceExperimentType | undefined;
 
   /**
    * @public
@@ -5103,7 +5103,7 @@ export interface DescribeInferenceExperimentResponse {
    *             </li>
    *          </ul>
    */
-  Status: InferenceExperimentStatus | string | undefined;
+  Status: InferenceExperimentStatus | undefined;
 
   /**
    * @public
@@ -5261,7 +5261,7 @@ export interface EndpointOutputConfiguration {
    * @public
    * <p>The instance type recommended by Amazon SageMaker Inference Recommender.</p>
    */
-  InstanceType?: ProductionVariantInstanceType | string;
+  InstanceType?: ProductionVariantInstanceType;
 
   /**
    * @public
@@ -5461,7 +5461,7 @@ export interface DescribeInferenceRecommendationsJobResponse {
    * @public
    * <p>The job type that you provided when you initiated the job.</p>
    */
-  JobType: RecommendationJobType | string | undefined;
+  JobType: RecommendationJobType | undefined;
 
   /**
    * @public
@@ -5480,7 +5480,7 @@ export interface DescribeInferenceRecommendationsJobResponse {
    * @public
    * <p>The status of the job.</p>
    */
-  Status: RecommendationJobStatus | string | undefined;
+  Status: RecommendationJobStatus | undefined;
 
   /**
    * @public
@@ -5624,7 +5624,7 @@ export interface DescribeLabelingJobResponse {
    * @public
    * <p>The processing status of the labeling job. </p>
    */
-  LabelingJobStatus: LabelingJobStatus | string | undefined;
+  LabelingJobStatus: LabelingJobStatus | undefined;
 
   /**
    * @public
@@ -6113,7 +6113,7 @@ export interface DescribeModelCardResponse {
    *             </li>
    *          </ul>
    */
-  ModelCardStatus: ModelCardStatus | string | undefined;
+  ModelCardStatus: ModelCardStatus | undefined;
 
   /**
    * @public
@@ -6177,7 +6177,7 @@ export interface DescribeModelCardResponse {
    *             </li>
    *          </ul>
    */
-  ModelCardProcessingStatus?: ModelCardProcessingStatus | string;
+  ModelCardProcessingStatus?: ModelCardProcessingStatus;
 }
 
 /**
@@ -6254,7 +6254,7 @@ export interface DescribeModelCardExportJobResponse {
    *             </li>
    *          </ul>
    */
-  Status: ModelCardExportJobStatus | string | undefined;
+  Status: ModelCardExportJobStatus | undefined;
 
   /**
    * @public
@@ -6427,7 +6427,7 @@ export interface ModelPackageStatusItem {
    * @public
    * <p>The current status.</p>
    */
-  Status: DetailedModelPackageStatus | string | undefined;
+  Status: DetailedModelPackageStatus | undefined;
 
   /**
    * @public
@@ -6519,7 +6519,7 @@ export interface DescribeModelPackageOutput {
    * @public
    * <p>The current status of the model package.</p>
    */
-  ModelPackageStatus: ModelPackageStatus | string | undefined;
+  ModelPackageStatus: ModelPackageStatus | undefined;
 
   /**
    * @public
@@ -6537,7 +6537,7 @@ export interface DescribeModelPackageOutput {
    * @public
    * <p>The approval status of the model package.</p>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: ModelApprovalStatus;
 
   /**
    * @public
@@ -6624,7 +6624,7 @@ export interface DescribeModelPackageOutput {
    * @public
    * <p>Indicates if you want to skip model validation.</p>
    */
-  SkipModelValidation?: SkipModelValidation | string;
+  SkipModelValidation?: SkipModelValidation;
 }
 
 /**
@@ -6695,7 +6695,7 @@ export interface DescribeModelPackageGroupOutput {
    * @public
    * <p>The status of the model group.</p>
    */
-  ModelPackageGroupStatus: ModelPackageGroupStatus | string | undefined;
+  ModelPackageGroupStatus: ModelPackageGroupStatus | undefined;
 }
 
 /**
@@ -6845,7 +6845,7 @@ export interface MonitoringExecutionSummary {
    * @public
    * <p>The status of the monitoring job.</p>
    */
-  MonitoringExecutionStatus: ExecutionStatus | string | undefined;
+  MonitoringExecutionStatus: ExecutionStatus | undefined;
 
   /**
    * @public
@@ -6875,7 +6875,7 @@ export interface MonitoringExecutionSummary {
    * @public
    * <p>The type of the monitoring job.</p>
    */
-  MonitoringType?: MonitoringType | string;
+  MonitoringType?: MonitoringType;
 }
 
 /**
@@ -6914,7 +6914,7 @@ export interface DescribeMonitoringScheduleResponse {
    * @public
    * <p>The status of an monitoring job.</p>
    */
-  MonitoringScheduleStatus: ScheduleStatus | string | undefined;
+  MonitoringScheduleStatus: ScheduleStatus | undefined;
 
   /**
    * @public
@@ -6942,7 +6942,7 @@ export interface DescribeMonitoringScheduleResponse {
    *             </li>
    *          </ul>
    */
-  MonitoringType?: MonitoringType | string;
+  MonitoringType?: MonitoringType;
 
   /**
    * @public
@@ -7033,7 +7033,7 @@ export interface DescribeNotebookInstanceOutput {
    * @public
    * <p>The status of the notebook instance.</p>
    */
-  NotebookInstanceStatus?: NotebookInstanceStatus | string;
+  NotebookInstanceStatus?: NotebookInstanceStatus;
 
   /**
    * @public
@@ -7052,7 +7052,7 @@ export interface DescribeNotebookInstanceOutput {
    * @public
    * <p>The type of ML compute instance running on the notebook instance.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -7117,7 +7117,7 @@ export interface DescribeNotebookInstanceOutput {
    *             internet access, and cannot connect to SageMaker training and endpoint services.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>.</p>
    */
-  DirectInternetAccess?: DirectInternetAccess | string;
+  DirectInternetAccess?: DirectInternetAccess;
 
   /**
    * @public
@@ -7132,7 +7132,7 @@ export interface DescribeNotebookInstanceOutput {
    *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in
    *             Amazon SageMaker</a>.</p>
    */
-  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
+  AcceleratorTypes?: NotebookInstanceAcceleratorType[];
 
   /**
    * @public
@@ -7166,7 +7166,7 @@ export interface DescribeNotebookInstanceOutput {
    *                 users.</p>
    *          </note>
    */
-  RootAccess?: RootAccess | string;
+  RootAccess?: RootAccess;
 
   /**
    * @public
@@ -7302,7 +7302,7 @@ export interface DescribePipelineResponse {
    * @public
    * <p>The status of the pipeline execution.</p>
    */
-  PipelineStatus?: PipelineStatus | string;
+  PipelineStatus?: PipelineStatus;
 
   /**
    * @public
@@ -7481,7 +7481,7 @@ export interface DescribePipelineExecutionResponse {
    * @public
    * <p>The status of the pipeline execution.</p>
    */
-  PipelineExecutionStatus?: PipelineExecutionStatus | string;
+  PipelineExecutionStatus?: PipelineExecutionStatus;
 
   /**
    * @public
@@ -7646,7 +7646,7 @@ export interface DescribeProcessingJobResponse {
    * @public
    * <p>Provides the status of a processing job.</p>
    */
-  ProcessingJobStatus: ProcessingJobStatus | string | undefined;
+  ProcessingJobStatus: ProcessingJobStatus | undefined;
 
   /**
    * @public
@@ -7826,7 +7826,7 @@ export interface DescribeProjectOutput {
    * @public
    * <p>The status of the project.</p>
    */
-  ProjectStatus: ProjectStatus | string | undefined;
+  ProjectStatus: ProjectStatus | undefined;
 
   /**
    * @public
@@ -7923,7 +7923,7 @@ export interface DescribeSpaceResponse {
    * @public
    * <p>The status.</p>
    */
-  Status?: SpaceStatus | string;
+  Status?: SpaceStatus;
 
   /**
    * @public
@@ -7999,7 +7999,7 @@ export interface DescribeStudioLifecycleConfigResponse {
    * @public
    * <p>The App type that the Lifecycle Configuration is attached to.</p>
    */
-  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | string;
+  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType;
 }
 
 /**
@@ -8116,7 +8116,7 @@ export interface ProfilerRuleEvaluationStatus {
    * @public
    * <p>Status of the rule evaluation.</p>
    */
-  RuleEvaluationStatus?: RuleEvaluationStatus | string;
+  RuleEvaluationStatus?: RuleEvaluationStatus;
 
   /**
    * @public
@@ -8280,7 +8280,7 @@ export interface SecondaryStatusTransition {
    *             </li>
    *          </ul>
    */
-  Status: SecondaryStatus | string | undefined;
+  Status: SecondaryStatus | undefined;
 
   /**
    * @public
@@ -8415,7 +8415,7 @@ export interface WarmPoolStatus {
    *             </li>
    *          </ul>
    */
-  Status: WarmPoolResourceStatus | string | undefined;
+  Status: WarmPoolResourceStatus | undefined;
 
   /**
    * @public
@@ -8508,7 +8508,7 @@ export interface DescribeTrainingJobResponse {
    *          </ul>
    *          <p>For more detailed information, see <code>SecondaryStatus</code>. </p>
    */
-  TrainingJobStatus: TrainingJobStatus | string | undefined;
+  TrainingJobStatus: TrainingJobStatus | undefined;
 
   /**
    * @public
@@ -8619,7 +8619,7 @@ export interface DescribeTrainingJobResponse {
    *             </li>
    *          </ul>
    */
-  SecondaryStatus: SecondaryStatus | string | undefined;
+  SecondaryStatus: SecondaryStatus | undefined;
 
   /**
    * @public
@@ -8863,7 +8863,7 @@ export interface DescribeTrainingJobResponse {
    * @public
    * <p>Profiling status of a training job.</p>
    */
-  ProfilingStatus?: ProfilingStatus | string;
+  ProfilingStatus?: ProfilingStatus;
 
   /**
    * @public
@@ -8935,7 +8935,7 @@ export interface DescribeTransformJobResponse {
    *             status of the transform job. If the transform job failed, the reason
    *             is returned in the <code>FailureReason</code> field.</p>
    */
-  TransformJobStatus: TransformJobStatus | string | undefined;
+  TransformJobStatus: TransformJobStatus | undefined;
 
   /**
    * @public
@@ -8993,7 +8993,7 @@ export interface DescribeTransformJobResponse {
    *                 <code>Line</code>, <code>RecordIO</code>, or
    *             <code>TFRecord</code>.</p>
    */
-  BatchStrategy?: BatchStrategy | string;
+  BatchStrategy?: BatchStrategy;
 
   /**
    * @public
@@ -9483,7 +9483,7 @@ export interface DescribeUserProfileResponse {
    * @public
    * <p>The status.</p>
    */
-  Status?: UserProfileStatus | string;
+  Status?: UserProfileStatus;
 
   /**
    * @public
@@ -9702,7 +9702,7 @@ export interface Workforce {
    * @public
    * <p>The status of your workforce.</p>
    */
-  Status?: WorkforceStatus | string;
+  Status?: WorkforceStatus;
 
   /**
    * @public
@@ -9963,7 +9963,7 @@ export interface DeviceDeploymentSummary {
    * @public
    * <p>The deployment status of the device.</p>
    */
-  DeviceDeploymentStatus?: DeviceDeploymentStatus | string;
+  DeviceDeploymentStatus?: DeviceDeploymentStatus;
 
   /**
    * @public
@@ -10196,7 +10196,7 @@ export interface DomainDetails {
    * @public
    * <p>The status.</p>
    */
-  Status?: DomainStatus | string;
+  Status?: DomainStatus;
 
   /**
    * @public
@@ -10267,7 +10267,7 @@ export interface DomainSettingsForUpdate {
    *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>. This configuration can only be modified if there
    *             are no apps in the <code>InService</code> or <code>Pending</code> state.</p>
    */
-  ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
+  ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig;
 
   /**
    * @public
@@ -10460,7 +10460,7 @@ export interface Edge {
    * <p>The type of the Association(Edge) between the source and destination. For example <code>ContributedTo</code>,
    *          <code>Produced</code>, or <code>DerivedFrom</code>.</p>
    */
-  AssociationType?: AssociationEdgeType | string;
+  AssociationType?: AssociationEdgeType;
 }
 
 /**
@@ -10580,7 +10580,7 @@ export interface EdgePackagingJobSummary {
    * @public
    * <p>The status of the edge packaging job.</p>
    */
-  EdgePackagingJobStatus: EdgePackagingJobStatus | string | undefined;
+  EdgePackagingJobStatus: EdgePackagingJobStatus | undefined;
 
   /**
    * @public
@@ -10695,13 +10695,13 @@ export interface MonitoringSchedule {
    *             </li>
    *          </ul>
    */
-  MonitoringScheduleStatus?: ScheduleStatus | string;
+  MonitoringScheduleStatus?: ScheduleStatus;
 
   /**
    * @public
    * <p>The type of the monitoring job definition to schedule.</p>
    */
-  MonitoringType?: MonitoringType | string;
+  MonitoringType?: MonitoringType;
 
   /**
    * @public
@@ -10787,7 +10787,7 @@ export interface Endpoint {
    * @public
    * <p>The status of the endpoint.</p>
    */
-  EndpointStatus: EndpointStatus | string | undefined;
+  EndpointStatus: EndpointStatus | undefined;
 
   /**
    * @public

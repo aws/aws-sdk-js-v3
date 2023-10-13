@@ -83,7 +83,7 @@ export interface UnsearchedFace {
    * @public
    * <p> Reasons why a face wasn't used for Search. </p>
    */
-  Reasons?: (UnsearchedFaceReason | string)[];
+  Reasons?: UnsearchedFaceReason[];
 }
 
 /**
@@ -289,7 +289,7 @@ export interface StartFaceDetectionRequest {
    *          <p>
    *             <code>ALL</code> - All facial attributes are returned.</p>
    */
-  FaceAttributes?: FaceAttributes | string;
+  FaceAttributes?: FaceAttributes;
 
   /**
    * @public
@@ -416,7 +416,7 @@ export interface StartLabelDetectionRequest {
    * @public
    * <p>The features to return after video analysis. You can specify that GENERAL_LABELS are returned.</p>
    */
-  Features?: (LabelDetectionFeatureName | string)[];
+  Features?: LabelDetectionFeatureName[];
 
   /**
    * @public
@@ -520,7 +520,7 @@ export interface StartProjectVersionResponse {
    * @public
    * <p>The current running status of the model. </p>
    */
-  Status?: ProjectVersionStatus | string;
+  Status?: ProjectVersionStatus;
 }
 
 /**
@@ -631,7 +631,7 @@ export interface StartSegmentDetectionRequest {
    * @public
    * <p>An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.</p>
    */
-  SegmentTypes: (SegmentType | string)[] | undefined;
+  SegmentTypes: SegmentType[] | undefined;
 }
 
 /**
@@ -816,7 +816,7 @@ export interface StopProjectVersionResponse {
    * @public
    * <p>The current status of the stop operation. </p>
    */
-  Status?: ProjectVersionStatus | string;
+  Status?: ProjectVersionStatus;
 }
 
 /**
@@ -981,7 +981,7 @@ export interface UpdateStreamProcessorRequest {
    *             A list of parameters you want to delete from the stream processor.
    *         </p>
    */
-  ParametersToDelete?: (StreamProcessorParameterToDelete | string)[];
+  ParametersToDelete?: StreamProcessorParameterToDelete[];
 }
 
 /**

@@ -190,7 +190,7 @@ export interface UpdateAssociationRequest {
    * @public
    * <p>The severity level to assign to the association.</p>
    */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
+  ComplianceSeverity?: AssociationComplianceSeverity;
 
   /**
    * @public
@@ -205,7 +205,7 @@ export interface UpdateAssociationRequest {
    *     <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    */
-  SyncCompliance?: AssociationSyncCompliance | string;
+  SyncCompliance?: AssociationSyncCompliance;
 
   /**
    * @public
@@ -463,7 +463,7 @@ export interface UpdateDocumentRequest {
    * <p>Specify the document format for the new document version. Systems Manager supports JSON and YAML
    *    documents. JSON is the default format.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: DocumentFormat;
 
   /**
    * @public
@@ -560,7 +560,7 @@ export interface DocumentReviews {
    * @public
    * <p>The action to take on a document approval review request.</p>
    */
-  Action: DocumentReviewAction | string | undefined;
+  Action: DocumentReviewAction | undefined;
 
   /**
    * @public
@@ -1066,7 +1066,7 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *             </li>
    *          </ul>
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior;
 
   /**
    * @public
@@ -1177,7 +1177,7 @@ export interface UpdateMaintenanceWindowTaskResult {
    * <p>The specification for whether tasks should continue to run after the cutoff time specified
    *    in the maintenance windows is reached. </p>
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior;
 
   /**
    * @public
@@ -1285,7 +1285,7 @@ export interface UpdateOpsItemRequest {
    * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
    *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  Status?: OpsItemStatus | string;
+  Status?: OpsItemStatus;
 
   /**
    * @public
@@ -1447,7 +1447,7 @@ export interface UpdatePatchBaselineRequest {
    * @public
    * <p>Assigns a new compliance severity level to an existing patch baseline.</p>
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesComplianceLevel?: PatchComplianceLevel;
 
   /**
    * @public
@@ -1492,7 +1492,7 @@ export interface UpdatePatchBaselineRequest {
    *             </li>
    *          </ul>
    */
-  RejectedPatchesAction?: PatchAction | string;
+  RejectedPatchesAction?: PatchAction;
 
   /**
    * @public
@@ -1536,7 +1536,7 @@ export interface UpdatePatchBaselineResult {
    * @public
    * <p>The operating system rule used by the updated patch baseline.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -1561,7 +1561,7 @@ export interface UpdatePatchBaselineResult {
    * <p>The compliance severity level assigned to the patch baseline after the update
    *    completed.</p>
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesComplianceLevel?: PatchComplianceLevel;
 
   /**
    * @public
@@ -1583,7 +1583,7 @@ export interface UpdatePatchBaselineResult {
    *    patch can be allowed only if it is a dependency of another package, or blocked entirely along
    *    with packages that include it as a dependency.</p>
    */
-  RejectedPatchesAction?: PatchAction | string;
+  RejectedPatchesAction?: PatchAction;
 
   /**
    * @public

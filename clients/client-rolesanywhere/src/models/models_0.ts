@@ -248,7 +248,7 @@ export interface NotificationSetting {
    * @public
    * <p>The event to which this notification setting is applied.</p>
    */
-  event: NotificationEvent | string | undefined;
+  event: NotificationEvent | undefined;
 
   /**
    * @public
@@ -264,7 +264,7 @@ export interface NotificationSetting {
    *             <p>In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.</p>
    *          </note>
    */
-  channel?: NotificationChannel | string;
+  channel?: NotificationChannel;
 }
 
 /**
@@ -346,7 +346,7 @@ export interface Source {
    * @public
    * <p>The type of the trust anchor. </p>
    */
-  sourceType?: TrustAnchorType | string;
+  sourceType?: TrustAnchorType;
 
   /**
    * @public
@@ -407,7 +407,7 @@ export interface NotificationSettingDetail {
    * @public
    * <p>The event to which this notification setting is applied.</p>
    */
-  event: NotificationEvent | string | undefined;
+  event: NotificationEvent | undefined;
 
   /**
    * @public
@@ -423,7 +423,7 @@ export interface NotificationSettingDetail {
    *             <p>In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.</p>
    *          </note>
    */
-  channel?: NotificationChannel | string;
+  channel?: NotificationChannel;
 
   /**
    * @public
@@ -991,13 +991,13 @@ export interface NotificationSettingKey {
    * @public
    * <p>The notification setting event to reset.</p>
    */
-  event: NotificationEvent | string | undefined;
+  event: NotificationEvent | undefined;
 
   /**
    * @public
    * <p>The specified channel of notification.</p>
    */
-  channel?: NotificationChannel | string;
+  channel?: NotificationChannel;
 }
 
 /**

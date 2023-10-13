@@ -146,7 +146,7 @@ export interface As2ConnectorConfig {
    * @public
    * <p>Specifies whether the AS2 file is compressed.</p>
    */
-  Compression?: CompressionEnum | string;
+  Compression?: CompressionEnum;
 
   /**
    * @public
@@ -156,13 +156,13 @@ export interface As2ConnectorConfig {
    *         no traffic is sent in clear text.</p>
    *          </note>
    */
-  EncryptionAlgorithm?: EncryptionAlg | string;
+  EncryptionAlgorithm?: EncryptionAlg;
 
   /**
    * @public
    * <p>The algorithm that is used to sign the AS2 messages sent with the connector.</p>
    */
-  SigningAlgorithm?: SigningAlg | string;
+  SigningAlgorithm?: SigningAlg;
 
   /**
    * @public
@@ -171,7 +171,7 @@ export interface As2ConnectorConfig {
    *             <p>If set to DEFAULT (or not set at all), the value for <code>SigningAlgorithm</code> is used.</p>
    *          </note>
    */
-  MdnSigningAlgorithm?: MdnSigningAlg | string;
+  MdnSigningAlgorithm?: MdnSigningAlg;
 
   /**
    * @public
@@ -188,7 +188,7 @@ export interface As2ConnectorConfig {
    *             </li>
    *          </ul>
    */
-  MdnResponse?: MdnResponse | string;
+  MdnResponse?: MdnResponse;
 
   /**
    * @public
@@ -432,7 +432,7 @@ export interface CopyStepDetails {
    *             </li>
    *          </ul>
    */
-  OverwriteExisting?: OverwriteExisting | string;
+  OverwriteExisting?: OverwriteExisting;
 
   /**
    * @public
@@ -546,7 +546,7 @@ export interface CreateAccessRequest {
    *             template.</p>
    *          </note>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: HomeDirectoryType;
 
   /**
    * @public
@@ -865,7 +865,7 @@ export interface CreateAgreementRequest {
    * <p>The status of the agreement. The agreement can be either <code>ACTIVE</code> or
    *         <code>INACTIVE</code>.</p>
    */
-  Status?: AgreementStatusType | string;
+  Status?: AgreementStatusType;
 
   /**
    * @public
@@ -1063,7 +1063,7 @@ export interface CreateProfileRequest {
    *             </li>
    *          </ul>
    */
-  ProfileType: ProfileType | string | undefined;
+  ProfileType: ProfileType | undefined;
 
   /**
    * @public
@@ -1269,7 +1269,7 @@ export interface IdentityProviderDetails {
    *             </li>
    *          </ul>
    */
-  SftpAuthenticationMethods?: SftpAuthenticationMethods | string;
+  SftpAuthenticationMethods?: SftpAuthenticationMethods;
 }
 
 /**
@@ -1383,7 +1383,7 @@ export interface ProtocolDetails {
    *             </li>
    *          </ul>
    */
-  TlsSessionResumptionMode?: TlsSessionResumptionMode | string;
+  TlsSessionResumptionMode?: TlsSessionResumptionMode;
 
   /**
    * @public
@@ -1398,13 +1398,13 @@ export interface ProtocolDetails {
    *             <p>If you want to preserve the original timestamp for your file, and modify other file attributes using <code>SETSTAT</code>, you can use Amazon EFS as backend storage with Transfer Family.</p>
    *          </note>
    */
-  SetStatOption?: SetStatOption | string;
+  SetStatOption?: SetStatOption;
 
   /**
    * @public
    * <p>Indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p>
    */
-  As2Transports?: (As2Transport | string)[];
+  As2Transports?: As2Transport[];
 }
 
 /**
@@ -1520,7 +1520,7 @@ export interface CreateServerRequest {
    *             <p>After the server is created, the domain cannot be changed.</p>
    *          </note>
    */
-  Domain?: Domain | string;
+  Domain?: Domain;
 
   /**
    * @public
@@ -1553,7 +1553,7 @@ export interface CreateServerRequest {
    *           <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p>
    *          </note>
    */
-  EndpointType?: EndpointType | string;
+  EndpointType?: EndpointType;
 
   /**
    * @public
@@ -1606,7 +1606,7 @@ export interface CreateServerRequest {
    *       If you choose this value, you must specify the ARN for the Lambda function in the <code>Function</code> parameter
    *       for the <code>IdentityProviderDetails</code> data type.</p>
    */
-  IdentityProviderType?: IdentityProviderType | string;
+  IdentityProviderType?: IdentityProviderType;
 
   /**
    * @public
@@ -1689,7 +1689,7 @@ export interface CreateServerRequest {
    *             </ul>
    *          </note>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: Protocol[];
 
   /**
    * @public
@@ -1800,7 +1800,7 @@ export interface CreateUserRequest {
    *             template.</p>
    *          </note>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: HomeDirectoryType;
 
   /**
    * @public
@@ -1999,7 +1999,7 @@ export interface DecryptStepDetails {
    * @public
    * <p>The type of encryption used. Currently, this value must be <code>PGP</code>.</p>
    */
-  Type: EncryptionType | string | undefined;
+  Type: EncryptionType | undefined;
 
   /**
    * @public
@@ -2032,7 +2032,7 @@ export interface DecryptStepDetails {
    *             </li>
    *          </ul>
    */
-  OverwriteExisting?: OverwriteExisting | string;
+  OverwriteExisting?: OverwriteExisting;
 
   /**
    * @public
@@ -2202,7 +2202,7 @@ export interface WorkflowStep {
    *             </li>
    *          </ul>
    */
-  Type?: WorkflowStepType | string;
+  Type?: WorkflowStepType;
 
   /**
    * @public
@@ -2604,7 +2604,7 @@ export interface DescribedAccess {
    *             template.</p>
    *          </note>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: HomeDirectoryType;
 
   /**
    * @public
@@ -2711,7 +2711,7 @@ export interface DescribedAgreement {
    * <p>The current status of the agreement, either <code>ACTIVE</code> or
    *       <code>INACTIVE</code>.</p>
    */
-  Status?: AgreementStatusType | string;
+  Status?: AgreementStatusType;
 
   /**
    * @public
@@ -2822,7 +2822,7 @@ export interface DescribedCertificate {
    * @public
    * <p>Specifies whether this certificate is used for signing or encryption.</p>
    */
-  Usage?: CertificateUsageType | string;
+  Usage?: CertificateUsageType;
 
   /**
    * @public
@@ -2830,7 +2830,7 @@ export interface DescribedCertificate {
    *         <code>INACTIVE</code>. <code>PENDING_ROTATION</code> means that this certificate will
    *       replace the current certificate when it expires.</p>
    */
-  Status?: CertificateStatusType | string;
+  Status?: CertificateStatusType;
 
   /**
    * @public
@@ -2879,7 +2879,7 @@ export interface DescribedCertificate {
    * @public
    * <p>If a private key has been specified for the certificate, its type is <code>CERTIFICATE_WITH_PRIVATE_KEY</code>. If there is no private key, the type is <code>CERTIFICATE</code>.</p>
    */
-  Type?: CertificateType | string;
+  Type?: CertificateType;
 
   /**
    * @public
@@ -3150,7 +3150,7 @@ export interface ExecutionError {
    *             </li>
    *          </ul>
    */
-  Type: ExecutionErrorType | string | undefined;
+  Type: ExecutionErrorType | undefined;
 
   /**
    * @public
@@ -3200,7 +3200,7 @@ export interface ExecutionStepResult {
    *             </li>
    *          </ul>
    */
-  StepType?: WorkflowStepType | string;
+  StepType?: WorkflowStepType;
 
   /**
    * @public
@@ -3338,7 +3338,7 @@ export interface DescribedExecution {
    * <p>The status is one of the execution. Can be in progress, completed, exception encountered, or handling the exception.
    *       </p>
    */
-  Status?: ExecutionStatus | string;
+  Status?: ExecutionStatus;
 
   /**
    * @public
@@ -3446,7 +3446,7 @@ export interface DescribedProfile {
    * <p>Indicates whether to list only <code>LOCAL</code> type profiles or only <code>PARTNER</code> type profiles.
    *    If not supplied in the request, the command lists all types of profiles.</p>
    */
-  ProfileType?: ProfileType | string;
+  ProfileType?: ProfileType;
 
   /**
    * @public
@@ -3590,7 +3590,7 @@ export interface DescribedServer {
    * @public
    * <p>Specifies the domain of the storage system that is used for file transfers.</p>
    */
-  Domain?: Domain | string;
+  Domain?: Domain;
 
   /**
    * @public
@@ -3607,7 +3607,7 @@ export interface DescribedServer {
    * <p>Defines the type of endpoint that your server is connected to. If your server is connected
    *       to a VPC endpoint, your server isn't accessible over the public internet.</p>
    */
-  EndpointType?: EndpointType | string;
+  EndpointType?: EndpointType;
 
   /**
    * @public
@@ -3641,7 +3641,7 @@ export interface DescribedServer {
    *       If you choose this value, you must specify the ARN for the Lambda function in the <code>Function</code> parameter
    *       for the <code>IdentityProviderDetails</code> data type.</p>
    */
-  IdentityProviderType?: IdentityProviderType | string;
+  IdentityProviderType?: IdentityProviderType;
 
   /**
    * @public
@@ -3724,7 +3724,7 @@ export interface DescribedServer {
    *             </ul>
    *          </note>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: Protocol[];
 
   /**
    * @public
@@ -3749,7 +3749,7 @@ export interface DescribedServer {
    *       of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error
    *       condition.</p>
    */
-  State?: State | string;
+  State?: State;
 
   /**
    * @public
@@ -3877,7 +3877,7 @@ export interface DescribedUser {
    *             template.</p>
    *          </note>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: HomeDirectoryType;
 
   /**
    * @public
@@ -4167,7 +4167,7 @@ export interface ImportCertificateRequest {
    * @public
    * <p>Specifies whether this certificate is used for signing or encryption.</p>
    */
-  Usage: CertificateUsageType | string | undefined;
+  Usage: CertificateUsageType | undefined;
 
   /**
    * @public
@@ -4416,7 +4416,7 @@ export interface ListedAccess {
    *             template.</p>
    *          </note>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: HomeDirectoryType;
 
   /**
    * @public
@@ -4524,7 +4524,7 @@ export interface ListedAgreement {
    * @public
    * <p>The agreement can be either <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
    */
-  Status?: AgreementStatusType | string;
+  Status?: AgreementStatusType;
 
   /**
    * @public
@@ -4604,7 +4604,7 @@ export interface ListedCertificate {
    * @public
    * <p>Specifies whether this certificate is used for signing or encryption.</p>
    */
-  Usage?: CertificateUsageType | string;
+  Usage?: CertificateUsageType;
 
   /**
    * @public
@@ -4612,7 +4612,7 @@ export interface ListedCertificate {
    *         <code>INACTIVE</code>. <code>PENDING_ROTATION</code> means that this certificate will
    *       replace the current certificate when it expires.</p>
    */
-  Status?: CertificateStatusType | string;
+  Status?: CertificateStatusType;
 
   /**
    * @public
@@ -4632,7 +4632,7 @@ export interface ListedCertificate {
    *       type is <code>CERTIFICATE_WITH_PRIVATE_KEY</code>. If there is no private key, the type is
    *         <code>CERTIFICATE</code>.</p>
    */
-  Type?: CertificateType | string;
+  Type?: CertificateType;
 
   /**
    * @public
@@ -4750,7 +4750,7 @@ export interface ListedExecution {
    * @public
    * <p>The status is one of the execution. Can be in progress, completed, exception encountered, or handling the exception.</p>
    */
-  Status?: ExecutionStatus | string;
+  Status?: ExecutionStatus;
 }
 
 /**
@@ -4854,7 +4854,7 @@ export interface ListedProfile {
    * <p>Indicates whether to list only <code>LOCAL</code> type profiles or only <code>PARTNER</code> type profiles.
    *    If not supplied in the request, the command lists all types of profiles.</p>
    */
-  ProfileType?: ProfileType | string;
+  ProfileType?: ProfileType;
 }
 
 /**
@@ -4872,7 +4872,7 @@ export interface ListedServer {
    * @public
    * <p>Specifies the domain of the storage system that is used for file transfers.</p>
    */
-  Domain?: Domain | string;
+  Domain?: Domain;
 
   /**
    * @public
@@ -4890,14 +4890,14 @@ export interface ListedServer {
    *       If you choose this value, you must specify the ARN for the Lambda function in the <code>Function</code> parameter
    *       for the <code>IdentityProviderDetails</code> data type.</p>
    */
-  IdentityProviderType?: IdentityProviderType | string;
+  IdentityProviderType?: IdentityProviderType;
 
   /**
    * @public
    * <p>Specifies the type of VPC endpoint that your server is connected to. If your server is
    *       connected to a VPC endpoint, your server isn't accessible over the public internet.</p>
    */
-  EndpointType?: EndpointType | string;
+  EndpointType?: EndpointType;
 
   /**
    * @public
@@ -4924,7 +4924,7 @@ export interface ListedServer {
    *       of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error
    *       condition.</p>
    */
-  State?: State | string;
+  State?: State;
 
   /**
    * @public
@@ -4971,7 +4971,7 @@ export interface ListedUser {
    *             template.</p>
    *          </note>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: HomeDirectoryType;
 
   /**
    * @public
@@ -5169,7 +5169,7 @@ export interface ListProfilesRequest {
    * <p>Indicates whether to list only <code>LOCAL</code> type profiles or only <code>PARTNER</code> type profiles.
    *    If not supplied in the request, the command lists all types of profiles.</p>
    */
-  ProfileType?: ProfileType | string;
+  ProfileType?: ProfileType;
 }
 
 /**
@@ -5444,7 +5444,7 @@ export interface SendWorkflowStepStateRequest {
    * @public
    * <p>Indicates whether the specified step succeeded or failed.</p>
    */
-  Status: CustomStepStatus | string | undefined;
+  Status: CustomStepStatus | undefined;
 }
 
 /**
@@ -5634,7 +5634,7 @@ export interface TestIdentityProviderRequest {
    *             </li>
    *          </ul>
    */
-  ServerProtocol?: Protocol | string;
+  ServerProtocol?: Protocol;
 
   /**
    * @public
@@ -5735,7 +5735,7 @@ export interface UpdateAccessRequest {
    *             template.</p>
    *          </note>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: HomeDirectoryType;
 
   /**
    * @public
@@ -5866,7 +5866,7 @@ export interface UpdateAgreementRequest {
    * <p>You can update the status for the agreement, either activating an inactive agreement or
    *       the reverse.</p>
    */
-  Status?: AgreementStatusType | string;
+  Status?: AgreementStatusType;
 
   /**
    * @public
@@ -6226,7 +6226,7 @@ export interface UpdateServerRequest {
    *           <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p>
    *          </note>
    */
-  EndpointType?: EndpointType | string;
+  EndpointType?: EndpointType;
 
   /**
    * @public
@@ -6341,7 +6341,7 @@ export interface UpdateServerRequest {
    *             </ul>
    *          </note>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: Protocol[];
 
   /**
    * @public
@@ -6428,7 +6428,7 @@ export interface UpdateUserRequest {
    *             template.</p>
    *          </note>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: HomeDirectoryType;
 
   /**
    * @public
