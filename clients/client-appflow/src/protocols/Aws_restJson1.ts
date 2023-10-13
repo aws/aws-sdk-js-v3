@@ -154,6 +154,7 @@ import {
   OAuth2Properties,
   OAuthCredentials,
   OAuthProperties,
+  OperatorPropertiesKeys,
   PardotConnectorProfileCredentials,
   PardotConnectorProfileProperties,
   PardotSourceProperties,

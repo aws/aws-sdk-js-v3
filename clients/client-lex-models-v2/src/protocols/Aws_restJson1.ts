@@ -321,6 +321,7 @@ import {
   PlainTextMessage,
   PreconditionFailedException,
   Principal,
+  PromptAttempt,
   PromptAttemptSpecification,
   PromptSpecification,
   ResourceNotFoundException,

@@ -449,6 +449,7 @@ import { GlueServiceException as __BaseException } from "../models/GlueServiceEx
 import {
   AccessDeniedException,
   Action,
+  AdditionalOptionKeys,
   Aggregate,
   AggregateOperation,
   AlreadyExistsException,
@@ -499,6 +500,7 @@ import {
   ConcurrentModificationException,
   Condition,
   ConnectionInput,
+  ConnectionPropertyKey,
   ConnectionsList,
   Crawl,
   Crawler,
@@ -570,6 +572,7 @@ import {
   JDBCConnectorOptions,
   JDBCConnectorSource,
   JDBCConnectorTarget,
+  JDBCDataType,
   JdbcMetadataEntry,
   JdbcTarget,
   JobCommand,

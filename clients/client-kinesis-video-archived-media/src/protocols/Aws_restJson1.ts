@@ -43,6 +43,7 @@ import {
   ClipTimestampRange,
   DASHFragmentSelector,
   DASHTimestampRange,
+  FormatConfigKey,
   Fragment,
   FragmentSelector,
   HLSFragmentSelector,

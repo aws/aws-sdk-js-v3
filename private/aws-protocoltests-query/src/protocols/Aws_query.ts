@@ -2018,10 +2018,10 @@ const se_ComplexMap = (input: Record<string, GreetingStruct>, context: __SerdeCo
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      const memberEntries = se_GreetingStruct(input[key], context);
+      const memberEntries = se_GreetingStruct(input[key as keyof typeof input], context);
       Object.entries(memberEntries).forEach(([key, value]) => {
         entries[`entry.${counter}.value.${key}`] = value;
       });
@@ -2072,10 +2072,10 @@ const se_MapOfLists = (input: Record<string, string[]>, context: __SerdeContext)
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      const memberEntries = se_StringList(input[key], context);
+      const memberEntries = se_StringList(input[key as keyof typeof input], context);
       Object.entries(memberEntries).forEach(([key, value]) => {
         entries[`entry.${counter}.value.${key}`] = value;
       });
@@ -2091,10 +2091,10 @@ const se_MapWithXmlName = (input: Record<string, string>, context: __SerdeContex
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.K`] = key;
-      entries[`entry.${counter}.V`] = input[key];
+      entries[`entry.${counter}.V`] = input[key as keyof typeof input];
       counter++;
     });
   return entries;
@@ -2442,10 +2442,10 @@ const se_StringMap = (input: Record<string, string>, context: __SerdeContext): a
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input];
       counter++;
     });
   return entries;

@@ -901,6 +901,7 @@ import {
   EndpointInput,
   FileSystemConfig,
   FileSystemDataSource,
+  FillingType,
   FinalAutoMLJobObjectiveMetric,
   GitConfig,
   HolidayConfigAttributes,

@@ -163,6 +163,7 @@ import {
   AllQueryArguments,
   AndStatement,
   APIKeySummary,
+  AssociatedResourceType,
   AssociateWebACLRequest,
   AssociationConfig,
   AWSManagedRulesACFPRuleSet,

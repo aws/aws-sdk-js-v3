@@ -96,6 +96,7 @@ import {
   FrameMetricDatum,
   InternalServerException,
   Match,
+  MetadataField,
   Pattern,
   ProfileTime,
   ProfilingGroupDescription,

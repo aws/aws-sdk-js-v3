@@ -102,6 +102,8 @@ import {
   Message,
   MessageAttributeValue,
   MessageNotInflight,
+  MessageSystemAttributeName,
+  MessageSystemAttributeNameForSends,
   MessageSystemAttributeValue,
   OverLimit,
   PurgeQueueInProgress,
@@ -2278,10 +2280,10 @@ const se_MessageBodyAttributeMap = (input: Record<string, MessageAttributeValue>
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.Name`] = key;
-      const memberEntries = se_MessageAttributeValue(input[key], context);
+      const memberEntries = se_MessageAttributeValue(input[key as keyof typeof input], context);
       Object.entries(memberEntries).forEach(([key, value]) => {
         entries[`entry.${counter}.Value.${key}`] = value;
       });
@@ -2300,10 +2302,10 @@ const se_MessageBodySystemAttributeMap = (
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.Name`] = key;
-      const memberEntries = se_MessageSystemAttributeValue(input[key], context);
+      const memberEntries = se_MessageSystemAttributeValue(input[key as keyof typeof input], context);
       Object.entries(memberEntries).forEach(([key, value]) => {
         entries[`entry.${counter}.Value.${key}`] = value;
       });
@@ -2367,10 +2369,10 @@ const se_QueueAttributeMap = (input: Record<QueueAttributeName, string>, context
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.Name`] = key;
-      entries[`entry.${counter}.Value`] = input[key];
+      entries[`entry.${counter}.Value`] = input[key as keyof typeof input];
       counter++;
     });
   return entries;
@@ -2621,10 +2623,10 @@ const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any 
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.Key`] = key;
-      entries[`entry.${counter}.Value`] = input[key];
+      entries[`entry.${counter}.Value`] = input[key as keyof typeof input];
       counter++;
     });
   return entries;

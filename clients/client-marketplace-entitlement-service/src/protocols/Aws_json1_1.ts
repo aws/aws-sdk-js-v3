@@ -26,6 +26,7 @@ import { MarketplaceEntitlementServiceServiceException as __BaseException } from
 import {
   Entitlement,
   EntitlementValue,
+  GetEntitlementFilterName,
   GetEntitlementsRequest,
   GetEntitlementsResult,
   InternalServiceErrorException,

@@ -241,6 +241,7 @@ import {
   EFSMountConnectivityException,
   EFSMountFailureException,
   EFSMountTimeoutException,
+  EndPointType,
   ENILimitReachedException,
   Environment,
   EphemeralStorage,

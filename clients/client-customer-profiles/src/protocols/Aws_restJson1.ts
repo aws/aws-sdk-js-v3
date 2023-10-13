@@ -181,6 +181,7 @@ import {
   ObjectFilter,
   ObjectTypeField,
   ObjectTypeKey,
+  OperatorPropertiesKeys,
   Range,
   ResourceNotFoundException,
   RuleBasedMatchingRequest,

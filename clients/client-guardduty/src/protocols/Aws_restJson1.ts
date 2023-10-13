@@ -6388,7 +6388,7 @@ const se_ScanConditionPair = (input: ScanConditionPair, context: __SerdeContext)
  * serializeAws_restJson1ScanCriterion
  */
 const se_ScanCriterion = (input: Record<ScanCriterionKey, ScanCondition>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [ScanCriterionKey, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [ScanCriterionKey | string, any]) => {
     if (value === null) {
       return acc;
     }

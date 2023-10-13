@@ -311,6 +311,7 @@ import {
   CreateRecommenderConfigurationShape,
   CustomDeliveryConfiguration,
   CustomMessageActivity,
+  DayOfWeek,
   DefaultButtonConfiguration,
   DefaultMessage,
   DefaultPushNotificationMessage,

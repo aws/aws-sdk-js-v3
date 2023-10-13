@@ -673,6 +673,7 @@ import {
   SSHPublicKey,
   SSHPublicKeyMetadata,
   Statement,
+  SummaryKeyType,
   Tag,
   TagInstanceProfileRequest,
   TagMFADeviceRequest,

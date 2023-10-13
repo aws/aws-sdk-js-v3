@@ -5278,13 +5278,13 @@ const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext)
  */
 const se_FlattenedXmlMapWithXmlNameInputOutputMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
       const keyNode = __XmlNode.of("String", key).withName("K");
       entryNode.addChildNode(keyNode);
       let node;
-      node = __XmlNode.of("String", input[key]);
+      node = __XmlNode.of("String", input[key as keyof typeof input]);
       entryNode.addChildNode(node.withName("V"));
       return entryNode;
     });
@@ -5320,13 +5320,13 @@ const se_ListWithNamespace = (input: string[], context: __SerdeContext): any => 
  */
 const se_NestedMap = (input: Record<string, Record<string, FooEnum>>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
       const keyNode = __XmlNode.of("String", key).withName("key");
       entryNode.addChildNode(keyNode);
       let node;
-      node = se_FooEnumMap(input[key], context);
+      node = se_FooEnumMap(input[key as keyof typeof input], context);
       entryNode.addChildNode(
         node.reduce((acc: __XmlNode, workingNode: any) => {
           return acc.addChildNode(workingNode);
@@ -5506,13 +5506,13 @@ const se_XmlAttributesInputOutput = (input: XmlAttributesInputOutput, context: _
  */
 const se_XmlMapsInputOutputMap = (input: Record<string, GreetingStruct>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
       const keyNode = __XmlNode.of("String", key).withName("key");
       entryNode.addChildNode(keyNode);
       let node;
-      node = se_GreetingStruct(input[key], context);
+      node = se_GreetingStruct(input[key as keyof typeof input], context);
       entryNode.addChildNode(node.withName("value"));
       return entryNode;
     });
@@ -5523,13 +5523,13 @@ const se_XmlMapsInputOutputMap = (input: Record<string, GreetingStruct>, context
  */
 const se_XmlMapsXmlNameInputOutputMap = (input: Record<string, GreetingStruct>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
       const keyNode = __XmlNode.of("String", key).withName("Attribute");
       entryNode.addChildNode(keyNode);
       let node;
-      node = se_GreetingStruct(input[key], context);
+      node = se_GreetingStruct(input[key as keyof typeof input], context);
       entryNode.addChildNode(node.withName("Setting"));
       return entryNode;
     });
@@ -5540,14 +5540,14 @@ const se_XmlMapsXmlNameInputOutputMap = (input: Record<string, GreetingStruct>, 
  */
 const se_XmlMapWithXmlNamespaceInputOutputMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
       const keyNode = __XmlNode.of("String", key).withName("K");
       keyNode.addAttribute("xmlns", "https://the-key.example.com");
       entryNode.addChildNode(keyNode);
       let node;
-      node = __XmlNode.of("String", input[key]);
+      node = __XmlNode.of("String", input[key as keyof typeof input]);
       node.addAttribute("xmlns", "https://the-value.example.com");
       entryNode.addChildNode(node.withName("V"));
       return entryNode;
@@ -5714,13 +5714,13 @@ const se_FooEnumList = (input: FooEnum[], context: __SerdeContext): any => {
  */
 const se_FooEnumMap = (input: Record<string, FooEnum>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
       const keyNode = __XmlNode.of("String", key).withName("key");
       entryNode.addChildNode(keyNode);
       let node;
-      node = __XmlNode.of("FooEnum", input[key]);
+      node = __XmlNode.of("FooEnum", input[key as keyof typeof input]);
       entryNode.addChildNode(node.withName("value"));
       return entryNode;
     });
@@ -5767,13 +5767,13 @@ const se_IntegerEnumList = (input: IntegerEnum[], context: __SerdeContext): any 
  */
 const se_IntegerEnumMap = (input: Record<string, IntegerEnum>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
       const keyNode = __XmlNode.of("String", key).withName("key");
       entryNode.addChildNode(keyNode);
       let node;
-      node = __XmlNode.of("IntegerEnum", String(input[key]));
+      node = __XmlNode.of("IntegerEnum", String(input[key as keyof typeof input]));
       entryNode.addChildNode(node.withName("value"));
       return entryNode;
     });

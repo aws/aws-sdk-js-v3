@@ -114,6 +114,7 @@ import {
   CreateRotationOverrideRequest,
   CreateRotationRequest,
   DataEncryptionException,
+  DayOfWeek,
   DeactivateContactChannelRequest,
   DeleteContactChannelRequest,
   DeleteContactRequest,

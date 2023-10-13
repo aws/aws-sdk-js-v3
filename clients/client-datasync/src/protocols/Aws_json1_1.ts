@@ -232,6 +232,7 @@ import {
   DescribeTaskExecutionResponse,
   DescribeTaskRequest,
   DescribeTaskResponse,
+  DiscoveryResourceFilter,
   DiscoveryServerConfiguration,
   Ec2Config,
   FilterRule,

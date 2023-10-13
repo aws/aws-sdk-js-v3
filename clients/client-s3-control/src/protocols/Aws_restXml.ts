@@ -7768,13 +7768,13 @@ const se_S3TagSet = (input: S3Tag[], context: __SerdeContext): any => {
  */
 const se_S3UserMetadata = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
       const keyNode = __XmlNode.of("NonEmptyMaxLength1024String", key).withName("key");
       entryNode.addChildNode(keyNode);
       let node;
-      node = __XmlNode.of("MaxLength1024String", input[key]);
+      node = __XmlNode.of("MaxLength1024String", input[key as keyof typeof input]);
       entryNode.addChildNode(node.withName("value"));
       return entryNode;
     });

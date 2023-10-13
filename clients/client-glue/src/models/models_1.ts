@@ -6,6 +6,7 @@ import {
   Action,
   Blueprint,
   Column,
+  ConnectionPropertyKey,
   ConnectionsList,
   ConnectionType,
   Crawler,

@@ -175,6 +175,7 @@ import {
   LFTagPair,
   LFTagPolicyResource,
   OperationTimeoutException,
+  OptimizerType,
   PartitionValueList,
   Permission,
   PermissionType,
