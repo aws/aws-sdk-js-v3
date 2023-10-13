@@ -123,7 +123,7 @@ describe("@aws-sdk/client-s3", () => {
 
     it("should succeed with valid body payload", async () => {
       // prepare the object.
-      const body = createBuffer("16KB");
+      const body = createBuffer("1MB");
 
       try {
         await client.putObject({ Bucket, Key, Body: body });
