@@ -1,23 +1,15 @@
-// @ts-nocheck 
+// @ts-nocheck
 /* eslint-disable */
 // ../../clients/client-sso-oidc/src/SSOOIDCClient.ts
-import {
-  getHostHeaderPlugin,
-  resolveHostHeaderConfig
-} from "@aws-sdk/middleware-host-header";
+import { getHostHeaderPlugin, resolveHostHeaderConfig } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
-import {
-  getUserAgentPlugin,
-  resolveUserAgentConfig
-} from "@aws-sdk/middleware-user-agent";
+import { getUserAgentPlugin, resolveUserAgentConfig } from "@aws-sdk/middleware-user-agent";
 import { resolveRegionConfig } from "@smithy/config-resolver";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig } from "@smithy/middleware-retry";
-import {
-  Client as __Client
-} from "@smithy/smithy-client";
+import { Client as __Client } from "@smithy/smithy-client";
 
 // ../../clients/client-sso-oidc/src/endpoint/EndpointParameters.ts
 var resolveClientEndpointParameters = (options) => {
@@ -25,12 +17,12 @@ var resolveClientEndpointParameters = (options) => {
     ...options,
     useDualstackEndpoint: options.useDualstackEndpoint ?? false,
     useFipsEndpoint: options.useFipsEndpoint ?? false,
-    defaultSigningName: "awsssooidc"
+    defaultSigningName: "awsssooidc",
   };
 };
 
 // ../../clients/client-sso-oidc/package.json
-var package_default = { version: "3.387.0" };
+var package_default = { version: "3.429.0" };
 
 // ../../clients/client-sso-oidc/src/runtimeConfig.ts
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
@@ -38,7 +30,7 @@ import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
   NODE_REGION_CONFIG_OPTIONS,
   NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
-  NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS
+  NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
 } from "@smithy/config-resolver";
 import { Hash } from "@smithy/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
@@ -57,33 +49,135 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { resolveEndpoint } from "@aws-sdk/util-endpoints";
 
 // ../../clients/client-sso-oidc/src/endpoint/ruleset.ts
-var p = "required";
-var q = "fn";
-var r = "argv";
-var s = "ref";
-var a = "PartitionResult";
+var s = "required";
+var t = "fn";
+var u = "argv";
+var v = "ref";
+var a = "isSet";
 var b = "tree";
 var c = "error";
 var d = "endpoint";
-var e = { [p]: false, "type": "String" };
-var f = { [p]: true, "default": false, "type": "Boolean" };
-var g = { [s]: "Endpoint" };
-var h = { [q]: "booleanEquals", [r]: [{ [s]: "UseFIPS" }, true] };
-var i = { [q]: "booleanEquals", [r]: [{ [s]: "UseDualStack" }, true] };
-var j = {};
-var k = { [q]: "booleanEquals", [r]: [true, { [q]: "getAttr", [r]: [{ [s]: a }, "supportsFIPS"] }] };
-var l = { [q]: "booleanEquals", [r]: [true, { [q]: "getAttr", [r]: [{ [s]: a }, "supportsDualStack"] }] };
-var m = [g];
-var n = [h];
-var o = [i];
-var _data = { version: "1.0", parameters: { Region: e, UseDualStack: f, UseFIPS: f, Endpoint: e }, rules: [{ conditions: [{ [q]: "aws.partition", [r]: [{ [s]: "Region" }], assign: a }], type: b, rules: [{ conditions: [{ [q]: "isSet", [r]: m }, { [q]: "parseURL", [r]: m, assign: "url" }], type: b, rules: [{ conditions: n, error: "Invalid Configuration: FIPS and custom endpoint are not supported", type: c }, { type: b, rules: [{ conditions: o, error: "Invalid Configuration: Dualstack and custom endpoint are not supported", type: c }, { endpoint: { url: g, properties: j, headers: j }, type: d }] }] }, { conditions: [h, i], type: b, rules: [{ conditions: [k, l], type: b, rules: [{ endpoint: { url: "https://oidc-fips.{Region}.{PartitionResult#dualStackDnsSuffix}", properties: j, headers: j }, type: d }] }, { error: "FIPS and DualStack are enabled, but this partition does not support one or both", type: c }] }, { conditions: n, type: b, rules: [{ conditions: [k], type: b, rules: [{ type: b, rules: [{ endpoint: { url: "https://oidc-fips.{Region}.{PartitionResult#dnsSuffix}", properties: j, headers: j }, type: d }] }] }, { error: "FIPS is enabled but this partition does not support FIPS", type: c }] }, { conditions: o, type: b, rules: [{ conditions: [l], type: b, rules: [{ endpoint: { url: "https://oidc.{Region}.{PartitionResult#dualStackDnsSuffix}", properties: j, headers: j }, type: d }] }, { error: "DualStack is enabled but this partition does not support DualStack", type: c }] }, { endpoint: { url: "https://oidc.{Region}.{PartitionResult#dnsSuffix}", properties: j, headers: j }, type: d }] }] };
+var e = "PartitionResult";
+var f = "getAttr";
+var g = { [s]: false, type: "String" };
+var h = { [s]: true, default: false, type: "Boolean" };
+var i = { [v]: "Endpoint" };
+var j = { [t]: "booleanEquals", [u]: [{ [v]: "UseFIPS" }, true] };
+var k = { [t]: "booleanEquals", [u]: [{ [v]: "UseDualStack" }, true] };
+var l = {};
+var m = { [t]: "booleanEquals", [u]: [true, { [t]: f, [u]: [{ [v]: e }, "supportsFIPS"] }] };
+var n = { [v]: e };
+var o = { [t]: "booleanEquals", [u]: [true, { [t]: f, [u]: [n, "supportsDualStack"] }] };
+var p = [j];
+var q = [k];
+var r = [{ [v]: "Region" }];
+var _data = {
+  version: "1.0",
+  parameters: { Region: g, UseDualStack: h, UseFIPS: h, Endpoint: g },
+  rules: [
+    {
+      conditions: [{ [t]: a, [u]: [i] }],
+      type: b,
+      rules: [
+        { conditions: p, error: "Invalid Configuration: FIPS and custom endpoint are not supported", type: c },
+        { conditions: q, error: "Invalid Configuration: Dualstack and custom endpoint are not supported", type: c },
+        { endpoint: { url: i, properties: l, headers: l }, type: d },
+      ],
+    },
+    {
+      conditions: [{ [t]: a, [u]: r }],
+      type: b,
+      rules: [
+        {
+          conditions: [{ [t]: "aws.partition", [u]: r, assign: e }],
+          type: b,
+          rules: [
+            {
+              conditions: [j, k],
+              type: b,
+              rules: [
+                {
+                  conditions: [m, o],
+                  type: b,
+                  rules: [
+                    {
+                      endpoint: {
+                        url: "https://oidc-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                        properties: l,
+                        headers: l,
+                      },
+                      type: d,
+                    },
+                  ],
+                },
+                { error: "FIPS and DualStack are enabled, but this partition does not support one or both", type: c },
+              ],
+            },
+            {
+              conditions: p,
+              type: b,
+              rules: [
+                {
+                  conditions: [m],
+                  type: b,
+                  rules: [
+                    {
+                      conditions: [{ [t]: "stringEquals", [u]: ["aws-us-gov", { [t]: f, [u]: [n, "name"] }] }],
+                      endpoint: { url: "https://oidc.{Region}.amazonaws.com", properties: l, headers: l },
+                      type: d,
+                    },
+                    {
+                      endpoint: {
+                        url: "https://oidc-fips.{Region}.{PartitionResult#dnsSuffix}",
+                        properties: l,
+                        headers: l,
+                      },
+                      type: d,
+                    },
+                  ],
+                },
+                { error: "FIPS is enabled but this partition does not support FIPS", type: c },
+              ],
+            },
+            {
+              conditions: q,
+              type: b,
+              rules: [
+                {
+                  conditions: [o],
+                  type: b,
+                  rules: [
+                    {
+                      endpoint: {
+                        url: "https://oidc.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                        properties: l,
+                        headers: l,
+                      },
+                      type: d,
+                    },
+                  ],
+                },
+                { error: "DualStack is enabled but this partition does not support DualStack", type: c },
+              ],
+            },
+            {
+              endpoint: { url: "https://oidc.{Region}.{PartitionResult#dnsSuffix}", properties: l, headers: l },
+              type: d,
+            },
+          ],
+        },
+      ],
+    },
+    { error: "Invalid Configuration: Missing Region", type: c },
+  ],
+};
 var ruleSet = _data;
 
 // ../../clients/client-sso-oidc/src/endpoint/endpointResolver.ts
 var defaultEndpointResolver = (endpointParams, context = {}) => {
   return resolveEndpoint(ruleSet, {
     endpointParams,
-    logger: context.logger
+    logger: context.logger,
   });
 };
 
@@ -94,11 +188,12 @@ var getRuntimeConfig = (config) => ({
   base64Encoder: config?.base64Encoder ?? toBase64,
   disableHostPrefix: config?.disableHostPrefix ?? false,
   endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
+  extensions: config?.extensions ?? [],
   logger: config?.logger ?? new NoOpLogger(),
   serviceId: config?.serviceId ?? "SSO OIDC",
   urlParser: config?.urlParser ?? parseUrl,
   utf8Decoder: config?.utf8Decoder ?? fromUtf8,
-  utf8Encoder: config?.utf8Encoder ?? toUtf8
+  utf8Encoder: config?.utf8Encoder ?? toUtf8,
 });
 
 // ../../clients/client-sso-oidc/src/runtimeConfig.ts
@@ -116,18 +211,45 @@ var getRuntimeConfig2 = (config) => {
     runtime: "node",
     defaultsMode,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-    defaultUserAgentProvider: config?.defaultUserAgentProvider ?? defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: package_default.version }),
+    defaultUserAgentProvider:
+      config?.defaultUserAgentProvider ??
+      defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: package_default.version }),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     region: config?.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
     requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
-    retryMode: config?.retryMode ?? loadNodeConfig({
-      ...NODE_RETRY_MODE_CONFIG_OPTIONS,
-      default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE
-    }),
+    retryMode:
+      config?.retryMode ??
+      loadNodeConfig({
+        ...NODE_RETRY_MODE_CONFIG_OPTIONS,
+        default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
+      }),
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS),
-    useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS)
+    useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),
+  };
+};
+
+// ../../clients/client-sso-oidc/src/runtimeExtensions.ts
+import {
+  getAwsRegionExtensionConfiguration,
+  resolveAwsRegionExtensionConfiguration,
+} from "@aws-sdk/region-config-resolver";
+import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
+import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
+var asPartial = (t2) => t2;
+var resolveRuntimeExtensions = (runtimeConfig, extensions) => {
+  const extensionConfiguration = {
+    ...asPartial(getAwsRegionExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
+  };
+  extensions.forEach((extension) => extension.configure(extensionConfiguration));
+  return {
+    ...runtimeConfig,
+    ...resolveAwsRegionExtensionConfiguration(extensionConfiguration),
+    ...resolveDefaultRuntimeConfig(extensionConfiguration),
+    ...resolveHttpHandlerRuntimeConfig(extensionConfiguration),
   };
 };
 
@@ -141,8 +263,9 @@ var SSOOIDCClient = class extends __Client {
     const _config_4 = resolveRetryConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
@@ -167,9 +290,7 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  MetadataBearer as __MetadataBearer
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, SMITHY_CONTEXT_KEY } from "@smithy/types";
 
 // ../../clients/client-sso-oidc/src/protocols/Aws_restJson1.ts
 import { HttpRequest as __HttpRequest } from "@smithy/protocol-http";
@@ -184,13 +305,13 @@ import {
   expectString as __expectString,
   map,
   take,
-  withBaseException
+  withBaseException,
 } from "@smithy/smithy-client";
 
 // ../../clients/client-sso-oidc/src/models/SSOOIDCServiceException.ts
 import {
   ServiceException as __ServiceException,
-  ServiceExceptionOptions as __ServiceExceptionOptions
+  ServiceExceptionOptions as __ServiceExceptionOptions,
 } from "@smithy/smithy-client";
 var SSOOIDCServiceException = class _SSOOIDCServiceException extends __ServiceException {
   /**
@@ -211,7 +332,7 @@ var AccessDeniedException = class _AccessDeniedException extends SSOOIDCServiceE
     super({
       name: "AccessDeniedException",
       $fault: "client",
-      ...opts
+      ...opts,
     });
     this.name = "AccessDeniedException";
     this.$fault = "client";
@@ -228,7 +349,7 @@ var AuthorizationPendingException = class _AuthorizationPendingException extends
     super({
       name: "AuthorizationPendingException",
       $fault: "client",
-      ...opts
+      ...opts,
     });
     this.name = "AuthorizationPendingException";
     this.$fault = "client";
@@ -245,7 +366,7 @@ var ExpiredTokenException = class _ExpiredTokenException extends SSOOIDCServiceE
     super({
       name: "ExpiredTokenException",
       $fault: "client",
-      ...opts
+      ...opts,
     });
     this.name = "ExpiredTokenException";
     this.$fault = "client";
@@ -262,7 +383,7 @@ var InternalServerException = class _InternalServerException extends SSOOIDCServ
     super({
       name: "InternalServerException",
       $fault: "server",
-      ...opts
+      ...opts,
     });
     this.name = "InternalServerException";
     this.$fault = "server";
@@ -279,7 +400,7 @@ var InvalidClientException = class _InvalidClientException extends SSOOIDCServic
     super({
       name: "InvalidClientException",
       $fault: "client",
-      ...opts
+      ...opts,
     });
     this.name = "InvalidClientException";
     this.$fault = "client";
@@ -296,7 +417,7 @@ var InvalidGrantException = class _InvalidGrantException extends SSOOIDCServiceE
     super({
       name: "InvalidGrantException",
       $fault: "client",
-      ...opts
+      ...opts,
     });
     this.name = "InvalidGrantException";
     this.$fault = "client";
@@ -313,7 +434,7 @@ var InvalidRequestException = class _InvalidRequestException extends SSOOIDCServ
     super({
       name: "InvalidRequestException",
       $fault: "client",
-      ...opts
+      ...opts,
     });
     this.name = "InvalidRequestException";
     this.$fault = "client";
@@ -330,7 +451,7 @@ var InvalidScopeException = class _InvalidScopeException extends SSOOIDCServiceE
     super({
       name: "InvalidScopeException",
       $fault: "client",
-      ...opts
+      ...opts,
     });
     this.name = "InvalidScopeException";
     this.$fault = "client";
@@ -347,7 +468,7 @@ var SlowDownException = class _SlowDownException extends SSOOIDCServiceException
     super({
       name: "SlowDownException",
       $fault: "client",
-      ...opts
+      ...opts,
     });
     this.name = "SlowDownException";
     this.$fault = "client";
@@ -364,7 +485,7 @@ var UnauthorizedClientException = class _UnauthorizedClientException extends SSO
     super({
       name: "UnauthorizedClientException",
       $fault: "client",
-      ...opts
+      ...opts,
     });
     this.name = "UnauthorizedClientException";
     this.$fault = "client";
@@ -381,7 +502,7 @@ var UnsupportedGrantTypeException = class _UnsupportedGrantTypeException extends
     super({
       name: "UnsupportedGrantTypeException",
       $fault: "client",
-      ...opts
+      ...opts,
     });
     this.name = "UnsupportedGrantTypeException";
     this.$fault = "client";
@@ -398,7 +519,7 @@ var InvalidClientMetadataException = class _InvalidClientMetadataException exten
     super({
       name: "InvalidClientMetadataException",
       $fault: "client",
-      ...opts
+      ...opts,
     });
     this.name = "InvalidClientMetadataException";
     this.$fault = "client";
@@ -412,7 +533,7 @@ var InvalidClientMetadataException = class _InvalidClientMetadataException exten
 var se_CreateTokenCommand = async (input, context) => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers = {
-    "content-type": "application/json"
+    "content-type": "application/json",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}/token`;
   let body;
@@ -425,7 +546,7 @@ var se_CreateTokenCommand = async (input, context) => {
       grantType: [],
       redirectUri: [],
       refreshToken: [],
-      scope: (_) => _json(_)
+      scope: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -435,13 +556,13 @@ var se_CreateTokenCommand = async (input, context) => {
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 var se_RegisterClientCommand = async (input, context) => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers = {
-    "content-type": "application/json"
+    "content-type": "application/json",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}/client/register`;
   let body;
@@ -449,7 +570,7 @@ var se_RegisterClientCommand = async (input, context) => {
     take(input, {
       clientName: [],
       clientType: [],
-      scopes: (_) => _json(_)
+      scopes: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -459,13 +580,13 @@ var se_RegisterClientCommand = async (input, context) => {
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 var se_StartDeviceAuthorizationCommand = async (input, context) => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers = {
-    "content-type": "application/json"
+    "content-type": "application/json",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}/device_authorization`;
   let body;
@@ -473,7 +594,7 @@ var se_StartDeviceAuthorizationCommand = async (input, context) => {
     take(input, {
       clientId: [],
       clientSecret: [],
-      startUrl: []
+      startUrl: [],
     })
   );
   return new __HttpRequest({
@@ -483,7 +604,7 @@ var se_StartDeviceAuthorizationCommand = async (input, context) => {
     method: "POST",
     headers,
     path: resolvedPath,
-    body
+    body,
   });
 };
 var de_CreateTokenCommand = async (output, context) => {
@@ -491,7 +612,7 @@ var de_CreateTokenCommand = async (output, context) => {
     return de_CreateTokenCommandError(output, context);
   }
   const contents = map({
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   });
   const data = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
@@ -499,7 +620,7 @@ var de_CreateTokenCommand = async (output, context) => {
     expiresIn: __expectInt32,
     idToken: __expectString,
     refreshToken: __expectString,
-    tokenType: __expectString
+    tokenType: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -507,7 +628,7 @@ var de_CreateTokenCommand = async (output, context) => {
 var de_CreateTokenCommandError = async (output, context) => {
   const parsedOutput = {
     ...output,
-    body: await parseErrorBody(output.body, context)
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -549,7 +670,7 @@ var de_CreateTokenCommandError = async (output, context) => {
       return throwDefaultError({
         output,
         parsedBody,
-        errorCode
+        errorCode,
       });
   }
 };
@@ -558,7 +679,7 @@ var de_RegisterClientCommand = async (output, context) => {
     return de_RegisterClientCommandError(output, context);
   }
   const contents = map({
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   });
   const data = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
@@ -567,7 +688,7 @@ var de_RegisterClientCommand = async (output, context) => {
     clientIdIssuedAt: __expectLong,
     clientSecret: __expectString,
     clientSecretExpiresAt: __expectLong,
-    tokenEndpoint: __expectString
+    tokenEndpoint: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -575,7 +696,7 @@ var de_RegisterClientCommand = async (output, context) => {
 var de_RegisterClientCommandError = async (output, context) => {
   const parsedOutput = {
     ...output,
-    body: await parseErrorBody(output.body, context)
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -596,7 +717,7 @@ var de_RegisterClientCommandError = async (output, context) => {
       return throwDefaultError({
         output,
         parsedBody,
-        errorCode
+        errorCode,
       });
   }
 };
@@ -605,7 +726,7 @@ var de_StartDeviceAuthorizationCommand = async (output, context) => {
     return de_StartDeviceAuthorizationCommandError(output, context);
   }
   const contents = map({
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   });
   const data = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
@@ -614,7 +735,7 @@ var de_StartDeviceAuthorizationCommand = async (output, context) => {
     interval: __expectInt32,
     userCode: __expectString,
     verificationUri: __expectString,
-    verificationUriComplete: __expectString
+    verificationUriComplete: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -622,7 +743,7 @@ var de_StartDeviceAuthorizationCommand = async (output, context) => {
 var de_StartDeviceAuthorizationCommandError = async (output, context) => {
   const parsedOutput = {
     ...output,
-    body: await parseErrorBody(output.body, context)
+    body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -646,7 +767,7 @@ var de_StartDeviceAuthorizationCommandError = async (output, context) => {
       return throwDefaultError({
         output,
         parsedBody,
-        errorCode
+        errorCode,
       });
   }
 };
@@ -656,12 +777,12 @@ var de_AccessDeniedExceptionRes = async (parsedOutput, context) => {
   const data = parsedOutput.body;
   const doc = take(data, {
     error: __expectString,
-    error_description: __expectString
+    error_description: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents
+    ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -670,12 +791,12 @@ var de_AuthorizationPendingExceptionRes = async (parsedOutput, context) => {
   const data = parsedOutput.body;
   const doc = take(data, {
     error: __expectString,
-    error_description: __expectString
+    error_description: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new AuthorizationPendingException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents
+    ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -684,12 +805,12 @@ var de_ExpiredTokenExceptionRes = async (parsedOutput, context) => {
   const data = parsedOutput.body;
   const doc = take(data, {
     error: __expectString,
-    error_description: __expectString
+    error_description: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new ExpiredTokenException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents
+    ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -698,12 +819,12 @@ var de_InternalServerExceptionRes = async (parsedOutput, context) => {
   const data = parsedOutput.body;
   const doc = take(data, {
     error: __expectString,
-    error_description: __expectString
+    error_description: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents
+    ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -712,12 +833,12 @@ var de_InvalidClientExceptionRes = async (parsedOutput, context) => {
   const data = parsedOutput.body;
   const doc = take(data, {
     error: __expectString,
-    error_description: __expectString
+    error_description: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new InvalidClientException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents
+    ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -726,12 +847,12 @@ var de_InvalidClientMetadataExceptionRes = async (parsedOutput, context) => {
   const data = parsedOutput.body;
   const doc = take(data, {
     error: __expectString,
-    error_description: __expectString
+    error_description: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new InvalidClientMetadataException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents
+    ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -740,12 +861,12 @@ var de_InvalidGrantExceptionRes = async (parsedOutput, context) => {
   const data = parsedOutput.body;
   const doc = take(data, {
     error: __expectString,
-    error_description: __expectString
+    error_description: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new InvalidGrantException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents
+    ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -754,12 +875,12 @@ var de_InvalidRequestExceptionRes = async (parsedOutput, context) => {
   const data = parsedOutput.body;
   const doc = take(data, {
     error: __expectString,
-    error_description: __expectString
+    error_description: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents
+    ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -768,12 +889,12 @@ var de_InvalidScopeExceptionRes = async (parsedOutput, context) => {
   const data = parsedOutput.body;
   const doc = take(data, {
     error: __expectString,
-    error_description: __expectString
+    error_description: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new InvalidScopeException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents
+    ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -782,12 +903,12 @@ var de_SlowDownExceptionRes = async (parsedOutput, context) => {
   const data = parsedOutput.body;
   const doc = take(data, {
     error: __expectString,
-    error_description: __expectString
+    error_description: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new SlowDownException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents
+    ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -796,12 +917,12 @@ var de_UnauthorizedClientExceptionRes = async (parsedOutput, context) => {
   const data = parsedOutput.body;
   const doc = take(data, {
     error: __expectString,
-    error_description: __expectString
+    error_description: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new UnauthorizedClientException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents
+    ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
@@ -810,28 +931,31 @@ var de_UnsupportedGrantTypeExceptionRes = async (parsedOutput, context) => {
   const data = parsedOutput.body;
   const doc = take(data, {
     error: __expectString,
-    error_description: __expectString
+    error_description: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new UnsupportedGrantTypeException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents
+    ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
 var deserializeMetadata = (output) => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
-  cfId: output.headers["x-amz-cf-id"]
+  cfId: output.headers["x-amz-cf-id"],
 });
-var collectBodyString = (streamBody, context) => collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-var parseBody = (streamBody, context) => collectBodyString(streamBody, context).then((encoded) => {
-  if (encoded.length) {
-    return JSON.parse(encoded);
-  }
-  return {};
-});
+var collectBodyString = (streamBody, context) =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
+var parseBody = (streamBody, context) =>
+  collectBodyString(streamBody, context).then((encoded) => {
+    if (encoded.length) {
+      return JSON.parse(encoded);
+    }
+    return {};
+  });
 var parseErrorBody = async (errorBody, context) => {
   const value = await parseBody(errorBody, context);
   value.message = value.message ?? value.Message;
@@ -883,7 +1007,7 @@ var CreateTokenCommand = class _CreateTokenCommand extends $Command {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
       Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" }
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
     };
   }
   /**
@@ -901,13 +1025,14 @@ var CreateTokenCommand = class _CreateTokenCommand extends $Command {
       clientName,
       commandName,
       inputFilterSensitiveLog: (_) => _,
-      outputFilterSensitiveLog: (_) => _
+      outputFilterSensitiveLog: (_) => _,
+      [SMITHY_CONTEXT_KEY]: {
+        service: "AWSSSOOIDCService",
+        operation: "CreateToken",
+      },
     };
     const { requestHandler } = configuration;
-    return stack.resolve(
-      (request) => requestHandler.handle(request.request, options || {}),
-      handlerExecutionContext
-    );
+    return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
   }
   /**
    * @internal
@@ -929,9 +1054,7 @@ var CreateTokenCommand = class _CreateTokenCommand extends $Command {
 import { getEndpointPlugin as getEndpointPlugin2 } from "@smithy/middleware-endpoint";
 import { getSerdePlugin as getSerdePlugin2 } from "@smithy/middleware-serde";
 import { Command as $Command2 } from "@smithy/smithy-client";
-import {
-  MetadataBearer as __MetadataBearer2
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer2, SMITHY_CONTEXT_KEY as SMITHY_CONTEXT_KEY2 } from "@smithy/types";
 var RegisterClientCommand = class _RegisterClientCommand extends $Command2 {
   /**
    * @public
@@ -947,7 +1070,7 @@ var RegisterClientCommand = class _RegisterClientCommand extends $Command2 {
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
       Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" }
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
     };
   }
   /**
@@ -967,13 +1090,14 @@ var RegisterClientCommand = class _RegisterClientCommand extends $Command2 {
       clientName,
       commandName,
       inputFilterSensitiveLog: (_) => _,
-      outputFilterSensitiveLog: (_) => _
+      outputFilterSensitiveLog: (_) => _,
+      [SMITHY_CONTEXT_KEY2]: {
+        service: "AWSSSOOIDCService",
+        operation: "RegisterClient",
+      },
     };
     const { requestHandler } = configuration;
-    return stack.resolve(
-      (request) => requestHandler.handle(request.request, options || {}),
-      handlerExecutionContext
-    );
+    return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
   }
   /**
    * @internal
@@ -995,9 +1119,7 @@ var RegisterClientCommand = class _RegisterClientCommand extends $Command2 {
 import { getEndpointPlugin as getEndpointPlugin3 } from "@smithy/middleware-endpoint";
 import { getSerdePlugin as getSerdePlugin3 } from "@smithy/middleware-serde";
 import { Command as $Command3 } from "@smithy/smithy-client";
-import {
-  MetadataBearer as __MetadataBearer3
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer3, SMITHY_CONTEXT_KEY as SMITHY_CONTEXT_KEY3 } from "@smithy/types";
 var StartDeviceAuthorizationCommand = class _StartDeviceAuthorizationCommand extends $Command3 {
   /**
    * @public
@@ -1013,7 +1135,7 @@ var StartDeviceAuthorizationCommand = class _StartDeviceAuthorizationCommand ext
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
       Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" }
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
     };
   }
   /**
@@ -1033,13 +1155,14 @@ var StartDeviceAuthorizationCommand = class _StartDeviceAuthorizationCommand ext
       clientName,
       commandName,
       inputFilterSensitiveLog: (_) => _,
-      outputFilterSensitiveLog: (_) => _
+      outputFilterSensitiveLog: (_) => _,
+      [SMITHY_CONTEXT_KEY3]: {
+        service: "AWSSSOOIDCService",
+        operation: "StartDeviceAuthorization",
+      },
     };
     const { requestHandler } = configuration;
-    return stack.resolve(
-      (request) => requestHandler.handle(request.request, options || {}),
-      handlerExecutionContext
-    );
+    return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
   }
   /**
    * @internal
@@ -1061,10 +1184,9 @@ var StartDeviceAuthorizationCommand = class _StartDeviceAuthorizationCommand ext
 var commands = {
   CreateTokenCommand,
   RegisterClientCommand,
-  StartDeviceAuthorizationCommand
+  StartDeviceAuthorizationCommand,
 };
-var SSOOIDC = class extends SSOOIDCClient {
-};
+var SSOOIDC = class extends SSOOIDCClient {};
 createAggregatedClient(commands, SSOOIDC);
 export {
   AccessDeniedException,
@@ -1078,5 +1200,5 @@ export {
   SSOOIDCClient,
   SlowDownException,
   UnauthorizedClientException,
-  UnsupportedGrantTypeException
+  UnsupportedGrantTypeException,
 };
