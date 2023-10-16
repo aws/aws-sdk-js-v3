@@ -24994,6 +24994,14 @@
                 {
                   "hostname": "lakeformation-fips.us-gov-east-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "lakeformation-fips.us-gov-east-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "lakeformation.us-gov-east-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -25002,6 +25010,14 @@
                 {
                   "hostname": "lakeformation-fips.us-gov-west-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "lakeformation-fips.us-gov-west-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "lakeformation.us-gov-west-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             }
