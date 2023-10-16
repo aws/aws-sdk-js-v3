@@ -5920,7 +5920,9 @@ const de_OptionStatus = (output: any, context: __SerdeContext): OptionStatus => 
 const de_PackageDetails = (output: any, context: __SerdeContext): PackageDetails => {
   return take(output, {
     AvailablePackageVersion: __expectString,
+    AvailablePluginProperties: _json,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EngineVersion: __expectString,
     ErrorDetails: _json,
     LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     PackageDescription: __expectString,
@@ -5951,6 +5953,7 @@ const de_PackageVersionHistory = (output: any, context: __SerdeContext): Package
     CommitMessage: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     PackageVersion: __expectString,
+    PluginProperties: _json,
   }) as any;
 };
 
@@ -5965,6 +5968,8 @@ const de_PackageVersionHistoryList = (output: any, context: __SerdeContext): Pac
     });
   return retVal;
 };
+
+// de_PluginProperties omitted.
 
 /**
  * deserializeAws_restJson1RecurringCharge

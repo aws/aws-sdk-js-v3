@@ -864,6 +864,7 @@ export interface ErrorDetails {
  */
 export const PackageType = {
   TXT_DICTIONARY: "TXT-DICTIONARY",
+  ZIP_PLUGIN: "ZIP-PLUGIN",
 } as const;
 
 /**
@@ -2316,12 +2317,14 @@ export type SkipUnavailableStatus = (typeof SkipUnavailableStatus)[keyof typeof 
 
 /**
  * @public
- * <p>Cross cluster search specific connection properties.</p>
+ * <p>Cross-cluster search specific connection properties.</p>
  */
 export interface CrossClusterSearchConnectionProperties {
   /**
    * @public
-   * <p>Status of SkipUnavailable param for outbound connection.</p>
+   * <p>The status of the <code>SkipUnavailable</code> setting for the outbound connection. This
+   *    feature allows you to specify some clusters as optional and ensure that your cross-cluster
+   *    queries return partial results despite failures on one or more remote clusters.</p>
    */
   SkipUnavailable?: SkipUnavailableStatus;
 }
@@ -2573,6 +2576,42 @@ export interface CreatePackageRequest {
 
 /**
  * @public
+ * <p>Basic information about the plugin.</p>
+ */
+export interface PluginProperties {
+  /**
+   * @public
+   * <p>The name of the plugin.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The description of the plugin.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The version of the plugin.</p>
+   */
+  Version?: string;
+
+  /**
+   * @public
+   * <p>The name of the class to load.</p>
+   */
+  ClassName?: string;
+
+  /**
+   * @public
+   * <p>The uncompressed size of the plugin.</p>
+   */
+  UncompressedSizeInBytes?: number;
+}
+
+/**
+ * @public
  * @enum
  */
 export const PackageStatus = {
@@ -2649,6 +2688,19 @@ export interface PackageDetails {
    * <p>Additional information if the package is in an error state. Null otherwise.</p>
    */
   ErrorDetails?: ErrorDetails;
+
+  /**
+   * @public
+   * <p>Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
+   *    Defaults to the latest version of OpenSearch.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * @public
+   * <p>If the package is a <code>ZIP-PLUGIN</code> package, additional information about plugin properties.</p>
+   */
+  AvailablePluginProperties?: PluginProperties;
 }
 
 /**
@@ -4133,9 +4185,8 @@ export interface DescribeDomainNodesResponse {
 export interface DescribeDomainsRequest {
   /**
    * @public
-   * <p>Array of OpenSearch Service domain names that you want information about. If you don't
-   *    specify any domains, OpenSearch Service returns information about all domains owned by the
-   *    account.</p>
+   * <p>Array of OpenSearch Service domain names that you want information about. You must specify
+   *    at least one domain name.</p>
    */
   DomainNames: string[] | undefined;
 }
@@ -4606,9 +4657,11 @@ export interface DescribeOutboundConnectionsResponse {
  * @enum
  */
 export const DescribePackagesFilterName = {
+  EngineVersion: "EngineVersion",
   PackageID: "PackageID",
   PackageName: "PackageName",
   PackageStatus: "PackageStatus",
+  PackageType: "PackageType",
 } as const;
 
 /**
@@ -5158,6 +5211,12 @@ export interface PackageVersionHistory {
    * <p>The date and time when the package was created.</p>
    */
   CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>Additional information about plugin properties if the package is a <code>ZIP-PLUGIN</code> package.</p>
+   */
+  PluginProperties?: PluginProperties;
 }
 
 /**

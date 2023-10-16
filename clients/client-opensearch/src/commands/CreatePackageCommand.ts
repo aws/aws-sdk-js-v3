@@ -47,7 +47,7 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * const client = new OpenSearchClient(config);
  * const input = { // CreatePackageRequest
  *   PackageName: "STRING_VALUE", // required
- *   PackageType: "TXT-DICTIONARY", // required
+ *   PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN", // required
  *   PackageDescription: "STRING_VALUE",
  *   PackageSource: { // PackageSource
  *     S3BucketName: "STRING_VALUE",
@@ -60,7 +60,7 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * //   PackageDetails: { // PackageDetails
  * //     PackageID: "STRING_VALUE",
  * //     PackageName: "STRING_VALUE",
- * //     PackageType: "TXT-DICTIONARY",
+ * //     PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN",
  * //     PackageDescription: "STRING_VALUE",
  * //     PackageStatus: "COPYING" || "COPY_FAILED" || "VALIDATING" || "VALIDATION_FAILED" || "AVAILABLE" || "DELETING" || "DELETED" || "DELETE_FAILED",
  * //     CreatedAt: new Date("TIMESTAMP"),
@@ -69,6 +69,14 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * //     ErrorDetails: { // ErrorDetails
  * //       ErrorType: "STRING_VALUE",
  * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //     EngineVersion: "STRING_VALUE",
+ * //     AvailablePluginProperties: { // PluginProperties
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //       ClassName: "STRING_VALUE",
+ * //       UncompressedSizeInBytes: Number("long"),
  * //     },
  * //   },
  * // };

@@ -60,6 +60,13 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * //       PackageVersion: "STRING_VALUE",
  * //       CommitMessage: "STRING_VALUE",
  * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       PluginProperties: { // PluginProperties
+ * //         Name: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         Version: "STRING_VALUE",
+ * //         ClassName: "STRING_VALUE",
+ * //         UncompressedSizeInBytes: Number("long"),
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

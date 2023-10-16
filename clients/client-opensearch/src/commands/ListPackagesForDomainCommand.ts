@@ -58,7 +58,7 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
  * //     { // DomainPackageDetails
  * //       PackageID: "STRING_VALUE",
  * //       PackageName: "STRING_VALUE",
- * //       PackageType: "TXT-DICTIONARY",
+ * //       PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN",
  * //       LastUpdated: new Date("TIMESTAMP"),
  * //       DomainName: "STRING_VALUE",
  * //       DomainPackageStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ACTIVE" || "DISSOCIATING" || "DISSOCIATION_FAILED",
