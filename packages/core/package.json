@@ -1,6 +1,7 @@
 {
-  "name": "@aws-sdk/common",
+  "name": "@aws-sdk/core",
   "version": "3.425.0",
+  "description": "Core functions & classes shared by multiple AWS SDK clients",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -39,11 +40,11 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/common",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/core",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/common"
+    "directory": "packages/core"
   },
   "typedoc": {
     "entryPoint": "src/index.ts"
