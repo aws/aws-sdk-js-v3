@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { CreateSchemaMappingInput, CreateSchemaMappingOutput } from "../models/models_0";
-import { de_CreateSchemaMappingCommand, se_CreateSchemaMappingCommand } from "../protocols/Aws_restJson1";
+import { CreateIdMappingWorkflowInput, CreateIdMappingWorkflowOutput } from "../models/models_0";
+import { de_CreateIdMappingWorkflowCommand, se_CreateIdMappingWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,66 +25,95 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateSchemaMappingCommand}.
+ * The input for {@link CreateIdMappingWorkflowCommand}.
  */
-export interface CreateSchemaMappingCommandInput extends CreateSchemaMappingInput {}
+export interface CreateIdMappingWorkflowCommandInput extends CreateIdMappingWorkflowInput {}
 /**
  * @public
  *
- * The output of {@link CreateSchemaMappingCommand}.
+ * The output of {@link CreateIdMappingWorkflowCommand}.
  */
-export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOutput, __MetadataBearer {}
+export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWorkflowOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a schema mapping, which defines the schema of the input customer records table.
- *          The <code>SchemaMapping</code> also provides Entity Resolution with some metadata about the
- *          table, such as the attribute types of the columns and which columns to match on.</p>
+ * <p>Creates an <code>IdMappingWorkflow</code> object which stores the configuration of the
+ *          data processing job to be run. Each <code>IdMappingWorkflow</code> must have a unique
+ *          workflow name. To modify an existing workflow, use the <code>UpdateIdMappingWorkflow</code>
+ *          API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EntityResolutionClient, CreateSchemaMappingCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
- * // const { EntityResolutionClient, CreateSchemaMappingCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * import { EntityResolutionClient, CreateIdMappingWorkflowCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, CreateIdMappingWorkflowCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
  * const client = new EntityResolutionClient(config);
- * const input = { // CreateSchemaMappingInput
- *   schemaName: "STRING_VALUE", // required
+ * const input = { // CreateIdMappingWorkflowInput
+ *   workflowName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   mappedInputFields: [ // SchemaInputAttributes // required
- *     { // SchemaInputAttribute
- *       fieldName: "STRING_VALUE", // required
- *       type: "NAME" || "NAME_FIRST" || "NAME_MIDDLE" || "NAME_LAST" || "ADDRESS" || "ADDRESS_STREET1" || "ADDRESS_STREET2" || "ADDRESS_STREET3" || "ADDRESS_CITY" || "ADDRESS_STATE" || "ADDRESS_COUNTRY" || "ADDRESS_POSTALCODE" || "PHONE" || "PHONE_NUMBER" || "PHONE_COUNTRYCODE" || "EMAIL_ADDRESS" || "UNIQUE_ID" || "DATE" || "STRING" || "PROVIDER_ID", // required
- *       groupName: "STRING_VALUE",
- *       matchKey: "STRING_VALUE",
- *       subType: "STRING_VALUE",
+ *   inputSourceConfig: [ // IdMappingWorkflowInputSourceConfig // required
+ *     { // IdMappingWorkflowInputSource
+ *       inputSourceARN: "STRING_VALUE", // required
+ *       schemaName: "STRING_VALUE", // required
  *     },
  *   ],
+ *   outputSourceConfig: [ // IdMappingWorkflowOutputSourceConfig // required
+ *     { // IdMappingWorkflowOutputSource
+ *       outputS3Path: "STRING_VALUE", // required
+ *       KMSArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   idMappingTechniques: { // IdMappingTechniques
+ *     idMappingType: "PROVIDER", // required
+ *     providerProperties: { // ProviderProperties
+ *       providerServiceArn: "STRING_VALUE", // required
+ *       providerConfiguration: "DOCUMENT_VALUE",
+ *       intermediateSourceConfiguration: { // IntermediateSourceConfiguration
+ *         intermediateS3Path: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   roleArn: "STRING_VALUE", // required
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };
- * const command = new CreateSchemaMappingCommand(input);
+ * const command = new CreateIdMappingWorkflowCommand(input);
  * const response = await client.send(command);
- * // { // CreateSchemaMappingOutput
- * //   schemaName: "STRING_VALUE", // required
- * //   schemaArn: "STRING_VALUE", // required
- * //   description: "STRING_VALUE", // required
- * //   mappedInputFields: [ // SchemaInputAttributes // required
- * //     { // SchemaInputAttribute
- * //       fieldName: "STRING_VALUE", // required
- * //       type: "NAME" || "NAME_FIRST" || "NAME_MIDDLE" || "NAME_LAST" || "ADDRESS" || "ADDRESS_STREET1" || "ADDRESS_STREET2" || "ADDRESS_STREET3" || "ADDRESS_CITY" || "ADDRESS_STATE" || "ADDRESS_COUNTRY" || "ADDRESS_POSTALCODE" || "PHONE" || "PHONE_NUMBER" || "PHONE_COUNTRYCODE" || "EMAIL_ADDRESS" || "UNIQUE_ID" || "DATE" || "STRING" || "PROVIDER_ID", // required
- * //       groupName: "STRING_VALUE",
- * //       matchKey: "STRING_VALUE",
- * //       subType: "STRING_VALUE",
+ * // { // CreateIdMappingWorkflowOutput
+ * //   workflowName: "STRING_VALUE", // required
+ * //   workflowArn: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE",
+ * //   inputSourceConfig: [ // IdMappingWorkflowInputSourceConfig // required
+ * //     { // IdMappingWorkflowInputSource
+ * //       inputSourceARN: "STRING_VALUE", // required
+ * //       schemaName: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   outputSourceConfig: [ // IdMappingWorkflowOutputSourceConfig // required
+ * //     { // IdMappingWorkflowOutputSource
+ * //       outputS3Path: "STRING_VALUE", // required
+ * //       KMSArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   idMappingTechniques: { // IdMappingTechniques
+ * //     idMappingType: "PROVIDER", // required
+ * //     providerProperties: { // ProviderProperties
+ * //       providerServiceArn: "STRING_VALUE", // required
+ * //       providerConfiguration: "DOCUMENT_VALUE",
+ * //       intermediateSourceConfiguration: { // IntermediateSourceConfiguration
+ * //         intermediateS3Path: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   },
+ * //   roleArn: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param CreateSchemaMappingCommandInput - {@link CreateSchemaMappingCommandInput}
- * @returns {@link CreateSchemaMappingCommandOutput}
- * @see {@link CreateSchemaMappingCommandInput} for command's `input` shape.
- * @see {@link CreateSchemaMappingCommandOutput} for command's `response` shape.
+ * @param CreateIdMappingWorkflowCommandInput - {@link CreateIdMappingWorkflowCommandInput}
+ * @returns {@link CreateIdMappingWorkflowCommandOutput}
+ * @see {@link CreateIdMappingWorkflowCommandInput} for command's `input` shape.
+ * @see {@link CreateIdMappingWorkflowCommandOutput} for command's `response` shape.
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -123,9 +152,9 @@ export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOut
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
  */
-export class CreateSchemaMappingCommand extends $Command<
-  CreateSchemaMappingCommandInput,
-  CreateSchemaMappingCommandOutput,
+export class CreateIdMappingWorkflowCommand extends $Command<
+  CreateIdMappingWorkflowCommandInput,
+  CreateIdMappingWorkflowCommandOutput,
   EntityResolutionClientResolvedConfig
 > {
   // Start section: command_properties
@@ -143,7 +172,7 @@ export class CreateSchemaMappingCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateSchemaMappingCommandInput) {
+  constructor(readonly input: CreateIdMappingWorkflowCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -156,17 +185,17 @@ export class CreateSchemaMappingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EntityResolutionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateSchemaMappingCommandInput, CreateSchemaMappingCommandOutput> {
+  ): Handler<CreateIdMappingWorkflowCommandInput, CreateIdMappingWorkflowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateSchemaMappingCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateIdMappingWorkflowCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EntityResolutionClient";
-    const commandName = "CreateSchemaMappingCommand";
+    const commandName = "CreateIdMappingWorkflowCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -175,7 +204,7 @@ export class CreateSchemaMappingCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSVeniceService",
-        operation: "CreateSchemaMapping",
+        operation: "CreateIdMappingWorkflow",
       },
     };
     const { requestHandler } = configuration;
@@ -189,15 +218,15 @@ export class CreateSchemaMappingCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateSchemaMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateSchemaMappingCommand(input, context);
+  private serialize(input: CreateIdMappingWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateIdMappingWorkflowCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSchemaMappingCommandOutput> {
-    return de_CreateSchemaMappingCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIdMappingWorkflowCommandOutput> {
+    return de_CreateIdMappingWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

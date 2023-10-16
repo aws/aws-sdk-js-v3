@@ -37,9 +37,10 @@ export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkf
 
 /**
  * @public
- * <p>Creates a <code>MatchingWorkflow</code> object which stores the configuration of the data processing job
- *          to be run.  It is important to note that there should not be a pre-existing <code>MatchingWorkflow</code>
- *          with the same name. To modify an existing workflow, utilize the <code>UpdateMatchingWorkflow</code> API.</p>
+ * <p>Creates a <code>MatchingWorkflow</code> object which stores the configuration of the
+ *          data processing job to be run. It is important to note that there should not be a
+ *          pre-existing <code>MatchingWorkflow</code> with the same name. To modify an existing
+ *          workflow, utilize the <code>UpdateMatchingWorkflow</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,7 +71,7 @@ export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkf
  *     },
  *   ],
  *   resolutionTechniques: { // ResolutionTechniques
- *     resolutionType: "RULE_MATCHING" || "ML_MATCHING", // required
+ *     resolutionType: "RULE_MATCHING" || "ML_MATCHING" || "PROVIDER", // required
  *     ruleBasedProperties: { // RuleBasedProperties
  *       rules: [ // RuleList // required
  *         { // Rule
@@ -81,6 +82,13 @@ export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkf
  *         },
  *       ],
  *       attributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
+ *     },
+ *     providerProperties: { // ProviderProperties
+ *       providerServiceArn: "STRING_VALUE", // required
+ *       providerConfiguration: "DOCUMENT_VALUE",
+ *       intermediateSourceConfiguration: { // IntermediateSourceConfiguration
+ *         intermediateS3Path: "STRING_VALUE", // required
+ *       },
  *     },
  *   },
  *   incrementalRunConfig: { // IncrementalRunConfig
@@ -118,7 +126,7 @@ export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkf
  * //     },
  * //   ],
  * //   resolutionTechniques: { // ResolutionTechniques
- * //     resolutionType: "RULE_MATCHING" || "ML_MATCHING", // required
+ * //     resolutionType: "RULE_MATCHING" || "ML_MATCHING" || "PROVIDER", // required
  * //     ruleBasedProperties: { // RuleBasedProperties
  * //       rules: [ // RuleList // required
  * //         { // Rule
@@ -129,6 +137,13 @@ export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkf
  * //         },
  * //       ],
  * //       attributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
+ * //     },
+ * //     providerProperties: { // ProviderProperties
+ * //       providerServiceArn: "STRING_VALUE", // required
+ * //       providerConfiguration: "DOCUMENT_VALUE",
+ * //       intermediateSourceConfiguration: { // IntermediateSourceConfiguration
+ * //         intermediateS3Path: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   },
  * //   incrementalRunConfig: { // IncrementalRunConfig
@@ -146,29 +161,35 @@ export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkf
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. <code>HTTP Status Code: 403</code>
+ *  <p>You do not have sufficient access to perform this action. <code>HTTP Status Code:
+ *             403</code>
  *          </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists,
- *       Schema already exists, Workflow is currently running, etc.  <code>HTTP Status Code: 400</code>
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
+ *          running, etc. <code>HTTP Status Code: 400</code>
  *          </p>
  *
  * @throws {@link ExceedsLimitException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits.
- *       The error message describes the limit exceeded. <code>HTTP Status Code: 402</code>
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *             Entity Resolution account limits. The error message describes the limit exceeded.
+ *             <code>HTTP Status Code: 402</code>
  *          </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. <code>HTTP Status Code: 500</code>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution
+ *          service. <code>HTTP Status Code: 500</code>
  *          </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. <code>HTTP Status Code: 429</code>
+ *  <p>The request was denied due to request throttling. <code>HTTP Status Code:
+ *          429</code>
  *          </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP Status Code: 400</code>
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP
+ *             Status Code: 400</code>
  *          </p>
  *
  * @throws {@link EntityResolutionServiceException}

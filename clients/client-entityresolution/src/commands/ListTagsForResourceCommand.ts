@@ -37,9 +37,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
 
 /**
  * @public
- * <p>Displays the tags associated with an Entity Resolution resource. In Entity
- *          Resolution, <code>SchemaMapping</code>, and <code>MatchingWorkflow</code> can be
- *          tagged.</p>
+ * <p>Displays the tags associated with an Entity Resolution resource. In Entity Resolution,
+ *             <code>SchemaMapping</code>, and <code>MatchingWorkflow</code> can be tagged.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,7 +65,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. <code>HTTP Status Code: 500</code>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution
+ *          service. <code>HTTP Status Code: 500</code>
  *          </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -74,7 +74,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  *          </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP Status Code: 400</code>
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP
+ *             Status Code: 400</code>
  *          </p>
  *
  * @throws {@link EntityResolutionServiceException}

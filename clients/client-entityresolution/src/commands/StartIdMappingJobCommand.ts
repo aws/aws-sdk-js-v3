@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { CreateSchemaMappingInput, CreateSchemaMappingOutput } from "../models/models_0";
-import { de_CreateSchemaMappingCommand, se_CreateSchemaMappingCommand } from "../protocols/Aws_restJson1";
+import { StartIdMappingJobInput, StartIdMappingJobOutput } from "../models/models_0";
+import { de_StartIdMappingJobCommand, se_StartIdMappingJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,66 +25,41 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateSchemaMappingCommand}.
+ * The input for {@link StartIdMappingJobCommand}.
  */
-export interface CreateSchemaMappingCommandInput extends CreateSchemaMappingInput {}
+export interface StartIdMappingJobCommandInput extends StartIdMappingJobInput {}
 /**
  * @public
  *
- * The output of {@link CreateSchemaMappingCommand}.
+ * The output of {@link StartIdMappingJobCommand}.
  */
-export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOutput, __MetadataBearer {}
+export interface StartIdMappingJobCommandOutput extends StartIdMappingJobOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a schema mapping, which defines the schema of the input customer records table.
- *          The <code>SchemaMapping</code> also provides Entity Resolution with some metadata about the
- *          table, such as the attribute types of the columns and which columns to match on.</p>
+ * <p>Starts the <code>IdMappingJob</code> of a workflow. The workflow must have previously
+ *          been created using the <code>CreateIdMappingWorkflow</code> endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EntityResolutionClient, CreateSchemaMappingCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
- * // const { EntityResolutionClient, CreateSchemaMappingCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * import { EntityResolutionClient, StartIdMappingJobCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, StartIdMappingJobCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
  * const client = new EntityResolutionClient(config);
- * const input = { // CreateSchemaMappingInput
- *   schemaName: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   mappedInputFields: [ // SchemaInputAttributes // required
- *     { // SchemaInputAttribute
- *       fieldName: "STRING_VALUE", // required
- *       type: "NAME" || "NAME_FIRST" || "NAME_MIDDLE" || "NAME_LAST" || "ADDRESS" || "ADDRESS_STREET1" || "ADDRESS_STREET2" || "ADDRESS_STREET3" || "ADDRESS_CITY" || "ADDRESS_STATE" || "ADDRESS_COUNTRY" || "ADDRESS_POSTALCODE" || "PHONE" || "PHONE_NUMBER" || "PHONE_COUNTRYCODE" || "EMAIL_ADDRESS" || "UNIQUE_ID" || "DATE" || "STRING" || "PROVIDER_ID", // required
- *       groupName: "STRING_VALUE",
- *       matchKey: "STRING_VALUE",
- *       subType: "STRING_VALUE",
- *     },
- *   ],
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // StartIdMappingJobInput
+ *   workflowName: "STRING_VALUE", // required
  * };
- * const command = new CreateSchemaMappingCommand(input);
+ * const command = new StartIdMappingJobCommand(input);
  * const response = await client.send(command);
- * // { // CreateSchemaMappingOutput
- * //   schemaName: "STRING_VALUE", // required
- * //   schemaArn: "STRING_VALUE", // required
- * //   description: "STRING_VALUE", // required
- * //   mappedInputFields: [ // SchemaInputAttributes // required
- * //     { // SchemaInputAttribute
- * //       fieldName: "STRING_VALUE", // required
- * //       type: "NAME" || "NAME_FIRST" || "NAME_MIDDLE" || "NAME_LAST" || "ADDRESS" || "ADDRESS_STREET1" || "ADDRESS_STREET2" || "ADDRESS_STREET3" || "ADDRESS_CITY" || "ADDRESS_STATE" || "ADDRESS_COUNTRY" || "ADDRESS_POSTALCODE" || "PHONE" || "PHONE_NUMBER" || "PHONE_COUNTRYCODE" || "EMAIL_ADDRESS" || "UNIQUE_ID" || "DATE" || "STRING" || "PROVIDER_ID", // required
- * //       groupName: "STRING_VALUE",
- * //       matchKey: "STRING_VALUE",
- * //       subType: "STRING_VALUE",
- * //     },
- * //   ],
+ * // { // StartIdMappingJobOutput
+ * //   jobId: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param CreateSchemaMappingCommandInput - {@link CreateSchemaMappingCommandInput}
- * @returns {@link CreateSchemaMappingCommandOutput}
- * @see {@link CreateSchemaMappingCommandInput} for command's `input` shape.
- * @see {@link CreateSchemaMappingCommandOutput} for command's `response` shape.
+ * @param StartIdMappingJobCommandInput - {@link StartIdMappingJobCommandInput}
+ * @returns {@link StartIdMappingJobCommandOutput}
+ * @see {@link StartIdMappingJobCommandInput} for command's `input` shape.
+ * @see {@link StartIdMappingJobCommandOutput} for command's `response` shape.
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -109,6 +84,10 @@ export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOut
  *          service. <code>HTTP Status Code: 500</code>
  *          </p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found. <code>HTTP Status Code: 404</code>
+ *          </p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. <code>HTTP Status Code:
  *          429</code>
@@ -123,9 +102,9 @@ export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOut
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
  */
-export class CreateSchemaMappingCommand extends $Command<
-  CreateSchemaMappingCommandInput,
-  CreateSchemaMappingCommandOutput,
+export class StartIdMappingJobCommand extends $Command<
+  StartIdMappingJobCommandInput,
+  StartIdMappingJobCommandOutput,
   EntityResolutionClientResolvedConfig
 > {
   // Start section: command_properties
@@ -143,7 +122,7 @@ export class CreateSchemaMappingCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateSchemaMappingCommandInput) {
+  constructor(readonly input: StartIdMappingJobCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -156,17 +135,17 @@ export class CreateSchemaMappingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EntityResolutionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateSchemaMappingCommandInput, CreateSchemaMappingCommandOutput> {
+  ): Handler<StartIdMappingJobCommandInput, StartIdMappingJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateSchemaMappingCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StartIdMappingJobCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EntityResolutionClient";
-    const commandName = "CreateSchemaMappingCommand";
+    const commandName = "StartIdMappingJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -175,7 +154,7 @@ export class CreateSchemaMappingCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSVeniceService",
-        operation: "CreateSchemaMapping",
+        operation: "StartIdMappingJob",
       },
     };
     const { requestHandler } = configuration;
@@ -189,15 +168,15 @@ export class CreateSchemaMappingCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateSchemaMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateSchemaMappingCommand(input, context);
+  private serialize(input: StartIdMappingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_StartIdMappingJobCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSchemaMappingCommandOutput> {
-    return de_CreateSchemaMappingCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartIdMappingJobCommandOutput> {
+    return de_StartIdMappingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

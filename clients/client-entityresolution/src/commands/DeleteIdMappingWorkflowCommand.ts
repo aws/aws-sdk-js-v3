@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { GetMatchingJobInput, GetMatchingJobOutput } from "../models/models_0";
-import { de_GetMatchingJobCommand, se_GetMatchingJobCommand } from "../protocols/Aws_restJson1";
+import { DeleteIdMappingWorkflowInput, DeleteIdMappingWorkflowOutput } from "../models/models_0";
+import { de_DeleteIdMappingWorkflowCommand, se_DeleteIdMappingWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,54 +25,41 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetMatchingJobCommand}.
+ * The input for {@link DeleteIdMappingWorkflowCommand}.
  */
-export interface GetMatchingJobCommandInput extends GetMatchingJobInput {}
+export interface DeleteIdMappingWorkflowCommandInput extends DeleteIdMappingWorkflowInput {}
 /**
  * @public
  *
- * The output of {@link GetMatchingJobCommand}.
+ * The output of {@link DeleteIdMappingWorkflowCommand}.
  */
-export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __MetadataBearer {}
+export interface DeleteIdMappingWorkflowCommandOutput extends DeleteIdMappingWorkflowOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets the status, metrics, and errors (if there are any) that are associated with a
- *          job.</p>
+ * <p>Deletes the <code>IdMappingWorkflow</code> with a given name. This operation will
+ *          succeed even if a workflow with the given name does not exist.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EntityResolutionClient, GetMatchingJobCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
- * // const { EntityResolutionClient, GetMatchingJobCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * import { EntityResolutionClient, DeleteIdMappingWorkflowCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, DeleteIdMappingWorkflowCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
  * const client = new EntityResolutionClient(config);
- * const input = { // GetMatchingJobInput
+ * const input = { // DeleteIdMappingWorkflowInput
  *   workflowName: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
  * };
- * const command = new GetMatchingJobCommand(input);
+ * const command = new DeleteIdMappingWorkflowCommand(input);
  * const response = await client.send(command);
- * // { // GetMatchingJobOutput
- * //   jobId: "STRING_VALUE", // required
- * //   status: "RUNNING" || "SUCCEEDED" || "FAILED" || "QUEUED", // required
- * //   startTime: new Date("TIMESTAMP"), // required
- * //   endTime: new Date("TIMESTAMP"),
- * //   metrics: { // JobMetrics
- * //     inputRecords: Number("int"),
- * //     totalRecordsProcessed: Number("int"),
- * //     recordsNotProcessed: Number("int"),
- * //     matchIDs: Number("int"),
- * //   },
- * //   errorDetails: { // ErrorDetails
- * //     errorMessage: "STRING_VALUE",
- * //   },
+ * // { // DeleteIdMappingWorkflowOutput
+ * //   message: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param GetMatchingJobCommandInput - {@link GetMatchingJobCommandInput}
- * @returns {@link GetMatchingJobCommandOutput}
- * @see {@link GetMatchingJobCommandInput} for command's `input` shape.
- * @see {@link GetMatchingJobCommandOutput} for command's `response` shape.
+ * @param DeleteIdMappingWorkflowCommandInput - {@link DeleteIdMappingWorkflowCommandInput}
+ * @returns {@link DeleteIdMappingWorkflowCommandOutput}
+ * @see {@link DeleteIdMappingWorkflowCommandInput} for command's `input` shape.
+ * @see {@link DeleteIdMappingWorkflowCommandOutput} for command's `response` shape.
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -83,10 +70,6 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution
  *          service. <code>HTTP Status Code: 500</code>
- *          </p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. <code>HTTP Status Code: 404</code>
  *          </p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -103,9 +86,9 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
  */
-export class GetMatchingJobCommand extends $Command<
-  GetMatchingJobCommandInput,
-  GetMatchingJobCommandOutput,
+export class DeleteIdMappingWorkflowCommand extends $Command<
+  DeleteIdMappingWorkflowCommandInput,
+  DeleteIdMappingWorkflowCommandOutput,
   EntityResolutionClientResolvedConfig
 > {
   // Start section: command_properties
@@ -123,7 +106,7 @@ export class GetMatchingJobCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetMatchingJobCommandInput) {
+  constructor(readonly input: DeleteIdMappingWorkflowCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -136,17 +119,17 @@ export class GetMatchingJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EntityResolutionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetMatchingJobCommandInput, GetMatchingJobCommandOutput> {
+  ): Handler<DeleteIdMappingWorkflowCommandInput, DeleteIdMappingWorkflowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetMatchingJobCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteIdMappingWorkflowCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EntityResolutionClient";
-    const commandName = "GetMatchingJobCommand";
+    const commandName = "DeleteIdMappingWorkflowCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -155,7 +138,7 @@ export class GetMatchingJobCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSVeniceService",
-        operation: "GetMatchingJob",
+        operation: "DeleteIdMappingWorkflow",
       },
     };
     const { requestHandler } = configuration;
@@ -169,15 +152,15 @@ export class GetMatchingJobCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetMatchingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetMatchingJobCommand(input, context);
+  private serialize(input: DeleteIdMappingWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteIdMappingWorkflowCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMatchingJobCommandOutput> {
-    return de_GetMatchingJobCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdMappingWorkflowCommandOutput> {
+    return de_DeleteIdMappingWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

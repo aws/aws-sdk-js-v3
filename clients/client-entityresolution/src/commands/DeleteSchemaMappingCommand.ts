@@ -37,9 +37,10 @@ export interface DeleteSchemaMappingCommandOutput extends DeleteSchemaMappingOut
 
 /**
  * @public
- * <p>Deletes the <code>SchemaMapping</code> with a given name. This operation will succeed even if a schema
- *          with the given name does not exist. This operation will fail if there is a <code>DataIntegrationWorkflow</code>
- *          object that references the <code>SchemaMapping</code> in the workflow's <code>InputSourceConfig</code>.</p>
+ * <p>Deletes the <code>SchemaMapping</code> with a given name. This operation will succeed
+ *          even if a schema with the given name does not exist. This operation will fail if there is a
+ *             <code>MatchingWorkflow</code> object that references the <code>SchemaMapping</code> in
+ *          the workflow's <code>InputSourceConfig</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,24 +65,29 @@ export interface DeleteSchemaMappingCommandOutput extends DeleteSchemaMappingOut
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. <code>HTTP Status Code: 403</code>
+ *  <p>You do not have sufficient access to perform this action. <code>HTTP Status Code:
+ *             403</code>
  *          </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists,
- *       Schema already exists, Workflow is currently running, etc.  <code>HTTP Status Code: 400</code>
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
+ *          running, etc. <code>HTTP Status Code: 400</code>
  *          </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. <code>HTTP Status Code: 500</code>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution
+ *          service. <code>HTTP Status Code: 500</code>
  *          </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. <code>HTTP Status Code: 429</code>
+ *  <p>The request was denied due to request throttling. <code>HTTP Status Code:
+ *          429</code>
  *          </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP Status Code: 400</code>
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP
+ *             Status Code: 400</code>
  *          </p>
  *
  * @throws {@link EntityResolutionServiceException}

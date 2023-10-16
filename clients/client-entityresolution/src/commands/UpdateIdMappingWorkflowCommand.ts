@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { UpdateMatchingWorkflowInput, UpdateMatchingWorkflowOutput } from "../models/models_0";
-import { de_UpdateMatchingWorkflowCommand, se_UpdateMatchingWorkflowCommand } from "../protocols/Aws_restJson1";
+import { UpdateIdMappingWorkflowInput, UpdateIdMappingWorkflowOutput } from "../models/models_0";
+import { de_UpdateIdMappingWorkflowCommand, se_UpdateIdMappingWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,64 +25,45 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateMatchingWorkflowCommand}.
+ * The input for {@link UpdateIdMappingWorkflowCommand}.
  */
-export interface UpdateMatchingWorkflowCommandInput extends UpdateMatchingWorkflowInput {}
+export interface UpdateIdMappingWorkflowCommandInput extends UpdateIdMappingWorkflowInput {}
 /**
  * @public
  *
- * The output of {@link UpdateMatchingWorkflowCommand}.
+ * The output of {@link UpdateIdMappingWorkflowCommand}.
  */
-export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkflowOutput, __MetadataBearer {}
+export interface UpdateIdMappingWorkflowCommandOutput extends UpdateIdMappingWorkflowOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates an existing <code>MatchingWorkflow</code>. This method is identical to
- *             <code>CreateMatchingWorkflow</code>, except it uses an HTTP <code>PUT</code> request
- *          instead of a <code>POST</code> request, and the <code>MatchingWorkflow</code> must already
+ * <p>Updates an existing <code>IdMappingWorkflow</code>. This method is identical to
+ *             <code>CreateIdMappingWorkflow</code>, except it uses an HTTP <code>PUT</code> request
+ *          instead of a <code>POST</code> request, and the <code>IdMappingWorkflow</code> must already
  *          exist for the method to succeed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EntityResolutionClient, UpdateMatchingWorkflowCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
- * // const { EntityResolutionClient, UpdateMatchingWorkflowCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * import { EntityResolutionClient, UpdateIdMappingWorkflowCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, UpdateIdMappingWorkflowCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
  * const client = new EntityResolutionClient(config);
- * const input = { // UpdateMatchingWorkflowInput
+ * const input = { // UpdateIdMappingWorkflowInput
  *   workflowName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   inputSourceConfig: [ // InputSourceConfig // required
- *     { // InputSource
+ *   inputSourceConfig: [ // IdMappingWorkflowInputSourceConfig // required
+ *     { // IdMappingWorkflowInputSource
  *       inputSourceARN: "STRING_VALUE", // required
  *       schemaName: "STRING_VALUE", // required
- *       applyNormalization: true || false,
  *     },
  *   ],
- *   outputSourceConfig: [ // OutputSourceConfig // required
- *     { // OutputSource
+ *   outputSourceConfig: [ // IdMappingWorkflowOutputSourceConfig // required
+ *     { // IdMappingWorkflowOutputSource
  *       outputS3Path: "STRING_VALUE", // required
  *       KMSArn: "STRING_VALUE",
- *       output: [ // OutputAttributes // required
- *         { // OutputAttribute
- *           name: "STRING_VALUE", // required
- *           hashed: true || false,
- *         },
- *       ],
- *       applyNormalization: true || false,
  *     },
  *   ],
- *   resolutionTechniques: { // ResolutionTechniques
- *     resolutionType: "RULE_MATCHING" || "ML_MATCHING" || "PROVIDER", // required
- *     ruleBasedProperties: { // RuleBasedProperties
- *       rules: [ // RuleList // required
- *         { // Rule
- *           ruleName: "STRING_VALUE", // required
- *           matchingKeys: [ // MatchingKeys // required
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *       attributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
- *     },
+ *   idMappingTechniques: { // IdMappingTechniques
+ *     idMappingType: "PROVIDER", // required
  *     providerProperties: { // ProviderProperties
  *       providerServiceArn: "STRING_VALUE", // required
  *       providerConfiguration: "DOCUMENT_VALUE",
@@ -91,49 +72,28 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  *       },
  *     },
  *   },
- *   incrementalRunConfig: { // IncrementalRunConfig
- *     incrementalRunType: "IMMEDIATE",
- *   },
  *   roleArn: "STRING_VALUE", // required
  * };
- * const command = new UpdateMatchingWorkflowCommand(input);
+ * const command = new UpdateIdMappingWorkflowCommand(input);
  * const response = await client.send(command);
- * // { // UpdateMatchingWorkflowOutput
+ * // { // UpdateIdMappingWorkflowOutput
  * //   workflowName: "STRING_VALUE", // required
+ * //   workflowArn: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
- * //   inputSourceConfig: [ // InputSourceConfig // required
- * //     { // InputSource
+ * //   inputSourceConfig: [ // IdMappingWorkflowInputSourceConfig // required
+ * //     { // IdMappingWorkflowInputSource
  * //       inputSourceARN: "STRING_VALUE", // required
  * //       schemaName: "STRING_VALUE", // required
- * //       applyNormalization: true || false,
  * //     },
  * //   ],
- * //   outputSourceConfig: [ // OutputSourceConfig // required
- * //     { // OutputSource
+ * //   outputSourceConfig: [ // IdMappingWorkflowOutputSourceConfig // required
+ * //     { // IdMappingWorkflowOutputSource
  * //       outputS3Path: "STRING_VALUE", // required
  * //       KMSArn: "STRING_VALUE",
- * //       output: [ // OutputAttributes // required
- * //         { // OutputAttribute
- * //           name: "STRING_VALUE", // required
- * //           hashed: true || false,
- * //         },
- * //       ],
- * //       applyNormalization: true || false,
  * //     },
  * //   ],
- * //   resolutionTechniques: { // ResolutionTechniques
- * //     resolutionType: "RULE_MATCHING" || "ML_MATCHING" || "PROVIDER", // required
- * //     ruleBasedProperties: { // RuleBasedProperties
- * //       rules: [ // RuleList // required
- * //         { // Rule
- * //           ruleName: "STRING_VALUE", // required
- * //           matchingKeys: [ // MatchingKeys // required
- * //             "STRING_VALUE",
- * //           ],
- * //         },
- * //       ],
- * //       attributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
- * //     },
+ * //   idMappingTechniques: { // IdMappingTechniques
+ * //     idMappingType: "PROVIDER", // required
  * //     providerProperties: { // ProviderProperties
  * //       providerServiceArn: "STRING_VALUE", // required
  * //       providerConfiguration: "DOCUMENT_VALUE",
@@ -142,18 +102,15 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  * //       },
  * //     },
  * //   },
- * //   incrementalRunConfig: { // IncrementalRunConfig
- * //     incrementalRunType: "IMMEDIATE",
- * //   },
  * //   roleArn: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param UpdateMatchingWorkflowCommandInput - {@link UpdateMatchingWorkflowCommandInput}
- * @returns {@link UpdateMatchingWorkflowCommandOutput}
- * @see {@link UpdateMatchingWorkflowCommandInput} for command's `input` shape.
- * @see {@link UpdateMatchingWorkflowCommandOutput} for command's `response` shape.
+ * @param UpdateIdMappingWorkflowCommandInput - {@link UpdateIdMappingWorkflowCommandInput}
+ * @returns {@link UpdateIdMappingWorkflowCommandOutput}
+ * @see {@link UpdateIdMappingWorkflowCommandInput} for command's `input` shape.
+ * @see {@link UpdateIdMappingWorkflowCommandOutput} for command's `response` shape.
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -184,9 +141,9 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
  */
-export class UpdateMatchingWorkflowCommand extends $Command<
-  UpdateMatchingWorkflowCommandInput,
-  UpdateMatchingWorkflowCommandOutput,
+export class UpdateIdMappingWorkflowCommand extends $Command<
+  UpdateIdMappingWorkflowCommandInput,
+  UpdateIdMappingWorkflowCommandOutput,
   EntityResolutionClientResolvedConfig
 > {
   // Start section: command_properties
@@ -204,7 +161,7 @@ export class UpdateMatchingWorkflowCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateMatchingWorkflowCommandInput) {
+  constructor(readonly input: UpdateIdMappingWorkflowCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -217,17 +174,17 @@ export class UpdateMatchingWorkflowCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EntityResolutionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateMatchingWorkflowCommandInput, UpdateMatchingWorkflowCommandOutput> {
+  ): Handler<UpdateIdMappingWorkflowCommandInput, UpdateIdMappingWorkflowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateMatchingWorkflowCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateIdMappingWorkflowCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EntityResolutionClient";
-    const commandName = "UpdateMatchingWorkflowCommand";
+    const commandName = "UpdateIdMappingWorkflowCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -236,7 +193,7 @@ export class UpdateMatchingWorkflowCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSVeniceService",
-        operation: "UpdateMatchingWorkflow",
+        operation: "UpdateIdMappingWorkflow",
       },
     };
     const { requestHandler } = configuration;
@@ -250,15 +207,15 @@ export class UpdateMatchingWorkflowCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateMatchingWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateMatchingWorkflowCommand(input, context);
+  private serialize(input: UpdateIdMappingWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateIdMappingWorkflowCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMatchingWorkflowCommandOutput> {
-    return de_UpdateMatchingWorkflowCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIdMappingWorkflowCommandOutput> {
+    return de_UpdateIdMappingWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

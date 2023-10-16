@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { GetMatchingJobInput, GetMatchingJobOutput } from "../models/models_0";
-import { de_GetMatchingJobCommand, se_GetMatchingJobCommand } from "../protocols/Aws_restJson1";
+import { ListIdMappingWorkflowsInput, ListIdMappingWorkflowsOutput } from "../models/models_0";
+import { de_ListIdMappingWorkflowsCommand, se_ListIdMappingWorkflowsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,54 +25,50 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetMatchingJobCommand}.
+ * The input for {@link ListIdMappingWorkflowsCommand}.
  */
-export interface GetMatchingJobCommandInput extends GetMatchingJobInput {}
+export interface ListIdMappingWorkflowsCommandInput extends ListIdMappingWorkflowsInput {}
 /**
  * @public
  *
- * The output of {@link GetMatchingJobCommand}.
+ * The output of {@link ListIdMappingWorkflowsCommand}.
  */
-export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __MetadataBearer {}
+export interface ListIdMappingWorkflowsCommandOutput extends ListIdMappingWorkflowsOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets the status, metrics, and errors (if there are any) that are associated with a
- *          job.</p>
+ * <p>Returns a list of all the <code>IdMappingWorkflows</code> that have been created for an
+ *             Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EntityResolutionClient, GetMatchingJobCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
- * // const { EntityResolutionClient, GetMatchingJobCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * import { EntityResolutionClient, ListIdMappingWorkflowsCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, ListIdMappingWorkflowsCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
  * const client = new EntityResolutionClient(config);
- * const input = { // GetMatchingJobInput
- *   workflowName: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
+ * const input = { // ListIdMappingWorkflowsInput
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new GetMatchingJobCommand(input);
+ * const command = new ListIdMappingWorkflowsCommand(input);
  * const response = await client.send(command);
- * // { // GetMatchingJobOutput
- * //   jobId: "STRING_VALUE", // required
- * //   status: "RUNNING" || "SUCCEEDED" || "FAILED" || "QUEUED", // required
- * //   startTime: new Date("TIMESTAMP"), // required
- * //   endTime: new Date("TIMESTAMP"),
- * //   metrics: { // JobMetrics
- * //     inputRecords: Number("int"),
- * //     totalRecordsProcessed: Number("int"),
- * //     recordsNotProcessed: Number("int"),
- * //     matchIDs: Number("int"),
- * //   },
- * //   errorDetails: { // ErrorDetails
- * //     errorMessage: "STRING_VALUE",
- * //   },
+ * // { // ListIdMappingWorkflowsOutput
+ * //   workflowSummaries: [ // IdMappingWorkflowList
+ * //     { // IdMappingWorkflowSummary
+ * //       workflowName: "STRING_VALUE", // required
+ * //       workflowArn: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetMatchingJobCommandInput - {@link GetMatchingJobCommandInput}
- * @returns {@link GetMatchingJobCommandOutput}
- * @see {@link GetMatchingJobCommandInput} for command's `input` shape.
- * @see {@link GetMatchingJobCommandOutput} for command's `response` shape.
+ * @param ListIdMappingWorkflowsCommandInput - {@link ListIdMappingWorkflowsCommandInput}
+ * @returns {@link ListIdMappingWorkflowsCommandOutput}
+ * @see {@link ListIdMappingWorkflowsCommandInput} for command's `input` shape.
+ * @see {@link ListIdMappingWorkflowsCommandOutput} for command's `response` shape.
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -83,10 +79,6 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution
  *          service. <code>HTTP Status Code: 500</code>
- *          </p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. <code>HTTP Status Code: 404</code>
  *          </p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -103,9 +95,9 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
  */
-export class GetMatchingJobCommand extends $Command<
-  GetMatchingJobCommandInput,
-  GetMatchingJobCommandOutput,
+export class ListIdMappingWorkflowsCommand extends $Command<
+  ListIdMappingWorkflowsCommandInput,
+  ListIdMappingWorkflowsCommandOutput,
   EntityResolutionClientResolvedConfig
 > {
   // Start section: command_properties
@@ -123,7 +115,7 @@ export class GetMatchingJobCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetMatchingJobCommandInput) {
+  constructor(readonly input: ListIdMappingWorkflowsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -136,17 +128,17 @@ export class GetMatchingJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EntityResolutionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetMatchingJobCommandInput, GetMatchingJobCommandOutput> {
+  ): Handler<ListIdMappingWorkflowsCommandInput, ListIdMappingWorkflowsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetMatchingJobCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListIdMappingWorkflowsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EntityResolutionClient";
-    const commandName = "GetMatchingJobCommand";
+    const commandName = "ListIdMappingWorkflowsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -155,7 +147,7 @@ export class GetMatchingJobCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSVeniceService",
-        operation: "GetMatchingJob",
+        operation: "ListIdMappingWorkflows",
       },
     };
     const { requestHandler } = configuration;
@@ -169,15 +161,15 @@ export class GetMatchingJobCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetMatchingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetMatchingJobCommand(input, context);
+  private serialize(input: ListIdMappingWorkflowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListIdMappingWorkflowsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMatchingJobCommandOutput> {
-    return de_GetMatchingJobCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdMappingWorkflowsCommandOutput> {
+    return de_ListIdMappingWorkflowsCommand(output, context);
   }
 
   // Start section: command_body_extra

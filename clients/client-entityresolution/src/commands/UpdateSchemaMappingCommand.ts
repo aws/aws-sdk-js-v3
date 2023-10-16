@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { CreateSchemaMappingInput, CreateSchemaMappingOutput } from "../models/models_0";
-import { de_CreateSchemaMappingCommand, se_CreateSchemaMappingCommand } from "../protocols/Aws_restJson1";
+import { UpdateSchemaMappingInput, UpdateSchemaMappingOutput } from "../models/models_0";
+import { de_UpdateSchemaMappingCommand, se_UpdateSchemaMappingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,28 +25,30 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateSchemaMappingCommand}.
+ * The input for {@link UpdateSchemaMappingCommand}.
  */
-export interface CreateSchemaMappingCommandInput extends CreateSchemaMappingInput {}
+export interface UpdateSchemaMappingCommandInput extends UpdateSchemaMappingInput {}
 /**
  * @public
  *
- * The output of {@link CreateSchemaMappingCommand}.
+ * The output of {@link UpdateSchemaMappingCommand}.
  */
-export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOutput, __MetadataBearer {}
+export interface UpdateSchemaMappingCommandOutput extends UpdateSchemaMappingOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a schema mapping, which defines the schema of the input customer records table.
- *          The <code>SchemaMapping</code> also provides Entity Resolution with some metadata about the
- *          table, such as the attribute types of the columns and which columns to match on.</p>
+ * <p>Updates a schema mapping.</p>
+ *          <note>
+ *             <p>A schema is immutable if it is being used by a workflow. Therefore, you can't update
+ *             a schema mapping if it's associated with a workflow. </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EntityResolutionClient, CreateSchemaMappingCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
- * // const { EntityResolutionClient, CreateSchemaMappingCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * import { EntityResolutionClient, UpdateSchemaMappingCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, UpdateSchemaMappingCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
  * const client = new EntityResolutionClient(config);
- * const input = { // CreateSchemaMappingInput
+ * const input = { // UpdateSchemaMappingInput
  *   schemaName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   mappedInputFields: [ // SchemaInputAttributes // required
@@ -58,16 +60,13 @@ export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOut
  *       subType: "STRING_VALUE",
  *     },
  *   ],
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
  * };
- * const command = new CreateSchemaMappingCommand(input);
+ * const command = new UpdateSchemaMappingCommand(input);
  * const response = await client.send(command);
- * // { // CreateSchemaMappingOutput
+ * // { // UpdateSchemaMappingOutput
  * //   schemaName: "STRING_VALUE", // required
  * //   schemaArn: "STRING_VALUE", // required
- * //   description: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE",
  * //   mappedInputFields: [ // SchemaInputAttributes // required
  * //     { // SchemaInputAttribute
  * //       fieldName: "STRING_VALUE", // required
@@ -81,10 +80,10 @@ export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOut
  *
  * ```
  *
- * @param CreateSchemaMappingCommandInput - {@link CreateSchemaMappingCommandInput}
- * @returns {@link CreateSchemaMappingCommandOutput}
- * @see {@link CreateSchemaMappingCommandInput} for command's `input` shape.
- * @see {@link CreateSchemaMappingCommandOutput} for command's `response` shape.
+ * @param UpdateSchemaMappingCommandInput - {@link UpdateSchemaMappingCommandInput}
+ * @returns {@link UpdateSchemaMappingCommandOutput}
+ * @see {@link UpdateSchemaMappingCommandInput} for command's `input` shape.
+ * @see {@link UpdateSchemaMappingCommandOutput} for command's `response` shape.
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -98,15 +97,13 @@ export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOut
  *          running, etc. <code>HTTP Status Code: 400</code>
  *          </p>
  *
- * @throws {@link ExceedsLimitException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *             Entity Resolution account limits. The error message describes the limit exceeded.
- *             <code>HTTP Status Code: 402</code>
- *          </p>
- *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution
  *          service. <code>HTTP Status Code: 500</code>
+ *          </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found. <code>HTTP Status Code: 404</code>
  *          </p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -123,9 +120,9 @@ export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOut
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
  */
-export class CreateSchemaMappingCommand extends $Command<
-  CreateSchemaMappingCommandInput,
-  CreateSchemaMappingCommandOutput,
+export class UpdateSchemaMappingCommand extends $Command<
+  UpdateSchemaMappingCommandInput,
+  UpdateSchemaMappingCommandOutput,
   EntityResolutionClientResolvedConfig
 > {
   // Start section: command_properties
@@ -143,7 +140,7 @@ export class CreateSchemaMappingCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateSchemaMappingCommandInput) {
+  constructor(readonly input: UpdateSchemaMappingCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -156,17 +153,17 @@ export class CreateSchemaMappingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EntityResolutionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateSchemaMappingCommandInput, CreateSchemaMappingCommandOutput> {
+  ): Handler<UpdateSchemaMappingCommandInput, UpdateSchemaMappingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateSchemaMappingCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateSchemaMappingCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EntityResolutionClient";
-    const commandName = "CreateSchemaMappingCommand";
+    const commandName = "UpdateSchemaMappingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -175,7 +172,7 @@ export class CreateSchemaMappingCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSVeniceService",
-        operation: "CreateSchemaMapping",
+        operation: "UpdateSchemaMapping",
       },
     };
     const { requestHandler } = configuration;
@@ -189,15 +186,15 @@ export class CreateSchemaMappingCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateSchemaMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateSchemaMappingCommand(input, context);
+  private serialize(input: UpdateSchemaMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateSchemaMappingCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSchemaMappingCommandOutput> {
-    return de_CreateSchemaMappingCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSchemaMappingCommandOutput> {
+    return de_UpdateSchemaMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

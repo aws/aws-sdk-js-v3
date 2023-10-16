@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { GetMatchingJobInput, GetMatchingJobOutput } from "../models/models_0";
-import { de_GetMatchingJobCommand, se_GetMatchingJobCommand } from "../protocols/Aws_restJson1";
+import { GetIdMappingJobInput, GetIdMappingJobOutput } from "../models/models_0";
+import { de_GetIdMappingJobCommand, se_GetIdMappingJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,15 +25,15 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetMatchingJobCommand}.
+ * The input for {@link GetIdMappingJobCommand}.
  */
-export interface GetMatchingJobCommandInput extends GetMatchingJobInput {}
+export interface GetIdMappingJobCommandInput extends GetIdMappingJobInput {}
 /**
  * @public
  *
- * The output of {@link GetMatchingJobCommand}.
+ * The output of {@link GetIdMappingJobCommand}.
  */
-export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __MetadataBearer {}
+export interface GetIdMappingJobCommandOutput extends GetIdMappingJobOutput, __MetadataBearer {}
 
 /**
  * @public
@@ -42,25 +42,24 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EntityResolutionClient, GetMatchingJobCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
- * // const { EntityResolutionClient, GetMatchingJobCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * import { EntityResolutionClient, GetIdMappingJobCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, GetIdMappingJobCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
  * const client = new EntityResolutionClient(config);
- * const input = { // GetMatchingJobInput
+ * const input = { // GetIdMappingJobInput
  *   workflowName: "STRING_VALUE", // required
  *   jobId: "STRING_VALUE", // required
  * };
- * const command = new GetMatchingJobCommand(input);
+ * const command = new GetIdMappingJobCommand(input);
  * const response = await client.send(command);
- * // { // GetMatchingJobOutput
+ * // { // GetIdMappingJobOutput
  * //   jobId: "STRING_VALUE", // required
  * //   status: "RUNNING" || "SUCCEEDED" || "FAILED" || "QUEUED", // required
  * //   startTime: new Date("TIMESTAMP"), // required
  * //   endTime: new Date("TIMESTAMP"),
- * //   metrics: { // JobMetrics
+ * //   metrics: { // IdMappingJobMetrics
  * //     inputRecords: Number("int"),
  * //     totalRecordsProcessed: Number("int"),
  * //     recordsNotProcessed: Number("int"),
- * //     matchIDs: Number("int"),
  * //   },
  * //   errorDetails: { // ErrorDetails
  * //     errorMessage: "STRING_VALUE",
@@ -69,10 +68,10 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  *
  * ```
  *
- * @param GetMatchingJobCommandInput - {@link GetMatchingJobCommandInput}
- * @returns {@link GetMatchingJobCommandOutput}
- * @see {@link GetMatchingJobCommandInput} for command's `input` shape.
- * @see {@link GetMatchingJobCommandOutput} for command's `response` shape.
+ * @param GetIdMappingJobCommandInput - {@link GetIdMappingJobCommandInput}
+ * @returns {@link GetIdMappingJobCommandOutput}
+ * @see {@link GetIdMappingJobCommandInput} for command's `input` shape.
+ * @see {@link GetIdMappingJobCommandOutput} for command's `response` shape.
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -103,9 +102,9 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
  */
-export class GetMatchingJobCommand extends $Command<
-  GetMatchingJobCommandInput,
-  GetMatchingJobCommandOutput,
+export class GetIdMappingJobCommand extends $Command<
+  GetIdMappingJobCommandInput,
+  GetIdMappingJobCommandOutput,
   EntityResolutionClientResolvedConfig
 > {
   // Start section: command_properties
@@ -123,7 +122,7 @@ export class GetMatchingJobCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetMatchingJobCommandInput) {
+  constructor(readonly input: GetIdMappingJobCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -136,17 +135,17 @@ export class GetMatchingJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EntityResolutionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetMatchingJobCommandInput, GetMatchingJobCommandOutput> {
+  ): Handler<GetIdMappingJobCommandInput, GetIdMappingJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetMatchingJobCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetIdMappingJobCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EntityResolutionClient";
-    const commandName = "GetMatchingJobCommand";
+    const commandName = "GetIdMappingJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -155,7 +154,7 @@ export class GetMatchingJobCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSVeniceService",
-        operation: "GetMatchingJob",
+        operation: "GetIdMappingJob",
       },
     };
     const { requestHandler } = configuration;
@@ -169,15 +168,15 @@ export class GetMatchingJobCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetMatchingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetMatchingJobCommand(input, context);
+  private serialize(input: GetIdMappingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetIdMappingJobCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMatchingJobCommandOutput> {
-    return de_GetMatchingJobCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdMappingJobCommandOutput> {
+    return de_GetIdMappingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

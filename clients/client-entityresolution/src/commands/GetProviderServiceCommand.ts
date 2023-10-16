@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { GetMatchingJobInput, GetMatchingJobOutput } from "../models/models_0";
-import { de_GetMatchingJobCommand, se_GetMatchingJobCommand } from "../protocols/Aws_restJson1";
+import { GetProviderServiceInput, GetProviderServiceOutput } from "../models/models_0";
+import { de_GetProviderServiceCommand, se_GetProviderServiceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,54 +25,64 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetMatchingJobCommand}.
+ * The input for {@link GetProviderServiceCommand}.
  */
-export interface GetMatchingJobCommandInput extends GetMatchingJobInput {}
+export interface GetProviderServiceCommandInput extends GetProviderServiceInput {}
 /**
  * @public
  *
- * The output of {@link GetMatchingJobCommand}.
+ * The output of {@link GetProviderServiceCommand}.
  */
-export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __MetadataBearer {}
+export interface GetProviderServiceCommandOutput extends GetProviderServiceOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets the status, metrics, and errors (if there are any) that are associated with a
- *          job.</p>
+ * <p>Returns the <code>ProviderService</code> of a given name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EntityResolutionClient, GetMatchingJobCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
- * // const { EntityResolutionClient, GetMatchingJobCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * import { EntityResolutionClient, GetProviderServiceCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, GetProviderServiceCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
  * const client = new EntityResolutionClient(config);
- * const input = { // GetMatchingJobInput
- *   workflowName: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
+ * const input = { // GetProviderServiceInput
+ *   providerName: "STRING_VALUE", // required
+ *   providerServiceName: "STRING_VALUE", // required
  * };
- * const command = new GetMatchingJobCommand(input);
+ * const command = new GetProviderServiceCommand(input);
  * const response = await client.send(command);
- * // { // GetMatchingJobOutput
- * //   jobId: "STRING_VALUE", // required
- * //   status: "RUNNING" || "SUCCEEDED" || "FAILED" || "QUEUED", // required
- * //   startTime: new Date("TIMESTAMP"), // required
- * //   endTime: new Date("TIMESTAMP"),
- * //   metrics: { // JobMetrics
- * //     inputRecords: Number("int"),
- * //     totalRecordsProcessed: Number("int"),
- * //     recordsNotProcessed: Number("int"),
- * //     matchIDs: Number("int"),
+ * // { // GetProviderServiceOutput
+ * //   providerName: "STRING_VALUE", // required
+ * //   providerServiceName: "STRING_VALUE", // required
+ * //   providerServiceDisplayName: "STRING_VALUE", // required
+ * //   providerServiceType: "ASSIGNMENT" || "ID_MAPPING", // required
+ * //   providerServiceArn: "STRING_VALUE", // required
+ * //   providerConfigurationDefinition: "DOCUMENT_VALUE",
+ * //   providerEndpointConfiguration: { // ProviderEndpointConfiguration Union: only one key present
+ * //     marketplaceConfiguration: { // ProviderMarketplaceConfiguration
+ * //       dataSetId: "STRING_VALUE", // required
+ * //       revisionId: "STRING_VALUE", // required
+ * //       assetId: "STRING_VALUE", // required
+ * //       listingId: "STRING_VALUE", // required
+ * //     },
  * //   },
- * //   errorDetails: { // ErrorDetails
- * //     errorMessage: "STRING_VALUE",
+ * //   anonymizedOutput: true || false, // required
+ * //   providerEntityOutputDefinition: "DOCUMENT_VALUE", // required
+ * //   providerIntermediateDataAccessConfiguration: { // ProviderIntermediateDataAccessConfiguration
+ * //     awsAccountIds: [ // AwsAccountIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     requiredBucketActions: [ // RequiredBucketActionsList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *
  * ```
  *
- * @param GetMatchingJobCommandInput - {@link GetMatchingJobCommandInput}
- * @returns {@link GetMatchingJobCommandOutput}
- * @see {@link GetMatchingJobCommandInput} for command's `input` shape.
- * @see {@link GetMatchingJobCommandOutput} for command's `response` shape.
+ * @param GetProviderServiceCommandInput - {@link GetProviderServiceCommandInput}
+ * @returns {@link GetProviderServiceCommandOutput}
+ * @see {@link GetProviderServiceCommandInput} for command's `input` shape.
+ * @see {@link GetProviderServiceCommandOutput} for command's `response` shape.
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -103,9 +113,9 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
  */
-export class GetMatchingJobCommand extends $Command<
-  GetMatchingJobCommandInput,
-  GetMatchingJobCommandOutput,
+export class GetProviderServiceCommand extends $Command<
+  GetProviderServiceCommandInput,
+  GetProviderServiceCommandOutput,
   EntityResolutionClientResolvedConfig
 > {
   // Start section: command_properties
@@ -123,7 +133,7 @@ export class GetMatchingJobCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetMatchingJobCommandInput) {
+  constructor(readonly input: GetProviderServiceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -136,17 +146,17 @@ export class GetMatchingJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EntityResolutionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetMatchingJobCommandInput, GetMatchingJobCommandOutput> {
+  ): Handler<GetProviderServiceCommandInput, GetProviderServiceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetMatchingJobCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetProviderServiceCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EntityResolutionClient";
-    const commandName = "GetMatchingJobCommand";
+    const commandName = "GetProviderServiceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -155,7 +165,7 @@ export class GetMatchingJobCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSVeniceService",
-        operation: "GetMatchingJob",
+        operation: "GetProviderService",
       },
     };
     const { requestHandler } = configuration;
@@ -169,15 +179,15 @@ export class GetMatchingJobCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetMatchingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetMatchingJobCommand(input, context);
+  private serialize(input: GetProviderServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetProviderServiceCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMatchingJobCommandOutput> {
-    return de_GetMatchingJobCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProviderServiceCommandOutput> {
+    return de_GetProviderServiceCommand(output, context);
   }
 
   // Start section: command_body_extra
