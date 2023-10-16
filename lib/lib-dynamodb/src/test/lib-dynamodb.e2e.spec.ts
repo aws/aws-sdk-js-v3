@@ -54,6 +54,8 @@ describe(DynamoDBDocument.name, () => {
     create: null as null | CreateTableCommandOutput,
     write: {} as Record<string, PutCommandOutput>,
     read: {} as Record<string, GetCommandOutput>,
+    undefinedColumnWrite: null as null | PutCommandOutput,
+    undefinedColumnRead: null as null | GetCommandOutput,
     batchWrite: null as null | BatchWriteCommandOutput,
     batchRead: null as null | BatchGetCommandOutput,
     transactWrite: null as null | TransactWriteCommandOutput,
@@ -354,6 +356,30 @@ describe(DynamoDBDocument.name, () => {
       })
       .catch(passError);
 
+    log.undefinedColumnWrite = await doc
+      .put({
+        TableName,
+        Item: {
+          id: "undefinedColumns",
+          A: "A",
+          B: undefined,
+          C: "C",
+          D: undefined,
+          E: "E",
+        },
+      })
+      .catch(passError);
+
+    log.undefinedColumnRead = await doc
+      .get({
+        TableName,
+        Key: {
+          id: "undefinedColumns",
+        },
+        ConsistentRead: true,
+      })
+      .catch(passError);
+
     for (const [id, value] of [["1", data as any], ...Object.entries(data)]) {
       log.update[id] = await doc
         .update({
@@ -446,7 +472,7 @@ describe(DynamoDBDocument.name, () => {
     // to report the table name
   });
 
-  it("describes the test table tables", async () => {
+  it("describes the test table", async () => {
     if (log.describe) {
       expect(log.describe?.Table?.TableName).toEqual(TableName);
     }
@@ -460,6 +486,17 @@ describe(DynamoDBDocument.name, () => {
       throwIfError(log.create);
       expect(log.create?.TableDescription?.TableName).toEqual(TableName);
     }
+  });
+
+  it("ignores undefined column values for backwards compatibility", async () => {
+    throwIfError(log.undefinedColumnWrite);
+
+    expect(log.undefinedColumnRead?.Item).toEqual({
+      id: "undefinedColumns",
+      A: "A",
+      C: "C",
+      E: "E",
+    });
   });
 
   it("can batch write", async () => {
