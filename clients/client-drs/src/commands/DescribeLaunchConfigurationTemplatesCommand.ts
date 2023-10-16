@@ -79,6 +79,7 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
  * //       },
  * //       exportBucketArn: "STRING_VALUE",
  * //       postLaunchEnabled: true || false,
+ * //       launchIntoSourceInstance: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

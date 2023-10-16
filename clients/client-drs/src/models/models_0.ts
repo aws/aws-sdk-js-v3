@@ -1597,6 +1597,12 @@ export interface CreateLaunchConfigurationTemplateRequest {
    * <p>Whether we want to activate post-launch actions.</p>
    */
   postLaunchEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.</p>
+   */
+  launchIntoSourceInstance?: boolean;
 }
 
 /**
@@ -1663,6 +1669,12 @@ export interface LaunchConfigurationTemplate {
    * <p>Post-launch actions activated.</p>
    */
   postLaunchEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.</p>
+   */
+  launchIntoSourceInstance?: boolean;
 }
 
 /**
@@ -3552,6 +3564,12 @@ export interface UpdateLaunchConfigurationTemplateRequest {
    * <p>Whether we want to activate post-launch actions.</p>
    */
   postLaunchEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.</p>
+   */
+  launchIntoSourceInstance?: boolean;
 }
 
 /**
@@ -3811,7 +3829,7 @@ export interface PutLaunchActionRequest {
    * @public
    * <p>Launch action description.</p>
    */
-  description?: string;
+  description: string | undefined;
 }
 
 /**
@@ -4275,6 +4293,18 @@ export interface GetLaunchConfigurationRequest {
 
 /**
  * @public
+ * <p>Launch into existing instance.</p>
+ */
+export interface LaunchIntoInstanceProperties {
+  /**
+   * @public
+   * <p>Optionally holds EC2 instance ID of an instance to launch into, instead of launching a new instance during drill, recovery or failback.</p>
+   */
+  launchIntoEC2InstanceID?: string;
+}
+
+/**
+ * @public
  */
 export interface LaunchConfiguration {
   /**
@@ -4330,6 +4360,12 @@ export interface LaunchConfiguration {
    * <p>Whether we want to activate post-launch actions for the Source Server.</p>
    */
   postLaunchEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Launch into existing instance properties.</p>
+   */
+  launchIntoInstanceProperties?: LaunchIntoInstanceProperties;
 }
 
 /**
@@ -4670,6 +4706,12 @@ export interface UpdateLaunchConfigurationRequest {
    * <p>Whether we want to enable post-launch actions for the Source Server.</p>
    */
   postLaunchEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Launch into existing instance properties.</p>
+   */
+  launchIntoInstanceProperties?: LaunchIntoInstanceProperties;
 }
 
 /**

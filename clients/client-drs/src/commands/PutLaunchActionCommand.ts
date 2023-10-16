@@ -60,7 +60,7 @@ export interface PutLaunchActionCommandOutput extends PutLaunchActionResponse, _
  *       type: "STRING_VALUE",
  *     },
  *   },
- *   description: "STRING_VALUE",
+ *   description: "STRING_VALUE", // required
  * };
  * const command = new PutLaunchActionCommand(input);
  * const response = await client.send(command);

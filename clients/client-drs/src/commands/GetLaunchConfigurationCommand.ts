@@ -61,6 +61,9 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * //     osByol: true || false,
  * //   },
  * //   postLaunchEnabled: true || false,
+ * //   launchIntoInstanceProperties: { // LaunchIntoInstanceProperties
+ * //     launchIntoEC2InstanceID: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

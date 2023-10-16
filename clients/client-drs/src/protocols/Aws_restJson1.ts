@@ -194,6 +194,7 @@ import {
   InternalServerException,
   LaunchActionParameter,
   LaunchActionsRequestFilters,
+  LaunchIntoInstanceProperties,
   Licensing,
   PITPolicyRule,
   RecoveryLifeCycle,
@@ -290,6 +291,7 @@ export const se_CreateLaunchConfigurationTemplateCommand = async (
       copyTags: [],
       exportBucketArn: [],
       launchDisposition: [],
+      launchIntoSourceInstance: [],
       licensing: (_) => _json(_),
       postLaunchEnabled: [],
       tags: (_) => _json(_),
@@ -1644,6 +1646,7 @@ export const se_UpdateLaunchConfigurationCommand = async (
       copyPrivateIp: [],
       copyTags: [],
       launchDisposition: [],
+      launchIntoInstanceProperties: (_) => _json(_),
       licensing: (_) => _json(_),
       name: [],
       postLaunchEnabled: [],
@@ -1683,6 +1686,7 @@ export const se_UpdateLaunchConfigurationTemplateCommand = async (
       exportBucketArn: [],
       launchConfigurationTemplateID: [],
       launchDisposition: [],
+      launchIntoSourceInstance: [],
       licensing: (_) => _json(_),
       postLaunchEnabled: [],
       targetInstanceTypeRightSizingMethod: [],
@@ -3244,6 +3248,7 @@ export const de_GetLaunchConfigurationCommand = async (
     copyTags: __expectBoolean,
     ec2LaunchTemplateID: __expectString,
     launchDisposition: __expectString,
+    launchIntoInstanceProperties: _json,
     licensing: _json,
     name: __expectString,
     postLaunchEnabled: __expectBoolean,
@@ -4581,6 +4586,7 @@ export const de_UpdateLaunchConfigurationCommand = async (
     copyTags: __expectBoolean,
     ec2LaunchTemplateID: __expectString,
     launchDisposition: __expectString,
+    launchIntoInstanceProperties: _json,
     licensing: _json,
     name: __expectString,
     postLaunchEnabled: __expectBoolean,
@@ -5058,6 +5064,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_LaunchConfigurationTemplateIDs omitted.
 
+// se_LaunchIntoInstanceProperties omitted.
+
 // se_Licensing omitted.
 
 // se_PITPolicy omitted.
@@ -5157,6 +5165,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_LaunchConfigurationTemplate omitted.
 
 // de_LaunchConfigurationTemplates omitted.
+
+// de_LaunchIntoInstanceProperties omitted.
 
 // de_Licensing omitted.
 

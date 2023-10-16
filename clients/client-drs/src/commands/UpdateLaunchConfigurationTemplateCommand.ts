@@ -64,6 +64,7 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput
  *   },
  *   exportBucketArn: "STRING_VALUE",
  *   postLaunchEnabled: true || false,
+ *   launchIntoSourceInstance: true || false,
  * };
  * const command = new UpdateLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -83,6 +84,7 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput
  * //     },
  * //     exportBucketArn: "STRING_VALUE",
  * //     postLaunchEnabled: true || false,
+ * //     launchIntoSourceInstance: true || false,
  * //   },
  * // };
  *
