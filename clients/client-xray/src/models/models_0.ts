@@ -2295,6 +2295,7 @@ export interface SamplingStrategy {
  */
 export const TimeRangeType = {
   Event: "Event",
+  Service: "Service",
   TraceId: "TraceId",
 } as const;
 
@@ -2321,7 +2322,7 @@ export interface GetTraceSummariesRequest {
 
   /**
    * @public
-   * <p>A parameter to indicate whether to query trace summaries by TraceId or Event time.</p>
+   * <p>A parameter to indicate whether to query trace summaries by TraceId, Event (trace update time), or Service (segment end time).</p>
    */
   TimeRangeType?: TimeRangeType;
 

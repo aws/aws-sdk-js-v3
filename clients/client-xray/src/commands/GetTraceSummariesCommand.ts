@@ -63,7 +63,7 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  * const input = { // GetTraceSummariesRequest
  *   StartTime: new Date("TIMESTAMP"), // required
  *   EndTime: new Date("TIMESTAMP"), // required
- *   TimeRangeType: "TraceId" || "Event",
+ *   TimeRangeType: "TraceId" || "Event" || "Service",
  *   Sampling: true || false,
  *   SamplingStrategy: { // SamplingStrategy
  *     Name: "PartialScan" || "FixedRate",
