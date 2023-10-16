@@ -82,7 +82,7 @@ describe("middleware-eventstream", () => {
 
       await client.startStreamTranscription({
         MediaSampleRateHertz: 144,
-        MediaEncoding: "undefined",
+        MediaEncoding: "ogg-opus",
         AudioStream: {
           [Symbol.asyncIterator]() {
             return {
