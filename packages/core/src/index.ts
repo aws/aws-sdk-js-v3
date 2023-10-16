@@ -1,1 +1,1 @@
-export * as protocols from "./protocols/index";
+export * from "./protocols/index";
