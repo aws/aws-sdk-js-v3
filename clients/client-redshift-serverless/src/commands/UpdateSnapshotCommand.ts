@@ -80,6 +80,8 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * //     accountsWithProvisionedRestoreAccess: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     adminPasswordSecretArn: "STRING_VALUE",
+ * //     adminPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *

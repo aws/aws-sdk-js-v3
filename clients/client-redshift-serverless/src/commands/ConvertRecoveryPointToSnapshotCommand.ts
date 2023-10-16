@@ -93,6 +93,8 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput
  * //     accountsWithProvisionedRestoreAccess: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     adminPasswordSecretArn: "STRING_VALUE",
+ * //     adminPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *

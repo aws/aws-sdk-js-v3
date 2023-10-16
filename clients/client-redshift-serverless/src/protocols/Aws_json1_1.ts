@@ -3462,6 +3462,8 @@ const de_ListWorkgroupsResponse = (output: any, context: __SerdeContext): ListWo
  */
 const de_Namespace = (output: any, context: __SerdeContext): Namespace => {
   return take(output, {
+    adminPasswordSecretArn: __expectString,
+    adminPasswordSecretKmsKeyId: __expectString,
     adminUsername: __expectString,
     creationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     dbName: __expectString,
@@ -3572,6 +3574,8 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
     accountsWithProvisionedRestoreAccess: _json,
     accountsWithRestoreAccess: _json,
     actualIncrementalBackupSizeInMegaBytes: __limitedParseDouble,
+    adminPasswordSecretArn: __expectString,
+    adminPasswordSecretKmsKeyId: __expectString,
     adminUsername: __expectString,
     backupProgressInMegaBytes: __limitedParseDouble,
     currentBackupRateInMegaBytesPerSecond: __limitedParseDouble,

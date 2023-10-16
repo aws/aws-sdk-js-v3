@@ -79,6 +79,8 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * //     accountsWithProvisionedRestoreAccess: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     adminPasswordSecretArn: "STRING_VALUE",
+ * //     adminPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *

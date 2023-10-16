@@ -58,6 +58,8 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  *   snapshotName: "STRING_VALUE",
  *   snapshotArn: "STRING_VALUE",
  *   ownerAccount: "STRING_VALUE",
+ *   manageAdminPassword: true || false,
+ *   adminPasswordSecretKmsKeyId: "STRING_VALUE",
  * };
  * const command = new RestoreFromSnapshotCommand(input);
  * const response = await client.send(command);
@@ -80,6 +82,8 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * //     ],
  * //     status: "STRING_VALUE",
  * //     creationDate: new Date("TIMESTAMP"),
+ * //     adminPasswordSecretArn: "STRING_VALUE",
+ * //     adminPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *

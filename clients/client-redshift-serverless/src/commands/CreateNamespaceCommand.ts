@@ -72,6 +72,8 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   manageAdminPassword: true || false,
+ *   adminPasswordSecretKmsKeyId: "STRING_VALUE",
  * };
  * const command = new CreateNamespaceCommand(input);
  * const response = await client.send(command);
@@ -92,6 +94,8 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * //     ],
  * //     status: "STRING_VALUE",
  * //     creationDate: new Date("TIMESTAMP"),
+ * //     adminPasswordSecretArn: "STRING_VALUE",
+ * //     adminPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *

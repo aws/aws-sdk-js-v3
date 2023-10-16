@@ -258,6 +258,18 @@ export interface Snapshot {
    * <p>All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.</p>
    */
   accountsWithProvisionedRestoreAccess?: string[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the namespace's admin user credentials secret.</p>
+   */
+  adminPasswordSecretArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.</p>
+   */
+  adminPasswordSecretKmsKeyId?: string;
 }
 
 /**
@@ -605,6 +617,7 @@ export interface CreateNamespaceRequest {
   /**
    * @public
    * <p>The password of the administrator for the first database created in the namespace.</p>
+   *          <p>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. </p>
    */
   adminUserPassword?: string;
 
@@ -644,6 +657,23 @@ export interface CreateNamespaceRequest {
    * <p>A list of tag instances.</p>
    */
   tags?: Tag[];
+
+  /**
+   * @public
+   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's admin credentials.
+   *          You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true.
+   *          If <code>manageAdminPassword</code> is false or not set, Amazon Redshift uses
+   *          <code>adminUserPassword</code> for the admin user account's password.
+   *       </p>
+   */
+  manageAdminPassword?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
+   *          You can only use this parameter if <code>manageAdminPassword</code> is true.</p>
+   */
+  adminPasswordSecretKmsKeyId?: string;
 }
 
 /**
@@ -734,6 +764,18 @@ export interface Namespace {
    * <p>The date of when the namespace was created.</p>
    */
   creationDate?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the namespace's admin user credentials secret.</p>
+   */
+  adminPasswordSecretArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.</p>
+   */
+  adminPasswordSecretKmsKeyId?: string;
 }
 
 /**
@@ -2200,6 +2242,7 @@ export interface UpdateNamespaceRequest {
    * @public
    * <p>The password of the administrator for the first database created in the namespace. This parameter must be updated together
    *       with <code>adminUsername</code>.</p>
+   *          <p>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. </p>
    */
   adminUserPassword?: string;
 
@@ -2234,6 +2277,23 @@ export interface UpdateNamespaceRequest {
    * <p>The types of logs the namespace can export. The export types are <code>userlog</code>, <code>connectionlog</code>, and <code>useractivitylog</code>.</p>
    */
   logExports?: LogExport[];
+
+  /**
+   * @public
+   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's admin credentials.
+   *          You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true.
+   *          If <code>manageAdminPassword</code> is false or not set, Amazon Redshift uses
+   *          <code>adminUserPassword</code> for the admin user account's password.
+   *       </p>
+   */
+  manageAdminPassword?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
+   *          You can only use this parameter if <code>manageAdminPassword</code> is true.</p>
+   */
+  adminPasswordSecretKmsKeyId?: string;
 }
 
 /**
@@ -2356,6 +2416,21 @@ export interface RestoreFromSnapshotRequest {
    * <p>The Amazon Web Services account that owns the snapshot.</p>
    */
   ownerAccount?: string;
+
+  /**
+   * @public
+   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the restored
+   *          snapshot's admin credentials. If <code>MmanageAdminPassword</code> is false or not set,
+   *          Amazon Redshift uses the admin credentials that the namespace or cluster
+   *          had at the time the snapshot was taken.</p>
+   */
+  manageAdminPassword?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.</p>
+   */
+  adminPasswordSecretKmsKeyId?: string;
 }
 
 /**
