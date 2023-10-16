@@ -219,6 +219,14 @@ BatchGetTokenBalance
 </details>
 <details>
 <summary>
+GetAssetContract
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/classes/getassetcontractcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/getassetcontractcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/getassetcontractcommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetTokenBalance
 </summary>
 
@@ -231,6 +239,14 @@ GetTransaction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/classes/gettransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/gettransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/gettransactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAssetContracts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/classes/listassetcontractscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/listassetcontractscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/listassetcontractscommandoutput.html)
 
 </details>
 <details>

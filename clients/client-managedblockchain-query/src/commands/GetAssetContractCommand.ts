@@ -19,8 +19,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainQueryClient";
-import { ListTokenBalancesInput, ListTokenBalancesOutput } from "../models/models_0";
-import { de_ListTokenBalancesCommand, se_ListTokenBalancesCommand } from "../protocols/Aws_restJson1";
+import { GetAssetContractInput, GetAssetContractOutput } from "../models/models_0";
+import { de_GetAssetContractCommand, se_GetAssetContractCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -29,84 +29,65 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListTokenBalancesCommand}.
+ * The input for {@link GetAssetContractCommand}.
  */
-export interface ListTokenBalancesCommandInput extends ListTokenBalancesInput {}
+export interface GetAssetContractCommandInput extends GetAssetContractInput {}
 /**
  * @public
  *
- * The output of {@link ListTokenBalancesCommand}.
+ * The output of {@link GetAssetContractCommand}.
  */
-export interface ListTokenBalancesCommandOutput extends ListTokenBalancesOutput, __MetadataBearer {}
+export interface GetAssetContractCommandOutput extends GetAssetContractOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>This action returns the following for a given blockchain network:</p>
- *          <ul>
- *             <li>
- *                <p>Lists all token balances owned by an address (either a contract
- *           address or a wallet address).</p>
- *             </li>
- *             <li>
- *                <p>Lists all token balances for all tokens created by a contract.</p>
- *             </li>
- *             <li>
- *                <p>Lists all token balances for a given token.</p>
- *             </li>
- *          </ul>
+ * <p>Gets the information about a specific contract deployed on the blockchain.</p>
  *          <note>
- *             <p>You must always specify the network property of
- *                               the <code>tokenFilter</code> when using this operation.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>The Bitcoin blockchain networks do not support this
+ *              operation.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Metadata is currently only available for some <code>ERC-20</code> contracts.
+ *                 Metadata will be available for additional contracts in the future.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainQueryClient, ListTokenBalancesCommand } from "@aws-sdk/client-managedblockchain-query"; // ES Modules import
- * // const { ManagedBlockchainQueryClient, ListTokenBalancesCommand } = require("@aws-sdk/client-managedblockchain-query"); // CommonJS import
+ * import { ManagedBlockchainQueryClient, GetAssetContractCommand } from "@aws-sdk/client-managedblockchain-query"; // ES Modules import
+ * // const { ManagedBlockchainQueryClient, GetAssetContractCommand } = require("@aws-sdk/client-managedblockchain-query"); // CommonJS import
  * const client = new ManagedBlockchainQueryClient(config);
- * const input = { // ListTokenBalancesInput
- *   ownerFilter: { // OwnerFilter
- *     address: "STRING_VALUE", // required
- *   },
- *   tokenFilter: { // TokenFilter
+ * const input = { // GetAssetContractInput
+ *   contractIdentifier: { // ContractIdentifier
  *     network: "STRING_VALUE", // required
- *     contractAddress: "STRING_VALUE",
- *     tokenId: "STRING_VALUE",
+ *     contractAddress: "STRING_VALUE", // required
  *   },
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
  * };
- * const command = new ListTokenBalancesCommand(input);
+ * const command = new GetAssetContractCommand(input);
  * const response = await client.send(command);
- * // { // ListTokenBalancesOutput
- * //   tokenBalances: [ // TokenBalanceList // required
- * //     { // TokenBalance
- * //       ownerIdentifier: { // OwnerIdentifier
- * //         address: "STRING_VALUE", // required
- * //       },
- * //       tokenIdentifier: { // TokenIdentifier
- * //         network: "STRING_VALUE", // required
- * //         contractAddress: "STRING_VALUE",
- * //         tokenId: "STRING_VALUE",
- * //       },
- * //       balance: "STRING_VALUE", // required
- * //       atBlockchainInstant: { // BlockchainInstant
- * //         time: new Date("TIMESTAMP"),
- * //       },
- * //       lastUpdatedTime: {
- * //         time: new Date("TIMESTAMP"),
- * //       },
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
+ * // { // GetAssetContractOutput
+ * //   contractIdentifier: { // ContractIdentifier
+ * //     network: "STRING_VALUE", // required
+ * //     contractAddress: "STRING_VALUE", // required
+ * //   },
+ * //   tokenStandard: "STRING_VALUE", // required
+ * //   deployerAddress: "STRING_VALUE", // required
+ * //   metadata: { // ContractMetadata
+ * //     name: "STRING_VALUE",
+ * //     symbol: "STRING_VALUE",
+ * //     decimals: Number("int"),
+ * //   },
  * // };
  *
  * ```
  *
- * @param ListTokenBalancesCommandInput - {@link ListTokenBalancesCommandInput}
- * @returns {@link ListTokenBalancesCommandOutput}
- * @see {@link ListTokenBalancesCommandInput} for command's `input` shape.
- * @see {@link ListTokenBalancesCommandOutput} for command's `response` shape.
+ * @param GetAssetContractCommandInput - {@link GetAssetContractCommandInput}
+ * @returns {@link GetAssetContractCommandOutput}
+ * @see {@link GetAssetContractCommandInput} for command's `input` shape.
+ * @see {@link GetAssetContractCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainQueryClientResolvedConfig | config} for ManagedBlockchainQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -114,6 +95,9 @@ export interface ListTokenBalancesCommandOutput extends ListTokenBalancesOutput,
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an internal error in the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The service quota has been exceeded for this resource.</p>
@@ -131,9 +115,9 @@ export interface ListTokenBalancesCommandOutput extends ListTokenBalancesOutput,
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
  */
-export class ListTokenBalancesCommand extends $Command<
-  ListTokenBalancesCommandInput,
-  ListTokenBalancesCommandOutput,
+export class GetAssetContractCommand extends $Command<
+  GetAssetContractCommandInput,
+  GetAssetContractCommandOutput,
   ManagedBlockchainQueryClientResolvedConfig
 > {
   // Start section: command_properties
@@ -151,7 +135,7 @@ export class ListTokenBalancesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListTokenBalancesCommandInput) {
+  constructor(readonly input: GetAssetContractCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -164,17 +148,17 @@ export class ListTokenBalancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainQueryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListTokenBalancesCommandInput, ListTokenBalancesCommandOutput> {
+  ): Handler<GetAssetContractCommandInput, GetAssetContractCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListTokenBalancesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetAssetContractCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ManagedBlockchainQueryClient";
-    const commandName = "ListTokenBalancesCommand";
+    const commandName = "GetAssetContractCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -183,7 +167,7 @@ export class ListTokenBalancesCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "TietonChainQueryService",
-        operation: "ListTokenBalances",
+        operation: "GetAssetContract",
       },
     };
     const { requestHandler } = configuration;
@@ -197,15 +181,15 @@ export class ListTokenBalancesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListTokenBalancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListTokenBalancesCommand(input, context);
+  private serialize(input: GetAssetContractCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetAssetContractCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTokenBalancesCommandOutput> {
-    return de_ListTokenBalancesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssetContractCommandOutput> {
+    return de_GetAssetContractCommand(output, context);
   }
 
   // Start section: command_body_extra

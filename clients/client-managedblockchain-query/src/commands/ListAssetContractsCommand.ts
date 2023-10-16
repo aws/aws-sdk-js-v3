@@ -19,8 +19,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainQueryClient";
-import { ListTokenBalancesInput, ListTokenBalancesOutput } from "../models/models_0";
-import { de_ListTokenBalancesCommand, se_ListTokenBalancesCommand } from "../protocols/Aws_restJson1";
+import { ListAssetContractsInput, ListAssetContractsOutput } from "../models/models_0";
+import { de_ListAssetContractsCommand, se_ListAssetContractsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -29,73 +29,48 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListTokenBalancesCommand}.
+ * The input for {@link ListAssetContractsCommand}.
  */
-export interface ListTokenBalancesCommandInput extends ListTokenBalancesInput {}
+export interface ListAssetContractsCommandInput extends ListAssetContractsInput {}
 /**
  * @public
  *
- * The output of {@link ListTokenBalancesCommand}.
+ * The output of {@link ListAssetContractsCommand}.
  */
-export interface ListTokenBalancesCommandOutput extends ListTokenBalancesOutput, __MetadataBearer {}
+export interface ListAssetContractsCommandOutput extends ListAssetContractsOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>This action returns the following for a given blockchain network:</p>
- *          <ul>
- *             <li>
- *                <p>Lists all token balances owned by an address (either a contract
- *           address or a wallet address).</p>
- *             </li>
- *             <li>
- *                <p>Lists all token balances for all tokens created by a contract.</p>
- *             </li>
- *             <li>
- *                <p>Lists all token balances for a given token.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>You must always specify the network property of
- *                               the <code>tokenFilter</code> when using this operation.</p>
- *          </note>
+ * <p>Lists all the contracts for a given contract type deployed by an address
+ *          (either a contract address or a wallet address).</p>
+ *          <p>The Bitcoin blockchain networks do not support this
+ *             operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainQueryClient, ListTokenBalancesCommand } from "@aws-sdk/client-managedblockchain-query"; // ES Modules import
- * // const { ManagedBlockchainQueryClient, ListTokenBalancesCommand } = require("@aws-sdk/client-managedblockchain-query"); // CommonJS import
+ * import { ManagedBlockchainQueryClient, ListAssetContractsCommand } from "@aws-sdk/client-managedblockchain-query"; // ES Modules import
+ * // const { ManagedBlockchainQueryClient, ListAssetContractsCommand } = require("@aws-sdk/client-managedblockchain-query"); // CommonJS import
  * const client = new ManagedBlockchainQueryClient(config);
- * const input = { // ListTokenBalancesInput
- *   ownerFilter: { // OwnerFilter
- *     address: "STRING_VALUE", // required
- *   },
- *   tokenFilter: { // TokenFilter
+ * const input = { // ListAssetContractsInput
+ *   contractFilter: { // ContractFilter
  *     network: "STRING_VALUE", // required
- *     contractAddress: "STRING_VALUE",
- *     tokenId: "STRING_VALUE",
+ *     tokenStandard: "STRING_VALUE", // required
+ *     deployerAddress: "STRING_VALUE", // required
  *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListTokenBalancesCommand(input);
+ * const command = new ListAssetContractsCommand(input);
  * const response = await client.send(command);
- * // { // ListTokenBalancesOutput
- * //   tokenBalances: [ // TokenBalanceList // required
- * //     { // TokenBalance
- * //       ownerIdentifier: { // OwnerIdentifier
- * //         address: "STRING_VALUE", // required
- * //       },
- * //       tokenIdentifier: { // TokenIdentifier
+ * // { // ListAssetContractsOutput
+ * //   contracts: [ // AssetContractList // required
+ * //     { // AssetContract
+ * //       contractIdentifier: { // ContractIdentifier
  * //         network: "STRING_VALUE", // required
- * //         contractAddress: "STRING_VALUE",
- * //         tokenId: "STRING_VALUE",
+ * //         contractAddress: "STRING_VALUE", // required
  * //       },
- * //       balance: "STRING_VALUE", // required
- * //       atBlockchainInstant: { // BlockchainInstant
- * //         time: new Date("TIMESTAMP"),
- * //       },
- * //       lastUpdatedTime: {
- * //         time: new Date("TIMESTAMP"),
- * //       },
+ * //       tokenStandard: "STRING_VALUE", // required
+ * //       deployerAddress: "STRING_VALUE", // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -103,10 +78,10 @@ export interface ListTokenBalancesCommandOutput extends ListTokenBalancesOutput,
  *
  * ```
  *
- * @param ListTokenBalancesCommandInput - {@link ListTokenBalancesCommandInput}
- * @returns {@link ListTokenBalancesCommandOutput}
- * @see {@link ListTokenBalancesCommandInput} for command's `input` shape.
- * @see {@link ListTokenBalancesCommandOutput} for command's `response` shape.
+ * @param ListAssetContractsCommandInput - {@link ListAssetContractsCommandInput}
+ * @returns {@link ListAssetContractsCommandOutput}
+ * @see {@link ListAssetContractsCommandInput} for command's `input` shape.
+ * @see {@link ListAssetContractsCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainQueryClientResolvedConfig | config} for ManagedBlockchainQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -131,9 +106,9 @@ export interface ListTokenBalancesCommandOutput extends ListTokenBalancesOutput,
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
  */
-export class ListTokenBalancesCommand extends $Command<
-  ListTokenBalancesCommandInput,
-  ListTokenBalancesCommandOutput,
+export class ListAssetContractsCommand extends $Command<
+  ListAssetContractsCommandInput,
+  ListAssetContractsCommandOutput,
   ManagedBlockchainQueryClientResolvedConfig
 > {
   // Start section: command_properties
@@ -151,7 +126,7 @@ export class ListTokenBalancesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListTokenBalancesCommandInput) {
+  constructor(readonly input: ListAssetContractsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -164,17 +139,17 @@ export class ListTokenBalancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainQueryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListTokenBalancesCommandInput, ListTokenBalancesCommandOutput> {
+  ): Handler<ListAssetContractsCommandInput, ListAssetContractsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListTokenBalancesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListAssetContractsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ManagedBlockchainQueryClient";
-    const commandName = "ListTokenBalancesCommand";
+    const commandName = "ListAssetContractsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -183,7 +158,7 @@ export class ListTokenBalancesCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "TietonChainQueryService",
-        operation: "ListTokenBalances",
+        operation: "ListAssetContracts",
       },
     };
     const { requestHandler } = configuration;
@@ -197,15 +172,15 @@ export class ListTokenBalancesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListTokenBalancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListTokenBalancesCommand(input, context);
+  private serialize(input: ListAssetContractsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListAssetContractsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTokenBalancesCommandOutput> {
-    return de_ListTokenBalancesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetContractsCommandOutput> {
+    return de_ListAssetContractsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -26,8 +26,10 @@ import {
   BatchGetTokenBalanceCommandInput,
   BatchGetTokenBalanceCommandOutput,
 } from "../commands/BatchGetTokenBalanceCommand";
+import { GetAssetContractCommandInput, GetAssetContractCommandOutput } from "../commands/GetAssetContractCommand";
 import { GetTokenBalanceCommandInput, GetTokenBalanceCommandOutput } from "../commands/GetTokenBalanceCommand";
 import { GetTransactionCommandInput, GetTransactionCommandOutput } from "../commands/GetTransactionCommand";
+import { ListAssetContractsCommandInput, ListAssetContractsCommandOutput } from "../commands/ListAssetContractsCommand";
 import { ListTokenBalancesCommandInput, ListTokenBalancesCommandOutput } from "../commands/ListTokenBalancesCommand";
 import {
   ListTransactionEventsCommandInput,
@@ -41,6 +43,8 @@ import {
   BatchGetTokenBalanceInputItem,
   BatchGetTokenBalanceOutputItem,
   BlockchainInstant,
+  ContractFilter,
+  ContractIdentifier,
   InternalServerException,
   ListTransactionsSort,
   OwnerFilter,
@@ -73,6 +77,35 @@ export const se_BatchGetTokenBalanceCommand = async (
   body = JSON.stringify(
     take(input, {
       getTokenBalanceInputs: (_) => se_GetTokenBalanceInputList(_, context),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetAssetContractCommand
+ */
+export const se_GetAssetContractCommand = async (
+  input: GetAssetContractCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-asset-contract";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      contractIdentifier: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -134,6 +167,37 @@ export const se_GetTransactionCommand = async (
     take(input, {
       network: [],
       transactionHash: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListAssetContractsCommand
+ */
+export const se_ListAssetContractsCommand = async (
+  input: ListAssetContractsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-asset-contracts";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      contractFilter: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
     })
   );
   return new __HttpRequest({
@@ -311,6 +375,71 @@ const de_BatchGetTokenBalanceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetAssetContractCommand
+ */
+export const de_GetAssetContractCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAssetContractCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetAssetContractCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    contractIdentifier: _json,
+    deployerAddress: __expectString,
+    metadata: _json,
+    tokenStandard: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAssetContractCommandError
+ */
+const de_GetAssetContractCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAssetContractCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.managedblockchainquery#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.managedblockchainquery#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.managedblockchainquery#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.managedblockchainquery#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.managedblockchainquery#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetTokenBalanceCommand
  */
 export const de_GetTokenBalanceCommand = async (
@@ -419,6 +548,66 @@ const de_GetTransactionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchainquery#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.managedblockchainquery#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.managedblockchainquery#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListAssetContractsCommand
+ */
+export const de_ListAssetContractsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetContractsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAssetContractsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    contracts: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAssetContractsCommandError
+ */
+const de_ListAssetContractsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetContractsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.managedblockchainquery#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.managedblockchainquery#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -773,6 +962,10 @@ const se_BlockchainInstant = (input: BlockchainInstant, context: __SerdeContext)
   });
 };
 
+// se_ContractFilter omitted.
+
+// se_ContractIdentifier omitted.
+
 /**
  * serializeAws_restJson1GetTokenBalanceInputList
  */
@@ -793,6 +986,10 @@ const se_GetTokenBalanceInputList = (input: BatchGetTokenBalanceInputItem[], con
 // se_TokenFilter omitted.
 
 // se_TokenIdentifier omitted.
+
+// de_AssetContract omitted.
+
+// de_AssetContractList omitted.
 
 /**
  * deserializeAws_restJson1BatchGetTokenBalanceErrorItem
@@ -853,6 +1050,10 @@ const de_BlockchainInstant = (output: any, context: __SerdeContext): BlockchainI
     time: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_ContractIdentifier omitted.
+
+// de_ContractMetadata omitted.
 
 // de_OwnerIdentifier omitted.
 

@@ -25,6 +25,88 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const QueryNetwork = {
+  /**
+   * Bitcoin main network
+   */
+  BITCOIN_MAINNET: "BITCOIN_MAINNET",
+  /**
+   * Bitcoin test network
+   */
+  BITCOIN_TESTNET: "BITCOIN_TESTNET",
+  /**
+   * Ethereum main network
+   */
+  ETHEREUM_MAINNET: "ETHEREUM_MAINNET",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryNetwork = (typeof QueryNetwork)[keyof typeof QueryNetwork];
+
+/**
+ * @public
+ * <p>Container for the blockchain address and network information about a contract.</p>
+ */
+export interface ContractIdentifier {
+  /**
+   * @public
+   * <p>The blockchain network of the contract.</p>
+   */
+  network: QueryNetwork | undefined;
+
+  /**
+   * @public
+   * <p>Container for the blockchain address about a contract.</p>
+   */
+  contractAddress: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryTokenStandard = {
+  ERC1155: "ERC1155",
+  ERC20: "ERC20",
+  ERC721: "ERC721",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryTokenStandard = (typeof QueryTokenStandard)[keyof typeof QueryTokenStandard];
+
+/**
+ * @public
+ * <p>This container contains information about an contract.</p>
+ */
+export interface AssetContract {
+  /**
+   * @public
+   * <p>The container for the contract identifier containing its blockchain network
+   *              and address.</p>
+   */
+  contractIdentifier: ContractIdentifier | undefined;
+
+  /**
+   * @public
+   * <p>The token standard of the contract.</p>
+   */
+  tokenStandard: QueryTokenStandard | undefined;
+
+  /**
+   * @public
+   * <p>The address of the contract deployer.</p>
+   */
+  deployerAddress: string | undefined;
+}
+
+/**
+ * @public
  * <p>The container for time.</p>
  */
 export interface BlockchainInstant {
@@ -53,26 +135,6 @@ export interface OwnerIdentifier {
 
 /**
  * @public
- * @enum
- */
-export const QueryNetwork = {
-  /**
-   * Bitcoin main network
-   */
-  BITCOIN_MAINNET: "BITCOIN_MAINNET",
-  /**
-   * Ethereum main network
-   */
-  ETHEREUM_MAINNET: "ETHEREUM_MAINNET",
-} as const;
-
-/**
- * @public
- */
-export type QueryNetwork = (typeof QueryNetwork)[keyof typeof QueryNetwork];
-
-/**
- * @public
  * <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p>
  *          <note>
  *             <p>Only the native tokens BTC,ETH, and the ERC-20,
@@ -95,6 +157,11 @@ export interface TokenIdentifier {
   /**
    * @public
    * <p>The unique identifier of the token.</p>
+   *          <note>
+   *             <p>You must specify this container with <code>btc</code> for the native BTC token, and
+   *          <code>eth</code> for the native ETH token. For all other token types you must
+   *          specify the <code>tokenId</code> in the 64 character hexadecimal <code>tokenid</code> format.</p>
+   *          </note>
    */
   tokenId?: string;
 }
@@ -133,7 +200,7 @@ export interface BatchGetTokenBalanceInputItem {
 export interface BatchGetTokenBalanceInput {
   /**
    * @public
-   * <p>An array of <code>GetTokenBalanceInput</code> objects whose balance is being requested.</p>
+   * <p>An array of <code>BatchGetTokenBalanceInputItem</code> objects whose balance is being requested.</p>
    */
   getTokenBalanceInputs?: BatchGetTokenBalanceInputItem[];
 }
@@ -501,6 +568,94 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * <p>The contract or wallet address by which to filter the request.</p>
+ */
+export interface ContractFilter {
+  /**
+   * @public
+   * <p>The blockchain network of the contract.</p>
+   */
+  network: QueryNetwork | undefined;
+
+  /**
+   * @public
+   * <p>The container for the token standard.</p>
+   */
+  tokenStandard: QueryTokenStandard | undefined;
+
+  /**
+   * @public
+   * <p>The network address of the deployer.</p>
+   */
+  deployerAddress: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The metadata of the contract.</p>
+ */
+export interface ContractMetadata {
+  /**
+   * @public
+   * <p>The name of the token contract.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The symbol of the token contract.</p>
+   */
+  symbol?: string;
+
+  /**
+   * @public
+   * <p>The decimals used by the token contract.</p>
+   */
+  decimals?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetAssetContractInput {
+  /**
+   * @public
+   * <p>Contains the blockchain address and network information about the contract.</p>
+   */
+  contractIdentifier: ContractIdentifier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAssetContractOutput {
+  /**
+   * @public
+   * <p>Contains the blockchain address and network information about the contract.</p>
+   */
+  contractIdentifier: ContractIdentifier | undefined;
+
+  /**
+   * @public
+   * <p>The token standard of the contract requested.</p>
+   */
+  tokenStandard: QueryTokenStandard | undefined;
+
+  /**
+   * @public
+   * <p>The address of the deployer of contract.</p>
+   */
+  deployerAddress: string | undefined;
+
+  /**
+   * @public
+   * <p>The metadata of the contract.</p>
+   */
+  metadata?: ContractMetadata;
+}
+
+/**
+ * @public
  */
 export interface GetTokenBalanceInput {
   /**
@@ -622,7 +777,7 @@ export type QueryTransactionStatus = (typeof QueryTransactionStatus)[keyof typeo
 export interface Transaction {
   /**
    * @public
-   * <p>The blockchain network where the transaction occured.</p>
+   * <p>The blockchain network where the transaction occurred.</p>
    */
   network: QueryNetwork | undefined;
 
@@ -751,6 +906,46 @@ export interface GetTransactionOutput {
 
 /**
  * @public
+ */
+export interface ListAssetContractsInput {
+  /**
+   * @public
+   * <p>Contains the filter parameter for the request.</p>
+   */
+  contractFilter: ContractFilter | undefined;
+
+  /**
+   * @public
+   * <p> The pagination token that indicates the next set of results to retrieve.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of contracts to list.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetContractsOutput {
+  /**
+   * @public
+   * <p>An array of contract objects that contain the properties for each contract.</p>
+   */
+  contracts: AssetContract[] | undefined;
+
+  /**
+   * @public
+   * <p>The pagination token that indicates the next set of results to retrieve. </p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
  * <p>The container for the owner information to filter by.</p>
  */
 export interface OwnerFilter {
@@ -806,7 +1001,7 @@ export interface ListTokenBalancesInput {
   /**
    * @public
    * <p>The contract address or a token identifier on the
-   *         blockchain network by which to filter the request. You must specify the contractAddress
+   *         blockchain network by which to filter the request. You must specify the <code>contractAddress</code>
    *         property of this container when listing tokens minted by a contract.</p>
    *          <note>
    *             <p>You must always specify the network property of this
@@ -863,7 +1058,7 @@ export interface TokenBalance {
 
   /**
    * @public
-   * <p>The <code>timestamp</code> of the last transaction at which the balance for the token in the wallet was updated.</p>
+   * <p>The <code>Timestamp</code> of the last transaction at which the balance for the token in the wallet was updated.</p>
    */
   lastUpdatedTime?: BlockchainInstant;
 }
