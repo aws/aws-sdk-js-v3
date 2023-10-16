@@ -136,7 +136,12 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
             QueryMemberSerVisitor inputVisitor = getMemberVisitor("input[key as " + keyTypeName + "]");
             String valueLocation = "entry.${counter}." + valueName;
             if (inputVisitor.visitSuppliesEntryList(valueTarget)) {
-                serializeUnnamedMemberEntryList(context, valueTarget, "input[key as " + keyTypeName + "]", valueLocation);
+                serializeUnnamedMemberEntryList(
+                    context,
+                    valueTarget,
+                    "input[key as " + keyTypeName + "]",
+                    valueLocation
+                );
             } else {
                 writer.write("entries[`$L`] = $L;", valueLocation, valueTarget.accept(inputVisitor));
             }

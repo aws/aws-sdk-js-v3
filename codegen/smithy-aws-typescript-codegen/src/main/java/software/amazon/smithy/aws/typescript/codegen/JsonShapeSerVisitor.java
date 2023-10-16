@@ -121,8 +121,9 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
         SymbolProvider symbolProvider = context.getSymbolProvider();
 
         Symbol keySymbol = symbolProvider.toSymbol(shape.getKey());
-        String entryKeyType = keySymbol.toString().equals("string") ?
-            "string" : symbolProvider.toSymbol(shape.getKey()) + "| string";
+        String entryKeyType = keySymbol.toString().equals("string")
+            ? "string"
+            : symbolProvider.toSymbol(shape.getKey()) + "| string";
 
         // Get the right serialization for each entry in the map. Undefined
         // inputs won't have this serializer invoked.
