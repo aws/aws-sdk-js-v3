@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.429.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.428.0...v3.429.0) (2023-10-16)
+
+
+### Features
+
+* **client-opensearch:** This release allows customers to list and associate optional plugin packages with compatible Amazon OpenSearch Service clusters for enhanced functionality. ([90dcb19](https://github.com/aws/aws-sdk-js-v3/commit/90dcb197dbe01e572cda133f2ccdb6841e1106ce))
+
+
+
+
+
 # [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch

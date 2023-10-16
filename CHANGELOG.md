@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.429.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.428.0...v3.429.0) (2023-10-16)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** backwards compat for undefined columns ([#5365](https://github.com/aws/aws-sdk-js-v3/issues/5365)) ([65d5b36](https://github.com/aws/aws-sdk-js-v3/commit/65d5b36f435416d7271b3bd345632878ed7bc8e0))
+* **middleware-host-header:** populate :authority pseudo-header with authority section of target URI ([#5369](https://github.com/aws/aws-sdk-js-v3/issues/5369)) ([242a32c](https://github.com/aws/aws-sdk-js-v3/commit/242a32c513a8ebbbe74a73b15f4f102c79c15bc8))
+
+
+### Features
+
+* **client-cloudformation:** SDK and documentation updates for UpdateReplacePolicy ([c1fd48e](https://github.com/aws/aws-sdk-js-v3/commit/c1fd48eeb83f1ae69d1be3bfd731c7cfa61e0228))
+* **client-drs:** Updated exsiting API to allow AWS Elastic Disaster Recovery support of launching recovery into existing EC2 instances. ([d861f67](https://github.com/aws/aws-sdk-js-v3/commit/d861f67612fc6cc43a3ec8a2bbd91df56ebd5739))
+* **client-entityresolution:** This launch expands our matching techniques to include provider-based matching to help customer match, link, and enhance records with minimal data movement. With data service providers, we have removed the need for customers to build bespoke integrations,. ([ba8b3ef](https://github.com/aws/aws-sdk-js-v3/commit/ba8b3ef5889ba54a536ad59530a80e13c506e504))
+* **client-managedblockchain-query:** This release introduces two new APIs: GetAssetContract and ListAssetContracts. This release also adds support for Bitcoin Testnet. ([6dc7cd7](https://github.com/aws/aws-sdk-js-v3/commit/6dc7cd7a51d9fbaa7c903776a6a82008dc6ff763))
+* **client-mediapackagev2:** This release allows customers to manage MediaPackage v2 resource using CloudFormation. ([8a89009](https://github.com/aws/aws-sdk-js-v3/commit/8a89009506a54d74b01ebc59760cc37d60626796))
+* **client-opensearch:** This release allows customers to list and associate optional plugin packages with compatible Amazon OpenSearch Service clusters for enhanced functionality. ([90dcb19](https://github.com/aws/aws-sdk-js-v3/commit/90dcb197dbe01e572cda133f2ccdb6841e1106ce))
+* **client-redshift-serverless:** Added support for managing credentials of serverless namespace admin using AWS Secrets Manager. ([00b6795](https://github.com/aws/aws-sdk-js-v3/commit/00b6795ceec039f1f822450149dbd352aaad90d4))
+* **client-redshift:** Added support for managing credentials of provisioned cluster admin using AWS Secrets Manager. ([81f66cb](https://github.com/aws/aws-sdk-js-v3/commit/81f66cb16b60be8ab2ac7f844906d43cb1f47827))
+* **client-sesv2:** This release provides enhanced visibility into your SES identity verification status. This will offer you more actionable insights, enabling you to promptly address any verification-related issues. ([95a8827](https://github.com/aws/aws-sdk-js-v3/commit/95a882786ea564494f0dedf35a04634cdfdbccc4))
+* **client-xray:** This releases enhances GetTraceSummaries API to support new TimeRangeType Service to query trace summaries by segment end time. ([8da8457](https://github.com/aws/aws-sdk-js-v3/commit/8da8457b86785afad130b8ab1b2a9ca814f36a32))
+* **clients:** update client endpoints as of 2023-10-16 ([d71d199](https://github.com/aws/aws-sdk-js-v3/commit/d71d1991d0bc3e680a38ecc58392fbb0059930bd))
+
+
+
+
+
 # [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
 
 

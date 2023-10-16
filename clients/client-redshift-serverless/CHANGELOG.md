@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.429.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.428.0...v3.429.0) (2023-10-16)
+
+
+### Features
+
+* **client-redshift-serverless:** Added support for managing credentials of serverless namespace admin using AWS Secrets Manager. ([00b6795](https://github.com/aws/aws-sdk-js-v3/commit/00b6795ceec039f1f822450149dbd352aaad90d4))
+
+
+
+
+
 # [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift-serverless

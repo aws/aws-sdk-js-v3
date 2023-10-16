@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.429.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.428.0...v3.429.0) (2023-10-16)
+
+
+### Features
+
+* **client-drs:** Updated exsiting API to allow AWS Elastic Disaster Recovery support of launching recovery into existing EC2 instances. ([d861f67](https://github.com/aws/aws-sdk-js-v3/commit/d861f67612fc6cc43a3ec8a2bbd91df56ebd5739))
+
+
+
+
+
 # [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
 
 **Note:** Version bump only for package @aws-sdk/client-drs

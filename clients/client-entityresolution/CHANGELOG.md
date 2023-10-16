@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.429.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.428.0...v3.429.0) (2023-10-16)
+
+
+### Features
+
+* **client-entityresolution:** This launch expands our matching techniques to include provider-based matching to help customer match, link, and enhance records with minimal data movement. With data service providers, we have removed the need for customers to build bespoke integrations,. ([ba8b3ef](https://github.com/aws/aws-sdk-js-v3/commit/ba8b3ef5889ba54a536ad59530a80e13c506e504))
+
+
+
+
+
 # [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
 
 **Note:** Version bump only for package @aws-sdk/client-entityresolution

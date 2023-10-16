@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.429.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.428.0...v3.429.0) (2023-10-16)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** backwards compat for undefined columns ([#5365](https://github.com/aws/aws-sdk-js-v3/issues/5365)) ([65d5b36](https://github.com/aws/aws-sdk-js-v3/commit/65d5b36f435416d7271b3bd345632878ed7bc8e0))
+
+
+
+
+
 # [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
 
 

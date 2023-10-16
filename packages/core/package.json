@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/core",
-  "version": "3.425.0",
+  "version": "3.429.0",
   "description": "Core functions & classes shared by multiple AWS SDK clients",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
@@ -21,7 +21,6 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "dependencies": {},
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
