@@ -14,7 +14,12 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { CreateClusterMessage, CreateClusterResult } from "../models/models_0";
+import {
+  CreateClusterMessage,
+  CreateClusterMessageFilterSensitiveLog,
+  CreateClusterResult,
+  CreateClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -56,7 +61,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *   ClusterType: "STRING_VALUE",
  *   NodeType: "STRING_VALUE", // required
  *   MasterUsername: "STRING_VALUE", // required
- *   MasterUserPassword: "STRING_VALUE", // required
+ *   MasterUserPassword: "STRING_VALUE",
  *   ClusterSecurityGroups: [ // ClusterSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
@@ -96,6 +101,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *   AquaConfigurationStatus: "enabled" || "disabled" || "auto",
  *   DefaultIamRoleArn: "STRING_VALUE",
  *   LoadSampleData: "STRING_VALUE",
+ *   ManageMasterPassword: true || false,
+ *   MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -273,6 +280,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * //     CustomDomainName: "STRING_VALUE",
  * //     CustomDomainCertificateArn: "STRING_VALUE",
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
+ * //     MasterPasswordSecretArn: "STRING_VALUE",
+ * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -415,8 +424,8 @@ export class CreateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CreateClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateClusterResultFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServiceVersion20121201",
         operation: "CreateCluster",

@@ -1642,6 +1642,18 @@ export interface Snapshot {
    * <p>A timestamp representing the start of the retention period for the snapshot.</p>
    */
   SnapshotRetentionStartTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.</p>
+   */
+  MasterPasswordSecretArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.</p>
+   */
+  MasterPasswordSecretKmsKeyId?: string;
 }
 
 /**
@@ -3294,6 +3306,18 @@ export interface Cluster {
    * <p>The expiration date for the certificate associated with the custom domain name.</p>
    */
   CustomDomainCertificateExpiryDate?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.</p>
+   */
+  MasterPasswordSecretArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.</p>
+   */
+  MasterPasswordSecretKmsKeyId?: string;
 }
 
 /**
@@ -4379,6 +4403,7 @@ export interface CreateClusterMessage {
    * @public
    * <p>The password associated with the admin user account for the cluster that is being
    *             created.</p>
+   *          <p>You can't use <code>MasterUserPassword</code> if <code>ManageMasterPassword</code> is <code>true</code>.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -4399,7 +4424,7 @@ export interface CreateClusterMessage {
    *             </li>
    *          </ul>
    */
-  MasterUserPassword: string | undefined;
+  MasterUserPassword?: string;
 
   /**
    * @public
@@ -4664,6 +4689,23 @@ export interface CreateClusterMessage {
    * <p>A flag that specifies whether to load sample data once the cluster is created.</p>
    */
   LoadSampleData?: string;
+
+  /**
+   * @public
+   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage this cluster's admin credentials.
+   *             You can't use <code>MasterUserPassword</code> if <code>ManageMasterPassword</code> is true.
+   *             If <code>ManageMasterPassword</code> is false or not set, Amazon Redshift uses
+   *             <code>MasterUserPassword</code> for the admin user account's password.
+   *         </p>
+   */
+  ManageMasterPassword?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.
+   *             You can only use this parameter if <code>ManageMasterPassword</code> is true.</p>
+   */
+  MasterPasswordSecretKmsKeyId?: string;
 }
 
 /**
@@ -8826,6 +8868,24 @@ export interface EventCategoriesMap {
 /**
  * @internal
  */
+export const PendingModifiedValuesFilterSensitiveLog = (obj: PendingModifiedValues): any => ({
+  ...obj,
+  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
+  ...obj,
+  ...(obj.PendingModifiedValues && {
+    PendingModifiedValues: PendingModifiedValuesFilterSensitiveLog(obj.PendingModifiedValues),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const ClusterCredentialsFilterSensitiveLog = (obj: ClusterCredentials): any => ({
   ...obj,
   ...(obj.DbPassword && { DbPassword: SENSITIVE_STRING }),
@@ -8837,4 +8897,36 @@ export const ClusterCredentialsFilterSensitiveLog = (obj: ClusterCredentials): a
 export const ClusterExtendedCredentialsFilterSensitiveLog = (obj: ClusterExtendedCredentials): any => ({
   ...obj,
   ...(obj.DbPassword && { DbPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ClustersMessageFilterSensitiveLog = (obj: ClustersMessage): any => ({
+  ...obj,
+  ...(obj.Clusters && { Clusters: obj.Clusters.map((item) => ClusterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterMessageFilterSensitiveLog = (obj: CreateClusterMessage): any => ({
+  ...obj,
+  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterResultFilterSensitiveLog = (obj: CreateClusterResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteClusterResultFilterSensitiveLog = (obj: DeleteClusterResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
 });

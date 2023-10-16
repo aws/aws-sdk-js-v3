@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ResumeClusterMessage } from "../models/models_0";
-import { ResumeClusterResult } from "../models/models_1";
+import { ResumeClusterResult, ResumeClusterResultFilterSensitiveLog } from "../models/models_1";
 import { de_ResumeClusterCommand, se_ResumeClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -224,6 +224,8 @@ export interface ResumeClusterCommandOutput extends ResumeClusterResult, __Metad
  * //     CustomDomainName: "STRING_VALUE",
  * //     CustomDomainCertificateArn: "STRING_VALUE",
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
+ * //     MasterPasswordSecretArn: "STRING_VALUE",
+ * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -297,7 +299,7 @@ export class ResumeClusterCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ResumeClusterResultFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServiceVersion20121201",
         operation: "ResumeCluster",

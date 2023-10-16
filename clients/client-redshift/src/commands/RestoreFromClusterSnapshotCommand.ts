@@ -14,7 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { RestoreFromClusterSnapshotMessage, RestoreFromClusterSnapshotResult } from "../models/models_1";
+import {
+  RestoreFromClusterSnapshotMessage,
+  RestoreFromClusterSnapshotResult,
+  RestoreFromClusterSnapshotResultFilterSensitiveLog,
+} from "../models/models_1";
 import { de_RestoreFromClusterSnapshotCommand, se_RestoreFromClusterSnapshotCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -95,6 +99,8 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  *   ReservedNodeId: "STRING_VALUE",
  *   TargetReservedNodeOfferingId: "STRING_VALUE",
  *   Encrypted: true || false,
+ *   ManageMasterPassword: true || false,
+ *   MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * };
  * const command = new RestoreFromClusterSnapshotCommand(input);
  * const response = await client.send(command);
@@ -272,6 +278,8 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * //     CustomDomainName: "STRING_VALUE",
  * //     CustomDomainCertificateArn: "STRING_VALUE",
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
+ * //     MasterPasswordSecretArn: "STRING_VALUE",
+ * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -449,7 +457,7 @@ export class RestoreFromClusterSnapshotCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: RestoreFromClusterSnapshotResultFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServiceVersion20121201",
         operation: "RestoreFromClusterSnapshot",

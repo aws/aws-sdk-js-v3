@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { RebootClusterMessage, RebootClusterResult } from "../models/models_1";
+import { RebootClusterMessage, RebootClusterResult, RebootClusterResultFilterSensitiveLog } from "../models/models_1";
 import { de_RebootClusterCommand, se_RebootClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -230,6 +230,8 @@ export interface RebootClusterCommandOutput extends RebootClusterResult, __Metad
  * //     CustomDomainName: "STRING_VALUE",
  * //     CustomDomainCertificateArn: "STRING_VALUE",
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
+ * //     MasterPasswordSecretArn: "STRING_VALUE",
+ * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -299,7 +301,7 @@ export class RebootClusterCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: RebootClusterResultFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServiceVersion20121201",
         operation: "RebootCluster",

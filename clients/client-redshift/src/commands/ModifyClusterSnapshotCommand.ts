@@ -100,6 +100,8 @@ export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapsho
  * //     ManualSnapshotRetentionPeriod: Number("int"),
  * //     ManualSnapshotRemainingDays: Number("int"),
  * //     SnapshotRetentionStartTime: new Date("TIMESTAMP"),
+ * //     MasterPasswordSecretArn: "STRING_VALUE",
+ * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *

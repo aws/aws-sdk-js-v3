@@ -11985,6 +11985,12 @@ const se_CreateClusterMessage = (input: CreateClusterMessage, context: __SerdeCo
   if (input.LoadSampleData != null) {
     entries["LoadSampleData"] = input.LoadSampleData;
   }
+  if (input.ManageMasterPassword != null) {
+    entries["ManageMasterPassword"] = input.ManageMasterPassword;
+  }
+  if (input.MasterPasswordSecretKmsKeyId != null) {
+    entries["MasterPasswordSecretKmsKeyId"] = input.MasterPasswordSecretKmsKeyId;
+  }
   return entries;
 };
 
@@ -14179,6 +14185,12 @@ const se_ModifyClusterMessage = (input: ModifyClusterMessage, context: __SerdeCo
   if (input.Port != null) {
     entries["Port"] = input.Port;
   }
+  if (input.ManageMasterPassword != null) {
+    entries["ManageMasterPassword"] = input.ManageMasterPassword;
+  }
+  if (input.MasterPasswordSecretKmsKeyId != null) {
+    entries["MasterPasswordSecretKmsKeyId"] = input.MasterPasswordSecretKmsKeyId;
+  }
   return entries;
 };
 
@@ -14798,6 +14810,12 @@ const se_RestoreFromClusterSnapshotMessage = (
   }
   if (input.Encrypted != null) {
     entries["Encrypted"] = input.Encrypted;
+  }
+  if (input.ManageMasterPassword != null) {
+    entries["ManageMasterPassword"] = input.ManageMasterPassword;
+  }
+  if (input.MasterPasswordSecretKmsKeyId != null) {
+    entries["MasterPasswordSecretKmsKeyId"] = input.MasterPasswordSecretKmsKeyId;
   }
   return entries;
 };
@@ -15947,6 +15965,12 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     contents.CustomDomainCertificateExpiryDate = __expectNonNull(
       __parseRfc3339DateTimeWithOffset(output["CustomDomainCertificateExpiryDate"])
     );
+  }
+  if (output["MasterPasswordSecretArn"] !== undefined) {
+    contents.MasterPasswordSecretArn = __expectString(output["MasterPasswordSecretArn"]);
+  }
+  if (output["MasterPasswordSecretKmsKeyId"] !== undefined) {
+    contents.MasterPasswordSecretKmsKeyId = __expectString(output["MasterPasswordSecretKmsKeyId"]);
   }
   return contents;
 };
@@ -20230,6 +20254,12 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
     contents.SnapshotRetentionStartTime = __expectNonNull(
       __parseRfc3339DateTimeWithOffset(output["SnapshotRetentionStartTime"])
     );
+  }
+  if (output["MasterPasswordSecretArn"] !== undefined) {
+    contents.MasterPasswordSecretArn = __expectString(output["MasterPasswordSecretArn"]);
+  }
+  if (output["MasterPasswordSecretKmsKeyId"] !== undefined) {
+    contents.MasterPasswordSecretKmsKeyId = __expectString(output["MasterPasswordSecretKmsKeyId"]);
   }
   return contents;
 };

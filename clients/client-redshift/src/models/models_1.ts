@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   ActionType,
@@ -7,6 +7,7 @@ import {
   AquaConfigurationStatus,
   AvailabilityZone,
   Cluster,
+  ClusterFilterSensitiveLog,
   ClusterSecurityGroup,
   ClusterSubnetGroup,
   EventCategoriesMap,
@@ -2878,6 +2879,7 @@ export interface ModifyClusterMessage {
    *             as soon as possible. Between the time of the request and the completion of the request,
    *             the <code>MasterUserPassword</code> element exists in the
    *                 <code>PendingModifiedValues</code> element of the operation response. </p>
+   *          <p>You can't use <code>MasterUserPassword</code> if <code>ManageMasterPassword</code> is <code>true</code>.</p>
    *          <note>
    *             <p>Operations never return the password, so this operation provides a way to
    *                 regain access to the admin user account for a cluster if the password is
@@ -3093,6 +3095,23 @@ export interface ModifyClusterMessage {
    * <p>The option to change the port of an Amazon Redshift cluster.</p>
    */
   Port?: number;
+
+  /**
+   * @public
+   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage this cluster's admin credentials.
+   *             You can't use <code>MasterUserPassword</code> if <code>ManageMasterPassword</code> is true.
+   *             If <code>ManageMasterPassword</code> is false or not set, Amazon Redshift uses
+   *             <code>MasterUserPassword</code> for the admin user account's password.
+   *         </p>
+   */
+  ManageMasterPassword?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.
+   *             You can only use this parameter if <code>ManageMasterPassword</code> is true.</p>
+   */
+  MasterPasswordSecretKmsKeyId?: string;
 }
 
 /**
@@ -4206,6 +4225,21 @@ export interface RestoreFromClusterSnapshotMessage {
    *             with Key Management Service (KMS) and a customer managed key.</p>
    */
   Encrypted?: boolean;
+
+  /**
+   * @public
+   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the restored
+   *             cluster's admin credentials. If <code>ManageMasterPassword</code> is false or not set,
+   *             Amazon Redshift uses the admin credentials the cluster had at the time the snapshot was taken.</p>
+   */
+  ManageMasterPassword?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.
+   *             You can only use this parameter if <code>ManageMasterPassword</code> is true.</p>
+   */
+  MasterPasswordSecretKmsKeyId?: string;
 }
 
 /**
@@ -4500,3 +4534,117 @@ export interface UpdatePartnerStatusInputMessage {
    */
   StatusMessage?: string;
 }
+
+/**
+ * @internal
+ */
+export const DisableSnapshotCopyResultFilterSensitiveLog = (obj: DisableSnapshotCopyResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const EnableSnapshotCopyResultFilterSensitiveLog = (obj: EnableSnapshotCopyResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterMessageFilterSensitiveLog = (obj: ModifyClusterMessage): any => ({
+  ...obj,
+  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterResultFilterSensitiveLog = (obj: ModifyClusterResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterDbRevisionResultFilterSensitiveLog = (obj: ModifyClusterDbRevisionResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterIamRolesResultFilterSensitiveLog = (obj: ModifyClusterIamRolesResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterMaintenanceResultFilterSensitiveLog = (obj: ModifyClusterMaintenanceResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifySnapshotCopyRetentionPeriodResultFilterSensitiveLog = (
+  obj: ModifySnapshotCopyRetentionPeriodResult
+): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const PauseClusterResultFilterSensitiveLog = (obj: PauseClusterResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const RebootClusterResultFilterSensitiveLog = (obj: RebootClusterResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const ResizeClusterResultFilterSensitiveLog = (obj: ResizeClusterResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const RestoreFromClusterSnapshotResultFilterSensitiveLog = (obj: RestoreFromClusterSnapshotResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const ResumeClusterResultFilterSensitiveLog = (obj: ResumeClusterResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const RotateEncryptionKeyResultFilterSensitiveLog = (obj: RotateEncryptionKeyResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});

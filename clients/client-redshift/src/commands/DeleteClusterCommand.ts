@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DeleteClusterMessage, DeleteClusterResult } from "../models/models_0";
+import { DeleteClusterMessage, DeleteClusterResult, DeleteClusterResultFilterSensitiveLog } from "../models/models_0";
 import { de_DeleteClusterCommand, se_DeleteClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -241,6 +241,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResult, __Metad
  * //     CustomDomainName: "STRING_VALUE",
  * //     CustomDomainCertificateArn: "STRING_VALUE",
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
+ * //     MasterPasswordSecretArn: "STRING_VALUE",
+ * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -322,7 +324,7 @@ export class DeleteClusterCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DeleteClusterResultFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServiceVersion20121201",
         operation: "DeleteCluster",

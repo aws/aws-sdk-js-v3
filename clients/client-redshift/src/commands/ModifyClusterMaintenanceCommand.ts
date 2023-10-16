@@ -14,7 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ModifyClusterMaintenanceMessage, ModifyClusterMaintenanceResult } from "../models/models_1";
+import {
+  ModifyClusterMaintenanceMessage,
+  ModifyClusterMaintenanceResult,
+  ModifyClusterMaintenanceResultFilterSensitiveLog,
+} from "../models/models_1";
 import { de_ModifyClusterMaintenanceCommand, se_ModifyClusterMaintenanceCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -228,6 +232,8 @@ export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMain
  * //     CustomDomainName: "STRING_VALUE",
  * //     CustomDomainCertificateArn: "STRING_VALUE",
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
+ * //     MasterPasswordSecretArn: "STRING_VALUE",
+ * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -299,7 +305,7 @@ export class ModifyClusterMaintenanceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ModifyClusterMaintenanceResultFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServiceVersion20121201",
         operation: "ModifyClusterMaintenance",

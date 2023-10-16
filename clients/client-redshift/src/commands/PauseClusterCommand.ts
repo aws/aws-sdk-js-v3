@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { PauseClusterMessage } from "../models/models_0";
-import { PauseClusterResult } from "../models/models_1";
+import { PauseClusterResult, PauseClusterResultFilterSensitiveLog } from "../models/models_1";
 import { de_PauseClusterCommand, se_PauseClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -224,6 +224,8 @@ export interface PauseClusterCommandOutput extends PauseClusterResult, __Metadat
  * //     CustomDomainName: "STRING_VALUE",
  * //     CustomDomainCertificateArn: "STRING_VALUE",
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
+ * //     MasterPasswordSecretArn: "STRING_VALUE",
+ * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -293,7 +295,7 @@ export class PauseClusterCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: PauseClusterResultFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServiceVersion20121201",
         operation: "PauseCluster",

@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ClustersMessage, DescribeClustersMessage } from "../models/models_0";
+import { ClustersMessage, ClustersMessageFilterSensitiveLog, DescribeClustersMessage } from "../models/models_0";
 import { de_DescribeClustersCommand, se_DescribeClustersCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -245,6 +245,8 @@ export interface DescribeClustersCommandOutput extends ClustersMessage, __Metada
  * //       CustomDomainName: "STRING_VALUE",
  * //       CustomDomainCertificateArn: "STRING_VALUE",
  * //       CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
+ * //       MasterPasswordSecretArn: "STRING_VALUE",
+ * //       MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -317,7 +319,7 @@ export class DescribeClustersCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ClustersMessageFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServiceVersion20121201",
         operation: "DescribeClusters",

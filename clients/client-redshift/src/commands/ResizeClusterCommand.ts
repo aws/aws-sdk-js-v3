@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ResizeClusterMessage } from "../models/models_0";
-import { ResizeClusterResult } from "../models/models_1";
+import { ResizeClusterResult, ResizeClusterResultFilterSensitiveLog } from "../models/models_1";
 import { de_ResizeClusterCommand, se_ResizeClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -272,6 +272,8 @@ export interface ResizeClusterCommandOutput extends ResizeClusterResult, __Metad
  * //     CustomDomainName: "STRING_VALUE",
  * //     CustomDomainCertificateArn: "STRING_VALUE",
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
+ * //     MasterPasswordSecretArn: "STRING_VALUE",
+ * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -386,7 +388,7 @@ export class ResizeClusterCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ResizeClusterResultFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServiceVersion20121201",
         operation: "ResizeCluster",

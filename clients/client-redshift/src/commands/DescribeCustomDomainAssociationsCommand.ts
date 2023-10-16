@@ -42,7 +42,7 @@ export interface DescribeCustomDomainAssociationsCommandOutput
 
 /**
  * @public
- * <p>Contains information for custom domain associations for a cluster.</p>
+ * <p>Contains information about custom domain associations for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -14,7 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { RotateEncryptionKeyMessage, RotateEncryptionKeyResult } from "../models/models_1";
+import {
+  RotateEncryptionKeyMessage,
+  RotateEncryptionKeyResult,
+  RotateEncryptionKeyResultFilterSensitiveLog,
+} from "../models/models_1";
 import { de_RotateEncryptionKeyCommand, se_RotateEncryptionKeyCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -223,6 +227,8 @@ export interface RotateEncryptionKeyCommandOutput extends RotateEncryptionKeyRes
  * //     CustomDomainName: "STRING_VALUE",
  * //     CustomDomainCertificateArn: "STRING_VALUE",
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
+ * //     MasterPasswordSecretArn: "STRING_VALUE",
+ * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -298,7 +304,7 @@ export class RotateEncryptionKeyCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: RotateEncryptionKeyResultFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServiceVersion20121201",
         operation: "RotateEncryptionKey",
