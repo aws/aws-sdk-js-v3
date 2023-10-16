@@ -526,7 +526,7 @@ export interface CreateAccessRequest {
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
    *          <note>
-   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>
    *          </note>
    */
   HomeDirectory?: string;
@@ -1780,7 +1780,7 @@ export interface CreateUserRequest {
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
    *          <note>
-   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>
    *          </note>
    */
   HomeDirectory?: string;
@@ -2567,7 +2567,7 @@ export interface DescribedAccess {
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
    *          <note>
-   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>
    *          </note>
    */
   HomeDirectory?: string;
@@ -3840,7 +3840,7 @@ export interface DescribedUser {
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
    *          <note>
-   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>
    *          </note>
    */
   HomeDirectory?: string;
@@ -4396,7 +4396,7 @@ export interface ListedAccess {
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
    *          <note>
-   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>
    *          </note>
    */
   HomeDirectory?: string;
@@ -4951,7 +4951,7 @@ export interface ListedUser {
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
    *          <note>
-   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>
    *          </note>
    */
   HomeDirectory?: string;
@@ -5715,7 +5715,7 @@ export interface UpdateAccessRequest {
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
    *          <note>
-   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>
    *          </note>
    */
   HomeDirectory?: string;
@@ -6408,7 +6408,7 @@ export interface UpdateUserRequest {
    * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
    *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
    *          <note>
-   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *             <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>
    *          </note>
    */
   HomeDirectory?: string;
