@@ -82,7 +82,7 @@ export interface IncrementalRunConfig {
    * @public
    * <p>The type of incremental run. It takes only one value: <code>IMMEDIATE</code>.</p>
    */
-  incrementalRunType?: IncrementalRunType | string;
+  incrementalRunType?: IncrementalRunType;
 }
 
 /**
@@ -228,7 +228,7 @@ export interface RuleBasedProperties {
    *          the sub-types are exact matches. For example, only when the value of the <code>Email</code> field of Profile A and the value of
    *          the <code>Email</code> field of Profile B matches, the two profiles are matched on the <code>Email</code> type.</p>
    */
-  attributeMatchingModel: AttributeMatchingModel | string | undefined;
+  attributeMatchingModel: AttributeMatchingModel | undefined;
 }
 
 /**
@@ -242,7 +242,7 @@ export interface ResolutionTechniques {
    * <p>The type of matching. There are two types of matching: <code>RULE_MATCHING</code> and
    *             <code>ML_MATCHING</code>.</p>
    */
-  resolutionType: ResolutionType | string | undefined;
+  resolutionType: ResolutionType | undefined;
 
   /**
    * @public
@@ -516,7 +516,7 @@ export interface SchemaInputAttribute {
    * @public
    * <p>The type of the attribute, selected from a list of values.</p>
    */
-  type: SchemaAttributeType | string | undefined;
+  type: SchemaAttributeType | undefined;
 
   /**
    * @public
@@ -787,7 +787,7 @@ export interface GetMatchingJobOutput {
    * @public
    * <p>The current status of the job.</p>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 
   /**
    * @public
@@ -1000,7 +1000,7 @@ export interface JobSummary {
    * @public
    * <p>The current status of the job.</p>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 
   /**
    * @public

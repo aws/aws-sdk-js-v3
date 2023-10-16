@@ -58,7 +58,7 @@ export interface ExportServerSideEncryption {
    * @public
    * <p>The type of server side encryption used for encrypting the objects in Amazon S3.</p>
    */
-  Type: ServerSideEncryptionTypes | string | undefined;
+  Type: ServerSideEncryptionTypes | undefined;
 }
 
 /**
@@ -173,7 +173,7 @@ export interface ApiGatewayApiAsset {
    * @public
    * <p>The protocol type of the API asset.</p>
    */
-  ProtocolType?: ProtocolType | string;
+  ProtocolType?: ProtocolType;
 
   /**
    * @public
@@ -295,7 +295,7 @@ export interface LFTagPolicyDetails {
    * @public
    * <p>The resource type for which the LF-tag policy applies.</p>
    */
-  ResourceType: LFResourceType | string | undefined;
+  ResourceType: LFResourceType | undefined;
 
   /**
    * @public
@@ -359,13 +359,13 @@ export interface LakeFormationDataPermissionAsset {
    * @public
    * <p>The data permission type.</p>
    */
-  LakeFormationDataPermissionType: LakeFormationDataPermissionType | string | undefined;
+  LakeFormationDataPermissionType: LakeFormationDataPermissionType | undefined;
 
   /**
    * @public
    * <p>The permissions granted to the subscribers on the resource.</p>
    */
-  Permissions: (LFPermission | string)[] | undefined;
+  Permissions: LFPermission[] | undefined;
 
   /**
    * @public
@@ -539,7 +539,7 @@ export interface AssetEntry {
    * @public
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType: AssetType | string | undefined;
+  AssetType: AssetType | undefined;
 
   /**
    * @public
@@ -659,7 +659,7 @@ export class ConflictException extends __BaseException {
    * @public
    * <p>The type of the resource with the conflict.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
   /**
    * @internal
    */
@@ -725,7 +725,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The type of resource that couldn't be found.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
   /**
    * @internal
    */
@@ -799,7 +799,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The unique identifier for the resource that couldn't be found.</p>
    */
-  ExceptionCause?: ExceptionCause | string;
+  ExceptionCause?: ExceptionCause;
   /**
    * @internal
    */
@@ -842,7 +842,7 @@ export interface CreateDataSetRequest {
    * @public
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType: AssetType | string | undefined;
+  AssetType: AssetType | undefined;
 
   /**
    * @public
@@ -903,7 +903,7 @@ export interface CreateDataSetResponse {
    * @public
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType?: AssetType | string;
+  AssetType?: AssetType;
 
   /**
    * @public
@@ -933,7 +933,7 @@ export interface CreateDataSetResponse {
    * @public
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
    */
-  Origin?: Origin | string;
+  Origin?: Origin;
 
   /**
    * @public
@@ -1022,7 +1022,7 @@ export class ServiceLimitExceededException extends __BaseException {
    * @public
    * <p>The name of the limit that was reached.</p>
    */
-  LimitName?: LimitName | string;
+  LimitName?: LimitName;
 
   /**
    * @public
@@ -1335,7 +1335,7 @@ export interface ImportAssetFromApiGatewayApiRequestDetails {
    * @public
    * <p>The protocol type.</p>
    */
-  ProtocolType: ProtocolType | string | undefined;
+  ProtocolType: ProtocolType | undefined;
 
   /**
    * @public
@@ -1409,7 +1409,7 @@ export interface DatabaseLFTagPolicyAndPermissions {
    * @public
    * <p>The permissions granted to subscribers on database resources.</p>
    */
-  Permissions: (DatabaseLFTagPolicyPermission | string)[] | undefined;
+  Permissions: DatabaseLFTagPolicyPermission[] | undefined;
 }
 
 /**
@@ -1441,7 +1441,7 @@ export interface TableLFTagPolicyAndPermissions {
    * @public
    * <p>The permissions granted to subscribers on table resources.</p>
    */
-  Permissions: (TableTagPolicyLFPermission | string)[] | undefined;
+  Permissions: TableTagPolicyLFPermission[] | undefined;
 }
 
 /**
@@ -1641,7 +1641,7 @@ export interface CreateJobRequest {
    * @public
    * <p>The type of job to be created.</p>
    */
-  Type: Type | string | undefined;
+  Type: Type | undefined;
 }
 
 /**
@@ -1821,7 +1821,7 @@ export interface ImportAssetFromApiGatewayApiResponseDetails {
    * @public
    * <p>The protocol type.</p>
    */
-  ProtocolType: ProtocolType | string | undefined;
+  ProtocolType: ProtocolType | undefined;
 
   /**
    * @public
@@ -2099,7 +2099,7 @@ export interface JobError {
    * @public
    * <p>The code for the job error.</p>
    */
-  Code: Code | string | undefined;
+  Code: Code | undefined;
 
   /**
    * @public
@@ -2111,7 +2111,7 @@ export interface JobError {
    * @public
    * <p>The name of the limit that was reached.</p>
    */
-  LimitName?: JobErrorLimitName | string;
+  LimitName?: JobErrorLimitName;
 
   /**
    * @public
@@ -2135,7 +2135,7 @@ export interface JobError {
    * @public
    * <p>The type of resource related to the error.</p>
    */
-  ResourceType?: JobErrorResourceTypes | string;
+  ResourceType?: JobErrorResourceTypes;
 }
 
 /**
@@ -2194,13 +2194,13 @@ export interface CreateJobResponse {
    * @public
    * <p>The state of the job.</p>
    */
-  State?: State | string;
+  State?: State;
 
   /**
    * @public
    * <p>The job type.</p>
    */
-  Type?: Type | string;
+  Type?: Type;
 
   /**
    * @public
@@ -2414,7 +2414,7 @@ export interface GetAssetResponse {
    * @public
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType?: AssetType | string;
+  AssetType?: AssetType;
 
   /**
    * @public
@@ -2490,7 +2490,7 @@ export interface GetDataSetResponse {
    * @public
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType?: AssetType | string;
+  AssetType?: AssetType;
 
   /**
    * @public
@@ -2520,7 +2520,7 @@ export interface GetDataSetResponse {
    * @public
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
    */
-  Origin?: Origin | string;
+  Origin?: Origin;
 
   /**
    * @public
@@ -2648,13 +2648,13 @@ export interface GetJobResponse {
    * @public
    * <p>The state of the job.</p>
    */
-  State?: State | string;
+  State?: State;
 
   /**
    * @public
    * <p>The job type.</p>
    */
-  Type?: Type | string;
+  Type?: Type;
 
   /**
    * @public
@@ -2907,7 +2907,7 @@ export interface DataSetEntry {
    * @public
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType: AssetType | string | undefined;
+  AssetType: AssetType | undefined;
 
   /**
    * @public
@@ -2937,7 +2937,7 @@ export interface DataSetEntry {
    * @public
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
    */
-  Origin: Origin | string | undefined;
+  Origin: Origin | undefined;
 
   /**
    * @public
@@ -3125,13 +3125,13 @@ export interface JobEntry {
    * @public
    * <p>The state of the job.</p>
    */
-  State: State | string | undefined;
+  State: State | undefined;
 
   /**
    * @public
    * <p>The job type.</p>
    */
-  Type: Type | string | undefined;
+  Type: Type | undefined;
 
   /**
    * @public
@@ -3494,7 +3494,7 @@ export interface UpdateAssetResponse {
    * @public
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType?: AssetType | string;
+  AssetType?: AssetType;
 
   /**
    * @public
@@ -3582,7 +3582,7 @@ export interface UpdateDataSetResponse {
    * @public
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType?: AssetType | string;
+  AssetType?: AssetType;
 
   /**
    * @public
@@ -3612,7 +3612,7 @@ export interface UpdateDataSetResponse {
    * @public
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
    */
-  Origin?: Origin | string;
+  Origin?: Origin;
 
   /**
    * @public

@@ -76,7 +76,7 @@ export interface IpSet {
    * @public
    * <p>The types of IP addresses included in this IP set. </p>
    */
-  IpAddressFamily?: IpAddressFamily | string;
+  IpAddressFamily?: IpAddressFamily;
 }
 
 /**
@@ -116,7 +116,7 @@ export interface Accelerator {
    * @public
    * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -148,7 +148,7 @@ export interface Accelerator {
    * @public
    * <p>Describes the deployment status of the accelerator.</p>
    */
-  Status?: AcceleratorStatus | string;
+  Status?: AcceleratorStatus;
 
   /**
    * @public
@@ -574,7 +574,7 @@ export interface EndpointDescription {
    * @public
    * <p>The health status of the endpoint.</p>
    */
-  HealthState?: HealthState | string;
+  HealthState?: HealthState;
 
   /**
    * @public
@@ -777,7 +777,7 @@ export interface ByoipCidr {
    * @public
    * <p>The state of the address pool.</p>
    */
-  State?: ByoipCidrState | string;
+  State?: ByoipCidrState;
 
   /**
    * @public
@@ -1003,7 +1003,7 @@ export interface CreateAcceleratorRequest {
    * @public
    * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -1071,7 +1071,7 @@ export interface CreateCustomRoutingAcceleratorRequest {
    * @public
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -1150,7 +1150,7 @@ export interface CustomRoutingAccelerator {
    * @public
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -1182,7 +1182,7 @@ export interface CustomRoutingAccelerator {
    * @public
    * <p>Describes the deployment status of the accelerator.</p>
    */
-  Status?: CustomRoutingAcceleratorStatus | string;
+  Status?: CustomRoutingAcceleratorStatus;
 
   /**
    * @public
@@ -1244,7 +1244,7 @@ export interface CustomRoutingDestinationConfiguration {
    * @public
    * <p>The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP.</p>
    */
-  Protocols: (CustomRoutingProtocol | string)[] | undefined;
+  Protocols: CustomRoutingProtocol[] | undefined;
 }
 
 /**
@@ -1315,7 +1315,7 @@ export interface CustomRoutingDestinationDescription {
    * @public
    * <p>The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP.</p>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: Protocol[];
 }
 
 /**
@@ -1589,7 +1589,7 @@ export interface CreateEndpointGroupRequest {
    * <p>The protocol that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
-  HealthCheckProtocol?: HealthCheckProtocol | string;
+  HealthCheckProtocol?: HealthCheckProtocol;
 
   /**
    * @public
@@ -1677,7 +1677,7 @@ export interface EndpointGroup {
    * <p>The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
-  HealthCheckProtocol?: HealthCheckProtocol | string;
+  HealthCheckProtocol?: HealthCheckProtocol;
 
   /**
    * @public
@@ -1740,7 +1740,7 @@ export interface CreateListenerRequest {
    * @public
    * <p>The protocol for connections from clients to your accelerator.</p>
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: Protocol | undefined;
 
   /**
    * @public
@@ -1757,7 +1757,7 @@ export interface CreateListenerRequest {
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
    *          <p>The default value is <code>NONE</code>.</p>
    */
-  ClientAffinity?: ClientAffinity | string;
+  ClientAffinity?: ClientAffinity;
 
   /**
    * @public
@@ -1788,7 +1788,7 @@ export interface Listener {
    * @public
    * <p>The protocol for the connections from clients to the accelerator.</p>
    */
-  Protocol?: Protocol | string;
+  Protocol?: Protocol;
 
   /**
    * @public
@@ -1805,7 +1805,7 @@ export interface Listener {
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
    *          <p>The default value is <code>NONE</code>.</p>
    */
-  ClientAffinity?: ClientAffinity | string;
+  ClientAffinity?: ClientAffinity;
 }
 
 /**
@@ -2242,14 +2242,14 @@ export interface DestinationPortMapping {
    * @public
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
    * <p>Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if
    * 			traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination.</p>
    */
-  DestinationTrafficState?: CustomRoutingDestinationTrafficState | string;
+  DestinationTrafficState?: CustomRoutingDestinationTrafficState;
 }
 
 /**
@@ -2567,14 +2567,14 @@ export interface PortMapping {
    * @public
    * <p>The protocols supported by the endpoint group.</p>
    */
-  Protocols?: (CustomRoutingProtocol | string)[];
+  Protocols?: CustomRoutingProtocol[];
 
   /**
    * @public
    * <p>Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if
    * 			traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination.</p>
    */
-  DestinationTrafficState?: CustomRoutingDestinationTrafficState | string;
+  DestinationTrafficState?: CustomRoutingDestinationTrafficState;
 }
 
 /**
@@ -2875,7 +2875,7 @@ export interface UpdateAcceleratorRequest {
    * @public
    * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -2966,7 +2966,7 @@ export interface UpdateCustomRoutingAcceleratorRequest {
    * @public
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -3106,7 +3106,7 @@ export interface UpdateEndpointGroupRequest {
    * <p>The protocol that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
-  HealthCheckProtocol?: HealthCheckProtocol | string;
+  HealthCheckProtocol?: HealthCheckProtocol;
 
   /**
    * @public
@@ -3171,7 +3171,7 @@ export interface UpdateListenerRequest {
    * @public
    * <p>The updated protocol for the connections from clients to the accelerator.</p>
    */
-  Protocol?: Protocol | string;
+  Protocol?: Protocol;
 
   /**
    * @public
@@ -3188,7 +3188,7 @@ export interface UpdateListenerRequest {
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
    *          <p>The default value is <code>NONE</code>.</p>
    */
-  ClientAffinity?: ClientAffinity | string;
+  ClientAffinity?: ClientAffinity;
 }
 
 /**

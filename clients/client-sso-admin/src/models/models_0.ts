@@ -104,7 +104,7 @@ export interface AccountAssignment {
    * @public
    * <p>The entity type for which the assignment will be created.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: PrincipalType;
 
   /**
    * @public
@@ -151,7 +151,7 @@ export interface AccountAssignmentOperationStatus {
    * @public
    * <p>The status of the permission set provisioning process.</p>
    */
-  Status?: StatusValues | string;
+  Status?: StatusValues;
 
   /**
    * @public
@@ -176,7 +176,7 @@ export interface AccountAssignmentOperationStatus {
    * @public
    * <p>The entity type for which the assignment will be created.</p>
    */
-  TargetType?: TargetType | string;
+  TargetType?: TargetType;
 
   /**
    * @public
@@ -189,7 +189,7 @@ export interface AccountAssignmentOperationStatus {
    * @public
    * <p>The entity type for which the assignment will be created.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: PrincipalType;
 
   /**
    * @public
@@ -214,7 +214,7 @@ export interface AccountAssignmentOperationStatusMetadata {
    * @public
    * <p>The status of the permission set provisioning process.</p>
    */
-  Status?: StatusValues | string;
+  Status?: StatusValues;
 
   /**
    * @public
@@ -485,7 +485,7 @@ export interface CreateAccountAssignmentRequest {
    * @public
    * <p>The entity type for which the assignment will be created.</p>
    */
-  TargetType: TargetType | string | undefined;
+  TargetType: TargetType | undefined;
 
   /**
    * @public
@@ -498,7 +498,7 @@ export interface CreateAccountAssignmentRequest {
    * @public
    * <p>The entity type for which the assignment will be created.</p>
    */
-  PrincipalType: PrincipalType | string | undefined;
+  PrincipalType: PrincipalType | undefined;
 
   /**
    * @public
@@ -699,7 +699,7 @@ export interface DeleteAccountAssignmentRequest {
    * @public
    * <p>The entity type for which the assignment will be deleted.</p>
    */
-  TargetType: TargetType | string | undefined;
+  TargetType: TargetType | undefined;
 
   /**
    * @public
@@ -711,7 +711,7 @@ export interface DeleteAccountAssignmentRequest {
    * @public
    * <p>The entity type for which the assignment will be deleted.</p>
    */
-  PrincipalType: PrincipalType | string | undefined;
+  PrincipalType: PrincipalType | undefined;
 
   /**
    * @public
@@ -908,7 +908,7 @@ export interface DescribeInstanceAccessControlAttributeConfigurationResponse {
    * @public
    * <p>The status of the attribute configuration process.</p>
    */
-  Status?: InstanceAccessControlAttributeConfigurationStatus | string;
+  Status?: InstanceAccessControlAttributeConfigurationStatus;
 
   /**
    * @public
@@ -982,7 +982,7 @@ export interface PermissionSetProvisioningStatus {
    * @public
    * <p>The status of the permission set provisioning process.</p>
    */
-  Status?: StatusValues | string;
+  Status?: StatusValues;
 
   /**
    * @public
@@ -1204,7 +1204,7 @@ export interface OperationStatusFilter {
    * @public
    * <p>Filters the list operations result based on the status attribute.</p>
    */
-  Status?: StatusValues | string;
+  Status?: StatusValues;
 }
 
 /**
@@ -1390,7 +1390,7 @@ export interface ListAccountsForProvisionedPermissionSetRequest {
    * @public
    * <p>The permission set provisioning status for an Amazon Web Services account.</p>
    */
-  ProvisioningStatus?: ProvisioningStatus | string;
+  ProvisioningStatus?: ProvisioningStatus;
 
   /**
    * @public
@@ -1592,7 +1592,7 @@ export interface PermissionSetProvisioningStatusMetadata {
    * @public
    * <p>The status of the permission set provisioning process.</p>
    */
-  Status?: StatusValues | string;
+  Status?: StatusValues;
 
   /**
    * @public
@@ -1687,7 +1687,7 @@ export interface ListPermissionSetsProvisionedToAccountRequest {
    * @public
    * <p>The status object for the permission set provisioning operation.</p>
    */
-  ProvisioningStatus?: ProvisioningStatus | string;
+  ProvisioningStatus?: ProvisioningStatus;
 
   /**
    * @public
@@ -1801,7 +1801,7 @@ export interface ProvisionPermissionSetRequest {
    * @public
    * <p>The entity type for which the assignment will be created.</p>
    */
-  TargetType: ProvisionTargetType | string | undefined;
+  TargetType: ProvisionTargetType | undefined;
 }
 
 /**

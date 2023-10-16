@@ -51,7 +51,7 @@ export interface AcceptPageRequest {
    * @public
    * <p>The type indicates if the page was <code>DELIVERED</code> or <code>READ</code>.</p>
    */
-  AcceptType: AcceptType | string | undefined;
+  AcceptType: AcceptType | undefined;
 
   /**
    * @public
@@ -76,7 +76,7 @@ export interface AcceptPageRequest {
    *             <code>AcceptCode</code> validation. Ignoring <code>AcceptCode</code> validation causes
    *          Incident Manager to accept any value entered for the <code>AcceptCode</code>.</p>
    */
-  AcceptCodeValidation?: AcceptCodeValidation | string;
+  AcceptCodeValidation?: AcceptCodeValidation;
 }
 
 /**
@@ -258,7 +258,7 @@ export class ValidationException extends __BaseException {
    * @public
    * Reason the request failed validation
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -459,7 +459,7 @@ export interface Contact {
    * <p>Refers to the type of contact. A single contact is type <code>PERSONAL</code> and an
    *          escalation plan is type <code>ESCALATION</code>.</p>
    */
-  Type: ContactType | string | undefined;
+  Type: ContactType | undefined;
 }
 
 /**
@@ -524,7 +524,7 @@ export interface ContactChannel {
    *             </li>
    *          </ul>
    */
-  Type?: ChannelType | string;
+  Type?: ChannelType;
 
   /**
    * @public
@@ -537,7 +537,7 @@ export interface ContactChannel {
    * <p>A Boolean value describing if the contact channel has been activated or not. If the
    *          contact channel isn't activated, Incident Manager can't engage the contact through it.</p>
    */
-  ActivationStatus: ActivationStatus | string | undefined;
+  ActivationStatus: ActivationStatus | undefined;
 }
 
 /**
@@ -696,7 +696,7 @@ export interface CreateContactRequest {
    * <p>To create an escalation plan use <code>ESCALATION</code>. To create a contact use
    *             <code>PERSONAL</code>.</p>
    */
-  Type: ContactType | string | undefined;
+  Type: ContactType | undefined;
 
   /**
    * @public
@@ -840,7 +840,7 @@ export interface CreateContactChannelRequest {
    *             </li>
    *          </ul>
    */
-  Type: ChannelType | string | undefined;
+  Type: ChannelType | undefined;
 
   /**
    * @public
@@ -933,7 +933,7 @@ export interface WeeklySetting {
    * @public
    * <p>The day of the week when weekly recurring on-call shift rotations begins.</p>
    */
-  DayOfWeek: DayOfWeek | string | undefined;
+  DayOfWeek: DayOfWeek | undefined;
 
   /**
    * @public
@@ -978,7 +978,7 @@ export interface RecurrenceSettings {
    * @public
    * <p>Information about the days of the week included in on-call rotation coverage.</p>
    */
-  ShiftCoverages?: Record<string, CoverageTime[]>;
+  ShiftCoverages?: Record<DayOfWeek, CoverageTime[]>;
 
   /**
    * @public
@@ -1448,7 +1448,7 @@ export interface GetContactResult {
    * @public
    * <p>The type of contact, either <code>PERSONAL</code> or <code>ESCALATION</code>.</p>
    */
-  Type: ContactType | string | undefined;
+  Type: ContactType | undefined;
 
   /**
    * @public
@@ -1496,7 +1496,7 @@ export interface GetContactChannelResult {
    * <p>The type of contact channel. The type is <code>SMS</code>, <code>VOICE</code>, or
    *             <code>EMAIL</code>.</p>
    */
-  Type: ChannelType | string | undefined;
+  Type: ChannelType | undefined;
 
   /**
    * @public
@@ -1508,7 +1508,7 @@ export interface GetContactChannelResult {
    * @public
    * <p>A Boolean value indicating if the contact channel has been activated or not.</p>
    */
-  ActivationStatus?: ActivationStatus | string;
+  ActivationStatus?: ActivationStatus;
 }
 
 /**
@@ -1723,7 +1723,7 @@ export interface ListContactsRequest {
    * <p>The type of contact. A contact is type <code>PERSONAL</code> and an escalation plan is
    *          type <code>ESCALATION</code>.</p>
    */
-  Type?: ContactType | string;
+  Type?: ContactType;
 }
 
 /**
@@ -1864,7 +1864,7 @@ export interface Receipt {
    * <p>The type follows the engagement cycle, <code>SENT</code>, <code>DELIVERED</code>, and
    *             <code>READ</code>.</p>
    */
-  ReceiptType: ReceiptType | string | undefined;
+  ReceiptType: ReceiptType | undefined;
 
   /**
    * @public
@@ -1935,7 +1935,7 @@ export interface ResolutionContact {
    * @public
    * <p>The type of contact for a resolution step.</p>
    */
-  Type: ContactType | string | undefined;
+  Type: ContactType | undefined;
 
   /**
    * @public
@@ -2243,7 +2243,7 @@ export interface RotationShift {
    * @public
    * <p>The type of shift rotation.</p>
    */
-  Type?: ShiftType | string;
+  Type?: ShiftType;
 
   /**
    * @public

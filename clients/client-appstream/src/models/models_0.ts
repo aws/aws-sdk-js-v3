@@ -25,7 +25,7 @@ export interface AccessEndpoint {
    * @public
    * <p>The type of interface endpoint.</p>
    */
-  EndpointType: AccessEndpointType | string | undefined;
+  EndpointType: AccessEndpointType | undefined;
 
   /**
    * @public
@@ -235,7 +235,7 @@ export interface AppBlock {
    * @public
    * <p>The packaging type of the app block.</p>
    */
-  PackagingType?: PackagingType | string;
+  PackagingType?: PackagingType;
 
   /**
    * @public
@@ -245,7 +245,7 @@ export interface AppBlock {
    *             created by an app block builder for an app block, it becomes <code>ACTIVE</code>. </p>
    *          <p>Custom app blocks are always in the <code>ACTIVE</code> state and no action is required to use them.</p>
    */
-  State?: AppBlockState | string;
+  State?: AppBlockState;
 
   /**
    * @public
@@ -305,7 +305,7 @@ export interface ResourceError {
    * @public
    * <p>The error code.</p>
    */
-  ErrorCode?: FleetErrorCode | string;
+  ErrorCode?: FleetErrorCode;
 
   /**
    * @public
@@ -373,7 +373,7 @@ export interface AppBlockBuilderStateChangeReason {
    * @public
    * <p>The state change reason code.</p>
    */
-  Code?: AppBlockBuilderStateChangeReasonCode | string;
+  Code?: AppBlockBuilderStateChangeReasonCode;
 
   /**
    * @public
@@ -435,7 +435,7 @@ export interface AppBlockBuilder {
    *          <p>
    *             <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
    */
-  Platform: AppBlockBuilderPlatformType | string | undefined;
+  Platform: AppBlockBuilderPlatformType | undefined;
 
   /**
    * @public
@@ -465,7 +465,7 @@ export interface AppBlockBuilder {
    * @public
    * <p>The state of the app block builder.</p>
    */
-  State: AppBlockBuilderState | string | undefined;
+  State: AppBlockBuilderState | undefined;
 
   /**
    * @public
@@ -622,7 +622,7 @@ export interface Application {
    * @public
    * <p>The platforms on which the application can run.</p>
    */
-  Platforms?: (PlatformType | string)[];
+  Platforms?: PlatformType[];
 
   /**
    * @public
@@ -1082,7 +1082,7 @@ export interface UserStackAssociation {
    * @public
    * <p>The authentication type for the user.</p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: AuthenticationType | undefined;
 
   /**
    * @public
@@ -1134,7 +1134,7 @@ export interface UserStackAssociationError {
    * @public
    * <p>The error code for the error that is returned when a user can’t be associated with or disassociated from a stack.</p>
    */
-  ErrorCode?: UserStackAssociationErrorCode | string;
+  ErrorCode?: UserStackAssociationErrorCode;
 
   /**
    * @public
@@ -1206,7 +1206,7 @@ export interface CertificateBasedAuthProperties {
    * @public
    * <p>The status of the certificate-based authentication properties.</p>
    */
-  Status?: CertificateBasedAuthStatus | string;
+  Status?: CertificateBasedAuthStatus;
 
   /**
    * @public
@@ -1402,7 +1402,7 @@ export interface CreateAppBlockRequest {
    * @public
    * <p>The packaging type of the app block.</p>
    */
-  PackagingType?: PackagingType | string;
+  PackagingType?: PackagingType;
 }
 
 /**
@@ -1456,7 +1456,7 @@ export interface CreateAppBlockBuilderRequest {
    *          <p>
    *             <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
    */
-  Platform: AppBlockBuilderPlatformType | string | undefined;
+  Platform: AppBlockBuilderPlatformType | undefined;
 
   /**
    * @public
@@ -1662,7 +1662,7 @@ export interface CreateApplicationRequest {
    * @public
    * <p>The platforms the application supports. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic fleets.</p>
    */
-  Platforms: (PlatformType | string)[] | undefined;
+  Platforms: PlatformType[] | undefined;
 
   /**
    * @public
@@ -1876,7 +1876,7 @@ export interface CreateEntitlementRequest {
    * @public
    * <p>Specifies whether all or selected apps are entitled.</p>
    */
-  AppVisibility: AppVisibility | string | undefined;
+  AppVisibility: AppVisibility | undefined;
 
   /**
    * @public
@@ -1917,7 +1917,7 @@ export interface Entitlement {
    * @public
    * <p>Specifies whether all or selected apps are entitled.</p>
    */
-  AppVisibility: AppVisibility | string | undefined;
+  AppVisibility: AppVisibility | undefined;
 
   /**
    * @public
@@ -2192,7 +2192,7 @@ export interface CreateFleetRequest {
    *             </dd>
    *          </dl>
    */
-  FleetType?: FleetType | string;
+  FleetType?: FleetType;
 
   /**
    * @public
@@ -2285,14 +2285,14 @@ export interface CreateFleetRequest {
    * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
    *          <p>The default value is <code>APP</code>.</p>
    */
-  StreamView?: StreamView | string;
+  StreamView?: StreamView;
 
   /**
    * @public
    * <p>The fleet platform. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic
    *             fleets. </p>
    */
-  Platform?: PlatformType | string;
+  Platform?: PlatformType;
 
   /**
    * @public
@@ -2323,7 +2323,7 @@ export interface FleetError {
    * @public
    * <p>The error code.</p>
    */
-  ErrorCode?: FleetErrorCode | string;
+  ErrorCode?: FleetErrorCode;
 
   /**
    * @public
@@ -2513,7 +2513,7 @@ export interface Fleet {
    *             </dd>
    *          </dl>
    */
-  FleetType?: FleetType | string;
+  FleetType?: FleetType;
 
   /**
    * @public
@@ -2539,7 +2539,7 @@ export interface Fleet {
    * @public
    * <p>The current state for the fleet.</p>
    */
-  State: FleetState | string | undefined;
+  State: FleetState | undefined;
 
   /**
    * @public
@@ -2602,13 +2602,13 @@ export interface Fleet {
    * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
    *          <p>The default value is <code>APP</code>.</p>
    */
-  StreamView?: StreamView | string;
+  StreamView?: StreamView;
 
   /**
    * @public
    * <p>The platform of the fleet.</p>
    */
-  Platform?: PlatformType | string;
+  Platform?: PlatformType;
 
   /**
    * @public
@@ -2894,7 +2894,7 @@ export interface ImageBuilderStateChangeReason {
    * @public
    * <p>The state change reason code.</p>
    */
-  Code?: ImageBuilderStateChangeReasonCode | string;
+  Code?: ImageBuilderStateChangeReasonCode;
 
   /**
    * @public
@@ -3055,7 +3055,7 @@ export interface ImageBuilder {
    * @public
    * <p>The operating system platform of the image builder.</p>
    */
-  Platform?: PlatformType | string;
+  Platform?: PlatformType;
 
   /**
    * @public
@@ -3068,7 +3068,7 @@ export interface ImageBuilder {
    * @public
    * <p>The state of the image builder.</p>
    */
-  State?: ImageBuilderState | string;
+  State?: ImageBuilderState;
 
   /**
    * @public
@@ -3189,7 +3189,7 @@ export interface StorageConnector {
    * @public
    * <p>The type of storage connector.</p>
    */
-  ConnectorType: StorageConnectorType | string | undefined;
+  ConnectorType: StorageConnectorType | undefined;
 
   /**
    * @public
@@ -3227,7 +3227,7 @@ export interface StreamingExperienceSettings {
    * @public
    * <p>The preferred protocol that you want to use while streaming your application.</p>
    */
-  PreferredProtocol?: PreferredProtocol | string;
+  PreferredProtocol?: PreferredProtocol;
 }
 
 /**
@@ -3253,13 +3253,13 @@ export interface UserSetting {
    * @public
    * <p>The action that is enabled or disabled.</p>
    */
-  Action: Action | string | undefined;
+  Action: Action | undefined;
 
   /**
    * @public
    * <p>Indicates whether the action is enabled or disabled.</p>
    */
-  Permission: Permission | string | undefined;
+  Permission: Permission | undefined;
 }
 
 /**
@@ -3366,7 +3366,7 @@ export interface StackError {
    * @public
    * <p>The error code.</p>
    */
-  ErrorCode?: StackErrorCode | string;
+  ErrorCode?: StackErrorCode;
 
   /**
    * @public
@@ -3642,7 +3642,7 @@ export interface ImageStateChangeReason {
    * @public
    * <p>The state change reason code.</p>
    */
-  Code?: ImageStateChangeReasonCode | string;
+  Code?: ImageStateChangeReasonCode;
 
   /**
    * @public
@@ -3700,13 +3700,13 @@ export interface Image {
    * <p>The image starts in the <code>PENDING</code> state. If image creation succeeds, the
    *             state is <code>AVAILABLE</code>. If image creation fails, the state is <code>FAILED</code>.</p>
    */
-  State?: ImageState | string;
+  State?: ImageState;
 
   /**
    * @public
    * <p>Indicates whether the image is public or private.</p>
    */
-  Visibility?: VisibilityType | string;
+  Visibility?: VisibilityType;
 
   /**
    * @public
@@ -3724,7 +3724,7 @@ export interface Image {
    * @public
    * <p>The operating system platform of the image.</p>
    */
-  Platform?: PlatformType | string;
+  Platform?: PlatformType;
 
   /**
    * @public
@@ -3830,7 +3830,7 @@ export interface CreateUsageReportSubscriptionResult {
    * @public
    * <p>The schedule for generating usage reports.</p>
    */
-  Schedule?: UsageReportSchedule | string;
+  Schedule?: UsageReportSchedule;
 }
 
 /**
@@ -3867,7 +3867,7 @@ export interface CreateUserRequest {
    *             <p>The temporary password in the welcome email is valid for only 7 days. If users don’t set their passwords within 7 days, you must send them a new welcome email.</p>
    *          </note>
    */
-  MessageAction?: MessageAction | string;
+  MessageAction?: MessageAction;
 
   /**
    * @public
@@ -3885,7 +3885,7 @@ export interface CreateUserRequest {
    * @public
    * <p>The authentication type for the user. You must specify USERPOOL. </p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: AuthenticationType | undefined;
 }
 
 /**
@@ -4130,7 +4130,7 @@ export interface DeleteUserRequest {
    * @public
    * <p>The authentication type for the user. You must specify USERPOOL.</p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: AuthenticationType | undefined;
 }
 
 /**
@@ -4611,7 +4611,7 @@ export interface DescribeImagesRequest {
    * @public
    * <p>The type of image (public, private, or shared) to describe. </p>
    */
-  Type?: VisibilityType | string;
+  Type?: VisibilityType;
 
   /**
    * @public
@@ -4683,7 +4683,7 @@ export interface DescribeSessionsRequest {
    *             authenticated using a streaming URL or <code>SAML</code> for a SAML federated user.
    *             The default is to authenticate users using a streaming URL.</p>
    */
-  AuthenticationType?: AuthenticationType | string;
+  AuthenticationType?: AuthenticationType;
 }
 
 /**
@@ -4748,13 +4748,13 @@ export interface Session {
    * @public
    * <p>The current state of the streaming session.</p>
    */
-  State: SessionState | string | undefined;
+  State: SessionState | undefined;
 
   /**
    * @public
    * <p>Specifies whether a user is connected to the streaming session.</p>
    */
-  ConnectionState?: SessionConnectionState | string;
+  ConnectionState?: SessionConnectionState;
 
   /**
    * @public
@@ -4773,7 +4773,7 @@ export interface Session {
    * <p>The authentication method. The user is authenticated using a streaming URL
    *             (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
    */
-  AuthenticationType?: AuthenticationType | string;
+  AuthenticationType?: AuthenticationType;
 
   /**
    * @public
@@ -4875,7 +4875,7 @@ export interface LastReportGenerationExecutionError {
    * @public
    * <p>The error code for the error that is returned when a usage report can't be generated.</p>
    */
-  ErrorCode?: UsageReportExecutionErrorCode | string;
+  ErrorCode?: UsageReportExecutionErrorCode;
 
   /**
    * @public
@@ -4904,7 +4904,7 @@ export interface UsageReportSubscription {
    * @public
    * <p>The schedule for generating usage reports.</p>
    */
-  Schedule?: UsageReportSchedule | string;
+  Schedule?: UsageReportSchedule;
 
   /**
    * @public
@@ -4944,7 +4944,7 @@ export interface DescribeUsersRequest {
    * @public
    * <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: AuthenticationType | undefined;
 
   /**
    * @public
@@ -5030,7 +5030,7 @@ export interface User {
    * @public
    * <p>The authentication type for the user.</p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: AuthenticationType | undefined;
 }
 
 /**
@@ -5073,7 +5073,7 @@ export interface DescribeUserStackAssociationsRequest {
    * @public
    * <p>The authentication type for the user who is associated with the stack. You must specify USERPOOL.</p>
    */
-  AuthenticationType?: AuthenticationType | string;
+  AuthenticationType?: AuthenticationType;
 
   /**
    * @public
@@ -5122,7 +5122,7 @@ export interface DisableUserRequest {
    * @public
    * <p>The authentication type for the user. You must specify USERPOOL.</p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: AuthenticationType | undefined;
 }
 
 /**
@@ -5241,7 +5241,7 @@ export interface EnableUserRequest {
    * @public
    * <p>The authentication type for the user. You must specify USERPOOL.</p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: AuthenticationType | undefined;
 }
 
 /**
@@ -5632,7 +5632,7 @@ export interface UpdateAppBlockBuilderRequest {
    *          <p>
    *             <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
    */
-  Platform?: PlatformType | string;
+  Platform?: PlatformType;
 
   /**
    * @public
@@ -5693,7 +5693,7 @@ export interface UpdateAppBlockBuilderRequest {
    * @public
    * <p>The attributes to delete from the app block builder.</p>
    */
-  AttributesToDelete?: (AppBlockBuilderAttribute | string)[];
+  AttributesToDelete?: AppBlockBuilderAttribute[];
 }
 
 /**
@@ -5763,7 +5763,7 @@ export interface UpdateApplicationRequest {
    * @public
    * <p>The attributes to delete for an application.</p>
    */
-  AttributesToDelete?: (ApplicationAttribute | string)[];
+  AttributesToDelete?: ApplicationAttribute[];
 }
 
 /**
@@ -5849,7 +5849,7 @@ export interface UpdateEntitlementRequest {
    * @public
    * <p>Specifies whether all or only selected apps are entitled.</p>
    */
-  AppVisibility?: AppVisibility | string;
+  AppVisibility?: AppVisibility;
 
   /**
    * @public
@@ -6103,7 +6103,7 @@ export interface UpdateFleetRequest {
    * @public
    * <p>The fleet attributes to delete.</p>
    */
-  AttributesToDelete?: (FleetAttribute | string)[];
+  AttributesToDelete?: FleetAttribute[];
 
   /**
    * @public
@@ -6117,13 +6117,13 @@ export interface UpdateFleetRequest {
    * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
    *          <p>The default value is <code>APP</code>.</p>
    */
-  StreamView?: StreamView | string;
+  StreamView?: StreamView;
 
   /**
    * @public
    * <p>The platform of the fleet. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic fleets. </p>
    */
-  Platform?: PlatformType | string;
+  Platform?: PlatformType;
 
   /**
    * @public
@@ -6259,7 +6259,7 @@ export interface UpdateStackRequest {
    * @public
    * <p>The stack attributes to delete.</p>
    */
-  AttributesToDelete?: (StackAttribute | string)[];
+  AttributesToDelete?: StackAttribute[];
 
   /**
    * @public

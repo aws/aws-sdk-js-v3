@@ -7584,14 +7584,14 @@ const se_BooleanList = (input: boolean[], context: __SerdeContext): any => {
 /**
  * serializeAws_restJson1FooEnumList
  */
-const se_FooEnumList = (input: (FooEnum | string)[], context: __SerdeContext): any => {
+const se_FooEnumList = (input: FooEnum[], context: __SerdeContext): any => {
   return input.filter((e: any) => e != null);
 };
 
 /**
  * serializeAws_restJson1FooEnumMap
  */
-const se_FooEnumMap = (input: Record<string, FooEnum | string>, context: __SerdeContext): any => {
+const se_FooEnumMap = (input: Record<string, FooEnum>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7604,7 +7604,7 @@ const se_FooEnumMap = (input: Record<string, FooEnum | string>, context: __Serde
 /**
  * serializeAws_restJson1FooEnumSet
  */
-const se_FooEnumSet = (input: (FooEnum | string)[], context: __SerdeContext): any => {
+const se_FooEnumSet = (input: FooEnum[], context: __SerdeContext): any => {
   return input.filter((e: any) => e != null);
 };
 
@@ -7620,14 +7620,14 @@ const se_GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any 
 /**
  * serializeAws_restJson1IntegerEnumList
  */
-const se_IntegerEnumList = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
+const se_IntegerEnumList = (input: IntegerEnum[], context: __SerdeContext): any => {
   return input.filter((e: any) => e != null);
 };
 
 /**
  * serializeAws_restJson1IntegerEnumMap
  */
-const se_IntegerEnumMap = (input: Record<string, IntegerEnum | number>, context: __SerdeContext): any => {
+const se_IntegerEnumMap = (input: Record<string, IntegerEnum>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7640,7 +7640,7 @@ const se_IntegerEnumMap = (input: Record<string, IntegerEnum | number>, context:
 /**
  * serializeAws_restJson1IntegerEnumSet
  */
-const se_IntegerEnumSet = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
+const se_IntegerEnumSet = (input: IntegerEnum[], context: __SerdeContext): any => {
   return input.filter((e: any) => e != null);
 };
 
@@ -7736,9 +7736,9 @@ const de_DenseBooleanMap = (output: any, context: __SerdeContext): Record<string
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectBoolean(value) as any;
+    acc[key as string] = __expectBoolean(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, boolean>);
 };
 
 /**
@@ -7749,9 +7749,9 @@ const de_DenseNumberMap = (output: any, context: __SerdeContext): Record<string,
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectInt32(value) as any;
+    acc[key as string] = __expectInt32(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 };
 
 /**
@@ -7762,9 +7762,9 @@ const de_DenseSetMap = (output: any, context: __SerdeContext): Record<string, st
     if (value === null) {
       return acc;
     }
-    acc[key] = de_StringSet(value, context);
+    acc[key as string] = de_StringSet(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, string[]>);
 };
 
 /**
@@ -7775,9 +7775,9 @@ const de_DenseStringMap = (output: any, context: __SerdeContext): Record<string,
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 /**
@@ -7788,9 +7788,9 @@ const de_DenseStructMap = (output: any, context: __SerdeContext): Record<string,
     if (value === null) {
       return acc;
     }
-    acc[key] = de_GreetingStruct(value, context);
+    acc[key as string] = de_GreetingStruct(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, GreetingStruct>);
 };
 
 /**
@@ -7929,9 +7929,9 @@ const de_SimpleMap = (output: any, context: __SerdeContext): Record<string, stri
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 /**
@@ -7953,12 +7953,12 @@ const de_SimpleUnion = (output: any, context: __SerdeContext): SimpleUnion => {
 const de_SparseBooleanMap = (output: any, context: __SerdeContext): Record<string, boolean> => {
   return Object.entries(output).reduce((acc: Record<string, boolean>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = __expectBoolean(value) as any;
+    acc[key as string] = __expectBoolean(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, boolean>);
 };
 
 /**
@@ -7967,12 +7967,12 @@ const de_SparseBooleanMap = (output: any, context: __SerdeContext): Record<strin
 const de_SparseNumberMap = (output: any, context: __SerdeContext): Record<string, number> => {
   return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = __expectInt32(value) as any;
+    acc[key as string] = __expectInt32(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 };
 
 /**
@@ -7981,12 +7981,12 @@ const de_SparseNumberMap = (output: any, context: __SerdeContext): Record<string
 const de_SparseSetMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
   return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = de_StringSet(value, context);
+    acc[key as string] = de_StringSet(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, string[]>);
 };
 
 /**
@@ -7995,12 +7995,12 @@ const de_SparseSetMap = (output: any, context: __SerdeContext): Record<string, s
 const de_SparseStructMap = (output: any, context: __SerdeContext): Record<string, GreetingStruct> => {
   return Object.entries(output).reduce((acc: Record<string, GreetingStruct>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = de_GreetingStruct(value, context);
+    acc[key as string] = de_GreetingStruct(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, GreetingStruct>);
 };
 
 /**
@@ -8090,7 +8090,7 @@ const de_BooleanList = (output: any, context: __SerdeContext): boolean[] => {
 /**
  * deserializeAws_restJson1FooEnumList
  */
-const de_FooEnumList = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const de_FooEnumList = (output: any, context: __SerdeContext): FooEnum[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -8105,20 +8105,20 @@ const de_FooEnumList = (output: any, context: __SerdeContext): (FooEnum | string
 /**
  * deserializeAws_restJson1FooEnumMap
  */
-const de_FooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum | string> => {
-  return Object.entries(output).reduce((acc: Record<string, FooEnum | string>, [key, value]: [string, any]) => {
+const de_FooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum> => {
+  return Object.entries(output).reduce((acc: Record<string, FooEnum>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, FooEnum>);
 };
 
 /**
  * deserializeAws_restJson1FooEnumSet
  */
-const de_FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const de_FooEnumSet = (output: any, context: __SerdeContext): FooEnum[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -8142,7 +8142,7 @@ const de_GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct
 /**
  * deserializeAws_restJson1IntegerEnumList
  */
-const de_IntegerEnumList = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+const de_IntegerEnumList = (output: any, context: __SerdeContext): IntegerEnum[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -8157,20 +8157,20 @@ const de_IntegerEnumList = (output: any, context: __SerdeContext): (IntegerEnum 
 /**
  * deserializeAws_restJson1IntegerEnumMap
  */
-const de_IntegerEnumMap = (output: any, context: __SerdeContext): Record<string, IntegerEnum | number> => {
-  return Object.entries(output).reduce((acc: Record<string, IntegerEnum | number>, [key, value]: [string, any]) => {
+const de_IntegerEnumMap = (output: any, context: __SerdeContext): Record<string, IntegerEnum> => {
+  return Object.entries(output).reduce((acc: Record<string, IntegerEnum>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectInt32(value) as any;
+    acc[key as string] = __expectInt32(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, IntegerEnum>);
 };
 
 /**
  * deserializeAws_restJson1IntegerEnumSet
  */
-const de_IntegerEnumSet = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+const de_IntegerEnumSet = (output: any, context: __SerdeContext): IntegerEnum[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -8231,12 +8231,12 @@ const de_SparseStringList = (output: any, context: __SerdeContext): string[] => 
 const de_SparseStringMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 /**
@@ -8262,9 +8262,9 @@ const de_StringMap = (output: any, context: __SerdeContext): Record<string, stri
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 /**

@@ -107,7 +107,7 @@ export interface ResourceBudgetEstimate {
    * @public
    * <p>The type of resource the budget will track.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -394,7 +394,7 @@ export interface GetDistributionMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: DistributionMetricName | string | undefined;
+  metricName: DistributionMetricName | undefined;
 
   /**
    * @public
@@ -444,7 +444,7 @@ export interface GetDistributionMetricDataRequest {
    *          <p>Valid units depend on the metric data being requested. For the valid units with each
    *       available metric, see the <code>metricName</code> parameter.</p>
    */
-  unit: MetricUnit | string | undefined;
+  unit: MetricUnit | undefined;
 
   /**
    * @public
@@ -480,7 +480,7 @@ export interface GetDistributionMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: MetricStatistic[] | undefined;
 }
 
 /**
@@ -491,7 +491,7 @@ export interface GetDistributionMetricDataResult {
    * @public
    * <p>The name of the metric returned.</p>
    */
-  metricName?: DistributionMetricName | string;
+  metricName?: DistributionMetricName;
 
   /**
    * @public
@@ -746,7 +746,7 @@ export interface InstanceMetadataOptions {
    *             </li>
    *          </ul>
    */
-  state?: InstanceMetadataState | string;
+  state?: InstanceMetadataState;
 
   /**
    * @public
@@ -766,7 +766,7 @@ export interface InstanceMetadataOptions {
    *           <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-health-metrics">Viewing instance metrics in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
    *          </important>
    */
-  httpTokens?: HttpTokens | string;
+  httpTokens?: HttpTokens;
 
   /**
    * @public
@@ -774,7 +774,7 @@ export interface InstanceMetadataOptions {
    *       disabled.</p>
    *          <p>If the value is <code>disabled</code>, you cannot access your instance metadata.</p>
    */
-  httpEndpoint?: HttpEndpoint | string;
+  httpEndpoint?: HttpEndpoint;
 
   /**
    * @public
@@ -788,7 +788,7 @@ export interface InstanceMetadataOptions {
    * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or
    *       disabled.</p>
    */
-  httpProtocolIpv6?: HttpProtocolIpv6 | string;
+  httpProtocolIpv6?: HttpProtocolIpv6;
 }
 
 /**
@@ -909,7 +909,7 @@ export interface InstancePortInfo {
    *             </li>
    *          </ul>
    */
-  protocol?: NetworkProtocol | string;
+  protocol?: NetworkProtocol;
 
   /**
    * @public
@@ -922,7 +922,7 @@ export interface InstancePortInfo {
    * @public
    * <p>The type of access (<code>Public</code> or <code>Private</code>).</p>
    */
-  accessType?: PortAccessType | string;
+  accessType?: PortAccessType;
 
   /**
    * @public
@@ -937,7 +937,7 @@ export interface InstancePortInfo {
    *             <p>Lightsail currently supports only <code>inbound</code> access direction.</p>
    *          </note>
    */
-  accessDirection?: AccessDirection | string;
+  accessDirection?: AccessDirection;
 
   /**
    * @public
@@ -1055,7 +1055,7 @@ export interface Instance {
    * @public
    * <p>The type of resource (usually <code>Instance</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -1118,7 +1118,7 @@ export interface Instance {
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 
   /**
    * @public
@@ -1198,7 +1198,7 @@ export interface GetInstanceAccessDetailsRequest {
    * @public
    * <p>The protocol to use to connect to your instance. Defaults to <code>ssh</code>.</p>
    */
-  protocol?: InstanceAccessProtocol | string;
+  protocol?: InstanceAccessProtocol;
 }
 
 /**
@@ -1377,7 +1377,7 @@ export interface InstanceAccessDetails {
    * @public
    * <p>The protocol for these Amazon Lightsail instance access details.</p>
    */
-  protocol?: InstanceAccessProtocol | string;
+  protocol?: InstanceAccessProtocol;
 
   /**
    * @public
@@ -1580,7 +1580,7 @@ export interface GetInstanceMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: InstanceMetricName | string | undefined;
+  metricName: InstanceMetricName | undefined;
 
   /**
    * @public
@@ -1610,7 +1610,7 @@ export interface GetInstanceMetricDataRequest {
    *       requested. For the valid units to specify with each available metric, see the
    *         <code>metricName</code> parameter.</p>
    */
-  unit: MetricUnit | string | undefined;
+  unit: MetricUnit | undefined;
 
   /**
    * @public
@@ -1646,7 +1646,7 @@ export interface GetInstanceMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: MetricStatistic[] | undefined;
 }
 
 /**
@@ -1657,7 +1657,7 @@ export interface GetInstanceMetricDataResult {
    * @public
    * <p>The name of the metric returned.</p>
    */
-  metricName?: InstanceMetricName | string;
+  metricName?: InstanceMetricName;
 
   /**
    * @public
@@ -1783,7 +1783,7 @@ export interface InstancePortState {
    *             </li>
    *          </ul>
    */
-  protocol?: NetworkProtocol | string;
+  protocol?: NetworkProtocol;
 
   /**
    * @public
@@ -1792,7 +1792,7 @@ export interface InstancePortState {
    *             <p>The port state for Lightsail instances is always <code>open</code>.</p>
    *          </note>
    */
-  state?: PortState | string;
+  state?: PortState;
 
   /**
    * @public
@@ -1945,7 +1945,7 @@ export interface InstanceSnapshot {
    * @public
    * <p>The type of resource (usually <code>InstanceSnapshot</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -1958,7 +1958,7 @@ export interface InstanceSnapshot {
    * @public
    * <p>The state the snapshot is in.</p>
    */
-  state?: InstanceSnapshotState | string;
+  state?: InstanceSnapshotState;
 
   /**
    * @public
@@ -2234,7 +2234,7 @@ export interface InstanceHealthSummary {
    * @public
    * <p>Describes the overall instance health. Valid values are below.</p>
    */
-  instanceHealth?: InstanceHealthState | string;
+  instanceHealth?: InstanceHealthState;
 
   /**
    * @public
@@ -2360,7 +2360,7 @@ export interface InstanceHealthSummary {
    *             </li>
    *          </ul>
    */
-  instanceHealthReason?: InstanceHealthReason | string;
+  instanceHealthReason?: InstanceHealthReason;
 }
 
 /**
@@ -2455,7 +2455,7 @@ export interface LoadBalancer {
    * @public
    * <p>The resource type (e.g., <code>LoadBalancer</code>.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -2474,7 +2474,7 @@ export interface LoadBalancer {
    * @public
    * <p>The status of your load balancer. Valid values are below.</p>
    */
-  state?: LoadBalancerState | string;
+  state?: LoadBalancerState;
 
   /**
    * @public
@@ -2482,7 +2482,7 @@ export interface LoadBalancer {
    *          <p>You can't just have <code>HTTP_HTTPS</code>, but you can have just
    *       <code>HTTP</code>.</p>
    */
-  protocol?: LoadBalancerProtocol | string;
+  protocol?: LoadBalancerProtocol;
 
   /**
    * @public
@@ -2525,7 +2525,7 @@ export interface LoadBalancer {
    * <p>A string to string map of the configuration options for your load balancer. Valid values
    *       are listed below.</p>
    */
-  configurationOptions?: Record<string, string>;
+  configurationOptions?: Record<LoadBalancerAttributeName, string>;
 
   /**
    * @public
@@ -2533,7 +2533,7 @@ export interface LoadBalancer {
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 
   /**
    * @public
@@ -2766,7 +2766,7 @@ export interface GetLoadBalancerMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: LoadBalancerMetricName | string | undefined;
+  metricName: LoadBalancerMetricName | undefined;
 
   /**
    * @public
@@ -2792,7 +2792,7 @@ export interface GetLoadBalancerMetricDataRequest {
    *       requested. For the valid units with each available metric, see the <code>metricName</code>
    *       parameter.</p>
    */
-  unit: MetricUnit | string | undefined;
+  unit: MetricUnit | undefined;
 
   /**
    * @public
@@ -2828,7 +2828,7 @@ export interface GetLoadBalancerMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: MetricStatistic[] | undefined;
 }
 
 /**
@@ -2839,7 +2839,7 @@ export interface GetLoadBalancerMetricDataResult {
    * @public
    * <p>The name of the metric returned.</p>
    */
-  metricName?: LoadBalancerMetricName | string;
+  metricName?: LoadBalancerMetricName;
 
   /**
    * @public
@@ -2935,7 +2935,7 @@ export interface LoadBalancerTlsCertificateDnsRecordCreationState {
    *             </li>
    *          </ul>
    */
-  code?: LoadBalancerTlsCertificateDnsRecordCreationStateCode | string;
+  code?: LoadBalancerTlsCertificateDnsRecordCreationStateCode;
 
   /**
    * @public
@@ -2989,7 +2989,7 @@ export interface LoadBalancerTlsCertificateDomainValidationRecord {
    * @public
    * <p>The validation status. Valid values are listed below.</p>
    */
-  validationStatus?: LoadBalancerTlsCertificateDomainStatus | string;
+  validationStatus?: LoadBalancerTlsCertificateDomainStatus;
 
   /**
    * @public
@@ -3040,7 +3040,7 @@ export interface LoadBalancerTlsCertificateDomainValidationOption {
    * @public
    * <p>The status of the domain validation. Valid values are listed below.</p>
    */
-  validationStatus?: LoadBalancerTlsCertificateDomainStatus | string;
+  validationStatus?: LoadBalancerTlsCertificateDomainStatus;
 }
 
 /**
@@ -3147,7 +3147,7 @@ export interface LoadBalancerTlsCertificateRenewalSummary {
    *             </li>
    *          </ul>
    */
-  renewalStatus?: LoadBalancerTlsCertificateRenewalStatus | string;
+  renewalStatus?: LoadBalancerTlsCertificateRenewalStatus;
 
   /**
    * @public
@@ -3314,7 +3314,7 @@ export interface LoadBalancerTlsCertificate {
    *             </li>
    *          </ul>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -3340,7 +3340,7 @@ export interface LoadBalancerTlsCertificate {
    * @public
    * <p>The validation status of the SSL/TLS certificate. Valid values are below.</p>
    */
-  status?: LoadBalancerTlsCertificateStatus | string;
+  status?: LoadBalancerTlsCertificateStatus;
 
   /**
    * @public
@@ -3421,7 +3421,7 @@ export interface LoadBalancerTlsCertificate {
    *             </li>
    *          </ul>
    */
-  failureReason?: LoadBalancerTlsCertificateFailureReason | string;
+  failureReason?: LoadBalancerTlsCertificateFailureReason;
 
   /**
    * @public
@@ -3465,7 +3465,7 @@ export interface LoadBalancerTlsCertificate {
    * <p>The reason the certificate was revoked. This value is present only when the certificate
    *       status is <code>REVOKED</code>.</p>
    */
-  revocationReason?: LoadBalancerTlsCertificateRevocationReason | string;
+  revocationReason?: LoadBalancerTlsCertificateRevocationReason;
 
   /**
    * @public
@@ -3748,7 +3748,7 @@ export interface Region {
    * @public
    * <p>The region name (e.g., <code>us-east-2</code>).</p>
    */
-  name?: RegionName | string;
+  name?: RegionName;
 
   /**
    * @public
@@ -3919,7 +3919,7 @@ export interface RelationalDatabase {
    * <p>The Lightsail resource type for the database (for example,
    *         <code>RelationalDatabase</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -4107,7 +4107,7 @@ export interface RelationalDatabaseBlueprint {
    * @public
    * <p>The database software of the database blueprint (for example, <code>MySQL</code>).</p>
    */
-  engine?: RelationalDatabaseEngine | string;
+  engine?: RelationalDatabaseEngine;
 
   /**
    * @public
@@ -4516,7 +4516,7 @@ export interface GetRelationalDatabaseMasterUserPasswordRequest {
    *          <p>Default: <code>CURRENT</code>
    *          </p>
    */
-  passwordVersion?: RelationalDatabasePasswordVersion | string;
+  passwordVersion?: RelationalDatabasePasswordVersion;
 }
 
 /**
@@ -4645,7 +4645,7 @@ export interface GetRelationalDatabaseMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: RelationalDatabaseMetricName | string | undefined;
+  metricName: RelationalDatabaseMetricName | undefined;
 
   /**
    * @public
@@ -4695,7 +4695,7 @@ export interface GetRelationalDatabaseMetricDataRequest {
    *       requested. For the valid units with each available metric, see the <code>metricName</code>
    *       parameter.</p>
    */
-  unit: MetricUnit | string | undefined;
+  unit: MetricUnit | undefined;
 
   /**
    * @public
@@ -4731,7 +4731,7 @@ export interface GetRelationalDatabaseMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: MetricStatistic[] | undefined;
 }
 
 /**
@@ -4742,7 +4742,7 @@ export interface GetRelationalDatabaseMetricDataResult {
    * @public
    * <p>The name of the metric returned.</p>
    */
-  metricName?: RelationalDatabaseMetricName | string;
+  metricName?: RelationalDatabaseMetricName;
 
   /**
    * @public
@@ -4933,7 +4933,7 @@ export interface RelationalDatabaseSnapshot {
    * @public
    * <p>The Lightsail resource type.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -5094,7 +5094,7 @@ export interface StaticIp {
    * @public
    * <p>The resource type (usually <code>StaticIp</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -5299,7 +5299,7 @@ export interface PutAlarmRequest {
    *          </ul>
    *          <p>For more information about these metrics, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-resource-health-metrics#available-metrics">Metrics available in Lightsail</a>.</p>
    */
-  metricName: MetricName | string | undefined;
+  metricName: MetricName | undefined;
 
   /**
    * @public
@@ -5314,7 +5314,7 @@ export interface PutAlarmRequest {
    * <p>The arithmetic operation to use when comparing the specified statistic to the threshold.
    *       The specified statistic value is used as the first operand.</p>
    */
-  comparisonOperator: ComparisonOperator | string | undefined;
+  comparisonOperator: ComparisonOperator | undefined;
 
   /**
    * @public
@@ -5374,7 +5374,7 @@ export interface PutAlarmRequest {
    *          <p>If <code>treatMissingData</code> is not specified, the default behavior of
    *         <code>missing</code> is used.</p>
    */
-  treatMissingData?: TreatMissingData | string;
+  treatMissingData?: TreatMissingData;
 
   /**
    * @public
@@ -5388,7 +5388,7 @@ export interface PutAlarmRequest {
    *          <p>Use the <code>CreateContactMethod</code> action to configure a contact protocol in an
    *         Amazon Web Services Region.</p>
    */
-  contactProtocols?: (ContactProtocol | string)[];
+  contactProtocols?: ContactProtocol[];
 
   /**
    * @public
@@ -5429,7 +5429,7 @@ export interface PutAlarmRequest {
    *          <p>The notification trigger defaults to <code>ALARM</code> if you don't specify this
    *       parameter.</p>
    */
-  notificationTriggers?: (AlarmState | string)[];
+  notificationTriggers?: AlarmState[];
 
   /**
    * @public
@@ -5651,7 +5651,7 @@ export interface SendContactMethodVerificationRequest {
    * <p>The protocol to verify, such as <code>Email</code> or <code>SMS</code> (text
    *       messaging).</p>
    */
-  protocol: ContactMethodVerificationProtocol | string | undefined;
+  protocol: ContactMethodVerificationProtocol | undefined;
 }
 
 /**
@@ -5681,7 +5681,7 @@ export interface SetIpAddressTypeRequest {
    *           <code>us-east-1</code> to create, view, or edit distributions.</p>
    *          </note>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -5695,7 +5695,7 @@ export interface SetIpAddressTypeRequest {
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
-  ipAddressType: IpAddressType | string | undefined;
+  ipAddressType: IpAddressType | undefined;
 }
 
 /**
@@ -5757,7 +5757,7 @@ export interface SetResourceAccessForBucketRequest {
    *             </li>
    *          </ul>
    */
-  access: ResourceBucketAccess | string | undefined;
+  access: ResourceBucketAccess | undefined;
 }
 
 /**
@@ -5992,7 +5992,7 @@ export interface TestAlarmRequest {
    *             </li>
    *          </ul>
    */
-  state: AlarmState | string | undefined;
+  state: AlarmState | undefined;
 }
 
 /**
@@ -6178,7 +6178,7 @@ export interface UpdateContainerServiceRequest {
    *          <p>Use the <code>GetContainerServicePowers</code> action to view the specifications of each
    *       power option.</p>
    */
-  power?: ContainerServicePowerName | string;
+  power?: ContainerServicePowerName;
 
   /**
    * @public
@@ -6384,7 +6384,7 @@ export interface UpdateInstanceMetadataOptionsRequest {
    *       instance metadata retrieval requests. In this state, retrieving the IAM role credential always
    *       returns the version 2.0 credentials. The version 1.0 credentials are not available.</p>
    */
-  httpTokens?: HttpTokens | string;
+  httpTokens?: HttpTokens;
 
   /**
    * @public
@@ -6393,7 +6393,7 @@ export interface UpdateInstanceMetadataOptionsRequest {
    *          <p>If you specify a value of <code>disabled</code>, you cannot access your instance
    *       metadata.</p>
    */
-  httpEndpoint?: HttpEndpoint | string;
+  httpEndpoint?: HttpEndpoint;
 
   /**
    * @public
@@ -6411,7 +6411,7 @@ export interface UpdateInstanceMetadataOptionsRequest {
    *             <p>This parameter is available only for instances in the Europe (Stockholm) Amazon Web Services Region (<code>eu-north-1</code>).</p>
    *          </note>
    */
-  httpProtocolIpv6?: HttpProtocolIpv6 | string;
+  httpProtocolIpv6?: HttpProtocolIpv6;
 }
 
 /**
@@ -6441,7 +6441,7 @@ export interface UpdateLoadBalancerAttributeRequest {
    * @public
    * <p>The name of the attribute you want to update.</p>
    */
-  attributeName: LoadBalancerAttributeName | string | undefined;
+  attributeName: LoadBalancerAttributeName | undefined;
 
   /**
    * @public

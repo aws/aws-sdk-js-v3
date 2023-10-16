@@ -298,7 +298,7 @@ export interface FailureInfo {
    *             any valid error code returned by the Amazon Web Services service that hosts the resource that you want
    *             to tag.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -387,7 +387,7 @@ export interface GetComplianceSummaryInput {
    * <p>Specifies a list of attributes to group the counts of noncompliant resources by. If
    *             supplied, the counts are sorted by those attributes.</p>
    */
-  GroupBy?: (GroupByAttribute | string)[];
+  GroupBy?: GroupByAttribute[];
 
   /**
    * @public
@@ -444,7 +444,7 @@ export interface Summary {
    * @public
    * <p>Whether the target is an account, an OU, or the organization root.</p>
    */
-  TargetIdType?: TargetIdType | string;
+  TargetIdType?: TargetIdType;
 
   /**
    * @public

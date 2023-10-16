@@ -182,7 +182,7 @@ export interface DescribeHumanLoopResponse {
    * @public
    * <p>The status of the human loop. </p>
    */
-  HumanLoopStatus: HumanLoopStatus | string | undefined;
+  HumanLoopStatus: HumanLoopStatus | undefined;
 
   /**
    * @public
@@ -251,7 +251,7 @@ export interface ListHumanLoopsRequest {
    * <p>Optional. The order for displaying results. Valid values: <code>Ascending</code> and
    *         <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -283,7 +283,7 @@ export interface HumanLoopSummary {
    * @public
    * <p>The status of the human loop. </p>
    */
-  HumanLoopStatus?: HumanLoopStatus | string;
+  HumanLoopStatus?: HumanLoopStatus;
 
   /**
    * @public
@@ -397,7 +397,7 @@ export interface HumanLoopDataAttributes {
    * <p>Declares that your content is free of personally identifiable information or adult content.</p>
    *          <p>Amazon SageMaker can restrict the Amazon Mechanical Turk workers who can view your task based on this information.</p>
    */
-  ContentClassifiers: (ContentClassifier | string)[] | undefined;
+  ContentClassifiers: ContentClassifier[] | undefined;
 }
 
 /**

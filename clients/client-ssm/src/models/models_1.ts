@@ -60,7 +60,7 @@ export interface OpsItemFilter {
    * @public
    * <p>The name of the filter.</p>
    */
-  Key: OpsItemFilterKey | string | undefined;
+  Key: OpsItemFilterKey | undefined;
 
   /**
    * @public
@@ -72,7 +72,7 @@ export interface OpsItemFilter {
    * @public
    * <p>The operator used by the filter call.</p>
    */
-  Operator: OpsItemFilterOperator | string | undefined;
+  Operator: OpsItemFilterOperator | undefined;
 }
 
 /**
@@ -241,7 +241,7 @@ export interface OpsItemSummary {
    * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
    *     <code>Resolved</code>.</p>
    */
-  Status?: OpsItemStatus | string;
+  Status?: OpsItemStatus;
 
   /**
    * @public
@@ -373,7 +373,7 @@ export interface ParametersFilter {
    * @public
    * <p>The name of the filter.</p>
    */
-  Key: ParametersFilterKey | string | undefined;
+  Key: ParametersFilterKey | undefined;
 
   /**
    * @public
@@ -528,7 +528,7 @@ export interface ParameterMetadata {
    * <p>The type of parameter. Valid parameter types include the following: <code>String</code>,
    *     <code>StringList</code>, and <code>SecureString</code>.</p>
    */
-  Type?: ParameterType | string;
+  Type?: ParameterType;
 
   /**
    * @public
@@ -571,7 +571,7 @@ export interface ParameterMetadata {
    * @public
    * <p>The parameter tier.</p>
    */
-  Tier?: ParameterTier | string;
+  Tier?: ParameterTier;
 
   /**
    * @public
@@ -701,7 +701,7 @@ export interface PatchBaselineIdentity {
    * <p>Defines the operating system the patch baseline applies to. The default value is
    *     <code>WINDOWS</code>. </p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -976,20 +976,20 @@ export interface DescribePatchPropertiesRequest {
    * @public
    * <p>The operating system type for which to list patches.</p>
    */
-  OperatingSystem: OperatingSystem | string | undefined;
+  OperatingSystem: OperatingSystem | undefined;
 
   /**
    * @public
    * <p>The patch property for which you want to view patch details. </p>
    */
-  Property: PatchProperty | string | undefined;
+  Property: PatchProperty | undefined;
 
   /**
    * @public
    * <p>Indicates whether to list patches for the Windows operating system or for applications
    *    released by Microsoft. Not applicable for the Linux or macOS operating systems.</p>
    */
-  PatchSet?: PatchSet | string;
+  PatchSet?: PatchSet;
 
   /**
    * @public
@@ -1050,7 +1050,7 @@ export interface SessionFilter {
    * @public
    * <p>The name of the filter.</p>
    */
-  key: SessionFilterKey | string | undefined;
+  key: SessionFilterKey | undefined;
 
   /**
    * @public
@@ -1124,7 +1124,7 @@ export interface DescribeSessionsRequest {
    * @public
    * <p>The session status to retrieve a list of sessions for. For example, "Active".</p>
    */
-  State: SessionState | string | undefined;
+  State: SessionState | undefined;
 
   /**
    * @public
@@ -1204,7 +1204,7 @@ export interface Session {
    * @public
    * <p>The status of the session. For example, "Connected" or "Terminated".</p>
    */
-  Status?: SessionStatus | string;
+  Status?: SessionStatus;
 
   /**
    * @public
@@ -1415,7 +1415,7 @@ export interface AutomationExecution {
    * @public
    * <p>The execution status of the Automation.</p>
    */
-  AutomationExecutionStatus?: AutomationExecutionStatus | string;
+  AutomationExecutionStatus?: AutomationExecutionStatus;
 
   /**
    * @public
@@ -1454,7 +1454,7 @@ export interface AutomationExecution {
    * @public
    * <p>The automation execution mode.</p>
    */
-  Mode?: ExecutionMode | string;
+  Mode?: ExecutionMode;
 
   /**
    * @public
@@ -1554,7 +1554,7 @@ export interface AutomationExecution {
    * <p>The subtype of the Automation operation. Currently, the only supported value is
    *     <code>ChangeRequest</code>.</p>
    */
-  AutomationSubtype?: AutomationSubtype | string;
+  AutomationSubtype?: AutomationSubtype;
 
   /**
    * @public
@@ -1645,7 +1645,7 @@ export interface GetCalendarStateResponse {
    *    to proceed, and a <code>CLOSED</code> calendar indicates that actions aren't allowed to
    *    proceed.</p>
    */
-  State?: CalendarState | string;
+  State?: CalendarState;
 
   /**
    * @public
@@ -1874,7 +1874,7 @@ export interface GetCommandInvocationResult {
    * <p>The status of this invocation plugin. This status can be different than
    *     <code>StatusDetails</code>.</p>
    */
-  Status?: CommandInvocationStatus | string;
+  Status?: CommandInvocationStatus;
 
   /**
    * @public
@@ -2052,7 +2052,7 @@ export interface GetConnectionStatusResponse {
    * <p>The status of the connection to the managed node. For example, 'Connected' or 'Not
    *    Connected'.</p>
    */
-  Status?: ConnectionStatus | string;
+  Status?: ConnectionStatus;
 }
 
 /**
@@ -2063,7 +2063,7 @@ export interface GetDefaultPatchBaselineRequest {
    * @public
    * <p>Returns the default patch baseline for the specified operating system.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 }
 
 /**
@@ -2080,7 +2080,7 @@ export interface GetDefaultPatchBaselineResult {
    * @public
    * <p>The operating system for the returned patch baseline. </p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 }
 
 /**
@@ -2092,7 +2092,7 @@ export interface BaselineOverride {
    * @public
    * <p>The operating system rule used by the patch baseline override.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -2120,7 +2120,7 @@ export interface BaselineOverride {
    * <p>Defines the compliance level for approved patches. When an approved patch is reported as
    *    missing, this value describes the severity of the compliance violation.</p>
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesComplianceLevel?: PatchComplianceLevel;
 
   /**
    * @public
@@ -2137,7 +2137,7 @@ export interface BaselineOverride {
    *     <code>RejectedPackages</code> list. A patch can be allowed only if it is a dependency of another
    *    package, or blocked entirely along with packages that include it as a dependency.</p>
    */
-  RejectedPatchesAction?: PatchAction | string;
+  RejectedPatchesAction?: PatchAction;
 
   /**
    * @public
@@ -2264,7 +2264,7 @@ export interface GetDocumentRequest {
    * <p>Returns the document in the specified format. The document format can be either JSON or
    *    YAML. JSON is the default format.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: DocumentFormat;
 }
 
 /**
@@ -2307,7 +2307,7 @@ export interface AttachmentContent {
    * @public
    * <p>The hash algorithm used to calculate the hash value.</p>
    */
-  HashType?: AttachmentHashType | string;
+  HashType?: AttachmentHashType;
 
   /**
    * @public
@@ -2357,7 +2357,7 @@ export interface GetDocumentResult {
    * <p>The status of the SSM document, such as <code>Creating</code>, <code>Active</code>,
    *     <code>Updating</code>, <code>Failed</code>, and <code>Deleting</code>.</p>
    */
-  Status?: DocumentStatus | string;
+  Status?: DocumentStatus;
 
   /**
    * @public
@@ -2377,13 +2377,13 @@ export interface GetDocumentResult {
    * @public
    * <p>The document type.</p>
    */
-  DocumentType?: DocumentType | string;
+  DocumentType?: DocumentType;
 
   /**
    * @public
    * <p>The document format, either JSON or YAML.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: DocumentFormat;
 
   /**
    * @public
@@ -2408,7 +2408,7 @@ export interface GetDocumentResult {
    *    version is approved, the status of the previous version changes to REJECTED.</p>
    *          <p>Only one version of an SSM document can be in review, or PENDING, at a time.</p>
    */
-  ReviewStatus?: ReviewStatus | string;
+  ReviewStatus?: ReviewStatus;
 }
 
 /**
@@ -2457,7 +2457,7 @@ export interface InventoryFilter {
    *      data</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          </note>
    */
-  Type?: InventoryQueryOperatorType | string;
+  Type?: InventoryQueryOperatorType;
 }
 
 /**
@@ -2708,7 +2708,7 @@ export interface InventoryItemAttribute {
    * @public
    * <p>The data type of the inventory item attribute. </p>
    */
-  DataType: InventoryAttributeDataType | string | undefined;
+  DataType: InventoryAttributeDataType | undefined;
 }
 
 /**
@@ -2910,7 +2910,7 @@ export interface GetMaintenanceWindowExecutionResult {
    * @public
    * <p>The status of the maintenance window execution.</p>
    */
-  Status?: MaintenanceWindowExecutionStatus | string;
+  Status?: MaintenanceWindowExecutionStatus;
 
   /**
    * @public
@@ -2982,7 +2982,7 @@ export interface GetMaintenanceWindowExecutionTaskResult {
    * @public
    * <p>The type of task that was run.</p>
    */
-  Type?: MaintenanceWindowTaskType | string;
+  Type?: MaintenanceWindowTaskType;
 
   /**
    * @public
@@ -3031,7 +3031,7 @@ export interface GetMaintenanceWindowExecutionTaskResult {
    * @public
    * <p>The status of the task.</p>
    */
-  Status?: MaintenanceWindowExecutionStatus | string;
+  Status?: MaintenanceWindowExecutionStatus;
 
   /**
    * @public
@@ -3120,7 +3120,7 @@ export interface GetMaintenanceWindowExecutionTaskInvocationResult {
    * @public
    * <p>Retrieves the task type for a maintenance window.</p>
    */
-  TaskType?: MaintenanceWindowTaskType | string;
+  TaskType?: MaintenanceWindowTaskType;
 
   /**
    * @public
@@ -3132,7 +3132,7 @@ export interface GetMaintenanceWindowExecutionTaskInvocationResult {
    * @public
    * <p>The task status for an invocation.</p>
    */
-  Status?: MaintenanceWindowExecutionStatus | string;
+  Status?: MaintenanceWindowExecutionStatus;
 
   /**
    * @public
@@ -3312,7 +3312,7 @@ export interface NotificationConfig {
    *     changes using Amazon SNS notifications</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  NotificationEvents?: (NotificationEvent | string)[];
+  NotificationEvents?: NotificationEvent[];
 
   /**
    * @public
@@ -3329,7 +3329,7 @@ export interface NotificationConfig {
    *             </li>
    *          </ul>
    */
-  NotificationType?: NotificationType | string;
+  NotificationType?: NotificationType;
 }
 
 /**
@@ -3376,7 +3376,7 @@ export interface MaintenanceWindowRunCommandParameters {
    * @public
    * <p>SHA-256 or SHA-1. SHA-1 hashes have been deprecated.</p>
    */
-  DocumentHashType?: DocumentHashType | string;
+  DocumentHashType?: DocumentHashType;
 
   /**
    * @public
@@ -3541,7 +3541,7 @@ export interface GetMaintenanceWindowTaskResult {
    * @public
    * <p>The type of task to run.</p>
    */
-  TaskType?: MaintenanceWindowTaskType | string;
+  TaskType?: MaintenanceWindowTaskType;
 
   /**
    * @public
@@ -3627,7 +3627,7 @@ export interface GetMaintenanceWindowTaskResult {
    *    tasks, <code>CANCEL_TASK</code> means the system attempts to stop the task by sending a
    *     <code>CancelCommand</code> operation.</p>
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior;
 
   /**
    * @public
@@ -3755,7 +3755,7 @@ export interface OpsItem {
    * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
    *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  Status?: OpsItemStatus | string;
+  Status?: OpsItemStatus;
 
   /**
    * @public
@@ -3953,7 +3953,7 @@ export interface OpsFilter {
    * @public
    * <p>The type of filter.</p>
    */
-  Type?: OpsFilterOperatorType | string;
+  Type?: OpsFilterOperatorType;
 }
 
 /**
@@ -4064,7 +4064,7 @@ export interface Parameter {
    *     spaces between commas in the <code>Value</code> field.</p>
    *          </note>
    */
-  Type?: ParameterType | string;
+  Type?: ParameterType;
 
   /**
    * @public
@@ -4217,7 +4217,7 @@ export interface ParameterHistory {
    * @public
    * <p>The type of parameter used.</p>
    */
-  Type?: ParameterType | string;
+  Type?: ParameterType;
 
   /**
    * @public
@@ -4272,7 +4272,7 @@ export interface ParameterHistory {
    * @public
    * <p>The parameter tier.</p>
    */
-  Tier?: ParameterTier | string;
+  Tier?: ParameterTier;
 
   /**
    * @public
@@ -4464,7 +4464,7 @@ export interface GetPatchBaselineResult {
    * @public
    * <p>Returns the operating system specified for the patch baseline.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -4489,7 +4489,7 @@ export interface GetPatchBaselineResult {
    * <p>Returns the specified compliance severity level for approved patches in the patch
    *    baseline.</p>
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesComplianceLevel?: PatchComplianceLevel;
 
   /**
    * @public
@@ -4511,7 +4511,7 @@ export interface GetPatchBaselineResult {
    *    patch can be allowed only if it is a dependency of another package, or blocked entirely along
    *    with packages that include it as a dependency.</p>
    */
-  RejectedPatchesAction?: PatchAction | string;
+  RejectedPatchesAction?: PatchAction;
 
   /**
    * @public
@@ -4560,7 +4560,7 @@ export interface GetPatchBaselineForPatchGroupRequest {
    * <p>Returns the operating system rule specified for patch groups using the patch
    *    baseline.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 }
 
 /**
@@ -4583,7 +4583,7 @@ export interface GetPatchBaselineForPatchGroupResult {
    * @public
    * <p>The operating system rule specified for patch groups using the patch baseline.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 }
 
 /**
@@ -4917,7 +4917,7 @@ export interface AssociationFilter {
    *                <code>InstanceId</code> has been deprecated.</p>
    *          </note>
    */
-  key: AssociationFilterKey | string | undefined;
+  key: AssociationFilterKey | undefined;
 
   /**
    * @public
@@ -5192,7 +5192,7 @@ export interface AssociationVersionInfo {
    * @public
    * <p>The severity level that is assigned to the association.</p>
    */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
+  ComplianceSeverity?: AssociationComplianceSeverity;
 
   /**
    * @public
@@ -5207,7 +5207,7 @@ export interface AssociationVersionInfo {
    *     <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    */
-  SyncCompliance?: AssociationSyncCompliance | string;
+  SyncCompliance?: AssociationSyncCompliance;
 
   /**
    * @public
@@ -5300,7 +5300,7 @@ export interface CommandFilter {
    *      <code>ListCommandInvocations</code> operation, only with <code>ListCommands</code>.</p>
    *          </note>
    */
-  key: CommandFilterKey | string | undefined;
+  key: CommandFilterKey | undefined;
 
   /**
    * @public
@@ -5562,7 +5562,7 @@ export interface CommandPlugin {
    * @public
    * <p>The status of this plugin. You can run a document with multiple plugins.</p>
    */
-  Status?: CommandPluginStatus | string;
+  Status?: CommandPluginStatus;
 
   /**
    * @public
@@ -5759,7 +5759,7 @@ export interface CommandInvocation {
    * @public
    * <p>Whether or not the invocation succeeded, failed, or is pending.</p>
    */
-  Status?: CommandInvocationStatus | string;
+  Status?: CommandInvocationStatus;
 
   /**
    * @public
@@ -6023,7 +6023,7 @@ export interface Command {
    * @public
    * <p>The status of the command.</p>
    */
-  Status?: CommandStatus | string;
+  Status?: CommandStatus;
 
   /**
    * @public
@@ -6243,7 +6243,7 @@ export interface ComplianceStringFilter {
    * <p>The type of comparison that should be performed for the value: Equal, NotEqual, BeginWith,
    *    LessThan, or GreaterThan.</p>
    */
-  Type?: ComplianceQueryOperatorType | string;
+  Type?: ComplianceQueryOperatorType;
 }
 
 /**
@@ -6392,14 +6392,14 @@ export interface ComplianceItem {
    * <p>The status of the compliance item. An item is either COMPLIANT, NON_COMPLIANT, or an empty
    *    string (for Windows patches that aren't applicable).</p>
    */
-  Status?: ComplianceStatus | string;
+  Status?: ComplianceStatus;
 
   /**
    * @public
    * <p>The severity of the compliance status. Severity can be one of the following: Critical, High,
    *    Medium, Low, Informational, Unspecified.</p>
    */
-  Severity?: ComplianceSeverity | string;
+  Severity?: ComplianceSeverity;
 
   /**
    * @public
@@ -6628,7 +6628,7 @@ export interface ListDocumentMetadataHistoryRequest {
    * <p>The type of data for which details are being requested. Currently, the only supported value
    *    is <code>DocumentReviews</code>.</p>
    */
-  Metadata: DocumentMetadataEnum | string | undefined;
+  Metadata: DocumentMetadataEnum | undefined;
 
   /**
    * @public
@@ -6668,7 +6668,7 @@ export interface DocumentReviewCommentSource {
    * <p>The type of information added to a review request. Currently, only the value
    *     <code>Comment</code> is supported.</p>
    */
-  Type?: DocumentReviewCommentType | string;
+  Type?: DocumentReviewCommentType;
 
   /**
    * @public
@@ -6704,7 +6704,7 @@ export interface DocumentReviewerResponseSource {
    *    approved, the status of the previous version changes to REJECTED.</p>
    *          <p>Only one version of a document can be in review, or PENDING, at a time.</p>
    */
-  ReviewStatus?: ReviewStatus | string;
+  ReviewStatus?: ReviewStatus;
 
   /**
    * @public
@@ -6793,7 +6793,7 @@ export interface DocumentFilter {
    * @public
    * <p>The name of the filter.</p>
    */
-  key: DocumentFilterKey | string | undefined;
+  key: DocumentFilterKey | undefined;
 
   /**
    * @public
@@ -7021,7 +7021,7 @@ export interface DocumentIdentifier {
    * @public
    * <p>The operating system platform. </p>
    */
-  PlatformTypes?: (PlatformType | string)[];
+  PlatformTypes?: PlatformType[];
 
   /**
    * @public
@@ -7033,7 +7033,7 @@ export interface DocumentIdentifier {
    * @public
    * <p>The document type.</p>
    */
-  DocumentType?: DocumentType | string;
+  DocumentType?: DocumentType;
 
   /**
    * @public
@@ -7045,7 +7045,7 @@ export interface DocumentIdentifier {
    * @public
    * <p>The document format, either JSON or YAML.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: DocumentFormat;
 
   /**
    * @public
@@ -7073,7 +7073,7 @@ export interface DocumentIdentifier {
    * @public
    * <p>The current status of a document review.</p>
    */
-  ReviewStatus?: ReviewStatus | string;
+  ReviewStatus?: ReviewStatus;
 
   /**
    * @public
@@ -7172,14 +7172,14 @@ export interface DocumentVersionInfo {
    * @public
    * <p>The document format, either JSON or YAML.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: DocumentFormat;
 
   /**
    * @public
    * <p>The status of the SSM document, such as <code>Creating</code>, <code>Active</code>,
    *     <code>Failed</code>, and <code>Deleting</code>.</p>
    */
-  Status?: DocumentStatus | string;
+  Status?: DocumentStatus;
 
   /**
    * @public
@@ -7193,7 +7193,7 @@ export interface DocumentVersionInfo {
    * @public
    * <p>The current status of the approval review for the latest version of the document.</p>
    */
-  ReviewStatus?: ReviewStatus | string;
+  ReviewStatus?: ReviewStatus;
 }
 
 /**
@@ -7330,7 +7330,7 @@ export interface OpsItemEventFilter {
    * <p>The name of the filter key. Currently, the only supported value is
    *    <code>OpsItemId</code>.</p>
    */
-  Key: OpsItemEventFilterKey | string | undefined;
+  Key: OpsItemEventFilterKey | undefined;
 
   /**
    * @public
@@ -7343,7 +7343,7 @@ export interface OpsItemEventFilter {
    * <p>The operator used by the filter call. Currently, the only supported value is
    *     <code>Equal</code>.</p>
    */
-  Operator: OpsItemEventFilterOperator | string | undefined;
+  Operator: OpsItemEventFilterOperator | undefined;
 }
 
 /**
@@ -7490,7 +7490,7 @@ export interface OpsItemRelatedItemsFilter {
    * <p>The name of the filter key. Supported values include <code>ResourceUri</code>,
    *     <code>ResourceType</code>, or <code>AssociationId</code>.</p>
    */
-  Key: OpsItemRelatedItemsFilterKey | string | undefined;
+  Key: OpsItemRelatedItemsFilterKey | undefined;
 
   /**
    * @public
@@ -7503,7 +7503,7 @@ export interface OpsItemRelatedItemsFilter {
    * <p>The operator used by the filter call. The only supported operator is
    *    <code>EQUAL</code>.</p>
    */
-  Operator: OpsItemRelatedItemsFilterOperator | string | undefined;
+  Operator: OpsItemRelatedItemsFilterOperator | undefined;
 }
 
 /**
@@ -7762,14 +7762,14 @@ export interface ResourceComplianceSummaryItem {
    * @public
    * <p>The compliance status for the resource.</p>
    */
-  Status?: ComplianceStatus | string;
+  Status?: ComplianceStatus;
 
   /**
    * @public
    * <p>The highest severity item found for the resource. The resource is compliant for this
    *    item.</p>
    */
-  OverallSeverity?: ComplianceSeverity | string;
+  OverallSeverity?: ComplianceSeverity;
 
   /**
    * @public
@@ -7979,7 +7979,7 @@ export interface ResourceDataSyncItem {
    * @public
    * <p>The status reported by the last sync.</p>
    */
-  LastStatus?: LastResourceDataSyncStatus | string;
+  LastStatus?: LastResourceDataSyncStatus;
 
   /**
    * @public
@@ -8020,7 +8020,7 @@ export interface ListTagsForResourceRequest {
    * @public
    * <p>Returns a list of tags for a specific resource type.</p>
    */
-  ResourceType: ResourceTypeForTagging | string | undefined;
+  ResourceType: ResourceTypeForTagging | undefined;
 
   /**
    * @public
@@ -8082,7 +8082,7 @@ export interface ModifyDocumentPermissionRequest {
    * <p>The permission type for the document. The permission type can be
    *    <i>Share</i>.</p>
    */
-  PermissionType: DocumentPermissionType | string | undefined;
+  PermissionType: DocumentPermissionType | undefined;
 
   /**
    * @public
@@ -8209,13 +8209,13 @@ export interface ComplianceItemEntry {
    * <p>The severity of the compliance status. Severity can be one of the following: Critical, High,
    *    Medium, Low, Informational, Unspecified.</p>
    */
-  Severity: ComplianceSeverity | string | undefined;
+  Severity: ComplianceSeverity | undefined;
 
   /**
    * @public
    * <p>The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.</p>
    */
-  Status: ComplianceStatus | string | undefined;
+  Status: ComplianceStatus | undefined;
 
   /**
    * @public
@@ -8299,7 +8299,7 @@ export interface PutComplianceItemsRequest {
    *             <p>This attribute is only valid for association compliance.</p>
    *          </note>
    */
-  UploadType?: ComplianceUploadType | string;
+  UploadType?: ComplianceUploadType;
 }
 
 /**
@@ -8875,7 +8875,7 @@ export interface PutParameterRequest {
    *     parameter type when creating a parameter.</p>
    *          </important>
    */
-  Type?: ParameterType | string;
+  Type?: ParameterType;
 
   /**
    * @public
@@ -8997,7 +8997,7 @@ export interface PutParameterRequest {
    *          <p>For more information about configuring the default tier option, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-default-tier.html">Specifying a
    *     default parameter tier</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  Tier?: ParameterTier | string;
+  Tier?: ParameterTier;
 
   /**
    * @public
@@ -9083,7 +9083,7 @@ export interface PutParameterResult {
    * @public
    * <p>The tier assigned to the parameter.</p>
    */
-  Tier?: ParameterTier | string;
+  Tier?: ParameterTier;
 }
 
 /**
@@ -9253,7 +9253,7 @@ export interface RegisterTargetWithMaintenanceWindowRequest {
    * @public
    * <p>The type of target being registered with the maintenance window.</p>
    */
-  ResourceType: MaintenanceWindowResourceType | string | undefined;
+  ResourceType: MaintenanceWindowResourceType | undefined;
 
   /**
    * @public
@@ -9432,7 +9432,7 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    * @public
    * <p>The type of task being registered.</p>
    */
-  TaskType: MaintenanceWindowTaskType | string | undefined;
+  TaskType: MaintenanceWindowTaskType | undefined;
 
   /**
    * @public
@@ -9551,7 +9551,7 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    *             </li>
    *          </ul>
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior;
 
   /**
    * @public
@@ -9586,7 +9586,7 @@ export interface RemoveTagsFromResourceRequest {
    *     <code>mi-1a2b3c4d5e6f</code>.</p>
    *          </note>
    */
-  ResourceType: ResourceTypeForTagging | string | undefined;
+  ResourceType: ResourceTypeForTagging | undefined;
 
   /**
    * @public
@@ -9813,7 +9813,7 @@ export interface SendAutomationSignalRequest {
    * @public
    * <p>The type of signal to send to an Automation execution. </p>
    */
-  SignalType: SignalType | string | undefined;
+  SignalType: SignalType | undefined;
 
   /**
    * @public
@@ -9984,7 +9984,7 @@ export interface SendCommandRequest {
    *             <p>Sha1 hashes have been deprecated.</p>
    *          </note>
    */
-  DocumentHashType?: DocumentHashType | string;
+  DocumentHashType?: DocumentHashType;
 
   /**
    * @public
@@ -10252,7 +10252,7 @@ export interface StartAutomationExecutionRequest {
    * <p>The execution mode of the automation. Valid modes include the following: Auto and
    *    Interactive. The default mode is Auto.</p>
    */
-  Mode?: ExecutionMode | string;
+  Mode?: ExecutionMode;
 
   /**
    * @public
@@ -10643,7 +10643,7 @@ export interface StopAutomationExecutionRequest {
    * <p>The stop request type. Valid types include the following: Cancel and Complete. The default
    *    type is Cancel.</p>
    */
-  Type?: StopType | string;
+  Type?: StopType;
 }
 
 /**

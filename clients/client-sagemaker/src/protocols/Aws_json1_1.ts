@@ -901,6 +901,7 @@ import {
   EndpointInput,
   FileSystemConfig,
   FileSystemDataSource,
+  FillingType,
   FinalAutoMLJobObjectiveMetric,
   GitConfig,
   HolidayConfigAttributes,
@@ -26751,10 +26752,10 @@ const de_ModelPackageSummaries = (
       if (value === null) {
         return acc;
       }
-      acc[key] = de_BatchDescribeModelPackageSummary(value, context);
+      acc[key as string] = de_BatchDescribeModelPackageSummary(value, context);
       return acc;
     },
-    {}
+    {} as Record<string, BatchDescribeModelPackageSummary>
   );
 };
 
@@ -28318,10 +28319,10 @@ const de_TrialComponentParameters = (
       if (value === null) {
         return acc;
       }
-      acc[key] = de_TrialComponentParameterValue(__expectUnion(value), context);
+      acc[key as string] = de_TrialComponentParameterValue(__expectUnion(value), context);
       return acc;
     },
-    {}
+    {} as Record<string, TrialComponentParameterValue>
   );
 };
 

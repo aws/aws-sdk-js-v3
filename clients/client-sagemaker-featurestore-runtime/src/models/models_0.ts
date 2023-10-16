@@ -85,7 +85,7 @@ export interface BatchGetRecordRequest {
    *          not null. If <code>Disabled</code> and null, <code>BatchGetRecord</code> will return
    *          null.</p>
    */
-  ExpirationTimeResponse?: ExpirationTimeResponse | string;
+  ExpirationTimeResponse?: ExpirationTimeResponse;
 }
 
 /**
@@ -333,14 +333,14 @@ export interface DeleteRecordRequest {
    *          deletes the record from all of the stores that you're using for the
    *             <code>FeatureGroup</code>.</p>
    */
-  TargetStores?: (TargetStore | string)[];
+  TargetStores?: TargetStore[];
 
   /**
    * @public
    * <p>The name of the deletion mode for deleting the record. By default, the deletion mode is
    *          set to <code>SoftDelete</code>.</p>
    */
-  DeletionMode?: DeletionMode | string;
+  DeletionMode?: DeletionMode;
 }
 
 /**
@@ -374,7 +374,7 @@ export interface GetRecordRequest {
    *             <code>GetRecord</code> will return the value of <code>ExpiresAt</code>, if it is not
    *          null. If <code>Disabled</code> and null, <code>GetRecord</code> will return null.</p>
    */
-  ExpirationTimeResponse?: ExpirationTimeResponse | string;
+  ExpirationTimeResponse?: ExpirationTimeResponse;
 }
 
 /**
@@ -445,7 +445,7 @@ export interface TtlDuration {
    * <p>
    *             <code>TtlDuration</code> time unit.</p>
    */
-  Unit: TtlDurationUnit | string | undefined;
+  Unit: TtlDurationUnit | undefined;
 
   /**
    * @public
@@ -489,7 +489,7 @@ export interface PutRecordRequest {
    * <p>A list of stores to which you're adding the record. By default, Feature Store adds the
    *          record to all of the stores that you're using for the <code>FeatureGroup</code>.</p>
    */
-  TargetStores?: (TargetStore | string)[];
+  TargetStores?: TargetStore[];
 
   /**
    * @public

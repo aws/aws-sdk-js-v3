@@ -46,7 +46,7 @@ export interface DiscovererSummary {
    * @public
    * <p>The state of the discoverer.</p>
    */
-  State?: DiscovererState | string;
+  State?: DiscovererState;
 
   /**
    * @public
@@ -160,7 +160,7 @@ export interface SchemaVersionSummary {
    * @public
    * <p>The type of schema.</p>
    */
-  Type?: Type | string;
+  Type?: Type;
 }
 
 /**
@@ -183,7 +183,7 @@ export interface SearchSchemaVersionSummary {
    * @public
    * <p>The type of schema.</p>
    */
-  Type?: Type | string;
+  Type?: Type;
 }
 
 /**
@@ -355,7 +355,7 @@ export interface CreateDiscovererResponse {
    * @public
    * <p>The state of the discoverer.</p>
    */
-  State?: DiscovererState | string;
+  State?: DiscovererState;
 
   /**
    * @public
@@ -588,7 +588,7 @@ export interface CreateSchemaRequest {
    * @public
    * <p>The type of schema.</p>
    */
-  Type: Type | string | undefined;
+  Type: Type | undefined;
 }
 
 /**
@@ -804,7 +804,7 @@ export interface DescribeCodeBindingResponse {
    * @public
    * <p>The current status of code binding generation.</p>
    */
-  Status?: CodeGenerationStatus | string;
+  Status?: CodeGenerationStatus;
 }
 
 /**
@@ -882,7 +882,7 @@ export interface DescribeDiscovererResponse {
    * @public
    * <p>The state of the discoverer.</p>
    */
-  State?: DiscovererState | string;
+  State?: DiscovererState;
 
   /**
    * @public
@@ -1105,7 +1105,7 @@ export interface GetDiscoveredSchemaRequest {
    * @public
    * <p>The type of event.</p>
    */
-  Type: Type | string | undefined;
+  Type: Type | undefined;
 }
 
 /**
@@ -1452,7 +1452,7 @@ export interface PutCodeBindingResponse {
    * @public
    * <p>The current status of code binding generation.</p>
    */
-  Status?: CodeGenerationStatus | string;
+  Status?: CodeGenerationStatus;
 }
 
 /**
@@ -1562,7 +1562,7 @@ export interface StartDiscovererResponse {
    * @public
    * <p>The state of the discoverer.</p>
    */
-  State?: DiscovererState | string;
+  State?: DiscovererState;
 }
 
 /**
@@ -1590,7 +1590,7 @@ export interface StopDiscovererResponse {
    * @public
    * <p>The state of the discoverer.</p>
    */
-  State?: DiscovererState | string;
+  State?: DiscovererState;
 }
 
 /**
@@ -1683,7 +1683,7 @@ export interface UpdateDiscovererResponse {
    * @public
    * <p>The state of the discoverer.</p>
    */
-  State?: DiscovererState | string;
+  State?: DiscovererState;
 
   /**
    * @public
@@ -1783,7 +1783,7 @@ export interface UpdateSchemaRequest {
    * @public
    * <p>The schema type for the events schema.</p>
    */
-  Type?: Type | string;
+  Type?: Type;
 }
 
 /**

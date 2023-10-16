@@ -31,7 +31,7 @@ export class AccessDeniedException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  Reason?: AccessDeniedExceptionReason | string;
+  Reason?: AccessDeniedExceptionReason;
   /**
    * @internal
    */
@@ -69,7 +69,7 @@ export interface AccountAttribute {
    * @public
    * <p>The name of the account attribute.</p>
    */
-  Name: AccountAttributeName | string | undefined;
+  Name: AccountAttributeName | undefined;
 
   /**
    * @public
@@ -103,7 +103,7 @@ export interface AccountLimit {
    * @public
    * <p>The name of the attribute to apply the account limit to.</p>
    */
-  Name: AccountLimitName | string | undefined;
+  Name: AccountLimitName | undefined;
 
   /**
    * @public
@@ -259,13 +259,13 @@ export class ConflictException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  Reason?: ConflictExceptionReason | string;
+  Reason?: ConflictExceptionReason;
 
   /**
    * @public
    * <p>The type of resource that caused the exception.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -331,7 +331,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The type of resource that caused the exception.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -392,7 +392,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  Reason?: ServiceQuotaExceededExceptionReason | string;
+  Reason?: ServiceQuotaExceededExceptionReason;
   /**
    * @internal
    */
@@ -501,7 +501,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -569,7 +569,7 @@ export interface ConfigurationSetFilter {
    * @public
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: ConfigurationSetFilterName | string | undefined;
+  Name: ConfigurationSetFilterName | undefined;
 
   /**
    * @public
@@ -690,7 +690,7 @@ export interface EventDestination {
    * @public
    * <p>An array of event types that determine which events to log.</p>
    */
-  MatchingEventTypes: (EventType | string)[] | undefined;
+  MatchingEventTypes: EventType[] | undefined;
 
   /**
    * @public
@@ -745,7 +745,7 @@ export interface ConfigurationSetInformation {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  DefaultMessageType?: MessageType | string;
+  DefaultMessageType?: MessageType;
 
   /**
    * @public
@@ -855,7 +855,7 @@ export interface CreateEventDestinationRequest {
    * <p>An array of event types that determine which events to log. If "ALL" is used, then
    *                 Amazon Pinpoint logs every event type.</p>
    */
-  MatchingEventTypes: (EventType | string)[] | undefined;
+  MatchingEventTypes: EventType[] | undefined;
 
   /**
    * @public
@@ -989,7 +989,7 @@ export interface CreatePoolRequest {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType: MessageType | string | undefined;
+  MessageType: MessageType | undefined;
 
   /**
    * @public
@@ -1060,13 +1060,13 @@ export interface CreatePoolResult {
    *             </li>
    *          </ul>
    */
-  Status?: PoolStatus | string;
+  Status?: PoolStatus;
 
   /**
    * @public
    * <p>The type of message for the pool to use.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -1162,7 +1162,7 @@ export interface DeleteConfigurationSetResult {
    * @public
    * <p>The default message type of the configuration set that was deleted.</p>
    */
-  DefaultMessageType?: MessageType | string;
+  DefaultMessageType?: MessageType;
 
   /**
    * @public
@@ -1211,7 +1211,7 @@ export interface DeleteDefaultMessageTypeResult {
    * @public
    * <p>The current message type for the configuration set.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 }
 
 /**
@@ -1360,7 +1360,7 @@ export interface DeleteKeywordResult {
    * @public
    * <p>The action that was associated with the deleted keyword.</p>
    */
-  KeywordAction?: KeywordAction | string;
+  KeywordAction?: KeywordAction;
 }
 
 /**
@@ -1494,13 +1494,13 @@ export interface DeletePoolResult {
    *             </li>
    *          </ul>
    */
-  Status?: PoolStatus | string;
+  Status?: PoolStatus;
 
   /**
    * @public
    * <p>The message type that was associated with the deleted pool.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -1719,7 +1719,7 @@ export interface KeywordFilter {
    * @public
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: KeywordFilterName | string | undefined;
+  Name: KeywordFilterName | undefined;
 
   /**
    * @public
@@ -1788,7 +1788,7 @@ export interface KeywordInformation {
    * @public
    * <p>The action to perform for the keyword.</p>
    */
-  KeywordAction: KeywordAction | string | undefined;
+  KeywordAction: KeywordAction | undefined;
 }
 
 /**
@@ -1843,7 +1843,7 @@ export interface OptedOutFilter {
    * @public
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: OptedOutFilterName | string | undefined;
+  Name: OptedOutFilterName | undefined;
 
   /**
    * @public
@@ -2042,7 +2042,7 @@ export interface PhoneNumberFilter {
    * @public
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: PhoneNumberFilterName | string | undefined;
+  Name: PhoneNumberFilterName | undefined;
 
   /**
    * @public
@@ -2156,7 +2156,7 @@ export interface PhoneNumberInformation {
    * @public
    * <p>The current status of the phone number.</p>
    */
-  Status: NumberStatus | string | undefined;
+  Status: NumberStatus | undefined;
 
   /**
    * @public
@@ -2171,20 +2171,20 @@ export interface PhoneNumberInformation {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType: MessageType | string | undefined;
+  MessageType: MessageType | undefined;
 
   /**
    * @public
    * <p>Describes if the origination identity can be used for text messages, voice calls or
    *             both.</p>
    */
-  NumberCapabilities: (NumberCapability | string)[] | undefined;
+  NumberCapabilities: NumberCapability[] | undefined;
 
   /**
    * @public
    * <p>The type of phone number.</p>
    */
-  NumberType: NumberType | string | undefined;
+  NumberType: NumberType | undefined;
 
   /**
    * @public
@@ -2288,7 +2288,7 @@ export interface PoolFilter {
    * @public
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: PoolFilterName | string | undefined;
+  Name: PoolFilterName | undefined;
 
   /**
    * @public
@@ -2349,7 +2349,7 @@ export interface PoolInformation {
    * @public
    * <p>The current status of the pool.</p>
    */
-  Status: PoolStatus | string | undefined;
+  Status: PoolStatus | undefined;
 
   /**
    * @public
@@ -2357,7 +2357,7 @@ export interface PoolInformation {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType: MessageType | string | undefined;
+  MessageType: MessageType | undefined;
 
   /**
    * @public
@@ -2455,7 +2455,7 @@ export interface SenderIdFilter {
    * @public
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: SenderIdFilterName | string | undefined;
+  Name: SenderIdFilterName | undefined;
 
   /**
    * @public
@@ -2546,7 +2546,7 @@ export interface SenderIdInformation {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageTypes: (MessageType | string)[] | undefined;
+  MessageTypes: MessageType[] | undefined;
 
   /**
    * @public
@@ -2618,7 +2618,7 @@ export interface SpendLimit {
    * @public
    * <p>The name for the SpendLimit.</p>
    */
-  Name: SpendLimitName | string | undefined;
+  Name: SpendLimitName | undefined;
 
   /**
    * @public
@@ -2776,7 +2776,7 @@ export interface PoolOriginationIdentitiesFilter {
    * @public
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: PoolOriginationIdentitiesFilterName | string | undefined;
+  Name: PoolOriginationIdentitiesFilterName | undefined;
 
   /**
    * @public
@@ -2845,7 +2845,7 @@ export interface OriginationIdentityMetadata {
    * <p>Describes if the origination identity can be used for text messages, voice calls or
    *             both.</p>
    */
-  NumberCapabilities: (NumberCapability | string)[] | undefined;
+  NumberCapabilities: NumberCapability[] | undefined;
 }
 
 /**
@@ -2946,7 +2946,7 @@ export interface PutKeywordRequest {
    * @public
    * <p>The action to perform for the new keyword when it is received.</p>
    */
-  KeywordAction?: KeywordAction | string;
+  KeywordAction?: KeywordAction;
 }
 
 /**
@@ -2981,7 +2981,7 @@ export interface PutKeywordResult {
    * @public
    * <p>The action to perform when the keyword is used.</p>
    */
-  KeywordAction?: KeywordAction | string;
+  KeywordAction?: KeywordAction;
 }
 
 /**
@@ -3075,7 +3075,7 @@ export interface ReleasePhoneNumberResult {
    * @public
    * <p>The current status of the request.</p>
    */
-  Status?: NumberStatus | string;
+  Status?: NumberStatus;
 
   /**
    * @public
@@ -3088,19 +3088,19 @@ export interface ReleasePhoneNumberResult {
    * @public
    * <p>The message type that was associated with the phone number.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
    * <p>Specifies if the number could be used for text messages, voice, or both.</p>
    */
-  NumberCapabilities?: (NumberCapability | string)[];
+  NumberCapabilities?: NumberCapability[];
 
   /**
    * @public
    * <p>The type of number that was released.</p>
    */
-  NumberType?: NumberType | string;
+  NumberType?: NumberType;
 
   /**
    * @public
@@ -3176,19 +3176,19 @@ export interface RequestPhoneNumberRequest {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType: MessageType | string | undefined;
+  MessageType: MessageType | undefined;
 
   /**
    * @public
    * <p>Indicates if the phone number will be used for text messages, voice messages, or both. </p>
    */
-  NumberCapabilities: (NumberCapability | string)[] | undefined;
+  NumberCapabilities: NumberCapability[] | undefined;
 
   /**
    * @public
    * <p>The type of phone number to request.</p>
    */
-  NumberType: RequestableNumberType | string | undefined;
+  NumberType: RequestableNumberType | undefined;
 
   /**
    * @public
@@ -3259,7 +3259,7 @@ export interface RequestPhoneNumberResult {
    * @public
    * <p>The current status of the request.</p>
    */
-  Status?: NumberStatus | string;
+  Status?: NumberStatus;
 
   /**
    * @public
@@ -3274,20 +3274,20 @@ export interface RequestPhoneNumberResult {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
    * <p>Indicates if the phone number will be used for text messages, voice messages or both.
    *         </p>
    */
-  NumberCapabilities?: (NumberCapability | string)[];
+  NumberCapabilities?: NumberCapability[];
 
   /**
    * @public
    * <p>The type of number that was released.</p>
    */
-  NumberType?: RequestableNumberType | string;
+  NumberType?: RequestableNumberType;
 
   /**
    * @public
@@ -3380,7 +3380,7 @@ export interface SendTextMessageRequest {
    *             for messages that are critical or time-sensitive and PROMOTIONAL for messages that
    *             aren't critical or time-sensitive.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -3423,7 +3423,7 @@ export interface SendTextMessageRequest {
    *             For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-senderid-india.html">Special requirements for sending SMS messages to recipients in India</a>.
    *         </p>
    */
-  DestinationCountryParameters?: Record<string, string>;
+  DestinationCountryParameters?: Record<DestinationCountryParameterKey, string>;
 
   /**
    * @public
@@ -3567,14 +3567,14 @@ export interface SendVoiceMessageRequest {
    *             </li>
    *          </ul>
    */
-  MessageBodyTextType?: VoiceMessageBodyTextType | string;
+  MessageBodyTextType?: VoiceMessageBodyTextType;
 
   /**
    * @public
    * <p>The voice for the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly</a>
    *             service to use. By default this is set to "MATTHEW".</p>
    */
-  VoiceId?: VoiceId | string;
+  VoiceId?: VoiceId;
 
   /**
    * @public
@@ -3638,7 +3638,7 @@ export interface SetDefaultMessageTypeRequest {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType: MessageType | string | undefined;
+  MessageType: MessageType | undefined;
 }
 
 /**
@@ -3661,7 +3661,7 @@ export interface SetDefaultMessageTypeResult {
    * @public
    * <p>The new default message type of the configuration set.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 }
 
 /**
@@ -3824,7 +3824,7 @@ export interface UpdateEventDestinationRequest {
    * @public
    * <p>An array of event types that determine which events to log.</p>
    */
-  MatchingEventTypes?: (EventType | string)[];
+  MatchingEventTypes?: EventType[];
 
   /**
    * @public
@@ -3946,7 +3946,7 @@ export interface UpdatePhoneNumberResult {
    * @public
    * <p>The current status of the request.</p>
    */
-  Status?: NumberStatus | string;
+  Status?: NumberStatus;
 
   /**
    * @public
@@ -3961,19 +3961,19 @@ export interface UpdatePhoneNumberResult {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
    * <p>Specifies if the number could be used for text messages, voice or both.</p>
    */
-  NumberCapabilities?: (NumberCapability | string)[];
+  NumberCapabilities?: NumberCapability[];
 
   /**
    * @public
    * <p>The type of number that was requested.</p>
    */
-  NumberType?: NumberType | string;
+  NumberType?: NumberType;
 
   /**
    * @public
@@ -4093,13 +4093,13 @@ export interface UpdatePoolResult {
    * @public
    * <p>The current status of the pool update request.</p>
    */
-  Status?: PoolStatus | string;
+  Status?: PoolStatus;
 
   /**
    * @public
    * <p>The type of message for the pool to use.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public

@@ -389,7 +389,7 @@ export interface UpdateAnalysisResponse {
    * @public
    * <p>The update status of the last update that was made to the analysis.</p>
    */
-  UpdateStatus?: ResourceStatus | string;
+  UpdateStatus?: ResourceStatus;
 
   /**
    * @public
@@ -606,7 +606,7 @@ export interface UpdateDashboardResponse {
    * @public
    * <p>The creation status of the request.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: ResourceStatus;
 
   /**
    * @public
@@ -796,7 +796,7 @@ export interface UpdateDataSetRequest {
    * @public
    * <p>Indicates whether you want to import the data into SPICE.</p>
    */
-  ImportMode: DataSetImportMode | string | undefined;
+  ImportMode: DataSetImportMode | undefined;
 
   /**
    * @public
@@ -1016,7 +1016,7 @@ export interface UpdateDataSourceResponse {
    * @public
    * <p>The update status of the data source's last update.</p>
    */
-  UpdateStatus?: ResourceStatus | string;
+  UpdateStatus?: ResourceStatus;
 
   /**
    * @public
@@ -1305,7 +1305,7 @@ export interface UpdateIAMPolicyAssignmentRequest {
    *             </li>
    *          </ul>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: AssignmentStatus;
 
   /**
    * @public
@@ -1373,7 +1373,7 @@ export interface UpdateIAMPolicyAssignmentResponse {
    *             </li>
    *          </ul>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: AssignmentStatus;
 
   /**
    * @public
@@ -1606,7 +1606,7 @@ export interface UpdateTemplateResponse {
    * @public
    * <p>The creation status of the template.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: ResourceStatus;
 
   /**
    * @public
@@ -1810,7 +1810,7 @@ export interface UpdateThemeResponse {
    * @public
    * <p>The creation status of the theme.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: ResourceStatus;
 
   /**
    * @public
@@ -2182,7 +2182,7 @@ export interface UpdateUserRequest {
    *          <p>The name of the Amazon QuickSight role is invisible to the user except for the console
    * 	        screens dealing with permissions.</p>
    */
-  Role: UserRole | string | undefined;
+  Role: UserRole | undefined;
 
   /**
    * @public
@@ -2355,13 +2355,13 @@ export interface UpdateVPCConnectionResponse {
    * @public
    * <p>The update status of the VPC connection's last update.</p>
    */
-  UpdateStatus?: VPCConnectionResourceStatus | string;
+  UpdateStatus?: VPCConnectionResourceStatus;
 
   /**
    * @public
    * <p>The availability status of the VPC connection.</p>
    */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus | string;
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus;
 
   /**
    * @public

@@ -6682,9 +6682,9 @@ const de_OfferingStatusMap = (output: any, context: __SerdeContext): Record<stri
     if (value === null) {
       return acc;
     }
-    acc[key] = de_OfferingStatus(value, context);
+    acc[key as string] = de_OfferingStatus(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, OfferingStatus>);
 };
 
 /**
@@ -7152,17 +7152,14 @@ const de_UniqueProblems = (output: any, context: __SerdeContext): UniqueProblem[
 const de_UniqueProblemsByExecutionResultMap = (
   output: any,
   context: __SerdeContext
-): Record<string, UniqueProblem[]> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, UniqueProblem[]>, [key, value]: [ExecutionResult | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_UniqueProblems(value, context);
+): Record<ExecutionResult, UniqueProblem[]> => {
+  return Object.entries(output).reduce((acc: Record<ExecutionResult, UniqueProblem[]>, [key, value]: [string, any]) => {
+    if (value === null) {
       return acc;
-    },
-    {}
-  );
+    }
+    acc[key as ExecutionResult] = de_UniqueProblems(value, context);
+    return acc;
+  }, {} as Record<ExecutionResult, UniqueProblem[]>);
 };
 
 // de_UntagResourceResponse omitted.

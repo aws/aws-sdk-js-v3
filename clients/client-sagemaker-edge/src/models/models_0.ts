@@ -42,7 +42,7 @@ export interface Checksum {
    * @public
    * <p>The type of the checksum.</p>
    */
-  Type?: ChecksumType | string;
+  Type?: ChecksumType;
 
   /**
    * @public
@@ -92,7 +92,7 @@ export interface Definition {
    * @public
    * <p>The desired state of the model.</p>
    */
-  State?: ModelState | string;
+  State?: ModelState;
 }
 
 /**
@@ -137,13 +137,13 @@ export interface EdgeDeployment {
    * @public
    * <p>The type of the deployment.</p>
    */
-  Type?: DeploymentType | string;
+  Type?: DeploymentType;
 
   /**
    * @public
    * <p>Determines whether to rollback to previous configuration if deployment fails.</p>
    */
-  FailureHandlingPolicy?: FailureHandlingPolicy | string;
+  FailureHandlingPolicy?: FailureHandlingPolicy;
 
   /**
    * @public
@@ -291,19 +291,19 @@ export interface DeploymentModel {
    * @public
    * <p>The desired state of the model.</p>
    */
-  DesiredState?: ModelState | string;
+  DesiredState?: ModelState;
 
   /**
    * @public
    * <p>Returns the current state of the model.</p>
    */
-  State?: ModelState | string;
+  State?: ModelState;
 
   /**
    * @public
    * <p>Returns the deployment status of the model.</p>
    */
-  Status?: DeploymentStatus | string;
+  Status?: DeploymentStatus;
 
   /**
    * @public

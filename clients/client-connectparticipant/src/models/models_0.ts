@@ -190,7 +190,7 @@ export interface CreateParticipantConnectionRequest {
    *             participant as connected, pass <code>CONNECTION_CREDENTIALS</code> in
    *             <code>Type</code>.</p>
    */
-  Type?: (ConnectionType | string)[];
+  Type?: ConnectionType[];
 
   /**
    * @public
@@ -393,7 +393,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The type of Amazon Connect resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
   /**
    * @internal
    */
@@ -553,13 +553,13 @@ export interface GetTranscriptRequest {
    * <p>The direction from StartPosition from which to retrieve message. Default: BACKWARD
    *             when no StartPosition is provided, FORWARD with StartPosition. </p>
    */
-  ScanDirection?: ScanDirection | string;
+  ScanDirection?: ScanDirection;
 
   /**
    * @public
    * <p>The sort order for the records. Default: DESCENDING.</p>
    */
-  SortOrder?: SortKey | string;
+  SortOrder?: SortKey;
 
   /**
    * @public
@@ -617,7 +617,7 @@ export interface AttachmentItem {
    * @public
    * <p>Status of the attachment.</p>
    */
-  Status?: ArtifactStatus | string;
+  Status?: ArtifactStatus;
 }
 
 /**
@@ -737,7 +737,7 @@ export interface Item {
    * @public
    * <p>Type of the item: message or event. </p>
    */
-  Type?: ChatItemType | string;
+  Type?: ChatItemType;
 
   /**
    * @public
@@ -755,7 +755,7 @@ export interface Item {
    * @public
    * <p>The role of the sender. For example, is it a customer, agent, or system.</p>
    */
-  ParticipantRole?: ParticipantRole | string;
+  ParticipantRole?: ParticipantRole;
 
   /**
    * @public

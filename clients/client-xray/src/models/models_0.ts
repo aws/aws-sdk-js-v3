@@ -821,14 +821,14 @@ export interface EncryptionConfig {
    * @public
    * <p>The encryption status. While the status is <code>UPDATING</code>, X-Ray may encrypt data with a combination of the new and old settings.</p>
    */
-  Status?: EncryptionStatus | string;
+  Status?: EncryptionStatus;
 
   /**
    * @public
    * <p>The type of encryption. Set to <code>KMS</code> for encryption with KMS keys. Set to <code>NONE</code> for
    *       default encryption.</p>
    */
-  Type?: EncryptionType | string;
+  Type?: EncryptionType;
 }
 
 /**
@@ -1035,13 +1035,13 @@ export interface Insight {
    * @public
    * <p>The categories that label and describe the type of insight.</p>
    */
-  Categories?: (InsightCategory | string)[];
+  Categories?: InsightCategory[];
 
   /**
    * @public
    * <p>The current state of the insight.</p>
    */
-  State?: InsightState | string;
+  State?: InsightState;
 
   /**
    * @public
@@ -1332,7 +1332,7 @@ export interface GetInsightSummariesRequest {
    * @public
    * <p>The list of insight states. </p>
    */
-  States?: (InsightState | string)[];
+  States?: InsightState[];
 
   /**
    * @public
@@ -1405,13 +1405,13 @@ export interface InsightSummary {
    * @public
    * <p> Categories The categories that label and describe the type of insight.</p>
    */
-  Categories?: (InsightCategory | string)[];
+  Categories?: InsightCategory[];
 
   /**
    * @public
    * <p>The current state of the insight.</p>
    */
-  State?: InsightState | string;
+  State?: InsightState;
 
   /**
    * @public
@@ -2280,7 +2280,7 @@ export interface SamplingStrategy {
    * @public
    * <p>The name of a sampling rule.</p>
    */
-  Name?: SamplingStrategyName | string;
+  Name?: SamplingStrategyName;
 
   /**
    * @public
@@ -2323,7 +2323,7 @@ export interface GetTraceSummariesRequest {
    * @public
    * <p>A parameter to indicate whether to query trace summaries by TraceId or Event time.</p>
    */
-  TimeRangeType?: TimeRangeType | string;
+  TimeRangeType?: TimeRangeType;
 
   /**
    * @public
@@ -3036,7 +3036,7 @@ export interface PutEncryptionConfigRequest {
    * <p>The type of encryption. Set to <code>KMS</code> to use your own key for encryption. Set
    *       to <code>NONE</code> for default encryption.</p>
    */
-  Type: EncryptionType | string | undefined;
+  Type: EncryptionType | undefined;
 }
 
 /**

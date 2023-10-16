@@ -3217,10 +3217,10 @@ const de_ComponentBindingProperties = (
       if (value === null) {
         return acc;
       }
-      acc[key] = de_ComponentBindingPropertiesValue(value, context);
+      acc[key as string] = de_ComponentBindingPropertiesValue(value, context);
       return acc;
     },
-    {}
+    {} as Record<string, ComponentBindingPropertiesValue>
   );
 };
 
@@ -3292,10 +3292,10 @@ const de_ComponentCollectionProperties = (
       if (value === null) {
         return acc;
       }
-      acc[key] = de_ComponentDataConfiguration(value, context);
+      acc[key as string] = de_ComponentDataConfiguration(value, context);
       return acc;
     },
-    {}
+    {} as Record<string, ComponentDataConfiguration>
   );
 };
 
@@ -3345,9 +3345,9 @@ const de_ComponentEvents = (output: any, context: __SerdeContext): Record<string
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ComponentEvent(value, context);
+    acc[key as string] = de_ComponentEvent(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ComponentEvent>);
 };
 
 /**
@@ -3374,9 +3374,9 @@ const de_ComponentProperties = (output: any, context: __SerdeContext): Record<st
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ComponentProperty(value, context);
+    acc[key as string] = de_ComponentProperty(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ComponentProperty>);
 };
 
 /**
@@ -3477,9 +3477,9 @@ const de_FieldsMap = (output: any, context: __SerdeContext): Record<string, Fiel
     if (value === null) {
       return acc;
     }
-    acc[key] = de_FieldConfig(value, context);
+    acc[key as string] = de_FieldConfig(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, FieldConfig>);
 };
 
 // de_FieldValidationConfiguration omitted.

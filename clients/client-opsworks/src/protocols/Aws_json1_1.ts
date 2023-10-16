@@ -172,6 +172,7 @@ import { UpdateStackCommandInput, UpdateStackCommandOutput } from "../commands/U
 import { UpdateUserProfileCommandInput, UpdateUserProfileCommandOutput } from "../commands/UpdateUserProfileCommand";
 import { UpdateVolumeCommandInput, UpdateVolumeCommandOutput } from "../commands/UpdateVolumeCommand";
 import {
+  AppAttributesKeys,
   AssignInstanceRequest,
   AssignVolumeRequest,
   AssociateElasticIpRequest,
@@ -228,6 +229,7 @@ import {
   GetHostnameSuggestionRequest,
   GrantAccessRequest,
   InstanceIdentity,
+  LayerAttributesKeys,
   LifecycleEventConfiguration,
   ListTagsRequest,
   LoadBasedAutoScalingConfiguration,
@@ -245,6 +247,7 @@ import {
   ShutdownEventConfiguration,
   Source,
   SslConfiguration,
+  StackAttributesKeys,
   StackConfigurationManager,
   StartInstanceRequest,
   StartStackRequest,

@@ -290,7 +290,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -511,7 +511,7 @@ export interface CreateAnalyzerRequest {
    *          You can create only one analyzer per account per Region. You can create up to 5 analyzers
    *          per organization per Region.</p>
    */
-  type: Type | string | undefined;
+  type: Type | undefined;
 
   /**
    * @public
@@ -601,7 +601,7 @@ export interface StatusReason {
    * @public
    * <p>The reason code for the current status of the analyzer.</p>
    */
-  code: ReasonCode | string | undefined;
+  code: ReasonCode | undefined;
 }
 
 /**
@@ -626,7 +626,7 @@ export interface AnalyzerSummary {
    * <p>The type of analyzer, which corresponds to the zone of trust chosen for the
    *          analyzer.</p>
    */
-  type: Type | string | undefined;
+  type: Type | undefined;
 
   /**
    * @public
@@ -661,7 +661,7 @@ export interface AnalyzerSummary {
    *          analyzer creation is in progress and <code>Failed</code> when the analyzer creation has
    *          failed. </p>
    */
-  status: AnalyzerStatus | string | undefined;
+  status: AnalyzerStatus | undefined;
 
   /**
    * @public
@@ -708,7 +708,7 @@ export interface ListAnalyzersRequest {
    * @public
    * <p>The type of analyzer.</p>
    */
-  type?: Type | string;
+  type?: Type;
 }
 
 /**
@@ -988,7 +988,7 @@ export interface KmsGrantConfiguration {
    * @public
    * <p>A list of operations that the grant permits.</p>
    */
-  operations: (KmsGrantOperation | string)[] | undefined;
+  operations: KmsGrantOperation[] | undefined;
 
   /**
    * @public
@@ -1477,7 +1477,7 @@ export interface S3BucketAclGrantConfiguration {
    * @public
    * <p>The permissions being granted.</p>
    */
-  permission: AclPermission | string | undefined;
+  permission: AclPermission | undefined;
 
   /**
    * @public
@@ -1980,7 +1980,7 @@ export interface AccessPreviewStatusReason {
    * @public
    * <p>The reason code for the current status of the access preview.</p>
    */
-  code: AccessPreviewStatusReasonCode | string | undefined;
+  code: AccessPreviewStatusReasonCode | undefined;
 }
 
 /**
@@ -2031,7 +2031,7 @@ export interface AccessPreview {
    *             </li>
    *          </ul>
    */
-  status: AccessPreviewStatus | string | undefined;
+  status: AccessPreviewStatus | undefined;
 
   /**
    * @public
@@ -2111,7 +2111,7 @@ export interface AnalyzedResource {
    * @public
    * <p>The type of the resource that was analyzed.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -2156,7 +2156,7 @@ export interface AnalyzedResource {
    * @public
    * <p>The current status of the finding generated from the analyzed resource.</p>
    */
-  status?: FindingStatus | string;
+  status?: FindingStatus;
 
   /**
    * @public
@@ -2238,7 +2238,7 @@ export interface FindingSource {
    * @public
    * <p>Indicates the type of access that generated the finding.</p>
    */
-  type: FindingSourceType | string | undefined;
+  type: FindingSourceType | undefined;
 
   /**
    * @public
@@ -2289,7 +2289,7 @@ export interface Finding {
    * @public
    * <p>The type of the resource identified in the finding.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -2319,7 +2319,7 @@ export interface Finding {
    * @public
    * <p>The current status of the finding.</p>
    */
-  status: FindingStatus | string | undefined;
+  status: FindingStatus | undefined;
 
   /**
    * @public
@@ -2525,7 +2525,7 @@ export interface JobError {
    * @public
    * <p>The job error code.</p>
    */
-  code: JobErrorCode | string | undefined;
+  code: JobErrorCode | undefined;
 
   /**
    * @public
@@ -2569,7 +2569,7 @@ export interface JobDetails {
    * @public
    * <p>The status of the job request.</p>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 
   /**
    * @public
@@ -2684,7 +2684,7 @@ export interface AccessPreviewFinding {
    * @public
    * <p>The existing status of the finding, provided only for existing findings.</p>
    */
-  existingFindingStatus?: FindingStatus | string;
+  existingFindingStatus?: FindingStatus;
 
   /**
    * @public
@@ -2723,7 +2723,7 @@ export interface AccessPreviewFinding {
    * @public
    * <p>The type of the resource that can be accessed in the finding.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -2755,7 +2755,7 @@ export interface AccessPreviewFinding {
    *          and existing status <code>Active</code> indicates the existing <code>Active</code> finding
    *          would become <code>Resolved</code> as a result of the proposed permissions change.</p>
    */
-  changeType: FindingChangeType | string | undefined;
+  changeType: FindingChangeType | undefined;
 
   /**
    * @public
@@ -2765,7 +2765,7 @@ export interface AccessPreviewFinding {
    *             <code>Active</code> finding would become <code>Resolved</code> as a result of the
    *          proposed permissions change.</p>
    */
-  status: FindingStatus | string | undefined;
+  status: FindingStatus | undefined;
 
   /**
    * @public
@@ -2871,7 +2871,7 @@ export interface AccessPreviewSummary {
    *             </li>
    *          </ul>
    */
-  status: AccessPreviewStatus | string | undefined;
+  status: AccessPreviewStatus | undefined;
 
   /**
    * @public
@@ -2916,7 +2916,7 @@ export interface ListAnalyzedResourcesRequest {
    * @public
    * <p>The type of resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -2952,7 +2952,7 @@ export interface AnalyzedResourceSummary {
    * @public
    * <p>The type of resource that was analyzed.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 }
 
 /**
@@ -2993,7 +2993,7 @@ export interface SortCriteria {
    * @public
    * <p>The sort order, ascending or descending.</p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: OrderBy;
 }
 
 /**
@@ -3074,7 +3074,7 @@ export interface FindingSummary {
    * @public
    * <p>The type of the resource that the external principal has access to.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -3105,7 +3105,7 @@ export interface FindingSummary {
    * @public
    * <p>The status of the finding.</p>
    */
-  status: FindingStatus | string | undefined;
+  status: FindingStatus | undefined;
 
   /**
    * @public
@@ -3195,7 +3195,7 @@ export interface PolicyGeneration {
    * @public
    * <p>The status of the policy generation request.</p>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 
   /**
    * @public
@@ -3469,7 +3469,7 @@ export interface UpdateFindingsRequest {
    *             <code>ARCHIVE</code> to change an Active finding to an Archived finding. Use
    *             <code>ACTIVE</code> to change an Archived finding to an Active finding.</p>
    */
-  status: FindingStatusUpdate | string | undefined;
+  status: FindingStatusUpdate | undefined;
 
   /**
    * @public
@@ -3552,7 +3552,7 @@ export interface ValidatePolicyRequest {
    * @public
    * <p>The locale to use for localizing the findings.</p>
    */
-  locale?: Locale | string;
+  locale?: Locale;
 
   /**
    * @public
@@ -3583,7 +3583,7 @@ export interface ValidatePolicyRequest {
    *          input such as identity policy or resource policy or a specific input such as managed policy
    *          or Amazon S3 bucket policy. </p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public
@@ -3596,7 +3596,7 @@ export interface ValidatePolicyRequest {
    *          KMS key, do not specify a value for the policy validation resource type and IAM Access Analyzer
    *          will run policy checks that apply to all resource policies.</p>
    */
-  validatePolicyResourceType?: ValidatePolicyResourceType | string;
+  validatePolicyResourceType?: ValidatePolicyResourceType;
 }
 
 /**
@@ -3810,7 +3810,7 @@ export interface ValidatePolicyFinding {
    *          <p>Suggestions recommend stylistic improvements in the policy that do not impact
    *          access.</p>
    */
-  findingType: ValidatePolicyFindingType | string | undefined;
+  findingType: ValidatePolicyFindingType | undefined;
 
   /**
    * @public

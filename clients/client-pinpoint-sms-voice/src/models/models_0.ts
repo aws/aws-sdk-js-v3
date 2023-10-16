@@ -237,7 +237,7 @@ export interface EventDestinationDefinition {
    * @public
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
    */
-  MatchingEventTypes?: (EventType | string)[];
+  MatchingEventTypes?: EventType[];
 
   /**
    * @public
@@ -365,7 +365,7 @@ export interface EventDestination {
    * @public
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
    */
-  MatchingEventTypes?: (EventType | string)[];
+  MatchingEventTypes?: EventType[];
 
   /**
    * @public

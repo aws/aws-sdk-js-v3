@@ -79,7 +79,7 @@ export interface ReviewDetails {
    *             </li>
    *          </ul>
    */
-  Status?: ReviewStatus | string;
+  Status?: ReviewStatus;
 
   /**
    * @public
@@ -110,7 +110,7 @@ export interface AccountDetails {
    *             </li>
    *          </ul>
    */
-  MailType?: MailType | string;
+  MailType?: MailType;
 
   /**
    * @public
@@ -124,7 +124,7 @@ export interface AccountDetails {
    * <p>The language you would prefer for the case. The contact language can be one of
    *                 <code>ENGLISH</code> or <code>JAPANESE</code>.</p>
    */
-  ContactLanguage?: ContactLanguage | string;
+  ContactLanguage?: ContactLanguage;
 
   /**
    * @public
@@ -273,7 +273,7 @@ export interface BatchGetMetricDataQuery {
    * <p>The query namespace - e.g. <code>VDM</code>
    *          </p>
    */
-  Namespace: MetricNamespace | string | undefined;
+  Namespace: MetricNamespace | undefined;
 
   /**
    * @public
@@ -342,14 +342,14 @@ export interface BatchGetMetricDataQuery {
    *             </li>
    *          </ul>
    */
-  Metric: Metric | string | undefined;
+  Metric: Metric | undefined;
 
   /**
    * @public
    * <p>An object that contains mapping between <code>MetricDimensionName</code>
    *             and <code>MetricDimensionValue</code> to filter metrics by.</p>
    */
-  Dimensions?: Record<string, string>;
+  Dimensions?: Record<MetricDimensionName, string>;
 
   /**
    * @public
@@ -416,7 +416,7 @@ export interface MetricDataError {
    *             </li>
    *          </ul>
    */
-  Code?: QueryErrorCode | string;
+  Code?: QueryErrorCode;
 
   /**
    * @public
@@ -637,7 +637,7 @@ export interface Bounce {
    *             Can be one of <code>UNDETERMINED</code>, <code>TRANSIENT</code>, or <code>PERMANENT</code>
    *          </p>
    */
-  BounceType?: BounceType | string;
+  BounceType?: BounceType;
 
   /**
    * @public
@@ -936,7 +936,7 @@ export interface BulkEmailEntryResult {
    *             </li>
    *          </ul>
    */
-  Status?: BulkEmailStatus | string;
+  Status?: BulkEmailStatus;
 
   /**
    * @public
@@ -1017,7 +1017,7 @@ export interface CloudWatchDimensionConfiguration {
    *                 <code>messageTag</code>. To use your own email headers, choose
    *                 <code>emailHeader</code>. To use link tags, choose <code>linkTags</code>.</p>
    */
-  DimensionValueSource: DimensionValueSource | string | undefined;
+  DimensionValueSource: DimensionValueSource | undefined;
 
   /**
    * @public
@@ -1145,7 +1145,7 @@ export interface TopicPreference {
    * <p>The contact's subscription status to a topic which is either <code>OPT_IN</code> or
    *                 <code>OPT_OUT</code>.</p>
    */
-  SubscriptionStatus: SubscriptionStatus | string | undefined;
+  SubscriptionStatus: SubscriptionStatus | undefined;
 }
 
 /**
@@ -1243,7 +1243,7 @@ export interface ContactListDestination {
    *             </li>
    *          </ul>
    */
-  ContactListImportAction: ContactListImportAction | string | undefined;
+  ContactListImportAction: ContactListImportAction | undefined;
 }
 
 /**
@@ -1272,7 +1272,7 @@ export interface DeliveryOptions {
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
-  TlsPolicy?: TlsPolicy | string;
+  TlsPolicy?: TlsPolicy;
 
   /**
    * @public
@@ -1358,7 +1358,7 @@ export interface SuppressionOptions {
    *             </li>
    *          </ul>
    */
-  SuppressedReasons?: (SuppressionListReason | string)[];
+  SuppressedReasons?: SuppressionListReason[];
 }
 
 /**
@@ -1470,7 +1470,7 @@ export interface DashboardOptions {
    *             </li>
    *          </ul>
    */
-  EngagementMetrics?: FeatureStatus | string;
+  EngagementMetrics?: FeatureStatus;
 }
 
 /**
@@ -1496,7 +1496,7 @@ export interface GuardianOptions {
    *             </li>
    *          </ul>
    */
-  OptimizedSharedDelivery?: FeatureStatus | string;
+  OptimizedSharedDelivery?: FeatureStatus;
 }
 
 /**
@@ -1704,7 +1704,7 @@ export interface EventDestinationDefinition {
    * <p>An array that specifies which events the Amazon SES API v2 should send to the destinations in
    *             this <code>EventDestinationDefinition</code>.</p>
    */
-  MatchingEventTypes?: (EventType | string)[];
+  MatchingEventTypes?: EventType[];
 
   /**
    * @public
@@ -1838,7 +1838,7 @@ export interface Topic {
    * <p>The default subscription status to be applied to a contact if the contact has not
    *             noted their preference for subscribing to a topic.</p>
    */
-  DefaultSubscriptionStatus: SubscriptionStatus | string | undefined;
+  DefaultSubscriptionStatus: SubscriptionStatus | undefined;
 }
 
 /**
@@ -1966,7 +1966,7 @@ export interface CreateDedicatedIpPoolRequest {
    * @public
    * <p>The type of scaling mode.</p>
    */
-  ScalingMode?: ScalingMode | string;
+  ScalingMode?: ScalingMode;
 }
 
 /**
@@ -2164,7 +2164,7 @@ export interface CreateDeliverabilityTestReportResponse {
    *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
    *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
    */
-  DeliverabilityTestStatus: DeliverabilityTestStatus | string | undefined;
+  DeliverabilityTestStatus: DeliverabilityTestStatus | undefined;
 }
 
 /**
@@ -2266,7 +2266,7 @@ export interface DkimSigningAttributes {
    * @public
    * <p>[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.</p>
    */
-  NextSigningKeyLength?: DkimSigningKeyLength | string;
+  NextSigningKeyLength?: DkimSigningKeyLength;
 }
 
 /**
@@ -2394,7 +2394,7 @@ export interface DkimAttributes {
    *             </li>
    *          </ul>
    */
-  Status?: DkimStatus | string;
+  Status?: DkimStatus;
 
   /**
    * @public
@@ -2427,19 +2427,19 @@ export interface DkimAttributes {
    *             </li>
    *          </ul>
    */
-  SigningAttributesOrigin?: DkimSigningAttributesOrigin | string;
+  SigningAttributesOrigin?: DkimSigningAttributesOrigin;
 
   /**
    * @public
    * <p>[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.</p>
    */
-  NextSigningKeyLength?: DkimSigningKeyLength | string;
+  NextSigningKeyLength?: DkimSigningKeyLength;
 
   /**
    * @public
    * <p>[Easy DKIM] The key length of the DKIM key pair in use.</p>
    */
-  CurrentSigningKeyLength?: DkimSigningKeyLength | string;
+  CurrentSigningKeyLength?: DkimSigningKeyLength;
 
   /**
    * @public
@@ -2475,7 +2475,7 @@ export interface CreateEmailIdentityResponse {
    * <p>The email identity type. Note: the <code>MANAGED_DOMAIN</code> identity type is not
    *             supported.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: IdentityType;
 
   /**
    * @public
@@ -2660,7 +2660,7 @@ export interface MessageInsightsFilters {
    *             <code>SEND</code> < <code>BOUNCE</code> < <code>DELIVERY</code> < <code>COMPLAINT</code>.
    *         </p>
    */
-  LastDeliveryEvent?: (DeliveryEventType | string)[];
+  LastDeliveryEvent?: DeliveryEventType[];
 
   /**
    * @public
@@ -2673,7 +2673,7 @@ export interface MessageInsightsFilters {
    *             is enabled.
    *         </p>
    */
-  LastEngagementEvent?: (EngagementEventType | string)[];
+  LastEngagementEvent?: EngagementEventType[];
 }
 
 /**
@@ -2800,7 +2800,7 @@ export interface ExportMetric {
    *             </li>
    *          </ul>
    */
-  Name?: Metric | string;
+  Name?: Metric;
 
   /**
    * @public
@@ -2817,7 +2817,7 @@ export interface ExportMetric {
    *             </li>
    *          </ul>
    */
-  Aggregation?: MetricAggregation | string;
+  Aggregation?: MetricAggregation;
 }
 
 /**
@@ -2831,13 +2831,13 @@ export interface MetricsDataSource {
    *             <code>MetricDimensionValue</code> to filter metrics by. Must contain a least 1
    *             dimension but no more than 3 unique ones.</p>
    */
-  Dimensions: Record<string, string[]> | undefined;
+  Dimensions: Record<MetricDimensionName, string[]> | undefined;
 
   /**
    * @public
    * <p>The metrics namespace - e.g., <code>VDM</code>.</p>
    */
-  Namespace: MetricNamespace | string | undefined;
+  Namespace: MetricNamespace | undefined;
 
   /**
    * @public
@@ -2910,7 +2910,7 @@ export interface ExportDestination {
    *             </li>
    *          </ul>
    */
-  DataFormat: DataFormat | string | undefined;
+  DataFormat: DataFormat | undefined;
 
   /**
    * @public
@@ -2967,7 +2967,7 @@ export interface ImportDataSource {
    * @public
    * <p>The data format of the import job's data source.</p>
    */
-  DataFormat: DataFormat | string | undefined;
+  DataFormat: DataFormat | undefined;
 }
 
 /**
@@ -3003,7 +3003,7 @@ export interface SuppressionListDestination {
    *             </li>
    *          </ul>
    */
-  SuppressionListImportAction: SuppressionListImportAction | string | undefined;
+  SuppressionListImportAction: SuppressionListImportAction | undefined;
 }
 
 /**
@@ -3216,7 +3216,7 @@ export interface DashboardAttributes {
    *             </li>
    *          </ul>
    */
-  EngagementMetrics?: FeatureStatus | string;
+  EngagementMetrics?: FeatureStatus;
 }
 
 /**
@@ -3265,7 +3265,7 @@ export interface DedicatedIp {
    *             </li>
    *          </ul>
    */
-  WarmupStatus: WarmupStatus | string | undefined;
+  WarmupStatus: WarmupStatus | undefined;
 
   /**
    * @public
@@ -3308,7 +3308,7 @@ export interface DedicatedIpPool {
    *             </li>
    *          </ul>
    */
-  ScalingMode: ScalingMode | string | undefined;
+  ScalingMode: ScalingMode | undefined;
 }
 
 /**
@@ -3580,7 +3580,7 @@ export interface DeliverabilityTestReport {
    *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
    *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
    */
-  DeliverabilityTestStatus?: DeliverabilityTestStatus | string;
+  DeliverabilityTestStatus?: DeliverabilityTestStatus;
 }
 
 /**
@@ -3817,7 +3817,7 @@ export interface InsightsEvent {
    *             </li>
    *          </ul>
    */
-  Type?: EventType | string;
+  Type?: EventType;
 
   /**
    * @public
@@ -3965,7 +3965,7 @@ export interface EventDestination {
    *             </li>
    *          </ul>
    */
-  MatchingEventTypes: (EventType | string)[] | undefined;
+  MatchingEventTypes: EventType[] | undefined;
 
   /**
    * @public
@@ -4044,13 +4044,13 @@ export interface ExportJobSummary {
    * @public
    * <p>The source type of the export job.</p>
    */
-  ExportSourceType?: ExportSourceType | string;
+  ExportSourceType?: ExportSourceType;
 
   /**
    * @public
    * <p>The status of the export job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -4165,7 +4165,7 @@ export interface SuppressionAttributes {
    *             </li>
    *          </ul>
    */
-  SuppressedReasons?: (SuppressionListReason | string)[];
+  SuppressedReasons?: SuppressionListReason[];
 }
 
 /**
@@ -4187,7 +4187,7 @@ export interface GuardianAttributes {
    *             </li>
    *          </ul>
    */
-  OptimizedSharedDelivery?: FeatureStatus | string;
+  OptimizedSharedDelivery?: FeatureStatus;
 }
 
 /**
@@ -4209,7 +4209,7 @@ export interface VdmAttributes {
    *             </li>
    *          </ul>
    */
-  VdmEnabled: FeatureStatus | string | undefined;
+  VdmEnabled: FeatureStatus | undefined;
 
   /**
    * @public
@@ -4757,7 +4757,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
    *                 <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end
    *             of the current calendar month.</p>
    */
-  AccountStatus?: DeliverabilityDashboardAccountStatus | string;
+  AccountStatus?: DeliverabilityDashboardAccountStatus;
 
   /**
    * @public
@@ -5061,7 +5061,7 @@ export interface MailFromAttributes {
    *             </li>
    *          </ul>
    */
-  MailFromDomainStatus: MailFromDomainStatus | string | undefined;
+  MailFromDomainStatus: MailFromDomainStatus | undefined;
 
   /**
    * @public
@@ -5075,7 +5075,7 @@ export interface MailFromAttributes {
    *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
    *             states.</p>
    */
-  BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
+  BehaviorOnMxFailure: BehaviorOnMxFailure | undefined;
 }
 
 /**
@@ -5105,7 +5105,7 @@ export interface GetEmailIdentityResponse {
    * <p>The email identity type. Note: the <code>MANAGED_DOMAIN</code> identity type is not
    *             supported.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: IdentityType;
 
   /**
    * @public
@@ -5190,7 +5190,7 @@ export interface GetEmailIdentityResponse {
    *             </li>
    *          </ul>
    */
-  VerificationStatus?: VerificationStatus | string;
+  VerificationStatus?: VerificationStatus;
 }
 
 /**
@@ -5278,13 +5278,13 @@ export interface GetExportJobResponse {
    * @public
    * <p>The type of source of the export job.</p>
    */
-  ExportSourceType?: ExportSourceType | string;
+  ExportSourceType?: ExportSourceType;
 
   /**
    * @public
    * <p>The status of the export job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -5370,7 +5370,7 @@ export interface GetImportJobResponse {
    * @public
    * <p>The status of the import job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -5502,7 +5502,7 @@ export interface SuppressedDestination {
    * @public
    * <p>The reason that the address was added to the suppression list for your account.</p>
    */
-  Reason: SuppressionListReason | string | undefined;
+  Reason: SuppressionListReason | undefined;
 
   /**
    * @public
@@ -5541,7 +5541,7 @@ export interface IdentityInfo {
    * <p>The email identity type. Note: the <code>MANAGED_DOMAIN</code> type is not supported
    *             for email identity types.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: IdentityType;
 
   /**
    * @public
@@ -5588,7 +5588,7 @@ export interface IdentityInfo {
    *             </li>
    *          </ul>
    */
-  VerificationStatus?: VerificationStatus | string;
+  VerificationStatus?: VerificationStatus;
 }
 
 /**
@@ -5645,7 +5645,7 @@ export interface ImportJobSummary {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -5804,7 +5804,7 @@ export interface ListContactsFilter {
    * <p>The status by which you are filtering: <code>OPT_IN</code> or
    *             <code>OPT_OUT</code>.</p>
    */
-  FilteredStatus?: SubscriptionStatus | string;
+  FilteredStatus?: SubscriptionStatus;
 
   /**
    * @public
@@ -6193,13 +6193,13 @@ export interface ListExportJobsRequest {
    * <p>A value used to list export jobs that have a certain
    *             <code>ExportSourceType</code>.</p>
    */
-  ExportSourceType?: ExportSourceType | string;
+  ExportSourceType?: ExportSourceType;
 
   /**
    * @public
    * <p>A value used to list export jobs that have a certain <code>JobStatus</code>.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -6234,7 +6234,7 @@ export interface ListImportJobsRequest {
    * <p>The destination of the import job, which can be used to list import jobs that have a
    *             certain <code>ImportDestinationType</code>.</p>
    */
-  ImportDestinationType?: ImportDestinationType | string;
+  ImportDestinationType?: ImportDestinationType;
 
   /**
    * @public
@@ -6324,7 +6324,7 @@ export interface ListRecommendationsRequest {
    *               <code>STATUS</code> and <code>TYPE</code>
    *          </p>
    */
-  Filter?: Record<string, string>;
+  Filter?: Record<ListRecommendationsFilterKey, string>;
 
   /**
    * @public
@@ -6406,7 +6406,7 @@ export interface Recommendation {
    * <p>The recommendation type, with values like <code>DKIM</code>,
    *             <code>SPF</code>, <code>DMARC</code> or <code>BIMI</code>.</p>
    */
-  Type?: RecommendationType | string;
+  Type?: RecommendationType;
 
   /**
    * @public
@@ -6420,7 +6420,7 @@ export interface Recommendation {
    * <p>The recommendation status, with values like
    *             <code>OPEN</code> or <code>FIXED</code>.</p>
    */
-  Status?: RecommendationStatus | string;
+  Status?: RecommendationStatus;
 
   /**
    * @public
@@ -6439,7 +6439,7 @@ export interface Recommendation {
    * <p>The recommendation impact, with values like
    *             <code>HIGH</code> or <code>LOW</code>.</p>
    */
-  Impact?: RecommendationImpact | string;
+  Impact?: RecommendationImpact;
 }
 
 /**
@@ -6473,7 +6473,7 @@ export interface ListSuppressedDestinationsRequest {
    * @public
    * <p>The factors that caused the email address to be added to .</p>
    */
-  Reasons?: (SuppressionListReason | string)[];
+  Reasons?: SuppressionListReason[];
 
   /**
    * @public
@@ -6522,7 +6522,7 @@ export interface SuppressedDestinationSummary {
    * @public
    * <p>The reason that the address was added to the suppression list for your account.</p>
    */
-  Reason: SuppressionListReason | string | undefined;
+  Reason: SuppressionListReason | undefined;
 
   /**
    * @public
@@ -6610,7 +6610,7 @@ export interface PutAccountDetailsRequest {
    * @public
    * <p>The type of email your account will send.</p>
    */
-  MailType: MailType | string | undefined;
+  MailType: MailType | undefined;
 
   /**
    * @public
@@ -6623,7 +6623,7 @@ export interface PutAccountDetailsRequest {
    * @public
    * <p>The language you would prefer to be contacted with.</p>
    */
-  ContactLanguage?: ContactLanguage | string;
+  ContactLanguage?: ContactLanguage;
 
   /**
    * @public
@@ -6710,7 +6710,7 @@ export interface PutAccountSuppressionAttributesRequest {
    *             </li>
    *          </ul>
    */
-  SuppressedReasons?: (SuppressionListReason | string)[];
+  SuppressedReasons?: SuppressionListReason[];
 }
 
 /**
@@ -6755,7 +6755,7 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
-  TlsPolicy?: TlsPolicy | string;
+  TlsPolicy?: TlsPolicy;
 
   /**
    * @public
@@ -6859,7 +6859,7 @@ export interface PutConfigurationSetSuppressionOptionsRequest {
    *             </li>
    *          </ul>
    */
-  SuppressedReasons?: (SuppressionListReason | string)[];
+  SuppressedReasons?: SuppressionListReason[];
 }
 
 /**
@@ -6965,7 +6965,7 @@ export interface PutDedicatedIpPoolScalingAttributesRequest {
    *             <p>Changing the scaling mode from <code>MANAGED</code> to <code>STANDARD</code> is not supported.</p>
    *          </note>
    */
-  ScalingMode: ScalingMode | string | undefined;
+  ScalingMode: ScalingMode | undefined;
 }
 
 /**
@@ -7115,7 +7115,7 @@ export interface PutEmailIdentityDkimSigningAttributesRequest {
    *             </li>
    *          </ul>
    */
-  SigningAttributesOrigin: DkimSigningAttributesOrigin | string | undefined;
+  SigningAttributesOrigin: DkimSigningAttributesOrigin | undefined;
 
   /**
    * @public
@@ -7174,7 +7174,7 @@ export interface PutEmailIdentityDkimSigningAttributesResponse {
    *             </li>
    *          </ul>
    */
-  DkimStatus?: DkimStatus | string;
+  DkimStatus?: DkimStatus;
 
   /**
    * @public
@@ -7266,7 +7266,7 @@ export interface PutEmailIdentityMailFromAttributesRequest {
    *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
    *             states.</p>
    */
-  BehaviorOnMxFailure?: BehaviorOnMxFailure | string;
+  BehaviorOnMxFailure?: BehaviorOnMxFailure;
 }
 
 /**
@@ -7293,7 +7293,7 @@ export interface PutSuppressedDestinationRequest {
    * <p>The factors that should cause the email address to be added to the suppression list
    *             for your account.</p>
    */
-  Reason: SuppressionListReason | string | undefined;
+  Reason: SuppressionListReason | undefined;
 }
 
 /**

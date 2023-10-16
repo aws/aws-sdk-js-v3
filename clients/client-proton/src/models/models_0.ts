@@ -87,7 +87,7 @@ export interface EnvironmentAccountConnection {
    * @public
    * <p>The status of the environment account connection.</p>
    */
-  status: EnvironmentAccountConnectionStatus | string | undefined;
+  status: EnvironmentAccountConnectionStatus | undefined;
 
   /**
    * @public
@@ -274,7 +274,7 @@ export interface RepositoryBranch {
    * @public
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -341,7 +341,7 @@ export interface RepositoryBranchInput {
    * @public
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -506,7 +506,7 @@ export interface Component {
    * @public
    * <p>The component deployment status.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: DeploymentStatus | undefined;
 
   /**
    * @public
@@ -637,7 +637,7 @@ export interface Environment {
    * @public
    * <p>The environment deployment status.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: DeploymentStatus | undefined;
 
   /**
    * @public
@@ -673,7 +673,7 @@ export interface Environment {
    * @public
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
    */
-  provisioning?: Provisioning | string;
+  provisioning?: Provisioning;
 
   /**
    * @public
@@ -813,7 +813,7 @@ export interface ServiceInstance {
    * @public
    * <p>The service instance deployment status.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: DeploymentStatus | undefined;
 
   /**
    * @public
@@ -921,7 +921,7 @@ export interface ServicePipeline {
    * @public
    * <p>The deployment status of the service pipeline.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: DeploymentStatus | undefined;
 
   /**
    * @public
@@ -1072,7 +1072,7 @@ export interface ProvisionedResource {
    *       be used for self-managed provisioning.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>
    */
-  provisioningEngine?: ProvisionedResourceEngine | string;
+  provisioningEngine?: ProvisionedResourceEngine;
 }
 
 /**
@@ -1365,7 +1365,7 @@ export interface ComponentSummary {
    * @public
    * <p>The component deployment status.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: DeploymentStatus | undefined;
 
   /**
    * @public
@@ -1450,7 +1450,7 @@ export interface UpdateComponentInput {
    *             </dd>
    *          </dl>
    */
-  deploymentType: ComponentDeploymentUpdateType | string | undefined;
+  deploymentType: ComponentDeploymentUpdateType | undefined;
 
   /**
    * @public
@@ -1802,7 +1802,7 @@ export interface Deployment {
    * @public
    * <p>The resource type of the deployment target. It can be an environment, service, service instance, or component.</p>
    */
-  targetResourceType: DeploymentTargetResourceType | string | undefined;
+  targetResourceType: DeploymentTargetResourceType | undefined;
 
   /**
    * @public
@@ -1832,7 +1832,7 @@ export interface Deployment {
    * @public
    * <p>The status of the deployment.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: DeploymentStatus | undefined;
 
   /**
    * @public
@@ -2016,7 +2016,7 @@ export interface DeploymentSummary {
    * @public
    * <p>The resource type of the deployment target. It can be an environment, service, service instance, or component.</p>
    */
-  targetResourceType: DeploymentTargetResourceType | string | undefined;
+  targetResourceType: DeploymentTargetResourceType | undefined;
 
   /**
    * @public
@@ -2076,7 +2076,7 @@ export interface DeploymentSummary {
    * @public
    * <p>The current status of the deployment.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: DeploymentStatus | undefined;
 }
 
 /**
@@ -2234,7 +2234,7 @@ export interface ListEnvironmentAccountConnectionsInput {
    * @public
    * <p>The type of account making the <code>ListEnvironmentAccountConnections</code> request.</p>
    */
-  requestedBy: EnvironmentAccountConnectionRequesterAccountType | string | undefined;
+  requestedBy: EnvironmentAccountConnectionRequesterAccountType | undefined;
 
   /**
    * @public
@@ -2246,7 +2246,7 @@ export interface ListEnvironmentAccountConnectionsInput {
    * @public
    * <p>The status details for each listed environment account connection.</p>
    */
-  statuses?: (EnvironmentAccountConnectionStatus | string)[];
+  statuses?: EnvironmentAccountConnectionStatus[];
 
   /**
    * @public
@@ -2319,7 +2319,7 @@ export interface EnvironmentAccountConnectionSummary {
    * @public
    * <p>The status of the environment account connection.</p>
    */
-  status: EnvironmentAccountConnectionStatus | string | undefined;
+  status: EnvironmentAccountConnectionStatus | undefined;
 
   /**
    * @public
@@ -2756,7 +2756,7 @@ export interface EnvironmentSummary {
    * @public
    * <p>The environment deployment status.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: DeploymentStatus | undefined;
 
   /**
    * @public
@@ -2786,7 +2786,7 @@ export interface EnvironmentSummary {
    * @public
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
    */
-  provisioning?: Provisioning | string;
+  provisioning?: Provisioning;
 
   /**
    * @public
@@ -2922,7 +2922,7 @@ export interface UpdateEnvironmentInput {
    *             </dd>
    *          </dl>
    */
-  deploymentType: DeploymentUpdateType | string | undefined;
+  deploymentType: DeploymentUpdateType | undefined;
 
   /**
    * @public
@@ -3001,7 +3001,7 @@ export interface CreateEnvironmentTemplateInput {
    * @public
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
    */
-  provisioning?: Provisioning | string;
+  provisioning?: Provisioning;
 
   /**
    * @public
@@ -3069,7 +3069,7 @@ export interface EnvironmentTemplate {
    * @public
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
    */
-  provisioning?: Provisioning | string;
+  provisioning?: Provisioning;
 }
 
 /**
@@ -3196,7 +3196,7 @@ export interface EnvironmentTemplateSummary {
    * @public
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
    */
-  provisioning?: Provisioning | string;
+  provisioning?: Provisioning;
 }
 
 /**
@@ -3403,7 +3403,7 @@ export interface EnvironmentTemplateVersion {
    * @public
    * <p>The status of the version of an environment template.</p>
    */
-  status: TemplateVersionStatus | string | undefined;
+  status: TemplateVersionStatus | undefined;
 
   /**
    * @public
@@ -3586,7 +3586,7 @@ export interface EnvironmentTemplateVersionSummary {
    * @public
    * <p>The status of the version of an environment template.</p>
    */
-  status: TemplateVersionStatus | string | undefined;
+  status: TemplateVersionStatus | undefined;
 
   /**
    * @public
@@ -3669,7 +3669,7 @@ export interface UpdateEnvironmentTemplateVersionInput {
    * @public
    * <p>The status of the environment template minor version to update.</p>
    */
-  status?: TemplateVersionStatus | string;
+  status?: TemplateVersionStatus;
 }
 
 /**
@@ -3719,7 +3719,7 @@ export interface GetRepositorySyncStatusInput {
    * @public
    * <p>The repository provider.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -3731,7 +3731,7 @@ export interface GetRepositorySyncStatusInput {
    * @public
    * <p>The repository sync type.</p>
    */
-  syncType: SyncType | string | undefined;
+  syncType: SyncType | undefined;
 }
 
 /**
@@ -3816,7 +3816,7 @@ export interface RepositorySyncAttempt {
    * @public
    * <p>The sync attempt status.</p>
    */
-  status: RepositorySyncStatus | string | undefined;
+  status: RepositorySyncStatus | undefined;
 
   /**
    * @public
@@ -3975,7 +3975,7 @@ export interface Revision {
    * @public
    * <p>The repository provider.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -4091,7 +4091,7 @@ export interface ResourceSyncAttempt {
    * @public
    * <p>The status of the sync attempt.</p>
    */
-  status: ResourceSyncStatus | string | undefined;
+  status: ResourceSyncStatus | undefined;
 
   /**
    * @public
@@ -4151,7 +4151,7 @@ export interface GetTemplateSyncStatusInput {
    * @public
    * <p>The template type.</p>
    */
-  templateType: TemplateType | string | undefined;
+  templateType: TemplateType | undefined;
 
   /**
    * @public
@@ -4197,13 +4197,13 @@ export interface ListRepositorySyncDefinitionsInput {
    * @public
    * <p>The repository provider.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: RepositoryProvider | undefined;
 
   /**
    * @public
    * <p>The sync type. The only supported value is <code>TEMPLATE_SYNC</code>.</p>
    */
-  syncType: SyncType | string | undefined;
+  syncType: SyncType | undefined;
 
   /**
    * @public
@@ -4332,7 +4332,7 @@ export interface NotifyResourceDeploymentStatusChangeInput {
    * @public
    * <p>The status of your provisioned resource.</p>
    */
-  status?: ResourceDeploymentStatus | string;
+  status?: ResourceDeploymentStatus;
 
   /**
    * @public
@@ -4366,7 +4366,7 @@ export interface CreateRepositoryInput {
    * @public
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -4411,7 +4411,7 @@ export interface Repository {
    * @public
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -4451,7 +4451,7 @@ export interface DeleteRepositoryInput {
    * @public
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -4479,7 +4479,7 @@ export interface GetRepositoryInput {
    * @public
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -4531,7 +4531,7 @@ export interface RepositorySummary {
    * @public
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -4778,7 +4778,7 @@ export interface ListServiceInstancesFilter {
    * @public
    * <p>The name of a filtering criterion.</p>
    */
-  key?: ListServiceInstancesFilterBy | string;
+  key?: ListServiceInstancesFilterBy;
 
   /**
    * @public
@@ -4861,7 +4861,7 @@ export interface ListServiceInstancesInput {
    *          <p>Default: <code>serviceName</code>
    *          </p>
    */
-  sortBy?: ListServiceInstancesSortBy | string;
+  sortBy?: ListServiceInstancesSortBy;
 
   /**
    * @public
@@ -4869,7 +4869,7 @@ export interface ListServiceInstancesInput {
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 }
 
 /**
@@ -4941,7 +4941,7 @@ export interface ServiceInstanceSummary {
    * @public
    * <p>The service instance deployment status.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: DeploymentStatus | undefined;
 
   /**
    * @public
@@ -5039,7 +5039,7 @@ export interface UpdateServiceInstanceInput {
    *             </dd>
    *          </dl>
    */
-  deploymentType: DeploymentUpdateType | string | undefined;
+  deploymentType: DeploymentUpdateType | undefined;
 
   /**
    * @public
@@ -5216,7 +5216,7 @@ export interface UpdateServicePipelineInput {
    *             </dd>
    *          </dl>
    */
-  deploymentType: DeploymentUpdateType | string | undefined;
+  deploymentType: DeploymentUpdateType | undefined;
 
   /**
    * @public
@@ -5394,7 +5394,7 @@ export interface Service {
    * @public
    * <p>The status of the service.</p>
    */
-  status: ServiceStatus | string | undefined;
+  status: ServiceStatus | undefined;
 
   /**
    * @public
@@ -5554,7 +5554,7 @@ export interface ServiceSummary {
    * @public
    * <p>The status of the service.</p>
    */
-  status: ServiceStatus | string | undefined;
+  status: ServiceStatus | undefined;
 
   /**
    * @public
@@ -5698,13 +5698,13 @@ export interface SyncBlocker {
    * @public
    * <p>The type of the sync blocker.</p>
    */
-  type: BlockerType | string | undefined;
+  type: BlockerType | undefined;
 
   /**
    * @public
    * <p>The status of the sync blocker.</p>
    */
-  status: BlockerStatus | string | undefined;
+  status: BlockerStatus | undefined;
 
   /**
    * @public
@@ -5837,7 +5837,7 @@ export interface CreateServiceSyncConfigInput {
    * @public
    * <p>The provider type for your repository.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -5874,7 +5874,7 @@ export interface ServiceSyncConfig {
    * <p>The name of the repository provider that holds the repository Proton will sync
    *       with.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -5966,7 +5966,7 @@ export interface UpdateServiceSyncConfigInput {
    * @public
    * <p>The name of the repository provider where the Proton Ops file is found.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -6034,7 +6034,7 @@ export interface CreateServiceTemplateInput {
    *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-authoring.html#ag-template-bundles">Template
    *         bundles</a> in the <i>Proton User Guide</i>.</p>
    */
-  pipelineProvisioning?: Provisioning | string;
+  pipelineProvisioning?: Provisioning;
 
   /**
    * @public
@@ -6105,7 +6105,7 @@ export interface ServiceTemplate {
    *       in the service template. Otherwise, a service pipeline <i>isn't</i> included in
    *       the service template.</p>
    */
-  pipelineProvisioning?: Provisioning | string;
+  pipelineProvisioning?: Provisioning;
 }
 
 /**
@@ -6234,7 +6234,7 @@ export interface ServiceTemplateSummary {
    *       in the service template, otherwise a service pipeline <i>isn't</i> included in
    *       the service template.</p>
    */
-  pipelineProvisioning?: Provisioning | string;
+  pipelineProvisioning?: Provisioning;
 }
 
 /**
@@ -6387,7 +6387,7 @@ export interface CreateServiceTemplateVersionInput {
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
    */
-  supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
+  supportedComponentSources?: ServiceTemplateSupportedComponentSourceType[];
 }
 
 /**
@@ -6441,7 +6441,7 @@ export interface ServiceTemplateVersion {
    * @public
    * <p>The service template version status.</p>
    */
-  status: TemplateVersionStatus | string | undefined;
+  status: TemplateVersionStatus | undefined;
 
   /**
    * @public
@@ -6494,7 +6494,7 @@ export interface ServiceTemplateVersion {
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
    */
-  supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
+  supportedComponentSources?: ServiceTemplateSupportedComponentSourceType[];
 }
 
 /**
@@ -6646,7 +6646,7 @@ export interface ServiceTemplateVersionSummary {
    * @public
    * <p>The service template minor version status.</p>
    */
-  status: TemplateVersionStatus | string | undefined;
+  status: TemplateVersionStatus | undefined;
 
   /**
    * @public
@@ -6731,7 +6731,7 @@ export interface UpdateServiceTemplateVersionInput {
    * @public
    * <p>The status of the service template minor version to update.</p>
    */
-  status?: TemplateVersionStatus | string;
+  status?: TemplateVersionStatus;
 
   /**
    * @public
@@ -6754,7 +6754,7 @@ export interface UpdateServiceTemplateVersionInput {
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
    */
-  supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
+  supportedComponentSources?: ServiceTemplateSupportedComponentSourceType[];
 }
 
 /**
@@ -6804,13 +6804,13 @@ export interface CreateTemplateSyncConfigInput {
    * @public
    * <p>The type of the registered template.</p>
    */
-  templateType: TemplateType | string | undefined;
+  templateType: TemplateType | undefined;
 
   /**
    * @public
    * <p>The provider type for your repository.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -6847,13 +6847,13 @@ export interface TemplateSyncConfig {
    * @public
    * <p>The template type.</p>
    */
-  templateType: TemplateType | string | undefined;
+  templateType: TemplateType | undefined;
 
   /**
    * @public
    * <p>The repository provider.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: RepositoryProvider | undefined;
 
   /**
    * @public
@@ -6899,7 +6899,7 @@ export interface DeleteTemplateSyncConfigInput {
    * @public
    * <p>The template type.</p>
    */
-  templateType: TemplateType | string | undefined;
+  templateType: TemplateType | undefined;
 }
 
 /**
@@ -6927,7 +6927,7 @@ export interface GetTemplateSyncConfigInput {
    * @public
    * <p>The template type.</p>
    */
-  templateType: TemplateType | string | undefined;
+  templateType: TemplateType | undefined;
 }
 
 /**
@@ -6955,13 +6955,13 @@ export interface UpdateTemplateSyncConfigInput {
    * @public
    * <p>The synced template type.</p>
    */
-  templateType: TemplateType | string | undefined;
+  templateType: TemplateType | undefined;
 
   /**
    * @public
    * <p>The repository provider.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: RepositoryProvider | undefined;
 
   /**
    * @public

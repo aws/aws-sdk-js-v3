@@ -55,7 +55,7 @@ export interface AddonIssue {
    * @public
    * <p>A code that describes the type of issue.</p>
    */
-  code?: AddonIssueCode | string;
+  code?: AddonIssueCode;
 
   /**
    * @public
@@ -142,7 +142,7 @@ export interface Addon {
    * @public
    * <p>The status of the add-on.</p>
    */
-  status?: AddonStatus | string;
+  status?: AddonStatus;
 
   /**
    * @public
@@ -469,7 +469,7 @@ export interface ErrorDetail {
    *             </li>
    *          </ul>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: ErrorCode;
 
   /**
    * @public
@@ -528,7 +528,7 @@ export interface UpdateParam {
    * @public
    * <p>The keys associated with an update request.</p>
    */
-  type?: UpdateParamType | string;
+  type?: UpdateParamType;
 
   /**
    * @public
@@ -588,13 +588,13 @@ export interface Update {
    * @public
    * <p>The current status of the update.</p>
    */
-  status?: UpdateStatus | string;
+  status?: UpdateStatus;
 
   /**
    * @public
    * <p>The type of the update.</p>
    */
-  type?: UpdateType | string;
+  type?: UpdateType;
 
   /**
    * @public
@@ -1086,7 +1086,7 @@ export interface CreateAddonRequest {
    *             cluster, the Amazon EKS add-on is installed. Amazon EKS sets all values
    *             to default values, regardless of the option that you specify.</p>
    */
-  resolveConflicts?: ResolveConflicts | string;
+  resolveConflicts?: ResolveConflicts;
 
   /**
    * @public
@@ -1186,7 +1186,7 @@ export interface KubernetesNetworkConfigRequest {
    *             <code>(fc00::/7)</code>. You can't specify a custom <code>IPv6</code> CIDR block. Pod addresses are assigned from
    *             the subnet's <code>IPv6</code> CIDR.</p>
    */
-  ipFamily?: IpFamily | string;
+  ipFamily?: IpFamily;
 }
 
 /**
@@ -1216,7 +1216,7 @@ export interface LogSetup {
    * @public
    * <p>The available cluster control plane log types.</p>
    */
-  types?: (LogType | string)[];
+  types?: LogType[];
 
   /**
    * @public
@@ -1538,7 +1538,7 @@ export interface ClusterIssue {
    * @public
    * <p>The error code of the issue.</p>
    */
-  code?: ClusterIssueCode | string;
+  code?: ClusterIssueCode;
 
   /**
    * @public
@@ -1629,7 +1629,7 @@ export interface KubernetesNetworkConfigResponse {
    *             version 1.10.1 or later of the Amazon VPC CNI add-on and specified <code>ipv6</code> when you
    *             created the cluster. </p>
    */
-  ipFamily?: IpFamily | string;
+  ipFamily?: IpFamily;
 }
 
 /**
@@ -1840,7 +1840,7 @@ export interface Cluster {
    * @public
    * <p>The current status of the cluster.</p>
    */
-  status?: ClusterStatus | string;
+  status?: ClusterStatus;
 
   /**
    * @public
@@ -2169,7 +2169,7 @@ export interface FargateProfile {
    * @public
    * <p>The current status of the Fargate profile.</p>
    */
-  status?: FargateProfileStatus | string;
+  status?: FargateProfileStatus;
 
   /**
    * @public
@@ -2363,7 +2363,7 @@ export interface Taint {
    * @public
    * <p>The effect of the taint.</p>
    */
-  effect?: TaintEffect | string;
+  effect?: TaintEffect;
 }
 
 /**
@@ -2455,7 +2455,7 @@ export interface CreateNodegroupRequest {
    *             the <code>aws-auth</code>
    *             <code>ConfigMap</code>. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
-  amiType?: AMITypes | string;
+  amiType?: AMITypes;
 
   /**
    * @public
@@ -2534,7 +2534,7 @@ export interface CreateNodegroupRequest {
    * @public
    * <p>The capacity type for your node group.</p>
    */
-  capacityType?: CapacityTypes | string;
+  capacityType?: CapacityTypes;
 
   /**
    * @public
@@ -2712,7 +2712,7 @@ export interface Issue {
    *             </li>
    *          </ul>
    */
-  code?: NodegroupIssueCode | string;
+  code?: NodegroupIssueCode;
 
   /**
    * @public
@@ -2834,13 +2834,13 @@ export interface Nodegroup {
    * @public
    * <p>The current status of the managed node group.</p>
    */
-  status?: NodegroupStatus | string;
+  status?: NodegroupStatus;
 
   /**
    * @public
    * <p>The capacity type of your managed node group.</p>
    */
-  capacityType?: CapacityTypes | string;
+  capacityType?: CapacityTypes;
 
   /**
    * @public
@@ -2878,7 +2878,7 @@ export interface Nodegroup {
    *                 <code>CUSTOM</code>. For node groups that weren't deployed using a launch template,
    *             this is the AMI type that was specified in the node group configuration.</p>
    */
-  amiType?: AMITypes | string;
+  amiType?: AMITypes;
 
   /**
    * @public
@@ -3453,7 +3453,7 @@ export interface OidcIdentityProviderConfig {
    * @public
    * <p>The status of the OIDC identity provider.</p>
    */
-  status?: ConfigStatus | string;
+  status?: ConfigStatus;
 }
 
 /**
@@ -4043,7 +4043,7 @@ export interface ConnectorConfigRequest {
    * @public
    * <p>The cloud provider for the target cluster to connect.</p>
    */
-  provider: ConnectorConfigProvider | string | undefined;
+  provider: ConnectorConfigProvider | undefined;
 }
 
 /**
@@ -4222,7 +4222,7 @@ export interface UpdateAddonRequest {
    *             </li>
    *          </ul>
    */
-  resolveConflicts?: ResolveConflicts | string;
+  resolveConflicts?: ResolveConflicts;
 
   /**
    * @public

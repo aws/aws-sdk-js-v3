@@ -374,20 +374,20 @@ export interface KeyAttributes {
    * @public
    * <p>The cryptographic usage of an Amazon Web Services Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.</p>
    */
-  KeyUsage: KeyUsage | string | undefined;
+  KeyUsage: KeyUsage | undefined;
 
   /**
    * @public
    * <p>The type of Amazon Web Services Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether Amazon Web Services Payment Cryptography key contains a symmetric key or an asymmetric key pair.</p>
    */
-  KeyClass: KeyClass | string | undefined;
+  KeyClass: KeyClass | undefined;
 
   /**
    * @public
    * <p>The key algorithm to be use during creation of an Amazon Web Services Payment Cryptography key.</p>
    *          <p>For symmetric keys, Amazon Web Services Payment Cryptography supports <code>AES</code> and <code>TDES</code> algorithms. For asymmetric keys, Amazon Web Services Payment Cryptography supports <code>RSA</code> and <code>ECC_NIST</code> algorithms.</p>
    */
-  KeyAlgorithm: KeyAlgorithm | string | undefined;
+  KeyAlgorithm: KeyAlgorithm | undefined;
 
   /**
    * @public
@@ -443,7 +443,7 @@ export interface CreateKeyInput {
    * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV) for DES and AES keys.</p>
    *          <p>For DES key, the KCV is computed by encrypting 8 bytes, each with value '00', with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES key, the KCV is computed by encrypting 8 bytes, each with value '01', with the key to be checked and retaining the 3 highest order bytes of the encrypted result.</p>
    */
-  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | string;
+  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm;
 
   /**
    * @public
@@ -528,7 +528,7 @@ export interface Key {
    * @public
    * <p>The algorithm used for calculating key check value (KCV) for DES and AES keys. For a DES key, Amazon Web Services Payment Cryptography computes the KCV by encrypting 8 bytes, each with value '00', with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For an AES key, Amazon Web Services Payment Cryptography computes the KCV by encrypting 8 bytes, each with value '01', with the key to be checked and retaining the 3 highest order bytes of the encrypted result.</p>
    */
-  KeyCheckValueAlgorithm: KeyCheckValueAlgorithm | string | undefined;
+  KeyCheckValueAlgorithm: KeyCheckValueAlgorithm | undefined;
 
   /**
    * @public
@@ -546,13 +546,13 @@ export interface Key {
    * @public
    * <p>The state of key that is being created or deleted.</p>
    */
-  KeyState: KeyState | string | undefined;
+  KeyState: KeyState | undefined;
 
   /**
    * @public
    * <p>The source of the key material. For keys created within Amazon Web Services Payment Cryptography, the value is <code>AWS_PAYMENT_CRYPTOGRAPHY</code>. For keys imported into Amazon Web Services Payment Cryptography, the value is <code>EXTERNAL</code>.</p>
    */
-  KeyOrigin: KeyOrigin | string | undefined;
+  KeyOrigin: KeyOrigin | undefined;
 
   /**
    * @public
@@ -692,7 +692,7 @@ export interface ExportTr34KeyBlock {
    * @public
    * <p>The format of key block that Amazon Web Services Payment Cryptography will use during key export.</p>
    */
-  KeyBlockFormat: Tr34KeyBlockFormat | string | undefined;
+  KeyBlockFormat: Tr34KeyBlockFormat | undefined;
 
   /**
    * @public
@@ -803,7 +803,7 @@ export interface WrappedKey {
    * @public
    * <p>The key block format of a wrapped key.</p>
    */
-  WrappedKeyMaterialFormat: WrappedKeyMaterialFormat | string | undefined;
+  WrappedKeyMaterialFormat: WrappedKeyMaterialFormat | undefined;
 
   /**
    * @public
@@ -891,13 +891,13 @@ export interface GetParametersForExportInput {
    * @public
    * <p>The key block format type (for example, TR-34 or TR-31) to use during key material export. Export token is only required for a TR-34 key export, <code>TR34_KEY_BLOCK</code>. Export token is not required for TR-31 key export.</p>
    */
-  KeyMaterialType: KeyMaterialType | string | undefined;
+  KeyMaterialType: KeyMaterialType | undefined;
 
   /**
    * @public
    * <p>The signing key algorithm to generate a signing key certificate. This certificate signs the wrapped key under export within the TR-34 key block cryptogram. <code>RSA_2048</code> is the only signing key algorithm allowed.</p>
    */
-  SigningKeyAlgorithm: KeyAlgorithm | string | undefined;
+  SigningKeyAlgorithm: KeyAlgorithm | undefined;
 }
 
 /**
@@ -920,7 +920,7 @@ export interface GetParametersForExportOutput {
    * @public
    * <p>The algorithm of the signing key certificate for use in TR-34 key block generation. <code>RSA_2048</code> is the only signing key algorithm allowed.</p>
    */
-  SigningKeyAlgorithm: KeyAlgorithm | string | undefined;
+  SigningKeyAlgorithm: KeyAlgorithm | undefined;
 
   /**
    * @public
@@ -943,13 +943,13 @@ export interface GetParametersForImportInput {
    * @public
    * <p>The key block format type such as TR-34 or TR-31 to use during key material import. Import token is only required for TR-34 key import <code>TR34_KEY_BLOCK</code>. Import token is not required for TR-31 key import.</p>
    */
-  KeyMaterialType: KeyMaterialType | string | undefined;
+  KeyMaterialType: KeyMaterialType | undefined;
 
   /**
    * @public
    * <p>The wrapping key algorithm to generate a wrapping key certificate. This certificate wraps the key under import within the TR-34 key block cryptogram. <code>RSA_2048</code> is the only wrapping key algorithm allowed.</p>
    */
-  WrappingKeyAlgorithm: KeyAlgorithm | string | undefined;
+  WrappingKeyAlgorithm: KeyAlgorithm | undefined;
 }
 
 /**
@@ -972,7 +972,7 @@ export interface GetParametersForImportOutput {
    * @public
    * <p>The algorithm of the wrapping key for use within TR-34 key block. <code>RSA_2048</code> is the only wrapping key algorithm allowed.</p>
    */
-  WrappingKeyAlgorithm: KeyAlgorithm | string | undefined;
+  WrappingKeyAlgorithm: KeyAlgorithm | undefined;
 
   /**
    * @public
@@ -1084,7 +1084,7 @@ export interface ImportTr34KeyBlock {
    * @public
    * <p>The key block format to use during key import. The only value allowed is <code>X9_TR34_2012</code>.</p>
    */
-  KeyBlockFormat: Tr34KeyBlockFormat | string | undefined;
+  KeyBlockFormat: Tr34KeyBlockFormat | undefined;
 
   /**
    * @public
@@ -1225,7 +1225,7 @@ export interface ImportKeyInput {
    * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV) for DES and AES keys.</p>
    *          <p>For DES key, the KCV is computed by encrypting 8 bytes, each with value '00', with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES key, the KCV is computed by encrypting 8 bytes, each with value '01', with the key to be checked and retaining the 3 highest order bytes of the encrypted result.</p>
    */
-  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | string;
+  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm;
 
   /**
    * @public
@@ -1274,7 +1274,7 @@ export interface KeySummary {
    * @public
    * <p>The state of an Amazon Web Services Payment Cryptography that is being created or deleted.</p>
    */
-  KeyState: KeyState | string | undefined;
+  KeyState: KeyState | undefined;
 
   /**
    * @public
@@ -1344,7 +1344,7 @@ export interface ListKeysInput {
    * @public
    * <p>The key state of the keys you want to list.</p>
    */
-  KeyState?: KeyState | string;
+  KeyState?: KeyState;
 
   /**
    * @public

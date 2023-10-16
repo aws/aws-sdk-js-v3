@@ -1785,12 +1785,12 @@ const de_OperationList = (output: any, context: __SerdeContext): Operation[] => 
 const de_OperationProperties = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 // de_Resilience omitted.

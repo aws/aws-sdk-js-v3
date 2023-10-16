@@ -123,7 +123,7 @@ export interface AccessKey {
    * <p>The status of the access key. <code>Active</code> means that the key is valid for API
    *          calls, while <code>Inactive</code> means it is not. </p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 
   /**
    * @public
@@ -230,7 +230,7 @@ export interface AccessKeyMetadata {
    * <p>The status of the access key. <code>Active</code> means that the key is valid for API
    *          calls; <code>Inactive</code> means it is not.</p>
    */
-  Status?: StatusType | string;
+  Status?: StatusType;
 
   /**
    * @public
@@ -472,7 +472,7 @@ export interface AttachedPermissionsBoundary {
    *          as the permissions boundary for an entity. This data type can only have a value of
    *             <code>Policy</code>.</p>
    */
-  PermissionsBoundaryType?: PermissionsBoundaryAttachmentType | string;
+  PermissionsBoundaryType?: PermissionsBoundaryAttachmentType;
 
   /**
    * @public
@@ -1894,7 +1894,7 @@ export interface ServiceSpecificCredential {
    * <p>The status of the service-specific credential. <code>Active</code> means that the key is
    *          valid for API calls, while <code>Inactive</code> means it is not.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 }
 
 /**
@@ -2767,7 +2767,7 @@ export interface GenerateCredentialReportResponse {
    * @public
    * <p>Information about the state of the credential report.</p>
    */
-  State?: ReportStateType | string;
+  State?: ReportStateType;
 
   /**
    * @public
@@ -2853,7 +2853,7 @@ export interface GenerateServiceLastAccessedDetailsRequest {
    *             specify action-level granularity, it generates service and action data. If you don't
    *             include this optional parameter, the operation generates service data.</p>
    */
-  Granularity?: AccessAdvisorUsageGranularityType | string;
+  Granularity?: AccessAdvisorUsageGranularityType;
 }
 
 /**
@@ -2933,7 +2933,7 @@ export interface GetAccountAuthorizationDetailsRequest {
    *          <p>The format for this parameter is a comma-separated (if more than one) list of strings.
    *             Each string value in the list must be one of the valid values listed below.</p>
    */
-  Filter?: (EntityType | string)[];
+  Filter?: EntityType[];
 
   /**
    * @public
@@ -3499,7 +3499,7 @@ export interface GetAccountSummaryResponse {
    * <p>A set of key–value pairs containing information about IAM entity usage and
    *             IAM quotas.</p>
    */
-  SummaryMap?: Record<string, number>;
+  SummaryMap?: Record<SummaryKeyType, number>;
 }
 
 /**
@@ -3677,7 +3677,7 @@ export interface GetCredentialReportResponse {
    * @public
    * <p>The format (MIME type) of the credential report.</p>
    */
-  ReportFormat?: ReportFormatType | string;
+  ReportFormat?: ReportFormatType;
 
   /**
    * @public
@@ -4020,7 +4020,7 @@ export interface GetOrganizationsAccessReportRequest {
    *             are returned in alphabetical order. If you choose the time key, the results are sorted
    *             numerically by the date and time.</p>
    */
-  SortKey?: SortKeyType | string;
+  SortKey?: SortKeyType;
 }
 
 /**
@@ -4065,7 +4065,7 @@ export interface GetOrganizationsAccessReportResponse {
    * @public
    * <p>The status of the job.</p>
    */
-  JobStatus: JobStatusType | string | undefined;
+  JobStatus: JobStatusType | undefined;
 
   /**
    * @public
@@ -4577,7 +4577,7 @@ export interface GetServiceLastAccessedDetailsResponse {
    * @public
    * <p>The status of the job.</p>
    */
-  JobStatus: JobStatusType | string | undefined;
+  JobStatus: JobStatusType | undefined;
 
   /**
    * @public
@@ -4585,7 +4585,7 @@ export interface GetServiceLastAccessedDetailsResponse {
    *             accessed. Action jobs also include information about when tracked actions within the
    *             service were last accessed.</p>
    */
-  JobType?: AccessAdvisorUsageGranularityType | string;
+  JobType?: AccessAdvisorUsageGranularityType;
 
   /**
    * @public
@@ -4722,7 +4722,7 @@ export interface EntityInfo {
    * @public
    * <p>The type of entity (user or role).</p>
    */
-  Type: PolicyOwnerEntityType | string | undefined;
+  Type: PolicyOwnerEntityType | undefined;
 
   /**
    * @public
@@ -4771,7 +4771,7 @@ export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
    * @public
    * <p>The status of the job.</p>
    */
-  JobStatus: JobStatusType | string | undefined;
+  JobStatus: JobStatusType | undefined;
 
   /**
    * @public
@@ -4903,7 +4903,7 @@ export interface GetServiceLinkedRoleDeletionStatusResponse {
    * @public
    * <p>The status of the deletion.</p>
    */
-  Status: DeletionTaskStatusType | string | undefined;
+  Status: DeletionTaskStatusType | undefined;
 
   /**
    * @public
@@ -4952,7 +4952,7 @@ export interface GetSSHPublicKeyRequest {
    *             public key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM
    *             format, use <code>PEM</code>.</p>
    */
-  Encoding: EncodingType | string | undefined;
+  Encoding: EncodingType | undefined;
 }
 
 /**
@@ -4992,7 +4992,7 @@ export interface SSHPublicKey {
    *          authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be
    *          used.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 
   /**
    * @public
@@ -5521,7 +5521,7 @@ export interface ListEntitiesForPolicyRequest {
    *             not included, all attached entities (users, groups, and roles) are returned. The
    *             argument for this parameter must be one of the valid values listed below.</p>
    */
-  EntityFilter?: EntityType | string;
+  EntityFilter?: EntityType;
 
   /**
    * @public
@@ -5543,7 +5543,7 @@ export interface ListEntitiesForPolicyRequest {
    *                 to <code>PermissionsBoundary</code>.</p>
    *          <p>This parameter is optional. If it is not included, all policies are returned. </p>
    */
-  PolicyUsageFilter?: PolicyUsageType | string;
+  PolicyUsageFilter?: PolicyUsageType;
 
   /**
    * @public
@@ -6379,7 +6379,7 @@ export interface ListPoliciesRequest {
    *          <p>This parameter is optional. If it is not included, or if it is set to
    *             <code>All</code>, all policies are returned.</p>
    */
-  Scope?: PolicyScopeType | string;
+  Scope?: PolicyScopeType;
 
   /**
    * @public
@@ -6410,7 +6410,7 @@ export interface ListPoliciesRequest {
    *                 to <code>PermissionsBoundary</code>.</p>
    *          <p>This parameter is optional. If it is not included, all policies are returned. </p>
    */
-  PolicyUsageFilter?: PolicyUsageType | string;
+  PolicyUsageFilter?: PolicyUsageType;
 
   /**
    * @public
@@ -6533,7 +6533,7 @@ export interface PolicyGrantingServiceAccess {
    *             policies and inline policies</a> in the
    *          <i>IAM User Guide</i>.</p>
    */
-  PolicyType: PolicyType | string | undefined;
+  PolicyType: PolicyType | undefined;
 
   /**
    * @public
@@ -6551,7 +6551,7 @@ export interface PolicyGrantingServiceAccess {
    *          see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the
    *             <i>IAM User Guide</i>.</p>
    */
-  EntityType?: PolicyOwnerEntityType | string;
+  EntityType?: PolicyOwnerEntityType;
 
   /**
    * @public
@@ -7245,7 +7245,7 @@ export interface ServiceSpecificCredentialMetadata {
    * <p>The status of the service-specific credential. <code>Active</code> means that the key is
    *          valid for API calls, while <code>Inactive</code> means it is not.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 
   /**
    * @public
@@ -7350,7 +7350,7 @@ export interface SigningCertificate {
    * <p>The status of the signing certificate. <code>Active</code> means that the key is valid
    *          for API calls, while <code>Inactive</code> means it is not.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 
   /**
    * @public
@@ -7454,7 +7454,7 @@ export interface SSHPublicKeyMetadata {
    *          authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be
    *          used.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 
   /**
    * @public
@@ -7710,7 +7710,7 @@ export interface ListVirtualMFADevicesRequest {
    *                 <code>Any</code>, which lists both assigned and unassigned virtual MFA
    *             devices.,</p>
    */
-  AssignmentStatus?: AssignmentStatusType | string;
+  AssignmentStatus?: AssignmentStatusType;
 
   /**
    * @public
@@ -8143,7 +8143,7 @@ export interface SetSecurityTokenServicePreferencesRequest {
    *                 deactivating STS in an Amazon Web Services Region</a> in the
    *                 <i>IAM User Guide</i>.</p>
    */
-  GlobalEndpointTokenVersion: GlobalEndpointTokenVersion | string | undefined;
+  GlobalEndpointTokenVersion: GlobalEndpointTokenVersion | undefined;
 }
 
 /**
@@ -8221,7 +8221,7 @@ export interface ContextEntry {
    * <p>The data type of the value (or values) specified in the <code>ContextKeyValues</code>
    *          parameter.</p>
    */
-  ContextKeyType?: ContextKeyTypeEnum | string;
+  ContextKeyType?: ContextKeyTypeEnum;
 }
 
 /**
@@ -8526,7 +8526,7 @@ export interface Statement {
    * @public
    * <p>The type of the policy.</p>
    */
-  SourcePolicyType?: PolicySourceType | string;
+  SourcePolicyType?: PolicySourceType;
 
   /**
    * @public
@@ -8594,7 +8594,7 @@ export interface ResourceSpecificResult {
    * <p>The result of the simulation of the simulated API operation on the resource specified in
    *             <code>EvalResourceName</code>.</p>
    */
-  EvalResourceDecision: PolicyEvaluationDecisionType | string | undefined;
+  EvalResourceDecision: PolicyEvaluationDecisionType | undefined;
 
   /**
    * @public
@@ -8625,7 +8625,7 @@ export interface ResourceSpecificResult {
    *          This parameter is returned only for cross-account simulations. This parameter explains how
    *          each policy type contributes to the resource-specific evaluation decision.</p>
    */
-  EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType | string>;
+  EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType>;
 
   /**
    * @public
@@ -8661,7 +8661,7 @@ export interface EvaluationResult {
    * @public
    * <p>The result of the simulation.</p>
    */
-  EvalDecision: PolicyEvaluationDecisionType | string | undefined;
+  EvalDecision: PolicyEvaluationDecisionType | undefined;
 
   /**
    * @public
@@ -8714,7 +8714,7 @@ export interface EvaluationResult {
    *          this case, policy evaluation does not proceed any further and this parameter is not
    *          returned.</p>
    */
-  EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType | string>;
+  EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType>;
 
   /**
    * @public

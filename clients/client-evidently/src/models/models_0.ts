@@ -345,7 +345,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>A reason for the error.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -505,7 +505,7 @@ export interface MetricGoalConfig {
    *             <code>DECREASE</code> means that a variation with a lower number for this metric is performing
    *        better.</p>
    */
-  desiredChange?: ChangeDirectionEnum | string;
+  desiredChange?: ChangeDirectionEnum;
 }
 
 /**
@@ -722,7 +722,7 @@ export interface MetricGoal {
    *             <code>DECREASE</code> means that a variation with a lower number for this metric is performing
    *      better.</p>
    */
-  desiredChange?: ChangeDirectionEnum | string;
+  desiredChange?: ChangeDirectionEnum;
 }
 
 /**
@@ -843,7 +843,7 @@ export interface Experiment {
    * @public
    * <p>The current state of the experiment.</p>
    */
-  status: ExperimentStatus | string | undefined;
+  status: ExperimentStatus | undefined;
 
   /**
    * @public
@@ -923,7 +923,7 @@ export interface Experiment {
    * @public
    * <p>The type of this experiment. Currently, this value must be <code>aws.experiment.onlineab</code>.</p>
    */
-  type: ExperimentType | string | undefined;
+  type: ExperimentType | undefined;
 
   /**
    * @public
@@ -1054,7 +1054,7 @@ export interface CreateFeatureRequest {
    *       ongoing launches or experiments. Specify <code>DEFAULT_VARIATION</code> to serve the default
    *       variation to all users instead.</p>
    */
-  evaluationStrategy?: FeatureEvaluationStrategy | string;
+  evaluationStrategy?: FeatureEvaluationStrategy;
 
   /**
    * @public
@@ -1198,7 +1198,7 @@ export interface Feature {
    * @public
    * <p>The current state of the feature.</p>
    */
-  status: FeatureStatus | string | undefined;
+  status: FeatureStatus | undefined;
 
   /**
    * @public
@@ -1224,7 +1224,7 @@ export interface Feature {
    *       any ongoing launches or experiments is being used. If this is <code>DEFAULT_VARIATION</code>,
    *       the default variation is being served to all users.</p>
    */
-  evaluationStrategy: FeatureEvaluationStrategy | string | undefined;
+  evaluationStrategy: FeatureEvaluationStrategy | undefined;
 
   /**
    * @public
@@ -1232,7 +1232,7 @@ export interface Feature {
    *       For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-variationtypes.html">Variation types</a>
    *          </p>
    */
-  valueType: VariationValueType | string | undefined;
+  valueType: VariationValueType | undefined;
 
   /**
    * @public
@@ -1640,7 +1640,7 @@ export interface Launch {
    * @public
    * <p>The current state of the launch.</p>
    */
-  status: LaunchStatus | string | undefined;
+  status: LaunchStatus | undefined;
 
   /**
    * @public
@@ -1697,7 +1697,7 @@ export interface Launch {
    * @public
    * <p>The type of launch.</p>
    */
-  type: LaunchType | string | undefined;
+  type: LaunchType | undefined;
 
   /**
    * @public
@@ -1945,7 +1945,7 @@ export interface Project {
    * @public
    * <p>The current state of the project.</p>
    */
-  status: ProjectStatus | string | undefined;
+  status: ProjectStatus | undefined;
 
   /**
    * @public
@@ -2385,7 +2385,7 @@ export interface Event {
    *       which feature variation that a user sees. <code>aws.evidently.custom</code> specifies a custom
    *       event, which generates metrics from user actions such as clicks and checkouts.</p>
    */
-  type: EventType | string | undefined;
+  type: EventType | undefined;
 
   /**
    * @public
@@ -2533,7 +2533,7 @@ export interface GetExperimentResultsRequest {
    * <p>The statistic used to calculate experiment results. Currently the only valid value is <code>mean</code>,
    *       which uses the mean of the collected values as the statistic.</p>
    */
-  baseStat?: ExperimentBaseStat | string;
+  baseStat?: ExperimentBaseStat;
 
   /**
    * @public
@@ -2567,14 +2567,14 @@ export interface GetExperimentResultsRequest {
    *             </li>
    *          </ul>
    */
-  resultStats?: (ExperimentResultRequestType | string)[];
+  resultStats?: ExperimentResultRequestType[];
 
   /**
    * @public
    * <p>The names of the report types that you want to see. Currently, <code>BayesianInference</code>
    *        is the only valid value.</p>
    */
-  reportNames?: (ExperimentReportName | string)[];
+  reportNames?: ExperimentReportName[];
 
   /**
    * @public
@@ -2604,7 +2604,7 @@ export interface ExperimentReport {
    * @public
    * <p>The type of analysis used for this report.</p>
    */
-  reportName?: ExperimentReportName | string;
+  reportName?: ExperimentReportName;
 
   /**
    * @public
@@ -2653,7 +2653,7 @@ export interface ExperimentResultsData {
    * @public
    * <p>The experiment statistic that these results pertain to.</p>
    */
-  resultStat?: ExperimentResultResponseType | string;
+  resultStat?: ExperimentResultResponseType;
 
   /**
    * @public
@@ -2720,7 +2720,7 @@ export interface ListExperimentsRequest {
    * @public
    * <p>Use this optional parameter to limit the returned results to only the experiments with the status that you specify here.</p>
    */
-  status?: ExperimentStatus | string;
+  status?: ExperimentStatus;
 }
 
 /**
@@ -2812,7 +2812,7 @@ export interface StopExperimentRequest {
    * <p>Specify whether the experiment is to be considered <code>COMPLETED</code> or
    *       <code>CANCELLED</code> after it stops.</p>
    */
-  desiredState?: ExperimentStopDesiredState | string;
+  desiredState?: ExperimentStopDesiredState;
 
   /**
    * @public
@@ -3001,7 +3001,7 @@ export interface FeatureSummary {
    * @public
    * <p>The current state of the feature.</p>
    */
-  status: FeatureStatus | string | undefined;
+  status: FeatureStatus | undefined;
 
   /**
    * @public
@@ -3021,7 +3021,7 @@ export interface FeatureSummary {
    *       any ongoing launches or experiments is being used. If this is <code>DEFAULT_VARIATION</code>,
    *       the default variation is being served to all users.</p>
    */
-  evaluationStrategy: FeatureEvaluationStrategy | string | undefined;
+  evaluationStrategy: FeatureEvaluationStrategy | undefined;
 
   /**
    * @public
@@ -3085,7 +3085,7 @@ export interface UpdateFeatureRequest {
    *       launches or experiments. Specify <code>DEFAULT_VARIATION</code> to serve the default variation
    *       to all users instead.</p>
    */
-  evaluationStrategy?: FeatureEvaluationStrategy | string;
+  evaluationStrategy?: FeatureEvaluationStrategy;
 
   /**
    * @public
@@ -3219,7 +3219,7 @@ export interface ListLaunchesRequest {
    * @public
    * <p>Use this optional parameter to limit the returned results to only the launches with the status that you specify here.</p>
    */
-  status?: LaunchStatus | string;
+  status?: LaunchStatus;
 }
 
 /**
@@ -3304,7 +3304,7 @@ export interface StopLaunchRequest {
    * <p>Specify whether to consider the launch as <code>COMPLETED</code> or
    *         <code>CANCELLED</code> after it stops.</p>
    */
-  desiredState?: LaunchStopDesiredState | string;
+  desiredState?: LaunchStopDesiredState;
 
   /**
    * @public
@@ -3427,7 +3427,7 @@ export interface ProjectSummary {
    * @public
    * <p>The current state of the project.</p>
    */
-  status: ProjectStatus | string | undefined;
+  status: ProjectStatus | undefined;
 
   /**
    * @public
@@ -3703,7 +3703,7 @@ export interface ListSegmentReferencesRequest {
    * @public
    * <p>Specifies whether to return information about launches or experiments that use this segment.</p>
    */
-  type: SegmentReferenceResourceType | string | undefined;
+  type: SegmentReferenceResourceType | undefined;
 }
 
 /**

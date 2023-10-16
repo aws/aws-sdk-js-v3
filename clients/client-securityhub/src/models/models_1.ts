@@ -2263,7 +2263,7 @@ export interface AwsIamAccessKeyDetails {
    * @public
    * <p>The status of the IAM access key related to a finding.</p>
    */
-  Status?: AwsIamAccessKeyStatus | string;
+  Status?: AwsIamAccessKeyStatus;
 
   /**
    * @public
@@ -7675,7 +7675,7 @@ export interface AwsS3BucketNotificationConfigurationS3KeyFilterRule {
    * @public
    * <p>Indicates whether the filter is based on the prefix or suffix of the Amazon S3 key.</p>
    */
-  Name?: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName | string;
+  Name?: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName;
 
   /**
    * @public
@@ -8485,7 +8485,7 @@ export interface Compliance {
    *             </li>
    *          </ul>
    */
-  Status?: ComplianceStatus | string;
+  Status?: ComplianceStatus;
 
   /**
    * @public
@@ -8528,7 +8528,7 @@ export interface FindingProviderSeverity {
    * @public
    * <p>The severity label assigned to the finding by the finding provider.</p>
    */
-  Label?: SeverityLabel | string;
+  Label?: SeverityLabel;
 
   /**
    * @public
@@ -8673,7 +8673,7 @@ export interface Malware {
    * @public
    * <p>The type of the malware that was observed.</p>
    */
-  Type?: MalwareType | string;
+  Type?: MalwareType;
 
   /**
    * @public
@@ -8685,7 +8685,7 @@ export interface Malware {
    * @public
    * <p>The state of the malware that was observed.</p>
    */
-  State?: MalwareState | string;
+  State?: MalwareState;
 }
 
 /**
@@ -8729,7 +8729,7 @@ export interface Network {
    * @public
    * <p>The direction of network traffic associated with a finding.</p>
    */
-  Direction?: NetworkDirection | string;
+  Direction?: NetworkDirection;
 
   /**
    * @public

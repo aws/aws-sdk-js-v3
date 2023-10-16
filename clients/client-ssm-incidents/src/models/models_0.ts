@@ -55,7 +55,7 @@ export namespace DynamicSsmParameterValue {
    *       created.</p>
    */
   export interface VariableMember {
-    variable: VariableType | string;
+    variable: VariableType;
     $unknown?: never;
   }
 
@@ -68,7 +68,7 @@ export namespace DynamicSsmParameterValue {
   }
 
   export interface Visitor<T> {
-    variable: (value: VariableType | string) => T;
+    variable: (value: VariableType) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -122,7 +122,7 @@ export interface SsmAutomation {
    * <p>The account that the automation document will be run in. This can be in either the
    *       management account or an application account.</p>
    */
-  targetAccount?: SsmTargetAccount | string;
+  targetAccount?: SsmTargetAccount;
 
   /**
    * @public
@@ -460,7 +460,7 @@ export class ConflictException extends __BaseException {
    * @public
    * The resource type
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -584,13 +584,13 @@ export class ServiceQuotaExceededException extends __BaseException {
    * @public
    * The resource type
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
    * Originating service code
    */
-  serviceCode: ServiceCode | string | undefined;
+  serviceCode: ServiceCode | undefined;
 
   /**
    * @public
@@ -626,7 +626,7 @@ export class ThrottlingException extends __BaseException {
    * @public
    * Originating service code
    */
-  serviceCode: ServiceCode | string | undefined;
+  serviceCode: ServiceCode | undefined;
 
   /**
    * @public
@@ -920,7 +920,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * The resource type
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @internal
@@ -1312,7 +1312,7 @@ export interface IncidentRecord {
    * @public
    * <p>The current status of the incident.</p>
    */
-  status: IncidentRecordStatus | string | undefined;
+  status: IncidentRecordStatus | undefined;
 
   /**
    * @public
@@ -1442,7 +1442,7 @@ export interface RegionInfo {
    * @public
    * <p>The status of the Amazon Web Services Region in the replication set.</p>
    */
-  status: RegionStatus | string | undefined;
+  status: RegionStatus | undefined;
 
   /**
    * @public
@@ -1512,7 +1512,7 @@ export interface ReplicationSet {
    * <p>The status of the replication set. If the replication set is still pending, you can't use
    *       Incident Manager functionality.</p>
    */
-  status: ReplicationSetStatus | string | undefined;
+  status: ReplicationSetStatus | undefined;
 
   /**
    * @public
@@ -1790,7 +1790,7 @@ export interface IncidentRecordSummary {
    * @public
    * <p>The current status of the incident.</p>
    */
-  status: IncidentRecordStatus | string | undefined;
+  status: IncidentRecordStatus | undefined;
 
   /**
    * @public
@@ -1973,7 +1973,7 @@ export interface ItemIdentifier {
    * @public
    * <p>The type of related item. </p>
    */
-  type: ItemType | string | undefined;
+  type: ItemType | undefined;
 }
 
 /**
@@ -2309,14 +2309,14 @@ export interface ListTimelineEventsInput {
    * @public
    * <p>Sort timeline events by the specified key value pair.</p>
    */
-  sortBy?: TimelineEventSort | string;
+  sortBy?: TimelineEventSort;
 
   /**
    * @public
    * <p>Sorts the order of timeline events by the value specified in the <code>sortBy</code>
    *       field.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
@@ -2691,7 +2691,7 @@ export interface UpdateIncidentRecordInput {
    * <p>The status of the incident. Possible statuses are <code>Open</code> or
    *         <code>Resolved</code>.</p>
    */
-  status?: IncidentRecordStatus | string;
+  status?: IncidentRecordStatus;
 
   /**
    * @public

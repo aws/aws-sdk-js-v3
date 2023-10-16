@@ -6049,9 +6049,9 @@ const de___mapOfAudioSelector = (output: any, context: __SerdeContext): Record<s
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AudioSelector(value, context);
+    acc[key as string] = de_AudioSelector(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, AudioSelector>);
 };
 
 /**
@@ -6062,9 +6062,9 @@ const de___mapOfAudioSelectorGroup = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AudioSelectorGroup(value, context);
+    acc[key as string] = de_AudioSelectorGroup(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, AudioSelectorGroup>);
 };
 
 /**
@@ -6075,9 +6075,9 @@ const de___mapOfCaptionSelector = (output: any, context: __SerdeContext): Record
     if (value === null) {
       return acc;
     }
-    acc[key] = de_CaptionSelector(value, context);
+    acc[key as string] = de_CaptionSelector(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, CaptionSelector>);
 };
 
 /**

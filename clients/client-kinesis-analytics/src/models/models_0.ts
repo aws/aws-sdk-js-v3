@@ -328,7 +328,7 @@ export interface RecordFormat {
    * @public
    * <p>The type of record format.</p>
    */
-  RecordFormatType: RecordFormatType | string | undefined;
+  RecordFormatType: RecordFormatType | undefined;
 
   /**
    * @public
@@ -565,7 +565,7 @@ export interface DestinationSchema {
    * @public
    * <p>Specifies the format of the records on the output stream.</p>
    */
-  RecordFormatType: RecordFormatType | string | undefined;
+  RecordFormatType: RecordFormatType | undefined;
 }
 
 /**
@@ -923,7 +923,7 @@ export interface InputStartingPositionConfiguration {
    *             </li>
    *          </ul>
    */
-  InputStartingPosition?: InputStartingPosition | string;
+  InputStartingPosition?: InputStartingPosition;
 }
 
 /**
@@ -1236,7 +1236,7 @@ export interface ApplicationDetail {
    * @public
    * <p>Status of the application.</p>
    */
-  ApplicationStatus: ApplicationStatus | string | undefined;
+  ApplicationStatus: ApplicationStatus | undefined;
 
   /**
    * @public
@@ -1327,7 +1327,7 @@ export interface ApplicationSummary {
    * @public
    * <p>Status of the application.</p>
    */
-  ApplicationStatus: ApplicationStatus | string | undefined;
+  ApplicationStatus: ApplicationStatus | undefined;
 }
 
 /**

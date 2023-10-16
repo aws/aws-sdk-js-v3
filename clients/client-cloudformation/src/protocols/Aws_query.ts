@@ -5333,7 +5333,7 @@ const se_CancelUpdateStackInput = (input: CancelUpdateStackInput, context: __Ser
 /**
  * serializeAws_queryCapabilities
  */
-const se_Capabilities = (input: (Capability | string)[], context: __SerdeContext): any => {
+const se_Capabilities = (input: Capability[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -6977,10 +6977,10 @@ const se_ResourceIdentifierProperties = (input: Record<string, string>, context:
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input];
       counter++;
     });
   return entries;
@@ -7280,10 +7280,7 @@ const se_StackInstanceFilters = (input: StackInstanceFilter[], context: __SerdeC
 /**
  * serializeAws_queryStackResourceDriftStatusFilters
  */
-const se_StackResourceDriftStatusFilters = (
-  input: (StackResourceDriftStatus | string)[],
-  context: __SerdeContext
-): any => {
+const se_StackResourceDriftStatusFilters = (input: StackResourceDriftStatus[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -7332,7 +7329,7 @@ const se_StackSetOperationPreferences = (input: StackSetOperationPreferences, co
 /**
  * serializeAws_queryStackStatusFilter
  */
-const se_StackStatusFilter = (input: (StackStatus | string)[], context: __SerdeContext): any => {
+const se_StackStatusFilter = (input: StackStatus[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -7986,7 +7983,7 @@ const de_BatchDescribeTypeConfigurationsOutput = (
 /**
  * deserializeAws_queryCapabilities
  */
-const de_Capabilities = (output: any, context: __SerdeContext): (Capability | string)[] => {
+const de_Capabilities = (output: any, context: __SerdeContext): Capability[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -9829,7 +9826,7 @@ const de_RollbackTriggers = (output: any, context: __SerdeContext): RollbackTrig
 /**
  * deserializeAws_queryScope
  */
-const de_Scope = (output: any, context: __SerdeContext): (ResourceAttribute | string)[] => {
+const de_Scope = (output: any, context: __SerdeContext): ResourceAttribute[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -10899,7 +10896,7 @@ const de_StackSummary = (output: any, context: __SerdeContext): StackSummary => 
 /**
  * deserializeAws_queryStageList
  */
-const de_StageList = (output: any, context: __SerdeContext): (TemplateStage | string)[] => {
+const de_StageList = (output: any, context: __SerdeContext): TemplateStage[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

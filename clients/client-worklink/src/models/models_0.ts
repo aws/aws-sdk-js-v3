@@ -196,7 +196,7 @@ export interface AssociateWebsiteAuthorizationProviderRequest {
    * @public
    * <p>The authorization provider type.</p>
    */
-  AuthorizationProviderType: AuthorizationProviderType | string | undefined;
+  AuthorizationProviderType: AuthorizationProviderType | undefined;
 
   /**
    * @public
@@ -403,7 +403,7 @@ export interface DescribeDeviceResponse {
    * @public
    * <p>The current state of the device.</p>
    */
-  Status?: DeviceStatus | string;
+  Status?: DeviceStatus;
 
   /**
    * @public
@@ -539,7 +539,7 @@ export interface DescribeDomainResponse {
    * @public
    * <p>The current state for the domain.</p>
    */
-  DomainStatus?: DomainStatus | string;
+  DomainStatus?: DomainStatus;
 
   /**
    * @public
@@ -622,7 +622,7 @@ export interface DescribeFleetMetadataResponse {
    * @public
    * <p>The current state of the fleet.</p>
    */
-  FleetStatus?: FleetStatus | string;
+  FleetStatus?: FleetStatus;
 
   /**
    * @public
@@ -663,7 +663,7 @@ export interface DescribeIdentityProviderConfigurationResponse {
    * @public
    * <p>The type of identity provider.</p>
    */
-  IdentityProviderType?: IdentityProviderType | string;
+  IdentityProviderType?: IdentityProviderType;
 
   /**
    * @public
@@ -733,7 +733,7 @@ export interface DeviceSummary {
    * @public
    * <p>The status of the device.</p>
    */
-  DeviceStatus?: DeviceStatus | string;
+  DeviceStatus?: DeviceStatus;
 }
 
 /**
@@ -829,7 +829,7 @@ export interface DomainSummary {
    * @public
    * <p>The status of the domain.</p>
    */
-  DomainStatus: DomainStatus | string | undefined;
+  DomainStatus: DomainStatus | undefined;
 }
 
 /**
@@ -877,7 +877,7 @@ export interface FleetSummary {
    * @public
    * <p>The status of the fleet.</p>
    */
-  FleetStatus?: FleetStatus | string;
+  FleetStatus?: FleetStatus;
 
   /**
    * @public
@@ -1066,7 +1066,7 @@ export interface WebsiteAuthorizationProviderSummary {
    * @public
    * <p>The authorization provider type.</p>
    */
-  AuthorizationProviderType: AuthorizationProviderType | string | undefined;
+  AuthorizationProviderType: AuthorizationProviderType | undefined;
 
   /**
    * @public
@@ -1424,7 +1424,7 @@ export interface UpdateIdentityProviderConfigurationRequest {
    * @public
    * <p>The type of identity provider.</p>
    */
-  IdentityProviderType: IdentityProviderType | string | undefined;
+  IdentityProviderType: IdentityProviderType | undefined;
 
   /**
    * @public

@@ -100,7 +100,7 @@ export interface ReportedRuntimeContextState {
    * @public
    * <p>The application's desired state.</p>
    */
-  DesiredState: DesiredState | string | undefined;
+  DesiredState: DesiredState | undefined;
 
   /**
    * @public
@@ -112,7 +112,7 @@ export interface ReportedRuntimeContextState {
    * @public
    * <p>The application's reported status.</p>
    */
-  DeviceReportedStatus: DeviceReportedStatus | string | undefined;
+  DeviceReportedStatus: DeviceReportedStatus | undefined;
 
   /**
    * @public
@@ -183,13 +183,13 @@ export interface ApplicationInstance {
    * @public
    * <p>The application instance's status.</p>
    */
-  Status?: ApplicationInstanceStatus | string;
+  Status?: ApplicationInstanceStatus;
 
   /**
    * @public
    * <p>The application instance's health status.</p>
    */
-  HealthStatus?: ApplicationInstanceHealthStatus | string;
+  HealthStatus?: ApplicationInstanceHealthStatus;
 
   /**
    * @public
@@ -589,7 +589,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason that validation failed.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -690,7 +690,7 @@ export interface CreateJobForDevicesRequest {
    * @public
    * <p>The type of job to run.</p>
    */
-  JobType: JobType | string | undefined;
+  JobType: JobType | undefined;
 }
 
 /**
@@ -779,7 +779,7 @@ export interface JobResourceTags {
    * @public
    * <p>The job's type.</p>
    */
-  ResourceType: JobResourceType | string | undefined;
+  ResourceType: JobResourceType | undefined;
 
   /**
    * @public
@@ -809,7 +809,7 @@ export interface CreateNodeFromTemplateJobRequest {
    * @public
    * <p>The type of node.</p>
    */
-  TemplateType: TemplateType | string | undefined;
+  TemplateType: TemplateType | undefined;
 
   /**
    * @public
@@ -1041,7 +1041,7 @@ export interface CreatePackageImportJobRequest {
    * @public
    * <p>A job type for the package import job.</p>
    */
-  JobType: PackageImportJobType | string | undefined;
+  JobType: PackageImportJobType | undefined;
 
   /**
    * @public
@@ -1219,13 +1219,13 @@ export interface DescribeApplicationInstanceResponse {
    * @public
    * <p>The application instance's status.</p>
    */
-  Status?: ApplicationInstanceStatus | string;
+  Status?: ApplicationInstanceStatus;
 
   /**
    * @public
    * <p>The application instance's health status.</p>
    */
-  HealthStatus?: ApplicationInstanceHealthStatus | string;
+  HealthStatus?: ApplicationInstanceHealthStatus;
 
   /**
    * @public
@@ -1389,7 +1389,7 @@ export interface EthernetStatus {
    * @public
    * <p>The device's connection status.</p>
    */
-  ConnectionStatus?: NetworkConnectionStatus | string;
+  ConnectionStatus?: NetworkConnectionStatus;
 
   /**
    * @public
@@ -1407,7 +1407,7 @@ export interface NtpStatus {
    * @public
    * <p>The connection's status.</p>
    */
-  ConnectionStatus?: NetworkConnectionStatus | string;
+  ConnectionStatus?: NetworkConnectionStatus;
 
   /**
    * @public
@@ -1525,13 +1525,13 @@ export interface LatestDeviceJob {
    * @public
    * <p>Status of the latest device job.</p>
    */
-  Status?: UpdateProgress | string;
+  Status?: UpdateProgress;
 
   /**
    * @public
    * <p>The job's type.</p>
    */
-  JobType?: JobType | string;
+  JobType?: JobType;
 }
 
 /**
@@ -1573,7 +1573,7 @@ export interface EthernetPayload {
    * @public
    * <p>How the device gets an IP address.</p>
    */
-  ConnectionType: ConnectionType | string | undefined;
+  ConnectionType: ConnectionType | undefined;
 
   /**
    * @public
@@ -1683,13 +1683,13 @@ export interface DescribeDeviceResponse {
    * @public
    * <p>The device's type.</p>
    */
-  Type?: DeviceType | string;
+  Type?: DeviceType;
 
   /**
    * @public
    * <p>The device's connection status.</p>
    */
-  DeviceConnectionStatus?: DeviceConnectionStatus | string;
+  DeviceConnectionStatus?: DeviceConnectionStatus;
 
   /**
    * @public
@@ -1701,7 +1701,7 @@ export interface DescribeDeviceResponse {
    * @public
    * <p>The device's provisioning status.</p>
    */
-  ProvisioningStatus?: DeviceStatus | string;
+  ProvisioningStatus?: DeviceStatus;
 
   /**
    * @public
@@ -1761,7 +1761,7 @@ export interface DescribeDeviceResponse {
    * @public
    * <p>The device's maker.</p>
    */
-  Brand?: DeviceBrand | string;
+  Brand?: DeviceBrand;
 
   /**
    * @public
@@ -1773,7 +1773,7 @@ export interface DescribeDeviceResponse {
    * @public
    * <p>A device's aggregated status. Including the device's connection status, provisioning status, and lease status.</p>
    */
-  DeviceAggregatedStatus?: DeviceAggregatedStatus | string;
+  DeviceAggregatedStatus?: DeviceAggregatedStatus;
 }
 
 /**
@@ -1819,7 +1819,7 @@ export interface DescribeDeviceJobResponse {
    * @public
    * <p>The device's type.</p>
    */
-  DeviceType?: DeviceType | string;
+  DeviceType?: DeviceType;
 
   /**
    * @public
@@ -1831,7 +1831,7 @@ export interface DescribeDeviceJobResponse {
    * @public
    * <p>The job's status.</p>
    */
-  Status?: UpdateProgress | string;
+  Status?: UpdateProgress;
 
   /**
    * @public
@@ -1843,7 +1843,7 @@ export interface DescribeDeviceJobResponse {
    * @public
    * <p>The job's type.</p>
    */
-  JobType?: JobType | string;
+  JobType?: JobType;
 }
 
 /**
@@ -1917,7 +1917,7 @@ export interface NodeInputPort {
    * @public
    * <p>The input port's type.</p>
    */
-  Type?: PortType | string;
+  Type?: PortType;
 
   /**
    * @public
@@ -1953,7 +1953,7 @@ export interface NodeOutputPort {
    * @public
    * <p>The output port's type.</p>
    */
-  Type?: PortType | string;
+  Type?: PortType;
 }
 
 /**
@@ -1994,7 +1994,7 @@ export interface DescribeNodeResponse {
    * @public
    * <p>The node's category.</p>
    */
-  Category: NodeCategory | string | undefined;
+  Category: NodeCategory | undefined;
 
   /**
    * @public
@@ -2103,7 +2103,7 @@ export interface DescribeNodeFromTemplateJobResponse {
    * @public
    * <p>The job's status.</p>
    */
-  Status: NodeFromTemplateJobStatus | string | undefined;
+  Status: NodeFromTemplateJobStatus | undefined;
 
   /**
    * @public
@@ -2151,7 +2151,7 @@ export interface DescribeNodeFromTemplateJobResponse {
    * @public
    * <p>The job's template type.</p>
    */
-  TemplateType: TemplateType | string | undefined;
+  TemplateType: TemplateType | undefined;
 
   /**
    * @public
@@ -2324,7 +2324,7 @@ export interface DescribePackageImportJobResponse {
    * @public
    * <p>The job's type.</p>
    */
-  JobType: PackageImportJobType | string | undefined;
+  JobType: PackageImportJobType | undefined;
 
   /**
    * @public
@@ -2360,7 +2360,7 @@ export interface DescribePackageImportJobResponse {
    * @public
    * <p>The job's status.</p>
    */
-  Status: PackageImportJobStatus | string | undefined;
+  Status: PackageImportJobStatus | undefined;
 
   /**
    * @public
@@ -2470,7 +2470,7 @@ export interface DescribePackageVersionResponse {
    * @public
    * <p>The version's status.</p>
    */
-  Status: PackageVersionStatus | string | undefined;
+  Status: PackageVersionStatus | undefined;
 
   /**
    * @public
@@ -2512,7 +2512,7 @@ export interface Device {
    * @public
    * <p>The device's provisioning status.</p>
    */
-  ProvisioningStatus?: DeviceStatus | string;
+  ProvisioningStatus?: DeviceStatus;
 
   /**
    * @public
@@ -2530,7 +2530,7 @@ export interface Device {
    * @public
    * <p>The device's maker.</p>
    */
-  Brand?: DeviceBrand | string;
+  Brand?: DeviceBrand;
 
   /**
    * @public
@@ -2554,7 +2554,7 @@ export interface Device {
    * @public
    * <p>The device's type.</p>
    */
-  Type?: DeviceType | string;
+  Type?: DeviceType;
 
   /**
    * @public
@@ -2566,7 +2566,7 @@ export interface Device {
    * @public
    * <p>A device's aggregated status. Including the device's connection status, provisioning status, and lease status.</p>
    */
-  DeviceAggregatedStatus?: DeviceAggregatedStatus | string;
+  DeviceAggregatedStatus?: DeviceAggregatedStatus;
 }
 
 /**
@@ -2602,7 +2602,7 @@ export interface DeviceJob {
    * @public
    * <p>The job's type.</p>
    */
-  JobType?: JobType | string;
+  JobType?: JobType;
 }
 
 /**
@@ -2753,7 +2753,7 @@ export interface NodeInstance {
    * @public
    * <p>The instance's current status.</p>
    */
-  CurrentStatus: NodeInstanceStatus | string | undefined;
+  CurrentStatus: NodeInstanceStatus | undefined;
 }
 
 /**
@@ -2806,7 +2806,7 @@ export interface ListApplicationInstancesRequest {
    * @public
    * <p>Only include instances with a specific status.</p>
    */
-  StatusFilter?: StatusFilter | string;
+  StatusFilter?: StatusFilter;
 
   /**
    * @public
@@ -2888,13 +2888,13 @@ export interface ListDevicesRequest {
    * @public
    * <p>The target column to be sorted on. Default column sort is CREATED_TIME.</p>
    */
-  SortBy?: ListDevicesSortBy | string;
+  SortBy?: ListDevicesSortBy;
 
   /**
    * @public
    * <p>The sorting order for the returned list. SortOrder is DESCENDING by default based on CREATED_TIME. Otherwise, SortOrder is ASCENDING.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -2906,7 +2906,7 @@ export interface ListDevicesRequest {
    * @public
    * <p>Filter based on a device's status.</p>
    */
-  DeviceAggregatedStatusFilter?: DeviceAggregatedStatus | string;
+  DeviceAggregatedStatusFilter?: DeviceAggregatedStatus;
 }
 
 /**
@@ -2998,13 +2998,13 @@ export interface NodeFromTemplateJob {
    * @public
    * <p>The job's template type.</p>
    */
-  TemplateType?: TemplateType | string;
+  TemplateType?: TemplateType;
 
   /**
    * @public
    * <p>The job's status.</p>
    */
-  Status?: NodeFromTemplateJobStatus | string;
+  Status?: NodeFromTemplateJobStatus;
 
   /**
    * @public
@@ -3050,7 +3050,7 @@ export interface ListNodesRequest {
    * @public
    * <p>Search for nodes by category.</p>
    */
-  Category?: NodeCategory | string;
+  Category?: NodeCategory;
 
   /**
    * @public
@@ -3110,7 +3110,7 @@ export interface Node {
    * @public
    * <p>The node's category.</p>
    */
-  Category: NodeCategory | string | undefined;
+  Category: NodeCategory | undefined;
 
   /**
    * @public
@@ -3210,13 +3210,13 @@ export interface PackageImportJob {
    * @public
    * <p>The job's type.</p>
    */
-  JobType?: PackageImportJobType | string;
+  JobType?: PackageImportJobType;
 
   /**
    * @public
    * <p>The job's status.</p>
    */
-  Status?: PackageImportJobStatus | string;
+  Status?: PackageImportJobStatus;
 
   /**
    * @public
@@ -3375,7 +3375,7 @@ export interface NodeSignal {
    * @public
    * <p>The signal value.</p>
    */
-  Signal: NodeSignalValue | string | undefined;
+  Signal: NodeSignalValue | undefined;
 }
 
 /**
@@ -3427,7 +3427,7 @@ export interface ProvisionDeviceResponse {
    * @public
    * <p>The device's status.</p>
    */
-  Status: DeviceStatus | string | undefined;
+  Status: DeviceStatus | undefined;
 
   /**
    * @public

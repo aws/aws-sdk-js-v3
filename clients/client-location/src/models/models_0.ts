@@ -40,7 +40,7 @@ export interface ApiKeyFilter {
    * @public
    * <p>Filter on <code>Active</code> or <code>Expired</code> API keys.</p>
    */
-  KeyStatus?: Status | string;
+  KeyStatus?: Status;
 }
 
 /**
@@ -437,7 +437,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>A message with the reason for the validation exception error.</p>
    */
-  Reason: ValidationExceptionReason | string | undefined;
+  Reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -830,7 +830,7 @@ export interface BatchItemError {
    * @public
    * <p>The error code associated with the batch request error.</p>
    */
-  Code?: BatchItemErrorCode | string;
+  Code?: BatchItemErrorCode;
 
   /**
    * @public
@@ -1463,7 +1463,7 @@ export interface TruckDimensions {
    *          <p>Default Value: <code>Meters</code>
    *          </p>
    */
-  Unit?: DimensionUnit | string;
+  Unit?: DimensionUnit;
 }
 
 /**
@@ -1495,7 +1495,7 @@ export interface TruckWeight {
    *          <p>Default Value: <code>Kilograms</code>
    *          </p>
    */
-  Unit?: VehicleWeightUnit | string;
+  Unit?: VehicleWeightUnit;
 }
 
 /**
@@ -1649,7 +1649,7 @@ export interface CalculateRouteRequest {
    *          <p>Default Value: <code>Car</code>
    *          </p>
    */
-  TravelMode?: TravelMode | string;
+  TravelMode?: TravelMode;
 
   /**
    * @public
@@ -1689,7 +1689,7 @@ export interface CalculateRouteRequest {
    *          <p>Default Value: <code>Kilometers</code>
    *          </p>
    */
-  DistanceUnit?: DistanceUnit | string;
+  DistanceUnit?: DistanceUnit;
 
   /**
    * @public
@@ -1966,7 +1966,7 @@ export interface CalculateRouteSummary {
    * @public
    * <p>The unit of measurement for route distances.</p>
    */
-  DistanceUnit: DistanceUnit | string | undefined;
+  DistanceUnit: DistanceUnit | undefined;
 }
 
 /**
@@ -2100,7 +2100,7 @@ export interface CalculateRouteMatrixRequest {
    *          <p>Default Value: <code>Car</code>
    *          </p>
    */
-  TravelMode?: TravelMode | string;
+  TravelMode?: TravelMode;
 
   /**
    * @public
@@ -2142,7 +2142,7 @@ export interface CalculateRouteMatrixRequest {
    *          <p>Default Value: <code>Kilometers</code>
    *          </p>
    */
-  DistanceUnit?: DistanceUnit | string;
+  DistanceUnit?: DistanceUnit;
 
   /**
    * @public
@@ -2235,7 +2235,7 @@ export interface RouteMatrixEntryError {
    * @public
    * <p>The type of error which occurred for the route calculation.</p>
    */
-  Code: RouteMatrixErrorCode | string | undefined;
+  Code: RouteMatrixErrorCode | undefined;
 
   /**
    * @public
@@ -2320,7 +2320,7 @@ export interface CalculateRouteMatrixSummary {
    * @public
    * <p>The unit of measurement for route distances.</p>
    */
-  DistanceUnit: DistanceUnit | string | undefined;
+  DistanceUnit: DistanceUnit | undefined;
 }
 
 /**
@@ -2398,7 +2398,7 @@ export interface CreateGeofenceCollectionRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -2691,7 +2691,7 @@ export interface CreateMapRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -2808,7 +2808,7 @@ export interface DataSourceConfiguration {
    *          <p>Default value: <code>SingleUse</code>
    *          </p>
    */
-  IntendedUse?: IntendedUse | string;
+  IntendedUse?: IntendedUse;
 }
 
 /**
@@ -2876,7 +2876,7 @@ export interface CreatePlaceIndexRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3017,7 +3017,7 @@ export interface CreateRouteCalculatorRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3140,7 +3140,7 @@ export interface CreateTrackerRequest {
    * <p>No longer used. If included, the only allowed value is
    *            <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3229,7 +3229,7 @@ export interface CreateTrackerRequest {
    *          </ul>
    *          <p>This field is optional. If not specified, the default value is <code>TimeBased</code>.</p>
    */
-  PositionFiltering?: PositionFiltering | string;
+  PositionFiltering?: PositionFiltering;
 
   /**
    * @public
@@ -3417,7 +3417,7 @@ export interface DescribeGeofenceCollectionResponse {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3505,7 +3505,7 @@ export interface DescribeMapResponse {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3587,7 +3587,7 @@ export interface DescribePlaceIndexResponse {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3687,7 +3687,7 @@ export interface DescribeRouteCalculatorResponse {
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3800,7 +3800,7 @@ export interface DescribeTrackerResponse {
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3841,7 +3841,7 @@ export interface DescribeTrackerResponse {
    * @public
    * <p>The position filtering method of the tracker resource.</p>
    */
-  PositionFiltering?: PositionFiltering | string;
+  PositionFiltering?: PositionFiltering;
 
   /**
    * @public
@@ -4151,7 +4151,7 @@ export interface ListGeofenceCollectionsResponseEntry {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -4399,7 +4399,7 @@ export interface UpdateGeofenceCollectionRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -5289,7 +5289,7 @@ export interface ListMapsResponseEntry {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -5392,7 +5392,7 @@ export interface ListPlaceIndexesResponseEntry {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -5497,7 +5497,7 @@ export interface ListRouteCalculatorsResponseEntry {
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -5635,7 +5635,7 @@ export interface ListTrackersResponseEntry {
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -5716,7 +5716,7 @@ export interface UpdateMapRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -6461,7 +6461,7 @@ export interface UpdatePlaceIndexRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -6525,7 +6525,7 @@ export interface UpdateRouteCalculatorRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -6583,7 +6583,7 @@ export interface UpdateTrackerRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -6632,7 +6632,7 @@ export interface UpdateTrackerRequest {
    *             </li>
    *          </ul>
    */
-  PositionFiltering?: PositionFiltering | string;
+  PositionFiltering?: PositionFiltering;
 
   /**
    * @public

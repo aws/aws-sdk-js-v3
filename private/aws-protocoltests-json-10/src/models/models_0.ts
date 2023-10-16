@@ -234,7 +234,7 @@ export namespace MyUnion {
     numberValue?: never;
     blobValue?: never;
     timestampValue?: never;
-    enumValue: FooEnum | string;
+    enumValue: FooEnum;
     intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
@@ -249,7 +249,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
-    intEnumValue: IntegerEnum | number;
+    intEnumValue: IntegerEnum;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -321,8 +321,8 @@ export namespace MyUnion {
     numberValue: (value: number) => T;
     blobValue: (value: Uint8Array) => T;
     timestampValue: (value: Date) => T;
-    enumValue: (value: FooEnum | string) => T;
-    intEnumValue: (value: IntegerEnum | number) => T;
+    enumValue: (value: FooEnum) => T;
+    intEnumValue: (value: IntegerEnum) => T;
     listValue: (value: string[]) => T;
     mapValue: (value: Record<string, string>) => T;
     structureValue: (value: GreetingStruct) => T;

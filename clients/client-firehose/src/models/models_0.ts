@@ -88,7 +88,7 @@ export interface ProcessorParameter {
    *          hint is 1MB for all destinations, except Splunk. For Splunk, the default buffering hint is
    *          256 KB. </p>
    */
-  ParameterName: ProcessorParameterName | string | undefined;
+  ParameterName: ProcessorParameterName | undefined;
 
   /**
    * @public
@@ -123,7 +123,7 @@ export interface Processor {
    * @public
    * <p>The type of processor.</p>
    */
-  Type: ProcessorType | string | undefined;
+  Type: ProcessorType | undefined;
 
   /**
    * @public
@@ -266,7 +266,7 @@ export interface EncryptionConfiguration {
    * <p>Specifically override existing encryption information to ensure that no encryption is
    *          used.</p>
    */
-  NoEncryptionConfig?: NoEncryptionConfig | string;
+  NoEncryptionConfig?: NoEncryptionConfig;
 
   /**
    * @public
@@ -327,7 +327,7 @@ export interface S3DestinationConfiguration {
    *          for Amazon Redshift destinations because they are not supported by the Amazon Redshift
    *             <code>COPY</code> operation that reads from the S3 bucket.</p>
    */
-  CompressionFormat?: CompressionFormat | string;
+  CompressionFormat?: CompressionFormat;
 
   /**
    * @public
@@ -487,7 +487,7 @@ export interface AmazonOpenSearchServerlessDestinationConfiguration {
    *          records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/
    *          appended to the prefix.</p>
    */
-  S3BackupMode?: AmazonOpenSearchServerlessS3BackupMode | string;
+  S3BackupMode?: AmazonOpenSearchServerlessS3BackupMode;
 
   /**
    * @public
@@ -564,7 +564,7 @@ export interface S3DestinationDescription {
    * <p>The compression format. If no value is specified, the default is
    *             <code>UNCOMPRESSED</code>.</p>
    */
-  CompressionFormat: CompressionFormat | string | undefined;
+  CompressionFormat: CompressionFormat | undefined;
 
   /**
    * @public
@@ -718,7 +718,7 @@ export interface AmazonOpenSearchServerlessDestinationDescription {
    * @public
    * <p>The Amazon S3 backup mode.</p>
    */
-  S3BackupMode?: AmazonOpenSearchServerlessS3BackupMode | string;
+  S3BackupMode?: AmazonOpenSearchServerlessS3BackupMode;
 
   /**
    * @public
@@ -797,7 +797,7 @@ export interface S3DestinationUpdate {
    *          for Amazon Redshift destinations because they are not supported by the Amazon Redshift
    *             <code>COPY</code> operation that reads from the S3 bucket.</p>
    */
-  CompressionFormat?: CompressionFormat | string;
+  CompressionFormat?: CompressionFormat;
 
   /**
    * @public
@@ -933,7 +933,7 @@ export interface DocumentIdOptions {
    *          of logs and observability data, to consume less resources in the Amazon OpenSearch Service
    *          domain, resulting in improved performance.</p>
    */
-  DefaultDocumentIdFormat: DefaultDocumentIdFormat | string | undefined;
+  DefaultDocumentIdFormat: DefaultDocumentIdFormat | undefined;
 }
 
 /**
@@ -1032,7 +1032,7 @@ export interface AmazonopensearchserviceDestinationConfiguration {
    * <p>The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp
    *          to the IndexName to facilitate the expiration of old data.</p>
    */
-  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
+  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod;
 
   /**
    * @public
@@ -1057,7 +1057,7 @@ export interface AmazonopensearchserviceDestinationConfiguration {
    *          records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/
    *          appended to the prefix. </p>
    */
-  S3BackupMode?: AmazonopensearchserviceS3BackupMode | string;
+  S3BackupMode?: AmazonopensearchserviceS3BackupMode;
 
   /**
    * @public
@@ -1134,7 +1134,7 @@ export interface AmazonopensearchserviceDestinationDescription {
    * @public
    * <p>The Amazon OpenSearch Service index rotation period</p>
    */
-  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
+  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod;
 
   /**
    * @public
@@ -1152,7 +1152,7 @@ export interface AmazonopensearchserviceDestinationDescription {
    * @public
    * <p>The Amazon S3 backup mode.</p>
    */
-  S3BackupMode?: AmazonopensearchserviceS3BackupMode | string;
+  S3BackupMode?: AmazonopensearchserviceS3BackupMode;
 
   /**
    * @public
@@ -1237,7 +1237,7 @@ export interface AmazonopensearchserviceDestinationUpdate {
    * <p>The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp
    *          to IndexName to facilitate the expiration of old data.</p>
    */
-  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
+  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod;
 
   /**
    * @public
@@ -1308,7 +1308,7 @@ export interface AuthenticationConfiguration {
    * @public
    * <p>The type of connectivity used to access the Amazon MSK cluster.</p>
    */
-  Connectivity: Connectivity | string | undefined;
+  Connectivity: Connectivity | undefined;
 }
 
 /**
@@ -1439,7 +1439,7 @@ export interface DeliveryStreamEncryptionConfigurationInput {
    *             Service developer guide.</p>
    *          </important>
    */
-  KeyType: KeyType | string | undefined;
+  KeyType: KeyType | undefined;
 }
 
 /**
@@ -1583,7 +1583,7 @@ export interface ElasticsearchDestinationConfiguration {
    *          see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for the
    *             Amazon ES Destination</a>. The default value is <code>OneDay</code>.</p>
    */
-  IndexRotationPeriod?: ElasticsearchIndexRotationPeriod | string;
+  IndexRotationPeriod?: ElasticsearchIndexRotationPeriod;
 
   /**
    * @public
@@ -1612,7 +1612,7 @@ export interface ElasticsearchDestinationConfiguration {
    *          <code>FailedDocumentsOnly</code>.</p>
    *          <p>You can't change this backup mode after you create the delivery stream. </p>
    */
-  S3BackupMode?: ElasticsearchS3BackupMode | string;
+  S3BackupMode?: ElasticsearchS3BackupMode;
 
   /**
    * @public
@@ -1827,7 +1827,7 @@ export interface OrcSerDe {
    * @public
    * <p>The compression code to use over data blocks. The default is <code>SNAPPY</code>.</p>
    */
-  Compression?: OrcCompression | string;
+  Compression?: OrcCompression;
 
   /**
    * @public
@@ -1856,7 +1856,7 @@ export interface OrcSerDe {
    * <p>The version of the file to write. The possible values are <code>V0_11</code> and
    *             <code>V0_12</code>. The default is <code>V0_12</code>.</p>
    */
-  FormatVersion?: OrcFormatVersion | string;
+  FormatVersion?: OrcFormatVersion;
 }
 
 /**
@@ -1917,7 +1917,7 @@ export interface ParquetSerDe {
    *          being <code>SNAPPY</code>. Use <code>SNAPPY</code> for higher decompression speed. Use
    *             <code>GZIP</code> if the compression ratio is more important than speed.</p>
    */
-  Compression?: ParquetCompression | string;
+  Compression?: ParquetCompression;
 
   /**
    * @public
@@ -1937,7 +1937,7 @@ export interface ParquetSerDe {
    * <p>Indicates the version of row format to output. The possible values are <code>V1</code>
    *          and <code>V2</code>. The default is <code>V1</code>.</p>
    */
-  WriterVersion?: ParquetWriterVersion | string;
+  WriterVersion?: ParquetWriterVersion;
 }
 
 /**
@@ -2186,7 +2186,7 @@ export interface ExtendedS3DestinationConfiguration {
    * <p>The compression format. If no value is specified, the default is
    *          UNCOMPRESSED.</p>
    */
-  CompressionFormat?: CompressionFormat | string;
+  CompressionFormat?: CompressionFormat;
 
   /**
    * @public
@@ -2213,7 +2213,7 @@ export interface ExtendedS3DestinationConfiguration {
    *          enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the
    *          delivery stream to disable it. </p>
    */
-  S3BackupMode?: S3BackupMode | string;
+  S3BackupMode?: S3BackupMode;
 
   /**
    * @public
@@ -2325,7 +2325,7 @@ export interface HttpEndpointRequestConfiguration {
    * <p>Kinesis Data Firehose uses the content encoding to compress the body of a request before
    *          sending the request to the destination. For more information, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding">Content-Encoding</a> in MDN Web Docs, the official Mozilla documentation.</p>
    */
-  ContentEncoding?: ContentEncoding | string;
+  ContentEncoding?: ContentEncoding;
 
   /**
    * @public
@@ -2427,7 +2427,7 @@ export interface HttpEndpointDestinationConfiguration {
    *          only the documents that Kinesis Data Firehose could not deliver to the specified HTTP
    *          endpoint destination (<code>FailedDataOnly</code>).</p>
    */
-  S3BackupMode?: HttpEndpointS3BackupMode | string;
+  S3BackupMode?: HttpEndpointS3BackupMode;
 
   /**
    * @public
@@ -2581,7 +2581,7 @@ export interface RedshiftDestinationConfiguration {
    *          enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the
    *          delivery stream to disable it. </p>
    */
-  S3BackupMode?: RedshiftS3BackupMode | string;
+  S3BackupMode?: RedshiftS3BackupMode;
 
   /**
    * @public
@@ -2656,7 +2656,7 @@ export interface SplunkDestinationConfiguration {
    * @public
    * <p>This type can be either "Raw" or "Event."</p>
    */
-  HECEndpointType: HECEndpointType | string | undefined;
+  HECEndpointType: HECEndpointType | undefined;
 
   /**
    * @public
@@ -2692,7 +2692,7 @@ export interface SplunkDestinationConfiguration {
    *             <code>AllEvents</code>. You can't update it from <code>AllEvents</code> to
    *             <code>FailedEventsOnly</code>.</p>
    */
-  S3BackupMode?: SplunkS3BackupMode | string;
+  S3BackupMode?: SplunkS3BackupMode;
 
   /**
    * @public
@@ -2765,7 +2765,7 @@ export interface CreateDeliveryStreamInput {
    *             </li>
    *          </ul>
    */
-  DeliveryStreamType?: DeliveryStreamType | string;
+  DeliveryStreamType?: DeliveryStreamType;
 
   /**
    * @public
@@ -3039,7 +3039,7 @@ export interface FailureDescription {
    * @public
    * <p>The type of error that caused the failure.</p>
    */
-  Type: DeliveryStreamFailureType | string | undefined;
+  Type: DeliveryStreamFailureType | undefined;
 
   /**
    * @public
@@ -3088,7 +3088,7 @@ export interface DeliveryStreamEncryptionConfiguration {
    *          setting is <code>Amazon Web Services_OWNED_CMK</code>. For more information about CMKs, see
    *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer Master Keys (CMKs)</a>.</p>
    */
-  KeyType?: KeyType | string;
+  KeyType?: KeyType;
 
   /**
    * @public
@@ -3097,7 +3097,7 @@ export interface DeliveryStreamEncryptionConfiguration {
    *          or <code>DISABLING_FAILED</code>, it is the status of the most recent attempt to enable or
    *          disable SSE, respectively.</p>
    */
-  Status?: DeliveryStreamEncryptionStatus | string;
+  Status?: DeliveryStreamEncryptionStatus;
 
   /**
    * @public
@@ -3173,7 +3173,7 @@ export interface ElasticsearchDestinationDescription {
    * @public
    * <p>The Elasticsearch index rotation period</p>
    */
-  IndexRotationPeriod?: ElasticsearchIndexRotationPeriod | string;
+  IndexRotationPeriod?: ElasticsearchIndexRotationPeriod;
 
   /**
    * @public
@@ -3191,7 +3191,7 @@ export interface ElasticsearchDestinationDescription {
    * @public
    * <p>The Amazon S3 backup mode.</p>
    */
-  S3BackupMode?: ElasticsearchS3BackupMode | string;
+  S3BackupMode?: ElasticsearchS3BackupMode;
 
   /**
    * @public
@@ -3274,7 +3274,7 @@ export interface ExtendedS3DestinationDescription {
    * <p>The compression format. If no value is specified, the default is
    *             <code>UNCOMPRESSED</code>.</p>
    */
-  CompressionFormat: CompressionFormat | string | undefined;
+  CompressionFormat: CompressionFormat | undefined;
 
   /**
    * @public
@@ -3299,7 +3299,7 @@ export interface ExtendedS3DestinationDescription {
    * @public
    * <p>The Amazon S3 backup mode.</p>
    */
-  S3BackupMode?: S3BackupMode | string;
+  S3BackupMode?: S3BackupMode;
 
   /**
    * @public
@@ -3404,7 +3404,7 @@ export interface HttpEndpointDestinationDescription {
    *          the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint
    *          destination (<code>FailedDataOnly</code>).</p>
    */
-  S3BackupMode?: HttpEndpointS3BackupMode | string;
+  S3BackupMode?: HttpEndpointS3BackupMode;
 
   /**
    * @public
@@ -3467,7 +3467,7 @@ export interface RedshiftDestinationDescription {
    * @public
    * <p>The Amazon S3 backup mode.</p>
    */
-  S3BackupMode?: RedshiftS3BackupMode | string;
+  S3BackupMode?: RedshiftS3BackupMode;
 
   /**
    * @public
@@ -3498,7 +3498,7 @@ export interface SplunkDestinationDescription {
    * @public
    * <p>This type can be either "Raw" or "Event."</p>
    */
-  HECEndpointType?: HECEndpointType | string;
+  HECEndpointType?: HECEndpointType;
 
   /**
    * @public
@@ -3531,7 +3531,7 @@ export interface SplunkDestinationDescription {
    *          Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed
    *          documents to Amazon S3. Default value is <code>FailedDocumentsOnly</code>. </p>
    */
-  S3BackupMode?: SplunkS3BackupMode | string;
+  S3BackupMode?: SplunkS3BackupMode;
 
   /**
    * @public
@@ -3720,7 +3720,7 @@ export interface DeliveryStreamDescription {
    *             <code>CREATING_FAILED</code>, this status doesn't change, and you can't invoke
    *             <code>CreateDeliveryStream</code> again on it. However, you can invoke the <a>DeleteDeliveryStream</a> operation to delete it.</p>
    */
-  DeliveryStreamStatus: DeliveryStreamStatus | string | undefined;
+  DeliveryStreamStatus: DeliveryStreamStatus | undefined;
 
   /**
    * @public
@@ -3752,7 +3752,7 @@ export interface DeliveryStreamDescription {
    *             </li>
    *          </ul>
    */
-  DeliveryStreamType: DeliveryStreamType | string | undefined;
+  DeliveryStreamType: DeliveryStreamType | undefined;
 
   /**
    * @public
@@ -3890,7 +3890,7 @@ export interface ElasticsearchDestinationUpdate {
    *          see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for the
    *             Amazon ES Destination</a>. Default value is <code>OneDay</code>.</p>
    */
-  IndexRotationPeriod?: ElasticsearchIndexRotationPeriod | string;
+  IndexRotationPeriod?: ElasticsearchIndexRotationPeriod;
 
   /**
    * @public
@@ -3980,7 +3980,7 @@ export interface ExtendedS3DestinationUpdate {
    * <p>The compression format. If no value is specified, the default is
    *             <code>UNCOMPRESSED</code>. </p>
    */
-  CompressionFormat?: CompressionFormat | string;
+  CompressionFormat?: CompressionFormat;
 
   /**
    * @public
@@ -4006,7 +4006,7 @@ export interface ExtendedS3DestinationUpdate {
    * <p>You can update a delivery stream to enable Amazon S3 backup if it is disabled. If
    *          backup is enabled, you can't update the delivery stream to disable it. </p>
    */
-  S3BackupMode?: S3BackupMode | string;
+  S3BackupMode?: S3BackupMode;
 
   /**
    * @public
@@ -4059,7 +4059,7 @@ export interface ListDeliveryStreamsInput {
    *          <p>This parameter is optional. If this parameter is omitted, delivery streams of all
    *          types are returned.</p>
    */
-  DeliveryStreamType?: DeliveryStreamType | string;
+  DeliveryStreamType?: DeliveryStreamType;
 
   /**
    * @public
@@ -4426,7 +4426,7 @@ export interface HttpEndpointDestinationUpdate {
    *          the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint
    *          destination (<code>FailedDataOnly</code>).</p>
    */
-  S3BackupMode?: HttpEndpointS3BackupMode | string;
+  S3BackupMode?: HttpEndpointS3BackupMode;
 
   /**
    * @public
@@ -4500,7 +4500,7 @@ export interface RedshiftDestinationUpdate {
    * <p>You can update a delivery stream to enable Amazon S3 backup if it is disabled. If
    *          backup is enabled, you can't update the delivery stream to disable it. </p>
    */
-  S3BackupMode?: RedshiftS3BackupMode | string;
+  S3BackupMode?: RedshiftS3BackupMode;
 
   /**
    * @public
@@ -4531,7 +4531,7 @@ export interface SplunkDestinationUpdate {
    * @public
    * <p>This type can be either "Raw" or "Event."</p>
    */
-  HECEndpointType?: HECEndpointType | string;
+  HECEndpointType?: HECEndpointType;
 
   /**
    * @public
@@ -4567,7 +4567,7 @@ export interface SplunkDestinationUpdate {
    *             <code>AllEvents</code>. You can't update it from <code>AllEvents</code> to
    *             <code>FailedEventsOnly</code>.</p>
    */
-  S3BackupMode?: SplunkS3BackupMode | string;
+  S3BackupMode?: SplunkS3BackupMode;
 
   /**
    * @public

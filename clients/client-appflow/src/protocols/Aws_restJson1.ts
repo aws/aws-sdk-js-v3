@@ -154,6 +154,7 @@ import {
   OAuth2Properties,
   OAuthCredentials,
   OAuthProperties,
+  OperatorPropertiesKeys,
   PardotConnectorProfileCredentials,
   PardotConnectorProfileProperties,
   PardotSourceProperties,
@@ -2942,16 +2943,16 @@ const de_ConnectorConfiguration = (output: any, context: __SerdeContext): Connec
 const de_ConnectorConfigurationsMap = (
   output: any,
   context: __SerdeContext
-): Record<string, ConnectorConfiguration> => {
+): Record<ConnectorType, ConnectorConfiguration> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, ConnectorConfiguration>, [key, value]: [ConnectorType | string, any]) => {
+    (acc: Record<ConnectorType, ConnectorConfiguration>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = de_ConnectorConfiguration(value, context);
+      acc[key as ConnectorType] = de_ConnectorConfiguration(value, context);
       return acc;
     },
-    {}
+    {} as Record<ConnectorType, ConnectorConfiguration>
   );
 };
 

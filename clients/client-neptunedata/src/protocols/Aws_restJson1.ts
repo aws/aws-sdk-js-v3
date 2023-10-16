@@ -5891,9 +5891,9 @@ const de_DocumentValuedMap = (output: any, context: __SerdeContext): Record<stri
     if (value === null) {
       return acc;
     }
-    acc[key] = de_Document(value, context);
+    acc[key as string] = de_Document(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, __DocumentType>);
 };
 
 // de_EdgeLabels omitted.

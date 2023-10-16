@@ -130,7 +130,7 @@ export interface ReadinessCheckSummary {
    * @public
    * <p>The readiness status of this readiness check.</p>
    */
-  Readiness?: Readiness | string;
+  Readiness?: Readiness;
 
   /**
    * @public
@@ -316,7 +316,7 @@ export interface ResourceResult {
    * @public
    * <p>The readiness of a resource.</p>
    */
-  Readiness: Readiness | string | undefined;
+  Readiness: Readiness | undefined;
 
   /**
    * @public
@@ -382,7 +382,7 @@ export interface RuleResult {
    * @public
    * <p>The readiness at rule level.</p>
    */
-  Readiness: Readiness | string | undefined;
+  Readiness: Readiness | undefined;
 
   /**
    * @public
@@ -960,7 +960,7 @@ export interface GetCellReadinessSummaryResponse {
    * @public
    * <p>The readiness at a cell level.</p>
    */
-  Readiness?: Readiness | string;
+  Readiness?: Readiness;
 
   /**
    * @public
@@ -1052,7 +1052,7 @@ export interface GetReadinessCheckResourceStatusResponse {
    * @public
    * <p>The readiness at a rule level.</p>
    */
-  Readiness?: Readiness | string;
+  Readiness?: Readiness;
 
   /**
    * @public
@@ -1104,7 +1104,7 @@ export interface GetReadinessCheckStatusResponse {
    * @public
    * <p>The readiness at rule level.</p>
    */
-  Readiness?: Readiness | string;
+  Readiness?: Readiness;
 
   /**
    * @public
@@ -1190,7 +1190,7 @@ export interface GetRecoveryGroupReadinessSummaryResponse {
    * @public
    * <p>The readiness status at a recovery group level.</p>
    */
-  Readiness?: Readiness | string;
+  Readiness?: Readiness;
 
   /**
    * @public

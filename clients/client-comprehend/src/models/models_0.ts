@@ -53,7 +53,7 @@ export interface AugmentedManifestsListItem {
    *       documents for testing.</p>
    *          <p> TEST - all of the documents in the manifest will be used for testing.</p>
    */
-  Split?: Split | string;
+  Split?: Split;
 
   /**
    * @public
@@ -100,7 +100,7 @@ export interface AugmentedManifestsListItem {
    *             </li>
    *          </ul>
    */
-  DocumentType?: AugmentedManifestsDocumentTypeFormat | string;
+  DocumentType?: AugmentedManifestsDocumentTypeFormat;
 }
 
 /**
@@ -291,7 +291,7 @@ export interface InvalidRequestDetail {
    * @public
    * <p>Reason code is <code>INVALID_DOCUMENT</code>.</p>
    */
-  Reason?: InvalidRequestDetailReason | string;
+  Reason?: InvalidRequestDetailReason;
 }
 
 /**
@@ -315,7 +315,7 @@ export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: InvalidRequestReason | string;
+  Reason?: InvalidRequestReason;
   /**
    * @public
    * <p>Provides additional detail about why the request failed:</p>
@@ -413,7 +413,7 @@ export interface BatchDetectEntitiesRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -511,7 +511,7 @@ export interface Entity {
    *          <p>For custom entity detection, this field contains one of the
    *       entity types that you specified when you trained your custom model.</p>
    */
-  Type?: EntityType | string;
+  Type?: EntityType;
 
   /**
    * @public
@@ -628,7 +628,7 @@ export interface BatchDetectKeyPhrasesRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -724,7 +724,7 @@ export interface BatchDetectSentimentRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -795,7 +795,7 @@ export interface BatchDetectSentimentItemResult {
    * @public
    * <p>The sentiment detected in the document.</p>
    */
-  Sentiment?: SentimentType | string;
+  Sentiment?: SentimentType;
 
   /**
    * @public
@@ -863,7 +863,7 @@ export interface BatchDetectSyntaxRequest {
    *       supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"),
    *       Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
    */
-  LanguageCode: SyntaxLanguageCode | string | undefined;
+  LanguageCode: SyntaxLanguageCode | undefined;
 }
 
 /**
@@ -909,7 +909,7 @@ export interface PartOfSpeechTag {
    * @public
    * <p>Identifies the part of speech that the token represents.</p>
    */
-  Tag?: PartOfSpeechTagType | string;
+  Tag?: PartOfSpeechTagType;
 
   /**
    * @public
@@ -1018,7 +1018,7 @@ export interface BatchDetectTargetedSentimentRequest {
    * @public
    * <p>The language of the input documents. Currently, English is the only supported language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -1031,7 +1031,7 @@ export interface MentionSentiment {
    * @public
    * <p>The sentiment of the mention. </p>
    */
-  Sentiment?: SentimentType | string;
+  Sentiment?: SentimentType;
 
   /**
    * @public
@@ -1100,7 +1100,7 @@ export interface TargetedSentimentMention {
    * @public
    * <p>The type of the entity. Amazon Comprehend supports a variety of <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html#how-targeted-sentiment-entities">entity types</a>.</p>
    */
-  Type?: TargetedSentimentEntityType | string;
+  Type?: TargetedSentimentEntityType;
 
   /**
    * @public
@@ -1295,7 +1295,7 @@ export interface RelationshipsListItem {
    * @public
    * <p>Only supported relationship is a child relationship.</p>
    */
-  Type?: RelationshipType | string;
+  Type?: RelationshipType;
 }
 
 /**
@@ -1324,7 +1324,7 @@ export interface Block {
    *             </li>
    *          </ul>
    */
-  BlockType?: BlockType | string;
+  BlockType?: BlockType;
 
   /**
    * @public
@@ -1547,7 +1547,7 @@ export interface DocumentReaderConfig {
    *             </li>
    *          </ul>
    */
-  DocumentReadAction: DocumentReadAction | string | undefined;
+  DocumentReadAction: DocumentReadAction | undefined;
 
   /**
    * @public
@@ -1564,7 +1564,7 @@ export interface DocumentReaderConfig {
    *             </li>
    *          </ul>
    */
-  DocumentReadMode?: DocumentReadMode | string;
+  DocumentReadMode?: DocumentReadMode;
 
   /**
    * @public
@@ -1581,7 +1581,7 @@ export interface DocumentReaderConfig {
    *             </li>
    *          </ul>
    */
-  FeatureTypes?: (DocumentReadFeatureTypes | string)[];
+  FeatureTypes?: DocumentReadFeatureTypes[];
 }
 
 /**
@@ -1719,7 +1719,7 @@ export interface DocumentTypeListItem {
    * @public
    * <p>Document type.</p>
    */
-  Type?: DocumentType | string;
+  Type?: DocumentType;
 }
 
 /**
@@ -1776,7 +1776,7 @@ export interface ErrorsListItem {
    * @public
    * <p>Error code for the cause of the error.</p>
    */
-  ErrorCode?: PageBasedErrorCode | string;
+  ErrorCode?: PageBasedErrorCode;
 
   /**
    * @public
@@ -1847,7 +1847,7 @@ export interface WarningsListItem {
    * @public
    * <p>The type of warning.</p>
    */
-  WarnCode?: PageBasedWarningCode | string;
+  WarnCode?: PageBasedWarningCode;
 
   /**
    * @public
@@ -1947,7 +1947,7 @@ export interface ContainsPiiEntitiesRequest {
    * @public
    * <p>The language of the input documents. Currently, English is the only valid language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -2009,7 +2009,7 @@ export interface EntityLabel {
    * @public
    * <p>The name of the label.</p>
    */
-  Name?: PiiEntityType | string;
+  Name?: PiiEntityType;
 
   /**
    * @public
@@ -2091,7 +2091,7 @@ export interface DatasetAugmentedManifestsListItem {
    *             <code>PLAIN_TEXT_DOCUMENT</code> A document type that represents any unicode text that
    *       is encoded in UTF-8.</p>
    */
-  DocumentType?: AugmentedManifestsDocumentTypeFormat | string;
+  DocumentType?: AugmentedManifestsDocumentTypeFormat;
 }
 
 /**
@@ -2188,7 +2188,7 @@ export interface DatasetEntityRecognizerDocuments {
    *       scientific papers. ONE_DOC_PER_LINE - Each line in a file is considered a separate document.
    *       Use this option when you are processing many short documents, such as text messages.</p>
    */
-  InputFormat?: InputFormat | string;
+  InputFormat?: InputFormat;
 }
 
 /**
@@ -2252,7 +2252,7 @@ export interface DatasetInputDataConfig {
    *          <p>
    *             <code>AUGMENTED_MANIFEST</code>: The data format  </p>
    */
-  DataFormat?: DatasetDataFormat | string;
+  DataFormat?: DatasetDataFormat;
 
   /**
    * @public
@@ -2316,7 +2316,7 @@ export interface CreateDatasetRequest {
    * <p>The dataset type. You can specify that the data in a dataset is for training
    *       the model or for testing the model.</p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: DatasetType;
 
   /**
    * @public
@@ -2549,7 +2549,7 @@ export interface DocumentClassifierInputDataConfig {
    *          <p>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as the
    *       default.</p>
    */
-  DataFormat?: DocumentClassifierDataFormat | string;
+  DataFormat?: DocumentClassifierDataFormat;
 
   /**
    * @public
@@ -2598,7 +2598,7 @@ export interface DocumentClassifierInputDataConfig {
    * <p>The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and
    *     provide semi-structured documents to create a native model.</p>
    */
-  DocumentType?: DocumentClassifierDocumentTypeFormat | string;
+  DocumentType?: DocumentClassifierDocumentTypeFormat;
 
   /**
    * @public
@@ -2792,7 +2792,7 @@ export interface CreateDocumentClassifierRequest {
    * <p>The language of the input documents. You can specify any of the languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -2829,7 +2829,7 @@ export interface CreateDocumentClassifierRequest {
    *       labels for an individual document are separated by a delimiter. The default delimiter between
    *       labels is a pipe (|).</p>
    */
-  Mode?: DocumentClassifierMode | string;
+  Mode?: DocumentClassifierMode;
 
   /**
    * @public
@@ -3042,7 +3042,7 @@ export interface EntityRecognizerDocuments {
    *       scientific papers. ONE_DOC_PER_LINE - Each line in a file is considered a separate document.
    *       Use this option when you are processing many short documents, such as text messages.</p>
    */
-  InputFormat?: InputFormat | string;
+  InputFormat?: InputFormat;
 }
 
 /**
@@ -3107,7 +3107,7 @@ export interface EntityRecognizerInputDataConfig {
    *          <p>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as the
    *       default.</p>
    */
-  DataFormat?: EntityRecognizerDataFormat | string;
+  DataFormat?: EntityRecognizerDataFormat;
 
   /**
    * @public
@@ -3211,7 +3211,7 @@ export interface CreateEntityRecognizerRequest {
    *       specify English as the language.
    *       All training documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -3357,7 +3357,7 @@ export interface DocumentClassificationConfig {
    * @public
    * <p>Classification mode indicates whether the documents are <code>MULTI_CLASS</code> or <code>MULTI_LABEL</code>.</p>
    */
-  Mode: DocumentClassifierMode | string | undefined;
+  Mode: DocumentClassifierMode | undefined;
 
   /**
    * @public
@@ -3387,7 +3387,7 @@ export interface TaskConfig {
    * @public
    * <p>Language code for the language that the model supports.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -3435,7 +3435,7 @@ export interface CreateFlywheelRequest {
    * @public
    * <p>The model type.</p>
    */
-  ModelType?: ModelType | string;
+  ModelType?: ModelType;
 
   /**
    * @public
@@ -3614,7 +3614,7 @@ export interface DatasetProperties {
    * @public
    * <p>The dataset type (training data or test data).</p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: DatasetType;
 
   /**
    * @public
@@ -3633,7 +3633,7 @@ export interface DatasetProperties {
    * <p>The dataset status. While the system creates the dataset, the status is <code>CREATING</code>.
    *       When the dataset is ready to use, the status changes to <code>COMPLETED</code>. </p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 
   /**
    * @public
@@ -3718,7 +3718,7 @@ export interface InputDataConfig {
    *             </li>
    *          </ul>
    */
-  InputFormat?: InputFormat | string;
+  InputFormat?: InputFormat;
 
   /**
    * @public
@@ -3834,7 +3834,7 @@ export interface DocumentClassificationJobProperties {
    * <p>The current status of the document classification job. If the status is
    *         <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -3997,7 +3997,7 @@ export interface DocumentClassifierProperties {
    * <p>The language code for the language of the documents that the classifier was trained
    *       on.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -4008,7 +4008,7 @@ export interface DocumentClassifierProperties {
    *          <p>  If the status is <code>FAILED</code> you can see additional
    *       information about why the classifier wasn't trained in the <code>Message</code> field.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -4104,7 +4104,7 @@ export interface DocumentClassifierProperties {
    *       format of input documents and the format of the confusion matrix. Each classifier can only be
    *       trained in one mode and this cannot be changed once the classifier is trained.</p>
    */
-  Mode?: DocumentClassifierMode | string;
+  Mode?: DocumentClassifierMode;
 
   /**
    * @public
@@ -4204,7 +4204,7 @@ export interface DominantLanguageDetectionJobProperties {
    * <p>The current status of the dominant language detection job. If the status is
    *         <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -4332,7 +4332,7 @@ export interface EndpointProperties {
    *       asynchronous, so customers will need to wait for the endpoint to be <code>Ready</code> status
    *       before making inference requests.</p>
    */
-  Status?: EndpointStatus | string;
+  Status?: EndpointStatus;
 
   /**
    * @public
@@ -4461,7 +4461,7 @@ export interface EntitiesDetectionJobProperties {
    * <p>The current status of the entities detection job. If the status is <code>FAILED</code>,
    *       the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -4505,7 +4505,7 @@ export interface EntitiesDetectionJobProperties {
    * @public
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -4720,13 +4720,13 @@ export interface EntityRecognizerProperties {
    * <p> The language of the input documents. All documents must be in the same language. Only
    *       English ("en") is currently supported.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
    * <p>Provides the status of the entity recognizer.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -4906,7 +4906,7 @@ export interface EventsDetectionJobProperties {
    * @public
    * <p>The current status of the events detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -4944,7 +4944,7 @@ export interface EventsDetectionJobProperties {
    * @public
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -5045,13 +5045,13 @@ export interface FlywheelProperties {
    * @public
    * <p>The status of the flywheel.</p>
    */
-  Status?: FlywheelStatus | string;
+  Status?: FlywheelStatus;
 
   /**
    * @public
    * <p>Model type of the flywheel's model.</p>
    */
-  ModelType?: ModelType | string;
+  ModelType?: ModelType;
 
   /**
    * @public
@@ -5187,7 +5187,7 @@ export interface FlywheelIterationProperties {
    * @public
    * <p>The status of the flywheel iteration.</p>
    */
-  Status?: FlywheelIterationStatus | string;
+  Status?: FlywheelIterationStatus;
 
   /**
    * @public
@@ -5287,7 +5287,7 @@ export interface KeyPhrasesDetectionJobProperties {
    * <p>The current status of the key phrases detection job. If the status is <code>FAILED</code>,
    *       the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -5325,7 +5325,7 @@ export interface KeyPhrasesDetectionJobProperties {
    * @public
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -5449,14 +5449,14 @@ export interface RedactionConfig {
    * <p>An array of the types of PII entities that Amazon Comprehend detects in the input text for
    *       your request.</p>
    */
-  PiiEntityTypes?: (PiiEntityType | string)[];
+  PiiEntityTypes?: PiiEntityType[];
 
   /**
    * @public
    * <p>Specifies whether the PII entity is redacted with the mask character or the entity
    *       type.</p>
    */
-  MaskMode?: PiiEntitiesDetectionMaskMode | string;
+  MaskMode?: PiiEntitiesDetectionMaskMode;
 
   /**
    * @public
@@ -5502,7 +5502,7 @@ export interface PiiEntitiesDetectionJobProperties {
    * <p>The current status of the PII entities detection job. If the status is
    *       <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -5548,7 +5548,7 @@ export interface PiiEntitiesDetectionJobProperties {
    * @public
    * <p>The language code of the input documents</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -5562,7 +5562,7 @@ export interface PiiEntitiesDetectionJobProperties {
    * <p>Specifies whether the output provides the locations (offsets) of PII entities or a file in
    *       which PII entities are redacted.</p>
    */
-  Mode?: PiiEntitiesDetectionMode | string;
+  Mode?: PiiEntitiesDetectionMode;
 }
 
 /**
@@ -5666,7 +5666,7 @@ export interface SentimentDetectionJobProperties {
    * <p>The current status of the sentiment detection job. If the status is <code>FAILED</code>,
    *       the <code>Messages</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -5704,7 +5704,7 @@ export interface SentimentDetectionJobProperties {
    * @public
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -5802,7 +5802,7 @@ export interface TargetedSentimentDetectionJobProperties {
    * <p>The current status of the targeted sentiment detection job. If the status is <code>FAILED</code>,
    *       the <code>Messages</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -5840,7 +5840,7 @@ export interface TargetedSentimentDetectionJobProperties {
    * @public
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -5936,7 +5936,7 @@ export interface TopicsDetectionJobProperties {
    * <p>The current status of the topic detection job. If the status is <code>Failed</code>,
    *       the reason for the failure is shown in the <code>Message</code> field.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -6070,7 +6070,7 @@ export interface DetectEntitiesRequest {
    *       specify here.</p>
    *          <p>All input documents must be in the same language.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -6177,7 +6177,7 @@ export interface DetectKeyPhrasesRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -6208,7 +6208,7 @@ export interface DetectPiiEntitiesRequest {
    * @public
    * <p>The language of the input documents. Currently, English is the only valid language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -6227,7 +6227,7 @@ export interface PiiEntity {
    * @public
    * <p>The entity's type.</p>
    */
-  Type?: PiiEntityType | string;
+  Type?: PiiEntityType;
 
   /**
    * @public
@@ -6272,7 +6272,7 @@ export interface DetectSentimentRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -6284,7 +6284,7 @@ export interface DetectSentimentResponse {
    * <p>The inferred sentiment that Amazon Comprehend has the highest level of confidence
    *       in.</p>
    */
-  Sentiment?: SentimentType | string;
+  Sentiment?: SentimentType;
 
   /**
    * @public
@@ -6310,7 +6310,7 @@ export interface DetectSyntaxRequest {
    *       supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"),
    *       Italian ("it"), or Portuguese ("pt").</p>
    */
-  LanguageCode: SyntaxLanguageCode | string | undefined;
+  LanguageCode: SyntaxLanguageCode | undefined;
 }
 
 /**
@@ -6342,7 +6342,7 @@ export interface DetectTargetedSentimentRequest {
    * @public
    * <p>The language of the input documents. Currently, English is the only supported language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -6461,13 +6461,13 @@ export interface DatasetFilter {
    * @public
    * <p>Filter the datasets based on the dataset status.</p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 
   /**
    * @public
    * <p>Filter the datasets based on the dataset type.</p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: DatasetType;
 
   /**
    * @public
@@ -6545,7 +6545,7 @@ export interface DocumentClassificationJobFilter {
    * @public
    * <p>Filters the list based on job status. Returns only jobs with the specified status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -6616,7 +6616,7 @@ export interface DocumentClassifierFilter {
    * @public
    * <p>Filters the list of classifiers based on status.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -6732,7 +6732,7 @@ export interface DocumentClassifierSummary {
    * @public
    * <p>Provides the status of the latest document classifier version.</p>
    */
-  LatestVersionStatus?: ModelStatus | string;
+  LatestVersionStatus?: ModelStatus;
 }
 
 /**
@@ -6770,7 +6770,7 @@ export interface DominantLanguageDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -6848,7 +6848,7 @@ export interface EndpointFilter {
    * <p>Specifies the status of the endpoint being returned. Possible values are: Creating, Ready,
    *       Updating, Deleting, Failed.</p>
    */
-  Status?: EndpointStatus | string;
+  Status?: EndpointStatus;
 
   /**
    * @public
@@ -6923,7 +6923,7 @@ export interface EntitiesDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -6994,7 +6994,7 @@ export interface EntityRecognizerFilter {
    * @public
    * <p>The status of an entity recognizer.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -7111,7 +7111,7 @@ export interface EntityRecognizerSummary {
    * @public
    * <p> Provides the status of the latest entity recognizer version.</p>
    */
-  LatestVersionStatus?: ModelStatus | string;
+  LatestVersionStatus?: ModelStatus;
 }
 
 /**
@@ -7147,7 +7147,7 @@ export interface EventsDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -7280,7 +7280,7 @@ export interface FlywheelFilter {
    * @public
    * <p>Filter the flywheels based on the flywheel status.</p>
    */
-  Status?: FlywheelStatus | string;
+  Status?: FlywheelStatus;
 
   /**
    * @public
@@ -7347,13 +7347,13 @@ export interface FlywheelSummary {
    * @public
    * <p>The status of the flywheel.</p>
    */
-  Status?: FlywheelStatus | string;
+  Status?: FlywheelStatus;
 
   /**
    * @public
    * <p>Model type of the flywheel's model.</p>
    */
-  ModelType?: ModelType | string;
+  ModelType?: ModelType;
 
   /**
    * @public
@@ -7415,7 +7415,7 @@ export interface KeyPhrasesDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -7491,7 +7491,7 @@ export interface PiiEntitiesDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -7568,7 +7568,7 @@ export interface SentimentDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -7678,7 +7678,7 @@ export interface TargetedSentimentDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -7755,7 +7755,7 @@ export interface TopicsDetectionJobFilter {
    * <p>Filters the list of topic detection jobs based on job status. Returns only jobs with
    *       the specified status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -8001,7 +8001,7 @@ export interface StartDocumentClassificationJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -8126,7 +8126,7 @@ export interface StartDominantLanguageDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -8173,7 +8173,7 @@ export interface StartEntitiesDetectionJobRequest {
    *       used, this parameter is ignored and the language used for training the model is used
    *       instead.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -8275,7 +8275,7 @@ export interface StartEntitiesDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -8317,7 +8317,7 @@ export interface StartEventsDetectionJobRequest {
    * @public
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -8371,7 +8371,7 @@ export interface StartEventsDetectionJobResponse {
    * @public
    * <p>The status of the events detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -8443,7 +8443,7 @@ export interface StartKeyPhrasesDetectionJobRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -8533,7 +8533,7 @@ export interface StartKeyPhrasesDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -8557,7 +8557,7 @@ export interface StartPiiEntitiesDetectionJobRequest {
    * <p>Specifies whether the output provides the locations (offsets) of PII entities or a file in
    *       which PII entities are redacted.</p>
    */
-  Mode: PiiEntitiesDetectionMode | string | undefined;
+  Mode: PiiEntitiesDetectionMode | undefined;
 
   /**
    * @public
@@ -8585,7 +8585,7 @@ export interface StartPiiEntitiesDetectionJobRequest {
    * @public
    * <p>The language of the input documents. Currently, English is the only valid language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -8632,7 +8632,7 @@ export interface StartPiiEntitiesDetectionJobResponse {
    * @public
    * <p>The status of the job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -8669,7 +8669,7 @@ export interface StartSentimentDetectionJobRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -8758,7 +8758,7 @@ export interface StartSentimentDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -8795,7 +8795,7 @@ export interface StartTargetedSentimentDetectionJobRequest {
    * @public
    * <p>The language of the input documents. Currently, English is the only supported language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -8885,7 +8885,7 @@ export interface StartTargetedSentimentDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -9014,7 +9014,7 @@ export interface StartTopicsDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -9044,7 +9044,7 @@ export interface StopDominantLanguageDetectionJobResponse {
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopDominantLanguageDetectionJob</code> operation.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -9074,7 +9074,7 @@ export interface StopEntitiesDetectionJobResponse {
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopEntitiesDetectionJob</code> operation.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -9102,7 +9102,7 @@ export interface StopEventsDetectionJobResponse {
    * @public
    * <p>The status of the events detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -9132,7 +9132,7 @@ export interface StopKeyPhrasesDetectionJobResponse {
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopKeyPhrasesDetectionJob</code> operation.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**

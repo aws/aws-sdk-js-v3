@@ -189,19 +189,19 @@ export interface CreateSolFunctionPackageOutput {
    * @public
    * <p>Onboarding state of the function package.</p>
    */
-  onboardingState: OnboardingState | string | undefined;
+  onboardingState: OnboardingState | undefined;
 
   /**
    * @public
    * <p>Operational state of the function package.</p>
    */
-  operationalState: OperationalState | string | undefined;
+  operationalState: OperationalState | undefined;
 
   /**
    * @public
    * <p>Usage state of the function package.</p>
    */
-  usageState: UsageState | string | undefined;
+  usageState: UsageState | undefined;
 
   /**
    * @public
@@ -368,19 +368,19 @@ export interface CreateSolNetworkPackageOutput {
    * @public
    * <p>Onboarding state of the network service descriptor in the network package.</p>
    */
-  nsdOnboardingState: NsdOnboardingState | string | undefined;
+  nsdOnboardingState: NsdOnboardingState | undefined;
 
   /**
    * @public
    * <p>Operational state of the network service descriptor in the network package.</p>
    */
-  nsdOperationalState: NsdOperationalState | string | undefined;
+  nsdOperationalState: NsdOperationalState | undefined;
 
   /**
    * @public
    * <p>Usage state of the network service descriptor in the network package.</p>
    */
-  nsdUsageState: NsdUsageState | string | undefined;
+  nsdUsageState: NsdUsageState | undefined;
 
   /**
    * @public
@@ -557,7 +557,7 @@ export interface GetSolVnfInfo {
    * @public
    * <p>State of the network function instance.</p>
    */
-  vnfState?: VnfOperationalState | string;
+  vnfState?: VnfOperationalState;
 
   /**
    * @public
@@ -655,7 +655,7 @@ export interface GetSolFunctionInstanceOutput {
    * @public
    * <p>Network function instantiation state.</p>
    */
-  instantiationState: VnfInstantiationState | string | undefined;
+  instantiationState: VnfInstantiationState | undefined;
 
   /**
    * @public
@@ -734,19 +734,19 @@ export interface GetSolFunctionPackageOutput {
    * @public
    * <p>Function package onboarding state.</p>
    */
-  onboardingState: OnboardingState | string | undefined;
+  onboardingState: OnboardingState | undefined;
 
   /**
    * @public
    * <p>Function package operational state.</p>
    */
-  operationalState: OperationalState | string | undefined;
+  operationalState: OperationalState | undefined;
 
   /**
    * @public
    * <p>Function package usage state.</p>
    */
-  usageState: UsageState | string | undefined;
+  usageState: UsageState | undefined;
 
   /**
    * @public
@@ -813,7 +813,7 @@ export interface GetSolFunctionPackageContentInput {
    * @public
    * <p>The format of the package that you want to download from the function packages.</p>
    */
-  accept: PackageContentType | string | undefined;
+  accept: PackageContentType | undefined;
 }
 
 /**
@@ -824,7 +824,7 @@ export interface GetSolFunctionPackageContentOutput {
    * @public
    * <p>Indicates the media type of the resource.</p>
    */
-  contentType?: PackageContentType | string;
+  contentType?: PackageContentType;
 
   /**
    * @public
@@ -847,7 +847,7 @@ export interface GetSolFunctionPackageDescriptorInput {
    * @public
    * <p>Indicates which content types, expressed as MIME types, the client is able to understand.</p>
    */
-  accept: DescriptorContentType | string | undefined;
+  accept: DescriptorContentType | undefined;
 }
 
 /**
@@ -858,7 +858,7 @@ export interface GetSolFunctionPackageDescriptorOutput {
    * @public
    * <p>Indicates the media type of the resource.</p>
    */
-  contentType?: DescriptorContentType | string;
+  contentType?: DescriptorContentType;
 
   /**
    * @public
@@ -877,7 +877,7 @@ export interface GetSolInstantiatedVnfInfo {
    * @public
    * <p>State of the network function.</p>
    */
-  vnfState?: VnfOperationalState | string;
+  vnfState?: VnfOperationalState;
 }
 
 /**
@@ -987,7 +987,7 @@ export interface GetSolNetworkInstanceOutput {
    * @public
    * <p>Network instance state.</p>
    */
-  nsState?: NsState | string;
+  nsState?: NsState;
 
   /**
    * @public
@@ -1137,7 +1137,7 @@ export interface GetSolNetworkOperationTaskDetails {
    * @public
    * <p>Task status.</p>
    */
-  taskStatus?: TaskStatus | string;
+  taskStatus?: TaskStatus;
 
   /**
    * @public
@@ -1172,7 +1172,7 @@ export interface GetSolNetworkOperationOutput {
    * @public
    * <p>The state of the network operation.</p>
    */
-  operationState?: NsLcmOperationState | string;
+  operationState?: NsLcmOperationState;
 
   /**
    * @public
@@ -1184,7 +1184,7 @@ export interface GetSolNetworkOperationOutput {
    * @public
    * <p>Type of the operation represented by this occurrence.</p>
    */
-  lcmOperationType?: LcmOperationType | string;
+  lcmOperationType?: LcmOperationType;
 
   /**
    * @public
@@ -1280,19 +1280,19 @@ export interface GetSolNetworkPackageOutput {
    * @public
    * <p>Network service descriptor onboarding state.</p>
    */
-  nsdOnboardingState: NsdOnboardingState | string | undefined;
+  nsdOnboardingState: NsdOnboardingState | undefined;
 
   /**
    * @public
    * <p>Network service descriptor operational state.</p>
    */
-  nsdOperationalState: NsdOperationalState | string | undefined;
+  nsdOperationalState: NsdOperationalState | undefined;
 
   /**
    * @public
    * <p>Network service descriptor usage state.</p>
    */
-  nsdUsageState: NsdUsageState | string | undefined;
+  nsdUsageState: NsdUsageState | undefined;
 
   /**
    * @public
@@ -1346,7 +1346,7 @@ export interface GetSolNetworkPackageContentInput {
    * @public
    * <p>The format of the package you want to download from the network package.</p>
    */
-  accept: PackageContentType | string | undefined;
+  accept: PackageContentType | undefined;
 }
 
 /**
@@ -1357,7 +1357,7 @@ export interface GetSolNetworkPackageContentOutput {
    * @public
    * <p>Indicates the media type of the resource.</p>
    */
-  contentType?: PackageContentType | string;
+  contentType?: PackageContentType;
 
   /**
    * @public
@@ -1385,7 +1385,7 @@ export interface GetSolNetworkPackageDescriptorOutput {
    * @public
    * <p>Indicates the media type of the resource.</p>
    */
-  contentType?: DescriptorContentType | string;
+  contentType?: DescriptorContentType;
 
   /**
    * @public
@@ -1501,7 +1501,7 @@ export interface ListSolFunctionInstanceInfo {
    * @public
    * <p>Network function instance instantiation state.</p>
    */
-  instantiationState: VnfInstantiationState | string | undefined;
+  instantiationState: VnfInstantiationState | undefined;
 
   /**
    * @public
@@ -1592,19 +1592,19 @@ export interface ListSolFunctionPackageInfo {
    * @public
    * <p>Onboarding state of the function package.</p>
    */
-  onboardingState: OnboardingState | string | undefined;
+  onboardingState: OnboardingState | undefined;
 
   /**
    * @public
    * <p>Operational state of the function package.</p>
    */
-  operationalState: OperationalState | string | undefined;
+  operationalState: OperationalState | undefined;
 
   /**
    * @public
    * <p>Usage state of the function package.</p>
    */
-  usageState: UsageState | string | undefined;
+  usageState: UsageState | undefined;
 
   /**
    * @public
@@ -1736,7 +1736,7 @@ export interface ListSolNetworkInstanceInfo {
    * @public
    * <p>The state of the network instance.</p>
    */
-  nsState: NsState | string | undefined;
+  nsState: NsState | undefined;
 
   /**
    * @public
@@ -1836,7 +1836,7 @@ export interface ListSolNetworkOperationsInfo {
    * @public
    * <p>The state of the network operation.</p>
    */
-  operationState: NsLcmOperationState | string | undefined;
+  operationState: NsLcmOperationState | undefined;
 
   /**
    * @public
@@ -1848,7 +1848,7 @@ export interface ListSolNetworkOperationsInfo {
    * @public
    * <p>Type of lifecycle management network operation.</p>
    */
-  lcmOperationType: LcmOperationType | string | undefined;
+  lcmOperationType: LcmOperationType | undefined;
 
   /**
    * @public
@@ -1921,19 +1921,19 @@ export interface ListSolNetworkPackageInfo {
    * @public
    * <p>Onboarding state of the network service descriptor in the network package.</p>
    */
-  nsdOnboardingState: NsdOnboardingState | string | undefined;
+  nsdOnboardingState: NsdOnboardingState | undefined;
 
   /**
    * @public
    * <p>Operational state of the network service descriptor in the network package.</p>
    */
-  nsdOperationalState: NsdOperationalState | string | undefined;
+  nsdOperationalState: NsdOperationalState | undefined;
 
   /**
    * @public
    * <p>Usage state of the network service descriptor in the network package.</p>
    */
-  nsdUsageState: NsdUsageState | string | undefined;
+  nsdUsageState: NsdUsageState | undefined;
 
   /**
    * @public
@@ -2048,7 +2048,7 @@ export interface PutSolFunctionPackageContentInput {
    * @public
    * <p>Function package content type.</p>
    */
-  contentType?: PackageContentType | string;
+  contentType?: PackageContentType;
 
   /**
    * @public
@@ -2126,7 +2126,7 @@ export interface PutSolNetworkPackageContentInput {
    * @public
    * <p>Network package content type.</p>
    */
-  contentType?: PackageContentType | string;
+  contentType?: PackageContentType;
 
   /**
    * @public
@@ -2288,7 +2288,7 @@ export interface UpdateSolFunctionPackageInput {
    * @public
    * <p>Operational state of the function package.</p>
    */
-  operationalState: OperationalState | string | undefined;
+  operationalState: OperationalState | undefined;
 }
 
 /**
@@ -2299,7 +2299,7 @@ export interface UpdateSolFunctionPackageOutput {
    * @public
    * <p>Operational state of the function package.</p>
    */
-  operationalState: OperationalState | string | undefined;
+  operationalState: OperationalState | undefined;
 }
 
 /**
@@ -2349,7 +2349,7 @@ export interface UpdateSolNetworkInstanceInput {
    * @public
    * <p>The type of update.</p>
    */
-  updateType: UpdateSolNetworkType | string | undefined;
+  updateType: UpdateSolNetworkType | undefined;
 
   /**
    * @public
@@ -2395,7 +2395,7 @@ export interface UpdateSolNetworkPackageInput {
    * @public
    * <p>Operational state of the network service descriptor in the network package.</p>
    */
-  nsdOperationalState: NsdOperationalState | string | undefined;
+  nsdOperationalState: NsdOperationalState | undefined;
 }
 
 /**
@@ -2406,7 +2406,7 @@ export interface UpdateSolNetworkPackageOutput {
    * @public
    * <p>Operational state of the network service descriptor in the network package.</p>
    */
-  nsdOperationalState: NsdOperationalState | string | undefined;
+  nsdOperationalState: NsdOperationalState | undefined;
 }
 
 /**
@@ -2423,7 +2423,7 @@ export interface ValidateSolFunctionPackageContentInput {
    * @public
    * <p>Function package content type.</p>
    */
-  contentType?: PackageContentType | string;
+  contentType?: PackageContentType;
 
   /**
    * @public
@@ -2501,7 +2501,7 @@ export interface ValidateSolNetworkPackageContentInput {
    * @public
    * <p>Network package content type.</p>
    */
-  contentType?: PackageContentType | string;
+  contentType?: PackageContentType;
 
   /**
    * @public

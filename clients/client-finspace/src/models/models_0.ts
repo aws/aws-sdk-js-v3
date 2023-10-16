@@ -57,7 +57,7 @@ export interface AutoScalingConfiguration {
    * @public
    * <p> The metric your cluster will track in order to scale in and out. For example, <code>CPU_UTILIZATION_PERCENTAGE</code> is the average CPU usage across all the nodes in a cluster.</p>
    */
-  autoScalingMetric?: AutoScalingMetric | string;
+  autoScalingMetric?: AutoScalingMetric;
 
   /**
    * @public
@@ -204,7 +204,7 @@ export interface CreateEnvironmentRequest {
    *             </li>
    *          </ul>
    */
-  federationMode?: FederationMode | string;
+  federationMode?: FederationMode;
 
   /**
    * @public
@@ -418,7 +418,7 @@ export interface ChangeRequest {
    *             </li>
    *          </ul>
    */
-  changeType: ChangeType | string | undefined;
+  changeType: ChangeType | undefined;
 
   /**
    * @public
@@ -524,7 +524,7 @@ export interface ErrorInfo {
    * @public
    * <p>Specifies the type of error.</p>
    */
-  errorType?: ErrorDetails | string;
+  errorType?: ErrorDetails;
 }
 
 /**
@@ -601,7 +601,7 @@ export interface CreateKxChangesetResponse {
    *             </li>
    *          </ul>
    */
-  status?: ChangesetStatus | string;
+  status?: ChangesetStatus;
 
   /**
    * @public
@@ -847,7 +847,7 @@ export interface KxSavedownStorageConfiguration {
    *             </li>
    *          </ul>
    */
-  type: KxSavedownStorageType | string | undefined;
+  type: KxSavedownStorageType | undefined;
 
   /**
    * @public
@@ -901,7 +901,7 @@ export interface VpcConfiguration {
    *             </li>
    *          </ul>
    */
-  ipAddressType?: IPAddressType | string;
+  ipAddressType?: IPAddressType;
 }
 
 /**
@@ -941,7 +941,7 @@ export interface CreateKxClusterRequest {
    *             </li>
    *          </ul>
    */
-  clusterType: KxClusterType | string | undefined;
+  clusterType: KxClusterType | undefined;
 
   /**
    * @public
@@ -1032,7 +1032,7 @@ export interface CreateKxClusterRequest {
    *             </li>
    *          </ul>
    */
-  azMode: KxAzMode | string | undefined;
+  azMode: KxAzMode | undefined;
 
   /**
    * @public
@@ -1107,7 +1107,7 @@ export interface CreateKxClusterResponse {
    *             </li>
    *          </ul>
    */
-  status?: KxClusterStatus | string;
+  status?: KxClusterStatus;
 
   /**
    * @public
@@ -1136,7 +1136,7 @@ export interface CreateKxClusterResponse {
    *             </li>
    *          </ul>
    */
-  clusterType?: KxClusterType | string;
+  clusterType?: KxClusterType;
 
   /**
    * @public
@@ -1235,7 +1235,7 @@ export interface CreateKxClusterResponse {
    *             </li>
    *          </ul>
    */
-  azMode?: KxAzMode | string;
+  azMode?: KxAzMode;
 
   /**
    * @public
@@ -1422,7 +1422,7 @@ export interface CreateKxEnvironmentResponse {
    * @public
    * <p>The status of the kdb environment.</p>
    */
-  status?: EnvironmentStatus | string;
+  status?: EnvironmentStatus;
 
   /**
    * @public
@@ -1669,7 +1669,7 @@ export interface Environment {
    * @public
    * <p>The current status of creation of the FinSpace environment.</p>
    */
-  status?: EnvironmentStatus | string;
+  status?: EnvironmentStatus;
 
   /**
    * @public
@@ -1712,7 +1712,7 @@ export interface Environment {
    * @public
    * <p>The authentication mode for the environment.</p>
    */
-  federationMode?: FederationMode | string;
+  federationMode?: FederationMode;
 
   /**
    * @public
@@ -1821,7 +1821,7 @@ export interface GetKxChangesetResponse {
    *             </li>
    *          </ul>
    */
-  status?: ChangesetStatus | string;
+  status?: ChangesetStatus;
 
   /**
    * @public
@@ -1881,7 +1881,7 @@ export interface GetKxClusterResponse {
    *             </li>
    *          </ul>
    */
-  status?: KxClusterStatus | string;
+  status?: KxClusterStatus;
 
   /**
    * @public
@@ -1910,7 +1910,7 @@ export interface GetKxClusterResponse {
    *             </li>
    *          </ul>
    */
-  clusterType?: KxClusterType | string;
+  clusterType?: KxClusterType;
 
   /**
    * @public
@@ -2009,7 +2009,7 @@ export interface GetKxClusterResponse {
    *             </li>
    *          </ul>
    */
-  azMode?: KxAzMode | string;
+  azMode?: KxAzMode;
 
   /**
    * @public
@@ -2298,7 +2298,7 @@ export interface NetworkACLEntry {
    *          Indicates whether to allow or deny the traffic that matches the rule.
    *       </p>
    */
-  ruleAction: RuleAction | string | undefined;
+  ruleAction: RuleAction | undefined;
 
   /**
    * @public
@@ -2378,19 +2378,19 @@ export interface GetKxEnvironmentResponse {
    * @public
    * <p>The status of the kdb environment.</p>
    */
-  status?: EnvironmentStatus | string;
+  status?: EnvironmentStatus;
 
   /**
    * @public
    * <p>The status of the network configuration.</p>
    */
-  tgwStatus?: TgwStatus | string;
+  tgwStatus?: TgwStatus;
 
   /**
    * @public
    * <p>The status of DNS configuration.</p>
    */
-  dnsStatus?: DnsStatus | string;
+  dnsStatus?: DnsStatus;
 
   /**
    * @public
@@ -2624,7 +2624,7 @@ export interface KxChangesetListEntry {
    *             </li>
    *          </ul>
    */
-  status?: ChangesetStatus | string;
+  status?: ChangesetStatus;
 }
 
 /**
@@ -2739,7 +2739,7 @@ export interface ListKxClustersRequest {
    *             </li>
    *          </ul>
    */
-  clusterType?: KxClusterType | string;
+  clusterType?: KxClusterType;
 
   /**
    * @public
@@ -2789,7 +2789,7 @@ export interface KxCluster {
    *             </li>
    *          </ul>
    */
-  status?: KxClusterStatus | string;
+  status?: KxClusterStatus;
 
   /**
    * @public
@@ -2818,7 +2818,7 @@ export interface KxCluster {
    *             </li>
    *          </ul>
    */
-  clusterType?: KxClusterType | string;
+  clusterType?: KxClusterType;
 
   /**
    * @public
@@ -2863,7 +2863,7 @@ export interface KxCluster {
    *             </li>
    *          </ul>
    */
-  azMode?: KxAzMode | string;
+  azMode?: KxAzMode;
 
   /**
    * @public
@@ -3040,19 +3040,19 @@ export interface KxEnvironment {
    *             </li>
    *          </ul>
    */
-  status?: EnvironmentStatus | string;
+  status?: EnvironmentStatus;
 
   /**
    * @public
    * <p>The status of the network configuration.</p>
    */
-  tgwStatus?: TgwStatus | string;
+  tgwStatus?: TgwStatus;
 
   /**
    * @public
    * <p>The status of DNS configuration.</p>
    */
-  dnsStatus?: DnsStatus | string;
+  dnsStatus?: DnsStatus;
 
   /**
    * @public
@@ -3339,7 +3339,7 @@ export interface UpdateEnvironmentRequest {
    *             </li>
    *          </ul>
    */
-  federationMode?: FederationMode | string;
+  federationMode?: FederationMode;
 
   /**
    * @public
@@ -3395,7 +3395,7 @@ export interface KxDeploymentConfiguration {
    *             </li>
    *          </ul>
    */
-  deploymentStrategy: KxDeploymentStrategy | string | undefined;
+  deploymentStrategy: KxDeploymentStrategy | undefined;
 }
 
 /**
@@ -3553,19 +3553,19 @@ export interface UpdateKxEnvironmentResponse {
    * @public
    * <p>The status of the kdb environment.</p>
    */
-  status?: EnvironmentStatus | string;
+  status?: EnvironmentStatus;
 
   /**
    * @public
    * <p>The status of the network configuration.</p>
    */
-  tgwStatus?: TgwStatus | string;
+  tgwStatus?: TgwStatus;
 
   /**
    * @public
    * <p>The status of DNS configuration.</p>
    */
-  dnsStatus?: DnsStatus | string;
+  dnsStatus?: DnsStatus;
 
   /**
    * @public
@@ -3683,19 +3683,19 @@ export interface UpdateKxEnvironmentNetworkResponse {
    * @public
    * <p>The status of the kdb environment.</p>
    */
-  status?: EnvironmentStatus | string;
+  status?: EnvironmentStatus;
 
   /**
    * @public
    * <p>The status of the network configuration.</p>
    */
-  tgwStatus?: TgwStatus | string;
+  tgwStatus?: TgwStatus;
 
   /**
    * @public
    * <p>The status of DNS configuration.</p>
    */
-  dnsStatus?: DnsStatus | string;
+  dnsStatus?: DnsStatus;
 
   /**
    * @public

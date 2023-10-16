@@ -497,7 +497,7 @@ export interface OriginationRoute {
    * @public
    * <p>The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.</p>
    */
-  Protocol?: OriginationRouteProtocol | string;
+  Protocol?: OriginationRouteProtocol;
 
   /**
    * @public
@@ -636,7 +636,7 @@ export interface StreamingNotificationTarget {
    * @public
    * <p>The streaming notification target.</p>
    */
-  NotificationTarget: NotificationTarget | string | undefined;
+  NotificationTarget: NotificationTarget | undefined;
 }
 
 /**
@@ -793,7 +793,7 @@ export interface Invite {
    * @public
    * <p>The status of the invite.</p>
    */
-  Status?: InviteStatus | string;
+  Status?: InviteStatus;
 
   /**
    * @public
@@ -805,7 +805,7 @@ export interface Invite {
    * @public
    * <p>The status of the invite email.</p>
    */
-  EmailStatus?: EmailStatus | string;
+  EmailStatus?: EmailStatus;
 }
 
 /**
@@ -828,7 +828,7 @@ export interface InviteUsersRequest {
    * @public
    * <p>The user type.</p>
    */
-  UserType?: UserType | string;
+  UserType?: UserType;
 }
 
 /**
@@ -1191,7 +1191,7 @@ export interface ListChannelMembershipsRequest {
    *          are only returned if the type filter in <code>ListChannelMemberships</code> equals
    *             <code>HIDDEN</code>. Otherwise hidden members are not returned.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: ChannelMembershipType;
 
   /**
    * @public
@@ -1312,7 +1312,7 @@ export interface ListChannelMessagesRequest {
    * <p>The order in which you want messages sorted. Default is Descending, based on time
    *          created.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -1438,7 +1438,7 @@ export interface ListChannelsRequest {
    *             <code>PRIVATE</code> retrieves private channels. Only an <code>AppInstanceAdmin</code>
    *          can retrieve private channels. </p>
    */
-  Privacy?: ChannelPrivacy | string;
+  Privacy?: ChannelPrivacy;
 
   /**
    * @public
@@ -1657,19 +1657,19 @@ export interface ListPhoneNumbersRequest {
    * @public
    * <p>The phone number status.</p>
    */
-  Status?: PhoneNumberStatus | string;
+  Status?: PhoneNumberStatus;
 
   /**
    * @public
    * <p>The phone number product type.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: PhoneNumberProductType;
 
   /**
    * @public
    * <p>The filter to use to limit the number of results.</p>
    */
-  FilterName?: PhoneNumberAssociationName | string;
+  FilterName?: PhoneNumberAssociationName;
 
   /**
    * @public
@@ -1721,7 +1721,7 @@ export interface ListProxySessionsRequest {
    * @public
    * <p>The proxy session status.</p>
    */
-  Status?: ProxySessionStatus | string;
+  Status?: ProxySessionStatus;
 
   /**
    * @public
@@ -1927,7 +1927,7 @@ export interface ListSupportedPhoneNumberCountriesRequest {
    * @public
    * <p>The phone number product type.</p>
    */
-  ProductType: PhoneNumberProductType | string | undefined;
+  ProductType: PhoneNumberProductType | undefined;
 }
 
 /**
@@ -1945,7 +1945,7 @@ export interface PhoneNumberCountry {
    * @public
    * <p>The supported phone number types. </p>
    */
-  SupportedPhoneNumberTypes?: (PhoneNumberType | string)[];
+  SupportedPhoneNumberTypes?: PhoneNumberType[];
 }
 
 /**
@@ -2001,7 +2001,7 @@ export interface ListUsersRequest {
    * @public
    * <p>The user type.</p>
    */
-  UserType?: UserType | string;
+  UserType?: UserType;
 
   /**
    * @public
@@ -2725,7 +2725,7 @@ export interface SearchAvailablePhoneNumbersRequest {
    * @public
    * <p>The phone number type used to filter results. Required for non-US numbers.</p>
    */
-  PhoneNumberType?: PhoneNumberType | string;
+  PhoneNumberType?: PhoneNumberType;
 
   /**
    * @public
@@ -2777,13 +2777,13 @@ export interface SendChannelMessageRequest {
    * @public
    * <p>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</p>
    */
-  Type: ChannelMessageType | string | undefined;
+  Type: ChannelMessageType | undefined;
 
   /**
    * @public
    * <p>Boolean that controls whether the message is persisted on the back end. Required.</p>
    */
-  Persistence: ChannelMessagePersistenceType | string | undefined;
+  Persistence: ChannelMessagePersistenceType | undefined;
 
   /**
    * @public
@@ -3011,7 +3011,7 @@ export interface UpdateAccountRequest {
    * @public
    * <p>The default license applied when you add users to an Amazon Chime account.</p>
    */
-  DefaultLicense?: License | string;
+  DefaultLicense?: License;
 }
 
 /**
@@ -3169,7 +3169,7 @@ export interface UpdateChannelRequest {
    * @public
    * <p>The mode of the update request.</p>
    */
-  Mode: ChannelMode | string | undefined;
+  Mode: ChannelMode | undefined;
 
   /**
    * @public
@@ -3306,7 +3306,7 @@ export interface UpdatePhoneNumberRequest {
    * @public
    * <p>The product type.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: PhoneNumberProductType;
 
   /**
    * @public
@@ -3357,7 +3357,7 @@ export interface UpdateProxySessionRequest {
    * @public
    * <p>The proxy session capabilities.</p>
    */
-  Capabilities: (Capability | string)[] | undefined;
+  Capabilities: Capability[] | undefined;
 
   /**
    * @public
@@ -3437,7 +3437,7 @@ export interface UpdateRoomMembershipRequest {
    * @public
    * <p>The role of the member.</p>
    */
-  Role?: RoomMembershipRole | string;
+  Role?: RoomMembershipRole;
 }
 
 /**
@@ -3580,13 +3580,13 @@ export interface UpdateUserRequest {
    * <p>The user license type to update. This must be a supported license type for the Amazon Chime
    *             account that the user belongs to.</p>
    */
-  LicenseType?: License | string;
+  LicenseType?: License;
 
   /**
    * @public
    * <p>The user type.</p>
    */
-  UserType?: UserType | string;
+  UserType?: UserType;
 
   /**
    * @public

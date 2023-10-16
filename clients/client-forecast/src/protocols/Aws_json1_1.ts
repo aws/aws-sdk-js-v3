@@ -5422,9 +5422,9 @@ const de_FieldStatistics = (output: any, context: __SerdeContext): Record<string
     if (value === null) {
       return acc;
     }
-    acc[key] = de_Statistics(value, context);
+    acc[key as string] = de_Statistics(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, Statistics>);
 };
 
 // de_ForecastDimensions omitted.

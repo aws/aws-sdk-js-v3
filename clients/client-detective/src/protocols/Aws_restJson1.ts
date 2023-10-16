@@ -2342,16 +2342,16 @@ const de_DatasourcePackageIngestDetail = (output: any, context: __SerdeContext):
 const de_DatasourcePackageIngestDetails = (
   output: any,
   context: __SerdeContext
-): Record<string, DatasourcePackageIngestDetail> => {
+): Record<DatasourcePackage, DatasourcePackageIngestDetail> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, DatasourcePackageIngestDetail>, [key, value]: [DatasourcePackage | string, any]) => {
+    (acc: Record<DatasourcePackage, DatasourcePackageIngestDetail>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = de_DatasourcePackageIngestDetail(value, context);
+      acc[key as DatasourcePackage] = de_DatasourcePackageIngestDetail(value, context);
       return acc;
     },
-    {}
+    {} as Record<DatasourcePackage, DatasourcePackageIngestDetail>
   );
 };
 
@@ -2361,16 +2361,19 @@ const de_DatasourcePackageIngestDetails = (
 const de_DatasourcePackageIngestHistory = (
   output: any,
   context: __SerdeContext
-): Record<string, Record<string, TimestampForCollection>> => {
+): Record<DatasourcePackage, Record<DatasourcePackageIngestState, TimestampForCollection>> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, Record<string, TimestampForCollection>>, [key, value]: [DatasourcePackage | string, any]) => {
+    (
+      acc: Record<DatasourcePackage, Record<DatasourcePackageIngestState, TimestampForCollection>>,
+      [key, value]: [string, any]
+    ) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = de_LastIngestStateChangeDates(value, context);
+      acc[key as DatasourcePackage] = de_LastIngestStateChangeDates(value, context);
       return acc;
     },
-    {}
+    {} as Record<DatasourcePackage, Record<DatasourcePackageIngestState, TimestampForCollection>>
   );
 };
 
@@ -2414,16 +2417,16 @@ const de_GraphList = (output: any, context: __SerdeContext): Graph[] => {
 const de_LastIngestStateChangeDates = (
   output: any,
   context: __SerdeContext
-): Record<string, TimestampForCollection> => {
+): Record<DatasourcePackageIngestState, TimestampForCollection> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, TimestampForCollection>, [key, value]: [DatasourcePackageIngestState | string, any]) => {
+    (acc: Record<DatasourcePackageIngestState, TimestampForCollection>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = de_TimestampForCollection(value, context);
+      acc[key as DatasourcePackageIngestState] = de_TimestampForCollection(value, context);
       return acc;
     },
-    {}
+    {} as Record<DatasourcePackageIngestState, TimestampForCollection>
   );
 };
 
@@ -2513,16 +2516,16 @@ const de_TimestampForCollection = (output: any, context: __SerdeContext): Timest
 const de_VolumeUsageByDatasourcePackage = (
   output: any,
   context: __SerdeContext
-): Record<string, DatasourcePackageUsageInfo> => {
+): Record<DatasourcePackage, DatasourcePackageUsageInfo> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, DatasourcePackageUsageInfo>, [key, value]: [DatasourcePackage | string, any]) => {
+    (acc: Record<DatasourcePackage, DatasourcePackageUsageInfo>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = de_DatasourcePackageUsageInfo(value, context);
+      acc[key as DatasourcePackage] = de_DatasourcePackageUsageInfo(value, context);
       return acc;
     },
-    {}
+    {} as Record<DatasourcePackage, DatasourcePackageUsageInfo>
   );
 };
 

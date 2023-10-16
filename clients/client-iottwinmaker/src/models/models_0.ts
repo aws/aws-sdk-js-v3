@@ -233,7 +233,7 @@ export interface FunctionRequest {
    * @public
    * <p>The scope of the function.</p>
    */
-  scope?: Scope | string;
+  scope?: Scope;
 
   /**
    * @public
@@ -302,7 +302,7 @@ export interface PropertyGroupRequest {
    * @public
    * <p>The group type.</p>
    */
-  groupType?: GroupType | string;
+  groupType?: GroupType;
 
   /**
    * @public
@@ -348,7 +348,7 @@ export interface CreateComponentTypeResponse {
    * @public
    * <p>The current state of the component type.</p>
    */
-  state: State | string | undefined;
+  state: State | undefined;
 }
 
 /**
@@ -410,7 +410,7 @@ export interface ComponentPropertyGroupRequest {
    * @public
    * <p>The group type.</p>
    */
-  groupType?: GroupType | string;
+  groupType?: GroupType;
 
   /**
    * @public
@@ -422,7 +422,7 @@ export interface ComponentPropertyGroupRequest {
    * @public
    * <p>The update type.</p>
    */
-  updateType?: PropertyGroupUpdateType | string;
+  updateType?: PropertyGroupUpdateType;
 }
 
 /**
@@ -451,7 +451,7 @@ export interface CreateEntityResponse {
    * @public
    * <p>The current state of the entity.</p>
    */
-  state: State | string | undefined;
+  state: State | undefined;
 }
 
 /**
@@ -588,7 +588,7 @@ export interface CreateSyncJobResponse {
    * @public
    * <p>The SyncJob response state.</p>
    */
-  state: SyncJobState | string | undefined;
+  state: SyncJobState | undefined;
 }
 
 /**
@@ -669,7 +669,7 @@ export interface DeleteComponentTypeResponse {
    * @public
    * <p>The current state of the component type to be deleted.</p>
    */
-  state: State | string | undefined;
+  state: State | undefined;
 }
 
 /**
@@ -703,7 +703,7 @@ export interface DeleteEntityResponse {
    * @public
    * <p>The current state of the deleted entity.</p>
    */
-  state: State | string | undefined;
+  state: State | undefined;
 }
 
 /**
@@ -756,7 +756,7 @@ export interface DeleteSyncJobResponse {
    * @public
    * <p>The SyncJob response state.</p>
    */
-  state: SyncJobState | string | undefined;
+  state: SyncJobState | undefined;
 }
 
 /**
@@ -835,7 +835,7 @@ export interface ColumnDescription {
    * @public
    * <p>The type of the column description.</p>
    */
-  type?: ColumnType | string;
+  type?: ColumnType;
 }
 
 /**
@@ -926,7 +926,7 @@ export interface FunctionResponse {
    * @public
    * <p>The scope of the function.</p>
    */
-  scope?: Scope | string;
+  scope?: Scope;
 
   /**
    * @public
@@ -950,7 +950,7 @@ export interface PropertyGroupResponse {
    * @public
    * <p>The group types.</p>
    */
-  groupType: GroupType | string | undefined;
+  groupType: GroupType | undefined;
 
   /**
    * @public
@@ -992,7 +992,7 @@ export interface ErrorDetails {
    * @public
    * <p>The error code.</p>
    */
-  code?: ErrorCode | string;
+  code?: ErrorCode;
 
   /**
    * @public
@@ -1011,7 +1011,7 @@ export interface Status {
    * @public
    * <p>The current state of the entity, component, component type, or workspace.</p>
    */
-  state?: State | string;
+  state?: State;
 
   /**
    * @public
@@ -1046,7 +1046,7 @@ export interface ComponentPropertyGroupResponse {
    * @public
    * <p>The group type.</p>
    */
-  groupType: GroupType | string | undefined;
+  groupType: GroupType | undefined;
 
   /**
    * @public
@@ -1098,7 +1098,7 @@ export interface BundleInformation {
    * @public
    * <p>The pricing tier.</p>
    */
-  pricingTier?: PricingTier | string;
+  pricingTier?: PricingTier;
 }
 
 /**
@@ -1160,7 +1160,7 @@ export interface PricingPlan {
    * @public
    * <p>The pricing mode.</p>
    */
-  pricingMode: PricingMode | string | undefined;
+  pricingMode: PricingMode | undefined;
 
   /**
    * @public
@@ -1172,7 +1172,7 @@ export interface PricingPlan {
    * @public
    * <p>The update reason for changing a pricing plan.</p>
    */
-  updateReason: UpdateReason | string | undefined;
+  updateReason: UpdateReason | undefined;
 }
 
 /**
@@ -1256,7 +1256,7 @@ export interface OrderBy {
    * @public
    * <p>The set order that filters results.</p>
    */
-  order?: Order | string;
+  order?: Order;
 
   /**
    * @public
@@ -1287,7 +1287,7 @@ export interface InterpolationParameters {
    * @public
    * <p>The interpolation type.</p>
    */
-  interpolationType?: InterpolationType | string;
+  interpolationType?: InterpolationType;
 
   /**
    * @public
@@ -1349,7 +1349,7 @@ export interface SceneError {
    * @public
    * <p>The SceneError code.</p>
    */
-  code?: SceneErrorCode | string;
+  code?: SceneErrorCode;
 
   /**
    * @public
@@ -1458,7 +1458,7 @@ export interface SyncJobStatus {
    * @public
    * <p>The SyncJob status state.</p>
    */
-  state?: SyncJobState | string;
+  state?: SyncJobState;
 
   /**
    * @public
@@ -2158,7 +2158,7 @@ export namespace SyncResourceFilter {
    * <p>The sync resource filter's state.</p>
    */
   export interface StateMember {
-    state: SyncResourceState | string;
+    state: SyncResourceState;
     resourceType?: never;
     resourceId?: never;
     externalId?: never;
@@ -2171,7 +2171,7 @@ export namespace SyncResourceFilter {
    */
   export interface ResourceTypeMember {
     state?: never;
-    resourceType: SyncResourceType | string;
+    resourceType: SyncResourceType;
     resourceId?: never;
     externalId?: never;
     $unknown?: never;
@@ -2213,8 +2213,8 @@ export namespace SyncResourceFilter {
   }
 
   export interface Visitor<T> {
-    state: (value: SyncResourceState | string) => T;
-    resourceType: (value: SyncResourceType | string) => T;
+    state: (value: SyncResourceState) => T;
+    resourceType: (value: SyncResourceType) => T;
     resourceId: (value: string) => T;
     externalId: (value: string) => T;
     _: (name: string, value: any) => T;
@@ -2289,7 +2289,7 @@ export interface SyncResourceStatus {
    * @public
    * <p>The sync resource status state.</p>
    */
-  state?: SyncResourceState | string;
+  state?: SyncResourceState;
 
   /**
    * @public
@@ -2307,7 +2307,7 @@ export interface SyncResourceSummary {
    * @public
    * <p>The resource type.</p>
    */
-  resourceType?: SyncResourceType | string;
+  resourceType?: SyncResourceType;
 
   /**
    * @public
@@ -2554,7 +2554,7 @@ export interface UpdateComponentTypeResponse {
    * @public
    * <p>The current state of the component type.</p>
    */
-  state: State | string | undefined;
+  state: State | undefined;
 }
 
 /**
@@ -2595,7 +2595,7 @@ export interface ParentEntityUpdateRequest {
    * @public
    * <p>The type of the update.</p>
    */
-  updateType: ParentEntityUpdateType | string | undefined;
+  updateType: ParentEntityUpdateType | undefined;
 
   /**
    * @public
@@ -2618,7 +2618,7 @@ export interface UpdateEntityResponse {
    * @public
    * <p>The current state of the entity update.</p>
    */
-  state: State | string | undefined;
+  state: State | undefined;
 }
 
 /**
@@ -2629,7 +2629,7 @@ export interface UpdatePricingPlanRequest {
    * @public
    * <p>The pricing mode.</p>
    */
-  pricingMode: PricingMode | string | undefined;
+  pricingMode: PricingMode | undefined;
 
   /**
    * @public
@@ -2921,7 +2921,7 @@ export interface DataType {
    * @public
    * <p>The underlying type of the data type.</p>
    */
-  type: Type | string | undefined;
+  type: Type | undefined;
 
   /**
    * @public
@@ -3028,7 +3028,7 @@ export interface GetPropertyValueHistoryRequest {
    * @public
    * <p>The time direction to use in the result order.</p>
    */
-  orderByTime?: OrderByTime | string;
+  orderByTime?: OrderByTime;
 
   /**
    * @public
@@ -3664,7 +3664,7 @@ export interface PropertyRequest {
    * @public
    * <p>The update type of the update property request.</p>
    */
-  updateType?: PropertyUpdateType | string;
+  updateType?: PropertyUpdateType;
 }
 
 /**
@@ -3781,7 +3781,7 @@ export interface ComponentUpdateRequest {
    * @public
    * <p>The update type of the component update request.</p>
    */
-  updateType?: ComponentUpdateType | string;
+  updateType?: ComponentUpdateType;
 
   /**
    * @public

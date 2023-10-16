@@ -124,7 +124,7 @@ export interface AccessKey {
    *          <p>A status of <code>Active</code> means that the key is valid, while <code>Inactive</code>
    *       means it is not.</p>
    */
-  status?: StatusType | string;
+  status?: StatusType;
 
   /**
    * @public
@@ -210,7 +210,7 @@ export interface AccessRules {
    *             </li>
    *          </ul>
    */
-  getObject?: AccessType | string;
+  getObject?: AccessType;
 
   /**
    * @public
@@ -303,7 +303,7 @@ export interface AccountLevelBpaSync {
    *         those statuses.</p>
    *          </note>
    */
-  status?: AccountLevelBpaSyncStatus | string;
+  status?: AccountLevelBpaSyncStatus;
 
   /**
    * @public
@@ -352,7 +352,7 @@ export interface AccountLevelBpaSync {
    *             </li>
    *          </ul>
    */
-  message?: BPAStatusMessage | string;
+  message?: BPAStatusMessage;
 
   /**
    * @public
@@ -552,7 +552,7 @@ export interface AddOnRequest {
    * @public
    * <p>The add-on type.</p>
    */
-  addOnType: AddOnType | string | undefined;
+  addOnType: AddOnType | undefined;
 
   /**
    * @public
@@ -644,7 +644,7 @@ export interface ResourceLocation {
    * @public
    * <p>The Amazon Web Services Region name.</p>
    */
-  regionName?: RegionName | string;
+  regionName?: RegionName;
 }
 
 /**
@@ -742,7 +742,7 @@ export interface MonitoredResourceInfo {
    *          <p>Instances, load balancers, and relational databases are the only Lightsail resources
    *       that can currently be monitored by alarms.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 }
 
 /**
@@ -867,7 +867,7 @@ export interface Alarm {
    * @public
    * <p>The Lightsail resource type (e.g., <code>Alarm</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -887,7 +887,7 @@ export interface Alarm {
    * @public
    * <p>The arithmetic operation used when comparing the specified statistic and threshold.</p>
    */
-  comparisonOperator?: ComparisonOperator | string;
+  comparisonOperator?: ComparisonOperator;
 
   /**
    * @public
@@ -941,7 +941,7 @@ export interface Alarm {
    *             </li>
    *          </ul>
    */
-  treatMissingData?: TreatMissingData | string;
+  treatMissingData?: TreatMissingData;
 
   /**
    * @public
@@ -977,13 +977,13 @@ export interface Alarm {
    *             </li>
    *          </ul>
    */
-  statistic?: MetricStatistic | string;
+  statistic?: MetricStatistic;
 
   /**
    * @public
    * <p>The name of the metric associated with the alarm.</p>
    */
-  metricName?: MetricName | string;
+  metricName?: MetricName;
 
   /**
    * @public
@@ -1006,26 +1006,26 @@ export interface Alarm {
    *             </li>
    *          </ul>
    */
-  state?: AlarmState | string;
+  state?: AlarmState;
 
   /**
    * @public
    * <p>The unit of the metric associated with the alarm.</p>
    */
-  unit?: MetricUnit | string;
+  unit?: MetricUnit;
 
   /**
    * @public
    * <p>The contact protocols for the alarm, such as <code>Email</code>, <code>SMS</code> (text
    *       messaging), or both.</p>
    */
-  contactProtocols?: (ContactProtocol | string)[];
+  contactProtocols?: ContactProtocol[];
 
   /**
    * @public
    * <p>The alarm states that trigger a notification.</p>
    */
-  notificationTriggers?: (AlarmState | string)[];
+  notificationTriggers?: AlarmState[];
 
   /**
    * @public
@@ -1177,7 +1177,7 @@ export interface Operation {
    * @public
    * <p>The resource type. </p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -1208,13 +1208,13 @@ export interface Operation {
    * @public
    * <p>The type of operation. </p>
    */
-  operationType?: OperationType | string;
+  operationType?: OperationType;
 
   /**
    * @public
    * <p>The status of the operation. </p>
    */
-  status?: OperationStatus | string;
+  status?: OperationStatus;
 
   /**
    * @public
@@ -1671,7 +1671,7 @@ export interface AutoSnapshotDetails {
    * @public
    * <p>The status of the automatic snapshot.</p>
    */
-  status?: AutoSnapshotStatus | string;
+  status?: AutoSnapshotStatus;
 
   /**
    * @public
@@ -1771,7 +1771,7 @@ export interface Blueprint {
    * @public
    * <p>The type of the blueprint (e.g., <code>os</code> or <code>app</code>).</p>
    */
-  type?: BlueprintType | string;
+  type?: BlueprintType;
 
   /**
    * @public
@@ -1827,7 +1827,7 @@ export interface Blueprint {
    * <p>The operating system platform (either Linux/Unix-based or Windows Server-based) of the
    *       blueprint.</p>
    */
-  platform?: InstancePlatform | string;
+  platform?: InstancePlatform;
 
   /**
    * @public
@@ -1836,7 +1836,7 @@ export interface Blueprint {
    *             <p>This parameter only applies to Lightsail for Research resources.</p>
    *          </important>
    */
-  appCategory?: AppCategory | string;
+  appCategory?: AppCategory;
 }
 
 /**
@@ -2205,7 +2205,7 @@ export interface Bundle {
    *         <code>WINDOWS</code> platform. <code>LINUX_UNIX</code> blueprints require a
    *         <code>LINUX_UNIX</code> bundle.</p>
    */
-  supportedPlatforms?: (InstancePlatform | string)[];
+  supportedPlatforms?: InstancePlatform[];
 
   /**
    * @public
@@ -2214,7 +2214,7 @@ export interface Bundle {
    *             <p>This parameter only applies to Lightsail for Research resources.</p>
    *          </important>
    */
-  supportedAppCategories?: (AppCategory | string)[];
+  supportedAppCategories?: AppCategory[];
 }
 
 /**
@@ -2251,7 +2251,7 @@ export interface CacheBehavior {
    *             </li>
    *          </ul>
    */
-  behavior?: BehaviorEnum | string;
+  behavior?: BehaviorEnum;
 }
 
 /**
@@ -2337,7 +2337,7 @@ export interface CacheBehaviorPerPath {
    *             </li>
    *          </ul>
    */
-  behavior?: BehaviorEnum | string;
+  behavior?: BehaviorEnum;
 }
 
 /**
@@ -2370,7 +2370,7 @@ export interface CookieObject {
    *         <code>all</code>, <code>none</code>, or <code>allow-list</code> to forward only the cookies
    *       specified in the <code>cookiesAllowList</code> parameter.</p>
    */
-  option?: ForwardValues | string;
+  option?: ForwardValues;
 
   /**
    * @public
@@ -2448,13 +2448,13 @@ export interface HeaderObject {
    *             </li>
    *          </ul>
    */
-  option?: ForwardValues | string;
+  option?: ForwardValues;
 
   /**
    * @public
    * <p>The specific headers to forward to your distribution's origin.</p>
    */
-  headersAllowList?: (HeaderEnum | string)[];
+  headersAllowList?: HeaderEnum[];
 }
 
 /**
@@ -2645,7 +2645,7 @@ export interface DnsRecordCreationState {
    *             </li>
    *          </ul>
    */
-  code?: DnsRecordCreationStateCode | string;
+  code?: DnsRecordCreationStateCode;
 
   /**
    * @public
@@ -2727,7 +2727,7 @@ export interface DomainValidationRecord {
    * @public
    * <p>The validation status of the record.</p>
    */
-  validationStatus?: CertificateDomainValidationStatus | string;
+  validationStatus?: CertificateDomainValidationStatus;
 }
 
 /**
@@ -2799,7 +2799,7 @@ export interface RenewalSummary {
    *             </li>
    *          </ul>
    */
-  renewalStatus?: RenewalStatus | string;
+  renewalStatus?: RenewalStatus;
 
   /**
    * @public
@@ -2865,7 +2865,7 @@ export interface Certificate {
    * @public
    * <p>The validation status of the certificate.</p>
    */
-  status?: CertificateStatus | string;
+  status?: CertificateStatus;
 
   /**
    * @public
@@ -3185,7 +3185,7 @@ export interface PortInfo {
    *             </li>
    *          </ul>
    */
-  protocol?: NetworkProtocol | string;
+  protocol?: NetworkProtocol;
 
   /**
    * @public
@@ -3306,7 +3306,7 @@ export interface CloudFormationStackRecordSourceInfo {
    * @public
    * <p>The Lightsail resource type (e.g., <code>ExportSnapshotRecord</code>).</p>
    */
-  resourceType?: CloudFormationStackRecordSourceType | string;
+  resourceType?: CloudFormationStackRecordSourceType;
 
   /**
    * @public
@@ -3374,13 +3374,13 @@ export interface CloudFormationStackRecord {
    * @public
    * <p>The Lightsail resource type (e.g., <code>CloudFormationStackRecord</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
    * <p>The current state of the CloudFormation stack record.</p>
    */
-  state?: RecordState | string;
+  state?: RecordState;
 
   /**
    * @public
@@ -3445,13 +3445,13 @@ export interface ContactMethod {
    *             </li>
    *          </ul>
    */
-  status?: ContactMethodStatus | string;
+  status?: ContactMethodStatus;
 
   /**
    * @public
    * <p>The protocol of the contact method, such as email or SMS (text messaging).</p>
    */
-  protocol?: ContactProtocol | string;
+  protocol?: ContactProtocol;
 
   /**
    * @public
@@ -3481,7 +3481,7 @@ export interface ContactMethod {
    * @public
    * <p>The Lightsail resource type (e.g., <code>ContactMethod</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -3561,7 +3561,7 @@ export interface Container {
    * @public
    * <p>The open firewall ports of the container.</p>
    */
-  ports?: Record<string, ContainerServiceProtocol | string>;
+  ports?: Record<string, ContainerServiceProtocol>;
 }
 
 /**
@@ -3724,7 +3724,7 @@ export interface ContainerServiceDeployment {
    *             </li>
    *          </ul>
    */
-  state?: ContainerServiceDeploymentState | string;
+  state?: ContainerServiceDeploymentState;
 
   /**
    * @public
@@ -3914,7 +3914,7 @@ export interface ContainerServiceStateDetail {
    *             </li>
    *          </ul>
    */
-  code?: ContainerServiceStateDetailCode | string;
+  code?: ContainerServiceStateDetailCode;
 
   /**
    * @public
@@ -3961,7 +3961,7 @@ export interface ContainerService {
    * <p>The Lightsail resource type of the container service (i.e.,
    *         <code>ContainerService</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -3976,7 +3976,7 @@ export interface ContainerService {
    *          <p>The power specifies the amount of RAM, the number of vCPUs, and the base price of the
    *       container service.</p>
    */
-  power?: ContainerServicePowerName | string;
+  power?: ContainerServicePowerName;
 
   /**
    * @public
@@ -4024,7 +4024,7 @@ export interface ContainerService {
    *             </li>
    *          </ul>
    */
-  state?: ContainerServiceState | string;
+  state?: ContainerServiceState;
 
   /**
    * @public
@@ -4390,7 +4390,7 @@ export interface CopySnapshotRequest {
    * <p>The Amazon Web Services Region where the source manual or automatic snapshot is
    *       located.</p>
    */
-  sourceRegion: RegionName | string | undefined;
+  sourceRegion: RegionName | undefined;
 }
 
 /**
@@ -4468,7 +4468,7 @@ export interface EstimateByTime {
    * @public
    * <p>The unit of measurement that's used for the cost estimate.</p>
    */
-  pricingUnit?: PricingUnit | string;
+  pricingUnit?: PricingUnit;
 
   /**
    * @public
@@ -4481,7 +4481,7 @@ export interface EstimateByTime {
    * @public
    * <p>The currency of the estimate in USD.</p>
    */
-  currency?: Currency | string;
+  currency?: Currency;
 
   /**
    * @public
@@ -4726,7 +4726,7 @@ export interface InstanceEntry {
    *         instance.</p>
    *          </note>
    */
-  portInfoSource: PortInfoSourceType | string | undefined;
+  portInfoSource: PortInfoSourceType | undefined;
 
   /**
    * @public
@@ -4807,7 +4807,7 @@ export interface CreateContactMethodRequest {
    *         Guide</i>.</p>
    *          <p>For more information about notifications in Amazon Lightsail, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
    */
-  protocol: ContactProtocol | string | undefined;
+  protocol: ContactProtocol | undefined;
 
   /**
    * @public
@@ -4895,7 +4895,7 @@ export interface CreateContainerServiceRequest {
    *          <p>Use the <code>GetContainerServicePowers</code> action to get a list of power options that
    *       you can specify using this parameter, and their base monthly cost.</p>
    */
-  power: ContainerServicePowerName | string | undefined;
+  power: ContainerServicePowerName | undefined;
 
   /**
    * @public
@@ -5299,14 +5299,14 @@ export interface InputOrigin {
    * @public
    * <p>The AWS Region name of the origin resource.</p>
    */
-  regionName?: RegionName | string;
+  regionName?: RegionName;
 
   /**
    * @public
    * <p>The protocol that your Amazon Lightsail distribution uses when establishing a connection
    *       with your origin to pull content.</p>
    */
-  protocolPolicy?: OriginProtocolPolicyEnum | string;
+  protocolPolicy?: OriginProtocolPolicyEnum;
 }
 
 /**
@@ -5362,7 +5362,7 @@ export interface CreateDistributionRequest {
    *       IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 
   /**
    * @public
@@ -5391,20 +5391,20 @@ export interface Origin {
    * @public
    * <p>The resource type of the origin resource (e.g., <i>Instance</i>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
    * <p>The AWS Region name of the origin resource.</p>
    */
-  regionName?: RegionName | string;
+  regionName?: RegionName;
 
   /**
    * @public
    * <p>The protocol that your Amazon Lightsail distribution uses when establishing a connection
    *       with your origin to pull content.</p>
    */
-  protocolPolicy?: OriginProtocolPolicyEnum | string;
+  protocolPolicy?: OriginProtocolPolicyEnum;
 }
 
 /**
@@ -5454,7 +5454,7 @@ export interface LightsailDistribution {
    * @public
    * <p>The Lightsail resource type (e.g., <code>Distribution</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -5539,7 +5539,7 @@ export interface LightsailDistribution {
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 
   /**
    * @public
@@ -5804,7 +5804,7 @@ export interface CreateGUISessionAccessDetailsResult {
    * @public
    * <p>The status of the operation.</p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -5921,7 +5921,7 @@ export interface CreateInstancesRequest {
    *       IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 }
 
 /**
@@ -6024,7 +6024,7 @@ export interface CreateInstancesFromSnapshotRequest {
    *       IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 
   /**
    * @public
@@ -6195,7 +6195,7 @@ export interface KeyPair {
    * @public
    * <p>The resource type (usually <code>KeyPair</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -6307,7 +6307,7 @@ export interface CreateLoadBalancerRequest {
    *       IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 
   /**
    * @public
@@ -6967,7 +6967,7 @@ export interface DeleteContactMethodRequest {
    *         protocol.</p>
    *          </note>
    */
-  protocol: ContactProtocol | string | undefined;
+  protocol: ContactProtocol | undefined;
 }
 
 /**
@@ -7516,7 +7516,7 @@ export interface DisableAddOnRequest {
    * @public
    * <p>The add-on type to disable.</p>
    */
-  addOnType: AddOnType | string | undefined;
+  addOnType: AddOnType | undefined;
 
   /**
    * @public
@@ -7595,7 +7595,7 @@ export interface Disk {
    * @public
    * <p>The Lightsail resource type (e.g., <code>Disk</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -7639,7 +7639,7 @@ export interface Disk {
    * @public
    * <p>Describes the status of the disk.</p>
    */
-  state?: DiskState | string;
+  state?: DiskState;
 
   /**
    * @public
@@ -7685,7 +7685,7 @@ export interface Disk {
    *             <p>This parameter only applies to Lightsail for Research resources.</p>
    *          </important>
    */
-  autoMountStatus?: AutoMountStatus | string;
+  autoMountStatus?: AutoMountStatus;
 }
 
 /**
@@ -7776,7 +7776,7 @@ export interface DiskSnapshot {
    * @public
    * <p>The Lightsail resource type (e.g., <code>DiskSnapshot</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -7795,7 +7795,7 @@ export interface DiskSnapshot {
    * @public
    * <p>The status of the disk snapshot operation.</p>
    */
-  state?: DiskSnapshotState | string;
+  state?: DiskSnapshotState;
 
   /**
    * @public
@@ -7952,7 +7952,7 @@ export interface NameServersUpdateState {
    *             </li>
    *          </ul>
    */
-  code?: NameServersUpdateStateCode | string;
+  code?: NameServersUpdateStateCode;
 
   /**
    * @public
@@ -8007,7 +8007,7 @@ export interface R53HostedZoneDeletionState {
    *             </li>
    *          </ul>
    */
-  code?: R53HostedZoneDeletionStateCode | string;
+  code?: R53HostedZoneDeletionStateCode;
 
   /**
    * @public
@@ -8102,7 +8102,7 @@ export interface Domain {
    * @public
    * <p>The resource type. </p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -8255,7 +8255,7 @@ export interface ExportSnapshotRecordSourceInfo {
    * <p>The Lightsail resource type (e.g., <code>InstanceSnapshot</code> or
    *         <code>DiskSnapshot</code>).</p>
    */
-  resourceType?: ExportSnapshotRecordSourceType | string;
+  resourceType?: ExportSnapshotRecordSourceType;
 
   /**
    * @public
@@ -8333,13 +8333,13 @@ export interface ExportSnapshotRecord {
    * @public
    * <p>The Lightsail resource type (e.g., <code>ExportSnapshotRecord</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
    * <p>The state of the export snapshot record.</p>
    */
-  state?: RecordState | string;
+  state?: RecordState;
 
   /**
    * @public
@@ -8463,7 +8463,7 @@ export interface GetAutoSnapshotsResult {
    * @public
    * <p>The resource type (e.g., <code>Instance</code> or <code>Disk</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -8500,7 +8500,7 @@ export interface GetBlueprintsRequest {
    *             <p>You must use this parameter to view Lightsail for Research blueprints.</p>
    *          </important>
    */
-  appCategory?: AppCategory | string;
+  appCategory?: AppCategory;
 }
 
 /**
@@ -8612,7 +8612,7 @@ export interface GetBucketMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: BucketMetricName | string | undefined;
+  metricName: BucketMetricName | undefined;
 
   /**
    * @public
@@ -8671,7 +8671,7 @@ export interface GetBucketMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: MetricStatistic[] | undefined;
 
   /**
    * @public
@@ -8679,7 +8679,7 @@ export interface GetBucketMetricDataRequest {
    *          <p>Valid units depend on the metric data being requested. For the valid units with each
    *       available metric, see the <code>metricName</code> parameter.</p>
    */
-  unit: MetricUnit | string | undefined;
+  unit: MetricUnit | undefined;
 }
 
 /**
@@ -8727,7 +8727,7 @@ export interface MetricDatapoint {
    * @public
    * <p>The unit. </p>
    */
-  unit?: MetricUnit | string;
+  unit?: MetricUnit;
 }
 
 /**
@@ -8738,7 +8738,7 @@ export interface GetBucketMetricDataResult {
    * @public
    * <p>The name of the metric returned.</p>
    */
-  metricName?: BucketMetricName | string;
+  metricName?: BucketMetricName;
 
   /**
    * @public
@@ -8832,7 +8832,7 @@ export interface GetBundlesRequest {
    *             <p>You must use this parameter to view Lightsail for Research bundles.</p>
    *          </important>
    */
-  appCategory?: AppCategory | string;
+  appCategory?: AppCategory;
 }
 
 /**
@@ -8867,7 +8867,7 @@ export interface GetCertificatesRequest {
    *          <p>When omitted, the response includes all of your certificates in the Amazon Web Services
    *       Region where the request is made, regardless of their current status.</p>
    */
-  certificateStatuses?: (CertificateStatus | string)[];
+  certificateStatuses?: CertificateStatus[];
 
   /**
    * @public
@@ -8957,7 +8957,7 @@ export interface GetContactMethodsRequest {
    *          <p>Specify a protocol in your request to return information about a specific contact method
    *       protocol.</p>
    */
-  protocols?: (ContactProtocol | string)[];
+  protocols?: ContactProtocol[];
 }
 
 /**
@@ -9182,7 +9182,7 @@ export interface GetContainerServiceMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: ContainerServiceMetricName | string | undefined;
+  metricName: ContainerServiceMetricName | undefined;
 
   /**
    * @public
@@ -9239,7 +9239,7 @@ export interface GetContainerServiceMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: MetricStatistic[] | undefined;
 }
 
 /**
@@ -9250,7 +9250,7 @@ export interface GetContainerServiceMetricDataResult {
    * @public
    * <p>The name of the metric returned. </p>
    */
-  metricName?: ContainerServiceMetricName | string;
+  metricName?: ContainerServiceMetricName;
 
   /**
    * @public

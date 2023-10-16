@@ -7396,12 +7396,12 @@ const de_RecursiveShapesInputOutputNested2 = (
 const de_SparseBooleanMap = (output: any, context: __SerdeContext): Record<string, boolean> => {
   return Object.entries(output).reduce((acc: Record<string, boolean>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = __expectBoolean(value) as any;
+    acc[key as string] = __expectBoolean(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, boolean>);
 };
 
 /**
@@ -7410,12 +7410,12 @@ const de_SparseBooleanMap = (output: any, context: __SerdeContext): Record<strin
 const de_SparseNumberMap = (output: any, context: __SerdeContext): Record<string, number> => {
   return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = __expectInt32(value) as any;
+    acc[key as string] = __expectInt32(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 };
 
 /**
@@ -7424,12 +7424,12 @@ const de_SparseNumberMap = (output: any, context: __SerdeContext): Record<string
 const de_SparseSetMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
   return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = _json(value);
+    acc[key as string] = _json(value);
     return acc;
-  }, {});
+  }, {} as Record<string, string[]>);
 };
 
 /**
@@ -7438,12 +7438,12 @@ const de_SparseSetMap = (output: any, context: __SerdeContext): Record<string, s
 const de_SparseStructMap = (output: any, context: __SerdeContext): Record<string, GreetingStruct> => {
   return Object.entries(output).reduce((acc: Record<string, GreetingStruct>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = _json(value);
+    acc[key as string] = _json(value);
     return acc;
-  }, {});
+  }, {} as Record<string, GreetingStruct>);
 };
 
 /**
@@ -7529,12 +7529,12 @@ const de_SparseStringList = (output: any, context: __SerdeContext): string[] => 
 const de_SparseStringMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 // de_StringList omitted.

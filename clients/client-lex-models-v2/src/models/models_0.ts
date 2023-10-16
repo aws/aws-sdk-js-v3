@@ -37,7 +37,7 @@ export interface AdvancedRecognitionSetting {
    * @public
    * <p>Enables using the slot values as a custom vocabulary for recognizing user utterances.</p>
    */
-  audioRecognitionStrategy?: AudioRecognitionStrategy | string;
+  audioRecognitionStrategy?: AudioRecognitionStrategy;
 }
 
 /**
@@ -145,7 +145,7 @@ export interface AggregatedUtterancesFilter {
    * @public
    * <p>The name of the field to filter the utterance list.</p>
    */
-  name: AggregatedUtterancesFilterName | string | undefined;
+  name: AggregatedUtterancesFilterName | undefined;
 
   /**
    * @public
@@ -161,7 +161,7 @@ export interface AggregatedUtterancesFilter {
    *          the <code>ListAggregatedUtterances</code> operation should return
    *          utterances that contain the specified value.</p>
    */
-  operator: AggregatedUtterancesFilterOperator | string | undefined;
+  operator: AggregatedUtterancesFilterOperator | undefined;
 }
 
 /**
@@ -202,14 +202,14 @@ export interface AggregatedUtterancesSortBy {
    * @public
    * <p>The utterance attribute to sort by.</p>
    */
-  attribute: AggregatedUtterancesSortAttribute | string | undefined;
+  attribute: AggregatedUtterancesSortAttribute | undefined;
 
   /**
    * @public
    * <p>Specifies whether to sort the aggregated utterances in ascending or
    *          descending order.</p>
    */
-  order: SortOrder | string | undefined;
+  order: SortOrder | undefined;
 }
 
 /**
@@ -338,19 +338,19 @@ export interface AnalyticsBinBySpecification {
    * @public
    * <p>Specifies the time metric by which to bin the analytics data.</p>
    */
-  name: AnalyticsBinByName | string | undefined;
+  name: AnalyticsBinByName | undefined;
 
   /**
    * @public
    * <p>Specifies the interval of time by which to bin the analytics data.</p>
    */
-  interval: AnalyticsInterval | string | undefined;
+  interval: AnalyticsInterval | undefined;
 
   /**
    * @public
    * <p>Specifies whether to bin the analytics data in ascending or descending order. If this field is left blank, the default order is by the key of the bin in descending order.</p>
    */
-  order?: AnalyticsSortOrder | string;
+  order?: AnalyticsSortOrder;
 }
 
 /**
@@ -362,7 +362,7 @@ export interface AnalyticsBinKey {
    * @public
    * <p>The criterion by which to bin the results.</p>
    */
-  name?: AnalyticsBinByName | string;
+  name?: AnalyticsBinByName;
 
   /**
    * @public
@@ -537,7 +537,7 @@ export interface AnalyticsIntentFilter {
    *             </li>
    *          </ul>
    */
-  name: AnalyticsIntentFilterName | string | undefined;
+  name: AnalyticsIntentFilterName | undefined;
 
   /**
    * @public
@@ -600,7 +600,7 @@ export interface AnalyticsIntentFilter {
    *             </li>
    *          </ul>
    */
-  operator: AnalyticsFilterOperator | string | undefined;
+  operator: AnalyticsFilterOperator | undefined;
 
   /**
    * @public
@@ -618,7 +618,7 @@ export interface AnalyticsIntentGroupByKey {
    * @public
    * <p>A category by which the intent analytics were grouped.</p>
    */
-  name?: AnalyticsIntentField | string;
+  name?: AnalyticsIntentField;
 
   /**
    * @public
@@ -636,7 +636,7 @@ export interface AnalyticsIntentGroupBySpecification {
    * @public
    * <p>Specifies whether to group the intent stages by their name or their end state.</p>
    */
-  name: AnalyticsIntentField | string | undefined;
+  name: AnalyticsIntentField | undefined;
 }
 
 /**
@@ -702,7 +702,7 @@ export interface AnalyticsIntentMetric {
    *             </li>
    *          </ul>
    */
-  name: AnalyticsIntentMetricName | string | undefined;
+  name: AnalyticsIntentMetricName | undefined;
 
   /**
    * @public
@@ -722,13 +722,13 @@ export interface AnalyticsIntentMetric {
    *             </li>
    *          </ul>
    */
-  statistic: AnalyticsMetricStatistic | string | undefined;
+  statistic: AnalyticsMetricStatistic | undefined;
 
   /**
    * @public
    * <p>Specifies whether to sort the results in ascending or descending order.</p>
    */
-  order?: AnalyticsSortOrder | string;
+  order?: AnalyticsSortOrder;
 }
 
 /**
@@ -762,7 +762,7 @@ export interface AnalyticsIntentMetricResult {
    *             </li>
    *          </ul>
    */
-  name?: AnalyticsIntentMetricName | string;
+  name?: AnalyticsIntentMetricName;
 
   /**
    * @public
@@ -782,7 +782,7 @@ export interface AnalyticsIntentMetricResult {
    *             </li>
    *          </ul>
    */
-  statistic?: AnalyticsMetricStatistic | string;
+  statistic?: AnalyticsMetricStatistic;
 
   /**
    * @public
@@ -838,7 +838,7 @@ export interface AnalyticsIntentNodeSummary {
    * @public
    * <p>Specifies whether the node is the end of a path (<code>Exit</code>) or not (<code>Inner</code>).</p>
    */
-  nodeType?: AnalyticsNodeType | string;
+  nodeType?: AnalyticsNodeType;
 }
 
 /**
@@ -999,7 +999,7 @@ export interface AnalyticsIntentStageFilter {
    *             </li>
    *          </ul>
    */
-  name: AnalyticsIntentStageFilterName | string | undefined;
+  name: AnalyticsIntentStageFilterName | undefined;
 
   /**
    * @public
@@ -1062,7 +1062,7 @@ export interface AnalyticsIntentStageFilter {
    *             </li>
    *          </ul>
    */
-  operator: AnalyticsFilterOperator | string | undefined;
+  operator: AnalyticsFilterOperator | undefined;
 
   /**
    * @public
@@ -1080,7 +1080,7 @@ export interface AnalyticsIntentStageGroupByKey {
    * @public
    * <p>A category by which the intent stage analytics were grouped.</p>
    */
-  name?: AnalyticsIntentStageField | string;
+  name?: AnalyticsIntentStageField;
 
   /**
    * @public
@@ -1098,7 +1098,7 @@ export interface AnalyticsIntentStageGroupBySpecification {
    * @public
    * <p>Specifies whether to group the intent stages by their name or the intent to which the session was switched.</p>
    */
-  name: AnalyticsIntentStageField | string | undefined;
+  name: AnalyticsIntentStageField | undefined;
 }
 
 /**
@@ -1150,7 +1150,7 @@ export interface AnalyticsIntentStageMetric {
    *             </li>
    *          </ul>
    */
-  name: AnalyticsIntentStageMetricName | string | undefined;
+  name: AnalyticsIntentStageMetricName | undefined;
 
   /**
    * @public
@@ -1170,13 +1170,13 @@ export interface AnalyticsIntentStageMetric {
    *             </li>
    *          </ul>
    */
-  statistic: AnalyticsMetricStatistic | string | undefined;
+  statistic: AnalyticsMetricStatistic | undefined;
 
   /**
    * @public
    * <p>Specifies whether to sort the results in ascending or descending order of the summary statistic (<code>value</code> in the response).</p>
    */
-  order?: AnalyticsSortOrder | string;
+  order?: AnalyticsSortOrder;
 }
 
 /**
@@ -1210,7 +1210,7 @@ export interface AnalyticsIntentStageMetricResult {
    *             </li>
    *          </ul>
    */
-  name?: AnalyticsIntentStageMetricName | string;
+  name?: AnalyticsIntentStageMetricName;
 
   /**
    * @public
@@ -1230,7 +1230,7 @@ export interface AnalyticsIntentStageMetricResult {
    *             </li>
    *          </ul>
    */
-  statistic?: AnalyticsMetricStatistic | string;
+  statistic?: AnalyticsMetricStatistic;
 
   /**
    * @public
@@ -1345,7 +1345,7 @@ export interface AnalyticsPathFilter {
    *             </li>
    *          </ul>
    */
-  name: AnalyticsCommonFilterName | string | undefined;
+  name: AnalyticsCommonFilterName | undefined;
 
   /**
    * @public
@@ -1392,7 +1392,7 @@ export interface AnalyticsPathFilter {
    *             </li>
    *          </ul>
    */
-  operator: AnalyticsFilterOperator | string | undefined;
+  operator: AnalyticsFilterOperator | undefined;
 
   /**
    * @public
@@ -1543,7 +1543,7 @@ export interface AnalyticsSessionFilter {
    *             </li>
    *          </ul>
    */
-  name: AnalyticsSessionFilterName | string | undefined;
+  name: AnalyticsSessionFilterName | undefined;
 
   /**
    * @public
@@ -1610,7 +1610,7 @@ export interface AnalyticsSessionFilter {
    *             </li>
    *          </ul>
    */
-  operator: AnalyticsFilterOperator | string | undefined;
+  operator: AnalyticsFilterOperator | undefined;
 
   /**
    * @public
@@ -1628,7 +1628,7 @@ export interface AnalyticsSessionGroupByKey {
    * @public
    * <p>The category by which the session analytics were grouped.</p>
    */
-  name?: AnalyticsSessionField | string;
+  name?: AnalyticsSessionField;
 
   /**
    * @public
@@ -1646,7 +1646,7 @@ export interface AnalyticsSessionGroupBySpecification {
    * @public
    * <p>Specifies whether to group the session by their end state or their locale.</p>
    */
-  name: AnalyticsSessionField | string | undefined;
+  name: AnalyticsSessionField | undefined;
 }
 
 /**
@@ -1707,7 +1707,7 @@ export interface AnalyticsSessionMetric {
    *             </li>
    *          </ul>
    */
-  name: AnalyticsSessionMetricName | string | undefined;
+  name: AnalyticsSessionMetricName | undefined;
 
   /**
    * @public
@@ -1727,13 +1727,13 @@ export interface AnalyticsSessionMetric {
    *             </li>
    *          </ul>
    */
-  statistic: AnalyticsMetricStatistic | string | undefined;
+  statistic: AnalyticsMetricStatistic | undefined;
 
   /**
    * @public
    * <p>Specifies whether to sort the results in ascending or descending order.</p>
    */
-  order?: AnalyticsSortOrder | string;
+  order?: AnalyticsSortOrder;
 }
 
 /**
@@ -1775,7 +1775,7 @@ export interface AnalyticsSessionMetricResult {
    *             </li>
    *          </ul>
    */
-  name?: AnalyticsSessionMetricName | string;
+  name?: AnalyticsSessionMetricName;
 
   /**
    * @public
@@ -1795,7 +1795,7 @@ export interface AnalyticsSessionMetricResult {
    *             </li>
    *          </ul>
    */
-  statistic?: AnalyticsMetricStatistic | string;
+  statistic?: AnalyticsMetricStatistic;
 
   /**
    * @public
@@ -1866,7 +1866,7 @@ export interface AnalyticsUtteranceAttribute {
    * @public
    * <p>An attribute to return. The only available attribute is the intent that the bot mapped the utterance to.</p>
    */
-  name: AnalyticsUtteranceAttributeName | string | undefined;
+  name: AnalyticsUtteranceAttributeName | undefined;
 }
 
 /**
@@ -2015,7 +2015,7 @@ export interface AnalyticsUtteranceFilter {
    *             </li>
    *          </ul>
    */
-  name: AnalyticsUtteranceFilterName | string | undefined;
+  name: AnalyticsUtteranceFilterName | undefined;
 
   /**
    * @public
@@ -2078,7 +2078,7 @@ export interface AnalyticsUtteranceFilter {
    *             </li>
    *          </ul>
    */
-  operator: AnalyticsFilterOperator | string | undefined;
+  operator: AnalyticsFilterOperator | undefined;
 
   /**
    * @public
@@ -2096,7 +2096,7 @@ export interface AnalyticsUtteranceGroupByKey {
    * @public
    * <p>The category by which the utterance analytics were grouped.</p>
    */
-  name?: AnalyticsUtteranceField | string;
+  name?: AnalyticsUtteranceField;
 
   /**
    * @public
@@ -2114,7 +2114,7 @@ export interface AnalyticsUtteranceGroupBySpecification {
    * @public
    * <p>Specifies whether to group the utterances by their text or their state.</p>
    */
-  name: AnalyticsUtteranceField | string | undefined;
+  name: AnalyticsUtteranceField | undefined;
 }
 
 /**
@@ -2161,7 +2161,7 @@ export interface AnalyticsUtteranceMetric {
    *             </li>
    *          </ul>
    */
-  name: AnalyticsUtteranceMetricName | string | undefined;
+  name: AnalyticsUtteranceMetricName | undefined;
 
   /**
    * @public
@@ -2181,13 +2181,13 @@ export interface AnalyticsUtteranceMetric {
    *             </li>
    *          </ul>
    */
-  statistic: AnalyticsMetricStatistic | string | undefined;
+  statistic: AnalyticsMetricStatistic | undefined;
 
   /**
    * @public
    * <p>Specifies whether to sort the results in ascending or descending order.</p>
    */
-  order?: AnalyticsSortOrder | string;
+  order?: AnalyticsSortOrder;
 }
 
 /**
@@ -2217,7 +2217,7 @@ export interface AnalyticsUtteranceMetricResult {
    *             </li>
    *          </ul>
    */
-  name?: AnalyticsUtteranceMetricName | string;
+  name?: AnalyticsUtteranceMetricName;
 
   /**
    * @public
@@ -2237,7 +2237,7 @@ export interface AnalyticsUtteranceMetricResult {
    *             </li>
    *          </ul>
    */
-  statistic?: AnalyticsMetricStatistic | string;
+  statistic?: AnalyticsMetricStatistic;
 
   /**
    * @public
@@ -2330,7 +2330,7 @@ export interface AssociatedTranscriptFilter {
    * <p>The name of the field to use for filtering. The allowed names are
    *          IntentId and SlotTypeId.</p>
    */
-  name: AssociatedTranscriptFilterName | string | undefined;
+  name: AssociatedTranscriptFilterName | undefined;
 
   /**
    * @public
@@ -2581,7 +2581,7 @@ export interface FailedCustomVocabularyItem {
    * <p>The unique error code for the failed custom vocabulary item
    *          from the custom vocabulary list.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: ErrorCode;
 }
 
 /**
@@ -3062,7 +3062,7 @@ export interface BotAliasSummary {
    * <p>The current state of the bot alias. If the status is
    *          <code>Available</code>, the alias is ready for use.</p>
    */
-  botAliasStatus?: BotAliasStatus | string;
+  botAliasStatus?: BotAliasStatus;
 
   /**
    * @public
@@ -3161,7 +3161,7 @@ export interface BotFilter {
    * @public
    * <p>The name of the field to filter the list of bots.</p>
    */
-  name: BotFilterName | string | undefined;
+  name: BotFilterName | undefined;
 
   /**
    * @public
@@ -3177,7 +3177,7 @@ export interface BotFilter {
    *          <code>ListBots</code> operation should return aliases that contain
    *          the specified value.</p>
    */
-  operator: BotFilterOperator | string | undefined;
+  operator: BotFilterOperator | undefined;
 }
 
 /**
@@ -3341,7 +3341,7 @@ export interface BotLocaleFilter {
    * @public
    * <p>The name of the field to filter the list of bots.</p>
    */
-  name: BotLocaleFilterName | string | undefined;
+  name: BotLocaleFilterName | undefined;
 
   /**
    * @public
@@ -3357,7 +3357,7 @@ export interface BotLocaleFilter {
    *          <code>ListBotLocales</code> operation should return aliases that
    *          contain the specified value.</p>
    */
-  operator: BotLocaleFilterOperator | string | undefined;
+  operator: BotLocaleFilterOperator | undefined;
 }
 
 /**
@@ -3411,7 +3411,7 @@ export interface VoiceSettings {
    *                <code>engine</code> parameter of the <code>SynthesizeSpeech</code> operation</a> in the <i>Amazon Polly developer guide</i>.</p>
    *          <p>If you do not specify a value, the default is <code>standard</code>.</p>
    */
-  engine?: VoiceEngine | string;
+  engine?: VoiceEngine;
 }
 
 /**
@@ -3511,14 +3511,14 @@ export interface BotLocaleSortBy {
    * @public
    * <p>The bot locale attribute to sort by.</p>
    */
-  attribute: BotLocaleSortAttribute | string | undefined;
+  attribute: BotLocaleSortAttribute | undefined;
 
   /**
    * @public
    * <p>Specifies whether to sort the bot locales in ascending or descending
    *          order.</p>
    */
-  order: SortOrder | string | undefined;
+  order: SortOrder | undefined;
 }
 
 /**
@@ -3570,7 +3570,7 @@ export interface BotLocaleSummary {
    * <p>The current status of the bot locale. When the status is
    *          <code>Built</code> the locale is ready for use.</p>
    */
-  botLocaleStatus?: BotLocaleStatus | string;
+  botLocaleStatus?: BotLocaleStatus;
 
   /**
    * @public
@@ -3729,7 +3729,7 @@ export interface BotRecommendationSummary {
    *          <p>If the status is Failed, then the reasons for the failure are listed
    *          in the failureReasons field. </p>
    */
-  botRecommendationStatus: BotRecommendationStatus | string | undefined;
+  botRecommendationStatus: BotRecommendationStatus | undefined;
 
   /**
    * @public
@@ -3775,14 +3775,14 @@ export interface BotSortBy {
    * @public
    * <p>The attribute to use to sort the list of bots.</p>
    */
-  attribute: BotSortAttribute | string | undefined;
+  attribute: BotSortAttribute | undefined;
 
   /**
    * @public
    * <p>The order to sort the list. You can choose ascending or
    *          descending.</p>
    */
-  order: SortOrder | string | undefined;
+  order: SortOrder | undefined;
 }
 
 /**
@@ -3848,7 +3848,7 @@ export interface BotSummary {
    * <p>The current status of the bot. When the status is
    *          <code>Available</code> the bot is ready for use.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: BotStatus;
 
   /**
    * @public
@@ -3866,7 +3866,7 @@ export interface BotSummary {
    * @public
    * <p>The type of the bot.</p>
    */
-  botType?: BotType | string;
+  botType?: BotType;
 }
 
 /**
@@ -3903,14 +3903,14 @@ export interface BotVersionSortBy {
    * @public
    * <p>The attribute to use to sort the list of versions.</p>
    */
-  attribute: BotVersionSortAttribute | string | undefined;
+  attribute: BotVersionSortAttribute | undefined;
 
   /**
    * @public
    * <p>The order to sort the list. You can specify ascending or descending
    *          order.</p>
    */
-  order: SortOrder | string | undefined;
+  order: SortOrder | undefined;
 }
 
 /**
@@ -3942,7 +3942,7 @@ export interface BotVersionSummary {
    * <p>The status of the bot. When the status is available, the version of
    *          the bot is ready for use.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: BotStatus;
 
   /**
    * @public
@@ -4012,7 +4012,7 @@ export interface BuildBotLocaleResponse {
    *             <code>Built</code>, the bot is ready for use and can be tested using
    *          any utterance.</p>
    */
-  botLocaleStatus?: BotLocaleStatus | string;
+  botLocaleStatus?: BotLocaleStatus;
 
   /**
    * @public
@@ -4088,14 +4088,14 @@ export interface BuiltInIntentSortBy {
    * @public
    * <p>The attribute to use to sort the list of built-in intents.</p>
    */
-  attribute: BuiltInIntentSortAttribute | string | undefined;
+  attribute: BuiltInIntentSortAttribute | undefined;
 
   /**
    * @public
    * <p>The order to sort the list. You can specify ascending or descending
    *          order.</p>
    */
-  order: SortOrder | string | undefined;
+  order: SortOrder | undefined;
 }
 
 /**
@@ -4141,14 +4141,14 @@ export interface BuiltInSlotTypeSortBy {
    * @public
    * <p>The attribute to use to sort the list of built-in intents.</p>
    */
-  attribute: BuiltInSlotTypeSortAttribute | string | undefined;
+  attribute: BuiltInSlotTypeSortAttribute | undefined;
 
   /**
    * @public
    * <p>The order to sort the list. You can choose ascending or
    *          descending.</p>
    */
-  order: SortOrder | string | undefined;
+  order: SortOrder | undefined;
 }
 
 /**
@@ -4289,7 +4289,7 @@ export interface DialogAction {
    * @public
    * <p>The action that the bot should execute. </p>
    */
-  type: DialogActionType | string | undefined;
+  type: DialogActionType | undefined;
 
   /**
    * @public
@@ -4532,7 +4532,7 @@ export interface ConversationLevelIntentClassificationResultItem {
    * <p>The number of times the specific intent is used in the evaluation of intent level
    *       success or failure.</p>
    */
-  matchResult: TestResultMatchStatus | string | undefined;
+  matchResult: TestResultMatchStatus | undefined;
 }
 
 /**
@@ -4544,13 +4544,13 @@ export interface ConversationLevelResultDetail {
    * @public
    * <p>The success or failure of the streaming of the conversation.</p>
    */
-  endToEndResult: TestResultMatchStatus | string | undefined;
+  endToEndResult: TestResultMatchStatus | undefined;
 
   /**
    * @public
    * <p>The speech transcription success or failure details of the conversation.</p>
    */
-  speechTranscriptionResult?: TestResultMatchStatus | string;
+  speechTranscriptionResult?: TestResultMatchStatus;
 }
 
 /**
@@ -4574,7 +4574,7 @@ export interface ConversationLevelSlotResolutionResultItem {
    * @public
    * <p>The number of matching slots used in the slots listings for the slot resolution evaluation.</p>
    */
-  matchResult: TestResultMatchStatus | string | undefined;
+  matchResult: TestResultMatchStatus | undefined;
 }
 
 /**
@@ -4592,13 +4592,13 @@ export interface ConversationLevelTestResultItem {
    * @public
    * <p>The end-to-end success or failure of the test result evaluation item.</p>
    */
-  endToEndResult: TestResultMatchStatus | string | undefined;
+  endToEndResult: TestResultMatchStatus | undefined;
 
   /**
    * @public
    * <p>The speech transcription success or failure of the test result evaluation item.</p>
    */
-  speechTranscriptionResult?: TestResultMatchStatus | string;
+  speechTranscriptionResult?: TestResultMatchStatus;
 
   /**
    * @public
@@ -4635,7 +4635,7 @@ export interface ConversationLevelTestResultsFilterBy {
    * <p>The selection of matched or mismatched end-to-end status to filter test set results data
    *       at the conversation level.</p>
    */
-  endToEndResult?: TestResultMatchStatus | string;
+  endToEndResult?: TestResultMatchStatus;
 }
 
 /**
@@ -4674,7 +4674,7 @@ export interface ConversationLogsDataSourceFilterBy {
    * @public
    * <p>The selection to filter by input mode for the conversation logs. </p>
    */
-  inputMode: ConversationLogsInputModeFilter | string | undefined;
+  inputMode: ConversationLogsInputModeFilter | undefined;
 }
 
 /**
@@ -4826,7 +4826,7 @@ export interface CreateBotRequest {
    * @public
    * <p>The type of a bot to create.</p>
    */
-  botType?: BotType | string;
+  botType?: BotType;
 
   /**
    * @public
@@ -4883,7 +4883,7 @@ export interface CreateBotResponse {
    *          changes to the <code>Available</code> status. After the bot is created,
    *          you can use the <code>DRAFT</code> version of the bot.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: BotStatus;
 
   /**
    * @public
@@ -4908,7 +4908,7 @@ export interface CreateBotResponse {
    * @public
    * <p>The type of a bot that was created.</p>
    */
-  botType?: BotType | string;
+  botType?: BotType;
 
   /**
    * @public
@@ -5051,7 +5051,7 @@ export interface CreateBotAliasResponse {
    *             <code>DescribeBotAlias</code> operation to get the current state of
    *          an alias.</p>
    */
-  botAliasStatus?: BotAliasStatus | string;
+  botAliasStatus?: BotAliasStatus;
 
   /**
    * @public
@@ -5207,7 +5207,7 @@ export interface CreateBotLocaleResponse {
    *             <code>Failed</code>. If the bot was saved but not built, the status
    *          is <code>NotBuilt</code>.</p>
    */
-  botLocaleStatus?: BotLocaleStatus | string;
+  botLocaleStatus?: BotLocaleStatus;
 
   /**
    * @public
@@ -5279,7 +5279,7 @@ export interface CreateBotVersionResponse {
    *          the bot, it sets status to <code>Available</code>. If Amazon Lex can't build
    *          the bot, it sets status to <code>Failed</code>.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: BotStatus;
 
   /**
    * @public
@@ -5387,7 +5387,7 @@ export interface CreateExportRequest {
    * @public
    * <p>The file format of the bot or bot locale definition files.</p>
    */
-  fileFormat: ImportExportFileFormat | string | undefined;
+  fileFormat: ImportExportFileFormat | undefined;
 
   /**
    * @public
@@ -5436,7 +5436,7 @@ export interface CreateExportResponse {
    * <p>The file format used for the bot or bot locale definition
    *          files.</p>
    */
-  fileFormat?: ImportExportFileFormat | string;
+  fileFormat?: ImportExportFileFormat;
 
   /**
    * @public
@@ -5444,7 +5444,7 @@ export interface CreateExportResponse {
    *          you can use the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html">DescribeExport</a> operation to get the
    *          pre-signed S3 URL link to your exported bot or bot locale.</p>
    */
-  exportStatus?: ExportStatus | string;
+  exportStatus?: ExportStatus;
 
   /**
    * @public
@@ -5703,13 +5703,13 @@ export interface PromptSpecification {
    * @public
    * <p>Indicates how a message is selected from a message group among retries.</p>
    */
-  messageSelectionStrategy?: MessageSelectionStrategy | string;
+  messageSelectionStrategy?: MessageSelectionStrategy;
 
   /**
    * @public
    * <p>Specifies the advanced settings on each attempt of the prompt.</p>
    */
-  promptAttemptsSpecification?: Record<string, PromptAttemptSpecification>;
+  promptAttemptsSpecification?: Record<PromptAttempt, PromptAttemptSpecification>;
 }
 
 /**
@@ -5893,7 +5893,7 @@ export interface CreateResourcePolicyStatementRequest {
    * <p>Determines whether the statement allows or denies access to the
    *          resource.</p>
    */
-  effect: Effect | string | undefined;
+  effect: Effect | undefined;
 
   /**
    * @public
@@ -6000,7 +6000,7 @@ export interface ObfuscationSetting {
    * <p>Value that determines whether Amazon Lex obscures slot values in
    *          conversation logs. The default is to obscure the values.</p>
    */
-  obfuscationSettingType: ObfuscationSettingType | string | undefined;
+  obfuscationSettingType: ObfuscationSettingType | undefined;
 }
 
 /**
@@ -6356,7 +6356,7 @@ export interface SlotValueSelectionSetting {
    *          <p>If you don't specify the <code>valueSelectionStrategy</code>, the
    *          default is <code>ORIGINAL_VALUE</code>.</p>
    */
-  resolutionStrategy: SlotValueResolutionStrategy | string | undefined;
+  resolutionStrategy: SlotValueResolutionStrategy | undefined;
 
   /**
    * @public
@@ -6760,7 +6760,7 @@ export interface DeleteBotResponse {
    * <p>The current status of the bot. The status is <code>Deleting</code>
    *          while the bot and its associated resources are being deleted.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: BotStatus;
 }
 
 /**
@@ -6816,7 +6816,7 @@ export interface DeleteBotAliasResponse {
    *          deleted, it will no longer appear in the list of aliases returned by
    *          the <code>ListBotAliases</code> operation.</p>
    */
-  botAliasStatus?: BotAliasStatus | string;
+  botAliasStatus?: BotAliasStatus;
 }
 
 /**
@@ -6872,7 +6872,7 @@ export interface DeleteBotLocaleResponse {
    *             <code>Deleting</code> status. Once the locale is deleted it no
    *          longer appears in the list of locales for the bot.</p>
    */
-  botLocaleStatus?: BotLocaleStatus | string;
+  botLocaleStatus?: BotLocaleStatus;
 }
 
 /**
@@ -6923,7 +6923,7 @@ export interface DeleteBotVersionResponse {
    * @public
    * <p>The current status of the bot. </p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: BotStatus;
 }
 
 /**
@@ -6981,7 +6981,7 @@ export interface DeleteCustomVocabularyResponse {
    * @public
    * <p>The status of removing the custom vocabulary.</p>
    */
-  customVocabularyStatus?: CustomVocabularyStatus | string;
+  customVocabularyStatus?: CustomVocabularyStatus;
 }
 
 /**
@@ -7012,7 +7012,7 @@ export interface DeleteExportResponse {
    *             DescribeExport</a> operation with the export identifier will
    *          fail.</p>
    */
-  exportStatus?: ExportStatus | string;
+  exportStatus?: ExportStatus;
 }
 
 /**
@@ -7058,7 +7058,7 @@ export interface DeleteImportResponse {
    *          the import will no longer be returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html">ListImports</a> operation and calls to the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeImport.html">DescribeImport</a> operation with the import identifier will
    *          fail.</p>
    */
-  importStatus?: ImportStatus | string;
+  importStatus?: ImportStatus;
 }
 
 /**
@@ -7365,7 +7365,7 @@ export interface DescribeBotResponse {
    *             <code>Available</code> the bot is ready to be used in conversations
    *          with users.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: BotStatus;
 
   /**
    * @public
@@ -7384,7 +7384,7 @@ export interface DescribeBotResponse {
    * @public
    * <p>The type of the bot that was described.</p>
    */
-  botType?: BotType | string;
+  botType?: BotType;
 
   /**
    * @public
@@ -7497,7 +7497,7 @@ export interface DescribeBotAliasResponse {
    *             <code>Available</code>, the alias is ready for use with your
    *          bot.</p>
    */
-  botAliasStatus?: BotAliasStatus | string;
+  botAliasStatus?: BotAliasStatus;
 
   /**
    * @public
@@ -7619,7 +7619,7 @@ export interface DescribeBotLocaleResponse {
    *          reasons for the failure are listed in the <code>failureReasons</code>
    *          field.</p>
    */
-  botLocaleStatus?: BotLocaleStatus | string;
+  botLocaleStatus?: BotLocaleStatus;
 
   /**
    * @public
@@ -7810,7 +7810,7 @@ export interface S3BucketTranscriptSource {
    * <p>The format of the transcript content. Currently, Genie only supports
    *             the Amazon Lex transcript format.</p>
    */
-  transcriptFormat: TranscriptFormat | string | undefined;
+  transcriptFormat: TranscriptFormat | undefined;
 
   /**
    * @public
@@ -7875,7 +7875,7 @@ export interface DescribeBotRecommendationResponse {
    *          the reasons for the failure are listed in the failureReasons field.
    *       </p>
    */
-  botRecommendationStatus?: BotRecommendationStatus | string;
+  botRecommendationStatus?: BotRecommendationStatus;
 
   /**
    * @public
@@ -7997,7 +7997,7 @@ export interface DescribeBotVersionResponse {
    * <p>The current status of the bot. When the status is
    *             <code>Available</code>, the bot version is ready for use.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: BotStatus;
 
   /**
    * @public
@@ -8023,7 +8023,7 @@ export interface DescribeBotVersionResponse {
    * @public
    * <p>The type of the bot in the version that was described.</p>
    */
-  botType?: BotType | string;
+  botType?: BotType;
 
   /**
    * @public
@@ -8083,7 +8083,7 @@ export interface DescribeCustomVocabularyMetadataResponse {
    * <p>The status of the custom vocabulary. If the status is
    *       <code>Ready</code> the custom vocabulary is ready to use.</p>
    */
-  customVocabularyStatus?: CustomVocabularyStatus | string;
+  customVocabularyStatus?: CustomVocabularyStatus;
 
   /**
    * @public
@@ -8131,14 +8131,14 @@ export interface DescribeExportResponse {
    * <p>The file format used in the files that describe the resource.
    *       </p>
    */
-  fileFormat?: ImportExportFileFormat | string;
+  fileFormat?: ImportExportFileFormat;
 
   /**
    * @public
    * <p>The status of the export. When the status is <code>Complete</code>
    *          the export archive file is available for download.</p>
    */
-  exportStatus?: ExportStatus | string;
+  exportStatus?: ExportStatus;
 
   /**
    * @public
@@ -8291,7 +8291,7 @@ export interface TestSetImportResourceSpecification {
    * @public
    * <p>Specifies whether the test-set being imported contains written or spoken data.</p>
    */
-  modality: TestSetModality | string | undefined;
+  modality: TestSetModality | undefined;
 
   /**
    * @public
@@ -8369,7 +8369,7 @@ export interface DescribeImportResponse {
    *             <code>FailOnConflict</code> existing resources are not overwritten
    *          and the import fails.</p>
    */
-  mergeStrategy?: MergeStrategy | string;
+  mergeStrategy?: MergeStrategy;
 
   /**
    * @public
@@ -8377,7 +8377,7 @@ export interface DescribeImportResponse {
    *             <code>Completed</code> the resource is imported and ready for
    *          use.</p>
    */
-  importStatus?: ImportStatus | string;
+  importStatus?: ImportStatus;
 
   /**
    * @public

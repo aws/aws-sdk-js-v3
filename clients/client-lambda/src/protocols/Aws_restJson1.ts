@@ -241,6 +241,7 @@ import {
   EFSMountConnectivityException,
   EFSMountFailureException,
   EFSMountTimeoutException,
+  EndPointType,
   ENILimitReachedException,
   Environment,
   EphemeralStorage,
@@ -8003,9 +8004,9 @@ const de_AdditionalVersionWeights = (output: any, context: __SerdeContext): Reco
     if (value === null) {
       return acc;
     }
-    acc[key] = __limitedParseDouble(value) as any;
+    acc[key as string] = __limitedParseDouble(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 };
 
 /**

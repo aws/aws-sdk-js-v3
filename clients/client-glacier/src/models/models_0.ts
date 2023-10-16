@@ -219,7 +219,7 @@ export interface Grantee {
    * @public
    * <p>Type of grantee</p>
    */
-  Type: Type | string | undefined;
+  Type: Type | undefined;
 
   /**
    * @public
@@ -278,7 +278,7 @@ export interface Grant {
    * @public
    * <p>Specifies the permission given to the grantee. </p>
    */
-  Permission?: Permission | string;
+  Permission?: Permission;
 }
 
 /**
@@ -539,7 +539,7 @@ export interface CSVInput {
    * <p>Describes the first line of input. Valid values are <code>None</code>,
    *                 <code>Ignore</code>, and <code>Use</code>.</p>
    */
-  FileHeaderInfo?: FileHeaderInfo | string;
+  FileHeaderInfo?: FileHeaderInfo;
 
   /**
    * @public
@@ -600,7 +600,7 @@ export interface CSVOutput {
    * <p>A value that indicates whether all output fields should be contained within quotation
    *             marks.</p>
    */
-  QuoteFields?: QuoteFields | string;
+  QuoteFields?: QuoteFields;
 
   /**
    * @public
@@ -857,7 +857,7 @@ export interface Encryption {
    * <p>The server-side encryption algorithm used when storing job results in Amazon S3, for
    *             example <code>AES256</code> or <code>aws:kms</code>.</p>
    */
-  EncryptionType?: EncryptionType | string;
+  EncryptionType?: EncryptionType;
 
   /**
    * @public
@@ -917,7 +917,7 @@ export interface S3Location {
    * @public
    * <p>The canned access control list (ACL) to apply to the job results.</p>
    */
-  CannedACL?: CannedACL | string;
+  CannedACL?: CannedACL;
 
   /**
    * @public
@@ -941,7 +941,7 @@ export interface S3Location {
    * @public
    * <p>The storage class used to store the job results.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: StorageClass;
 }
 
 /**
@@ -1008,7 +1008,7 @@ export interface SelectParameters {
    * @public
    * <p>The type of the provided expression, for example <code>SQL</code>.</p>
    */
-  ExpressionType?: ExpressionType | string;
+  ExpressionType?: ExpressionType;
 
   /**
    * @public
@@ -1061,7 +1061,7 @@ export interface GlacierJobDescription {
    *                 <code>InventoryRetrieval</code>, or
    *             <code>Select</code>. </p>
    */
-  Action?: ActionCode | string;
+  Action?: ActionCode;
 
   /**
    * @public
@@ -1096,7 +1096,7 @@ export interface GlacierJobDescription {
    * <p>The status code can be <code>InProgress</code>, <code>Succeeded</code>, or
    *                 <code>Failed</code>, and indicates the status of the job.</p>
    */
-  StatusCode?: StatusCode | string;
+  StatusCode?: StatusCode;
 
   /**
    * @public

@@ -120,7 +120,7 @@ export interface AdapterOverview {
    * @public
    * <p>The feature types that the adapter is operating on.</p>
    */
-  FeatureTypes?: (FeatureType | string)[];
+  FeatureTypes?: FeatureType[];
 }
 
 /**
@@ -233,7 +233,7 @@ export interface AdapterVersionEvaluationMetric {
    * @public
    * <p>Indicates the feature type being analyzed by a given adapter version.</p>
    */
-  FeatureType?: FeatureType | string;
+  FeatureType?: FeatureType;
 }
 
 /**
@@ -280,13 +280,13 @@ export interface AdapterVersionOverview {
    * @public
    * <p>The feature types that the adapter version is operating on.</p>
    */
-  FeatureTypes?: (FeatureType | string)[];
+  FeatureTypes?: FeatureType[];
 
   /**
    * @public
    * <p>Contains information on the status of a given adapter version.</p>
    */
-  Status?: AdapterVersionStatus | string;
+  Status?: AdapterVersionStatus;
 
   /**
    * @public
@@ -357,7 +357,7 @@ export interface HumanLoopDataAttributes {
    * <p>Sets whether the input image is free of personally identifiable information or adult
    *          content.</p>
    */
-  ContentClassifiers?: (ContentClassifier | string)[];
+  ContentClassifiers?: ContentClassifier[];
 }
 
 /**
@@ -464,7 +464,7 @@ export interface AnalyzeDocumentRequest {
    *          to return information about the layout of the document.  All lines and words detected in the document are included in the response (including
    *          text that isn't related to the value of <code>FeatureTypes</code>). </p>
    */
-  FeatureTypes: (FeatureType | string)[] | undefined;
+  FeatureTypes: FeatureType[] | undefined;
 
   /**
    * @public
@@ -706,7 +706,7 @@ export interface Relationship {
    *             </li>
    *          </ul>
    */
-  Type?: RelationshipType | string;
+  Type?: RelationshipType;
 
   /**
    * @public
@@ -902,7 +902,7 @@ export interface Block {
    *             </li>
    *          </ul>
    */
-  BlockType?: BlockType | string;
+  BlockType?: BlockType;
 
   /**
    * @public
@@ -922,7 +922,7 @@ export interface Block {
    * <p>The kind of text that Amazon Textract has detected. Can check for handwritten text and
    *          printed text.</p>
    */
-  TextType?: TextType | string;
+  TextType?: TextType;
 
   /**
    * @public
@@ -1033,14 +1033,14 @@ export interface Block {
    *             <code>EntityTypes</code> isn't returned by <code>DetectDocumentText</code> and
    *             <code>GetDocumentTextDetection</code>.</p>
    */
-  EntityTypes?: (EntityType | string)[];
+  EntityTypes?: EntityType[];
 
   /**
    * @public
    * <p>The selection status of a selection element, such as an option button or check box.
    *       </p>
    */
-  SelectionStatus?: SelectionStatus | string;
+  SelectionStatus?: SelectionStatus;
 
   /**
    * @public
@@ -1685,7 +1685,7 @@ export interface NormalizedValue {
    * @public
    * <p>The normalized type of the value detected. In this case, DATE.</p>
    */
-  ValueType?: ValueType | string;
+  ValueType?: ValueType;
 }
 
 /**
@@ -1850,13 +1850,13 @@ export interface CreateAdapterRequest {
    *          types are: <code>QUERIES</code>
    *          </p>
    */
-  FeatureTypes: (FeatureType | string)[] | undefined;
+  FeatureTypes: FeatureType[] | undefined;
 
   /**
    * @public
    * <p>Controls whether or not the adapter should automatically update.</p>
    */
-  AutoUpdate?: AutoUpdate | string;
+  AutoUpdate?: AutoUpdate;
 
   /**
    * @public
@@ -2319,7 +2319,7 @@ export interface LendingDetection {
    * @public
    * <p>The selection status of a selection element, such as an option button or check box.</p>
    */
-  SelectionStatus?: SelectionStatus | string;
+  SelectionStatus?: SelectionStatus;
 
   /**
    * @public
@@ -2463,13 +2463,13 @@ export interface GetAdapterResponse {
    * @public
    * <p>List of the targeted feature types for the requested adapter.</p>
    */
-  FeatureTypes?: (FeatureType | string)[];
+  FeatureTypes?: FeatureType[];
 
   /**
    * @public
    * <p>Binary value indicating if the adapter is being automatically updated or not.</p>
    */
-  AutoUpdate?: AutoUpdate | string;
+  AutoUpdate?: AutoUpdate;
 
   /**
    * @public
@@ -2521,13 +2521,13 @@ export interface GetAdapterVersionResponse {
    * @public
    * <p>List of the targeted feature types for the requested adapter version.</p>
    */
-  FeatureTypes?: (FeatureType | string)[];
+  FeatureTypes?: FeatureType[];
 
   /**
    * @public
    * <p>The status of the adapter version that has been requested.</p>
    */
-  Status?: AdapterVersionStatus | string;
+  Status?: AdapterVersionStatus;
 
   /**
    * @public
@@ -2663,7 +2663,7 @@ export interface GetDocumentAnalysisResponse {
    * @public
    * <p>The current status of the text detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -2764,7 +2764,7 @@ export interface GetDocumentTextDetectionResponse {
    * @public
    * <p>The current status of the text detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -2841,7 +2841,7 @@ export interface GetExpenseAnalysisResponse {
    * @public
    * <p>The current status of the text detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -2983,7 +2983,7 @@ export interface GetLendingAnalysisResponse {
    * @public
    * <p> The current status of the lending analysis job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -3063,7 +3063,7 @@ export interface GetLendingAnalysisSummaryResponse {
    * @public
    * <p> The current status of the lending analysis job. </p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -3253,7 +3253,7 @@ export interface StartDocumentAnalysisRequest {
    *          included in the response (including text that isn't related to the value of
    *             <code>FeatureTypes</code>). </p>
    */
-  FeatureTypes: (FeatureType | string)[] | undefined;
+  FeatureTypes: FeatureType[] | undefined;
 
   /**
    * @public
@@ -3610,7 +3610,7 @@ export interface UpdateAdapterRequest {
    * @public
    * <p>The new auto-update status to be applied to the adapter.</p>
    */
-  AutoUpdate?: AutoUpdate | string;
+  AutoUpdate?: AutoUpdate;
 }
 
 /**
@@ -3645,11 +3645,11 @@ export interface UpdateAdapterResponse {
    * @public
    * <p>List of the targeted feature types for the updated adapter.</p>
    */
-  FeatureTypes?: (FeatureType | string)[];
+  FeatureTypes?: FeatureType[];
 
   /**
    * @public
    * <p>The auto-update status of the adapter that has been updated.</p>
    */
-  AutoUpdate?: AutoUpdate | string;
+  AutoUpdate?: AutoUpdate;
 }

@@ -481,7 +481,7 @@ export interface PublishRequest {
    * <p>An <code>Enum</code> string value that indicates whether the payload is formatted as
    *       UTF-8. <code>payloadFormatIndicator</code> is an HTTP header value in the API.</p>
    */
-  payloadFormatIndicator?: PayloadFormatIndicator | string;
+  payloadFormatIndicator?: PayloadFormatIndicator;
 
   /**
    * @public

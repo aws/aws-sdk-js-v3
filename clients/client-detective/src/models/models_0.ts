@@ -44,7 +44,7 @@ export class AccessDeniedException extends __BaseException {
    * @public
    * <p>The SDK default error code associated with the access denied exception.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -56,7 +56,7 @@ export class AccessDeniedException extends __BaseException {
    * @public
    * <p>The error code associated with the access denied exception.</p>
    */
-  SubErrorCode?: ErrorCode | string;
+  SubErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -159,7 +159,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The error code associated with the validation failure.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -313,7 +313,10 @@ export interface MembershipDatasources {
    * @public
    * <p>Details on when a data source package was added to a behavior graph.</p>
    */
-  DatasourcePackageIngestHistory?: Record<string, Record<string, TimestampForCollection>>;
+  DatasourcePackageIngestHistory?: Record<
+    DatasourcePackage,
+    Record<DatasourcePackageIngestState, TimestampForCollection>
+  >;
 }
 
 /**
@@ -653,7 +656,7 @@ export interface MemberDetail {
    *          graph are not included. In the organization behavior graph, organization accounts that the
    *             Detective administrator account did not enable are not included.</p>
    */
-  Status?: MemberStatus | string;
+  Status?: MemberStatus;
 
   /**
    * @public
@@ -674,7 +677,7 @@ export interface MemberDetail {
    *             </li>
    *          </ul>
    */
-  DisabledReason?: MemberDisabledReason | string;
+  DisabledReason?: MemberDisabledReason;
 
   /**
    * @public
@@ -739,19 +742,19 @@ export interface MemberDetail {
    *          <p>For an account that was invited to a behavior graph, the type is
    *          <code>INVITATION</code>. </p>
    */
-  InvitationType?: InvitationType | string;
+  InvitationType?: InvitationType;
 
   /**
    * @public
    * <p>Details on the volume of usage for each data source package in a behavior graph.</p>
    */
-  VolumeUsageByDatasourcePackage?: Record<string, DatasourcePackageUsageInfo>;
+  VolumeUsageByDatasourcePackage?: Record<DatasourcePackage, DatasourcePackageUsageInfo>;
 
   /**
    * @public
    * <p>The state of a data source package for the behavior graph.</p>
    */
-  DatasourcePackageIngestStates?: Record<string, DatasourcePackageIngestState | string>;
+  DatasourcePackageIngestStates?: Record<DatasourcePackage, DatasourcePackageIngestState>;
 }
 
 /**
@@ -969,13 +972,13 @@ export interface DatasourcePackageIngestDetail {
    * @public
    * <p>Details on which data source packages are ingested for a member account.</p>
    */
-  DatasourcePackageIngestState?: DatasourcePackageIngestState | string;
+  DatasourcePackageIngestState?: DatasourcePackageIngestState;
 
   /**
    * @public
    * <p>The date a data source package was enabled for this account</p>
    */
-  LastIngestStateChange?: Record<string, TimestampForCollection>;
+  LastIngestStateChange?: Record<DatasourcePackageIngestState, TimestampForCollection>;
 }
 
 /**
@@ -986,7 +989,7 @@ export interface ListDatasourcePackagesResponse {
    * @public
    * <p>Details on the data source packages active in the behavior graph.</p>
    */
-  DatasourcePackages?: Record<string, DatasourcePackageIngestDetail>;
+  DatasourcePackages?: Record<DatasourcePackage, DatasourcePackageIngestDetail>;
 
   /**
    * @public
@@ -1297,7 +1300,7 @@ export interface UpdateDatasourcePackagesRequest {
    * @public
    * <p>The data source package start for the behavior graph.</p>
    */
-  DatasourcePackages: (DatasourcePackage | string)[] | undefined;
+  DatasourcePackages: DatasourcePackage[] | undefined;
 }
 
 /**

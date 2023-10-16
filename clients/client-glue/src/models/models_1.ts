@@ -6,6 +6,7 @@ import {
   Action,
   Blueprint,
   Column,
+  ConnectionPropertyKey,
   ConnectionsList,
   ConnectionType,
   Crawler,
@@ -141,7 +142,7 @@ export interface TransformParameters {
    * <p>The type of machine learning transform.</p>
    *          <p>For information about the types of machine learning transforms, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating Machine Learning Transforms</a>.</p>
    */
-  TransformType: TransformType | string | undefined;
+  TransformType: TransformType | undefined;
 
   /**
    * @public
@@ -182,7 +183,7 @@ export interface MLUserDataEncryption {
    *             </li>
    *          </ul>
    */
-  MlUserDataEncryptionMode: MLUserDataEncryptionModeString | string | undefined;
+  MlUserDataEncryptionMode: MLUserDataEncryptionModeString | undefined;
 
   /**
    * @public
@@ -320,7 +321,7 @@ export interface CreateMLTransformRequest {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -563,7 +564,7 @@ export interface CreateSchemaInput {
    * @public
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat: DataFormat | string | undefined;
+  DataFormat: DataFormat | undefined;
 
   /**
    * @public
@@ -603,7 +604,7 @@ export interface CreateSchemaInput {
    *             </li>
    *          </ul>
    */
-  Compatibility?: Compatibility | string;
+  Compatibility?: Compatibility;
 
   /**
    * @public
@@ -693,13 +694,13 @@ export interface CreateSchemaResponse {
    * @public
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat?: DataFormat | string;
+  DataFormat?: DataFormat;
 
   /**
    * @public
    * <p>The schema compatibility mode.</p>
    */
-  Compatibility?: Compatibility | string;
+  Compatibility?: Compatibility;
 
   /**
    * @public
@@ -723,7 +724,7 @@ export interface CreateSchemaResponse {
    * @public
    * <p>The status of the schema. </p>
    */
-  SchemaStatus?: SchemaStatus | string;
+  SchemaStatus?: SchemaStatus;
 
   /**
    * @public
@@ -741,7 +742,7 @@ export interface CreateSchemaResponse {
    * @public
    * <p>The status of the first schema version created.</p>
    */
-  SchemaVersionStatus?: SchemaVersionStatus | string;
+  SchemaVersionStatus?: SchemaVersionStatus;
 }
 
 /**
@@ -856,7 +857,7 @@ export interface CreateScriptRequest {
    * @public
    * <p>The programming language of the resulting code from the DAG.</p>
    */
-  Language?: Language | string;
+  Language?: Language;
 }
 
 /**
@@ -899,7 +900,7 @@ export interface CloudWatchEncryption {
    * @public
    * <p>The encryption mode to use for CloudWatch data.</p>
    */
-  CloudWatchEncryptionMode?: CloudWatchEncryptionMode | string;
+  CloudWatchEncryptionMode?: CloudWatchEncryptionMode;
 
   /**
    * @public
@@ -931,7 +932,7 @@ export interface JobBookmarksEncryption {
    * @public
    * <p>The encryption mode to use for job bookmarks data.</p>
    */
-  JobBookmarksEncryptionMode?: JobBookmarksEncryptionMode | string;
+  JobBookmarksEncryptionMode?: JobBookmarksEncryptionMode;
 
   /**
    * @public
@@ -964,7 +965,7 @@ export interface S3Encryption {
    * @public
    * <p>The encryption mode to use for Amazon S3 data.</p>
    */
-  S3EncryptionMode?: S3EncryptionMode | string;
+  S3EncryptionMode?: S3EncryptionMode;
 
   /**
    * @public
@@ -1145,7 +1146,7 @@ export interface CreateSessionRequest {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -1212,7 +1213,7 @@ export interface Session {
    * @public
    * <p>The session status. </p>
    */
-  Status?: SessionStatus | string;
+  Status?: SessionStatus;
 
   /**
    * @public
@@ -1286,7 +1287,7 @@ export interface Session {
    * @public
    * <p>The type of predefined worker that is allocated when a session runs. Accepts a value of <code>G.1X</code>, <code>G.2X</code>, <code>G.4X</code>, or <code>G.8X</code> for Spark sessions. Accepts the value <code>Z.2X</code> for Ray sessions.</p>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -1346,7 +1347,7 @@ export interface IcebergInput {
    * @public
    * <p>A required metadata operation. Can only be set to <code>CREATE</code>.</p>
    */
-  MetadataOperation: MetadataOperation | string | undefined;
+  MetadataOperation: MetadataOperation | undefined;
 
   /**
    * @public
@@ -1575,7 +1576,7 @@ export interface CreateTriggerRequest {
    * @public
    * <p>The type of the new trigger.</p>
    */
-  Type: TriggerType | string | undefined;
+  Type: TriggerType | undefined;
 
   /**
    * @public
@@ -1678,7 +1679,7 @@ export interface ResourceUri {
    * @public
    * <p>The type of the resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -1714,7 +1715,7 @@ export interface UserDefinedFunctionInput {
    * @public
    * <p>The owner type.</p>
    */
-  OwnerType?: PrincipalType | string;
+  OwnerType?: PrincipalType;
 
   /**
    * @public
@@ -2267,7 +2268,7 @@ export interface DeleteRegistryResponse {
    * @public
    * <p>The status of the registry. A successful operation will return the <code>Deleting</code> status.</p>
    */
-  Status?: RegistryStatus | string;
+  Status?: RegistryStatus;
 }
 
 /**
@@ -2349,7 +2350,7 @@ export interface DeleteSchemaResponse {
    * @public
    * <p>The status of the schema.</p>
    */
-  Status?: SchemaStatus | string;
+  Status?: SchemaStatus;
 }
 
 /**
@@ -2723,7 +2724,7 @@ export interface BlueprintRun {
    *             </li>
    *          </ul>
    */
-  State?: BlueprintRunState | string;
+  State?: BlueprintRunState;
 
   /**
    * @public
@@ -2917,7 +2918,7 @@ export interface CsvClassifier {
    * @public
    * <p>Indicates whether the CSV file contains a header.</p>
    */
-  ContainsHeader?: CsvHeaderOption | string;
+  ContainsHeader?: CsvHeaderOption;
 
   /**
    * @public
@@ -2954,7 +2955,7 @@ export interface CsvClassifier {
    * @public
    * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
    */
-  Serde?: CsvSerdeOption | string;
+  Serde?: CsvSerdeOption;
 }
 
 /**
@@ -3455,7 +3456,7 @@ export interface ColumnStatisticsData {
    * @public
    * <p>The type of column statistics data.</p>
    */
-  Type: ColumnStatisticsType | string | undefined;
+  Type: ColumnStatisticsType | undefined;
 
   /**
    * @public
@@ -3665,7 +3666,7 @@ export interface Connection {
    * @public
    * <p>The type of the connection. Currently, SFTP is not supported.</p>
    */
-  ConnectionType?: ConnectionType | string;
+  ConnectionType?: ConnectionType;
 
   /**
    * @public
@@ -3844,7 +3845,7 @@ export interface Connection {
    *             </li>
    *          </ul>
    */
-  ConnectionProperties?: Record<string, string>;
+  ConnectionProperties?: Record<ConnectionPropertyKey, string>;
 
   /**
    * @public
@@ -3900,7 +3901,7 @@ export interface GetConnectionsFilter {
    * @public
    * <p>The type of connections to return. Currently, SFTP is not supported.</p>
    */
-  ConnectionType?: ConnectionType | string;
+  ConnectionType?: ConnectionType;
 }
 
 /**
@@ -4293,7 +4294,7 @@ export interface GetDatabasesRequest {
    *             </li>
    *          </ul>
    */
-  ResourceShareType?: ResourceShareType | string;
+  ResourceShareType?: ResourceShareType;
 }
 
 /**
@@ -4380,7 +4381,7 @@ export interface EncryptionAtRest {
    * @public
    * <p>The encryption-at-rest mode for encrypting Data Catalog data.</p>
    */
-  CatalogEncryptionMode: CatalogEncryptionMode | string | undefined;
+  CatalogEncryptionMode: CatalogEncryptionMode | undefined;
 
   /**
    * @public
@@ -4581,7 +4582,7 @@ export interface GetDataQualityRuleRecommendationRunResponse {
    * @public
    * <p>The status for this run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: TaskStatusType;
 
   /**
    * @public
@@ -4757,7 +4758,7 @@ export interface GetDataQualityRulesetEvaluationRunResponse {
    * @public
    * <p>The status for this run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: TaskStatusType;
 
   /**
    * @public
@@ -5273,7 +5274,7 @@ export interface TaskRunProperties {
    * @public
    * <p>The type of task run.</p>
    */
-  TaskType?: TaskType | string;
+  TaskType?: TaskType;
 
   /**
    * @public
@@ -5320,7 +5321,7 @@ export interface GetMLTaskRunResponse {
    * @public
    * <p>The status for this task run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: TaskStatusType;
 
   /**
    * @public
@@ -5375,13 +5376,13 @@ export interface TaskRunFilterCriteria {
    * @public
    * <p>The type of task run.</p>
    */
-  TaskRunType?: TaskType | string;
+  TaskRunType?: TaskType;
 
   /**
    * @public
    * <p>The current status of the task run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: TaskStatusType;
 
   /**
    * @public
@@ -5436,14 +5437,14 @@ export interface TaskRunSortCriteria {
    * <p>The column to be used to sort the list of task runs for the machine learning
    *       transform.</p>
    */
-  Column: TaskRunSortColumnType | string | undefined;
+  Column: TaskRunSortColumnType | undefined;
 
   /**
    * @public
    * <p>The sort direction to be used to sort the list of task runs for the machine learning
    *       transform.</p>
    */
-  SortDirection: SortDirectionType | string | undefined;
+  SortDirection: SortDirectionType | undefined;
 }
 
 /**
@@ -5502,7 +5503,7 @@ export interface TaskRun {
    * @public
    * <p>The current status of the requested task run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: TaskStatusType;
 
   /**
    * @public
@@ -5691,7 +5692,7 @@ export interface EvaluationMetrics {
    * @public
    * <p>The type of machine learning transform.</p>
    */
-  TransformType: TransformType | string | undefined;
+  TransformType: TransformType | undefined;
 
   /**
    * @public
@@ -5761,7 +5762,7 @@ export interface GetMLTransformResponse {
    * @public
    * <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
    */
-  Status?: TransformStatusType | string;
+  Status?: TransformStatusType;
 
   /**
    * @public
@@ -5844,7 +5845,7 @@ export interface GetMLTransformResponse {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -5887,13 +5888,13 @@ export interface TransformFilterCriteria {
    * <p>The type of machine learning transform that is used to filter the machine learning
    *       transforms.</p>
    */
-  TransformType?: TransformType | string;
+  TransformType?: TransformType;
 
   /**
    * @public
    * <p>Filters the list of machine learning transforms by the last known status of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
    */
-  Status?: TransformStatusType | string;
+  Status?: TransformStatusType;
 
   /**
    * @public
@@ -5962,14 +5963,14 @@ export interface TransformSortCriteria {
    * <p>The column to be used in the sorting criteria that are associated with the machine
    *       learning transform.</p>
    */
-  Column: TransformSortColumnType | string | undefined;
+  Column: TransformSortColumnType | undefined;
 
   /**
    * @public
    * <p>The sort direction to be used in the sorting criteria that are associated with the machine
    *       learning transform.</p>
    */
-  SortDirection: SortDirectionType | string | undefined;
+  SortDirection: SortDirectionType | undefined;
 }
 
 /**
@@ -6031,7 +6032,7 @@ export interface MLTransform {
    * @public
    * <p>The current status of the machine learning transform.</p>
    */
-  Status?: TransformStatusType | string;
+  Status?: TransformStatusType;
 
   /**
    * @public
@@ -6157,7 +6158,7 @@ export interface MLTransform {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -6318,7 +6319,7 @@ export interface BackfillError {
    * @public
    * <p>The error code for an error that occurred when registering partition indexes for an existing table.</p>
    */
-  Code?: BackfillErrorCode | string;
+  Code?: BackfillErrorCode;
 
   /**
    * @public
@@ -6397,7 +6398,7 @@ export interface PartitionIndexDescriptor {
    *             </li>
    *          </ul>
    */
-  IndexStatus: PartitionIndexStatus | string | undefined;
+  IndexStatus: PartitionIndexStatus | undefined;
 
   /**
    * @public
@@ -6664,7 +6665,7 @@ export interface GetPlanRequest {
    * @public
    * <p>The programming language of the code to perform the mapping.</p>
    */
-  Language?: Language | string;
+  Language?: Language;
 
   /**
    * @public
@@ -6737,7 +6738,7 @@ export interface GetRegistryResponse {
    * @public
    * <p>The status of the registry.</p>
    */
-  Status?: RegistryStatus | string;
+  Status?: RegistryStatus;
 
   /**
    * @public
@@ -6916,13 +6917,13 @@ export interface GetSchemaResponse {
    * @public
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat?: DataFormat | string;
+  DataFormat?: DataFormat;
 
   /**
    * @public
    * <p>The compatibility mode of the schema.</p>
    */
-  Compatibility?: Compatibility | string;
+  Compatibility?: Compatibility;
 
   /**
    * @public
@@ -6946,7 +6947,7 @@ export interface GetSchemaResponse {
    * @public
    * <p>The status of the schema.</p>
    */
-  SchemaStatus?: SchemaStatus | string;
+  SchemaStatus?: SchemaStatus;
 
   /**
    * @public
@@ -7006,13 +7007,13 @@ export interface GetSchemaByDefinitionResponse {
    * @public
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat?: DataFormat | string;
+  DataFormat?: DataFormat;
 
   /**
    * @public
    * <p>The status of the schema version.</p>
    */
-  Status?: SchemaVersionStatus | string;
+  Status?: SchemaVersionStatus;
 
   /**
    * @public
@@ -7090,7 +7091,7 @@ export interface GetSchemaVersionResponse {
    * @public
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat?: DataFormat | string;
+  DataFormat?: DataFormat;
 
   /**
    * @public
@@ -7108,7 +7109,7 @@ export interface GetSchemaVersionResponse {
    * @public
    * <p>The status of the schema version. </p>
    */
-  Status?: SchemaVersionStatus | string;
+  Status?: SchemaVersionStatus;
 
   /**
    * @public
@@ -7164,7 +7165,7 @@ export interface GetSchemaVersionsDiffInput {
    * @public
    * <p>Refers to <code>SYNTAX_DIFF</code>, which is the currently supported diff type.</p>
    */
-  SchemaDiffType: SchemaDiffType | string | undefined;
+  SchemaDiffType: SchemaDiffType | undefined;
 }
 
 /**
@@ -7361,7 +7362,7 @@ export interface StatementOutput {
    * @public
    * <p>The status of the code execution output.</p>
    */
-  Status?: StatementState | string;
+  Status?: StatementState;
 
   /**
    * @public
@@ -7403,7 +7404,7 @@ export interface Statement {
    * @public
    * <p>The state while request is actioned.</p>
    */
-  State?: StatementState | string;
+  State?: StatementState;
 
   /**
    * @public

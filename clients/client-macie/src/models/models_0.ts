@@ -179,7 +179,7 @@ export interface ClassificationType {
    * <p>(Discontinued) A one-time classification of all of the existing objects in a specified
    *       S3 bucket. </p>
    */
-  oneTime: S3OneTimeClassificationType | string | undefined;
+  oneTime: S3OneTimeClassificationType | undefined;
 
   /**
    * @public
@@ -187,7 +187,7 @@ export interface ClassificationType {
    *       S3 bucket. Amazon Macie Classic begins performing continuous classification after a bucket is
    *       successfully associated with Macie Classic.</p>
    */
-  continuous: S3ContinuousClassificationType | string | undefined;
+  continuous: S3ContinuousClassificationType | undefined;
 }
 
 /**
@@ -306,7 +306,7 @@ export interface ClassificationTypeUpdate {
    * <p>(Discontinued) A one-time classification of all of the existing objects in a specified
    *       S3 bucket. </p>
    */
-  oneTime?: S3OneTimeClassificationType | string;
+  oneTime?: S3OneTimeClassificationType;
 
   /**
    * @public
@@ -314,7 +314,7 @@ export interface ClassificationTypeUpdate {
    *       S3 bucket. Amazon Macie Classic begins performing continuous classification after a bucket is
    *       successfully associated with Macie Classic. </p>
    */
-  continuous?: S3ContinuousClassificationType | string;
+  continuous?: S3ContinuousClassificationType;
 }
 
 /**

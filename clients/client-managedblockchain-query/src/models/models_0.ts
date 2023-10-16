@@ -84,7 +84,7 @@ export interface TokenIdentifier {
    * @public
    * <p>The blockchain network of the token.</p>
    */
-  network: QueryNetwork | string | undefined;
+  network: QueryNetwork | undefined;
 
   /**
    * @public
@@ -201,7 +201,7 @@ export interface BatchGetTokenBalanceErrorItem {
    * @public
    * <p>The type of error.</p>
    */
-  errorType: ErrorType | string | undefined;
+  errorType: ErrorType | undefined;
 }
 
 /**
@@ -319,7 +319,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The <code>resourceType</code> of the resource that caused the exception.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @internal
@@ -353,7 +353,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    * @public
    * <p>The <code>resourceType</code> of the resource that caused the exception.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -476,7 +476,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The container for the reason for the exception</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -580,7 +580,7 @@ export interface GetTransactionInput {
    * @public
    * <p>The blockchain network where the transaction occurred.</p>
    */
-  network: QueryNetwork | string | undefined;
+  network: QueryNetwork | undefined;
 }
 
 /**
@@ -624,7 +624,7 @@ export interface Transaction {
    * @public
    * <p>The blockchain network where the transaction occured.</p>
    */
-  network: QueryNetwork | string | undefined;
+  network: QueryNetwork | undefined;
 
   /**
    * @public
@@ -668,7 +668,7 @@ export interface Transaction {
    * @public
    * <p>The status of the transaction.</p>
    */
-  status: QueryTransactionStatus | string | undefined;
+  status: QueryTransactionStatus | undefined;
 
   /**
    * @public
@@ -776,7 +776,7 @@ export interface TokenFilter {
    * @public
    * <p>The blockchain network of the token.</p>
    */
-  network: QueryNetwork | string | undefined;
+  network: QueryNetwork | undefined;
 
   /**
    * @public
@@ -900,7 +900,7 @@ export interface ListTransactionEventsInput {
    * @public
    * <p>The blockchain network where the transaction events occurred.</p>
    */
-  network: QueryNetwork | string | undefined;
+  network: QueryNetwork | undefined;
 
   /**
    * @public
@@ -987,7 +987,7 @@ export interface TransactionEvent {
    * @public
    * <p>The blockchain network where the transaction occurred.</p>
    */
-  network: QueryNetwork | string | undefined;
+  network: QueryNetwork | undefined;
 
   /**
    * @public
@@ -999,7 +999,7 @@ export interface TransactionEvent {
    * @public
    * <p>The type of transaction event.</p>
    */
-  eventType: QueryTransactionEventType | string | undefined;
+  eventType: QueryTransactionEventType | undefined;
 
   /**
    * @public
@@ -1108,7 +1108,7 @@ export interface ListTransactionsSort {
    * @public
    * <p>Defaults to the value <code>TRANSACTION_TIMESTAMP</code>.</p>
    */
-  sortBy?: ListTransactionsSortBy | string;
+  sortBy?: ListTransactionsSortBy;
 
   /**
    * @public
@@ -1117,7 +1117,7 @@ export interface ListTransactionsSort {
    *              and <code>DESCENDING</code>. Not providing <code>SortOrder</code> will default
    *              to <code>ASCENDING</code>.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 }
 
 /**
@@ -1134,7 +1134,7 @@ export interface ListTransactionsInput {
    * @public
    * <p>The blockchain network where the transactions occurred.</p>
    */
-  network: QueryNetwork | string | undefined;
+  network: QueryNetwork | undefined;
 
   /**
    * @public
@@ -1190,7 +1190,7 @@ export interface TransactionOutputItem {
    * @public
    * <p>The blockchain network where the transaction occurred.</p>
    */
-  network: QueryNetwork | string | undefined;
+  network: QueryNetwork | undefined;
 
   /**
    * @public

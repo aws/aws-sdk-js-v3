@@ -95,7 +95,7 @@ export interface JobExecution {
    * <p>The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED",
    *          "REJECTED", or "REMOVED".</p>
    */
-  status?: JobExecutionStatus | string;
+  status?: JobExecutionStatus;
 
   /**
    * @public
@@ -422,7 +422,7 @@ export interface UpdateJobExecutionRequest {
    * <p>The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified
    *          on every update.</p>
    */
-  status: JobExecutionStatus | string | undefined;
+  status: JobExecutionStatus | undefined;
 
   /**
    * @public
@@ -483,7 +483,7 @@ export interface JobExecutionState {
    * <p>The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED",
    *          "REJECTED", or "REMOVED".</p>
    */
-  status?: JobExecutionStatus | string;
+  status?: JobExecutionStatus;
 
   /**
    * @public

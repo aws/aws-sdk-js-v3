@@ -37,7 +37,7 @@ export interface GetEntitlementsRequest {
    *         <i>unioned</i> for each value in the value list, and then
    *         <i>intersected</i> for each filter key.</p>
    */
-  Filter?: Record<string, string[]>;
+  Filter?: Record<GetEntitlementFilterName, string[]>;
 
   /**
    * @public

@@ -54,7 +54,7 @@ export interface AccountEnrollmentStatus {
    * @public
    * <p>The account enrollment status.</p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -229,7 +229,7 @@ export interface ExternalMetricsPreference {
    * @public
    * <p> Contains the source options for external metrics preferences. </p>
    */
-  source?: ExternalMetricsSource | string;
+  source?: ExternalMetricsSource;
 }
 
 /**
@@ -272,7 +272,7 @@ export interface EffectiveRecommendationPreferences {
    *             </li>
    *          </ul>
    */
-  cpuVendorArchitectures?: (CpuVendorArchitecture | string)[];
+  cpuVendorArchitectures?: CpuVendorArchitecture[];
 
   /**
    * @public
@@ -285,7 +285,7 @@ export interface EffectiveRecommendationPreferences {
    *                 infrastructure metrics</a> in the <i>Compute Optimizer User
    *                 Guide</i>.</p>
    */
-  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
 
   /**
    * @public
@@ -294,7 +294,7 @@ export interface EffectiveRecommendationPreferences {
    *             recommendation refresh. A status of <code>Inactive</code> confirms that it's not yet
    *             applied to recommendations.</p>
    */
-  inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
+  inferredWorkloadTypes?: InferredWorkloadTypesPreference;
 
   /**
    * @public
@@ -538,7 +538,7 @@ export interface UtilizationMetric {
    *             </li>
    *          </ul>
    */
-  name?: MetricName | string;
+  name?: MetricName;
 
   /**
    * @public
@@ -555,7 +555,7 @@ export interface UtilizationMetric {
    *             using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch
    *                 User Guide</a>.</p>
    */
-  statistic?: MetricStatistic | string;
+  statistic?: MetricStatistic;
 
   /**
    * @public
@@ -591,7 +591,7 @@ export interface EstimatedMonthlySavings {
    * <p>The currency of the estimated monthly
    *             savings.</p>
    */
-  currency?: Currency | string;
+  currency?: Currency;
 
   /**
    * @public
@@ -705,7 +705,7 @@ export interface AutoScalingGroupRecommendationOption {
    *                 <code>VeryLow</code> if both the current and recommended instance types are of the
    *             same CPU architecture.</p>
    */
-  migrationEffort?: MigrationEffort | string;
+  migrationEffort?: MigrationEffort;
 
   /**
    * @public
@@ -763,7 +763,7 @@ export interface AutoScalingGroupRecommendation {
    *             </li>
    *          </ul>
    */
-  finding?: Finding | string;
+  finding?: Finding;
 
   /**
    * @public
@@ -805,7 +805,7 @@ export interface AutoScalingGroupRecommendation {
    *             its workloads. The higher the risk, the more likely the current Auto Scaling group
    *             configuration has insufficient capacity and cannot meet workload requirements.</p>
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk | string;
+  currentPerformanceRisk?: CurrentPerformanceRisk;
 
   /**
    * @public
@@ -867,7 +867,7 @@ export interface AutoScalingGroupRecommendation {
    *             </li>
    *          </ul>
    */
-  inferredWorkloadTypes?: (InferredWorkloadType | string)[];
+  inferredWorkloadTypes?: InferredWorkloadType[];
 
   /**
    * @public
@@ -972,7 +972,7 @@ export interface Scope {
    *             </li>
    *          </ul>
    */
-  name?: ScopeName | string;
+  name?: ScopeName;
 
   /**
    * @public
@@ -1014,7 +1014,7 @@ export interface DeleteRecommendationPreferencesRequest {
    *                     <code>AutoScalingGroup</code>.</p>
    *          </note>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -1031,7 +1031,7 @@ export interface DeleteRecommendationPreferencesRequest {
    * @public
    * <p>The name of the recommendation preference to delete.</p>
    */
-  recommendationPreferenceNames: (RecommendationPreferenceName | string)[] | undefined;
+  recommendationPreferenceNames: RecommendationPreferenceName[] | undefined;
 }
 
 /**
@@ -1212,7 +1212,7 @@ export interface JobFilter {
    *          <p>Specify <code>JobStatus</code> to return export jobs with a specific status (e.g,
    *                 <code>Complete</code>).</p>
    */
-  name?: JobFilterName | string;
+  name?: JobFilterName;
 
   /**
    * @public
@@ -1354,13 +1354,13 @@ export interface RecommendationExportJob {
    * @public
    * <p>The resource type of the exported recommendations.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
    * <p>The status of the export job.</p>
    */
-  status?: JobStatus | string;
+  status?: JobStatus;
 
   /**
    * @public
@@ -1542,7 +1542,7 @@ export interface Filter {
    *             your recommendations with a tag key value of <code>Owner</code> or without any tag
    *             keys assigned.</p>
    */
-  name?: FilterName | string;
+  name?: FilterName;
 
   /**
    * @public
@@ -1740,7 +1740,7 @@ export interface RecommendationPreferences {
    *             </li>
    *          </ul>
    */
-  cpuVendorArchitectures?: (CpuVendorArchitecture | string)[];
+  cpuVendorArchitectures?: CpuVendorArchitecture[];
 }
 
 /**
@@ -1800,7 +1800,7 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
    */
-  fieldsToExport?: (ExportableAutoScalingGroupField | string)[];
+  fieldsToExport?: ExportableAutoScalingGroupField[];
 
   /**
    * @public
@@ -1821,7 +1821,7 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
    * <p>The format of the export file.</p>
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    */
-  fileFormat?: FileFormat | string;
+  fileFormat?: FileFormat;
 
   /**
    * @public
@@ -1973,7 +1973,7 @@ export interface EBSFilter {
    *             your Amazon EBS volume recommendations with a tag key value of <code>Owner</code> or without any tag
    *             keys assigned.</p>
    */
-  name?: EBSFilterName | string;
+  name?: EBSFilterName;
 
   /**
    * @public
@@ -2013,7 +2013,7 @@ export interface ExportEBSVolumeRecommendationsRequest {
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
    */
-  fieldsToExport?: (ExportableVolumeField | string)[];
+  fieldsToExport?: ExportableVolumeField[];
 
   /**
    * @public
@@ -2034,7 +2034,7 @@ export interface ExportEBSVolumeRecommendationsRequest {
    * <p>The format of the export file.</p>
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    */
-  fileFormat?: FileFormat | string;
+  fileFormat?: FileFormat;
 
   /**
    * @public
@@ -2191,7 +2191,7 @@ export interface ExportEC2InstanceRecommendationsRequest {
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
    */
-  fieldsToExport?: (ExportableInstanceField | string)[];
+  fieldsToExport?: ExportableInstanceField[];
 
   /**
    * @public
@@ -2213,7 +2213,7 @@ export interface ExportEC2InstanceRecommendationsRequest {
    * <p>The format of the export file.</p>
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    */
-  fileFormat?: FileFormat | string;
+  fileFormat?: FileFormat;
 
   /**
    * @public
@@ -2343,7 +2343,7 @@ export interface ECSServiceRecommendationFilter {
    *             your Amazon ECS service recommendations with a tag key value of <code>Owner</code> or without any tag
    *             keys assigned.</p>
    */
-  name?: ECSServiceRecommendationFilterName | string;
+  name?: ECSServiceRecommendationFilterName;
 
   /**
    * @public
@@ -2401,7 +2401,7 @@ export interface ExportECSServiceRecommendationsRequest {
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *                     Guide</i>.</p>
    */
-  fieldsToExport?: (ExportableECSServiceField | string)[];
+  fieldsToExport?: ExportableECSServiceField[];
 
   /**
    * @public
@@ -2424,7 +2424,7 @@ export interface ExportECSServiceRecommendationsRequest {
    *         </p>
    *          <p>The CSV file is the only export file format currently supported.</p>
    */
-  fileFormat?: FileFormat | string;
+  fileFormat?: FileFormat;
 
   /**
    * @public
@@ -2553,7 +2553,7 @@ export interface LambdaFunctionRecommendationFilter {
    *             your Lambda function recommendations with a tag key value of <code>Owner</code> or without any tag
    *             keys assigned.</p>
    */
-  name?: LambdaFunctionRecommendationFilterName | string;
+  name?: LambdaFunctionRecommendationFilterName;
 
   /**
    * @public
@@ -2607,7 +2607,7 @@ export interface ExportLambdaFunctionRecommendationsRequest {
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
    */
-  fieldsToExport?: (ExportableLambdaFunctionField | string)[];
+  fieldsToExport?: ExportableLambdaFunctionField[];
 
   /**
    * @public
@@ -2628,7 +2628,7 @@ export interface ExportLambdaFunctionRecommendationsRequest {
    * <p>The format of the export file.</p>
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    */
-  fileFormat?: FileFormat | string;
+  fileFormat?: FileFormat;
 
   /**
    * @public
@@ -2745,7 +2745,7 @@ export interface LicenseRecommendationFilter {
    *             your license recommendations with a tag key value of <code>Owner</code> or without any tag
    *             keys assigned.</p>
    */
-  name?: LicenseRecommendationFilterName | string;
+  name?: LicenseRecommendationFilterName;
 
   /**
    * @public
@@ -2801,7 +2801,7 @@ export interface ExportLicenseRecommendationsRequest {
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *                     Guide</i>.</p>
    */
-  fieldsToExport?: (ExportableLicenseField | string)[];
+  fieldsToExport?: ExportableLicenseField[];
 
   /**
    * @public
@@ -2822,7 +2822,7 @@ export interface ExportLicenseRecommendationsRequest {
    * <p>The format of the export file.</p>
    *          <p>A CSV file is the only export format currently supported.</p>
    */
-  fileFormat?: FileFormat | string;
+  fileFormat?: FileFormat;
 
   /**
    * @public
@@ -3163,7 +3163,7 @@ export interface EBSUtilizationMetric {
    *             </li>
    *          </ul>
    */
-  name?: EBSMetricName | string;
+  name?: EBSMetricName;
 
   /**
    * @public
@@ -3180,7 +3180,7 @@ export interface EBSUtilizationMetric {
    *             using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch
    *                 User Guide</a>.</p>
    */
-  statistic?: MetricStatistic | string;
+  statistic?: MetricStatistic;
 
   /**
    * @public
@@ -3278,7 +3278,7 @@ export interface VolumeRecommendation {
    *             </li>
    *          </ul>
    */
-  finding?: EBSFinding | string;
+  finding?: EBSFinding;
 
   /**
    * @public
@@ -3310,7 +3310,7 @@ export interface VolumeRecommendation {
    *             The higher the risk, the more likely the current EBS volume doesn't have sufficient
    *             capacity.</p>
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk | string;
+  currentPerformanceRisk?: CurrentPerformanceRisk;
 
   /**
    * @public
@@ -3433,7 +3433,7 @@ export interface ExternalMetricStatus {
    *             The status code for Compute Optimizer's integration with an external metrics provider.
    *         </p>
    */
-  statusCode?: ExternalMetricStatusCode | string;
+  statusCode?: ExternalMetricStatusCode;
 
   /**
    * @public
@@ -3651,7 +3651,7 @@ export interface InstanceRecommendationOption {
    *             </li>
    *          </ul>
    */
-  platformDifferences?: (PlatformDifference | string)[];
+  platformDifferences?: PlatformDifference[];
 
   /**
    * @public
@@ -3698,7 +3698,7 @@ export interface InstanceRecommendationOption {
    *                 <code>VeryLow</code> if both the current and recommended instance types are of the
    *             same CPU architecture.</p>
    */
-  migrationEffort?: MigrationEffort | string;
+  migrationEffort?: MigrationEffort;
 
   /**
    * @public
@@ -3743,7 +3743,7 @@ export interface RecommendationSource {
    * @public
    * <p>The resource type of the recommendation source.</p>
    */
-  recommendationSourceType?: RecommendationSourceType | string;
+  recommendationSourceType?: RecommendationSourceType;
 }
 
 /**
@@ -3813,7 +3813,7 @@ export interface InstanceRecommendation {
    *             </li>
    *          </ul>
    */
-  finding?: Finding | string;
+  finding?: Finding;
 
   /**
    * @public
@@ -4013,7 +4013,7 @@ export interface InstanceRecommendation {
    *                     User Guide</i>.</p>
    *          </note>
    */
-  findingReasonCodes?: (InstanceRecommendationFindingReasonCode | string)[];
+  findingReasonCodes?: InstanceRecommendationFindingReasonCode[];
 
   /**
    * @public
@@ -4052,7 +4052,7 @@ export interface InstanceRecommendation {
    *             The higher the risk, the more likely the current instance cannot meet the performance
    *             requirements of its workload.</p>
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk | string;
+  currentPerformanceRisk?: CurrentPerformanceRisk;
 
   /**
    * @public
@@ -4114,7 +4114,7 @@ export interface InstanceRecommendation {
    *             </li>
    *          </ul>
    */
-  inferredWorkloadTypes?: (InferredWorkloadType | string)[];
+  inferredWorkloadTypes?: InferredWorkloadType[];
 
   /**
    * @public
@@ -4122,7 +4122,7 @@ export interface InstanceRecommendation {
    *             The state of the instance when the recommendation was generated.
    *         </p>
    */
-  instanceState?: InstanceState | string;
+  instanceState?: InstanceState;
 
   /**
    * @public
@@ -4154,7 +4154,7 @@ export interface InstanceRecommendation {
    *             Describes if an Amazon EC2 instance is idle.
    *         </p>
    */
-  idle?: InstanceIdle | string;
+  idle?: InstanceIdle;
 }
 
 /**
@@ -4199,7 +4199,7 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
    * @public
    * <p>The statistic of the projected metrics.</p>
    */
-  stat: MetricStatistic | string | undefined;
+  stat: MetricStatistic | undefined;
 
   /**
    * @public
@@ -4292,7 +4292,7 @@ export interface ProjectedMetric {
    *             </li>
    *          </ul>
    */
-  name?: MetricName | string;
+  name?: MetricName;
 
   /**
    * @public
@@ -4376,7 +4376,7 @@ export interface GetECSServiceRecommendationProjectedMetricsRequest {
    *             The statistic of the projected metrics.
    *         </p>
    */
-  stat: MetricStatistic | string | undefined;
+  stat: MetricStatistic | undefined;
 
   /**
    * @public
@@ -4445,7 +4445,7 @@ export interface ECSServiceProjectedMetric {
    *             </li>
    *          </ul>
    */
-  name?: ECSServiceMetricName | string;
+  name?: ECSServiceMetricName;
 
   /**
    * @public
@@ -4690,7 +4690,7 @@ export interface ServiceConfiguration {
    *                 Target tracking scaling policies for Application Auto Scaling</a> in the
    *             <i>Application Auto Scaling User Guide</i>.</p>
    */
-  autoScalingConfiguration?: AutoScalingConfiguration | string;
+  autoScalingConfiguration?: AutoScalingConfiguration;
 
   /**
    * @public
@@ -4822,7 +4822,7 @@ export interface ECSServiceProjectedUtilizationMetric {
    *             </li>
    *          </ul>
    */
-  name?: ECSServiceMetricName | string;
+  name?: ECSServiceMetricName;
 
   /**
    * @public
@@ -4839,7 +4839,7 @@ export interface ECSServiceProjectedUtilizationMetric {
    *             using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch
    *                 User Guide</a>.</p>
    */
-  statistic?: ECSServiceMetricStatistic | string;
+  statistic?: ECSServiceMetricStatistic;
 
   /**
    * @public
@@ -4945,7 +4945,7 @@ export interface ECSServiceUtilizationMetric {
    *             </li>
    *          </ul>
    */
-  name?: ECSServiceMetricName | string;
+  name?: ECSServiceMetricName;
 
   /**
    * @public
@@ -4962,7 +4962,7 @@ export interface ECSServiceUtilizationMetric {
    *             using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch
    *                 User Guide</a>.</p>
    */
-  statistic?: ECSServiceMetricStatistic | string;
+  statistic?: ECSServiceMetricStatistic;
 
   /**
    * @public
@@ -5035,7 +5035,7 @@ export interface ECSServiceRecommendation {
    *             <p>Compute Optimizer only supports the Fargate launch type.</p>
    *          </note>
    */
-  launchType?: ECSServiceLaunchType | string;
+  launchType?: ECSServiceLaunchType;
 
   /**
    * @public
@@ -5080,7 +5080,7 @@ export interface ECSServiceRecommendation {
    *             </li>
    *          </ul>
    */
-  finding?: ECSServiceRecommendationFinding | string;
+  finding?: ECSServiceRecommendationFinding;
 
   /**
    * @public
@@ -5127,7 +5127,7 @@ export interface ECSServiceRecommendation {
    *             </li>
    *          </ul>
    */
-  findingReasonCodes?: (ECSServiceRecommendationFindingReasonCode | string)[];
+  findingReasonCodes?: ECSServiceRecommendationFindingReasonCode[];
 
   /**
    * @public
@@ -5145,7 +5145,7 @@ export interface ECSServiceRecommendation {
    *             requirements of its workload.
    *         </p>
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk | string;
+  currentPerformanceRisk?: CurrentPerformanceRisk;
 
   /**
    * @public
@@ -5217,7 +5217,7 @@ export interface GetEffectiveRecommendationPreferencesResponse {
    *                 infrastructure metrics</a> in the <i>Compute Optimizer User
    *                 Guide</i>.</p>
    */
-  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
 
   /**
    * @public
@@ -5250,7 +5250,7 @@ export interface GetEnrollmentStatusResponse {
    * @public
    * <p>The enrollment status of the account.</p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -5308,7 +5308,7 @@ export interface EnrollmentFilter {
    *          <p>Specify <code>Status</code> to return accounts with a specific enrollment status (for
    *             example, <code>Active</code>).</p>
    */
-  name?: EnrollmentFilterName | string;
+  name?: EnrollmentFilterName;
 
   /**
    * @public
@@ -5489,13 +5489,13 @@ export interface LambdaFunctionMemoryProjectedMetric {
    * @public
    * <p>The name of the projected utilization metric.</p>
    */
-  name?: LambdaFunctionMemoryMetricName | string;
+  name?: LambdaFunctionMemoryMetricName;
 
   /**
    * @public
    * <p>The statistic of the projected utilization metric.</p>
    */
-  statistic?: LambdaFunctionMemoryMetricStatistic | string;
+  statistic?: LambdaFunctionMemoryMetricStatistic;
 
   /**
    * @public
@@ -5588,7 +5588,7 @@ export interface LambdaFunctionUtilizationMetric {
    *             </li>
    *          </ul>
    */
-  name?: LambdaFunctionMetricName | string;
+  name?: LambdaFunctionMetricName;
 
   /**
    * @public
@@ -5605,7 +5605,7 @@ export interface LambdaFunctionUtilizationMetric {
    *             using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch
    *                 User Guide</a>.</p>
    */
-  statistic?: LambdaFunctionMetricStatistic | string;
+  statistic?: LambdaFunctionMetricStatistic;
 
   /**
    * @public
@@ -5714,7 +5714,7 @@ export interface LambdaFunctionRecommendation {
    *             </li>
    *          </ul>
    */
-  finding?: LambdaFunctionRecommendationFinding | string;
+  finding?: LambdaFunctionRecommendationFinding;
 
   /**
    * @public
@@ -5768,7 +5768,7 @@ export interface LambdaFunctionRecommendation {
    *             </li>
    *          </ul>
    */
-  findingReasonCodes?: (LambdaFunctionRecommendationFindingReasonCode | string)[];
+  findingReasonCodes?: LambdaFunctionRecommendationFindingReasonCode[];
 
   /**
    * @public
@@ -5783,7 +5783,7 @@ export interface LambdaFunctionRecommendation {
    *             of its workloads. The higher the risk, the more likely the current Lambda
    *             function requires more memory.</p>
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk | string;
+  currentPerformanceRisk?: CurrentPerformanceRisk;
 
   /**
    * @public
@@ -5938,7 +5938,7 @@ export interface MetricSource {
    *             The name of the metric source provider.
    *         </p>
    */
-  provider?: MetricSourceProvider | string;
+  provider?: MetricSourceProvider;
 
   /**
    * @public
@@ -5986,7 +5986,7 @@ export interface LicenseConfiguration {
    *             The edition of the license for the application that runs on the instance.
    *         </p>
    */
-  licenseEdition?: LicenseEdition | string;
+  licenseEdition?: LicenseEdition;
 
   /**
    * @public
@@ -5994,7 +5994,7 @@ export interface LicenseConfiguration {
    *             The name of the license for the application that runs on the instance.
    *         </p>
    */
-  licenseName?: LicenseName | string;
+  licenseName?: LicenseName;
 
   /**
    * @public
@@ -6002,7 +6002,7 @@ export interface LicenseConfiguration {
    *             The license type associated with the instance.
    *         </p>
    */
-  licenseModel?: LicenseModel | string;
+  licenseModel?: LicenseModel;
 
   /**
    * @public
@@ -6084,7 +6084,7 @@ export interface LicenseRecommendationOption {
    *             The recommended edition of the license for the application that runs on the instance.
    *         </p>
    */
-  licenseEdition?: LicenseEdition | string;
+  licenseEdition?: LicenseEdition;
 
   /**
    * @public
@@ -6092,7 +6092,7 @@ export interface LicenseRecommendationOption {
    *             The recommended license type associated with the instance.
    *         </p>
    */
-  licenseModel?: LicenseModel | string;
+  licenseModel?: LicenseModel;
 
   /**
    * @public
@@ -6188,7 +6188,7 @@ export interface LicenseRecommendation {
    *             </li>
    *          </ul>
    */
-  finding?: LicenseFinding | string;
+  finding?: LicenseFinding;
 
   /**
    * @public
@@ -6219,7 +6219,7 @@ export interface LicenseRecommendation {
    *             </li>
    *          </ul>
    */
-  findingReasonCodes?: (LicenseFindingReasonCode | string)[];
+  findingReasonCodes?: LicenseFindingReasonCode[];
 
   /**
    * @public
@@ -6283,7 +6283,7 @@ export interface GetRecommendationPreferencesRequest {
    *                     <code>AutoScalingGroup</code>.</p>
    *          </note>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -6335,7 +6335,7 @@ export interface RecommendationPreferencesDetail {
    *             that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option
    *             encompasses only instances that are part of an Auto Scaling group.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -6348,7 +6348,7 @@ export interface RecommendationPreferencesDetail {
    *                 infrastructure metrics</a> in the <i>Compute Optimizer User
    *                 Guide</i>.</p>
    */
-  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
 
   /**
    * @public
@@ -6358,7 +6358,7 @@ export interface RecommendationPreferencesDetail {
    *                 <code>Inactive</code> confirms that the preference isn't yet applied to
    *             recommendations.</p>
    */
-  inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
+  inferredWorkloadTypes?: InferredWorkloadTypesPreference;
 
   /**
    * @public
@@ -6515,7 +6515,7 @@ export interface InferredWorkloadSaving {
    *             </li>
    *          </ul>
    */
-  inferredWorkloadTypes?: (InferredWorkloadType | string)[];
+  inferredWorkloadTypes?: InferredWorkloadType[];
 
   /**
    * @public
@@ -6548,7 +6548,7 @@ export interface ReasonCodeSummary {
    * @public
    * <p>The name of the finding reason code.</p>
    */
-  name?: FindingReasonCode | string;
+  name?: FindingReasonCode;
 
   /**
    * @public
@@ -6566,7 +6566,7 @@ export interface Summary {
    * @public
    * <p>The finding classification of the recommendation.</p>
    */
-  name?: Finding | string;
+  name?: Finding;
 
   /**
    * @public
@@ -6596,7 +6596,7 @@ export interface RecommendationSummary {
    * @public
    * <p>The resource type that the recommendation summary applies to.</p>
    */
-  recommendationResourceType?: RecommendationSourceType | string;
+  recommendationResourceType?: RecommendationSourceType;
 
   /**
    * @public
@@ -6663,7 +6663,7 @@ export interface PutRecommendationPreferencesRequest {
    *                     <code>AutoScalingGroup</code>.</p>
    *          </note>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -6696,7 +6696,7 @@ export interface PutRecommendationPreferencesRequest {
    *                 infrastructure metrics</a> in the <i>Compute Optimizer User
    *                 Guide</i>.</p>
    */
-  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
 
   /**
    * @public
@@ -6711,7 +6711,7 @@ export interface PutRecommendationPreferencesRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/inferred-workload-types.html">Inferred workload
    *                 types</a> in the <i>Compute Optimizer User Guide</i>.</p>
    */
-  inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
+  inferredWorkloadTypes?: InferredWorkloadTypesPreference;
 
   /**
    * @public
@@ -6762,7 +6762,7 @@ export interface UpdateEnrollmentStatusRequest {
    *                 to update the enrollment status of an account.</p>
    *          </note>
    */
-  status: Status | string | undefined;
+  status: Status | undefined;
 
   /**
    * @public
@@ -6780,7 +6780,7 @@ export interface UpdateEnrollmentStatusResponse {
    * @public
    * <p>The enrollment status of the account.</p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public

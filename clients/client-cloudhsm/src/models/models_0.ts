@@ -236,7 +236,7 @@ export interface CreateHsmRequest {
    *             </li>
    *          </ul>
    */
-  SubscriptionType: SubscriptionType | string | undefined;
+  SubscriptionType: SubscriptionType | undefined;
 
   /**
    * @public
@@ -451,7 +451,7 @@ export interface DescribeHapgResponse {
    * @public
    * <p>The state of the high-availability partition group.</p>
    */
-  State?: CloudHsmObjectState | string;
+  State?: CloudHsmObjectState;
 }
 
 /**
@@ -508,7 +508,7 @@ export interface DescribeHsmResponse {
    * @public
    * <p>The status of the HSM.</p>
    */
-  Status?: HsmStatus | string;
+  Status?: HsmStatus;
 
   /**
    * @public
@@ -550,7 +550,7 @@ export interface DescribeHsmResponse {
    *             </li>
    *          </ul>
    */
-  SubscriptionType?: SubscriptionType | string;
+  SubscriptionType?: SubscriptionType;
 
   /**
    * @public
@@ -703,7 +703,7 @@ export interface GetConfigRequest {
    * @public
    * <p>The client version.</p>
    */
-  ClientVersion: ClientVersion | string | undefined;
+  ClientVersion: ClientVersion | undefined;
 
   /**
    * @public

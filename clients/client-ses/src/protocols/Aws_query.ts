@@ -5713,10 +5713,7 @@ const se_ConfigurationSet = (input: ConfigurationSet, context: __SerdeContext): 
 /**
  * serializeAws_queryConfigurationSetAttributeList
  */
-const se_ConfigurationSetAttributeList = (
-  input: (ConfigurationSetAttribute | string)[],
-  context: __SerdeContext
-): any => {
+const se_ConfigurationSetAttributeList = (input: ConfigurationSetAttribute[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -6187,7 +6184,7 @@ const se_EventDestination = (input: EventDestination, context: __SerdeContext): 
 /**
  * serializeAws_queryEventTypes
  */
-const se_EventTypes = (input: (EventType | string)[], context: __SerdeContext): any => {
+const se_EventTypes = (input: EventType[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -8255,7 +8252,7 @@ const de_EventDestinations = (output: any, context: __SerdeContext): EventDestin
 /**
  * deserializeAws_queryEventTypes
  */
-const de_EventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
+const de_EventTypes = (output: any, context: __SerdeContext): EventType[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

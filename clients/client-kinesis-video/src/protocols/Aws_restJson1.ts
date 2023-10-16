@@ -120,6 +120,7 @@ import {
   DeviceStreamLimitExceededException,
   EdgeAgentStatus,
   EdgeConfig,
+  FormatConfigKey,
   ImageGenerationConfiguration,
   ImageGenerationDestinationConfig,
   InvalidArgumentException,

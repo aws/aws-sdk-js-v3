@@ -105,7 +105,7 @@ export interface ModuleLoggingConfigurationInput {
    * @public
    * <p>Defines the Apache Airflow log level (e.g. <code>INFO</code>) to send to CloudWatch Logs.</p>
    */
-  LogLevel: LoggingLevel | string | undefined;
+  LogLevel: LoggingLevel | undefined;
 }
 
 /**
@@ -317,7 +317,7 @@ export interface CreateEnvironmentInput {
    * @public
    * <p>The Apache Airflow <i>Web server</i> access mode. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
    */
-  WebserverAccessMode?: WebserverAccessMode | string;
+  WebserverAccessMode?: WebserverAccessMode;
 
   /**
    * @public
@@ -488,7 +488,7 @@ export interface LastUpdate {
    * @public
    * <p>The status of the last update on the environment.</p>
    */
-  Status?: UpdateStatus | string;
+  Status?: UpdateStatus;
 
   /**
    * @public
@@ -524,7 +524,7 @@ export interface ModuleLoggingConfiguration {
    * @public
    * <p>The Apache Airflow log level for the log type (e.g. <code>DagProcessingLogs</code>). </p>
    */
-  LogLevel?: LoggingLevel | string;
+  LogLevel?: LoggingLevel;
 
   /**
    * @public
@@ -651,7 +651,7 @@ export interface Environment {
    *          </ul>
    *          <p>We recommend reviewing our troubleshooting guide for a list of common errors and their solutions. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/troubleshooting.html">Amazon MWAA troubleshooting</a>.</p>
    */
-  Status?: EnvironmentStatus | string;
+  Status?: EnvironmentStatus;
 
   /**
    * @public
@@ -826,7 +826,7 @@ export interface Environment {
    * @public
    * <p>The Apache Airflow <i>Web server</i> access mode. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
    */
-  WebserverAccessMode?: WebserverAccessMode | string;
+  WebserverAccessMode?: WebserverAccessMode;
 
   /**
    * @public
@@ -1042,7 +1042,7 @@ export interface MetricDatum {
    * <p>
    *             <b>Internal only</b>. The unit used to store the metric.</p>
    */
-  Unit?: Unit | string;
+  Unit?: Unit;
 
   /**
    * @public
@@ -1262,7 +1262,7 @@ export interface UpdateEnvironmentInput {
    * @public
    * <p>The Apache Airflow <i>Web server</i> access mode. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
    */
-  WebserverAccessMode?: WebserverAccessMode | string;
+  WebserverAccessMode?: WebserverAccessMode;
 
   /**
    * @public

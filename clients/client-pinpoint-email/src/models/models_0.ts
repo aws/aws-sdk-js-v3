@@ -110,7 +110,7 @@ export interface DeliveryOptions {
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
-  TlsPolicy?: TlsPolicy | string;
+  TlsPolicy?: TlsPolicy;
 
   /**
    * @public
@@ -388,7 +388,7 @@ export interface CloudWatchDimensionConfiguration {
    *             want Amazon Pinpoint to use your own email headers, choose <code>emailHeader</code>. If you want
    *             Amazon Pinpoint to use link tags, choose <code>linkTags</code>.</p>
    */
-  DimensionValueSource: DimensionValueSource | string | undefined;
+  DimensionValueSource: DimensionValueSource | undefined;
 
   /**
    * @public
@@ -516,7 +516,7 @@ export interface EventDestinationDefinition {
    * <p>An array that specifies which events Amazon Pinpoint should send to the destinations in this
    *                 <code>EventDestinationDefinition</code>.</p>
    */
-  MatchingEventTypes?: (EventType | string)[];
+  MatchingEventTypes?: EventType[];
 
   /**
    * @public
@@ -854,7 +854,7 @@ export interface CreateDeliverabilityTestReportResponse {
    *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
    *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
    */
-  DeliverabilityTestStatus: DeliverabilityTestStatus | string | undefined;
+  DeliverabilityTestStatus: DeliverabilityTestStatus | undefined;
 }
 
 /**
@@ -1003,7 +1003,7 @@ export interface DkimAttributes {
    *             </li>
    *          </ul>
    */
-  Status?: DkimStatus | string;
+  Status?: DkimStatus;
 
   /**
    * @public
@@ -1043,7 +1043,7 @@ export interface CreateEmailIdentityResponse {
    * @public
    * <p>The email identity type.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: IdentityType;
 
   /**
    * @public
@@ -1411,7 +1411,7 @@ export interface EventDestination {
    * @public
    * <p>The types of events that Amazon Pinpoint sends to the specified event destinations.</p>
    */
-  MatchingEventTypes: (EventType | string)[] | undefined;
+  MatchingEventTypes: EventType[] | undefined;
 
   /**
    * @public
@@ -1513,7 +1513,7 @@ export interface DedicatedIp {
    *             </li>
    *          </ul>
    */
-  WarmupStatus: WarmupStatus | string | undefined;
+  WarmupStatus: WarmupStatus | undefined;
 
   /**
    * @public
@@ -1698,7 +1698,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
    *                 <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end
    *             of the current calendar month.</p>
    */
-  AccountStatus?: DeliverabilityDashboardAccountStatus | string;
+  AccountStatus?: DeliverabilityDashboardAccountStatus;
 
   /**
    * @public
@@ -1771,7 +1771,7 @@ export interface DeliverabilityTestReport {
    *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
    *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
    */
-  DeliverabilityTestStatus?: DeliverabilityTestStatus | string;
+  DeliverabilityTestStatus?: DeliverabilityTestStatus;
 }
 
 /**
@@ -2274,7 +2274,7 @@ export interface MailFromAttributes {
    *             </li>
    *          </ul>
    */
-  MailFromDomainStatus: MailFromDomainStatus | string | undefined;
+  MailFromDomainStatus: MailFromDomainStatus | undefined;
 
   /**
    * @public
@@ -2287,7 +2287,7 @@ export interface MailFromAttributes {
    *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
    *             states.</p>
    */
-  BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
+  BehaviorOnMxFailure: BehaviorOnMxFailure | undefined;
 }
 
 /**
@@ -2299,7 +2299,7 @@ export interface GetEmailIdentityResponse {
    * @public
    * <p>The email identity type.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: IdentityType;
 
   /**
    * @public
@@ -2600,7 +2600,7 @@ export interface IdentityInfo {
    *             </li>
    *          </ul>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: IdentityType;
 
   /**
    * @public
@@ -2731,7 +2731,7 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
-  TlsPolicy?: TlsPolicy | string;
+  TlsPolicy?: TlsPolicy;
 
   /**
    * @public
@@ -3025,7 +3025,7 @@ export interface PutEmailIdentityMailFromAttributesRequest {
    *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
    *             states.</p>
    */
-  BehaviorOnMxFailure?: BehaviorOnMxFailure | string;
+  BehaviorOnMxFailure?: BehaviorOnMxFailure;
 }
 
 /**

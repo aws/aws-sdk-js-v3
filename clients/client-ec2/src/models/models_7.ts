@@ -100,7 +100,7 @@ export interface SpotMarketOptions {
    *             Spot Instance requests are only supported when the instance interruption behavior is
    *             either <code>hibernate</code> or <code>stop</code>.</p>
    */
-  SpotInstanceType?: SpotInstanceType | string;
+  SpotInstanceType?: SpotInstanceType;
 
   /**
    * @public
@@ -132,7 +132,7 @@ export interface SpotMarketOptions {
    * <p>The behavior when a Spot Instance is interrupted. The default is
    *                 <code>terminate</code>.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior;
 }
 
 /**
@@ -144,7 +144,7 @@ export interface InstanceMarketOptionsRequest {
    * @public
    * <p>The market type.</p>
    */
-  MarketType?: MarketType | string;
+  MarketType?: MarketType;
 
   /**
    * @public
@@ -210,7 +210,7 @@ export interface InstanceMaintenanceOptionsRequest {
    * <p>Disables the automatic recovery behavior of your instance or sets it to default. For
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
    */
-  AutoRecovery?: InstanceAutoRecoveryState | string;
+  AutoRecovery?: InstanceAutoRecoveryState;
 }
 
 /**
@@ -242,7 +242,7 @@ export interface InstanceMetadataOptionsRequest {
    *          <p>Default: <code>optional</code>
    *          </p>
    */
-  HttpTokens?: HttpTokensState | string;
+  HttpTokens?: HttpTokensState;
 
   /**
    * @public
@@ -261,13 +261,13 @@ export interface InstanceMetadataOptionsRequest {
    *          <p>Default: <code>enabled</code>
    *          </p>
    */
-  HttpEndpoint?: InstanceMetadataEndpointState | string;
+  HttpEndpoint?: InstanceMetadataEndpointState;
 
   /**
    * @public
    * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
    */
-  HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
+  HttpProtocolIpv6?: InstanceMetadataProtocolState;
 
   /**
    * @public
@@ -278,7 +278,7 @@ export interface InstanceMetadataOptionsRequest {
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  InstanceMetadataTags?: InstanceMetadataTagsState | string;
+  InstanceMetadataTags?: InstanceMetadataTagsState;
 }
 
 /**
@@ -293,7 +293,7 @@ export interface PrivateDnsNameOptionsRequest {
    *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
    *             names use the instance IPv4 address or the instance ID.</p>
    */
-  HostnameType?: HostnameType | string;
+  HostnameType?: HostnameType;
 
   /**
    * @public
@@ -334,7 +334,7 @@ export interface RunInstancesRequest {
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -530,7 +530,7 @@ export interface RunInstancesRequest {
    *          <p>Default: <code>stop</code>
    *          </p>
    */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior;
 
   /**
    * @public
@@ -1332,7 +1332,7 @@ export interface TransitGatewayMulticastGroup {
    * @public
    * <p>The type of resource, for example a VPC attachment.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
    * @public
@@ -1362,13 +1362,13 @@ export interface TransitGatewayMulticastGroup {
    * @public
    * <p>The member type (for example, <code>static</code>).</p>
    */
-  MemberType?: MembershipType | string;
+  MemberType?: MembershipType;
 
   /**
    * @public
    * <p>The source type.</p>
    */
-  SourceType?: MembershipType | string;
+  SourceType?: MembershipType;
 }
 
 /**

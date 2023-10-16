@@ -47,7 +47,7 @@ export interface CreateConnectionInput {
    * <p>The name of the external provider where your third-party code repository is
    *       configured.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: ProviderType;
 
   /**
    * @public
@@ -204,7 +204,7 @@ export interface CreateHostInput {
    *       resource represents the infrastructure where your provider type is installed. The valid
    *       provider type is GitHub Enterprise Server.</p>
    */
-  ProviderType: ProviderType | string | undefined;
+  ProviderType: ProviderType | undefined;
 
   /**
    * @public
@@ -325,7 +325,7 @@ export interface Connection {
    * <p>The name of the external provider where your third-party code repository is
    *       configured.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: ProviderType;
 
   /**
    * @public
@@ -338,7 +338,7 @@ export interface Connection {
    * @public
    * <p>The current status of the connection. </p>
    */
-  ConnectionStatus?: ConnectionStatus | string;
+  ConnectionStatus?: ConnectionStatus;
 
   /**
    * @public
@@ -389,7 +389,7 @@ export interface GetHostOutput {
    * @public
    * <p>The provider type of the requested host, such as GitHub Enterprise Server.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: ProviderType;
 
   /**
    * @public
@@ -413,7 +413,7 @@ export interface ListConnectionsInput {
    * <p>Filters the list of connections to those associated with a specified provider, such as
    *       Bitbucket.</p>
    */
-  ProviderTypeFilter?: ProviderType | string;
+  ProviderTypeFilter?: ProviderType;
 
   /**
    * @public
@@ -504,7 +504,7 @@ export interface Host {
    *       resource represents the infrastructure where your provider type is installed. The valid
    *       provider type is GitHub Enterprise Server.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: ProviderType;
 
   /**
    * @public

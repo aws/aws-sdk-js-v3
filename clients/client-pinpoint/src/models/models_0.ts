@@ -194,7 +194,7 @@ export interface AttributeDimension {
    * @public
    * <p>The type of segment dimension to use. Valid values are: <ul><li>INCLUSIVE - endpoints that have attributes matching the values are included in the segment.</li><li>EXCLUSIVE - endpoints that have attributes matching the values are excluded in the segment.</li><li>CONTAINS - endpoints that have attributes' substrings match the values are included in the segment.</li><li>BEFORE - endpoints with attributes read as ISO_INSTANT datetimes before the value are included in the segment.</li><li>AFTER - endpoints with attributes read as ISO_INSTANT datetimes after the value are included in the segment.</li><li>ON - endpoints with attributes read as ISO_INSTANT dates on the value are included in the segment. Time is ignored in this comparison.</li><li>BETWEEN - endpoints with attributes read as ISO_INSTANT datetimes between the values are included in the segment.</li></p>
    */
-  AttributeType?: AttributeType | string;
+  AttributeType?: AttributeType;
 
   /**
    * @public
@@ -226,7 +226,7 @@ export interface SetDimension {
    * @public
    * <p>The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.</p>
    */
-  DimensionType?: DimensionType | string;
+  DimensionType?: DimensionType;
 
   /**
    * @public
@@ -346,13 +346,13 @@ export interface RecencyDimension {
    * @public
    * <p>The duration to use when determining whether an endpoint is active or inactive.</p>
    */
-  Duration: Duration | string | undefined;
+  Duration: Duration | undefined;
 
   /**
    * @public
    * <p>The type of recency dimension to use for the segment. Valid values are: ACTIVE, endpoints that were active within the specified duration are included in the segment; and, INACTIVE, endpoints that weren't active within the specified duration are included in the segment.</p>
    */
-  RecencyType: RecencyType | string | undefined;
+  RecencyType: RecencyType | undefined;
 }
 
 /**
@@ -558,7 +558,7 @@ export interface Condition {
    * @public
    * <p>Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.</p>
    */
-  Operator?: Operator | string;
+  Operator?: Operator;
 }
 
 /**
@@ -647,7 +647,7 @@ export interface CustomMessageActivity {
    * @public
    * <p>The types of endpoints to send the custom message to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.</p>
    */
-  EndpointTypes?: (__EndpointTypesElement | string)[];
+  EndpointTypes?: __EndpointTypesElement[];
 
   /**
    * @public
@@ -871,7 +871,7 @@ export interface JourneySMSMessage {
    * @public
    * <p>The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -1058,7 +1058,7 @@ export interface AddressConfiguration {
    * @public
    * <p>The channel to use when sending the message.</p>
    */
-  ChannelType?: ChannelType | string;
+  ChannelType?: ChannelType;
 
   /**
    * @public
@@ -1184,7 +1184,7 @@ export interface ADMMessage {
    * @public
    * <p>The action to occur if the recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -1301,7 +1301,7 @@ export interface AndroidPushNotificationTemplate {
    * @public
    * <p>The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -1499,7 +1499,7 @@ export interface APNSMessage {
    * @public
    * <p>The action to occur if the recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -1607,7 +1607,7 @@ export interface APNSPushNotificationTemplate {
    * @public
    * <p>The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -2245,7 +2245,7 @@ export interface CampaignHook {
    * @public
    * <p>The mode that Amazon Pinpoint uses to invoke the AWS Lambda function. Possible values are:</p> <ul><li><p>FILTER - Invoke the function to customize the segment that's used by a campaign.</p></li> <li><p>DELIVERY - (Deprecated) Previously, invoked the function to send a campaign through a custom channel. This functionality is not supported anymore. To send a campaign through a custom channel, use the CustomDeliveryConfiguration and CampaignCustomMessage objects of the campaign.</p></li></ul>
    */
-  Mode?: Mode | string;
+  Mode?: Mode;
 
   /**
    * @public
@@ -2530,7 +2530,7 @@ export interface BaiduMessage {
    * @public
    * <p>The action to occur if the recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -2745,7 +2745,7 @@ export interface CampaignEventFilter {
    * @public
    * <p>The type of event that causes the campaign to be sent. Valid values are: SYSTEM, sends the campaign when a system event occurs; and, ENDPOINT, sends the campaign when an endpoint event (<link  linkend="apps-application-id-events">Events</link> resource) occurs.</p>
    */
-  FilterType: FilterType | string | undefined;
+  FilterType: FilterType | undefined;
 }
 
 /**
@@ -2757,7 +2757,7 @@ export interface InAppMessageBodyConfig {
    * @public
    * <p>The alignment of the text. Valid values: LEFT, CENTER, RIGHT.</p>
    */
-  Alignment: Alignment | string | undefined;
+  Alignment: Alignment | undefined;
 
   /**
    * @public
@@ -2781,7 +2781,7 @@ export interface InAppMessageHeaderConfig {
    * @public
    * <p>The alignment of the text. Valid values: LEFT, CENTER, RIGHT.</p>
    */
-  Alignment: Alignment | string | undefined;
+  Alignment: Alignment | undefined;
 
   /**
    * @public
@@ -2805,7 +2805,7 @@ export interface OverrideButtonConfiguration {
    * @public
    * <p>Action triggered by the button.</p>
    */
-  ButtonAction: ButtonAction | string | undefined;
+  ButtonAction: ButtonAction | undefined;
 
   /**
    * @public
@@ -2835,7 +2835,7 @@ export interface DefaultButtonConfiguration {
    * @public
    * <p>Action triggered by the button.</p>
    */
-  ButtonAction: ButtonAction | string | undefined;
+  ButtonAction: ButtonAction | undefined;
 
   /**
    * @public
@@ -2973,7 +2973,7 @@ export interface CampaignInAppMessage {
    * @public
    * <p>In-app message layout.</p>
    */
-  Layout?: Layout | string;
+  Layout?: Layout;
 }
 
 /**
@@ -2991,7 +2991,7 @@ export interface CustomDeliveryConfiguration {
    * @public
    * <p>The types of endpoints to send the campaign or treatment to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.</p>
    */
-  EndpointTypes?: (__EndpointTypesElement | string)[];
+  EndpointTypes?: __EndpointTypesElement[];
 }
 
 /**
@@ -3003,7 +3003,7 @@ export interface Message {
    * @public
    * <p>The action to occur if a recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of iOS and Android.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -3087,7 +3087,7 @@ export interface CampaignSmsMessage {
    * @public
    * <p>The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -3214,7 +3214,7 @@ export interface Schedule {
    * @public
    * <p>Specifies how often the campaign is sent or whether the campaign is sent in response to a specific event.</p>
    */
-  Frequency?: Frequency | string;
+  Frequency?: Frequency;
 
   /**
    * @public
@@ -3272,7 +3272,7 @@ export interface CampaignState {
    * @public
    * <p>The current status of the campaign, or the current status of a treatment that belongs to an A/B test campaign.</p> <p>If a campaign uses A/B testing, the campaign has a status of COMPLETED only if all campaign treatments have a status of COMPLETED. If you delete the segment that's associated with a campaign, the campaign fails and has a status of DELETED.</p>
    */
-  CampaignStatus?: CampaignStatus | string;
+  CampaignStatus?: CampaignStatus;
 }
 
 /**
@@ -4405,7 +4405,7 @@ export interface ExportJobResponse {
    * @public
    * <p>The status of the export job. The job status is FAILED if Amazon Pinpoint wasn't able to process one or more pieces in the job.</p>
    */
-  JobStatus: JobStatus | string | undefined;
+  JobStatus: JobStatus | undefined;
 
   /**
    * @public
@@ -4478,7 +4478,7 @@ export interface ImportJobRequest {
    * @public
    * <p>The format of the files that contain the endpoint definitions to import. Valid values are: CSV, for comma-separated values format; and, JSON, for newline-delimited JSON format. If the Amazon S3 location stores multiple files that use different formats, Amazon Pinpoint imports data only from the files that use the specified format.</p>
    */
-  Format: Format | string | undefined;
+  Format: Format | undefined;
 
   /**
    * @public
@@ -4549,7 +4549,7 @@ export interface ImportJobResource {
    * @public
    * <p>The format of the files that contain the endpoint definitions to import. Valid values are: CSV, for comma-separated values format; and, JSON, for newline-delimited JSON format.</p> <p>If the files are stored in an Amazon S3 location and that location contains multiple files that use different formats, Amazon Pinpoint imports data only from the files that use the specified format.</p>
    */
-  Format: Format | string | undefined;
+  Format: Format | undefined;
 
   /**
    * @public
@@ -4639,7 +4639,7 @@ export interface ImportJobResponse {
    * @public
    * <p>The status of the import job. The job status is FAILED if Amazon Pinpoint wasn't able to process one or more pieces in the job.</p>
    */
-  JobStatus: JobStatus | string | undefined;
+  JobStatus: JobStatus | undefined;
 
   /**
    * @public
@@ -4698,7 +4698,7 @@ export interface InAppTemplateRequest {
    * @public
    * <p>The layout of the message.</p>
    */
-  Layout?: Layout | string;
+  Layout?: Layout;
 
   /**
    * @public
@@ -4871,31 +4871,31 @@ export interface OpenHours {
    * @public
    * <p>Specifies the schedule settings for the email channel.</p>
    */
-  EMAIL?: Record<string, OpenHoursRule[]>;
+  EMAIL?: Record<DayOfWeek, OpenHoursRule[]>;
 
   /**
    * @public
    * <p>Specifies the schedule settings for the SMS channel.</p>
    */
-  SMS?: Record<string, OpenHoursRule[]>;
+  SMS?: Record<DayOfWeek, OpenHoursRule[]>;
 
   /**
    * @public
    * <p>Specifies the schedule settings for the push channel.</p>
    */
-  PUSH?: Record<string, OpenHoursRule[]>;
+  PUSH?: Record<DayOfWeek, OpenHoursRule[]>;
 
   /**
    * @public
    * <p>Specifies the schedule settings for the voice channel.</p>
    */
-  VOICE?: Record<string, OpenHoursRule[]>;
+  VOICE?: Record<DayOfWeek, OpenHoursRule[]>;
 
   /**
    * @public
    * <p>Specifies the schedule settings for the custom channel.</p>
    */
-  CUSTOM?: Record<string, OpenHoursRule[]>;
+  CUSTOM?: Record<DayOfWeek, OpenHoursRule[]>;
 }
 
 /**
@@ -4942,7 +4942,7 @@ export interface EventFilter {
    * @public
    * <p>The type of event that causes the campaign to be sent or the journey activity to be performed. Valid values are: SYSTEM, sends the campaign or performs the activity when a system event occurs; and, ENDPOINT, sends the campaign or performs the activity when an endpoint event (<link  linkend="apps-application-id-events">Events resource</link>) occurs.</p>
    */
-  FilterType: FilterType | string | undefined;
+  FilterType: FilterType | undefined;
 }
 
 /**
@@ -5076,7 +5076,7 @@ export interface WriteJourneyRequest {
    * @public
    * <p>The status of the journey. Valid values are:</p> <ul><li><p>DRAFT - Saves the journey and doesn't publish it.</p></li> <li><p>ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li></ul> <p>PAUSED, CANCELLED, COMPLETED, and CLOSED states are not supported in requests to create or update a journey. To cancel, pause, or resume a journey, use the <link  linkend="apps-application-id-journeys-journey-id-state">Journey State</link> resource.</p>
    */
-  State?: State | string;
+  State?: State;
 
   /**
    * @public
@@ -5118,7 +5118,7 @@ export interface WriteJourneyRequest {
    * @public
    * <p>An array of time zone estimation methods, if any, to use for determining an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html">Endpoints</a> time zone if the Endpoint does not have a value for the Demographic.Timezone attribute.</p> <ul> <li><p>PHONE_NUMBER - A time zone is determined based on the Endpoint.Address and Endpoint.Location.Country.</p></li> <li><p>POSTAL_CODE - A time zone is determined based on the Endpoint.Location.PostalCode and Endpoint.Location.Country.</p> <note><p>POSTAL_CODE detection is only supported in the United States, United Kingdom, Australia, New Zealand, Canada, France, Italy, Spain, Germany and in regions where Amazon Pinpoint is available.</p></note></li> </ul>
    */
-  TimezoneEstimationMethods?: (__TimezoneEstimationMethodsElement | string)[];
+  TimezoneEstimationMethods?: __TimezoneEstimationMethodsElement[];
 }
 
 /**
@@ -5225,7 +5225,7 @@ export interface JourneyResponse {
    * @public
    * <p>The current status of the journey. Possible values are:</p> <ul><li><p>DRAFT - The journey is being developed and hasn't been published yet.</p></li> <li><p>ACTIVE - The journey has been developed and published. Depending on the journey's schedule, the journey may currently be running or scheduled to start running at a later time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li> <li><p>COMPLETED - The journey has been published and has finished running. All participants have entered the journey and no participants are waiting to complete the journey or any activities in the journey.</p></li> <li><p>CANCELLED - The journey has been stopped. If a journey's status is CANCELLED, you can't add, change, or remove activities or segment settings from the journey.</p></li> <li><p>CLOSED - The journey has been published and has started running. It may have also passed its scheduled end time, or passed its scheduled start time and a refresh frequency hasn't been specified for it. If a journey's status is CLOSED, you can't add participants to it, and no existing participants can enter the journey for the first time. However, any existing participants who are currently waiting to start an activity may continue the journey.</p></li></ul>
    */
-  State?: State | string;
+  State?: State;
 
   /**
    * @public
@@ -5273,7 +5273,7 @@ export interface JourneyResponse {
    * @public
    * <p>An array of time zone estimation methods, if any, to use for determining an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html">Endpoints</a> time zone if the Endpoint does not have a value for the Demographic.Timezone attribute.</p> <ul> <li><p>PHONE_NUMBER - A time zone is determined based on the Endpoint.Address and Endpoint.Location.Country.</p></li> <li><p>POSTAL_CODE - A time zone is determined based on the Endpoint.Location.PostalCode and Endpoint.Location.Country.</p> <note><p>POSTAL_CODE detection is only supported in the United States, United Kingdom, Australia, New Zealand, Canada, France, Italy, Spain, Germany and in regions where Amazon Pinpoint is available.</p></note></li> </ul>
    */
-  TimezoneEstimationMethods?: (__TimezoneEstimationMethodsElement | string)[];
+  TimezoneEstimationMethods?: __TimezoneEstimationMethodsElement[];
 }
 
 /**
@@ -5296,7 +5296,7 @@ export interface DefaultPushNotificationTemplate {
    * @public
    * <p>The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS and Android platforms.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -5640,13 +5640,13 @@ export interface SegmentGroup {
    * @public
    * <p>Specifies how to handle multiple base segments for the segment. For example, if you specify three base segments for the segment, whether the resulting segment is based on all, any, or none of the base segments.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
    * <p>Specifies how to handle multiple dimensions for the segment. For example, if you specify three dimensions for the segment, whether the resulting segment includes endpoints that match all, any, or none of the dimensions.</p>
    */
-  Type?: Type | string;
+  Type?: Type;
 }
 
 /**
@@ -5679,7 +5679,7 @@ export interface SegmentGroupList {
    * @public
    * <p>Specifies how to handle multiple segment groups for the segment. For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.</p>
    */
-  Include?: Include | string;
+  Include?: Include;
 }
 
 /**
@@ -5750,7 +5750,7 @@ export interface SegmentImportResource {
    * @public
    * <p>The format of the files that were imported to create the segment. Valid values are: CSV, for comma-separated values format; and, JSON, for newline-delimited JSON format.</p>
    */
-  Format: Format | string | undefined;
+  Format: Format | undefined;
 
   /**
    * @public
@@ -5848,7 +5848,7 @@ export interface SegmentResponse {
    * @public
    * <p>The segment type. Valid values are:</p> <ul><li><p>DIMENSIONAL - A dynamic segment, which is a segment that uses selection criteria that you specify and is based on endpoint data that's reported by your app. Dynamic segments can change over time.</p></li> <li><p>IMPORT - A static segment, which is a segment that uses selection criteria that you specify and is based on endpoint definitions that you import from a file. Imported segments are static; they don't change over time.</p></li></ul>
    */
-  SegmentType: SegmentType | string | undefined;
+  SegmentType: SegmentType | undefined;
 
   /**
    * @public
@@ -6035,7 +6035,7 @@ export interface DefaultPushNotificationMessage {
    * @public
    * <p>The default action to occur if a recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS and Android platforms.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -6578,7 +6578,7 @@ export interface EndpointResponse {
    * @public
    * <p>The channel that's used when sending messages or push notifications to the endpoint.</p>
    */
-  ChannelType?: ChannelType | string;
+  ChannelType?: ChannelType;
 
   /**
    * @public
@@ -7390,7 +7390,7 @@ export interface GCMMessage {
    * @public
    * <p>The action to occur if the recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -7522,7 +7522,7 @@ export interface SMSMessage {
    * @public
    * <p>The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -7773,7 +7773,7 @@ export interface EmailTemplateResponse {
    * @public
    * <p>The type of channel that the message template is designed for. For an email template, this value is EMAIL.</p>
    */
-  TemplateType: TemplateType | string | undefined;
+  TemplateType: TemplateType | undefined;
 
   /**
    * @public
@@ -7809,7 +7809,7 @@ export interface EndpointBatchItem {
    * @public
    * <p>The channel to use when sending messages or push notifications to the endpoint.</p>
    */
-  ChannelType?: ChannelType | string;
+  ChannelType?: ChannelType;
 
   /**
    * @public
@@ -7911,7 +7911,7 @@ export interface EndpointMessageResult {
    * @public
    * <p>The delivery status of the message. Possible values are:</p> <ul> <li><p>DUPLICATE - The endpoint address is a duplicate of another endpoint address. Amazon Pinpoint won't attempt to send the message again.</p></li> <li><p>OPT_OUT - The user who's associated with the endpoint has opted out of receiving messages from you. Amazon Pinpoint won't attempt to send the message again.</p></li> <li><p>PERMANENT_FAILURE - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again.</p></li>    <li><p>SUCCESSFUL - The message was successfully delivered to the endpoint.</p></li> <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't attempt to send the message again.</p></li> <li><p>THROTTLED - Amazon Pinpoint throttled the operation to send the message to the endpoint.</p></li> <li><p>TIMEOUT - The message couldn't be sent within the timeout period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error occurred.</p></li></ul>
    */
-  DeliveryStatus: DeliveryStatus | string | undefined;
+  DeliveryStatus: DeliveryStatus | undefined;
 
   /**
    * @public
@@ -7959,7 +7959,7 @@ export interface EndpointRequest {
    * @public
    * <p>The channel to use when sending messages or push notifications to the endpoint.</p>
    */
-  ChannelType?: ChannelType | string;
+  ChannelType?: ChannelType;
 
   /**
    * @public
@@ -8181,7 +8181,7 @@ export interface PublicEndpoint {
    * @public
    * <p>The channel that's used when sending messages or push notifications to the endpoint.</p>
    */
-  ChannelType?: ChannelType | string;
+  ChannelType?: ChannelType;
 
   /**
    * @public

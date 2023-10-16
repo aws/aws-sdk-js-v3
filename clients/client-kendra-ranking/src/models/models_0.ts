@@ -387,7 +387,7 @@ export interface DescribeRescoreExecutionPlanResponse {
    *             <code>FAILED</code>, the <code>ErrorMessage</code> field
    *             contains a message that explains why.</p>
    */
-  Status?: RescoreExecutionPlanStatus | string;
+  Status?: RescoreExecutionPlanStatus;
 
   /**
    * @public
@@ -457,7 +457,7 @@ export interface RescoreExecutionPlanSummary {
    *             the value is <code>ACTIVE</code>, the rescore execution
    *             plan is ready for use.</p>
    */
-  Status?: RescoreExecutionPlanStatus | string;
+  Status?: RescoreExecutionPlanStatus;
 }
 
 /**

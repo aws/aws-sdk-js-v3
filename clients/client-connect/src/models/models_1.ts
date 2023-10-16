@@ -108,13 +108,13 @@ export interface Vocabulary {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode: VocabularyLanguageCode | string | undefined;
+  LanguageCode: VocabularyLanguageCode | undefined;
 
   /**
    * @public
    * <p>The current state of the custom vocabulary.</p>
    */
-  State: VocabularyState | string | undefined;
+  State: VocabularyState | undefined;
 
   /**
    * @public
@@ -218,7 +218,7 @@ export interface DisassociateInstanceStorageConfigRequest {
    * @public
    * <p>A valid resource type.</p>
    */
-  ResourceType: InstanceStorageResourceType | string | undefined;
+  ResourceType: InstanceStorageResourceType | undefined;
 }
 
 /**
@@ -478,13 +478,13 @@ export interface CurrentMetric {
    * @public
    * <p>The name of the metric.</p>
    */
-  Name?: CurrentMetricName | string;
+  Name?: CurrentMetricName;
 
   /**
    * @public
    * <p>The unit for the metric.</p>
    */
-  Unit?: Unit | string;
+  Unit?: Unit;
 }
 
 /**
@@ -504,7 +504,7 @@ export interface Filters {
    * @public
    * <p>The channel to use to filter the metrics.</p>
    */
-  Channels?: (Channel | string)[];
+  Channels?: Channel[];
 
   /**
    * @public
@@ -553,13 +553,13 @@ export interface CurrentMetricSortCriteria {
    * @public
    * <p>The current metric names.</p>
    */
-  SortByMetric?: CurrentMetricName | string;
+  SortByMetric?: CurrentMetricName;
 
   /**
    * @public
    * <p>The way to sort.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -615,7 +615,7 @@ export interface GetCurrentMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  Groupings?: (Grouping | string)[];
+  Groupings?: Grouping[];
 
   /**
    * @public
@@ -797,7 +797,7 @@ export interface Dimensions {
    * @public
    * <p>The channel used for grouping and filters.</p>
    */
-  Channel?: Channel | string;
+  Channel?: Channel;
 
   /**
    * @public
@@ -865,7 +865,7 @@ export interface ContactFilter {
    * @public
    * <p>A list of up to 9 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
    */
-  ContactStates?: (ContactState | string)[];
+  ContactStates?: ContactState[];
 }
 
 /**
@@ -1064,7 +1064,7 @@ export interface UserData {
    * <p>A map of available slots by channel. The key is a channel name. The value is an integer: the
    *    available number of slots. </p>
    */
-  AvailableSlotsByChannel?: Record<string, number>;
+  AvailableSlotsByChannel?: Record<Channel, number>;
 
   /**
    * @public
@@ -1072,14 +1072,14 @@ export interface UserData {
    *    maximum number of slots. This is calculated from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html">MediaConcurrency</a> of the
    *     <code>RoutingProfile</code> assigned to the agent. </p>
    */
-  MaxSlotsByChannel?: Record<string, number>;
+  MaxSlotsByChannel?: Record<Channel, number>;
 
   /**
    * @public
    * <p> A map of active slots by channel. The key is a channel name. The value is an integer: the
    *    number of active slots. </p>
    */
-  ActiveSlotsByChannel?: Record<string, number>;
+  ActiveSlotsByChannel?: Record<Channel, number>;
 
   /**
    * @public
@@ -1283,7 +1283,7 @@ export interface Threshold {
    * @public
    * <p>The type of comparison. Only "less than" (LT) comparisons are supported.</p>
    */
-  Comparison?: Comparison | string;
+  Comparison?: Comparison;
 
   /**
    * @public
@@ -1302,7 +1302,7 @@ export interface HistoricalMetric {
    * @public
    * <p>The name of the metric.</p>
    */
-  Name?: HistoricalMetricName | string;
+  Name?: HistoricalMetricName;
 
   /**
    * @public
@@ -1314,13 +1314,13 @@ export interface HistoricalMetric {
    * @public
    * <p>The statistic for the metric.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: Statistic;
 
   /**
    * @public
    * <p>The unit for the metric.</p>
    */
-  Unit?: Unit | string;
+  Unit?: Unit;
 }
 
 /**
@@ -1371,7 +1371,7 @@ export interface GetMetricDataRequest {
    *    each queue rather than aggregated for all queues.</p>
    *          <p>If no grouping is specified, a summary of metrics for all queues is returned.</p>
    */
-  Groupings?: (Grouping | string)[];
+  Groupings?: Grouping[];
 
   /**
    * @public
@@ -1684,7 +1684,7 @@ export interface IntervalDetails {
    *             </li>
    *          </ul>
    */
-  IntervalPeriod?: IntervalPeriod | string;
+  IntervalPeriod?: IntervalPeriod;
 }
 
 /**
@@ -2265,7 +2265,7 @@ export interface MetricInterval {
    * @public
    * <p>The interval period provided in the API request. </p>
    */
-  Interval?: IntervalPeriod | string;
+  Interval?: IntervalPeriod;
 
   /**
    * @public
@@ -2444,7 +2444,7 @@ export interface GetTaskTemplateResponse {
    * Tasks can only be created from <code>ACTIVE</code> templates.
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    */
-  Status?: TaskTemplateStatus | string;
+  Status?: TaskTemplateStatus;
 
   /**
    * @public
@@ -2582,7 +2582,7 @@ export interface ListAgentStatusRequest {
    * @public
    * <p>Available agent status types.</p>
    */
-  AgentStatusTypes?: (AgentStatusType | string)[];
+  AgentStatusTypes?: AgentStatusType[];
 }
 
 /**
@@ -2684,7 +2684,7 @@ export interface ListBotsRequest {
    * @public
    * <p>The version of Amazon Lex or Amazon Lex V2.</p>
    */
-  LexVersion: LexVersion | string | undefined;
+  LexVersion: LexVersion | undefined;
 }
 
 /**
@@ -2784,7 +2784,7 @@ export interface EvaluationSummary {
    * @public
    * <p>The status of the contact evaluation.</p>
    */
-  Status: EvaluationStatus | string | undefined;
+  Status: EvaluationStatus | undefined;
 
   /**
    * @public
@@ -2858,7 +2858,7 @@ export interface ListContactFlowModulesRequest {
    * @public
    * <p>The state of the flow module.</p>
    */
-  ContactFlowModuleState?: ContactFlowModuleState | string;
+  ContactFlowModuleState?: ContactFlowModuleState;
 }
 
 /**
@@ -2888,7 +2888,7 @@ export interface ContactFlowModuleSummary {
    * @public
    * <p>The type of flow module.</p>
    */
-  State?: ContactFlowModuleState | string;
+  State?: ContactFlowModuleState;
 }
 
 /**
@@ -2922,7 +2922,7 @@ export interface ListContactFlowsRequest {
    * @public
    * <p>The type of flow.</p>
    */
-  ContactFlowTypes?: (ContactFlowType | string)[];
+  ContactFlowTypes?: ContactFlowType[];
 
   /**
    * @public
@@ -2967,13 +2967,13 @@ export interface ContactFlowSummary {
    * @public
    * <p>The type of flow.</p>
    */
-  ContactFlowType?: ContactFlowType | string;
+  ContactFlowType?: ContactFlowType;
 
   /**
    * @public
    * <p>The type of flow.</p>
    */
-  ContactFlowState?: ContactFlowState | string;
+  ContactFlowState?: ContactFlowState;
 }
 
 /**
@@ -3013,7 +3013,7 @@ export interface ListContactReferencesRequest {
    * @public
    * <p>The type of reference.</p>
    */
-  ReferenceTypes: (ReferenceType | string)[] | undefined;
+  ReferenceTypes: ReferenceType[] | undefined;
 
   /**
    * @public
@@ -3063,7 +3063,7 @@ export interface AttachmentReference {
    * @public
    * <p>Status of the attachment reference type.</p>
    */
-  Status?: ReferenceStatus | string;
+  Status?: ReferenceStatus;
 }
 
 /**
@@ -3338,7 +3338,7 @@ export interface ListDefaultVocabulariesRequest {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode?: VocabularyLanguageCode | string;
+  LanguageCode?: VocabularyLanguageCode;
 
   /**
    * @public
@@ -3371,7 +3371,7 @@ export interface DefaultVocabulary {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode: VocabularyLanguageCode | string | undefined;
+  LanguageCode: VocabularyLanguageCode | undefined;
 
   /**
    * @public
@@ -3579,7 +3579,7 @@ export interface EvaluationFormVersionSummary {
    * @public
    * <p>The status of the evaluation form.</p>
    */
-  Status: EvaluationFormVersionStatus | string | undefined;
+  Status: EvaluationFormVersionStatus | undefined;
 
   /**
    * @public
@@ -3768,7 +3768,7 @@ export interface InstanceSummary {
    * @public
    * <p>The identity management type of the instance.</p>
    */
-  IdentityManagementType?: DirectoryType | string;
+  IdentityManagementType?: DirectoryType;
 
   /**
    * @public
@@ -3792,7 +3792,7 @@ export interface InstanceSummary {
    * @public
    * <p>The state of the instance.</p>
    */
-  InstanceStatus?: InstanceStatus | string;
+  InstanceStatus?: InstanceStatus;
 
   /**
    * @public
@@ -3844,7 +3844,7 @@ export interface ListInstanceStorageConfigsRequest {
    * @public
    * <p>A valid resource type.</p>
    */
-  ResourceType: InstanceStorageResourceType | string | undefined;
+  ResourceType: InstanceStorageResourceType | undefined;
 
   /**
    * @public
@@ -3891,7 +3891,7 @@ export interface ListIntegrationAssociationsRequest {
    * @public
    * <p>The integration type.</p>
    */
-  IntegrationType?: IntegrationType | string;
+  IntegrationType?: IntegrationType;
 
   /**
    * @public
@@ -3934,7 +3934,7 @@ export interface IntegrationAssociationSummary {
    * @public
    * <p>The integration type.</p>
    */
-  IntegrationType?: IntegrationType | string;
+  IntegrationType?: IntegrationType;
 
   /**
    * @public
@@ -3958,7 +3958,7 @@ export interface IntegrationAssociationSummary {
    * @public
    * <p>The name of the source.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 }
 
 /**
@@ -4082,13 +4082,13 @@ export interface ListPhoneNumbersRequest {
    *     incorrectly lists them as <code>TOLL_FREE</code> or <code>DID</code>. </p>
    *          </note>
    */
-  PhoneNumberTypes?: (PhoneNumberType | string)[];
+  PhoneNumberTypes?: PhoneNumberType[];
 
   /**
    * @public
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCodes?: (PhoneNumberCountryCode | string)[];
+  PhoneNumberCountryCodes?: PhoneNumberCountryCode[];
 
   /**
    * @public
@@ -4131,13 +4131,13 @@ export interface PhoneNumberSummary {
    * @public
    * <p>The type of phone number.</p>
    */
-  PhoneNumberType?: PhoneNumberType | string;
+  PhoneNumberType?: PhoneNumberType;
 
   /**
    * @public
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
+  PhoneNumberCountryCode?: PhoneNumberCountryCode;
 }
 
 /**
@@ -4185,13 +4185,13 @@ export interface ListPhoneNumbersV2Request {
    * @public
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCodes?: (PhoneNumberCountryCode | string)[];
+  PhoneNumberCountryCodes?: PhoneNumberCountryCode[];
 
   /**
    * @public
    * <p>The type of phone number.</p>
    */
-  PhoneNumberTypes?: (PhoneNumberType | string)[];
+  PhoneNumberTypes?: PhoneNumberType[];
 
   /**
    * @public
@@ -4228,13 +4228,13 @@ export interface ListPhoneNumbersSummary {
    * @public
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
+  PhoneNumberCountryCode?: PhoneNumberCountryCode;
 
   /**
    * @public
    * <p>The type of phone number.</p>
    */
-  PhoneNumberType?: PhoneNumberType | string;
+  PhoneNumberType?: PhoneNumberType;
 
   /**
    * @public
@@ -4384,7 +4384,7 @@ export interface QuickConnectSummary {
    * <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are
    *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
    */
-  QuickConnectType?: QuickConnectType | string;
+  QuickConnectType?: QuickConnectType;
 }
 
 /**
@@ -4432,7 +4432,7 @@ export interface ListQueuesRequest {
    * @public
    * <p>The type of queue.</p>
    */
-  QueueTypes?: (QueueType | string)[];
+  QueueTypes?: QueueType[];
 
   /**
    * @public
@@ -4475,7 +4475,7 @@ export interface QueueSummary {
    * @public
    * <p>The type of queue.</p>
    */
-  QueueType?: QueueType | string;
+  QueueType?: QueueType;
 }
 
 /**
@@ -4523,7 +4523,7 @@ export interface ListQuickConnectsRequest {
    * <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are
    *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
    */
-  QuickConnectTypes?: (QuickConnectType | string)[];
+  QuickConnectTypes?: QuickConnectType[];
 }
 
 /**
@@ -4616,7 +4616,7 @@ export interface RoutingProfileQueueConfigSummary {
    * @public
    * <p>The channels this queue supports.</p>
    */
-  Channel: Channel | string | undefined;
+  Channel: Channel | undefined;
 }
 
 /**
@@ -4715,13 +4715,13 @@ export interface ListRulesRequest {
    * @public
    * <p>The publish status of the rule.</p>
    */
-  PublishStatus?: RulePublishStatus | string;
+  PublishStatus?: RulePublishStatus;
 
   /**
    * @public
    * <p>The name of the event source.</p>
    */
-  EventSourceName?: EventSourceName | string;
+  EventSourceName?: EventSourceName;
 
   /**
    * @public
@@ -4764,13 +4764,13 @@ export interface RuleSummary {
    * @public
    * <p>The name of the event source.</p>
    */
-  EventSourceName: EventSourceName | string | undefined;
+  EventSourceName: EventSourceName | undefined;
 
   /**
    * @public
    * <p>The publish status of the rule.</p>
    */
-  PublishStatus: RulePublishStatus | string | undefined;
+  PublishStatus: RulePublishStatus | undefined;
 
   /**
    * @public
@@ -5095,7 +5095,7 @@ export interface ListTaskTemplatesRequest {
    * Tasks can only be created from <code>ACTIVE</code> templates.
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    */
-  Status?: TaskTemplateStatus | string;
+  Status?: TaskTemplateStatus;
 
   /**
    * @public
@@ -5139,7 +5139,7 @@ export interface TaskTemplateMetadata {
    * Tasks can only be created from <code>ACTIVE</code> templates.
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    */
-  Status?: TaskTemplateStatus | string;
+  Status?: TaskTemplateStatus;
 
   /**
    * @public
@@ -5262,7 +5262,7 @@ export interface TrafficDistributionGroupSummary {
    *             </li>
    *          </ul>
    */
-  Status?: TrafficDistributionGroupStatus | string;
+  Status?: TrafficDistributionGroupStatus;
 
   /**
    * @public
@@ -5402,7 +5402,7 @@ export interface UseCase {
    * <p>The type of use case to associate to the integration association. Each integration
    *    association can have only one of each use case type.</p>
    */
-  UseCaseType?: UseCaseType | string;
+  UseCaseType?: UseCaseType;
 }
 
 /**
@@ -5543,7 +5543,7 @@ export interface ListViewsRequest {
    * @public
    * <p>The type of the view.</p>
    */
-  Type?: ViewType | string;
+  Type?: ViewType;
 
   /**
    * @public
@@ -5586,14 +5586,14 @@ export interface ViewSummary {
    * @public
    * <p>The type of the view.</p>
    */
-  Type?: ViewType | string;
+  Type?: ViewType;
 
   /**
    * @public
    * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
    *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
    */
-  Status?: ViewStatus | string;
+  Status?: ViewStatus;
 
   /**
    * @public
@@ -5685,7 +5685,7 @@ export interface ViewVersionSummary {
    * @public
    * <p>The type of the view version.</p>
    */
-  Type?: ViewType | string;
+  Type?: ViewType;
 
   /**
    * @public
@@ -5746,7 +5746,7 @@ export interface MonitorContactRequest {
    * <p>Specify which monitoring actions the user is allowed to take. For example, whether the user
    *    is allowed to escalate from silent monitoring to barge.</p>
    */
-  AllowedMonitorCapabilities?: (MonitorCapability | string)[];
+  AllowedMonitorCapabilities?: MonitorCapability[];
 
   /**
    * @public
@@ -5917,13 +5917,13 @@ export interface SearchAvailablePhoneNumbersRequest {
    * @public
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCode: PhoneNumberCountryCode | string | undefined;
+  PhoneNumberCountryCode: PhoneNumberCountryCode | undefined;
 
   /**
    * @public
    * <p>The type of phone number.</p>
    */
-  PhoneNumberType: PhoneNumberType | string | undefined;
+  PhoneNumberType: PhoneNumberType | undefined;
 
   /**
    * @public
@@ -5960,13 +5960,13 @@ export interface AvailableNumberSummary {
    * @public
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
+  PhoneNumberCountryCode?: PhoneNumberCountryCode;
 
   /**
    * @public
    * <p>The type of phone number.</p>
    */
-  PhoneNumberType?: PhoneNumberType | string;
+  PhoneNumberType?: PhoneNumberType;
 }
 
 /**
@@ -6022,7 +6022,7 @@ export interface StringCondition {
    * @public
    * <p>The type of comparison to be made when evaluating the string condition.</p>
    */
-  ComparisonType?: StringComparisonType | string;
+  ComparisonType?: StringComparisonType;
 }
 
 /**
@@ -6323,14 +6323,14 @@ export interface TagSearchCondition {
    * <p>The type of comparison to be made when evaluating the tag key in tag search
    *    condition.</p>
    */
-  tagKeyComparisonType?: StringComparisonType | string;
+  tagKeyComparisonType?: StringComparisonType;
 
   /**
    * @public
    * <p>The type of comparison to be made when evaluating the tag value in tag search
    *    condition.</p>
    */
-  tagValueComparisonType?: StringComparisonType | string;
+  tagValueComparisonType?: StringComparisonType;
 }
 
 /**
@@ -6581,7 +6581,7 @@ export interface HierarchyGroupCondition {
    * @public
    * <p>The type of hierarchy group match.</p>
    */
-  HierarchyGroupMatchType?: HierarchyGroupMatchType | string;
+  HierarchyGroupMatchType?: HierarchyGroupMatchType;
 }
 
 /**
@@ -6741,7 +6741,7 @@ export interface SearchVocabulariesRequest {
    * @public
    * <p>The current state of the custom vocabulary.</p>
    */
-  State?: VocabularyState | string;
+  State?: VocabularyState;
 
   /**
    * @public
@@ -6755,7 +6755,7 @@ export interface SearchVocabulariesRequest {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode?: VocabularyLanguageCode | string;
+  LanguageCode?: VocabularyLanguageCode;
 }
 
 /**
@@ -6787,13 +6787,13 @@ export interface VocabularySummary {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode: VocabularyLanguageCode | string | undefined;
+  LanguageCode: VocabularyLanguageCode | undefined;
 
   /**
    * @public
    * <p>The current state of the custom vocabulary.</p>
    */
-  State: VocabularyState | string | undefined;
+  State: VocabularyState | undefined;
 
   /**
    * @public
@@ -6913,7 +6913,7 @@ export interface PersistentChat {
    *          </ul>
    *          <p>The actual contactId used for rehydration is provided in the response of this API. </p>
    */
-  RehydrationType?: RehydrationType | string;
+  RehydrationType?: RehydrationType;
 
   /**
    * @public
@@ -7125,7 +7125,7 @@ export interface VoiceRecordingConfiguration {
    * @public
    * <p>Identifies which track is being recorded.</p>
    */
-  VoiceRecordingTrack?: VoiceRecordingTrack | string;
+  VoiceRecordingTrack?: VoiceRecordingTrack;
 }
 
 /**
@@ -7388,7 +7388,7 @@ export interface StartOutboundVoiceContactRequest {
    *     <code>EnableAnswerMachineDetection</code> is set to <code>true</code>. For all other cases, use
    *     <code>GENERAL</code>. </p>
    */
-  TrafficType?: TrafficType | string;
+  TrafficType?: TrafficType;
 }
 
 /**
@@ -7821,7 +7821,7 @@ export interface UpdateAgentStatusRequest {
    * @public
    * <p>The state of the agent status.</p>
    */
-  State?: AgentStatusState | string;
+  State?: AgentStatusState;
 
   /**
    * @public
@@ -8017,7 +8017,7 @@ export interface UpdateContactFlowMetadataRequest {
    * @public
    * <p>The state of flow.</p>
    */
-  ContactFlowState?: ContactFlowState | string;
+  ContactFlowState?: ContactFlowState;
 }
 
 /**
@@ -8086,7 +8086,7 @@ export interface UpdateContactFlowModuleMetadataRequest {
    * @public
    * <p>The state of flow module.</p>
    */
-  State?: ContactFlowModuleState | string;
+  State?: ContactFlowModuleState;
 }
 
 /**
@@ -8238,7 +8238,7 @@ export interface UpdateInstanceAttributeRequest {
    *     contact Amazon Web Services Support for allowlisting.</p>
    *          </note>
    */
-  AttributeType: InstanceAttributeType | string | undefined;
+  AttributeType: InstanceAttributeType | undefined;
 
   /**
    * @public
@@ -8267,7 +8267,7 @@ export interface UpdateInstanceStorageConfigRequest {
    * @public
    * <p>A valid resource type.</p>
    */
-  ResourceType: InstanceStorageResourceType | string | undefined;
+  ResourceType: InstanceStorageResourceType | undefined;
 
   /**
    * @public
@@ -8340,7 +8340,7 @@ export namespace ParticipantTimerValue {
    *    timer.</p>
    */
   export interface ParticipantTimerActionMember {
-    ParticipantTimerAction: ParticipantTimerAction | string;
+    ParticipantTimerAction: ParticipantTimerAction;
     ParticipantTimerDurationInMinutes?: never;
     $unknown?: never;
   }
@@ -8365,7 +8365,7 @@ export namespace ParticipantTimerValue {
   }
 
   export interface Visitor<T> {
-    ParticipantTimerAction: (value: ParticipantTimerAction | string) => T;
+    ParticipantTimerAction: (value: ParticipantTimerAction) => T;
     ParticipantTimerDurationInMinutes: (value: number) => T;
     _: (name: string, value: any) => T;
   }
@@ -8391,7 +8391,7 @@ export interface ParticipantTimerConfiguration {
    * @public
    * <p>The role of the participant in the chat conversation.</p>
    */
-  ParticipantRole: TimerEligibleParticipantRoles | string | undefined;
+  ParticipantRole: TimerEligibleParticipantRoles | undefined;
 
   /**
    * @public
@@ -8399,7 +8399,7 @@ export interface ParticipantTimerConfiguration {
    *    chat participant as idle. <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to
    *    automatically disconnecting a chat participant due to idleness.</p>
    */
-  TimerType: ParticipantTimerType | string | undefined;
+  TimerType: ParticipantTimerType | undefined;
 
   /**
    * @public

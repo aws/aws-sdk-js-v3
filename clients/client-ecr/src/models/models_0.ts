@@ -56,7 +56,7 @@ export interface LayerFailure {
    * @public
    * <p>The failure code associated with the failure.</p>
    */
-  failureCode?: LayerFailureCode | string;
+  failureCode?: LayerFailureCode;
 
   /**
    * @public
@@ -94,7 +94,7 @@ export interface Layer {
    * @public
    * <p>The availability status of the image layer.</p>
    */
-  layerAvailability?: LayerAvailability | string;
+  layerAvailability?: LayerAvailability;
 
   /**
    * @public
@@ -271,7 +271,7 @@ export interface ImageFailure {
    * @public
    * <p>The code associated with the failure.</p>
    */
-  failureCode?: ImageFailureCode | string;
+  failureCode?: ImageFailureCode;
 
   /**
    * @public
@@ -427,7 +427,7 @@ export interface RepositoryScanningConfigurationFailure {
    * @public
    * <p>The failure code.</p>
    */
-  failureCode?: ScanningConfigurationFailureCode | string;
+  failureCode?: ScanningConfigurationFailureCode;
 
   /**
    * @public
@@ -467,7 +467,7 @@ export interface ScanningRepositoryFilter {
    * @public
    * <p>The type associated with the filter.</p>
    */
-  filterType: ScanningRepositoryFilterType | string | undefined;
+  filterType: ScanningRepositoryFilterType | undefined;
 }
 
 /**
@@ -512,7 +512,7 @@ export interface RepositoryScanningConfiguration {
    * @public
    * <p>The scan frequency for the repository.</p>
    */
-  scanFrequency?: ScanFrequency | string;
+  scanFrequency?: ScanFrequency;
 
   /**
    * @public
@@ -909,7 +909,7 @@ export interface EncryptionConfiguration {
    *                 server-side encryption with Amazon S3-managed encryption keys (SSE-S3)</a> in the
    *                 <i>Amazon Simple Storage Service Console Developer Guide</i>.</p>
    */
-  encryptionType: EncryptionType | string | undefined;
+  encryptionType: EncryptionType | undefined;
 
   /**
    * @public
@@ -1008,7 +1008,7 @@ export interface CreateRepositoryRequest {
    *             overwritten. If <code>IMMUTABLE</code> is specified, all image tags within the
    *             repository will be immutable which will prevent them from being overwritten.</p>
    */
-  imageTagMutability?: ImageTagMutability | string;
+  imageTagMutability?: ImageTagMutability;
 
   /**
    * @public
@@ -1067,7 +1067,7 @@ export interface Repository {
    * @public
    * <p>The tag mutability setting for the repository.</p>
    */
-  imageTagMutability?: ImageTagMutability | string;
+  imageTagMutability?: ImageTagMutability;
 
   /**
    * @public
@@ -1513,7 +1513,7 @@ export interface ImageReplicationStatus {
    * @public
    * <p>The image replication status.</p>
    */
-  status?: ReplicationStatus | string;
+  status?: ReplicationStatus;
 
   /**
    * @public
@@ -1592,7 +1592,7 @@ export interface DescribeImagesFilter {
    *             can filter results based on whether they are <code>TAGGED</code> or
    *                 <code>UNTAGGED</code>.</p>
    */
-  tagStatus?: TagStatus | string;
+  tagStatus?: TagStatus;
 }
 
 /**
@@ -1690,7 +1690,7 @@ export interface ImageScanFindingsSummary {
    * @public
    * <p>The image vulnerability counts, sorted by severity.</p>
    */
-  findingSeverityCounts?: Record<string, number>;
+  findingSeverityCounts?: Record<FindingSeverity, number>;
 }
 
 /**
@@ -1722,7 +1722,7 @@ export interface ImageScanStatus {
    * @public
    * <p>The current state of an image scan.</p>
    */
-  status?: ScanStatus | string;
+  status?: ScanStatus;
 
   /**
    * @public
@@ -2379,7 +2379,7 @@ export interface ImageScanFinding {
    * @public
    * <p>The finding severity.</p>
    */
-  severity?: FindingSeverity | string;
+  severity?: FindingSeverity;
 
   /**
    * @public
@@ -2409,7 +2409,7 @@ export interface ImageScanFindings {
    * @public
    * <p>The image vulnerability counts, sorted by severity.</p>
    */
-  findingSeverityCounts?: Record<string, number>;
+  findingSeverityCounts?: Record<FindingSeverity, number>;
 
   /**
    * @public
@@ -2646,7 +2646,7 @@ export interface RepositoryFilter {
    *             which is a repository name prefix specified with the <code>filter</code>
    *             parameter.</p>
    */
-  filterType: RepositoryFilterType | string | undefined;
+  filterType: RepositoryFilterType | undefined;
 }
 
 /**
@@ -2966,7 +2966,7 @@ export interface LifecyclePolicyPreviewFilter {
    * @public
    * <p>The tag status of the image.</p>
    */
-  tagStatus?: TagStatus | string;
+  tagStatus?: TagStatus;
 }
 
 /**
@@ -3049,7 +3049,7 @@ export interface LifecyclePolicyRuleAction {
    * @public
    * <p>The type of action to be taken.</p>
    */
-  type?: ImageActionType | string;
+  type?: ImageActionType;
 }
 
 /**
@@ -3144,7 +3144,7 @@ export interface GetLifecyclePolicyPreviewResponse {
    * @public
    * <p>The status of the lifecycle policy preview request.</p>
    */
-  status?: LifecyclePolicyPreviewStatus | string;
+  status?: LifecyclePolicyPreviewStatus;
 
   /**
    * @public
@@ -3230,7 +3230,7 @@ export interface RegistryScanningRule {
    *             frequency is supported. If scan on push is not specified, then the <code>MANUAL</code>
    *             scan frequency is set by default.</p>
    */
-  scanFrequency: ScanFrequency | string | undefined;
+  scanFrequency: ScanFrequency | undefined;
 
   /**
    * @public
@@ -3263,7 +3263,7 @@ export interface RegistryScanningConfiguration {
    * @public
    * <p>The type of scanning configured for the registry.</p>
    */
-  scanType?: ScanType | string;
+  scanType?: ScanType;
 
   /**
    * @public
@@ -3377,7 +3377,7 @@ export interface ListImagesFilter {
    *             filter results based on whether they are <code>TAGGED</code> or
    *             <code>UNTAGGED</code>.</p>
    */
-  tagStatus?: TagStatus | string;
+  tagStatus?: TagStatus;
 }
 
 /**
@@ -3691,7 +3691,7 @@ export interface PutImageTagMutabilityRequest {
    *             within the repository will be immutable which will prevent them from being
    *             overwritten.</p>
    */
-  imageTagMutability: ImageTagMutability | string | undefined;
+  imageTagMutability: ImageTagMutability | undefined;
 }
 
 /**
@@ -3714,7 +3714,7 @@ export interface PutImageTagMutabilityResponse {
    * @public
    * <p>The image tag mutability setting for the repository.</p>
    */
-  imageTagMutability?: ImageTagMutability | string;
+  imageTagMutability?: ImageTagMutability;
 }
 
 /**
@@ -3811,7 +3811,7 @@ export interface PutRegistryScanningConfigurationRequest {
    *             you may specify filters to determine which individual repositories, or all repositories,
    *             are scanned.</p>
    */
-  scanType?: ScanType | string;
+  scanType?: ScanType;
 
   /**
    * @public
@@ -4056,7 +4056,7 @@ export interface StartLifecyclePolicyPreviewResponse {
    * @public
    * <p>The status of the lifecycle policy preview request.</p>
    */
-  status?: LifecyclePolicyPreviewStatus | string;
+  status?: LifecyclePolicyPreviewStatus;
 }
 
 /**

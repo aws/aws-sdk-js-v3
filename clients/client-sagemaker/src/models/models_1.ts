@@ -123,7 +123,7 @@ export interface EdgeOutputConfig {
    * <p>The deployment type SageMaker Edge Manager will create.
    *       Currently only supports Amazon Web Services IoT Greengrass Version 2 components.</p>
    */
-  PresetDeploymentType?: EdgePresetDeploymentType | string;
+  PresetDeploymentType?: EdgePresetDeploymentType;
 
   /**
    * @public
@@ -383,7 +383,7 @@ export interface RStudioServerProAppSettings {
    * <p>Indicates whether the current user has access to the <code>RStudioServerPro</code>
    *             app.</p>
    */
-  AccessStatus?: RStudioServerProAccessStatus | string;
+  AccessStatus?: RStudioServerProAccessStatus;
 
   /**
    * @public
@@ -391,7 +391,7 @@ export interface RStudioServerProAppSettings {
    *             app. This value defaults to `User`. The `Admin` value allows the user access to the
    *             RStudio Administrative Dashboard.</p>
    */
-  UserGroup?: RStudioServerProUserGroup | string;
+  UserGroup?: RStudioServerProUserGroup;
 }
 
 /**
@@ -422,7 +422,7 @@ export interface SharingSettings {
    * <p>Whether to include the notebook cell output when sharing the notebook. The default
    *          is <code>Disabled</code>.</p>
    */
-  NotebookOutputOption?: NotebookOutputOption | string;
+  NotebookOutputOption?: NotebookOutputOption;
 
   /**
    * @public
@@ -597,7 +597,7 @@ export interface DomainSettings {
    * <p>The configuration for attaching a SageMaker user profile name to the execution role as a
    *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>.</p>
    */
-  ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
+  ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig;
 }
 
 /**
@@ -614,7 +614,7 @@ export interface CreateDomainRequest {
    * @public
    * <p>The mode of authentication that members use to access the domain.</p>
    */
-  AuthMode: AuthMode | string | undefined;
+  AuthMode: AuthMode | undefined;
 
   /**
    * @public
@@ -665,7 +665,7 @@ export interface CreateDomainRequest {
    *             </li>
    *          </ul>
    */
-  AppNetworkAccessType?: AppNetworkAccessType | string;
+  AppNetworkAccessType?: AppNetworkAccessType;
 
   /**
    * @public
@@ -691,7 +691,7 @@ export interface CreateDomainRequest {
    *             provided. If setting up the domain for use with RStudio, this value must be set to
    *                 <code>Service</code>.</p>
    */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
+  AppSecurityGroupManagement?: AppSecurityGroupManagement;
 
   /**
    * @public
@@ -766,7 +766,7 @@ export interface EdgeDeploymentConfig {
    *             deployment fails. By default this is turned on. You may turn this off if you want to
    *             investigate the errors yourself.</p>
    */
-  FailureHandlingPolicy: FailureHandlingPolicy | string | undefined;
+  FailureHandlingPolicy: FailureHandlingPolicy | undefined;
 }
 
 /**
@@ -793,7 +793,7 @@ export interface DeviceSelectionConfig {
    * @public
    * <p>Type of device subsets to deploy to the current stage.</p>
    */
-  DeviceSubsetType: DeviceSubsetType | string | undefined;
+  DeviceSubsetType: DeviceSubsetType | undefined;
 
   /**
    * @public
@@ -1291,7 +1291,7 @@ export interface ProductionVariant {
    * @public
    * <p>The ML compute instance type.</p>
    */
-  InstanceType?: ProductionVariantInstanceType | string;
+  InstanceType?: ProductionVariantInstanceType;
 
   /**
    * @public
@@ -1310,7 +1310,7 @@ export interface ProductionVariant {
    *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
    *                 Inference in Amazon SageMaker</a>.</p>
    */
-  AcceleratorType?: ProductionVariantAcceleratorType | string;
+  AcceleratorType?: ProductionVariantAcceleratorType;
 
   /**
    * @public
@@ -1550,7 +1550,7 @@ export interface FeatureDefinition {
    * @public
    * <p>The value type of a feature. Valid values are Integral, Fractional, or String.</p>
    */
-  FeatureType?: FeatureType | string;
+  FeatureType?: FeatureType;
 
   /**
    * @public
@@ -1574,7 +1574,7 @@ export interface FeatureDefinition {
    *             </li>
    *          </ul>
    */
-  CollectionType?: CollectionType | string;
+  CollectionType?: CollectionType;
 
   /**
    * @public
@@ -1696,7 +1696,7 @@ export interface OfflineStoreConfig {
    * @public
    * <p>Format for the offline store table. Supported formats are Glue (Default) and <a href="https://iceberg.apache.org/">Apache Iceberg</a>.</p>
    */
-  TableFormat?: TableFormat | string;
+  TableFormat?: TableFormat;
 }
 
 /**
@@ -1826,7 +1826,7 @@ export interface TtlDuration {
    * <p>
    *             <code>TtlDuration</code> time unit.</p>
    */
-  Unit?: TtlDurationUnit | string;
+  Unit?: TtlDurationUnit;
 
   /**
    * @public
@@ -1884,7 +1884,7 @@ export interface OnlineStoreConfig {
    *             </li>
    *          </ul>
    */
-  StorageType?: StorageType | string;
+  StorageType?: StorageType;
 }
 
 /**
@@ -2792,7 +2792,7 @@ export interface HumanLoopRequestSource {
    * <p>Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source.
    *       The default field settings and JSON parsing rules are different based on the integration source. Valid values:</p>
    */
-  AwsManagedHumanLoopRequestSource: AwsManagedHumanLoopRequestSource | string | undefined;
+  AwsManagedHumanLoopRequestSource: AwsManagedHumanLoopRequestSource | undefined;
 }
 
 /**
@@ -3037,7 +3037,7 @@ export interface IntegerParameterRange {
    *             </dd>
    *          </dl>
    */
-  ScalingType?: HyperParameterScalingType | string;
+  ScalingType?: HyperParameterScalingType;
 }
 
 /**
@@ -3265,7 +3265,7 @@ export interface HyperParameterTuningJobConfig {
    *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
    *                 Hyperparameter Tuning Works</a>.</p>
    */
-  Strategy: HyperParameterTuningJobStrategyType | string | undefined;
+  Strategy: HyperParameterTuningJobStrategyType | undefined;
 
   /**
    * @public
@@ -3320,7 +3320,7 @@ export interface HyperParameterTuningJobConfig {
    *             </dd>
    *          </dl>
    */
-  TrainingJobEarlyStoppingType?: TrainingJobEarlyStoppingType | string;
+  TrainingJobEarlyStoppingType?: TrainingJobEarlyStoppingType;
 
   /**
    * @public
@@ -3392,7 +3392,7 @@ export interface HyperParameterAlgorithmSpecification {
    *             manifest files aren't supported. The startup time is lower when there are fewer files in
    *             the S3 bucket provided.</p>
    */
-  TrainingInputMode: TrainingInputMode | string | undefined;
+  TrainingInputMode: TrainingInputMode | undefined;
 
   /**
    * @public
@@ -3441,7 +3441,7 @@ export interface HyperParameterTuningInstanceConfig {
    *             information about instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html">instance type
    *                 descriptions</a>.</p>
    */
-  InstanceType: TrainingInstanceType | string | undefined;
+  InstanceType: TrainingInstanceType | undefined;
 
   /**
    * @public
@@ -3483,7 +3483,7 @@ export interface HyperParameterTuningResourceConfig {
    * <p>The instance type used to run hyperparameter optimization tuning jobs. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html"> descriptions of
    *                 instance types</a> for more information.</p>
    */
-  InstanceType?: TrainingInstanceType | string;
+  InstanceType?: TrainingInstanceType;
 
   /**
    * @public
@@ -3535,7 +3535,7 @@ export interface HyperParameterTuningResourceConfig {
    * <p>The strategy that determines the order of preference for resources specified in
    *                 <code>InstanceConfigs</code> used in hyperparameter optimization.</p>
    */
-  AllocationStrategy?: HyperParameterTuningAllocationStrategy | string;
+  AllocationStrategy?: HyperParameterTuningAllocationStrategy;
 
   /**
    * @public
@@ -3852,7 +3852,7 @@ export interface HyperParameterTuningJobWarmStartConfig {
    *             </dd>
    *          </dl>
    */
-  WarmStartType: HyperParameterTuningJobWarmStartType | string | undefined;
+  WarmStartType: HyperParameterTuningJobWarmStartType | undefined;
 }
 
 /**
@@ -4125,7 +4125,7 @@ export interface CreateImageVersionRequest {
    *             </li>
    *          </ul>
    */
-  VendorGuidance?: VendorGuidance | string;
+  VendorGuidance?: VendorGuidance;
 
   /**
    * @public
@@ -4145,7 +4145,7 @@ export interface CreateImageVersionRequest {
    *             </li>
    *          </ul>
    */
-  JobType?: JobType | string;
+  JobType?: JobType;
 
   /**
    * @public
@@ -4173,7 +4173,7 @@ export interface CreateImageVersionRequest {
    *             </li>
    *          </ul>
    */
-  Processor?: Processor | string;
+  Processor?: Processor;
 
   /**
    * @public
@@ -4336,7 +4336,7 @@ export interface RealTimeInferenceConfig {
    * @public
    * <p>The instance type the model is deployed to.</p>
    */
-  InstanceType: _InstanceType | string | undefined;
+  InstanceType: _InstanceType | undefined;
 
   /**
    * @public
@@ -4360,7 +4360,7 @@ export interface ModelInfrastructureConfig {
    *             </li>
    *          </ul>
    */
-  InfrastructureType: ModelInfrastructureType | string | undefined;
+  InfrastructureType: ModelInfrastructureType | undefined;
 
   /**
    * @public
@@ -4493,7 +4493,7 @@ export interface CreateInferenceExperimentRequest {
    *             </li>
    *          </ul>
    */
-  Type: InferenceExperimentType | string | undefined;
+  Type: InferenceExperimentType | undefined;
 
   /**
    * @public
@@ -4739,7 +4739,7 @@ export interface RecommendationJobContainerConfig {
    *          the inference recommendation job return a combined list of both real-time and serverless benchmarks.
    *          By specifying a value for this field, you can receive a longer list of benchmarks for the desired endpoint type.</p>
    */
-  SupportedEndpointType?: RecommendationJobSupportedEndpointType | string;
+  SupportedEndpointType?: RecommendationJobSupportedEndpointType;
 
   /**
    * @public
@@ -4769,7 +4769,7 @@ export interface EndpointInputConfiguration {
    * @public
    * <p>The instance types to use for the load test.</p>
    */
-  InstanceType?: ProductionVariantInstanceType | string;
+  InstanceType?: ProductionVariantInstanceType;
 
   /**
    * @public
@@ -4895,7 +4895,7 @@ export interface TrafficPattern {
    * @public
    * <p>Defines the traffic patterns. Choose either <code>PHASES</code> or <code>STAIRS</code>.</p>
    */
-  TrafficType?: TrafficType | string;
+  TrafficType?: TrafficType;
 
   /**
    * @public
@@ -5171,7 +5171,7 @@ export interface RecommendationJobStoppingConditions {
    *          which means that the instance has reached capacity. The default value is <code>Stop</code>.
    *       If you want the load test to continue after invocations have flattened, set the value to <code>Continue</code>.</p>
    */
-  FlatInvocations?: FlatInvocations | string;
+  FlatInvocations?: FlatInvocations;
 }
 
 /**
@@ -5194,7 +5194,7 @@ export interface CreateInferenceRecommendationsJobRequest {
    *            recommendation and <code>Advanced</code> to initiate a load test. If left unspecified,
    *            Amazon SageMaker Inference Recommender will run an instance recommendation (<code>DEFAULT</code>) job.</p>
    */
-  JobType: RecommendationJobType | string | undefined;
+  JobType: RecommendationJobType | undefined;
 
   /**
    * @public
@@ -6937,7 +6937,7 @@ export interface LabelingJobDataAttributes {
    *             content. SageMaker may restrict the Amazon Mechanical Turk workers that can view your task
    *             based on this information.</p>
    */
-  ContentClassifiers?: (ContentClassifier | string)[];
+  ContentClassifiers?: ContentClassifier[];
 }
 
 /**
@@ -7442,7 +7442,7 @@ export interface InferenceExecutionConfig {
    *             </li>
    *          </ul>
    */
-  Mode: InferenceExecutionMode | string | undefined;
+  Mode: InferenceExecutionMode | undefined;
 }
 
 /**
@@ -7763,7 +7763,7 @@ export interface CreateModelCardRequest {
    *             </li>
    *          </ul>
    */
-  ModelCardStatus: ModelCardStatus | string | undefined;
+  ModelCardStatus: ModelCardStatus | undefined;
 
   /**
    * @public
@@ -8376,7 +8376,7 @@ export interface CreateModelPackageInput {
    *          <p>For versioned models, the value of this parameter must be set to <code>Approved</code>
    *         to deploy the model.</p>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: ModelApprovalStatus;
 
   /**
    * @public
@@ -8450,7 +8450,7 @@ export interface CreateModelPackageInput {
    * @public
    * <p>Indicates if you want to skip model validation.</p>
    */
-  SkipModelValidation?: SkipModelValidation | string;
+  SkipModelValidation?: SkipModelValidation;
 }
 
 /**
@@ -8557,7 +8557,7 @@ export interface ModelQualityAppSpecification {
    * @public
    * <p>The machine learning problem type of the model that the monitoring job monitors.</p>
    */
-  ProblemType?: MonitoringProblemType | string;
+  ProblemType?: MonitoringProblemType;
 
   /**
    * @public
@@ -9018,7 +9018,7 @@ export interface MonitoringScheduleConfig {
    * @public
    * <p>The type of the monitoring job definition to schedule.</p>
    */
-  MonitoringType?: MonitoringType | string;
+  MonitoringType?: MonitoringType;
 }
 
 /**
@@ -9131,7 +9131,7 @@ export interface CreateNotebookInstanceInput {
    * @public
    * <p>The type of ML compute instance to launch for the notebook instance.</p>
    */
-  InstanceType: _InstanceType | string | undefined;
+  InstanceType: _InstanceType | undefined;
 
   /**
    * @public
@@ -9197,7 +9197,7 @@ export interface CreateNotebookInstanceInput {
    *             of this parameter to <code>Disabled</code> only if you set a value for the
    *                 <code>SubnetId</code> parameter.</p>
    */
-  DirectInternetAccess?: DirectInternetAccess | string;
+  DirectInternetAccess?: DirectInternetAccess;
 
   /**
    * @public
@@ -9212,7 +9212,7 @@ export interface CreateNotebookInstanceInput {
    *             instance. Currently, only one instance type can be associated with a notebook instance.
    *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
    */
-  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
+  AcceleratorTypes?: NotebookInstanceAcceleratorType[];
 
   /**
    * @public
@@ -9247,7 +9247,7 @@ export interface CreateNotebookInstanceInput {
    *                 users.</p>
    *          </note>
    */
-  RootAccess?: RootAccess | string;
+  RootAccess?: RootAccess;
 
   /**
    * @public
@@ -9684,13 +9684,13 @@ export interface RedshiftDatasetDefinition {
    * @public
    * <p>The data storage format for Redshift query results.</p>
    */
-  OutputFormat: RedshiftResultFormat | string | undefined;
+  OutputFormat: RedshiftResultFormat | undefined;
 
   /**
    * @public
    * <p>The compression used for Redshift query results.</p>
    */
-  OutputCompression?: RedshiftResultCompressionType | string;
+  OutputCompression?: RedshiftResultCompressionType;
 }
 
 /**
@@ -9725,7 +9725,7 @@ export interface DatasetDefinition {
    * <p>Whether the generated dataset is <code>FullyReplicated</code> or
    *             <code>ShardedByS3Key</code> (default).</p>
    */
-  DataDistributionType?: DataDistributionType | string;
+  DataDistributionType?: DataDistributionType;
 
   /**
    * @public
@@ -9735,7 +9735,7 @@ export interface DatasetDefinition {
    *             input mode. In <code>Pipe</code> mode, Amazon SageMaker streams input data from the source directly to your
    *             algorithm without using the EBS volume.</p>
    */
-  InputMode?: InputMode | string;
+  InputMode?: InputMode;
 }
 
 /**
@@ -9796,7 +9796,7 @@ export interface ProcessingS3Input {
    *             that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for
    *             the processing job.</p>
    */
-  S3DataType: ProcessingS3DataType | string | undefined;
+  S3DataType: ProcessingS3DataType | undefined;
 
   /**
    * @public
@@ -9806,7 +9806,7 @@ export interface ProcessingS3Input {
    *             streams input data from the source directly to your processing container into named
    *             pipes without using the ML storage volume.</p>
    */
-  S3InputMode?: ProcessingS3InputMode | string;
+  S3InputMode?: ProcessingS3InputMode;
 
   /**
    * @public
@@ -9814,7 +9814,7 @@ export interface ProcessingS3Input {
    *             <code>FullyReplicated</code>, or whether the data from Amazon S3 is shared by Amazon S3 key,
    *             downloading one shard of data to each processing instance.</p>
    */
-  S3DataDistributionType?: ProcessingS3DataDistributionType | string;
+  S3DataDistributionType?: ProcessingS3DataDistributionType;
 
   /**
    * @public
@@ -9823,7 +9823,7 @@ export interface ProcessingS3Input {
    *             specified as the <code>S3InputMode</code>. In <code>Pipe</code> mode, Amazon SageMaker streams input
    *             data from the source directly to your container without using the EBS volume.</p>
    */
-  S3CompressionType?: ProcessingS3CompressionType | string;
+  S3CompressionType?: ProcessingS3CompressionType;
 }
 
 /**
@@ -9897,7 +9897,7 @@ export interface ProcessingS3Output {
    * <p>Whether to upload the results of the processing job continuously or after the job
    *             completes.</p>
    */
-  S3UploadMode: ProcessingS3UploadMode | string | undefined;
+  S3UploadMode: ProcessingS3UploadMode | undefined;
 }
 
 /**
@@ -9971,7 +9971,7 @@ export interface ProcessingClusterConfig {
    * @public
    * <p>The ML compute instance type for the processing job.</p>
    */
-  InstanceType: ProcessingInstanceType | string | undefined;
+  InstanceType: ProcessingInstanceType | undefined;
 
   /**
    * @public
@@ -10339,7 +10339,7 @@ export interface CreateStudioLifecycleConfigRequest {
    * @public
    * <p>The App type that the Lifecycle Configuration is attached to.</p>
    */
-  StudioLifecycleConfigAppType: StudioLifecycleConfigAppType | string | undefined;
+  StudioLifecycleConfigAppType: StudioLifecycleConfigAppType | undefined;
 
   /**
    * @public
@@ -10433,7 +10433,7 @@ export interface DebugRuleConfiguration {
    * @public
    * <p>The instance type to deploy a custom rule for debugging a training job.</p>
    */
-  InstanceType?: ProcessingInstanceType | string;
+  InstanceType?: ProcessingInstanceType;
 
   /**
    * @public
@@ -10518,7 +10518,7 @@ export interface ProfilerRuleConfiguration {
    * @public
    * <p>The instance type to deploy a custom rule for profiling a training job.</p>
    */
-  InstanceType?: ProcessingInstanceType | string;
+  InstanceType?: ProcessingInstanceType;
 
   /**
    * @public
@@ -10867,7 +10867,7 @@ export interface DataProcessing {
    *             file.</p>
    *          <p>For information on how joining in applied, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow">Workflow for Associating Inferences with Input Records</a>.</p>
    */
-  JoinSource?: JoinSource | string;
+  JoinSource?: JoinSource;
 }
 
 /**
@@ -10964,7 +10964,7 @@ export interface CreateTransformJobRequest {
    *                 <code>MaxPayloadInMB</code> limit, set <code>BatchStrategy</code> to
    *                 <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.</p>
    */
-  BatchStrategy?: BatchStrategy | string;
+  BatchStrategy?: BatchStrategy;
 
   /**
    * @public
@@ -11221,7 +11221,7 @@ export interface TrialComponentStatus {
    * @public
    * <p>The status of the trial component.</p>
    */
-  PrimaryStatus?: TrialComponentPrimaryStatus | string;
+  PrimaryStatus?: TrialComponentPrimaryStatus;
 
   /**
    * @public
@@ -11720,7 +11720,7 @@ export interface CustomizedMetricSpecification {
    * @public
    * <p>The statistic of the customized metric.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: Statistic;
 }
 
 /**
@@ -11738,7 +11738,7 @@ export interface DataCaptureConfigSummary {
    * @public
    * <p>Whether data capture is currently functional.</p>
    */
-  CaptureStatus: CaptureStatus | string | undefined;
+  CaptureStatus: CaptureStatus | undefined;
 
   /**
    * @public
@@ -11798,7 +11798,7 @@ export interface DebugRuleEvaluationStatus {
    * @public
    * <p>Status of the rule evaluation.</p>
    */
-  RuleEvaluationStatus?: RuleEvaluationStatus | string;
+  RuleEvaluationStatus?: RuleEvaluationStatus;
 
   /**
    * @public
@@ -11866,7 +11866,7 @@ export interface DeleteAppRequest {
    * @public
    * <p>The type of app.</p>
    */
-  AppType: AppType | string | undefined;
+  AppType: AppType | undefined;
 
   /**
    * @public

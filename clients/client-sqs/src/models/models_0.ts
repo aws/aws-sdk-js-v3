@@ -740,7 +740,7 @@ export interface CreateQueueRequest {
    *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
    *   in the <i>Amazon SQS Developer Guide</i>.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<QueueAttributeName, string>;
 }
 
 /**
@@ -1175,7 +1175,7 @@ export interface GetQueueAttributesRequest {
    *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
    *   in the <i>Amazon SQS Developer Guide</i>.</p>
    */
-  AttributeNames?: (QueueAttributeName | string)[];
+  AttributeNames?: QueueAttributeName[];
 }
 
 /**
@@ -1187,7 +1187,7 @@ export interface GetQueueAttributesResult {
    * @public
    * <p>A map of attributes to their respective values.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<QueueAttributeName, string>;
 }
 
 /**
@@ -1606,7 +1606,7 @@ export interface ReceiveMessageRequest {
    *             </li>
    *          </ul>
    */
-  AttributeNames?: (QueueAttributeName | string)[];
+  AttributeNames?: QueueAttributeName[];
 
   /**
    * @public
@@ -1891,7 +1891,7 @@ export interface Message {
    *             returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in
    *             milliseconds.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<MessageSystemAttributeName, string>;
 
   /**
    * @public
@@ -2089,7 +2089,7 @@ export interface SendMessageRequest {
    *             </ul>
    *          </important>
    */
-  MessageSystemAttributes?: Record<string, MessageSystemAttributeValue>;
+  MessageSystemAttributes?: Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>;
 
   /**
    * @public
@@ -2313,7 +2313,7 @@ export interface SendMessageBatchRequestEntry {
    *             </ul>
    *          </important>
    */
-  MessageSystemAttributes?: Record<string, MessageSystemAttributeValue>;
+  MessageSystemAttributes?: Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>;
 
   /**
    * @public
@@ -2759,7 +2759,7 @@ export interface SetQueueAttributesRequest {
    *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
    *   in the <i>Amazon SQS Developer Guide</i>.</p>
    */
-  Attributes: Record<string, string> | undefined;
+  Attributes: Record<QueueAttributeName, string> | undefined;
 }
 
 /**

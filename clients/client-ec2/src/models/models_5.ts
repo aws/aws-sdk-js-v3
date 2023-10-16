@@ -204,7 +204,7 @@ export interface VerifiedAccessLogDeliveryStatus {
    * @public
    * <p>The status code.</p>
    */
-  Code?: VerifiedAccessLogDeliveryStatusCode | string;
+  Code?: VerifiedAccessLogDeliveryStatusCode;
 
   /**
    * @public
@@ -504,7 +504,7 @@ export interface DescribeVolumeAttributeRequest {
    * @public
    * <p>The attribute of the volume. This parameter is required.</p>
    */
-  Attribute: VolumeAttributeName | string | undefined;
+  Attribute: VolumeAttributeName | undefined;
 
   /**
    * @public
@@ -808,7 +808,7 @@ export interface VolumeModification {
    * <p>The current modification state. The modification state is null for unmodified
    *       volumes.</p>
    */
-  ModificationState?: VolumeModificationState | string;
+  ModificationState?: VolumeModificationState;
 
   /**
    * @public
@@ -832,7 +832,7 @@ export interface VolumeModification {
    * @public
    * <p>The target EBS volume type of the volume.</p>
    */
-  TargetVolumeType?: VolumeType | string;
+  TargetVolumeType?: VolumeType;
 
   /**
    * @public
@@ -862,7 +862,7 @@ export interface VolumeModification {
    * @public
    * <p>The original EBS volume type of the volume.</p>
    */
-  OriginalVolumeType?: VolumeType | string;
+  OriginalVolumeType?: VolumeType;
 
   /**
    * @public
@@ -1130,7 +1130,7 @@ export interface VolumeStatusDetails {
    * @public
    * <p>The name of the volume status.</p>
    */
-  Name?: VolumeStatusName | string;
+  Name?: VolumeStatusName;
 
   /**
    * @public
@@ -1169,7 +1169,7 @@ export interface VolumeStatusInfo {
    * @public
    * <p>The status of the volume.</p>
    */
-  Status?: VolumeStatusInfoStatus | string;
+  Status?: VolumeStatusInfoStatus;
 }
 
 /**
@@ -1261,7 +1261,7 @@ export interface DescribeVpcAttributeRequest {
    * @public
    * <p>The VPC attribute.</p>
    */
-  Attribute: VpcAttributeName | string | undefined;
+  Attribute: VpcAttributeName | undefined;
 
   /**
    * @public
@@ -1628,7 +1628,7 @@ export interface VpcEndpointConnection {
    * @public
    * <p>The state of the VPC endpoint.</p>
    */
-  VpcEndpointState?: State | string;
+  VpcEndpointState?: State;
 
   /**
    * @public
@@ -1658,7 +1658,7 @@ export interface VpcEndpointConnection {
    * @public
    * <p>The IP address type for the endpoint.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -2092,7 +2092,7 @@ export interface ServiceDetail {
    * @public
    * <p>The payer responsibility.</p>
    */
-  PayerResponsibility?: PayerResponsibility | string;
+  PayerResponsibility?: PayerResponsibility;
 
   /**
    * @public
@@ -2105,13 +2105,13 @@ export interface ServiceDetail {
    * <p>The verification state of the VPC endpoint service.</p>
    *          <p>Consumers of the endpoint service cannot use the private name when the state is not <code>verified</code>.</p>
    */
-  PrivateDnsNameVerificationState?: DnsNameState | string;
+  PrivateDnsNameVerificationState?: DnsNameState;
 
   /**
    * @public
    * <p>The supported IP address types.</p>
    */
-  SupportedIpAddressTypes?: (ServiceConnectivityType | string)[];
+  SupportedIpAddressTypes?: ServiceConnectivityType[];
 }
 
 /**
@@ -2844,13 +2844,13 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionRequest {
    * @public
    * <p>The metric used for the disabled subscription.</p>
    */
-  Metric?: MetricType | string;
+  Metric?: MetricType;
 
   /**
    * @public
    * <p>The statistic used for the disabled subscription. </p>
    */
-  Statistic?: StatisticType | string;
+  Statistic?: StatisticType;
 
   /**
    * @public
@@ -2937,7 +2937,7 @@ export interface DisableFastLaunchResult {
    * <p>The pre-provisioning resource type that must be cleaned after turning off faster launching
    * 			for the Windows AMI. Supported values include: <code>snapshot</code>.</p>
    */
-  ResourceType?: FastLaunchResourceType | string;
+  ResourceType?: FastLaunchResourceType;
 
   /**
    * @public
@@ -2969,7 +2969,7 @@ export interface DisableFastLaunchResult {
    * @public
    * <p>The current state of faster launching for the specified Windows AMI.</p>
    */
-  State?: FastLaunchStateCode | string;
+  State?: FastLaunchStateCode;
 
   /**
    * @public
@@ -3030,7 +3030,7 @@ export interface DisableFastSnapshotRestoreSuccessItem {
    * @public
    * <p>The state of fast snapshot restores for the snapshot.</p>
    */
-  State?: FastSnapshotRestoreStateCode | string;
+  State?: FastSnapshotRestoreStateCode;
 
   /**
    * @public
@@ -3230,7 +3230,7 @@ export interface DisableImageBlockPublicAccessResult {
    * <p>Returns <code>unblocked</code> if the request succeeds; otherwise, it returns an
    *       error.</p>
    */
-  ImageBlockPublicAccessState?: ImageBlockPublicAccessDisabledState | string;
+  ImageBlockPublicAccessState?: ImageBlockPublicAccessDisabledState;
 }
 
 /**
@@ -3386,7 +3386,7 @@ export interface TransitGatewayPropagation {
    * @public
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
    * @public
@@ -3398,7 +3398,7 @@ export interface TransitGatewayPropagation {
    * @public
    * <p>The state.</p>
    */
-  State?: TransitGatewayPropagationState | string;
+  State?: TransitGatewayPropagationState;
 
   /**
    * @public
@@ -4054,13 +4054,13 @@ export interface EnableAwsNetworkPerformanceMetricSubscriptionRequest {
    * @public
    * <p>The metric used for the enabled subscription.</p>
    */
-  Metric?: MetricType | string;
+  Metric?: MetricType;
 
   /**
    * @public
    * <p>The statistic used for the enabled subscription.</p>
    */
-  Statistic?: StatisticType | string;
+  Statistic?: StatisticType;
 
   /**
    * @public
@@ -4210,7 +4210,7 @@ export interface EnableFastLaunchResult {
    * @public
    * <p>The type of resource that was defined for pre-provisioning the Windows AMI for faster launching.</p>
    */
-  ResourceType?: FastLaunchResourceType | string;
+  ResourceType?: FastLaunchResourceType;
 
   /**
    * @public
@@ -4243,7 +4243,7 @@ export interface EnableFastLaunchResult {
    * @public
    * <p>The current state of faster launching for the specified Windows AMI.</p>
    */
-  State?: FastLaunchStateCode | string;
+  State?: FastLaunchStateCode;
 
   /**
    * @public
@@ -4305,7 +4305,7 @@ export interface EnableFastSnapshotRestoreSuccessItem {
    * @public
    * <p>The state of fast snapshot restores.</p>
    */
-  State?: FastSnapshotRestoreStateCode | string;
+  State?: FastSnapshotRestoreStateCode;
 
   /**
    * @public
@@ -4493,7 +4493,7 @@ export interface EnableImageBlockPublicAccessRequest {
    *       account level in the specified Region. This will block any attempt to publicly share your AMIs
    *       in the specified Region.</p>
    */
-  ImageBlockPublicAccessState: ImageBlockPublicAccessEnabledState | string | undefined;
+  ImageBlockPublicAccessState: ImageBlockPublicAccessEnabledState | undefined;
 
   /**
    * @public
@@ -4513,7 +4513,7 @@ export interface EnableImageBlockPublicAccessResult {
    * <p>Returns <code>block-new-sharing</code> if the request succeeds; otherwise, it returns an
    *       error.</p>
    */
-  ImageBlockPublicAccessState?: ImageBlockPublicAccessEnabledState | string;
+  ImageBlockPublicAccessState?: ImageBlockPublicAccessEnabledState;
 }
 
 /**
@@ -4819,7 +4819,7 @@ export interface ClientCertificateRevocationListStatus {
    * @public
    * <p>The state of the client certificate revocation list.</p>
    */
-  Code?: ClientCertificateRevocationListStatusCode | string;
+  Code?: ClientCertificateRevocationListStatusCode;
 
   /**
    * @public
@@ -4911,7 +4911,7 @@ export interface ExportImageRequest {
    * @public
    * <p>The disk image format.</p>
    */
-  DiskImageFormat: DiskImageFormat | string | undefined;
+  DiskImageFormat: DiskImageFormat | undefined;
 
   /**
    * @public
@@ -4961,7 +4961,7 @@ export interface ExportImageResult {
    * @public
    * <p>The disk image format for the exported image.</p>
    */
-  DiskImageFormat?: DiskImageFormat | string;
+  DiskImageFormat?: DiskImageFormat;
 
   /**
    * @public
@@ -5251,19 +5251,19 @@ export interface DataQuery {
    * @public
    * <p>The metric, <code>aggregation-latency</code>, indicating that network latency is aggregated for the query. This is the only supported metric.</p>
    */
-  Metric?: MetricType | string;
+  Metric?: MetricType;
 
   /**
    * @public
    * <p>The metric data aggregation period, <code>p50</code>, between the specified <code>startDate</code> and <code>endDate</code>. For example, a metric of <code>five_minutes</code> is the median of all the data points gathered within those five minutes. <code>p50</code> is the only supported metric.</p>
    */
-  Statistic?: StatisticType | string;
+  Statistic?: StatisticType;
 
   /**
    * @public
    * <p>The aggregation period used for the data query.</p>
    */
-  Period?: PeriodType | string;
+  Period?: PeriodType;
 }
 
 /**
@@ -5364,19 +5364,19 @@ export interface DataResponse {
    * @public
    * <p>The metric used for the network performance request. Only <code>aggregate-latency</code> is supported, which shows network latency during a specified period. </p>
    */
-  Metric?: MetricType | string;
+  Metric?: MetricType;
 
   /**
    * @public
    * <p>The statistic used for the network performance request.</p>
    */
-  Statistic?: StatisticType | string;
+  Statistic?: StatisticType;
 
   /**
    * @public
    * <p>The period used for the network performance request.</p>
    */
-  Period?: PeriodType | string;
+  Period?: PeriodType;
 
   /**
    * @public
@@ -5515,7 +5515,7 @@ export interface GetCapacityReservationUsageResult {
    *             </li>
    *          </ul>
    */
-  State?: CapacityReservationState | string;
+  State?: CapacityReservationState;
 
   /**
    * @public
@@ -5759,7 +5759,7 @@ export interface GetDefaultCreditSpecificationRequest {
    * @public
    * <p>The instance family.</p>
    */
-  InstanceFamily: UnlimitedSupportedInstanceFamily | string | undefined;
+  InstanceFamily: UnlimitedSupportedInstanceFamily | undefined;
 }
 
 /**
@@ -5772,7 +5772,7 @@ export interface InstanceFamilyCreditSpecification {
    * @public
    * <p>The instance family.</p>
    */
-  InstanceFamily?: UnlimitedSupportedInstanceFamily | string;
+  InstanceFamily?: UnlimitedSupportedInstanceFamily;
 
   /**
    * @public
@@ -5844,7 +5844,7 @@ export interface GetEbsEncryptionByDefaultResult {
    * @public
    * <p>Reserved for future use.</p>
    */
-  SseType?: SSEType | string;
+  SseType?: SSEType;
 }
 
 /**
@@ -5878,7 +5878,7 @@ export interface AthenaIntegration {
    * @public
    * <p>The schedule for adding new partitions to the table.</p>
    */
-  PartitionLoadFrequency: PartitionLoadFrequency | string | undefined;
+  PartitionLoadFrequency: PartitionLoadFrequency | undefined;
 
   /**
    * @public
@@ -6040,7 +6040,7 @@ export interface Purchase {
    *             amounts are specified. At this time, the only supported currency is
    *             <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: CurrencyCodeValues;
 
   /**
    * @public
@@ -6077,7 +6077,7 @@ export interface Purchase {
    * @public
    * <p>The payment option for the reservation.</p>
    */
-  PaymentOption?: PaymentOption | string;
+  PaymentOption?: PaymentOption;
 
   /**
    * @public
@@ -6096,7 +6096,7 @@ export interface GetHostReservationPurchasePreviewResult {
    *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
    *             supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: CurrencyCodeValues;
 
   /**
    * @public
@@ -6172,13 +6172,13 @@ export interface GetInstanceTypesFromInstanceRequirementsRequest {
    * @public
    * <p>The processor architecture type.</p>
    */
-  ArchitectureTypes: (ArchitectureType | string)[] | undefined;
+  ArchitectureTypes: ArchitectureType[] | undefined;
 
   /**
    * @public
    * <p>The virtualization type.</p>
    */
-  VirtualizationTypes: (VirtualizationType | string)[] | undefined;
+  VirtualizationTypes: VirtualizationType[] | undefined;
 
   /**
    * @public
@@ -6394,7 +6394,7 @@ export interface IpamAddressHistoryRecord {
    * @public
    * <p>The type of the resource.</p>
    */
-  ResourceType?: IpamAddressHistoryResourceType | string;
+  ResourceType?: IpamAddressHistoryResourceType;
 
   /**
    * @public
@@ -6418,13 +6418,13 @@ export interface IpamAddressHistoryRecord {
    * @public
    * <p>The compliance status of a resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  ResourceComplianceStatus?: IpamComplianceStatus | string;
+  ResourceComplianceStatus?: IpamComplianceStatus;
 
   /**
    * @public
    * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  ResourceOverlapStatus?: IpamOverlapStatus | string;
+  ResourceOverlapStatus?: IpamOverlapStatus;
 
   /**
    * @public
@@ -6554,7 +6554,7 @@ export interface IpamDiscoveryFailureReason {
    *             </li>
    *          </ul>
    */
-  Code?: IpamDiscoveryFailureCode | string;
+  Code?: IpamDiscoveryFailureCode;
 
   /**
    * @public
@@ -6716,7 +6716,7 @@ export interface IpamDiscoveredResourceCidr {
    * @public
    * <p>The resource type.</p>
    */
-  ResourceType?: IpamResourceType | string;
+  ResourceType?: IpamResourceType;
 
   /**
    * @public
@@ -6940,7 +6940,7 @@ export interface GetIpamResourceCidrsRequest {
    * @public
    * <p>The resource type.</p>
    */
-  ResourceType?: IpamResourceType | string;
+  ResourceType?: IpamResourceType;
 
   /**
    * @public
@@ -7027,7 +7027,7 @@ export interface IpamResourceCidr {
    * @public
    * <p>The type of IPAM resource.</p>
    */
-  ResourceType?: IpamResourceType | string;
+  ResourceType?: IpamResourceType;
 
   /**
    * @public
@@ -7059,19 +7059,19 @@ export interface IpamResourceCidr {
    * @public
    * <p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  ComplianceStatus?: IpamComplianceStatus | string;
+  ComplianceStatus?: IpamComplianceStatus;
 
   /**
    * @public
    * <p>The management state of the resource. For more information about management states, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  ManagementState?: IpamManagementState | string;
+  ManagementState?: IpamManagementState;
 
   /**
    * @public
    * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  OverlapStatus?: IpamOverlapStatus | string;
+  OverlapStatus?: IpamOverlapStatus;
 
   /**
    * @public
@@ -7314,7 +7314,7 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsResult {
    * @public
    * <p>The status of Network Access Scope Analysis.</p>
    */
-  AnalysisStatus?: AnalysisStatus | string;
+  AnalysisStatus?: AnalysisStatus;
 
   /**
    * @public
@@ -7606,13 +7606,13 @@ export interface InstanceRequirementsWithMetadataRequest {
    * @public
    * <p>The architecture type.</p>
    */
-  ArchitectureTypes?: (ArchitectureType | string)[];
+  ArchitectureTypes?: ArchitectureType[];
 
   /**
    * @public
    * <p>The virtualization type.</p>
    */
-  VirtualizationTypes?: (VirtualizationType | string)[];
+  VirtualizationTypes?: VirtualizationType[];
 
   /**
    * @public
@@ -7648,7 +7648,7 @@ export interface GetSpotPlacementScoresRequest {
    * <p>The unit for the target capacity.</p>
    *          <p>Default: <code>units</code> (translates to number of instances)</p>
    */
-  TargetCapacityUnitType?: TargetCapacityUnitType | string;
+  TargetCapacityUnitType?: TargetCapacityUnitType;
 
   /**
    * @public
@@ -7900,7 +7900,7 @@ export interface TransitGatewayAttachmentPropagation {
    * @public
    * <p>The state of the propagation route table.</p>
    */
-  State?: TransitGatewayPropagationState | string;
+  State?: TransitGatewayPropagationState;
 }
 
 /**
@@ -8003,7 +8003,7 @@ export interface TransitGatewayMulticastDomainAssociation {
    * @public
    * <p>The type of resource, for example a VPC attachment.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
    * @public
@@ -8385,13 +8385,13 @@ export interface TransitGatewayRouteTableAssociation {
    * @public
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
    * @public
    * <p>The state of the association.</p>
    */
-  State?: TransitGatewayAssociationState | string;
+  State?: TransitGatewayAssociationState;
 }
 
 /**

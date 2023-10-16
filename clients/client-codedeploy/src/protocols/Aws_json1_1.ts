@@ -380,6 +380,7 @@ import {
   TagRequiredException,
   TagResourceInput,
   TagSetListLimitExceededException,
+  TargetFilterName,
   TargetGroupInfo,
   TargetGroupPairInfo,
   TargetInstances,

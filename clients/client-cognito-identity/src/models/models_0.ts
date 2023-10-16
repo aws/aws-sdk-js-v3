@@ -353,7 +353,7 @@ export interface UnprocessedIdentityId {
    * @public
    * <p>The error code indicating the type of error that occurred.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 }
 
 /**
@@ -694,7 +694,7 @@ export interface MappingRule {
    * <p>The match condition that specifies how closely the claim value in the IdP token must
    *          match <code>Value</code>.</p>
    */
-  MatchType: MappingRuleMatchType | string | undefined;
+  MatchType: MappingRuleMatchType | undefined;
 
   /**
    * @public
@@ -748,7 +748,7 @@ export interface RoleMapping {
    *          map groups to roles. Rules will attempt to match claims from the token to map to a
    *          role.</p>
    */
-  Type: RoleMappingType | string | undefined;
+  Type: RoleMappingType | undefined;
 
   /**
    * @public
@@ -759,7 +759,7 @@ export interface RoleMapping {
    *          there are multiple <code>cognito:roles</code> matches for the <code>Token</code>
    *          type.</p>
    */
-  AmbiguousRoleResolution?: AmbiguousRoleResolutionType | string;
+  AmbiguousRoleResolution?: AmbiguousRoleResolutionType;
 
   /**
    * @public

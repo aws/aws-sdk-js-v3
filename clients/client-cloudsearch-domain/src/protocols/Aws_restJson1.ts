@@ -362,9 +362,9 @@ const de_Stats = (output: any, context: __SerdeContext): Record<string, FieldSta
     if (value === null) {
       return acc;
     }
-    acc[key] = de_FieldStats(value, context);
+    acc[key as string] = de_FieldStats(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, FieldStats>);
 };
 
 // de_SuggestionMatch omitted.

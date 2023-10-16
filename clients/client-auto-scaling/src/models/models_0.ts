@@ -183,7 +183,7 @@ export interface Activity {
    * @public
    * <p>The current status of the activity.</p>
    */
-  StatusCode: ScalingActivityStatusCode | string | undefined;
+  StatusCode: ScalingActivityStatusCode | undefined;
 
   /**
    * @public
@@ -1278,7 +1278,7 @@ export interface InstanceRequirements {
    *          </note>
    *          <p>Default: Any manufacturer</p>
    */
-  CpuManufacturers?: (CpuManufacturer | string)[];
+  CpuManufacturers?: CpuManufacturer[];
 
   /**
    * @public
@@ -1322,7 +1322,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any current or previous generation</p>
    */
-  InstanceGenerations?: (InstanceGeneration | string)[];
+  InstanceGenerations?: InstanceGeneration[];
 
   /**
    * @public
@@ -1365,7 +1365,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BareMetal?: BareMetal | string;
+  BareMetal?: BareMetal;
 
   /**
    * @public
@@ -1375,7 +1375,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BurstablePerformance?: BurstablePerformance | string;
+  BurstablePerformance?: BurstablePerformance;
 
   /**
    * @public
@@ -1401,7 +1401,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>included</code>
    *          </p>
    */
-  LocalStorage?: LocalStorage | string;
+  LocalStorage?: LocalStorage;
 
   /**
    * @public
@@ -1418,7 +1418,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any local storage type</p>
    */
-  LocalStorageTypes?: (LocalStorageType | string)[];
+  LocalStorageTypes?: LocalStorageType[];
 
   /**
    * @public
@@ -1453,7 +1453,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any accelerator type</p>
    */
-  AcceleratorTypes?: (AcceleratorType | string)[];
+  AcceleratorTypes?: AcceleratorType[];
 
   /**
    * @public
@@ -1486,7 +1486,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any manufacturer</p>
    */
-  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+  AcceleratorManufacturers?: AcceleratorManufacturer[];
 
   /**
    * @public
@@ -1517,7 +1517,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any accelerator</p>
    */
-  AcceleratorNames?: (AcceleratorName | string)[];
+  AcceleratorNames?: AcceleratorName[];
 
   /**
    * @public
@@ -2245,7 +2245,7 @@ export interface InstanceMetadataOptions {
    *             always returns the version 2.0 credentials; the version 1.0 credentials are not
    *             available.</p>
    */
-  HttpTokens?: InstanceMetadataHttpTokensState | string;
+  HttpTokens?: InstanceMetadataHttpTokensState;
 
   /**
    * @public
@@ -2264,7 +2264,7 @@ export interface InstanceMetadataOptions {
    *                 your instance metadata. </p>
    *          </note>
    */
-  HttpEndpoint?: InstanceMetadataEndpointState | string;
+  HttpEndpoint?: InstanceMetadataEndpointState;
 }
 
 /**
@@ -3010,7 +3010,7 @@ export interface Instance {
    *             not used. For information about lifecycle states, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Instance
    *                 lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
    */
-  LifecycleState: LifecycleState | string | undefined;
+  LifecycleState: LifecycleState | undefined;
 
   /**
    * @public
@@ -3170,13 +3170,13 @@ export interface WarmPoolConfiguration {
    * @public
    * <p>The instance state to transition to after the lifecycle actions are complete.</p>
    */
-  PoolState?: WarmPoolState | string;
+  PoolState?: WarmPoolState;
 
   /**
    * @public
    * <p>The status of a warm pool that is marked for deletion.</p>
    */
-  Status?: WarmPoolStatus | string;
+  Status?: WarmPoolStatus;
 
   /**
    * @public
@@ -3754,7 +3754,7 @@ export interface RefreshPreferences {
    *             </dd>
    *          </dl>
    */
-  ScaleInProtectedInstances?: ScaleInProtectedInstances | string;
+  ScaleInProtectedInstances?: ScaleInProtectedInstances;
 
   /**
    * @public
@@ -3778,7 +3778,7 @@ export interface RefreshPreferences {
    *             </dd>
    *          </dl>
    */
-  StandbyInstances?: StandbyInstances | string;
+  StandbyInstances?: StandbyInstances;
 
   /**
    * @public
@@ -3978,7 +3978,7 @@ export interface InstanceRefresh {
    *             </li>
    *          </ul>
    */
-  Status?: InstanceRefreshStatus | string;
+  Status?: InstanceRefreshStatus;
 
   /**
    * @public
@@ -5122,7 +5122,7 @@ export interface PredictiveScalingPredefinedLoadMetric {
    * @public
    * <p>The metric type.</p>
    */
-  PredefinedMetricType: PredefinedLoadMetricType | string | undefined;
+  PredefinedMetricType: PredefinedLoadMetricType | undefined;
 
   /**
    * @public
@@ -5179,7 +5179,7 @@ export interface PredictiveScalingPredefinedMetricPair {
    *             metric type is <code>ASGCPUUtilization</code>, the Auto Scaling group's total CPU metric is used
    *             as the load metric, and the average CPU metric is used for the scaling metric.</p>
    */
-  PredefinedMetricType: PredefinedMetricPairType | string | undefined;
+  PredefinedMetricType: PredefinedMetricPairType | undefined;
 
   /**
    * @public
@@ -5237,7 +5237,7 @@ export interface PredictiveScalingPredefinedScalingMetric {
    * @public
    * <p>The metric type.</p>
    */
-  PredefinedMetricType: PredefinedScalingMetricType | string | undefined;
+  PredefinedMetricType: PredefinedScalingMetricType | undefined;
 
   /**
    * @public
@@ -5399,7 +5399,7 @@ export interface PredictiveScalingConfiguration {
    * <p>The predictive scaling mode. Defaults to <code>ForecastOnly</code> if not
    *             specified.</p>
    */
-  Mode?: PredictiveScalingMode | string;
+  Mode?: PredictiveScalingMode;
 
   /**
    * @public
@@ -5435,7 +5435,7 @@ export interface PredictiveScalingConfiguration {
    *             </li>
    *          </ul>
    */
-  MaxCapacityBreachBehavior?: PredictiveScalingMaxCapacityBreachBehavior | string;
+  MaxCapacityBreachBehavior?: PredictiveScalingMaxCapacityBreachBehavior;
 
   /**
    * @public
@@ -5683,7 +5683,7 @@ export interface CustomizedMetricSpecification {
    * @public
    * <p>The statistic of the metric.</p>
    */
-  Statistic?: MetricStatistic | string;
+  Statistic?: MetricStatistic;
 
   /**
    * @public
@@ -5749,7 +5749,7 @@ export interface PredefinedMetricSpecification {
    *             </li>
    *          </ul>
    */
-  PredefinedMetricType: MetricType | string | undefined;
+  PredefinedMetricType: MetricType | undefined;
 
   /**
    * @public
@@ -7532,7 +7532,7 @@ export interface PutWarmPoolType {
    * <p>Sets the instance state to transition to after the lifecycle actions are complete.
    *             Default is <code>Stopped</code>.</p>
    */
-  PoolState?: WarmPoolState | string;
+  PoolState?: WarmPoolState;
 
   /**
    * @public
@@ -7836,7 +7836,7 @@ export interface StartInstanceRefreshType {
    * <p>The strategy to use for the instance refresh. The only valid value is
    *                 <code>Rolling</code>.</p>
    */
-  Strategy?: RefreshStrategy | string;
+  Strategy?: RefreshStrategy;
 
   /**
    * @public

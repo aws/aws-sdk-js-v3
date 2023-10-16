@@ -436,7 +436,7 @@ export interface SourceFlowConfig {
    * @public
    * <p>The type of connector, such as Salesforce, Marketo, and so on.</p>
    */
-  ConnectorType: SourceConnectorType | string | undefined;
+  ConnectorType: SourceConnectorType | undefined;
 
   /**
    * @public
@@ -617,31 +617,31 @@ export interface ConnectorOperator {
    * @public
    * <p>The operation to be performed on the provided Marketo source fields.</p>
    */
-  Marketo?: MarketoConnectorOperator | string;
+  Marketo?: MarketoConnectorOperator;
 
   /**
    * @public
    * <p>The operation to be performed on the provided Amazon S3 source fields.</p>
    */
-  S3?: S3ConnectorOperator | string;
+  S3?: S3ConnectorOperator;
 
   /**
    * @public
    * <p>The operation to be performed on the provided Salesforce source fields.</p>
    */
-  Salesforce?: SalesforceConnectorOperator | string;
+  Salesforce?: SalesforceConnectorOperator;
 
   /**
    * @public
    * <p>The operation to be performed on the provided ServiceNow source fields.</p>
    */
-  ServiceNow?: ServiceNowConnectorOperator | string;
+  ServiceNow?: ServiceNowConnectorOperator;
 
   /**
    * @public
    * <p>The operation to be performed on the provided Zendesk source fields.</p>
    */
-  Zendesk?: ZendeskConnectorOperator | string;
+  Zendesk?: ZendeskConnectorOperator;
 }
 
 /**
@@ -719,13 +719,13 @@ export interface Task {
    * <p>A map used to store task-related information. The service looks for particular
    *          information based on the TaskType.</p>
    */
-  TaskProperties?: Record<string, string>;
+  TaskProperties?: Record<OperatorPropertiesKeys, string>;
 
   /**
    * @public
    * <p>Specifies the particular task implementation that Amazon AppFlow performs.</p>
    */
-  TaskType: TaskType | string | undefined;
+  TaskType: TaskType | undefined;
 }
 
 /**
@@ -760,7 +760,7 @@ export interface ScheduledTriggerProperties {
    * <p>Specifies whether a scheduled flow has an incremental data transfer or a complete data
    *          transfer for each flow run.</p>
    */
-  DataPullMode?: DataPullMode | string;
+  DataPullMode?: DataPullMode;
 
   /**
    * @public
@@ -834,7 +834,7 @@ export interface TriggerConfig {
    * @public
    * <p>Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.</p>
    */
-  TriggerType: TriggerType | string | undefined;
+  TriggerType: TriggerType | undefined;
 
   /**
    * @public
@@ -920,7 +920,7 @@ export interface AppflowIntegrationWorkflowAttributes {
    * @public
    * <p>Specifies the source connector type, such as Salesforce, ServiceNow, and Marketo. Indicates source of ingestion.</p>
    */
-  SourceConnectorType: SourceConnectorType | string | undefined;
+  SourceConnectorType: SourceConnectorType | undefined;
 
   /**
    * @public
@@ -993,7 +993,7 @@ export interface AppflowIntegrationWorkflowStep {
    * @public
    * <p>Workflow step status for <code>APPFLOW_INTEGRATION</code> workflow.</p>
    */
-  Status: Status | string | undefined;
+  Status: Status | undefined;
 
   /**
    * @public
@@ -1130,7 +1130,7 @@ export interface AttributeTypesSelector {
    * <p>Configures the <code>AttributeMatchingModel</code>, you can either choose <code>ONE_TO_ONE</code> or
    *          <code>MANY_TO_MANY</code>.</p>
    */
-  AttributeMatchingModel: AttributeMatchingModel | string | undefined;
+  AttributeMatchingModel: AttributeMatchingModel | undefined;
 
   /**
    * @public
@@ -1207,7 +1207,7 @@ export interface ConflictResolution {
    *             </li>
    *          </ul>
    */
-  ConflictResolvingModel: ConflictResolvingModel | string | undefined;
+  ConflictResolvingModel: ConflictResolvingModel | undefined;
 
   /**
    * @public
@@ -1365,7 +1365,7 @@ export interface Range {
    * @public
    * <p>The unit of time.</p>
    */
-  Unit: Unit | string | undefined;
+  Unit: Unit | undefined;
 }
 
 /**
@@ -1399,7 +1399,7 @@ export interface Threshold {
    * @public
    * <p>The operator of the threshold.</p>
    */
-  Operator: Operator | string | undefined;
+  Operator: Operator | undefined;
 }
 
 /**
@@ -1490,7 +1490,7 @@ export interface CreateCalculatedAttributeDefinitionRequest {
    * @public
    * <p>The aggregation operation to perform for the calculated attribute.</p>
    */
-  Statistic: Statistic | string | undefined;
+  Statistic: Statistic | undefined;
 
   /**
    * @public
@@ -1537,7 +1537,7 @@ export interface CreateCalculatedAttributeDefinitionResponse {
    * @public
    * <p>The aggregation operation to perform for the calculated attribute.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: Statistic;
 
   /**
    * @public
@@ -1621,7 +1621,7 @@ export interface JobSchedule {
    * @public
    * <p>The day when the Identity Resolution Job should run every week.</p>
    */
-  DayOfTheWeek: JobScheduleDayOfTheWeek | string | undefined;
+  DayOfTheWeek: JobScheduleDayOfTheWeek | undefined;
 
   /**
    * @public
@@ -1939,7 +1939,7 @@ export interface RuleBasedMatchingResponse {
    *             </li>
    *          </ul>
    */
-  Status?: RuleBasedMatchingStatus | string;
+  Status?: RuleBasedMatchingStatus;
 
   /**
    * @public
@@ -2138,7 +2138,7 @@ export interface CreateIntegrationWorkflowRequest {
    * @public
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType: WorkflowType | string | undefined;
+  WorkflowType: WorkflowType | undefined;
 
   /**
    * @public
@@ -2240,7 +2240,7 @@ export interface CreateProfileRequest {
    *
    * <p>The type of profile used to describe the customer.</p>
    */
-  PartyType?: PartyType | string;
+  PartyType?: PartyType;
 
   /**
    * @public
@@ -2278,7 +2278,7 @@ export interface CreateProfileRequest {
    *
    * <p>The gender with which the customer identifies. </p>
    */
-  Gender?: Gender | string;
+  Gender?: Gender;
 
   /**
    * @public
@@ -2745,7 +2745,7 @@ export interface GetCalculatedAttributeDefinitionResponse {
    * @public
    * <p>The aggregation operation to perform for the calculated attribute.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: Statistic;
 
   /**
    * @public
@@ -2987,7 +2987,7 @@ export interface EventStreamDestinationDetails {
    * @public
    * <p>The status of enabling the Kinesis stream as a destination for export.</p>
    */
-  Status: EventStreamDestinationStatus | string | undefined;
+  Status: EventStreamDestinationStatus | undefined;
 
   /**
    * @public
@@ -3042,7 +3042,7 @@ export interface GetEventStreamResponse {
    * @public
    * <p>The operational state of destination stream for export.</p>
    */
-  State: EventStreamState | string | undefined;
+  State: EventStreamState | undefined;
 
   /**
    * @public
@@ -3209,7 +3209,7 @@ export interface GetIdentityResolutionJobResponse {
    *             </li>
    *          </ul>
    */
-  Status?: IdentityResolutionJobStatus | string;
+  Status?: IdentityResolutionJobStatus;
 
   /**
    * @public
@@ -3479,7 +3479,7 @@ export interface ObjectTypeField {
    * @public
    * <p>The content type of the field. Used for determining equality when searching.</p>
    */
-  ContentType?: FieldContentType | string;
+  ContentType?: FieldContentType;
 }
 
 /**
@@ -3519,7 +3519,7 @@ export interface ObjectTypeKey {
    *          A NEW_ONLY key is only used if the profile does not already exist before the object is
    *          ingested, otherwise it is only used for matching objects to profiles.</p>
    */
-  StandardIdentifiers?: (StandardIdentifier | string)[];
+  StandardIdentifiers?: StandardIdentifier[];
 
   /**
    * @public
@@ -3714,7 +3714,7 @@ export interface GetSimilarProfilesRequest {
    * @public
    * <p>Specify the type of matching to get similar profiles for.</p>
    */
-  MatchType: MatchType | string | undefined;
+  MatchType: MatchType | undefined;
 
   /**
    * @public
@@ -3749,7 +3749,7 @@ export interface GetSimilarProfilesResponse {
    * @public
    * <p>Specify the type of matching to get similar profiles for.</p>
    */
-  MatchType?: MatchType | string;
+  MatchType?: MatchType;
 
   /**
    * @public
@@ -3832,13 +3832,13 @@ export interface GetWorkflowResponse {
    * @public
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType?: WorkflowType | string;
+  WorkflowType?: WorkflowType;
 
   /**
    * @public
    * <p>Status of workflow execution.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -3927,7 +3927,7 @@ export interface GetWorkflowStepsResponse {
    * @public
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType?: WorkflowType | string;
+  WorkflowType?: WorkflowType;
 
   /**
    * @public
@@ -4240,7 +4240,7 @@ export interface DestinationSummary {
    * @public
    * <p>The status of enabling the Kinesis stream as a destination for export.</p>
    */
-  Status: EventStreamDestinationStatus | string | undefined;
+  Status: EventStreamDestinationStatus | undefined;
 
   /**
    * @public
@@ -4276,7 +4276,7 @@ export interface EventStreamSummary {
    * @public
    * <p>The operational state of destination stream for export.</p>
    */
-  State: EventStreamState | string | undefined;
+  State: EventStreamState | undefined;
 
   /**
    * @public
@@ -4394,7 +4394,7 @@ export interface IdentityResolutionJob {
    *             </li>
    *          </ul>
    */
-  Status?: IdentityResolutionJobStatus | string;
+  Status?: IdentityResolutionJobStatus;
 
   /**
    * @public
@@ -4809,13 +4809,13 @@ export interface ListWorkflowsRequest {
    * @public
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType?: WorkflowType | string;
+  WorkflowType?: WorkflowType;
 
   /**
    * @public
    * <p>Status of workflow execution.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -4852,7 +4852,7 @@ export interface ListWorkflowsItem {
    * @public
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType: WorkflowType | string | undefined;
+  WorkflowType: WorkflowType | undefined;
 
   /**
    * @public
@@ -4864,7 +4864,7 @@ export interface ListWorkflowsItem {
    * @public
    * <p>Status of workflow execution.</p>
    */
-  Status: Status | string | undefined;
+  Status: Status | undefined;
 
   /**
    * @public
@@ -5465,7 +5465,7 @@ export interface SearchProfilesRequest {
    *          </ul>
    *          <p>The <code>OR</code> relationship is the default behavior if this parameter is not included in the request.</p>
    */
-  LogicalOperator?: LogicalOperator | string;
+  LogicalOperator?: LogicalOperator;
 }
 
 /**
@@ -5516,7 +5516,7 @@ export interface Profile {
    *
    * <p>The type of profile used to describe the customer.</p>
    */
-  PartyType?: PartyType | string;
+  PartyType?: PartyType;
 
   /**
    * @public
@@ -5554,7 +5554,7 @@ export interface Profile {
    *
    * <p>The gender with which the customer identifies. </p>
    */
-  Gender?: Gender | string;
+  Gender?: Gender;
 
   /**
    * @public
@@ -5804,7 +5804,7 @@ export interface UpdateCalculatedAttributeDefinitionResponse {
    * @public
    * <p>The aggregation operation to perform for the calculated attribute.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: Statistic;
 
   /**
    * @public
@@ -6065,7 +6065,7 @@ export interface UpdateProfileRequest {
    *
    * <p>The type of profile used to describe the customer.</p>
    */
-  PartyType?: PartyType | string;
+  PartyType?: PartyType;
 
   /**
    * @public
@@ -6103,7 +6103,7 @@ export interface UpdateProfileRequest {
    *
    * <p>The gender with which the customer identifies. </p>
    */
-  Gender?: Gender | string;
+  Gender?: Gender;
 
   /**
    * @public

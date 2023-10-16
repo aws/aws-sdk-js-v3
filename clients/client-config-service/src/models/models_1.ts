@@ -320,7 +320,7 @@ export interface OrganizationCustomPolicyRuleMetadata {
    *             </li>
    *          </ul>
    */
-  OrganizationConfigRuleTriggerTypes?: (OrganizationConfigRuleTriggerTypeNoSN | string)[];
+  OrganizationConfigRuleTriggerTypes?: OrganizationConfigRuleTriggerTypeNoSN[];
 
   /**
    * @public
@@ -334,7 +334,7 @@ export interface OrganizationCustomPolicyRuleMetadata {
    * 			Config Custom Policy rule is triggered when Config delivers
    * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency;
 
   /**
    * @public
@@ -1188,7 +1188,7 @@ export interface StartResourceEvaluationRequest {
    * @public
    * <p>The mode of an evaluation. The valid values for this API are <code>DETECTIVE</code> and <code>PROACTIVE</code>.</p>
    */
-  EvaluationMode: EvaluationMode | string | undefined;
+  EvaluationMode: EvaluationMode | undefined;
 
   /**
    * @public

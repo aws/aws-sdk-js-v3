@@ -57,7 +57,7 @@ export interface QueryResultItem {
    * <p>The type of document within the response. For example, a response could include a
    *          question-answer that's relevant to the query.</p>
    */
-  Type?: QueryResultType | string;
+  Type?: QueryResultType;
 
   /**
    * @public
@@ -66,7 +66,7 @@ export interface QueryResultItem {
    *          a table excerpt is returned in <code>TableExcerpt</code>. If it's a text answer, a text
    *          excerpt is returned in <code>DocumentExcerpt</code>.</p>
    */
-  Format?: QueryResultFormat | string;
+  Format?: QueryResultFormat;
 
   /**
    * @public
@@ -213,7 +213,7 @@ export interface Warning {
    * @public
    * <p>The code used to show the type of warning for the query.</p>
    */
-  Code?: WarningCode | string;
+  Code?: WarningCode;
 }
 
 /**
@@ -406,7 +406,7 @@ export interface RelevanceFeedback {
    * @public
    * <p>Whether the document was relevant or not relevant to the search.</p>
    */
-  RelevanceValue: RelevanceType | string | undefined;
+  RelevanceValue: RelevanceType | undefined;
 }
 
 /**
@@ -694,7 +694,7 @@ export interface UpdateFeaturedResultsSetRequest {
    *             must be unique per featured results set for each index, whether the
    *             status is <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
    */
-  Status?: FeaturedResultsSetStatus | string;
+  Status?: FeaturedResultsSetStatus;
 
   /**
    * @public
@@ -782,7 +782,7 @@ export interface UpdateIndexRequest {
    * @public
    * <p>The user context policy.</p>
    */
-  UserContextPolicy?: UserContextPolicy | string;
+  UserContextPolicy?: UserContextPolicy;
 
   /**
    * @public
@@ -862,7 +862,7 @@ export interface UpdateQuerySuggestionsConfigRequest {
    *             queries to keep suggestions up to date for when you are ready to
    *             switch to ENABLED mode again.</p>
    */
-  Mode?: Mode | string;
+  Mode?: Mode;
 
   /**
    * @public
@@ -1053,7 +1053,7 @@ export interface FacetResult {
    * <p>The data type of the facet value. This is the same as the type defined for the index
    *          field when it was created.</p>
    */
-  DocumentAttributeValueType?: DocumentAttributeValueType | string;
+  DocumentAttributeValueType?: DocumentAttributeValueType;
 
   /**
    * @public
@@ -1392,7 +1392,7 @@ export interface GetQuerySuggestionsRequest {
    *             Amazon Kendra suggests queries relevant to your users based on the
    *             contents of document fields.</p>
    */
-  SuggestionTypes?: (SuggestionType | string)[];
+  SuggestionTypes?: SuggestionType[];
 
   /**
    * @public
@@ -1450,7 +1450,7 @@ export interface QueryRequest {
    * <p>Sets the type of query result or response. Only results for the specified type are
    *          returned.</p>
    */
-  QueryResultTypeFilter?: QueryResultType | string;
+  QueryResultTypeFilter?: QueryResultType;
 
   /**
    * @public

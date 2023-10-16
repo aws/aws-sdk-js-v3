@@ -143,7 +143,7 @@ export interface ImageState {
    * @public
    * <p>The status of the image.</p>
    */
-  status?: ImageStatus | string;
+  status?: ImageStatus;
 
   /**
    * @public
@@ -570,7 +570,7 @@ export interface ComponentState {
    * @public
    * <p>The current state of the component.</p>
    */
-  status?: ComponentStatus | string;
+  status?: ComponentStatus;
 
   /**
    * @public
@@ -633,13 +633,13 @@ export interface Component {
    * <p>The component type specifies whether Image Builder uses the component to build the image or
    * 			only to test it.</p>
    */
-  type?: ComponentType | string;
+  type?: ComponentType;
 
   /**
    * @public
    * <p>The operating system platform of the component.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -791,7 +791,7 @@ export interface ComponentSummary {
    * @public
    * <p>The operating system platform of the component.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -812,7 +812,7 @@ export interface ComponentSummary {
    * <p>The component type specifies whether Image Builder uses the component to build the image or
    * 			only to test it.</p>
    */
-  type?: ComponentType | string;
+  type?: ComponentType;
 
   /**
    * @public
@@ -925,7 +925,7 @@ export interface ComponentVersion {
    * @public
    * <p>The platform of the component.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -940,7 +940,7 @@ export interface ComponentVersion {
    * <p>The type of the component denotes whether the component is used to build the image or
    * 			only to test it.</p>
    */
-  type?: ComponentType | string;
+  type?: ComponentType;
 
   /**
    * @public
@@ -996,7 +996,7 @@ export interface TargetContainerRepository {
    * @public
    * <p>Specifies the service in which this image was registered.</p>
    */
-  service: ContainerRepositoryService | string | undefined;
+  service: ContainerRepositoryService | undefined;
 
   /**
    * @public
@@ -1108,7 +1108,7 @@ export interface EbsInstanceBlockDeviceSpecification {
    * @public
    * <p>Use to override the device's volume type.</p>
    */
-  volumeType?: EbsVolumeType | string;
+  volumeType?: EbsVolumeType;
 
   /**
    * @public
@@ -1201,7 +1201,7 @@ export interface ContainerRecipe {
    * @public
    * <p>Specifies the type of container, such as Docker.</p>
    */
-  containerType?: ContainerType | string;
+  containerType?: ContainerType;
 
   /**
    * @public
@@ -1219,7 +1219,7 @@ export interface ContainerRecipe {
    * @public
    * <p>The system platform for the container, such as Windows or Linux.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -1333,7 +1333,7 @@ export interface ContainerRecipeSummary {
    * @public
    * <p>Specifies the type of container, such as "Docker".</p>
    */
-  containerType?: ContainerType | string;
+  containerType?: ContainerType;
 
   /**
    * @public
@@ -1345,7 +1345,7 @@ export interface ContainerRecipeSummary {
    * @public
    * <p>The system platform for the container, such as Windows or Linux.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -1419,7 +1419,7 @@ export interface CreateComponentRequest {
    * @public
    * <p>The operating system platform of the component.</p>
    */
-  platform: Platform | string | undefined;
+  platform: Platform | undefined;
 
   /**
    * @public
@@ -1561,7 +1561,7 @@ export interface CreateContainerRecipeRequest {
    * @public
    * <p>The type of container to create.</p>
    */
-  containerType: ContainerType | string | undefined;
+  containerType: ContainerType | undefined;
 
   /**
    * @public
@@ -1626,7 +1626,7 @@ export interface CreateContainerRecipeRequest {
    * @public
    * <p>Specifies the operating system platform when you use a custom base image.</p>
    */
-  platformOverride?: Platform | string;
+  platformOverride?: Platform;
 
   /**
    * @public
@@ -1874,7 +1874,7 @@ export interface S3ExportConfiguration {
    *             </li>
    *          </ul>
    */
-  diskImageFormat: DiskImageFormat | string | undefined;
+  diskImageFormat: DiskImageFormat | undefined;
 
   /**
    * @public
@@ -2204,7 +2204,7 @@ export interface Schedule {
    * 				<code>EXPRESSION_MATCH_ONLY</code>, it will build a new image every time the CRON
    * 			expression matches the current time. For semantic version syntax, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a> in the <i> EC2 Image Builder API Reference</i>.</p>
    */
-  pipelineExecutionStartCondition?: PipelineExecutionStartCondition | string;
+  pipelineExecutionStartCondition?: PipelineExecutionStartCondition;
 }
 
 /**
@@ -2289,7 +2289,7 @@ export interface CreateImagePipelineRequest {
    * @public
    * <p>The status of the image pipeline.</p>
    */
-  status?: PipelineStatus | string;
+  status?: PipelineStatus;
 
   /**
    * @public
@@ -3286,7 +3286,7 @@ export interface ImageRecipe {
    * <p>Specifies which type of image is created by the recipe - an AMI or a container
    * 			image.</p>
    */
-  type?: ImageType | string;
+  type?: ImageType;
 
   /**
    * @public
@@ -3304,7 +3304,7 @@ export interface ImageRecipe {
    * @public
    * <p>The platform of the image recipe.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -3538,7 +3538,7 @@ export interface ImageScanState {
    * @public
    * <p>The current state of vulnerability scans for the image.</p>
    */
-  status?: ImageScanStatus | string;
+  status?: ImageScanStatus;
 
   /**
    * @public
@@ -3580,7 +3580,7 @@ export interface Image {
    * @public
    * <p>Specifies whether this image produces an AMI or a container image.</p>
    */
-  type?: ImageType | string;
+  type?: ImageType;
 
   /**
    * @public
@@ -3615,7 +3615,7 @@ export interface Image {
    * @public
    * <p>The image operating system platform, such as Linux or Windows.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -3721,13 +3721,13 @@ export interface Image {
    *             </li>
    *          </ul>
    */
-  buildType?: BuildType | string;
+  buildType?: BuildType;
 
   /**
    * @public
    * <p>The origin of the base image that Image Builder used to build this image.</p>
    */
-  imageSource?: ImageSource | string;
+  imageSource?: ImageSource;
 
   /**
    * @public
@@ -3797,7 +3797,7 @@ export interface ImagePipeline {
    * @public
    * <p>The platform of the image pipeline.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -3851,7 +3851,7 @@ export interface ImagePipeline {
    * @public
    * <p>The status of the image pipeline.</p>
    */
-  status?: PipelineStatus | string;
+  status?: PipelineStatus;
 
   /**
    * @public
@@ -4104,13 +4104,13 @@ export interface GetWorkflowExecutionResponse {
    * @public
    * <p>The type of workflow that Image Builder ran for the specified runtime instance of the workflow.</p>
    */
-  type?: WorkflowType | string;
+  type?: WorkflowType;
 
   /**
    * @public
    * <p>The current runtime status for the specified runtime instance of the workflow.</p>
    */
-  status?: WorkflowExecutionStatus | string;
+  status?: WorkflowExecutionStatus;
 
   /**
    * @public
@@ -4267,14 +4267,14 @@ export interface GetWorkflowStepExecutionResponse {
    * @public
    * <p>The current status for the specified runtime version of the workflow step.</p>
    */
-  status?: WorkflowStepExecutionStatus | string;
+  status?: WorkflowStepExecutionStatus;
 
   /**
    * @public
    * <p>Reports on the rollback status of the specified runtime version of the workflow step,
    * 			if applicable.</p>
    */
-  rollbackStatus?: WorkflowStepExecutionRollbackStatus | string;
+  rollbackStatus?: WorkflowStepExecutionRollbackStatus;
 
   /**
    * @public
@@ -4384,19 +4384,19 @@ export interface ImportComponentRequest {
    * <p>The type of the component denotes whether the component is used to build the image, or
    * 			only to test it.</p>
    */
-  type: ComponentType | string | undefined;
+  type: ComponentType | undefined;
 
   /**
    * @public
    * <p>The format of the resource that you want to import as a component.</p>
    */
-  format: ComponentFormat | string | undefined;
+  format: ComponentFormat | undefined;
 
   /**
    * @public
    * <p>The platform of the component.</p>
    */
-  platform: Platform | string | undefined;
+  platform: Platform | undefined;
 
   /**
    * @public
@@ -4495,7 +4495,7 @@ export interface ImportVmImageRequest {
    * @public
    * <p>The operating system platform for the imported VM.</p>
    */
-  platform: Platform | string | undefined;
+  platform: Platform | undefined;
 
   /**
    * @public
@@ -4647,7 +4647,7 @@ export interface ListComponentsRequest {
    * 			owners, you can specify components that Amazon manages, third party components, or
    * 			components that other accounts have shared with you.</p>
    */
-  owner?: Ownership | string;
+  owner?: Ownership;
 
   /**
    * @public
@@ -4746,7 +4746,7 @@ export interface ListContainerRecipesRequest {
    * 			you. You can omit this field to return container recipes belonging to your
    * 			account.</p>
    */
-  owner?: Ownership | string;
+  owner?: Ownership;
 
   /**
    * @public
@@ -4943,7 +4943,7 @@ export interface ImageSummary {
    * @public
    * <p>Specifies whether this image produces an AMI or a container image.</p>
    */
-  type?: ImageType | string;
+  type?: ImageType;
 
   /**
    * @public
@@ -4955,7 +4955,7 @@ export interface ImageSummary {
    * @public
    * <p>The image operating system platform, such as Linux or Windows.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -5016,13 +5016,13 @@ export interface ImageSummary {
    *             </li>
    *          </ul>
    */
-  buildType?: BuildType | string;
+  buildType?: BuildType;
 
   /**
    * @public
    * <p>The origin of the base image that Image Builder used to build this image.</p>
    */
-  imageSource?: ImageSource | string;
+  imageSource?: ImageSource;
 }
 
 /**
@@ -5277,7 +5277,7 @@ export interface ListImageRecipesRequest {
    * 			want to view image recipes owned by yourself, by Amazon, or those image recipes that
    * 			have been shared with you by other customers.</p>
    */
-  owner?: Ownership | string;
+  owner?: Ownership;
 
   /**
    * @public
@@ -5337,7 +5337,7 @@ export interface ImageRecipeSummary {
    * @public
    * <p>The platform of the image recipe.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -5400,7 +5400,7 @@ export interface ListImagesRequest {
    * 			images owned by yourself, by Amazon, or those images that have been shared with you by
    * 			other customers.</p>
    */
-  owner?: Ownership | string;
+  owner?: Ownership;
 
   /**
    * @public
@@ -5498,7 +5498,7 @@ export interface ImageVersion {
    * @public
    * <p>Specifies whether this image produces an AMI or a container image.</p>
    */
-  type?: ImageType | string;
+  type?: ImageType;
 
   /**
    * @public
@@ -5529,7 +5529,7 @@ export interface ImageVersion {
    * <p>The operating system platform of the image version, for example "Windows" or
    * 			"Linux".</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -5572,13 +5572,13 @@ export interface ImageVersion {
    *             </li>
    *          </ul>
    */
-  buildType?: BuildType | string;
+  buildType?: BuildType;
 
   /**
    * @public
    * <p>The origin of the base image that Image Builder used to build this image.</p>
    */
-  imageSource?: ImageSource | string;
+  imageSource?: ImageSource;
 }
 
 /**
@@ -6327,13 +6327,13 @@ export interface WorkflowExecutionMetadata {
    * @public
    * <p>Indicates what type of workflow that Image Builder ran for this runtime instance of the workflow.</p>
    */
-  type?: WorkflowType | string;
+  type?: WorkflowType;
 
   /**
    * @public
    * <p>The current runtime status for this workflow.</p>
    */
-  status?: WorkflowExecutionStatus | string;
+  status?: WorkflowExecutionStatus;
 
   /**
    * @public
@@ -6476,13 +6476,13 @@ export interface WorkflowStepMetadata {
    * @public
    * <p>Runtime status for the workflow step.</p>
    */
-  status?: WorkflowStepExecutionStatus | string;
+  status?: WorkflowStepExecutionStatus;
 
   /**
    * @public
    * <p>Reports on the rollback status of the step, if applicable.</p>
    */
-  rollbackStatus?: WorkflowStepExecutionRollbackStatus | string;
+  rollbackStatus?: WorkflowStepExecutionRollbackStatus;
 
   /**
    * @public
@@ -6937,7 +6937,7 @@ export interface UpdateImagePipelineRequest {
    * @public
    * <p>The status of the image pipeline.</p>
    */
-  status?: PipelineStatus | string;
+  status?: PipelineStatus;
 
   /**
    * @public

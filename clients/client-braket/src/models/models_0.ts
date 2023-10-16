@@ -76,7 +76,7 @@ export interface ScriptModeConfig {
    * @public
    * <p>The type of compression used by the Python scripts for an Amazon Braket job.</p>
    */
-  compressionType?: CompressionType | string;
+  compressionType?: CompressionType;
 }
 
 /**
@@ -146,7 +146,7 @@ export interface DeviceQueueInfo {
    * @public
    * <p>The name of the queue. </p>
    */
-  queue: QueueName | string | undefined;
+  queue: QueueName | undefined;
 
   /**
    * @public
@@ -159,7 +159,7 @@ export interface DeviceQueueInfo {
    * <p>Optional. Specifies the priority of the queue. Tasks in a priority queue
    *          are processed before the tasks in a normal queue.</p>
    */
-  queuePriority?: QueuePriority | string;
+  queuePriority?: QueuePriority;
 }
 
 /**
@@ -217,13 +217,13 @@ export interface GetDeviceResponse {
    * @public
    * <p>The type of the device.</p>
    */
-  deviceType: DeviceType | string | undefined;
+  deviceType: DeviceType | undefined;
 
   /**
    * @public
    * <p>The status of the device.</p>
    */
-  deviceStatus: DeviceStatus | string | undefined;
+  deviceStatus: DeviceStatus | undefined;
 
   /**
    * @public
@@ -388,13 +388,13 @@ export interface DeviceSummary {
    * @public
    * <p>The type of the device.</p>
    */
-  deviceType: DeviceType | string | undefined;
+  deviceType: DeviceType | undefined;
 
   /**
    * @public
    * <p>The status of the device.</p>
    */
-  deviceStatus: DeviceStatus | string | undefined;
+  deviceStatus: DeviceStatus | undefined;
 }
 
 /**
@@ -456,7 +456,7 @@ export interface CancelJobResponse {
    * @public
    * <p>The status of the job cancellation request.</p>
    */
-  cancellationStatus: CancellationStatus | string | undefined;
+  cancellationStatus: CancellationStatus | undefined;
 }
 
 /**
@@ -625,7 +625,7 @@ export interface InstanceConfig {
    * <p>Configures the type resource instances to use while running an Amazon Braket hybrid
    *          job.</p>
    */
-  instanceType: _InstanceType | string | undefined;
+  instanceType: _InstanceType | undefined;
 
   /**
    * @public
@@ -840,7 +840,7 @@ export interface GetJobRequest {
    * @public
    * <p>A list of attributes to return information for.</p>
    */
-  additionalAttributeNames?: (HybridJobAdditionalAttributeName | string)[];
+  additionalAttributeNames?: HybridJobAdditionalAttributeName[];
 }
 
 /**
@@ -875,7 +875,7 @@ export interface JobEventDetails {
    * @public
    * <p>The type of event that occurred related to the Amazon Braket job.</p>
    */
-  eventType?: JobEventType | string;
+  eventType?: JobEventType;
 
   /**
    * @public
@@ -899,7 +899,7 @@ export interface HybridJobQueueInfo {
    * @public
    * <p>The name of the queue.</p>
    */
-  queue: QueueName | string | undefined;
+  queue: QueueName | undefined;
 
   /**
    * @public
@@ -942,7 +942,7 @@ export interface GetJobResponse {
    * @public
    * <p>The status of the Amazon Braket job.</p>
    */
-  status: JobPrimaryStatus | string | undefined;
+  status: JobPrimaryStatus | undefined;
 
   /**
    * @public
@@ -1110,7 +1110,7 @@ export interface SearchJobsFilter {
    * @public
    * <p>An operator to use for the jobs filter.</p>
    */
-  operator: SearchJobsFilterOperator | string | undefined;
+  operator: SearchJobsFilterOperator | undefined;
 }
 
 /**
@@ -1146,7 +1146,7 @@ export interface JobSummary {
    * @public
    * <p>The status of the Amazon Braket job.</p>
    */
-  status: JobPrimaryStatus | string | undefined;
+  status: JobPrimaryStatus | undefined;
 
   /**
    * @public
@@ -1266,7 +1266,7 @@ export interface CancelQuantumTaskResponse {
    * @public
    * <p>The status of the cancellation request.</p>
    */
-  cancellationStatus: CancellationStatus | string | undefined;
+  cancellationStatus: CancellationStatus | undefined;
 }
 
 /**
@@ -1387,7 +1387,7 @@ export interface GetQuantumTaskRequest {
    * @public
    * <p>A list of attributes to return information for.</p>
    */
-  additionalAttributeNames?: (QuantumTaskAdditionalAttributeName | string)[];
+  additionalAttributeNames?: QuantumTaskAdditionalAttributeName[];
 }
 
 /**
@@ -1399,7 +1399,7 @@ export interface QuantumTaskQueueInfo {
    * @public
    * <p>The name of the queue. </p>
    */
-  queue: QueueName | string | undefined;
+  queue: QueueName | undefined;
 
   /**
    * @public
@@ -1412,7 +1412,7 @@ export interface QuantumTaskQueueInfo {
    * <p>Optional. Specifies the priority of the queue. Quantum tasks in a priority queue
    *          are processed before the tasks in a normal queue.</p>
    */
-  queuePriority?: QueuePriority | string;
+  queuePriority?: QueuePriority;
 
   /**
    * @public
@@ -1456,7 +1456,7 @@ export interface GetQuantumTaskResponse {
    * @public
    * <p>The status of the task.</p>
    */
-  status: QuantumTaskStatus | string | undefined;
+  status: QuantumTaskStatus | undefined;
 
   /**
    * @public
@@ -1567,7 +1567,7 @@ export interface SearchQuantumTasksFilter {
    * @public
    * <p>An operator to use in the filter.</p>
    */
-  operator: SearchQuantumTasksFilterOperator | string | undefined;
+  operator: SearchQuantumTasksFilterOperator | undefined;
 }
 
 /**
@@ -1609,7 +1609,7 @@ export interface QuantumTaskSummary {
    * @public
    * <p>The status of the task.</p>
    */
-  status: QuantumTaskStatus | string | undefined;
+  status: QuantumTaskStatus | undefined;
 
   /**
    * @public

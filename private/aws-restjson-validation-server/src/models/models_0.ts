@@ -112,14 +112,14 @@ export type EnumUnion = EnumUnion.FirstMember | EnumUnion.SecondMember | EnumUni
  */
 export namespace EnumUnion {
   export interface FirstMember {
-    first: EnumString | string;
+    first: EnumString;
     second?: never;
     $unknown?: never;
   }
 
   export interface SecondMember {
     first?: never;
-    second: EnumString | string;
+    second: EnumString;
     $unknown?: never;
   }
 
@@ -133,8 +133,8 @@ export namespace EnumUnion {
   }
 
   export interface Visitor<T> {
-    first: (value: EnumString | string) => T;
-    second: (value: EnumString | string) => T;
+    first: (value: EnumString) => T;
+    second: (value: EnumString) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -184,10 +184,10 @@ export namespace EnumUnion {
  * @public
  */
 export interface MalformedEnumInput {
-  string?: EnumString | string;
-  stringWithEnumTrait?: EnumTraitString | string;
-  list?: (EnumString | string)[];
-  map?: Record<string, EnumString | string>;
+  string?: EnumString;
+  stringWithEnumTrait?: EnumTraitString;
+  list?: EnumString[];
+  map?: Record<EnumString, EnumString>;
   union?: EnumUnion;
 }
 
@@ -196,7 +196,7 @@ export namespace MalformedEnumInput {
     string?: __MultiConstraintValidator<string>;
     stringWithEnumTrait?: __MultiConstraintValidator<string>;
     list?: __MultiConstraintValidator<Iterable<string>>;
-    map?: __MultiConstraintValidator<Record<string, EnumString | string>>;
+    map?: __MultiConstraintValidator<Record<EnumString, EnumString>>;
     union?: __MultiConstraintValidator<EnumUnion>;
   } = {};
   /**
@@ -230,7 +230,7 @@ export namespace MalformedEnumInput {
             break;
           }
           case "map": {
-            memberValidators["map"] = new __CompositeMapValidator<EnumString | string>(
+            memberValidators["map"] = new __CompositeMapValidator<EnumString>(
               new __NoOpValidator(),
               new __CompositeValidator<string>([
                 new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def", "jkl"]),
@@ -1250,8 +1250,8 @@ export interface MalformedUniqueItemsInput {
   timestampList?: Date[];
   dateTimeList?: Date[];
   httpDateList?: Date[];
-  enumList?: (FooEnum | string)[];
-  intEnumList?: (IntegerEnum | number)[];
+  enumList?: FooEnum[];
+  intEnumList?: IntegerEnum[];
   listList?: string[][];
   structureList?: GreetingStruct[];
   structureListWithNoKey?: MissingKeyStructure[];
@@ -1358,7 +1358,7 @@ export namespace MalformedUniqueItemsInput {
           }
           case "enumList": {
             memberValidators["enumList"] = new __CompositeCollectionValidator<string>(
-              new __CompositeValidator<(FooEnum | string)[]>([new __UniqueItemsValidator()]),
+              new __CompositeValidator<FooEnum[]>([new __UniqueItemsValidator()]),
               new __CompositeValidator<string>([
                 new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
               ])
@@ -1367,7 +1367,7 @@ export namespace MalformedUniqueItemsInput {
           }
           case "intEnumList": {
             memberValidators["intEnumList"] = new __CompositeCollectionValidator<number>(
-              new __CompositeValidator<(IntegerEnum | number)[]>([new __UniqueItemsValidator()]),
+              new __CompositeValidator<IntegerEnum[]>([new __UniqueItemsValidator()]),
               new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
             );
             break;
@@ -1498,7 +1498,7 @@ export type RecursiveUnionOne =
  */
 export namespace RecursiveUnionOne {
   export interface StringMember {
-    string: RecursiveEnumString | string;
+    string: RecursiveEnumString;
     union?: never;
     $unknown?: never;
   }
@@ -1519,7 +1519,7 @@ export namespace RecursiveUnionOne {
   }
 
   export interface Visitor<T> {
-    string: (value: RecursiveEnumString | string) => T;
+    string: (value: RecursiveEnumString) => T;
     union: (value: RecursiveUnionTwo) => T;
     _: (name: string, value: any) => T;
   }
@@ -1580,7 +1580,7 @@ export type RecursiveUnionTwo =
  */
 export namespace RecursiveUnionTwo {
   export interface StringMember {
-    string: RecursiveEnumString | string;
+    string: RecursiveEnumString;
     union?: never;
     $unknown?: never;
   }
@@ -1601,7 +1601,7 @@ export namespace RecursiveUnionTwo {
   }
 
   export interface Visitor<T> {
-    string: (value: RecursiveEnumString | string) => T;
+    string: (value: RecursiveEnumString) => T;
     union: (value: RecursiveUnionOne) => T;
     _: (name: string, value: any) => T;
   }

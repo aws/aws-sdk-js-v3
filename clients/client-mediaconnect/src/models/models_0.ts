@@ -59,7 +59,7 @@ export interface AddBridgeNetworkOutputRequest {
    * @public
    * The network output protocol.
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: Protocol | undefined;
 
   /**
    * @public
@@ -149,7 +149,7 @@ export interface AddBridgeNetworkSourceRequest {
    * @public
    * The network source protocol.
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: Protocol | undefined;
 }
 
 /**
@@ -255,7 +255,7 @@ export interface FmtpRequest {
    * @public
    * The format that is used for the representation of color.
    */
-  Colorimetry?: Colorimetry | string;
+  Colorimetry?: Colorimetry;
 
   /**
    * @public
@@ -273,19 +273,19 @@ export interface FmtpRequest {
    * @public
    * The encoding range of the video.
    */
-  Range?: Range | string;
+  Range?: Range;
 
   /**
    * @public
    * The type of compression that was used to smooth the video’s appearance.
    */
-  ScanMode?: ScanMode | string;
+  ScanMode?: ScanMode;
 
   /**
    * @public
    * The transfer characteristic system (TCS) that is used in the video.
    */
-  Tcs?: Tcs | string;
+  Tcs?: Tcs;
 }
 
 /**
@@ -360,7 +360,7 @@ export interface AddMediaStreamRequest {
    * @public
    * The type of media stream.
    */
-  MediaStreamType: MediaStreamType | string | undefined;
+  MediaStreamType: MediaStreamType | undefined;
 
   /**
    * @public
@@ -408,7 +408,7 @@ export interface Encryption {
    * @public
    * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
    */
-  Algorithm?: Algorithm | string;
+  Algorithm?: Algorithm;
 
   /**
    * @public
@@ -426,7 +426,7 @@ export interface Encryption {
    * @public
    * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
    */
-  KeyType?: KeyType | string;
+  KeyType?: KeyType;
 
   /**
    * @public
@@ -540,7 +540,7 @@ export interface EncodingParametersRequest {
    * @public
    * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, if at least one source on the flow uses the CDI protocol.
    */
-  EncoderProfile: EncoderProfile | string | undefined;
+  EncoderProfile: EncoderProfile | undefined;
 }
 
 /**
@@ -558,7 +558,7 @@ export interface MediaStreamOutputConfigurationRequest {
    * @public
    * The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
    */
-  EncodingName: EncodingName | string | undefined;
+  EncodingName: EncodingName | undefined;
 
   /**
    * @public
@@ -636,7 +636,7 @@ export interface AddOutputRequest {
    * @public
    * The protocol to use for the output.
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: Protocol | undefined;
 
   /**
    * @public
@@ -726,7 +726,7 @@ export interface BridgeNetworkOutput {
    * @public
    * The network output protocol.
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: Protocol | undefined;
 
   /**
    * @public
@@ -816,7 +816,7 @@ export interface BridgeNetworkSource {
    * @public
    * The network source protocol.
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: Protocol | undefined;
 }
 
 /**
@@ -926,7 +926,7 @@ export interface Entitlement {
    * @public
    * An indication of whether the entitlement is enabled.
    */
-  EntitlementStatus?: EntitlementStatus | string;
+  EntitlementStatus?: EntitlementStatus;
 
   /**
    * @public
@@ -986,7 +986,7 @@ export interface GrantEntitlementRequest {
    * @public
    * An indication of whether the new entitlement should be enabled or disabled as soon as it is created. If you don’t specify the entitlementStatus field in your request, MediaConnect sets it to ENABLED.
    */
-  EntitlementStatus?: EntitlementStatus | string;
+  EntitlementStatus?: EntitlementStatus;
 
   /**
    * @public
@@ -1078,7 +1078,7 @@ export interface ListedBridge {
    */
   BridgeArn: string | undefined;
 
-  BridgeState: BridgeState | string | undefined;
+  BridgeState: BridgeState | undefined;
   /**
    * @public
    * The type of the bridge.
@@ -1150,7 +1150,7 @@ export interface Maintenance {
    * @public
    * A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
    */
-  MaintenanceDay?: MaintenanceDay | string;
+  MaintenanceDay?: MaintenanceDay;
 
   /**
    * @public
@@ -1237,13 +1237,13 @@ export interface ListedFlow {
    * @public
    * The type of source. This value is either owned (originated somewhere other than an AWS Elemental MediaConnect flow owned by another AWS account) or entitled (originated at an AWS Elemental MediaConnect flow owned by another AWS account).
    */
-  SourceType: SourceType | string | undefined;
+  SourceType: SourceType | undefined;
 
   /**
    * @public
    * The current status of the flow.
    */
-  Status: Status | string | undefined;
+  Status: Status | undefined;
 
   /**
    * @public
@@ -1281,7 +1281,7 @@ export interface ListedGateway {
    */
   GatewayArn: string | undefined;
 
-  GatewayState: GatewayState | string | undefined;
+  GatewayState: GatewayState | undefined;
   /**
    * @public
    * The name of the gateway.
@@ -1334,7 +1334,7 @@ export interface ListedGatewayInstance {
    * @public
    * The status of the instance.
    */
-  InstanceState?: InstanceState | string;
+  InstanceState?: InstanceState;
 }
 
 /**
@@ -1352,7 +1352,7 @@ export interface Fmtp {
    * @public
    * The format that is used for the representation of color.
    */
-  Colorimetry?: Colorimetry | string;
+  Colorimetry?: Colorimetry;
 
   /**
    * @public
@@ -1370,19 +1370,19 @@ export interface Fmtp {
    * @public
    * The encoding range of the video.
    */
-  Range?: Range | string;
+  Range?: Range;
 
   /**
    * @public
    * The type of compression that was used to smooth the video’s appearance
    */
-  ScanMode?: ScanMode | string;
+  ScanMode?: ScanMode;
 
   /**
    * @public
    * The transfer characteristic system (TCS) that is used in the video.
    */
-  Tcs?: Tcs | string;
+  Tcs?: Tcs;
 }
 
 /**
@@ -1448,7 +1448,7 @@ export interface MediaStream {
    * @public
    * The type of media stream.
    */
-  MediaStreamType: MediaStreamType | string | undefined;
+  MediaStreamType: MediaStreamType | undefined;
 
   /**
    * @public
@@ -1472,7 +1472,7 @@ export interface EncodingParameters {
    * @public
    * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
    */
-  EncoderProfile: EncoderProfile | string | undefined;
+  EncoderProfile: EncoderProfile | undefined;
 }
 
 /**
@@ -1490,7 +1490,7 @@ export interface MediaStreamOutputConfiguration {
    * @public
    * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
    */
-  EncodingName: EncodingName | string | undefined;
+  EncodingName: EncodingName | undefined;
 
   /**
    * @public
@@ -1514,7 +1514,7 @@ export interface MediaStreamSourceConfiguration {
    * @public
    * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
    */
-  EncodingName: EncodingName | string | undefined;
+  EncodingName: EncodingName | undefined;
 
   /**
    * @public
@@ -1538,7 +1538,7 @@ export interface MediaStreamSourceConfigurationRequest {
    * @public
    * The format you want to use to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
    */
-  EncodingName: EncodingName | string | undefined;
+  EncodingName: EncodingName | undefined;
 
   /**
    * @public
@@ -1630,7 +1630,7 @@ export interface ResourceSpecification {
    * @public
    * The type of resource and the unit that is being billed for.
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: ResourceType | undefined;
 }
 
 /**
@@ -1654,7 +1654,7 @@ export interface Offering {
    * @public
    * The unit of measurement for the duration of the offering.
    */
-  DurationUnits: DurationUnits | string | undefined;
+  DurationUnits: DurationUnits | undefined;
 
   /**
    * @public
@@ -1678,7 +1678,7 @@ export interface Offering {
    * @public
    * The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate.
    */
-  PriceUnits: PriceUnits | string | undefined;
+  PriceUnits: PriceUnits | undefined;
 
   /**
    * @public
@@ -1726,7 +1726,7 @@ export interface Transport {
    * @public
    * The protocol that is used by the source or output.
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: Protocol | undefined;
 
   /**
    * @public
@@ -1904,7 +1904,7 @@ export interface Reservation {
    * @public
    * The unit of measurement for the duration of the reservation. MediaConnect defines this value in the offering.
    */
-  DurationUnits: DurationUnits | string | undefined;
+  DurationUnits: DurationUnits | undefined;
 
   /**
    * @public
@@ -1934,7 +1934,7 @@ export interface Reservation {
    * @public
    * The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate. MediaConnect defines this value in the offering.
    */
-  PriceUnits: PriceUnits | string | undefined;
+  PriceUnits: PriceUnits | undefined;
 
   /**
    * @public
@@ -1952,7 +1952,7 @@ export interface Reservation {
    * @public
    * The status of your reservation.
    */
-  ReservationState: ReservationState | string | undefined;
+  ReservationState: ReservationState | undefined;
 
   /**
    * @public
@@ -2054,7 +2054,7 @@ export interface SetSourceRequest {
    * @public
    * The protocol that is used by the source.
    */
-  Protocol?: Protocol | string;
+  Protocol?: Protocol;
 
   /**
    * @public
@@ -2254,7 +2254,7 @@ export interface VpcInterface {
    * @public
    * The type of network interface.
    */
-  NetworkInterfaceType: NetworkInterfaceType | string | undefined;
+  NetworkInterfaceType: NetworkInterfaceType | undefined;
 
   /**
    * @public
@@ -2290,7 +2290,7 @@ export interface VpcInterfaceRequest {
    * @public
    * The type of network interface. If this value is not included in the request, MediaConnect uses ENA as the networkInterfaceType.
    */
-  NetworkInterfaceType?: NetworkInterfaceType | string;
+  NetworkInterfaceType?: NetworkInterfaceType;
 
   /**
    * @public
@@ -2766,7 +2766,7 @@ export interface AddMaintenance {
    * @public
    * A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
    */
-  MaintenanceDay: MaintenanceDay | string | undefined;
+  MaintenanceDay: MaintenanceDay | undefined;
 
   /**
    * @public
@@ -2864,7 +2864,7 @@ export interface FailoverConfig {
    * @public
    * The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
    */
-  FailoverMode?: FailoverMode | string;
+  FailoverMode?: FailoverMode;
 
   /**
    * @public
@@ -2878,7 +2878,7 @@ export interface FailoverConfig {
    */
   SourcePriority?: SourcePriority;
 
-  State?: State | string;
+  State?: State;
 }
 
 /**
@@ -2893,7 +2893,7 @@ export interface Bridge {
   BridgeArn: string | undefined;
 
   BridgeMessages?: MessageDetail[];
-  BridgeState: BridgeState | string | undefined;
+  BridgeState: BridgeState | undefined;
   EgressGatewayBridge?: EgressGatewayBridge;
   IngressGatewayBridge?: IngressGatewayBridge;
   /**
@@ -3197,7 +3197,7 @@ export interface Flow {
    * @public
    * The current status of the flow.
    */
-  Status: Status | string | undefined;
+  Status: Status | undefined;
 
   /**
    * @public
@@ -3295,7 +3295,7 @@ export interface Gateway {
    * @public
    * The current status of the gateway.
    */
-  GatewayState?: GatewayState | string;
+  GatewayState?: GatewayState;
 
   /**
    * @public
@@ -3368,7 +3368,7 @@ export interface DeleteFlowResponse {
    * @public
    * The status of the flow when the DeleteFlow process begins.
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -3424,7 +3424,7 @@ export interface DeregisterGatewayInstanceResponse {
    * @public
    * The status of the instance.
    */
-  InstanceState?: InstanceState | string;
+  InstanceState?: InstanceState;
 }
 
 /**
@@ -3531,13 +3531,13 @@ export interface GatewayInstance {
    * @public
    * The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be added to this instance.
    */
-  BridgePlacement: BridgePlacement | string | undefined;
+  BridgePlacement: BridgePlacement | undefined;
 
   /**
    * @public
    * The connection state of the instance.
    */
-  ConnectionStatus: ConnectionStatus | string | undefined;
+  ConnectionStatus: ConnectionStatus | undefined;
 
   /**
    * @public
@@ -3562,7 +3562,7 @@ export interface GatewayInstance {
    * @public
    * The status of the instance.
    */
-  InstanceState: InstanceState | string | undefined;
+  InstanceState: InstanceState | undefined;
 
   /**
    * @public
@@ -4260,7 +4260,7 @@ export interface StartFlowResponse {
    * @public
    * The status of the flow when the StartFlow process begins.
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -4288,7 +4288,7 @@ export interface StopFlowResponse {
    * @public
    * The status of the flow when the StopFlow process begins.
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -4363,7 +4363,7 @@ export interface UpdateFailoverConfig {
    * @public
    * The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
    */
-  FailoverMode?: FailoverMode | string;
+  FailoverMode?: FailoverMode;
 
   /**
    * @public
@@ -4377,7 +4377,7 @@ export interface UpdateFailoverConfig {
    */
   SourcePriority?: SourcePriority;
 
-  State?: State | string;
+  State?: State;
 }
 
 /**
@@ -4438,7 +4438,7 @@ export interface UpdateBridgeNetworkOutputRequest {
    * @public
    * The network output protocol.
    */
-  Protocol?: Protocol | string;
+  Protocol?: Protocol;
 
   /**
    * @public
@@ -4533,7 +4533,7 @@ export interface UpdateBridgeNetworkSourceRequest {
    * @public
    * The network source protocol.
    */
-  Protocol?: Protocol | string;
+  Protocol?: Protocol;
 }
 
 /**
@@ -4594,7 +4594,7 @@ export interface UpdateBridgeStateRequest {
    */
   BridgeArn: string | undefined;
 
-  DesiredState: DesiredState | string | undefined;
+  DesiredState: DesiredState | undefined;
 }
 
 /**
@@ -4611,7 +4611,7 @@ export interface UpdateBridgeStateResponse {
    * @public
    * The state of the bridge. ACTIVE or STANDBY.
    */
-  DesiredState?: DesiredState | string;
+  DesiredState?: DesiredState;
 }
 
 /**
@@ -4623,7 +4623,7 @@ export interface UpdateMaintenance {
    * @public
    * A day of a week when the maintenance will happen. use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
    */
-  MaintenanceDay?: MaintenanceDay | string;
+  MaintenanceDay?: MaintenanceDay;
 
   /**
    * @public
@@ -4682,7 +4682,7 @@ export interface UpdateEncryption {
    * @public
    * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
    */
-  Algorithm?: Algorithm | string;
+  Algorithm?: Algorithm;
 
   /**
    * @public
@@ -4700,7 +4700,7 @@ export interface UpdateEncryption {
    * @public
    * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
    */
-  KeyType?: KeyType | string;
+  KeyType?: KeyType;
 
   /**
    * @public
@@ -4760,7 +4760,7 @@ export interface UpdateFlowEntitlementRequest {
    * @public
    * An indication of whether you want to enable the entitlement to allow access, or disable it to stop streaming content to the subscriber’s flow temporarily. If you don’t specify the entitlementStatus field in your request, MediaConnect leaves the value unchanged.
    */
-  EntitlementStatus?: EntitlementStatus | string;
+  EntitlementStatus?: EntitlementStatus;
 
   /**
    * @public
@@ -4831,7 +4831,7 @@ export interface UpdateFlowMediaStreamRequest {
    * @public
    * The type of media stream.
    */
-  MediaStreamType?: MediaStreamType | string;
+  MediaStreamType?: MediaStreamType;
 
   /**
    * @public
@@ -4926,7 +4926,7 @@ export interface UpdateFlowOutputRequest {
    * @public
    * The protocol to use for the output.
    */
-  Protocol?: Protocol | string;
+  Protocol?: Protocol;
 
   /**
    * @public
@@ -5069,7 +5069,7 @@ export interface UpdateFlowSourceRequest {
    * @public
    * The protocol that is used by the source.
    */
-  Protocol?: Protocol | string;
+  Protocol?: Protocol;
 
   /**
    * @public
@@ -5152,7 +5152,7 @@ export interface UpdateGatewayInstanceRequest {
    * @public
    * The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be added to this instance.
    */
-  BridgePlacement?: BridgePlacement | string;
+  BridgePlacement?: BridgePlacement;
 
   /**
    * @public
@@ -5169,7 +5169,7 @@ export interface UpdateGatewayInstanceResponse {
    * @public
    * The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be added to this instance.
    */
-  BridgePlacement?: BridgePlacement | string;
+  BridgePlacement?: BridgePlacement;
 
   /**
    * @public

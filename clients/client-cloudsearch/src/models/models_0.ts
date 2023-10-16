@@ -399,7 +399,7 @@ export interface AnalysisOptions {
    * @public
    * <p>The level of algorithmic stemming to perform: <code>none</code>, <code>minimal</code>, <code>light</code>, or <code>full</code>. The available levels vary depending on the language. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings" target="_blank">Language Specific Text Processing Settings</a> in the <i>Amazon CloudSearch Developer Guide</i> </p>
    */
-  AlgorithmicStemming?: AlgorithmicStemming | string;
+  AlgorithmicStemming?: AlgorithmicStemming;
 }
 
 /**
@@ -465,7 +465,7 @@ export interface AnalysisScheme {
    * @public
    * <p>An <a href="http://tools.ietf.org/html/rfc4646" target="_blank">IETF RFC 4646</a> language code or <code>mul</code>  for multiple languages.</p>
    */
-  AnalysisSchemeLanguage: AnalysisSchemeLanguage | string | undefined;
+  AnalysisSchemeLanguage: AnalysisSchemeLanguage | undefined;
 
   /**
    * @public
@@ -540,7 +540,7 @@ export interface OptionStatus {
    *     <li><code>FailedToValidate</code>: the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.</li>
    *   </ul>
    */
-  State: OptionState | string | undefined;
+  State: OptionState | undefined;
 
   /**
    * @public
@@ -1214,7 +1214,7 @@ export interface IndexField {
    * @public
    * <p>The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html" target="_blank">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    */
-  IndexFieldType: IndexFieldType | string | undefined;
+  IndexFieldType: IndexFieldType | undefined;
 
   /**
    * @public
@@ -1362,7 +1362,7 @@ export interface DocumentSuggesterOptions {
    * @public
    * <p>The level of fuzziness allowed when suggesting matches for a string: <code>none</code>, <code>low</code>, or <code>high</code>. With none, the specified string is treated as an exact prefix. With low, suggestions must differ from the specified string by no more than one character. With high, suggestions can differ by up to two characters. The default is none. </p>
    */
-  FuzzyMatching?: SuggesterFuzzyMatching | string;
+  FuzzyMatching?: SuggesterFuzzyMatching;
 
   /**
    * @public
@@ -1751,7 +1751,7 @@ export interface DomainEndpointOptions {
    * @public
    * <p>The minimum required TLS version</p>
    */
-  TLSSecurityPolicy?: TLSSecurityPolicy | string;
+  TLSSecurityPolicy?: TLSSecurityPolicy;
 }
 
 /**
@@ -1931,7 +1931,7 @@ export interface ScalingParameters {
    * @public
    * <p>The instance type that you want to preconfigure for your domain. For example, <code>search.m1.small</code>.</p>
    */
-  DesiredInstanceType?: PartitionInstanceType | string;
+  DesiredInstanceType?: PartitionInstanceType;
 
   /**
    * @public

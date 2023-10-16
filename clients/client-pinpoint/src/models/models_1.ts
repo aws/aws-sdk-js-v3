@@ -442,7 +442,7 @@ export interface InAppMessage {
    * @public
    * <p>The layout of the message.</p>
    */
-  Layout?: Layout | string;
+  Layout?: Layout;
 }
 
 /**
@@ -602,7 +602,7 @@ export interface InAppTemplateResponse {
    * @public
    * <p>The layout of the message.</p>
    */
-  Layout?: Layout | string;
+  Layout?: Layout;
 
   /**
    * @public
@@ -626,7 +626,7 @@ export interface InAppTemplateResponse {
    * @public
    * <p>The type of the template.</p>
    */
-  TemplateType: TemplateType | string | undefined;
+  TemplateType: TemplateType | undefined;
 
   /**
    * @public
@@ -1192,7 +1192,7 @@ export interface JourneyRunResponse {
    * @public
    * <p>The current status of the journey run.</p>
    */
-  Status: JourneyRunStatus | string | undefined;
+  Status: JourneyRunStatus | undefined;
 }
 
 /**
@@ -1328,7 +1328,7 @@ export interface PushNotificationTemplateResponse {
    * @public
    * <p>The type of channel that the message template is designed for. For a push notification template, this value is PUSH.</p>
    */
-  TemplateType: TemplateType | string | undefined;
+  TemplateType: TemplateType | undefined;
 
   /**
    * @public
@@ -1752,7 +1752,7 @@ export interface SMSTemplateResponse {
    * @public
    * <p>The type of channel that the message template is designed for. For an SMS template, this value is SMS.</p>
    */
-  TemplateType: TemplateType | string | undefined;
+  TemplateType: TemplateType | undefined;
 
   /**
    * @public
@@ -1902,7 +1902,7 @@ export interface VoiceTemplateResponse {
    * @public
    * <p>The type of channel that the message template is designed for. For a voice template, this value is VOICE.</p>
    */
-  TemplateType: TemplateType | string | undefined;
+  TemplateType: TemplateType | undefined;
 
   /**
    * @public
@@ -1955,7 +1955,7 @@ export interface JourneyStateRequest {
    * @public
    * <p>The status of the journey. Currently, Supported values are ACTIVE, PAUSED, and CANCELLED</p> <p>If you cancel a journey, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Amazon Pinpoint also continues to collect and aggregate analytics data for those activities, until they are complete, and any activities that were complete when you cancelled the journey.</p> <p>After you cancel a journey, you can't add, change, or remove any activities from the journey. In addition, Amazon Pinpoint stops evaluating the journey and doesn't perform any activities that haven't started.</p> <p>When the journey is paused, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Endpoints will stop entering journeys when the journey is paused and will resume entering the journey after the journey is resumed. For wait activities, wait time is paused when the journey is paused. Currently, PAUSED only supports journeys with a segment refresh interval.</p>
    */
-  State?: State | string;
+  State?: State;
 }
 
 /**
@@ -2043,7 +2043,7 @@ export interface TemplateResponse {
    * @public
    * <p>The type of channel that the message template is designed for. Possible values are: EMAIL, PUSH, SMS, INAPP, and VOICE.</p>
    */
-  TemplateType: TemplateType | string | undefined;
+  TemplateType: TemplateType | undefined;
 
   /**
    * @public
@@ -2271,7 +2271,7 @@ export interface MessageResult {
    * @public
    * <p>The delivery status of the message. Possible values are:</p> <ul> <li><p>DUPLICATE - The endpoint address is a duplicate of another endpoint address. Amazon Pinpoint won't attempt to send the message again.</p></li>   <li><p>OPT_OUT - The user who's associated with the endpoint address has opted out of receiving messages from you. Amazon Pinpoint won't attempt to send the message again.</p></li> <li><p>PERMANENT_FAILURE - An error occurred when delivering the message to the endpoint address. Amazon Pinpoint won't attempt to send the message again.</p></li>   <li><p>SUCCESSFUL - The message was successfully delivered to the endpoint address.</p></li> <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't attempt to send the message again.</p></li> <li><p>THROTTLED - Amazon Pinpoint throttled the operation to send the message to the endpoint address.</p></li> <li><p>TIMEOUT - The message couldn't be sent within the timeout period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error occurred.</p></li></ul>
    */
-  DeliveryStatus: DeliveryStatus | string | undefined;
+  DeliveryStatus: DeliveryStatus | undefined;
 
   /**
    * @public

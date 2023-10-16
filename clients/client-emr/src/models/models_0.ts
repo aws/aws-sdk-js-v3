@@ -173,7 +173,7 @@ export interface OnDemandCapacityReservationOptions {
    *          <p>If you do not specify a value, the fleet fulfills the On-Demand capacity according to
    *          the chosen On-Demand allocation strategy.</p>
    */
-  UsageStrategy?: OnDemandCapacityReservationUsageStrategy | string;
+  UsageStrategy?: OnDemandCapacityReservationUsageStrategy;
 
   /**
    * @public
@@ -192,7 +192,7 @@ export interface OnDemandCapacityReservationOptions {
    *             </li>
    *          </ul>
    */
-  CapacityReservationPreference?: OnDemandCapacityReservationPreference | string;
+  CapacityReservationPreference?: OnDemandCapacityReservationPreference;
 
   /**
    * @public
@@ -218,7 +218,7 @@ export interface OnDemandProvisioningSpecification {
    *          only option is <code>lowest-price</code> (the default), which launches the lowest price
    *          first.</p>
    */
-  AllocationStrategy: OnDemandProvisioningAllocationStrategy | string | undefined;
+  AllocationStrategy: OnDemandProvisioningAllocationStrategy | undefined;
 
   /**
    * @public
@@ -295,7 +295,7 @@ export interface SpotProvisioningSpecification {
    *          specifies that if no Spot Instances are available, On-Demand Instances should be
    *          provisioned to fulfill any remaining Spot capacity.</p>
    */
-  TimeoutAction: SpotProvisioningTimeoutAction | string | undefined;
+  TimeoutAction: SpotProvisioningTimeoutAction | undefined;
 
   /**
    * @public
@@ -321,7 +321,7 @@ export interface SpotProvisioningSpecification {
    *          option is capacity-optimized (the default), which launches instances from Spot Instance
    *          pools with optimal capacity for the number of instances that are launching. </p>
    */
-  AllocationStrategy?: SpotProvisioningAllocationStrategy | string;
+  AllocationStrategy?: SpotProvisioningAllocationStrategy;
 }
 
 /**
@@ -569,7 +569,7 @@ export interface SimpleScalingPolicyConfiguration {
    *          group with the number of Amazon EC2 instances specified by
    *             <code>ScalingAdjustment</code>, which should be expressed as a positive integer.</p>
    */
-  AdjustmentType?: AdjustmentType | string;
+  AdjustmentType?: AdjustmentType;
 
   /**
    * @public
@@ -602,7 +602,7 @@ export interface ScalingAction {
    * <p>Not available for instance groups. Instance groups use the market type specified for the
    *          group.</p>
    */
-  Market?: MarketType | string;
+  Market?: MarketType;
 
   /**
    * @public
@@ -718,7 +718,7 @@ export interface CloudWatchAlarmDefinition {
    * <p>Determines how the metric specified by <code>MetricName</code> is compared to the value
    *          specified by <code>Threshold</code>.</p>
    */
-  ComparisonOperator: ComparisonOperator | string | undefined;
+  ComparisonOperator: ComparisonOperator | undefined;
 
   /**
    * @public
@@ -755,7 +755,7 @@ export interface CloudWatchAlarmDefinition {
    * <p>The statistic to apply to the metric associated with the alarm. The default is
    *             <code>AVERAGE</code>.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: Statistic;
 
   /**
    * @public
@@ -769,7 +769,7 @@ export interface CloudWatchAlarmDefinition {
    *          specified for <code>Unit</code> must correspond to the units specified in the CloudWatch
    *          metric.</p>
    */
-  Unit?: Unit | string;
+  Unit?: Unit;
 
   /**
    * @public
@@ -1009,7 +1009,7 @@ export interface StepConfig {
    *          step that fails with this parameter set to <code>TERMINATE_CLUSTER</code>, the cluster does
    *          not terminate.</p>
    */
-  ActionOnFailure?: ActionOnFailure | string;
+  ActionOnFailure?: ActionOnFailure;
 
   /**
    * @public
@@ -1208,7 +1208,7 @@ export interface AutoScalingPolicyStateChangeReason {
    *             <code>PROVISION_FAILURE</code> indicates that the status change was because the policy
    *          failed to provision. <code>CLEANUP_FAILURE</code> indicates an error.</p>
    */
-  Code?: AutoScalingPolicyStateChangeReasonCode | string;
+  Code?: AutoScalingPolicyStateChangeReasonCode;
 
   /**
    * @public
@@ -1228,7 +1228,7 @@ export interface AutoScalingPolicyStatus {
    * @public
    * <p>Indicates the status of the automatic scaling policy.</p>
    */
-  State?: AutoScalingPolicyState | string;
+  State?: AutoScalingPolicyState;
 
   /**
    * @public
@@ -1410,7 +1410,7 @@ export interface CancelStepsInput {
    * <p>The option to choose to cancel <code>RUNNING</code> steps. By default, the value is
    *             <code>SEND_INTERRUPT</code>.</p>
    */
-  StepCancellationOption?: StepCancellationOption | string;
+  StepCancellationOption?: StepCancellationOption;
 }
 
 /**
@@ -1442,7 +1442,7 @@ export interface CancelStepsInfo {
    * @public
    * <p>The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.</p>
    */
-  Status?: CancelStepsRequestStatus | string;
+  Status?: CancelStepsRequestStatus;
 
   /**
    * @public
@@ -1650,7 +1650,7 @@ export interface PlacementGroupConfig {
    *          <p>Starting with Amazon EMR release 5.23.0, the only supported instance role is
    *             <code>MASTER</code>.</p>
    */
-  InstanceRole: InstanceRoleType | string | undefined;
+  InstanceRole: InstanceRoleType | undefined;
 
   /**
    * @public
@@ -1658,7 +1658,7 @@ export interface PlacementGroupConfig {
    *          <p>Starting with Amazon EMR release 5.23.0, the only supported placement strategy
    *          is <code>SPREAD</code> for the <code>MASTER</code> instance role.</p>
    */
-  PlacementStrategy?: PlacementGroupStrategy | string;
+  PlacementStrategy?: PlacementGroupStrategy;
 }
 
 /**
@@ -1764,7 +1764,7 @@ export interface ClusterStateChangeReason {
    * @public
    * <p>The programmatic code for the state change reason.</p>
    */
-  Code?: ClusterStateChangeReasonCode | string;
+  Code?: ClusterStateChangeReasonCode;
 
   /**
    * @public
@@ -1806,7 +1806,7 @@ export interface ClusterStatus {
    * @public
    * <p>The current state of the cluster.</p>
    */
-  State?: ClusterState | string;
+  State?: ClusterState;
 
   /**
    * @public
@@ -1926,7 +1926,7 @@ export interface ComputeLimits {
    * @public
    * <p> The unit type used for specifying a managed scaling policy. </p>
    */
-  UnitType: ComputeLimitsUnitType | string | undefined;
+  UnitType: ComputeLimitsUnitType | undefined;
 
   /**
    * @public
@@ -2022,7 +2022,7 @@ export interface CreateStudioInput {
    * @public
    * <p>Specifies whether the Studio authenticates users using IAM or IAM Identity Center.</p>
    */
-  AuthMode: AuthMode | string | undefined;
+  AuthMode: AuthMode | undefined;
 
   /**
    * @public
@@ -2170,7 +2170,7 @@ export interface CreateStudioSessionMappingInput {
    * <p>Specifies whether the identity to map to the Amazon EMR Studio is a user or a
    *          group.</p>
    */
-  IdentityType: IdentityType | string | undefined;
+  IdentityType: IdentityType | undefined;
 
   /**
    * @public
@@ -2299,7 +2299,7 @@ export interface DeleteStudioSessionMappingInput {
    * <p>Specifies whether the identity to delete from the Amazon EMR Studio is a user or
    *          a group.</p>
    */
-  IdentityType: IdentityType | string | undefined;
+  IdentityType: IdentityType | undefined;
 }
 
 /**
@@ -2361,7 +2361,7 @@ export interface DescribeJobFlowsInput {
    * @public
    * <p>Return only job flows whose state is contained in this list.</p>
    */
-  JobFlowStates?: (JobFlowExecutionState | string)[];
+  JobFlowStates?: JobFlowExecutionState[];
 }
 
 /**
@@ -2373,7 +2373,7 @@ export interface JobFlowExecutionStatusDetail {
    * @public
    * <p>The state of the job flow.</p>
    */
-  State: JobFlowExecutionState | string | undefined;
+  State: JobFlowExecutionState | undefined;
 
   /**
    * @public
@@ -2450,13 +2450,13 @@ export interface InstanceGroupDetail {
    * @public
    * <p>Market type of the Amazon EC2 instances used to create a cluster node.</p>
    */
-  Market: MarketType | string | undefined;
+  Market: MarketType | undefined;
 
   /**
    * @public
    * <p>Instance group role in the cluster</p>
    */
-  InstanceRole: InstanceRoleType | string | undefined;
+  InstanceRole: InstanceRoleType | undefined;
 
   /**
    * @public
@@ -2489,7 +2489,7 @@ export interface InstanceGroupDetail {
    * <p>State of instance group. The following values are no longer supported: STARTING,
    *          TERMINATED, and FAILED.</p>
    */
-  State: InstanceGroupState | string | undefined;
+  State: InstanceGroupState | undefined;
 
   /**
    * @public
@@ -2679,7 +2679,7 @@ export interface StepExecutionStatusDetail {
    * @public
    * <p>The state of the step.</p>
    */
-  State: StepExecutionState | string | undefined;
+  State: StepExecutionState | undefined;
 
   /**
    * @public
@@ -2842,7 +2842,7 @@ export interface JobFlowDetail {
    *          instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to
    *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR releases 4.1.0 and later, and is the default for releases of Amazon EMR earlier than 5.1.0.</p>
    */
-  ScaleDownBehavior?: ScaleDownBehavior | string;
+  ScaleDownBehavior?: ScaleDownBehavior;
 }
 
 /**
@@ -2898,7 +2898,7 @@ export interface ExecutionEngineConfig {
    * @public
    * <p>The type of execution engine. A value of <code>EMR</code> specifies an Amazon EMR cluster.</p>
    */
-  Type?: ExecutionEngineType | string;
+  Type?: ExecutionEngineType;
 
   /**
    * @public
@@ -3083,7 +3083,7 @@ export interface NotebookExecution {
    *             </li>
    *          </ul>
    */
-  Status?: NotebookExecutionStatus | string;
+  Status?: NotebookExecutionStatus;
 
   /**
    * @public
@@ -3148,7 +3148,7 @@ export interface NotebookExecution {
    * @public
    * <p>The output format for the notebook execution.</p>
    */
-  OutputNotebookFormat?: OutputNotebookFormat | string;
+  OutputNotebookFormat?: OutputNotebookFormat;
 
   /**
    * @public
@@ -3418,7 +3418,7 @@ export interface StepStateChangeReason {
    * <p>The programmable code for the state change reason. Note: Currently, the service provides
    *          no code for the state change.</p>
    */
-  Code?: StepStateChangeReasonCode | string;
+  Code?: StepStateChangeReasonCode;
 
   /**
    * @public
@@ -3460,7 +3460,7 @@ export interface StepStatus {
    * @public
    * <p>The execution state of the cluster step.</p>
    */
-  State?: StepState | string;
+  State?: StepState;
 
   /**
    * @public
@@ -3523,7 +3523,7 @@ export interface Step {
    *          step that fails with this parameter set to <code>TERMINATE_CLUSTER</code>, the cluster does
    *          not terminate.</p>
    */
-  ActionOnFailure?: ActionOnFailure | string;
+  ActionOnFailure?: ActionOnFailure;
 
   /**
    * @public
@@ -3600,7 +3600,7 @@ export interface Studio {
    * @public
    * <p>Specifies whether the Amazon EMR Studio authenticates users with IAM or IAM Identity Center.</p>
    */
-  AuthMode?: AuthMode | string;
+  AuthMode?: AuthMode;
 
   /**
    * @public
@@ -3872,7 +3872,7 @@ export interface GetStudioSessionMappingInput {
    * @public
    * <p>Specifies whether the identity to fetch is a user or a group.</p>
    */
-  IdentityType: IdentityType | string | undefined;
+  IdentityType: IdentityType | undefined;
 }
 
 /**
@@ -3905,7 +3905,7 @@ export interface SessionMappingDetail {
    * <p>Specifies whether the identity mapped to the Amazon EMR Studio is a user or a
    *          group.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: IdentityType;
 
   /**
    * @public
@@ -3998,7 +3998,7 @@ export interface ListClustersInput {
    * <p>The cluster state filters to apply when listing clusters. Clusters that change state
    *          while this action runs may be not be returned as expected in the list of clusters.</p>
    */
-  ClusterStates?: (ClusterState | string)[];
+  ClusterStates?: ClusterState[];
 
   /**
    * @public
@@ -4092,7 +4092,7 @@ export interface InstanceFleetStateChangeReason {
    * @public
    * <p>A code corresponding to the reason the state change occurred.</p>
    */
-  Code?: InstanceFleetStateChangeReasonCode | string;
+  Code?: InstanceFleetStateChangeReasonCode;
 
   /**
    * @public
@@ -4179,7 +4179,7 @@ export interface InstanceFleetStatus {
    *             </li>
    *          </ul>
    */
-  State?: InstanceFleetState | string;
+  State?: InstanceFleetState;
 
   /**
    * @public
@@ -4301,7 +4301,7 @@ export interface InstanceGroupStateChangeReason {
    * @public
    * <p>The programmable code for the state change reason.</p>
    */
-  Code?: InstanceGroupStateChangeReasonCode | string;
+  Code?: InstanceGroupStateChangeReasonCode;
 
   /**
    * @public
@@ -4343,7 +4343,7 @@ export interface InstanceGroupStatus {
    * @public
    * <p>The current state of the instance group.</p>
    */
-  State?: InstanceGroupState | string;
+  State?: InstanceGroupState;
 
   /**
    * @public
@@ -4396,7 +4396,7 @@ export interface ListInstancesInput {
    * @public
    * <p>The type of instance group for which to list the instances.</p>
    */
-  InstanceGroupTypes?: (InstanceGroupType | string)[];
+  InstanceGroupTypes?: InstanceGroupType[];
 
   /**
    * @public
@@ -4408,14 +4408,14 @@ export interface ListInstancesInput {
    * @public
    * <p>The node type of the instance fleet. For example MASTER, CORE, or TASK.</p>
    */
-  InstanceFleetType?: InstanceFleetType | string;
+  InstanceFleetType?: InstanceFleetType;
 
   /**
    * @public
    * <p>A list of instance states that will filter the instances returned with this
    *          request.</p>
    */
-  InstanceStates?: (InstanceState | string)[];
+  InstanceStates?: InstanceState[];
 
   /**
    * @public
@@ -4451,7 +4451,7 @@ export interface InstanceStateChangeReason {
    * @public
    * <p>The programmable code for the state change reason.</p>
    */
-  Code?: InstanceStateChangeReasonCode | string;
+  Code?: InstanceStateChangeReasonCode;
 
   /**
    * @public
@@ -4493,7 +4493,7 @@ export interface InstanceStatus {
    * @public
    * <p>The current state of the instance.</p>
    */
-  State?: InstanceState | string;
+  State?: InstanceState;
 
   /**
    * @public
@@ -4573,7 +4573,7 @@ export interface Instance {
    * <p>The instance purchasing option. Valid values are <code>ON_DEMAND</code> or
    *             <code>SPOT</code>. </p>
    */
-  Market?: MarketType | string;
+  Market?: MarketType;
 
   /**
    * @public
@@ -4671,7 +4671,7 @@ export interface ListNotebookExecutionsInput {
    *             </li>
    *          </ul>
    */
-  Status?: NotebookExecutionStatus | string;
+  Status?: NotebookExecutionStatus;
 
   /**
    * @public
@@ -4781,7 +4781,7 @@ export interface NotebookExecutionSummary {
    *             </li>
    *          </ul>
    */
-  Status?: NotebookExecutionStatus | string;
+  Status?: NotebookExecutionStatus;
 
   /**
    * @public
@@ -4956,7 +4956,7 @@ export interface ListStepsInput {
    * @public
    * <p>The filter to limit the step list based on certain states.</p>
    */
-  StepStates?: (StepState | string)[];
+  StepStates?: StepState[];
 
   /**
    * @public
@@ -5005,7 +5005,7 @@ export interface StepSummary {
    *          CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward
    *          compatibility.</p>
    */
-  ActionOnFailure?: ActionOnFailure | string;
+  ActionOnFailure?: ActionOnFailure;
 
   /**
    * @public
@@ -5088,7 +5088,7 @@ export interface StudioSummary {
    * @public
    * <p>Specifies whether the Studio authenticates users using IAM or IAM Identity Center.</p>
    */
-  AuthMode?: AuthMode | string;
+  AuthMode?: AuthMode;
 
   /**
    * @public
@@ -5129,7 +5129,7 @@ export interface ListStudioSessionMappingsInput {
    * <p>Specifies whether to return session mappings for users or groups. If not specified, the
    *          results include session mapping details for both users and groups.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: IdentityType;
 
   /**
    * @public
@@ -5169,7 +5169,7 @@ export interface SessionMappingSummary {
    * <p>Specifies whether the identity mapped to the Amazon EMR Studio is a user or a
    *          group.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: IdentityType;
 
   /**
    * @public
@@ -5814,7 +5814,7 @@ export interface StartNotebookExecutionInput {
    * @public
    * <p>The output format for the notebook execution.</p>
    */
-  OutputNotebookFormat?: OutputNotebookFormat | string;
+  OutputNotebookFormat?: OutputNotebookFormat;
 
   /**
    * @public
@@ -5926,7 +5926,7 @@ export interface UpdateStudioSessionMappingInput {
    * @public
    * <p>Specifies whether the identity to update is a user or a group.</p>
    */
-  IdentityType: IdentityType | string | undefined;
+  IdentityType: IdentityType | undefined;
 
   /**
    * @public
@@ -6057,7 +6057,7 @@ export interface Cluster {
    *          indicates a uniform instance group configuration. A value of <code>INSTANCE_FLEET</code>
    *          indicates an instance fleets configuration.</p>
    */
-  InstanceCollectionType?: InstanceCollectionType | string;
+  InstanceCollectionType?: InstanceCollectionType;
 
   /**
    * @public
@@ -6193,7 +6193,7 @@ export interface Cluster {
    *          instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to
    *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> is available only in Amazon EMR releases 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.</p>
    */
-  ScaleDownBehavior?: ScaleDownBehavior | string;
+  ScaleDownBehavior?: ScaleDownBehavior;
 
   /**
    * @public
@@ -6216,7 +6216,7 @@ export interface Cluster {
    *          the Amazon Linux AMI package repositories apply when an instance boots using the
    *          AMI.</p>
    */
-  RepoUpgradeOnBoot?: RepoUpgradeOnBoot | string;
+  RepoUpgradeOnBoot?: RepoUpgradeOnBoot;
 
   /**
    * @public
@@ -6274,13 +6274,13 @@ export interface InstanceGroupConfig {
    * @public
    * <p>Market type of the Amazon EC2 instances used to create a cluster node.</p>
    */
-  Market?: MarketType | string;
+  Market?: MarketType;
 
   /**
    * @public
    * <p>The role of the instance group in the cluster.</p>
    */
-  InstanceRole: InstanceRoleType | string | undefined;
+  InstanceRole: InstanceRoleType | undefined;
 
   /**
    * @public
@@ -6370,7 +6370,7 @@ export interface InstanceGroupModifyConfig {
    * @public
    * <p>Type of reconfiguration requested. Valid values are MERGE and OVERWRITE.</p>
    */
-  ReconfigurationType?: ReconfigurationType | string;
+  ReconfigurationType?: ReconfigurationType;
 
   /**
    * @public
@@ -6643,7 +6643,7 @@ export interface InstanceFleet {
    * <p>The node type that the instance fleet hosts. Valid values are MASTER, CORE, or TASK.
    *       </p>
    */
-  InstanceFleetType?: InstanceFleetType | string;
+  InstanceFleetType?: InstanceFleetType;
 
   /**
    * @public
@@ -6747,7 +6747,7 @@ export interface InstanceFleetConfig {
    * <p>The node type that the instance fleet hosts. Valid values are MASTER, CORE, and
    *          TASK.</p>
    */
-  InstanceFleetType: InstanceFleetType | string | undefined;
+  InstanceFleetType: InstanceFleetType | undefined;
 
   /**
    * @public
@@ -6871,13 +6871,13 @@ export interface InstanceGroup {
    * <p>The marketplace to provision instances for this group. Valid values are ON_DEMAND or
    *          SPOT.</p>
    */
-  Market?: MarketType | string;
+  Market?: MarketType;
 
   /**
    * @public
    * <p>The type of the instance group. Valid values are MASTER, CORE or TASK.</p>
    */
-  InstanceGroupType?: InstanceGroupType | string;
+  InstanceGroupType?: InstanceGroupType;
 
   /**
    * @public
@@ -7371,7 +7371,7 @@ export interface RunJobFlowInput {
    *          instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to
    *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR releases 4.1.0 and later, and is the default for releases of Amazon EMR earlier than 5.1.0.</p>
    */
-  ScaleDownBehavior?: ScaleDownBehavior | string;
+  ScaleDownBehavior?: ScaleDownBehavior;
 
   /**
    * @public
@@ -7403,7 +7403,7 @@ export interface RunJobFlowInput {
    *          security updates are applied. If <code>NONE</code> is specified, no updates are applied,
    *          and all updates must be applied manually.</p>
    */
-  RepoUpgradeOnBoot?: RepoUpgradeOnBoot | string;
+  RepoUpgradeOnBoot?: RepoUpgradeOnBoot;
 
   /**
    * @public

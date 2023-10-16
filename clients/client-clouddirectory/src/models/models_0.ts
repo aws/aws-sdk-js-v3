@@ -957,7 +957,7 @@ export interface TypedAttributeValueRange {
    * @public
    * <p>The inclusive or exclusive range start.</p>
    */
-  StartMode: RangeMode | string | undefined;
+  StartMode: RangeMode | undefined;
 
   /**
    * @public
@@ -969,7 +969,7 @@ export interface TypedAttributeValueRange {
    * @public
    * <p>The inclusive or exclusive range end.</p>
    */
-  EndMode: RangeMode | string | undefined;
+  EndMode: RangeMode | undefined;
 
   /**
    * @public
@@ -1425,7 +1425,7 @@ export interface BatchReadRequest {
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: ConsistencyLevel;
 }
 
 /**
@@ -1463,7 +1463,7 @@ export interface BatchReadException {
    * @public
    * <p>A type of exception, such as <code>InvalidArnException</code>.</p>
    */
-  Type?: BatchReadExceptionType | string;
+  Type?: BatchReadExceptionType;
 
   /**
    * @public
@@ -1989,7 +1989,7 @@ export class BatchWriteException extends __BaseException {
   readonly name: "BatchWriteException" = "BatchWriteException";
   readonly $fault: "client" = "client";
   Index?: number;
-  Type?: BatchWriteExceptionType | string;
+  Type?: BatchWriteExceptionType;
   Message?: string;
   /**
    * @internal
@@ -2324,7 +2324,7 @@ export interface LinkAttributeAction {
    * @public
    * <p>A type that can be either <code>UPDATE_OR_CREATE</code> or <code>DELETE</code>.</p>
    */
-  AttributeActionType?: UpdateActionType | string;
+  AttributeActionType?: UpdateActionType;
 
   /**
    * @public
@@ -2378,7 +2378,7 @@ export interface ObjectAttributeAction {
    * @public
    * <p>A type that can be either <code>Update</code> or <code>Delete</code>.</p>
    */
-  ObjectAttributeActionType?: UpdateActionType | string;
+  ObjectAttributeActionType?: UpdateActionType;
 
   /**
    * @public
@@ -2885,7 +2885,7 @@ export interface Rule {
    * @public
    * <p>The type of attribute validation rule.</p>
    */
-  Type?: RuleType | string;
+  Type?: RuleType;
 
   /**
    * @public
@@ -2921,7 +2921,7 @@ export interface FacetAttributeDefinition {
    * @public
    * <p>The type of the attribute.</p>
    */
-  Type: FacetAttributeType | string | undefined;
+  Type: FacetAttributeType | undefined;
 
   /**
    * @public
@@ -3003,7 +3003,7 @@ export interface FacetAttribute {
    * @public
    * <p>The required behavior of the <code>FacetAttribute</code>.</p>
    */
-  RequiredBehavior?: RequiredAttributeBehavior | string;
+  RequiredBehavior?: RequiredAttributeBehavior;
 }
 
 /**
@@ -3085,13 +3085,13 @@ export interface CreateFacetRequest {
    *             </li>
    *          </ul>
    */
-  ObjectType?: ObjectType | string;
+  ObjectType?: ObjectType;
 
   /**
    * @public
    * <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p>
    */
-  FacetStyle?: FacetStyle | string;
+  FacetStyle?: FacetStyle;
 }
 
 /**
@@ -3300,7 +3300,7 @@ export interface TypedLinkAttributeDefinition {
    * @public
    * <p>The type of the attribute.</p>
    */
-  Type: FacetAttributeType | string | undefined;
+  Type: FacetAttributeType | undefined;
 
   /**
    * @public
@@ -3324,7 +3324,7 @@ export interface TypedLinkAttributeDefinition {
    * @public
    * <p>The required behavior of the <code>TypedLinkAttributeDefinition</code>.</p>
    */
-  RequiredBehavior: RequiredAttributeBehavior | string | undefined;
+  RequiredBehavior: RequiredAttributeBehavior | undefined;
 }
 
 /**
@@ -3905,7 +3905,7 @@ export interface Directory {
    * @public
    * <p>The state of the directory. Can be either <code>Enabled</code>, <code>Disabled</code>, or <code>Deleted</code>.</p>
    */
-  State?: DirectoryState | string;
+  State?: DirectoryState;
 
   /**
    * @public
@@ -3960,13 +3960,13 @@ export interface Facet {
    * @public
    * <p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>
    */
-  ObjectType?: ObjectType | string;
+  ObjectType?: ObjectType;
 
   /**
    * @public
    * <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p>
    */
-  FacetStyle?: FacetStyle | string;
+  FacetStyle?: FacetStyle;
 }
 
 /**
@@ -4006,7 +4006,7 @@ export interface GetLinkAttributesRequest {
    * @public
    * <p>The consistency level at which to retrieve the attributes on a typed link.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: ConsistencyLevel;
 }
 
 /**
@@ -4040,7 +4040,7 @@ export interface GetObjectAttributesRequest {
    * @public
    * <p>The consistency level at which to retrieve the attributes on an object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: ConsistencyLevel;
 
   /**
    * @public
@@ -4086,7 +4086,7 @@ export interface GetObjectInformationRequest {
    * @public
    * <p>The consistency level at which to retrieve the object information.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: ConsistencyLevel;
 }
 
 /**
@@ -4268,7 +4268,7 @@ export interface ListAttachedIndicesRequest {
    * @public
    * <p>The consistency level to use for this operation.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: ConsistencyLevel;
 }
 
 /**
@@ -4343,7 +4343,7 @@ export interface ListDirectoriesRequest {
    * <p>The state of the directories in the list. Can be either Enabled, Disabled, or
    *       Deleted.</p>
    */
-  state?: DirectoryState | string;
+  state?: DirectoryState;
 }
 
 /**
@@ -4498,7 +4498,7 @@ export interface ListIncomingTypedLinksRequest {
    * @public
    * <p>The consistency level to execute the request at.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: ConsistencyLevel;
 }
 
 /**
@@ -4556,7 +4556,7 @@ export interface ListIndexRequest {
    * @public
    * <p>The consistency level to execute the request at.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: ConsistencyLevel;
 }
 
 /**
@@ -4651,7 +4651,7 @@ export interface ListObjectAttributesRequest {
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: ConsistencyLevel;
 
   /**
    * @public
@@ -4715,7 +4715,7 @@ export interface ListObjectChildrenRequest {
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: ConsistencyLevel;
 }
 
 /**
@@ -4842,7 +4842,7 @@ export interface ListObjectParentsRequest {
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: ConsistencyLevel;
 
   /**
    * @public
@@ -4910,7 +4910,7 @@ export interface ListObjectPoliciesRequest {
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: ConsistencyLevel;
 }
 
 /**
@@ -4979,7 +4979,7 @@ export interface ListOutgoingTypedLinksRequest {
    * @public
    * <p>The consistency level to execute the request at.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: ConsistencyLevel;
 }
 
 /**
@@ -5034,7 +5034,7 @@ export interface ListPolicyAttachmentsRequest {
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: ConsistencyLevel;
 }
 
 /**
@@ -5541,7 +5541,7 @@ export interface FacetAttributeUpdate {
    * @public
    * <p>The action to perform when updating the attribute.</p>
    */
-  Action?: UpdateActionType | string;
+  Action?: UpdateActionType;
 }
 
 /**
@@ -5573,7 +5573,7 @@ export interface UpdateFacetRequest {
    * @public
    * <p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>
    */
-  ObjectType?: ObjectType | string;
+  ObjectType?: ObjectType;
 }
 
 /**
@@ -5688,7 +5688,7 @@ export interface TypedLinkFacetAttributeUpdate {
    * @public
    * <p>The action to perform when updating the attribute.</p>
    */
-  Action: UpdateActionType | string | undefined;
+  Action: UpdateActionType | undefined;
 }
 
 /**

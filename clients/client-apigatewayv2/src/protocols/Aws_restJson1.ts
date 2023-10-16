@@ -7264,9 +7264,9 @@ const de_RouteParameters = (output: any, context: __SerdeContext): Record<string
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ParameterConstraints(value, context);
+    acc[key as string] = de_ParameterConstraints(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ParameterConstraints>);
 };
 
 /**
@@ -7303,9 +7303,9 @@ const de_RouteSettingsMap = (output: any, context: __SerdeContext): Record<strin
     if (value === null) {
       return acc;
     }
-    acc[key] = de_RouteSettings(value, context);
+    acc[key as string] = de_RouteSettings(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, RouteSettings>);
 };
 
 // de_SecurityGroupIdList omitted.

@@ -216,7 +216,7 @@ export interface UnsuccessfulFaceAssociation {
    * @public
    * <p> The reason why the association was unsuccessful. </p>
    */
-  Reasons?: (UnsuccessfulFaceAssociationReason | string)[];
+  Reasons?: UnsuccessfulFaceAssociationReason[];
 }
 
 /**
@@ -258,7 +258,7 @@ export interface AssociateFacesResponse {
    * <p>The status of an update made to a UserID. Reflects if the UserID has been updated for
    *       every requested change.</p>
    */
-  UserStatus?: UserStatus | string;
+  UserStatus?: UserStatus;
 }
 
 /**
@@ -786,7 +786,7 @@ export interface EquipmentDetection {
    * @public
    * <p>The type of detected PPE.</p>
    */
-  Type?: ProtectiveEquipmentType | string;
+  Type?: ProtectiveEquipmentType;
 
   /**
    * @public
@@ -806,7 +806,7 @@ export interface ProtectiveEquipmentBodyPart {
    * @public
    * <p>The detected body part.</p>
    */
-  Name?: BodyPart | string;
+  Name?: BodyPart;
 
   /**
    * @public
@@ -856,7 +856,7 @@ export interface Emotion {
    * @public
    * <p>Type of emotion detected.</p>
    */
-  Type?: EmotionName | string;
+  Type?: EmotionName;
 
   /**
    * @public
@@ -916,7 +916,7 @@ export interface Landmark {
    * @public
    * <p>Type of landmark.</p>
    */
-  Type?: LandmarkType | string;
+  Type?: LandmarkType;
 
   /**
    * @public
@@ -1077,7 +1077,7 @@ export interface KnownGender {
    * @public
    * <p>A string value of the KnownGender info about the Celebrity.</p>
    */
-  Type?: KnownGenderType | string;
+  Type?: KnownGenderType;
 }
 
 /**
@@ -1254,7 +1254,7 @@ export interface Gender {
    * @public
    * <p>The predicted gender of the face.</p>
    */
-  Value?: GenderType | string;
+  Value?: GenderType;
 
   /**
    * @public
@@ -1675,7 +1675,7 @@ export interface CompareFacesRequest {
    *          <p>To use quality filtering, the collection you are using must be associated with version 3
    *       of the face model or higher.</p>
    */
-  QualityFilter?: QualityFilter | string;
+  QualityFilter?: QualityFilter;
 }
 
 /**
@@ -1754,7 +1754,7 @@ export interface CompareFacesResponse {
    *       without orientation information in the image Exif metadata. The bounding box coordinates
    *       aren't translated and represent the object locations before the image is rotated. </p>
    */
-  SourceImageOrientationCorrection?: OrientationCorrection | string;
+  SourceImageOrientationCorrection?: OrientationCorrection;
 
   /**
    * @public
@@ -1768,7 +1768,7 @@ export interface CompareFacesResponse {
    *       without orientation information in the image Exif metadata. The bounding box coordinates
    *       aren't translated and represent the object locations before the image is rotated. </p>
    */
-  TargetImageOrientationCorrection?: OrientationCorrection | string;
+  TargetImageOrientationCorrection?: OrientationCorrection;
 }
 
 /**
@@ -2330,7 +2330,7 @@ export interface CreateDatasetRequest {
    *    to create a test dataset.
    * </p>
    */
-  DatasetType: DatasetType | string | undefined;
+  DatasetType: DatasetType | undefined;
 
   /**
    * @public
@@ -2482,7 +2482,7 @@ export interface CreateProjectRequest {
    * @public
    * <p>Specifies feature that is being customized. If no value is provided CUSTOM_LABELS is used as a default.</p>
    */
-  Feature?: CustomizationFeature | string;
+  Feature?: CustomizationFeature;
 
   /**
    * @public
@@ -2490,7 +2490,7 @@ export interface CreateProjectRequest {
    *          project. Automatic retraining is done as a best effort. Required argument for Content
    *          Moderation. Applicable only to adapters.</p>
    */
-  AutoUpdate?: ProjectAutoUpdate | string;
+  AutoUpdate?: ProjectAutoUpdate;
 }
 
 /**
@@ -3185,7 +3185,7 @@ export interface DatasetDescription {
    *    The status of the dataset.
    * </p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 
   /**
    * @public
@@ -3203,7 +3203,7 @@ export interface DatasetDescription {
    *    API call that failed.
    * </p>
    */
-  StatusMessageCode?: DatasetStatusMessageCode | string;
+  StatusMessageCode?: DatasetStatusMessageCode;
 
   /**
    * @public
@@ -3284,7 +3284,7 @@ export interface DatasetMetadata {
    *    The type of the dataset.
    * </p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: DatasetType;
 
   /**
    * @public
@@ -3300,7 +3300,7 @@ export interface DatasetMetadata {
    *    The status for the dataset.
    * </p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 
   /**
    * @public
@@ -3318,7 +3318,7 @@ export interface DatasetMetadata {
    *    API call that failed.
    * </p>
    */
-  StatusMessageCode?: DatasetStatusMessageCode | string;
+  StatusMessageCode?: DatasetStatusMessageCode;
 }
 
 /**
@@ -3415,7 +3415,7 @@ export interface UnsuccessfulFaceDeletion {
    * @public
    * <p>The reason why the deletion was unsuccessful. </p>
    */
-  Reasons?: (UnsuccessfulFaceDeletionReason | string)[];
+  Reasons?: UnsuccessfulFaceDeletionReason[];
 }
 
 /**
@@ -3469,7 +3469,7 @@ export interface DeleteProjectResponse {
    * @public
    * <p>The current status of the delete project operation.</p>
    */
-  Status?: ProjectStatus | string;
+  Status?: ProjectStatus;
 }
 
 /**
@@ -3576,7 +3576,7 @@ export interface DeleteProjectVersionResponse {
    * @public
    * <p>The status of the deletion operation.</p>
    */
-  Status?: ProjectVersionStatus | string;
+  Status?: ProjectVersionStatus;
 }
 
 /**
@@ -3733,7 +3733,7 @@ export interface DescribeProjectsRequest {
    * <p>Specifies the type of customization to filter projects by. If no value is specified,
    *          CUSTOM_LABELS is used as a default.</p>
    */
-  Features?: (CustomizationFeature | string)[];
+  Features?: CustomizationFeature[];
 }
 
 /**
@@ -3757,7 +3757,7 @@ export interface ProjectDescription {
    * @public
    * <p>The current status of the project.</p>
    */
-  Status?: ProjectStatus | string;
+  Status?: ProjectStatus;
 
   /**
    * @public
@@ -3771,13 +3771,13 @@ export interface ProjectDescription {
    * @public
    * <p>Specifies the project that is being customized.</p>
    */
-  Feature?: CustomizationFeature | string;
+  Feature?: CustomizationFeature;
 
   /**
    * @public
    * <p>Indicates whether automatic retraining will be attempted for the versions of the project. Applies only to adapters. </p>
    */
-  AutoUpdate?: ProjectAutoUpdate | string;
+  AutoUpdate?: ProjectAutoUpdate;
 }
 
 /**
@@ -4012,7 +4012,7 @@ export interface ProjectVersionDescription {
    * @public
    * <p>The current status of the model version.</p>
    */
-  Status?: ProjectVersionStatus | string;
+  Status?: ProjectVersionStatus;
 
   /**
    * @public
@@ -4093,7 +4093,7 @@ export interface ProjectVersionDescription {
    * @public
    * <p>The feature that was customized.</p>
    */
-  Feature?: CustomizationFeature | string;
+  Feature?: CustomizationFeature;
 
   /**
    * @public
@@ -4177,7 +4177,7 @@ export interface DescribeStreamProcessorResponse {
    * @public
    * <p>Current status of the stream processor.</p>
    */
-  Status?: StreamProcessorStatus | string;
+  Status?: StreamProcessorStatus;
 
   /**
    * @public
@@ -4389,7 +4389,7 @@ export interface DetectFacesRequest {
    *         <code>DetectFaces</code>, they aren't supported when analyzing videos with
    *         <code>StartFaceDetection</code> and <code>GetFaceDetection</code>.</p>
    */
-  Attributes?: (Attribute | string)[];
+  Attributes?: Attribute[];
 }
 
 /**
@@ -4414,7 +4414,7 @@ export interface DetectFacesResponse {
    *       without orientation information in the image Exif metadata. The bounding box coordinates
    *       aren't translated and represent the object locations before the image is rotated. </p>
    */
-  OrientationCorrection?: OrientationCorrection | string;
+  OrientationCorrection?: OrientationCorrection;
 }
 
 /**
@@ -4564,7 +4564,7 @@ export interface DetectLabelsRequest {
    *       detection feature, while specifying IMAGE_PROPERTIES returns information regarding image color
    *       and quality. If no option is specified GENERAL_LABELS is used by default.</p>
    */
-  Features?: (DetectLabelsFeatureName | string)[];
+  Features?: DetectLabelsFeatureName[];
 
   /**
    * @public
@@ -4855,7 +4855,7 @@ export interface DetectLabelsResponse {
    *       without orientation information in the image Exif metadata. The bounding box coordinates
    *       aren't translated and represent the object locations before the image is rotated. </p>
    */
-  OrientationCorrection?: OrientationCorrection | string;
+  OrientationCorrection?: OrientationCorrection;
 
   /**
    * @public
@@ -4881,7 +4881,7 @@ export interface HumanLoopDataAttributes {
    * @public
    * <p>Sets whether the input image is free of personally identifiable information.</p>
    */
-  ContentClassifiers?: (ContentClassifier | string)[];
+  ContentClassifiers?: ContentClassifier[];
 }
 
 /**
@@ -5091,7 +5091,7 @@ export interface ProtectiveEquipmentSummarizationAttributes {
    *          <code>PersonsWithRequiredEquipment</code> array field returned in <a>ProtectiveEquipmentSummary</a>
    *          by <code>DetectProtectiveEquipment</code>.  </p>
    */
-  RequiredEquipmentTypes: (ProtectiveEquipmentType | string)[] | undefined;
+  RequiredEquipmentTypes: ProtectiveEquipmentType[] | undefined;
 }
 
 /**
@@ -5293,7 +5293,7 @@ export interface TextDetection {
    * @public
    * <p>The type of text that was detected.</p>
    */
-  Type?: TextTypes | string;
+  Type?: TextTypes;
 
   /**
    * @public
@@ -5424,7 +5424,7 @@ export interface UnsuccessfulFaceDisassociation {
    * @public
    * <p>The reason why the deletion was unsuccessful. </p>
    */
-  Reasons?: (UnsuccessfulFaceDisassociationReason | string)[];
+  Reasons?: UnsuccessfulFaceDisassociationReason[];
 }
 
 /**
@@ -5451,7 +5451,7 @@ export interface DisassociateFacesResponse {
    * <p>The status of an update made to a User. Reflects if the User has been updated for every
    *       requested change.</p>
    */
-  UserStatus?: UserStatus | string;
+  UserStatus?: UserStatus;
 }
 
 /**
@@ -5692,7 +5692,7 @@ export interface GetCelebrityRecognitionRequest {
    * <p>Sort to use for celebrities returned in <code>Celebrities</code> field. Specify <code>ID</code> to sort by the celebrity identifier,
    *         specify <code>TIMESTAMP</code> to sort by the time the celebrity was recognized.</p>
    */
-  SortBy?: CelebrityRecognitionSortBy | string;
+  SortBy?: CelebrityRecognitionSortBy;
 }
 
 /**
@@ -5785,7 +5785,7 @@ export interface VideoMetadata {
    *       A description of the range of luminance values in a video, either LIMITED (16 to 235) or FULL (0 to 255).
    *     </p>
    */
-  ColorRange?: VideoColorRange | string;
+  ColorRange?: VideoColorRange;
 }
 
 /**
@@ -5796,7 +5796,7 @@ export interface GetCelebrityRecognitionResponse {
    * @public
    * <p>The current status of the celebrity recognition job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: VideoJobStatus;
 
   /**
    * @public
@@ -5881,14 +5881,14 @@ export interface GetContentModerationRequest {
    *        Within each label group, the array element are sorted by detection confidence.
    *        The default sort is by <code>TIMESTAMP</code>.</p>
    */
-  SortBy?: ContentModerationSortBy | string;
+  SortBy?: ContentModerationSortBy;
 
   /**
    * @public
    * <p>Defines how to aggregate results of the StartContentModeration request. Default
    *       aggregation option is TIMESTAMPS. SEGMENTS mode aggregates moderation labels over time.</p>
    */
-  AggregateBy?: ContentModerationAggregateBy | string;
+  AggregateBy?: ContentModerationAggregateBy;
 }
 
 /**
@@ -5901,13 +5901,13 @@ export interface GetContentModerationRequestMetadata {
    * @public
    * <p>The sorting method chosen for a GetContentModeration request.</p>
    */
-  SortBy?: ContentModerationSortBy | string;
+  SortBy?: ContentModerationSortBy;
 
   /**
    * @public
    * <p>The aggregation method chosen for a GetContentModeration request.</p>
    */
-  AggregateBy?: ContentModerationAggregateBy | string;
+  AggregateBy?: ContentModerationAggregateBy;
 }
 
 /**
@@ -5918,7 +5918,7 @@ export interface GetContentModerationResponse {
    * @public
    * <p>The current status of the content moderation analysis job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: VideoJobStatus;
 
   /**
    * @public
@@ -6015,7 +6015,7 @@ export interface GetFaceDetectionResponse {
    * @public
    * <p>The current status of the face detection job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: VideoJobStatus;
 
   /**
    * @public
@@ -6109,7 +6109,7 @@ export interface GetFaceLivenessSessionResultsResponse {
    * <p>Represents a status corresponding to the state of the session. Possible statuses are:
    *       CREATED, IN_PROGRESS, SUCCEEDED, FAILED, EXPIRED.</p>
    */
-  Status: LivenessSessionStatus | string | undefined;
+  Status: LivenessSessionStatus | undefined;
 
   /**
    * @public
@@ -6199,7 +6199,7 @@ export interface GetFaceSearchRequest {
    * <p>Sort to use for grouping faces in the response. Use <code>TIMESTAMP</code> to group faces by the time
    *       that they are recognized. Use <code>INDEX</code> to sort by recognized faces. </p>
    */
-  SortBy?: FaceSearchSortBy | string;
+  SortBy?: FaceSearchSortBy;
 }
 
 /**
@@ -6263,7 +6263,7 @@ export interface GetFaceSearchResponse {
    * @public
    * <p>The current status of the face search job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: VideoJobStatus;
 
   /**
    * @public
@@ -6380,13 +6380,13 @@ export interface GetLabelDetectionRequest {
    *       Within each label group, the array element are sorted by detection confidence.
    *       The default sort is by <code>TIMESTAMP</code>.</p>
    */
-  SortBy?: LabelDetectionSortBy | string;
+  SortBy?: LabelDetectionSortBy;
 
   /**
    * @public
    * <p>Defines how to aggregate the returned results. Results can be aggregated by timestamps or segments.</p>
    */
-  AggregateBy?: LabelDetectionAggregateBy | string;
+  AggregateBy?: LabelDetectionAggregateBy;
 }
 
 /**
@@ -6399,13 +6399,13 @@ export interface GetLabelDetectionRequestMetadata {
    * @public
    * <p>The sorting method chosen for a GetLabelDetection request.</p>
    */
-  SortBy?: LabelDetectionSortBy | string;
+  SortBy?: LabelDetectionSortBy;
 
   /**
    * @public
    * <p>The aggregation method chosen for a GetLabelDetection request.</p>
    */
-  AggregateBy?: LabelDetectionAggregateBy | string;
+  AggregateBy?: LabelDetectionAggregateBy;
 }
 
 /**
@@ -6453,7 +6453,7 @@ export interface GetLabelDetectionResponse {
    * @public
    * <p>The current status of the label detection job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: VideoJobStatus;
 
   /**
    * @public
@@ -6564,7 +6564,7 @@ export interface GetPersonTrackingRequest {
    *        If you sort by <code>INDEX</code>, the array elements for each person are sorted by detection confidence.
    *        The default sort is by <code>TIMESTAMP</code>.</p>
    */
-  SortBy?: PersonTrackingSortBy | string;
+  SortBy?: PersonTrackingSortBy;
 }
 
 /**
@@ -6597,7 +6597,7 @@ export interface GetPersonTrackingResponse {
    * @public
    * <p>The current status of the person tracking job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: VideoJobStatus;
 
   /**
    * @public
@@ -6719,7 +6719,7 @@ export interface TechnicalCueSegment {
    * @public
    * <p>The type of the technical cue.</p>
    */
-  Type?: TechnicalCueType | string;
+  Type?: TechnicalCueType;
 
   /**
    * @public
@@ -6754,7 +6754,7 @@ export interface SegmentDetection {
    * @public
    * <p>The type of the  segment. Valid values are <code>TECHNICAL_CUE</code> and <code>SHOT</code>.</p>
    */
-  Type?: SegmentType | string;
+  Type?: SegmentType;
 
   /**
    * @public
@@ -6846,7 +6846,7 @@ export interface SegmentTypeInfo {
    * @public
    * <p>The type of a segment (technical cue or shot detection).</p>
    */
-  Type?: SegmentType | string;
+  Type?: SegmentType;
 
   /**
    * @public
@@ -6863,7 +6863,7 @@ export interface GetSegmentDetectionResponse {
    * @public
    * <p>Current status of the segment detection job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: VideoJobStatus;
 
   /**
    * @public
@@ -6990,7 +6990,7 @@ export interface GetTextDetectionResponse {
    * @public
    * <p>Current status of the text detection job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: VideoJobStatus;
 
   /**
    * @public
@@ -7086,7 +7086,7 @@ export interface IndexFacesRequest {
    *          <p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND
    *       operator to determine which attributes to return (in this case, all attributes). </p>
    */
-  DetectionAttributes?: (Attribute | string)[];
+  DetectionAttributes?: Attribute[];
 
   /**
    * @public
@@ -7120,7 +7120,7 @@ export interface IndexFacesRequest {
    *          <p>To use quality filtering, the collection you are using must be associated with version 3
    *       of the face model or higher.</p>
    */
-  QualityFilter?: QualityFilter | string;
+  QualityFilter?: QualityFilter;
 }
 
 /**
@@ -7174,7 +7174,7 @@ export interface UnindexedFace {
    *             </li>
    *          </ul>
    */
-  Reasons?: (Reason | string)[];
+  Reasons?: Reason[];
 
   /**
    * @public
@@ -7222,7 +7222,7 @@ export interface IndexFacesResponse {
    *          <p>Bounding box information is returned in the <code>FaceRecords</code> array. You can get
    *       the version of the face detection model by calling <a>DescribeCollection</a>. </p>
    */
-  OrientationCorrection?: OrientationCorrection | string;
+  OrientationCorrection?: OrientationCorrection;
 
   /**
    * @public
@@ -7655,7 +7655,7 @@ export interface StreamProcessor {
    * @public
    * <p>Current status of the Amazon Rekognition stream processor.</p>
    */
-  Status?: StreamProcessorStatus | string;
+  Status?: StreamProcessorStatus;
 }
 
 /**
@@ -7738,7 +7738,7 @@ export interface User {
    * <p> Communicates if the UserID has been updated with latest set of faces to be associated
    *       with the UserID. </p>
    */
-  UserStatus?: UserStatus | string;
+  UserStatus?: UserStatus;
 }
 
 /**
@@ -7805,7 +7805,7 @@ export interface MatchedUser {
    * @public
    * <p>The status of the user matched to a provided FaceID.</p>
    */
-  UserStatus?: UserStatus | string;
+  UserStatus?: UserStatus;
 }
 
 /**
@@ -7930,7 +7930,7 @@ export interface RecognizeCelebritiesResponse {
    *         orientation. Images in .png format don't contain Exif metadata. </p>
    *          </note>
    */
-  OrientationCorrection?: OrientationCorrection | string;
+  OrientationCorrection?: OrientationCorrection;
 }
 
 /**
@@ -8039,7 +8039,7 @@ export interface SearchFacesByImageRequest {
    *          <p>To use quality filtering, the collection you are using must be associated with version 3
    *       of the face model or higher.</p>
    */
-  QualityFilter?: QualityFilter | string;
+  QualityFilter?: QualityFilter;
 }
 
 /**
@@ -8238,7 +8238,7 @@ export interface SearchUsersByImageRequest {
    * <p>A filter that specifies a quality bar for how much filtering is done to identify faces.
    *       Filtered faces aren't searched for in the collection. The default value is NONE.</p>
    */
-  QualityFilter?: QualityFilter | string;
+  QualityFilter?: QualityFilter;
 }
 
 /**

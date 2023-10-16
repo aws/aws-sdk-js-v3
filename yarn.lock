@@ -114,7 +114,7 @@
     "@smithy/hash-node" "^2.0.11"
     "@smithy/invalid-dependency" "^2.0.11"
     "@smithy/middleware-content-length" "^2.0.13"
-    "@smithy/middleware-endpoint" "^2.1.0"
+    "@smithy/middleware-endpoint" "^2.1.1"
     "@smithy/middleware-retry" "^2.0.16"
     "@smithy/middleware-serde" "^2.0.11"
     "@smithy/middleware-stack" "^2.0.5"
@@ -3005,13 +3005,14 @@
     "@smithy/types" "^2.3.5"
     tslib "^2.5.0"
 
-"@smithy/middleware-endpoint@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@smithy/middleware-endpoint/-/middleware-endpoint-2.1.0.tgz#847d8640759f60fca29d3249370d0582136535aa"
-  integrity sha512-e6HZbfrp9CNTJqIPSgkydB9mNQXiq5pkHF3ZB6rOzPPR9PkJBoGFo9TcM7FaaKFUaH4Kc20AX6WwwVyIlNhXTA==
+"@smithy/middleware-endpoint@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@smithy/middleware-endpoint/-/middleware-endpoint-2.1.1.tgz#6eec29c380a8f0f9cadc9b28bf8b453c5b671985"
+  integrity sha512-YAqGagBvHqDEew4EGz9BrQ7M+f+u7ck9EL4zzYirOhIcXeBS/+q4A5+ObHDDwEp38lD6t88YUtFy3OptqEaDQg==
   dependencies:
     "@smithy/middleware-serde" "^2.0.11"
     "@smithy/node-config-provider" "^2.1.1"
+    "@smithy/shared-ini-file-loader" "^2.2.0"
     "@smithy/types" "^2.3.5"
     "@smithy/url-parser" "^2.0.11"
     "@smithy/util-middleware" "^2.0.4"

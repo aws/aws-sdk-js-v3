@@ -12020,9 +12020,9 @@ const de_MapOfApiStageThrottleSettings = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ThrottleSettings(value, context);
+    acc[key as string] = de_ThrottleSettings(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ThrottleSettings>);
 };
 
 // de_MapOfIntegrationResponse omitted.
@@ -12041,9 +12041,9 @@ const de_MapOfMethodSettings = (output: any, context: __SerdeContext): Record<st
     if (value === null) {
       return acc;
     }
-    acc[key] = de_MethodSetting(value, context);
+    acc[key as string] = de_MethodSetting(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, MethodSetting>);
 };
 
 // de_MapOfMethodSnapshot omitted.

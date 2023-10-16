@@ -147,7 +147,7 @@ export interface DataSet {
    * @public
    * <p>A value that indicates whether you want to import the data into SPICE.</p>
    */
-  ImportMode?: DataSetImportMode | string;
+  ImportMode?: DataSetImportMode;
 
   /**
    * @public
@@ -256,7 +256,7 @@ export interface LookbackWindow {
    * @public
    * <p>The size unit that is used for the lookback window column. Valid values for this structure are <code>HOUR</code>, <code>DAY</code>, and <code>WEEK</code>.</p>
    */
-  SizeUnit: LookbackWindowSizeUnit | string | undefined;
+  SizeUnit: LookbackWindowSizeUnit | undefined;
 }
 
 /**
@@ -306,7 +306,7 @@ export interface DataSetSearchFilter {
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose datasets you want to search in the <code>"Value"</code> field. For example, <code>"Name":"QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east- 1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the datasets you are searching for. For example, <code>"Name":"DATASET_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASET_NAME</code>.</p>
    */
-  Operator: FilterOperator | string | undefined;
+  Operator: FilterOperator | undefined;
 
   /**
    * @public
@@ -340,7 +340,7 @@ export interface DataSetSearchFilter {
    *             </li>
    *          </ul>
    */
-  Name: DataSetFilterAttribute | string | undefined;
+  Name: DataSetFilterAttribute | undefined;
 
   /**
    * @public
@@ -390,7 +390,7 @@ export interface DataSetSummary {
    * @public
    * <p>A value that indicates whether you want to import the data into SPICE.</p>
    */
-  ImportMode?: DataSetImportMode | string;
+  ImportMode?: DataSetImportMode;
 
   /**
    * @public
@@ -440,7 +440,7 @@ export interface DataSourceErrorInfo {
    * @public
    * <p>Error type.</p>
    */
-  Type?: DataSourceErrorInfoType | string;
+  Type?: DataSourceErrorInfoType;
 
   /**
    * @public
@@ -478,13 +478,13 @@ export interface DataSource {
    * <p>The type of the data source. This type indicates which database engine the data source
    *             connects to.</p>
    */
-  Type?: DataSourceType | string;
+  Type?: DataSourceType;
 
   /**
    * @public
    * <p>The HTTP status of the request.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: ResourceStatus;
 
   /**
    * @public
@@ -574,7 +574,7 @@ export interface DataSourceSearchFilter {
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose data sources you want to search in the <code>"Value"</code> field. For example, <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the data sources you are searching for. For example, <code>"Name":"DATASOURCE_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASOURCE_NAME</code>.</p>
    */
-  Operator: FilterOperator | string | undefined;
+  Operator: FilterOperator | undefined;
 
   /**
    * @public
@@ -600,7 +600,7 @@ export interface DataSourceSearchFilter {
    *             </li>
    *          </ul>
    */
-  Name: DataSourceFilterAttribute | string | undefined;
+  Name: DataSourceFilterAttribute | undefined;
 
   /**
    * @public
@@ -638,7 +638,7 @@ export interface DataSourceSummary {
    * @public
    * <p>The type of the data source.</p>
    */
-  Type?: DataSourceType | string;
+  Type?: DataSourceType;
 
   /**
    * @public
@@ -1036,7 +1036,7 @@ export interface DeleteFolderMembershipRequest {
    * @public
    * <p>The member type of the asset that you want to delete from a folder.</p>
    */
-  MemberType: MemberType | string | undefined;
+  MemberType: MemberType | undefined;
 }
 
 /**
@@ -1734,13 +1734,13 @@ export interface DeleteVPCConnectionResponse {
    * @public
    * <p>The deletion status of the VPC connection.</p>
    */
-  DeletionStatus?: VPCConnectionResourceStatus | string;
+  DeletionStatus?: VPCConnectionResourceStatus;
 
   /**
    * @public
    * <p>The availability status of the VPC connection.</p>
    */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus | string;
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus;
 
   /**
    * @public
@@ -2043,7 +2043,7 @@ export interface DescribeAnalysisDefinitionResponse {
    *             </li>
    *          </ul>
    */
-  ResourceStatus?: ResourceStatus | string;
+  ResourceStatus?: ResourceStatus;
 
   /**
    * @public
@@ -2153,7 +2153,7 @@ export interface DescribeAssetBundleExportJobResponse {
    * <p>Indicates the status of a job through its queuing and execution.</p>
    *          <p>Poll this <code>DescribeAssetBundleExportApi</code> until <code>JobStatus</code> is either <code>SUCCESSFUL</code> or <code>FAILED</code>.</p>
    */
-  JobStatus?: AssetBundleExportJobStatus | string;
+  JobStatus?: AssetBundleExportJobStatus;
 
   /**
    * @public
@@ -2211,7 +2211,7 @@ export interface DescribeAssetBundleExportJobResponse {
    * @public
    * <p>The format of the exported asset bundle. A <code>QUICKSIGHT_JSON</code> formatted file can be used to make a <code>StartAssetBundleImportJob</code> API call. A <code>CLOUDFORMATION_JSON</code> formatted file can be used in the CloudFormation console and with the CloudFormation APIs.</p>
    */
-  ExportFormat?: AssetBundleExportFormat | string;
+  ExportFormat?: AssetBundleExportFormat;
 
   /**
    * @public
@@ -2280,7 +2280,7 @@ export interface DescribeAssetBundleImportJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: AssetBundleImportJobStatus | string;
+  JobStatus?: AssetBundleImportJobStatus;
 
   /**
    * @public
@@ -2336,7 +2336,7 @@ export interface DescribeAssetBundleImportJobResponse {
    * @public
    * <p>The failure action for the import job.</p>
    */
-  FailureAction?: AssetBundleImportFailureAction | string;
+  FailureAction?: AssetBundleImportFailureAction;
 
   /**
    * @public
@@ -2499,7 +2499,7 @@ export interface DescribeDashboardDefinitionResponse {
    *             </li>
    *          </ul>
    */
-  ResourceStatus?: ResourceStatus | string;
+  ResourceStatus?: ResourceStatus;
 
   /**
    * @public
@@ -2810,7 +2810,7 @@ export interface DescribeDashboardSnapshotJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: SnapshotJobStatus | string;
+  JobStatus?: SnapshotJobStatus;
 
   /**
    * @public
@@ -2910,7 +2910,7 @@ export interface DescribeDashboardSnapshotJobResultResponse {
    * @public
    * <p>Indicates the status of a job after it has reached a terminal state. A finished snapshot job will retuen a <code>COMPLETED</code> or <code>FAILED</code> status.</p>
    */
-  JobStatus?: SnapshotJobStatus | string;
+  JobStatus?: SnapshotJobStatus;
 
   /**
    * @public
@@ -3217,7 +3217,7 @@ export interface Folder {
    * @public
    * <p>The type of folder it is.</p>
    */
-  FolderType?: FolderType | string;
+  FolderType?: FolderType;
 
   /**
    * @public
@@ -3241,7 +3241,7 @@ export interface Folder {
    * @public
    * <p>The sharing scope of the folder.</p>
    */
-  SharingModel?: SharingModel | string;
+  SharingModel?: SharingModel;
 }
 
 /**
@@ -3611,7 +3611,7 @@ export interface IAMPolicyAssignment {
    * @public
    * <p>Assignment status.</p>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: AssignmentStatus;
 }
 
 /**
@@ -3726,7 +3726,7 @@ export interface ErrorInfo {
    * @public
    * <p>Error type.</p>
    */
-  Type?: IngestionErrorType | string;
+  Type?: IngestionErrorType;
 
   /**
    * @public
@@ -3829,7 +3829,7 @@ export interface Ingestion {
    * @public
    * <p>Ingestion status.</p>
    */
-  IngestionStatus: IngestionStatus | string | undefined;
+  IngestionStatus: IngestionStatus | undefined;
 
   /**
    * @public
@@ -3871,13 +3871,13 @@ export interface Ingestion {
    * @public
    * <p>Event source for this ingestion.</p>
    */
-  RequestSource?: IngestionRequestSource | string;
+  RequestSource?: IngestionRequestSource;
 
   /**
    * @public
    * <p>Type of this ingestion.</p>
    */
-  RequestType?: IngestionRequestType | string;
+  RequestType?: IngestionRequestType;
 }
 
 /**
@@ -3990,7 +3990,7 @@ export interface NamespaceError {
    * @public
    * <p>The error type.</p>
    */
-  Type?: NamespaceErrorType | string;
+  Type?: NamespaceErrorType;
 
   /**
    * @public
@@ -4026,13 +4026,13 @@ export interface NamespaceInfoV2 {
    * @public
    * <p>The creation status of a namespace that is not yet completely created.</p>
    */
-  CreationStatus?: NamespaceStatus | string;
+  CreationStatus?: NamespaceStatus;
 
   /**
    * @public
    * <p>The identity store used for the namespace.</p>
    */
-  IdentityStore?: IdentityStore | string;
+  IdentityStore?: IdentityStore;
 
   /**
    * @public
@@ -4177,7 +4177,7 @@ export interface TemplateError {
    * @public
    * <p>Type of error.</p>
    */
-  Type?: TemplateErrorType | string;
+  Type?: TemplateErrorType;
 
   /**
    * @public
@@ -4256,7 +4256,7 @@ export interface TemplateVersion {
    *             </li>
    *          </ul>
    */
-  Status?: ResourceStatus | string;
+  Status?: ResourceStatus;
 
   /**
    * @public
@@ -4510,7 +4510,7 @@ export interface DescribeTemplateDefinitionResponse {
    *             </li>
    *          </ul>
    */
-  ResourceStatus?: ResourceStatus | string;
+  ResourceStatus?: ResourceStatus;
 
   /**
    * @public
@@ -4660,7 +4660,7 @@ export interface ThemeError {
    * @public
    * <p>The type of error.</p>
    */
-  Type?: ThemeErrorType | string;
+  Type?: ThemeErrorType;
 
   /**
    * @public
@@ -4721,7 +4721,7 @@ export interface ThemeVersion {
    * @public
    * <p>The status of the theme version.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: ResourceStatus;
 }
 
 /**
@@ -4770,7 +4770,7 @@ export interface Theme {
    * <p>The type of theme, based on how it was created. Valid values include:
    *             <code>QUICKSIGHT</code> and <code>CUSTOM</code>.</p>
    */
-  Type?: ThemeType | string;
+  Type?: ThemeType;
 }
 
 /**
@@ -5062,7 +5062,7 @@ export interface TopicRefreshDetails {
    * @public
    * <p>The status of the refresh job that indicates whether the job is still running, completed successfully, or failed.</p>
    */
-  RefreshStatus?: TopicRefreshStatus | string;
+  RefreshStatus?: TopicRefreshStatus;
 }
 
 /**
@@ -5266,13 +5266,13 @@ export interface User {
    *             </li>
    *          </ul>
    */
-  Role?: UserRole | string;
+  Role?: UserRole;
 
   /**
    * @public
    * <p>The type of identity authentication used by the user.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: IdentityType;
 
   /**
    * @public
@@ -5414,7 +5414,7 @@ export interface NetworkInterface {
    * @public
    * <p>The status of the network interface.</p>
    */
-  Status?: NetworkInterfaceStatus | string;
+  Status?: NetworkInterfaceStatus;
 
   /**
    * @public
@@ -5469,13 +5469,13 @@ export interface VPCConnection {
    * @public
    * <p>The status of the VPC connection.</p>
    */
-  Status?: VPCConnectionResourceStatus | string;
+  Status?: VPCConnectionResourceStatus;
 
   /**
    * @public
    * <p>The availability status of the VPC connection.</p>
    */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus | string;
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus;
 
   /**
    * @public
@@ -5619,7 +5619,7 @@ export interface FolderSearchFilter {
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"FOLDER_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>FOLDER_NAME</code>.</p>
    */
-  Operator?: FilterOperator | string;
+  Operator?: FilterOperator;
 
   /**
    * @public
@@ -5656,7 +5656,7 @@ export interface FolderSearchFilter {
    *             </li>
    *          </ul>
    */
-  Name?: FolderFilterAttribute | string;
+  Name?: FolderFilterAttribute;
 
   /**
    * @public
@@ -5692,7 +5692,7 @@ export interface FolderSummary {
    * @public
    * <p>The type of folder.</p>
    */
-  FolderType?: FolderType | string;
+  FolderType?: FolderType;
 
   /**
    * @public
@@ -5710,7 +5710,7 @@ export interface FolderSummary {
    * @public
    * <p>The sharing scope of the folder.</p>
    */
-  SharingModel?: SharingModel | string;
+  SharingModel?: SharingModel;
 }
 
 /**
@@ -6206,7 +6206,7 @@ export interface GetDashboardEmbedUrlRequest {
    * @public
    * <p>The authentication method that the user uses to sign in.</p>
    */
-  IdentityType: EmbeddingIdentityType | string | undefined;
+  IdentityType: EmbeddingIdentityType | undefined;
 
   /**
    * @public
@@ -6474,7 +6474,7 @@ export interface GroupSearchFilter {
    *                 "StartsWith"</code>. Currently, the only supported operator is
    *                 <code>StartsWith</code>.</p>
    */
-  Operator: GroupFilterOperator | string | undefined;
+  Operator: GroupFilterOperator | undefined;
 
   /**
    * @public
@@ -6482,7 +6482,7 @@ export interface GroupSearchFilter {
    *                 "GROUP_NAME"</code>. Currently, the only supported name is
    *             <code>GROUP_NAME</code>.</p>
    */
-  Name: GroupFilterAttribute | string | undefined;
+  Name: GroupFilterAttribute | undefined;
 
   /**
    * @public
@@ -6506,7 +6506,7 @@ export interface IAMPolicyAssignmentSummary {
    * @public
    * <p>Assignment status.</p>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: AssignmentStatus;
 }
 
 /**
@@ -7159,7 +7159,7 @@ export interface ListIAMPolicyAssignmentsRequest {
    * @public
    * <p>The status of the assignments.</p>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: AssignmentStatus;
 
   /**
    * @public
@@ -7668,7 +7668,7 @@ export interface TemplateVersionSummary {
    * @public
    * <p>The status of the template version.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: ResourceStatus;
 
   /**
    * @public
@@ -7804,7 +7804,7 @@ export interface ListThemesRequest {
    *             </li>
    *          </ul>
    */
-  Type?: ThemeType | string;
+  Type?: ThemeType;
 }
 
 /**
@@ -7940,7 +7940,7 @@ export interface ThemeVersionSummary {
    * @public
    * <p>The status of the theme version.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: ResourceStatus;
 }
 
 /**
@@ -8328,13 +8328,13 @@ export interface VPCConnectionSummary {
    * @public
    * <p>The status of the VPC connection.</p>
    */
-  Status?: VPCConnectionResourceStatus | string;
+  Status?: VPCConnectionResourceStatus;
 
   /**
    * @public
    * <p>The availability status of the VPC connection.</p>
    */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus | string;
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus;
 
   /**
    * @public
@@ -8454,7 +8454,7 @@ export interface RegisterUserRequest {
    *             </li>
    *          </ul>
    */
-  IdentityType: IdentityType | string | undefined;
+  IdentityType: IdentityType | undefined;
 
   /**
    * @public
@@ -8493,7 +8493,7 @@ export interface RegisterUserRequest {
    *             </li>
    *          </ul>
    */
-  UserRole: UserRole | string | undefined;
+  UserRole: UserRole | undefined;
 
   /**
    * @public
@@ -9117,7 +9117,7 @@ export interface StartAssetBundleExportJobRequest {
    * @public
    * <p>The export data format.</p>
    */
-  ExportFormat: AssetBundleExportFormat | string | undefined;
+  ExportFormat: AssetBundleExportFormat | undefined;
 
   /**
    * @public
@@ -9192,7 +9192,7 @@ export interface StartAssetBundleImportJobRequest {
    *          <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back
    *          any asset changes caused by the failed job, possibly keeping the Amazon QuickSight account in an inconsistent state.</p>
    */
-  FailureAction?: AssetBundleImportFailureAction | string;
+  FailureAction?: AssetBundleImportFailureAction;
 }
 
 /**

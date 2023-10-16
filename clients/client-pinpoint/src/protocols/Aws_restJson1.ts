@@ -311,6 +311,7 @@ import {
   CreateRecommenderConfigurationShape,
   CustomDeliveryConfiguration,
   CustomMessageActivity,
+  DayOfWeek,
   DefaultButtonConfiguration,
   DefaultMessage,
   DefaultPushNotificationMessage,
@@ -14121,9 +14122,9 @@ const de_MapOf__double = (output: any, context: __SerdeContext): Record<string, 
     if (value === null) {
       return acc;
     }
-    acc[key] = __limitedParseDouble(value) as any;
+    acc[key as string] = __limitedParseDouble(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 };
 
 // de_MapOf__integer omitted.
@@ -14138,9 +14139,9 @@ const de_MapOfActivity = (output: any, context: __SerdeContext): Record<string, 
     if (value === null) {
       return acc;
     }
-    acc[key] = de_Activity(value, context);
+    acc[key as string] = de_Activity(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, Activity>);
 };
 
 // de_MapOfAttributeDimension omitted.
@@ -14169,9 +14170,9 @@ const de_MapOfMetricDimension = (output: any, context: __SerdeContext): Record<s
     if (value === null) {
       return acc;
     }
-    acc[key] = de_MetricDimension(value, context);
+    acc[key as string] = de_MetricDimension(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, MetricDimension>);
 };
 
 // de_Message omitted.

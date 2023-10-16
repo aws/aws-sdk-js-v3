@@ -330,7 +330,7 @@ export interface Filter {
    *          <p>Valid values are: <code>TERM_MATCH</code>. <code>TERM_MATCH</code> returns only
    *          products that match both the given filter field and the given value.</p>
    */
-  Type: FilterType | string | undefined;
+  Type: FilterType | undefined;
 
   /**
    * @public

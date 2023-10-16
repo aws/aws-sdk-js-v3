@@ -347,7 +347,7 @@ export interface ApplicationSummary {
    * @public
    * <p>The state of the application.</p>
    */
-  state: ApplicationState | string | undefined;
+  state: ApplicationState | undefined;
 
   /**
    * @public
@@ -371,7 +371,7 @@ export interface ApplicationSummary {
    * @public
    * <p>The CPU architecture of an application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: Architecture;
 }
 
 /**
@@ -553,7 +553,7 @@ export interface ListApplicationsRequest {
    * <p>An optional filter for application states. Note that if this filter contains multiple
    *          states, the resulting list will be grouped by the state.</p>
    */
-  states?: (ApplicationState | string)[];
+  states?: ApplicationState[];
 }
 
 /**
@@ -919,7 +919,7 @@ export interface ListJobRunsRequest {
    * <p>An optional filter for job run states. Note that if this filter contains multiple
    *          states, the resulting list will be grouped by the state.</p>
    */
-  states?: (JobRunState | string)[];
+  states?: JobRunState[];
 }
 
 /**
@@ -979,7 +979,7 @@ export interface JobRunSummary {
    * @public
    * <p>The state of the job run.</p>
    */
-  state: JobRunState | string | undefined;
+  state: JobRunState | undefined;
 
   /**
    * @public
@@ -1181,7 +1181,7 @@ export interface Application {
    * @public
    * <p>The state of the application.</p>
    */
-  state: ApplicationState | string | undefined;
+  state: ApplicationState | undefined;
 
   /**
    * @public
@@ -1244,7 +1244,7 @@ export interface Application {
    * @public
    * <p>The CPU architecture of an application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: Architecture;
 
   /**
    * @public
@@ -1364,7 +1364,7 @@ export interface CreateApplicationRequest {
    * @public
    * <p>The CPU architecture of an application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: Architecture;
 
   /**
    * @public
@@ -1455,7 +1455,7 @@ export interface UpdateApplicationRequest {
    * @public
    * <p>The CPU architecture of an application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: Architecture;
 
   /**
    * @public
@@ -1569,7 +1569,7 @@ export interface JobRun {
    * @public
    * <p>The state of the job run.</p>
    */
-  state: JobRunState | string | undefined;
+  state: JobRunState | undefined;
 
   /**
    * @public

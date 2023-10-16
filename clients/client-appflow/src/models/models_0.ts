@@ -48,7 +48,7 @@ export interface AggregationConfig {
    * <p> Specifies whether Amazon AppFlow aggregates the flow records into a single file, or
    *       leave them unaggregated. </p>
    */
-  aggregationType?: AggregationType | string;
+  aggregationType?: AggregationType;
 
   /**
    * @public
@@ -255,7 +255,7 @@ export interface OAuth2CustomParameter {
    * @public
    * <p>Indicates whether custom parameter is used with TokenUrl or AuthUrl.</p>
    */
-  type?: OAuth2CustomPropType | string;
+  type?: OAuth2CustomPropType;
 }
 
 /**
@@ -300,7 +300,7 @@ export interface OAuth2Defaults {
    * @public
    * <p>OAuth 2.0 grant types supported by the connector.</p>
    */
-  oauth2GrantTypesSupported?: (OAuth2GrantType | string)[];
+  oauth2GrantTypesSupported?: OAuth2GrantType[];
 
   /**
    * @public
@@ -677,7 +677,7 @@ export interface SalesforceMetadata {
    * <p>The Salesforce APIs that you can have Amazon AppFlow use when your flows transfers
    *       data to or from Salesforce.</p>
    */
-  dataTransferApis?: (SalesforceDataTransferApi | string)[];
+  dataTransferApis?: SalesforceDataTransferApi[];
 
   /**
    * @public
@@ -707,7 +707,7 @@ export interface SalesforceMetadata {
    *             </dd>
    *          </dl>
    */
-  oauth2GrantTypesSupported?: (OAuth2GrantType | string)[];
+  oauth2GrantTypesSupported?: OAuth2GrantType[];
 }
 
 /**
@@ -1094,7 +1094,7 @@ export interface DataTransferApi {
    *             </dd>
    *          </dl>
    */
-  Type?: DataTransferApiType | string;
+  Type?: DataTransferApiType;
 }
 
 /**
@@ -1214,13 +1214,13 @@ export interface ConnectorConfiguration {
    * @public
    * <p> Lists the connectors that are available for use as destinations. </p>
    */
-  supportedDestinationConnectors?: (ConnectorType | string)[];
+  supportedDestinationConnectors?: ConnectorType[];
 
   /**
    * @public
    * <p> Specifies the supported flow frequency for that connector. </p>
    */
-  supportedSchedulingFrequencies?: (ScheduleFrequencyType | string)[];
+  supportedSchedulingFrequencies?: ScheduleFrequencyType[];
 
   /**
    * @public
@@ -1238,7 +1238,7 @@ export interface ConnectorConfiguration {
    * @public
    * <p> Specifies the supported trigger types for the flow. </p>
    */
-  supportedTriggerTypes?: (TriggerType | string)[];
+  supportedTriggerTypes?: TriggerType[];
 
   /**
    * @public
@@ -1251,7 +1251,7 @@ export interface ConnectorConfiguration {
    * @public
    * <p>The connector type.</p>
    */
-  connectorType?: ConnectorType | string;
+  connectorType?: ConnectorType;
 
   /**
    * @public
@@ -1317,19 +1317,19 @@ export interface ConnectorConfiguration {
    * @public
    * <p>A list of operators supported by the connector.</p>
    */
-  supportedOperators?: (Operators | string)[];
+  supportedOperators?: Operators[];
 
   /**
    * @public
    * <p>A list of write operations supported by the connector.</p>
    */
-  supportedWriteOperations?: (WriteOperationType | string)[];
+  supportedWriteOperations?: WriteOperationType[];
 
   /**
    * @public
    * <p>The provisioning type used to register the connector.</p>
    */
-  connectorProvisioningType?: ConnectorProvisioningType | string;
+  connectorProvisioningType?: ConnectorProvisioningType;
 
   /**
    * @public
@@ -1369,7 +1369,7 @@ export interface ConnectorConfiguration {
    *             </dd>
    *          </dl>
    */
-  supportedDataTransferTypes?: (SupportedDataTransferType | string)[];
+  supportedDataTransferTypes?: SupportedDataTransferType[];
 
   /**
    * @public
@@ -1418,7 +1418,7 @@ export interface ConnectorDetail {
    * @public
    * <p>The connector type.</p>
    */
-  connectorType?: ConnectorType | string;
+  connectorType?: ConnectorType;
 
   /**
    * @public
@@ -1442,7 +1442,7 @@ export interface ConnectorDetail {
    * @public
    * <p>The provisioning type that the connector uses.</p>
    */
-  connectorProvisioningType?: ConnectorProvisioningType | string;
+  connectorProvisioningType?: ConnectorProvisioningType;
 
   /**
    * @public
@@ -1464,7 +1464,7 @@ export interface ConnectorDetail {
    *             </dd>
    *          </dl>
    */
-  supportedDataTransferTypes?: (SupportedDataTransferType | string)[];
+  supportedDataTransferTypes?: SupportedDataTransferType[];
 }
 
 /**
@@ -1542,7 +1542,7 @@ export interface DestinationFieldProperties {
    *       used in <code>idFieldNames</code> when that write operation is present as a destination
    *       option. </p>
    */
-  supportedWriteOperations?: (WriteOperationType | string)[];
+  supportedWriteOperations?: WriteOperationType[];
 }
 
 /**
@@ -1637,7 +1637,7 @@ export interface FieldTypeDetails {
    * @public
    * <p> The list of operators supported by a field. </p>
    */
-  filterOperators: (Operator | string)[] | undefined;
+  filterOperators: Operator[] | undefined;
 
   /**
    * @public
@@ -2219,103 +2219,103 @@ export interface ConnectorOperator {
    * @public
    * <p> The operation to be performed on the provided Amplitude source fields. </p>
    */
-  Amplitude?: AmplitudeConnectorOperator | string;
+  Amplitude?: AmplitudeConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided Datadog source fields. </p>
    */
-  Datadog?: DatadogConnectorOperator | string;
+  Datadog?: DatadogConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided Dynatrace source fields. </p>
    */
-  Dynatrace?: DynatraceConnectorOperator | string;
+  Dynatrace?: DynatraceConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided Google Analytics source fields. </p>
    */
-  GoogleAnalytics?: GoogleAnalyticsConnectorOperator | string;
+  GoogleAnalytics?: GoogleAnalyticsConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided Infor Nexus source fields. </p>
    */
-  InforNexus?: InforNexusConnectorOperator | string;
+  InforNexus?: InforNexusConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided Marketo source fields. </p>
    */
-  Marketo?: MarketoConnectorOperator | string;
+  Marketo?: MarketoConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided Amazon S3 source fields. </p>
    */
-  S3?: S3ConnectorOperator | string;
+  S3?: S3ConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided Salesforce source fields. </p>
    */
-  Salesforce?: SalesforceConnectorOperator | string;
+  Salesforce?: SalesforceConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided ServiceNow source fields. </p>
    */
-  ServiceNow?: ServiceNowConnectorOperator | string;
+  ServiceNow?: ServiceNowConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided Singular source fields. </p>
    */
-  Singular?: SingularConnectorOperator | string;
+  Singular?: SingularConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided Slack source fields. </p>
    */
-  Slack?: SlackConnectorOperator | string;
+  Slack?: SlackConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided Trend Micro source fields. </p>
    */
-  Trendmicro?: TrendmicroConnectorOperator | string;
+  Trendmicro?: TrendmicroConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided Veeva source fields. </p>
    */
-  Veeva?: VeevaConnectorOperator | string;
+  Veeva?: VeevaConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided Zendesk source fields. </p>
    */
-  Zendesk?: ZendeskConnectorOperator | string;
+  Zendesk?: ZendeskConnectorOperator;
 
   /**
    * @public
    * <p> The operation to be performed on the provided SAPOData source fields. </p>
    */
-  SAPOData?: SAPODataConnectorOperator | string;
+  SAPOData?: SAPODataConnectorOperator;
 
   /**
    * @public
    * <p>Operators supported by the custom connector.</p>
    */
-  CustomConnector?: Operator | string;
+  CustomConnector?: Operator;
 
   /**
    * @public
    * <p>The operation to be performed on the provided Salesforce Pardot source fields.</p>
    */
-  Pardot?: PardotConnectorOperator | string;
+  Pardot?: PardotConnectorOperator;
 }
 
 /**
@@ -2333,7 +2333,7 @@ export interface OAuth2Properties {
    * @public
    * <p>The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication.</p>
    */
-  oAuth2GrantType: OAuth2GrantType | string | undefined;
+  oAuth2GrantType: OAuth2GrantType | undefined;
 
   /**
    * @public
@@ -2943,7 +2943,7 @@ export interface PrivateConnectionProvisioningState {
    * @public
    * <p> Specifies the private connection provisioning status. </p>
    */
-  status?: PrivateConnectionProvisioningStatus | string;
+  status?: PrivateConnectionProvisioningStatus;
 
   /**
    * @public
@@ -2955,7 +2955,7 @@ export interface PrivateConnectionProvisioningState {
    * @public
    * <p> Specifies the private connection provisioning failure cause. </p>
    */
-  failureCause?: PrivateConnectionProvisioningFailureCause | string;
+  failureCause?: PrivateConnectionProvisioningFailureCause;
 }
 
 /**
@@ -2984,7 +2984,7 @@ export interface ConnectorProfile {
    * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType?: ConnectorType | string;
+  connectorType?: ConnectorType;
 
   /**
    * @public
@@ -2996,7 +2996,7 @@ export interface ConnectorProfile {
    * @public
    * <p> Indicates the connection mode and if it is public or private. </p>
    */
-  connectionMode?: ConnectionMode | string;
+  connectionMode?: ConnectionMode;
 
   /**
    * @public
@@ -3096,7 +3096,7 @@ export interface CustomConnectorProfileCredentials {
    * <p>The authentication type that the custom connector uses for authenticating while creating a
    *       connector profile.</p>
    */
-  authenticationType: AuthenticationType | string | undefined;
+  authenticationType: AuthenticationType | undefined;
 
   /**
    * @public
@@ -3393,7 +3393,7 @@ export interface SalesforceConnectorProfileCredentials {
    *             </dd>
    *          </dl>
    */
-  oAuth2GrantType?: OAuth2GrantType | string;
+  oAuth2GrantType?: OAuth2GrantType;
 
   /**
    * @public
@@ -3791,7 +3791,7 @@ export interface CreateConnectorProfileRequest {
    * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType: ConnectorType | string | undefined;
+  connectorType: ConnectorType | undefined;
 
   /**
    * @public
@@ -3807,7 +3807,7 @@ export interface CreateConnectorProfileRequest {
    *       flows use Amazon Web Services PrivateLink to route data over Amazon Web Services infrastructure
    *       without exposing it to the public internet. </p>
    */
-  connectionMode: ConnectionMode | string | undefined;
+  connectionMode: ConnectionMode | undefined;
 
   /**
    * @public
@@ -3916,7 +3916,7 @@ export interface CustomConnectorDestinationProperties {
    * <p>Specifies the type of write operation to be performed in the custom connector when it's
    *       used as destination.</p>
    */
-  writeOperationType?: WriteOperationType | string;
+  writeOperationType?: WriteOperationType;
 
   /**
    * @public
@@ -4136,14 +4136,14 @@ export interface PrefixConfig {
    * <p>Determines the format of the prefix, and whether it applies to the file name, file path,
    *       or both. </p>
    */
-  prefixType?: PrefixType | string;
+  prefixType?: PrefixType;
 
   /**
    * @public
    * <p>Determines the level of granularity for the date and time that's included in the prefix.
    *     </p>
    */
-  prefixFormat?: PrefixFormat | string;
+  prefixFormat?: PrefixFormat;
 
   /**
    * @public
@@ -4173,7 +4173,7 @@ export interface PrefixConfig {
    *             </dd>
    *          </dl>
    */
-  pathPrefixHierarchy?: (PathPrefix | string)[];
+  pathPrefixHierarchy?: PathPrefix[];
 }
 
 /**
@@ -4187,7 +4187,7 @@ export interface S3OutputFormatConfig {
    * <p> Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
    *     </p>
    */
-  fileType?: FileType | string;
+  fileType?: FileType;
 
   /**
    * @public
@@ -4283,7 +4283,7 @@ export interface SalesforceDestinationProperties {
    * <p> This specifies the type of write operation to be performed in Salesforce. When the value
    *       is <code>UPSERT</code>, then <code>idFieldNames</code> is required. </p>
    */
-  writeOperationType?: WriteOperationType | string;
+  writeOperationType?: WriteOperationType;
 
   /**
    * @public
@@ -4325,7 +4325,7 @@ export interface SalesforceDestinationProperties {
    *             </dd>
    *          </dl>
    */
-  dataTransferApi?: SalesforceDataTransferApi | string;
+  dataTransferApi?: SalesforceDataTransferApi;
 }
 
 /**
@@ -4391,7 +4391,7 @@ export interface SAPODataDestinationProperties {
    * <p> The possible write operations in the destination connector. When this value is not
    *       provided, this defaults to the <code>INSERT</code> operation. </p>
    */
-  writeOperationType?: WriteOperationType | string;
+  writeOperationType?: WriteOperationType;
 }
 
 /**
@@ -4441,7 +4441,7 @@ export interface UpsolverS3OutputFormatConfig {
    * <p> Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3
    *       bucket. </p>
    */
-  fileType?: FileType | string;
+  fileType?: FileType;
 
   /**
    * @public
@@ -4517,7 +4517,7 @@ export interface ZendeskDestinationProperties {
    * <p> The possible write operations in the destination connector. When this value is not
    *       provided, this defaults to the <code>INSERT</code> operation. </p>
    */
-  writeOperationType?: WriteOperationType | string;
+  writeOperationType?: WriteOperationType;
 }
 
 /**
@@ -4614,7 +4614,7 @@ export interface DestinationFlowConfig {
    * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType: ConnectorType | string | undefined;
+  connectorType: ConnectorType | undefined;
 
   /**
    * @public
@@ -4826,7 +4826,7 @@ export interface S3InputFormatConfig {
    * @public
    * <p> The file type that Amazon AppFlow gets from your Amazon S3 bucket. </p>
    */
-  s3InputFileType?: S3InputFileType | string;
+  s3InputFileType?: S3InputFileType;
 }
 
 /**
@@ -4920,7 +4920,7 @@ export interface SalesforceSourceProperties {
    *             </dd>
    *          </dl>
    */
-  dataTransferApi?: SalesforceDataTransferApi | string;
+  dataTransferApi?: SalesforceDataTransferApi;
 }
 
 /**
@@ -5198,7 +5198,7 @@ export interface SourceFlowConfig {
    * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType: ConnectorType | string | undefined;
+  connectorType: ConnectorType | undefined;
 
   /**
    * @public
@@ -5309,14 +5309,14 @@ export interface Task {
    * @public
    * <p> Specifies the particular task implementation that Amazon AppFlow performs. </p>
    */
-  taskType: TaskType | string | undefined;
+  taskType: TaskType | undefined;
 
   /**
    * @public
    * <p> A map used to store task-related information. The execution service looks for particular
    *       information based on the <code>TaskType</code>. </p>
    */
-  taskProperties?: Record<string, string>;
+  taskProperties?: Record<OperatorPropertiesKeys, string>;
 }
 
 /**
@@ -5351,7 +5351,7 @@ export interface ScheduledTriggerProperties {
    * <p> Specifies whether a scheduled flow has an incremental data transfer or a complete data
    *       transfer for each flow run. </p>
    */
-  dataPullMode?: DataPullMode | string;
+  dataPullMode?: DataPullMode;
 
   /**
    * @public
@@ -5427,7 +5427,7 @@ export interface TriggerConfig {
    * <p> Specifies the type of flow trigger. This can be <code>OnDemand</code>,
    *         <code>Scheduled</code>, or <code>Event</code>. </p>
    */
-  triggerType: TriggerType | string | undefined;
+  triggerType: TriggerType | undefined;
 
   /**
    * @public
@@ -5551,7 +5551,7 @@ export interface CreateFlowResponse {
    * @public
    * <p> Indicates the current status of the flow. </p>
    */
-  flowStatus?: FlowStatus | string;
+  flowStatus?: FlowStatus;
 }
 
 /**
@@ -5611,7 +5611,7 @@ export interface DescribeConnectorRequest {
    * <p>The connector type, such as CUSTOMCONNECTOR, Saleforce, Marketo. Please choose
    *       CUSTOMCONNECTOR for Lambda based custom connectors.</p>
    */
-  connectorType: ConnectorType | string | undefined;
+  connectorType: ConnectorType | undefined;
 
   /**
    * @public
@@ -5647,7 +5647,7 @@ export interface DescribeConnectorEntityRequest {
    * @public
    * <p> The type of connector application, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType?: ConnectorType | string;
+  connectorType?: ConnectorType;
 
   /**
    * @public
@@ -5691,7 +5691,7 @@ export interface DescribeConnectorProfilesRequest {
    * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType?: ConnectorType | string;
+  connectorType?: ConnectorType;
 
   /**
    * @public
@@ -5741,7 +5741,7 @@ export interface DescribeConnectorsRequest {
    * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorTypes?: (ConnectorType | string)[];
+  connectorTypes?: ConnectorType[];
 
   /**
    * @public
@@ -5765,7 +5765,7 @@ export interface DescribeConnectorsResponse {
    * @public
    * <p> The configuration that is applied to the connectors used in the flow. </p>
    */
-  connectorConfigurations?: Record<string, ConnectorConfiguration>;
+  connectorConfigurations?: Record<ConnectorType, ConnectorConfiguration>;
 
   /**
    * @public
@@ -5831,7 +5831,7 @@ export interface ExecutionDetails {
    * @public
    * <p> Specifies the status of the most recent flow run. </p>
    */
-  mostRecentExecutionStatus?: ExecutionStatus | string;
+  mostRecentExecutionStatus?: ExecutionStatus;
 }
 
 /**
@@ -5861,7 +5861,7 @@ export interface RegistrationOutput {
    * @public
    * <p>Indicates the status of the registration attempt from Amazon AppFlow.</p>
    */
-  status?: ExecutionStatus | string;
+  status?: ExecutionStatus;
 }
 
 /**
@@ -5881,7 +5881,7 @@ export interface MetadataCatalogDetail {
    *             </dd>
    *          </dl>
    */
-  catalogType?: CatalogType | string;
+  catalogType?: CatalogType;
 
   /**
    * @public
@@ -5944,7 +5944,7 @@ export interface DescribeFlowResponse {
    * @public
    * <p> Indicates the current status of the flow. </p>
    */
-  flowStatus?: FlowStatus | string;
+  flowStatus?: FlowStatus;
 
   /**
    * @public
@@ -6154,7 +6154,7 @@ export interface ExecutionRecord {
    * <p> Specifies the flow run status and whether it is in progress, has completed successfully,
    *       or has failed. </p>
    */
-  executionStatus?: ExecutionStatus | string;
+  executionStatus?: ExecutionStatus;
 
   /**
    * @public
@@ -6241,14 +6241,14 @@ export interface FlowDefinition {
    * @public
    * <p> Indicates the current status of the flow. </p>
    */
-  flowStatus?: FlowStatus | string;
+  flowStatus?: FlowStatus;
 
   /**
    * @public
    * <p> Specifies the source connector type, such as Salesforce, Amazon S3, Amplitude,
    *       and so on. </p>
    */
-  sourceConnectorType?: ConnectorType | string;
+  sourceConnectorType?: ConnectorType;
 
   /**
    * @public
@@ -6261,7 +6261,7 @@ export interface FlowDefinition {
    * <p> Specifies the destination connector type, such as Salesforce, Amazon S3,
    *       Amplitude, and so on. </p>
    */
-  destinationConnectorType?: ConnectorType | string;
+  destinationConnectorType?: ConnectorType;
 
   /**
    * @public
@@ -6274,7 +6274,7 @@ export interface FlowDefinition {
    * <p> Specifies the type of flow trigger. This can be <code>OnDemand</code>,
    *         <code>Scheduled</code>, or <code>Event</code>. </p>
    */
-  triggerType?: TriggerType | string;
+  triggerType?: TriggerType;
 
   /**
    * @public
@@ -6329,7 +6329,7 @@ export interface ListConnectorEntitiesRequest {
    * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType?: ConnectorType | string;
+  connectorType?: ConnectorType;
 
   /**
    * @public
@@ -6497,7 +6497,7 @@ export interface RegisterConnectorRequest {
    * <p>The provisioning type of the connector. Currently the only supported value is LAMBDA.
    *     </p>
    */
-  connectorProvisioningType?: ConnectorProvisioningType | string;
+  connectorProvisioningType?: ConnectorProvisioningType;
 
   /**
    * @public
@@ -6554,7 +6554,7 @@ export interface ResetConnectorMetadataCacheRequest {
    *         Amazon S3, or Upsolver. If you're resetting the cache for any other connector, you
    *       can omit this parameter from your request. </p>
    */
-  connectorType?: ConnectorType | string;
+  connectorType?: ConnectorType;
 
   /**
    * @public
@@ -6644,7 +6644,7 @@ export interface StartFlowResponse {
    * @public
    * <p> Indicates the current status of the flow. </p>
    */
-  flowStatus?: FlowStatus | string;
+  flowStatus?: FlowStatus;
 
   /**
    * @public
@@ -6680,7 +6680,7 @@ export interface StopFlowResponse {
    * @public
    * <p> Indicates the current status of the flow. </p>
    */
-  flowStatus?: FlowStatus | string;
+  flowStatus?: FlowStatus;
 }
 
 /**
@@ -6786,7 +6786,7 @@ export interface UpdateConnectorProfileRequest {
    * @public
    * <p> Indicates the connection mode and if it is public or private. </p>
    */
-  connectionMode: ConnectionMode | string | undefined;
+  connectionMode: ConnectionMode | undefined;
 
   /**
    * @public
@@ -6947,7 +6947,7 @@ export interface UpdateFlowResponse {
    * @public
    * <p>Indicates the current status of the flow. </p>
    */
-  flowStatus?: FlowStatus | string;
+  flowStatus?: FlowStatus;
 }
 
 /**

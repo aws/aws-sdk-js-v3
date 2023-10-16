@@ -118,7 +118,7 @@ export interface NotificationFilterConfig {
    * 			For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding insight severities</a>.
    * 		</p>
    */
-  Severities?: (InsightSeverity | string)[];
+  Severities?: InsightSeverity[];
 
   /**
    * @public
@@ -126,7 +126,7 @@ export interface NotificationFilterConfig {
    * 			The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
    * 		</p>
    */
-  MessageTypes?: (NotificationMessageType | string)[];
+  MessageTypes?: NotificationMessageType[];
 }
 
 /**
@@ -422,7 +422,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p> The reason the validation exception was thrown. </p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -471,7 +471,7 @@ export interface AmazonCodeGuruProfilerIntegration {
    * <p>The status of the CodeGuru Profiler integration. Specifies if DevOps Guru is enabled to
    * 			consume recommendations that are generated from Amazon CodeGuru Profiler.</p>
    */
-  Status?: EventSourceOptInStatus | string;
+  Status?: EventSourceOptInStatus;
 }
 
 /**
@@ -515,7 +515,7 @@ export interface LogAnomalyClass {
    * 			The type of log anomaly that has been detected.
    * 		</p>
    */
-  LogAnomalyType?: LogAnomalyType | string;
+  LogAnomalyType?: LogAnomalyType;
 
   /**
    * @public
@@ -750,7 +750,7 @@ export interface CloudWatchMetricsDataSummary {
    * <p>This is an enum of the status showing whether the metric value pair list has partial
    * 			or complete data, or if there was an error.</p>
    */
-  StatusCode?: CloudWatchMetricDataStatusCode | string;
+  StatusCode?: CloudWatchMetricDataStatusCode;
 }
 
 /**
@@ -802,7 +802,7 @@ export interface CloudWatchMetricsDetail {
    * <p> The type of statistic associated with the CloudWatch metric. For more information, see
    * 				<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>. </p>
    */
-  Stat?: CloudWatchMetricsStat | string;
+  Stat?: CloudWatchMetricsStat;
 
   /**
    * @public
@@ -1639,13 +1639,13 @@ export interface ProactiveAnomaly {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: AnomalySeverity | string;
+  Severity?: AnomalySeverity;
 
   /**
    * @public
    * <p> The status of a proactive anomaly. </p>
    */
-  Status?: AnomalyStatus | string;
+  Status?: AnomalyStatus;
 
   /**
    * @public
@@ -1746,13 +1746,13 @@ export interface ReactiveAnomaly {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: AnomalySeverity | string;
+  Severity?: AnomalySeverity;
 
   /**
    * @public
    * <p> The status of the anomaly. </p>
    */
-  Status?: AnomalyStatus | string;
+  Status?: AnomalyStatus;
 
   /**
    * @public
@@ -1807,7 +1807,7 @@ export interface ReactiveAnomaly {
    *             </li>
    *          </ul>
    */
-  Type?: AnomalyType | string;
+  Type?: AnomalyType;
 
   /**
    * @public
@@ -1925,7 +1925,7 @@ export interface InsightFeedback {
    * @public
    * <p> The feedback provided by the customer. </p>
    */
-  Feedback?: InsightFeedbackOption | string;
+  Feedback?: InsightFeedbackOption;
 }
 
 /**
@@ -2013,13 +2013,13 @@ export interface ProactiveInsight {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: InsightSeverity | string;
+  Severity?: InsightSeverity;
 
   /**
    * @public
    * <p>The status of the proactive insight. </p>
    */
-  Status?: InsightStatus | string;
+  Status?: InsightStatus;
 
   /**
    * @public
@@ -2082,13 +2082,13 @@ export interface ReactiveInsight {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: InsightSeverity | string;
+  Severity?: InsightSeverity;
 
   /**
    * @public
    * <p> The status of a reactive insight. </p>
    */
-  Status?: InsightStatus | string;
+  Status?: InsightStatus;
 
   /**
    * @public
@@ -2267,7 +2267,7 @@ export interface DescribeOrganizationResourceCollectionHealthRequest {
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
    *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
-  OrganizationResourceCollectionType: OrganizationResourceCollectionType | string | undefined;
+  OrganizationResourceCollectionType: OrganizationResourceCollectionType | undefined;
 
   /**
    * @public
@@ -2415,7 +2415,7 @@ export interface ServiceHealth {
    * @public
    * <p>The name of the Amazon Web Services service.</p>
    */
-  ServiceName?: ServiceName | string;
+  ServiceName?: ServiceName;
 
   /**
    * @public
@@ -2585,7 +2585,7 @@ export interface DescribeResourceCollectionHealthRequest {
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
    *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
-  ResourceCollectionType: ResourceCollectionType | string | undefined;
+  ResourceCollectionType: ResourceCollectionType | undefined;
 
   /**
    * @public
@@ -2726,7 +2726,7 @@ export interface KMSServerSideEncryptionIntegration {
    * 			Specifies if DevOps Guru is enabled for customer managed keys.
    * 		</p>
    */
-  OptInStatus?: OptInStatus | string;
+  OptInStatus?: OptInStatus;
 
   /**
    * @public
@@ -2734,7 +2734,7 @@ export interface KMSServerSideEncryptionIntegration {
    * 			The type of KMS key used. Customer managed keys are the KMS keys that you create. Amazon Web Services owned keys are keys that are owned and managed by DevOps Guru.
    * 		</p>
    */
-  Type?: ServerSideEncryptionType | string;
+  Type?: ServerSideEncryptionType;
 }
 
 /**
@@ -2748,7 +2748,7 @@ export interface LogsAnomalyDetectionIntegration {
    * @public
    * <p>Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups.</p>
    */
-  OptInStatus?: OptInStatus | string;
+  OptInStatus?: OptInStatus;
 }
 
 /**
@@ -2762,7 +2762,7 @@ export interface OpsCenterIntegration {
    * <p> Specifies if DevOps Guru is enabled to create an Amazon Web Services Systems Manager OpsItem for each created
    * 			insight. </p>
    */
-  OptInStatus?: OptInStatus | string;
+  OptInStatus?: OptInStatus;
 }
 
 /**
@@ -2856,7 +2856,7 @@ export interface ServiceResourceCost {
    * 			number of active Amazon Web Services resource hours analyzed for each resource. Inactive resources are
    * 			not charged. </p>
    */
-  State?: CostEstimationServiceResourceState | string;
+  State?: CostEstimationServiceResourceState;
 
   /**
    * @public
@@ -3047,7 +3047,7 @@ export interface GetCostEstimationResponse {
    * 				<code>ONGOING</code> is returned. If it is finished, the status
    * 				<code>COMPLETED</code> is returned.</p>
    */
-  Status?: CostEstimationStatus | string;
+  Status?: CostEstimationStatus;
 
   /**
    * @public
@@ -3087,7 +3087,7 @@ export interface GetResourceCollectionRequest {
    * <p> The type of Amazon Web Services resource collections to return. The one valid value is
    * 				<code>CLOUD_FORMATION</code> for Amazon Web Services CloudFormation stacks. </p>
    */
-  ResourceCollectionType: ResourceCollectionType | string | undefined;
+  ResourceCollectionType: ResourceCollectionType | undefined;
 
   /**
    * @public
@@ -3235,7 +3235,7 @@ export interface ServiceCollection {
    * @public
    * <p>An array of strings that each specifies the name of an Amazon Web Services service.</p>
    */
-  ServiceNames?: (ServiceName | string)[];
+  ServiceNames?: ServiceName[];
 }
 
 /**
@@ -3337,13 +3337,13 @@ export interface ProactiveAnomalySummary {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: AnomalySeverity | string;
+  Severity?: AnomalySeverity;
 
   /**
    * @public
    * <p>The status of the anomaly.</p>
    */
-  Status?: AnomalyStatus | string;
+  Status?: AnomalyStatus;
 
   /**
    * @public
@@ -3445,13 +3445,13 @@ export interface ReactiveAnomalySummary {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: AnomalySeverity | string;
+  Severity?: AnomalySeverity;
 
   /**
    * @public
    * <p> The status of the reactive anomaly. </p>
    */
-  Status?: AnomalyStatus | string;
+  Status?: AnomalyStatus;
 
   /**
    * @public
@@ -3506,7 +3506,7 @@ export interface ReactiveAnomalySummary {
    *             </li>
    *          </ul>
    */
-  Type?: AnomalyType | string;
+  Type?: AnomalyType;
 
   /**
    * @public
@@ -3689,7 +3689,7 @@ export interface ListEventsFilters {
    * <p> The class of the events you want to filter for, such as an infrastructure change, a
    * 			deployment, or a schema change. </p>
    */
-  EventClass?: EventClass | string;
+  EventClass?: EventClass;
 
   /**
    * @public
@@ -3702,7 +3702,7 @@ export interface ListEventsFilters {
    * <p> The source, <code>AWS_CLOUD_TRAIL</code> or <code>AWS_CODE_DEPLOY</code>, of the
    * 			events you want returned. </p>
    */
-  DataSource?: EventDataSource | string;
+  DataSource?: EventDataSource;
 
   /**
    * @public
@@ -3817,14 +3817,14 @@ export interface Event {
    * <p> The source, <code>AWS_CLOUD_TRAIL</code> or <code>AWS_CODE_DEPLOY</code>, where DevOps Guru
    * 			analysis found the event. </p>
    */
-  DataSource?: EventDataSource | string;
+  DataSource?: EventDataSource;
 
   /**
    * @public
    * <p> The class of the event. The class specifies what the event is related to, such as an
    * 			infrastructure change, a deployment, or a schema change. </p>
    */
-  EventClass?: EventClass | string;
+  EventClass?: EventClass;
 
   /**
    * @public
@@ -3876,7 +3876,7 @@ export interface ListInsightsAnyStatusFilter {
    * <p> Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights.
    * 		</p>
    */
-  Type: InsightType | string | undefined;
+  Type: InsightType | undefined;
 
   /**
    * @public
@@ -3915,7 +3915,7 @@ export interface ListInsightsClosedStatusFilter {
    * <p> Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights.
    * 		</p>
    */
-  Type: InsightType | string | undefined;
+  Type: InsightType | undefined;
 
   /**
    * @public
@@ -3935,7 +3935,7 @@ export interface ListInsightsOngoingStatusFilter {
    * <p> Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights.
    * 		</p>
    */
-  Type: InsightType | string | undefined;
+  Type: InsightType | undefined;
 }
 
 /**
@@ -4017,13 +4017,13 @@ export interface ProactiveInsightSummary {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: InsightSeverity | string;
+  Severity?: InsightSeverity;
 
   /**
    * @public
    * <p>The status of the proactive insight. </p>
    */
-  Status?: InsightStatus | string;
+  Status?: InsightStatus;
 
   /**
    * @public
@@ -4087,13 +4087,13 @@ export interface ReactiveInsightSummary {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: InsightSeverity | string;
+  Severity?: InsightSeverity;
 
   /**
    * @public
    * <p> The status of a reactive insight. </p>
    */
-  Status?: InsightStatus | string;
+  Status?: InsightStatus;
 
   /**
    * @public
@@ -4215,7 +4215,7 @@ export interface ListMonitoredResourcesFilters {
    * 			The permission status of a resource.
    * 		</p>
    */
-  ResourcePermission: ResourcePermission | string | undefined;
+  ResourcePermission: ResourcePermission | undefined;
 
   /**
    * @public
@@ -4223,7 +4223,7 @@ export interface ListMonitoredResourcesFilters {
    * 			The type of resource that you wish to retrieve, such as log groups.
    * 		</p>
    */
-  ResourceTypeFilters: (ResourceTypeFilter | string)[] | undefined;
+  ResourceTypeFilters: ResourceTypeFilter[] | undefined;
 }
 
 /**
@@ -4282,7 +4282,7 @@ export interface MonitoredResourceIdentifier {
    * 			The permission status of a resource.
    * 		</p>
    */
-  ResourcePermission?: ResourcePermission | string;
+  ResourcePermission?: ResourcePermission;
 
   /**
    * @public
@@ -4455,13 +4455,13 @@ export interface ProactiveOrganizationInsightSummary {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: InsightSeverity | string;
+  Severity?: InsightSeverity;
 
   /**
    * @public
    * <p> An array of status values used to search for insights. </p>
    */
-  Status?: InsightStatus | string;
+  Status?: InsightStatus;
 
   /**
    * @public
@@ -4530,13 +4530,13 @@ export interface ReactiveOrganizationInsightSummary {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: InsightSeverity | string;
+  Severity?: InsightSeverity;
 
   /**
    * @public
    * <p> An array of status values used to search for insights. </p>
    */
-  Status?: InsightStatus | string;
+  Status?: InsightStatus;
 
   /**
    * @public
@@ -4631,7 +4631,7 @@ export interface ListRecommendationsRequest {
    * @public
    * <p>A locale that specifies the language to use for recommendations.</p>
    */
-  Locale?: Locale | string;
+  Locale?: Locale;
 
   /**
    * @public
@@ -4875,13 +4875,13 @@ export interface SearchInsightsFilters {
    * @public
    * <p> An array of severity values used to search for insights. </p>
    */
-  Severities?: (InsightSeverity | string)[];
+  Severities?: InsightSeverity[];
 
   /**
    * @public
    * <p> An array of status values used to search for insights. </p>
    */
-  Statuses?: (InsightStatus | string)[];
+  Statuses?: InsightStatus[];
 
   /**
    * @public
@@ -4936,7 +4936,7 @@ export interface SearchInsightsRequest {
    * <p> The type of insights you are searching for (<code>REACTIVE</code> or
    * 				<code>PROACTIVE</code>). </p>
    */
-  Type: InsightType | string | undefined;
+  Type: InsightType | undefined;
 }
 
 /**
@@ -4973,13 +4973,13 @@ export interface SearchOrganizationInsightsFilters {
    * @public
    * <p> An array of severity values used to search for insights. </p>
    */
-  Severities?: (InsightSeverity | string)[];
+  Severities?: InsightSeverity[];
 
   /**
    * @public
    * <p> An array of status values used to search for insights. </p>
    */
-  Statuses?: (InsightStatus | string)[];
+  Statuses?: InsightStatus[];
 
   /**
    * @public
@@ -5040,7 +5040,7 @@ export interface SearchOrganizationInsightsRequest {
    * <p> The type of insights you are searching for (<code>REACTIVE</code> or
    * 				<code>PROACTIVE</code>). </p>
    */
-  Type: InsightType | string | undefined;
+  Type: InsightType | undefined;
 }
 
 /**
@@ -5235,7 +5235,7 @@ export interface UpdateResourceCollectionRequest {
    * <p> Specifies if the resource collection in the request is added or deleted to the
    * 			resource collection. </p>
    */
-  Action: UpdateResourceCollectionAction | string | undefined;
+  Action: UpdateResourceCollectionAction | undefined;
 
   /**
    * @public
@@ -5280,7 +5280,7 @@ export interface KMSServerSideEncryptionIntegrationConfig {
    * 			Specifies if DevOps Guru is enabled for KMS integration.
    * 		</p>
    */
-  OptInStatus?: OptInStatus | string;
+  OptInStatus?: OptInStatus;
 
   /**
    * @public
@@ -5288,7 +5288,7 @@ export interface KMSServerSideEncryptionIntegrationConfig {
    * 			The type of KMS key used. Customer managed keys are the KMS keys that you create. Amazon Web Services owned keys are keys that are owned and managed by DevOps Guru.
    * 		</p>
    */
-  Type?: ServerSideEncryptionType | string;
+  Type?: ServerSideEncryptionType;
 }
 
 /**
@@ -5302,7 +5302,7 @@ export interface LogsAnomalyDetectionIntegrationConfig {
    * @public
    * <p>Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups.</p>
    */
-  OptInStatus?: OptInStatus | string;
+  OptInStatus?: OptInStatus;
 }
 
 /**
@@ -5316,7 +5316,7 @@ export interface OpsCenterIntegrationConfig {
    * <p> Specifies if DevOps Guru is enabled to create an Amazon Web Services Systems Manager OpsItem for each created
    * 			insight. </p>
    */
-  OptInStatus?: OptInStatus | string;
+  OptInStatus?: OptInStatus;
 }
 
 /**

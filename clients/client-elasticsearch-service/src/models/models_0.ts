@@ -51,7 +51,7 @@ export interface InboundCrossClusterSearchConnectionStatus {
    *       <li>DELETED: Inbound connection is deleted and cannot be used further.</li>
    *     </ul>
    */
-  StatusCode?: InboundCrossClusterSearchConnectionStatusCode | string;
+  StatusCode?: InboundCrossClusterSearchConnectionStatusCode;
 
   /**
    * @public
@@ -238,7 +238,7 @@ export interface OptionStatus {
    * @public
    * <p>Provides the <code>OptionState</code> for the Elasticsearch domain.</p>
    */
-  State: OptionState | string | undefined;
+  State: OptionState | undefined;
 
   /**
    * @public
@@ -741,7 +741,7 @@ export interface DomainPackageDetails {
    * @public
    * <p>Currently supports only TXT-DICTIONARY.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: PackageType;
 
   /**
    * @public
@@ -759,7 +759,7 @@ export interface DomainPackageDetails {
    * @public
    * <p>State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.</p>
    */
-  DomainPackageStatus?: DomainPackageStatus | string;
+  DomainPackageStatus?: DomainPackageStatus;
 
   PackageVersion?: string;
   /**
@@ -856,7 +856,7 @@ export interface AuthorizedPrincipal {
    * @public
    * <p>The type of principal.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: PrincipalType;
 
   /**
    * @public
@@ -941,7 +941,7 @@ export interface ServiceSoftwareOptions {
    * @public
    * <p>The status of your service software update. This field can take the following values: <code>ELIGIBLE</code>, <code>PENDING_UPDATE</code>, <code>IN_PROGRESS</code>, <code>COMPLETED</code>, and <code>NOT_ELIGIBLE</code>.</p>
    */
-  UpdateStatus?: DeploymentStatus | string;
+  UpdateStatus?: DeploymentStatus;
 
   /**
    * @public
@@ -1016,7 +1016,7 @@ export interface Duration {
    * @public
    * <p>Specifies the unit of a maintenance schedule duration. Valid value is HOURS. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
    */
-  Unit?: TimeUnit | string;
+  Unit?: TimeUnit;
 }
 
 /**
@@ -1052,7 +1052,7 @@ export interface AutoTuneOptionsInput {
    * @public
    * <p>Specifies the Auto-Tune desired state. Valid values are ENABLED, DISABLED. </p>
    */
-  DesiredState?: AutoTuneDesiredState | string;
+  DesiredState?: AutoTuneDesiredState;
 
   /**
    * @public
@@ -1126,7 +1126,7 @@ export interface DomainEndpointOptions {
    *         </ul>
    *     </p>
    */
-  TLSSecurityPolicy?: TLSSecurityPolicy | string;
+  TLSSecurityPolicy?: TLSSecurityPolicy;
 
   /**
    * @public
@@ -1178,7 +1178,7 @@ export interface EBSOptions {
    * @public
    * <p> Specifies the volume type for EBS-based storage.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -1317,7 +1317,7 @@ export interface ElasticsearchClusterConfig {
    * @public
    * <p>The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.</p>
    */
-  InstanceType?: ESPartitionInstanceType | string;
+  InstanceType?: ESPartitionInstanceType;
 
   /**
    * @public
@@ -1347,7 +1347,7 @@ export interface ElasticsearchClusterConfig {
    * @public
    * <p>The instance type for a dedicated master node.</p>
    */
-  DedicatedMasterType?: ESPartitionInstanceType | string;
+  DedicatedMasterType?: ESPartitionInstanceType;
 
   /**
    * @public
@@ -1365,7 +1365,7 @@ export interface ElasticsearchClusterConfig {
    * @public
    * <p>The instance type for the Elasticsearch cluster's warm nodes.</p>
    */
-  WarmType?: ESWarmPartitionInstanceType | string;
+  WarmType?: ESWarmPartitionInstanceType;
 
   /**
    * @public
@@ -1556,7 +1556,7 @@ export interface CreateElasticsearchDomainRequest {
    * @public
    * <p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>
    */
-  LogPublishingOptions?: Record<string, LogPublishingOption>;
+  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
 
   /**
    * @public
@@ -1613,7 +1613,7 @@ export interface AutoTuneOptionsOutput {
    * @public
    * <p>Specifies the <code>AutoTuneState</code> for the Elasticsearch domain.</p>
    */
-  State?: AutoTuneState | string;
+  State?: AutoTuneState;
 
   /**
    * @public
@@ -1788,7 +1788,7 @@ export interface ElasticsearchDomainStatus {
    * @public
    * <p>Log publishing options for the given domain.</p>
    */
-  LogPublishingOptions?: Record<string, LogPublishingOption>;
+  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
 
   /**
    * @public
@@ -1937,7 +1937,7 @@ export interface OutboundCrossClusterSearchConnectionStatus {
    *       <li>DELETED: Outbound connection is deleted and cannot be used further.</li>
    *     </ul>
    */
-  StatusCode?: OutboundCrossClusterSearchConnectionStatusCode | string;
+  StatusCode?: OutboundCrossClusterSearchConnectionStatusCode;
 
   /**
    * @public
@@ -2021,7 +2021,7 @@ export interface CreatePackageRequest {
    * @public
    * <p>Type of package. Currently supports only TXT-DICTIONARY.</p>
    */
-  PackageType: PackageType | string | undefined;
+  PackageType: PackageType | undefined;
 
   /**
    * @public
@@ -2077,7 +2077,7 @@ export interface PackageDetails {
    * @public
    * <p>Currently supports only TXT-DICTIONARY.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: PackageType;
 
   /**
    * @public
@@ -2089,7 +2089,7 @@ export interface PackageDetails {
    * @public
    * <p>Current state of the package. Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED</p>
    */
-  PackageStatus?: PackageStatus | string;
+  PackageStatus?: PackageStatus;
 
   /**
    * @public
@@ -2202,7 +2202,7 @@ export interface VpcEndpoint {
    * @public
    * <p>The current status of the endpoint.</p>
    */
-  Status?: VpcEndpointStatus | string;
+  Status?: VpcEndpointStatus;
 
   /**
    * @public
@@ -2406,7 +2406,7 @@ export interface VpcEndpointSummary {
    * @public
    * <p>The current status of the endpoint.</p>
    */
-  Status?: VpcEndpointStatus | string;
+  Status?: VpcEndpointStatus;
 }
 
 /**
@@ -2492,7 +2492,7 @@ export interface ScheduledAutoTuneDetails {
    * @public
    * <p>Specifies Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING and JVM_YOUNG_GEN_TUNING. </p>
    */
-  ActionType?: ScheduledAutoTuneActionType | string;
+  ActionType?: ScheduledAutoTuneActionType;
 
   /**
    * @public
@@ -2504,7 +2504,7 @@ export interface ScheduledAutoTuneDetails {
    * @public
    * <p>Specifies Auto-Tune action severity. Valid values are LOW, MEDIUM and HIGH. </p>
    */
-  Severity?: ScheduledAutoTuneSeverityType | string;
+  Severity?: ScheduledAutoTuneSeverityType;
 }
 
 /**
@@ -2541,7 +2541,7 @@ export interface AutoTune {
    * @public
    * <p>Specifies Auto-Tune type. Valid value is SCHEDULED_ACTION. </p>
    */
-  AutoTuneType?: AutoTuneType | string;
+  AutoTuneType?: AutoTuneType;
 
   /**
    * @public
@@ -2657,7 +2657,7 @@ export interface ChangeProgressStatusDetails {
    * @public
    * <p>The overall status of the domain configuration change. This field can take the following values: <code>PENDING</code>, <code>PROCESSING</code>, <code>COMPLETED</code> and <code>FAILED</code></p>
    */
-  Status?: OverallChangeStatus | string;
+  Status?: OverallChangeStatus;
 
   /**
    * @public
@@ -2758,13 +2758,13 @@ export interface AutoTuneOptions {
    * @public
    * <p>Specifies the Auto-Tune desired state. Valid values are ENABLED, DISABLED. </p>
    */
-  DesiredState?: AutoTuneDesiredState | string;
+  DesiredState?: AutoTuneDesiredState;
 
   /**
    * @public
    * <p>Specifies the rollback state while disabling Auto-Tune for the domain. Valid values are NO_ROLLBACK, DEFAULT_ROLLBACK. </p>
    */
-  RollbackOnDisable?: RollbackOnDisable | string;
+  RollbackOnDisable?: RollbackOnDisable;
 
   /**
    * @public
@@ -2800,7 +2800,7 @@ export interface AutoTuneStatus {
    * @public
    * <p>Specifies the <code>AutoTuneState</code> for the Elasticsearch domain.</p>
    */
-  State: AutoTuneState | string | undefined;
+  State: AutoTuneState | undefined;
 
   /**
    * @public
@@ -2950,7 +2950,7 @@ export interface LogPublishingOptionsStatus {
    * @public
    * <p>The log publishing options configured for the Elasticsearch domain.</p>
    */
-  Options?: Record<string, LogPublishingOption>;
+  Options?: Record<LogType, LogPublishingOption>;
 
   /**
    * @public
@@ -3180,7 +3180,7 @@ export interface DescribeElasticsearchInstanceTypeLimitsRequest {
    *       are needed.
    *     </p>
    */
-  InstanceType: ESPartitionInstanceType | string | undefined;
+  InstanceType: ESPartitionInstanceType | undefined;
 
   /**
    * @public
@@ -3579,7 +3579,7 @@ export interface DescribePackagesFilter {
    * @public
    * <p>Any field from <code>PackageDetails</code>.</p>
    */
-  Name?: DescribePackagesFilterName | string;
+  Name?: DescribePackagesFilterName;
 
   /**
    * @public
@@ -3712,7 +3712,7 @@ export interface ReservedElasticsearchInstanceOffering {
    * @public
    * <p>The Elasticsearch instance type offered by the reserved instance offering.</p>
    */
-  ElasticsearchInstanceType?: ESPartitionInstanceType | string;
+  ElasticsearchInstanceType?: ESPartitionInstanceType;
 
   /**
    * @public
@@ -3742,7 +3742,7 @@ export interface ReservedElasticsearchInstanceOffering {
    * @public
    * <p>Payment option for the reserved Elasticsearch instance offering</p>
    */
-  PaymentOption?: ReservedElasticsearchInstancePaymentOption | string;
+  PaymentOption?: ReservedElasticsearchInstancePaymentOption;
 
   /**
    * @public
@@ -3821,7 +3821,7 @@ export interface ReservedElasticsearchInstance {
    * @public
    * <p>The Elasticsearch instance type offered by the reserved instance offering.</p>
    */
-  ElasticsearchInstanceType?: ESPartitionInstanceType | string;
+  ElasticsearchInstanceType?: ESPartitionInstanceType;
 
   /**
    * @public
@@ -3869,7 +3869,7 @@ export interface ReservedElasticsearchInstance {
    * @public
    * <p>The payment option as defined in the reserved Elasticsearch instance offering.</p>
    */
-  PaymentOption?: ReservedElasticsearchInstancePaymentOption | string;
+  PaymentOption?: ReservedElasticsearchInstancePaymentOption;
 
   /**
    * @public
@@ -3938,7 +3938,7 @@ export interface VpcEndpointError {
    * @public
    * <p>The code associated with the error.</p>
    */
-  ErrorCode?: VpcEndpointErrorCode | string;
+  ErrorCode?: VpcEndpointErrorCode;
 
   /**
    * @public
@@ -4236,7 +4236,7 @@ export interface UpgradeStepItem {
    *       </ul>
    *     </p>
    */
-  UpgradeStep?: UpgradeStep | string;
+  UpgradeStep?: UpgradeStep;
 
   /**
    * @public
@@ -4250,7 +4250,7 @@ export interface UpgradeStepItem {
    *       </ul>
    *     </p>
    */
-  UpgradeStepStatus?: UpgradeStatus | string;
+  UpgradeStepStatus?: UpgradeStatus;
 
   /**
    * @public
@@ -4294,7 +4294,7 @@ export interface UpgradeHistory {
    *       </ul>
    *     </p>
    */
-  UpgradeStatus?: UpgradeStatus | string;
+  UpgradeStatus?: UpgradeStatus;
 
   /**
    * @public
@@ -4383,7 +4383,7 @@ export interface GetUpgradeStatusResponse {
    *       </ul>
    *     </p>
    */
-  UpgradeStep?: UpgradeStep | string;
+  UpgradeStep?: UpgradeStep;
 
   /**
    * @public
@@ -4401,7 +4401,7 @@ export interface GetUpgradeStatusResponse {
    *       </ul>
    *     </p>
    */
-  StepStatus?: UpgradeStatus | string;
+  StepStatus?: UpgradeStatus;
 
   /**
    * @public
@@ -4433,7 +4433,7 @@ export interface ListDomainNamesRequest {
    * @public
    * <p> Optional parameter to filter the output by domain engine type. Acceptable values are 'Elasticsearch' and 'OpenSearch'. </p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: EngineType;
 }
 
 /**
@@ -4450,7 +4450,7 @@ export interface DomainInfo {
    * @public
    * <p> Specifies the <code>EngineType</code> of the domain.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: EngineType;
 }
 
 /**
@@ -4581,7 +4581,7 @@ export interface ListElasticsearchInstanceTypesResponse {
    *       </code>
    *     </p>
    */
-  ElasticsearchInstanceTypes?: (ESPartitionInstanceType | string)[];
+  ElasticsearchInstanceTypes?: ESPartitionInstanceType[];
 
   /**
    * @public
@@ -5040,7 +5040,7 @@ export interface UpdateElasticsearchDomainConfigRequest {
    * @public
    * <p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>
    */
-  LogPublishingOptions?: Record<string, LogPublishingOption>;
+  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
 
   /**
    * @public

@@ -641,7 +641,7 @@ export interface ProcessedUpdateAction {
    * @public
    * <p>The status of the update action on the Redis cluster</p>
    */
-  UpdateActionStatus?: UpdateActionStatus | string;
+  UpdateActionStatus?: UpdateActionStatus;
 }
 
 /**
@@ -951,14 +951,14 @@ export interface LogDeliveryConfiguration {
    * <p>Refers to <a href="https://redis.io/commands/slowlog">slow-log</a> or
    *             engine-log.</p>
    */
-  LogType?: LogType | string;
+  LogType?: LogType;
 
   /**
    * @public
    * <p>Returns the destination type, either <code>cloudwatch-logs</code> or
    *                 <code>kinesis-firehose</code>.</p>
    */
-  DestinationType?: DestinationType | string;
+  DestinationType?: DestinationType;
 
   /**
    * @public
@@ -971,7 +971,7 @@ export interface LogDeliveryConfiguration {
    * @public
    * <p>Returns the log format, either JSON or TEXT.</p>
    */
-  LogFormat?: LogFormat | string;
+  LogFormat?: LogFormat;
 
   /**
    * @public
@@ -980,7 +980,7 @@ export interface LogDeliveryConfiguration {
    *                 <code>error</code>
    *          </p>
    */
-  Status?: LogDeliveryConfigurationStatus | string;
+  Status?: LogDeliveryConfigurationStatus;
 
   /**
    * @public
@@ -1152,13 +1152,13 @@ export interface PendingLogDeliveryConfiguration {
    * <p>Refers to <a href="https://redis.io/commands/slowlog">slow-log</a> or
    *             engine-log..</p>
    */
-  LogType?: LogType | string;
+  LogType?: LogType;
 
   /**
    * @public
    * <p>Returns the destination type, either CloudWatch Logs or Kinesis Data Firehose.</p>
    */
-  DestinationType?: DestinationType | string;
+  DestinationType?: DestinationType;
 
   /**
    * @public
@@ -1171,7 +1171,7 @@ export interface PendingLogDeliveryConfiguration {
    * @public
    * <p>Returns the log format, either JSON or TEXT</p>
    */
-  LogFormat?: LogFormat | string;
+  LogFormat?: LogFormat;
 }
 
 /**
@@ -1248,7 +1248,7 @@ export interface ReplicationGroupPendingModifiedValues {
    * @public
    * <p>Indicates the status of automatic failover for this Redis replication group.</p>
    */
-  AutomaticFailoverStatus?: PendingAutomaticFailoverStatus | string;
+  AutomaticFailoverStatus?: PendingAutomaticFailoverStatus;
 
   /**
    * @public
@@ -1260,7 +1260,7 @@ export interface ReplicationGroupPendingModifiedValues {
    * @public
    * <p>The auth token status</p>
    */
-  AuthTokenStatus?: AuthTokenUpdateStatus | string;
+  AuthTokenStatus?: AuthTokenUpdateStatus;
 
   /**
    * @public
@@ -1285,7 +1285,7 @@ export interface ReplicationGroupPendingModifiedValues {
    * <p>A setting that allows you to migrate your clients to use in-transit encryption, with
    *             no downtime.</p>
    */
-  TransitEncryptionMode?: TransitEncryptionMode | string;
+  TransitEncryptionMode?: TransitEncryptionMode;
 
   /**
    * @public
@@ -1295,7 +1295,7 @@ export interface ReplicationGroupPendingModifiedValues {
    *             clients to use cluster mode enabled, you can then complete cluster mode configuration
    *             and set the cluster mode to Enabled.</p>
    */
-  ClusterMode?: ClusterMode | string;
+  ClusterMode?: ClusterMode;
 }
 
 /**
@@ -1362,7 +1362,7 @@ export interface ReplicationGroup {
    * @public
    * <p>Indicates the status of automatic failover for this Redis replication group.</p>
    */
-  AutomaticFailover?: AutomaticFailoverStatus | string;
+  AutomaticFailover?: AutomaticFailoverStatus;
 
   /**
    * @public
@@ -1370,7 +1370,7 @@ export interface ReplicationGroup {
    *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html">Minimizing Downtime: Multi-AZ</a>
    *          </p>
    */
-  MultiAZ?: MultiAZStatus | string;
+  MultiAZ?: MultiAZStatus;
 
   /**
    * @public
@@ -1508,7 +1508,7 @@ export interface ReplicationGroup {
    *             r6gd node type. This parameter must be set to true when using r6gd nodes. For more
    *             information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html">Data tiering</a>.</p>
    */
-  DataTiering?: DataTieringStatus | string;
+  DataTiering?: DataTieringStatus;
 
   /**
    * @public
@@ -1524,7 +1524,7 @@ export interface ReplicationGroup {
    *             is supported for workloads using Redis engine version 6.2 onward or Memcached engine
    *             version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
-  NetworkType?: NetworkType | string;
+  NetworkType?: NetworkType;
 
   /**
    * @public
@@ -1532,14 +1532,14 @@ export interface ReplicationGroup {
    *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2
    *             onward or Memcached engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
-  IpDiscovery?: IpDiscovery | string;
+  IpDiscovery?: IpDiscovery;
 
   /**
    * @public
    * <p>A setting that allows you to migrate your clients to use in-transit encryption, with
    *             no downtime.</p>
    */
-  TransitEncryptionMode?: TransitEncryptionMode | string;
+  TransitEncryptionMode?: TransitEncryptionMode;
 
   /**
    * @public
@@ -1549,7 +1549,7 @@ export interface ReplicationGroup {
    *             clients to use cluster mode enabled, you can then complete cluster mode configuration
    *             and set the cluster mode to Enabled.</p>
    */
-  ClusterMode?: ClusterMode | string;
+  ClusterMode?: ClusterMode;
 }
 
 /**
@@ -2122,7 +2122,7 @@ export interface Snapshot {
    * <p>Indicates the status of automatic failover for the source Redis replication
    *             group.</p>
    */
-  AutomaticFailover?: AutomaticFailoverStatus | string;
+  AutomaticFailover?: AutomaticFailoverStatus;
 
   /**
    * @public
@@ -2148,7 +2148,7 @@ export interface Snapshot {
    *             r6gd node type. This parameter must be set to true when using r6gd nodes. For more
    *             information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html">Data tiering</a>.</p>
    */
-  DataTiering?: DataTieringStatus | string;
+  DataTiering?: DataTieringStatus;
 }
 
 /**
@@ -2290,14 +2290,14 @@ export interface LogDeliveryConfigurationRequest {
    * <p>Refers to <a href="https://redis.io/commands/slowlog">slow-log</a> or
    *             engine-log..</p>
    */
-  LogType?: LogType | string;
+  LogType?: LogType;
 
   /**
    * @public
    * <p>Specify either <code>cloudwatch-logs</code> or <code>kinesis-firehose</code> as the
    *             destination type.</p>
    */
-  DestinationType?: DestinationType | string;
+  DestinationType?: DestinationType;
 
   /**
    * @public
@@ -2310,7 +2310,7 @@ export interface LogDeliveryConfigurationRequest {
    * @public
    * <p>Specifies either JSON or TEXT</p>
    */
-  LogFormat?: LogFormat | string;
+  LogFormat?: LogFormat;
 
   /**
    * @public
@@ -2384,7 +2384,7 @@ export interface CreateCacheClusterMessage {
    *          <p>If the <code>AZMode</code> and <code>PreferredAvailabilityZones</code> are not
    *             specified, ElastiCache assumes <code>single-az</code> mode.</p>
    */
-  AZMode?: AZMode | string;
+  AZMode?: AZMode;
 
   /**
    * @public
@@ -2788,7 +2788,7 @@ export interface CreateCacheClusterMessage {
    * <p>Specifies whether the nodes in the cluster are created in a single outpost or across
    *             multiple outposts.</p>
    */
-  OutpostMode?: OutpostMode | string;
+  OutpostMode?: OutpostMode;
 
   /**
    * @public
@@ -2820,7 +2820,7 @@ export interface CreateCacheClusterMessage {
    *             is supported for workloads using Redis engine version 6.2 onward or Memcached engine
    *             version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>. </p>
    */
-  NetworkType?: NetworkType | string;
+  NetworkType?: NetworkType;
 
   /**
    * @public
@@ -2828,7 +2828,7 @@ export interface CreateCacheClusterMessage {
    *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2
    *             onward or Memcached engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
-  IpDiscovery?: IpDiscovery | string;
+  IpDiscovery?: IpDiscovery;
 }
 
 /**
@@ -3169,7 +3169,7 @@ export interface PendingModifiedValues {
    * @public
    * <p>The auth token status</p>
    */
-  AuthTokenStatus?: AuthTokenUpdateStatus | string;
+  AuthTokenStatus?: AuthTokenUpdateStatus;
 
   /**
    * @public
@@ -3188,7 +3188,7 @@ export interface PendingModifiedValues {
    * <p>A setting that allows you to migrate your clients to use in-transit encryption, with
    *             no downtime.</p>
    */
-  TransitEncryptionMode?: TransitEncryptionMode | string;
+  TransitEncryptionMode?: TransitEncryptionMode;
 }
 
 /**
@@ -3669,7 +3669,7 @@ export interface CacheCluster {
    *             is supported for workloads using Redis engine version 6.2 onward or Memcached engine
    *             version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
-  NetworkType?: NetworkType | string;
+  NetworkType?: NetworkType;
 
   /**
    * @public
@@ -3677,14 +3677,14 @@ export interface CacheCluster {
    *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2
    *             onward or Memcached engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
-  IpDiscovery?: IpDiscovery | string;
+  IpDiscovery?: IpDiscovery;
 
   /**
    * @public
    * <p>A setting that allows you to migrate your clients to use in-transit encryption, with
    *             no downtime.</p>
    */
-  TransitEncryptionMode?: TransitEncryptionMode | string;
+  TransitEncryptionMode?: TransitEncryptionMode;
 }
 
 /**
@@ -4183,7 +4183,7 @@ export interface Subnet {
    *             supported for workloads using Redis engine version 6.2 onward or Memcached engine
    *             version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
-  SupportedNetworkTypes?: (NetworkType | string)[];
+  SupportedNetworkTypes?: NetworkType[];
 }
 
 /**
@@ -4239,7 +4239,7 @@ export interface CacheSubnetGroup {
    *             supported for workloads using Redis engine version 6.2 onward or Memcached engine
    *             version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
-  SupportedNetworkTypes?: (NetworkType | string)[];
+  SupportedNetworkTypes?: NetworkType[];
 }
 
 /**
@@ -4385,7 +4385,7 @@ export interface GlobalReplicationGroupMember {
    * @public
    * <p>Indicates whether automatic failover is enabled for the replication group.</p>
    */
-  AutomaticFailover?: AutomaticFailoverStatus | string;
+  AutomaticFailover?: AutomaticFailoverStatus;
 
   /**
    * @public
@@ -5169,7 +5169,7 @@ export interface CreateReplicationGroupMessage {
    *             is supported for workloads using Redis engine version 6.2 onward or Memcached engine
    *             version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
-  NetworkType?: NetworkType | string;
+  NetworkType?: NetworkType;
 
   /**
    * @public
@@ -5178,7 +5178,7 @@ export interface CreateReplicationGroupMessage {
    *             engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on
    *             the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
-  IpDiscovery?: IpDiscovery | string;
+  IpDiscovery?: IpDiscovery;
 
   /**
    * @public
@@ -5195,7 +5195,7 @@ export interface CreateReplicationGroupMessage {
    *                 <code>required</code>.</p>
    *          <p>This process will not trigger the replacement of the replication group.</p>
    */
-  TransitEncryptionMode?: TransitEncryptionMode | string;
+  TransitEncryptionMode?: TransitEncryptionMode;
 
   /**
    * @public
@@ -5205,7 +5205,7 @@ export interface CreateReplicationGroupMessage {
    *             clients to use cluster mode enabled, you can then complete cluster mode configuration
    *             and set the cluster mode to Enabled.</p>
    */
-  ClusterMode?: ClusterMode | string;
+  ClusterMode?: ClusterMode;
 }
 
 /**
@@ -5447,7 +5447,7 @@ export interface AuthenticationMode {
    * <p>Specifies the authentication type. Possible options are IAM authentication, password
    *             and no password.</p>
    */
-  Type?: InputAuthenticationType | string;
+  Type?: InputAuthenticationType;
 
   /**
    * @public
@@ -5555,7 +5555,7 @@ export interface Authentication {
    * @public
    * <p>Indicates whether the user requires a password to authenticate.</p>
    */
-  Type?: AuthenticationType | string;
+  Type?: AuthenticationType;
 
   /**
    * @public
@@ -6643,7 +6643,7 @@ export interface CacheNodeTypeSpecificParameter {
    *             maintenance window's reboot. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html">Rebooting a
    *                 Cluster</a>.</p>
    */
-  ChangeType?: ChangeType | string;
+  ChangeType?: ChangeType;
 }
 
 /**
@@ -6709,7 +6709,7 @@ export interface Parameter {
    *             maintenance window's reboot. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html">Rebooting a
    *                 Cluster</a>.</p>
    */
-  ChangeType?: ChangeType | string;
+  ChangeType?: ChangeType;
 }
 
 /**
@@ -6996,7 +6996,7 @@ export interface DescribeEventsMessage {
    * <p>The event source to retrieve events for. If no value is specified, all events are
    *             returned.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -7060,7 +7060,7 @@ export interface Event {
    * <p>Specifies the origin of this event - a cluster, a parameter group, a security group,
    *             etc.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -8285,7 +8285,7 @@ export interface DescribeServiceUpdatesMessage {
    * @public
    * <p>The status of the service update</p>
    */
-  ServiceUpdateStatus?: (ServiceUpdateStatus | string)[];
+  ServiceUpdateStatus?: ServiceUpdateStatus[];
 
   /**
    * @public
@@ -8358,7 +8358,7 @@ export interface ServiceUpdate {
    * @public
    * <p>The severity of the service update</p>
    */
-  ServiceUpdateSeverity?: ServiceUpdateSeverity | string;
+  ServiceUpdateSeverity?: ServiceUpdateSeverity;
 
   /**
    * @public
@@ -8371,7 +8371,7 @@ export interface ServiceUpdate {
    * @public
    * <p>The status of the service update</p>
    */
-  ServiceUpdateStatus?: ServiceUpdateStatus | string;
+  ServiceUpdateStatus?: ServiceUpdateStatus;
 
   /**
    * @public
@@ -8383,7 +8383,7 @@ export interface ServiceUpdate {
    * @public
    * <p>Reflects the nature of the service update</p>
    */
-  ServiceUpdateType?: ServiceUpdateType | string;
+  ServiceUpdateType?: ServiceUpdateType;
 
   /**
    * @public
@@ -8564,7 +8564,7 @@ export interface DescribeUpdateActionsMessage {
    * @public
    * <p>The status of the service update</p>
    */
-  ServiceUpdateStatus?: (ServiceUpdateStatus | string)[];
+  ServiceUpdateStatus?: ServiceUpdateStatus[];
 
   /**
    * @public
@@ -8577,7 +8577,7 @@ export interface DescribeUpdateActionsMessage {
    * @public
    * <p>The status of the update action.</p>
    */
-  UpdateActionStatus?: (UpdateActionStatus | string)[];
+  UpdateActionStatus?: UpdateActionStatus[];
 
   /**
    * @public
@@ -8647,7 +8647,7 @@ export interface CacheNodeUpdateStatus {
    * @public
    * <p>The update status of the node</p>
    */
-  NodeUpdateStatus?: NodeUpdateStatus | string;
+  NodeUpdateStatus?: NodeUpdateStatus;
 
   /**
    * @public
@@ -8672,7 +8672,7 @@ export interface CacheNodeUpdateStatus {
    * <p>Reflects whether the update was initiated by the customer or automatically
    *             applied</p>
    */
-  NodeUpdateInitiatedBy?: NodeUpdateInitiatedBy | string;
+  NodeUpdateInitiatedBy?: NodeUpdateInitiatedBy;
 
   /**
    * @public
@@ -8708,7 +8708,7 @@ export interface NodeGroupMemberUpdateStatus {
    * @public
    * <p>The update status of the node</p>
    */
-  NodeUpdateStatus?: NodeUpdateStatus | string;
+  NodeUpdateStatus?: NodeUpdateStatus;
 
   /**
    * @public
@@ -8733,7 +8733,7 @@ export interface NodeGroupMemberUpdateStatus {
    * <p>Reflects whether the update was initiated by the customer or automatically
    *             applied</p>
    */
-  NodeUpdateInitiatedBy?: NodeUpdateInitiatedBy | string;
+  NodeUpdateInitiatedBy?: NodeUpdateInitiatedBy;
 
   /**
    * @public
@@ -8814,13 +8814,13 @@ export interface UpdateAction {
    * @public
    * <p>The severity of the service update</p>
    */
-  ServiceUpdateSeverity?: ServiceUpdateSeverity | string;
+  ServiceUpdateSeverity?: ServiceUpdateSeverity;
 
   /**
    * @public
    * <p>The status of the service update</p>
    */
-  ServiceUpdateStatus?: ServiceUpdateStatus | string;
+  ServiceUpdateStatus?: ServiceUpdateStatus;
 
   /**
    * @public
@@ -8833,7 +8833,7 @@ export interface UpdateAction {
    * @public
    * <p>Reflects the nature of the service update </p>
    */
-  ServiceUpdateType?: ServiceUpdateType | string;
+  ServiceUpdateType?: ServiceUpdateType;
 
   /**
    * @public
@@ -8845,7 +8845,7 @@ export interface UpdateAction {
    * @public
    * <p>The status of the update action</p>
    */
-  UpdateActionStatus?: UpdateActionStatus | string;
+  UpdateActionStatus?: UpdateActionStatus;
 
   /**
    * @public
@@ -8866,7 +8866,7 @@ export interface UpdateAction {
    *             by the recommended apply-by date. If N/A, the replication group was created after the
    *             recommended apply-by date.</p>
    */
-  SlaMet?: SlaMet | string;
+  SlaMet?: SlaMet;
 
   /**
    * @public
@@ -9421,7 +9421,7 @@ export interface ModifyCacheClusterMessage {
    *             <p>Only newly created nodes are located in different Availability Zones. </p>
    *          </note>
    */
-  AZMode?: AZMode | string;
+  AZMode?: AZMode;
 
   /**
    * @public
@@ -9733,7 +9733,7 @@ export interface ModifyCacheClusterMessage {
    *          <p> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
    *          </p>
    */
-  AuthTokenUpdateStrategy?: AuthTokenUpdateStrategyType | string;
+  AuthTokenUpdateStrategy?: AuthTokenUpdateStrategyType;
 
   /**
    * @public
@@ -9747,7 +9747,7 @@ export interface ModifyCacheClusterMessage {
    *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2
    *             onward or Memcached engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
-  IpDiscovery?: IpDiscovery | string;
+  IpDiscovery?: IpDiscovery;
 }
 
 /**
@@ -10219,7 +10219,7 @@ export interface ModifyReplicationGroupMessage {
    *          <p> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
    *          </p>
    */
-  AuthTokenUpdateStrategy?: AuthTokenUpdateStrategyType | string;
+  AuthTokenUpdateStrategy?: AuthTokenUpdateStrategyType;
 
   /**
    * @public
@@ -10252,7 +10252,7 @@ export interface ModifyReplicationGroupMessage {
    *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2
    *             onward or Memcached engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    */
-  IpDiscovery?: IpDiscovery | string;
+  IpDiscovery?: IpDiscovery;
 
   /**
    * @public
@@ -10276,7 +10276,7 @@ export interface ModifyReplicationGroupMessage {
    *                 <code>preferred</code>, after that you can set <code>TransitEncryptionMode</code> to
    *                 <code>required</code>. </p>
    */
-  TransitEncryptionMode?: TransitEncryptionMode | string;
+  TransitEncryptionMode?: TransitEncryptionMode;
 
   /**
    * @public
@@ -10286,7 +10286,7 @@ export interface ModifyReplicationGroupMessage {
    *             clients to use cluster mode enabled, you can then complete cluster mode configuration
    *             and set the cluster mode to Enabled.</p>
    */
-  ClusterMode?: ClusterMode | string;
+  ClusterMode?: ClusterMode;
 }
 
 /**

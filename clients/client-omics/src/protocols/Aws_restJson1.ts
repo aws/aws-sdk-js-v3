@@ -251,6 +251,7 @@ import {
   ExportReadSetJobDetail,
   Filter,
   FormatOptions,
+  FormatToHeaderKey,
   ImportReadSetFilter,
   ImportReadSetJobItem,
   ImportReferenceFilter,

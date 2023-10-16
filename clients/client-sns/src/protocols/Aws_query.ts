@@ -4348,10 +4348,10 @@ const se_MapStringToString = (input: Record<string, string>, context: __SerdeCon
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input];
       counter++;
     });
   return entries;
@@ -4364,10 +4364,10 @@ const se_MessageAttributeMap = (input: Record<string, MessageAttributeValue>, co
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.Name`] = key;
-      const memberEntries = se_MessageAttributeValue(input[key], context);
+      const memberEntries = se_MessageAttributeValue(input[key as keyof typeof input], context);
       Object.entries(memberEntries).forEach(([key, value]) => {
         entries[`entry.${counter}.Value.${key}`] = value;
       });
@@ -4666,10 +4666,10 @@ const se_SubscriptionAttributesMap = (input: Record<string, string>, context: __
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input];
       counter++;
     });
   return entries;
@@ -4752,10 +4752,10 @@ const se_TopicAttributesMap = (input: Record<string, string>, context: __SerdeCo
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input];
       counter++;
     });
   return entries;
@@ -5451,7 +5451,7 @@ const de_NotFoundException = (output: any, context: __SerdeContext): NotFoundExc
 /**
  * deserializeAws_queryNumberCapabilityList
  */
-const de_NumberCapabilityList = (output: any, context: __SerdeContext): (NumberCapability | string)[] => {
+const de_NumberCapabilityList = (output: any, context: __SerdeContext): NumberCapability[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

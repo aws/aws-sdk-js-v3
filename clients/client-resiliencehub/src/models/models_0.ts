@@ -209,7 +209,7 @@ export interface PhysicalResourceId {
    *             </dd>
    *          </dl>
    */
-  type: PhysicalIdentifierType | string | undefined;
+  type: PhysicalIdentifierType | undefined;
 
   /**
    * @public
@@ -286,7 +286,7 @@ export interface ResourceMapping {
    *             </dd>
    *          </dl>
    */
-  mappingType: ResourceMappingType | string | undefined;
+  mappingType: ResourceMappingType | undefined;
 
   /**
    * @public
@@ -560,7 +560,7 @@ export interface RecommendationItem {
    * @public
    * <p>Indicates the reason for excluding an operational recommendation.</p>
    */
-  excludeReason?: ExcludeRecommendationReason | string;
+  excludeReason?: ExcludeRecommendationReason;
 }
 
 /**
@@ -615,7 +615,7 @@ export interface AlarmRecommendation {
    * @public
    * <p>Type of alarm recommendation.</p>
    */
-  type: AlarmType | string | undefined;
+  type: AlarmType | undefined;
 
   /**
    * @public
@@ -728,7 +728,7 @@ export interface EventSubscription {
    *         (<code>DriftDetected</code>) and <b>Scheduled assessment
    *         failure</b> (<code>ScheduledAssessmentFailure</code>) events.</p>
    */
-  eventType: EventType | string | undefined;
+  eventType: EventType | undefined;
 
   /**
    * @public
@@ -768,7 +768,7 @@ export interface PermissionModel {
    *       using a pre-existing role in your Amazon Web Services account, or by using the credentials of
    *       the current IAM user.</p>
    */
-  type: PermissionModelType | string | undefined;
+  type: PermissionModelType | undefined;
 
   /**
    * @public
@@ -870,14 +870,14 @@ export interface App {
    * @public
    * <p>Status of the application.</p>
    */
-  status?: AppStatusType | string;
+  status?: AppStatusType;
 
   /**
    * @public
    * <p>Current
    *       status of compliance for the resiliency policy.</p>
    */
-  complianceStatus?: AppComplianceStatusType | string;
+  complianceStatus?: AppComplianceStatusType;
 
   /**
    * @public
@@ -912,7 +912,7 @@ export interface App {
    * <p>Assessment
    *       execution schedule with 'Daily' or 'Disabled' values. </p>
    */
-  assessmentSchedule?: AppAssessmentScheduleType | string;
+  assessmentSchedule?: AppAssessmentScheduleType;
 
   /**
    * @public
@@ -935,7 +935,7 @@ export interface App {
    * <p>Indicates if compliance drifts (deviations) were detected while running an assessment for
    *       your application.</p>
    */
-  driftStatus?: AppDriftStatusType | string;
+  driftStatus?: AppDriftStatusType;
 
   /**
    * @public
@@ -1048,7 +1048,7 @@ export interface DisruptionCompliance {
    * @public
    * <p>The current status of compliance for the resiliency policy.</p>
    */
-  complianceStatus: ComplianceStatus | string | undefined;
+  complianceStatus: ComplianceStatus | undefined;
 
   /**
    * @public
@@ -1100,7 +1100,7 @@ export interface Cost {
    * @public
    * <p>The cost frequency.</p>
    */
-  frequency: CostFrequency | string | undefined;
+  frequency: CostFrequency | undefined;
 }
 
 /**
@@ -1231,26 +1231,26 @@ export interface ResiliencyPolicy {
    * <p>Specifies a high-level geographical location constraint for where your resilience policy
    *       data can be stored.</p>
    */
-  dataLocationConstraint?: DataLocationConstraint | string;
+  dataLocationConstraint?: DataLocationConstraint;
 
   /**
    * @public
    * <p>The tier for this resiliency policy, ranging from the highest severity
    *         (<code>MissionCritical</code>) to lowest (<code>NonCritical</code>).</p>
    */
-  tier?: ResiliencyPolicyTier | string;
+  tier?: ResiliencyPolicyTier;
 
   /**
    * @public
    * <p>Specifies the estimated cost tier of the resiliency policy.</p>
    */
-  estimatedCostTier?: EstimatedCostTier | string;
+  estimatedCostTier?: EstimatedCostTier;
 
   /**
    * @public
    * <p>The resiliency policy.</p>
    */
-  policy?: Record<string, FailurePolicy>;
+  policy?: Record<DisruptionType, FailurePolicy>;
 
   /**
    * @public
@@ -1282,7 +1282,7 @@ export interface ResiliencyScore {
    * @public
    * <p>The disruption score for a valid key.</p>
    */
-  disruptionScore: Record<string, number> | undefined;
+  disruptionScore: Record<DisruptionType, number> | undefined;
 }
 
 /**
@@ -1355,7 +1355,7 @@ export interface AppAssessment {
    * @public
    * <p>The entity that invoked the assessment.</p>
    */
-  invoker: AssessmentInvoker | string | undefined;
+  invoker: AssessmentInvoker | undefined;
 
   /**
    * @public
@@ -1374,19 +1374,19 @@ export interface AppAssessment {
    * <p>Application
    *       compliance against the resiliency policy.</p>
    */
-  compliance?: Record<string, DisruptionCompliance>;
+  compliance?: Record<DisruptionType, DisruptionCompliance>;
 
   /**
    * @public
    * <p>Current status of the compliance for the resiliency policy.</p>
    */
-  complianceStatus?: ComplianceStatus | string;
+  complianceStatus?: ComplianceStatus;
 
   /**
    * @public
    * <p>Current status of the assessment for the resiliency policy.</p>
    */
-  assessmentStatus: AssessmentStatus | string | undefined;
+  assessmentStatus: AssessmentStatus | undefined;
 
   /**
    * @public
@@ -1453,7 +1453,7 @@ export interface AppAssessment {
    * <p>Indicates if compliance drifts (deviations) were detected while running an assessment for
    *       your application.</p>
    */
-  driftStatus?: DriftStatus | string;
+  driftStatus?: DriftStatus;
 }
 
 /**
@@ -1481,13 +1481,13 @@ export interface AppAssessmentSummary {
    * @public
    * <p>Current status of the assessment for the resiliency policy.</p>
    */
-  assessmentStatus: AssessmentStatus | string | undefined;
+  assessmentStatus: AssessmentStatus | undefined;
 
   /**
    * @public
    * <p>Entity that invoked the assessment.</p>
    */
-  invoker?: AssessmentInvoker | string;
+  invoker?: AssessmentInvoker;
 
   /**
    * @public
@@ -1527,7 +1527,7 @@ export interface AppAssessmentSummary {
    * @public
    * <p>TCurrent status of compliance for the resiliency policy.</p>
    */
-  complianceStatus?: ComplianceStatus | string;
+  complianceStatus?: ComplianceStatus;
 
   /**
    * @public
@@ -1552,7 +1552,7 @@ export interface AppAssessmentSummary {
    * <p>Indicates if compliance drifts (deviations) were detected while running an assessment for
    *       your application.</p>
    */
-  driftStatus?: DriftStatus | string;
+  driftStatus?: DriftStatus;
 }
 
 /**
@@ -1614,7 +1614,7 @@ export interface AppComponentCompliance {
    * @public
    * <p>The compliance of the Application Component against the resiliency policy.</p>
    */
-  compliance?: Record<string, DisruptionCompliance>;
+  compliance?: Record<DisruptionType, DisruptionCompliance>;
 
   /**
    * @public
@@ -1626,7 +1626,7 @@ export interface AppComponentCompliance {
    * @public
    * <p>Status of the action.</p>
    */
-  status?: ComplianceStatus | string;
+  status?: ComplianceStatus;
 
   /**
    * @public
@@ -1685,7 +1685,7 @@ export interface AppInputSource {
    * @public
    * <p>The resource type of the input source.</p>
    */
-  importType: ResourceMappingType | string | undefined;
+  importType: ResourceMappingType | undefined;
 
   /**
    * @public
@@ -1752,7 +1752,7 @@ export interface AppSummary {
    * @public
    * <p>The current status of compliance for the resiliency policy.</p>
    */
-  complianceStatus?: AppComplianceStatusType | string;
+  complianceStatus?: AppComplianceStatusType;
 
   /**
    * @public
@@ -1764,20 +1764,20 @@ export interface AppSummary {
    * @public
    * <p> Assessment execution schedule with 'Daily' or 'Disabled' values. </p>
    */
-  assessmentSchedule?: AppAssessmentScheduleType | string;
+  assessmentSchedule?: AppAssessmentScheduleType;
 
   /**
    * @public
    * <p>Status of the application.</p>
    */
-  status?: AppStatusType | string;
+  status?: AppStatusType;
 
   /**
    * @public
    * <p>Indicates if compliance drifts (deviations) were detected while running an assessment for
    *       your application.</p>
    */
-  driftStatus?: AppDriftStatusType | string;
+  driftStatus?: AppDriftStatusType;
 }
 
 /**
@@ -1871,7 +1871,7 @@ export interface UpdateRecommendationStatusRequestEntry {
    * @public
    * <p>Indicates the reason for excluding an operational recommendation.</p>
    */
-  excludeReason?: ExcludeRecommendationReason | string;
+  excludeReason?: ExcludeRecommendationReason;
 }
 
 /**
@@ -1956,7 +1956,7 @@ export interface BatchUpdateRecommendationStatusSuccessfulEntry {
    * @public
    * <p>Indicates the reason for excluding an operational recommendation.</p>
    */
-  excludeReason?: ExcludeRecommendationReason | string;
+  excludeReason?: ExcludeRecommendationReason;
 }
 
 /**
@@ -2032,7 +2032,7 @@ export interface CreateAppRequest {
    *       Assessment execution schedule with 'Daily' or 'Disabled' values.
    *     </p>
    */
-  assessmentSchedule?: AppAssessmentScheduleType | string;
+  assessmentSchedule?: AppAssessmentScheduleType;
 
   /**
    * @public
@@ -2340,7 +2340,7 @@ export interface PhysicalResource {
    * @public
    * <p>Type of input source.</p>
    */
-  sourceType?: ResourceSourceType | string;
+  sourceType?: ResourceSourceType;
 
   /**
    * @public
@@ -2429,7 +2429,7 @@ export interface CreateRecommendationTemplateRequest {
    *             </dd>
    *          </dl>
    */
-  format?: TemplateFormat | string;
+  format?: TemplateFormat;
 
   /**
    * @public
@@ -2449,7 +2449,7 @@ export interface CreateRecommendationTemplateRequest {
    *             </dd>
    *          </dl>
    */
-  recommendationTypes?: (RenderRecommendationType | string)[];
+  recommendationTypes?: RenderRecommendationType[];
 
   /**
    * @public
@@ -2578,7 +2578,7 @@ export interface RecommendationTemplate {
    *             </dd>
    *          </dl>
    */
-  recommendationTypes: (RenderRecommendationType | string)[] | undefined;
+  recommendationTypes: RenderRecommendationType[] | undefined;
 
   /**
    * @public
@@ -2594,7 +2594,7 @@ export interface RecommendationTemplate {
    *             </dd>
    *          </dl>
    */
-  format: TemplateFormat | string | undefined;
+  format: TemplateFormat | undefined;
 
   /**
    * @public
@@ -2612,7 +2612,7 @@ export interface RecommendationTemplate {
    * @public
    * <p>Status of the action.</p>
    */
-  status: RecommendationTemplateStatus | string | undefined;
+  status: RecommendationTemplateStatus | undefined;
 
   /**
    * @public
@@ -2679,21 +2679,21 @@ export interface CreateResiliencyPolicyRequest {
    * <p>Specifies a high-level geographical location constraint for where your resilience policy
    *       data can be stored.</p>
    */
-  dataLocationConstraint?: DataLocationConstraint | string;
+  dataLocationConstraint?: DataLocationConstraint;
 
   /**
    * @public
    * <p>The tier for this resiliency policy, ranging from the highest severity
    *         (<code>MissionCritical</code>) to lowest (<code>NonCritical</code>).</p>
    */
-  tier: ResiliencyPolicyTier | string | undefined;
+  tier: ResiliencyPolicyTier | undefined;
 
   /**
    * @public
    * <p>The type of resiliency policy to be created, including the recovery time objective (RTO)
    *       and recovery point objective (RPO) in seconds.</p>
    */
-  policy: Record<string, FailurePolicy> | undefined;
+  policy: Record<DisruptionType, FailurePolicy> | undefined;
 
   /**
    * @public
@@ -2805,7 +2805,7 @@ export interface DeleteAppAssessmentResponse {
    * @public
    * <p>The current status of the assessment for the resiliency policy.</p>
    */
-  assessmentStatus: AssessmentStatus | string | undefined;
+  assessmentStatus: AssessmentStatus | undefined;
 }
 
 /**
@@ -3039,7 +3039,7 @@ export interface DeleteRecommendationTemplateResponse {
    * @public
    * <p>Status of the action.</p>
    */
-  status: RecommendationTemplateStatus | string | undefined;
+  status: RecommendationTemplateStatus | undefined;
 }
 
 /**
@@ -3391,7 +3391,7 @@ export interface DescribeAppVersionResourcesResolutionStatusResponse {
    * @public
    * <p>Status of the action.</p>
    */
-  status: ResourceResolutionStatusType | string | undefined;
+  status: ResourceResolutionStatusType | undefined;
 
   /**
    * @public
@@ -3762,7 +3762,7 @@ export interface DescribeDraftAppVersionResourcesImportStatusResponse {
    * @public
    * <p>Status of the action.</p>
    */
-  status: ResourceImportStatusType | string | undefined;
+  status: ResourceImportStatusType | undefined;
 
   /**
    * @public
@@ -3872,7 +3872,7 @@ export interface ImportResourcesToDraftAppVersionRequest {
    * <p>The import strategy you would like to set to import resources into Resilience Hub
    *       application.</p>
    */
-  importStrategy?: ResourceImportStrategyType | string;
+  importStrategy?: ResourceImportStrategyType;
 
   /**
    * @public
@@ -3911,7 +3911,7 @@ export interface ImportResourcesToDraftAppVersionResponse {
    * @public
    * <p>Status of the action.</p>
    */
-  status: ResourceImportStatusType | string | undefined;
+  status: ResourceImportStatusType | undefined;
 
   /**
    * @public
@@ -4054,7 +4054,7 @@ export interface ComplianceDrift {
    * @public
    * <p>The type of drift detected. Currently, Resilience Hub supports only <b>ApplicationCompliance</b> drift type.</p>
    */
-  driftType?: DriftType | string;
+  driftType?: DriftType;
 
   /**
    * @public
@@ -4080,7 +4080,7 @@ export interface ComplianceDrift {
    * @public
    * <p>The expected compliance value of an entity.</p>
    */
-  expectedValue?: Record<string, DisruptionCompliance>;
+  expectedValue?: Record<DisruptionType, DisruptionCompliance>;
 
   /**
    * @public
@@ -4093,7 +4093,7 @@ export interface ComplianceDrift {
    * <p>Actual
    *       compliance value of the entity.</p>
    */
-  actualValue?: Record<string, DisruptionCompliance>;
+  actualValue?: Record<DisruptionType, DisruptionCompliance>;
 
   /**
    * @public
@@ -4108,7 +4108,7 @@ export interface ComplianceDrift {
    *       objective
    *       (RTO) values. Currently, Resilience Hub supports only <b>NotEqual</b> difference type.</p>
    */
-  diffType?: DifferenceType | string;
+  diffType?: DifferenceType;
 }
 
 /**
@@ -4152,20 +4152,20 @@ export interface ListAppAssessmentsRequest {
    * @public
    * <p>The current status of the assessment for the resiliency policy.</p>
    */
-  assessmentStatus?: (AssessmentStatus | string)[];
+  assessmentStatus?: AssessmentStatus[];
 
   /**
    * @public
    * <p>The current status of compliance for the resiliency policy.</p>
    */
-  complianceStatus?: ComplianceStatus | string;
+  complianceStatus?: ComplianceStatus;
 
   /**
    * @public
    * <p>Specifies the entity that invoked a specific assessment, either a <code>User</code> or the
    *         <code>System</code>.</p>
    */
-  invoker?: AssessmentInvoker | string;
+  invoker?: AssessmentInvoker;
 
   /**
    * @public
@@ -4327,7 +4327,7 @@ export interface RecommendationDisruptionCompliance {
    * @public
    * <p>The expected compliance status after applying the recommended configuration change.</p>
    */
-  expectedComplianceStatus: ComplianceStatus | string | undefined;
+  expectedComplianceStatus: ComplianceStatus | undefined;
 
   /**
    * @public
@@ -4378,20 +4378,20 @@ export interface ConfigRecommendation {
    * <p>The current compliance against the resiliency policy before applying the configuration
    *       change.</p>
    */
-  compliance?: Record<string, DisruptionCompliance>;
+  compliance?: Record<DisruptionType, DisruptionCompliance>;
 
   /**
    * @public
    * <p>The expected compliance against the resiliency policy after applying the configuration
    *       change.</p>
    */
-  recommendationCompliance?: Record<string, RecommendationDisruptionCompliance>;
+  recommendationCompliance?: Record<DisruptionType, RecommendationDisruptionCompliance>;
 
   /**
    * @public
    * <p>The type of optimization.</p>
    */
-  optimizationType: ConfigRecommendationOptimizationType | string | undefined;
+  optimizationType: ConfigRecommendationOptimizationType | undefined;
 
   /**
    * @public
@@ -4415,7 +4415,7 @@ export interface ConfigRecommendation {
    * @public
    * <p>The architecture type.</p>
    */
-  haArchitecture?: HaArchitecture | string;
+  haArchitecture?: HaArchitecture;
 
   /**
    * @public
@@ -4458,7 +4458,7 @@ export interface ComponentRecommendation {
    * @public
    * <p>Status of the recommendation.</p>
    */
-  recommendationStatus: RecommendationComplianceStatus | string | undefined;
+  recommendationStatus: RecommendationComplianceStatus | undefined;
 
   /**
    * @public
@@ -4853,7 +4853,7 @@ export interface ListRecommendationTemplatesRequest {
    * @public
    * <p>Status of the action.</p>
    */
-  status?: (RecommendationTemplateStatus | string)[];
+  status?: RecommendationTemplateStatus[];
 
   /**
    * @public
@@ -4989,7 +4989,7 @@ export interface SopRecommendation {
    * @public
    * <p>The service type.</p>
    */
-  serviceType: SopServiceType | string | undefined;
+  serviceType: SopServiceType | undefined;
 
   /**
    * @public
@@ -5211,13 +5211,13 @@ export interface TestRecommendation {
    * @public
    * <p>Level of risk for this test recommendation.</p>
    */
-  risk?: TestRisk | string;
+  risk?: TestRisk;
 
   /**
    * @public
    * <p>Type of test recommendation.</p>
    */
-  type?: TestType | string;
+  type?: TestType;
 
   /**
    * @public
@@ -5839,7 +5839,7 @@ export interface ResolveAppVersionResourcesResponse {
    * @public
    * <p>Status of the action.</p>
    */
-  status: ResourceResolutionStatusType | string | undefined;
+  status: ResourceResolutionStatusType | undefined;
 }
 
 /**
@@ -5980,7 +5980,7 @@ export interface UpdateAppRequest {
    *       Assessment execution schedule with 'Daily' or 'Disabled' values.
    *     </p>
    */
-  assessmentSchedule?: AppAssessmentScheduleType | string;
+  assessmentSchedule?: AppAssessmentScheduleType;
 
   /**
    * @public
@@ -6266,21 +6266,21 @@ export interface UpdateResiliencyPolicyRequest {
    * <p>Specifies a high-level geographical location constraint for where your resilience policy
    *       data can be stored.</p>
    */
-  dataLocationConstraint?: DataLocationConstraint | string;
+  dataLocationConstraint?: DataLocationConstraint;
 
   /**
    * @public
    * <p>The tier for this resiliency policy, ranging from the highest severity
    *         (<code>MissionCritical</code>) to lowest (<code>NonCritical</code>).</p>
    */
-  tier?: ResiliencyPolicyTier | string;
+  tier?: ResiliencyPolicyTier;
 
   /**
    * @public
    * <p>The type of resiliency policy to be created, including the recovery time objective (RTO)
    *       and recovery point objective (RPO) in seconds.</p>
    */
-  policy?: Record<string, FailurePolicy>;
+  policy?: Record<DisruptionType, FailurePolicy>;
 }
 
 /**

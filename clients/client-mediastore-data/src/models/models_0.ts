@@ -278,7 +278,7 @@ export interface Item {
    * @public
    * <p>The item type (folder or object).</p>
    */
-  Type?: ItemType | string;
+  Type?: ItemType;
 
   /**
    * @public
@@ -442,7 +442,7 @@ export interface PutObjectRequest {
    *          high-performance temporal storage class, and objects are persisted into durable storage
    *          shortly after being received.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: StorageClass;
 
   /**
    * @public
@@ -451,7 +451,7 @@ export interface PutObjectRequest {
    *             available for downloading only when it is uploaded completely. The default value for this header is <code>standard</code>.</p>
    *         <p>To use this header, you must also set the HTTP <code>Transfer-Encoding</code> header to <code>chunked</code>.</p>
    */
-  UploadAvailability?: UploadAvailability | string;
+  UploadAvailability?: UploadAvailability;
 }
 
 /**
@@ -475,7 +475,7 @@ export interface PutObjectResponse {
    * <p>The storage class where the object was persisted. The class should be
    *          “Temporal”.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: StorageClass;
 }
 
 /**

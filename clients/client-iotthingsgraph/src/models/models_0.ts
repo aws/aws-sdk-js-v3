@@ -137,7 +137,7 @@ export interface DefinitionDocument {
    * @public
    * <p>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</p>
    */
-  language: DefinitionLanguage | string | undefined;
+  language: DefinitionLanguage | undefined;
 
   /**
    * @public
@@ -315,7 +315,7 @@ export interface CreateSystemInstanceRequest {
    * @public
    * <p>The target type of the deployment. Valid values are <code>GREENGRASS</code> and <code>CLOUD</code>.</p>
    */
-  target: DeploymentTarget | string | undefined;
+  target: DeploymentTarget | undefined;
 
   /**
    * @public
@@ -388,13 +388,13 @@ export interface SystemInstanceSummary {
    * @public
    * <p>The status of the system instance.</p>
    */
-  status?: SystemInstanceDeploymentStatus | string;
+  status?: SystemInstanceDeploymentStatus;
 
   /**
    * @public
    * <p>The target of the system instance.</p>
    */
-  target?: DeploymentTarget | string;
+  target?: DeploymentTarget;
 
   /**
    * @public
@@ -769,7 +769,7 @@ export interface DissociateEntityFromThingRequest {
    * @public
    * <p>The entity type from which to disassociate the thing.</p>
    */
-  entityType: EntityType | string | undefined;
+  entityType: EntityType | undefined;
 }
 
 /**
@@ -798,7 +798,7 @@ export interface EntityDescription {
    * @public
    * <p>The entity type.</p>
    */
-  type?: EntityType | string;
+  type?: EntityType;
 
   /**
    * @public
@@ -841,7 +841,7 @@ export interface EntityFilter {
    * <p>The name of the entity search filter field. <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example,
    *          you can filter on the ID of a property that is used in a state.</p>
    */
-  name?: EntityFilterName | string;
+  name?: EntityFilterName;
 
   /**
    * @public
@@ -894,7 +894,7 @@ export interface FlowExecutionMessage {
    * @public
    * <p>The type of flow event .</p>
    */
-  eventType?: FlowExecutionEventType | string;
+  eventType?: FlowExecutionEventType;
 
   /**
    * @public
@@ -940,7 +940,7 @@ export interface FlowExecutionSummary {
    * @public
    * <p>The current status of the flow execution.</p>
    */
-  status?: FlowExecutionStatus | string;
+  status?: FlowExecutionStatus;
 
   /**
    * @public
@@ -1013,7 +1013,7 @@ export interface FlowTemplateFilter {
    * @public
    * <p>The name of the search filter field.</p>
    */
-  name: FlowTemplateFilterName | string | undefined;
+  name: FlowTemplateFilterName | undefined;
 
   /**
    * @public
@@ -1184,13 +1184,13 @@ export interface GetNamespaceDeletionStatusResponse {
    * @public
    * <p>The status of the deletion request.</p>
    */
-  status?: NamespaceDeletionStatus | string;
+  status?: NamespaceDeletionStatus;
 
   /**
    * @public
    * <p>An error code returned by the namespace deletion task.</p>
    */
-  errorCode?: NamespaceDeletionStatusErrorCodes | string;
+  errorCode?: NamespaceDeletionStatusErrorCodes;
 
   /**
    * @public
@@ -1415,7 +1415,7 @@ export interface GetUploadStatusResponse {
    * @public
    * <p>The status of the upload. The initial status is <code>IN_PROGRESS</code>. The response show all validation failures if the upload fails.</p>
    */
-  uploadStatus: UploadStatus | string | undefined;
+  uploadStatus: UploadStatus | undefined;
 
   /**
    * @public
@@ -1536,7 +1536,7 @@ export interface SearchEntitiesRequest {
    * @public
    * <p>The entity types for which to search.</p>
    */
-  entityTypes: (EntityType | string)[] | undefined;
+  entityTypes: EntityType[] | undefined;
 
   /**
    * @public
@@ -1708,7 +1708,7 @@ export interface SystemInstanceFilter {
    * @public
    * <p>The name of the search filter field.</p>
    */
-  name?: SystemInstanceFilterName | string;
+  name?: SystemInstanceFilterName;
 
   /**
    * @public
@@ -1781,7 +1781,7 @@ export interface SystemTemplateFilter {
    * @public
    * <p>The name of the system search filter field.</p>
    */
-  name: SystemTemplateFilterName | string | undefined;
+  name: SystemTemplateFilterName | undefined;
 
   /**
    * @public

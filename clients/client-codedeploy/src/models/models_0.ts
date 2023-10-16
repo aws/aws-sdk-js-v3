@@ -349,7 +349,7 @@ export interface ApplicationInfo {
    * @public
    * <p>The destination platform type for deployment of the application (<code>Lambda</code> or <code>Server</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
 }
 
 /**
@@ -488,7 +488,7 @@ export interface AutoRollbackConfiguration {
    * @public
    * <p>The event type or types that trigger a rollback.</p>
    */
-  events?: (AutoRollbackEvent | string)[];
+  events?: AutoRollbackEvent[];
 }
 
 /**
@@ -608,7 +608,7 @@ export interface S3Location {
    *             </li>
    *          </ul>
    */
-  bundleType?: BundleType | string;
+  bundleType?: BundleType;
 
   /**
    * @public
@@ -681,7 +681,7 @@ export interface RevisionLocation {
    *             </li>
    *          </ul>
    */
-  revisionType?: RevisionLocationType | string;
+  revisionType?: RevisionLocationType;
 
   /**
    * @public
@@ -974,7 +974,7 @@ export interface DeploymentReadyOption {
    *             </li>
    *          </ul>
    */
-  actionOnTimeout?: DeploymentReadyAction | string;
+  actionOnTimeout?: DeploymentReadyAction;
 
   /**
    * @public
@@ -1022,7 +1022,7 @@ export interface GreenFleetProvisioningOption {
    *             </li>
    *          </ul>
    */
-  action?: GreenFleetProvisioningAction | string;
+  action?: GreenFleetProvisioningAction;
 }
 
 /**
@@ -1064,7 +1064,7 @@ export interface BlueInstanceTerminationOption {
    *             </li>
    *          </ul>
    */
-  action?: InstanceAction | string;
+  action?: InstanceAction;
 
   /**
    * @public
@@ -1143,13 +1143,13 @@ export interface DeploymentStyle {
    * @public
    * <p>Indicates whether to run an in-place deployment or a blue/green deployment.</p>
    */
-  deploymentType?: DeploymentType | string;
+  deploymentType?: DeploymentType;
 
   /**
    * @public
    * <p>Indicates whether to route deployment traffic behind a load balancer.</p>
    */
-  deploymentOption?: DeploymentOption | string;
+  deploymentOption?: DeploymentOption;
 }
 
 /**
@@ -1202,7 +1202,7 @@ export interface EC2TagFilter {
    *             </li>
    *          </ul>
    */
-  Type?: EC2TagFilterType | string;
+  Type?: EC2TagFilterType;
 }
 
 /**
@@ -1275,7 +1275,7 @@ export interface LastDeploymentInfo {
    * @public
    * <p>The status of the most recent deployment.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: DeploymentStatus;
 
   /**
    * @public
@@ -1465,7 +1465,7 @@ export interface TagFilter {
    *             </li>
    *          </ul>
    */
-  Type?: TagFilterType | string;
+  Type?: TagFilterType;
 }
 
 /**
@@ -1540,7 +1540,7 @@ export interface TriggerConfig {
    * @public
    * <p>The event type or types for which notifications are triggered.</p>
    */
-  triggerEvents?: (TriggerEventType | string)[];
+  triggerEvents?: TriggerEventType[];
 }
 
 /**
@@ -1644,7 +1644,7 @@ export interface DeploymentGroupInfo {
    *             deployment to update the new Amazon EC2 instances. This may result in instances
    *             having different revisions.</p>
    */
-  outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
+  outdatedInstancesStrategy?: OutdatedInstancesStrategy;
 
   /**
    * @public
@@ -1692,7 +1692,7 @@ export interface DeploymentGroupInfo {
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
 
   /**
    * @public
@@ -1864,7 +1864,7 @@ export interface Diagnostics {
    *             </li>
    *          </ul>
    */
-  errorCode?: LifecycleErrorCode | string;
+  errorCode?: LifecycleErrorCode;
 
   /**
    * @public
@@ -1960,7 +1960,7 @@ export interface LifecycleEvent {
    *             </li>
    *          </ul>
    */
-  status?: LifecycleEventStatus | string;
+  status?: LifecycleEventStatus;
 }
 
 /**
@@ -2036,7 +2036,7 @@ export interface InstanceSummary {
    *             </li>
    *          </ul>
    */
-  status?: InstanceStatus | string;
+  status?: InstanceStatus;
 
   /**
    * @public
@@ -2063,7 +2063,7 @@ export interface InstanceSummary {
    *             </li>
    *          </ul>
    */
-  instanceType?: _InstanceType | string;
+  instanceType?: _InstanceType;
 }
 
 /**
@@ -2370,7 +2370,7 @@ export interface ErrorInformation {
    *             </li>
    *          </ul>
    */
-  code?: ErrorCode | string;
+  code?: ErrorCode;
 
   /**
    * @public
@@ -2517,7 +2517,7 @@ export interface DeploymentInfo {
    * @public
    * <p>The current state of the deployment as a whole.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: DeploymentStatus;
 
   /**
    * @public
@@ -2583,7 +2583,7 @@ export interface DeploymentInfo {
    *             </li>
    *          </ul>
    */
-  creator?: DeploymentCreator | string;
+  creator?: DeploymentCreator;
 
   /**
    * @public
@@ -2698,7 +2698,7 @@ export interface DeploymentInfo {
    *             </li>
    *          </ul>
    */
-  fileExistsBehavior?: FileExistsBehavior | string;
+  fileExistsBehavior?: FileExistsBehavior;
 
   /**
    * @public
@@ -2711,7 +2711,7 @@ export interface DeploymentInfo {
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
 
   /**
    * @public
@@ -2844,7 +2844,7 @@ export interface CloudFormationTarget {
    * <p> The status of an CloudFormation blue/green deployment's target application.
    *         </p>
    */
-  status?: TargetStatus | string;
+  status?: TargetStatus;
 
   /**
    * @public
@@ -2973,7 +2973,7 @@ export interface ECSTaskSet {
    * <p> A label that identifies whether the ECS task set is an original target
    *                 (<code>BLUE</code>) or a replacement target (<code>GREEN</code>). </p>
    */
-  taskSetLabel?: TargetLabel | string;
+  taskSetLabel?: TargetLabel;
 }
 
 /**
@@ -3018,7 +3018,7 @@ export interface ECSTarget {
    * @public
    * <p> The status an Amazon ECS deployment's target ECS application. </p>
    */
-  status?: TargetStatus | string;
+  status?: TargetStatus;
 
   /**
    * @public
@@ -3056,7 +3056,7 @@ export interface InstanceTarget {
    * @public
    * <p> The status an EC2/On-premises deployment's target instance. </p>
    */
-  status?: TargetStatus | string;
+  status?: TargetStatus;
 
   /**
    * @public
@@ -3075,7 +3075,7 @@ export interface InstanceTarget {
    * <p> A label that identifies whether the instance is an original target
    *             (<code>BLUE</code>) or a replacement target (<code>GREEN</code>). </p>
    */
-  instanceLabel?: TargetLabel | string;
+  instanceLabel?: TargetLabel;
 }
 
 /**
@@ -3147,7 +3147,7 @@ export interface LambdaTarget {
    * <p> The status an Lambda deployment's target Lambda function.
    *         </p>
    */
-  status?: TargetStatus | string;
+  status?: TargetStatus;
 
   /**
    * @public
@@ -3181,7 +3181,7 @@ export interface DeploymentTarget {
    * <p>The deployment type that is specific to the deployment's compute platform or
    *             deployments initiated by a CloudFormation stack update.</p>
    */
-  deploymentTargetType?: DeploymentTargetType | string;
+  deploymentTargetType?: DeploymentTargetType;
 
   /**
    * @public
@@ -3499,7 +3499,7 @@ export interface ContinueDeploymentInput {
    *             indicates that the traffic is shifted, but the original target is not terminated.
    *         </p>
    */
-  deploymentWaitType?: DeploymentWaitType | string;
+  deploymentWaitType?: DeploymentWaitType;
 }
 
 /**
@@ -3619,7 +3619,7 @@ export interface CreateApplicationInput {
    * <p> The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
 
   /**
    * @public
@@ -3770,7 +3770,7 @@ export interface CreateDeploymentInput {
    *             </li>
    *          </ul>
    */
-  fileExistsBehavior?: FileExistsBehavior | string;
+  fileExistsBehavior?: FileExistsBehavior;
 
   /**
    * @public
@@ -4246,7 +4246,7 @@ export interface MinimumHealthyHosts {
    *                 Instance Health</a> in the <i>CodeDeploy User
    *                 Guide</i>.</p>
    */
-  type?: MinimumHealthyHostsType | string;
+  type?: MinimumHealthyHostsType;
 
   /**
    * @public
@@ -4328,7 +4328,7 @@ export interface TrafficRoutingConfig {
    * <p>The type of traffic shifting (<code>TimeBasedCanary</code> or
    *                 <code>TimeBasedLinear</code>) used by a deployment configuration.</p>
    */
-  type?: TrafficRoutingType | string;
+  type?: TrafficRoutingType;
 
   /**
    * @public
@@ -4395,7 +4395,7 @@ export interface CreateDeploymentConfigInput {
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
 }
 
 /**
@@ -4583,7 +4583,7 @@ export interface CreateDeploymentGroupInput {
    *             deployment to update the new Amazon EC2 instances. This may result in instances
    *             having different revisions.</p>
    */
-  outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
+  outdatedInstancesStrategy?: OutdatedInstancesStrategy;
 
   /**
    * @public
@@ -5366,7 +5366,7 @@ export interface DeploymentConfigInfo {
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
 
   /**
    * @public
@@ -5691,7 +5691,7 @@ export interface ListApplicationRevisionsInput {
    *          <p> If not specified or set to null, the results are returned in an arbitrary order.
    *         </p>
    */
-  sortBy?: ApplicationRevisionSortBy | string;
+  sortBy?: ApplicationRevisionSortBy;
 
   /**
    * @public
@@ -5709,7 +5709,7 @@ export interface ListApplicationRevisionsInput {
    *          <p>If not specified, the results are sorted in ascending order.</p>
    *          <p>If set to null, the results are sorted in an arbitrary order.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
@@ -5746,7 +5746,7 @@ export interface ListApplicationRevisionsInput {
    *             </li>
    *          </ul>
    */
-  deployed?: ListStateFilterAction | string;
+  deployed?: ListStateFilterAction;
 
   /**
    * @public
@@ -6022,7 +6022,7 @@ export interface ListDeploymentInstancesInput {
    *             </li>
    *          </ul>
    */
-  instanceStatusFilter?: (InstanceStatus | string)[];
+  instanceStatusFilter?: InstanceStatus[];
 
   /**
    * @public
@@ -6030,7 +6030,7 @@ export interface ListDeploymentInstancesInput {
    *             environment ("BLUE") or those in the replacement environment ("GREEN"), for which you
    *             want to view instance information.</p>
    */
-  instanceTypeFilter?: (_InstanceType | string)[];
+  instanceTypeFilter?: _InstanceType[];
 }
 
 /**
@@ -6185,7 +6185,7 @@ export interface ListDeploymentsInput {
    *             </li>
    *          </ul>
    */
-  includeOnlyStatuses?: (DeploymentStatus | string)[];
+  includeOnlyStatuses?: DeploymentStatus[];
 
   /**
    * @public
@@ -6270,7 +6270,7 @@ export interface ListDeploymentTargetsInput {
    *             </li>
    *          </ul>
    */
-  targetFilters?: Record<string, string[]>;
+  targetFilters?: Record<TargetFilterName, string[]>;
 }
 
 /**
@@ -6400,7 +6400,7 @@ export interface ListOnPremisesInstancesInput {
    *             </li>
    *          </ul>
    */
-  registrationStatus?: RegistrationStatus | string;
+  registrationStatus?: RegistrationStatus;
 
   /**
    * @public
@@ -6607,7 +6607,7 @@ export interface PutLifecycleEventHookExecutionStatusInput {
    *             lifecycle statuses in general; however, only <code>Succeeded</code> and
    *                 <code>Failed</code> can be passed successfully in your API call.</p>
    */
-  status?: LifecycleEventStatus | string;
+  status?: LifecycleEventStatus;
 }
 
 /**
@@ -6915,7 +6915,7 @@ export interface StopDeploymentOutput {
    *             </li>
    *          </ul>
    */
-  status?: StopStatus | string;
+  status?: StopStatus;
 
   /**
    * @public
@@ -7093,7 +7093,7 @@ export interface UpdateDeploymentGroupInput {
    *             deployment to update the new Amazon EC2 instances. This may result in instances
    *             having different revisions.</p>
    */
-  outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
+  outdatedInstancesStrategy?: OutdatedInstancesStrategy;
 
   /**
    * @public

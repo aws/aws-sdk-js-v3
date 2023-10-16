@@ -319,7 +319,7 @@ export interface MaintenanceUpdateSettings {
    * @public
    * Choose one day of the week for maintenance. The chosen day is used for all future maintenance windows.
    */
-  MaintenanceDay?: MaintenanceDay | string;
+  MaintenanceDay?: MaintenanceDay;
 
   /**
    * @public
@@ -417,7 +417,7 @@ export interface RebootInputDeviceRequest {
    * @public
    * Force a reboot of an input device. If the device is streaming, it will stop streaming and begin rebooting within a few seconds of sending the command. If the device was streaming prior to the reboot, the device will resume streaming when the reboot completes.
    */
-  Force?: RebootInputDeviceForce | string;
+  Force?: RebootInputDeviceForce;
 
   /**
    * @public
@@ -483,7 +483,7 @@ export interface StartChannelResponse {
    * @public
    * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
-  ChannelClass?: ChannelClass | string;
+  ChannelClass?: ChannelClass;
 
   /**
    * @public
@@ -527,7 +527,7 @@ export interface StartChannelResponse {
    * @public
    * The log level being written to CloudWatch Logs.
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: LogLevel;
 
   /**
    * @public
@@ -563,7 +563,7 @@ export interface StartChannelResponse {
    * @public
    * Placeholder documentation for ChannelState
    */
-  State?: ChannelState | string;
+  State?: ChannelState;
 
   /**
    * @public
@@ -683,7 +683,7 @@ export interface StartMultiplexResponse {
    * @public
    * The current state of the multiplex.
    */
-  State?: MultiplexState | string;
+  State?: MultiplexState;
 
   /**
    * @public
@@ -725,7 +725,7 @@ export interface StopChannelResponse {
    * @public
    * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
-  ChannelClass?: ChannelClass | string;
+  ChannelClass?: ChannelClass;
 
   /**
    * @public
@@ -769,7 +769,7 @@ export interface StopChannelResponse {
    * @public
    * The log level being written to CloudWatch Logs.
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: LogLevel;
 
   /**
    * @public
@@ -805,7 +805,7 @@ export interface StopChannelResponse {
    * @public
    * Placeholder documentation for ChannelState
    */
-  State?: ChannelState | string;
+  State?: ChannelState;
 
   /**
    * @public
@@ -907,7 +907,7 @@ export interface StopMultiplexResponse {
    * @public
    * The current state of the multiplex.
    */
-  State?: MultiplexState | string;
+  State?: MultiplexState;
 
   /**
    * @public
@@ -1021,7 +1021,7 @@ export interface UpdateChannelRequest {
    * @public
    * The log level to write to CloudWatch Logs.
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: LogLevel;
 
   /**
    * @public
@@ -1063,7 +1063,7 @@ export interface UpdateChannelClassRequest {
    * @public
    * The channel class that you wish to update this channel to use.
    */
-  ChannelClass: ChannelClass | string | undefined;
+  ChannelClass: ChannelClass | undefined;
 
   /**
    * @public
@@ -1211,19 +1211,19 @@ export interface UpdateInputDeviceResponse {
    * @public
    * The state of the connection between the input device and AWS.
    */
-  ConnectionState?: InputDeviceConnectionState | string;
+  ConnectionState?: InputDeviceConnectionState;
 
   /**
    * @public
    * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
    */
-  DeviceSettingsSyncState?: DeviceSettingsSyncState | string;
+  DeviceSettingsSyncState?: DeviceSettingsSyncState;
 
   /**
    * @public
    * The status of software on the input device.
    */
-  DeviceUpdateStatus?: DeviceUpdateStatus | string;
+  DeviceUpdateStatus?: DeviceUpdateStatus;
 
   /**
    * @public
@@ -1265,7 +1265,7 @@ export interface UpdateInputDeviceResponse {
    * @public
    * The type of the input device.
    */
-  Type?: InputDeviceType | string;
+  Type?: InputDeviceType;
 
   /**
    * @public
@@ -1295,7 +1295,7 @@ export interface UpdateInputDeviceResponse {
    * @public
    * The output attachment type of the input device. Specifies MEDIACONNECT_FLOW if this device is the source for a MediaConnect flow. Specifies MEDIALIVE_INPUT if this device is the source for a MediaLive input.
    */
-  OutputType?: InputDeviceOutputType | string;
+  OutputType?: InputDeviceOutputType;
 }
 
 /**

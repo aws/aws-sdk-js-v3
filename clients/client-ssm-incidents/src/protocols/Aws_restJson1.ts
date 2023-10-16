@@ -3119,9 +3119,9 @@ const de_RegionInfoMap = (output: any, context: __SerdeContext): Record<string, 
     if (value === null) {
       return acc;
     }
-    acc[key] = de_RegionInfo(value, context);
+    acc[key as string] = de_RegionInfo(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, RegionInfo>);
 };
 
 // de_RelatedItem omitted.

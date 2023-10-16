@@ -63,7 +63,7 @@ export interface Cluster {
    * @public
    * <p>Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -105,7 +105,7 @@ export interface ControlPanel {
    * @public
    * <p>The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -135,7 +135,7 @@ export interface RoutingControl {
    * @public
    * <p>The deployment status of a routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -174,7 +174,7 @@ export interface RuleConfig {
    * @public
    * <p>A rule can be one of the following: ATLEAST, AND, or OR.</p>
    */
-  Type: RuleType | string | undefined;
+  Type: RuleType | undefined;
 }
 
 /**
@@ -216,7 +216,7 @@ export interface AssertionRule {
    * @public
    * <p>The deployment status of an assertion rule. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
-  Status: Status | string | undefined;
+  Status: Status | undefined;
 
   /**
    * @public
@@ -264,7 +264,7 @@ export interface GatingRule {
    * @public
    * <p>The deployment status of a gating rule. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
-  Status: Status | string | undefined;
+  Status: Status | undefined;
 
   /**
    * @public

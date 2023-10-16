@@ -33,7 +33,7 @@ export interface ActionCondition {
    *        The value <code>EXCLUDED_AS_COUNT</code> matches on
    *        excluded rules and also on rules that have a rule action override of Count. </p>
    */
-  Action: ActionValue | string | undefined;
+  Action: ActionValue | undefined;
 }
 
 /**
@@ -195,7 +195,7 @@ export interface Body {
    *          <p>Default: <code>CONTINUE</code>
    *          </p>
    */
-  OversizeHandling?: OversizeHandling | string;
+  OversizeHandling?: OversizeHandling;
 }
 
 /**
@@ -267,7 +267,7 @@ export interface Cookies {
    * <p>The parts of the cookies to inspect with the rule inspection criteria. If you specify
    *             <code>All</code>, WAF inspects both keys and values. </p>
    */
-  MatchScope: MapMatchScope | string | undefined;
+  MatchScope: MapMatchScope | undefined;
 
   /**
    * @public
@@ -293,7 +293,7 @@ export interface Cookies {
    *             </li>
    *          </ul>
    */
-  OversizeHandling: OversizeHandling | string | undefined;
+  OversizeHandling: OversizeHandling | undefined;
 }
 
 /**
@@ -328,7 +328,7 @@ export interface HeaderOrder {
    *             </li>
    *          </ul>
    */
-  OversizeHandling: OversizeHandling | string | undefined;
+  OversizeHandling: OversizeHandling | undefined;
 }
 
 /**
@@ -388,7 +388,7 @@ export interface Headers {
    * <p>The parts of the headers to match with the rule inspection criteria. If you specify
    *             <code>All</code>, WAF inspects both keys and values. </p>
    */
-  MatchScope: MapMatchScope | string | undefined;
+  MatchScope: MapMatchScope | undefined;
 
   /**
    * @public
@@ -414,7 +414,7 @@ export interface Headers {
    *             </li>
    *          </ul>
    */
-  OversizeHandling: OversizeHandling | string | undefined;
+  OversizeHandling: OversizeHandling | undefined;
 }
 
 /**
@@ -463,7 +463,7 @@ export interface JA3Fingerprint {
    *             </li>
    *          </ul>
    */
-  FallbackBehavior: FallbackBehavior | string | undefined;
+  FallbackBehavior: FallbackBehavior | undefined;
 }
 
 /**
@@ -558,7 +558,7 @@ export interface JsonBody {
    * <p>The parts of the JSON to match against using the <code>MatchPattern</code>. If you
    *          specify <code>All</code>, WAF matches against keys and values. </p>
    */
-  MatchScope: JsonMatchScope | string | undefined;
+  MatchScope: JsonMatchScope | undefined;
 
   /**
    * @public
@@ -603,7 +603,7 @@ export interface JsonBody {
    *             </li>
    *          </ul>
    */
-  InvalidFallbackBehavior?: BodyParsingFallbackBehavior | string;
+  InvalidFallbackBehavior?: BodyParsingFallbackBehavior;
 
   /**
    * @public
@@ -635,7 +635,7 @@ export interface JsonBody {
    *          <p>Default: <code>CONTINUE</code>
    *          </p>
    */
-  OversizeHandling?: OversizeHandling | string;
+  OversizeHandling?: OversizeHandling;
 }
 
 /**
@@ -920,7 +920,7 @@ export interface TextTransformation {
    * <p>For detailed descriptions of each of the transformation types, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html">Text transformations</a>
    *                in the <i>WAF Developer Guide</i>.</p>
    */
-  Type: TextTransformationType | string | undefined;
+  Type: TextTransformationType | undefined;
 }
 
 /**
@@ -1040,7 +1040,7 @@ export interface ByteMatchStatement {
    *          <p>The value of <code>SearchString</code> must appear at the end of the specified part of
    *          the web request.</p>
    */
-  PositionalConstraint: PositionalConstraint | string | undefined;
+  PositionalConstraint: PositionalConstraint | undefined;
 }
 
 /**
@@ -1343,7 +1343,7 @@ export interface ForwardedIPConfig {
    *             </li>
    *          </ul>
    */
-  FallbackBehavior: FallbackBehavior | string | undefined;
+  FallbackBehavior: FallbackBehavior | undefined;
 }
 
 /**
@@ -1369,7 +1369,7 @@ export interface GeoMatchStatement {
    *          the alpha-2 country ISO codes of the ISO 3166 international standard. </p>
    *          <p>When you use a geo match statement just for the region and country labels that it adds to requests, you still have to supply a country code for the rule to evaluate. In this case, you configure the rule to only count matching requests, but it will still generate logging and count metrics for any matches. You can reduce the logging and metrics that the rule produces by specifying a country that's unlikely to be a source of traffic to your site.</p>
    */
-  CountryCodes?: (CountryCode | string)[];
+  CountryCodes?: CountryCode[];
 
   /**
    * @public
@@ -1432,7 +1432,7 @@ export interface IPSetForwardedIPConfig {
    *             </li>
    *          </ul>
    */
-  FallbackBehavior: FallbackBehavior | string | undefined;
+  FallbackBehavior: FallbackBehavior | undefined;
 
   /**
    * @public
@@ -1456,7 +1456,7 @@ export interface IPSetForwardedIPConfig {
    *             </li>
    *          </ul>
    */
-  Position: ForwardedIPPosition | string | undefined;
+  Position: ForwardedIPPosition | undefined;
 }
 
 /**
@@ -1506,7 +1506,7 @@ export interface LabelMatchStatement {
    * @public
    * <p>Specify whether you want to match using the label name or just the namespace. </p>
    */
-  Scope: LabelMatchScope | string | undefined;
+  Scope: LabelMatchScope | undefined;
 
   /**
    * @public
@@ -1695,7 +1695,7 @@ export interface RequestInspectionACFP {
    * @public
    * <p>The payload type for your account creation endpoint, either JSON or form encoded.</p>
    */
-  PayloadType: PayloadType | string | undefined;
+  PayloadType: PayloadType | undefined;
 
   /**
    * @public
@@ -2049,7 +2049,7 @@ export interface RequestInspection {
    * @public
    * <p>The payload type for your login endpoint, either JSON or form encoded.</p>
    */
-  PayloadType: PayloadType | string | undefined;
+  PayloadType: PayloadType | undefined;
 
   /**
    * @public
@@ -2164,7 +2164,7 @@ export interface AWSManagedRulesBotControlRuleSet {
    *    details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html">WAF Bot Control rule group</a>
    *                in the <i>WAF Developer Guide</i>.</p>
    */
-  InspectionLevel: InspectionLevel | string | undefined;
+  InspectionLevel: InspectionLevel | undefined;
 
   /**
    * @public
@@ -2217,7 +2217,7 @@ export interface ManagedRuleGroupConfig {
    *             <p>Instead of this setting, provide your configuration under the request inspection configuration for <code>AWSManagedRulesATPRuleSet</code> or <code>AWSManagedRulesACFPRuleSet</code>. </p>
    *          </note>
    */
-  PayloadType?: PayloadType | string;
+  PayloadType?: PayloadType;
 
   /**
    * @public
@@ -2831,7 +2831,7 @@ export interface SizeConstraintStatement {
    * @public
    * <p>The operator to use to compare the request part to the size setting. </p>
    */
-  ComparisonOperator: ComparisonOperator | string | undefined;
+  ComparisonOperator: ComparisonOperator | undefined;
 
   /**
    * @public
@@ -2892,7 +2892,7 @@ export interface SqliMatchStatement {
    *          <p>Default: <code>LOW</code>
    *          </p>
    */
-  SensitivityLevel?: SensitivityLevel | string;
+  SensitivityLevel?: SensitivityLevel;
 }
 
 /**
@@ -3172,7 +3172,7 @@ export class WAFInvalidParameterException extends __BaseException {
    * @public
    * <p>The settings where the invalid parameter was found. </p>
    */
-  Field?: ParameterExceptionField | string;
+  Field?: ParameterExceptionField;
 
   /**
    * @public
@@ -3284,7 +3284,7 @@ export interface RequestBodyAssociatedResourceTypeConfig {
    *          <p>Default: <code>16 KB (16,384 bytes)</code>
    *          </p>
    */
-  DefaultSizeInspectionLimit: SizeInspectionLimit | string | undefined;
+  DefaultSizeInspectionLimit: SizeInspectionLimit | undefined;
 }
 
 /**
@@ -3303,7 +3303,7 @@ export interface AssociationConfig {
    *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
    *          </note>
    */
-  RequestBody?: Record<string, RequestBodyAssociatedResourceTypeConfig>;
+  RequestBody?: Record<AssociatedResourceType, RequestBodyAssociatedResourceTypeConfig>;
 }
 
 /**
@@ -3572,7 +3572,7 @@ export interface CreateAPIKeyRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -3662,7 +3662,7 @@ export interface CreateIPSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -3674,7 +3674,7 @@ export interface CreateIPSetRequest {
    * @public
    * <p>The version of the IP addresses, either <code>IPV4</code> or <code>IPV6</code>. </p>
    */
-  IPAddressVersion: IPAddressVersion | string | undefined;
+  IPAddressVersion: IPAddressVersion | undefined;
 
   /**
    * @public
@@ -3898,7 +3898,7 @@ export interface CreateRegexPatternSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -3993,7 +3993,7 @@ export interface CustomResponseBody {
    * <p>The type of content in the payload that you are defining in the <code>Content</code>
    *          string.</p>
    */
-  ContentType: ResponseContentType | string | undefined;
+  ContentType: ResponseContentType | undefined;
 
   /**
    * @public
@@ -4203,7 +4203,7 @@ export interface DeleteIPSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -4303,7 +4303,7 @@ export interface DeleteRegexPatternSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -4346,7 +4346,7 @@ export interface DeleteRuleGroupRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -4389,7 +4389,7 @@ export interface DeleteWebACLRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -4426,7 +4426,7 @@ export interface DescribeAllManagedProductsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 }
 
 /**
@@ -4527,7 +4527,7 @@ export interface DescribeManagedProductsByVendorRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 }
 
 /**
@@ -4570,7 +4570,7 @@ export interface DescribeManagedRuleGroupRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -4766,7 +4766,7 @@ export interface GenerateMobileSdkReleaseUrlRequest {
    * @public
    * <p>The device platform.</p>
    */
-  Platform: Platform | string | undefined;
+  Platform: Platform | undefined;
 
   /**
    * @public
@@ -4804,7 +4804,7 @@ export interface GetDecryptedAPIKeyRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -4853,7 +4853,7 @@ export interface GetIPSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -4900,7 +4900,7 @@ export interface IPSet {
    * @public
    * <p>The version of the IP addresses, either <code>IPV4</code> or <code>IPV6</code>. </p>
    */
-  IPAddressVersion: IPAddressVersion | string | undefined;
+  IPAddressVersion: IPAddressVersion | undefined;
 
   /**
    * @public
@@ -5042,14 +5042,14 @@ export interface Filter {
    * @public
    * <p>How to handle logs that satisfy the filter's conditions and requirement. </p>
    */
-  Behavior: FilterBehavior | string | undefined;
+  Behavior: FilterBehavior | undefined;
 
   /**
    * @public
    * <p>Logic to apply to the filtering conditions. You can specify that, in order to satisfy
    *          the filter, a log must match all conditions or must match at least one condition.</p>
    */
-  Requirement: FilterRequirement | string | undefined;
+  Requirement: FilterRequirement | undefined;
 
   /**
    * @public
@@ -5077,7 +5077,7 @@ export interface LoggingFilter {
    * <p>Default handling for logs that don't match any of the specified filtering conditions.
    *       </p>
    */
-  DefaultBehavior: FilterBehavior | string | undefined;
+  DefaultBehavior: FilterBehavior | undefined;
 }
 
 /**
@@ -5199,7 +5199,7 @@ export interface GetManagedRuleSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -5359,7 +5359,7 @@ export interface GetMobileSdkReleaseRequest {
    * @public
    * <p>The device platform.</p>
    */
-  Platform: Platform | string | undefined;
+  Platform: Platform | undefined;
 
   /**
    * @public
@@ -5452,7 +5452,7 @@ export interface GetRateBasedStatementManagedKeysRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -5494,7 +5494,7 @@ export interface RateBasedStatementManagedKeysIPSet {
    * @public
    * <p>The version of the IP addresses, either <code>IPV4</code> or <code>IPV6</code>. </p>
    */
-  IPAddressVersion?: IPAddressVersion | string;
+  IPAddressVersion?: IPAddressVersion;
 
   /**
    * @public
@@ -5566,7 +5566,7 @@ export interface GetRegexPatternSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -5653,7 +5653,7 @@ export interface GetRuleGroupRequest {
    *             </li>
    *          </ul>
    */
-  Scope?: Scope | string;
+  Scope?: Scope;
 
   /**
    * @public
@@ -5738,7 +5738,7 @@ export interface GetSampledRequestsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -5800,7 +5800,7 @@ export interface CaptchaResponse {
    * @public
    * <p>The reason for failure, populated when the evaluation of the token fails.</p>
    */
-  FailureReason?: FailureReason | string;
+  FailureReason?: FailureReason;
 }
 
 /**
@@ -5825,7 +5825,7 @@ export interface ChallengeResponse {
    * @public
    * <p>The reason for failure, populated when the evaluation of the token fails.</p>
    */
-  FailureReason?: FailureReason | string;
+  FailureReason?: FailureReason;
 }
 
 /**
@@ -6055,7 +6055,7 @@ export interface GetWebACLRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -6125,7 +6125,7 @@ export interface ListAPIKeysRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -6186,7 +6186,7 @@ export interface ListAvailableManagedRuleGroupsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -6284,7 +6284,7 @@ export interface ListAvailableManagedRuleGroupVersionsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -6364,7 +6364,7 @@ export interface ListIPSetsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -6419,7 +6419,7 @@ export interface ListLoggingConfigurationsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -6474,7 +6474,7 @@ export interface ListManagedRuleSetsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -6580,7 +6580,7 @@ export interface ListMobileSdkReleasesRequest {
    * @public
    * <p>The device platform to retrieve the list for.</p>
    */
-  Platform: Platform | string | undefined;
+  Platform: Platform | undefined;
 
   /**
    * @public
@@ -6653,7 +6653,7 @@ export interface ListRegexPatternSetsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -6729,7 +6729,7 @@ export interface ListResourcesForWebACLRequest {
    *          <p>Default: <code>APPLICATION_LOAD_BALANCER</code>
    *          </p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 }
 
 /**
@@ -6760,7 +6760,7 @@ export interface ListRuleGroupsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -6888,7 +6888,7 @@ export interface ListWebACLsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -7048,7 +7048,7 @@ export interface PutManagedRuleSetVersionsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -7246,7 +7246,7 @@ export interface UpdateIPSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -7343,7 +7343,7 @@ export interface UpdateManagedRuleSetVersionExpiryDateRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -7419,7 +7419,7 @@ export interface UpdateRegexPatternSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -7881,7 +7881,7 @@ export interface RateBasedStatement {
    *             </li>
    *          </ul>
    */
-  AggregateKeyType: RateBasedStatementAggregateKeyType | string | undefined;
+  AggregateKeyType: RateBasedStatementAggregateKeyType | undefined;
 
   /**
    * @public
@@ -8126,7 +8126,7 @@ export interface CheckCapacityRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -8159,7 +8159,7 @@ export interface CreateRuleGroupRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -8240,7 +8240,7 @@ export interface CreateWebACLRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -8447,7 +8447,7 @@ export interface UpdateRuleGroupRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public
@@ -8517,7 +8517,7 @@ export interface UpdateWebACLRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: Scope | undefined;
 
   /**
    * @public

@@ -291,7 +291,7 @@ export interface DescribeTestExecutionResponse {
    * @public
    * <p>The test execution status for the test execution.</p>
    */
-  testExecutionStatus?: TestExecutionStatus | string;
+  testExecutionStatus?: TestExecutionStatus;
 
   /**
    * @public
@@ -318,13 +318,13 @@ export interface DescribeTestExecutionResponse {
    *       Amazon Lex Runtime API is used. Whereas for non-streaming, <code>RecognizeUtterance</code>
    *       and <code>RecognizeText</code> Amazon Lex Runtime API is used.</p>
    */
-  apiMode?: TestExecutionApiMode | string;
+  apiMode?: TestExecutionApiMode;
 
   /**
    * @public
    * <p>Indicates whether test set is audio or text.</p>
    */
-  testExecutionModality?: TestExecutionModality | string;
+  testExecutionModality?: TestExecutionModality;
 
   /**
    * @public
@@ -387,13 +387,13 @@ export interface DescribeTestSetResponse {
    * @public
    * <p>Indicates whether the test set is audio or text data.</p>
    */
-  modality?: TestSetModality | string;
+  modality?: TestSetModality;
 
   /**
    * @public
    * <p>The status of the test set.</p>
    */
-  status?: TestSetStatus | string;
+  status?: TestSetStatus;
 
   /**
    * @public
@@ -547,7 +547,7 @@ export interface DescribeTestSetDiscrepancyReportResponse {
    * @public
    * <p>The status for the test set discrepancy report.</p>
    */
-  testSetDiscrepancyReportStatus?: TestSetDiscrepancyReportStatus | string;
+  testSetDiscrepancyReportStatus?: TestSetDiscrepancyReportStatus;
 
   /**
    * @public
@@ -627,7 +627,7 @@ export interface DescribeTestSetGenerationResponse {
    * @public
    * <p>The status for the test set generation.</p>
    */
-  testSetGenerationStatus?: TestSetGenerationStatus | string;
+  testSetGenerationStatus?: TestSetGenerationStatus;
 
   /**
    * @public
@@ -720,7 +720,7 @@ export interface ExportFilter {
    * @public
    * <p>The name of the field to use for filtering.</p>
    */
-  name: ExportFilterName | string | undefined;
+  name: ExportFilterName | undefined;
 
   /**
    * @public
@@ -738,7 +738,7 @@ export interface ExportFilter {
    *          <code>ListExports</code> operation should return resource types that
    *          contain the specified value.</p>
    */
-  operator: ExportFilterOperator | string | undefined;
+  operator: ExportFilterOperator | undefined;
 }
 
 /**
@@ -763,13 +763,13 @@ export interface ExportSortBy {
    * @public
    * <p>The export field to use for sorting.</p>
    */
-  attribute: ExportSortAttribute | string | undefined;
+  attribute: ExportSortAttribute | undefined;
 
   /**
    * @public
    * <p>The order to sort the list.</p>
    */
-  order: SortOrder | string | undefined;
+  order: SortOrder | undefined;
 }
 
 /**
@@ -794,14 +794,14 @@ export interface ExportSummary {
    * @public
    * <p>The file format used in the export files.</p>
    */
-  fileFormat?: ImportExportFileFormat | string;
+  fileFormat?: ImportExportFileFormat;
 
   /**
    * @public
    * <p>The status of the export. When the status is <code>Completed</code>
    *          the export is ready to download.</p>
    */
-  exportStatus?: ExportStatus | string;
+  exportStatus?: ExportStatus;
 
   /**
    * @public
@@ -880,7 +880,7 @@ export interface ImportFilter {
    * @public
    * <p>The name of the field to use for filtering.</p>
    */
-  name: ImportFilterName | string | undefined;
+  name: ImportFilterName | undefined;
 
   /**
    * @public
@@ -898,7 +898,7 @@ export interface ImportFilter {
    *          <code>ListImports</code> operation should return resource types that
    *          contain the specified value.</p>
    */
-  operator: ImportFilterOperator | string | undefined;
+  operator: ImportFilterOperator | undefined;
 }
 
 /**
@@ -939,13 +939,13 @@ export interface ImportSortBy {
    * @public
    * <p>The export field to use for sorting.</p>
    */
-  attribute: ImportSortAttribute | string | undefined;
+  attribute: ImportSortAttribute | undefined;
 
   /**
    * @public
    * <p>The order to sort the list.</p>
    */
-  order: SortOrder | string | undefined;
+  order: SortOrder | undefined;
 }
 
 /**
@@ -978,14 +978,14 @@ export interface ImportSummary {
    * <p>The status of the resource. When the status is
    *          <code>Completed</code> the resource is ready to build.</p>
    */
-  importStatus?: ImportStatus | string;
+  importStatus?: ImportStatus;
 
   /**
    * @public
    * <p>The strategy used to merge existing bot or bot locale definitions
    *          with the imported definition.</p>
    */
-  mergeStrategy?: MergeStrategy | string;
+  mergeStrategy?: MergeStrategy;
 
   /**
    * @public
@@ -1003,7 +1003,7 @@ export interface ImportSummary {
    * @public
    * <p>The type of resource that was imported.</p>
    */
-  importedResourceType?: ImportResourceType | string;
+  importedResourceType?: ImportResourceType;
 }
 
 /**
@@ -1035,13 +1035,13 @@ export interface IntentClassificationTestResultItemCounts {
    * @public
    * <p>The number of matched, mismatched, and execution error results for speech transcription for the intent.</p>
    */
-  speechTranscriptionResultCounts?: Record<string, number>;
+  speechTranscriptionResultCounts?: Record<TestResultMatchStatus, number>;
 
   /**
    * @public
    * <p>The number of matched and mismatched results for intent recognition for the intent.</p>
    */
-  intentMatchResultCounts: Record<string, number> | undefined;
+  intentMatchResultCounts: Record<TestResultMatchStatus, number> | undefined;
 }
 
 /**
@@ -1117,7 +1117,7 @@ export interface IntentFilter {
    * @public
    * <p>The name of the field to use for the filter.</p>
    */
-  name: IntentFilterName | string | undefined;
+  name: IntentFilterName | undefined;
 
   /**
    * @public
@@ -1133,7 +1133,7 @@ export interface IntentFilter {
    *          <code>ListIntents</code> operation should return aliases that
    *          contain the specified value.</p>
    */
-  operator: IntentFilterOperator | string | undefined;
+  operator: IntentFilterOperator | undefined;
 }
 
 /**
@@ -1151,13 +1151,13 @@ export interface SlotResolutionTestResultItemCounts {
    * @public
    * <p>The number of matched, mismatched and execution error results for speech transcription for the slot.</p>
    */
-  speechTranscriptionResultCounts?: Record<string, number>;
+  speechTranscriptionResultCounts?: Record<TestResultMatchStatus, number>;
 
   /**
    * @public
    * <p>The number of matched and mismatched results for slot resolution for the slot.</p>
    */
-  slotMatchResultCounts: Record<string, number> | undefined;
+  slotMatchResultCounts: Record<TestResultMatchStatus, number> | undefined;
 }
 
 /**
@@ -1238,14 +1238,14 @@ export interface IntentSortBy {
    * @public
    * <p>The attribute to use to sort the list of intents.</p>
    */
-  attribute: IntentSortAttribute | string | undefined;
+  attribute: IntentSortAttribute | undefined;
 
   /**
    * @public
    * <p>The order to sort the list. You can choose ascending or
    *          descending.</p>
    */
-  order: SortOrder | string | undefined;
+  order: SortOrder | undefined;
 }
 
 /**
@@ -1387,7 +1387,7 @@ export interface RelativeAggregationDuration {
    * <p>The type of time period that the <code>timeValue</code> field
    *             represents. </p>
    */
-  timeDimension: TimeDimension | string | undefined;
+  timeDimension: TimeDimension | undefined;
 
   /**
    * @public
@@ -2906,13 +2906,13 @@ export interface SessionDataSortBy {
    *             </li>
    *          </ul>
    */
-  name: AnalyticsSessionSortByName | string | undefined;
+  name: AnalyticsSessionSortByName | undefined;
 
   /**
    * @public
    * <p>Specifies whether to sort the results in ascending or descending order.</p>
    */
-  order: AnalyticsSortOrder | string | undefined;
+  order: AnalyticsSortOrder | undefined;
 }
 
 /**
@@ -3020,7 +3020,7 @@ export interface SessionSpecification {
    * @public
    * <p>The final state of the conversation. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p>
    */
-  conversationEndState?: ConversationEndState | string;
+  conversationEndState?: ConversationEndState;
 
   /**
    * @public
@@ -3044,7 +3044,7 @@ export interface SessionSpecification {
    *             </li>
    *          </ul>
    */
-  mode?: AnalyticsModality | string;
+  mode?: AnalyticsModality;
 
   /**
    * @public
@@ -3220,7 +3220,7 @@ export interface SlotFilter {
    * @public
    * <p>The name of the field to use for filtering.</p>
    */
-  name: SlotFilterName | string | undefined;
+  name: SlotFilterName | undefined;
 
   /**
    * @public
@@ -3236,7 +3236,7 @@ export interface SlotFilter {
    *          <code>ListSlots</code> operation should return aliases that contain
    *          the specified value.</p>
    */
-  operator: SlotFilterOperator | string | undefined;
+  operator: SlotFilterOperator | undefined;
 }
 
 /**
@@ -3262,14 +3262,14 @@ export interface SlotSortBy {
    * @public
    * <p>The attribute to use to sort the list.</p>
    */
-  attribute: SlotSortAttribute | string | undefined;
+  attribute: SlotSortAttribute | undefined;
 
   /**
    * @public
    * <p>The order to sort the list. You can choose ascending or
    *          descending.</p>
    */
-  order: SortOrder | string | undefined;
+  order: SortOrder | undefined;
 }
 
 /**
@@ -3367,7 +3367,7 @@ export interface SlotSummary {
    * <p>Whether the slot is required or optional. An intent is complete when
    *          all required slots are filled.</p>
    */
-  slotConstraint?: SlotConstraint | string;
+  slotConstraint?: SlotConstraint;
 
   /**
    * @public
@@ -3478,7 +3478,7 @@ export interface SlotTypeFilter {
    * @public
    * <p>The name of the field to use for filtering.</p>
    */
-  name: SlotTypeFilterName | string | undefined;
+  name: SlotTypeFilterName | undefined;
 
   /**
    * @public
@@ -3494,7 +3494,7 @@ export interface SlotTypeFilter {
    *          <code>ListSlotTypes</code> operation should return aliases that
    *          contain the specified value.</p>
    */
-  operator: SlotTypeFilterOperator | string | undefined;
+  operator: SlotTypeFilterOperator | undefined;
 }
 
 /**
@@ -3520,14 +3520,14 @@ export interface SlotTypeSortBy {
    * @public
    * <p>The attribute to use to sort the list of slot types.</p>
    */
-  attribute: SlotTypeSortAttribute | string | undefined;
+  attribute: SlotTypeSortAttribute | undefined;
 
   /**
    * @public
    * <p>The order to sort the list. You can say ascending or
    *          descending.</p>
    */
-  order: SortOrder | string | undefined;
+  order: SortOrder | undefined;
 }
 
 /**
@@ -3669,7 +3669,7 @@ export interface SlotTypeSummary {
    *             </li>
    *          </ul>
    */
-  slotTypeCategory?: SlotTypeCategory | string;
+  slotTypeCategory?: SlotTypeCategory;
 }
 
 /**
@@ -3765,7 +3765,7 @@ export interface TestExecutionResultFilterBy {
    * <p>Specifies which results to filter. See <a href="https://docs.aws.amazon.com/lexv2/latest/dg/test-results-details-test-set.html">Test result details">Test results details</a>
    *  for details about different types of results.</p>
    */
-  resultTypeFilter: TestResultTypeFilter | string | undefined;
+  resultTypeFilter: TestResultTypeFilter | undefined;
 
   /**
    * @public
@@ -3829,13 +3829,13 @@ export interface OverallTestResultItem {
    * @public
    * <p>The number of speech transcription results in the overall test.</p>
    */
-  speechTranscriptionResultCounts?: Record<string, number>;
+  speechTranscriptionResultCounts?: Record<TestResultMatchStatus, number>;
 
   /**
    * @public
    * <p>The number of results that succeeded.</p>
    */
-  endToEndResultCounts: Record<string, number> | undefined;
+  endToEndResultCounts: Record<TestResultMatchStatus, number> | undefined;
 }
 
 /**
@@ -3904,13 +3904,13 @@ export interface TestExecutionSortBy {
    * @public
    * <p>Specifies whether to sort the test set executions by the date and time at which the test sets were created.</p>
    */
-  attribute: TestExecutionSortAttribute | string | undefined;
+  attribute: TestExecutionSortAttribute | undefined;
 
   /**
    * @public
    * <p>Specifies whether to sort in ascending or descending order.</p>
    */
-  order: SortOrder | string | undefined;
+  order: SortOrder | undefined;
 }
 
 /**
@@ -3967,7 +3967,7 @@ export interface TestExecutionSummary {
    * @public
    * <p>The current status of the test execution.</p>
    */
-  testExecutionStatus?: TestExecutionStatus | string;
+  testExecutionStatus?: TestExecutionStatus;
 
   /**
    * @public
@@ -3992,14 +3992,14 @@ export interface TestExecutionSummary {
    * <p>Specifies whether the API mode for the test execution is streaming
    *       or non-streaming.</p>
    */
-  apiMode?: TestExecutionApiMode | string;
+  apiMode?: TestExecutionApiMode;
 
   /**
    * @public
    * <p>Specifies whether the data used for the test execution is written
    *       or spoken.</p>
    */
-  testExecutionModality?: TestExecutionModality | string;
+  testExecutionModality?: TestExecutionModality;
 }
 
 /**
@@ -4072,13 +4072,13 @@ export interface TestSetSortBy {
    * @public
    * <p>Specifies whether to sort the test sets by name or by the time they were last updated.</p>
    */
-  attribute: TestSetSortAttribute | string | undefined;
+  attribute: TestSetSortAttribute | undefined;
 
   /**
    * @public
    * <p>Specifies whether to sort in ascending or descending order.</p>
    */
-  order: SortOrder | string | undefined;
+  order: SortOrder | undefined;
 }
 
 /**
@@ -4134,13 +4134,13 @@ export interface TestSetSummary {
    * @public
    * <p>Specifies whether the test set contains written or spoken data.</p>
    */
-  modality?: TestSetModality | string;
+  modality?: TestSetModality;
 
   /**
    * @public
    * <p>The status of the test set.</p>
    */
-  status?: TestSetStatus | string;
+  status?: TestSetStatus;
 
   /**
    * @public
@@ -4213,13 +4213,13 @@ export interface UtteranceDataSortBy {
    *             </li>
    *          </ul>
    */
-  name: AnalyticsUtteranceSortByName | string | undefined;
+  name: AnalyticsUtteranceSortByName | undefined;
 
   /**
    * @public
    * <p>Specifies whether to sort the results in ascending or descending order.</p>
    */
-  order: AnalyticsSortOrder | string | undefined;
+  order: AnalyticsSortOrder | undefined;
 }
 
 /**
@@ -4319,7 +4319,7 @@ export interface UtteranceBotResponse {
    *             </li>
    *          </ul>
    */
-  contentType?: UtteranceContentType | string;
+  contentType?: UtteranceContentType;
 
   /**
    * @public
@@ -4388,7 +4388,7 @@ export interface UtteranceSpecification {
    *             </li>
    *          </ul>
    */
-  mode?: AnalyticsModality | string;
+  mode?: AnalyticsModality;
 
   /**
    * @public
@@ -4522,7 +4522,7 @@ export interface UtteranceSpecification {
    * @public
    * <p>The state of the intent that the utterance is associated to.</p>
    */
-  intentState?: IntentState | string;
+  intentState?: IntentState;
 
   /**
    * @public
@@ -4738,7 +4738,7 @@ export interface SearchAssociatedTranscriptsRequest {
    * <p>How SearchResults are ordered. Valid values are Ascending or
    *          Descending. The default is Descending.</p>
    */
-  searchOrder?: SearchOrder | string;
+  searchOrder?: SearchOrder;
 
   /**
    * @public
@@ -4896,7 +4896,7 @@ export interface StartBotRecommendationResponse {
    *          <p>If the status is Failed, then the reasons for the failure are listed
    *          in the failureReasons field. </p>
    */
-  botRecommendationStatus?: BotRecommendationStatus | string;
+  botRecommendationStatus?: BotRecommendationStatus;
 
   /**
    * @public
@@ -4953,7 +4953,7 @@ export interface StartImportRequest {
    *             <code>FailOnConflict</code> existing resources are not overwritten
    *          and the import fails.</p>
    */
-  mergeStrategy: MergeStrategy | string | undefined;
+  mergeStrategy: MergeStrategy | undefined;
 
   /**
    * @public
@@ -4987,7 +4987,7 @@ export interface StartImportResponse {
    *             <code>FailOnConflict</code> existing resources are not overwritten
    *          and the import fails.</p>
    */
-  mergeStrategy?: MergeStrategy | string;
+  mergeStrategy?: MergeStrategy;
 
   /**
    * @public
@@ -4995,7 +4995,7 @@ export interface StartImportResponse {
    *             <code>Complete</code> the bot, bot alias, or custom vocabulary is
    *          ready to use.</p>
    */
-  importStatus?: ImportStatus | string;
+  importStatus?: ImportStatus;
 
   /**
    * @public
@@ -5027,13 +5027,13 @@ export interface StartTestExecutionRequest {
    *       non-streaming, RecognizeUtterance and RecognizeText Amazon Lex
    *       Runtime API are used.</p>
    */
-  apiMode: TestExecutionApiMode | string | undefined;
+  apiMode: TestExecutionApiMode | undefined;
 
   /**
    * @public
    * <p>Indicates whether audio or text is used.</p>
    */
-  testExecutionModality?: TestExecutionModality | string;
+  testExecutionModality?: TestExecutionModality;
 }
 
 /**
@@ -5070,13 +5070,13 @@ export interface StartTestExecutionResponse {
    *       execution. For streaming, StartConversation Amazon Lex Runtime API is used. Whereas
    *       for non-streaming, RecognizeUtterance and RecognizeText Amazon Lex Runtime API are used.</p>
    */
-  apiMode?: TestExecutionApiMode | string;
+  apiMode?: TestExecutionApiMode;
 
   /**
    * @public
    * <p>Indicates whether audio or text is used.</p>
    */
-  testExecutionModality?: TestExecutionModality | string;
+  testExecutionModality?: TestExecutionModality;
 }
 
 /**
@@ -5141,7 +5141,7 @@ export interface StartTestSetGenerationResponse {
    * @public
    * <p> The status for the test set generation.</p>
    */
-  testSetGenerationStatus?: TestSetGenerationStatus | string;
+  testSetGenerationStatus?: TestSetGenerationStatus;
 
   /**
    * @public
@@ -5247,7 +5247,7 @@ export interface StopBotRecommendationResponse {
    * <p>The status of the bot recommendation. If the status is Failed,
    *          then the reasons for the failure are listed in the failureReasons field.</p>
    */
-  botRecommendationStatus?: BotRecommendationStatus | string;
+  botRecommendationStatus?: BotRecommendationStatus;
 
   /**
    * @public
@@ -5359,7 +5359,7 @@ export interface UpdateBotRequest {
    * @public
    * <p>The type of the bot to be updated.</p>
    */
-  botType?: BotType | string;
+  botType?: BotType;
 
   /**
    * @public
@@ -5418,7 +5418,7 @@ export interface UpdateBotResponse {
    *          changes to the <code>Available</code> status. After the bot is created,
    *          you can use the <code>DRAFT</code> version of the bot.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: BotStatus;
 
   /**
    * @public
@@ -5437,7 +5437,7 @@ export interface UpdateBotResponse {
    * @public
    * <p>The type of the bot that was updated.</p>
    */
-  botType?: BotType | string;
+  botType?: BotType;
 
   /**
    * @public
@@ -5556,7 +5556,7 @@ export interface UpdateBotAliasResponse {
    * <p>The current status of the bot alias. When the status is
    *             <code>Available</code> the alias is ready for use.</p>
    */
-  botAliasStatus?: BotAliasStatus | string;
+  botAliasStatus?: BotAliasStatus;
 
   /**
    * @public
@@ -5680,7 +5680,7 @@ export interface UpdateBotLocaleResponse {
    * <p>The current status of the locale. When the bot status is
    *             <code>Built</code> the locale is ready for use.</p>
    */
-  botLocaleStatus?: BotLocaleStatus | string;
+  botLocaleStatus?: BotLocaleStatus;
 
   /**
    * @public
@@ -5787,7 +5787,7 @@ export interface UpdateBotRecommendationResponse {
    *          <p>If the status is Failed, then the reasons for the failure are listed
    *          in the failureReasons field. </p>
    */
-  botRecommendationStatus?: BotRecommendationStatus | string;
+  botRecommendationStatus?: BotRecommendationStatus;
 
   /**
    * @public
@@ -5866,14 +5866,14 @@ export interface UpdateExportResponse {
    *             <code>TSV</code> format is required to export a custom vocabulary
    *          only; otherwise use <code>LexJson</code> format.</p>
    */
-  fileFormat?: ImportExportFileFormat | string;
+  fileFormat?: ImportExportFileFormat;
 
   /**
    * @public
    * <p>The status of the export. When the status is <code>Completed</code>
    *          the export archive is available for download.</p>
    */
-  exportStatus?: ExportStatus | string;
+  exportStatus?: ExportStatus;
 
   /**
    * @public
@@ -6157,13 +6157,13 @@ export interface UpdateTestSetResponse {
    * @public
    * <p>Indicates whether audio or text is used for the updated test set.</p>
    */
-  modality?: TestSetModality | string;
+  modality?: TestSetModality;
 
   /**
    * @public
    * <p>The status for the updated test set.</p>
    */
-  status?: TestSetStatus | string;
+  status?: TestSetStatus;
 
   /**
    * @public
@@ -6234,7 +6234,7 @@ export interface SlotValueOverride {
    *          value is <code>Scalar</code>, it indicates that the <code>value</code>
    *          field contains a single value.</p>
    */
-  shape?: SlotShape | string;
+  shape?: SlotShape;
 
   /**
    * @public
@@ -6664,25 +6664,25 @@ export interface UserTurnResult {
    * @public
    * <p>Specifies whether the expected and actual outputs match or not, or if there is an error in execution.</p>
    */
-  endToEndResult?: TestResultMatchStatus | string;
+  endToEndResult?: TestResultMatchStatus;
 
   /**
    * @public
    * <p>Specifies whether the expected and actual intents match or not.</p>
    */
-  intentMatchResult?: TestResultMatchStatus | string;
+  intentMatchResult?: TestResultMatchStatus;
 
   /**
    * @public
    * <p>Specifies whether the expected and actual slots match or not.</p>
    */
-  slotMatchResult?: TestResultMatchStatus | string;
+  slotMatchResult?: TestResultMatchStatus;
 
   /**
    * @public
    * <p>Specifies whether the expected and actual speech transcriptions match or not, or if there is an error in execution.</p>
    */
-  speechTranscriptionResult?: TestResultMatchStatus | string;
+  speechTranscriptionResult?: TestResultMatchStatus;
 
   /**
    * @public
@@ -7164,7 +7164,7 @@ export interface SlotValueElicitationSetting {
    * @public
    * <p>Specifies whether the slot is required or optional.</p>
    */
-  slotConstraint: SlotConstraint | string | undefined;
+  slotConstraint: SlotConstraint | undefined;
 
   /**
    * @public

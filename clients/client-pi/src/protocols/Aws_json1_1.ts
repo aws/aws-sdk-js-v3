@@ -1095,9 +1095,9 @@ const de_AdditionalMetricsMap = (output: any, context: __SerdeContext): Record<s
     if (value === null) {
       return acc;
     }
-    acc[key] = __limitedParseDouble(value) as any;
+    acc[key as string] = __limitedParseDouble(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 };
 
 /**

@@ -3460,10 +3460,10 @@ const se_AuthenticateCognitoActionAuthenticationRequestExtraParams = (
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input];
       counter++;
     });
   return entries;
@@ -3518,10 +3518,10 @@ const se_AuthenticateOidcActionAuthenticationRequestExtraParams = (
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input];
       counter++;
     });
   return entries;

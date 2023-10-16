@@ -191,7 +191,7 @@ export interface ResourceConflict {
    * @public
    * <p>The type of the resource involved in a conflict.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 }
 
 /**
@@ -338,7 +338,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The resource type of the resource referenced in the failed request.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @internal
@@ -372,7 +372,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    * @public
    * <p>The resource type of the resource referenced in the failed request.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -748,7 +748,7 @@ export interface CreatePolicyOutput {
    * @public
    * <p>The policy type of the new policy.</p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public
@@ -823,7 +823,7 @@ export interface ValidationSettings {
    *             <p>To submit a static policy or policy template without a schema, you must turn off validation.</p>
    *          </important>
    */
-  mode: ValidationMode | string | undefined;
+  mode: ValidationMode | undefined;
 }
 
 /**
@@ -1215,7 +1215,7 @@ export interface IdentitySourceDetails {
    * <p>A string that identifies the type of OIDC service represented by this identity source. </p>
    *          <p>At this time, the only valid value is <code>cognito</code>.</p>
    */
-  openIdIssuer?: OpenIdIssuer | string;
+  openIdIssuer?: OpenIdIssuer;
 }
 
 /**
@@ -1407,7 +1407,7 @@ export interface GetPolicyOutput {
    * @public
    * <p>The type of the policy.</p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public
@@ -1683,7 +1683,7 @@ export interface IdentitySourceItemDetails {
    * <p>A string that identifies the type of OIDC service represented by this identity source. </p>
    *          <p>At this time, the only valid value is <code>cognito</code>.</p>
    */
-  openIdIssuer?: OpenIdIssuer | string;
+  openIdIssuer?: OpenIdIssuer;
 }
 
 /**
@@ -1895,7 +1895,7 @@ export interface IsAuthorizedOutput {
    * <p>An authorization decision that indicates if the authorization request should be
    *             allowed or denied.</p>
    */
-  decision: Decision | string | undefined;
+  decision: Decision | undefined;
 
   /**
    * @public
@@ -1925,7 +1925,7 @@ export interface IsAuthorizedWithTokenOutput {
    * <p>An authorization decision that indicates if the authorization request should be
    *             allowed or denied.</p>
    */
-  decision: Decision | string | undefined;
+  decision: Decision | undefined;
 
   /**
    * @public
@@ -1968,7 +1968,7 @@ export interface PolicyFilter {
    * @public
    * <p>Filters the output to only policies of the specified type.</p>
    */
-  policyType?: PolicyType | string;
+  policyType?: PolicyType;
 
   /**
    * @public
@@ -2160,7 +2160,7 @@ export interface PolicyItem {
    *             </li>
    *          </ul>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public
@@ -2543,7 +2543,7 @@ export interface UpdatePolicyOutput {
    * @public
    * <p>The type of the policy that was updated.</p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public

@@ -41,13 +41,13 @@ export interface AbortCriteria {
    * @public
    * <p>The type of job execution failures that can initiate a job abort.</p>
    */
-  failureType: JobExecutionFailureType | string | undefined;
+  failureType: JobExecutionFailureType | undefined;
 
   /**
    * @public
    * <p>The type of job action to take to initiate the job abort.</p>
    */
-  action: AbortAction | string | undefined;
+  action: AbortAction | undefined;
 
   /**
    * @public
@@ -405,7 +405,7 @@ export interface DynamoDBAction {
    * @public
    * <p>The hash key type. Valid values are "STRING" or "NUMBER"</p>
    */
-  hashKeyType?: DynamoKeyType | string;
+  hashKeyType?: DynamoKeyType;
 
   /**
    * @public
@@ -423,7 +423,7 @@ export interface DynamoDBAction {
    * @public
    * <p>The range key type. Valid values are "STRING" or "NUMBER"</p>
    */
-  rangeKeyType?: DynamoKeyType | string;
+  rangeKeyType?: DynamoKeyType;
 
   /**
    * @public
@@ -1313,7 +1313,7 @@ export interface S3Action {
    * <p>The Amazon S3 canned ACL that controls access to the object identified by the object
    *          key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">S3 canned ACLs</a>.</p>
    */
-  cannedAcl?: CannedAccessControlList | string;
+  cannedAcl?: CannedAccessControlList;
 }
 
 /**
@@ -1376,7 +1376,7 @@ export interface SnsAction {
    *          if the payload should be parsed and relevant platform-specific bits of the payload should
    *          be extracted. To read more about SNS message formats, see <a href="https://docs.aws.amazon.com/sns/latest/dg/json-formats.html">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>
    */
-  messageFormat?: MessageFormat | string;
+  messageFormat?: MessageFormat;
 }
 
 /**
@@ -1745,7 +1745,7 @@ export interface MachineLearningDetectionConfig {
    *             The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>.
    *         </p>
    */
-  confidenceLevel: ConfidenceLevel | string | undefined;
+  confidenceLevel: ConfidenceLevel | undefined;
 }
 
 /**
@@ -1852,7 +1852,7 @@ export interface BehaviorCriteria {
    *             </li>
    *          </ul>
    */
-  comparisonOperator?: ComparisonOperator | string;
+  comparisonOperator?: ComparisonOperator;
 
   /**
    * @public
@@ -1932,7 +1932,7 @@ export interface MetricDimension {
    * @public
    * <p>Defines how the <code>dimensionValues</code> of a dimension are interpreted. For example, for dimension type TOPIC_FILTER, the <code>IN</code> operator, a message will be counted only if its topic matches one of the topic filters. With <code>NOT_IN</code> operator, a message will be counted only if it doesn't match any of the topic filters. The operator is optional: if it's not provided (is <code>null</code>), it will be interpreted as <code>IN</code>.</p>
    */
-  operator?: DimensionValueOperator | string;
+  operator?: DimensionValueOperator;
 }
 
 /**
@@ -2007,7 +2007,7 @@ export interface ViolationEventAdditionalInfo {
    *             The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>.
    *         </p>
    */
-  confidenceLevel?: ConfidenceLevel | string;
+  confidenceLevel?: ConfidenceLevel;
 }
 
 /**
@@ -2057,7 +2057,7 @@ export interface ActiveViolation {
    * @public
    * <p>The verification state of the violation (detect alarm).</p>
    */
-  verificationState?: VerificationState | string;
+  verificationState?: VerificationState;
 
   /**
    * @public
@@ -2218,7 +2218,7 @@ export interface AggregationType {
    * @public
    * <p>The name of the aggregation type.</p>
    */
-  name: AggregationTypeName | string | undefined;
+  name: AggregationTypeName | undefined;
 
   /**
    * @public
@@ -2540,7 +2540,7 @@ export interface AuditCheckDetails {
    * <p>The completion status of this check. One of "IN_PROGRESS", "WAITING_FOR_DATA_COLLECTION",
    *         "CANCELED", "COMPLETED_COMPLIANT", "COMPLETED_NON_COMPLIANT", or "FAILED".</p>
    */
-  checkRunStatus?: AuditCheckRunStatus | string;
+  checkRunStatus?: AuditCheckRunStatus;
 
   /**
    * @public
@@ -2720,7 +2720,7 @@ export interface NonCompliantResource {
    * @public
    * <p>The type of the noncompliant resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -2744,7 +2744,7 @@ export interface RelatedResource {
    * @public
    * <p>The type of resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -2815,7 +2815,7 @@ export interface AuditFinding {
    * @public
    * <p>The severity of the result (finding).</p>
    */
-  severity?: AuditFindingSeverity | string;
+  severity?: AuditFindingSeverity;
 
   /**
    * @public
@@ -2919,7 +2919,7 @@ export interface AuditMitigationActionExecutionMetadata {
    * @public
    * <p>The current status of the task being executed.</p>
    */
-  status?: AuditMitigationActionsExecutionStatus | string;
+  status?: AuditMitigationActionsExecutionStatus;
 
   /**
    * @public
@@ -2984,7 +2984,7 @@ export interface AuditMitigationActionsTaskMetadata {
    * @public
    * <p>The current state of the audit mitigation actions task.</p>
    */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
+  taskStatus?: AuditMitigationActionsTaskStatus;
 }
 
 /**
@@ -3175,13 +3175,13 @@ export interface AuditTaskMetadata {
    * <p>The status of this audit. One of "IN_PROGRESS", "COMPLETED",
    *         "FAILED", or "CANCELED".</p>
    */
-  taskStatus?: AuditTaskStatus | string;
+  taskStatus?: AuditTaskStatus;
 
   /**
    * @public
    * <p>The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
    */
-  taskType?: AuditTaskType | string;
+  taskType?: AuditTaskType;
 }
 
 /**
@@ -3208,7 +3208,7 @@ export interface AuthInfo {
    * @public
    * <p>The type of action for which the principal is being authorized.</p>
    */
-  actionType?: ActionType | string;
+  actionType?: ActionType;
 
   /**
    * @public
@@ -3290,7 +3290,7 @@ export interface AuthorizerDescription {
    * @public
    * <p>The status of the authorizer.</p>
    */
-  status?: AuthorizerStatus | string;
+  status?: AuthorizerStatus;
 
   /**
    * @public
@@ -3412,7 +3412,7 @@ export interface AuthResult {
    *          account when determining the authorization decision. An explicit deny statement can
    *          override multiple allow statements.</p>
    */
-  authDecision?: AuthDecision | string;
+  authDecision?: AuthDecision;
 
   /**
    * @public
@@ -3836,7 +3836,7 @@ export interface CreateAuthorizerRequest {
    * @public
    * <p>The status of the create authorizer request.</p>
    */
-  status?: AuthorizerStatus | string;
+  status?: AuthorizerStatus;
 
   /**
    * @public
@@ -4032,7 +4032,7 @@ export interface CreateCustomMetricRequest {
    *         single value.</p>
    *          </important>
    */
-  metricType: CustomMetricType | string | undefined;
+  metricType: CustomMetricType | undefined;
 
   /**
    * @public
@@ -4103,7 +4103,7 @@ export interface CreateDimensionRequest {
    * <p>Specifies the type of dimension. Supported types: <code>TOPIC_FILTER.</code>
    *          </p>
    */
-  type: DimensionType | string | undefined;
+  type: DimensionType | undefined;
 
   /**
    * @public
@@ -4237,7 +4237,7 @@ export interface CreateDomainConfigurationRequest {
    *             <p>Amazon Web Services IoT Core currently supports only the <code>DATA</code> service type.</p>
    *          </note>
    */
-  serviceType?: ServiceType | string;
+  serviceType?: ServiceType;
 
   /**
    * @public
@@ -4500,7 +4500,7 @@ export interface CreateFleetMetricRequest {
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
    *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>. Default to null.</p>
    */
-  unit?: FleetMetricUnit | string;
+  unit?: FleetMetricUnit;
 
   /**
    * @public
@@ -4591,7 +4591,7 @@ export interface RetryCriteria {
    * @public
    * <p>The type of job execution failures that can initiate a job retry.</p>
    */
-  failureType: RetryableFailureType | string | undefined;
+  failureType: RetryableFailureType | undefined;
 
   /**
    * @public
@@ -4773,7 +4773,7 @@ export interface SchedulingConfig {
    *                 <code>endTime</code>. If <code>endTime</code> is not selected when creating the job,
    *             then <code>endBehavior</code> does not apply.</p>
    */
-  endBehavior?: JobEndBehavior | string;
+  endBehavior?: JobEndBehavior;
 
   /**
    * @public
@@ -4871,7 +4871,7 @@ export interface CreateJobRequest {
    *                 been created.</p>
    *          </note>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: TargetSelection;
 
   /**
    * @public
@@ -5210,7 +5210,7 @@ export interface EnableIoTLoggingParams {
    * @public
    * <p>Specifies the type of information to be logged.</p>
    */
-  logLevel: LogLevel | string | undefined;
+  logLevel: LogLevel | undefined;
 }
 
 /**
@@ -5247,7 +5247,7 @@ export interface ReplaceDefaultPolicyVersionParams {
    * @public
    * <p>The name of the template to be applied. The only supported value is <code>BLANK_POLICY</code>.</p>
    */
-  templateName: PolicyTemplateName | string | undefined;
+  templateName: PolicyTemplateName | undefined;
 }
 
 /**
@@ -5272,7 +5272,7 @@ export interface UpdateCACertificateParams {
    * @public
    * <p>The action that you want to apply to the CA certificate. The only supported value is <code>DEACTIVATE</code>.</p>
    */
-  action: CACertificateUpdateAction | string | undefined;
+  action: CACertificateUpdateAction | undefined;
 }
 
 /**
@@ -5298,7 +5298,7 @@ export interface UpdateDeviceCertificateParams {
    * @public
    * <p>The action that you want to apply to the device certificate. The only supported value is <code>DEACTIVATE</code>.</p>
    */
-  action: DeviceCertificateUpdateAction | string | undefined;
+  action: DeviceCertificateUpdateAction | undefined;
 }
 
 /**
@@ -5429,13 +5429,13 @@ export interface AwsJobAbortCriteria {
    * @public
    * <p>The type of job execution failures that can initiate a job abort.</p>
    */
-  failureType: AwsJobAbortCriteriaFailureType | string | undefined;
+  failureType: AwsJobAbortCriteriaFailureType | undefined;
 
   /**
    * @public
    * <p>The type of job action to take to initiate the job abort.</p>
    */
-  action: AwsJobAbortCriteriaAbortAction | string | undefined;
+  action: AwsJobAbortCriteriaAbortAction | undefined;
 
   /**
    * @public
@@ -5870,7 +5870,7 @@ export interface CreateOTAUpdateRequest {
    * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
    *            HTTP and MQTT are specified, the target device can choose the protocol.</p>
    */
-  protocols?: (Protocol | string)[];
+  protocols?: Protocol[];
 
   /**
    * @public
@@ -5880,7 +5880,7 @@ export interface CreateOTAUpdateRequest {
    *             added to a target group, even after the update was completed by all things originally in the group. Valid
    *             values: CONTINUOUS | SNAPSHOT.</p>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: TargetSelection;
 
   /**
    * @public
@@ -5986,7 +5986,7 @@ export interface CreateOTAUpdateResponse {
    * @public
    * <p>The OTA update status.</p>
    */
-  otaUpdateStatus?: OTAUpdateStatus | string;
+  otaUpdateStatus?: OTAUpdateStatus;
 }
 
 /**
@@ -6199,7 +6199,7 @@ export interface CreatePackageVersionResponse {
    * @public
    * <p>The status of the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    */
-  status?: PackageVersionStatus | string;
+  status?: PackageVersionStatus;
 
   /**
    * @public
@@ -6507,7 +6507,7 @@ export interface CreateProvisioningTemplateRequest {
    *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
    *       </p>
    */
-  type?: TemplateType | string;
+  type?: TemplateType;
 }
 
 /**
@@ -6673,7 +6673,7 @@ export interface CreateScheduledAuditRequest {
    *       <code>WEEKLY</code>, <code>BIWEEKLY</code> or <code>MONTHLY</code>. The start time of each audit is
    *       determined by the system.</p>
    */
-  frequency: AuditFrequency | string | undefined;
+  frequency: AuditFrequency | undefined;
 
   /**
    * @public
@@ -6697,7 +6697,7 @@ export interface CreateScheduledAuditRequest {
    *       <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>. This field is required if the <code>frequency</code>
    *       parameter is set to <code>WEEKLY</code> or <code>BIWEEKLY</code>.</p>
    */
-  dayOfWeek?: DayOfWeek | string;
+  dayOfWeek?: DayOfWeek;
 
   /**
    * @public
@@ -6759,7 +6759,7 @@ export interface CreateSecurityProfileRequest {
    * <p>Specifies the destinations to which alerts are sent. (Alerts are always sent to the
    *         console.) Alerts are generated when a device (thing) violates a behavior.</p>
    */
-  alertTargets?: Record<string, AlertTarget>;
+  alertTargets?: Record<AlertTargetType, AlertTarget>;
 
   /**
    * @public
@@ -7338,7 +7338,7 @@ export interface TopicRuleDestination {
    *             </dd>
    *          </dl>
    */
-  status?: TopicRuleDestinationStatus | string;
+  status?: TopicRuleDestinationStatus;
 
   /**
    * @public

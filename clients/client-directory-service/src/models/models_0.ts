@@ -75,7 +75,7 @@ export interface SharedDirectory {
    *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
    *       sending a shared directory request (<code>HANDSHAKE</code>).</p>
    */
-  ShareMethod?: ShareMethod | string;
+  ShareMethod?: ShareMethod;
 
   /**
    * @public
@@ -95,7 +95,7 @@ export interface SharedDirectory {
    * @public
    * <p>Current directory status of the shared Managed Microsoft AD directory.</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: ShareStatus;
 
   /**
    * @public
@@ -937,7 +937,7 @@ export interface Certificate {
    * @public
    * <p>The state of the certificate.</p>
    */
-  State?: CertificateState | string;
+  State?: CertificateState;
 
   /**
    * @public
@@ -967,7 +967,7 @@ export interface Certificate {
    * @public
    * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
    */
-  Type?: CertificateType | string;
+  Type?: CertificateType;
 
   /**
    * @public
@@ -1063,7 +1063,7 @@ export interface CertificateInfo {
    * @public
    * <p>The state of the certificate.</p>
    */
-  State?: CertificateState | string;
+  State?: CertificateState;
 
   /**
    * @public
@@ -1075,7 +1075,7 @@ export interface CertificateInfo {
    * @public
    * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
    */
-  Type?: CertificateType | string;
+  Type?: CertificateType;
 }
 
 /**
@@ -1182,13 +1182,13 @@ export interface ClientAuthenticationSettingInfo {
    * @public
    * <p>The type of client authentication for the specified directory. If no type is specified, a list of all client authentication types that are supported for the directory is retrieved. </p>
    */
-  Type?: ClientAuthenticationType | string;
+  Type?: ClientAuthenticationType;
 
   /**
    * @public
    * <p>Whether the client authentication type is enabled or disabled for the specified directory.</p>
    */
-  Status?: ClientAuthenticationStatus | string;
+  Status?: ClientAuthenticationStatus;
 
   /**
    * @public
@@ -1262,7 +1262,7 @@ export interface ConditionalForwarder {
    *         <code>Domain</code>, which will replicate the conditional forwarder to all of the domain
    *       controllers for your Amazon Web Services directory.</p>
    */
-  ReplicationScope?: ReplicationScope | string;
+  ReplicationScope?: ReplicationScope;
 }
 
 /**
@@ -1357,7 +1357,7 @@ export interface ConnectDirectoryRequest {
    * @public
    * <p>The size of the directory.</p>
    */
-  Size: DirectorySize | string | undefined;
+  Size: DirectorySize | undefined;
 
   /**
    * @public
@@ -1602,7 +1602,7 @@ export interface CreateDirectoryRequest {
    * @public
    * <p>The size of the directory.</p>
    */
-  Size: DirectorySize | string | undefined;
+  Size: DirectorySize | undefined;
 
   /**
    * @public
@@ -1747,7 +1747,7 @@ export interface CreateMicrosoftADRequest {
    * <p>Managed Microsoft AD is available in two editions: <code>Standard</code> and
    *         <code>Enterprise</code>. <code>Enterprise</code> is the default.</p>
    */
-  Edition?: DirectoryEdition | string;
+  Edition?: DirectoryEdition;
 
   /**
    * @public
@@ -1911,13 +1911,13 @@ export interface CreateTrustRequest {
    * @public
    * <p>The direction of the trust relationship.</p>
    */
-  TrustDirection: TrustDirection | string | undefined;
+  TrustDirection: TrustDirection | undefined;
 
   /**
    * @public
    * <p>The trust relationship type. <code>Forest</code> is the default.</p>
    */
-  TrustType?: TrustType | string;
+  TrustType?: TrustType;
 
   /**
    * @public
@@ -1929,7 +1929,7 @@ export interface CreateTrustRequest {
    * @public
    * <p>Optional parameter to enable selective authentication for the trust.</p>
    */
-  SelectiveAuth?: SelectiveAuth | string;
+  SelectiveAuth?: SelectiveAuth;
 }
 
 /**
@@ -2155,7 +2155,7 @@ export interface DescribeClientAuthenticationSettingsRequest {
    * @public
    * <p>The type of client authentication for which to retrieve information. If no type is specified, a list of all client authentication types that are supported for the specified directory is retrieved.</p>
    */
-  Type?: ClientAuthenticationType | string;
+  Type?: ClientAuthenticationType;
 
   /**
    * @public
@@ -2365,7 +2365,7 @@ export interface RadiusSettings {
    * @public
    * <p>The protocol specified for your RADIUS endpoints.</p>
    */
-  AuthenticationProtocol?: RadiusAuthenticationProtocol | string;
+  AuthenticationProtocol?: RadiusAuthenticationProtocol;
 
   /**
    * @public
@@ -2467,7 +2467,7 @@ export interface OwnerDirectoryDescription {
    * @public
    * <p>Information about the status of the RADIUS server.</p>
    */
-  RadiusStatus?: RadiusStatus | string;
+  RadiusStatus?: RadiusStatus;
 }
 
 /**
@@ -2556,13 +2556,13 @@ export interface DirectoryDescription {
    * @public
    * <p>The directory size.</p>
    */
-  Size?: DirectorySize | string;
+  Size?: DirectorySize;
 
   /**
    * @public
    * <p>The edition associated with this directory.</p>
    */
-  Edition?: DirectoryEdition | string;
+  Edition?: DirectoryEdition;
 
   /**
    * @public
@@ -2599,13 +2599,13 @@ export interface DirectoryDescription {
    * @public
    * <p>The current stage of the directory.</p>
    */
-  Stage?: DirectoryStage | string;
+  Stage?: DirectoryStage;
 
   /**
    * @public
    * <p>Current directory status of the shared Managed Microsoft AD directory.</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: ShareStatus;
 
   /**
    * @public
@@ -2613,7 +2613,7 @@ export interface DirectoryDescription {
    *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
    *       sending a shared directory request (<code>HANDSHAKE</code>).</p>
    */
-  ShareMethod?: ShareMethod | string;
+  ShareMethod?: ShareMethod;
 
   /**
    * @public
@@ -2639,7 +2639,7 @@ export interface DirectoryDescription {
    * @public
    * <p>The directory size.</p>
    */
-  Type?: DirectoryType | string;
+  Type?: DirectoryType;
 
   /**
    * @public
@@ -2668,7 +2668,7 @@ export interface DirectoryDescription {
    * @public
    * <p>The status of the RADIUS MFA server connection.</p>
    */
-  RadiusStatus?: RadiusStatus | string;
+  RadiusStatus?: RadiusStatus;
 
   /**
    * @public
@@ -2705,7 +2705,7 @@ export interface DirectoryDescription {
    * @public
    * <p>The operating system (OS) version of the directory.</p>
    */
-  OsVersion?: OSVersion | string;
+  OsVersion?: OSVersion;
 }
 
 /**
@@ -2862,7 +2862,7 @@ export interface DomainController {
    * @public
    * <p>The status of the domain controller.</p>
    */
-  Status?: DomainControllerStatus | string;
+  Status?: DomainControllerStatus;
 
   /**
    * @public
@@ -2974,7 +2974,7 @@ export interface EventTopic {
    * @public
    * <p>The topic registration status.</p>
    */
-  Status?: TopicStatus | string;
+  Status?: TopicStatus;
 }
 
 /**
@@ -3018,7 +3018,7 @@ export interface DescribeLDAPSSettingsRequest {
    * <p>The type of LDAP security to enable. Currently only the value <code>Client</code> is
    *       supported.</p>
    */
-  Type?: LDAPSType | string;
+  Type?: LDAPSType;
 
   /**
    * @public
@@ -3058,7 +3058,7 @@ export interface LDAPSSettingInfo {
    * @public
    * <p>The state of the LDAPS settings.</p>
    */
-  LDAPSStatus?: LDAPSStatus | string;
+  LDAPSStatus?: LDAPSStatus;
 
   /**
    * @public
@@ -3150,13 +3150,13 @@ export interface RegionDescription {
    * @public
    * <p>Specifies whether the Region is the primary Region or an additional Region.</p>
    */
-  RegionType?: RegionType | string;
+  RegionType?: RegionType;
 
   /**
    * @public
    * <p>The status of the replication process for the specified Region.</p>
    */
-  Status?: DirectoryStage | string;
+  Status?: DirectoryStage;
 
   /**
    * @public
@@ -3241,7 +3241,7 @@ export interface DescribeSettingsRequest {
    * @public
    * <p>The status of the directory settings for which to retrieve information.</p>
    */
-  Status?: DirectoryConfigurationStatus | string;
+  Status?: DirectoryConfigurationStatus;
 
   /**
    * @public
@@ -3293,13 +3293,13 @@ export interface SettingEntry {
    * @public
    * <p>The overall status of the request to update the directory setting request. If the directory setting is deployed in more than one region, and the request fails in any region, the overall status is <code>Failed</code>.</p>
    */
-  RequestStatus?: DirectoryConfigurationStatus | string;
+  RequestStatus?: DirectoryConfigurationStatus;
 
   /**
    * @public
    * <p>Details about the status of the request to update the directory setting. If the directory setting is deployed in more than one region, status is returned for the request in each region where the setting is deployed.</p>
    */
-  RequestDetailedStatus?: Record<string, DirectoryConfigurationStatus | string>;
+  RequestDetailedStatus?: Record<string, DirectoryConfigurationStatus>;
 
   /**
    * @public
@@ -3485,7 +3485,7 @@ export interface Snapshot {
    * @public
    * <p>The snapshot type.</p>
    */
-  Type?: SnapshotType | string;
+  Type?: SnapshotType;
 
   /**
    * @public
@@ -3497,7 +3497,7 @@ export interface Snapshot {
    * @public
    * <p>The snapshot status.</p>
    */
-  Status?: SnapshotStatus | string;
+  Status?: SnapshotStatus;
 
   /**
    * @public
@@ -3618,19 +3618,19 @@ export interface Trust {
    * @public
    * <p>The trust relationship type. <code>Forest</code> is the default.</p>
    */
-  TrustType?: TrustType | string;
+  TrustType?: TrustType;
 
   /**
    * @public
    * <p>The trust relationship direction.</p>
    */
-  TrustDirection?: TrustDirection | string;
+  TrustDirection?: TrustDirection;
 
   /**
    * @public
    * <p>The trust relationship state.</p>
    */
-  TrustState?: TrustState | string;
+  TrustState?: TrustState;
 
   /**
    * @public
@@ -3660,7 +3660,7 @@ export interface Trust {
    * @public
    * <p>Current state of selective authentication for the trust.</p>
    */
-  SelectiveAuth?: SelectiveAuth | string;
+  SelectiveAuth?: SelectiveAuth;
 }
 
 /**
@@ -3717,7 +3717,7 @@ export interface DescribeUpdateDirectoryRequest {
    *       The type of updates you want to describe for the directory.
    *     </p>
    */
-  UpdateType: UpdateType | string | undefined;
+  UpdateType: UpdateType | undefined;
 
   /**
    * @public
@@ -3749,7 +3749,7 @@ export interface OSUpdateSettings {
    *       OS version that the directory needs to be updated to.
    *     </p>
    */
-  OSVersion?: OSVersion | string;
+  OSVersion?: OSVersion;
 }
 
 /**
@@ -3804,7 +3804,7 @@ export interface UpdateInfoEntry {
    *       The status of the update performed on the directory.
    *     </p>
    */
-  Status?: UpdateStatus | string;
+  Status?: UpdateStatus;
 
   /**
    * @public
@@ -4018,7 +4018,7 @@ export interface DisableClientAuthenticationRequest {
    * @public
    * <p>The type of client authentication to disable. Currently, only the parameter, <code>SmartCard</code> is supported.</p>
    */
-  Type: ClientAuthenticationType | string | undefined;
+  Type: ClientAuthenticationType | undefined;
 }
 
 /**
@@ -4074,7 +4074,7 @@ export interface DisableLDAPSRequest {
    * <p>The type of LDAP security to enable. Currently only the value <code>Client</code> is
    *       supported.</p>
    */
-  Type: LDAPSType | string | undefined;
+  Type: LDAPSType | undefined;
 }
 
 /**
@@ -4190,7 +4190,7 @@ export interface EnableClientAuthenticationRequest {
    *       Constrained Delegation for the Service User to the LDAP service in your self-managed AD.
    *     </p>
    */
-  Type: ClientAuthenticationType | string | undefined;
+  Type: ClientAuthenticationType | undefined;
 }
 
 /**
@@ -4247,7 +4247,7 @@ export interface EnableLDAPSRequest {
    * <p>The type of LDAP security to enable. Currently only the value <code>Client</code> is
    *       supported.</p>
    */
-  Type: LDAPSType | string | undefined;
+  Type: LDAPSType | undefined;
 }
 
 /**
@@ -4496,7 +4496,7 @@ export interface IpRouteInfo {
    * @public
    * <p>The status of the IP address block.</p>
    */
-  IpRouteStatusMsg?: IpRouteStatusMsg | string;
+  IpRouteStatusMsg?: IpRouteStatusMsg;
 
   /**
    * @public
@@ -4677,7 +4677,7 @@ export interface SchemaExtensionInfo {
    * @public
    * <p>The current status of the schema extension.</p>
    */
-  SchemaExtensionStatus?: SchemaExtensionStatus | string;
+  SchemaExtensionStatus?: SchemaExtensionStatus;
 
   /**
    * @public
@@ -4811,7 +4811,7 @@ export interface RegisterCertificateRequest {
    * @public
    * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
    */
-  Type?: CertificateType | string;
+  Type?: CertificateType;
 
   /**
    * @public
@@ -5148,7 +5148,7 @@ export interface ShareTarget {
    * @public
    * <p>Type of identifier to be used in the <code>Id</code> field.</p>
    */
-  Type: TargetType | string | undefined;
+  Type: TargetType | undefined;
 }
 
 /**
@@ -5182,7 +5182,7 @@ export interface ShareDirectoryRequest {
    *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
    *       sending a directory sharing request (<code>HANDSHAKE</code>).</p>
    */
-  ShareMethod: ShareMethod | string | undefined;
+  ShareMethod: ShareMethod | undefined;
 }
 
 /**
@@ -5291,7 +5291,7 @@ export interface UnshareTarget {
    * @public
    * <p>Type of identifier to be used in the <i>Id</i> field.</p>
    */
-  Type: TargetType | string | undefined;
+  Type: TargetType | undefined;
 }
 
 /**
@@ -5376,7 +5376,7 @@ export interface UpdateDirectorySetupRequest {
    *       The type of update that needs to be performed on the directory. For example, OS.
    *     </p>
    */
-  UpdateType: UpdateType | string | undefined;
+  UpdateType: UpdateType | undefined;
 
   /**
    * @public
@@ -5612,7 +5612,7 @@ export interface UpdateTrustRequest {
    * @public
    * <p>Updates selective authentication for the trust.</p>
    */
-  SelectiveAuth?: SelectiveAuth | string;
+  SelectiveAuth?: SelectiveAuth;
 }
 
 /**

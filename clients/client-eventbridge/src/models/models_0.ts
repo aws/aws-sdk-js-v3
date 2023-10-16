@@ -168,7 +168,7 @@ export interface ApiDestination {
    * @public
    * <p>The state of the API destination.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: ApiDestinationState;
 
   /**
    * @public
@@ -186,7 +186,7 @@ export interface ApiDestination {
    * @public
    * <p>The method to use to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ApiDestinationHttpMethod | string;
+  HttpMethod?: ApiDestinationHttpMethod;
 
   /**
    * @public
@@ -247,7 +247,7 @@ export interface Archive {
    * @public
    * <p>The current state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -337,7 +337,7 @@ export interface CancelReplayResponse {
    * @public
    * <p>The current state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -400,7 +400,7 @@ export interface CreateApiDestinationRequest {
    * @public
    * <p>The method to use for the request to the HTTP invocation endpoint.</p>
    */
-  HttpMethod: ApiDestinationHttpMethod | string | undefined;
+  HttpMethod: ApiDestinationHttpMethod | undefined;
 
   /**
    * @public
@@ -423,7 +423,7 @@ export interface CreateApiDestinationResponse {
    * @public
    * <p>The state of the API destination that was created by the request.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: ApiDestinationState;
 
   /**
    * @public
@@ -529,7 +529,7 @@ export interface CreateArchiveResponse {
    * @public
    * <p>The state of the archive that was created.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -773,7 +773,7 @@ export interface CreateConnectionOAuthRequestParameters {
    * @public
    * <p>The method to use for the authorization request.</p>
    */
-  HttpMethod: ConnectionOAuthHttpMethod | string | undefined;
+  HttpMethod: ConnectionOAuthHttpMethod | undefined;
 
   /**
    * @public
@@ -842,7 +842,7 @@ export interface CreateConnectionRequest {
    *             <p>OAUTH tokens are refreshed when a 401 or 407 response is returned.</p>
    *          </note>
    */
-  AuthorizationType: ConnectionAuthorizationType | string | undefined;
+  AuthorizationType: ConnectionAuthorizationType | undefined;
 
   /**
    * @public
@@ -885,7 +885,7 @@ export interface CreateConnectionResponse {
    * @public
    * <p>The state of the connection that was created by the request.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -935,7 +935,7 @@ export interface ReplicationConfig {
    * @public
    * <p>The state of event replication.</p>
    */
-  State?: ReplicationState | string;
+  State?: ReplicationState;
 }
 
 /**
@@ -1100,7 +1100,7 @@ export interface CreateEndpointResponse {
    * @public
    * <p>The state of the endpoint that was created by this request.</p>
    */
-  State?: EndpointState | string;
+  State?: EndpointState;
 }
 
 /**
@@ -1232,7 +1232,7 @@ export interface DeauthorizeConnectionResponse {
    * @public
    * <p>The state of the connection.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -1310,7 +1310,7 @@ export interface DeleteConnectionResponse {
    * @public
    * <p>The state of the connection before it was deleted.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -1467,7 +1467,7 @@ export interface DescribeApiDestinationResponse {
    * @public
    * <p>The state of the API destination retrieved.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: ApiDestinationState;
 
   /**
    * @public
@@ -1485,7 +1485,7 @@ export interface DescribeApiDestinationResponse {
    * @public
    * <p>The method to use to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ApiDestinationHttpMethod | string;
+  HttpMethod?: ApiDestinationHttpMethod;
 
   /**
    * @public
@@ -1560,7 +1560,7 @@ export interface DescribeArchiveResponse {
    * @public
    * <p>The state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -1666,7 +1666,7 @@ export interface ConnectionOAuthResponseParameters {
    * @public
    * <p>The method used to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ConnectionOAuthHttpMethod | string;
+  HttpMethod?: ConnectionOAuthHttpMethod;
 
   /**
    * @public
@@ -1732,7 +1732,7 @@ export interface DescribeConnectionResponse {
    * @public
    * <p>The state of the connection retrieved.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -1744,7 +1744,7 @@ export interface DescribeConnectionResponse {
    * @public
    * <p>The type of authorization specified for the connection.</p>
    */
-  AuthorizationType?: ConnectionAuthorizationType | string;
+  AuthorizationType?: ConnectionAuthorizationType;
 
   /**
    * @public
@@ -1857,7 +1857,7 @@ export interface DescribeEndpointResponse {
    * @public
    * <p>The current state of the endpoint you asked for information about.</p>
    */
-  State?: EndpointState | string;
+  State?: EndpointState;
 
   /**
    * @public
@@ -1982,7 +1982,7 @@ export interface DescribeEventSourceResponse {
    *       yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have
    *       created a matching event bus, but the event source has since been deleted.</p>
    */
-  State?: EventSourceState | string;
+  State?: EventSourceState;
 }
 
 /**
@@ -2069,7 +2069,7 @@ export interface DescribeReplayResponse {
    * @public
    * <p>The current state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -2185,7 +2185,7 @@ export interface DescribeRuleResponse {
    * @public
    * <p>Specifies whether the rule is enabled or disabled.</p>
    */
-  State?: RuleState | string;
+  State?: RuleState;
 
   /**
    * @public
@@ -2328,7 +2328,7 @@ export interface ListArchivesRequest {
    * @public
    * <p>The state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -2375,7 +2375,7 @@ export interface ListConnectionsRequest {
    * @public
    * <p>The state of the connection.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -2411,7 +2411,7 @@ export interface Connection {
    * @public
    * <p>The state of the connection.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -2426,7 +2426,7 @@ export interface Connection {
    *             <p>OAUTH tokens are refreshed when a 401 or 407 response is returned.</p>
    *          </note>
    */
-  AuthorizationType?: ConnectionAuthorizationType | string;
+  AuthorizationType?: ConnectionAuthorizationType;
 
   /**
    * @public
@@ -2559,7 +2559,7 @@ export interface Endpoint {
    * @public
    * <p>The current state of the endpoint.</p>
    */
-  State?: EndpointState | string;
+  State?: EndpointState;
 
   /**
    * @public
@@ -2742,7 +2742,7 @@ export interface EventSource {
    *       yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have
    *       created a matching event bus, but the event source has since been deleted.</p>
    */
-  State?: EventSourceState | string;
+  State?: EventSourceState;
 }
 
 /**
@@ -2819,7 +2819,7 @@ export interface PartnerEventSourceAccount {
    *       yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have
    *       created a matching event bus, but the event source has since been deleted.</p>
    */
-  State?: EventSourceState | string;
+  State?: EventSourceState;
 }
 
 /**
@@ -2918,7 +2918,7 @@ export interface ListReplaysRequest {
    * @public
    * <p>The state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -2960,7 +2960,7 @@ export interface Replay {
    * @public
    * <p>The current state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -3124,7 +3124,7 @@ export interface Rule {
    * @public
    * <p>The state of the rule.</p>
    */
-  State?: RuleState | string;
+  State?: RuleState;
 
   /**
    * @public
@@ -3382,7 +3382,7 @@ export interface AwsVpcConfiguration {
    *       can specify <code>ENABLED</code> only when <code>LaunchType</code> in
    *         <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
    */
-  AssignPublicIp?: AssignPublicIp | string;
+  AssignPublicIp?: AssignPublicIp;
 }
 
 /**
@@ -3425,7 +3425,7 @@ export interface PlacementConstraint {
    *       group is running on a different container instance. Use memberOf to restrict the selection to
    *       a group of valid candidates. </p>
    */
-  type?: PlacementConstraintType | string;
+  type?: PlacementConstraintType;
 
   /**
    * @public
@@ -3466,7 +3466,7 @@ export interface PlacementStrategy {
    *       field parameter. For example, if you binpack on memory, a task is placed on the instance with
    *       the least amount of remaining memory (but still enough to run the task). </p>
    */
-  type?: PlacementStrategyType | string;
+  type?: PlacementStrategyType;
 
   /**
    * @public
@@ -3518,7 +3518,7 @@ export interface EcsParameters {
    *      is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">Fargate on Amazon ECS</a> in
    *       the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  LaunchType?: LaunchType | string;
+  LaunchType?: LaunchType;
 
   /**
    * @public
@@ -3595,7 +3595,7 @@ export interface EcsParameters {
    *       is specified, the tags are not propagated. Tags can only be propagated to the task during task
    *       creation. To add tags to a task after task creation, use the TagResource API action. </p>
    */
-  PropagateTags?: PropagateTags | string;
+  PropagateTags?: PropagateTags;
 
   /**
    * @public
@@ -4428,7 +4428,7 @@ export interface PutRuleRequest {
    * @public
    * <p>Indicates whether the rule is enabled or disabled.</p>
    */
-  State?: RuleState | string;
+  State?: RuleState;
 
   /**
    * @public
@@ -4698,7 +4698,7 @@ export interface StartReplayResponse {
    * @public
    * <p>The state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -4857,7 +4857,7 @@ export interface UpdateApiDestinationRequest {
    * @public
    * <p>The method to use for the API destination.</p>
    */
-  HttpMethod?: ApiDestinationHttpMethod | string;
+  HttpMethod?: ApiDestinationHttpMethod;
 
   /**
    * @public
@@ -4880,7 +4880,7 @@ export interface UpdateApiDestinationResponse {
    * @public
    * <p>The state of the API destination that was updated.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: ApiDestinationState;
 
   /**
    * @public
@@ -4938,7 +4938,7 @@ export interface UpdateArchiveResponse {
    * @public
    * <p>The state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -5031,7 +5031,7 @@ export interface UpdateConnectionOAuthRequestParameters {
    * @public
    * <p>The method used to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ConnectionOAuthHttpMethod | string;
+  HttpMethod?: ConnectionOAuthHttpMethod;
 
   /**
    * @public
@@ -5094,7 +5094,7 @@ export interface UpdateConnectionRequest {
    * @public
    * <p>The type of authorization to use for the connection.</p>
    */
-  AuthorizationType?: ConnectionAuthorizationType | string;
+  AuthorizationType?: ConnectionAuthorizationType;
 
   /**
    * @public
@@ -5117,7 +5117,7 @@ export interface UpdateConnectionResponse {
    * @public
    * <p>The state of the connection that was updated.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -5235,7 +5235,7 @@ export interface UpdateEndpointResponse {
    * @public
    * <p>The state of the endpoint you updated in this request.</p>
    */
-  State?: EndpointState | string;
+  State?: EndpointState;
 }
 
 /**

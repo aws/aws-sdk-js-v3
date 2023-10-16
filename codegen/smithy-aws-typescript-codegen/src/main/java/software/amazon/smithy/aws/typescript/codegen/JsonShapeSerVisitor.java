@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.function.BiFunction;
 import software.amazon.smithy.aws.typescript.codegen.validation.UnaryFunctionCall;
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
@@ -119,10 +120,15 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
         Shape target = context.getModel().expectShape(shape.getValue().getTarget());
         SymbolProvider symbolProvider = context.getSymbolProvider();
 
+        Symbol keySymbol = symbolProvider.toSymbol(shape.getKey());
+        String entryKeyType = keySymbol.toString().equals("string")
+            ? "string"
+            : symbolProvider.toSymbol(shape.getKey()) + "| string";
+
         // Get the right serialization for each entry in the map. Undefined
         // inputs won't have this serializer invoked.
         writer.openBlock("return Object.entries(input).reduce((acc: Record<string, any>, "
-                + "[key, value]: [$1T, any]) => {", "}, {});", symbolProvider.toSymbol(shape.getKey()),
+                + "[key, value]: [$1L, any]) => {", "}, {});", entryKeyType,
             () -> {
                 writer.openBlock("if (value === null) {", "}", () -> {
                     // Handle the sparse trait by short-circuiting null values

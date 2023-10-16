@@ -75,7 +75,7 @@ export interface CertificateValidationRecord {
    * <p>The current state of the certificate CNAME record validation. It should change to <code>SUCCESS</code> after App Runner completes validation with your
    *       DNS.</p>
    */
-  Status?: CertificateValidationRecordStatus | string;
+  Status?: CertificateValidationRecordStatus;
 }
 
 /**
@@ -128,7 +128,7 @@ export interface CustomDomain {
    * @public
    * <p>The current state of the domain name association.</p>
    */
-  Status: CustomDomainAssociationStatus | string | undefined;
+  Status: CustomDomainAssociationStatus | undefined;
 }
 
 /**
@@ -393,7 +393,7 @@ export interface AutoScalingConfiguration {
    * <p>The current state of the auto scaling configuration. If the status of a configuration revision is <code>INACTIVE</code>, it was deleted and can't be
    *       used. Inactive configuration revisions are permanently removed some time after they are deleted.</p>
    */
-  Status?: AutoScalingConfigurationStatus | string;
+  Status?: AutoScalingConfigurationStatus;
 
   /**
    * @public
@@ -509,7 +509,7 @@ export interface CreateConnectionRequest {
    * @public
    * <p>The source repository provider.</p>
    */
-  ProviderType: ProviderType | string | undefined;
+  ProviderType: ProviderType | undefined;
 
   /**
    * @public
@@ -555,13 +555,13 @@ export interface Connection {
    * @public
    * <p>The source repository provider.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: ProviderType;
 
   /**
    * @public
    * <p>The current state of the App Runner connection. When the state is <code>AVAILABLE</code>, you can use the connection to create an App Runner service.</p>
    */
-  Status?: ConnectionStatus | string;
+  Status?: ConnectionStatus;
 
   /**
    * @public
@@ -603,7 +603,7 @@ export interface TraceConfiguration {
    * @public
    * <p>The implementation provider chosen for tracing App Runner services.</p>
    */
-  Vendor: TracingVendor | string | undefined;
+  Vendor: TracingVendor | undefined;
 }
 
 /**
@@ -697,7 +697,7 @@ export interface ObservabilityConfiguration {
    * <p>The current state of the observability configuration. If the status of a configuration revision is <code>INACTIVE</code>, it was deleted and can't be
    *       used. Inactive configuration revisions are permanently removed some time after they are deleted.</p>
    */
-  Status?: ObservabilityConfigurationStatus | string;
+  Status?: ObservabilityConfigurationStatus;
 
   /**
    * @public
@@ -761,7 +761,7 @@ export interface HealthCheckConfiguration {
    *          <p>Default: <code>TCP</code>
    *          </p>
    */
-  Protocol?: HealthCheckProtocol | string;
+  Protocol?: HealthCheckProtocol;
 
   /**
    * @public
@@ -860,7 +860,7 @@ export interface EgressConfiguration {
    *          <p>Set to <code>DEFAULT</code> for access to resources hosted on public networks.</p>
    *          <p>Set to <code>VPC</code> to associate your service to a custom VPC specified by <code>VpcConnectorArn</code>.</p>
    */
-  EgressType?: EgressType | string;
+  EgressType?: EgressType;
 
   /**
    * @public
@@ -983,7 +983,7 @@ export interface CodeConfigurationValues {
    *        It represents a
    *       programming language runtime.</p>
    */
-  Runtime: Runtime | string | undefined;
+  Runtime: Runtime | undefined;
 
   /**
    * @public
@@ -1068,7 +1068,7 @@ export interface CodeConfiguration {
    *             </li>
    *          </ul>
    */
-  ConfigurationSource: ConfigurationSource | string | undefined;
+  ConfigurationSource: ConfigurationSource | undefined;
 
   /**
    * @public
@@ -1101,7 +1101,7 @@ export interface SourceCodeVersion {
    * <p>The type of version identifier.</p>
    *          <p>For a git-based repository, branches represent versions.</p>
    */
-  Type: SourceCodeVersionType | string | undefined;
+  Type: SourceCodeVersionType | undefined;
 
   /**
    * @public
@@ -1228,7 +1228,7 @@ export interface ImageRepository {
    * @public
    * <p>The type of the image repository. This reflects the repository provider and whether the repository is private or public.</p>
    */
-  ImageRepositoryType: ImageRepositoryType | string | undefined;
+  ImageRepositoryType: ImageRepositoryType | undefined;
 }
 
 /**
@@ -1367,7 +1367,7 @@ export interface AutoScalingConfigurationSummary {
    * <p>The current state of the auto scaling configuration. If the status of a configuration revision is <code>INACTIVE</code>, it was deleted and can't be
    *       used. Inactive configuration revisions are permanently removed some time after they are deleted.</p>
    */
-  Status?: AutoScalingConfigurationStatus | string;
+  Status?: AutoScalingConfigurationStatus;
 
   /**
    * @public
@@ -1476,7 +1476,7 @@ export interface Service {
    *             </li>
    *          </ul>
    */
-  Status: ServiceStatus | string | undefined;
+  Status: ServiceStatus | undefined;
 
   /**
    * @public
@@ -1639,7 +1639,7 @@ export interface VpcConnector {
    * <p>The current state of the VPC connector. If the status of a connector revision is <code>INACTIVE</code>, it was deleted and can't be
    *       used. Inactive connector revisions are permanently removed some time after they are deleted.</p>
    */
-  Status?: VpcConnectorStatus | string;
+  Status?: VpcConnectorStatus;
 
   /**
    * @public
@@ -1768,7 +1768,7 @@ export interface VpcIngressConnection {
    *       The VPC Ingress Connection displays one of the following statuses: <code>AVAILABLE</code>, <code>PENDING_CREATION</code>, <code>PENDING_UPDATE</code>, <code>PENDING_DELETION</code>,<code>FAILED_CREATION</code>, <code>FAILED_UPDATE</code>, <code>FAILED_DELETION</code>, and <code>DELETED</code>..
    *     </p>
    */
-  Status?: VpcIngressConnectionStatus | string;
+  Status?: VpcIngressConnectionStatus;
 
   /**
    * @public
@@ -2346,13 +2346,13 @@ export interface ConnectionSummary {
    * @public
    * <p>The source repository provider.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: ProviderType;
 
   /**
    * @public
    * <p>The current state of the App Runner connection. When the state is <code>AVAILABLE</code>, you can use the connection to create an App Runner service.</p>
    */
-  Status?: ConnectionStatus | string;
+  Status?: ConnectionStatus;
 
   /**
    * @public
@@ -2539,13 +2539,13 @@ export interface OperationSummary {
    * @public
    * <p>The type of operation. It indicates a specific action that occured.</p>
    */
-  Type?: OperationType | string;
+  Type?: OperationType;
 
   /**
    * @public
    * <p>The current state of the operation.</p>
    */
-  Status?: OperationStatus | string;
+  Status?: OperationStatus;
 
   /**
    * @public
@@ -2669,7 +2669,7 @@ export interface ServiceSummary {
    *             </li>
    *          </ul>
    */
-  Status?: ServiceStatus | string;
+  Status?: ServiceStatus;
 }
 
 /**

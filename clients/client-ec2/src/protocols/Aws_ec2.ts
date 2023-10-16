@@ -37943,7 +37943,7 @@ const se_AcceleratorCountRequest = (input: AcceleratorCountRequest, context: __S
 /**
  * serializeAws_ec2AcceleratorManufacturerSet
  */
-const se_AcceleratorManufacturerSet = (input: (AcceleratorManufacturer | string)[], context: __SerdeContext): any => {
+const se_AcceleratorManufacturerSet = (input: AcceleratorManufacturer[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -37959,7 +37959,7 @@ const se_AcceleratorManufacturerSet = (input: (AcceleratorManufacturer | string)
 /**
  * serializeAws_ec2AcceleratorNameSet
  */
-const se_AcceleratorNameSet = (input: (AcceleratorName | string)[], context: __SerdeContext): any => {
+const se_AcceleratorNameSet = (input: AcceleratorName[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -38003,7 +38003,7 @@ const se_AcceleratorTotalMemoryMiBRequest = (input: AcceleratorTotalMemoryMiBReq
 /**
  * serializeAws_ec2AcceleratorTypeSet
  */
-const se_AcceleratorTypeSet = (input: (AcceleratorType | string)[], context: __SerdeContext): any => {
+const se_AcceleratorTypeSet = (input: AcceleratorType[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -38236,7 +38236,7 @@ const se_AccessScopePathRequest = (input: AccessScopePathRequest, context: __Ser
 /**
  * serializeAws_ec2AccountAttributeNameStringList
  */
-const se_AccountAttributeNameStringList = (input: (AccountAttributeName | string)[], context: __SerdeContext): any => {
+const se_AccountAttributeNameStringList = (input: AccountAttributeName[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -38540,7 +38540,7 @@ const se_ApplySecurityGroupsToClientVpnTargetNetworkRequest = (
 /**
  * serializeAws_ec2ArchitectureTypeSet
  */
-const se_ArchitectureTypeSet = (input: (ArchitectureType | string)[], context: __SerdeContext): any => {
+const se_ArchitectureTypeSet = (input: ArchitectureType[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -40293,7 +40293,7 @@ const se_CopySnapshotRequest = (input: CopySnapshotRequest, context: __SerdeCont
 /**
  * serializeAws_ec2CpuManufacturerSet
  */
-const se_CpuManufacturerSet = (input: (CpuManufacturer | string)[], context: __SerdeContext): any => {
+const se_CpuManufacturerSet = (input: CpuManufacturer[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -54530,7 +54530,7 @@ const se_InstanceEventWindowTimeRangeRequestSet = (
 /**
  * serializeAws_ec2InstanceGenerationSet
  */
-const se_InstanceGenerationSet = (input: (InstanceGeneration | string)[], context: __SerdeContext): any => {
+const se_InstanceGenerationSet = (input: InstanceGeneration[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -55240,7 +55240,7 @@ const se_InstanceTagKeySet = (input: string[], context: __SerdeContext): any => 
 /**
  * serializeAws_ec2InstanceTypeList
  */
-const se_InstanceTypeList = (input: (_InstanceType | string)[], context: __SerdeContext): any => {
+const se_InstanceTypeList = (input: _InstanceType[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -56700,7 +56700,7 @@ const se_LocalGatewayVirtualInterfaceIdSet = (input: string[], context: __SerdeC
 /**
  * serializeAws_ec2LocalStorageTypeSet
  */
-const se_LocalStorageTypeSet = (input: (LocalStorageType | string)[], context: __SerdeContext): any => {
+const se_LocalStorageTypeSet = (input: LocalStorageType[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -60411,7 +60411,7 @@ const se_ProductDescriptionList = (input: string[], context: __SerdeContext): an
 /**
  * serializeAws_ec2ProtocolList
  */
-const se_ProtocolList = (input: (Protocol | string)[], context: __SerdeContext): any => {
+const se_ProtocolList = (input: Protocol[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -60688,7 +60688,7 @@ const se_PurchaseScheduledInstancesRequest = (
 /**
  * serializeAws_ec2ReasonCodesList
  */
-const se_ReasonCodesList = (input: (ReportInstanceReasonCodes | string)[], context: __SerdeContext): any => {
+const se_ReasonCodesList = (input: ReportInstanceReasonCodes[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -61478,7 +61478,7 @@ const se_RequestHostIdSet = (input: string[], context: __SerdeContext): any => {
 /**
  * serializeAws_ec2RequestInstanceTypeList
  */
-const se_RequestInstanceTypeList = (input: (_InstanceType | string)[], context: __SerdeContext): any => {
+const se_RequestInstanceTypeList = (input: _InstanceType[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -64615,10 +64615,7 @@ const se_TrafficMirrorFilterIdList = (input: string[], context: __SerdeContext):
 /**
  * serializeAws_ec2TrafficMirrorFilterRuleFieldList
  */
-const se_TrafficMirrorFilterRuleFieldList = (
-  input: (TrafficMirrorFilterRuleField | string)[],
-  context: __SerdeContext
-): any => {
+const se_TrafficMirrorFilterRuleFieldList = (input: TrafficMirrorFilterRuleField[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -64634,10 +64631,7 @@ const se_TrafficMirrorFilterRuleFieldList = (
 /**
  * serializeAws_ec2TrafficMirrorNetworkServiceList
  */
-const se_TrafficMirrorNetworkServiceList = (
-  input: (TrafficMirrorNetworkService | string)[],
-  context: __SerdeContext
-): any => {
+const se_TrafficMirrorNetworkServiceList = (input: TrafficMirrorNetworkService[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -64667,10 +64661,7 @@ const se_TrafficMirrorPortRangeRequest = (input: TrafficMirrorPortRangeRequest, 
 /**
  * serializeAws_ec2TrafficMirrorSessionFieldList
  */
-const se_TrafficMirrorSessionFieldList = (
-  input: (TrafficMirrorSessionField | string)[],
-  context: __SerdeContext
-): any => {
+const se_TrafficMirrorSessionFieldList = (input: TrafficMirrorSessionField[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -65481,7 +65472,7 @@ const se_VersionStringList = (input: string[], context: __SerdeContext): any => 
 /**
  * serializeAws_ec2VirtualizationTypeSet
  */
-const se_VirtualizationTypeSet = (input: (VirtualizationType | string)[], context: __SerdeContext): any => {
+const se_VirtualizationTypeSet = (input: VirtualizationType[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -65950,7 +65941,7 @@ const de_AcceleratorCount = (output: any, context: __SerdeContext): AcceleratorC
 /**
  * deserializeAws_ec2AcceleratorManufacturerSet
  */
-const de_AcceleratorManufacturerSet = (output: any, context: __SerdeContext): (AcceleratorManufacturer | string)[] => {
+const de_AcceleratorManufacturerSet = (output: any, context: __SerdeContext): AcceleratorManufacturer[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -65961,7 +65952,7 @@ const de_AcceleratorManufacturerSet = (output: any, context: __SerdeContext): (A
 /**
  * deserializeAws_ec2AcceleratorNameSet
  */
-const de_AcceleratorNameSet = (output: any, context: __SerdeContext): (AcceleratorName | string)[] => {
+const de_AcceleratorNameSet = (output: any, context: __SerdeContext): AcceleratorName[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -65986,7 +65977,7 @@ const de_AcceleratorTotalMemoryMiB = (output: any, context: __SerdeContext): Acc
 /**
  * deserializeAws_ec2AcceleratorTypeSet
  */
-const de_AcceleratorTypeSet = (output: any, context: __SerdeContext): (AcceleratorType | string)[] => {
+const de_AcceleratorTypeSet = (output: any, context: __SerdeContext): AcceleratorType[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -66843,7 +66834,7 @@ const de_ApplySecurityGroupsToClientVpnTargetNetworkResult = (
 /**
  * deserializeAws_ec2ArchitectureTypeList
  */
-const de_ArchitectureTypeList = (output: any, context: __SerdeContext): (ArchitectureType | string)[] => {
+const de_ArchitectureTypeList = (output: any, context: __SerdeContext): ArchitectureType[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -67607,7 +67598,7 @@ const de_BlockDeviceMappingList = (output: any, context: __SerdeContext): BlockD
 /**
  * deserializeAws_ec2BootModeTypeList
  */
-const de_BootModeTypeList = (output: any, context: __SerdeContext): (BootModeType | string)[] => {
+const de_BootModeTypeList = (output: any, context: __SerdeContext): BootModeType[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -69090,7 +69081,7 @@ const de_CoreCountList = (output: any, context: __SerdeContext): number[] => {
 /**
  * deserializeAws_ec2CpuManufacturerSet
  */
-const de_CpuManufacturerSet = (output: any, context: __SerdeContext): (CpuManufacturer | string)[] => {
+const de_CpuManufacturerSet = (output: any, context: __SerdeContext): CpuManufacturer[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -79951,7 +79942,7 @@ const de_InstanceFamilyCreditSpecification = (
 /**
  * deserializeAws_ec2InstanceGenerationSet
  */
-const de_InstanceGenerationSet = (output: any, context: __SerdeContext): (InstanceGeneration | string)[] => {
+const de_InstanceGenerationSet = (output: any, context: __SerdeContext): InstanceGeneration[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -83380,7 +83371,7 @@ const de_LocalGatewayVirtualInterfaceSet = (output: any, context: __SerdeContext
 /**
  * deserializeAws_ec2LocalStorageTypeSet
  */
-const de_LocalStorageTypeSet = (output: any, context: __SerdeContext): (LocalStorageType | string)[] => {
+const de_LocalStorageTypeSet = (output: any, context: __SerdeContext): LocalStorageType[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -85902,7 +85893,7 @@ const de_PlacementGroupList = (output: any, context: __SerdeContext): PlacementG
 /**
  * deserializeAws_ec2PlacementGroupStrategyList
  */
-const de_PlacementGroupStrategyList = (output: any, context: __SerdeContext): (PlacementGroupStrategy | string)[] => {
+const de_PlacementGroupStrategyList = (output: any, context: __SerdeContext): PlacementGroupStrategy[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -86359,7 +86350,7 @@ const de_ProtocolIntList = (output: any, context: __SerdeContext): number[] => {
 /**
  * deserializeAws_ec2ProtocolList
  */
-const de_ProtocolList = (output: any, context: __SerdeContext): (Protocol | string)[] => {
+const de_ProtocolList = (output: any, context: __SerdeContext): Protocol[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -87856,7 +87847,7 @@ const de_RevokeSecurityGroupIngressResult = (
 /**
  * deserializeAws_ec2RootDeviceTypeList
  */
-const de_RootDeviceTypeList = (output: any, context: __SerdeContext): (RootDeviceType | string)[] => {
+const de_RootDeviceTypeList = (output: any, context: __SerdeContext): RootDeviceType[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -90164,7 +90155,7 @@ const de_SuccessfulQueuedPurchaseDeletionSet = (
 const de_SupportedAdditionalProcessorFeatureList = (
   output: any,
   context: __SerdeContext
-): (SupportedAdditionalProcessorFeature | string)[] => {
+): SupportedAdditionalProcessorFeature[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -90175,7 +90166,7 @@ const de_SupportedAdditionalProcessorFeatureList = (
 /**
  * deserializeAws_ec2SupportedIpAddressTypes
  */
-const de_SupportedIpAddressTypes = (output: any, context: __SerdeContext): (ServiceConnectivityType | string)[] => {
+const de_SupportedIpAddressTypes = (output: any, context: __SerdeContext): ServiceConnectivityType[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -90627,10 +90618,7 @@ const de_TrafficMirrorFilterSet = (output: any, context: __SerdeContext): Traffi
 /**
  * deserializeAws_ec2TrafficMirrorNetworkServiceList
  */
-const de_TrafficMirrorNetworkServiceList = (
-  output: any,
-  context: __SerdeContext
-): (TrafficMirrorNetworkService | string)[] => {
+const de_TrafficMirrorNetworkServiceList = (output: any, context: __SerdeContext): TrafficMirrorNetworkService[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -92464,7 +92452,7 @@ const de_UpdateSecurityGroupRuleDescriptionsIngressResult = (
 /**
  * deserializeAws_ec2UsageClassTypeList
  */
-const de_UsageClassTypeList = (output: any, context: __SerdeContext): (UsageClassType | string)[] => {
+const de_UsageClassTypeList = (output: any, context: __SerdeContext): UsageClassType[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -93164,7 +93152,7 @@ const de_VgwTelemetryList = (output: any, context: __SerdeContext): VgwTelemetry
 /**
  * deserializeAws_ec2VirtualizationTypeList
  */
-const de_VirtualizationTypeList = (output: any, context: __SerdeContext): (VirtualizationType | string)[] => {
+const de_VirtualizationTypeList = (output: any, context: __SerdeContext): VirtualizationType[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

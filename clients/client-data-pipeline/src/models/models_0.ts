@@ -863,7 +863,7 @@ export interface Operator {
    *         </ul>
    *         <p>Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string "my".</p>
    */
-  type?: OperatorType | string;
+  type?: OperatorType;
 
   /**
    * @public
@@ -1117,7 +1117,7 @@ export interface SetTaskStatusInput {
    * @public
    * <p>If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.</p>
    */
-  taskStatus: TaskStatus | string | undefined;
+  taskStatus: TaskStatus | undefined;
 
   /**
    * @public

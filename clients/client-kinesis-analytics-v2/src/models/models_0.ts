@@ -405,7 +405,7 @@ export interface RecordFormat {
    * @public
    * <p>The type of record format.</p>
    */
-  RecordFormatType: RecordFormatType | string | undefined;
+  RecordFormatType: RecordFormatType | undefined;
 
   /**
    * @public
@@ -634,7 +634,7 @@ export interface InputStartingPositionConfiguration {
    *             </li>
    *          </ul>
    */
-  InputStartingPosition?: InputStartingPosition | string;
+  InputStartingPosition?: InputStartingPosition;
 }
 
 /**
@@ -872,7 +872,7 @@ export interface DestinationSchema {
    * @public
    * <p>Specifies the format of the records on the output stream.</p>
    */
-  RecordFormatType: RecordFormatType | string | undefined;
+  RecordFormatType: RecordFormatType | undefined;
 }
 
 /**
@@ -1512,7 +1512,7 @@ export interface ApplicationCodeConfiguration {
    * @public
    * <p>Specifies whether the code content is in text or zip format.</p>
    */
-  CodeContentType: CodeContentType | string | undefined;
+  CodeContentType: CodeContentType | undefined;
 }
 
 /**
@@ -1579,7 +1579,7 @@ export interface ApplicationCodeConfigurationDescription {
    * @public
    * <p>Specifies whether the code content is in text or zip format.</p>
    */
-  CodeContentType: CodeContentType | string | undefined;
+  CodeContentType: CodeContentType | undefined;
 
   /**
    * @public
@@ -1645,7 +1645,7 @@ export interface ApplicationCodeConfigurationUpdate {
    * @public
    * <p>Describes updates to the code content type.</p>
    */
-  CodeContentTypeUpdate?: CodeContentType | string;
+  CodeContentTypeUpdate?: CodeContentType;
 
   /**
    * @public
@@ -1744,7 +1744,7 @@ export interface CheckpointConfiguration {
    *             </ul>
    *          </note>
    */
-  ConfigurationType: ConfigurationType | string | undefined;
+  ConfigurationType: ConfigurationType | undefined;
 
   /**
    * @public
@@ -1827,20 +1827,20 @@ export interface MonitoringConfiguration {
    *     You must set this property to <code>CUSTOM</code> in order to set the <code>LogLevel</code> or
    *     <code>MetricsLevel</code> parameters.</p>
    */
-  ConfigurationType: ConfigurationType | string | undefined;
+  ConfigurationType: ConfigurationType | undefined;
 
   /**
    * @public
    * <p>Describes the granularity of the CloudWatch Logs for an application. The <code>Parallelism</code>
    *     level is not recommended for applications with a Parallelism over 64 due to excessive costs.</p>
    */
-  MetricsLevel?: MetricsLevel | string;
+  MetricsLevel?: MetricsLevel;
 
   /**
    * @public
    * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: LogLevel;
 }
 
 /**
@@ -1856,7 +1856,7 @@ export interface ParallelismConfiguration {
    * <p>Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to <code>CUSTOM</code>
    *     in order to change your application's <code>AutoScalingEnabled</code>, <code>Parallelism</code>, or <code>ParallelismPerKPU</code> properties.</p>
    */
-  ConfigurationType: ConfigurationType | string | undefined;
+  ConfigurationType: ConfigurationType | undefined;
 
   /**
    * @public
@@ -2014,7 +2014,7 @@ export interface CustomArtifactConfiguration {
    * <p>
    *             <code>UDF</code> stands for user-defined functions. This type of artifact must be in an S3 bucket. A <code>DEPENDENCY_JAR</code> can be in either Maven or an S3 bucket.</p>
    */
-  ArtifactType: ArtifactType | string | undefined;
+  ArtifactType: ArtifactType | undefined;
 
   /**
    * @public
@@ -2072,7 +2072,7 @@ export interface ZeppelinMonitoringConfiguration {
    * @public
    * <p>The verbosity of the CloudWatch Logs for an application.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: LogLevel | undefined;
 }
 
 /**
@@ -2205,7 +2205,7 @@ export interface CheckpointConfigurationDescription {
    *             </ul>
    *          </note>
    */
-  ConfigurationType?: ConfigurationType | string;
+  ConfigurationType?: ConfigurationType;
 
   /**
    * @public
@@ -2251,19 +2251,19 @@ export interface MonitoringConfigurationDescription {
    * @public
    * <p>Describes whether to use the default CloudWatch logging configuration for an application.</p>
    */
-  ConfigurationType?: ConfigurationType | string;
+  ConfigurationType?: ConfigurationType;
 
   /**
    * @public
    * <p>Describes the granularity of the CloudWatch Logs for an application.</p>
    */
-  MetricsLevel?: MetricsLevel | string;
+  MetricsLevel?: MetricsLevel;
 
   /**
    * @public
    * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: LogLevel;
 }
 
 /**
@@ -2276,7 +2276,7 @@ export interface ParallelismConfigurationDescription {
    * @public
    * <p>Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. </p>
    */
-  ConfigurationType?: ConfigurationType | string;
+  ConfigurationType?: ConfigurationType;
 
   /**
    * @public
@@ -2369,7 +2369,7 @@ export interface ApplicationRestoreConfiguration {
    * @public
    * <p>Specifies how the application should be restored.</p>
    */
-  ApplicationRestoreType: ApplicationRestoreType | string | undefined;
+  ApplicationRestoreType: ApplicationRestoreType | undefined;
 
   /**
    * @public
@@ -2483,7 +2483,7 @@ export interface CustomArtifactConfigurationDescription {
    * <p>
    *             <code>UDF</code> stands for user-defined functions. This type of artifact must be in an S3 bucket. A <code>DEPENDENCY_JAR</code> can be in either Maven or an S3 bucket.</p>
    */
-  ArtifactType?: ArtifactType | string;
+  ArtifactType?: ArtifactType;
 
   /**
    * @public
@@ -2540,7 +2540,7 @@ export interface ZeppelinMonitoringConfigurationDescription {
    * @public
    * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: LogLevel;
 }
 
 /**
@@ -2682,7 +2682,7 @@ export interface CheckpointConfigurationUpdate {
    *             </ul>
    *          </note>
    */
-  ConfigurationTypeUpdate?: ConfigurationType | string;
+  ConfigurationTypeUpdate?: ConfigurationType;
 
   /**
    * @public
@@ -2730,20 +2730,20 @@ export interface MonitoringConfigurationUpdate {
    *       an application. You must set this property to <code>CUSTOM</code> in order to set the <code>LogLevel</code> or
    *     <code>MetricsLevel</code> parameters.</p>
    */
-  ConfigurationTypeUpdate?: ConfigurationType | string;
+  ConfigurationTypeUpdate?: ConfigurationType;
 
   /**
    * @public
    * <p>Describes updates to the granularity of the CloudWatch Logs for an application. The <code>Parallelism</code>
    *       level is not recommended for applications with a Parallelism over 64 due to excessive costs.</p>
    */
-  MetricsLevelUpdate?: MetricsLevel | string;
+  MetricsLevelUpdate?: MetricsLevel;
 
   /**
    * @public
    * <p>Describes updates to the verbosity of the CloudWatch Logs for an application.</p>
    */
-  LogLevelUpdate?: LogLevel | string;
+  LogLevelUpdate?: LogLevel;
 }
 
 /**
@@ -2757,7 +2757,7 @@ export interface ParallelismConfigurationUpdate {
    *     You must set this property to <code>CUSTOM</code>
    *     in order to change your application's <code>AutoScalingEnabled</code>, <code>Parallelism</code>, or <code>ParallelismPerKPU</code> properties.</p>
    */
-  ConfigurationTypeUpdate?: ConfigurationType | string;
+  ConfigurationTypeUpdate?: ConfigurationType;
 
   /**
    * @public
@@ -3226,7 +3226,7 @@ export interface ZeppelinMonitoringConfigurationUpdate {
    * @public
    * <p>Updates to the logging level for Apache Zeppelin within a Kinesis Data Analytics Studio notebook.</p>
    */
-  LogLevelUpdate: LogLevel | string | undefined;
+  LogLevelUpdate: LogLevel | undefined;
 }
 
 /**
@@ -3413,7 +3413,7 @@ export interface ApplicationDetail {
    * @public
    * <p>The runtime environment for the application.</p>
    */
-  RuntimeEnvironment: RuntimeEnvironment | string | undefined;
+  RuntimeEnvironment: RuntimeEnvironment | undefined;
 
   /**
    * @public
@@ -3425,7 +3425,7 @@ export interface ApplicationDetail {
    * @public
    * <p>The status of the application.</p>
    */
-  ApplicationStatus: ApplicationStatus | string | undefined;
+  ApplicationStatus: ApplicationStatus | undefined;
 
   /**
    * @public
@@ -3494,7 +3494,7 @@ export interface ApplicationDetail {
    * @public
    * <p>To create a Kinesis Data Analytics Studio notebook, you must set the mode to <code>INTERACTIVE</code>. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.</p>
    */
-  ApplicationMode?: ApplicationMode | string;
+  ApplicationMode?: ApplicationMode;
 }
 
 /**
@@ -3530,7 +3530,7 @@ export interface ApplicationSummary {
    * @public
    * <p>The status of the application.</p>
    */
-  ApplicationStatus: ApplicationStatus | string | undefined;
+  ApplicationStatus: ApplicationStatus | undefined;
 
   /**
    * @public
@@ -3542,13 +3542,13 @@ export interface ApplicationSummary {
    * @public
    * <p>The runtime environment for the application.</p>
    */
-  RuntimeEnvironment: RuntimeEnvironment | string | undefined;
+  RuntimeEnvironment: RuntimeEnvironment | undefined;
 
   /**
    * @public
    * <p>For a Kinesis Data Analytics for Apache Flink application, the mode is <code>STREAMING</code>. For a Kinesis Data Analytics Studio notebook, it is <code>INTERACTIVE</code>.</p>
    */
-  ApplicationMode?: ApplicationMode | string;
+  ApplicationMode?: ApplicationMode;
 }
 
 /**
@@ -3566,7 +3566,7 @@ export interface ApplicationVersionSummary {
    * @public
    * <p>The status of the application.</p>
    */
-  ApplicationStatus: ApplicationStatus | string | undefined;
+  ApplicationStatus: ApplicationStatus | undefined;
 }
 
 /**
@@ -3632,7 +3632,7 @@ export interface CreateApplicationRequest {
    * @public
    * <p>The runtime environment for the application.</p>
    */
-  RuntimeEnvironment: RuntimeEnvironment | string | undefined;
+  RuntimeEnvironment: RuntimeEnvironment | undefined;
 
   /**
    * @public
@@ -3670,7 +3670,7 @@ export interface CreateApplicationRequest {
    * <p>Use the <code>STREAMING</code> mode to create a Kinesis Data Analytics For Flink application. To create a Kinesis Data Analytics Studio notebook, use the
    *     <code>INTERACTIVE</code> mode.</p>
    */
-  ApplicationMode?: ApplicationMode | string;
+  ApplicationMode?: ApplicationMode;
 }
 
 /**
@@ -3780,7 +3780,7 @@ export interface CreateApplicationPresignedUrlRequest {
    * <p>The type of the extension for which to create and return a URL. Currently, the only valid
    *             extension URL type is <code>FLINK_DASHBOARD_URL</code>. </p>
    */
-  UrlType: UrlType | string | undefined;
+  UrlType: UrlType | undefined;
 
   /**
    * @public
@@ -4206,7 +4206,7 @@ export interface SnapshotDetails {
    * @public
    * <p>The status of the application snapshot.</p>
    */
-  SnapshotStatus: SnapshotStatus | string | undefined;
+  SnapshotStatus: SnapshotStatus | undefined;
 
   /**
    * @public

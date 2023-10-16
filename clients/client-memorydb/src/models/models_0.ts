@@ -273,7 +273,7 @@ export interface PendingModifiedServiceUpdate {
    * @public
    * <p>The status of the service update</p>
    */
-  Status?: ServiceUpdateStatus | string;
+  Status?: ServiceUpdateStatus;
 }
 
 /**
@@ -435,7 +435,7 @@ export interface Cluster {
    * @public
    * <p>Indicates if the cluster has a Multi-AZ configuration (multiaz) or not (singleaz).</p>
    */
-  AvailabilityMode?: AZStatus | string;
+  AvailabilityMode?: AZStatus;
 
   /**
    * @public
@@ -554,7 +554,7 @@ export interface Cluster {
    * <p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
    *             This parameter must be set when using r6gd nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html">Data tiering</a>.</p>
    */
-  DataTiering?: DataTieringStatus | string;
+  DataTiering?: DataTieringStatus;
 }
 
 /**
@@ -884,7 +884,7 @@ export interface Snapshot {
    * <p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
    *             This parameter must be set when using r6gd nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html">Data tiering</a>.</p>
    */
-  DataTiering?: DataTieringStatus | string;
+  DataTiering?: DataTieringStatus;
 }
 
 /**
@@ -1994,7 +1994,7 @@ export interface AuthenticationMode {
    * @public
    * <p>Indicates whether the user requires a password to authenticate. All newly-created users require a password.</p>
    */
-  Type?: InputAuthenticationType | string;
+  Type?: InputAuthenticationType;
 
   /**
    * @public
@@ -2056,7 +2056,7 @@ export interface Authentication {
    * @public
    * <p>Indicates whether the user requires a password to authenticate.</p>
    */
-  Type?: AuthenticationType | string;
+  Type?: AuthenticationType;
 
   /**
    * @public
@@ -2538,7 +2538,7 @@ export interface DescribeEventsRequest {
    * @public
    * <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -2591,7 +2591,7 @@ export interface Event {
    * @public
    * <p>Specifies the origin of this event - a cluster, a parameter group, a security group, etc.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -3063,7 +3063,7 @@ export interface DescribeServiceUpdatesRequest {
    * @public
    * <p>The status(es) of the service updates to filter on</p>
    */
-  Status?: (ServiceUpdateStatus | string)[];
+  Status?: ServiceUpdateStatus[];
 
   /**
    * @public
@@ -3124,13 +3124,13 @@ export interface ServiceUpdate {
    * @public
    * <p>The status of the service update</p>
    */
-  Status?: ServiceUpdateStatus | string;
+  Status?: ServiceUpdateStatus;
 
   /**
    * @public
    * <p>Reflects the nature of the service update</p>
    */
-  Type?: ServiceUpdateType | string;
+  Type?: ServiceUpdateType;
 
   /**
    * @public

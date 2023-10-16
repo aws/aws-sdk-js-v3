@@ -62,7 +62,7 @@ export interface CrossRegionCopyRetainRule {
    * <p>The unit of time for time-based retention. For example, to retain a cross-Region copy for
    * 			3 months, specify <code>Interval=3</code> and <code>IntervalUnit=MONTHS</code>.</p>
    */
-  IntervalUnit?: RetentionIntervalUnitValues | string;
+  IntervalUnit?: RetentionIntervalUnitValues;
 }
 
 /**
@@ -153,7 +153,7 @@ export interface RetentionArchiveTier {
    * 			example, to retain a snapshots in the archive tier for 6 months, specify <code>Interval=6</code>
    * 			and <code>IntervalUnit=MONTHS</code>.</p>
    */
-  IntervalUnit?: RetentionIntervalUnitValues | string;
+  IntervalUnit?: RetentionIntervalUnitValues;
 }
 
 /**
@@ -207,7 +207,7 @@ export interface EventParameters {
    * @public
    * <p>The type of event. Currently, only snapshot sharing events are supported.</p>
    */
-  EventType: EventTypeValues | string | undefined;
+  EventType: EventTypeValues | undefined;
 
   /**
    * @public
@@ -251,7 +251,7 @@ export interface EventSource {
    * @public
    * <p>The source of the event. Currently only managed CloudWatch Events rules are supported.</p>
    */
-  Type: EventSourceValues | string | undefined;
+  Type: EventSourceValues | undefined;
 
   /**
    * @public
@@ -424,7 +424,7 @@ export interface CreateRule {
    * 			Outpost, then you can create snapshots on the same Outpost as the source resource, or in
    * 			the Region of that Outpost.</p>
    */
-  Location?: LocationValues | string;
+  Location?: LocationValues;
 
   /**
    * @public
@@ -436,7 +436,7 @@ export interface CreateRule {
    * @public
    * <p>The interval unit.</p>
    */
-  IntervalUnit?: IntervalUnitValues | string;
+  IntervalUnit?: IntervalUnitValues;
 
   /**
    * @public
@@ -475,7 +475,7 @@ export interface CrossRegionCopyDeprecateRule {
    * 			to deprecate a cross-Region AMI copy after 3 months, specify <code>Interval=3</code> and
    * 			<code>IntervalUnit=MONTHS</code>.</p>
    */
-  IntervalUnit?: RetentionIntervalUnitValues | string;
+  IntervalUnit?: RetentionIntervalUnitValues;
 }
 
 /**
@@ -576,7 +576,7 @@ export interface DeprecateRule {
    * @public
    * <p>The unit of time in which to measure the <b>Interval</b>.</p>
    */
-  IntervalUnit?: RetentionIntervalUnitValues | string;
+  IntervalUnit?: RetentionIntervalUnitValues;
 }
 
 /**
@@ -604,7 +604,7 @@ export interface FastRestoreRule {
    * @public
    * <p>The unit of time for enabling fast snapshot restore.</p>
    */
-  IntervalUnit?: RetentionIntervalUnitValues | string;
+  IntervalUnit?: RetentionIntervalUnitValues;
 
   /**
    * @public
@@ -674,7 +674,7 @@ export interface RetainRule {
    * 			3 months, it is deleted, or it is moved to the archive tier if you have specified an
    * 			<a>ArchiveRule</a>.</p>
    */
-  IntervalUnit?: RetentionIntervalUnitValues | string;
+  IntervalUnit?: RetentionIntervalUnitValues;
 }
 
 /**
@@ -699,7 +699,7 @@ export interface ShareRule {
    * @public
    * <p>The unit of time for the automatic unsharing interval.</p>
    */
-  UnshareIntervalUnit?: RetentionIntervalUnitValues | string;
+  UnshareIntervalUnit?: RetentionIntervalUnitValues;
 }
 
 /**
@@ -811,7 +811,7 @@ export interface PolicyDetails {
    * 			to create an event-based policy that performs specific actions when a defined event occurs in your Amazon Web Services account.</p>
    *          <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>
    */
-  PolicyType?: PolicyTypeValues | string;
+  PolicyType?: PolicyTypeValues;
 
   /**
    * @public
@@ -820,7 +820,7 @@ export interface PolicyDetails {
    * 			create snapshots of individual volumes or use <code>INSTANCE</code> to create multi-volume
    * 			snapshots from the volumes for an instance.</p>
    */
-  ResourceTypes?: (ResourceTypeValues | string)[];
+  ResourceTypes?: ResourceTypeValues[];
 
   /**
    * @public
@@ -831,7 +831,7 @@ export interface PolicyDetails {
    *          <p>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
    * 				of the specified type with matching target tags across all of the Outposts in your account.</p>
    */
-  ResourceLocations?: (ResourceLocationValues | string)[];
+  ResourceLocations?: ResourceLocationValues[];
 
   /**
    * @public
@@ -913,7 +913,7 @@ export interface CreateLifecyclePolicyRequest {
    * @public
    * <p>The desired activation state of the lifecycle policy after creation.</p>
    */
-  State: SettablePolicyStateValues | string | undefined;
+  State: SettablePolicyStateValues | undefined;
 
   /**
    * @public
@@ -1113,13 +1113,13 @@ export interface GetLifecyclePoliciesRequest {
    * @public
    * <p>The activation state.</p>
    */
-  State?: GettablePolicyStateValues | string;
+  State?: GettablePolicyStateValues;
 
   /**
    * @public
    * <p>The resource type.</p>
    */
-  ResourceTypes?: (ResourceTypeValues | string)[];
+  ResourceTypes?: ResourceTypeValues[];
 
   /**
    * @public
@@ -1158,7 +1158,7 @@ export interface LifecyclePolicySummary {
    * @public
    * <p>The activation state of the lifecycle policy.</p>
    */
-  State?: GettablePolicyStateValues | string;
+  State?: GettablePolicyStateValues;
 
   /**
    * @public
@@ -1174,7 +1174,7 @@ export interface LifecyclePolicySummary {
    * 			<code>EVENT_BASED_POLICY</code> indicates that the policy automates cross-account
    * 			snapshot copies for snapshots that are shared with your account.</p>
    */
-  PolicyType?: PolicyTypeValues | string;
+  PolicyType?: PolicyTypeValues;
 }
 
 /**
@@ -1221,7 +1221,7 @@ export interface LifecyclePolicy {
    * @public
    * <p>The activation state of the lifecycle policy.</p>
    */
-  State?: GettablePolicyStateValues | string;
+  State?: GettablePolicyStateValues;
 
   /**
    * @public
@@ -1365,7 +1365,7 @@ export interface UpdateLifecyclePolicyRequest {
    * @public
    * <p>The desired activation state of the lifecycle policy after creation.</p>
    */
-  State?: SettablePolicyStateValues | string;
+  State?: SettablePolicyStateValues;
 
   /**
    * @public

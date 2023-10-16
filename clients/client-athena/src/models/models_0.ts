@@ -34,7 +34,7 @@ export interface AclConfiguration {
    *             specified in the workgroup's settings is used for all queries that run in the workgroup.
    *             For more information about Amazon S3 canned ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl">Canned ACL</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  S3AclOption: S3AclOption | string | undefined;
+  S3AclOption: S3AclOption | undefined;
 }
 
 /**
@@ -389,7 +389,7 @@ export interface EncryptionConfiguration {
    *             the workgroup's setting for encryption is used. It specifies whether query results must
    *             be encrypted, for all queries that run in this workgroup. </p>
    */
-  EncryptionOption: EncryptionOption | string | undefined;
+  EncryptionOption: EncryptionOption | undefined;
 
   /**
    * @public
@@ -669,7 +669,7 @@ export interface QueryExecutionStatus {
    *                     <code>RUNNING</code> or <code>FAILED</code> to <code>QUEUED</code>. </p>
    *          </note>
    */
-  State?: QueryExecutionState | string;
+  State?: QueryExecutionState;
 
   /**
    * @public
@@ -721,7 +721,7 @@ export interface QueryExecution {
    *             query statements other than DDL and DML, such as <code>SHOW CREATE TABLE</code>, or
    *                 <code>DESCRIBE TABLE</code>.</p>
    */
-  StatementType?: StatementType | string;
+  StatementType?: StatementType;
 
   /**
    * @public
@@ -937,7 +937,7 @@ export interface CreateDataCatalogInput {
    *                 <code>HIVE</code> for an external hive metastore, or <code>GLUE</code> for an
    *                 Glue Data Catalog.</p>
    */
-  Type: DataCatalogType | string | undefined;
+  Type: DataCatalogType | undefined;
 
   /**
    * @public
@@ -1159,7 +1159,7 @@ export class TooManyRequestsException extends __BaseException {
    * <p>The reason for the query throttling, for example, when it exceeds the concurrent query
    *             limit.</p>
    */
-  Reason?: ThrottleReason | string;
+  Reason?: ThrottleReason;
   /**
    * @internal
    */
@@ -1582,7 +1582,7 @@ export interface NotebookMetadata {
    * @public
    * <p>The type of notebook. Currently, the only valid type is <code>IPYNB</code>.</p>
    */
-  Type?: NotebookType | string;
+  Type?: NotebookType;
 
   /**
    * @public
@@ -1728,7 +1728,7 @@ export interface CalculationStatus {
    *          <p>
    *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
    */
-  State?: CalculationExecutionState | string;
+  State?: CalculationExecutionState;
 
   /**
    * @public
@@ -1924,7 +1924,7 @@ export interface CapacityAllocation {
    * @public
    * <p>The status of the capacity allocation.</p>
    */
-  Status: CapacityAllocationStatus | string | undefined;
+  Status: CapacityAllocationStatus | undefined;
 
   /**
    * @public
@@ -1978,7 +1978,7 @@ export interface CapacityReservation {
    * @public
    * <p>The status of the capacity reservation.</p>
    */
-  Status: CapacityReservationStatus | string | undefined;
+  Status: CapacityReservationStatus | undefined;
 
   /**
    * @public
@@ -2141,7 +2141,7 @@ export interface DataCatalog {
    *                 <code>HIVE</code> for an external hive metastore, or <code>GLUE</code> for an
    *                 Glue Data Catalog.</p>
    */
-  Type: DataCatalogType | string | undefined;
+  Type: DataCatalogType | undefined;
 
   /**
    * @public
@@ -2417,7 +2417,7 @@ export interface ColumnInfo {
    * @public
    * <p>Indicates the column's nullable status.</p>
    */
-  Nullable?: ColumnNullable | string;
+  Nullable?: ColumnNullable;
 
   /**
    * @public
@@ -2766,7 +2766,7 @@ export interface SessionStatus {
    *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
    *             running.</p>
    */
-  State?: SessionState | string;
+  State?: SessionState;
 
   /**
    * @public
@@ -3019,7 +3019,7 @@ export interface WorkGroup {
    * @public
    * <p>The state of the workgroup: ENABLED or DISABLED.</p>
    */
-  State?: WorkGroupState | string;
+  State?: WorkGroupState;
 
   /**
    * @public
@@ -3083,7 +3083,7 @@ export interface ImportNotebookInput {
    * <p>The notebook content type. Currently, the only valid type is
    *             <code>IPYNB</code>.</p>
    */
-  Type: NotebookType | string | undefined;
+  Type: NotebookType | undefined;
 
   /**
    * @public
@@ -3199,7 +3199,7 @@ export interface ListCalculationExecutionsRequest {
    *          <p>
    *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
    */
-  StateFilter?: CalculationExecutionState | string;
+  StateFilter?: CalculationExecutionState;
 
   /**
    * @public
@@ -3376,7 +3376,7 @@ export interface DataCatalogSummary {
    * @public
    * <p>The data catalog type.</p>
    */
-  Type?: DataCatalogType | string;
+  Type?: DataCatalogType;
 }
 
 /**
@@ -3481,7 +3481,7 @@ export interface ListExecutorsRequest {
    *          <p>
    *             <code>FAILED</code> - Due to a failure, the executor is no longer running.</p>
    */
-  ExecutorStateFilter?: ExecutorState | string;
+  ExecutorStateFilter?: ExecutorState;
 
   /**
    * @public
@@ -3529,7 +3529,7 @@ export interface ExecutorsSummary {
    * <p>The type of executor used for the application (<code>COORDINATOR</code>,
    *                 <code>GATEWAY</code>, or <code>WORKER</code>).</p>
    */
-  ExecutorType?: ExecutorType | string;
+  ExecutorType?: ExecutorType;
 
   /**
    * @public
@@ -3560,7 +3560,7 @@ export interface ExecutorsSummary {
    *          <p>
    *             <code>FAILED</code> - Due to a failure, the executor is no longer running.</p>
    */
-  ExecutorState?: ExecutorState | string;
+  ExecutorState?: ExecutorState;
 
   /**
    * @public
@@ -3904,7 +3904,7 @@ export interface ListSessionsRequest {
    *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
    *             running.</p>
    */
-  StateFilter?: SessionState | string;
+  StateFilter?: SessionState;
 
   /**
    * @public
@@ -4112,7 +4112,7 @@ export interface WorkGroupSummary {
    * @public
    * <p>The state of the workgroup.</p>
    */
-  State?: WorkGroupState | string;
+  State?: WorkGroupState;
 
   /**
    * @public
@@ -4267,7 +4267,7 @@ export interface StartCalculationExecutionResponse {
    *          <p>
    *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
    */
-  State?: CalculationExecutionState | string;
+  State?: CalculationExecutionState;
 }
 
 /**
@@ -4447,7 +4447,7 @@ export interface StartSessionResponse {
    *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
    *             running.</p>
    */
-  State?: SessionState | string;
+  State?: SessionState;
 }
 
 /**
@@ -4486,7 +4486,7 @@ export interface StopCalculationExecutionResponse {
    *          <p>
    *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
    */
-  State?: CalculationExecutionState | string;
+  State?: CalculationExecutionState;
 }
 
 /**
@@ -4566,7 +4566,7 @@ export interface TerminateSessionResponse {
    *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
    *             running.</p>
    */
-  State?: SessionState | string;
+  State?: SessionState;
 }
 
 /**
@@ -4633,7 +4633,7 @@ export interface UpdateDataCatalogInput {
    *             federated catalog, <code>HIVE</code> for an external hive metastore, or
    *                 <code>GLUE</code> for an Glue Data Catalog.</p>
    */
-  Type: DataCatalogType | string | undefined;
+  Type: DataCatalogType | undefined;
 
   /**
    * @public
@@ -4746,7 +4746,7 @@ export interface UpdateNotebookInput {
    * <p>The notebook content type. Currently, the only valid type is
    *             <code>IPYNB</code>.</p>
    */
-  Type: NotebookType | string | undefined;
+  Type: NotebookType | undefined;
 
   /**
    * @public
@@ -5061,7 +5061,7 @@ export interface UpdateWorkGroupInput {
    * @public
    * <p>The workgroup state that will be updated for the given workgroup.</p>
    */
-  State?: WorkGroupState | string;
+  State?: WorkGroupState;
 }
 
 /**

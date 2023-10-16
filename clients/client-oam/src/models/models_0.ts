@@ -78,7 +78,7 @@ export interface CreateLinkInput {
    * <p>An array of strings that define which types of data that the source account shares with the monitoring
    *             account.</p>
    */
-  ResourceTypes: (ResourceType | string)[] | undefined;
+  ResourceTypes: ResourceType[] | undefined;
 
   /**
    * @public
@@ -899,7 +899,7 @@ export interface UpdateLinkInput {
    *             account.</p>
    *          <p>Your input here replaces the current set of data types that are shared.</p>
    */
-  ResourceTypes: (ResourceType | string)[] | undefined;
+  ResourceTypes: ResourceType[] | undefined;
 }
 
 /**

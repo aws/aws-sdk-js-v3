@@ -184,13 +184,13 @@ export interface GetReportDefinitionResult {
    * @public
    * <p>Cadence used to generate the report.</p>
    */
-  reportFrequency: ReportFrequency | string | undefined;
+  reportFrequency: ReportFrequency | undefined;
 
   /**
    * @public
    * <p>Format of the generated report.</p>
    */
-  format: Format | string | undefined;
+  format: Format | undefined;
 
   /**
    * @public
@@ -251,7 +251,7 @@ export interface SourceS3Location {
    *         For more infomration about Regions that are disabled by default, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">
    *           Enabling a Region</a> in the <i>AWS General Reference guide</i>.</p>
    */
-  region?: S3BucketRegion | string;
+  region?: S3BucketRegion;
 }
 
 /**
@@ -314,13 +314,13 @@ export interface ReportDefinition {
    * @public
    * <p>The cadence at which the report is generated.</p>
    */
-  reportFrequency?: ReportFrequency | string;
+  reportFrequency?: ReportFrequency;
 
   /**
    * @public
    * <p>The format used for the generated reports.</p>
    */
-  format?: Format | string;
+  format?: Format;
 
   /**
    * @public
@@ -379,13 +379,13 @@ export interface PutReportDefinitionRequest {
    * @public
    * <p>Required. The cadence to generate the report.</p>
    */
-  reportFrequency: ReportFrequency | string | undefined;
+  reportFrequency: ReportFrequency | undefined;
 
   /**
    * @public
    * <p>Required. The format to use for the generated report.</p>
    */
-  format: Format | string | undefined;
+  format: Format | undefined;
 
   /**
    * @public
@@ -446,13 +446,13 @@ export interface UpdateReportDefinitionRequest {
    * @public
    * <p>Required. The cadence to generate the report.</p>
    */
-  reportFrequency: ReportFrequency | string | undefined;
+  reportFrequency: ReportFrequency | undefined;
 
   /**
    * @public
    * <p>Required. The format to use for the generated report.</p>
    */
-  format: Format | string | undefined;
+  format: Format | undefined;
 
   /**
    * @public

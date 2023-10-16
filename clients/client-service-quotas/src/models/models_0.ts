@@ -362,7 +362,7 @@ export interface ErrorReason {
    *             </li>
    *          </ul>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -401,7 +401,7 @@ export interface GetAssociationForServiceQuotaTemplateResponse {
    *             requests in the template are automatically applied to new Amazon Web Services accounts in your
    *             organization.</p>
    */
-  ServiceQuotaTemplateAssociationStatus?: ServiceQuotaTemplateAssociationStatus | string;
+  ServiceQuotaTemplateAssociationStatus?: ServiceQuotaTemplateAssociationStatus;
 }
 
 /**
@@ -458,7 +458,7 @@ export interface QuotaPeriod {
    * @public
    * <p>The time unit.</p>
    */
-  PeriodUnit?: PeriodUnit | string;
+  PeriodUnit?: PeriodUnit;
 }
 
 /**
@@ -484,7 +484,7 @@ export interface QuotaContextInfo {
    * @public
    * <p>Specifies whether the quota applies to an Amazon Web Services account, or to a resource.</p>
    */
-  ContextScope?: QuotaContextScope | string;
+  ContextScope?: QuotaContextScope;
 
   /**
    * @public
@@ -615,7 +615,7 @@ export interface ServiceQuota {
    * @public
    * <p>Specifies at which level of granularity that the quota value is applied.</p>
    */
-  QuotaAppliedAtLevel?: AppliedLevelEnum | string;
+  QuotaAppliedAtLevel?: AppliedLevelEnum;
 
   /**
    * @public
@@ -719,7 +719,7 @@ export interface RequestedServiceQuotaChange {
    * @public
    * <p>The state of the quota increase request.</p>
    */
-  Status?: RequestStatus | string;
+  Status?: RequestStatus;
 
   /**
    * @public
@@ -762,7 +762,7 @@ export interface RequestedServiceQuotaChange {
    * @public
    * <p>Specifies at which level within the Amazon Web Services account the quota request applies to.</p>
    */
-  QuotaRequestedAtLevel?: AppliedLevelEnum | string;
+  QuotaRequestedAtLevel?: AppliedLevelEnum;
 
   /**
    * @public
@@ -1054,7 +1054,7 @@ export interface ListRequestedServiceQuotaChangeHistoryRequest {
    * <p>Specifies that you want to filter the results to only the requests with the matching
    *             status.</p>
    */
-  Status?: RequestStatus | string;
+  Status?: RequestStatus;
 
   /**
    * @public
@@ -1086,7 +1086,7 @@ export interface ListRequestedServiceQuotaChangeHistoryRequest {
    * @public
    * <p>Specifies at which level within the Amazon Web Services account the quota request applies to.</p>
    */
-  QuotaRequestedAtLevel?: AppliedLevelEnum | string;
+  QuotaRequestedAtLevel?: AppliedLevelEnum;
 }
 
 /**
@@ -1133,7 +1133,7 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
    * <p>Specifies that you want to filter the results to only the requests with the matching
    *             status.</p>
    */
-  Status?: RequestStatus | string;
+  Status?: RequestStatus;
 
   /**
    * @public
@@ -1165,7 +1165,7 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
    * @public
    * <p>Specifies at which level within the Amazon Web Services account the quota request applies to.</p>
    */
-  QuotaRequestedAtLevel?: AppliedLevelEnum | string;
+  QuotaRequestedAtLevel?: AppliedLevelEnum;
 }
 
 /**
@@ -1301,7 +1301,7 @@ export interface ListServiceQuotasRequest {
    * @public
    * <p>Specifies at which level of granularity that the quota value is applied.</p>
    */
-  QuotaAppliedAtLevel?: AppliedLevelEnum | string;
+  QuotaAppliedAtLevel?: AppliedLevelEnum;
 }
 
 /**

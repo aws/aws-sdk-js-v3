@@ -325,7 +325,7 @@ export interface UpdateQueueStatusRequest {
    * @public
    * <p>The status of the queue.</p>
    */
-  Status: QueueStatus | string | undefined;
+  Status: QueueStatus | undefined;
 }
 
 /**
@@ -402,7 +402,7 @@ export interface UpdateRoutingProfileAgentAvailabilityTimerRequest {
    *     <i>time since their last inbound contact</i> or <i>longest idle
    *     time</i>. </p>
    */
-  AgentAvailabilityTimer: AgentAvailabilityTimer | string | undefined;
+  AgentAvailabilityTimer: AgentAvailabilityTimer | undefined;
 }
 
 /**
@@ -546,7 +546,7 @@ export interface UpdateRuleRequest {
    * @public
    * <p>The publish status of the rule.</p>
    */
-  PublishStatus: RulePublishStatus | string | undefined;
+  PublishStatus: RulePublishStatus | undefined;
 }
 
 /**
@@ -650,7 +650,7 @@ export interface UpdateTaskTemplateRequest {
    * Tasks can only be created from <code>ACTIVE</code> templates.
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    */
-  Status?: TaskTemplateStatus | string;
+  Status?: TaskTemplateStatus;
 
   /**
    * @public
@@ -723,7 +723,7 @@ export interface UpdateTaskTemplateResponse {
    * Tasks can only be created from <code>ACTIVE</code> templates.
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    */
-  Status?: TaskTemplateStatus | string;
+  Status?: TaskTemplateStatus;
 
   /**
    * @public
@@ -1002,7 +1002,7 @@ export interface UpdateViewContentRequest {
    * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
    *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
    */
-  Status: ViewStatus | string | undefined;
+  Status: ViewStatus | undefined;
 
   /**
    * @public
@@ -1243,7 +1243,7 @@ export interface EvaluationForm {
    * @public
    * <p>The status of the evaluation form.</p>
    */
-  Status: EvaluationFormVersionStatus | string | undefined;
+  Status: EvaluationFormVersionStatus | undefined;
 
   /**
    * @public
@@ -1428,7 +1428,7 @@ export interface QueueSearchCriteria {
    * @public
    * <p>The type of queue.</p>
    */
-  QueueTypeCondition?: SearchableQueueType | string;
+  QueueTypeCondition?: SearchableQueueType;
 }
 
 /**

@@ -61,7 +61,7 @@ export interface CreateChatTokenRequest {
    * <p>Set of capabilities that the user is allowed to perform in the room. Default: None (the
    *          capability to view messages is implicitly included in all requests).</p>
    */
-  capabilities?: (ChatTokenCapability | string)[];
+  capabilities?: ChatTokenCapability[];
 
   /**
    * @public
@@ -155,7 +155,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p/>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @internal
@@ -216,7 +216,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p/>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -256,7 +256,7 @@ export class ConflictException extends __BaseException {
    * @public
    * <p/>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @internal
@@ -481,7 +481,7 @@ export interface CreateLoggingConfigurationResponse {
    * <p>The state of the logging configuration. When the state is <code>ACTIVE</code>, the
    *          configuration is ready to log chat content.</p>
    */
-  state?: CreateLoggingConfigurationState | string;
+  state?: CreateLoggingConfigurationState;
 
   /**
    * @public
@@ -508,7 +508,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    * @public
    * <p/>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -567,7 +567,7 @@ export interface MessageReviewHandler {
    *       connected to the room. If denied, the message is not delivered to any user. Default:
    *         <code>ALLOW</code>.</p>
    */
-  fallbackResult?: FallbackResult | string;
+  fallbackResult?: FallbackResult;
 }
 
 /**
@@ -754,7 +754,7 @@ export class ThrottlingException extends __BaseException {
    * @public
    * <p/>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -900,7 +900,7 @@ export interface GetLoggingConfigurationResponse {
    * <p>The state of the logging configuration. When the state is <code>ACTIVE</code>, the
    *          configuration is ready to log chat content.</p>
    */
-  state?: LoggingConfigurationState | string;
+  state?: LoggingConfigurationState;
 
   /**
    * @public
@@ -1062,7 +1062,7 @@ export interface LoggingConfigurationSummary {
    * <p>The state of the logging configuration. When this is <code>ACTIVE</code>, the
    *       configuration is ready for logging chat content.</p>
    */
-  state?: LoggingConfigurationState | string;
+  state?: LoggingConfigurationState;
 
   /**
    * @public
@@ -1434,7 +1434,7 @@ export interface UpdateLoggingConfigurationResponse {
    * <p>The state of the logging configuration. When the state is <code>ACTIVE</code>, the
    *          configuration is ready to log chat content.</p>
    */
-  state?: UpdateLoggingConfigurationState | string;
+  state?: UpdateLoggingConfigurationState;
 
   /**
    * @public

@@ -96,6 +96,7 @@ import {
   FrameMetricDatum,
   InternalServerException,
   Match,
+  MetadataField,
   Pattern,
   ProfileTime,
   ProfilingGroupDescription,
@@ -2660,9 +2661,9 @@ const de_UnprocessedEndTimeMap = (output: any, context: __SerdeContext): Record<
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ListOfTimestamps(value, context);
+    acc[key as string] = de_ListOfTimestamps(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, TimestampStructure[]>);
 };
 
 // de_UserFeedback omitted.

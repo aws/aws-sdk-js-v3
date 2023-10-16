@@ -50,7 +50,7 @@ export interface ActionSummary {
    * @public
    * <p>The action type.</p>
    */
-  ActionType: ActionType | string | undefined;
+  ActionType: ActionType | undefined;
 }
 
 /**
@@ -357,19 +357,19 @@ export interface AgentContactReference {
    * @public
    * <p>The channel of the contact.</p>
    */
-  Channel?: Channel | string;
+  Channel?: Channel;
 
   /**
    * @public
    * <p>How the contact was initiated.</p>
    */
-  InitiationMethod?: ContactInitiationMethod | string;
+  InitiationMethod?: ContactInitiationMethod;
 
   /**
    * @public
    * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">state of the contact</a>.</p>
    */
-  AgentContactState?: ContactState | string;
+  AgentContactState?: ContactState;
 
   /**
    * @public
@@ -470,7 +470,7 @@ export interface AgentStatus {
    * @public
    * <p>The type of agent status.</p>
    */
-  Type?: AgentStatusType | string;
+  Type?: AgentStatusType;
 
   /**
    * @public
@@ -482,7 +482,7 @@ export interface AgentStatus {
    * @public
    * <p>The state of the agent status.</p>
    */
-  State?: AgentStatusState | string;
+  State?: AgentStatusState;
 
   /**
    * @public
@@ -542,7 +542,7 @@ export interface AgentStatusSummary {
    * @public
    * <p>The type of the agent status.</p>
    */
-  Type?: AgentStatusType | string;
+  Type?: AgentStatusType;
 }
 
 /**
@@ -754,7 +754,7 @@ export interface AssociateDefaultVocabularyRequest {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode: VocabularyLanguageCode | string | undefined;
+  LanguageCode: VocabularyLanguageCode | undefined;
 
   /**
    * @public
@@ -837,7 +837,7 @@ export interface EncryptionConfig {
    * @public
    * <p>The type of encryption.</p>
    */
-  EncryptionType: EncryptionType | string | undefined;
+  EncryptionType: EncryptionType | undefined;
 
   /**
    * @public
@@ -934,7 +934,7 @@ export interface InstanceStorageConfig {
    * @public
    * <p>A valid storage type.</p>
    */
-  StorageType: StorageType | string | undefined;
+  StorageType: StorageType | undefined;
 
   /**
    * @public
@@ -976,7 +976,7 @@ export interface AssociateInstanceStorageConfigRequest {
    * @public
    * <p>A valid resource type.</p>
    */
-  ResourceType: InstanceStorageResourceType | string | undefined;
+  ResourceType: InstanceStorageResourceType | undefined;
 
   /**
    * @public
@@ -1093,7 +1093,7 @@ export interface RoutingProfileQueueReference {
    * <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing
    *    profile.</p>
    */
-  Channel: Channel | string | undefined;
+  Channel: Channel | undefined;
 }
 
 /**
@@ -1312,7 +1312,7 @@ export interface CreateAgentStatusRequest {
    * @public
    * <p>The state of the status.</p>
    */
-  State: AgentStatusState | string | undefined;
+  State: AgentStatusState | undefined;
 
   /**
    * @public
@@ -1408,7 +1408,7 @@ export interface CreateContactFlowRequest {
    * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator
    *    Guide</i>.</p>
    */
-  Type: ContactFlowType | string | undefined;
+  Type: ContactFlowType | undefined;
 
   /**
    * @public
@@ -1633,7 +1633,7 @@ export interface NumericQuestionPropertyValueAutomation {
    * @public
    * <p>The property label of the automation.</p>
    */
-  Label: NumericQuestionPropertyAutomationLabel | string | undefined;
+  Label: NumericQuestionPropertyAutomationLabel | undefined;
 }
 
 /**
@@ -1771,7 +1771,7 @@ export interface SingleSelectQuestionRuleCategoryAutomation {
    *    condition is <code>NOT_PRESENT</code>, then the option is applied when the contact data does not
    *    include the category.</p>
    */
-  Condition: SingleSelectQuestionRuleCategoryAutomationCondition | string | undefined;
+  Condition: SingleSelectQuestionRuleCategoryAutomationCondition | undefined;
 
   /**
    * @public
@@ -1903,7 +1903,7 @@ export interface EvaluationFormSingleSelectQuestionProperties {
    * @public
    * <p>The display mode of the single select question.</p>
    */
-  DisplayAs?: EvaluationFormSingleSelectQuestionDisplayMode | string;
+  DisplayAs?: EvaluationFormSingleSelectQuestionDisplayMode;
 
   /**
    * @public
@@ -2002,7 +2002,7 @@ export interface EvaluationFormQuestion {
    * @public
    * <p>The type of the question.</p>
    */
-  QuestionType: EvaluationFormQuestionType | string | undefined;
+  QuestionType: EvaluationFormQuestionType | undefined;
 
   /**
    * @public
@@ -2056,13 +2056,13 @@ export interface EvaluationFormScoringStrategy {
    * @public
    * <p>The scoring mode of the evaluation form.</p>
    */
-  Mode: EvaluationFormScoringMode | string | undefined;
+  Mode: EvaluationFormScoringMode | undefined;
 
   /**
    * @public
    * <p>The scoring status of the evaluation form.</p>
    */
-  Status: EvaluationFormScoringStatus | string | undefined;
+  Status: EvaluationFormScoringStatus | undefined;
 }
 
 /**
@@ -2128,7 +2128,7 @@ export interface HoursOfOperationConfig {
    * @public
    * <p>The day that the hours of operation applies to.</p>
    */
-  Day: HoursOfOperationDays | string | undefined;
+  Day: HoursOfOperationDays | undefined;
 
   /**
    * @public
@@ -2230,7 +2230,7 @@ export interface CreateInstanceRequest {
    * @public
    * <p>The type of identity management for your Amazon Connect users.</p>
    */
-  IdentityManagementType: DirectoryType | string | undefined;
+  IdentityManagementType: DirectoryType | undefined;
 
   /**
    * @public
@@ -2321,7 +2321,7 @@ export interface CreateIntegrationAssociationRequest {
    * @public
    * <p>The type of information to be ingested.</p>
    */
-  IntegrationType: IntegrationType | string | undefined;
+  IntegrationType: IntegrationType | undefined;
 
   /**
    * @public
@@ -2349,7 +2349,7 @@ export interface CreateIntegrationAssociationRequest {
    * @public
    * <p>The type of the data source. This field is only required for the EVENT integration type.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -2400,7 +2400,7 @@ export interface ParticipantDetailsToAdd {
    * @public
    * <p>The role of the participant being added.</p>
    */
-  ParticipantRole?: ParticipantRole | string;
+  ParticipantRole?: ParticipantRole;
 
   /**
    * @public
@@ -2706,7 +2706,7 @@ export interface QuickConnectConfig {
    * <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are
    *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE). </p>
    */
-  QuickConnectType: QuickConnectType | string | undefined;
+  QuickConnectType: QuickConnectType | undefined;
 
   /**
    * @public
@@ -2804,7 +2804,7 @@ export interface CrossChannelBehavior {
    * <p>Specifies the other channels that can be routed to an agent handling their current
    *    channel.</p>
    */
-  BehaviorType: BehaviorType | string | undefined;
+  BehaviorType: BehaviorType | undefined;
 }
 
 /**
@@ -2817,7 +2817,7 @@ export interface MediaConcurrency {
    * @public
    * <p>The channels that agents can handle in the Contact Control Panel (CCP).</p>
    */
-  Channel: Channel | string | undefined;
+  Channel: Channel | undefined;
 
   /**
    * @public
@@ -2896,7 +2896,7 @@ export interface CreateRoutingProfileRequest {
    *     <i>longest idle time</i> or <i>time since their last inbound
    *     contact</i>. </p>
    */
-  AgentAvailabilityTimer?: AgentAvailabilityTimer | string;
+  AgentAvailabilityTimer?: AgentAvailabilityTimer;
 }
 
 /**
@@ -2991,7 +2991,7 @@ export interface SendNotificationActionDefinition {
    * @public
    * <p>Notification delivery method.</p>
    */
-  DeliveryMethod: NotificationDeliveryType | string | undefined;
+  DeliveryMethod: NotificationDeliveryType | undefined;
 
   /**
    * @public
@@ -3014,7 +3014,7 @@ export interface SendNotificationActionDefinition {
    * @public
    * <p>Content type format.</p>
    */
-  ContentType: NotificationContentType | string | undefined;
+  ContentType: NotificationContentType | undefined;
 
   /**
    * @public
@@ -3059,7 +3059,7 @@ export interface Reference {
    * <p>The type of the reference. <code>DATE</code> must be of type Epoch timestamp.
    *    </p>
    */
-  Type: ReferenceType | string | undefined;
+  Type: ReferenceType | undefined;
 }
 
 /**
@@ -3106,7 +3106,7 @@ export interface RuleAction {
    * @public
    * <p>The type of action that creates a rule.</p>
    */
-  ActionType: ActionType | string | undefined;
+  ActionType: ActionType | undefined;
 
   /**
    * @public
@@ -3197,7 +3197,7 @@ export interface RuleTriggerEventSource {
    * @public
    * <p>The name of the event source.</p>
    */
-  EventSourceName: EventSourceName | string | undefined;
+  EventSourceName: EventSourceName | undefined;
 
   /**
    * @public
@@ -3244,7 +3244,7 @@ export interface CreateRuleRequest {
    * @public
    * <p>The publish status of the rule.</p>
    */
-  PublishStatus: RulePublishStatus | string | undefined;
+  PublishStatus: RulePublishStatus | undefined;
 
   /**
    * @public
@@ -3513,7 +3513,7 @@ export interface TaskTemplateField {
    * @public
    * <p>Indicates the type of field.</p>
    */
-  Type?: TaskTemplateFieldType | string;
+  Type?: TaskTemplateFieldType;
 
   /**
    * @public
@@ -3582,7 +3582,7 @@ export interface CreateTaskTemplateRequest {
    * Tasks can only be created from <code>ACTIVE</code> templates.
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created. </p>
    */
-  Status?: TaskTemplateStatus | string;
+  Status?: TaskTemplateStatus;
 
   /**
    * @public
@@ -3651,7 +3651,7 @@ export interface PropertyValidationExceptionProperty {
    * @public
    * <p>Why the property is not valid.</p>
    */
-  Reason: PropertyValidationExceptionReason | string | undefined;
+  Reason: PropertyValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -3799,7 +3799,7 @@ export interface CreateUseCaseRequest {
    * <p>The type of use case to associate to the integration association. Each integration
    *    association can have only one of each use case type.</p>
    */
-  UseCaseType: UseCaseType | string | undefined;
+  UseCaseType: UseCaseType | undefined;
 
   /**
    * @public
@@ -3891,7 +3891,7 @@ export interface UserPhoneConfig {
    * @public
    * <p>The phone type.</p>
    */
-  PhoneType: PhoneType | string | undefined;
+  PhoneType: PhoneType | undefined;
 
   /**
    * @public
@@ -4109,7 +4109,7 @@ export interface CreateViewRequest {
    * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
    *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
    */
-  Status: ViewStatus | string | undefined;
+  Status: ViewStatus | undefined;
 
   /**
    * @public
@@ -4207,13 +4207,13 @@ export interface View {
    * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
    *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
    */
-  Status?: ViewStatus | string;
+  Status?: ViewStatus;
 
   /**
    * @public
    * <p>The type of the view - <code>CUSTOMER_MANAGED</code>.</p>
    */
-  Type?: ViewType | string;
+  Type?: ViewType;
 
   /**
    * @public
@@ -4308,7 +4308,7 @@ export class ResourceInUseException extends __BaseException {
    * @public
    * <p>The type of resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -4427,7 +4427,7 @@ export interface CreateVocabularyRequest {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode: VocabularyLanguageCode | string | undefined;
+  LanguageCode: VocabularyLanguageCode | undefined;
 
   /**
    * @public
@@ -4482,7 +4482,7 @@ export interface CreateVocabularyResponse {
    * @public
    * <p>The current state of the custom vocabulary.</p>
    */
-  State: VocabularyState | string | undefined;
+  State: VocabularyState | undefined;
 }
 
 /**
@@ -4951,7 +4951,7 @@ export interface DeleteVocabularyResponse {
    * @public
    * <p>The current state of the custom vocabulary.</p>
    */
-  State: VocabularyState | string | undefined;
+  State: VocabularyState | undefined;
 }
 
 /**
@@ -5062,7 +5062,7 @@ export interface Contact {
    * @public
    * <p>Indicates how the contact was initiated.</p>
    */
-  InitiationMethod?: ContactInitiationMethod | string;
+  InitiationMethod?: ContactInitiationMethod;
 
   /**
    * @public
@@ -5080,7 +5080,7 @@ export interface Contact {
    * @public
    * <p>How the contact reached your contact center.</p>
    */
-  Channel?: Channel | string;
+  Channel?: Channel;
 
   /**
    * @public
@@ -5378,7 +5378,7 @@ export interface Evaluation {
    * @public
    * <p>The status of the contact evaluation.</p>
    */
-  Status: EvaluationStatus | string | undefined;
+  Status: EvaluationStatus | undefined;
 
   /**
    * @public
@@ -5486,13 +5486,13 @@ export interface ContactFlow {
    * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator
    *    Guide</i>.</p>
    */
-  Type?: ContactFlowType | string;
+  Type?: ContactFlowType;
 
   /**
    * @public
    * <p>The type of flow.</p>
    */
-  State?: ContactFlowState | string;
+  State?: ContactFlowState;
 
   /**
    * @public
@@ -5611,13 +5611,13 @@ export interface ContactFlowModule {
    * @public
    * <p>The type of flow module.</p>
    */
-  State?: ContactFlowModuleState | string;
+  State?: ContactFlowModuleState;
 
   /**
    * @public
    * <p>The status of the flow module.</p>
    */
-  Status?: ContactFlowModuleStatus | string;
+  Status?: ContactFlowModuleStatus;
 
   /**
    * @public
@@ -5811,7 +5811,7 @@ export interface Instance {
    * @public
    * <p>The identity management type.</p>
    */
-  IdentityManagementType?: DirectoryType | string;
+  IdentityManagementType?: DirectoryType;
 
   /**
    * @public
@@ -5835,7 +5835,7 @@ export interface Instance {
    * @public
    * <p>The state of the instance.</p>
    */
-  InstanceStatus?: InstanceStatus | string;
+  InstanceStatus?: InstanceStatus;
 
   /**
    * @public
@@ -5910,7 +5910,7 @@ export interface DescribeInstanceAttributeRequest {
    * @public
    * <p>The type of attribute.</p>
    */
-  AttributeType: InstanceAttributeType | string | undefined;
+  AttributeType: InstanceAttributeType | undefined;
 }
 
 /**
@@ -5922,7 +5922,7 @@ export interface Attribute {
    * @public
    * <p>The type of attribute.</p>
    */
-  AttributeType?: InstanceAttributeType | string;
+  AttributeType?: InstanceAttributeType;
 
   /**
    * @public
@@ -5964,7 +5964,7 @@ export interface DescribeInstanceStorageConfigRequest {
    * @public
    * <p>A valid resource type.</p>
    */
-  ResourceType: InstanceStorageResourceType | string | undefined;
+  ResourceType: InstanceStorageResourceType | undefined;
 }
 
 /**
@@ -6286,7 +6286,7 @@ export interface PhoneNumberStatus {
    * @public
    * <p>The status.</p>
    */
-  Status?: PhoneNumberWorkflowStatus | string;
+  Status?: PhoneNumberWorkflowStatus;
 
   /**
    * @public
@@ -6341,13 +6341,13 @@ export interface ClaimedPhoneNumberSummary {
    * @public
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
+  PhoneNumberCountryCode?: PhoneNumberCountryCode;
 
   /**
    * @public
    * <p>The type of phone number.</p>
    */
-  PhoneNumberType?: PhoneNumberType | string;
+  PhoneNumberType?: PhoneNumberType;
 
   /**
    * @public
@@ -6560,7 +6560,7 @@ export interface Queue {
    * @public
    * <p>The status of the queue.</p>
    */
-  Status?: QueueStatus | string;
+  Status?: QueueStatus;
 
   /**
    * @public
@@ -6739,7 +6739,7 @@ export interface RoutingProfile {
    *     <i>time since their last inbound contact</i> or <i>longest idle
    *     time</i>. </p>
    */
-  AgentAvailabilityTimer?: AgentAvailabilityTimer | string;
+  AgentAvailabilityTimer?: AgentAvailabilityTimer;
 }
 
 /**
@@ -6815,7 +6815,7 @@ export interface Rule {
    * @public
    * <p>The publish status of the rule.</p>
    */
-  PublishStatus: RulePublishStatus | string | undefined;
+  PublishStatus: RulePublishStatus | undefined;
 
   /**
    * @public
@@ -7037,7 +7037,7 @@ export interface TrafficDistributionGroup {
    *             </li>
    *          </ul>
    */
-  Status?: TrafficDistributionGroupStatus | string;
+  Status?: TrafficDistributionGroupStatus;
 
   /**
    * @public

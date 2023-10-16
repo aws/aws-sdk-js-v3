@@ -226,7 +226,7 @@ export interface FunctionExecutionConfig {
    * @public
    * Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
    */
-  IsolationMode?: FunctionIsolationMode | string;
+  IsolationMode?: FunctionIsolationMode;
 
   /**
    * @public
@@ -258,7 +258,7 @@ export interface ResourceAccessPolicy {
    * @public
    * The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
    */
-  Permission?: Permission | string;
+  Permission?: Permission;
 
   /**
    * @public
@@ -306,7 +306,7 @@ export interface FunctionConfiguration {
    * @public
    * The expected encoding type of the input payload for the function. The default is ''json''.
    */
-  EncodingType?: EncodingType | string;
+  EncodingType?: EncodingType;
 
   /**
    * @public
@@ -495,7 +495,7 @@ export interface Logger {
    * @public
    * The component that will be subject to logging.
    */
-  Component: LoggerComponent | string | undefined;
+  Component: LoggerComponent | undefined;
 
   /**
    * @public
@@ -507,7 +507,7 @@ export interface Logger {
    * @public
    * The level of the logs.
    */
-  Level: LoggerLevel | string | undefined;
+  Level: LoggerLevel | undefined;
 
   /**
    * @public
@@ -519,7 +519,7 @@ export interface Logger {
    * @public
    * The type of log output which will be used.
    */
-  Type: LoggerType | string | undefined;
+  Type: LoggerType | undefined;
 }
 
 /**
@@ -597,7 +597,7 @@ export interface ResourceDownloadOwnerSetting {
    * @public
    * The permissions that the group owner has to the resource. Valid values are ''rw'' (read/write) or ''ro'' (read-only).
    */
-  GroupPermission: Permission | string | undefined;
+  GroupPermission: Permission | undefined;
 }
 
 /**
@@ -1017,7 +1017,7 @@ export interface BulkDeploymentResult {
    * @public
    * The type of the deployment.
    */
-  DeploymentType?: DeploymentType | string;
+  DeploymentType?: DeploymentType;
 
   /**
    * @public
@@ -1371,7 +1371,7 @@ export interface CreateDeploymentRequest {
    * @public
    * The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
    */
-  DeploymentType: DeploymentType | string | undefined;
+  DeploymentType: DeploymentType | undefined;
 
   /**
    * @public
@@ -1552,7 +1552,7 @@ export interface FunctionDefaultExecutionConfig {
    * @public
    * Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
    */
-  IsolationMode?: FunctionIsolationMode | string;
+  IsolationMode?: FunctionIsolationMode;
 
   /**
    * @public
@@ -2333,13 +2333,13 @@ export interface CreateSoftwareUpdateJobRequest {
    * @public
    * The piece of software on the Greengrass core that will be updated.
    */
-  SoftwareToUpdate: SoftwareToUpdate | string | undefined;
+  SoftwareToUpdate: SoftwareToUpdate | undefined;
 
   /**
    * @public
    * The minimum level of log statements that should be logged by the OTA Agent during an update.
    */
-  UpdateAgentLogLevel?: UpdateAgentLogLevel | string;
+  UpdateAgentLogLevel?: UpdateAgentLogLevel;
 
   /**
    * @public
@@ -2351,13 +2351,13 @@ export interface CreateSoftwareUpdateJobRequest {
    * @public
    * The architecture of the cores which are the targets of an update.
    */
-  UpdateTargetsArchitecture: UpdateTargetsArchitecture | string | undefined;
+  UpdateTargetsArchitecture: UpdateTargetsArchitecture | undefined;
 
   /**
    * @public
    * The operating system of the cores which are the targets of an update.
    */
-  UpdateTargetsOperatingSystem: UpdateTargetsOperatingSystem | string | undefined;
+  UpdateTargetsOperatingSystem: UpdateTargetsOperatingSystem | undefined;
 }
 
 /**
@@ -2678,7 +2678,7 @@ export interface Deployment {
    * @public
    * The type of the deployment.
    */
-  DeploymentType?: DeploymentType | string;
+  DeploymentType?: DeploymentType;
 
   /**
    * @public
@@ -2778,7 +2778,7 @@ export interface GetBulkDeploymentStatusResponse {
    * @public
    * The status of the bulk deployment.
    */
-  BulkDeploymentStatus?: BulkDeploymentStatus | string;
+  BulkDeploymentStatus?: BulkDeploymentStatus;
 
   /**
    * @public
@@ -3114,7 +3114,7 @@ export interface GetDeploymentStatusResponse {
    * @public
    * The type of the deployment.
    */
-  DeploymentType?: DeploymentType | string;
+  DeploymentType?: DeploymentType;
 
   /**
    * @public
@@ -4003,13 +4003,13 @@ export interface TelemetryConfiguration {
    * @public
    * Synchronization status of the device reported configuration with the desired configuration.
    */
-  ConfigurationSyncStatus?: ConfigurationSyncStatus | string;
+  ConfigurationSyncStatus?: ConfigurationSyncStatus;
 
   /**
    * @public
    * Configure telemetry to be on or off.
    */
-  Telemetry: Telemetry | string | undefined;
+  Telemetry: Telemetry | undefined;
 }
 
 /**
@@ -5183,7 +5183,7 @@ export interface TelemetryConfigurationUpdate {
    * @public
    * Configure telemetry to be on or off.
    */
-  Telemetry: Telemetry | string | undefined;
+  Telemetry: Telemetry | undefined;
 }
 
 /**

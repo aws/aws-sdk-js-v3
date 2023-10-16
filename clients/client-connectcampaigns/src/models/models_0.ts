@@ -605,7 +605,7 @@ export interface GetCampaignStateResponse {
    * @public
    * State of a campaign
    */
-  state?: CampaignState | string;
+  state?: CampaignState;
 }
 
 /**
@@ -656,7 +656,7 @@ export interface FailedCampaignStateResponse {
    * @public
    * A predefined code indicating the error that caused the failure in getting state of campaigns
    */
-  failureCode?: GetCampaignStateBatchFailureCode | string;
+  failureCode?: GetCampaignStateBatchFailureCode;
 }
 
 /**
@@ -674,7 +674,7 @@ export interface SuccessfulCampaignStateResponse {
    * @public
    * State of a campaign
    */
-  state?: CampaignState | string;
+  state?: CampaignState;
 }
 
 /**
@@ -738,7 +738,7 @@ export interface EncryptionConfig {
    * @public
    * Server-side encryption type.
    */
-  encryptionType?: EncryptionType | string;
+  encryptionType?: EncryptionType;
 
   /**
    * @public
@@ -848,13 +848,13 @@ export interface InstanceOnboardingJobStatus {
    * @public
    * Enumeration of the possible states for instance onboarding job
    */
-  status: InstanceOnboardingJobStatusCode | string | undefined;
+  status: InstanceOnboardingJobStatusCode | undefined;
 
   /**
    * @public
    * Enumeration of the possible failure codes for instance onboarding job
    */
-  failureCode?: InstanceOnboardingJobFailureCode | string;
+  failureCode?: InstanceOnboardingJobFailureCode;
 }
 
 /**
@@ -900,7 +900,7 @@ export interface InstanceIdFilter {
    * @public
    * Operators for Connect instance identifier filter
    */
-  operator: InstanceIdFilterOperator | string | undefined;
+  operator: InstanceIdFilterOperator | undefined;
 }
 
 /**
@@ -1022,7 +1022,7 @@ export class InvalidCampaignStateException extends __BaseException {
    * @public
    * State of a campaign
    */
-  state: CampaignState | string | undefined;
+  state: CampaignState | undefined;
 
   /**
    * @public
@@ -1150,7 +1150,7 @@ export interface FailedRequest {
    * @public
    * A predefined code indicating the error that caused the failure.
    */
-  failureCode?: FailureCode | string;
+  failureCode?: FailureCode;
 }
 
 /**

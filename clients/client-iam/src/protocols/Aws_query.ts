@@ -673,6 +673,7 @@ import {
   SSHPublicKey,
   SSHPublicKeyMetadata,
   Statement,
+  SummaryKeyType,
   Tag,
   TagInstanceProfileRequest,
   TagMFADeviceRequest,
@@ -12891,7 +12892,7 @@ const se_EnableMFADeviceRequest = (input: EnableMFADeviceRequest, context: __Ser
 /**
  * serializeAws_queryentityListType
  */
-const se_entityListType = (input: (EntityType | string)[], context: __SerdeContext): any => {
+const se_entityListType = (input: EntityType[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -15602,7 +15603,7 @@ const de_ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => 
 const de_EvalDecisionDetailsType = (
   output: any,
   context: __SerdeContext
-): Record<string, PolicyEvaluationDecisionType | string> => {
+): Record<string, PolicyEvaluationDecisionType> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -18336,7 +18337,7 @@ const de_StatementListType = (output: any, context: __SerdeContext): Statement[]
 /**
  * deserializeAws_querysummaryMapType
  */
-const de_summaryMapType = (output: any, context: __SerdeContext): Record<string, number> => {
+const de_summaryMapType = (output: any, context: __SerdeContext): Record<SummaryKeyType, number> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;

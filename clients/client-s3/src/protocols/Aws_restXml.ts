@@ -9007,7 +9007,7 @@ const se_EventBridgeConfiguration = (input: EventBridgeConfiguration, context: _
 /**
  * serializeAws_restXmlEventList
  */
-const se_EventList = (input: (Event | string)[], context: __SerdeContext): any => {
+const se_EventList = (input: Event[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9323,7 +9323,7 @@ const se_InventoryFilter = (input: InventoryFilter, context: __SerdeContext): an
 /**
  * serializeAws_restXmlInventoryOptionalFields
  */
-const se_InventoryOptionalFields = (input: (InventoryOptionalField | string)[], context: __SerdeContext): any => {
+const se_InventoryOptionalFields = (input: InventoryOptionalField[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -11027,7 +11027,7 @@ const de_Checksum = (output: any, context: __SerdeContext): Checksum => {
 /**
  * deserializeAws_restXmlChecksumAlgorithmList
  */
-const de_ChecksumAlgorithmList = (output: any, context: __SerdeContext): (ChecksumAlgorithm | string)[] => {
+const de_ChecksumAlgorithmList = (output: any, context: __SerdeContext): ChecksumAlgorithm[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11370,7 +11370,7 @@ const de_EventBridgeConfiguration = (output: any, context: __SerdeContext): Even
 /**
  * deserializeAws_restXmlEventList
  */
-const de_EventList = (output: any, context: __SerdeContext): (Event | string)[] => {
+const de_EventList = (output: any, context: __SerdeContext): Event[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11679,7 +11679,7 @@ const de_InventoryFilter = (output: any, context: __SerdeContext): InventoryFilt
 /**
  * deserializeAws_restXmlInventoryOptionalFields
  */
-const de_InventoryOptionalFields = (output: any, context: __SerdeContext): (InventoryOptionalField | string)[] => {
+const de_InventoryOptionalFields = (output: any, context: __SerdeContext): InventoryOptionalField[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

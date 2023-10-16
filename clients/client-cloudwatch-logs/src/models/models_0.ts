@@ -57,13 +57,13 @@ export interface AccountPolicy {
    * @public
    * <p>The type of policy for this account policy.</p>
    */
-  policyType?: PolicyType | string;
+  policyType?: PolicyType;
 
   /**
    * @public
    * <p>The scope of the account policy.</p>
    */
-  scope?: Scope | string;
+  scope?: Scope;
 
   /**
    * @public
@@ -448,7 +448,7 @@ export interface DeleteAccountPolicyRequest {
    * @public
    * <p>The type of policy to delete. Currently, the only valid value is <code>DATA_PROTECTION_POLICY</code>.</p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 }
 
 /**
@@ -590,7 +590,7 @@ export interface DescribeAccountPoliciesRequest {
    * <p>Use this parameter to limit the returned policies to only the policies that match the policy type that you
    *       specify. Currently, the only valid value is <code>DATA_PROTECTION_POLICY</code>.</p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public
@@ -741,7 +741,7 @@ export interface DescribeExportTasksRequest {
    * @public
    * <p>The status code of the export task. Specifying a status code filters the results to zero or more export tasks.</p>
    */
-  statusCode?: ExportTaskStatusCode | string;
+  statusCode?: ExportTaskStatusCode;
 
   /**
    * @public
@@ -785,7 +785,7 @@ export interface ExportTaskStatus {
    * @public
    * <p>The status code of the export task.</p>
    */
-  code?: ExportTaskStatusCode | string;
+  code?: ExportTaskStatusCode;
 
   /**
    * @public
@@ -1010,14 +1010,14 @@ export interface LogGroup {
    * <p>Displays whether this log group has a protection policy, or whether it had one in the past. For more information, see
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
    */
-  dataProtectionStatus?: DataProtectionStatus | string;
+  dataProtectionStatus?: DataProtectionStatus;
 
   /**
    * @public
    * <p>Displays all the properties that this log group has inherited from account-level
    *     settings.</p>
    */
-  inheritedProperties?: (InheritedProperty | string)[];
+  inheritedProperties?: InheritedProperty[];
 }
 
 /**
@@ -1103,7 +1103,7 @@ export interface DescribeLogStreamsRequest {
    *       eventual consistency basis. It typically updates in less than an hour from ingestion, but in
    *       rare situations might take longer.</p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: OrderBy;
 
   /**
    * @public
@@ -1360,7 +1360,7 @@ export interface MetricTransformation {
    * @public
    * <p>The unit to assign to the metric. If you omit this, the unit is set as <code>None</code>.</p>
    */
-  unit?: StandardUnit | string;
+  unit?: StandardUnit;
 }
 
 /**
@@ -1454,7 +1454,7 @@ export interface DescribeQueriesRequest {
    * <p>Limits the returned queries to only those that have the specified status. Valid values are <code>Cancelled</code>,
    *       <code>Complete</code>, <code>Failed</code>, <code>Running</code>, and <code>Scheduled</code>.</p>
    */
-  status?: QueryStatus | string;
+  status?: QueryStatus;
 
   /**
    * @public
@@ -1491,7 +1491,7 @@ export interface QueryInfo {
    * <p>The status of this query. Possible values are <code>Cancelled</code>,
    *       <code>Complete</code>, <code>Failed</code>, <code>Running</code>, <code>Scheduled</code>, and <code>Unknown</code>.</p>
    */
-  status?: QueryStatus | string;
+  status?: QueryStatus;
 
   /**
    * @public
@@ -1744,7 +1744,7 @@ export interface SubscriptionFilter {
    * <p>The method used to distribute log data to the destination, which can be either
    *       random or grouped by log stream.</p>
    */
-  distribution?: Distribution | string;
+  distribution?: Distribution;
 
   /**
    * @public
@@ -2366,7 +2366,7 @@ export interface GetQueryResultsResponse {
    *          <p>Queries time out after 60 minutes of runtime. To avoid having your queries time out,
    *       reduce the time range being searched or partition your query into a number of queries.</p>
    */
-  status?: QueryStatus | string;
+  status?: QueryStatus;
 
   /**
    * @public
@@ -2536,7 +2536,7 @@ export interface PutAccountPolicyRequest {
    * @public
    * <p>Currently the only valid value for this parameter is <code>DATA_PROTECTION_POLICY</code>.</p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public
@@ -2544,7 +2544,7 @@ export interface PutAccountPolicyRequest {
    *       protection policy applies to all log groups in the account. If you omit this parameter, the default
    *     of <code>ALL</code> is used.</p>
    */
-  scope?: Scope | string;
+  scope?: Scope;
 }
 
 /**
@@ -3053,7 +3053,7 @@ export interface PutSubscriptionFilterRequest {
    *       grouped by log stream, but the grouping can be set to random for a more even distribution.
    *       This property is only applicable when the destination is an Amazon Kinesis data stream. </p>
    */
-  distribution?: Distribution | string;
+  distribution?: Distribution;
 }
 
 /**

@@ -32,7 +32,7 @@ export interface AccessControlRule {
    * @public
    * <p>The rule effect.</p>
    */
-  Effect?: AccessControlRuleEffect | string;
+  Effect?: AccessControlRuleEffect;
 
   /**
    * @public
@@ -520,7 +520,7 @@ export interface AvailabilityConfiguration {
    * @public
    * <p>Displays the provider type that applies to this domain.</p>
    */
-  ProviderType?: AvailabilityProviderType | string;
+  ProviderType?: AvailabilityProviderType;
 
   /**
    * @public
@@ -891,7 +891,7 @@ export interface ImpersonationRule {
    * <p>The effect of the rule when it matches the input. Allowed effect values are
    *             <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect: AccessEffect | string | undefined;
+  Effect: AccessEffect | undefined;
 
   /**
    * @public
@@ -947,7 +947,7 @@ export interface CreateImpersonationRoleRequest {
    * <p>The impersonation role's type. The available impersonation role types are
    *             <code>READ_ONLY</code> or <code>FULL_ACCESS</code>.</p>
    */
-  Type: ImpersonationRoleType | string | undefined;
+  Type: ImpersonationRoleType | undefined;
 
   /**
    * @public
@@ -1020,7 +1020,7 @@ export interface CreateMobileDeviceAccessRuleRequest {
    * @public
    * <p>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect: MobileDeviceAccessRuleEffect | string | undefined;
+  Effect: MobileDeviceAccessRuleEffect | undefined;
 
   /**
    * @public
@@ -1213,7 +1213,7 @@ export interface CreateResourceRequest {
    * <p>The type of the new resource. The available types are <code>equipment</code> and
    *             <code>room</code>.</p>
    */
-  Type: ResourceType | string | undefined;
+  Type: ResourceType | undefined;
 
   /**
    * @public
@@ -1288,7 +1288,7 @@ export interface CreateUserRequest {
    * <p>The role of the new user.</p>
    *          <p>You cannot pass <i>SYSTEM_USER</i> or <i>RESOURCE</i> role in a single request. When a user role is not selected, the default role of <i>USER</i> is selected.</p>
    */
-  Role?: UserRole | string;
+  Role?: UserRole;
 
   /**
    * @public
@@ -1373,7 +1373,7 @@ export interface Delegate {
    * @public
    * <p>The type of the delegate: user or group.</p>
    */
-  Type: MemberType | string | undefined;
+  Type: MemberType | undefined;
 }
 
 /**
@@ -1948,7 +1948,7 @@ export interface DescribeEntityResponse {
    * @public
    * <p>Entity type.</p>
    */
-  Type?: EntityType | string;
+  Type?: EntityType;
 }
 
 /**
@@ -2022,7 +2022,7 @@ export interface DescribeGroupResponse {
    * <p>The state of the user: enabled (registered to WorkMail) or disabled (deregistered or
    *          never registered to WorkMail).</p>
    */
-  State?: EntityState | string;
+  State?: EntityState;
 
   /**
    * @public
@@ -2159,7 +2159,7 @@ export interface DescribeMailboxExportJobResponse {
    * @public
    * <p>The state of the mailbox export job.</p>
    */
-  State?: MailboxExportJobState | string;
+  State?: MailboxExportJobState;
 
   /**
    * @public
@@ -2320,7 +2320,7 @@ export interface DescribeResourceResponse {
    * @public
    * <p>The type of the described resource.</p>
    */
-  Type?: ResourceType | string;
+  Type?: ResourceType;
 
   /**
    * @public
@@ -2333,7 +2333,7 @@ export interface DescribeResourceResponse {
    * <p>The state of the resource: enabled (registered to WorkMail), disabled (deregistered
    *          or never registered to WorkMail), or deleted.</p>
    */
-  State?: EntityState | string;
+  State?: EntityState;
 
   /**
    * @public
@@ -2425,7 +2425,7 @@ export interface DescribeUserResponse {
    * <p>The state of a user: enabled (registered to WorkMail) or disabled (deregistered or
    *          never registered to WorkMail).</p>
    */
-  State?: EntityState | string;
+  State?: EntityState;
 
   /**
    * @public
@@ -2435,7 +2435,7 @@ export interface DescribeUserResponse {
    *          unregistered user (account is disabled and has a user role) and the directory
    *          administrators. The values are USER, RESOURCE, SYSTEM_USER, and REMOTE_USER.</p>
    */
-  UserRole?: UserRole | string;
+  UserRole?: UserRole;
 
   /**
    * @public
@@ -2753,14 +2753,14 @@ export interface FolderConfiguration {
    * @public
    * <p>The folder name.</p>
    */
-  Name: FolderName | string | undefined;
+  Name: FolderName | undefined;
 
   /**
    * @public
    * <p>The action to take on the folder contents at the end of the folder configuration
    *          period.</p>
    */
-  Action: RetentionAction | string | undefined;
+  Action: RetentionAction | undefined;
 
   /**
    * @public
@@ -2814,7 +2814,7 @@ export interface GetAccessControlEffectResponse {
    * @public
    * <p>The rule effect.</p>
    */
-  Effect?: AccessControlRuleEffect | string;
+  Effect?: AccessControlRuleEffect;
 
   /**
    * @public
@@ -2900,7 +2900,7 @@ export interface GetImpersonationRoleResponse {
    * @public
    * <p>The impersonation role type.</p>
    */
-  Type?: ImpersonationRoleType | string;
+  Type?: ImpersonationRoleType;
 
   /**
    * @public
@@ -2991,7 +2991,7 @@ export interface GetImpersonationRoleEffectResponse {
    * @public
    * <p>The impersonation role type.</p>
    */
-  Type?: ImpersonationRoleType | string;
+  Type?: ImpersonationRoleType;
 
   /**
    * @public
@@ -2999,7 +2999,7 @@ export interface GetImpersonationRoleEffectResponse {
    *             <code></code>Effect of the impersonation role on the target user based on its rules. Available
    *          effects are <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect?: AccessEffect | string;
+  Effect?: AccessEffect;
 
   /**
    * @public
@@ -3099,13 +3099,13 @@ export interface GetMailDomainResponse {
    * @public
    * <p> Indicates the status of the domain ownership verification.</p>
    */
-  OwnershipVerificationStatus?: DnsRecordVerificationStatus | string;
+  OwnershipVerificationStatus?: DnsRecordVerificationStatus;
 
   /**
    * @public
    * <p>Indicates the status of a DKIM verification.</p>
    */
-  DkimVerificationStatus?: DnsRecordVerificationStatus | string;
+  DkimVerificationStatus?: DnsRecordVerificationStatus;
 }
 
 /**
@@ -3170,7 +3170,7 @@ export interface GetMobileDeviceAccessEffectResponse {
    * <p>The effect of the simulated access, <code>ALLOW</code> or <code>DENY</code>, after evaluating mobile device access rules in the WorkMail organization for the simulated
    *          user parameters.</p>
    */
-  Effect?: MobileDeviceAccessRuleEffect | string;
+  Effect?: MobileDeviceAccessRuleEffect;
 
   /**
    * @public
@@ -3236,7 +3236,7 @@ export interface GetMobileDeviceAccessOverrideResponse {
    * @public
    * <p>The effect of the override, <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect?: MobileDeviceAccessRuleEffect | string;
+  Effect?: MobileDeviceAccessRuleEffect;
 
   /**
    * @public
@@ -3284,7 +3284,7 @@ export interface Group {
    * @public
    * <p>The state of the group, which can be ENABLED, DISABLED, or DELETED.</p>
    */
-  State?: EntityState | string;
+  State?: EntityState;
 
   /**
    * @public
@@ -3338,7 +3338,7 @@ export interface ImpersonationRole {
    * @public
    * <p>The impersonation role type.</p>
    */
-  Type?: ImpersonationRoleType | string;
+  Type?: ImpersonationRoleType;
 
   /**
    * @public
@@ -3423,7 +3423,7 @@ export interface MailboxExportJob {
    * @public
    * <p>The state of the mailbox export job.</p>
    */
-  State?: MailboxExportJobState | string;
+  State?: MailboxExportJobState;
 
   /**
    * @public
@@ -3613,13 +3613,13 @@ export interface Member {
    * @public
    * <p>A member can be a user or group.</p>
    */
-  Type?: MemberType | string;
+  Type?: MemberType;
 
   /**
    * @public
    * <p>The state of the member, which can be ENABLED, DISABLED, or DELETED.</p>
    */
-  State?: EntityState | string;
+  State?: EntityState;
 
   /**
    * @public
@@ -3673,7 +3673,7 @@ export interface ListGroupsFilters {
    * @public
    * <p>Filters only groups with the provided state.</p>
    */
-  State?: EntityState | string;
+  State?: EntityState;
 }
 
 /**
@@ -3958,7 +3958,7 @@ export interface Permission {
    * @public
    * <p>The type of user, group, or resource referred to in GranteeId.</p>
    */
-  GranteeType: MemberType | string | undefined;
+  GranteeType: MemberType | undefined;
 
   /**
    * @public
@@ -3969,7 +3969,7 @@ export interface Permission {
    *          access to the mailbox, irrespective of other folder-level permissions set on the
    *          mailbox.</p>
    */
-  PermissionValues: (PermissionType | string)[] | undefined;
+  PermissionValues: PermissionType[] | undefined;
 }
 
 /**
@@ -4118,7 +4118,7 @@ export interface MobileDeviceAccessOverride {
    * @public
    * <p>The effect of the override, <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect?: MobileDeviceAccessRuleEffect | string;
+  Effect?: MobileDeviceAccessRuleEffect;
 
   /**
    * @public
@@ -4194,7 +4194,7 @@ export interface MobileDeviceAccessRule {
    * @public
    * <p>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect?: MobileDeviceAccessRuleEffect | string;
+  Effect?: MobileDeviceAccessRuleEffect;
 
   /**
    * @public
@@ -4426,7 +4426,7 @@ export interface ListResourcesFilters {
    * @public
    * <p>Filters only resource with the provided state.</p>
    */
-  State?: EntityState | string;
+  State?: EntityState;
 }
 
 /**
@@ -4486,13 +4486,13 @@ export interface Resource {
    * @public
    * <p>The type of the resource: equipment or room.</p>
    */
-  Type?: ResourceType | string;
+  Type?: ResourceType;
 
   /**
    * @public
    * <p>The state of the resource, which can be ENABLED, DISABLED, or DELETED.</p>
    */
-  State?: EntityState | string;
+  State?: EntityState;
 
   /**
    * @public
@@ -4599,7 +4599,7 @@ export interface ListUsersFilters {
    * @public
    * <p>Filters only users with the provided state.</p>
    */
-  State?: EntityState | string;
+  State?: EntityState;
 }
 
 /**
@@ -4665,13 +4665,13 @@ export interface User {
    * @public
    * <p>The state of the user, which can be ENABLED, DISABLED, or DELETED.</p>
    */
-  State?: EntityState | string;
+  State?: EntityState;
 
   /**
    * @public
    * <p>The role of the user.</p>
    */
-  UserRole?: UserRole | string;
+  UserRole?: UserRole;
 
   /**
    * @public
@@ -4718,7 +4718,7 @@ export interface PutAccessControlRuleRequest {
    * @public
    * <p>The rule effect.</p>
    */
-  Effect: AccessControlRuleEffect | string | undefined;
+  Effect: AccessControlRuleEffect | undefined;
 
   /**
    * @public
@@ -4898,7 +4898,7 @@ export interface PutMailboxPermissionsRequest {
    *          access to the mailbox, irrespective of other folder-level permissions set on the
    *          mailbox.</p>
    */
-  PermissionValues: (PermissionType | string)[] | undefined;
+  PermissionValues: PermissionType[] | undefined;
 }
 
 /**
@@ -4946,7 +4946,7 @@ export interface PutMobileDeviceAccessOverrideRequest {
    * @public
    * <p>The effect of the override, <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect: MobileDeviceAccessRuleEffect | string | undefined;
+  Effect: MobileDeviceAccessRuleEffect | undefined;
 
   /**
    * @public
@@ -5413,7 +5413,7 @@ export interface UpdateImpersonationRoleRequest {
    * @public
    * <p>The updated impersonation role type.</p>
    */
-  Type: ImpersonationRoleType | string | undefined;
+  Type: ImpersonationRoleType | undefined;
 
   /**
    * @public
@@ -5506,7 +5506,7 @@ export interface UpdateMobileDeviceAccessRuleRequest {
    * @public
    * <p>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect: MobileDeviceAccessRuleEffect | string | undefined;
+  Effect: MobileDeviceAccessRuleEffect | undefined;
 
   /**
    * @public
@@ -5653,7 +5653,7 @@ export interface UpdateResourceRequest {
    * @public
    * <p>Updates the resource type.</p>
    */
-  Type?: ResourceType | string;
+  Type?: ResourceType;
 
   /**
    * @public
@@ -5700,7 +5700,7 @@ export interface UpdateUserRequest {
    * <p>Updates the user role.</p>
    *          <p>You cannot pass <i>SYSTEM_USER</i> or <i>RESOURCE</i>.</p>
    */
-  Role?: UserRole | string;
+  Role?: UserRole;
 
   /**
    * @public

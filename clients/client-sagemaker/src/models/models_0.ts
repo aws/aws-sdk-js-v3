@@ -80,7 +80,7 @@ export interface ActionSummary {
    * @public
    * <p>The status of the action.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: ActionStatus;
 
   /**
    * @public
@@ -151,7 +151,7 @@ export interface AddAssociationRequest {
    *             </li>
    *          </ul>
    */
-  AssociationType?: AssociationEdgeType | string;
+  AssociationType?: AssociationEdgeType;
 }
 
 /**
@@ -255,7 +255,7 @@ export interface AdditionalS3DataSource {
    * <p>The data type of the additional data source that you specify for use in inference or
    *             training. </p>
    */
-  S3DataType: AdditionalS3DataSourceDataType | string | undefined;
+  S3DataType: AdditionalS3DataSourceDataType | undefined;
 
   /**
    * @public
@@ -269,7 +269,7 @@ export interface AdditionalS3DataSource {
    * <p>The type of compression used for an additional data source used in inference or
    *             training. Specify <code>None</code> if your additional data source is not compressed.</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: CompressionType;
 }
 
 /**
@@ -610,13 +610,13 @@ export interface AdditionalInferenceSpecificationDefinition {
    * <p>A list of the instance types on which a transformation job can be run
    *            or on which an endpoint can be deployed.</p>
    */
-  SupportedTransformInstanceTypes?: (TransformInstanceType | string)[];
+  SupportedTransformInstanceTypes?: TransformInstanceType[];
 
   /**
    * @public
    * <p>A list of the instance types that are used to generate inferences in real-time.</p>
    */
-  SupportedRealtimeInferenceInstanceTypes?: (ProductionVariantInstanceType | string)[];
+  SupportedRealtimeInferenceInstanceTypes?: ProductionVariantInstanceType[];
 
   /**
    * @public
@@ -816,7 +816,7 @@ export interface TrainingImageConfig {
    *             private Docker registry. For access to an image in a private Docker registry, set to
    *                 <code>Vpc</code>.</p>
    */
-  TrainingRepositoryAccessMode: TrainingRepositoryAccessMode | string | undefined;
+  TrainingRepositoryAccessMode: TrainingRepositoryAccessMode | undefined;
 
   /**
    * @public
@@ -925,7 +925,7 @@ export interface AlgorithmSpecification {
    *             manifest files aren't supported. The startup time is lower when there are fewer files in
    *             the S3 bucket provided.</p>
    */
-  TrainingInputMode: TrainingInputMode | string | undefined;
+  TrainingInputMode: TrainingInputMode | undefined;
 
   /**
    * @public
@@ -1037,7 +1037,7 @@ export interface AlgorithmStatusItem {
    * @public
    * <p>The current status.</p>
    */
-  Status: DetailedAlgorithmStatus | string | undefined;
+  Status: DetailedAlgorithmStatus | undefined;
 
   /**
    * @public
@@ -1097,7 +1097,7 @@ export interface AlgorithmSummary {
    * @public
    * <p>The overall status of the algorithm.</p>
    */
-  AlgorithmStatus: AlgorithmStatus | string | undefined;
+  AlgorithmStatus: AlgorithmStatus | undefined;
 }
 
 /**
@@ -1145,13 +1145,13 @@ export interface FileSystemDataSource {
    *             can be mounted either in <code>ro</code> (read-only) or <code>rw</code> (read-write)
    *             mode.</p>
    */
-  FileSystemAccessMode: FileSystemAccessMode | string | undefined;
+  FileSystemAccessMode: FileSystemAccessMode | undefined;
 
   /**
    * @public
    * <p>The file system type. </p>
    */
-  FileSystemType: FileSystemType | string | undefined;
+  FileSystemType: FileSystemType | undefined;
 
   /**
    * @public
@@ -1208,7 +1208,7 @@ export interface S3DataSource {
    *             use for model training. <code>AugmentedManifestFile</code> can only be used if the
    *             Channel's input mode is <code>Pipe</code>.</p>
    */
-  S3DataType: S3DataType | string | undefined;
+  S3DataType: S3DataType | undefined;
 
   /**
    * @public
@@ -1292,7 +1292,7 @@ export interface S3DataSource {
    *             the ML storage volume (when <code>TrainingInputMode</code> is set to <code>File</code>),
    *             this copies 1/<i>n</i> of the number of objects. </p>
    */
-  S3DataDistributionType?: S3DataDistribution | string;
+  S3DataDistributionType?: S3DataDistribution;
 
   /**
    * @public
@@ -1394,7 +1394,7 @@ export interface Channel {
    *                 <code>None</code>. <code>CompressionType</code> is used only in Pipe input mode. In
    *             File mode, leave this field unset or set it to None.</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: CompressionType;
 
   /**
    * @public
@@ -1406,7 +1406,7 @@ export interface Channel {
    *                 a Dataset Using RecordIO</a>. </p>
    *          <p>In File mode, leave this field unset or set it to None.</p>
    */
-  RecordWrapperType?: RecordWrapper | string;
+  RecordWrapperType?: RecordWrapper;
 
   /**
    * @public
@@ -1420,7 +1420,7 @@ export interface Channel {
    *             the container, choose <code>Pipe</code> input mode.</p>
    *          <p>To use a model for incremental training, choose <code>File</code> input model.</p>
    */
-  InputMode?: TrainingInputMode | string;
+  InputMode?: TrainingInputMode;
 
   /**
    * @public
@@ -1524,7 +1524,7 @@ export interface OutputDataConfig {
    * <p>The model output compression type. Select <code>None</code> to output an uncompressed
    *             model, recommended for large model outputs. Defaults to gzip.</p>
    */
-  CompressionType?: OutputCompressionType | string;
+  CompressionType?: OutputCompressionType;
 }
 
 /**
@@ -1600,7 +1600,7 @@ export interface InstanceGroup {
    * @public
    * <p>Specifies the instance type of the instance group.</p>
    */
-  InstanceType: TrainingInstanceType | string | undefined;
+  InstanceType: TrainingInstanceType | undefined;
 
   /**
    * @public
@@ -1647,7 +1647,7 @@ export interface ResourceConfig {
    *                 Training service team through your account team.</p>
    *          </note>
    */
-  InstanceType?: TrainingInstanceType | string;
+  InstanceType?: TrainingInstanceType;
 
   /**
    * @public
@@ -1821,7 +1821,7 @@ export interface TrainingJobDefinition {
    *             manifest files aren't supported. The startup time is lower when there are fewer files in
    *             the S3 bucket provided.</p>
    */
-  TrainingInputMode: TrainingInputMode | string | undefined;
+  TrainingInputMode: TrainingInputMode | undefined;
 
   /**
    * @public
@@ -1894,7 +1894,7 @@ export interface TransformS3DataSource {
    *          <p>The following value is not compatible: <code>AugmentedManifestFile</code>
    *          </p>
    */
-  S3DataType: S3DataType | string | undefined;
+  S3DataType: S3DataType | undefined;
 
   /**
    * @public
@@ -2011,7 +2011,7 @@ export interface TransformInput {
    *             decompresses the data for the transform job accordingly. The default value is
    *                 <code>None</code>.</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: CompressionType;
 
   /**
    * @public
@@ -2049,7 +2049,7 @@ export interface TransformInput {
    *                     <code>TFRecord</code>, see <a href="https://www.tensorflow.org/guide/data#consuming_tfrecord_data">Consuming TFRecord data</a> in the TensorFlow documentation.</p>
    *          </note>
    */
-  SplitType?: SplitType | string;
+  SplitType?: SplitType;
 }
 
 /**
@@ -2105,7 +2105,7 @@ export interface TransformOutput {
    *             record, specify
    *             <code>Line</code>.</p>
    */
-  AssembleWith?: AssemblyType | string;
+  AssembleWith?: AssemblyType;
 
   /**
    * @public
@@ -2160,7 +2160,7 @@ export interface TransformResources {
    *             moderately sized datasets, we recommend using ml.m4.xlarge or
    *             <code>ml.m5.large</code>instance types.</p>
    */
-  InstanceType: TransformInstanceType | string | undefined;
+  InstanceType: TransformInstanceType | undefined;
 
   /**
    * @public
@@ -2239,7 +2239,7 @@ export interface TransformJobDefinition {
    *                 <code>MultiRecord</code> means a mini-batch is set to contain as many records that
    *             can fit within the <code>MaxPayloadInMB</code> limit.</p>
    */
-  BatchStrategy?: BatchStrategy | string;
+  BatchStrategy?: BatchStrategy;
 
   /**
    * @public
@@ -3856,7 +3856,7 @@ export interface AppDetails {
    * @public
    * <p>The type of app.</p>
    */
-  AppType?: AppType | string;
+  AppType?: AppType;
 
   /**
    * @public
@@ -3868,7 +3868,7 @@ export interface AppDetails {
    * @public
    * <p>The status.</p>
    */
-  Status?: AppStatus | string;
+  Status?: AppStatus;
 
   /**
    * @public
@@ -4158,7 +4158,7 @@ export interface ArtifactSourceType {
    * @public
    * <p>The type of ID.</p>
    */
-  SourceIdType: ArtifactSourceIdType | string | undefined;
+  SourceIdType: ArtifactSourceIdType | undefined;
 
   /**
    * @public
@@ -4354,7 +4354,7 @@ export interface AssociationSummary {
    * @public
    * <p>The type of the association.</p>
    */
-  AssociationType?: AssociationEdgeType | string;
+  AssociationType?: AssociationEdgeType;
 
   /**
    * @public
@@ -4439,7 +4439,7 @@ export interface AsyncInferenceNotificationConfig {
    *                 to 128 KB.</p>
    *          </note>
    */
-  IncludeInferenceResponseIn?: (AsyncNotificationTopicTypes | string)[];
+  IncludeInferenceResponseIn?: AsyncNotificationTopicTypes[];
 }
 
 /**
@@ -4573,13 +4573,13 @@ export interface AthenaDatasetDefinition {
    * @public
    * <p>The data storage format for Athena query results.</p>
    */
-  OutputFormat: AthenaResultFormat | string | undefined;
+  OutputFormat: AthenaResultFormat | undefined;
 
   /**
    * @public
    * <p>The compression used for Athena query results.</p>
    */
-  OutputCompression?: AthenaResultCompressionType | string;
+  OutputCompression?: AthenaResultCompressionType;
 }
 
 /**
@@ -4678,7 +4678,7 @@ export interface AutoMLAlgorithmConfig {
    *             </li>
    *          </ul>
    */
-  AutoMLAlgorithms: (AutoMLAlgorithm | string)[] | undefined;
+  AutoMLAlgorithms: AutoMLAlgorithm[] | undefined;
 }
 
 /**
@@ -4791,7 +4791,7 @@ export interface MetricDatum {
    * @public
    * <p>The name of the metric.</p>
    */
-  MetricName?: AutoMLMetricEnum | string;
+  MetricName?: AutoMLMetricEnum;
 
   /**
    * @public
@@ -4803,7 +4803,7 @@ export interface MetricDatum {
    * @public
    * <p>The dataset split from which the AutoML job produced the metric.</p>
    */
-  Set?: MetricSetSource | string;
+  Set?: MetricSetSource;
 
   /**
    * @public
@@ -4814,7 +4814,7 @@ export interface MetricDatum {
    *                </a>.</p>
    *          </note>
    */
-  StandardMetricName?: AutoMLMetricExtendedEnum | string;
+  StandardMetricName?: AutoMLMetricExtendedEnum;
 }
 
 /**
@@ -4876,7 +4876,7 @@ export interface AutoMLCandidateStep {
    * @public
    * <p>Whether the candidate is at the transform, training, or processing step.</p>
    */
-  CandidateStepType: CandidateStepType | string | undefined;
+  CandidateStepType: CandidateStepType | undefined;
 
   /**
    * @public
@@ -4914,14 +4914,14 @@ export interface FinalAutoMLJobObjectiveMetric {
    * @public
    * <p>The type of metric with the best result.</p>
    */
-  Type?: AutoMLJobObjectiveType | string;
+  Type?: AutoMLJobObjectiveType;
 
   /**
    * @public
    * <p>The name of the metric with the best result. For a description of the possible objective
    *          metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective$MetricName</a>.</p>
    */
-  MetricName: AutoMLMetricEnum | string | undefined;
+  MetricName: AutoMLMetricEnum | undefined;
 
   /**
    * @public
@@ -4934,7 +4934,7 @@ export interface FinalAutoMLJobObjectiveMetric {
    * <p>The name of the standard metric. For a description of the standard metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot
    *             candidate metrics</a>.</p>
    */
-  StandardMetricName?: AutoMLMetricEnum | string;
+  StandardMetricName?: AutoMLMetricEnum;
 }
 
 /**
@@ -5018,7 +5018,7 @@ export interface AutoMLCandidate {
    * @public
    * <p>The objective's status.</p>
    */
-  ObjectiveStatus: ObjectiveStatus | string | undefined;
+  ObjectiveStatus: ObjectiveStatus | undefined;
 
   /**
    * @public
@@ -5030,7 +5030,7 @@ export interface AutoMLCandidate {
    * @public
    * <p>The candidate's status.</p>
    */
-  CandidateStatus: CandidateStatus | string | undefined;
+  CandidateStatus: CandidateStatus | undefined;
 
   /**
    * @public
@@ -5075,7 +5075,7 @@ export interface AutoMLCandidate {
    *          for jobs created by calling <code>CreateAutoMLJobV2</code>) related to image or text
    *          classification problem types only.</p>
    */
-  InferenceContainerDefinitions?: Record<string, AutoMLContainerDefinition[]>;
+  InferenceContainerDefinitions?: Record<AutoMLProcessingUnit, AutoMLContainerDefinition[]>;
 }
 
 /**
@@ -5233,7 +5233,7 @@ export interface AutoMLS3DataSource {
    *             </li>
    *          </ul>
    */
-  S3DataType: AutoMLS3DataType | string | undefined;
+  S3DataType: AutoMLS3DataType | undefined;
 
   /**
    * @public
@@ -5277,7 +5277,7 @@ export interface AutoMLChannel {
    * <p>You can use <code>Gzip</code> or <code>None</code>. The default value is
    *             <code>None</code>.</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: CompressionType;
 
   /**
    * @public
@@ -5301,7 +5301,7 @@ export interface AutoMLChannel {
    *             <code>ContentType</code> and <code>TargetAttributeName</code>. For information on
    *          specifying training and validation channel types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation">How to specify training and validation datasets</a>.</p>
    */
-  ChannelType?: AutoMLChannelType | string;
+  ChannelType?: AutoMLChannelType;
 
   /**
    * @public
@@ -5372,7 +5372,7 @@ export interface AutoMLJobChannel {
    *             problem type.</p>
    *          </note>
    */
-  ChannelType?: AutoMLChannelType | string;
+  ChannelType?: AutoMLChannelType;
 
   /**
    * @public
@@ -5409,7 +5409,7 @@ export interface AutoMLJobChannel {
    *          For all other inputs, the compression type should be <code>None</code>. If no compression
    *          type is provided, we default to <code>None</code>.</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: CompressionType;
 
   /**
    * @public
@@ -5567,7 +5567,7 @@ export interface AutoMLJobConfig {
    *          metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Autopilot algorithm support</a> for a list of algorithms supported by
    *             <code>HYPERPARAMETER_TUNING</code> mode.</p>
    */
-  Mode?: AutoMLMode | string;
+  Mode?: AutoMLMode;
 }
 
 /**
@@ -5611,7 +5611,7 @@ export interface AutoMLJobObjective {
    *             </li>
    *          </ul>
    */
-  MetricName: AutoMLMetricEnum | string | undefined;
+  MetricName: AutoMLMetricEnum | undefined;
 }
 
 /**
@@ -5707,13 +5707,13 @@ export interface AutoMLJobSummary {
    * @public
    * <p>The status of the AutoML job.</p>
    */
-  AutoMLJobStatus: AutoMLJobStatus | string | undefined;
+  AutoMLJobStatus: AutoMLJobStatus | undefined;
 
   /**
    * @public
    * <p>The secondary status of the AutoML job.</p>
    */
-  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | string | undefined;
+  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | undefined;
 
   /**
    * @public
@@ -5902,7 +5902,7 @@ export interface TabularJobConfig {
    *          metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Autopilot algorithm support</a> for a list of algorithms supported by
    *             <code>HYPERPARAMETER_TUNING</code> mode.</p>
    */
-  Mode?: AutoMLMode | string;
+  Mode?: AutoMLMode;
 
   /**
    * @public
@@ -5921,7 +5921,7 @@ export interface TabularJobConfig {
    *                <code>ProblemType</code> and provide the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#sagemaker-CreateAutoMLJobV2-request-AutoMLJobObjective">AutoMLJobObjective</a> metric, or none at all.</p>
    *          </note>
    */
-  ProblemType?: ProblemType | string;
+  ProblemType?: ProblemType;
 
   /**
    * @public
@@ -6089,7 +6089,7 @@ export interface TimeSeriesTransformations {
    *             <code>backfill</code> to a value of <code>2</code>, you must include two parameters:
    *             <code>"backfill": "value"</code> and <code>"backfill_value":"2"</code>.</p>
    */
-  Filling?: Record<string, Record<string, string>>;
+  Filling?: Record<string, Record<FillingType, string>>;
 
   /**
    * @public
@@ -6101,7 +6101,7 @@ export interface TimeSeriesTransformations {
    *             <p>Aggregation is only supported for the target column.</p>
    *          </note>
    */
-  Aggregation?: Record<string, AggregationTransformationValue | string>;
+  Aggregation?: Record<string, AggregationTransformationValue>;
 }
 
 /**
@@ -6342,7 +6342,7 @@ export interface TabularResolvedAttributes {
    *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
    *             Amazon SageMaker Autopilot problem types</a>.</p>
    */
-  ProblemType?: ProblemType | string;
+  ProblemType?: ProblemType;
 }
 
 /**
@@ -6533,7 +6533,7 @@ export interface Autotune {
    * @public
    * <p>Set <code>Mode</code> to <code>Enabled</code> if you want to use Autotune.</p>
    */
-  Mode: AutotuneMode | string | undefined;
+  Mode: AutotuneMode | undefined;
 }
 
 /**
@@ -6644,7 +6644,7 @@ export interface InferenceSpecification {
    *          <p>This parameter is required for unversioned models, and optional for versioned
    *             models.</p>
    */
-  SupportedTransformInstanceTypes?: (TransformInstanceType | string)[];
+  SupportedTransformInstanceTypes?: TransformInstanceType[];
 
   /**
    * @public
@@ -6652,7 +6652,7 @@ export interface InferenceSpecification {
    *          <p>This parameter is required for unversioned models, and optional for versioned
    *             models.</p>
    */
-  SupportedRealtimeInferenceInstanceTypes?: (ProductionVariantInstanceType | string)[];
+  SupportedRealtimeInferenceInstanceTypes?: ProductionVariantInstanceType[];
 
   /**
    * @public
@@ -6744,13 +6744,13 @@ export interface BatchDescribeModelPackageSummary {
    * @public
    * <p>The status of the mortgage package.</p>
    */
-  ModelPackageStatus: ModelPackageStatus | string | undefined;
+  ModelPackageStatus: ModelPackageStatus | undefined;
 
   /**
    * @public
    * <p>The approval status of the model.</p>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: ModelApprovalStatus;
 }
 
 /**
@@ -6884,7 +6884,7 @@ export interface BatchTransformInput {
    *             datasets. <code>File</code> mode is useful for small files that fit in memory. Defaults to
    *             <code>File</code>.</p>
    */
-  S3InputMode?: ProcessingS3InputMode | string;
+  S3InputMode?: ProcessingS3InputMode;
 
   /**
    * @public
@@ -6892,7 +6892,7 @@ export interface BatchTransformInput {
    *             Defaults to <code>FullyReplicated</code>
    *          </p>
    */
-  S3DataDistributionType?: ProcessingS3DataDistributionType | string;
+  S3DataDistributionType?: ProcessingS3DataDistributionType;
 
   /**
    * @public
@@ -7044,7 +7044,7 @@ export interface CapacitySize {
    *             </li>
    *          </ul>
    */
-  Type: CapacitySizeType | string | undefined;
+  Type: CapacitySizeType | undefined;
 
   /**
    * @public
@@ -7100,7 +7100,7 @@ export interface TrafficRoutingConfig {
    *             </li>
    *          </ul>
    */
-  Type: TrafficRoutingConfigType | string | undefined;
+  Type: TrafficRoutingConfigType | undefined;
 
   /**
    * @public
@@ -7268,7 +7268,7 @@ export interface DirectDeploySettings {
    * @public
    * <p>Describes whether model deployment permissions are enabled or disabled in the Canvas application.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 }
 
 /**
@@ -7295,14 +7295,14 @@ export interface IdentityProviderOAuthSetting {
    * @public
    * <p>The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud.</p>
    */
-  DataSourceName?: DataSourceName | string;
+  DataSourceName?: DataSourceName;
 
   /**
    * @public
    * <p>Describes whether OAuth for a data source is enabled or disabled in the Canvas
    *       application.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -7323,7 +7323,7 @@ export interface KendraSettings {
    * <p>Describes whether the document querying feature is enabled
    *       or disabled in the Canvas application.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 }
 
 /**
@@ -7336,7 +7336,7 @@ export interface ModelRegisterSettings {
    * <p>Describes whether the integration to the model registry is enabled or disabled in the
    *       Canvas application.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -7357,7 +7357,7 @@ export interface TimeSeriesForecastingSettings {
    * <p>Describes whether time series forecasting is enabled or disabled in the Canvas
    *       application.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -7479,7 +7479,7 @@ export interface CaptureOption {
    * @public
    * <p>Specify the boundary of data to capture.</p>
    */
-  CaptureMode: CaptureMode | string | undefined;
+  CaptureMode: CaptureMode | undefined;
 }
 
 /**
@@ -7579,7 +7579,7 @@ export interface ChannelSpecification {
    * @public
    * <p>The allowed compression types, if data compression is used.</p>
    */
-  SupportedCompressionTypes?: (CompressionType | string)[];
+  SupportedCompressionTypes?: CompressionType[];
 
   /**
    * @public
@@ -7590,7 +7590,7 @@ export interface ChannelSpecification {
    *          <p>In PIPE mode, Amazon SageMaker streams input data from the source directly to your algorithm
    *             without using the EBS volume.</p>
    */
-  SupportedInputModes: (TrainingInputMode | string)[] | undefined;
+  SupportedInputModes: TrainingInputMode[] | undefined;
 }
 
 /**
@@ -7818,7 +7818,7 @@ export interface ClarifyInferenceConfig {
    *             payload. For additional information see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">response</a> section under <b>Invoke the endpoint</b>
    *             in the Developer Guide for more information.</p>
    */
-  FeatureTypes?: (ClarifyFeatureType | string)[];
+  FeatureTypes?: ClarifyFeatureType[];
 }
 
 /**
@@ -7984,7 +7984,7 @@ export interface ClarifyTextConfig {
    *             <p>For a mix of multiple languages, use code <code>'xx'</code>.</p>
    *          </note>
    */
-  Language: ClarifyTextLanguage | string | undefined;
+  Language: ClarifyTextLanguage | undefined;
 
   /**
    * @public
@@ -7992,7 +7992,7 @@ export interface ClarifyTextConfig {
    *                 <code>'token'</code>, then each token (like a word in English) of the text is
    *             treated as a feature. SHAP values are computed for each unit/feature.</p>
    */
-  Granularity: ClarifyTextGranularity | string | undefined;
+  Granularity: ClarifyTextGranularity | undefined;
 }
 
 /**
@@ -8472,28 +8472,28 @@ export interface CompilationJobSummary {
    * <p>The type of device that the model will run on after the compilation job has
    *             completed.</p>
    */
-  CompilationTargetDevice?: TargetDevice | string;
+  CompilationTargetDevice?: TargetDevice;
 
   /**
    * @public
    * <p>The type of OS that the model will run on after the compilation job has
    *             completed.</p>
    */
-  CompilationTargetPlatformOs?: TargetPlatformOs | string;
+  CompilationTargetPlatformOs?: TargetPlatformOs;
 
   /**
    * @public
    * <p>The type of architecture that the model will run on after the compilation job has
    *             completed.</p>
    */
-  CompilationTargetPlatformArch?: TargetPlatformArch | string;
+  CompilationTargetPlatformArch?: TargetPlatformArch;
 
   /**
    * @public
    * <p>The type of accelerator that the model will run on after the compilation job has
    *             completed.</p>
    */
-  CompilationTargetPlatformAccelerator?: TargetPlatformAccelerator | string;
+  CompilationTargetPlatformAccelerator?: TargetPlatformAccelerator;
 
   /**
    * @public
@@ -8505,7 +8505,7 @@ export interface CompilationJobSummary {
    * @public
    * <p>The status of the model compilation job.</p>
    */
-  CompilationJobStatus: CompilationJobStatus | string | undefined;
+  CompilationJobStatus: CompilationJobStatus | undefined;
 }
 
 /**
@@ -8545,7 +8545,7 @@ export interface ConditionStepMetadata {
    * @public
    * <p>The outcome of the Condition step evaluation.</p>
    */
-  Outcome?: ConditionOutcome | string;
+  Outcome?: ConditionOutcome;
 }
 
 /**
@@ -8628,7 +8628,7 @@ export interface ImageConfig {
    *             </li>
    *          </ul>
    */
-  RepositoryAccessMode: RepositoryAccessMode | string | undefined;
+  RepositoryAccessMode: RepositoryAccessMode | undefined;
 
   /**
    * @public
@@ -8704,7 +8704,7 @@ export interface S3ModelDataSource {
    *          <p>If you choose <code>S3Object</code>, <code>S3Uri</code> identifies an object that is
    *             the ML model data to deploy.</p>
    */
-  S3DataType: S3ModelDataType | string | undefined;
+  S3DataType: S3ModelDataType | undefined;
 
   /**
    * @public
@@ -8776,7 +8776,7 @@ export interface S3ModelDataSource {
    *             </li>
    *          </ul>
    */
-  CompressionType: ModelCompressionType | string | undefined;
+  CompressionType: ModelCompressionType | undefined;
 }
 
 /**
@@ -8820,7 +8820,7 @@ export interface MultiModelConfig {
    *             perform better if you disable model caching. To disable model caching, set the value of
    *             this parameter to <code>Disabled</code>.</p>
    */
-  ModelCacheSetting?: ModelCacheSetting | string;
+  ModelCacheSetting?: ModelCacheSetting;
 }
 
 /**
@@ -8881,7 +8881,7 @@ export interface ContainerDefinition {
    * @public
    * <p>Whether the container hosts a single model or multiple models.</p>
    */
-  Mode?: ContainerMode | string;
+  Mode?: ContainerMode;
 
   /**
    * @public
@@ -9102,7 +9102,7 @@ export interface ContinuousParameterRange {
    *             </dd>
    *          </dl>
    */
-  ScalingType?: HyperParameterScalingType | string;
+  ScalingType?: HyperParameterScalingType;
 }
 
 /**
@@ -9134,7 +9134,7 @@ export interface ConvergenceDetected {
    * @public
    * <p>A flag to stop a tuning job once AMT has detected that the job has converged.</p>
    */
-  CompleteOnConvergence?: CompleteOnConvergence | string;
+  CompleteOnConvergence?: CompleteOnConvergence;
 }
 
 /**
@@ -9199,7 +9199,7 @@ export interface CreateActionRequest {
    * @public
    * <p>The status of the action.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: ActionStatus;
 
   /**
    * @public
@@ -9315,7 +9315,7 @@ export interface HyperParameterSpecification {
    * <p>The type of this hyperparameter. The valid types are <code>Integer</code>,
    *                 <code>Continuous</code>, <code>Categorical</code>, and <code>FreeText</code>.</p>
    */
-  Type: ParameterType | string | undefined;
+  Type: ParameterType | undefined;
 
   /**
    * @public
@@ -9375,7 +9375,7 @@ export interface HyperParameterTuningJobObjective {
    *             minimize
    *             or maximize the objective metric.</p>
    */
-  Type: HyperParameterTuningJobObjectiveType | string | undefined;
+  Type: HyperParameterTuningJobObjectiveType | undefined;
 
   /**
    * @public
@@ -9416,7 +9416,7 @@ export interface TrainingSpecification {
    * @public
    * <p>A list of the instance types that this algorithm can use for training.</p>
    */
-  SupportedTrainingInstanceTypes: (TrainingInstanceType | string)[] | undefined;
+  SupportedTrainingInstanceTypes: TrainingInstanceType[] | undefined;
 
   /**
    * @public
@@ -9588,7 +9588,7 @@ export interface ResourceSpec {
    *             instance types.</p>
    *          </note>
    */
-  InstanceType?: AppInstanceType | string;
+  InstanceType?: AppInstanceType;
 
   /**
    * @public
@@ -9617,7 +9617,7 @@ export interface CreateAppRequest {
    * @public
    * <p>The type of app.</p>
    */
-  AppType: AppType | string | undefined;
+  AppType: AppType | undefined;
 
   /**
    * @public
@@ -9835,7 +9835,7 @@ export interface CreateAutoMLJobRequest {
    *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
    *             Amazon SageMaker Autopilot problem types</a>.</p>
    */
-  ProblemType?: ProblemType | string;
+  ProblemType?: ProblemType;
 
   /**
    * @public
@@ -10431,7 +10431,7 @@ export interface InputConfig {
    * <p>Identifies the framework in which the model was trained. For example:
    *             TENSORFLOW.</p>
    */
-  Framework: Framework | string | undefined;
+  Framework: Framework | undefined;
 
   /**
    * @public
@@ -10469,7 +10469,7 @@ export interface TargetPlatform {
    *             </li>
    *          </ul>
    */
-  Os: TargetPlatformOs | string | undefined;
+  Os: TargetPlatformOs | undefined;
 
   /**
    * @public
@@ -10498,7 +10498,7 @@ export interface TargetPlatform {
    *             </li>
    *          </ul>
    */
-  Arch: TargetPlatformArch | string | undefined;
+  Arch: TargetPlatformArch | undefined;
 
   /**
    * @public
@@ -10520,7 +10520,7 @@ export interface TargetPlatform {
    *             </li>
    *          </ul>
    */
-  Accelerator?: TargetPlatformAccelerator | string;
+  Accelerator?: TargetPlatformAccelerator;
 }
 
 /**
@@ -10552,7 +10552,7 @@ export interface OutputConfig {
    *                 and <code>ml_inf2</code> is available only in US East (Ohio) Region.</p>
    *          </note>
    */
-  TargetDevice?: TargetDevice | string;
+  TargetDevice?: TargetDevice;
 
   /**
    * @public
@@ -11109,7 +11109,7 @@ export interface EndpointInput {
    *          datasets. <code>File</code> mode is useful for small files that fit in memory. Defaults to
    *             <code>File</code>.</p>
    */
-  S3InputMode?: ProcessingS3InputMode | string;
+  S3InputMode?: ProcessingS3InputMode;
 
   /**
    * @public
@@ -11117,7 +11117,7 @@ export interface EndpointInput {
    *             Amazon S3 key. Defaults to <code>FullyReplicated</code>
    *          </p>
    */
-  S3DataDistributionType?: ProcessingS3DataDistributionType | string;
+  S3DataDistributionType?: ProcessingS3DataDistributionType;
 
   /**
    * @public
@@ -11225,7 +11225,7 @@ export interface MonitoringS3Output {
    * <p>Whether to upload the results of the monitoring job continuously or after the job
    *          completes.</p>
    */
-  S3UploadMode?: ProcessingS3UploadMode | string;
+  S3UploadMode?: ProcessingS3UploadMode;
 }
 
 /**
@@ -11333,7 +11333,7 @@ export interface MonitoringClusterConfig {
    * @public
    * <p>The ML compute instance type for the processing job.</p>
    */
-  InstanceType: ProcessingInstanceType | string | undefined;
+  InstanceType: ProcessingInstanceType | undefined;
 
   /**
    * @public

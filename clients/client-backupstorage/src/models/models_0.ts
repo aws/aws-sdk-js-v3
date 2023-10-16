@@ -71,7 +71,7 @@ export interface BackupObject {
    * @public
    * Checksum algorithm
    */
-  ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | string | undefined;
+  ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | undefined;
 
   /**
    * @public
@@ -120,7 +120,7 @@ export interface Chunk {
    * @public
    * Checksum algorithm
    */
-  ChecksumAlgorithm: DataChecksumAlgorithm | string | undefined;
+  ChecksumAlgorithm: DataChecksumAlgorithm | undefined;
 
   /**
    * @public
@@ -322,7 +322,7 @@ export interface GetChunkOutput {
    * @public
    * Checksum algorithm
    */
-  ChecksumAlgorithm: DataChecksumAlgorithm | string | undefined;
+  ChecksumAlgorithm: DataChecksumAlgorithm | undefined;
 }
 
 /**
@@ -396,7 +396,7 @@ export interface GetObjectMetadataOutput {
    * @public
    * Checksum algorithm.
    */
-  MetadataBlobChecksumAlgorithm?: DataChecksumAlgorithm | string;
+  MetadataBlobChecksumAlgorithm?: DataChecksumAlgorithm;
 }
 
 /**
@@ -535,7 +535,7 @@ export interface NotifyObjectCompleteInput {
    * @public
    * Checksum algorithm
    */
-  ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | string | undefined;
+  ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | undefined;
 
   /**
    * @public
@@ -565,7 +565,7 @@ export interface NotifyObjectCompleteInput {
    * @public
    * Checksum algorithm.
    */
-  MetadataBlobChecksumAlgorithm?: DataChecksumAlgorithm | string;
+  MetadataBlobChecksumAlgorithm?: DataChecksumAlgorithm;
 }
 
 /**
@@ -582,7 +582,7 @@ export interface NotifyObjectCompleteOutput {
    * @public
    * Checksum algorithm
    */
-  ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | string | undefined;
+  ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | undefined;
 }
 
 /**
@@ -651,7 +651,7 @@ export interface PutChunkInput {
    * @public
    * Checksum algorithm
    */
-  ChecksumAlgorithm: DataChecksumAlgorithm | string | undefined;
+  ChecksumAlgorithm: DataChecksumAlgorithm | undefined;
 }
 
 /**
@@ -668,7 +668,7 @@ export interface PutChunkOutput {
    * @public
    * Checksum algorithm
    */
-  ChunkChecksumAlgorithm: DataChecksumAlgorithm | string | undefined;
+  ChunkChecksumAlgorithm: DataChecksumAlgorithm | undefined;
 }
 
 /**
@@ -727,7 +727,7 @@ export interface PutObjectInput {
    * @public
    * object checksum algorithm
    */
-  ObjectChecksumAlgorithm?: SummaryChecksumAlgorithm | string;
+  ObjectChecksumAlgorithm?: SummaryChecksumAlgorithm;
 
   /**
    * @public
@@ -750,7 +750,7 @@ export interface PutObjectOutput {
    * @public
    * Inline chunk checksum algorithm
    */
-  InlineChunkChecksumAlgorithm: DataChecksumAlgorithm | string | undefined;
+  InlineChunkChecksumAlgorithm: DataChecksumAlgorithm | undefined;
 
   /**
    * @public
@@ -762,7 +762,7 @@ export interface PutObjectOutput {
    * @public
    * object checksum algorithm
    */
-  ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | string | undefined;
+  ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | undefined;
 }
 
 /**

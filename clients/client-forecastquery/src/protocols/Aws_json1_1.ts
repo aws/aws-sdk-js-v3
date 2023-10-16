@@ -297,9 +297,9 @@ const de_Predictions = (output: any, context: __SerdeContext): Record<string, Da
     if (value === null) {
       return acc;
     }
-    acc[key] = de_TimeSeries(value, context);
+    acc[key as string] = de_TimeSeries(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, DataPoint[]>);
 };
 
 /**

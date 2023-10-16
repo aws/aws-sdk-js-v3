@@ -178,7 +178,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason for the validation exception.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -472,7 +472,7 @@ export interface CloudComponentStatus {
    * @public
    * <p>The state of the component version.</p>
    */
-  componentState?: CloudComponentState | string;
+  componentState?: CloudComponentState;
 
   /**
    * @public
@@ -511,7 +511,7 @@ export interface CloudComponentStatus {
    *             </li>
    *          </ul>
    */
-  vendorGuidance?: VendorGuidance | string;
+  vendorGuidance?: VendorGuidance;
 
   /**
    * @public
@@ -713,7 +713,7 @@ export interface ComponentDependencyRequirement {
    *          <p>Default: <code>HARD</code>
    *          </p>
    */
-  dependencyType?: ComponentDependencyType | string;
+  dependencyType?: ComponentDependencyType;
 }
 
 /**
@@ -927,7 +927,7 @@ export interface CoreDevice {
    *             </li>
    *          </ul>
    */
-  status?: CoreDeviceStatus | string;
+  status?: CoreDeviceStatus;
 
   /**
    * @public
@@ -982,7 +982,7 @@ export interface LambdaEventSource {
    *             </li>
    *          </ul>
    */
-  type: LambdaEventSourceType | string | undefined;
+  type: LambdaEventSourceType | undefined;
 }
 
 /**
@@ -1032,7 +1032,7 @@ export interface LambdaDeviceMount {
    *          <p>Default: <code>ro</code>
    *          </p>
    */
-  permission?: LambdaFilesystemPermission | string;
+  permission?: LambdaFilesystemPermission;
 
   /**
    * @public
@@ -1069,7 +1069,7 @@ export interface LambdaVolumeMount {
    *          <p>Default: <code>ro</code>
    *          </p>
    */
-  permission?: LambdaFilesystemPermission | string;
+  permission?: LambdaFilesystemPermission;
 
   /**
    * @public
@@ -1142,7 +1142,7 @@ export interface LambdaLinuxProcessParams {
    *          <p>Default: <code>GreengrassContainer</code>
    *          </p>
    */
-  isolationMode?: LambdaIsolationMode | string;
+  isolationMode?: LambdaIsolationMode;
 
   /**
    * @public
@@ -1225,7 +1225,7 @@ export interface LambdaExecutionParameters {
    *          <p>Default: <code>json</code>
    *          </p>
    */
-  inputPayloadEncodingType?: LambdaInputPayloadEncodingType | string;
+  inputPayloadEncodingType?: LambdaInputPayloadEncodingType;
 
   /**
    * @public
@@ -1496,7 +1496,7 @@ export interface DeploymentComponentUpdatePolicy {
    *          <p>Default: <code>NOTIFY_COMPONENTS</code>
    *          </p>
    */
-  action?: DeploymentComponentUpdatePolicyAction | string;
+  action?: DeploymentComponentUpdatePolicyAction;
 }
 
 /**
@@ -1545,7 +1545,7 @@ export interface DeploymentPolicies {
    *          <p>Default: <code>ROLLBACK</code>
    *          </p>
    */
-  failureHandlingPolicy?: DeploymentFailureHandlingPolicy | string;
+  failureHandlingPolicy?: DeploymentFailureHandlingPolicy;
 
   /**
    * @public
@@ -1611,13 +1611,13 @@ export interface IoTJobAbortCriteria {
    * @public
    * <p>The type of job deployment failure that can cancel a job.</p>
    */
-  failureType: IoTJobExecutionFailureType | string | undefined;
+  failureType: IoTJobExecutionFailureType | undefined;
 
   /**
    * @public
    * <p>The action to perform when the criteria are met.</p>
    */
-  action: IoTJobAbortAction | string | undefined;
+  action: IoTJobAbortAction | undefined;
 
   /**
    * @public
@@ -1936,7 +1936,7 @@ export interface Deployment {
    * @public
    * <p>The status of the deployment.</p>
    */
-  deploymentStatus?: DeploymentStatus | string;
+  deploymentStatus?: DeploymentStatus;
 
   /**
    * @public
@@ -2190,7 +2190,7 @@ export interface EffectiveDeployment {
    *             </li>
    *          </ul>
    */
-  coreDeviceExecutionStatus: EffectiveDeploymentExecutionStatus | string | undefined;
+  coreDeviceExecutionStatus: EffectiveDeploymentExecutionStatus | undefined;
 
   /**
    * @public
@@ -2241,7 +2241,7 @@ export interface GetComponentRequest {
    * @public
    * <p>The format of the recipe.</p>
    */
-  recipeOutputFormat?: RecipeOutputFormat | string;
+  recipeOutputFormat?: RecipeOutputFormat;
 
   /**
    * @public
@@ -2258,7 +2258,7 @@ export interface GetComponentResponse {
    * @public
    * <p>The format of the recipe.</p>
    */
-  recipeOutputFormat: RecipeOutputFormat | string | undefined;
+  recipeOutputFormat: RecipeOutputFormat | undefined;
 
   /**
    * @public
@@ -2393,7 +2393,7 @@ export interface GetCoreDeviceResponse {
    *             </li>
    *          </ul>
    */
-  status?: CoreDeviceStatus | string;
+  status?: CoreDeviceStatus;
 
   /**
    * @public
@@ -2454,7 +2454,7 @@ export interface GetDeploymentResponse {
    * @public
    * <p>The status of the deployment.</p>
    */
-  deploymentStatus?: DeploymentStatus | string;
+  deploymentStatus?: DeploymentStatus;
 
   /**
    * @public
@@ -2590,7 +2590,7 @@ export interface ListComponentsRequest {
    *          <p>Default: <code>PRIVATE</code>
    *          </p>
    */
-  scope?: ComponentVisibilityScope | string;
+  scope?: ComponentVisibilityScope;
 
   /**
    * @public
@@ -2691,7 +2691,7 @@ export interface ListCoreDevicesRequest {
    *             </li>
    *          </ul>
    */
-  status?: CoreDeviceStatus | string;
+  status?: CoreDeviceStatus;
 
   /**
    * @public
@@ -2750,7 +2750,7 @@ export interface ListDeploymentsRequest {
    *          <p>Default: <code>LATEST_ONLY</code>
    *          </p>
    */
-  historyFilter?: DeploymentHistoryFilter | string;
+  historyFilter?: DeploymentHistoryFilter;
 
   /**
    * @public
@@ -2885,7 +2885,7 @@ export interface ListInstalledComponentsRequest {
    *          <p>Default: <code>ROOT</code>
    *          </p>
    */
-  topologyFilter?: InstalledComponentTopologyFilter | string;
+  topologyFilter?: InstalledComponentTopologyFilter;
 }
 
 /**
@@ -2930,7 +2930,7 @@ export interface InstalledComponent {
    * @public
    * <p>The lifecycle state of the component.</p>
    */
-  lifecycleState?: InstalledComponentLifecycleState | string;
+  lifecycleState?: InstalledComponentLifecycleState;
 
   /**
    * @public
@@ -3106,7 +3106,7 @@ export interface ResolvedComponentVersion {
    *             </li>
    *          </ul>
    */
-  vendorGuidance?: VendorGuidance | string;
+  vendorGuidance?: VendorGuidance;
 
   /**
    * @public

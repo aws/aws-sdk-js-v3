@@ -8336,7 +8336,7 @@ const se_HealthCheckConfig = (input: HealthCheckConfig, context: __SerdeContext)
 /**
  * serializeAws_restXmlHealthCheckRegionList
  */
-const se_HealthCheckRegionList = (input: (HealthCheckRegion | string)[], context: __SerdeContext): any => {
+const se_HealthCheckRegionList = (input: HealthCheckRegion[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8364,7 +8364,7 @@ const se_HostedZoneConfig = (input: HostedZoneConfig, context: __SerdeContext): 
 /**
  * serializeAws_restXmlResettableElementNameList
  */
-const se_ResettableElementNameList = (input: (ResettableElementName | string)[], context: __SerdeContext): any => {
+const se_ResettableElementNameList = (input: ResettableElementName[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9028,7 +9028,7 @@ const de_HealthCheckObservations = (output: any, context: __SerdeContext): Healt
 /**
  * deserializeAws_restXmlHealthCheckRegionList
  */
-const de_HealthCheckRegionList = (output: any, context: __SerdeContext): (HealthCheckRegion | string)[] => {
+const de_HealthCheckRegionList = (output: any, context: __SerdeContext): HealthCheckRegion[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

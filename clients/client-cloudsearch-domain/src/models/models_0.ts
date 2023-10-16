@@ -290,7 +290,7 @@ export interface SearchRequest {
    *
    *       </ul>
    */
-  queryParser?: QueryParser | string;
+  queryParser?: QueryParser;
 
   /**
    * @public
@@ -704,7 +704,7 @@ export interface UploadDocumentsRequest {
    *          <li>application/xml</li>
    *       </ul>
    */
-  contentType: ContentType | string | undefined;
+  contentType: ContentType | undefined;
 }
 
 /**

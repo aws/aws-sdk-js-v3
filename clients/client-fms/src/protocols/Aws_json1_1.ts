@@ -134,6 +134,7 @@ import {
   AssociateThirdPartyFirewallRequest,
   BatchAssociateResourceRequest,
   BatchDisassociateResourceRequest,
+  CustomerPolicyScopeIdType,
   DeleteAppsListRequest,
   DeleteNotificationChannelRequest,
   DeletePolicyRequest,

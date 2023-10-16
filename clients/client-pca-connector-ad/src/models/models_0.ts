@@ -28,14 +28,14 @@ export interface AccessRights {
    * <p>Allow or deny an Active Directory group from enrolling certificates issued against a
    *          template.</p>
    */
-  Enroll?: AccessRight | string;
+  Enroll?: AccessRight;
 
   /**
    * @public
    * <p>Allow or deny an Active Directory group from autoenrolling certificates issued against a template.
    *          The Active Directory group must be allowed to enroll to allow autoenrollment</p>
    */
-  AutoEnroll?: AccessRight | string;
+  AutoEnroll?: AccessRight;
 }
 
 /**
@@ -251,7 +251,7 @@ export namespace ApplicationPolicy {
    * <p>The type of application policy</p>
    */
   export interface PolicyTypeMember {
-    PolicyType: ApplicationPolicyType | string;
+    PolicyType: ApplicationPolicyType;
     PolicyObjectIdentifier?: never;
     $unknown?: never;
   }
@@ -276,7 +276,7 @@ export namespace ApplicationPolicy {
   }
 
   export interface Visitor<T> {
-    PolicyType: (value: ApplicationPolicyType | string) => T;
+    PolicyType: (value: ApplicationPolicyType) => T;
     PolicyObjectIdentifier: (value: string) => T;
     _: (name: string, value: any) => T;
   }
@@ -339,7 +339,7 @@ export interface ValidityPeriod {
    * @public
    * <p>The unit of time. You can select hours, days, weeks, months, and years.</p>
    */
-  PeriodType: ValidityPeriodType | string | undefined;
+  PeriodType: ValidityPeriodType | undefined;
 
   /**
    * @public
@@ -558,13 +558,13 @@ export interface Connector {
    * @public
    * <p>Status of the connector. Status can be creating, active, deleting, or failed.</p>
    */
-  Status?: ConnectorStatus | string;
+  Status?: ConnectorStatus;
 
   /**
    * @public
    * <p>Additional information about the connector status if the status is failed.</p>
    */
-  StatusReason?: ConnectorStatusReason | string;
+  StatusReason?: ConnectorStatusReason;
 
   /**
    * @public
@@ -620,13 +620,13 @@ export interface ConnectorSummary {
    * @public
    * <p>Status of the connector. Status can be creating, active, deleting, or failed.</p>
    */
-  Status?: ConnectorStatus | string;
+  Status?: ConnectorStatus;
 
   /**
    * @public
    * <p>Additional information about the connector status if the status is failed.</p>
    */
-  StatusReason?: ConnectorStatusReason | string;
+  StatusReason?: ConnectorStatusReason;
 
   /**
    * @public
@@ -868,7 +868,7 @@ export class ValidationException extends __BaseException {
    * <p>The reason for the validation error. This won't be return for every
    *          validation exception.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: ValidationExceptionReason;
   /**
    * @internal
    */
@@ -1187,7 +1187,7 @@ export interface PrivateKeyAttributesV2 {
    * <p>Defines the purpose of the private key. Set it to "KEY_EXCHANGE" or "SIGNATURE"
    *          value.</p>
    */
-  KeySpec: KeySpec | string | undefined;
+  KeySpec: KeySpec | undefined;
 
   /**
    * @public
@@ -1218,7 +1218,7 @@ export interface PrivateKeyFlagsV2 {
    * @public
    * <p>Defines the minimum client compatibility.</p>
    */
-  ClientVersion: ClientCompatibilityV2 | string | undefined;
+  ClientVersion: ClientCompatibilityV2 | undefined;
 }
 
 /**
@@ -1523,7 +1523,7 @@ export namespace KeyUsageProperty {
    *          property flags but not both. </p>
    */
   export interface PropertyTypeMember {
-    PropertyType: KeyUsagePropertyType | string;
+    PropertyType: KeyUsagePropertyType;
     PropertyFlags?: never;
     $unknown?: never;
   }
@@ -1549,7 +1549,7 @@ export namespace KeyUsageProperty {
   }
 
   export interface Visitor<T> {
-    PropertyType: (value: KeyUsagePropertyType | string) => T;
+    PropertyType: (value: KeyUsagePropertyType) => T;
     PropertyFlags: (value: KeyUsagePropertyFlags) => T;
     _: (name: string, value: any) => T;
   }
@@ -1577,7 +1577,7 @@ export interface PrivateKeyAttributesV3 {
    * <p>Defines the purpose of the private key. Set it to "KEY_EXCHANGE" or "SIGNATURE"
    *          value.</p>
    */
-  KeySpec: KeySpec | string | undefined;
+  KeySpec: KeySpec | undefined;
 
   /**
    * @public
@@ -1597,7 +1597,7 @@ export interface PrivateKeyAttributesV3 {
    * @public
    * <p>Defines the algorithm used to generate the private key.</p>
    */
-  Algorithm: PrivateKeyAlgorithm | string | undefined;
+  Algorithm: PrivateKeyAlgorithm | undefined;
 }
 
 /**
@@ -1630,7 +1630,7 @@ export interface PrivateKeyFlagsV3 {
    * @public
    * <p>Defines the minimum client compatibility.</p>
    */
-  ClientVersion: ClientCompatibilityV3 | string | undefined;
+  ClientVersion: ClientCompatibilityV3 | undefined;
 }
 
 /**
@@ -1763,7 +1763,7 @@ export interface TemplateV3 {
    * @public
    * <p>Specifies the hash algorithm used to hash the private key.</p>
    */
-  HashAlgorithm: HashAlgorithm | string | undefined;
+  HashAlgorithm: HashAlgorithm | undefined;
 
   /**
    * @public
@@ -1869,7 +1869,7 @@ export interface PrivateKeyAttributesV4 {
    * <p>Defines the purpose of the private key. Set it to "KEY_EXCHANGE" or "SIGNATURE"
    *          value.</p>
    */
-  KeySpec: KeySpec | string | undefined;
+  KeySpec: KeySpec | undefined;
 
   /**
    * @public
@@ -1889,7 +1889,7 @@ export interface PrivateKeyAttributesV4 {
    * @public
    * <p>Defines the algorithm used to generate the private key.</p>
    */
-  Algorithm?: PrivateKeyAlgorithm | string;
+  Algorithm?: PrivateKeyAlgorithm;
 }
 
 /**
@@ -1937,7 +1937,7 @@ export interface PrivateKeyFlagsV4 {
    * @public
    * <p>Defines the minimum client compatibility.</p>
    */
-  ClientVersion: ClientCompatibilityV4 | string | undefined;
+  ClientVersion: ClientCompatibilityV4 | undefined;
 }
 
 /**
@@ -2074,7 +2074,7 @@ export interface TemplateV4 {
    * <p>Specifies the hash algorithm used to hash the private key. Hash algorithm can only be
    *          specified when using Key Storage Providers.</p>
    */
-  HashAlgorithm?: HashAlgorithm | string;
+  HashAlgorithm?: HashAlgorithm;
 
   /**
    * @public
@@ -2365,14 +2365,14 @@ export interface DirectoryRegistration {
    * @public
    * <p>Status of the directory registration.</p>
    */
-  Status?: DirectoryRegistrationStatus | string;
+  Status?: DirectoryRegistrationStatus;
 
   /**
    * @public
    * <p>Additional information about the directory registration status if the status is
    *          failed.</p>
    */
-  StatusReason?: DirectoryRegistrationStatusReason | string;
+  StatusReason?: DirectoryRegistrationStatusReason;
 
   /**
    * @public
@@ -2409,14 +2409,14 @@ export interface DirectoryRegistrationSummary {
    * @public
    * <p>Status of the directory registration.</p>
    */
-  Status?: DirectoryRegistrationStatus | string;
+  Status?: DirectoryRegistrationStatus;
 
   /**
    * @public
    * <p>Additional information about the directory registration status if the status is
    *          failed.</p>
    */
-  StatusReason?: DirectoryRegistrationStatusReason | string;
+  StatusReason?: DirectoryRegistrationStatusReason;
 
   /**
    * @public
@@ -2568,14 +2568,14 @@ export interface ServicePrincipalName {
    * @public
    * <p>The status of a service principal name.</p>
    */
-  Status?: ServicePrincipalNameStatus | string;
+  Status?: ServicePrincipalNameStatus;
 
   /**
    * @public
    * <p>Additional information for the status of a service principal name if the status is
    *          failed.</p>
    */
-  StatusReason?: ServicePrincipalNameStatusReason | string;
+  StatusReason?: ServicePrincipalNameStatusReason;
 
   /**
    * @public
@@ -2696,7 +2696,7 @@ export interface Template {
    * @public
    * <p>Status of the template. Status can be creating, active, deleting, or failed.</p>
    */
-  Status?: TemplateStatus | string;
+  Status?: TemplateStatus;
 
   /**
    * @public
@@ -2810,14 +2810,14 @@ export interface ServicePrincipalNameSummary {
    * @public
    * <p>The status of a service principal name.</p>
    */
-  Status?: ServicePrincipalNameStatus | string;
+  Status?: ServicePrincipalNameStatus;
 
   /**
    * @public
    * <p>Additional information for the status of a service principal name if the status is
    *          failed.</p>
    */
-  StatusReason?: ServicePrincipalNameStatusReason | string;
+  StatusReason?: ServicePrincipalNameStatusReason;
 
   /**
    * @public
@@ -3001,7 +3001,7 @@ export interface TemplateSummary {
    * @public
    * <p>Status of the template. Status can be creating, active, deleting, or failed.</p>
    */
-  Status?: TemplateStatus | string;
+  Status?: TemplateStatus;
 
   /**
    * @public

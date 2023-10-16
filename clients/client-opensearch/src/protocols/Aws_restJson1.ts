@@ -219,6 +219,7 @@ import {
   LimitExceededException,
   LogPublishingOption,
   LogPublishingOptionsStatus,
+  LogType,
   MasterUserOptions,
   NodeToNodeEncryptionOptions,
   NodeToNodeEncryptionOptionsStatus,

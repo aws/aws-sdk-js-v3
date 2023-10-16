@@ -2595,9 +2595,9 @@ const de_ScoreValuePerLabelMap = (output: any, context: __SerdeContext): Record<
     if (value === null) {
       return acc;
     }
-    acc[key] = __limitedParseFloat32(value) as any;
+    acc[key as string] = __limitedParseFloat32(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 };
 
 // de_Tag omitted.

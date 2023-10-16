@@ -68,7 +68,7 @@ export interface Application {
    * @public
    * <p>The type of the application.</p>
    */
-  Type?: ApplicationType | string;
+  Type?: ApplicationType;
 
   /**
    * @public
@@ -86,13 +86,13 @@ export interface Application {
    * @public
    * <p>The status of the application.</p>
    */
-  Status?: ApplicationStatus | string;
+  Status?: ApplicationStatus;
 
   /**
    * @public
    * <p>The latest discovery result for the application.</p>
    */
-  DiscoveryStatus?: ApplicationDiscoveryStatus | string;
+  DiscoveryStatus?: ApplicationDiscoveryStatus;
 
   /**
    * @public
@@ -141,7 +141,7 @@ export interface ApplicationCredential {
    * @public
    * <p>The type of the application credentials. </p>
    */
-  CredentialType: CredentialType | string | undefined;
+  CredentialType: CredentialType | undefined;
 
   /**
    * @public
@@ -167,7 +167,7 @@ export interface ApplicationSummary {
    * @public
    * <p>The type of the application.</p>
    */
-  Type?: ApplicationType | string;
+  Type?: ApplicationType;
 
   /**
    * @public
@@ -229,7 +229,7 @@ export interface BackintConfig {
    * @public
    * <p>AWS service for your database backup.</p>
    */
-  BackintMode: BackintMode | string | undefined;
+  BackintMode: BackintMode | undefined;
 
   /**
    * @public
@@ -318,7 +318,7 @@ export interface Host {
    * @public
    * <p>The role of the Dedicated Host.</p>
    */
-  HostRole?: HostRole | string;
+  HostRole?: HostRole;
 
   /**
    * @public
@@ -376,19 +376,19 @@ export interface Resilience {
    * @public
    * <p>The replication mode of the component.</p>
    */
-  HsrReplicationMode?: ReplicationMode | string;
+  HsrReplicationMode?: ReplicationMode;
 
   /**
    * @public
    * <p>The operation mode of the component.</p>
    */
-  HsrOperationMode?: OperationMode | string;
+  HsrOperationMode?: OperationMode;
 
   /**
    * @public
    * <p>The cluster status of the component.</p>
    */
-  ClusterStatus?: ClusterStatus | string;
+  ClusterStatus?: ClusterStatus;
 }
 
 /**
@@ -447,13 +447,13 @@ export interface Component {
    * @public
    * <p>The type of the component.</p>
    */
-  ComponentType?: ComponentType | string;
+  ComponentType?: ComponentType;
 
   /**
    * @public
    * <p>The status of the component.</p>
    */
-  Status?: ComponentStatus | string;
+  Status?: ComponentStatus;
 
   /**
    * @public
@@ -541,7 +541,7 @@ export interface ComponentSummary {
    * @public
    * <p>The type of the component.</p>
    */
-  ComponentType?: ComponentType | string;
+  ComponentType?: ComponentType;
 
   /**
    * @public
@@ -650,7 +650,7 @@ export interface Database {
    * @public
    * <p>The type of the database.</p>
    */
-  DatabaseType?: DatabaseType | string;
+  DatabaseType?: DatabaseType;
 
   /**
    * @public
@@ -662,7 +662,7 @@ export interface Database {
    * @public
    * <p>The status of the database.</p>
    */
-  Status?: DatabaseStatus | string;
+  Status?: DatabaseStatus;
 
   /**
    * @public
@@ -710,7 +710,7 @@ export interface DatabaseSummary {
    * @public
    * <p>The type of the database.</p>
    */
-  DatabaseType?: DatabaseType | string;
+  DatabaseType?: DatabaseType;
 
   /**
    * @public
@@ -746,7 +746,7 @@ export interface DeleteResourcePermissionInput {
    * @public
    * <p>Delete or restore the permissions on the target database.</p>
    */
-  ActionType?: PermissionActionType | string;
+  ActionType?: PermissionActionType;
 
   /**
    * @public
@@ -892,7 +892,7 @@ export interface Filter {
    * @public
    * <p>The operator for the filter. </p>
    */
-  Operator: FilterOperator | string | undefined;
+  Operator: FilterOperator | undefined;
 }
 
 /**
@@ -1064,7 +1064,7 @@ export interface Operation {
    * @public
    * <p>The status of the operation.</p>
    */
-  Status?: OperationStatus | string;
+  Status?: OperationStatus;
 
   /**
    * @public
@@ -1134,7 +1134,7 @@ export interface GetResourcePermissionInput {
    * @public
    * <p/>
    */
-  ActionType?: PermissionActionType | string;
+  ActionType?: PermissionActionType;
 
   /**
    * @public
@@ -1362,7 +1362,7 @@ export interface PutResourcePermissionInput {
    * @public
    * <p/>
    */
-  ActionType: PermissionActionType | string | undefined;
+  ActionType: PermissionActionType | undefined;
 
   /**
    * @public
@@ -1402,7 +1402,7 @@ export interface RegisterApplicationInput {
    * @public
    * <p>The type of the application.</p>
    */
-  ApplicationType: ApplicationType | string | undefined;
+  ApplicationType: ApplicationType | undefined;
 
   /**
    * @public

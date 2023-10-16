@@ -768,7 +768,7 @@ export interface SeverityUpdate {
    *             </li>
    *          </ul>
    */
-  Label?: SeverityLabel | string;
+  Label?: SeverityLabel;
 }
 
 /**
@@ -847,7 +847,7 @@ export interface WorkflowUpdate {
    *             </li>
    *          </ul>
    */
-  Status?: WorkflowStatus | string;
+  Status?: WorkflowStatus;
 }
 
 /**
@@ -875,7 +875,7 @@ export interface AutomationRulesFindingFieldsUpdate {
    *          The rule action updates the <code>VerificationState</code> field of a finding.
    *       </p>
    */
-  VerificationState?: VerificationState | string;
+  VerificationState?: VerificationState;
 
   /**
    * @public
@@ -954,7 +954,7 @@ export interface AutomationRulesAction {
    *          the <i>Security Hub User Guide</i>.
    *       </p>
    */
-  Type?: AutomationRulesActionType | string;
+  Type?: AutomationRulesActionType;
 
   /**
    * @public
@@ -1038,7 +1038,7 @@ export interface AdminAccount {
    * <p>The current status of the Security Hub administrator account. Indicates whether the account is
    *          currently enabled as a Security Hub administrator.</p>
    */
-  Status?: AdminStatus | string;
+  Status?: AdminStatus;
 }
 
 /**
@@ -1282,7 +1282,7 @@ export interface StringFilter {
    *             <code>CONTAINS</code> and <code>NOT_CONTAINS</code> operators can be used only with automation rules. For more information,
    *            see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub User Guide</i>.</p>
    */
-  Comparison?: StringFilterComparison | string;
+  Comparison?: StringFilterComparison;
 }
 
 /**
@@ -1340,7 +1340,7 @@ export interface DateRange {
    * @public
    * <p>A date range unit for the date filter.</p>
    */
-  Unit?: DateRangeUnit | string;
+  Unit?: DateRangeUnit;
 }
 
 /**
@@ -1461,7 +1461,7 @@ export interface MapFilter {
    *             <code>CONTAINS</code> and <code>NOT_CONTAINS</code> operators can be used only with automation rules. For more information,
    *            see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub User Guide</i>.</p>
    */
-  Comparison?: MapFilterComparison | string;
+  Comparison?: MapFilterComparison;
 }
 
 /**
@@ -1921,7 +1921,7 @@ export interface AutomationRulesConfig {
    *          and finding updates after the rule is created.
    *       </p>
    */
-  RuleStatus?: RuleStatus | string;
+  RuleStatus?: RuleStatus;
 
   /**
    * @public
@@ -2034,7 +2034,7 @@ export interface AutomationRulesMetadata {
    *             </a>.
    *       </p>
    */
-  RuleStatus?: RuleStatus | string;
+  RuleStatus?: RuleStatus;
 
   /**
    * @public

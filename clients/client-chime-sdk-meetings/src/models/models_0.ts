@@ -48,19 +48,19 @@ export interface AttendeeCapabilities {
    * @public
    * <p>The audio capability assigned to an attendee.</p>
    */
-  Audio: MediaCapabilities | string | undefined;
+  Audio: MediaCapabilities | undefined;
 
   /**
    * @public
    * <p>The video capability assigned to an attendee.</p>
    */
-  Video: MediaCapabilities | string | undefined;
+  Video: MediaCapabilities | undefined;
 
   /**
    * @public
    * <p>The content capability assigned to an attendee.</p>
    */
-  Content: MediaCapabilities | string | undefined;
+  Content: MediaCapabilities | undefined;
 }
 
 /**
@@ -163,7 +163,7 @@ export interface AudioFeatures {
    * @public
    * <p>Makes echo reduction available to clients who connect to the meeting.</p>
    */
-  EchoReduction?: MeetingFeatureStatus | string;
+  EchoReduction?: MeetingFeatureStatus;
 }
 
 /**
@@ -1331,19 +1331,19 @@ export interface EngineTranscribeMedicalSettings {
    * @public
    * <p>The language code specified for the Amazon Transcribe Medical engine.</p>
    */
-  LanguageCode: TranscribeMedicalLanguageCode | string | undefined;
+  LanguageCode: TranscribeMedicalLanguageCode | undefined;
 
   /**
    * @public
    * <p>The specialty specified for the Amazon Transcribe Medical engine.</p>
    */
-  Specialty: TranscribeMedicalSpecialty | string | undefined;
+  Specialty: TranscribeMedicalSpecialty | undefined;
 
   /**
    * @public
    * <p>The type of transcription.</p>
    */
-  Type: TranscribeMedicalType | string | undefined;
+  Type: TranscribeMedicalType | undefined;
 
   /**
    * @public
@@ -1355,13 +1355,13 @@ export interface EngineTranscribeMedicalSettings {
    * @public
    * <p>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region. </p>
    */
-  Region?: TranscribeMedicalRegion | string;
+  Region?: TranscribeMedicalRegion;
 
   /**
    * @public
    * <p>Set this field to <code>PHI</code> to identify personal health information in the transcription output.</p>
    */
-  ContentIdentificationType?: TranscribeMedicalContentIdentificationType | string;
+  ContentIdentificationType?: TranscribeMedicalContentIdentificationType;
 }
 
 /**
@@ -1489,7 +1489,7 @@ export interface EngineTranscribeSettings {
    * <p>Specify the language code that represents the language spoken.</p>
    *          <p>If you're unsure of the language spoken in your audio, consider using <code>IdentifyLanguage</code> to enable automatic language identification.</p>
    */
-  LanguageCode?: TranscribeLanguageCode | string;
+  LanguageCode?: TranscribeLanguageCode;
 
   /**
    * @public
@@ -1498,7 +1498,7 @@ export interface EngineTranscribeSettings {
    *          <p>To delete words, choose <code>remove</code>.</p>
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
    */
-  VocabularyFilterMethod?: TranscribeVocabularyFilterMethod | string;
+  VocabularyFilterMethod?: TranscribeVocabularyFilterMethod;
 
   /**
    * @public
@@ -1526,7 +1526,7 @@ export interface EngineTranscribeSettings {
    *             <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/transcription-options.html#choose-region">Choosing a transcription Region</a> in the
    *             <i>Amazon Chime SDK Developer Guide</i>.</p>
    */
-  Region?: TranscribeRegion | string;
+  Region?: TranscribeRegion;
 
   /**
    * @public
@@ -1539,7 +1539,7 @@ export interface EngineTranscribeSettings {
    * <p>Specify the level of stability to use when you enable partial results stabilization (<code>EnablePartialResultsStabilization</code>).</p>
    *          <p>Low stability provides the highest accuracy. High stability transcribes faster, but with slightly lower accuracy.</p>
    */
-  PartialResultsStability?: TranscribePartialResultsStability | string;
+  PartialResultsStability?: TranscribePartialResultsStability;
 
   /**
    * @public
@@ -1548,7 +1548,7 @@ export interface EngineTranscribeSettings {
    *             <p>You can’t set <code>ContentIdentificationType</code> and <code>ContentRedactionType</code>.</p>
    *          </note>
    */
-  ContentIdentificationType?: TranscribeContentIdentificationType | string;
+  ContentIdentificationType?: TranscribeContentIdentificationType;
 
   /**
    * @public
@@ -1557,7 +1557,7 @@ export interface EngineTranscribeSettings {
    *             <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code>.</p>
    *          </note>
    */
-  ContentRedactionType?: TranscribeContentRedactionType | string;
+  ContentRedactionType?: TranscribeContentRedactionType;
 
   /**
    * @public
@@ -1607,7 +1607,7 @@ export interface EngineTranscribeSettings {
    * <p>Specify a preferred language from the subset of languages codes you specified in <code>LanguageOptions</code>.</p>
    *          <p>You can only use this parameter if you include <code>IdentifyLanguage</code> and <code>LanguageOptions</code>.</p>
    */
-  PreferredLanguage?: TranscribeLanguageCode | string;
+  PreferredLanguage?: TranscribeLanguageCode;
 
   /**
    * @public

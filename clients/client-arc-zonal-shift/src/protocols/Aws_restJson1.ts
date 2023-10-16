@@ -734,9 +734,9 @@ const de_AppliedWeights = (output: any, context: __SerdeContext): Record<string,
     if (value === null) {
       return acc;
     }
-    acc[key] = __limitedParseFloat32(value) as any;
+    acc[key as string] = __limitedParseFloat32(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 };
 
 // de_AvailabilityZones omitted.

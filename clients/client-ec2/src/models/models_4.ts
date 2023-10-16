@@ -248,7 +248,7 @@ export interface InstanceMaintenanceOptions {
    * <p>Provides information on the current automatic recovery behavior of your
    *             instance.</p>
    */
-  AutoRecovery?: InstanceAutoRecoveryState | string;
+  AutoRecovery?: InstanceAutoRecoveryState;
 }
 
 /**
@@ -339,7 +339,7 @@ export interface InstanceMetadataOptionsResponse {
    *             <code>applied</code> - The metadata options have been successfully applied on the
    *             instance.</p>
    */
-  State?: InstanceMetadataOptionsState | string;
+  State?: InstanceMetadataOptionsState;
 
   /**
    * @public
@@ -365,7 +365,7 @@ export interface InstanceMetadataOptionsResponse {
    *          <p>Default: <code>optional</code>
    *          </p>
    */
-  HttpTokens?: HttpTokensState | string;
+  HttpTokens?: HttpTokensState;
 
   /**
    * @public
@@ -383,14 +383,14 @@ export interface InstanceMetadataOptionsResponse {
    *          <p>If the value is <code>disabled</code>, you cannot access your instance
    *             metadata.</p>
    */
-  HttpEndpoint?: InstanceMetadataEndpointState | string;
+  HttpEndpoint?: InstanceMetadataEndpointState;
 
   /**
    * @public
    * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or
    *             disabled.</p>
    */
-  HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
+  HttpProtocolIpv6?: InstanceMetadataProtocolState;
 
   /**
    * @public
@@ -398,7 +398,7 @@ export interface InstanceMetadataOptionsResponse {
    *             disabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
    *                 instance tags using the instance metadata</a>.</p>
    */
-  InstanceMetadataTags?: InstanceMetadataTagsState | string;
+  InstanceMetadataTags?: InstanceMetadataTagsState;
 }
 
 /**
@@ -427,7 +427,7 @@ export interface Monitoring {
    * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
    *             enabled.</p>
    */
-  State?: MonitoringState | string;
+  State?: MonitoringState;
 }
 
 /**
@@ -499,7 +499,7 @@ export interface InstanceNetworkInterfaceAttachment {
    * @public
    * <p>The attachment state.</p>
    */
-  Status?: AttachmentStatus | string;
+  Status?: AttachmentStatus;
 
   /**
    * @public
@@ -644,7 +644,7 @@ export interface InstanceNetworkInterface {
    * @public
    * <p>The status of the network interface.</p>
    */
-  Status?: NetworkInterfaceStatus | string;
+  Status?: NetworkInterfaceStatus;
 
   /**
    * @public
@@ -688,7 +688,7 @@ export interface PrivateDnsNameOptionsResponse {
    * @public
    * <p>The type of hostname to assign to an instance.</p>
    */
-  HostnameType?: HostnameType | string;
+  HostnameType?: HostnameType;
 
   /**
    * @public
@@ -779,7 +779,7 @@ export interface InstanceState {
    * @public
    * <p>The current state of the instance.</p>
    */
-  Name?: InstanceStateName | string;
+  Name?: InstanceStateName;
 }
 
 /**
@@ -810,7 +810,7 @@ export interface Instance {
    * @public
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -847,7 +847,7 @@ export interface Instance {
    * @public
    * <p>The value is <code>Windows</code> for Windows instances; otherwise blank.</p>
    */
-  Platform?: PlatformValues | string;
+  Platform?: PlatformValues;
 
   /**
    * @public
@@ -924,7 +924,7 @@ export interface Instance {
    * @public
    * <p>The architecture of the image.</p>
    */
-  Architecture?: ArchitectureValues | string;
+  Architecture?: ArchitectureValues;
 
   /**
    * @public
@@ -959,7 +959,7 @@ export interface Instance {
    * <p>The hypervisor type of the instance. The value <code>xen</code> is used for both Xen
    *             and Nitro hypervisors.</p>
    */
-  Hypervisor?: HypervisorType | string;
+  Hypervisor?: HypervisorType;
 
   /**
    * @public
@@ -972,7 +972,7 @@ export interface Instance {
    * @public
    * <p>Indicates whether this is a Spot Instance or a Scheduled Instance.</p>
    */
-  InstanceLifecycle?: InstanceLifecycleType | string;
+  InstanceLifecycle?: InstanceLifecycleType;
 
   /**
    * @public
@@ -1010,7 +1010,7 @@ export interface Instance {
    * <p>The root device type used by the AMI. The AMI can use an EBS volume or an instance
    *             store volume.</p>
    */
-  RootDeviceType?: DeviceType | string;
+  RootDeviceType?: DeviceType;
 
   /**
    * @public
@@ -1053,7 +1053,7 @@ export interface Instance {
    * @public
    * <p>The virtualization type of the instance.</p>
    */
-  VirtualizationType?: VirtualizationType | string;
+  VirtualizationType?: VirtualizationType;
 
   /**
    * @public
@@ -1109,7 +1109,7 @@ export interface Instance {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    */
-  BootMode?: BootModeValues | string;
+  BootMode?: BootModeValues;
 
   /**
    * @public
@@ -1164,7 +1164,7 @@ export interface Instance {
    * <p>The boot mode that is used to boot the instance at launch or start. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *             <i>Amazon EC2 User Guide</i>.</p>
    */
-  CurrentInstanceBootMode?: InstanceBootModeValues | string;
+  CurrentInstanceBootMode?: InstanceBootModeValues;
 }
 
 /**
@@ -1383,7 +1383,7 @@ export interface InstanceStatusEvent {
    * @public
    * <p>The event code.</p>
    */
-  Code?: EventCode | string;
+  Code?: EventCode;
 
   /**
    * @public
@@ -1458,13 +1458,13 @@ export interface InstanceStatusDetails {
    * @public
    * <p>The type of instance status.</p>
    */
-  Name?: StatusName | string;
+  Name?: StatusName;
 
   /**
    * @public
    * <p>The status.</p>
    */
-  Status?: StatusType | string;
+  Status?: StatusType;
 }
 
 /**
@@ -1499,7 +1499,7 @@ export interface InstanceStatusSummary {
    * @public
    * <p>The status.</p>
    */
-  Status?: SummaryStatus | string;
+  Status?: SummaryStatus;
 }
 
 /**
@@ -1603,7 +1603,7 @@ export interface DescribeInstanceTypeOfferingsRequest {
    * @public
    * <p>The location type.</p>
    */
-  LocationType?: LocationType | string;
+  LocationType?: LocationType;
 
   /**
    * @public
@@ -1647,13 +1647,13 @@ export interface InstanceTypeOffering {
    * @public
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
    * <p>The location type.</p>
    */
-  LocationType?: LocationType | string;
+  LocationType?: LocationType;
 
   /**
    * @public
@@ -1697,7 +1697,7 @@ export interface DescribeInstanceTypesRequest {
    * @public
    * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  InstanceTypes?: (_InstanceType | string)[];
+  InstanceTypes?: _InstanceType[];
 
   /**
    * @public
@@ -2057,13 +2057,13 @@ export interface EbsInfo {
    * <p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-optimized
    *     instances</a> in <i>Amazon EC2 User Guide</i>.</p>
    */
-  EbsOptimizedSupport?: EbsOptimizedSupport | string;
+  EbsOptimizedSupport?: EbsOptimizedSupport;
 
   /**
    * @public
    * <p>Indicates whether Amazon EBS encryption is supported.</p>
    */
-  EncryptionSupport?: EbsEncryptionSupport | string;
+  EncryptionSupport?: EbsEncryptionSupport;
 
   /**
    * @public
@@ -2075,7 +2075,7 @@ export interface EbsInfo {
    * @public
    * <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
    */
-  NvmeSupport?: EbsNvmeSupport | string;
+  NvmeSupport?: EbsNvmeSupport;
 }
 
 /**
@@ -2307,7 +2307,7 @@ export interface DiskInfo {
    * @public
    * <p>The type of disk.</p>
    */
-  Type?: DiskType | string;
+  Type?: DiskType;
 }
 
 /**
@@ -2361,13 +2361,13 @@ export interface InstanceStorageInfo {
    * @public
    * <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
    */
-  NvmeSupport?: EphemeralNvmeSupport | string;
+  NvmeSupport?: EphemeralNvmeSupport;
 
   /**
    * @public
    * <p>Indicates whether data is encrypted at rest.</p>
    */
-  EncryptionSupport?: InstanceStorageEncryptionSupport | string;
+  EncryptionSupport?: InstanceStorageEncryptionSupport;
 }
 
 /**
@@ -2502,7 +2502,7 @@ export interface NetworkInfo {
    * @public
    * <p>Indicates whether Elastic Network Adapter (ENA) is supported.</p>
    */
-  EnaSupport?: EnaSupport | string;
+  EnaSupport?: EnaSupport;
 
   /**
    * @public
@@ -2595,7 +2595,7 @@ export interface PlacementGroupInfo {
    * @public
    * <p>The supported placement group types.</p>
    */
-  SupportedStrategies?: (PlacementGroupStrategy | string)[];
+  SupportedStrategies?: PlacementGroupStrategy[];
 }
 
 /**
@@ -2638,7 +2638,7 @@ export interface ProcessorInfo {
    * @public
    * <p>The architectures supported by the instance type.</p>
    */
-  SupportedArchitectures?: (ArchitectureType | string)[];
+  SupportedArchitectures?: ArchitectureType[];
 
   /**
    * @public
@@ -2653,7 +2653,7 @@ export interface ProcessorInfo {
    *    For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">
    *     AMD SEV-SNP</a>.</p>
    */
-  SupportedFeatures?: (SupportedAdditionalProcessorFeature | string)[];
+  SupportedFeatures?: SupportedAdditionalProcessorFeature[];
 }
 
 /**
@@ -2743,7 +2743,7 @@ export interface InstanceTypeInfo {
    * @public
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -2761,19 +2761,19 @@ export interface InstanceTypeInfo {
    * @public
    * <p>Indicates whether the instance type is offered for spot or On-Demand.</p>
    */
-  SupportedUsageClasses?: (UsageClassType | string)[];
+  SupportedUsageClasses?: UsageClassType[];
 
   /**
    * @public
    * <p>The supported root device types.</p>
    */
-  SupportedRootDeviceTypes?: (RootDeviceType | string)[];
+  SupportedRootDeviceTypes?: RootDeviceType[];
 
   /**
    * @public
    * <p>The supported virtualization types.</p>
    */
-  SupportedVirtualizationTypes?: (VirtualizationType | string)[];
+  SupportedVirtualizationTypes?: VirtualizationType[];
 
   /**
    * @public
@@ -2785,7 +2785,7 @@ export interface InstanceTypeInfo {
    * @public
    * <p>The hypervisor for the instance type.</p>
    */
-  Hypervisor?: InstanceTypeHypervisor | string;
+  Hypervisor?: InstanceTypeHypervisor;
 
   /**
    * @public
@@ -2884,19 +2884,19 @@ export interface InstanceTypeInfo {
    * <p>The supported boot modes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *    <i>Amazon EC2 User Guide</i>.</p>
    */
-  SupportedBootModes?: (BootModeType | string)[];
+  SupportedBootModes?: BootModeType[];
 
   /**
    * @public
    * <p>Indicates whether Nitro Enclaves is supported.</p>
    */
-  NitroEnclavesSupport?: NitroEnclavesSupport | string;
+  NitroEnclavesSupport?: NitroEnclavesSupport;
 
   /**
    * @public
    * <p>Indicates whether NitroTPM is supported.</p>
    */
-  NitroTpmSupport?: NitroTpmSupport | string;
+  NitroTpmSupport?: NitroTpmSupport;
 
   /**
    * @public
@@ -3495,7 +3495,7 @@ export interface KeyPairInfo {
    * @public
    * <p>The type of key pair.</p>
    */
-  KeyType?: KeyType | string;
+  KeyType?: KeyType;
 
   /**
    * @public
@@ -4564,7 +4564,7 @@ export interface MovingAddressStatus {
    * @public
    * <p>The status of the Elastic IP address that's being moved or restored.</p>
    */
-  MoveStatus?: MoveStatus | string;
+  MoveStatus?: MoveStatus;
 
   /**
    * @public
@@ -4925,7 +4925,7 @@ export interface NetworkInsightsAccessScopeAnalysis {
    * @public
    * <p>The status.</p>
    */
-  Status?: AnalysisStatus | string;
+  Status?: AnalysisStatus;
 
   /**
    * @public
@@ -4955,7 +4955,7 @@ export interface NetworkInsightsAccessScopeAnalysis {
    * @public
    * <p>Indicates whether there are findings.</p>
    */
-  FindingsFound?: FindingsFound | string;
+  FindingsFound?: FindingsFound;
 
   /**
    * @public
@@ -5151,7 +5151,7 @@ export interface NetworkInsightsAnalysis {
    * @public
    * <p>The status of the network insights analysis.</p>
    */
-  Status?: AnalysisStatus | string;
+  Status?: AnalysisStatus;
 
   /**
    * @public
@@ -5340,7 +5340,7 @@ export interface DescribeNetworkInterfaceAttributeRequest {
    * @public
    * <p>The attribute of the network interface. This parameter is required.</p>
    */
-  Attribute?: NetworkInterfaceAttribute | string;
+  Attribute?: NetworkInterfaceAttribute;
 
   /**
    * @public
@@ -6339,7 +6339,7 @@ export interface DescribeReservedInstancesRequest {
    * @public
    * <p>Describes whether the Reserved Instance is Standard or Convertible.</p>
    */
-  OfferingClass?: OfferingClassType | string;
+  OfferingClass?: OfferingClassType;
 
   /**
    * @public
@@ -6362,7 +6362,7 @@ export interface DescribeReservedInstancesRequest {
    * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
    * 			offering type.</p>
    */
-  OfferingType?: OfferingTypeValues | string;
+  OfferingType?: OfferingTypeValues;
 }
 
 /**
@@ -6409,7 +6409,7 @@ export interface RecurringCharge {
    * @public
    * <p>The frequency of the recurring charge.</p>
    */
-  Frequency?: RecurringChargeFrequency | string;
+  Frequency?: RecurringChargeFrequency;
 }
 
 /**
@@ -6483,13 +6483,13 @@ export interface ReservedInstances {
    * @public
    * <p>The instance type on which the Reserved Instance can be used.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
    * <p>The Reserved Instance product platform description.</p>
    */
-  ProductDescription?: RIProductDescription | string;
+  ProductDescription?: RIProductDescription;
 
   /**
    * @public
@@ -6507,7 +6507,7 @@ export interface ReservedInstances {
    * @public
    * <p>The state of the Reserved Instance purchase.</p>
    */
-  State?: ReservedInstanceState | string;
+  State?: ReservedInstanceState;
 
   /**
    * @public
@@ -6520,25 +6520,25 @@ export interface ReservedInstances {
    * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes.
    * 				At this time, the only supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: CurrencyCodeValues;
 
   /**
    * @public
    * <p>The tenancy of the instance.</p>
    */
-  InstanceTenancy?: Tenancy | string;
+  InstanceTenancy?: Tenancy;
 
   /**
    * @public
    * <p>The offering class of the Reserved Instance.</p>
    */
-  OfferingClass?: OfferingClassType | string;
+  OfferingClass?: OfferingClassType;
 
   /**
    * @public
    * <p>The Reserved Instance offering type.</p>
    */
-  OfferingType?: OfferingTypeValues | string;
+  OfferingType?: OfferingTypeValues;
 
   /**
    * @public
@@ -6550,7 +6550,7 @@ export interface ReservedInstances {
    * @public
    * <p>The scope of the Reserved Instance.</p>
    */
-  Scope?: Scope | string;
+  Scope?: Scope;
 
   /**
    * @public
@@ -6725,7 +6725,7 @@ export interface ReservedInstancesConfiguration {
    * @public
    * <p>The instance type for the modified Reserved Instances.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -6737,7 +6737,7 @@ export interface ReservedInstancesConfiguration {
    * @public
    * <p>Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.</p>
    */
-  Scope?: Scope | string;
+  Scope?: Scope;
 }
 
 /**
@@ -6933,7 +6933,7 @@ export interface DescribeReservedInstancesOfferingsRequest {
    *        <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
    *       <i>Amazon EC2 User Guide</i>.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -6960,14 +6960,14 @@ export interface DescribeReservedInstancesOfferingsRequest {
    * @public
    * <p>The offering class of the Reserved Instance. Can be <code>standard</code> or <code>convertible</code>.</p>
    */
-  OfferingClass?: OfferingClassType | string;
+  OfferingClass?: OfferingClassType;
 
   /**
    * @public
    * <p>The Reserved Instance product platform description. Instances that include <code>(Amazon
    *         VPC)</code> in the description are for use with Amazon VPC.</p>
    */
-  ProductDescription?: RIProductDescription | string;
+  ProductDescription?: RIProductDescription;
 
   /**
    * @public
@@ -6993,7 +6993,7 @@ export interface DescribeReservedInstancesOfferingsRequest {
    *          <p>Default: <code>default</code>
    *          </p>
    */
-  InstanceTenancy?: Tenancy | string;
+  InstanceTenancy?: Tenancy;
 
   /**
    * @public
@@ -7016,7 +7016,7 @@ export interface DescribeReservedInstancesOfferingsRequest {
    * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
    * 			offering type. </p>
    */
-  OfferingType?: OfferingTypeValues | string;
+  OfferingType?: OfferingTypeValues;
 }
 
 /**
@@ -7064,13 +7064,13 @@ export interface ReservedInstancesOffering {
    * @public
    * <p>The instance type on which the Reserved Instance can be used.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
    * <p>The Reserved Instance product platform description.</p>
    */
-  ProductDescription?: RIProductDescription | string;
+  ProductDescription?: RIProductDescription;
 
   /**
    * @public
@@ -7091,13 +7091,13 @@ export interface ReservedInstancesOffering {
    * 				specified using ISO 4217 standard currency codes. At this time,
    * 				the only supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: CurrencyCodeValues;
 
   /**
    * @public
    * <p>The tenancy of the instance.</p>
    */
-  InstanceTenancy?: Tenancy | string;
+  InstanceTenancy?: Tenancy;
 
   /**
    * @public
@@ -7112,13 +7112,13 @@ export interface ReservedInstancesOffering {
    *       the same or higher monetary value, with different configurations. If <code>standard</code>, it is not
    *       possible to perform an exchange.</p>
    */
-  OfferingClass?: OfferingClassType | string;
+  OfferingClass?: OfferingClassType;
 
   /**
    * @public
    * <p>The Reserved Instance offering type.</p>
    */
-  OfferingType?: OfferingTypeValues | string;
+  OfferingType?: OfferingTypeValues;
 
   /**
    * @public
@@ -7136,7 +7136,7 @@ export interface ReservedInstancesOffering {
    * @public
    * <p>Whether the Reserved Instance is applied to instances in a Region or an Availability Zone.</p>
    */
-  Scope?: Scope | string;
+  Scope?: Scope;
 }
 
 /**
@@ -8175,7 +8175,7 @@ export interface DescribeSnapshotAttributeRequest {
    * @public
    * <p>The snapshot attribute you would like to view.</p>
    */
-  Attribute: SnapshotAttributeName | string | undefined;
+  Attribute: SnapshotAttributeName | undefined;
 
   /**
    * @public
@@ -8202,7 +8202,7 @@ export interface CreateVolumePermission {
    * @public
    * <p>The group to be added or removed. The possible value is <code>all</code>.</p>
    */
-  Group?: PermissionGroup | string;
+  Group?: PermissionGroup;
 
   /**
    * @public
@@ -8464,7 +8464,7 @@ export interface SnapshotTierStatus {
    * @public
    * <p>The state of the snapshot.</p>
    */
-  Status?: SnapshotState | string;
+  Status?: SnapshotState;
 
   /**
    * @public
@@ -8485,7 +8485,7 @@ export interface SnapshotTierStatus {
    *       for use. <code>archive</code> indicates that the snapshot is currently archived and that
    *       it must be restored before it can be used.</p>
    */
-  StorageTier?: StorageTier | string;
+  StorageTier?: StorageTier;
 
   /**
    * @public
@@ -8503,7 +8503,7 @@ export interface SnapshotTierStatus {
    * @public
    * <p>The status of the last archive or restore process.</p>
    */
-  LastTieringOperationStatus?: TieringOperationStatus | string;
+  LastTieringOperationStatus?: TieringOperationStatus;
 
   /**
    * @public
@@ -8666,7 +8666,7 @@ export interface DescribeSpotFleetRequestHistoryRequest {
    * @public
    * <p>The type of events to describe. By default, all events are described.</p>
    */
-  EventType?: EventType | string;
+  EventType?: EventType;
 
   /**
    * @public
@@ -8731,7 +8731,7 @@ export interface HistoryRecord {
    *             </li>
    *          </ul>
    */
-  EventType?: EventType | string;
+  EventType?: EventType;
 
   /**
    * @public
@@ -9032,7 +9032,7 @@ export interface SpotPlacement {
    *             tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
    *             tenancy is not supported for Spot Instances.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: Tenancy;
 }
 
 /**
@@ -9048,7 +9048,7 @@ export interface SpotFleetTagSpecification {
    *                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html">SpotFleetRequestConfigData</a>
    *             </code>.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -9109,7 +9109,7 @@ export interface SpotFleetLaunchSpecification {
    * @public
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -9211,7 +9211,7 @@ export interface LaunchTemplateOverrides {
    * @public
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -9413,7 +9413,7 @@ export interface SpotCapacityRebalance {
    *             fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
    *             terminates the instances that received a rebalance notification.</p>
    */
-  ReplacementStrategy?: ReplacementStrategy | string;
+  ReplacementStrategy?: ReplacementStrategy;
 
   /**
    * @public
@@ -9494,7 +9494,7 @@ export interface SpotFleetRequestConfigData {
    *          <p>Default: <code>lowestPrice</code>
    *          </p>
    */
-  AllocationStrategy?: AllocationStrategy | string;
+  AllocationStrategy?: AllocationStrategy;
 
   /**
    * @public
@@ -9504,7 +9504,7 @@ export interface SpotFleetRequestConfigData {
    *             that you assign to each Spot Fleet launch template override, launching the highest priority
    *             first. If you do not specify a value, Spot Fleet defaults to <code>lowestPrice</code>.</p>
    */
-  OnDemandAllocationStrategy?: OnDemandAllocationStrategy | string;
+  OnDemandAllocationStrategy?: OnDemandAllocationStrategy;
 
   /**
    * @public
@@ -9526,7 +9526,7 @@ export interface SpotFleetRequestConfigData {
    *             target capacity of the Spot Fleet request below the current size of the Spot Fleet.</p>
    *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
-  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | string;
+  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy;
 
   /**
    * @public
@@ -9660,7 +9660,7 @@ export interface SpotFleetRequestConfigData {
    *                 <code>maintain</code>. <code>instant</code> is listed but is not used by Spot
    *             Fleet.</p>
    */
-  Type?: FleetType | string;
+  Type?: FleetType;
 
   /**
    * @public
@@ -9691,7 +9691,7 @@ export interface SpotFleetRequestConfigData {
    * <p>The behavior when a Spot Instance is interrupted. The default is
    *                 <code>terminate</code>.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior;
 
   /**
    * @public
@@ -9732,7 +9732,7 @@ export interface SpotFleetRequestConfigData {
    * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
    *          <p>Default: <code>units</code> (translates to number of instances)</p>
    */
-  TargetCapacityUnitType?: TargetCapacityUnitType | string;
+  TargetCapacityUnitType?: TargetCapacityUnitType;
 
   /**
    * @public
@@ -9763,7 +9763,7 @@ export interface SpotFleetRequestConfig {
    *           If the size of the fleet is decreased, the status is <code>pending_termination</code>
    *           while Spot Instances are terminating.</p>
    */
-  ActivityStatus?: ActivityStatus | string;
+  ActivityStatus?: ActivityStatus;
 
   /**
    * @public
@@ -9787,7 +9787,7 @@ export interface SpotFleetRequestConfig {
    * @public
    * <p>The state of the Spot Fleet request.</p>
    */
-  SpotFleetRequestState?: BatchState | string;
+  SpotFleetRequestState?: BatchState;
 
   /**
    * @public
@@ -10115,7 +10115,7 @@ export interface LaunchSpecification {
    * @public
    * <p>The instance type. Only one instance type can be specified.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -10267,7 +10267,7 @@ export interface SpotInstanceRequest {
    * @public
    * <p>The product description associated with the Spot Instance.</p>
    */
-  ProductDescription?: RIProductDescription | string;
+  ProductDescription?: RIProductDescription;
 
   /**
    * @public
@@ -10291,7 +10291,7 @@ export interface SpotInstanceRequest {
    *             Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html">Spot request status</a> in the
    *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
-  State?: SpotInstanceState | string;
+  State?: SpotInstanceState;
 
   /**
    * @public
@@ -10309,7 +10309,7 @@ export interface SpotInstanceRequest {
    * @public
    * <p>The Spot Instance request type.</p>
    */
-  Type?: SpotInstanceType | string;
+  Type?: SpotInstanceType;
 
   /**
    * @public
@@ -10342,7 +10342,7 @@ export interface SpotInstanceRequest {
    * @public
    * <p>The behavior when a Spot Instance is interrupted.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior;
 }
 
 /**
@@ -10436,7 +10436,7 @@ export interface DescribeSpotPriceHistoryRequest {
    * @public
    * <p>Filters the results by the specified instance types.</p>
    */
-  InstanceTypes?: (_InstanceType | string)[];
+  InstanceTypes?: _InstanceType[];
 
   /**
    * @public
@@ -10486,13 +10486,13 @@ export interface SpotPrice {
    * @public
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
    * <p>A general description of the AMI.</p>
    */
-  ProductDescription?: RIProductDescription | string;
+  ProductDescription?: RIProductDescription;
 
   /**
    * @public
@@ -11063,7 +11063,7 @@ export interface TagDescription {
    * @public
    * <p>The resource type.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -11419,7 +11419,7 @@ export interface TransitGatewayAttachmentAssociation {
    * @public
    * <p>The state of the association.</p>
    */
-  State?: TransitGatewayAssociationState | string;
+  State?: TransitGatewayAssociationState;
 }
 
 /**
@@ -11455,7 +11455,7 @@ export interface TransitGatewayAttachment {
    * @public
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
    * @public
@@ -11467,7 +11467,7 @@ export interface TransitGatewayAttachment {
    * @public
    * <p>The attachment state. Note that the <code>initiating</code> state has been deprecated.</p>
    */
-  State?: TransitGatewayAttachmentState | string;
+  State?: TransitGatewayAttachmentState;
 
   /**
    * @public

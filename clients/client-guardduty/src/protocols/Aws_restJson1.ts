@@ -6387,7 +6387,7 @@ const se_ScanConditionPair = (input: ScanConditionPair, context: __SerdeContext)
 /**
  * serializeAws_restJson1ScanCriterion
  */
-const se_ScanCriterion = (input: Record<string, ScanCondition>, context: __SerdeContext): any => {
+const se_ScanCriterion = (input: Record<ScanCriterionKey, ScanCondition>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [ScanCriterionKey | string, any]) => {
     if (value === null) {
       return acc;
@@ -6756,9 +6756,9 @@ const de_Criterion = (output: any, context: __SerdeContext): Record<string, Cond
     if (value === null) {
       return acc;
     }
-    acc[key] = de_Condition(value, context);
+    acc[key as string] = de_Condition(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, Condition>);
 };
 
 /**
@@ -8133,17 +8133,14 @@ const de_ScanConditionPair = (output: any, context: __SerdeContext): ScanConditi
 /**
  * deserializeAws_restJson1ScanCriterion
  */
-const de_ScanCriterion = (output: any, context: __SerdeContext): Record<string, ScanCondition> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, ScanCondition>, [key, value]: [ScanCriterionKey | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = de_ScanCondition(value, context);
+const de_ScanCriterion = (output: any, context: __SerdeContext): Record<ScanCriterionKey, ScanCondition> => {
+  return Object.entries(output).reduce((acc: Record<ScanCriterionKey, ScanCondition>, [key, value]: [string, any]) => {
+    if (value === null) {
       return acc;
-    },
-    {}
-  );
+    }
+    acc[key as ScanCriterionKey] = de_ScanCondition(value, context);
+    return acc;
+  }, {} as Record<ScanCriterionKey, ScanCondition>);
 };
 
 /**

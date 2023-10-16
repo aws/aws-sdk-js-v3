@@ -35,7 +35,7 @@ export interface S3EncryptionConfig {
    *             Amazon Web Services-managed KMS key is used.
    *         </p>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: EncryptionMode;
 
   /**
    * @public
@@ -388,7 +388,7 @@ export interface CanaryStatus {
    * @public
    * <p>The current state of the canary.</p>
    */
-  State?: CanaryState | string;
+  State?: CanaryState;
 
   /**
    * @public
@@ -400,7 +400,7 @@ export interface CanaryStatus {
    * @public
    * <p>If the canary cannot run or has failed, this field displays the reason.</p>
    */
-  StateReasonCode?: CanaryStateReasonCode | string;
+  StateReasonCode?: CanaryStateReasonCode;
 }
 
 /**
@@ -640,7 +640,7 @@ export interface CanaryRunStatus {
    * @public
    * <p>The current state of the run.</p>
    */
-  State?: CanaryRunState | string;
+  State?: CanaryRunState;
 
   /**
    * @public
@@ -654,7 +654,7 @@ export interface CanaryRunStatus {
    *          canary code. If this value is <code>EXECUTION_FAILURE</code>, an exception occurred in
    *          CloudWatch Synthetics.</p>
    */
-  StateReasonCode?: CanaryRunStateReasonCode | string;
+  StateReasonCode?: CanaryRunStateReasonCode;
 }
 
 /**

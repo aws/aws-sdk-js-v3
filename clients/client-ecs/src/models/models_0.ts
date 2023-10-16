@@ -92,7 +92,7 @@ export interface ManagedScaling {
    * @public
    * <p>Determines whether to use managed scaling for the capacity provider.</p>
    */
-  status?: ManagedScalingStatus | string;
+  status?: ManagedScalingStatus;
 
   /**
    * @public
@@ -185,7 +185,7 @@ export interface AutoScalingGroupProvider {
    *          <p>When managed termination protection is off, your Amazon EC2 instances aren't protected from
    * 			termination when the Auto Scaling group scales in.</p>
    */
-  managedTerminationProtection?: ManagedTerminationProtection | string;
+  managedTerminationProtection?: ManagedTerminationProtection;
 }
 
 /**
@@ -355,7 +355,7 @@ export interface CapacityProvider {
    * 				<code>ACTIVE</code> state can be used in a cluster. When a capacity provider is
    * 			successfully deleted, it has an <code>INACTIVE</code> status.</p>
    */
-  status?: CapacityProviderStatus | string;
+  status?: CapacityProviderStatus;
 
   /**
    * @public
@@ -384,7 +384,7 @@ export interface CapacityProvider {
    *             </dd>
    *          </dl>
    */
-  updateStatus?: CapacityProviderUpdateStatus | string;
+  updateStatus?: CapacityProviderUpdateStatus;
 
   /**
    * @public
@@ -624,7 +624,7 @@ export interface ExecuteCommandConfiguration {
    *             </li>
    *          </ul>
    */
-  logging?: ExecuteCommandLogging | string;
+  logging?: ExecuteCommandLogging;
 
   /**
    * @public
@@ -767,7 +767,7 @@ export interface ClusterSetting {
    * @public
    * <p>The name of the cluster setting. The value is <code>containerInsights</code> .</p>
    */
-  name?: ClusterSettingName | string;
+  name?: ClusterSettingName;
 
   /**
    * @public
@@ -1483,7 +1483,7 @@ export interface DeploymentController {
    *             </dd>
    *          </dl>
    */
-  type: DeploymentControllerType | string | undefined;
+  type: DeploymentControllerType | undefined;
 }
 
 /**
@@ -1608,7 +1608,7 @@ export interface AwsVpcConfiguration {
    * <p>Whether the task's elastic network interface receives a public IP address. The default
    * 			value is <code>DISABLED</code>.</p>
    */
-  assignPublicIp?: AssignPublicIp | string;
+  assignPublicIp?: AssignPublicIp;
 }
 
 /**
@@ -1658,7 +1658,7 @@ export interface PlacementConstraint {
    * 				<code>memberOf</code> to restrict the selection to a group of valid
    * 			candidates.</p>
    */
-  type?: PlacementConstraintType | string;
+  type?: PlacementConstraintType;
 
   /**
    * @public
@@ -1700,7 +1700,7 @@ export interface PlacementStrategy {
    * 			parameter. For example, if you binpack on memory, a task is placed on the instance with
    * 			the least amount of remaining memory but still enough to run the task.</p>
    */
-  type?: PlacementStrategyType | string;
+  type?: PlacementStrategyType;
 
   /**
    * @public
@@ -1875,7 +1875,7 @@ export interface LogConfiguration {
    * 				don't currently provide support for running modified copies of this software.</p>
    *          </note>
    */
-  logDriver: LogDriver | string | undefined;
+  logDriver: LogDriver | undefined;
 
   /**
    * @public
@@ -2242,7 +2242,7 @@ export interface CreateServiceRequest {
    * 				<code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
    * 			parameter must be omitted.</p>
    */
-  launchType?: LaunchType | string;
+  launchType?: LaunchType;
 
   /**
    * @public
@@ -2372,7 +2372,7 @@ export interface CreateServiceRequest {
    *             </li>
    *          </ul>
    */
-  schedulingStrategy?: SchedulingStrategy | string;
+  schedulingStrategy?: SchedulingStrategy;
 
   /**
    * @public
@@ -2437,7 +2437,7 @@ export interface CreateServiceRequest {
    * 			during task creation. To add tags to a task after task creation, use the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html">TagResource</a> API action.</p>
    *          <p>The default is <code>NONE</code>.</p>
    */
-  propagateTags?: PropagateTags | string;
+  propagateTags?: PropagateTags;
 
   /**
    * @public
@@ -2603,7 +2603,7 @@ export interface Deployment {
    * <p>The launch type the tasks in the service are using. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
    * 				Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  launchType?: LaunchType | string;
+  launchType?: LaunchType;
 
   /**
    * @public
@@ -2644,7 +2644,7 @@ export interface Deployment {
    * 				<code>FAILED</code> state. A deployment in <code>FAILED</code> state doesn't launch
    * 			any new tasks. For more information, see <a>DeploymentCircuitBreaker</a>.</p>
    */
-  rolloutState?: DeploymentRolloutState | string;
+  rolloutState?: DeploymentRolloutState;
 
   /**
    * @public
@@ -2730,7 +2730,7 @@ export interface Scale {
    * @public
    * <p>The unit of measure for the scale value.</p>
    */
-  unit?: ScaleUnit | string;
+  unit?: ScaleUnit;
 }
 
 /**
@@ -2869,7 +2869,7 @@ export interface TaskSet {
    * <p>The launch type the tasks in the task set are using. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
    * 				launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  launchType?: LaunchType | string;
+  launchType?: LaunchType;
 
   /**
    * @public
@@ -2944,7 +2944,7 @@ export interface TaskSet {
    *          <p>If any of those conditions aren't met, the stability status returns
    * 				<code>STABILIZING</code>.</p>
    */
-  stabilityStatus?: StabilityStatus | string;
+  stabilityStatus?: StabilityStatus;
 
   /**
    * @public
@@ -3065,7 +3065,7 @@ export interface Service {
    * <p>The launch type the service is using. When using the DescribeServices API, this field
    * 			is omitted if the service was created using a capacity provider strategy.</p>
    */
-  launchType?: LaunchType | string;
+  launchType?: LaunchType;
 
   /**
    * @public
@@ -3195,7 +3195,7 @@ export interface Service {
    *             </li>
    *          </ul>
    */
-  schedulingStrategy?: SchedulingStrategy | string;
+  schedulingStrategy?: SchedulingStrategy;
 
   /**
    * @public
@@ -3261,7 +3261,7 @@ export interface Service {
    * <p>Determines whether to propagate the tags from the task definition or the service to
    * 			the task. If no value is specified, the tags aren't propagated.</p>
    */
-  propagateTags?: PropagateTags | string;
+  propagateTags?: PropagateTags;
 
   /**
    * @public
@@ -3415,7 +3415,7 @@ export interface CreateTaskSetRequest {
    *          <p>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
    * 			parameter must be omitted.</p>
    */
-  launchType?: LaunchType | string;
+  launchType?: LaunchType;
 
   /**
    * @public
@@ -3593,7 +3593,7 @@ export interface DeleteAccountSettingRequest {
    * 				<code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS container
    * 			instances is affected.</p>
    */
-  name: SettingName | string | undefined;
+  name: SettingName | undefined;
 
   /**
    * @public
@@ -3614,7 +3614,7 @@ export interface Setting {
    * @public
    * <p>The Amazon ECS resource name.</p>
    */
-  name?: SettingName | string;
+  name?: SettingName;
 
   /**
    * @public
@@ -3683,7 +3683,7 @@ export interface Attribute {
    * <p>The type of the target to attach the attribute with. This parameter is required if you
    * 			use the short form ID for a resource instead of the full ARN.</p>
    */
-  targetType?: TargetType | string;
+  targetType?: TargetType;
 
   /**
    * @public
@@ -4031,7 +4031,7 @@ export interface ContainerDependency {
    *             </li>
    *          </ul>
    */
-  condition: ContainerCondition | string | undefined;
+  condition: ContainerCondition | undefined;
 }
 
 /**
@@ -4084,7 +4084,7 @@ export interface EnvironmentFile {
    * @public
    * <p>The file type to use. The only supported value is <code>s3</code>.</p>
    */
-  type: EnvironmentFileType | string | undefined;
+  type: EnvironmentFileType | undefined;
 }
 
 /**
@@ -4132,7 +4132,7 @@ export interface FirelensConfiguration {
    * <p>The log router to use. The valid values are <code>fluentd</code> or
    * 				<code>fluentbit</code>.</p>
    */
-  type: FirelensConfigurationType | string | undefined;
+  type: FirelensConfigurationType | undefined;
 
   /**
    * @public
@@ -4388,7 +4388,7 @@ export interface Device {
    * 			container has permissions for <code>read</code>, <code>write</code>, and
    * 				<code>mknod</code> for the device.</p>
    */
-  permissions?: (DeviceCgroupPermission | string)[];
+  permissions?: DeviceCgroupPermission[];
 }
 
 /**
@@ -4665,7 +4665,7 @@ export interface PortMapping {
    * <p>The protocol used for the port mapping. Valid values are <code>tcp</code> and
    * 				<code>udp</code>. The default is <code>tcp</code>.</p>
    */
-  protocol?: TransportProtocol | string;
+  protocol?: TransportProtocol;
 
   /**
    * @public
@@ -4694,7 +4694,7 @@ export interface PortMapping {
    * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
    * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  appProtocol?: ApplicationProtocol | string;
+  appProtocol?: ApplicationProtocol;
 
   /**
    * @public
@@ -4821,7 +4821,7 @@ export interface ResourceRequirement {
    * <p>The type of resource to assign to a container. The supported values are
    * 				<code>GPU</code> or <code>InferenceAccelerator</code>.</p>
    */
-  type: ResourceType | string | undefined;
+  type: ResourceType | undefined;
 }
 
 /**
@@ -4919,7 +4919,7 @@ export interface Ulimit {
    * @public
    * <p>The <code>type</code> of the <code>ulimit</code>.</p>
    */
-  name: UlimitName | string | undefined;
+  name: UlimitName | undefined;
 
   /**
    * @public
@@ -5856,7 +5856,7 @@ export interface TaskDefinitionPlacementConstraint {
    * <p>The type of constraint. The <code>MemberOf</code> constraint restricts selection to be
    * 			from a group of valid candidates.</p>
    */
-  type?: TaskDefinitionPlacementConstraintType | string;
+  type?: TaskDefinitionPlacementConstraintType;
 
   /**
    * @public
@@ -5895,7 +5895,7 @@ export interface ProxyConfiguration {
    * @public
    * <p>The proxy type. The only supported value is <code>APPMESH</code>.</p>
    */
-  type?: ProxyConfigurationType | string;
+  type?: ProxyConfigurationType;
 
   /**
    * @public
@@ -6002,13 +6002,13 @@ export interface RuntimePlatform {
    * 				<code>ARM64</code>. This option is available for tasks that run on Linux Amazon EC2
    * 			instance or Linux containers on Fargate.</p>
    */
-  cpuArchitecture?: CPUArchitecture | string;
+  cpuArchitecture?: CPUArchitecture;
 
   /**
    * @public
    * <p>The operating system.</p>
    */
-  operatingSystemFamily?: OSFamily | string;
+  operatingSystemFamily?: OSFamily;
 }
 
 /**
@@ -6055,7 +6055,7 @@ export interface DockerVolumeConfiguration {
    * 			destroyed when the task stops. Docker volumes that are scoped as <code>shared</code>
    * 			persist after the task stops.</p>
    */
-  scope?: Scope | string;
+  scope?: Scope;
 
   /**
    * @public
@@ -6138,7 +6138,7 @@ export interface EFSAuthorizationConfig {
    * 			of <code>DISABLED</code> is used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints">Using
    * 				Amazon EFS access points</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  iam?: EFSAuthorizationConfigIAM | string;
+  iam?: EFSAuthorizationConfigIAM;
 }
 
 /**
@@ -6189,7 +6189,7 @@ export interface EFSVolumeConfiguration {
    * 			For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html">Encrypting data in transit</a> in
    * 			the <i>Amazon Elastic File System User Guide</i>.</p>
    */
-  transitEncryption?: EFSTransitEncryption | string;
+  transitEncryption?: EFSTransitEncryption;
 
   /**
    * @public
@@ -6429,7 +6429,7 @@ export interface TaskDefinition {
    *          <p>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
    *                 settings</a> in the <i>Docker run reference</i>.</p>
    */
-  networkMode?: NetworkMode | string;
+  networkMode?: NetworkMode;
 
   /**
    * @public
@@ -6455,7 +6455,7 @@ export interface TaskDefinition {
    * @public
    * <p>The status of the task definition.</p>
    */
-  status?: TaskDefinitionStatus | string;
+  status?: TaskDefinitionStatus;
 
   /**
    * @public
@@ -6486,7 +6486,7 @@ export interface TaskDefinition {
    * 			registration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS launch types</a>
    * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  compatibilities?: (Compatibility | string)[];
+  compatibilities?: Compatibility[];
 
   /**
    * @public
@@ -6504,7 +6504,7 @@ export interface TaskDefinition {
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS launch types</a>
    * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  requiresCompatibilities?: (Compatibility | string)[];
+  requiresCompatibilities?: Compatibility[];
 
   /**
    * @public
@@ -6621,7 +6621,7 @@ export interface TaskDefinition {
    *         Fargate.</p>
    *          </note>
    */
-  pidMode?: PidMode | string;
+  pidMode?: PidMode;
 
   /**
    * @public
@@ -6658,7 +6658,7 @@ export interface TaskDefinition {
    *             <p>This parameter is not supported for Windows containers or tasks run on Fargate.</p>
    *          </note>
    */
-  ipcMode?: IpcMode | string;
+  ipcMode?: IpcMode;
 
   /**
    * @public
@@ -6849,13 +6849,13 @@ export interface InstanceHealthCheckResult {
    * @public
    * <p>The type of container instance health status that was verified.</p>
    */
-  type?: InstanceHealthCheckType | string;
+  type?: InstanceHealthCheckType;
 
   /**
    * @public
    * <p>The container instance health status.</p>
    */
-  status?: InstanceHealthCheckState | string;
+  status?: InstanceHealthCheckState;
 
   /**
    * @public
@@ -6881,7 +6881,7 @@ export interface ContainerInstanceHealthStatus {
    * <p>The overall health status of the container instance. This is an aggregate status of
    * 			all container instance health checks.</p>
    */
-  overallStatus?: InstanceHealthCheckState | string;
+  overallStatus?: InstanceHealthCheckState;
 
   /**
    * @public
@@ -7086,7 +7086,7 @@ export interface ContainerInstance {
    * <p>The status of the most recent agent update. If an update wasn't ever requested, this
    * 			value is <code>NULL</code>.</p>
    */
-  agentUpdateStatus?: AgentUpdateStatus | string;
+  agentUpdateStatus?: AgentUpdateStatus;
 
   /**
    * @public
@@ -7219,7 +7219,7 @@ export interface DescribeCapacityProvidersRequest {
    * 			If <code>TAGS</code> is specified, the tags are included in the response. If this field
    * 			is omitted, tags aren't included in the response.</p>
    */
-  include?: (CapacityProviderField | string)[];
+  include?: CapacityProviderField[];
 
   /**
    * @public
@@ -7321,7 +7321,7 @@ export interface DescribeClustersRequest {
    *          <p>If <code>TAGS</code> is specified, the metadata tags associated with the cluster are
    * 			included.</p>
    */
-  include?: (ClusterField | string)[];
+  include?: ClusterField[];
 }
 
 /**
@@ -7382,7 +7382,7 @@ export interface DescribeContainerInstancesRequest {
    * 			is included in the response. If this field is omitted, tags and container instance
    * 			health status aren't included in the response.</p>
    */
-  include?: (ContainerInstanceField | string)[];
+  include?: ContainerInstanceField[];
 }
 
 /**
@@ -7440,7 +7440,7 @@ export interface DescribeServicesRequest {
    * 				<code>TAGS</code> is specified, the tags are included in the response. If this field
    * 			is omitted, tags aren't included in the response.</p>
    */
-  include?: (ServiceField | string)[];
+  include?: ServiceField[];
 }
 
 /**
@@ -7492,7 +7492,7 @@ export interface DescribeTaskDefinitionRequest {
    * 				<code>TAGS</code> is specified, the tags are included in the response. If this field
    * 			is omitted, tags aren't included in the response.</p>
    */
-  include?: (TaskDefinitionField | string)[];
+  include?: TaskDefinitionField[];
 }
 
 /**
@@ -7581,7 +7581,7 @@ export interface DescribeTasksRequest {
    * 			is specified, the tags are included in the response. If this field is omitted, tags
    * 			aren't included in the response.</p>
    */
-  include?: (TaskField | string)[];
+  include?: TaskField[];
 }
 
 /**
@@ -7642,7 +7642,7 @@ export interface ManagedAgent {
    * <p>The name of the managed agent. When the execute command feature is turned on, the
    * 			managed agent name is <code>ExecuteCommandAgent</code>.</p>
    */
-  name?: ManagedAgentName | string;
+  name?: ManagedAgentName;
 
   /**
    * @public
@@ -7687,7 +7687,7 @@ export interface NetworkBinding {
    * @public
    * <p>The protocol used for the network binding.</p>
    */
-  protocol?: TransportProtocol | string;
+  protocol?: TransportProtocol;
 
   /**
    * @public
@@ -7864,7 +7864,7 @@ export interface Container {
    * 			container in its task definition, then it reports the health status as
    * 				<code>UNKNOWN</code>.</p>
    */
-  healthStatus?: HealthStatus | string;
+  healthStatus?: HealthStatus;
 
   /**
    * @public
@@ -8114,7 +8114,7 @@ export interface Task {
    * @public
    * <p>The connectivity status of a task.</p>
    */
-  connectivity?: Connectivity | string;
+  connectivity?: Connectivity;
 
   /**
    * @public
@@ -8230,7 +8230,7 @@ export interface Task {
    * 				override any Docker health checks that are found in the container image.</p>
    *          </note>
    */
-  healthStatus?: HealthStatus | string;
+  healthStatus?: HealthStatus;
 
   /**
    * @public
@@ -8250,7 +8250,7 @@ export interface Task {
    * <p>The infrastructure where your task runs on. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
    * 				launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  launchType?: LaunchType | string;
+  launchType?: LaunchType;
 
   /**
    * @public
@@ -8383,7 +8383,7 @@ export interface Task {
    *             </li>
    *          </ul>
    */
-  stopCode?: TaskStopCode | string;
+  stopCode?: TaskStopCode;
 
   /**
    * @public
@@ -8536,7 +8536,7 @@ export interface DescribeTaskSetsRequest {
    * 			specified, the tags are included in the response. If this field is omitted, tags aren't
    * 			included in the response.</p>
    */
-  include?: (TaskSetField | string)[];
+  include?: TaskSetField[];
 }
 
 /**
@@ -8848,7 +8848,7 @@ export interface ListAccountSettingsRequest {
    * @public
    * <p>The name of the account setting you want to list the settings for.</p>
    */
-  name?: SettingName | string;
+  name?: SettingName;
 
   /**
    * @public
@@ -8943,7 +8943,7 @@ export interface ListAttributesRequest {
    * @public
    * <p>The type of the target to list attributes with.</p>
    */
-  targetType: TargetType | string | undefined;
+  targetType: TargetType | undefined;
 
   /**
    * @public
@@ -9130,7 +9130,7 @@ export interface ListContainerInstancesRequest {
    * 			If you don't specify this parameter, the default is to include container instances set
    * 			to all states other than <code>INACTIVE</code>.</p>
    */
-  status?: ContainerInstanceStatus | string;
+  status?: ContainerInstanceStatus;
 }
 
 /**
@@ -9197,14 +9197,14 @@ export interface ListServicesRequest {
    * @public
    * <p>The launch type to use when filtering the <code>ListServices</code> results.</p>
    */
-  launchType?: LaunchType | string;
+  launchType?: LaunchType;
 
   /**
    * @public
    * <p>The scheduling strategy to use when filtering the <code>ListServices</code>
    * 			results.</p>
    */
-  schedulingStrategy?: SchedulingStrategy | string;
+  schedulingStrategy?: SchedulingStrategy;
 }
 
 /**
@@ -9358,7 +9358,7 @@ export interface ListTaskDefinitionFamiliesRequest {
    * 			resulting output, be sure to keep the <code>status</code> value constant in each
    * 			subsequent request.</p>
    */
-  status?: TaskDefinitionFamilyStatus | string;
+  status?: TaskDefinitionFamilyStatus;
 
   /**
    * @public
@@ -9447,7 +9447,7 @@ export interface ListTaskDefinitionsRequest {
    * 			you paginate the resulting output, be sure to keep the <code>status</code> value
    * 			constant in each subsequent request.</p>
    */
-  status?: TaskDefinitionStatus | string;
+  status?: TaskDefinitionStatus;
 
   /**
    * @public
@@ -9458,7 +9458,7 @@ export interface ListTaskDefinitionsRequest {
    * 				<code>DESC</code> reverses the sort order on family name and revision. This is so
    * 			that the newest task definitions in a family are listed first.</p>
    */
-  sort?: SortOrder | string;
+  sort?: SortOrder;
 
   /**
    * @public
@@ -9612,13 +9612,13 @@ export interface ListTasksRequest {
    * 					<code>PENDING</code>).</p>
    *          </note>
    */
-  desiredStatus?: DesiredStatus | string;
+  desiredStatus?: DesiredStatus;
 
   /**
    * @public
    * <p>The launch type to use when filtering the <code>ListTasks</code> results.</p>
    */
-  launchType?: LaunchType | string;
+  launchType?: LaunchType;
 }
 
 /**
@@ -9662,7 +9662,7 @@ export interface PutAccountSettingRequest {
    * 				Guide</i>. If you specify <code>fargateTaskRetirementWaitPeriod</code>, the
    * 			wait time to retire a Fargate task is affected.</p>
    */
-  name: SettingName | string | undefined;
+  name: SettingName | undefined;
 
   /**
    * @public
@@ -9747,7 +9747,7 @@ export interface PutAccountSettingDefaultRequest {
    * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html">Amazon Web Services Fargate task
    * 				maintenance</a> in the <i>Amazon ECS Developer Guide</i>.</p>
    */
-  name: SettingName | string | undefined;
+  name: SettingName | undefined;
 
   /**
    * @public
@@ -9945,7 +9945,7 @@ export interface PlatformDevice {
    * <p>The type of device that's available on the container instance. The only supported
    * 			value is <code>GPU</code>.</p>
    */
-  type: PlatformDeviceType | string | undefined;
+  type: PlatformDeviceType | undefined;
 }
 
 /**
@@ -10120,7 +10120,7 @@ export interface RegisterTaskDefinitionRequest {
    *          <p>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
    *                 settings</a> in the <i>Docker run reference</i>.</p>
    */
-  networkMode?: NetworkMode | string;
+  networkMode?: NetworkMode;
 
   /**
    * @public
@@ -10151,7 +10151,7 @@ export interface RegisterTaskDefinitionRequest {
    * 			compatibilities specified. If no value is specified, the parameter is omitted from the
    * 			response.</p>
    */
-  requiresCompatibilities?: (Compatibility | string)[];
+  requiresCompatibilities?: Compatibility[];
 
   /**
    * @public
@@ -10318,7 +10318,7 @@ export interface RegisterTaskDefinitionRequest {
    *         Fargate.</p>
    *          </note>
    */
-  pidMode?: PidMode | string;
+  pidMode?: PidMode;
 
   /**
    * @public
@@ -10355,7 +10355,7 @@ export interface RegisterTaskDefinitionRequest {
    *             <p>This parameter is not supported for Windows containers or tasks run on Fargate.</p>
    *          </note>
    */
-  ipcMode?: IpcMode | string;
+  ipcMode?: IpcMode;
 
   /**
    * @public
@@ -10521,7 +10521,7 @@ export interface RunTaskRequest {
    *          <p>When you use cluster auto scaling, you must specify
    * 				<code>capacityProviderStrategy</code> and not <code>launchType</code>. </p>
    */
-  launchType?: LaunchType | string;
+  launchType?: LaunchType;
 
   /**
    * @public
@@ -10580,7 +10580,7 @@ export interface RunTaskRequest {
    * 				running a task.</p>
    *          </note>
    */
-  propagateTags?: PropagateTags | string;
+  propagateTags?: PropagateTags;
 
   /**
    * @public
@@ -10751,7 +10751,7 @@ export interface StartTaskRequest {
    * <p>Specifies whether to propagate the tags from the task definition or the service to the
    * 			task. If no value is specified, the tags aren't propagated.</p>
    */
-  propagateTags?: PropagateTags | string;
+  propagateTags?: PropagateTags;
 
   /**
    * @public
@@ -11050,7 +11050,7 @@ export interface ManagedAgentStateChange {
    * @public
    * <p>The name of the managed agent.</p>
    */
-  managedAgentName: ManagedAgentName | string | undefined;
+  managedAgentName: ManagedAgentName | undefined;
 
   /**
    * @public
@@ -11247,7 +11247,7 @@ export interface AutoScalingGroupProviderUpdate {
    *          <p>When managed termination protection is off, your Amazon EC2 instances aren't protected from
    * 			termination when the Auto Scaling group scales in.</p>
    */
-  managedTerminationProtection?: ManagedTerminationProtection | string;
+  managedTerminationProtection?: ManagedTerminationProtection;
 }
 
 /**
@@ -11469,7 +11469,7 @@ export interface UpdateContainerInstancesStateRequest {
    * 				<code>DEREGISTERING</code>, or <code>REGISTRATION_FAILED</code> state you can
    * 			describe the container instance but can't update the container instance state.</p>
    */
-  status: ContainerInstanceStatus | string | undefined;
+  status: ContainerInstanceStatus | undefined;
 }
 
 /**
@@ -11671,7 +11671,7 @@ export interface UpdateServiceRequest {
    * 			all tasks, set <code>forceNewDeployment</code> to <code>true</code>, so that Amazon ECS
    * 			starts new tasks with the updated tags.</p>
    */
-  propagateTags?: PropagateTags | string;
+  propagateTags?: PropagateTags;
 
   /**
    * @public

@@ -52,14 +52,14 @@ export interface AccountSettings {
    * @public
    * <p>Returns the unmetered devices you have purchased or want to purchase.</p>
    */
-  unmeteredDevices?: Record<string, number>;
+  unmeteredDevices?: Record<DevicePlatform, number>;
 
   /**
    * @public
    * <p>Returns the unmetered remote access devices you have purchased or want to
    *             purchase.</p>
    */
-  unmeteredRemoteAccessDevices?: Record<string, number>;
+  unmeteredRemoteAccessDevices?: Record<DevicePlatform, number>;
 
   /**
    * @public
@@ -268,7 +268,7 @@ export interface Artifact {
    *             </li>
    *          </ul>
    */
-  type?: ArtifactType | string;
+  type?: ArtifactType;
 
   /**
    * @public
@@ -559,7 +559,7 @@ export interface Rule {
    *                 </dd>
    *          </dl>
    */
-  attribute?: DeviceAttribute | string;
+  attribute?: DeviceAttribute;
 
   /**
    * @public
@@ -567,7 +567,7 @@ export interface Rule {
    *             operators that are supported by each attribute, see the attribute
    *             descriptions.</p>
    */
-  operator?: RuleOperator | string;
+  operator?: RuleOperator;
 
   /**
    * @public
@@ -669,7 +669,7 @@ export interface DevicePool {
    *             </li>
    *          </ul>
    */
-  type?: DevicePoolType | string;
+  type?: DevicePoolType;
 
   /**
    * @public
@@ -900,7 +900,7 @@ export interface CreateNetworkProfileRequest {
    * @public
    * <p>The type of network profile to create. Valid values are listed here.</p>
    */
-  type?: NetworkProfileType | string;
+  type?: NetworkProfileType;
 
   /**
    * @public
@@ -985,7 +985,7 @@ export interface NetworkProfile {
    * @public
    * <p>The type of network profile. Valid values are listed here.</p>
    */
-  type?: NetworkProfileType | string;
+  type?: NetworkProfileType;
 
   /**
    * @public
@@ -1186,7 +1186,7 @@ export interface CreateRemoteAccessSessionConfiguration {
    * @public
    * <p>The billing method for the remote access session.</p>
    */
-  billingMethod?: BillingMethod | string;
+  billingMethod?: BillingMethod;
 
   /**
    * @public
@@ -1310,7 +1310,7 @@ export interface CreateRemoteAccessSessionRequest {
    *             </li>
    *          </ul>
    */
-  interactionMode?: InteractionMode | string;
+  interactionMode?: InteractionMode;
 
   /**
    * @public
@@ -1395,7 +1395,7 @@ export interface DeviceInstance {
    * @public
    * <p>The status of the device instance. Valid values are listed here.</p>
    */
-  status?: InstanceStatus | string;
+  status?: InstanceStatus;
 
   /**
    * @public
@@ -1477,7 +1477,7 @@ export interface Device {
    *             </li>
    *          </ul>
    */
-  formFactor?: DeviceFormFactor | string;
+  formFactor?: DeviceFormFactor;
 
   /**
    * @public
@@ -1492,7 +1492,7 @@ export interface Device {
    *             </li>
    *          </ul>
    */
-  platform?: DevicePlatform | string;
+  platform?: DevicePlatform;
 
   /**
    * @public
@@ -1580,7 +1580,7 @@ export interface Device {
    * @public
    * <p>Indicates how likely a device is available for a test run. Currently available in the <a>ListDevices</a> and GetDevice API methods.</p>
    */
-  availability?: DeviceAvailability | string;
+  availability?: DeviceAvailability;
 }
 
 /**
@@ -1707,7 +1707,7 @@ export interface RemoteAccessSession {
    *             </li>
    *          </ul>
    */
-  status?: ExecutionStatus | string;
+  status?: ExecutionStatus;
 
   /**
    * @public
@@ -1736,7 +1736,7 @@ export interface RemoteAccessSession {
    *             </li>
    *          </ul>
    */
-  result?: ExecutionResult | string;
+  result?: ExecutionResult;
 
   /**
    * @public
@@ -1814,7 +1814,7 @@ export interface RemoteAccessSession {
    *                 <code>UNMETERED</code>. For more information about metered devices, see <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology">AWS Device Farm
    *                 terminology</a>.</p>
    */
-  billingMethod?: BillingMethod | string;
+  billingMethod?: BillingMethod;
 
   /**
    * @public
@@ -1858,7 +1858,7 @@ export interface RemoteAccessSession {
    *             </li>
    *          </ul>
    */
-  interactionMode?: InteractionMode | string;
+  interactionMode?: InteractionMode;
 
   /**
    * @public
@@ -2210,7 +2210,7 @@ export interface CreateUploadRequest {
    *         <p> If you call <code>CreateUpload</code> with <code>WEB_APP</code> specified, AWS
    *             Device Farm throws an <code>ArgumentException</code> error.</p>
    */
-  type: UploadType | string | undefined;
+  type: UploadType | undefined;
 
   /**
    * @public
@@ -2376,7 +2376,7 @@ export interface Upload {
    *             </li>
    *          </ul>
    */
-  type?: UploadType | string;
+  type?: UploadType;
 
   /**
    * @public
@@ -2397,7 +2397,7 @@ export interface Upload {
    *             </li>
    *          </ul>
    */
-  status?: UploadStatus | string;
+  status?: UploadStatus;
 
   /**
    * @public
@@ -2437,7 +2437,7 @@ export interface Upload {
    *             </li>
    *          </ul>
    */
-  category?: UploadCategory | string;
+  category?: UploadCategory;
 }
 
 /**
@@ -2963,7 +2963,7 @@ export interface ScheduleRunConfiguration {
    *                 make use of them. Otherwise, your run counts against your metered time.</p>
    *         </note>
    */
-  billingMethod?: BillingMethod | string;
+  billingMethod?: BillingMethod;
 }
 
 /**
@@ -3068,7 +3068,7 @@ export interface ScheduleRunTest {
    *             </li>
    *          </ul>
    */
-  type: TestType | string | undefined;
+  type: TestType | undefined;
 
   /**
    * @public
@@ -3308,7 +3308,7 @@ export interface GetDevicePoolCompatibilityRequest {
    *             </li>
    *          </ul>
    */
-  testType?: TestType | string;
+  testType?: TestType;
 
   /**
    * @public
@@ -3359,7 +3359,7 @@ export interface IncompatibilityMessage {
    *             </li>
    *          </ul>
    */
-  type?: DeviceAttribute | string;
+  type?: DeviceAttribute;
 }
 
 /**
@@ -3517,7 +3517,7 @@ export interface Job {
    *             </li>
    *          </ul>
    */
-  type?: TestType | string;
+  type?: TestType;
 
   /**
    * @public
@@ -3559,7 +3559,7 @@ export interface Job {
    *             </li>
    *          </ul>
    */
-  status?: ExecutionStatus | string;
+  status?: ExecutionStatus;
 
   /**
    * @public
@@ -3589,7 +3589,7 @@ export interface Job {
    *             </li>
    *          </ul>
    */
-  result?: ExecutionResult | string;
+  result?: ExecutionResult;
 
   /**
    * @public
@@ -3709,7 +3709,7 @@ export interface MonetaryAmount {
    * @public
    * <p>The currency code of a monetary amount. For example, <code>USD</code> means U.S. dollars.</p>
    */
-  currencyCode?: CurrencyCode | string;
+  currencyCode?: CurrencyCode;
 }
 
 /**
@@ -3740,7 +3740,7 @@ export interface RecurringCharge {
    * @public
    * <p>The frequency in which charges recur.</p>
    */
-  frequency?: RecurringChargeFrequency | string;
+  frequency?: RecurringChargeFrequency;
 }
 
 /**
@@ -3777,13 +3777,13 @@ export interface Offering {
    * @public
    * <p>The type of offering (for example, <code>RECURRING</code>) for a device.</p>
    */
-  type?: OfferingType | string;
+  type?: OfferingType;
 
   /**
    * @public
    * <p>The platform of the device (for example, <code>ANDROID</code> or <code>IOS</code>).</p>
    */
-  platform?: DevicePlatform | string;
+  platform?: DevicePlatform;
 
   /**
    * @public
@@ -3816,7 +3816,7 @@ export interface OfferingStatus {
    * @public
    * <p>The type specified for the offering status.</p>
    */
-  type?: OfferingTransactionType | string;
+  type?: OfferingTransactionType;
 
   /**
    * @public
@@ -4072,14 +4072,14 @@ export interface DeviceFilter {
    *                 </dd>
    *          </dl>
    */
-  attribute: DeviceFilterAttribute | string | undefined;
+  attribute: DeviceFilterAttribute | undefined;
 
   /**
    * @public
    * <p>Specifies how Device Farm compares the filter's attribute to the value. See the attribute
    *             descriptions.</p>
    */
-  operator: RuleOperator | string | undefined;
+  operator: RuleOperator | undefined;
 
   /**
    * @public
@@ -4241,7 +4241,7 @@ export interface Run {
    *             </li>
    *          </ul>
    */
-  type?: TestType | string;
+  type?: TestType;
 
   /**
    * @public
@@ -4256,7 +4256,7 @@ export interface Run {
    *             </li>
    *          </ul>
    */
-  platform?: DevicePlatform | string;
+  platform?: DevicePlatform;
 
   /**
    * @public
@@ -4298,7 +4298,7 @@ export interface Run {
    *             </li>
    *          </ul>
    */
-  status?: ExecutionStatus | string;
+  status?: ExecutionStatus;
 
   /**
    * @public
@@ -4328,7 +4328,7 @@ export interface Run {
    *             </li>
    *          </ul>
    */
-  result?: ExecutionResult | string;
+  result?: ExecutionResult;
 
   /**
    * @public
@@ -4376,7 +4376,7 @@ export interface Run {
    *                 Otherwise, the run is counted toward metered device minutes.</p>
    *         </note>
    */
-  billingMethod?: BillingMethod | string;
+  billingMethod?: BillingMethod;
 
   /**
    * @public
@@ -4403,7 +4403,7 @@ export interface Run {
    * <p>Supporting field for the result field. Set only if <code>result</code> is <code>SKIPPED</code>.
    *                 <code>PARSING_FAILED</code> if the result is skipped because of test package parsing failure.</p>
    */
-  resultCode?: ExecutionResultCode | string;
+  resultCode?: ExecutionResultCode;
 
   /**
    * @public
@@ -4601,7 +4601,7 @@ export interface Suite {
    *             </li>
    *          </ul>
    */
-  type?: TestType | string;
+  type?: TestType;
 
   /**
    * @public
@@ -4643,7 +4643,7 @@ export interface Suite {
    *             </li>
    *          </ul>
    */
-  status?: ExecutionStatus | string;
+  status?: ExecutionStatus;
 
   /**
    * @public
@@ -4673,7 +4673,7 @@ export interface Suite {
    *             </li>
    *          </ul>
    */
-  result?: ExecutionResult | string;
+  result?: ExecutionResult;
 
   /**
    * @public
@@ -4813,7 +4813,7 @@ export interface Test {
    *             </li>
    *          </ul>
    */
-  type?: TestType | string;
+  type?: TestType;
 
   /**
    * @public
@@ -4855,7 +4855,7 @@ export interface Test {
    *             </li>
    *          </ul>
    */
-  status?: ExecutionStatus | string;
+  status?: ExecutionStatus;
 
   /**
    * @public
@@ -4885,7 +4885,7 @@ export interface Test {
    *             </li>
    *          </ul>
    */
-  result?: ExecutionResult | string;
+  result?: ExecutionResult;
 
   /**
    * @public
@@ -5006,7 +5006,7 @@ export interface TestGridSession {
    * @public
    * <p>The state of the session.</p>
    */
-  status?: TestGridSessionStatus | string;
+  status?: TestGridSessionStatus;
 
   /**
    * @public
@@ -5152,7 +5152,7 @@ export interface ListArtifactsRequest {
    *             </li>
    *          </ul>
    */
-  type: ArtifactCategory | string | undefined;
+  type: ArtifactCategory | undefined;
 
   /**
    * @public
@@ -5244,7 +5244,7 @@ export interface ListDevicePoolsRequest {
    *             </li>
    *          </ul>
    */
-  type?: DevicePoolType | string;
+  type?: DevicePoolType;
 
   /**
    * @public
@@ -5499,7 +5499,7 @@ export interface ListNetworkProfilesRequest {
    * @public
    * <p>The type of network profile to return information about. Valid values are listed here.</p>
    */
-  type?: NetworkProfileType | string;
+  type?: NetworkProfileType;
 
   /**
    * @public
@@ -5921,7 +5921,7 @@ export interface Sample {
    *             </li>
    *          </ul>
    */
-  type?: SampleType | string;
+  type?: SampleType;
 
   /**
    * @public
@@ -6179,7 +6179,7 @@ export interface ListTestGridSessionArtifactsRequest {
    * @public
    * <p>Limit results to a specified type of artifact.</p>
    */
-  type?: TestGridSessionArtifactCategory | string;
+  type?: TestGridSessionArtifactCategory;
 
   /**
    * @public
@@ -6229,7 +6229,7 @@ export interface TestGridSessionArtifact {
    * @public
    * <p>The kind of artifact.</p>
    */
-  type?: TestGridSessionArtifactType | string;
+  type?: TestGridSessionArtifactType;
 
   /**
    * @public
@@ -6269,7 +6269,7 @@ export interface ListTestGridSessionsRequest {
    * @public
    * <p>Return only sessions in this state.</p>
    */
-  status?: TestGridSessionStatus | string;
+  status?: TestGridSessionStatus;
 
   /**
    * @public
@@ -6464,7 +6464,7 @@ export interface Problem {
    *             </li>
    *          </ul>
    */
-  result?: ExecutionResult | string;
+  result?: ExecutionResult;
 
   /**
    * @public
@@ -6524,7 +6524,7 @@ export interface ListUniqueProblemsResult {
    *             </li>
    *          </ul>
    */
-  uniqueProblems?: Record<string, UniqueProblem[]>;
+  uniqueProblems?: Record<ExecutionResult, UniqueProblem[]>;
 
   /**
    * @public
@@ -6650,7 +6650,7 @@ export interface ListUploadsRequest {
    *             </li>
    *          </ul>
    */
-  type?: UploadType | string;
+  type?: UploadType;
 
   /**
    * @public
@@ -7416,7 +7416,7 @@ export interface UpdateNetworkProfileRequest {
    * @public
    * <p>The type of network profile to return information about. Valid values are listed here.</p>
    */
-  type?: NetworkProfileType | string;
+  type?: NetworkProfileType;
 
   /**
    * @public

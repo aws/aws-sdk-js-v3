@@ -157,7 +157,7 @@ export interface ModelDashboardModelCard {
    * @public
    * <p>The model card status.</p>
    */
-  ModelCardStatus?: ModelCardStatus | string;
+  ModelCardStatus?: ModelCardStatus;
 
   /**
    * @public
@@ -232,13 +232,13 @@ export interface ModelDashboardMonitoringSchedule {
    * @public
    * <p>The status of the monitoring schedule.</p>
    */
-  MonitoringScheduleStatus?: ScheduleStatus | string;
+  MonitoringScheduleStatus?: ScheduleStatus;
 
   /**
    * @public
    * <p>The monitor type of a model monitor.</p>
    */
-  MonitoringType?: MonitoringType | string;
+  MonitoringType?: MonitoringType;
 
   /**
    * @public
@@ -406,7 +406,7 @@ export interface ModelPackage {
    *             </li>
    *          </ul>
    */
-  ModelPackageStatus?: ModelPackageStatus | string;
+  ModelPackageStatus?: ModelPackageStatus;
 
   /**
    * @public
@@ -441,7 +441,7 @@ export interface ModelPackage {
    *             </li>
    *          </ul>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: ModelApprovalStatus;
 
   /**
    * @public
@@ -529,7 +529,7 @@ export interface ModelPackage {
    * @public
    * <p>Indicates if you want to skip model validation.</p>
    */
-  SkipModelValidation?: SkipModelValidation | string;
+  SkipModelValidation?: SkipModelValidation;
 }
 
 /**
@@ -599,7 +599,7 @@ export interface ModelPackageGroup {
    *             </li>
    *          </ul>
    */
-  ModelPackageGroupStatus?: ModelPackageGroupStatus | string;
+  ModelPackageGroupStatus?: ModelPackageGroupStatus;
 
   /**
    * @public
@@ -736,7 +736,7 @@ export interface Pipeline {
    * @public
    * <p>The status of the pipeline.</p>
    */
-  PipelineStatus?: PipelineStatus | string;
+  PipelineStatus?: PipelineStatus;
 
   /**
    * @public
@@ -810,7 +810,7 @@ export interface PipelineExecution {
    * @public
    * <p>The status of the pipeline status.</p>
    */
-  PipelineExecutionStatus?: PipelineExecutionStatus | string;
+  PipelineExecutionStatus?: PipelineExecutionStatus;
 
   /**
    * @public
@@ -974,7 +974,7 @@ export interface ProcessingJob {
    * @public
    * <p>The status of the processing job.</p>
    */
-  ProcessingJobStatus?: ProcessingJobStatus | string;
+  ProcessingJobStatus?: ProcessingJobStatus;
 
   /**
    * @public
@@ -1127,7 +1127,7 @@ export interface Project {
    * @public
    * <p>The status of the project.</p>
    */
-  ProjectStatus?: ProjectStatus | string;
+  ProjectStatus?: ProjectStatus;
 
   /**
    * @public
@@ -1208,7 +1208,7 @@ export interface QueryFilters {
    * @public
    * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by the type of the lineage entity.</p>
    */
-  LineageTypes?: (LineageType | string)[];
+  LineageTypes?: LineageType[];
 
   /**
    * @public
@@ -1257,7 +1257,7 @@ export interface QueryLineageRequest {
    * <p>Associations between lineage entities have a direction.  This parameter determines the direction from the
    *          StartArn(s) that the query traverses.</p>
    */
-  Direction?: Direction | string;
+  Direction?: Direction;
 
   /**
    * @public
@@ -1333,7 +1333,7 @@ export interface Vertex {
    * @public
    * <p>The type of resource of the lineage entity.</p>
    */
-  LineageType?: LineageType | string;
+  LineageType?: LineageType;
 }
 
 /**
@@ -1607,7 +1607,7 @@ export interface TrainingJob {
    *          <p>For
    *             more detailed information, see <code>SecondaryStatus</code>. </p>
    */
-  TrainingJobStatus?: TrainingJobStatus | string;
+  TrainingJobStatus?: TrainingJobStatus;
 
   /**
    * @public
@@ -1708,7 +1708,7 @@ export interface TrainingJob {
    *             </li>
    *          </ul>
    */
-  SecondaryStatus?: SecondaryStatus | string;
+  SecondaryStatus?: SecondaryStatus;
 
   /**
    * @public
@@ -2631,7 +2631,7 @@ export interface StopInferenceExperimentRequest {
    *             </li>
    *          </ul>
    */
-  ModelVariantActions: Record<string, ModelVariantAction | string> | undefined;
+  ModelVariantActions: Record<string, ModelVariantAction> | undefined;
 
   /**
    * @public
@@ -2659,7 +2659,7 @@ export interface StopInferenceExperimentRequest {
    *             </li>
    *          </ul>
    */
-  DesiredState?: InferenceExperimentStopDesiredState | string;
+  DesiredState?: InferenceExperimentStopDesiredState;
 
   /**
    * @public
@@ -2805,7 +2805,7 @@ export interface UpdateActionRequest {
    * @public
    * <p>The new status for the action.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: ActionStatus;
 
   /**
    * @public
@@ -3067,7 +3067,7 @@ export interface UpdateDomainRequest {
    *             provided. If setting up the domain for use with RStudio, this value must be set to
    *                 <code>Service</code>.</p>
    */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
+  AppSecurityGroupManagement?: AppSecurityGroupManagement;
 }
 
 /**
@@ -3128,7 +3128,7 @@ export interface VariantProperty {
    *             </li>
    *          </ul>
    */
-  VariantPropertyType: VariantPropertyType | string | undefined;
+  VariantPropertyType: VariantPropertyType | undefined;
 }
 
 /**
@@ -3474,7 +3474,7 @@ export interface UpdateImageVersionRequest {
    *             </li>
    *          </ul>
    */
-  VendorGuidance?: VendorGuidance | string;
+  VendorGuidance?: VendorGuidance;
 
   /**
    * @public
@@ -3494,7 +3494,7 @@ export interface UpdateImageVersionRequest {
    *             </li>
    *          </ul>
    */
-  JobType?: JobType | string;
+  JobType?: JobType;
 
   /**
    * @public
@@ -3522,7 +3522,7 @@ export interface UpdateImageVersionRequest {
    *             </li>
    *          </ul>
    */
-  Processor?: Processor | string;
+  Processor?: Processor;
 
   /**
    * @public
@@ -3652,7 +3652,7 @@ export interface UpdateModelCardRequest {
    *             </li>
    *          </ul>
    */
-  ModelCardStatus?: ModelCardStatus | string;
+  ModelCardStatus?: ModelCardStatus;
 }
 
 /**
@@ -3680,7 +3680,7 @@ export interface UpdateModelPackageInput {
    * @public
    * <p>The approval status of the model.</p>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: ModelApprovalStatus;
 
   /**
    * @public
@@ -3814,7 +3814,7 @@ export interface UpdateNotebookInstanceInput {
    * @public
    * <p>The Amazon ML compute instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -3884,7 +3884,7 @@ export interface UpdateNotebookInstanceInput {
    *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in
    *             Amazon SageMaker</a>.</p>
    */
-  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
+  AcceleratorTypes?: NotebookInstanceAcceleratorType[];
 
   /**
    * @public
@@ -3922,7 +3922,7 @@ export interface UpdateNotebookInstanceInput {
    *                 permissions.</p>
    *          </note>
    */
-  RootAccess?: RootAccess | string;
+  RootAccess?: RootAccess;
 
   /**
    * @public
@@ -4520,7 +4520,7 @@ export interface SearchExpression {
    *       true for the entire search expression to be true, specify <code>Or</code>. The default
    *       value is <code>And</code>.</p>
    */
-  Operator?: BooleanOperator | string;
+  Operator?: BooleanOperator;
 }
 
 /**
@@ -4531,7 +4531,7 @@ export interface SearchRequest {
    * @public
    * <p>The name of the SageMaker resource to search for.</p>
    */
-  Resource: ResourceType | string | undefined;
+  Resource: ResourceType | undefined;
 
   /**
    * @public
@@ -4555,7 +4555,7 @@ export interface SearchRequest {
    * <p>How <code>SearchResults</code> are ordered. Valid values are <code>Ascending</code> or
    *       <code>Descending</code>. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SearchSortOrder | string;
+  SortOrder?: SearchSortOrder;
 
   /**
    * @public
@@ -4585,7 +4585,7 @@ export interface SearchRequest {
    *       The maximum number of <code>ResourceCatalog</code>s viewable is 1000.
    *     </p>
    */
-  CrossAccountFilterOption?: CrossAccountFilterOption | string;
+  CrossAccountFilterOption?: CrossAccountFilterOption;
 }
 
 /**

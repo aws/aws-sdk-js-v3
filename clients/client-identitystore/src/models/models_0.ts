@@ -307,7 +307,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>An enum object indicating the type of resource in the identity store service. Valid values include USER, GROUP, and IDENTITY_STORE.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -571,7 +571,7 @@ export class ConflictException extends __BaseException {
    *             </li>
    *          </ul>
    */
-  Reason?: ConflictExceptionReason | string;
+  Reason?: ConflictExceptionReason;
   /**
    * @internal
    */

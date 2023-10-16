@@ -149,7 +149,7 @@ export interface CustomerAction {
    *          </ul>
    *          <p>For more information, see the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_AlarmState.html">AlarmState</a> API.</p>
    */
-  actionName?: CustomerActionName | string;
+  actionName?: CustomerActionName;
 
   /**
    * @public
@@ -215,7 +215,7 @@ export interface SimpleRuleEvaluation {
    * @public
    * <p>The comparison operator.</p>
    */
-  operator?: ComparisonOperator | string;
+  operator?: ComparisonOperator;
 
   /**
    * @public
@@ -290,7 +290,7 @@ export interface StateChangeConfiguration {
    * <p>The trigger type. If the value is <code>SNOOZE_TIMEOUT</code>, the snooze duration ends
    *       and the alarm automatically changes to the <code>NORMAL</code> state.</p>
    */
-  triggerType?: TriggerType | string;
+  triggerType?: TriggerType;
 }
 
 /**
@@ -303,7 +303,7 @@ export interface SystemEvent {
    * <p>The event type. If the value is <code>STATE_CHANGE</code>, the event contains information
    *       about alarm state changes.</p>
    */
-  eventType?: EventType | string;
+  eventType?: EventType;
 
   /**
    * @public
@@ -356,7 +356,7 @@ export interface AlarmState {
    *             </li>
    *          </ul>
    */
-  stateName?: AlarmStateName | string;
+  stateName?: AlarmStateName;
 
   /**
    * @public
@@ -489,7 +489,7 @@ export interface AlarmSummary {
    *             </li>
    *          </ul>
    */
-  stateName?: AlarmStateName | string;
+  stateName?: AlarmStateName;
 
   /**
    * @public
@@ -574,7 +574,7 @@ export interface BatchAlarmActionErrorEntry {
    * @public
    * <p>The error code.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: ErrorCode;
 
   /**
    * @public
@@ -725,7 +725,7 @@ export interface BatchDeleteDetectorErrorEntry {
    * @public
    * <p>The error code.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: ErrorCode;
 
   /**
    * @public
@@ -926,7 +926,7 @@ export interface BatchPutMessageErrorEntry {
    * @public
    * <p>The error code.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: ErrorCode;
 
   /**
    * @public
@@ -1181,7 +1181,7 @@ export interface BatchUpdateDetectorErrorEntry {
    * @public
    * <p>The error code.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: ErrorCode;
 
   /**
    * @public

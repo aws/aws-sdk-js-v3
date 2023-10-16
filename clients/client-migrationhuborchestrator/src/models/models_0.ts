@@ -309,7 +309,7 @@ export interface CreateMigrationWorkflowResponse {
    * @public
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: MigrationWorkflowStatusEnum;
 
   /**
    * @public
@@ -395,7 +395,7 @@ export interface DeleteMigrationWorkflowResponse {
    * @public
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: MigrationWorkflowStatusEnum;
 }
 
 /**
@@ -477,7 +477,7 @@ export interface GetMigrationWorkflowResponse {
    * @public
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: MigrationWorkflowStatusEnum;
 
   /**
    * @public
@@ -584,7 +584,7 @@ export interface ListMigrationWorkflowsRequest {
    * @public
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: MigrationWorkflowStatusEnum;
 
   /**
    * @public
@@ -626,7 +626,7 @@ export interface MigrationWorkflowSummary {
    * @public
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: MigrationWorkflowStatusEnum;
 
   /**
    * @public
@@ -707,7 +707,7 @@ export interface StartMigrationWorkflowResponse {
    * @public
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: MigrationWorkflowStatusEnum;
 
   /**
    * @public
@@ -753,7 +753,7 @@ export interface StopMigrationWorkflowResponse {
    * @public
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: MigrationWorkflowStatusEnum;
 
   /**
    * @public
@@ -859,7 +859,7 @@ export interface UpdateMigrationWorkflowResponse {
    * @public
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: MigrationWorkflowStatusEnum;
 
   /**
    * @public
@@ -922,7 +922,7 @@ export interface TemplateInput {
    * @public
    * <p>The data type of the template input.</p>
    */
-  dataType?: DataType | string;
+  dataType?: DataType;
 
   /**
    * @public
@@ -982,7 +982,7 @@ export interface GetMigrationWorkflowTemplateResponse {
    * @public
    * <p>The status of the template.</p>
    */
-  status?: TemplateStatus | string;
+  status?: TemplateStatus;
 
   /**
    * @public
@@ -1113,7 +1113,7 @@ export interface PluginSummary {
    * @public
    * <p>The status of the plugin.</p>
    */
-  status?: PluginHealth | string;
+  status?: PluginHealth;
 
   /**
    * @public
@@ -1212,7 +1212,7 @@ export interface StepOutput {
    * @public
    * <p>The data type of the step output.</p>
    */
-  dataType?: DataType | string;
+  dataType?: DataType;
 
   /**
    * @public
@@ -1327,13 +1327,13 @@ export interface StepAutomationConfiguration {
    * @public
    * <p>The source or target environment.</p>
    */
-  runEnvironment?: RunEnvironment | string;
+  runEnvironment?: RunEnvironment;
 
   /**
    * @public
    * <p>The servers on which to run the script.</p>
    */
-  targetType?: TargetType | string;
+  targetType?: TargetType;
 }
 
 /**
@@ -1375,7 +1375,7 @@ export interface GetTemplateStepResponse {
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
-  stepActionType?: StepActionType | string;
+  stepActionType?: StepActionType;
 
   /**
    * @public
@@ -1485,19 +1485,19 @@ export interface TemplateStepSummary {
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
-  stepActionType?: StepActionType | string;
+  stepActionType?: StepActionType;
 
   /**
    * @public
    * <p>The servers on which to run the script.</p>
    */
-  targetType?: TargetType | string;
+  targetType?: TargetType;
 
   /**
    * @public
    * <p>The owner of the step.</p>
    */
-  owner?: Owner | string;
+  owner?: Owner;
 
   /**
    * @public
@@ -1598,7 +1598,7 @@ export interface GetTemplateStepGroupResponse {
    * @public
    * <p>The status of the step group.</p>
    */
-  status?: StepGroupStatus | string;
+  status?: StepGroupStatus;
 
   /**
    * @public
@@ -1811,7 +1811,7 @@ export interface WorkflowStepOutput {
    * @public
    * <p>The data type of the output.</p>
    */
-  dataType?: DataType | string;
+  dataType?: DataType;
 
   /**
    * @public
@@ -1853,13 +1853,13 @@ export interface WorkflowStepAutomationConfiguration {
    * @public
    * <p>The source or target environment.</p>
    */
-  runEnvironment?: RunEnvironment | string;
+  runEnvironment?: RunEnvironment;
 
   /**
    * @public
    * <p>The servers on which to run the script.</p>
    */
-  targetType?: TargetType | string;
+  targetType?: TargetType;
 }
 
 /**
@@ -1889,7 +1889,7 @@ export interface CreateWorkflowStepRequest {
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
-  stepActionType: StepActionType | string | undefined;
+  stepActionType: StepActionType | undefined;
 
   /**
    * @public
@@ -2066,13 +2066,13 @@ export interface GetWorkflowStepResponse {
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
-  stepActionType?: StepActionType | string;
+  stepActionType?: StepActionType;
 
   /**
    * @public
    * <p>The owner of the step.</p>
    */
-  owner?: Owner | string;
+  owner?: Owner;
 
   /**
    * @public
@@ -2108,7 +2108,7 @@ export interface GetWorkflowStepResponse {
    * @public
    * <p>The status of the step.</p>
    */
-  status?: StepStatus | string;
+  status?: StepStatus;
 
   /**
    * @public
@@ -2210,13 +2210,13 @@ export interface WorkflowStepSummary {
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
-  stepActionType?: StepActionType | string;
+  stepActionType?: StepActionType;
 
   /**
    * @public
    * <p>The owner of the step.</p>
    */
-  owner?: Owner | string;
+  owner?: Owner;
 
   /**
    * @public
@@ -2234,7 +2234,7 @@ export interface WorkflowStepSummary {
    * @public
    * <p>The status of the step.</p>
    */
-  status?: StepStatus | string;
+  status?: StepStatus;
 
   /**
    * @public
@@ -2339,7 +2339,7 @@ export interface RetryWorkflowStepResponse {
    * @public
    * <p>The status of the step.</p>
    */
-  status?: StepStatus | string;
+  status?: StepStatus;
 }
 
 /**
@@ -2381,7 +2381,7 @@ export interface UpdateWorkflowStepRequest {
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
-  stepActionType?: StepActionType | string;
+  stepActionType?: StepActionType;
 
   /**
    * @public
@@ -2417,7 +2417,7 @@ export interface UpdateWorkflowStepRequest {
    * @public
    * <p>The status of the step.</p>
    */
-  status?: StepStatus | string;
+  status?: StepStatus;
 }
 
 /**
@@ -2608,13 +2608,13 @@ export interface GetWorkflowStepGroupResponse {
    * @public
    * <p>The status of the step group.</p>
    */
-  status?: StepGroupStatus | string;
+  status?: StepGroupStatus;
 
   /**
    * @public
    * <p>The owner of the step group.</p>
    */
-  owner?: Owner | string;
+  owner?: Owner;
 
   /**
    * @public
@@ -2697,13 +2697,13 @@ export interface WorkflowStepGroupSummary {
    * @public
    * <p>The owner of the step group.</p>
    */
-  owner?: Owner | string;
+  owner?: Owner;
 
   /**
    * @public
    * <p>The status of the step group.</p>
    */
-  status?: StepGroupStatus | string;
+  status?: StepGroupStatus;
 
   /**
    * @public

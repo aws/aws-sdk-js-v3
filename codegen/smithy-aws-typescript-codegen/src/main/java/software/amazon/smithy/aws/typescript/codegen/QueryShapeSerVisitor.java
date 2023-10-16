@@ -106,10 +106,12 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         TypeScriptWriter writer = context.getWriter();
         Model model = context.getModel();
 
+        String keyTypeName = "keyof typeof input";
+
         // Filter out null entries if we don't have the sparse trait.
         String potentialFilter = "";
         if (!shape.hasTrait(SparseTrait.ID)) {
-            potentialFilter = ".filter((key) => input[key] != null)";
+            potentialFilter = ".filter((key) => input[key as " + keyTypeName + "] != null)";
         }
 
         // Set up a location to store all of the entry pairs.
@@ -131,10 +133,15 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
             Shape valueTarget = model.expectShape(valueMember.getTarget());
             String valueName = getMemberSerializedLocationName(valueMember, "value");
 
-            QueryMemberSerVisitor inputVisitor = getMemberVisitor("input[key]");
+            QueryMemberSerVisitor inputVisitor = getMemberVisitor("input[key as " + keyTypeName + "]");
             String valueLocation = "entry.${counter}." + valueName;
             if (inputVisitor.visitSuppliesEntryList(valueTarget)) {
-                serializeUnnamedMemberEntryList(context, valueTarget, "input[key]", valueLocation);
+                serializeUnnamedMemberEntryList(
+                    context,
+                    valueTarget,
+                    "input[key as " + keyTypeName + "]",
+                    valueLocation
+                );
             } else {
                 writer.write("entries[`$L`] = $L;", valueLocation, valueTarget.accept(inputVisitor));
             }

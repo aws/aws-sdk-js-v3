@@ -66,7 +66,7 @@ export interface Source {
    * @public
    * <p>The repository type.</p>
    */
-  Type?: SourceType | string;
+  Type?: SourceType;
 
   /**
    * @public
@@ -278,7 +278,7 @@ export interface App {
    * @public
    * <p>The app type.</p>
    */
-  Type?: AppType | string;
+  Type?: AppType;
 
   /**
    * @public
@@ -310,7 +310,7 @@ export interface App {
    * @public
    * <p>The stack attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<AppAttributesKeys, string>;
 
   /**
    * @public
@@ -574,7 +574,7 @@ export interface EbsBlockDevice {
    *           The maximum ratio of provisioned IOPS to requested volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB)
    *           specified in the AMI attributes to set IOPS to 50 x (volume size).</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -720,7 +720,7 @@ export interface CloneStackRequest {
    * @public
    * <p>A list of stack attributes and values as key/value pairs to be added to the cloned stack.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<StackAttributesKeys, string>;
 
   /**
    * @public
@@ -961,7 +961,7 @@ export interface CloneStackRequest {
    * <p>The default root device type. This value is used by default for all instances in the cloned
    *       stack, but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  DefaultRootDeviceType?: RootDeviceType | string;
+  DefaultRootDeviceType?: RootDeviceType;
 
   /**
    * @public
@@ -1157,7 +1157,7 @@ export interface CloudWatchLogsLogStream {
    * @public
    * <p>Specifies the time zone of log event time stamps.</p>
    */
-  TimeZone?: CloudWatchLogsTimeZone | string;
+  TimeZone?: CloudWatchLogsTimeZone;
 
   /**
    * @public
@@ -1192,14 +1192,14 @@ export interface CloudWatchLogsLogStream {
    * <p>Specifies where to start to read data (start_of_file or end_of_file). The default is start_of_file.
    *             This setting is only used if there is no state persisted for that log stream.</p>
    */
-  InitialPosition?: CloudWatchLogsInitialPosition | string;
+  InitialPosition?: CloudWatchLogsInitialPosition;
 
   /**
    * @public
    * <p>Specifies the encoding of the log file so that the file can be read correctly.
    *             The default is <code>utf_8</code>. Encodings supported by Python <code>codecs.decode()</code> can be used here.</p>
    */
-  Encoding?: CloudWatchLogsEncoding | string;
+  Encoding?: CloudWatchLogsEncoding;
 
   /**
    * @public
@@ -1423,7 +1423,7 @@ export interface CreateAppRequest {
    *       that are members of the corresponding layer. If your app isn't one of the standard types, or
    *       you prefer to implement your own Deploy recipes, specify <code>other</code>.</p>
    */
-  Type: AppType | string | undefined;
+  Type: AppType | undefined;
 
   /**
    * @public
@@ -1455,7 +1455,7 @@ export interface CreateAppRequest {
    * @public
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<AppAttributesKeys, string>;
 
   /**
    * @public
@@ -1571,7 +1571,7 @@ export interface DeploymentCommand {
    *             </li>
    *          </ul>
    */
-  Name: DeploymentCommandName | string | undefined;
+  Name: DeploymentCommandName | undefined;
 
   /**
    * @public
@@ -1700,7 +1700,7 @@ export interface CreateInstanceRequest {
    * @public
    * <p>For load-based or time-based instances, the type. Windows stacks can use only time-based instances.</p>
    */
-  AutoScalingType?: AutoScalingType | string;
+  AutoScalingType?: AutoScalingType;
 
   /**
    * @public
@@ -1790,13 +1790,13 @@ export interface CreateInstanceRequest {
    *       the different instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Families and
    *         Types</a>.</p>
    */
-  Architecture?: Architecture | string;
+  Architecture?: Architecture;
 
   /**
    * @public
    * <p>The instance root device type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  RootDeviceType?: RootDeviceType | string;
+  RootDeviceType?: RootDeviceType;
 
   /**
    * @public
@@ -2092,7 +2092,7 @@ export interface CreateLayerRequest {
    * @public
    * <p>The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.</p>
    */
-  Type: LayerType | string | undefined;
+  Type: LayerType | undefined;
 
   /**
    * @public
@@ -2112,7 +2112,7 @@ export interface CreateLayerRequest {
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    *          <p>To create a cluster layer, set the <code>EcsClusterArn</code> attribute to the cluster's ARN.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<LayerAttributesKeys, string>;
 
   /**
    * @public
@@ -2297,7 +2297,7 @@ export interface CreateStackRequest {
    * @public
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<StackAttributesKeys, string>;
 
   /**
    * @public
@@ -2521,7 +2521,7 @@ export interface CreateStackRequest {
    *       but you can override it when you create an instance. The default option is
    *         <code>instance-store</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  DefaultRootDeviceType?: RootDeviceType | string;
+  DefaultRootDeviceType?: RootDeviceType;
 
   /**
    * @public
@@ -3304,7 +3304,7 @@ export interface Instance {
    * @public
    * <p>The instance architecture: "i386" or "x86_64".</p>
    */
-  Architecture?: Architecture | string;
+  Architecture?: Architecture;
 
   /**
    * @public
@@ -3316,7 +3316,7 @@ export interface Instance {
    * @public
    * <p>For load-based or time-based instances, the type.</p>
    */
-  AutoScalingType?: AutoScalingType | string;
+  AutoScalingType?: AutoScalingType;
 
   /**
    * @public
@@ -3485,7 +3485,7 @@ export interface Instance {
    * @public
    * <p>The instance's root device type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  RootDeviceType?: RootDeviceType | string;
+  RootDeviceType?: RootDeviceType;
 
   /**
    * @public
@@ -3622,7 +3622,7 @@ export interface Instance {
    * @public
    * <p>The instance's virtualization type: <code>paravirtual</code> or <code>hvm</code>.</p>
    */
-  VirtualizationType?: VirtualizationType | string;
+  VirtualizationType?: VirtualizationType;
 }
 
 /**
@@ -3682,7 +3682,7 @@ export interface Layer {
    * @public
    * <p>The layer type.</p>
    */
-  Type?: LayerType | string;
+  Type?: LayerType;
 
   /**
    * @public
@@ -3704,7 +3704,7 @@ export interface Layer {
    *       instead of the actual value</p>
    *          <p>For an ECS Cluster layer, AWS OpsWorks Stacks the <code>EcsClusterArn</code> attribute is set to the cluster's ARN.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<LayerAttributesKeys, string>;
 
   /**
    * @public
@@ -4499,7 +4499,7 @@ export interface Stack {
    * @public
    * <p>The stack's attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<StackAttributesKeys, string>;
 
   /**
    * @public
@@ -4600,7 +4600,7 @@ export interface Stack {
    * <p>The default root device type. This value is used by default for all instances in the stack,
    *       but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  DefaultRootDeviceType?: RootDeviceType | string;
+  DefaultRootDeviceType?: RootDeviceType;
 
   /**
    * @public
@@ -5777,7 +5777,7 @@ export interface UpdateAppRequest {
    * @public
    * <p>The app type.</p>
    */
-  Type?: AppType | string;
+  Type?: AppType;
 
   /**
    * @public
@@ -5809,7 +5809,7 @@ export interface UpdateAppRequest {
    * @public
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<AppAttributesKeys, string>;
 
   /**
    * @public
@@ -5871,7 +5871,7 @@ export interface UpdateInstanceRequest {
    * @public
    * <p>For load-based or time-based instances, the type. Windows stacks can use only time-based instances.</p>
    */
-  AutoScalingType?: AutoScalingType | string;
+  AutoScalingType?: AutoScalingType;
 
   /**
    * @public
@@ -5938,7 +5938,7 @@ export interface UpdateInstanceRequest {
    *       a list of the architectures that are supported by the different instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
    *         Families and Types</a>.</p>
    */
-  Architecture?: Architecture | string;
+  Architecture?: Architecture;
 
   /**
    * @public
@@ -6014,7 +6014,7 @@ export interface UpdateLayerRequest {
    * @public
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<LayerAttributesKeys, string>;
 
   /**
    * @public
@@ -6168,7 +6168,7 @@ export interface UpdateStackRequest {
    * @public
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<StackAttributesKeys, string>;
 
   /**
    * @public
@@ -6365,7 +6365,7 @@ export interface UpdateStackRequest {
    * <p>The default root device type. This value is used by default for all instances in the stack,
    *       but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  DefaultRootDeviceType?: RootDeviceType | string;
+  DefaultRootDeviceType?: RootDeviceType;
 
   /**
    * @public

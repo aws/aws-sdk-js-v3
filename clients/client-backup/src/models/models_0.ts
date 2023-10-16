@@ -209,7 +209,7 @@ export interface BackupJob {
    * @public
    * <p>The current state of a backup job.</p>
    */
-  State?: BackupJobState | string;
+  State?: BackupJobState;
 
   /**
    * @public
@@ -818,7 +818,7 @@ export interface Condition {
    *                <code>BackupSelection</code>
    *             </a>.</p>
    */
-  ConditionType: ConditionType | string | undefined;
+  ConditionType: ConditionType | undefined;
 
   /**
    * @public
@@ -1549,7 +1549,7 @@ export interface CopyJob {
    * @public
    * <p>The current state of a copy job.</p>
    */
-  State?: CopyJobState | string;
+  State?: CopyJobState;
 
   /**
    * @public
@@ -1619,7 +1619,7 @@ export interface CopyJob {
    * <p>This returns the statistics of the included
    *          child (nested) copy jobs.</p>
    */
-  ChildJobsInState?: Record<string, number>;
+  ChildJobsInState?: Record<CopyJobState, number>;
 
   /**
    * @public
@@ -2079,7 +2079,7 @@ export interface CreateLegalHoldOutput {
    *          Statuses can be <code>ACTIVE</code>, <code>PENDING</code>, <code>CANCELED</code>,
    *          <code>CANCELING</code>, or <code>FAILED</code>.</p>
    */
-  Status?: LegalHoldStatus | string;
+  Status?: LegalHoldStatus;
 
   /**
    * @public
@@ -2210,7 +2210,7 @@ export interface CreateLogicallyAirGappedBackupVaultOutput {
    * @public
    * <p>This is the current state of the vault.</p>
    */
-  VaultState?: VaultState | string;
+  VaultState?: VaultState;
 }
 
 /**
@@ -2684,7 +2684,7 @@ export interface DescribeBackupJobOutput {
    * @public
    * <p>The current state of a backup job.</p>
    */
-  State?: BackupJobState | string;
+  State?: BackupJobState;
 
   /**
    * @public
@@ -2790,7 +2790,7 @@ export interface DescribeBackupJobOutput {
    * @public
    * <p>This returns the statistics of the included child (nested) backup jobs.</p>
    */
-  ChildJobsInState?: Record<string, number>;
+  ChildJobsInState?: Record<BackupJobState, number>;
 
   /**
    * @public
@@ -2857,7 +2857,7 @@ export interface DescribeBackupVaultOutput {
    * @public
    * <p>This is the type of vault described.</p>
    */
-  VaultType?: VaultType | string;
+  VaultType?: VaultType;
 
   /**
    * @public
@@ -3281,7 +3281,7 @@ export interface DescribeRecoveryPointOutput {
    *          misconfiguration, or backup failure. To ensure that future continuous backups succeed,
    *          refer to the recovery point status and check SAP HANA for details.</p>
    */
-  Status?: RecoveryPointStatus | string;
+  Status?: RecoveryPointStatus;
 
   /**
    * @public
@@ -3355,7 +3355,7 @@ export interface DescribeRecoveryPointOutput {
    * <p>Specifies the storage class of the recovery point. Valid values are <code>WARM</code> or
    *             <code>COLD</code>.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: StorageClass;
 
   /**
    * @public
@@ -3729,7 +3729,7 @@ export interface DescribeRestoreJobOutput {
    * <p>Status code specifying the state of the job that is initiated by Backup to
    *          restore a recovery point.</p>
    */
-  Status?: RestoreJobStatus | string;
+  Status?: RestoreJobStatus;
 
   /**
    * @public
@@ -4127,7 +4127,7 @@ export interface GetBackupVaultNotificationsOutput {
    * <p>An array of events that indicate the status of jobs to back up resources to the backup
    *          vault.</p>
    */
-  BackupVaultEvents?: (BackupVaultEvent | string)[];
+  BackupVaultEvents?: BackupVaultEvent[];
 }
 
 /**
@@ -4158,7 +4158,7 @@ export interface GetLegalHoldOutput {
    *          <code>ACTIVE</code>, <code>CREATING</code>, <code>CANCELED</code>, and
    *          <code>CANCELING</code>.</p>
    */
-  Status?: LegalHoldStatus | string;
+  Status?: LegalHoldStatus;
 
   /**
    * @public
@@ -4350,7 +4350,7 @@ export interface ListBackupJobsInput {
    * @public
    * <p>Returns only backup jobs that are in the specified state.</p>
    */
-  ByState?: BackupJobState | string;
+  ByState?: BackupJobState;
 
   /**
    * @public
@@ -4669,7 +4669,7 @@ export interface ListBackupVaultsInput {
    * @public
    * <p>This parameter will sort the list of vaults by vault type.</p>
    */
-  ByVaultType?: VaultType | string;
+  ByVaultType?: VaultType;
 
   /**
    * @public
@@ -4744,7 +4744,7 @@ export interface ListCopyJobsInput {
    * @public
    * <p>Returns only copy jobs that are in the specified state.</p>
    */
-  ByState?: CopyJobState | string;
+  ByState?: CopyJobState;
 
   /**
    * @public
@@ -5006,7 +5006,7 @@ export interface LegalHold {
    *          <code>ACTIVE</code>, <code>CREATING</code>, <code>CANCELED</code>, and
    *          <code>CANCELING</code>.</p>
    */
-  Status?: LegalHoldStatus | string;
+  Status?: LegalHoldStatus;
 
   /**
    * @public
@@ -5337,7 +5337,7 @@ export interface RecoveryPointByBackupVault {
    * @public
    * <p>A status code specifying the state of the recovery point.</p>
    */
-  Status?: RecoveryPointStatus | string;
+  Status?: RecoveryPointStatus;
 
   /**
    * @public
@@ -5604,7 +5604,7 @@ export interface RecoveryPointByResource {
    * @public
    * <p>A status code specifying the state of the recovery point.</p>
    */
-  Status?: RecoveryPointStatus | string;
+  Status?: RecoveryPointStatus;
 
   /**
    * @public
@@ -5831,7 +5831,7 @@ export interface ListRestoreJobsInput {
    * @public
    * <p>Returns only restore jobs associated with the specified job status.</p>
    */
-  ByStatus?: RestoreJobStatus | string;
+  ByStatus?: RestoreJobStatus;
 
   /**
    * @public
@@ -5895,7 +5895,7 @@ export interface RestoreJobsListMember {
    * <p>A status code specifying the state of the job initiated by Backup to restore
    *          a recovery point.</p>
    */
-  Status?: RestoreJobStatus | string;
+  Status?: RestoreJobStatus;
 
   /**
    * @public
@@ -6162,7 +6162,7 @@ export interface PutBackupVaultNotificationsInput {
    *             Refer to the list above for current supported events.</p>
    *          </note>
    */
-  BackupVaultEvents: (BackupVaultEvent | string)[] | undefined;
+  BackupVaultEvents: BackupVaultEvent[] | undefined;
 }
 
 /**

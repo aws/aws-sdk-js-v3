@@ -153,7 +153,7 @@ export interface GenerateDataSetRequest {
    *             </ul>
    *         </p>
    */
-  dataSetType: DataSetType | string | undefined;
+  dataSetType: DataSetType | undefined;
 
   /**
    * @public
@@ -271,7 +271,7 @@ export interface StartSupportDataExportRequest {
    *             </ul>
    *         </p>
    */
-  dataSetType: SupportDataSetType | string | undefined;
+  dataSetType: SupportDataSetType | undefined;
 
   /**
    * @public

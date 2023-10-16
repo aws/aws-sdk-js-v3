@@ -77,7 +77,7 @@ export interface CommitmentConfiguration {
    * <p>The duration of the commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year
    *             period.</p>
    */
-  commitmentLength: CommitmentLength | string | undefined;
+  commitmentLength: CommitmentLength | undefined;
 
   /**
    * @public
@@ -132,7 +132,7 @@ export interface OrderedResourceDefinition {
    * @public
    * <p>The type of network resource in the order.</p>
    */
-  type: NetworkResourceDefinitionType | string | undefined;
+  type: NetworkResourceDefinitionType | undefined;
 
   /**
    * @public
@@ -271,7 +271,7 @@ export interface Order {
    * @public
    * <p>The acknowledgement status of the order.</p>
    */
-  acknowledgmentStatus?: AcknowledgmentStatus | string;
+  acknowledgmentStatus?: AcknowledgmentStatus;
 
   /**
    * @public
@@ -405,7 +405,7 @@ export class ValidationException extends __BaseException {
    * @public
    * Reason the request failed validation.
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -508,7 +508,7 @@ export interface DeviceIdentifier {
    * @public
    * <p>The status of the device identifier.</p>
    */
-  status?: DeviceIdentifierStatus | string;
+  status?: DeviceIdentifierStatus;
 
   /**
    * @public
@@ -618,7 +618,7 @@ export interface NetworkResourceDefinition {
    * @public
    * <p>The type in the network resource definition.</p>
    */
-  type: NetworkResourceDefinitionType | string | undefined;
+  type: NetworkResourceDefinitionType | undefined;
 
   /**
    * @public
@@ -695,7 +695,7 @@ export interface NetworkSite {
    * @public
    * <p>The status of the network site.</p>
    */
-  status: NetworkSiteStatus | string | undefined;
+  status: NetworkSiteStatus | undefined;
 
   /**
    * @public
@@ -836,13 +836,13 @@ export interface Position {
    * @public
    * <p>The units used to measure the elevation of the position.</p>
    */
-  elevationUnit?: ElevationUnit | string;
+  elevationUnit?: ElevationUnit;
 
   /**
    * @public
    * <p>The reference point from which elevation is reported.</p>
    */
-  elevationReference?: ElevationReference | string;
+  elevationReference?: ElevationReference;
 }
 
 /**
@@ -994,13 +994,13 @@ export interface NetworkResource {
    * @public
    * <p>The type of the network resource.</p>
    */
-  type?: NetworkResourceType | string;
+  type?: NetworkResourceType;
 
   /**
    * @public
    * <p>The status of the network resource.</p>
    */
-  status?: NetworkResourceStatus | string;
+  status?: NetworkResourceStatus;
 
   /**
    * @public
@@ -1030,7 +1030,7 @@ export interface NetworkResource {
    * @public
    * <p>The health of the network resource.</p>
    */
-  health?: HealthStatus | string;
+  health?: HealthStatus;
 
   /**
    * @public
@@ -1173,7 +1173,7 @@ export interface Network {
    * @public
    * <p>The status of the network.</p>
    */
-  status: NetworkStatus | string | undefined;
+  status: NetworkStatus | undefined;
 
   /**
    * @public
@@ -1571,7 +1571,7 @@ export interface ListDeviceIdentifiersRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<string, string[]>;
+  filters?: Record<DeviceIdentifierFilterKeys, string[]>;
 
   /**
    * @public
@@ -1647,7 +1647,7 @@ export interface ListNetworkResourcesRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<string, string[]>;
+  filters?: Record<NetworkResourceFilterKeys, string[]>;
 
   /**
    * @public
@@ -1717,7 +1717,7 @@ export interface ListNetworksRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<string, string[]>;
+  filters?: Record<NetworkFilterKeys, string[]>;
 
   /**
    * @public
@@ -1782,7 +1782,7 @@ export interface ListNetworkSitesRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<string, string[]>;
+  filters?: Record<NetworkSiteFilterKeys, string[]>;
 
   /**
    * @public
@@ -1875,7 +1875,7 @@ export interface ListOrdersRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<string, string[]>;
+  filters?: Record<OrderFilterKeys, string[]>;
 }
 
 /**
@@ -2001,7 +2001,7 @@ export interface StartNetworkResourceUpdateRequest {
    *             </li>
    *          </ul>
    */
-  updateType: UpdateType | string | undefined;
+  updateType: UpdateType | undefined;
 
   /**
    * @public

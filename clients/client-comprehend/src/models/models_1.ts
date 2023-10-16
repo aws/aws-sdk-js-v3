@@ -29,7 +29,7 @@ export interface StopPiiEntitiesDetectionJobResponse {
    * @public
    * <p>The status of the PII entities detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -59,7 +59,7 @@ export interface StopSentimentDetectionJobResponse {
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopSentimentDetectionJob</code> operation.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -89,7 +89,7 @@ export interface StopTargetedSentimentDetectionJobResponse {
    *       <code>STOPPED</code> if the job was previously stopped with the
    *       <code>StopSentimentDetectionJob</code> operation.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**

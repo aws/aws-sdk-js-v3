@@ -1099,13 +1099,13 @@ export interface TargetHealth {
    *             <code>registering</code> > <code>unavailable</code> > <code>available</code> > <code>unavailable</code> > <code>available</code>
    *          </p>
    */
-  State?: TargetState | string;
+  State?: TargetState;
 
   /**
    * @public
    * <p>The reason for the current health <code>State</code> of the RDS Proxy target.</p>
    */
-  Reason?: TargetHealthReason | string;
+  Reason?: TargetHealthReason;
 
   /**
    * @public
@@ -1172,13 +1172,13 @@ export interface DBProxyTarget {
    * @public
    * <p>Specifies the kind of database, such as an RDS DB instance or an Aurora DB cluster, that the target represents.</p>
    */
-  Type?: TargetType | string;
+  Type?: TargetType;
 
   /**
    * @public
    * <p>A value that indicates whether the target of the proxy can be used for read/write or read-only operations.</p>
    */
-  Role?: TargetRole | string;
+  Role?: TargetRole;
 
   /**
    * @public
@@ -2056,7 +2056,7 @@ export interface DescribeEventsMessage {
    * @public
    * <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -2134,7 +2134,7 @@ export interface Event {
    * @public
    * <p>Specifies the source type for this event.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -2341,7 +2341,7 @@ export interface DescribeExportTasksMessage {
    * @public
    * <p>The type of source for the export.</p>
    */
-  SourceType?: ExportSourceType | string;
+  SourceType?: ExportSourceType;
 }
 
 /**
@@ -4367,7 +4367,7 @@ export interface ModifyActivityStreamRequest {
    * <p>The audit policy state. When a policy is unlocked, it is read/write. When it is locked, it is
    *             read-only. You can edit your audit policy only when the activity stream is unlocked or stopped.</p>
    */
-  AuditPolicyState?: AuditPolicyState | string;
+  AuditPolicyState?: AuditPolicyState;
 }
 
 /**
@@ -4390,13 +4390,13 @@ export interface ModifyActivityStreamResponse {
    * @public
    * <p>The status of the modification to the database activity stream.</p>
    */
-  Status?: ActivityStreamStatus | string;
+  Status?: ActivityStreamStatus;
 
   /**
    * @public
    * <p>The mode of the database activity stream.</p>
    */
-  Mode?: ActivityStreamMode | string;
+  Mode?: ActivityStreamMode;
 
   /**
    * @public
@@ -4408,7 +4408,7 @@ export interface ModifyActivityStreamResponse {
    * @public
    * <p>The status of the modification to the policy state of the database activity stream.</p>
    */
-  PolicyStatus?: ActivityStreamPolicyStatus | string;
+  PolicyStatus?: ActivityStreamPolicyStatus;
 }
 
 /**
@@ -4619,7 +4619,7 @@ export interface ModifyCustomDBEngineVersionMessage {
    *             <code>available</code>. To change the availability status of the CEV, it must not currently be in use by an
    *             RDS Custom instance, snapshot, or automated backup.</p>
    */
-  Status?: CustomEngineVersionStatus | string;
+  Status?: CustomEngineVersionStatus;
 }
 
 /**
@@ -6383,7 +6383,7 @@ export interface ModifyDBInstanceMessage {
    *             in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
-  ReplicaMode?: ReplicaMode | string;
+  ReplicaMode?: ReplicaMode;
 
   /**
    * @public
@@ -6413,7 +6413,7 @@ export interface ModifyDBInstanceMessage {
    *             <code>all paused</code>, the instance pauses automation for the duration set by
    *             <code>ResumeFullAutomationModeMinutes</code>.</p>
    */
-  AutomationMode?: AutomationMode | string;
+  AutomationMode?: AutomationMode;
 
   /**
    * @public
@@ -11149,7 +11149,7 @@ export interface StartActivityStreamRequest {
    *             Database events such as a change or access generate an activity stream event.
    *             The database session can handle these events either synchronously or asynchronously.</p>
    */
-  Mode: ActivityStreamMode | string | undefined;
+  Mode: ActivityStreamMode | undefined;
 
   /**
    * @public
@@ -11193,13 +11193,13 @@ export interface StartActivityStreamResponse {
    * @public
    * <p>The status of the database activity stream.</p>
    */
-  Status?: ActivityStreamStatus | string;
+  Status?: ActivityStreamStatus;
 
   /**
    * @public
    * <p>The mode of the database activity stream.</p>
    */
-  Mode?: ActivityStreamMode | string;
+  Mode?: ActivityStreamMode;
 
   /**
    * @public
@@ -11625,7 +11625,7 @@ export interface StopActivityStreamResponse {
    * @public
    * <p>The status of the database activity stream.</p>
    */
-  Status?: ActivityStreamStatus | string;
+  Status?: ActivityStreamStatus;
 }
 
 /**

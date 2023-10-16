@@ -111,7 +111,7 @@ export interface AgentInfo {
    * @public
    * <p>The health of the agent.</p>
    */
-  health?: AgentStatus | string;
+  health?: AgentStatus;
 
   /**
    * @public
@@ -305,7 +305,7 @@ export interface BatchDeleteImportDataError {
    * @public
    * <p>The type of error that occurred for a specific import task.</p>
    */
-  errorCode?: BatchDeleteImportDataErrorCode | string;
+  errorCode?: BatchDeleteImportDataErrorCode;
 
   /**
    * @public
@@ -681,7 +681,7 @@ export interface ContinuousExportDescription {
    *             </li>
    *          </ul>
    */
-  status?: ContinuousExportStatus | string;
+  status?: ContinuousExportStatus;
 
   /**
    * @public
@@ -787,7 +787,7 @@ export interface ContinuousExportDescription {
    * <p>The type of data collector used to gather this data (currently only offered for
    *       AGENT).</p>
    */
-  dataSource?: DataSource | string;
+  dataSource?: DataSource;
 
   /**
    * @public
@@ -895,7 +895,7 @@ export interface ExportInfo {
    * @public
    * <p>The status of the data export job.</p>
    */
-  exportStatus: ExportStatus | string | undefined;
+  exportStatus: ExportStatus | undefined;
 
   /**
    * @public
@@ -1081,7 +1081,7 @@ export interface ImportTaskFilter {
    * @public
    * <p>The name, status, or import task ID for a specific import task.</p>
    */
-  name?: ImportTaskFilterName | string;
+  name?: ImportTaskFilterName;
 
   /**
    * @public
@@ -1182,7 +1182,7 @@ export interface ImportTask {
    *         <code>errorsAndFailedEntriesZip</code> field, or in the Migration Hub management
    *       console.</p>
    */
-  status?: ImportStatus | string;
+  status?: ImportStatus;
 
   /**
    * @public
@@ -1336,7 +1336,7 @@ export interface ConfigurationTag {
    * @public
    * <p>A type of IT asset to tag.</p>
    */
-  configurationType?: ConfigurationItemType | string;
+  configurationType?: ConfigurationItemType;
 
   /**
    * @public
@@ -1698,7 +1698,7 @@ export interface OrderByElement {
    * @public
    * <p>Ordering direction.</p>
    */
-  sortOrder?: OrderString | string;
+  sortOrder?: OrderString;
 }
 
 /**
@@ -1709,7 +1709,7 @@ export interface ListConfigurationsRequest {
    * @public
    * <p>A valid configuration identified by Application Discovery Service. </p>
    */
-  configurationType: ConfigurationItemType | string | undefined;
+  configurationType: ConfigurationItemType | undefined;
 
   /**
    * @public
@@ -1948,7 +1948,7 @@ export interface StartContinuousExportResponse {
    * <p>The type of data collector used to gather this data (currently only offered for
    *       AGENT).</p>
    */
-  dataSource?: DataSource | string;
+  dataSource?: DataSource;
 
   /**
    * @public
@@ -2087,7 +2087,7 @@ export interface ReservedInstanceOptions {
    *       The payment plan to use for your Reserved Instance.
    *     </p>
    */
-  purchasingOption: PurchasingOption | string | undefined;
+  purchasingOption: PurchasingOption | undefined;
 
   /**
    * @public
@@ -2095,7 +2095,7 @@ export interface ReservedInstanceOptions {
    *     The flexibility to change the instance types needed for your Reserved Instance.
    *     </p>
    */
-  offeringClass: OfferingClass | string | undefined;
+  offeringClass: OfferingClass | undefined;
 
   /**
    * @public
@@ -2103,7 +2103,7 @@ export interface ReservedInstanceOptions {
    *       The preferred duration of the Reserved Instance term.
    *     </p>
    */
-  termLength: TermLength | string | undefined;
+  termLength: TermLength | undefined;
 }
 
 /**
@@ -2160,7 +2160,7 @@ export interface Ec2RecommendationsExportPreferences {
    *       The target tenancy to use for your recommended EC2 instances.
    *     </p>
    */
-  tenancy?: Tenancy | string;
+  tenancy?: Tenancy;
 
   /**
    * @public
@@ -2251,7 +2251,7 @@ export interface StartExportTaskRequest {
    *             <i>option has been deprecated.</i>
    *          </p>
    */
-  exportDataFormat?: (ExportDataFormat | string)[];
+  exportDataFormat?: ExportDataFormat[];
 
   /**
    * @public

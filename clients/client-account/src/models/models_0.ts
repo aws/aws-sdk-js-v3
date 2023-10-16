@@ -47,7 +47,7 @@ export interface DeleteAlternateContactRequest {
    * @public
    * <p>Specifies which of the alternate contacts to delete. </p>
    */
-  AlternateContactType: AlternateContactType | string | undefined;
+  AlternateContactType: AlternateContactType | undefined;
 
   /**
    * @public
@@ -182,7 +182,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason that validation failed.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -213,7 +213,7 @@ export interface GetAlternateContactRequest {
    * @public
    * <p>Specifies which alternate contact you want to retrieve.</p>
    */
-  AlternateContactType: AlternateContactType | string | undefined;
+  AlternateContactType: AlternateContactType | undefined;
 
   /**
    * @public
@@ -273,7 +273,7 @@ export interface AlternateContact {
    * @public
    * <p>The type of alternate contact.</p>
    */
-  AlternateContactType?: AlternateContactType | string;
+  AlternateContactType?: AlternateContactType;
 }
 
 /**
@@ -319,7 +319,7 @@ export interface PutAlternateContactRequest {
    * @public
    * <p>Specifies which alternate contact you want to create or update.</p>
    */
-  AlternateContactType: AlternateContactType | string | undefined;
+  AlternateContactType: AlternateContactType | undefined;
 
   /**
    * @public
@@ -662,7 +662,7 @@ export interface GetRegionOptStatusResponse {
    * <p>One of the potential statuses a Region can undergo (Enabled, Enabling, Disabled,
    *             Disabling, Enabled_By_Default).</p>
    */
-  RegionOptStatus?: RegionOptStatus | string;
+  RegionOptStatus?: RegionOptStatus;
 }
 
 /**
@@ -719,7 +719,7 @@ export interface ListRegionsRequest {
    *             value of ENABLING will only return a list of Regions with a Region status of
    *             ENABLING.</p>
    */
-  RegionOptStatusContains?: (RegionOptStatus | string)[];
+  RegionOptStatusContains?: RegionOptStatus[];
 }
 
 /**
@@ -739,7 +739,7 @@ export interface Region {
    * <p>One of potential statuses a Region can undergo (Enabled, Enabling, Disabled, Disabling,
    *             Enabled_By_Default).</p>
    */
-  RegionOptStatus?: RegionOptStatus | string;
+  RegionOptStatus?: RegionOptStatus;
 }
 
 /**

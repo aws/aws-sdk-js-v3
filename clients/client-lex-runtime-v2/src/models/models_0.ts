@@ -503,7 +503,7 @@ export interface SentimentResponse {
    *          sentiment most likely expressed by the user based on the analysis by
    *          Amazon Comprehend.</p>
    */
-  sentiment?: SentimentType | string;
+  sentiment?: SentimentType;
 
   /**
    * @public
@@ -601,7 +601,7 @@ export interface Message {
    * @public
    * <p>Indicates the type of response.</p>
    */
-  contentType: MessageContentType | string | undefined;
+  contentType: MessageContentType | undefined;
 
   /**
    * @public
@@ -1202,7 +1202,7 @@ export interface PlaybackInterruptionEvent {
    * @public
    * <p>Indicates the type of user input that Amazon Lex V2 detected.</p>
    */
-  eventReason?: PlaybackInterruptionReason | string;
+  eventReason?: PlaybackInterruptionReason;
 
   /**
    * @public
@@ -1324,7 +1324,7 @@ export interface DialogAction {
    *             </li>
    *          </ul>
    */
-  type: DialogActionType | string | undefined;
+  type: DialogActionType | undefined;
 
   /**
    * @public
@@ -1349,7 +1349,7 @@ export interface DialogAction {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-spelling.html">
    *             Using spelling to enter slot values </a>.</p>
    */
-  slotElicitationStyle?: StyleType | string;
+  slotElicitationStyle?: StyleType;
 
   /**
    * @public
@@ -1427,7 +1427,7 @@ export interface Slot {
    *          the value is <code>Scalar</code>, it indicates that the
    *             <code>value</code> field contains a single value.</p>
    */
-  shape?: Shape | string;
+  shape?: Shape;
 
   /**
    * @public
@@ -1467,14 +1467,14 @@ export interface Intent {
    * @public
    * <p>Contains fulfillment information for the intent. </p>
    */
-  state?: IntentState | string;
+  state?: IntentState;
 
   /**
    * @public
    * <p>Contains information about whether fulfillment of the intent has
    *          been confirmed.</p>
    */
-  confirmationState?: ConfirmationState | string;
+  confirmationState?: ConfirmationState;
 }
 
 /**
@@ -1986,7 +1986,7 @@ export interface StartConversationRequest {
    *          DTMF information. If the mode is <code>TEXT</code> you can only send
    *          text.</p>
    */
-  conversationMode?: ConversationMode | string;
+  conversationMode?: ConversationMode;
 
   /**
    * @public
@@ -2047,7 +2047,7 @@ export interface IntentResultEvent {
    * <p>Indicates whether the input to the operation was text or
    *          speech.</p>
    */
-  inputMode?: InputMode | string;
+  inputMode?: InputMode;
 
   /**
    * @public

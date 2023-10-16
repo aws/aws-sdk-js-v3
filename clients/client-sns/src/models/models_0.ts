@@ -382,7 +382,7 @@ export interface CreateSMSSandboxPhoneNumberInput {
    * <p>The language to use for sending the OTP. The default value is
    *             <code>en-US</code>.</p>
    */
-  LanguageCode?: LanguageCodeString | string;
+  LanguageCode?: LanguageCodeString;
 }
 
 /**
@@ -1349,13 +1349,13 @@ export interface PhoneNumberInformation {
    * @public
    * <p>The list of supported routes.</p>
    */
-  RouteType?: RouteType | string;
+  RouteType?: RouteType;
 
   /**
    * @public
    * <p>The capabilities of each phone number.</p>
    */
-  NumberCapabilities?: (NumberCapability | string)[];
+  NumberCapabilities?: NumberCapability[];
 }
 
 /**
@@ -1540,7 +1540,7 @@ export interface SMSSandboxPhoneNumber {
    * @public
    * <p>The destination phone number's verification status.</p>
    */
-  Status?: SMSSandboxPhoneNumberVerificationStatus | string;
+  Status?: SMSSandboxPhoneNumberVerificationStatus;
 }
 
 /**

@@ -6411,7 +6411,7 @@ const se_JobManifest = (input: JobManifest, context: __SerdeContext): any => {
 /**
  * serializeAws_restXmlJobManifestFieldList
  */
-const se_JobManifestFieldList = (input: (JobManifestFieldName | string)[], context: __SerdeContext): any => {
+const se_JobManifestFieldList = (input: JobManifestFieldName[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6853,10 +6853,7 @@ const se_NoncurrentVersionTransitionList = (input: NoncurrentVersionTransition[]
 /**
  * serializeAws_restXmlObjectLambdaAllowedFeaturesList
  */
-const se_ObjectLambdaAllowedFeaturesList = (
-  input: (ObjectLambdaAllowedFeature | string)[],
-  context: __SerdeContext
-): any => {
+const se_ObjectLambdaAllowedFeaturesList = (input: ObjectLambdaAllowedFeature[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6951,7 +6948,7 @@ const se_ObjectLambdaTransformationConfiguration = (
  * serializeAws_restXmlObjectLambdaTransformationConfigurationActionsList
  */
 const se_ObjectLambdaTransformationConfigurationActionsList = (
-  input: (ObjectLambdaTransformationConfigurationAction | string)[],
+  input: ObjectLambdaTransformationConfigurationAction[],
   context: __SerdeContext
 ): any => {
   return input
@@ -7225,7 +7222,7 @@ const se_ReplicationRules = (input: ReplicationRule[], context: __SerdeContext):
 /**
  * serializeAws_restXmlReplicationStatusFilterList
  */
-const se_ReplicationStatusFilterList = (input: (ReplicationStatus | string)[], context: __SerdeContext): any => {
+const se_ReplicationStatusFilterList = (input: ReplicationStatus[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7771,13 +7768,13 @@ const se_S3TagSet = (input: S3Tag[], context: __SerdeContext): any => {
  */
 const se_S3UserMetadata = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
       const keyNode = __XmlNode.of("NonEmptyMaxLength1024String", key).withName("key");
       entryNode.addChildNode(keyNode);
       let node;
-      node = __XmlNode.of("MaxLength1024String", input[key]);
+      node = __XmlNode.of("MaxLength1024String", input[key as keyof typeof input]);
       entryNode.addChildNode(node.withName("value"));
       return entryNode;
     });
@@ -8682,7 +8679,7 @@ const de_JobManifest = (output: any, context: __SerdeContext): JobManifest => {
 /**
  * deserializeAws_restXmlJobManifestFieldList
  */
-const de_JobManifestFieldList = (output: any, context: __SerdeContext): (JobManifestFieldName | string)[] => {
+const de_JobManifestFieldList = (output: any, context: __SerdeContext): JobManifestFieldName[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -9228,10 +9225,7 @@ const de_ObjectLambdaAccessPointList = (output: any, context: __SerdeContext): O
 /**
  * deserializeAws_restXmlObjectLambdaAllowedFeaturesList
  */
-const de_ObjectLambdaAllowedFeaturesList = (
-  output: any,
-  context: __SerdeContext
-): (ObjectLambdaAllowedFeature | string)[] => {
+const de_ObjectLambdaAllowedFeaturesList = (output: any, context: __SerdeContext): ObjectLambdaAllowedFeature[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -9320,7 +9314,7 @@ const de_ObjectLambdaTransformationConfiguration = (
 const de_ObjectLambdaTransformationConfigurationActionsList = (
   output: any,
   context: __SerdeContext
-): (ObjectLambdaTransformationConfigurationAction | string)[] => {
+): ObjectLambdaTransformationConfigurationAction[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -9639,7 +9633,7 @@ const de_ReplicationRules = (output: any, context: __SerdeContext): ReplicationR
 /**
  * deserializeAws_restXmlReplicationStatusFilterList
  */
-const de_ReplicationStatusFilterList = (output: any, context: __SerdeContext): (ReplicationStatus | string)[] => {
+const de_ReplicationStatusFilterList = (output: any, context: __SerdeContext): ReplicationStatus[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -38,7 +38,7 @@ export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -176,7 +176,7 @@ export interface PhoneNumberError {
    * @public
    * <p>The error code.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -204,7 +204,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorResponse {
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -228,7 +228,7 @@ export class BadRequestException extends __BaseException {
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -252,7 +252,7 @@ export class ForbiddenException extends __BaseException {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -276,7 +276,7 @@ export class NotFoundException extends __BaseException {
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -300,7 +300,7 @@ export class ServiceFailureException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -324,7 +324,7 @@ export class ServiceUnavailableException extends __BaseException {
 export class ThrottledClientException extends __BaseException {
   readonly name: "ThrottledClientException" = "ThrottledClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -348,7 +348,7 @@ export class ThrottledClientException extends __BaseException {
 export class UnauthorizedClientException extends __BaseException {
   readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -452,7 +452,7 @@ export interface UpdatePhoneNumberRequestItem {
    * @public
    * <p>The product type to update.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: PhoneNumberProductType;
 
   /**
    * @public
@@ -613,7 +613,7 @@ export interface CreatePhoneNumberOrderRequest {
    * @public
    * <p>The phone number product type.</p>
    */
-  ProductType: PhoneNumberProductType | string | undefined;
+  ProductType: PhoneNumberProductType | undefined;
 
   /**
    * @public
@@ -658,7 +658,7 @@ export interface OrderedPhoneNumber {
    * @public
    * <p>The phone number status.</p>
    */
-  Status?: OrderedPhoneNumberStatus | string;
+  Status?: OrderedPhoneNumberStatus;
 }
 
 /**
@@ -713,19 +713,19 @@ export interface PhoneNumberOrder {
    * @public
    * <p>The phone number order product type.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: PhoneNumberProductType;
 
   /**
    * @public
    * <p>The status of the phone number order.</p>
    */
-  Status?: PhoneNumberOrderStatus | string;
+  Status?: PhoneNumberOrderStatus;
 
   /**
    * @public
    * <p>The type of phone number being ordered, local or toll-free.</p>
    */
-  OrderType?: PhoneNumberOrderType | string;
+  OrderType?: PhoneNumberOrderType;
 
   /**
    * @public
@@ -765,7 +765,7 @@ export interface CreatePhoneNumberOrderResponse {
 export class ResourceLimitExceededException extends __BaseException {
   readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -860,20 +860,20 @@ export interface CreateProxySessionRequest {
    * @public
    * <p>The proxy session's capabilities.</p>
    */
-  Capabilities: (Capability | string)[] | undefined;
+  Capabilities: Capability[] | undefined;
 
   /**
    * @public
    * <p>The preference for proxy phone number reuse, or stickiness, between the same
    *             participants across sessions.</p>
    */
-  NumberSelectionBehavior?: NumberSelectionBehavior | string;
+  NumberSelectionBehavior?: NumberSelectionBehavior;
 
   /**
    * @public
    * <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
    */
-  GeoMatchLevel?: GeoMatchLevel | string;
+  GeoMatchLevel?: GeoMatchLevel;
 
   /**
    * @public
@@ -942,7 +942,7 @@ export interface ProxySession {
    * @public
    * <p>The proxy session status.</p>
    */
-  Status?: ProxySessionStatus | string;
+  Status?: ProxySessionStatus;
 
   /**
    * @public
@@ -954,7 +954,7 @@ export interface ProxySession {
    * @public
    * <p>The proxy session capabilities.</p>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: Capability[];
 
   /**
    * @public
@@ -984,13 +984,13 @@ export interface ProxySession {
    * @public
    * <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
    */
-  NumberSelectionBehavior?: NumberSelectionBehavior | string;
+  NumberSelectionBehavior?: NumberSelectionBehavior;
 
   /**
    * @public
    * <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
    */
-  GeoMatchLevel?: GeoMatchLevel | string;
+  GeoMatchLevel?: GeoMatchLevel;
 
   /**
    * @public
@@ -1017,7 +1017,7 @@ export interface CreateProxySessionResponse {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -1270,7 +1270,7 @@ export interface CreateSipRuleRequest {
    * <p>The type of trigger assigned to the SIP rule in <code>TriggerValue</code>,
    *          currently <code>RequestUriHostname</code> or <code>ToPhoneNumber</code>.</p>
    */
-  TriggerType: SipRuleTriggerType | string | undefined;
+  TriggerType: SipRuleTriggerType | undefined;
 
   /**
    * @public
@@ -1328,7 +1328,7 @@ export interface SipRule {
    * @public
    * <p>The type of trigger set for a SIP rule, either a phone number or a URI request host name.</p>
    */
-  TriggerType?: SipRuleTriggerType | string;
+  TriggerType?: SipRuleTriggerType;
 
   /**
    * @public
@@ -1404,7 +1404,7 @@ export interface CreateVoiceConnectorRequest {
    * <p>The AWS Region in which the Amazon Chime SDK Voice Connector is created. Default value:
    *          <code>us-east-1</code> .</p>
    */
-  AwsRegion?: VoiceConnectorAwsRegion | string;
+  AwsRegion?: VoiceConnectorAwsRegion;
 
   /**
    * @public
@@ -1436,7 +1436,7 @@ export interface VoiceConnector {
    * <p>The AWS Region in which the Voice Connector is created.
    *          Default: us-east-1.</p>
    */
-  AwsRegion?: VoiceConnectorAwsRegion | string;
+  AwsRegion?: VoiceConnectorAwsRegion;
 
   /**
    * @public
@@ -1653,7 +1653,7 @@ export interface CreateVoiceProfileResponse {
 export class GoneException extends __BaseException {
   readonly name: "GoneException" = "GoneException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -2071,7 +2071,7 @@ export interface PhoneNumberAssociation {
    * @public
    * <p>Defines the association with an Amazon Chime SDK account ID, user ID, Voice Connector ID, or Voice Connector group ID.</p>
    */
-  Name?: PhoneNumberAssociationName | string;
+  Name?: PhoneNumberAssociationName;
 
   /**
    * @public
@@ -2188,19 +2188,19 @@ export interface PhoneNumber {
    * @public
    * <p>The phone number's type.</p>
    */
-  Type?: PhoneNumberType | string;
+  Type?: PhoneNumberType;
 
   /**
    * @public
    * <p>The phone number's product type.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: PhoneNumberProductType;
 
   /**
    * @public
    * <p>The phone number's status.</p>
    */
-  Status?: PhoneNumberStatus | string;
+  Status?: PhoneNumberStatus;
 
   /**
    * @public
@@ -2224,7 +2224,7 @@ export interface PhoneNumber {
    * @public
    * <p>The outbound calling name status.</p>
    */
-  CallingNameStatus?: CallingNameStatus | string;
+  CallingNameStatus?: CallingNameStatus;
 
   /**
    * @public
@@ -2377,7 +2377,7 @@ export interface SipMediaApplicationAlexaSkillConfiguration {
    * @public
    * <p>The status of the Alexa Skill configuration.</p>
    */
-  AlexaSkillStatus: AlexaSkillStatus | string | undefined;
+  AlexaSkillStatus: AlexaSkillStatus | undefined;
 
   /**
    * @public
@@ -2772,7 +2772,7 @@ export interface OriginationRoute {
    * <p>The protocol to use for the origination route. Encryption-enabled Amazon Chime SDK Voice Connectors use
    *          TCP protocol by default.</p>
    */
-  Protocol?: OriginationRouteProtocol | string;
+  Protocol?: OriginationRouteProtocol;
 
   /**
    * @public
@@ -2933,7 +2933,7 @@ export interface StreamingNotificationTarget {
    * @public
    * <p>The streaming notification target.</p>
    */
-  NotificationTarget?: NotificationTarget | string;
+  NotificationTarget?: NotificationTarget;
 }
 
 /**
@@ -3212,7 +3212,7 @@ export interface ListAvailableVoiceConnectorRegionsResponse {
    * @public
    * <p>The list of AWS Regions.</p>
    */
-  VoiceConnectorRegions?: (VoiceConnectorAwsRegion | string)[];
+  VoiceConnectorRegions?: VoiceConnectorAwsRegion[];
 }
 
 /**
@@ -3263,13 +3263,13 @@ export interface ListPhoneNumbersRequest {
    * @public
    * <p>The phone number product types.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: PhoneNumberProductType;
 
   /**
    * @public
    * <p>The filter to limit the number of results.</p>
    */
-  FilterName?: PhoneNumberAssociationName | string;
+  FilterName?: PhoneNumberAssociationName;
 
   /**
    * @public
@@ -3321,7 +3321,7 @@ export interface ListProxySessionsRequest {
    * @public
    * <p>The proxy session status.</p>
    */
-  Status?: ProxySessionStatus | string;
+  Status?: ProxySessionStatus;
 
   /**
    * @public
@@ -3435,7 +3435,7 @@ export interface ListSupportedPhoneNumberCountriesRequest {
    * @public
    * <p>The phone number product type.</p>
    */
-  ProductType: PhoneNumberProductType | string | undefined;
+  ProductType: PhoneNumberProductType | undefined;
 }
 
 /**
@@ -3453,7 +3453,7 @@ export interface PhoneNumberCountry {
    * @public
    * <p>The supported phone number types.</p>
    */
-  SupportedPhoneNumberTypes?: (PhoneNumberType | string)[];
+  SupportedPhoneNumberTypes?: PhoneNumberType[];
 }
 
 /**
@@ -4075,7 +4075,7 @@ export interface SearchAvailablePhoneNumbersRequest {
    * @public
    * <p>Confines a search to just the phone numbers associated with the specified phone number type, either <b>local</b> or <b>toll-free</b>.</p>
    */
-  PhoneNumberType?: PhoneNumberType | string;
+  PhoneNumberType?: PhoneNumberType;
 
   /**
    * @public
@@ -4139,7 +4139,7 @@ export interface StartSpeakerSearchTaskRequest {
    * @public
    * <p>Specifies which call leg to stream for speaker search.</p>
    */
-  CallLeg?: CallLegType | string;
+  CallLeg?: CallLegType;
 }
 
 /**
@@ -4160,7 +4160,7 @@ export interface StartSpeakerSearchTaskResponse {
 export class UnprocessableEntityException extends __BaseException {
   readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -4210,7 +4210,7 @@ export interface StartVoiceToneAnalysisTaskRequest {
    * @public
    * <p>The language code.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -4324,7 +4324,7 @@ export interface UpdatePhoneNumberRequest {
    * @public
    * <p>The product type.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: PhoneNumberProductType;
 
   /**
    * @public
@@ -4381,7 +4381,7 @@ export interface UpdateProxySessionRequest {
    * @public
    * <p>The proxy session capabilities.</p>
    */
-  Capabilities: (Capability | string)[] | undefined;
+  Capabilities: Capability[] | undefined;
 
   /**
    * @public

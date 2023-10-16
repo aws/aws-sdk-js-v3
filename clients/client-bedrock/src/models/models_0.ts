@@ -511,13 +511,13 @@ export interface FoundationModelDetails {
    * @public
    * <p>The input modalities that the model supports.</p>
    */
-  inputModalities?: (ModelModality | string)[];
+  inputModalities?: ModelModality[];
 
   /**
    * @public
    * <p>The output modalities that the model supports.</p>
    */
-  outputModalities?: (ModelModality | string)[];
+  outputModalities?: ModelModality[];
 
   /**
    * @public
@@ -529,13 +529,13 @@ export interface FoundationModelDetails {
    * @public
    * <p>The customization that the model supports.</p>
    */
-  customizationsSupported?: (ModelCustomization | string)[];
+  customizationsSupported?: ModelCustomization[];
 
   /**
    * @public
    * <p>The inference types that the model supports.</p>
    */
-  inferenceTypesSupported?: (InferenceType | string)[];
+  inferenceTypesSupported?: InferenceType[];
 }
 
 /**
@@ -626,13 +626,13 @@ export interface ListCustomModelsRequest {
    * @public
    * <p>The field to sort by in the returned list of models.</p>
    */
-  sortBy?: SortModelsBy | string;
+  sortBy?: SortModelsBy;
 
   /**
    * @public
    * <p>The sort order of the results.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 }
 
 /**
@@ -702,19 +702,19 @@ export interface ListFoundationModelsRequest {
    * @public
    * <p>List by customization type.</p>
    */
-  byCustomizationType?: ModelCustomization | string;
+  byCustomizationType?: ModelCustomization;
 
   /**
    * @public
    * <p>List by output modality type.</p>
    */
-  byOutputModality?: ModelModality | string;
+  byOutputModality?: ModelModality;
 
   /**
    * @public
    * <p>List by inference type.</p>
    */
-  byInferenceType?: InferenceType | string;
+  byInferenceType?: InferenceType;
 }
 
 /**
@@ -750,13 +750,13 @@ export interface FoundationModelSummary {
    * @public
    * <p>The input modalities that the model supports.</p>
    */
-  inputModalities?: (ModelModality | string)[];
+  inputModalities?: ModelModality[];
 
   /**
    * @public
    * <p>The output modalities that the model supports.</p>
    */
-  outputModalities?: (ModelModality | string)[];
+  outputModalities?: ModelModality[];
 
   /**
    * @public
@@ -768,13 +768,13 @@ export interface FoundationModelSummary {
    * @public
    * <p>Whether the model supports fine-tuning or continual pre-training.</p>
    */
-  customizationsSupported?: (ModelCustomization | string)[];
+  customizationsSupported?: ModelCustomization[];
 
   /**
    * @public
    * <p>The inference types that the model supports.</p>
    */
-  inferenceTypesSupported?: (InferenceType | string)[];
+  inferenceTypesSupported?: InferenceType[];
 }
 
 /**
@@ -853,7 +853,7 @@ export interface CreateProvisionedModelThroughputRequest {
    * @public
    * <p>Commitment duration requested for the provisioned throughput.</p>
    */
-  commitmentDuration?: CommitmentDuration | string;
+  commitmentDuration?: CommitmentDuration;
 
   /**
    * @public
@@ -1014,7 +1014,7 @@ export interface GetProvisionedModelThroughputResponse {
    * @public
    * <p>Status of the provisioned throughput. </p>
    */
-  status: ProvisionedModelStatus | string | undefined;
+  status: ProvisionedModelStatus | undefined;
 
   /**
    * @public
@@ -1038,7 +1038,7 @@ export interface GetProvisionedModelThroughputResponse {
    * @public
    * <p>Commitment duration of the provisioned throughput.</p>
    */
-  commitmentDuration?: CommitmentDuration | string;
+  commitmentDuration?: CommitmentDuration;
 
   /**
    * @public
@@ -1080,7 +1080,7 @@ export interface ListProvisionedModelThroughputsRequest {
    * @public
    * <p>Return the list of provisioned capacities that match the specified status.</p>
    */
-  statusEquals?: ProvisionedModelStatus | string;
+  statusEquals?: ProvisionedModelStatus;
 
   /**
    * @public
@@ -1110,13 +1110,13 @@ export interface ListProvisionedModelThroughputsRequest {
    * @public
    * <p>The field to sort by in the returned list of provisioned capacities.</p>
    */
-  sortBy?: SortByProvisionedModels | string;
+  sortBy?: SortByProvisionedModels;
 
   /**
    * @public
    * <p>The sort order of the results.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 }
 
 /**
@@ -1170,13 +1170,13 @@ export interface ProvisionedModelSummary {
    * @public
    * <p>Status of the provisioned throughput.</p>
    */
-  status: ProvisionedModelStatus | string | undefined;
+  status: ProvisionedModelStatus | undefined;
 
   /**
    * @public
    * <p>Commitment duration for the provisioned throughput.</p>
    */
-  commitmentDuration?: CommitmentDuration | string;
+  commitmentDuration?: CommitmentDuration;
 
   /**
    * @public
@@ -1498,7 +1498,7 @@ export interface GetModelCustomizationJobResponse {
    * <p>The status of the job. A successful job transitions from in-progress to completed when the output model is ready to use.
    *             If the job failed, the failure message contains information about why the job failed.</p>
    */
-  status?: ModelCustomizationJobStatus | string;
+  status?: ModelCustomizationJobStatus;
 
   /**
    * @public
@@ -1629,7 +1629,7 @@ export interface ListModelCustomizationJobsRequest {
    * @public
    * <p>Return customization jobs with the specified status. </p>
    */
-  statusEquals?: FineTuningJobStatus | string;
+  statusEquals?: FineTuningJobStatus;
 
   /**
    * @public
@@ -1653,13 +1653,13 @@ export interface ListModelCustomizationJobsRequest {
    * @public
    * <p>The field to sort by in the returned list of jobs.</p>
    */
-  sortBy?: SortJobsBy | string;
+  sortBy?: SortJobsBy;
 
   /**
    * @public
    * <p>The sort order of the results.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 }
 
 /**
@@ -1689,7 +1689,7 @@ export interface ModelCustomizationJobSummary {
    * @public
    * <p>Status of the customization job. </p>
    */
-  status: ModelCustomizationJobStatus | string | undefined;
+  status: ModelCustomizationJobStatus | undefined;
 
   /**
    * @public

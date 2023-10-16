@@ -245,7 +245,7 @@ export interface AggregateStatus {
    * @public
    * <p>Aggregate status.</p>
    */
-  status: AgentStatus | string | undefined;
+  status: AgentStatus | undefined;
 
   /**
    * @public
@@ -275,7 +275,7 @@ export interface ComponentStatusData {
    * @public
    * <p>Component status.</p>
    */
-  status: AgentStatus | string | undefined;
+  status: AgentStatus | undefined;
 
   /**
    * @public
@@ -409,7 +409,7 @@ export interface FrequencyBandwidth {
    * @public
    * <p>Frequency bandwidth units.</p>
    */
-  units: BandwidthUnits | string | undefined;
+  units: BandwidthUnits | undefined;
 }
 
 /**
@@ -442,7 +442,7 @@ export interface Frequency {
    * @public
    * <p>Frequency units.</p>
    */
-  units: FrequencyUnits | string | undefined;
+  units: FrequencyUnits | undefined;
 }
 
 /**
@@ -492,7 +492,7 @@ export interface SpectrumConfig {
    * @public
    * <p>Polarization of a spectral <code>Config</code>. Capturing both <code>"RIGHT_HAND"</code> and <code>"LEFT_HAND"</code> polarization requires two separate configs.</p>
    */
-  polarization?: Polarization | string;
+  polarization?: Polarization;
 }
 
 /**
@@ -571,7 +571,7 @@ export interface UplinkSpectrumConfig {
    * @public
    * <p>Polarization of an uplink spectral <code>Config</code>. Capturing both <code>"RIGHT_HAND"</code> and <code>"LEFT_HAND"</code> polarization requires two separate configs.</p>
    */
-  polarization?: Polarization | string;
+  polarization?: Polarization;
 }
 
 /**
@@ -602,7 +602,7 @@ export interface Eirp {
    * @public
    * <p>Units of an EIRP.</p>
    */
-  units: EirpUnits | string | undefined;
+  units: EirpUnits | undefined;
 }
 
 /**
@@ -760,13 +760,13 @@ export interface AwsGroundStationAgentEndpoint {
    * @public
    * <p>The status of AgentEndpoint.</p>
    */
-  agentStatus?: AgentStatus | string;
+  agentStatus?: AgentStatus;
 
   /**
    * @public
    * <p>The results of the audit.</p>
    */
-  auditResults?: AuditResults | string;
+  auditResults?: AuditResults;
 }
 
 /**
@@ -860,7 +860,7 @@ export interface ConfigIdResponse {
    * @public
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType?: ConfigCapabilityType | string;
+  configType?: ConfigCapabilityType;
 
   /**
    * @public
@@ -936,7 +936,7 @@ export interface TrackingConfig {
    * @public
    * <p>Current setting for autotrack.</p>
    */
-  autotrack: Criticality | string | undefined;
+  autotrack: Criticality | undefined;
 }
 
 /**
@@ -1189,7 +1189,7 @@ export interface DeleteConfigRequest {
    * @public
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType: ConfigCapabilityType | string | undefined;
+  configType: ConfigCapabilityType | undefined;
 }
 
 /**
@@ -1207,7 +1207,7 @@ export interface GetConfigRequest {
    * @public
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType: ConfigCapabilityType | string | undefined;
+  configType: ConfigCapabilityType | undefined;
 }
 
 /**
@@ -1238,7 +1238,7 @@ export interface GetConfigResponse {
    * @public
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType?: ConfigCapabilityType | string;
+  configType?: ConfigCapabilityType;
 
   /**
    * @public
@@ -1286,7 +1286,7 @@ export interface ConfigListItem {
    * @public
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType?: ConfigCapabilityType | string;
+  configType?: ConfigCapabilityType;
 
   /**
    * @public
@@ -1340,7 +1340,7 @@ export interface UpdateConfigRequest {
    * @public
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType: ConfigCapabilityType | string | undefined;
+  configType: ConfigCapabilityType | undefined;
 
   /**
    * @public
@@ -1387,7 +1387,7 @@ export interface DataflowEndpoint {
    * @public
    * <p>Status of a dataflow endpoint.</p>
    */
-  status?: EndpointStatus | string;
+  status?: EndpointStatus;
 
   /**
    * @public
@@ -1447,13 +1447,13 @@ export interface EndpointDetails {
    * @public
    * <p>A dataflow endpoint health status. This field is ignored when calling <code>CreateDataflowEndpointGroup</code>.</p>
    */
-  healthStatus?: CapabilityHealth | string;
+  healthStatus?: CapabilityHealth;
 
   /**
    * @public
    * <p>Health reasons for a dataflow endpoint. This field is ignored when calling <code>CreateDataflowEndpointGroup</code>.</p>
    */
-  healthReasons?: (CapabilityHealthReason | string)[];
+  healthReasons?: CapabilityHealthReason[];
 }
 
 /**
@@ -1593,7 +1593,7 @@ export interface Destination {
    * @public
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType?: ConfigCapabilityType | string;
+  configType?: ConfigCapabilityType;
 
   /**
    * @public
@@ -1623,7 +1623,7 @@ export interface Source {
    * @public
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType?: ConfigCapabilityType | string;
+  configType?: ConfigCapabilityType;
 
   /**
    * @public
@@ -1684,7 +1684,7 @@ export interface Elevation {
    * @public
    * <p>Elevation angle units.</p>
    */
-  unit: AngleUnits | string | undefined;
+  unit: AngleUnits | undefined;
 }
 
 /**
@@ -1744,7 +1744,7 @@ export interface DescribeContactResponse {
    * @public
    * <p>Status of a contact.</p>
    */
-  contactStatus?: ContactStatus | string;
+  contactStatus?: ContactStatus;
 
   /**
    * @public
@@ -1798,7 +1798,7 @@ export interface ListContactsRequest {
    * @public
    * <p>Status of a contact reservation.</p>
    */
-  statusList: (ContactStatus | string)[] | undefined;
+  statusList: ContactStatus[] | undefined;
 
   /**
    * @public
@@ -1888,7 +1888,7 @@ export interface ContactData {
    * @public
    * <p>Status of a contact.</p>
    */
-  contactStatus?: ContactStatus | string;
+  contactStatus?: ContactStatus;
 
   /**
    * @public
@@ -2661,7 +2661,7 @@ export interface DescribeEphemerisResponse {
    * @public
    * <p>The status of the ephemeris.</p>
    */
-  status?: EphemerisStatus | string;
+  status?: EphemerisStatus;
 
   /**
    * @public
@@ -2705,7 +2705,7 @@ export interface DescribeEphemerisResponse {
    * @public
    * <p>Reason that an ephemeris failed validation. Only provided for ephemerides with <code>INVALID</code> status.</p>
    */
-  invalidReason?: EphemerisInvalidReason | string;
+  invalidReason?: EphemerisInvalidReason;
 }
 
 /**
@@ -2723,7 +2723,7 @@ export interface EphemerisItem {
    * @public
    * <p>The status of the ephemeris.</p>
    */
-  status?: EphemerisStatus | string;
+  status?: EphemerisStatus;
 
   /**
    * @public
@@ -2784,7 +2784,7 @@ export interface ListEphemeridesRequest {
    * @public
    * <p>The list of ephemeris status to return.</p>
    */
-  statusList?: (EphemerisStatus | string)[];
+  statusList?: EphemerisStatus[];
 
   /**
    * @public
@@ -2870,7 +2870,7 @@ export interface EphemerisMetaData {
    * @public
    * <p>The <code>EphemerisSource</code> that generated a given ephemeris.</p>
    */
-  source: EphemerisSource | string | undefined;
+  source: EphemerisSource | undefined;
 
   /**
    * @public

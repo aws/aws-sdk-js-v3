@@ -56,7 +56,7 @@ export interface Channel {
    * @public
    * <p>List of publishers for different type of events that may be detected in an application from the profile. Anomaly detection is the only event publisher in Profiler.</p>
    */
-  eventPublishers: (EventPublisher | string)[] | undefined;
+  eventPublishers: EventPublisher[] | undefined;
 }
 
 /**
@@ -338,7 +338,7 @@ export interface AgentConfiguration {
    *             </li>
    *          </ul>
    */
-  agentParameters?: Record<string, string>;
+  agentParameters?: Record<AgentParameterField, string>;
 }
 
 /**
@@ -436,7 +436,7 @@ export interface AggregatedProfileTime {
    *             </li>
    *          </ul>
    */
-  period?: AggregationPeriod | string;
+  period?: AggregationPeriod;
 }
 
 /**
@@ -470,7 +470,7 @@ export interface UserFeedback {
    * <p>Optional <code>Positive</code> or <code>Negative</code> feedback submitted by
    *             the user about whether the recommendation is useful or not.</p>
    */
-  type: FeedbackType | string | undefined;
+  type: FeedbackType | undefined;
 }
 
 /**
@@ -557,7 +557,7 @@ export interface Metric {
    *             aggregation of the metric value for one frame that is calculated across the
    *             occurences of all frames in a profile.</p>
    */
-  type: MetricType | string | undefined;
+  type: MetricType | undefined;
 
   /**
    * @public
@@ -622,7 +622,7 @@ export interface FrameMetric {
    *          supported value <code>AggregatedRelativeTotalTime</code> is an aggregation of the metric
    *          value for one frame that is calculated across the occurrences of all frames in a profile. </p>
    */
-  type: MetricType | string | undefined;
+  type: MetricType | undefined;
 
   /**
    * @public
@@ -702,7 +702,7 @@ export interface BatchGetFrameMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  targetResolution?: AggregationPeriod | string;
+  targetResolution?: AggregationPeriod;
 
   /**
    * @public
@@ -808,7 +808,7 @@ export interface BatchGetFrameMetricDataResponse {
    *             </li>
    *          </ul>
    */
-  resolution: AggregationPeriod | string | undefined;
+  resolution: AggregationPeriod | undefined;
 
   /**
    * @public
@@ -1093,7 +1093,7 @@ export interface ConfigureAgentRequest {
    *             </li>
    *          </ul>
    */
-  metadata?: Record<string, string>;
+  metadata?: Record<MetadataField, string>;
 }
 
 /**
@@ -1153,7 +1153,7 @@ export interface CreateProfilingGroupRequest {
    *          If not specified, <code>Default</code> is used.
    *       </p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
 
   /**
    * @public
@@ -1287,7 +1287,7 @@ export interface ProfilingGroupDescription {
    *          an on-premises server, or a different platform. The default is <code>Default</code>.
    *       </p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
 
   /**
    * @public
@@ -1969,7 +1969,7 @@ export interface ListProfileTimesRequest {
    *             </li>
    *          </ul>
    */
-  period: AggregationPeriod | string | undefined;
+  period: AggregationPeriod | undefined;
 
   /**
    * @public
@@ -1977,7 +1977,7 @@ export interface ListProfileTimesRequest {
    *         use when listing profiles. Defaults to <code>TIMESTAMP_DESCENDING</code>.
    *       </p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: OrderBy;
 
   /**
    * @public
@@ -2214,7 +2214,7 @@ export interface PutPermissionRequest {
    *             and <code>PostAgentProfile</code> permissions.
    *         </p>
    */
-  actionGroup: ActionGroup | string | undefined;
+  actionGroup: ActionGroup | undefined;
 
   /**
    * @public
@@ -2311,7 +2311,7 @@ export interface RemovePermissionRequest {
    *             grants <code>ConfigureAgent</code> and <code>PostAgentProfile</code> permissions.
    *         </p>
    */
-  actionGroup: ActionGroup | string | undefined;
+  actionGroup: ActionGroup | undefined;
 
   /**
    * @public
@@ -2373,7 +2373,7 @@ export interface SubmitFeedbackRequest {
    *             The feedback tpye. Thee are two valid values, <code>Positive</code> and <code>Negative</code>.
    *         </p>
    */
-  type: FeedbackType | string | undefined;
+  type: FeedbackType | undefined;
 
   /**
    * @public

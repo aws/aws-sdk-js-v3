@@ -274,7 +274,7 @@ export interface BuildArtifacts {
    *             </dd>
    *          </dl>
    */
-  bucketOwnerAccess?: BucketOwnerAccess | string;
+  bucketOwnerAccess?: BucketOwnerAccess;
 }
 
 /**
@@ -359,7 +359,7 @@ export interface ProjectBuildBatchConfig {
    *             </dd>
    *          </dl>
    */
-  batchReportMode?: BatchReportModeType | string;
+  batchReportMode?: BatchReportModeType;
 }
 
 /**
@@ -390,7 +390,7 @@ export interface ResolvedArtifact {
    * @public
    * <p>Specifies the type of artifact.</p>
    */
-  type?: ArtifactsType | string;
+  type?: ArtifactsType;
 
   /**
    * @public
@@ -452,7 +452,7 @@ export interface BuildSummary {
    *             </dd>
    *          </dl>
    */
-  buildStatus?: StatusType | string;
+  buildStatus?: StatusType;
 
   /**
    * @public
@@ -564,7 +564,7 @@ export interface ProjectCache {
    *             </li>
    *          </ul>
    */
-  type: CacheType | string | undefined;
+  type: CacheType | undefined;
 
   /**
    * @public
@@ -643,7 +643,7 @@ export interface ProjectCache {
    *             </dd>
    *          </dl>
    */
-  modes?: (CacheMode | string)[];
+  modes?: CacheMode[];
 }
 
 /**
@@ -726,7 +726,7 @@ export interface EnvironmentVariable {
    *             </li>
    *          </ul>
    */
-  type?: EnvironmentVariableType | string;
+  type?: EnvironmentVariableType;
 }
 
 /**
@@ -789,7 +789,7 @@ export interface RegistryCredential {
    * <p> The service that created the credentials to access a private Docker registry. The
    *             valid value, SECRETS_MANAGER, is for Secrets Manager. </p>
    */
-  credentialProvider: CredentialProviderType | string | undefined;
+  credentialProvider: CredentialProviderType | undefined;
 }
 
 /**
@@ -853,7 +853,7 @@ export interface ProjectEnvironment {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build environment compute types</a> in the <i>CodeBuild
    *                 user guide</i>.</p>
    */
-  type: EnvironmentType | string | undefined;
+  type: EnvironmentType | undefined;
 
   /**
    * @public
@@ -923,7 +923,7 @@ export interface ProjectEnvironment {
    *                 Compute Types</a> in the <i>CodeBuild User Guide.</i>
    *          </p>
    */
-  computeType: ComputeType | string | undefined;
+  computeType: ComputeType | undefined;
 
   /**
    * @public
@@ -992,7 +992,7 @@ export interface ProjectEnvironment {
    *             credentials. When you use an CodeBuild curated image, you must use CODEBUILD credentials.
    *         </p>
    */
-  imagePullCredentialsType?: ImagePullCredentialsType | string;
+  imagePullCredentialsType?: ImagePullCredentialsType;
 }
 
 /**
@@ -1020,7 +1020,7 @@ export interface ProjectFileSystemLocation {
    * @public
    * <p> The type of the file system. The one supported type is <code>EFS</code>. </p>
    */
-  type?: FileSystemType | string;
+  type?: FileSystemType;
 
   /**
    * @public
@@ -1098,7 +1098,7 @@ export interface CloudWatchLogsConfig {
    *             </li>
    *          </ul>
    */
-  status: LogsConfigStatusType | string | undefined;
+  status: LogsConfigStatusType | undefined;
 
   /**
    * @public
@@ -1135,7 +1135,7 @@ export interface S3LogsConfig {
    *             </li>
    *          </ul>
    */
-  status: LogsConfigStatusType | string | undefined;
+  status: LogsConfigStatusType | undefined;
 
   /**
    * @public
@@ -1198,7 +1198,7 @@ export interface S3LogsConfig {
    *             </dd>
    *          </dl>
    */
-  bucketOwnerAccess?: BucketOwnerAccess | string;
+  bucketOwnerAccess?: BucketOwnerAccess;
 }
 
 /**
@@ -1300,7 +1300,7 @@ export interface BuildBatchPhase {
    *             </dd>
    *          </dl>
    */
-  phaseType?: BuildBatchPhaseType | string;
+  phaseType?: BuildBatchPhaseType;
 
   /**
    * @public
@@ -1332,7 +1332,7 @@ export interface BuildBatchPhase {
    *             </dd>
    *          </dl>
    */
-  phaseStatus?: StatusType | string;
+  phaseStatus?: StatusType;
 
   /**
    * @public
@@ -1390,7 +1390,7 @@ export interface SourceAuth {
    *          <p>The authorization type to use. The only valid value is <code>OAUTH</code>, which
    *             represents the OAuth authorization type.</p>
    */
-  type: SourceAuthType | string | undefined;
+  type: SourceAuthType | undefined;
 
   /**
    * @public
@@ -1519,7 +1519,7 @@ export interface ProjectSource {
    *             </li>
    *          </ul>
    */
-  type: SourceType | string | undefined;
+  type: SourceType | undefined;
 
   /**
    * @public
@@ -1768,7 +1768,7 @@ export interface BuildBatch {
    * @public
    * <p>The status of the batch build.</p>
    */
-  buildBatchStatus?: StatusType | string;
+  buildBatchStatus?: StatusType;
 
   /**
    * @public
@@ -2218,7 +2218,7 @@ export interface BuildPhase {
    *             </dd>
    *          </dl>
    */
-  phaseType?: BuildPhaseType | string;
+  phaseType?: BuildPhaseType;
 
   /**
    * @public
@@ -2250,7 +2250,7 @@ export interface BuildPhase {
    *             </dd>
    *          </dl>
    */
-  phaseStatus?: StatusType | string;
+  phaseStatus?: StatusType;
 
   /**
    * @public
@@ -2353,7 +2353,7 @@ export interface Build {
    *             </li>
    *          </ul>
    */
-  buildStatus?: StatusType | string;
+  buildStatus?: StatusType;
 
   /**
    * @public
@@ -2637,7 +2637,7 @@ export interface ProjectArtifacts {
    *             </li>
    *          </ul>
    */
-  type: ArtifactsType | string | undefined;
+  type: ArtifactsType | undefined;
 
   /**
    * @public
@@ -2722,7 +2722,7 @@ export interface ProjectArtifacts {
    *             set to <code>MyArtifact.zip</code>, the output artifact is stored in
    *                 <code>MyArtifacts/<build-ID>/MyArtifact.zip</code>.</p>
    */
-  namespaceType?: ArtifactNamespace | string;
+  namespaceType?: ArtifactNamespace;
 
   /**
    * @public
@@ -2798,7 +2798,7 @@ export interface ProjectArtifacts {
    *             </li>
    *          </ul>
    */
-  packaging?: ArtifactPackaging | string;
+  packaging?: ArtifactPackaging;
 
   /**
    * @public
@@ -2868,7 +2868,7 @@ export interface ProjectArtifacts {
    *             </dd>
    *          </dl>
    */
-  bucketOwnerAccess?: BucketOwnerAccess | string;
+  bucketOwnerAccess?: BucketOwnerAccess;
 }
 
 /**
@@ -3038,7 +3038,7 @@ export interface WebhookFilter {
    *             </dd>
    *          </dl>
    */
-  type: WebhookFilterType | string | undefined;
+  type: WebhookFilterType | undefined;
 
   /**
    * @public
@@ -3118,7 +3118,7 @@ export interface Webhook {
    * @public
    * <p>Specifies the type of build this webhook will trigger.</p>
    */
-  buildType?: WebhookBuildType | string;
+  buildType?: WebhookBuildType;
 
   /**
    * @public
@@ -3352,7 +3352,7 @@ export interface Project {
    *             </dd>
    *          </dl>
    */
-  projectVisibility?: ProjectVisibilityType | string;
+  projectVisibility?: ProjectVisibilityType;
 
   /**
    * @public
@@ -3466,7 +3466,7 @@ export interface S3ReportExportConfig {
    *             </li>
    *          </ul>
    */
-  packaging?: ReportPackagingType | string;
+  packaging?: ReportPackagingType;
 
   /**
    * @public
@@ -3500,7 +3500,7 @@ export interface ReportExportConfig {
    *             </li>
    *          </ul>
    */
-  exportConfigType?: ReportExportConfigType | string;
+  exportConfigType?: ReportExportConfigType;
 
   /**
    * @public
@@ -3574,7 +3574,7 @@ export interface ReportGroup {
    *             </dd>
    *          </dl>
    */
-  type?: ReportType | string;
+  type?: ReportType;
 
   /**
    * @public
@@ -3618,7 +3618,7 @@ export interface ReportGroup {
    *             </dd>
    *          </dl>
    */
-  status?: ReportGroupStatusType | string;
+  status?: ReportGroupStatusType;
 }
 
 /**
@@ -3773,7 +3773,7 @@ export interface Report {
    *             </dd>
    *          </dl>
    */
-  type?: ReportType | string;
+  type?: ReportType;
 
   /**
    * @public
@@ -3797,7 +3797,7 @@ export interface Report {
    * @public
    * <p> The status of this report. </p>
    */
-  status?: ReportStatusType | string;
+  status?: ReportStatusType;
 
   /**
    * @public
@@ -3872,7 +3872,7 @@ export interface BuildBatchFilter {
    * <p>The status of the batch builds to retrieve. Only batch builds that have this status will
    *             be retrieved.</p>
    */
-  status?: StatusType | string;
+  status?: StatusType;
 }
 
 /**
@@ -4111,7 +4111,7 @@ export interface CreateReportGroupInput {
    *       The type of report group.
    *     </p>
    */
-  type: ReportType | string | undefined;
+  type: ReportType | undefined;
 
   /**
    * @public
@@ -4182,7 +4182,7 @@ export interface CreateWebhookInput {
    * @public
    * <p>Specifies the type of build this webhook will trigger.</p>
    */
-  buildType?: WebhookBuildType | string;
+  buildType?: WebhookBuildType;
 }
 
 /**
@@ -4445,7 +4445,7 @@ export interface DescribeCodeCoveragesInput {
    * @public
    * <p>Specifies if the results are sorted in ascending or descending order.</p>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: SortOrderType;
 
   /**
    * @public
@@ -4461,7 +4461,7 @@ export interface DescribeCodeCoveragesInput {
    *             </dd>
    *          </dl>
    */
-  sortBy?: ReportCodeCoverageSortByType | string;
+  sortBy?: ReportCodeCoverageSortByType;
 
   /**
    * @public
@@ -4842,7 +4842,7 @@ export interface GetReportGroupTrendInput {
    *             </dd>
    *          </dl>
    */
-  trendField: ReportGroupTrendFieldType | string | undefined;
+  trendField: ReportGroupTrendFieldType | undefined;
 }
 
 /**
@@ -4964,7 +4964,7 @@ export interface ImportSourceCredentialsInput {
    * @public
    * <p> The source provider used for this project. </p>
    */
-  serverType: ServerType | string | undefined;
+  serverType: ServerType | undefined;
 
   /**
    * @public
@@ -4972,7 +4972,7 @@ export interface ImportSourceCredentialsInput {
    *             Bitbucket repository. An OAUTH connection is not supported by the API and must be
    *             created using the CodeBuild console. </p>
    */
-  authType: AuthType | string | undefined;
+  authType: AuthType | undefined;
 
   /**
    * @public
@@ -5040,7 +5040,7 @@ export interface ListBuildBatchesInput {
    *             </li>
    *          </ul>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: SortOrderType;
 
   /**
    * @public
@@ -5107,7 +5107,7 @@ export interface ListBuildBatchesForProjectInput {
    *             </li>
    *          </ul>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: SortOrderType;
 
   /**
    * @public
@@ -5157,7 +5157,7 @@ export interface ListBuildsInput {
    *             </li>
    *          </ul>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: SortOrderType;
 
   /**
    * @public
@@ -5219,7 +5219,7 @@ export interface ListBuildsForProjectInput {
    *          <p>If the project has more than 100 builds, setting the sort order will result in an
    *             error. </p>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: SortOrderType;
 
   /**
    * @public
@@ -5315,7 +5315,7 @@ export interface EnvironmentLanguage {
    * @public
    * <p>The programming language for the Docker images.</p>
    */
-  language?: LanguageType | string;
+  language?: LanguageType;
 
   /**
    * @public
@@ -5350,7 +5350,7 @@ export interface EnvironmentPlatform {
    * @public
    * <p>The platform's name.</p>
    */
-  platform?: PlatformType | string;
+  platform?: PlatformType;
 
   /**
    * @public
@@ -5413,7 +5413,7 @@ export interface ListProjectsInput {
    *          <p>Use <code>sortOrder</code> to specify in what order to list the build project names
    *             based on the preceding criteria.</p>
    */
-  sortBy?: ProjectSortByType | string;
+  sortBy?: ProjectSortByType;
 
   /**
    * @public
@@ -5431,7 +5431,7 @@ export interface ListProjectsInput {
    *          <p>Use <code>sortBy</code> to specify the criterion to be used to list build project
    *             names.</p>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: SortOrderType;
 
   /**
    * @public
@@ -5492,7 +5492,7 @@ export interface ListReportGroupsInput {
    *       <code>ASCENDING</code> and <code>DESCENDING</code>.
    *     </p>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: SortOrderType;
 
   /**
    * @public
@@ -5515,7 +5515,7 @@ export interface ListReportGroupsInput {
    *             </li>
    *          </ul>
    */
-  sortBy?: ReportGroupSortByType | string;
+  sortBy?: ReportGroupSortByType;
 
   /**
    * @public
@@ -5574,7 +5574,7 @@ export interface ReportFilter {
    * @public
    * <p> The status used to filter reports. You can filter using one status only. </p>
    */
-  status?: ReportStatusType | string;
+  status?: ReportStatusType;
 }
 
 /**
@@ -5599,7 +5599,7 @@ export interface ListReportsInput {
    *             </li>
    *          </ul>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: SortOrderType;
 
   /**
    * @public
@@ -5686,7 +5686,7 @@ export interface ListReportsForReportGroupInput {
    *       Use to specify whether the results are returned in ascending or descending order.
    *     </p>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: SortOrderType;
 
   /**
    * @public
@@ -5765,7 +5765,7 @@ export interface ListSharedProjectsInput {
    *             </li>
    *          </ul>
    */
-  sortBy?: SharedResourceSortByType | string;
+  sortBy?: SharedResourceSortByType;
 
   /**
    * @public
@@ -5781,7 +5781,7 @@ export interface ListSharedProjectsInput {
    *             </li>
    *          </ul>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: SortOrderType;
 
   /**
    * @public
@@ -5844,7 +5844,7 @@ export interface ListSharedReportGroupsInput {
    *             </li>
    *          </ul>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: SortOrderType;
 
   /**
    * @public
@@ -5862,7 +5862,7 @@ export interface ListSharedReportGroupsInput {
    *             </li>
    *          </ul>
    */
-  sortBy?: SharedResourceSortByType | string;
+  sortBy?: SharedResourceSortByType;
 
   /**
    * @public
@@ -5929,14 +5929,14 @@ export interface SourceCredentialsInfo {
    * <p> The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, or
    *             BITBUCKET. </p>
    */
-  serverType?: ServerType | string;
+  serverType?: ServerType;
 
   /**
    * @public
    * <p> The type of authentication used by the credentials. Valid options are OAUTH,
    *             BASIC_AUTH, or PERSONAL_ACCESS_TOKEN. </p>
    */
-  authType?: AuthType | string;
+  authType?: AuthType;
 }
 
 /**
@@ -6054,7 +6054,7 @@ export interface RetryBuildBatchInput {
    * @public
    * <p>Specifies the type of retry to perform.</p>
    */
-  retryType?: RetryBuildBatchType | string;
+  retryType?: RetryBuildBatchType;
 }
 
 /**
@@ -6155,7 +6155,7 @@ export interface StartBuildInput {
    * <p>A source input type, for this build, that overrides the source input defined in the
    *             build project.</p>
    */
-  sourceTypeOverride?: SourceType | string;
+  sourceTypeOverride?: SourceType;
 
   /**
    * @public
@@ -6238,7 +6238,7 @@ export interface StartBuildInput {
    * <p>A container type for this build that overrides the one specified in the build
    *             project.</p>
    */
-  environmentTypeOverride?: EnvironmentType | string;
+  environmentTypeOverride?: EnvironmentType;
 
   /**
    * @public
@@ -6252,7 +6252,7 @@ export interface StartBuildInput {
    * <p>The name of a compute type for this build that overrides the one specified in the
    *             build project.</p>
    */
-  computeTypeOverride?: ComputeType | string;
+  computeTypeOverride?: ComputeType;
 
   /**
    * @public
@@ -6348,7 +6348,7 @@ export interface StartBuildInput {
    *             <code>SERVICE_ROLE</code> credentials. When using an CodeBuild curated image,
    *             you must use <code>CODEBUILD</code> credentials. </p>
    */
-  imagePullCredentialsTypeOverride?: ImagePullCredentialsType | string;
+  imagePullCredentialsTypeOverride?: ImagePullCredentialsType;
 
   /**
    * @public
@@ -6458,7 +6458,7 @@ export interface StartBuildBatchInput {
    * <p>The source input type that overrides the source input defined in the batch
    *         build project.</p>
    */
-  sourceTypeOverride?: SourceType | string;
+  sourceTypeOverride?: SourceType;
 
   /**
    * @public
@@ -6530,7 +6530,7 @@ export interface StartBuildBatchInput {
    * <p>A container type for this batch build that overrides the one specified in the batch build
    *         project.</p>
    */
-  environmentTypeOverride?: EnvironmentType | string;
+  environmentTypeOverride?: EnvironmentType;
 
   /**
    * @public
@@ -6544,7 +6544,7 @@ export interface StartBuildBatchInput {
    * <p>The name of a compute type for this batch build that overrides the one specified in the
    *         batch build project.</p>
    */
-  computeTypeOverride?: ComputeType | string;
+  computeTypeOverride?: ComputeType;
 
   /**
    * @public
@@ -6640,7 +6640,7 @@ export interface StartBuildBatchInput {
    *                 <code>SERVICE_ROLE</code> credentials. When using an CodeBuild curated image,
    *             you must use <code>CODEBUILD</code> credentials. </p>
    */
-  imagePullCredentialsTypeOverride?: ImagePullCredentialsType | string;
+  imagePullCredentialsTypeOverride?: ImagePullCredentialsType;
 
   /**
    * @public
@@ -6936,7 +6936,7 @@ export interface UpdateProjectVisibilityInput {
    *             </dd>
    *          </dl>
    */
-  projectVisibility: ProjectVisibilityType | string | undefined;
+  projectVisibility: ProjectVisibilityType | undefined;
 
   /**
    * @public
@@ -6976,7 +6976,7 @@ export interface UpdateProjectVisibilityOutput {
    *             </dd>
    *          </dl>
    */
-  projectVisibility?: ProjectVisibilityType | string;
+  projectVisibility?: ProjectVisibilityType;
 }
 
 /**
@@ -7078,7 +7078,7 @@ export interface UpdateWebhookInput {
    * @public
    * <p>Specifies the type of build this webhook will trigger.</p>
    */
-  buildType?: WebhookBuildType | string;
+  buildType?: WebhookBuildType;
 }
 
 /**

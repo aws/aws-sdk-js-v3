@@ -139,7 +139,7 @@ export interface DescribeVoicesInput {
    * <p>Specifies the engine (<code>standard</code> or <code>neural</code>)
    *       used by Amazon Polly when processing input text for speech synthesis. </p>
    */
-  Engine?: Engine | string;
+  Engine?: Engine;
 
   /**
    * @public
@@ -148,7 +148,7 @@ export interface DescribeVoicesInput {
    *       you don't specify this optional parameter, all available voices are
    *       returned. </p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -298,20 +298,20 @@ export interface Voice {
    * @public
    * <p>Gender of the voice.</p>
    */
-  Gender?: Gender | string;
+  Gender?: Gender;
 
   /**
    * @public
    * <p>Amazon Polly assigned voice ID. This is the ID that you specify when
    *       calling the <code>SynthesizeSpeech</code> operation.</p>
    */
-  Id?: VoiceId | string;
+  Id?: VoiceId;
 
   /**
    * @public
    * <p>Language code of the voice.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -336,14 +336,14 @@ export interface Voice {
    *       fluent in both Indian English and Hindi, this parameter would show the
    *       code <code>hi-IN</code>.</p>
    */
-  AdditionalLanguageCodes?: (LanguageCode | string)[];
+  AdditionalLanguageCodes?: LanguageCode[];
 
   /**
    * @public
    * <p>Specifies which engines (<code>standard</code> or <code>neural</code>)
    *       that are supported by a given voice.</p>
    */
-  SupportedEngines?: (Engine | string)[];
+  SupportedEngines?: Engine[];
 }
 
 /**
@@ -459,7 +459,7 @@ export interface LexiconAttributes {
    *       language code such as "en" would be applied to all English languages
    *       (en-GB, en-US, en-AUS, en-WLS, and so on.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -592,7 +592,7 @@ export interface SynthesisTask {
    *       voice that is not supported for the engine selected will result in an
    *       error.</p>
    */
-  Engine?: Engine | string;
+  Engine?: Engine;
 
   /**
    * @public
@@ -604,7 +604,7 @@ export interface SynthesisTask {
    * @public
    * <p>Current status of the individual speech synthesis task.</p>
    */
-  TaskStatus?: TaskStatus | string;
+  TaskStatus?: TaskStatus;
 
   /**
    * @public
@@ -652,7 +652,7 @@ export interface SynthesisTask {
    *       stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will
    *       be json. </p>
    */
-  OutputFormat?: OutputFormat | string;
+  OutputFormat?: OutputFormat;
 
   /**
    * @public
@@ -669,20 +669,20 @@ export interface SynthesisTask {
    * @public
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: (SpeechMarkType | string)[];
+  SpeechMarkTypes?: SpeechMarkType[];
 
   /**
    * @public
    * <p>Specifies whether the input text is plain text or SSML. The default
    *       value is plain text. </p>
    */
-  TextType?: TextType | string;
+  TextType?: TextType;
 
   /**
    * @public
    * <p>Voice ID to use for the synthesis. </p>
    */
-  VoiceId?: VoiceId | string;
+  VoiceId?: VoiceId;
 
   /**
    * @public
@@ -695,7 +695,7 @@ export interface SynthesisTask {
    *       parameter. For example, if no language code is specified, Aditi will use
    *       Indian English rather than Hindi.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 }
 
 /**
@@ -993,7 +993,7 @@ export interface ListSpeechSynthesisTasksInput {
    * <p>Status of the speech synthesis tasks returned in a List
    *       operation</p>
    */
-  Status?: TaskStatus | string;
+  Status?: TaskStatus;
 }
 
 /**
@@ -1179,7 +1179,7 @@ export interface StartSpeechSynthesisTaskInput {
    *       voice that is not supported for the engine selected will result in an
    *       error.</p>
    */
-  Engine?: Engine | string;
+  Engine?: Engine;
 
   /**
    * @public
@@ -1192,7 +1192,7 @@ export interface StartSpeechSynthesisTaskInput {
    *       parameter. For example, if no language code is specified, Aditi will use
    *       Indian English rather than Hindi.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -1208,7 +1208,7 @@ export interface StartSpeechSynthesisTaskInput {
    *       stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will
    *       be json. </p>
    */
-  OutputFormat: OutputFormat | string | undefined;
+  OutputFormat: OutputFormat | undefined;
 
   /**
    * @public
@@ -1244,7 +1244,7 @@ export interface StartSpeechSynthesisTaskInput {
    * @public
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: (SpeechMarkType | string)[];
+  SpeechMarkTypes?: SpeechMarkType[];
 
   /**
    * @public
@@ -1258,13 +1258,13 @@ export interface StartSpeechSynthesisTaskInput {
    * <p>Specifies whether the input text is plain text or SSML. The default
    *       value is plain text. </p>
    */
-  TextType?: TextType | string;
+  TextType?: TextType;
 
   /**
    * @public
    * <p>Voice ID to use for the synthesis. </p>
    */
-  VoiceId: VoiceId | string | undefined;
+  VoiceId: VoiceId | undefined;
 }
 
 /**
@@ -1334,7 +1334,7 @@ export interface SynthesizeSpeechInput {
    *       set to <code>standard</code> and an NTTS-only voice is selected, this will
    *       result in an error. </p>
    */
-  Engine?: Engine | string;
+  Engine?: Engine;
 
   /**
    * @public
@@ -1347,7 +1347,7 @@ export interface SynthesizeSpeechInput {
    *       parameter. For example, if no language code is specified, Aditi will use
    *       Indian English rather than Hindi.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -1366,7 +1366,7 @@ export interface SynthesizeSpeechInput {
    *          <p>When pcm is used, the content returned is audio/pcm in a signed
    *       16-bit, 1 channel (mono), little-endian format. </p>
    */
-  OutputFormat: OutputFormat | string | undefined;
+  OutputFormat: OutputFormat | undefined;
 
   /**
    * @public
@@ -1383,7 +1383,7 @@ export interface SynthesizeSpeechInput {
    * @public
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: (SpeechMarkType | string)[];
+  SpeechMarkTypes?: SpeechMarkType[];
 
   /**
    * @public
@@ -1399,14 +1399,14 @@ export interface SynthesizeSpeechInput {
    *       default value is plain text. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/ssml.html">Using
    *         SSML</a>.</p>
    */
-  TextType?: TextType | string;
+  TextType?: TextType;
 
   /**
    * @public
    * <p> Voice ID to use for the synthesis. You can get a list of available
    *       voice IDs by calling the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation. </p>
    */
-  VoiceId: VoiceId | string | undefined;
+  VoiceId: VoiceId | undefined;
 }
 
 /**

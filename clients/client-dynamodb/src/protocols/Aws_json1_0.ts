@@ -5609,9 +5609,9 @@ const de_AttributeMap = (output: any, context: __SerdeContext): Record<string, A
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 // de_AttributeNameList omitted.
@@ -5805,9 +5805,9 @@ const de_BatchGetRequestMap = (output: any, context: __SerdeContext): Record<str
     if (value === null) {
       return acc;
     }
-    acc[key] = de_KeysAndAttributes(value, context);
+    acc[key as string] = de_KeysAndAttributes(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, KeysAndAttributes>);
 };
 
 /**
@@ -5822,10 +5822,10 @@ const de_BatchGetResponseMap = (
       if (value === null) {
         return acc;
       }
-      acc[key] = de_ItemList(value, context);
+      acc[key as string] = de_ItemList(value, context);
       return acc;
     },
-    {}
+    {} as Record<string, Record<string, AttributeValue>[]>
   );
 };
 
@@ -5870,9 +5870,9 @@ const de_BatchWriteItemRequestMap = (output: any, context: __SerdeContext): Reco
     if (value === null) {
       return acc;
     }
-    acc[key] = de_WriteRequests(value, context);
+    acc[key as string] = de_WriteRequests(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, WriteRequest[]>);
 };
 
 /**
@@ -6409,9 +6409,9 @@ const de_ItemCollectionKeyAttributeMap = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 /**
@@ -6447,9 +6447,9 @@ const de_ItemCollectionMetricsPerTable = (
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ItemCollectionMetricsMultiple(value, context);
+    acc[key as string] = de_ItemCollectionMetricsMultiple(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ItemCollectionMetrics[]>);
 };
 
 /**
@@ -6507,9 +6507,9 @@ const de_Key = (output: any, context: __SerdeContext): Record<string, AttributeV
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 /**
@@ -6607,9 +6607,9 @@ const de_MapAttributeValue = (output: any, context: __SerdeContext): Record<stri
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 // de_NonKeyAttributeNameList omitted.
@@ -6673,9 +6673,9 @@ const de_PutItemInputAttributeMap = (output: any, context: __SerdeContext): Reco
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 /**
@@ -6930,9 +6930,9 @@ const de_SecondaryIndexesCapacityMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    acc[key] = de_Capacity(value, context);
+    acc[key as string] = de_Capacity(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, Capacity>);
 };
 
 /**

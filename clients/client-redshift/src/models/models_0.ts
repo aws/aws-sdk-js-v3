@@ -161,7 +161,7 @@ export interface ReservedNode {
    * @public
    * <p></p>
    */
-  ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
+  ReservedNodeOfferingType?: ReservedNodeOfferingType;
 }
 
 /**
@@ -579,13 +579,13 @@ export interface AquaConfiguration {
    * @public
    * <p>This field is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
-  AquaStatus?: AquaStatus | string;
+  AquaStatus?: AquaStatus;
 
   /**
    * @public
    * <p>This field is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
-  AquaConfigurationStatus?: AquaConfigurationStatus | string;
+  AquaConfigurationStatus?: AquaConfigurationStatus;
 }
 
 /**
@@ -653,7 +653,7 @@ export interface DataShareAssociation {
    * @public
    * <p>The status of the datashare that is associated.</p>
    */
-  Status?: DataShareStatus | string;
+  Status?: DataShareStatus;
 
   /**
    * @public
@@ -780,7 +780,7 @@ export interface ClusterAssociatedToSchedule {
    * @public
    * <p></p>
    */
-  ScheduleAssociationState?: ScheduleState | string;
+  ScheduleAssociationState?: ScheduleState;
 }
 
 /**
@@ -1260,7 +1260,7 @@ export interface EndpointAuthorization {
    * @public
    * <p>The status of the authorization action.</p>
    */
-  Status?: AuthorizationStatus | string;
+  Status?: AuthorizationStatus;
 
   /**
    * @public
@@ -2656,7 +2656,7 @@ export interface ReservedNodeExchangeStatus {
    * @public
    * <p>The status of the reserved-node exchange request. Statuses include in-progress and requested.</p>
    */
-  Status?: ReservedNodeExchangeStatusType | string;
+  Status?: ReservedNodeExchangeStatusType;
 
   /**
    * @public
@@ -3198,7 +3198,7 @@ export interface Cluster {
    * @public
    * <p>The current state of the cluster snapshot schedule.</p>
    */
-  SnapshotScheduleState?: ScheduleState | string;
+  SnapshotScheduleState?: ScheduleState;
 
   /**
    * @public
@@ -3589,7 +3589,7 @@ export interface Parameter {
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    */
-  ApplyType?: ParameterApplyType | string;
+  ApplyType?: ParameterApplyType;
 
   /**
    * @public
@@ -4651,7 +4651,7 @@ export interface CreateClusterMessage {
    * @public
    * <p>This parameter is retired. It does not set the AQUA configuration status. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
-  AquaConfigurationStatus?: AquaConfigurationStatus | string;
+  AquaConfigurationStatus?: AquaConfigurationStatus;
 
   /**
    * @public
@@ -6335,7 +6335,7 @@ export interface ScheduledAction {
    * @public
    * <p>The state of the scheduled action. For example, <code>DISABLED</code>. </p>
    */
-  State?: ScheduledActionState | string;
+  State?: ScheduledActionState;
 
   /**
    * @public
@@ -6821,7 +6821,7 @@ export interface CreateUsageLimitMessage {
    * @public
    * <p>The Amazon Redshift feature that you want to limit.</p>
    */
-  FeatureType: UsageLimitFeatureType | string | undefined;
+  FeatureType: UsageLimitFeatureType | undefined;
 
   /**
    * @public
@@ -6831,7 +6831,7 @@ export interface CreateUsageLimitMessage {
    *             If <code>FeatureType</code> is <code>cross-region-datasharing</code>, then <code>LimitType</code> must be <code>data-scanned</code>.
    *            </p>
    */
-  LimitType: UsageLimitLimitType | string | undefined;
+  LimitType: UsageLimitLimitType | undefined;
 
   /**
    * @public
@@ -6846,14 +6846,14 @@ export interface CreateUsageLimitMessage {
    * <p>The time period that the amount applies to. A <code>weekly</code> period begins on Sunday. The default is <code>monthly</code>.
    *             </p>
    */
-  Period?: UsageLimitPeriod | string;
+  Period?: UsageLimitPeriod;
 
   /**
    * @public
    * <p>The action that Amazon Redshift takes when the limit is reached. The default is log.
    *             For more information about this parameter, see <a>UsageLimit</a>.</p>
    */
-  BreachAction?: UsageLimitBreachAction | string;
+  BreachAction?: UsageLimitBreachAction;
 
   /**
    * @public
@@ -6903,13 +6903,13 @@ export interface UsageLimit {
    * @public
    * <p>The Amazon Redshift feature to which the limit applies.</p>
    */
-  FeatureType?: UsageLimitFeatureType | string;
+  FeatureType?: UsageLimitFeatureType;
 
   /**
    * @public
    * <p>The type of limit. Depending on the feature type, this can be based on a time duration or data size.</p>
    */
-  LimitType?: UsageLimitLimitType | string;
+  LimitType?: UsageLimitLimitType;
 
   /**
    * @public
@@ -6921,7 +6921,7 @@ export interface UsageLimit {
    * @public
    * <p>The time period that the amount applies to. A <code>weekly</code> period begins on Sunday. The default is <code>monthly</code>. </p>
    */
-  Period?: UsageLimitPeriod | string;
+  Period?: UsageLimitPeriod;
 
   /**
    * @public
@@ -6941,7 +6941,7 @@ export interface UsageLimit {
    *             </li>
    *          </ul>
    */
-  BreachAction?: UsageLimitBreachAction | string;
+  BreachAction?: UsageLimitBreachAction;
 
   /**
    * @public
@@ -7987,13 +7987,13 @@ export interface SnapshotSortingEntity {
    * @public
    * <p>The category for sorting the snapshots.</p>
    */
-  Attribute: SnapshotAttributeToSortBy | string | undefined;
+  Attribute: SnapshotAttributeToSortBy | undefined;
 
   /**
    * @public
    * <p>The order for listing the attributes.</p>
    */
-  SortOrder?: SortByOrder | string;
+  SortOrder?: SortByOrder;
 }
 
 /**
@@ -8479,7 +8479,7 @@ export interface DescribeDataSharesForConsumerMessage {
    * <p>An identifier giving the status of a datashare in the consumer cluster. If this field is specified, Amazon
    *             Redshift returns the list of datashares that have the specified status.</p>
    */
-  Status?: DataShareStatusForConsumer | string;
+  Status?: DataShareStatusForConsumer;
 
   /**
    * @public
@@ -8539,7 +8539,7 @@ export interface DescribeDataSharesForProducerMessage {
    * <p>An identifier giving the status of a datashare in the producer. If this field is specified, Amazon
    *             Redshift returns the list of datashares that have the specified status.</p>
    */
-  Status?: DataShareStatusForProducer | string;
+  Status?: DataShareStatusForProducer;
 
   /**
    * @public

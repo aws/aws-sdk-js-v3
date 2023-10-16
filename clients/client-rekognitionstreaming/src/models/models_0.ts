@@ -424,7 +424,7 @@ export interface FaceMovementAndLightServerChallenge {
    * @public
    * <p>Information on the type of colored light challenge.</p>
    */
-  LightChallengeType: LightChallengeType | string | undefined;
+  LightChallengeType: LightChallengeType | undefined;
 
   /**
    * @public

@@ -97,7 +97,7 @@ export interface IdentityProviderConfiguration {
    * @public
    * <p>The authorization strategy that you selected when you created the data store.</p>
    */
-  AuthorizationStrategy: AuthorizationStrategy | string | undefined;
+  AuthorizationStrategy: AuthorizationStrategy | undefined;
 
   /**
    * @public
@@ -150,7 +150,7 @@ export interface PreloadDataConfig {
    * @public
    * <p>The type of preloaded data. Only Synthea preloaded data is supported.</p>
    */
-  PreloadDataType: PreloadDataType | string | undefined;
+  PreloadDataType: PreloadDataType | undefined;
 }
 
 /**
@@ -166,7 +166,7 @@ export interface KmsEncryptionConfig {
    *             The type of customer-managed-key(CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
    *          </p>
    */
-  CmkType: CmkType | string | undefined;
+  CmkType: CmkType | undefined;
 
   /**
    * @public
@@ -231,7 +231,7 @@ export interface CreateFHIRDatastoreRequest {
    * @public
    * <p>The FHIR version of the data store. The only supported version is R4.</p>
    */
-  DatastoreTypeVersion: FHIRVersion | string | undefined;
+  DatastoreTypeVersion: FHIRVersion | undefined;
 
   /**
    * @public
@@ -307,7 +307,7 @@ export interface CreateFHIRDatastoreResponse {
    * @public
    * <p>The status of the FHIR data store.</p>
    */
-  DatastoreStatus: DatastoreStatus | string | undefined;
+  DatastoreStatus: DatastoreStatus | undefined;
 
   /**
    * @public
@@ -397,7 +397,7 @@ export interface DatastoreFilter {
    * @public
    * <p>Allows the user to filter data store results by status.</p>
    */
-  DatastoreStatus?: DatastoreStatus | string;
+  DatastoreStatus?: DatastoreStatus;
 
   /**
    * @public
@@ -441,7 +441,7 @@ export interface DatastoreProperties {
    * @public
    * <p>The status of the data store.</p>
    */
-  DatastoreStatus: DatastoreStatus | string | undefined;
+  DatastoreStatus: DatastoreStatus | undefined;
 
   /**
    * @public
@@ -453,7 +453,7 @@ export interface DatastoreProperties {
    * @public
    * <p>The FHIR version. Only R4 version data is supported.</p>
    */
-  DatastoreTypeVersion: FHIRVersion | string | undefined;
+  DatastoreTypeVersion: FHIRVersion | undefined;
 
   /**
    * @public
@@ -514,7 +514,7 @@ export interface DeleteFHIRDatastoreResponse {
    * <p>The status of the data store that the user has requested to be deleted.
    *       </p>
    */
-  DatastoreStatus: DatastoreStatus | string | undefined;
+  DatastoreStatus: DatastoreStatus | undefined;
 
   /**
    * @public
@@ -691,7 +691,7 @@ export interface ExportJobProperties {
    * @public
    * <p>The status of a FHIR export job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED, or FAILED.</p>
    */
-  JobStatus: JobStatus | string | undefined;
+  JobStatus: JobStatus | undefined;
 
   /**
    * @public
@@ -817,7 +817,7 @@ export interface ImportJobProperties {
    * @public
    * <p>The job status for an Import job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED_WITH_ERRORS, COMPLETED, FAILED.</p>
    */
-  JobStatus: JobStatus | string | undefined;
+  JobStatus: JobStatus | undefined;
 
   /**
    * @public
@@ -955,7 +955,7 @@ export interface ListFHIRExportJobsRequest {
    *             This parameter limits the response to the export jobs with the specified job status.
    *          </p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -1037,7 +1037,7 @@ export interface ListFHIRImportJobsRequest {
    *             This parameter limits the response to the import job with the specified job status.
    *          </p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -1152,7 +1152,7 @@ export interface StartFHIRExportJobResponse {
    * @public
    * <p>The status of a FHIR export job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED, or FAILED.</p>
    */
-  JobStatus: JobStatus | string | undefined;
+  JobStatus: JobStatus | undefined;
 
   /**
    * @public
@@ -1216,7 +1216,7 @@ export interface StartFHIRImportJobResponse {
    * @public
    * <p>The status of an import job.</p>
    */
-  JobStatus: JobStatus | string | undefined;
+  JobStatus: JobStatus | undefined;
 
   /**
    * @public

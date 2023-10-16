@@ -115,7 +115,7 @@ export interface Message {
    * @public
    * <p>The content type of the message string.</p>
    */
-  contentType: ContentType | string | undefined;
+  contentType: ContentType | undefined;
 
   /**
    * @public
@@ -291,7 +291,7 @@ export interface CreateBotVersionResponse {
    *         <code>FAILED</code>. Amazon Lex returns the reason for the failure in the
    *         <code>failureReason</code> response element. </p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -344,7 +344,7 @@ export interface CreateBotVersionResponse {
    * @public
    * <p> Specifies the target locale for the bot. </p>
    */
-  locale?: Locale | string;
+  locale?: Locale;
 
   /**
    * @public
@@ -590,7 +590,7 @@ export interface FulfillmentActivity {
    *       function or by returning the slot data to the client application.
    *     </p>
    */
-  type: FulfillmentActivityType | string | undefined;
+  type: FulfillmentActivityType | undefined;
 
   /**
    * @public
@@ -780,7 +780,7 @@ export interface Slot {
    * @public
    * <p>Specifies whether the slot is required or optional. </p>
    */
-  slotConstraint: SlotConstraint | string | undefined;
+  slotConstraint: SlotConstraint | undefined;
 
   /**
    * @public
@@ -838,7 +838,7 @@ export interface Slot {
    *       information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html"> Slot Obfuscation </a>.
    *     </p>
    */
-  obfuscationSetting?: ObfuscationSetting | string;
+  obfuscationSetting?: ObfuscationSetting;
 
   /**
    * @public
@@ -1148,7 +1148,7 @@ export interface CreateSlotTypeVersionResponse {
    * <p>The strategy that Amazon Lex uses to determine the value of the slot.
    *       For more information, see <a>PutSlotType</a>.</p>
    */
-  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
+  valueSelectionStrategy?: SlotValueSelectionStrategy;
 
   /**
    * @public
@@ -1235,7 +1235,7 @@ export type ReferenceType = (typeof ReferenceType)[keyof typeof ReferenceType];
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
   readonly $fault: "client" = "client";
-  referenceType?: ReferenceType | string;
+  referenceType?: ReferenceType;
   /**
    * @public
    * <p>Describes the resource that refers to the resource that you are
@@ -1492,7 +1492,7 @@ export interface GetBotResponse {
    *          <p>If the bot was saved but not built, the status is
    *         <code>NOT_BUILT</code>.</p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -1546,7 +1546,7 @@ export interface GetBotResponse {
    * @public
    * <p> The target locale for the bot. </p>
    */
-  locale?: Locale | string;
+  locale?: Locale;
 
   /**
    * @public
@@ -1641,13 +1641,13 @@ export interface LogSettingsResponse {
    * @public
    * <p>The type of logging that is enabled.</p>
    */
-  logType?: LogType | string;
+  logType?: LogType;
 
   /**
    * @public
    * <p>The destination where logs are delivered.</p>
    */
-  destination?: Destination | string;
+  destination?: Destination;
 
   /**
    * @public
@@ -1959,7 +1959,7 @@ export interface GetBotChannelAssociationResponse {
    * @public
    * <p>The type of the messaging platform.</p>
    */
-  type?: ChannelType | string;
+  type?: ChannelType;
 
   /**
    * @public
@@ -1990,7 +1990,7 @@ export interface GetBotChannelAssociationResponse {
    *             </li>
    *          </ul>
    */
-  status?: ChannelStatus | string;
+  status?: ChannelStatus;
 
   /**
    * @public
@@ -2093,7 +2093,7 @@ export interface BotChannelAssociation {
    *       being established between the Amazon Lex bot and the external messaging
    *       platform.</p>
    */
-  type?: ChannelType | string;
+  type?: ChannelType;
 
   /**
    * @public
@@ -2124,7 +2124,7 @@ export interface BotChannelAssociation {
    *             </li>
    *          </ul>
    */
-  status?: ChannelStatus | string;
+  status?: ChannelStatus;
 
   /**
    * @public
@@ -2206,7 +2206,7 @@ export interface BotMetadata {
    * @public
    * <p>The status of the bot.</p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -2339,7 +2339,7 @@ export interface GetBuiltinIntentResponse {
    * @public
    * <p>A list of locales that the intent supports.</p>
    */
-  supportedLocales?: (Locale | string)[];
+  supportedLocales?: Locale[];
 
   /**
    * @public
@@ -2357,7 +2357,7 @@ export interface GetBuiltinIntentsRequest {
    * @public
    * <p>A list of locales that the intent supports.</p>
    */
-  locale?: Locale | string;
+  locale?: Locale;
 
   /**
    * @public
@@ -2404,7 +2404,7 @@ export interface BuiltinIntentMetadata {
    * <p>A list of identifiers for the locales that the intent
    *       supports.</p>
    */
-  supportedLocales?: (Locale | string)[];
+  supportedLocales?: Locale[];
 }
 
 /**
@@ -2436,7 +2436,7 @@ export interface GetBuiltinSlotTypesRequest {
    * @public
    * <p>A list of locales that the slot type supports.</p>
    */
-  locale?: Locale | string;
+  locale?: Locale;
 
   /**
    * @public
@@ -2480,7 +2480,7 @@ export interface BuiltinSlotTypeMetadata {
    * @public
    * <p>A list of target locales for the slot. </p>
    */
-  supportedLocales?: (Locale | string)[];
+  supportedLocales?: Locale[];
 }
 
 /**
@@ -2552,13 +2552,13 @@ export interface GetExportRequest {
    * @public
    * <p>The type of resource to export. </p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
    * <p>The format of the exported data.</p>
    */
-  exportType: ExportType | string | undefined;
+  exportType: ExportType | undefined;
 }
 
 /**
@@ -2596,13 +2596,13 @@ export interface GetExportResponse {
    * @public
    * <p>The type of the exported resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
    * <p>The format of the exported data.</p>
    */
-  exportType?: ExportType | string;
+  exportType?: ExportType;
 
   /**
    * @public
@@ -2623,7 +2623,7 @@ export interface GetExportResponse {
    *             </li>
    *          </ul>
    */
-  exportStatus?: ExportStatus | string;
+  exportStatus?: ExportStatus;
 
   /**
    * @public
@@ -2696,14 +2696,14 @@ export interface GetImportResponse {
    * @public
    * <p>The type of resource imported.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
    * <p>The action taken when there was a conflict between an existing
    *       resource and a resource in the import file.</p>
    */
-  mergeStrategy?: MergeStrategy | string;
+  mergeStrategy?: MergeStrategy;
 
   /**
    * @public
@@ -2717,7 +2717,7 @@ export interface GetImportResponse {
    *       you can get the reason for the failure from the <code>failureReason</code>
    *       field.</p>
    */
-  importStatus?: ImportStatus | string;
+  importStatus?: ImportStatus;
 
   /**
    * @public
@@ -3064,7 +3064,7 @@ export interface MigrationAlert {
    *             </li>
    *          </ul>
    */
-  type?: MigrationAlertType | string;
+  type?: MigrationAlertType;
 
   /**
    * @public
@@ -3143,7 +3143,7 @@ export interface GetMigrationResponse {
    * @public
    * <p>The locale of the Amazon Lex V1 bot migrated to Amazon Lex V2.</p>
    */
-  v1BotLocale?: Locale | string;
+  v1BotLocale?: Locale;
 
   /**
    * @public
@@ -3165,7 +3165,7 @@ export interface GetMigrationResponse {
    *       in Amazon Lex V2. There may be alerts and warnings that need to be resolved to
    *       complete the migration.</p>
    */
-  migrationStatus?: MigrationStatus | string;
+  migrationStatus?: MigrationStatus;
 
   /**
    * @public
@@ -3185,7 +3185,7 @@ export interface GetMigrationResponse {
    *             </li>
    *          </ul>
    */
-  migrationStrategy?: MigrationStrategy | string;
+  migrationStrategy?: MigrationStrategy;
 
   /**
    * @public
@@ -3242,13 +3242,13 @@ export interface GetMigrationsRequest {
    *       Amazon Lex V1 bot name or the date and time that the migration was
    *       started.</p>
    */
-  sortByAttribute?: MigrationSortAttribute | string;
+  sortByAttribute?: MigrationSortAttribute;
 
   /**
    * @public
    * <p>The order so sort the list.</p>
    */
-  sortByOrder?: SortOrder | string;
+  sortByOrder?: SortOrder;
 
   /**
    * @public
@@ -3261,7 +3261,7 @@ export interface GetMigrationsRequest {
    * @public
    * <p>Filters the list to contain only migrations in the specified state.</p>
    */
-  migrationStatusEquals?: MigrationStatus | string;
+  migrationStatusEquals?: MigrationStatus;
 
   /**
    * @public
@@ -3307,7 +3307,7 @@ export interface MigrationSummary {
    * @public
    * <p>The locale of the Amazon Lex V1 bot that is the source of the migration.</p>
    */
-  v1BotLocale?: Locale | string;
+  v1BotLocale?: Locale;
 
   /**
    * @public
@@ -3327,13 +3327,13 @@ export interface MigrationSummary {
    *     the bot is available in Amazon Lex V2. There may be alerts and warnings that
    *     need to be resolved to complete the migration.</p>
    */
-  migrationStatus?: MigrationStatus | string;
+  migrationStatus?: MigrationStatus;
 
   /**
    * @public
    * <p>The strategy used to conduct the migration.</p>
    */
-  migrationStrategy?: MigrationStrategy | string;
+  migrationStrategy?: MigrationStrategy;
 
   /**
    * @public
@@ -3435,7 +3435,7 @@ export interface GetSlotTypeResponse {
    * <p>The strategy that Amazon Lex uses to determine the value of the slot.
    *       For more information, see <a>PutSlotType</a>.</p>
    */
-  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
+  valueSelectionStrategy?: SlotValueSelectionStrategy;
 
   /**
    * @public
@@ -3626,7 +3626,7 @@ export interface GetUtterancesViewRequest {
    *         <code>Detected</code>. To return utterances that were not recognized,
    *       use <code>Missed</code>.</p>
    */
-  statusType: StatusType | string | undefined;
+  statusType: StatusType | undefined;
 }
 
 /**
@@ -3999,7 +3999,7 @@ export interface PutBotRequest {
    *          <p>If you don't specify this value, the default value is
    *         <code>BUILD</code>.</p>
    */
-  processBehavior?: ProcessBehavior | string;
+  processBehavior?: ProcessBehavior;
 
   /**
    * @public
@@ -4007,7 +4007,7 @@ export interface PutBotRequest {
    *       bot must be compatible with the locale of the bot. </p>
    *          <p>The default is <code>en-US</code>.</p>
    */
-  locale: Locale | string | undefined;
+  locale: Locale | undefined;
 
   /**
    * @public
@@ -4142,7 +4142,7 @@ export interface PutBotResponse {
    *          <p>When the bot is in the <code>READY</code> state you can test and
    *       publish the bot.</p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -4195,7 +4195,7 @@ export interface PutBotResponse {
    * @public
    * <p> The target locale for the bot. </p>
    */
-  locale?: Locale | string;
+  locale?: Locale;
 
   /**
    * @public
@@ -4267,7 +4267,7 @@ export interface LogSettingsRequest {
    * <p>The type of logging to enable. Text logs are delivered to a CloudWatch
    *       Logs log group. Audio logs are delivered to an S3 bucket.</p>
    */
-  logType: LogType | string | undefined;
+  logType: LogType | undefined;
 
   /**
    * @public
@@ -4275,7 +4275,7 @@ export interface LogSettingsRequest {
    *       CloudWatch Logs log group. Audio logs are delivered to an S3
    *       bucket.</p>
    */
-  destination: Destination | string | undefined;
+  destination: Destination | undefined;
 
   /**
    * @public
@@ -4862,7 +4862,7 @@ export interface PutSlotTypeRequest {
    *          <p>If you don't specify the <code>valueSelectionStrategy</code>, the
    *       default is <code>ORIGINAL_VALUE</code>.</p>
    */
-  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
+  valueSelectionStrategy?: SlotValueSelectionStrategy;
 
   /**
    * @public
@@ -4946,7 +4946,7 @@ export interface PutSlotTypeResponse {
    * <p>The slot resolution strategy that Amazon Lex uses to determine the value
    *       of the slot. For more information, see <a>PutSlotType</a>.</p>
    */
-  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
+  valueSelectionStrategy?: SlotValueSelectionStrategy;
 
   /**
    * @public
@@ -4997,7 +4997,7 @@ export interface StartImportRequest {
    *             </li>
    *          </ul>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -5018,7 +5018,7 @@ export interface StartImportRequest {
    *             </li>
    *          </ul>
    */
-  mergeStrategy: MergeStrategy | string | undefined;
+  mergeStrategy: MergeStrategy | undefined;
 
   /**
    * @public
@@ -5042,13 +5042,13 @@ export interface StartImportResponse {
    * @public
    * <p>The type of resource to import.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
    * <p>The action to take when there is a merge conflict.</p>
    */
-  mergeStrategy?: MergeStrategy | string;
+  mergeStrategy?: MergeStrategy;
 
   /**
    * @public
@@ -5062,7 +5062,7 @@ export interface StartImportResponse {
    *       you can get the reason for the failure using the <code>GetImport</code>
    *       operation.</p>
    */
-  importStatus?: ImportStatus | string;
+  importStatus?: ImportStatus;
 
   /**
    * @public
@@ -5136,7 +5136,7 @@ export interface StartMigrationRequest {
    *             </li>
    *          </ul>
    */
-  migrationStrategy: MigrationStrategy | string | undefined;
+  migrationStrategy: MigrationStrategy | undefined;
 }
 
 /**
@@ -5159,7 +5159,7 @@ export interface StartMigrationResponse {
    * @public
    * <p>The locale used for the Amazon Lex V1 bot. </p>
    */
-  v1BotLocale?: Locale | string;
+  v1BotLocale?: Locale;
 
   /**
    * @public
@@ -5183,7 +5183,7 @@ export interface StartMigrationResponse {
    * @public
    * <p>The strategy used to conduct the migration.</p>
    */
-  migrationStrategy?: MigrationStrategy | string;
+  migrationStrategy?: MigrationStrategy;
 
   /**
    * @public

@@ -481,7 +481,7 @@ export interface CommentContent {
    * @public
    * <p>Type of the text in the box of a <code>Comment</code> on a case.</p>
    */
-  contentType: CommentBodyTextType | string | undefined;
+  contentType: CommentBodyTextType | undefined;
 }
 
 /**
@@ -585,7 +585,7 @@ export interface CreateRelatedItemRequest {
    * @public
    * <p>The type of a related item.</p>
    */
-  type: RelatedItemType | string | undefined;
+  type: RelatedItemType | undefined;
 
   /**
    * @public
@@ -842,7 +842,7 @@ export interface SearchRelatedItemsResponseItem {
    * @public
    * <p>Type of a related item.</p>
    */
-  type: RelatedItemType | string | undefined;
+  type: RelatedItemType | undefined;
 
   /**
    * @public
@@ -1044,7 +1044,7 @@ export interface Sort {
    * @public
    * <p>A structured set of sort terms</p>
    */
-  sortOrder: Order | string | undefined;
+  sortOrder: Order | undefined;
 }
 
 /**
@@ -1171,7 +1171,7 @@ export interface CreateDomainResponse {
    * @public
    * <p>The status of the domain.</p>
    */
-  domainStatus: DomainStatus | string | undefined;
+  domainStatus: DomainStatus | undefined;
 }
 
 /**
@@ -1319,7 +1319,7 @@ export interface GetDomainResponse {
    * @public
    * <p>The status of the Cases domain.</p>
    */
-  domainStatus: DomainStatus | string | undefined;
+  domainStatus: DomainStatus | undefined;
 
   /**
    * @public
@@ -1516,13 +1516,13 @@ export interface GetFieldResponse {
    * @public
    * <p>Type of the field.</p>
    */
-  type: FieldType | string | undefined;
+  type: FieldType | undefined;
 
   /**
    * @public
    * <p>Namespace of the field.</p>
    */
-  namespace: FieldNamespace | string | undefined;
+  namespace: FieldNamespace | undefined;
 
   /**
    * @public
@@ -1653,7 +1653,7 @@ export interface CreateFieldRequest {
    * @public
    * <p>Defines the data type, some system constraints, and default display of the field.</p>
    */
-  type: FieldType | string | undefined;
+  type: FieldType | undefined;
 
   /**
    * @public
@@ -1784,13 +1784,13 @@ export interface FieldSummary {
    * @public
    * <p>The type of a field.</p>
    */
-  type: FieldType | string | undefined;
+  type: FieldType | undefined;
 
   /**
    * @public
    * <p>The namespace of a field.</p>
    */
-  namespace: FieldNamespace | string | undefined;
+  namespace: FieldNamespace | undefined;
 }
 
 /**
@@ -2293,7 +2293,7 @@ export interface CreateTemplateRequest {
    * @public
    * <p>The status of the template.</p>
    */
-  status?: TemplateStatus | string;
+  status?: TemplateStatus;
 }
 
 /**
@@ -2381,7 +2381,7 @@ export interface GetTemplateResponse {
    * @public
    * <p>The status of the template.</p>
    */
-  status: TemplateStatus | string | undefined;
+  status: TemplateStatus | undefined;
 }
 
 /**
@@ -2411,7 +2411,7 @@ export interface ListTemplatesRequest {
    * @public
    * <p>A list of status values to filter on.</p>
    */
-  status?: (TemplateStatus | string)[];
+  status?: TemplateStatus[];
 }
 
 /**
@@ -2441,7 +2441,7 @@ export interface TemplateSummary {
    * @public
    * <p>The status of the template.</p>
    */
-  status: TemplateStatus | string | undefined;
+  status: TemplateStatus | undefined;
 }
 
 /**
@@ -2506,7 +2506,7 @@ export interface UpdateTemplateRequest {
    * @public
    * <p>The status of the template.</p>
    */
-  status?: TemplateStatus | string;
+  status?: TemplateStatus;
 }
 
 /**

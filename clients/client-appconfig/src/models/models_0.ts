@@ -270,7 +270,7 @@ export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: BadRequestReason | string;
+  Reason?: BadRequestReason;
   /**
    * @public
    * <p>Detailed information about the input that failed to satisfy the constraints specified by
@@ -398,7 +398,7 @@ export interface Validator {
    *             <code>LAMBDA</code>
    *          </p>
    */
-  Type: ValidatorType | string | undefined;
+  Type: ValidatorType | undefined;
 
   /**
    * @public
@@ -721,13 +721,13 @@ export interface CreateDeploymentStrategyRequest {
    *          targets, 8% of the targets, and continues until the configuration has been deployed to all
    *          targets.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: GrowthType;
 
   /**
    * @public
    * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
    */
-  ReplicateTo?: ReplicateTo | string;
+  ReplicateTo?: ReplicateTo;
 
   /**
    * @public
@@ -770,7 +770,7 @@ export interface DeploymentStrategy {
    * @public
    * <p>The algorithm used to define how percentage grew over time.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: GrowthType;
 
   /**
    * @public
@@ -790,7 +790,7 @@ export interface DeploymentStrategy {
    * @public
    * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
    */
-  ReplicateTo?: ReplicateTo | string;
+  ReplicateTo?: ReplicateTo;
 }
 
 /**
@@ -899,7 +899,7 @@ export interface Environment {
    *             <code>ROLLED_BACK</code>
    *          </p>
    */
-  State?: EnvironmentState | string;
+  State?: EnvironmentState;
 
   /**
    * @public
@@ -974,7 +974,7 @@ export interface CreateExtensionRequest {
    * @public
    * <p>The actions defined in the extension.</p>
    */
-  Actions: Record<string, Action[]> | undefined;
+  Actions: Record<ActionPoint, Action[]> | undefined;
 
   /**
    * @public
@@ -1040,7 +1040,7 @@ export interface Extension {
    * @public
    * <p>The actions defined in the extension.</p>
    */
-  Actions?: Record<string, Action[]>;
+  Actions?: Record<ActionPoint, Action[]>;
 
   /**
    * @public
@@ -1264,7 +1264,7 @@ export class PayloadTooLargeException extends __BaseException {
   readonly name: "PayloadTooLargeException" = "PayloadTooLargeException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Measure?: BytesMeasure | string;
+  Measure?: BytesMeasure;
   Limit?: number;
   Size?: number;
   /**
@@ -1585,14 +1585,14 @@ export interface DeploymentEvent {
    *          completion of a deployment; a percentage update; the start or stop of a bake period; and
    *          the start or completion of a rollback.</p>
    */
-  EventType?: DeploymentEventType | string;
+  EventType?: DeploymentEventType;
 
   /**
    * @public
    * <p>The entity that triggered the deployment event. Events can be triggered by a user,
    *             AppConfig, an Amazon CloudWatch alarm, or an internal error.</p>
    */
-  TriggeredBy?: TriggeredBy | string;
+  TriggeredBy?: TriggeredBy;
 
   /**
    * @public
@@ -1712,7 +1712,7 @@ export interface Deployment {
    * @public
    * <p>The algorithm used to define how percentage grew over time.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: GrowthType;
 
   /**
    * @public
@@ -1732,7 +1732,7 @@ export interface Deployment {
    * @public
    * <p>The state of the deployment.</p>
    */
-  State?: DeploymentState | string;
+  State?: DeploymentState;
 
   /**
    * @public
@@ -1964,7 +1964,7 @@ export interface ConfigurationProfileSummary {
    * @public
    * <p>The types of validators in the configuration profile.</p>
    */
-  ValidatorTypes?: (ValidatorType | string)[];
+  ValidatorTypes?: ValidatorType[];
 
   /**
    * @public
@@ -2065,7 +2065,7 @@ export interface DeploymentSummary {
    * @public
    * <p>The algorithm used to define how percentage grows over time.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: GrowthType;
 
   /**
    * @public
@@ -2085,7 +2085,7 @@ export interface DeploymentSummary {
    * @public
    * <p>The state of the deployment.</p>
    */
-  State?: DeploymentState | string;
+  State?: DeploymentState;
 
   /**
    * @public
@@ -2795,7 +2795,7 @@ export interface UpdateDeploymentStrategyRequest {
    *          targets, 8% of the targets, and continues until the configuration has been deployed to all
    *          targets.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: GrowthType;
 }
 
 /**
@@ -2853,7 +2853,7 @@ export interface UpdateExtensionRequest {
    * @public
    * <p>The actions defined in the extension.</p>
    */
-  Actions?: Record<string, Action[]>;
+  Actions?: Record<ActionPoint, Action[]>;
 
   /**
    * @public

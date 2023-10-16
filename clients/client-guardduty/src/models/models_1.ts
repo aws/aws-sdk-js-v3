@@ -164,7 +164,7 @@ export interface UpdateDetectorRequest {
    * <p>An enum value that specifies how frequently findings are exported, such as to CloudWatch
    *       Events.</p>
    */
-  FindingPublishingFrequency?: FindingPublishingFrequency | string;
+  FindingPublishingFrequency?: FindingPublishingFrequency;
 
   /**
    * @public
@@ -219,7 +219,7 @@ export interface UpdateFilterRequest {
    * @public
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
-  Action?: FilterAction | string;
+  Action?: FilterAction;
 
   /**
    * @public
@@ -266,7 +266,7 @@ export interface UpdateFindingsFeedbackRequest {
    * @public
    * <p>The feedback for the finding.</p>
    */
-  Feedback: Feedback | string | undefined;
+  Feedback: Feedback | undefined;
 
   /**
    * @public
@@ -341,7 +341,7 @@ export interface UpdateMalwareScanSettingsRequest {
    * @public
    * <p>An enum value representing possible snapshot preservation settings.</p>
    */
-  EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
+  EbsSnapshotPreservation?: EbsSnapshotPreservation;
 }
 
 /**
@@ -358,13 +358,13 @@ export interface MemberAdditionalConfiguration {
    * @public
    * <p>Name of the additional configuration.</p>
    */
-  Name?: OrgFeatureAdditionalConfiguration | string;
+  Name?: OrgFeatureAdditionalConfiguration;
 
   /**
    * @public
    * <p>Status of the additional configuration.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 }
 
 /**
@@ -376,13 +376,13 @@ export interface MemberFeaturesConfiguration {
    * @public
    * <p>The name of the feature.</p>
    */
-  Name?: OrgFeature | string;
+  Name?: OrgFeature;
 
   /**
    * @public
    * <p>The status of the feature.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -551,7 +551,7 @@ export interface OrganizationAdditionalConfiguration {
    * <p>The name of the additional configuration that will be configured for the
    *       organization.</p>
    */
-  Name?: OrgFeatureAdditionalConfiguration | string;
+  Name?: OrgFeatureAdditionalConfiguration;
 
   /**
    * @public
@@ -582,7 +582,7 @@ export interface OrganizationAdditionalConfiguration {
    *             </li>
    *          </ul>
    */
-  AutoEnable?: OrgFeatureStatus | string;
+  AutoEnable?: OrgFeatureStatus;
 }
 
 /**
@@ -594,7 +594,7 @@ export interface OrganizationFeatureConfiguration {
    * @public
    * <p>The name of the feature that will be configured for the organization.</p>
    */
-  Name?: OrgFeature | string;
+  Name?: OrgFeature;
 
   /**
    * @public
@@ -624,7 +624,7 @@ export interface OrganizationFeatureConfiguration {
    *             </li>
    *          </ul>
    */
-  AutoEnable?: OrgFeatureStatus | string;
+  AutoEnable?: OrgFeatureStatus;
 
   /**
    * @public
@@ -695,7 +695,7 @@ export interface UpdateOrganizationConfigurationRequest {
    *             </li>
    *          </ul>
    */
-  AutoEnableOrganizationMembers?: AutoEnableMembers | string;
+  AutoEnableOrganizationMembers?: AutoEnableMembers;
 }
 
 /**

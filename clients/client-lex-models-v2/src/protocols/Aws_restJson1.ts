@@ -321,6 +321,7 @@ import {
   PlainTextMessage,
   PreconditionFailedException,
   Principal,
+  PromptAttempt,
   PromptAttemptSpecification,
   PromptSpecification,
   ResourceNotFoundException,
@@ -11291,10 +11292,10 @@ const de_SlotHintsIntentMap = (
       if (value === null) {
         return acc;
       }
-      acc[key] = de_SlotHintsSlotMap(value, context);
+      acc[key as string] = de_SlotHintsSlotMap(value, context);
       return acc;
     },
-    {}
+    {} as Record<string, Record<string, RuntimeHintDetails>>
   );
 };
 
@@ -11306,9 +11307,9 @@ const de_SlotHintsSlotMap = (output: any, context: __SerdeContext): Record<strin
     if (value === null) {
       return acc;
     }
-    acc[key] = de_RuntimeHintDetails(value, context);
+    acc[key as string] = de_RuntimeHintDetails(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, RuntimeHintDetails>);
 };
 
 // de_SlotPrioritiesList omitted.
@@ -11415,9 +11416,9 @@ const de_SlotValueOverrideMap = (output: any, context: __SerdeContext): Record<s
     if (value === null) {
       return acc;
     }
-    acc[key] = de_SlotValueOverride(value, context);
+    acc[key as string] = de_SlotValueOverride(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, SlotValueOverride>);
 };
 
 // de_SlotValueRegexFilter omitted.
@@ -11470,9 +11471,9 @@ const de_SubSlotSpecificationMap = (output: any, context: __SerdeContext): Recor
     if (value === null) {
       return acc;
     }
-    acc[key] = de_Specifications(value, context);
+    acc[key as string] = de_Specifications(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, Specifications>);
 };
 
 // de_SubSlotTypeComposition omitted.
@@ -11742,9 +11743,9 @@ const de_UserTurnSlotOutputMap = (output: any, context: __SerdeContext): Record<
     if (value === null) {
       return acc;
     }
-    acc[key] = de_UserTurnSlotOutput(value, context);
+    acc[key as string] = de_UserTurnSlotOutput(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, UserTurnSlotOutput>);
 };
 
 /**

@@ -274,7 +274,7 @@ export interface StorageRuleType {
    * @public
    * <p>The type of storage.</p>
    */
-  StorageType?: StorageType | string;
+  StorageType?: StorageType;
 }
 
 /**
@@ -369,13 +369,13 @@ export interface User {
    * @public
    * <p>The status of the user.</p>
    */
-  Status?: UserStatusType | string;
+  Status?: UserStatusType;
 
   /**
    * @public
    * <p>The type of user.</p>
    */
-  Type?: UserType | string;
+  Type?: UserType;
 
   /**
    * @public
@@ -399,7 +399,7 @@ export interface User {
    * @public
    * <p>The locale of the user.</p>
    */
-  Locale?: LocaleType | string;
+  Locale?: LocaleType;
 
   /**
    * @public
@@ -461,7 +461,7 @@ export interface CommentMetadata {
    * @public
    * <p>The status of the comment.</p>
    */
-  CommentStatus?: CommentStatusType | string;
+  CommentStatus?: CommentStatusType;
 
   /**
    * @public
@@ -535,7 +535,7 @@ export interface ResourceMetadata {
    * @public
    * <p>The type of resource.</p>
    */
-  Type?: ResourceType | string;
+  Type?: ResourceType;
 
   /**
    * @public
@@ -665,7 +665,7 @@ export interface Activity {
    * @public
    * <p>The activity type.</p>
    */
-  Type?: ActivityType | string;
+  Type?: ActivityType;
 
   /**
    * @public
@@ -804,13 +804,13 @@ export interface SharePrincipal {
    * @public
    * <p>The type of the recipient.</p>
    */
-  Type: PrincipalType | string | undefined;
+  Type: PrincipalType | undefined;
 
   /**
    * @public
    * <p>The role of the recipient.</p>
    */
-  Role: RoleType | string | undefined;
+  Role: RoleType | undefined;
 }
 
 /**
@@ -877,13 +877,13 @@ export interface ShareResult {
    * @public
    * <p>The role.</p>
    */
-  Role?: RoleType | string;
+  Role?: RoleType;
 
   /**
    * @public
    * <p>The status.</p>
    */
-  Status?: ShareStatusType | string;
+  Status?: ShareStatusType;
 
   /**
    * @public
@@ -969,7 +969,7 @@ export interface CreateCommentRequest {
    *             visible only to the comment author and document owner and co-owners, or PUBLIC, where
    *             the comment is visible to document owners, co-owners, and contributors.</p>
    */
-  Visibility?: CommentVisibilityType | string;
+  Visibility?: CommentVisibilityType;
 
   /**
    * @public
@@ -1024,7 +1024,7 @@ export interface Comment {
    * @public
    * <p>The status of the comment.</p>
    */
-  Status?: CommentStatusType | string;
+  Status?: CommentStatusType;
 
   /**
    * @public
@@ -1032,7 +1032,7 @@ export interface Comment {
    *             visible only to the comment author and document owner and co-owners, or PUBLIC, where
    *             the comment is visible to document owners, co-owners, and contributors.</p>
    */
-  Visibility?: CommentVisibilityType | string;
+  Visibility?: CommentVisibilityType;
 
   /**
    * @public
@@ -1262,7 +1262,7 @@ export interface FolderMetadata {
    * @public
    * <p>The resource state of the folder.</p>
    */
-  ResourceState?: ResourceStateType | string;
+  ResourceState?: ResourceStateType;
 
   /**
    * @public
@@ -1445,13 +1445,13 @@ export interface CreateNotificationSubscriptionRequest {
    * <p>The protocol to use. The supported value is https, which delivers JSON-encoded
    *             messages using HTTPS POST.</p>
    */
-  Protocol: SubscriptionProtocolType | string | undefined;
+  Protocol: SubscriptionProtocolType | undefined;
 
   /**
    * @public
    * <p>The notification type.</p>
    */
-  SubscriptionType: SubscriptionType | string | undefined;
+  SubscriptionType: SubscriptionType | undefined;
 }
 
 /**
@@ -1475,7 +1475,7 @@ export interface Subscription {
    * @public
    * <p>The protocol of the subscription.</p>
    */
-  Protocol?: SubscriptionProtocolType | string;
+  Protocol?: SubscriptionProtocolType;
 }
 
 /**
@@ -2134,7 +2134,7 @@ export interface DocumentVersionMetadata {
    * @public
    * <p>The status of the document.</p>
    */
-  Status?: DocumentStatusType | string;
+  Status?: DocumentStatusType;
 
   /**
    * @public
@@ -2170,13 +2170,13 @@ export interface DocumentVersionMetadata {
    * @public
    * <p>The thumbnail of the document.</p>
    */
-  Thumbnail?: Record<string, string>;
+  Thumbnail?: Record<DocumentThumbnailType, string>;
 
   /**
    * @public
    * <p>The source of the document.</p>
    */
-  Source?: Record<string, string>;
+  Source?: Record<DocumentSourceType, string>;
 }
 
 /**
@@ -2282,13 +2282,13 @@ export interface DescribeFolderContentsRequest {
    * @public
    * <p>The sorting criteria.</p>
    */
-  Sort?: ResourceSortType | string;
+  Sort?: ResourceSortType;
 
   /**
    * @public
    * <p>The order for the contents of the folder.</p>
    */
-  Order?: OrderType | string;
+  Order?: OrderType;
 
   /**
    * @public
@@ -2307,7 +2307,7 @@ export interface DescribeFolderContentsRequest {
    * @public
    * <p>The type of items.</p>
    */
-  Type?: FolderContentType | string;
+  Type?: FolderContentType;
 
   /**
    * @public
@@ -2362,7 +2362,7 @@ export interface DocumentMetadata {
    * @public
    * <p>The resource state.</p>
    */
-  ResourceState?: ResourceStateType | string;
+  ResourceState?: ResourceStateType;
 
   /**
    * @public
@@ -2550,13 +2550,13 @@ export interface PermissionInfo {
    * @public
    * <p>The role of the user.</p>
    */
-  Role?: RoleType | string;
+  Role?: RoleType;
 
   /**
    * @public
    * <p>The type of permissions.</p>
    */
-  Type?: RolePermissionType | string;
+  Type?: RolePermissionType;
 }
 
 /**
@@ -2574,7 +2574,7 @@ export interface Principal {
    * @public
    * <p>The type of resource.</p>
    */
-  Type?: PrincipalType | string;
+  Type?: PrincipalType;
 
   /**
    * @public
@@ -2722,19 +2722,19 @@ export interface DescribeUsersRequest {
    * @public
    * <p>The state of the users. Specify "ALL" to include inactive users.</p>
    */
-  Include?: UserFilterType | string;
+  Include?: UserFilterType;
 
   /**
    * @public
    * <p>The order for the results.</p>
    */
-  Order?: OrderType | string;
+  Order?: OrderType;
 
   /**
    * @public
    * <p>The sorting criteria.</p>
    */
-  Sort?: UserSortType | string;
+  Sort?: UserSortType;
 
   /**
    * @public
@@ -3118,7 +3118,7 @@ export interface GetResourcesRequest {
    * @public
    * <p>The collection type.</p>
    */
-  CollectionType?: ResourceCollectionType | string;
+  CollectionType?: ResourceCollectionType;
 
   /**
    * @public
@@ -3376,7 +3376,7 @@ export interface RemoveResourcePermissionRequest {
    * @public
    * <p>The principal type of the resource.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: PrincipalType;
 }
 
 /**
@@ -3466,7 +3466,7 @@ export interface SearchPrincipalType {
    * @public
    * <p>The Role of a User or Group.</p>
    */
-  Roles?: (PrincipalRoleType | string)[];
+  Roles?: PrincipalRoleType[];
 }
 
 /**
@@ -3569,19 +3569,19 @@ export interface Filters {
    * @public
    * <p>Filters by the locale of the content or comment.</p>
    */
-  TextLocales?: (LanguageCodeType | string)[];
+  TextLocales?: LanguageCodeType[];
 
   /**
    * @public
    * <p>Filters by content category.</p>
    */
-  ContentCategories?: (ContentCategoryType | string)[];
+  ContentCategories?: ContentCategoryType[];
 
   /**
    * @public
    * <p>Filters based on entity type.</p>
    */
-  ResourceTypes?: (SearchResourceType | string)[];
+  ResourceTypes?: SearchResourceType[];
 
   /**
    * @public
@@ -3605,7 +3605,7 @@ export interface Filters {
    * @public
    * <p>Filter based on file groupings.</p>
    */
-  SearchCollectionTypes?: (SearchCollectionType | string)[];
+  SearchCollectionTypes?: SearchCollectionType[];
 
   /**
    * @public
@@ -3666,13 +3666,13 @@ export interface SearchSortResult {
    * @public
    * <p>Sort search results based on this field name.</p>
    */
-  Field?: OrderByFieldType | string;
+  Field?: OrderByFieldType;
 
   /**
    * @public
    * <p>Sort direction.</p>
    */
-  Order?: SortOrder | string;
+  Order?: SortOrder;
 }
 
 /**
@@ -3709,7 +3709,7 @@ export interface SearchResourcesRequest {
    * @public
    * <p>Filter based on the text field type. A Folder has only a name and no content. A Comment has only content and no name. A Document or Document Version has a name and content</p>
    */
-  QueryScopes?: (SearchQueryScopeType | string)[];
+  QueryScopes?: SearchQueryScopeType[];
 
   /**
    * @public
@@ -3722,7 +3722,7 @@ export interface SearchResourcesRequest {
    * <p>A list of attributes to include in the response. Used to request fields that are not normally
    *             returned in a standard response.</p>
    */
-  AdditionalResponseFields?: (AdditionalResponseFieldType | string)[];
+  AdditionalResponseFields?: AdditionalResponseFieldType[];
 
   /**
    * @public
@@ -3774,7 +3774,7 @@ export interface ResponseItem {
    * @public
    * <p>The type of item being returned.</p>
    */
-  ResourceType?: ResponseItemType | string;
+  ResourceType?: ResponseItemType;
 
   /**
    * @public
@@ -3857,7 +3857,7 @@ export interface UpdateDocumentRequest {
    * <p>The resource state of the document. Only ACTIVE and RECYCLED are
    *             supported.</p>
    */
-  ResourceState?: ResourceStateType | string;
+  ResourceState?: ResourceStateType;
 }
 
 /**
@@ -3899,7 +3899,7 @@ export interface UpdateDocumentVersionRequest {
    * @public
    * <p>The status of the version.</p>
    */
-  VersionStatus?: DocumentVersionStatus | string;
+  VersionStatus?: DocumentVersionStatus;
 }
 
 /**
@@ -3935,7 +3935,7 @@ export interface UpdateFolderRequest {
    * <p>The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from
    *             the API.</p>
    */
-  ResourceState?: ResourceStateType | string;
+  ResourceState?: ResourceStateType;
 }
 
 /**
@@ -4030,7 +4030,7 @@ export interface UpdateUserRequest {
    * @public
    * <p>The type of the user.</p>
    */
-  Type?: UserType | string;
+  Type?: UserType;
 
   /**
    * @public
@@ -4048,13 +4048,13 @@ export interface UpdateUserRequest {
    * @public
    * <p>The locale of the user.</p>
    */
-  Locale?: LocaleType | string;
+  Locale?: LocaleType;
 
   /**
    * @public
    * <p>Boolean value to determine whether the user is granted Power user privileges.</p>
    */
-  GrantPoweruserPrivileges?: BooleanEnumType | string;
+  GrantPoweruserPrivileges?: BooleanEnumType;
 }
 
 /**

@@ -49,7 +49,7 @@ export interface AutoBranchCreationConfig {
    * @public
    * <p> Describes the current stage for the autocreated branch. </p>
    */
-  stage?: Stage | string;
+  stage?: Stage;
 
   /**
    * @public
@@ -209,7 +209,7 @@ export interface CreateAppRequest {
    *             <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR support only, set the platform type to
    *             <code>WEB_DYNAMIC</code>.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -421,7 +421,7 @@ export interface App {
    *             <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR support only, set the platform type to
    *             <code>WEB_DYNAMIC</code>.</p>
    */
-  platform: Platform | string | undefined;
+  platform: Platform | undefined;
 
   /**
    * @public
@@ -534,7 +534,7 @@ export interface App {
    *             repository, <code>SIGV4</code> for an Amazon Web Services CodeCommit repository, and
    *                 <code>SSH</code> for GitLab and Bitbucket repositories.</p>
    */
-  repositoryCloneMethod?: RepositoryCloneMethod | string;
+  repositoryCloneMethod?: RepositoryCloneMethod;
 }
 
 /**
@@ -763,7 +763,7 @@ export interface CreateBranchRequest {
    * @public
    * <p> Describes the current stage for the branch. </p>
    */
-  stage?: Stage | string;
+  stage?: Stage;
 
   /**
    * @public
@@ -889,7 +889,7 @@ export interface Branch {
    * @public
    * <p> The current stage for the branch that is part of an Amplify app. </p>
    */
-  stage: Stage | string | undefined;
+  stage: Stage | undefined;
 
   /**
    * @public
@@ -1243,7 +1243,7 @@ export interface DomainAssociation {
    * @public
    * <p> The current status of the domain association. </p>
    */
-  domainStatus: DomainStatus | string | undefined;
+  domainStatus: DomainStatus | undefined;
 
   /**
    * @public
@@ -1580,7 +1580,7 @@ export interface JobSummary {
    * @public
    * <p> The current status for the job. </p>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 
   /**
    * @public
@@ -1596,7 +1596,7 @@ export interface JobSummary {
    *             API. If the value is <code>WEB_HOOK</code>, the job was automatically triggered by
    *             webhooks. </p>
    */
-  jobType: JobType | string | undefined;
+  jobType: JobType | undefined;
 }
 
 /**
@@ -1868,7 +1868,7 @@ export interface Step {
    * @public
    * <p> The status of the execution step. </p>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 
   /**
    * @public
@@ -2446,7 +2446,7 @@ export interface StartJobRequest {
    *             job. If the job type value is <code>RETRY</code>, the <code>jobId</code> is also
    *             required. </p>
    */
-  jobType: JobType | string | undefined;
+  jobType: JobType | undefined;
 
   /**
    * @public
@@ -2599,7 +2599,7 @@ export interface UpdateAppRequest {
    *             <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR support only, set the platform type to
    *             <code>WEB_DYNAMIC</code>.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -2762,7 +2762,7 @@ export interface UpdateBranchRequest {
    * @public
    * <p> Describes the current stage for the branch. </p>
    */
-  stage?: Stage | string;
+  stage?: Stage;
 
   /**
    * @public

@@ -115,13 +115,13 @@ export interface ResourceShareAssociation {
    * @public
    * <p>The type of entity included in this association.</p>
    */
-  associationType?: ResourceShareAssociationType | string;
+  associationType?: ResourceShareAssociationType;
 
   /**
    * @public
    * <p>The current status of the association.</p>
    */
-  status?: ResourceShareAssociationStatus | string;
+  status?: ResourceShareAssociationStatus;
 
   /**
    * @public
@@ -211,7 +211,7 @@ export interface ResourceShareInvitation {
    * @public
    * <p>The current status of the invitation.</p>
    */
-  status?: ResourceShareInvitationStatus | string;
+  status?: ResourceShareInvitationStatus;
 
   /**
    * @public
@@ -968,7 +968,7 @@ export interface ResourceSharePermissionSummary {
    *             </li>
    *          </ul>
    */
-  permissionType?: PermissionType | string;
+  permissionType?: PermissionType;
 
   /**
    * @public
@@ -1002,7 +1002,7 @@ export interface ResourceSharePermissionSummary {
    *             </li>
    *          </ul>
    */
-  featureSet?: PermissionFeatureSet | string;
+  featureSet?: PermissionFeatureSet;
 
   /**
    * @public
@@ -1274,7 +1274,7 @@ export interface ResourceSharePermissionDetail {
    *             </li>
    *          </ul>
    */
-  permissionType?: PermissionType | string;
+  permissionType?: PermissionType;
 
   /**
    * @public
@@ -1308,7 +1308,7 @@ export interface ResourceSharePermissionDetail {
    *             </li>
    *          </ul>
    */
-  featureSet?: PermissionFeatureSet | string;
+  featureSet?: PermissionFeatureSet;
 
   /**
    * @public
@@ -1336,7 +1336,7 @@ export interface ResourceSharePermissionDetail {
    *             </li>
    *          </ul>
    */
-  status?: PermissionStatus | string;
+  status?: PermissionStatus;
 
   /**
    * @public
@@ -1571,7 +1571,7 @@ export interface ResourceShare {
    * @public
    * <p>The current status of the resource share.</p>
    */
-  status?: ResourceShareStatus | string;
+  status?: ResourceShareStatus;
 
   /**
    * @public
@@ -1629,7 +1629,7 @@ export interface ResourceShare {
    *             </li>
    *          </ul>
    */
-  featureSet?: ResourceShareFeatureSet | string;
+  featureSet?: ResourceShareFeatureSet;
 }
 
 /**
@@ -1745,7 +1745,7 @@ export interface DeletePermissionResponse {
    * <p>This operation is performed asynchronously, and this response parameter indicates the
    *             current status.</p>
    */
-  permissionStatus?: PermissionStatus | string;
+  permissionStatus?: PermissionStatus;
 }
 
 /**
@@ -1812,7 +1812,7 @@ export interface DeletePermissionVersionResponse {
    * <p>This operation is performed asynchronously, and this response parameter indicates the
    *             current status.</p>
    */
-  permissionStatus?: PermissionStatus | string;
+  permissionStatus?: PermissionStatus;
 }
 
 /**
@@ -2195,7 +2195,7 @@ export interface GetResourceShareAssociationsRequest {
    *             </li>
    *          </ul>
    */
-  associationType: ResourceShareAssociationType | string | undefined;
+  associationType: ResourceShareAssociationType | undefined;
 
   /**
    * @public
@@ -2226,7 +2226,7 @@ export interface GetResourceShareAssociationsRequest {
    * @public
    * <p>Specifies that you want to retrieve only associations that have this status.</p>
    */
-  associationStatus?: ResourceShareAssociationStatus | string;
+  associationStatus?: ResourceShareAssociationStatus;
 
   /**
    * @public
@@ -2408,7 +2408,7 @@ export interface GetResourceSharesRequest {
    * <p>Specifies that you want to retrieve details of only those resource shares that have this
    *             status.</p>
    */
-  resourceShareStatus?: ResourceShareStatus | string;
+  resourceShareStatus?: ResourceShareStatus;
 
   /**
    * @public
@@ -2431,7 +2431,7 @@ export interface GetResourceSharesRequest {
    *             </li>
    *          </ul>
    */
-  resourceOwner: ResourceOwner | string | undefined;
+  resourceOwner: ResourceOwner | undefined;
 
   /**
    * @public
@@ -2579,7 +2579,7 @@ export interface ListPendingInvitationResourcesRequest {
    *          </ul>
    *          <p>The default value is <code>ALL</code>.</p>
    */
-  resourceRegionScope?: ResourceRegionScopeFilter | string;
+  resourceRegionScope?: ResourceRegionScopeFilter;
 }
 
 /**
@@ -2650,7 +2650,7 @@ export interface Resource {
    * @public
    * <p>The current status of the resource.</p>
    */
-  status?: ResourceStatus | string;
+  status?: ResourceStatus;
 
   /**
    * @public
@@ -2688,7 +2688,7 @@ export interface Resource {
    *             </li>
    *          </ul>
    */
-  resourceRegionScope?: ResourceRegionScope | string;
+  resourceRegionScope?: ResourceRegionScope;
 }
 
 /**
@@ -2757,7 +2757,7 @@ export interface ListPermissionAssociationsRequest {
    * <p>Specifies that you want to list only those associations with resource shares that match this
    *             status.</p>
    */
-  associationStatus?: ResourceShareAssociationStatus | string;
+  associationStatus?: ResourceShareAssociationStatus;
 
   /**
    * @public
@@ -2771,7 +2771,7 @@ export interface ListPermissionAssociationsRequest {
    * <p>Specifies that you want to list only those associations with resource shares that have a
    *                 <code>featureSet</code> with this value.</p>
    */
-  featureSet?: PermissionFeatureSet | string;
+  featureSet?: PermissionFeatureSet;
 
   /**
    * @public
@@ -2897,7 +2897,7 @@ export interface AssociatedPermission {
    *             </li>
    *          </ul>
    */
-  featureSet?: PermissionFeatureSet | string;
+  featureSet?: PermissionFeatureSet;
 
   /**
    * @public
@@ -3006,7 +3006,7 @@ export interface ListPermissionsRequest {
    *          </ul>
    *          <p>If you don't specify this parameter, the default is <code>All</code>.</p>
    */
-  permissionType?: PermissionTypeFilter | string;
+  permissionType?: PermissionTypeFilter;
 }
 
 /**
@@ -3113,7 +3113,7 @@ export interface ListPrincipalsRequest {
    *             </li>
    *          </ul>
    */
-  resourceOwner: ResourceOwner | string | undefined;
+  resourceOwner: ResourceOwner | undefined;
 
   /**
    * @public
@@ -3304,7 +3304,7 @@ export interface ListReplacePermissionAssociationsWorkRequest {
    * <p>Specifies that you want to see only the details about requests with a status that
    *             matches this value.</p>
    */
-  status?: ReplacePermissionAssociationsWorkStatus | string;
+  status?: ReplacePermissionAssociationsWorkStatus;
 
   /**
    * @public
@@ -3392,7 +3392,7 @@ export interface ReplacePermissionAssociationsWork {
    *             </li>
    *          </ul>
    */
-  status?: ReplacePermissionAssociationsWorkStatus | string;
+  status?: ReplacePermissionAssociationsWorkStatus;
 
   /**
    * @public
@@ -3479,7 +3479,7 @@ export interface ListResourcesRequest {
    *             </li>
    *          </ul>
    */
-  resourceOwner: ResourceOwner | string | undefined;
+  resourceOwner: ResourceOwner | undefined;
 
   /**
    * @public
@@ -3557,7 +3557,7 @@ export interface ListResourcesRequest {
    *          </ul>
    *          <p>The default value is <code>ALL</code>.</p>
    */
-  resourceRegionScope?: ResourceRegionScopeFilter | string;
+  resourceRegionScope?: ResourceRegionScopeFilter;
 }
 
 /**
@@ -3689,7 +3689,7 @@ export interface ListResourceTypesRequest {
    *          </ul>
    *          <p>The default value is <code>ALL</code>.</p>
    */
-  resourceRegionScope?: ResourceRegionScopeFilter | string;
+  resourceRegionScope?: ResourceRegionScopeFilter;
 }
 
 /**
@@ -3730,7 +3730,7 @@ export interface ServiceNameAndResourceType {
    *             </li>
    *          </ul>
    */
-  resourceRegionScope?: ResourceRegionScope | string;
+  resourceRegionScope?: ResourceRegionScope;
 }
 
 /**

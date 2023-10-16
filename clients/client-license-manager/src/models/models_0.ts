@@ -49,7 +49,7 @@ export interface AcceptGrantResponse {
    * @public
    * <p>Grant status.</p>
    */
-  Status?: GrantStatus | string;
+  Status?: GrantStatus;
 
   /**
    * @public
@@ -415,7 +415,7 @@ export interface EntitlementData {
    * @public
    * <p>Entitlement data unit.</p>
    */
-  Unit: EntitlementDataUnit | string | undefined;
+  Unit: EntitlementDataUnit | undefined;
 }
 
 /**
@@ -439,7 +439,7 @@ export interface CheckoutBorrowLicenseRequest {
    * <p>Digital signature method. The possible value is JSON Web Signature (JWS) algorithm PS384.
    *          For more information, see <a href="https://tools.ietf.org/html/rfc7518#section-3.5">RFC 7518 Digital Signature with RSASSA-PSS</a>.</p>
    */
-  DigitalSignatureMethod: DigitalSignatureMethod | string | undefined;
+  DigitalSignatureMethod: DigitalSignatureMethod | undefined;
 
   /**
    * @public
@@ -631,7 +631,7 @@ export interface CheckoutLicenseRequest {
    * @public
    * <p>Checkout type.</p>
    */
-  CheckoutType: CheckoutType | string | undefined;
+  CheckoutType: CheckoutType | undefined;
 
   /**
    * @public
@@ -672,7 +672,7 @@ export interface CheckoutLicenseResponse {
    * @public
    * <p>Checkout type.</p>
    */
-  CheckoutType?: CheckoutType | string;
+  CheckoutType?: CheckoutType;
 
   /**
    * @public
@@ -771,7 +771,7 @@ export interface CreateGrantRequest {
    * @public
    * <p>Allowed operations for the grant.</p>
    */
-  AllowedOperations: (AllowedOperation | string)[] | undefined;
+  AllowedOperations: AllowedOperation[] | undefined;
 }
 
 /**
@@ -788,7 +788,7 @@ export interface CreateGrantResponse {
    * @public
    * <p>Grant status.</p>
    */
-  Status?: GrantStatus | string;
+  Status?: GrantStatus;
 
   /**
    * @public
@@ -838,7 +838,7 @@ export interface Options {
    *             </dd>
    *          </dl>
    */
-  ActivationOverrideBehavior?: ActivationOverrideBehavior | string;
+  ActivationOverrideBehavior?: ActivationOverrideBehavior;
 }
 
 /**
@@ -867,13 +867,13 @@ export interface CreateGrantVersionRequest {
    * @public
    * <p>Allowed operations for the grant.</p>
    */
-  AllowedOperations?: (AllowedOperation | string)[];
+  AllowedOperations?: AllowedOperation[];
 
   /**
    * @public
    * <p>Grant status.</p>
    */
-  Status?: GrantStatus | string;
+  Status?: GrantStatus;
 
   /**
    * @public
@@ -908,7 +908,7 @@ export interface CreateGrantVersionResponse {
    * @public
    * <p>Grant status.</p>
    */
-  Status?: GrantStatus | string;
+  Status?: GrantStatus;
 
   /**
    * @public
@@ -971,7 +971,7 @@ export interface ConsumptionConfiguration {
    * @public
    * <p>Renewal frequency.</p>
    */
-  RenewType?: RenewType | string;
+  RenewType?: RenewType;
 
   /**
    * @public
@@ -1058,7 +1058,7 @@ export interface Entitlement {
    * @public
    * <p>Entitlement unit.</p>
    */
-  Unit: EntitlementUnit | string | undefined;
+  Unit: EntitlementUnit | undefined;
 
   /**
    * @public
@@ -1210,7 +1210,7 @@ export interface CreateLicenseResponse {
    * @public
    * <p>License status.</p>
    */
-  Status?: LicenseStatus | string;
+  Status?: LicenseStatus;
 
   /**
    * @public
@@ -1384,7 +1384,7 @@ export interface CreateLicenseConfigurationRequest {
    * @public
    * <p>Dimension used to track the license inventory.</p>
    */
-  LicenseCountingType: LicenseCountingType | string | undefined;
+  LicenseCountingType: LicenseCountingType | undefined;
 
   /**
    * @public
@@ -1564,7 +1564,7 @@ export interface ReportFrequency {
    * @public
    * <p>Time period between each report. The period can be daily, weekly, or monthly.</p>
    */
-  period?: ReportFrequencyType | string;
+  period?: ReportFrequencyType;
 }
 
 /**
@@ -1603,7 +1603,7 @@ export interface CreateLicenseManagerReportGeneratorRequest {
    *             </li>
    *          </ul>
    */
-  Type: (ReportType | string)[] | undefined;
+  Type: ReportType[] | undefined;
 
   /**
    * @public
@@ -1711,7 +1711,7 @@ export interface CreateLicenseVersionRequest {
    * @public
    * <p>License status.</p>
    */
-  Status: LicenseStatus | string | undefined;
+  Status: LicenseStatus | undefined;
 
   /**
    * @public
@@ -1746,7 +1746,7 @@ export interface CreateLicenseVersionResponse {
    * @public
    * <p>License status.</p>
    */
-  Status?: LicenseStatus | string;
+  Status?: LicenseStatus;
 }
 
 /**
@@ -1814,7 +1814,7 @@ export interface CreateTokenResponse {
    * @public
    * <p>Token type.</p>
    */
-  TokenType?: TokenType | string;
+  TokenType?: TokenType;
 
   /**
    * @public
@@ -1860,7 +1860,7 @@ export interface DeleteGrantResponse {
    * @public
    * <p>Grant status.</p>
    */
-  Status?: GrantStatus | string;
+  Status?: GrantStatus;
 
   /**
    * @public
@@ -1908,7 +1908,7 @@ export interface DeleteLicenseResponse {
    * @public
    * <p>License status.</p>
    */
-  Status?: LicenseDeletionStatus | string;
+  Status?: LicenseDeletionStatus;
 
   /**
    * @public
@@ -2089,7 +2089,7 @@ export interface Grant {
    * @public
    * <p>Grant status.</p>
    */
-  GrantStatus: GrantStatus | string | undefined;
+  GrantStatus: GrantStatus | undefined;
 
   /**
    * @public
@@ -2107,7 +2107,7 @@ export interface Grant {
    * @public
    * <p>Granted operations.</p>
    */
-  GrantedOperations: (AllowedOperation | string)[] | undefined;
+  GrantedOperations: AllowedOperation[] | undefined;
 
   /**
    * @public
@@ -2214,7 +2214,7 @@ export interface License {
    * @public
    * <p>License status.</p>
    */
-  Status?: LicenseStatus | string;
+  Status?: LicenseStatus;
 
   /**
    * @public
@@ -2307,7 +2307,7 @@ export interface ConsumedLicenseSummary {
    * @public
    * <p>Resource type of the resource consuming a license.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -2325,7 +2325,7 @@ export interface ManagedResourceSummary {
    * @public
    * <p>Type of resource associated with a license.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -2366,7 +2366,7 @@ export interface GetLicenseConfigurationResponse {
    * @public
    * <p>Dimension for which the licenses are counted.</p>
    */
-  LicenseCountingType?: LicenseCountingType | string;
+  LicenseCountingType?: LicenseCountingType;
 
   /**
    * @public
@@ -2506,7 +2506,7 @@ export interface GetLicenseConversionTaskResponse {
    * @public
    * <p>Status of the license type conversion task.</p>
    */
-  Status?: LicenseConversionTaskStatus | string;
+  Status?: LicenseConversionTaskStatus;
 
   /**
    * @public
@@ -2571,7 +2571,7 @@ export interface ReportGenerator {
    * @public
    * <p>Type of reports that are generated.</p>
    */
-  ReportType?: (ReportType | string)[];
+  ReportType?: ReportType[];
 
   /**
    * @public
@@ -2689,7 +2689,7 @@ export interface EntitlementUsage {
    * @public
    * <p>Entitlement usage unit.</p>
    */
-  Unit: EntitlementDataUnit | string | undefined;
+  Unit: EntitlementDataUnit | undefined;
 }
 
 /**
@@ -2830,7 +2830,7 @@ export interface LicenseConfigurationAssociation {
    * @public
    * <p>Type of server resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -2999,7 +2999,7 @@ export interface LicenseOperationFailure {
    * @public
    * <p>Resource type.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -3140,7 +3140,7 @@ export interface LicenseConfiguration {
    * @public
    * <p>Dimension to use to track the license inventory.</p>
    */
-  LicenseCountingType?: LicenseCountingType | string;
+  LicenseCountingType?: LicenseCountingType;
 
   /**
    * @public
@@ -3285,7 +3285,7 @@ export interface LicenseConversionTask {
    * @public
    * <p>The status of the conversion task.</p>
    */
-  Status?: LicenseConversionTaskStatus | string;
+  Status?: LicenseConversionTaskStatus;
 
   /**
    * @public
@@ -3758,7 +3758,7 @@ export interface ReceivedMetadata {
    * @public
    * <p>Received status.</p>
    */
-  ReceivedStatus?: ReceivedStatus | string;
+  ReceivedStatus?: ReceivedStatus;
 
   /**
    * @public
@@ -3770,7 +3770,7 @@ export interface ReceivedMetadata {
    * @public
    * <p>Allowed operations.</p>
    */
-  AllowedOperations?: (AllowedOperation | string)[];
+  AllowedOperations?: AllowedOperation[];
 }
 
 /**
@@ -3818,7 +3818,7 @@ export interface GrantedLicense {
    * @public
    * <p>Granted license status.</p>
    */
-  Status?: LicenseStatus | string;
+  Status?: LicenseStatus;
 
   /**
    * @public
@@ -3993,7 +3993,7 @@ export interface InventoryFilter {
    * @public
    * <p>Condition of the filter.</p>
    */
-  Condition: InventoryFilterCondition | string | undefined;
+  Condition: InventoryFilterCondition | undefined;
 
   /**
    * @public
@@ -4078,7 +4078,7 @@ export interface ResourceInventory {
    * @public
    * <p>Type of resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -4307,7 +4307,7 @@ export interface LicenseConfigurationUsage {
    * @public
    * <p>Type of resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -4376,7 +4376,7 @@ export interface RejectGrantResponse {
    * @public
    * <p>Grant status.</p>
    */
-  Status?: GrantStatus | string;
+  Status?: GrantStatus;
 
   /**
    * @public
@@ -4457,7 +4457,7 @@ export interface UpdateLicenseConfigurationRequest {
    * @public
    * <p>New status of the license configuration.</p>
    */
-  LicenseConfigurationStatus?: LicenseConfigurationStatus | string;
+  LicenseConfigurationStatus?: LicenseConfigurationStatus;
 
   /**
    * @public
@@ -4536,7 +4536,7 @@ export interface UpdateLicenseManagerReportGeneratorRequest {
    *             </li>
    *          </ul>
    */
-  Type: (ReportType | string)[] | undefined;
+  Type: ReportType[] | undefined;
 
   /**
    * @public

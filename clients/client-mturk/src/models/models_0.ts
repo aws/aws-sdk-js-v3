@@ -155,7 +155,7 @@ export interface Assignment {
    * @public
    * <p> The status of the assignment.</p>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: AssignmentStatus;
 
   /**
    * @public
@@ -530,7 +530,7 @@ export interface QualificationRequirement {
    *             regardless of its value.
    *         </p>
    */
-  Comparator: Comparator | string | undefined;
+  Comparator: Comparator | undefined;
 
   /**
    * @public
@@ -595,7 +595,7 @@ export interface QualificationRequirement {
    *             <code>RequiredToPreview</code> field.
    *         </p>
    */
-  ActionsGuarded?: HITAccessActions | string;
+  ActionsGuarded?: HITAccessActions;
 }
 
 /**
@@ -892,7 +892,7 @@ export interface HIT {
    *             Assignable | Unassignable | Reviewable | Reviewing | Disposed.
    *         </p>
    */
-  HITStatus?: HITStatus | string;
+  HITStatus?: HITStatus;
 
   /**
    * @public
@@ -958,7 +958,7 @@ export interface HIT {
    *             NotReviewed | MarkedForReview | ReviewedAppropriate |
    *             ReviewedInappropriate.</p>
    */
-  HITReviewStatus?: HITReviewStatus | string;
+  HITReviewStatus?: HITReviewStatus;
 
   /**
    * @public
@@ -1271,7 +1271,7 @@ export interface CreateQualificationTypeRequest {
    * <p>The initial status of the Qualification type.</p>
    *         <p>Constraints: Valid values are: Active | Inactive</p>
    */
-  QualificationTypeStatus: QualificationTypeStatus | string | undefined;
+  QualificationTypeStatus: QualificationTypeStatus | undefined;
 
   /**
    * @public
@@ -1401,7 +1401,7 @@ export interface QualificationType {
    *             type. Valid values are Active | Inactive.
    *         </p>
    */
-  QualificationTypeStatus?: QualificationTypeStatus | string;
+  QualificationTypeStatus?: QualificationTypeStatus;
 
   /**
    * @public
@@ -1796,7 +1796,7 @@ export interface Qualification {
    * <p> The status of the Qualification. Valid values are Granted |
    *             Revoked.</p>
    */
-  Status?: QualificationStatus | string;
+  Status?: QualificationStatus;
 }
 
 /**
@@ -1857,7 +1857,7 @@ export interface ListAssignmentsForHITRequest {
    * <p>The status of the assignments to return: Submitted | Approved
    *             | Rejected</p>
    */
-  AssignmentStatuses?: (AssignmentStatus | string)[];
+  AssignmentStatuses?: AssignmentStatus[];
 }
 
 /**
@@ -2279,7 +2279,7 @@ export interface ListReviewableHITsRequest {
    *             Reviewable is the default value.
    *         </p>
    */
-  Status?: ReviewableHITStatus | string;
+  Status?: ReviewableHITStatus;
 
   /**
    * @public
@@ -2356,7 +2356,7 @@ export interface ListReviewPolicyResultsForHITRequest {
    *             For a list of all the described policies, see Review Policies.
    *         </p>
    */
-  PolicyLevels?: (ReviewPolicyLevel | string)[];
+  PolicyLevels?: ReviewPolicyLevel[];
 
   /**
    * @public
@@ -2445,7 +2445,7 @@ export interface ReviewActionDetail {
    *             FAILED, or CANCELLED.
    *         </p>
    */
-  Status?: ReviewActionStatus | string;
+  Status?: ReviewActionStatus;
 
   /**
    * @public
@@ -2682,7 +2682,7 @@ export interface ListWorkersWithQualificationTypeRequest {
    *             Can be <code>Granted | Revoked</code>.
    *         </p>
    */
-  Status?: QualificationStatus | string;
+  Status?: QualificationStatus;
 
   /**
    * @public
@@ -2781,7 +2781,7 @@ export interface NotifyWorkersFailureStatus {
    * <p> Encoded value for the failure type.
    *         </p>
    */
-  NotifyWorkersFailureCode?: NotifyWorkersFailureCode | string;
+  NotifyWorkersFailureCode?: NotifyWorkersFailureCode;
 
   /**
    * @public
@@ -2961,7 +2961,7 @@ export interface NotificationSpecification {
    *             notification. Valid Values: Email | SQS | SNS.
    *         </p>
    */
-  Transport: NotificationTransport | string | undefined;
+  Transport: NotificationTransport | undefined;
 
   /**
    * @public
@@ -2980,7 +2980,7 @@ export interface NotificationSpecification {
    *             the SendTestEventNotification operation.
    *         </p>
    */
-  EventTypes: (EventType | string)[] | undefined;
+  EventTypes: EventType[] | undefined;
 }
 
 /**
@@ -3006,7 +3006,7 @@ export interface SendTestEventNotificationRequest {
    *             The notification specification does not filter out the test event.
    *         </p>
    */
-  TestEventType: EventType | string | undefined;
+  TestEventType: EventType | undefined;
 }
 
 /**
@@ -3157,7 +3157,7 @@ export interface UpdateQualificationTypeRequest {
    * @public
    * <p>The new status of the Qualification type - Active | Inactive</p>
    */
-  QualificationTypeStatus?: QualificationTypeStatus | string;
+  QualificationTypeStatus?: QualificationTypeStatus;
 
   /**
    * @public

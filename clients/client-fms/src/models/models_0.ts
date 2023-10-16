@@ -117,7 +117,7 @@ export interface AdminAccountSummary {
    *             </li>
    *          </ul>
    */
-  Status?: OrganizationStatus | string;
+  Status?: OrganizationStatus;
 }
 
 /**
@@ -176,7 +176,7 @@ export interface PolicyTypeScope {
    * @public
    * <p>The list of policy types that the specified Firewall Manager administrator can manage.</p>
    */
-  PolicyTypes?: (SecurityServiceType | string)[];
+  PolicyTypes?: SecurityServiceType[];
 
   /**
    * @public
@@ -493,7 +493,7 @@ export interface AssociateThirdPartyFirewallRequest {
    * @public
    * <p>The name of the third-party firewall vendor.</p>
    */
-  ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
+  ThirdPartyFirewall: ThirdPartyFirewall | undefined;
 }
 
 /**
@@ -544,7 +544,7 @@ export interface AssociateThirdPartyFirewallResponse {
    *             </li>
    *          </ul>
    */
-  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus | string;
+  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus;
 }
 
 /**
@@ -633,7 +633,7 @@ export interface FailedItem {
    * @public
    * <p>The reason the resource's association could not be updated.</p>
    */
-  Reason?: FailedItemReason | string;
+  Reason?: FailedItemReason;
 }
 
 /**
@@ -787,7 +787,7 @@ export interface DisassociateThirdPartyFirewallRequest {
    * @public
    * <p>The name of the third-party firewall vendor.</p>
    */
-  ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
+  ThirdPartyFirewall: ThirdPartyFirewall | undefined;
 }
 
 /**
@@ -798,7 +798,7 @@ export interface DisassociateThirdPartyFirewallResponse {
    * @public
    * <p>The current status for the disassociation of a Firewall Manager administrators account with a third-party firewall.</p>
    */
-  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus | string;
+  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus;
 }
 
 /**
@@ -821,7 +821,7 @@ export interface GetAdminAccountResponse {
    * <p>The status of the account that you set as the Firewall Manager
    *       default administrator.</p>
    */
-  RoleStatus?: AccountRoleStatus | string;
+  RoleStatus?: AccountRoleStatus;
 }
 
 /**
@@ -867,7 +867,7 @@ export interface GetAdminScopeResponse {
    *             </li>
    *          </ul>
    */
-  Status?: OrganizationStatus | string;
+  Status?: OrganizationStatus;
 }
 
 /**
@@ -993,7 +993,7 @@ export interface ComplianceViolator {
    * @public
    * <p>The reason that the resource is not protected by the policy.</p>
    */
-  ViolationReason?: ViolationReason | string;
+  ViolationReason?: ViolationReason;
 
   /**
    * @public
@@ -1062,7 +1062,7 @@ export interface PolicyComplianceDetail {
    * <p>Details about problems with dependent services, such as WAF or Config,
    *       and the error message received that indicates the problem with the service.</p>
    */
-  IssueInfoMap?: Record<string, string>;
+  IssueInfoMap?: Record<DependentServiceName, string>;
 }
 
 /**
@@ -1189,7 +1189,7 @@ export interface NetworkFirewallPolicy {
    * <p>Defines the deployment model to use for the firewall policy. To use a distributed model,
    *          set <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_PolicyOption.html">PolicyOption</a> to <code>NULL</code>.</p>
    */
-  FirewallDeploymentModel?: FirewallDeploymentModel | string;
+  FirewallDeploymentModel?: FirewallDeploymentModel;
 }
 
 /**
@@ -1201,7 +1201,7 @@ export interface ThirdPartyFirewallPolicy {
    * @public
    * <p>Defines the deployment model to use for the third-party firewall policy.</p>
    */
-  FirewallDeploymentModel?: FirewallDeploymentModel | string;
+  FirewallDeploymentModel?: FirewallDeploymentModel;
 }
 
 /**
@@ -1235,7 +1235,7 @@ export interface SecurityServicePolicyData {
    *       each common policy and for each content audit policy. This is an adjustable limit that you can
    *       increase by contacting Amazon Web Services Support.</p>
    */
-  Type: SecurityServiceType | string | undefined;
+  Type: SecurityServiceType | undefined;
 
   /**
    * @public
@@ -1602,7 +1602,7 @@ export interface Policy {
    *             </li>
    *          </ul>
    */
-  IncludeMap?: Record<string, string[]>;
+  IncludeMap?: Record<CustomerPolicyScopeIdType, string[]>;
 
   /**
    * @public
@@ -1628,7 +1628,7 @@ export interface Policy {
    *             </li>
    *          </ul>
    */
-  ExcludeMap?: Record<string, string[]>;
+  ExcludeMap?: Record<CustomerPolicyScopeIdType, string[]>;
 
   /**
    * @public
@@ -1656,7 +1656,7 @@ export interface Policy {
    *             </li>
    *          </ul>
    */
-  PolicyStatus?: CustomerPolicyStatus | string;
+  PolicyStatus?: CustomerPolicyStatus;
 }
 
 /**
@@ -1764,7 +1764,7 @@ export interface GetProtectionStatusResponse {
    * <p>The service type that is protected by the policy. Currently, this is always
    *             <code>SHIELD_ADVANCED</code>.</p>
    */
-  ServiceType?: SecurityServiceType | string;
+  ServiceType?: SecurityServiceType;
 
   /**
    * @public
@@ -1973,7 +1973,7 @@ export interface ResourceSet {
    *             </li>
    *          </ul>
    */
-  ResourceSetStatus?: ResourceSetStatus | string;
+  ResourceSetStatus?: ResourceSetStatus;
 }
 
 /**
@@ -2001,7 +2001,7 @@ export interface GetThirdPartyFirewallAssociationStatusRequest {
    * @public
    * <p>The name of the third-party firewall vendor.</p>
    */
-  ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
+  ThirdPartyFirewall: ThirdPartyFirewall | undefined;
 }
 
 /**
@@ -2050,7 +2050,7 @@ export interface GetThirdPartyFirewallAssociationStatusResponse {
    *             </li>
    *          </ul>
    */
-  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus | string;
+  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus;
 
   /**
    * @public
@@ -2070,7 +2070,7 @@ export interface GetThirdPartyFirewallAssociationStatusResponse {
    *             </li>
    *          </ul>
    */
-  MarketplaceOnboardingStatus?: MarketplaceSubscriptionOnboardingStatus | string;
+  MarketplaceOnboardingStatus?: MarketplaceSubscriptionOnboardingStatus;
 }
 
 /**
@@ -2210,7 +2210,7 @@ export interface SecurityGroupRemediationAction {
    * @public
    * <p>The remediation action that will be performed.</p>
    */
-  RemediationActionType?: RemediationActionType | string;
+  RemediationActionType?: RemediationActionType;
 
   /**
    * @public
@@ -2455,13 +2455,13 @@ export interface Route {
    * @public
    * <p>The type of destination for the route.</p>
    */
-  DestinationType?: DestinationType | string;
+  DestinationType?: DestinationType;
 
   /**
    * @public
    * <p>The type of target for the route.</p>
    */
-  TargetType?: TargetType | string;
+  TargetType?: TargetType;
 
   /**
    * @public
@@ -2896,7 +2896,7 @@ export interface StatefulEngineOptions {
    * as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more
    * information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.</p>
    */
-  RuleOrder?: RuleOrder | string;
+  RuleOrder?: RuleOrder;
 }
 
 /**
@@ -2922,7 +2922,7 @@ export interface NetworkFirewallStatefulRuleGroupOverride {
    * @public
    * <p>The action that changes the rule group from <code>DROP</code> to <code>ALERT</code>. This only applies to managed rule groups.</p>
    */
-  Action?: NetworkFirewallOverrideAction | string;
+  Action?: NetworkFirewallOverrideAction;
 }
 
 /**
@@ -4081,7 +4081,7 @@ export interface EvaluationResult {
    * @public
    * <p>Describes an Amazon Web Services account's compliance with the Firewall Manager policy.</p>
    */
-  ComplianceStatus?: PolicyComplianceStatusType | string;
+  ComplianceStatus?: PolicyComplianceStatusType;
 
   /**
    * @public
@@ -4149,7 +4149,7 @@ export interface PolicyComplianceStatus {
    * <p>Details about problems with dependent services, such as WAF or Config,
    *       and the error message received that indicates the problem with the service.</p>
    */
-  IssueInfoMap?: Record<string, string>;
+  IssueInfoMap?: Record<DependentServiceName, string>;
 }
 
 /**
@@ -4372,7 +4372,7 @@ export interface PolicySummary {
    *       policy that is created, either an WAF policy, a Shield Advanced policy, or a security
    *       group policy.</p>
    */
-  SecurityServiceType?: SecurityServiceType | string;
+  SecurityServiceType?: SecurityServiceType;
 
   /**
    * @public
@@ -4404,7 +4404,7 @@ export interface PolicySummary {
    *             </li>
    *          </ul>
    */
-  PolicyStatus?: CustomerPolicyStatus | string;
+  PolicyStatus?: CustomerPolicyStatus;
 }
 
 /**
@@ -4632,7 +4632,7 @@ export interface ResourceSetSummary {
    *             </li>
    *          </ul>
    */
-  ResourceSetStatus?: ResourceSetStatus | string;
+  ResourceSetStatus?: ResourceSetStatus;
 }
 
 /**
@@ -4684,7 +4684,7 @@ export interface ListThirdPartyFirewallFirewallPoliciesRequest {
    * @public
    * <p>The name of the third-party firewall vendor.</p>
    */
-  ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
+  ThirdPartyFirewall: ThirdPartyFirewall | undefined;
 
   /**
    * @public

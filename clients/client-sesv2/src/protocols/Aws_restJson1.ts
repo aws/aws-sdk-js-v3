@@ -354,6 +354,7 @@ import {
   LimitExceededException,
   ListContactsFilter,
   ListManagementOptions,
+  ListRecommendationsFilterKey,
   MailFromDomainNotVerifiedException,
   Message,
   MessageInsightsDataSource,
@@ -361,6 +362,7 @@ import {
   MessageRejected,
   MessageTag,
   MetricDataResult,
+  MetricDimensionName,
   MetricsDataSource,
   NotFoundException,
   OverallVolume,
@@ -8859,9 +8861,9 @@ const de_BlacklistReport = (output: any, context: __SerdeContext): Record<string
     if (value === null) {
       return acc;
     }
-    acc[key] = de_BlacklistEntries(value, context);
+    acc[key as string] = de_BlacklistEntries(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, BlacklistEntry[]>);
 };
 
 // de_Bounce omitted.

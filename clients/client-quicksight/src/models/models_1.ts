@@ -79,13 +79,13 @@ export interface BoxPlotOptions {
    * @public
    * <p>Determines the visibility of the outlier in a box plot.</p>
    */
-  OutlierVisibility?: Visibility | string;
+  OutlierVisibility?: Visibility;
 
   /**
    * @public
    * <p>Determines the visibility of all data points of the box plot.</p>
    */
-  AllDataPointsVisibility?: Visibility | string;
+  AllDataPointsVisibility?: Visibility;
 }
 
 /**
@@ -378,7 +378,7 @@ export interface ComboChartConfiguration {
    *             </li>
    *          </ul>
    */
-  BarsArrangement?: BarsArrangement | string;
+  BarsArrangement?: BarsArrangement;
 
   /**
    * @public
@@ -551,13 +551,13 @@ export interface CustomContentConfiguration {
    * @public
    * <p>The content type of the custom content visual. You can use this to have the visual render as an image.</p>
    */
-  ContentType?: CustomContentType | string;
+  ContentType?: CustomContentType;
 
   /**
    * @public
    * <p>The sizing options for the size of the custom content visual. This structure is required when the <code>ContentType</code> of the visual is <code>'IMAGE'</code>.</p>
    */
-  ImageScaling?: CustomContentImageScalingConfiguration | string;
+  ImageScaling?: CustomContentImageScalingConfiguration;
 }
 
 /**
@@ -684,7 +684,7 @@ export interface GeospatialMapStyleOptions {
    * @public
    * <p>The base map style of the geospatial map.</p>
    */
-  BaseMapStyle?: BaseMapStyleType | string;
+  BaseMapStyle?: BaseMapStyleType;
 }
 
 /**
@@ -759,7 +759,7 @@ export interface GeospatialWindowOptions {
    * @public
    * <p>The map zoom modes (manual, auto) of the geospatial window options.</p>
    */
-  MapZoomMode?: MapZoomMode | string;
+  MapZoomMode?: MapZoomMode;
 }
 
 /**
@@ -1024,25 +1024,25 @@ export interface FunnelChartDataLabelOptions {
    * @public
    * <p>The visibility option that determines if data labels are displayed.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
    * <p>The visibility of the category labels within the data labels.</p>
    */
-  CategoryLabelVisibility?: Visibility | string;
+  CategoryLabelVisibility?: Visibility;
 
   /**
    * @public
    * <p>The visibility of the measure labels within the data labels.</p>
    */
-  MeasureLabelVisibility?: Visibility | string;
+  MeasureLabelVisibility?: Visibility;
 
   /**
    * @public
    * <p>Determines the positioning of the data label relative to a section of the funnel.</p>
    */
-  Position?: DataLabelPosition | string;
+  Position?: DataLabelPosition;
 
   /**
    * @public
@@ -1061,7 +1061,7 @@ export interface FunnelChartDataLabelOptions {
    * @public
    * <p>Determines the style of the metric labels.</p>
    */
-  MeasureDataLabelStyle?: FunnelChartMeasureDataLabelStyle | string;
+  MeasureDataLabelStyle?: FunnelChartMeasureDataLabelStyle;
 }
 
 /**
@@ -1252,7 +1252,7 @@ export interface ArcConfiguration {
    * @public
    * <p>The options that determine the arc thickness of a <code>GaugeChartVisual</code>.</p>
    */
-  ArcThickness?: ArcThicknessOptions | string;
+  ArcThickness?: ArcThicknessOptions;
 }
 
 /**
@@ -1351,7 +1351,7 @@ export interface ComparisonConfiguration {
    *             </li>
    *          </ul>
    */
-  ComparisonMethod?: ComparisonMethod | string;
+  ComparisonMethod?: ComparisonMethod;
 
   /**
    * @public
@@ -1384,7 +1384,7 @@ export interface GaugeChartOptions {
    * @public
    * <p>The options that determine the primary value display type.</p>
    */
-  PrimaryValueDisplayType?: PrimaryValueDisplayType | string;
+  PrimaryValueDisplayType?: PrimaryValueDisplayType;
 
   /**
    * @public
@@ -1482,7 +1482,7 @@ export interface ConditionalFormattingIconDisplayConfiguration {
    * @public
    * <p>Determines the icon display configuration.</p>
    */
-  IconDisplayOption?: ConditionalFormattingIconDisplayOption | string;
+  IconDisplayOption?: ConditionalFormattingIconDisplayOption;
 }
 
 /**
@@ -1532,7 +1532,7 @@ export interface ConditionalFormattingCustomIconOptions {
    * @public
    * <p>Determines the type of icon.</p>
    */
-  Icon?: Icon | string;
+  Icon?: Icon;
 
   /**
    * @public
@@ -1610,7 +1610,7 @@ export interface ConditionalFormattingIconSet {
    * @public
    * <p>Determines the icon set type.</p>
    */
-  IconSetType?: ConditionalFormattingIconSetType | string;
+  IconSetType?: ConditionalFormattingIconSetType;
 }
 
 /**
@@ -1857,7 +1857,7 @@ export interface GeospatialPointStyleOptions {
    * @public
    * <p>The selected point styles (point, cluster) of the geospatial map.</p>
    */
-  SelectedPointStyle?: GeospatialSelectedPointStyle | string;
+  SelectedPointStyle?: GeospatialSelectedPointStyle;
 
   /**
    * @public
@@ -2010,7 +2010,7 @@ export interface ColorScale {
    * @public
    * <p>Determines the color fill type.</p>
    */
-  ColorFillType: ColorFillType | string | undefined;
+  ColorFillType: ColorFillType | undefined;
 
   /**
    * @public
@@ -2236,7 +2236,7 @@ export interface HistogramBinOptions {
    * @public
    * <p>The options that determine the selected bin type.</p>
    */
-  SelectedBinType?: HistogramBinType | string;
+  SelectedBinType?: HistogramBinType;
 
   /**
    * @public
@@ -2461,7 +2461,7 @@ export interface ForecastComputation {
    *             </li>
    *          </ul>
    */
-  Seasonality?: ForecastComputationSeasonality | string;
+  Seasonality?: ForecastComputationSeasonality;
 
   /**
    * @public
@@ -2562,7 +2562,7 @@ export interface MaximumMinimumComputation {
    *             </li>
    *          </ul>
    */
-  Type: MaximumMinimumComputationType | string | undefined;
+  Type: MaximumMinimumComputationType | undefined;
 }
 
 /**
@@ -2672,7 +2672,7 @@ export interface PeriodToDateComputation {
    *             </li>
    *          </ul>
    */
-  PeriodTimeGranularity?: TimeGranularity | string;
+  PeriodTimeGranularity?: TimeGranularity;
 }
 
 /**
@@ -2748,7 +2748,7 @@ export interface TopBottomMoversComputation {
    * @public
    * <p>The sort order setup of the top and bottom movers computation.</p>
    */
-  SortOrder?: TopBottomSortOrder | string;
+  SortOrder?: TopBottomSortOrder;
 
   /**
    * @public
@@ -2762,7 +2762,7 @@ export interface TopBottomMoversComputation {
    *             </li>
    *          </ul>
    */
-  Type: TopBottomComputationType | string | undefined;
+  Type: TopBottomComputationType | undefined;
 }
 
 /**
@@ -2812,7 +2812,7 @@ export interface TopBottomRankedComputation {
    *             </li>
    *          </ul>
    */
-  Type: TopBottomComputationType | string | undefined;
+  Type: TopBottomComputationType | undefined;
 }
 
 /**
@@ -3036,7 +3036,7 @@ export interface ProgressBarOptions {
    * @public
    * <p>The visibility of the progress bar.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -3048,7 +3048,7 @@ export interface SecondaryValueOptions {
    * @public
    * <p>Determines the visibility of the secondary value.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -3074,13 +3074,13 @@ export interface KPISparklineOptions {
    * @public
    * <p>The visibility of the sparkline.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
    * <p>The type of the sparkline.</p>
    */
-  Type: KPISparklineType | string | undefined;
+  Type: KPISparklineType | undefined;
 
   /**
    * @public
@@ -3092,7 +3092,7 @@ export interface KPISparklineOptions {
    * @public
    * <p>The tooltip visibility of the sparkline.</p>
    */
-  TooltipVisibility?: Visibility | string;
+  TooltipVisibility?: Visibility;
 }
 
 /**
@@ -3104,7 +3104,7 @@ export interface TrendArrowOptions {
    * @public
    * <p>The visibility of the trend arrows.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -3131,7 +3131,7 @@ export interface KPIVisualStandardLayout {
    * @public
    * <p>The standard layout type.</p>
    */
-  Type: KPIVisualStandardLayoutType | string | undefined;
+  Type: KPIVisualStandardLayoutType | undefined;
 }
 
 /**
@@ -3179,7 +3179,7 @@ export interface KPIOptions {
    * @public
    * <p>The options that determine the primary value display type.</p>
    */
-  PrimaryValueDisplayType?: PrimaryValueDisplayType | string;
+  PrimaryValueDisplayType?: PrimaryValueDisplayType;
 
   /**
    * @public
@@ -3438,7 +3438,7 @@ export interface LineChartLineStyleSettings {
    * @public
    * <p>Configuration option that determines whether to show the line for the series.</p>
    */
-  LineVisibility?: Visibility | string;
+  LineVisibility?: Visibility;
 
   /**
    * @public
@@ -3458,7 +3458,7 @@ export interface LineChartLineStyleSettings {
    *             </li>
    *          </ul>
    */
-  LineInterpolation?: LineInterpolation | string;
+  LineInterpolation?: LineInterpolation;
 
   /**
    * @public
@@ -3478,7 +3478,7 @@ export interface LineChartLineStyleSettings {
    *             </li>
    *          </ul>
    */
-  LineStyle?: LineChartLineStyle | string;
+  LineStyle?: LineChartLineStyle;
 
   /**
    * @public
@@ -3513,7 +3513,7 @@ export interface LineChartMarkerStyleSettings {
    * @public
    * <p>Configuration option that determines whether to show the markers in the series.</p>
    */
-  MarkerVisibility?: Visibility | string;
+  MarkerVisibility?: Visibility;
 
   /**
    * @public
@@ -3541,7 +3541,7 @@ export interface LineChartMarkerStyleSettings {
    *             </li>
    *          </ul>
    */
-  MarkerShape?: LineChartMarkerShape | string;
+  MarkerShape?: LineChartMarkerShape;
 
   /**
    * @public
@@ -3565,7 +3565,7 @@ export interface LineChartDefaultSeriesSettings {
    * @public
    * <p>The axis to which you are binding all line series to.</p>
    */
-  AxisBinding?: AxisBinding | string;
+  AxisBinding?: AxisBinding;
 
   /**
    * @public
@@ -3792,7 +3792,7 @@ export interface MissingDataConfiguration {
    *             </li>
    *          </ul>
    */
-  TreatmentOption?: MissingDataTreatmentOption | string;
+  TreatmentOption?: MissingDataTreatmentOption;
 }
 
 /**
@@ -3852,7 +3852,7 @@ export interface DataFieldSeriesItem {
    * @public
    * <p>The axis that you are binding the field to.</p>
    */
-  AxisBinding: AxisBinding | string | undefined;
+  AxisBinding: AxisBinding | undefined;
 
   /**
    * @public
@@ -3876,7 +3876,7 @@ export interface FieldSeriesItem {
    * @public
    * <p>The axis that you are binding the field to.</p>
    */
-  AxisBinding: AxisBinding | string | undefined;
+  AxisBinding: AxisBinding | undefined;
 
   /**
    * @public
@@ -3982,7 +3982,7 @@ export interface LineChartConfiguration {
    * @public
    * <p>Determines the type of the line chart.</p>
    */
-  Type?: LineChartType | string;
+  Type?: LineChartType;
 
   /**
    * @public
@@ -4143,7 +4143,7 @@ export interface ArcOptions {
    * @public
    * <p>The arc thickness of a <code>GaugeChartVisual</code>.</p>
    */
-  ArcThickness?: ArcThickness | string;
+  ArcThickness?: ArcThickness;
 }
 
 /**
@@ -4155,7 +4155,7 @@ export interface DonutCenterOptions {
    * @public
    * <p>Determines the visibility of the label in a donut chart. In the Amazon QuickSight console, this option is called <code>'Show total'</code>.</p>
    */
-  LabelVisibility?: Visibility | string;
+  LabelVisibility?: Visibility;
 }
 
 /**
@@ -4447,7 +4447,7 @@ export interface PivotTableFieldCollapseStateOption {
    *             </li>
    *          </ul>
    */
-  State?: PivotTableFieldCollapseState | string;
+  State?: PivotTableFieldCollapseState;
 }
 
 /**
@@ -4489,7 +4489,7 @@ export interface PivotTableFieldOption {
    * @public
    * <p>The visibility of the pivot table field.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -4562,13 +4562,13 @@ export interface PivotTablePaginatedReportOptions {
    * @public
    * <p>The visibility of the printing table overflow across pages.</p>
    */
-  VerticalOverflowVisibility?: Visibility | string;
+  VerticalOverflowVisibility?: Visibility;
 
   /**
    * @public
    * <p>The visibility of the repeating header rows on each page.</p>
    */
-  OverflowColumnHeaderVisibility?: Visibility | string;
+  OverflowColumnHeaderVisibility?: Visibility;
 }
 
 /**
@@ -4580,7 +4580,7 @@ export interface DataPathSort {
    * @public
    * <p>Determines the sort direction.</p>
    */
-  Direction: SortDirection | string | undefined;
+  Direction: SortDirection | undefined;
 
   /**
    * @public
@@ -4678,7 +4678,7 @@ export interface TableBorderOptions {
    * @public
    * <p>The style (none, solid) of a table border.</p>
    */
-  Style?: TableBorderStyle | string;
+  Style?: TableBorderStyle;
 }
 
 /**
@@ -4780,7 +4780,7 @@ export interface TableCellStyle {
    * @public
    * <p>The visibility of the table cells.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -4792,19 +4792,19 @@ export interface TableCellStyle {
    * @public
    * <p>The text wrap (none, wrap) for the table cells.</p>
    */
-  TextWrap?: TextWrap | string;
+  TextWrap?: TextWrap;
 
   /**
    * @public
    * <p>The horizontal text alignment (left, center, right, auto) for the table cells.</p>
    */
-  HorizontalTextAlignment?: HorizontalTextAlignment | string;
+  HorizontalTextAlignment?: HorizontalTextAlignment;
 
   /**
    * @public
    * <p>The vertical text alignment (top, middle, bottom) for the table cells.</p>
    */
-  VerticalTextAlignment?: VerticalTextAlignment | string;
+  VerticalTextAlignment?: VerticalTextAlignment;
 
   /**
    * @public
@@ -4848,7 +4848,7 @@ export interface RowAlternateColorOptions {
    * @public
    * <p>Determines the widget status.</p>
    */
-  Status?: WidgetStatus | string;
+  Status?: WidgetStatus;
 
   /**
    * @public
@@ -4860,7 +4860,7 @@ export interface RowAlternateColorOptions {
    * @public
    * <p>The primary background color options for alternate rows.</p>
    */
-  UsePrimaryBackgroundColor?: WidgetStatus | string;
+  UsePrimaryBackgroundColor?: WidgetStatus;
 }
 
 /**
@@ -4872,7 +4872,7 @@ export interface PivotTableRowsLabelOptions {
    * @public
    * <p>The visibility of the rows label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -4904,25 +4904,25 @@ export interface PivotTableOptions {
    * @public
    * <p>The metric placement (row, column) options.</p>
    */
-  MetricPlacement?: PivotTableMetricPlacement | string;
+  MetricPlacement?: PivotTableMetricPlacement;
 
   /**
    * @public
    * <p>The visibility of the single metric options.</p>
    */
-  SingleMetricVisibility?: Visibility | string;
+  SingleMetricVisibility?: Visibility;
 
   /**
    * @public
    * <p>The visibility of the column names.</p>
    */
-  ColumnNamesVisibility?: Visibility | string;
+  ColumnNamesVisibility?: Visibility;
 
   /**
    * @public
    * <p>Determines the visibility of the pivot table.</p>
    */
-  ToggleButtonsVisibility?: Visibility | string;
+  ToggleButtonsVisibility?: Visibility;
 
   /**
    * @public
@@ -4958,7 +4958,7 @@ export interface PivotTableOptions {
    * @public
    * <p>The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is <code>HIDDEN</code>, all collapsed columns in a pivot table are automatically hidden. The default value is <code>VISIBLE</code>.</p>
    */
-  CollapsedRowDimensionsVisibility?: Visibility | string;
+  CollapsedRowDimensionsVisibility?: Visibility;
 
   /**
    * @public
@@ -4974,7 +4974,7 @@ export interface PivotTableOptions {
    *             </li>
    *          </ul>
    */
-  RowsLayout?: PivotTableRowsLayout | string;
+  RowsLayout?: PivotTableRowsLayout;
 
   /**
    * @public
@@ -5040,7 +5040,7 @@ export interface TableStyleTarget {
    * @public
    * <p>The cell type of the table style target.</p>
    */
-  CellType: StyledCellType | string | undefined;
+  CellType: StyledCellType | undefined;
 }
 
 /**
@@ -5052,7 +5052,7 @@ export interface SubtotalOptions {
    * @public
    * <p>The visibility configuration for the subtotal cells.</p>
    */
-  TotalsVisibility?: Visibility | string;
+  TotalsVisibility?: Visibility;
 
   /**
    * @public
@@ -5064,7 +5064,7 @@ export interface SubtotalOptions {
    * @public
    * <p>The field level (all, custom, last) for the subtotal cells.</p>
    */
-  FieldLevel?: PivotTableSubtotalLevel | string;
+  FieldLevel?: PivotTableSubtotalLevel;
 
   /**
    * @public
@@ -5135,19 +5135,19 @@ export interface PivotTotalOptions {
    * @public
    * <p>The visibility configuration for the total cells.</p>
    */
-  TotalsVisibility?: Visibility | string;
+  TotalsVisibility?: Visibility;
 
   /**
    * @public
    * <p>The placement (start, end) for the total cells.</p>
    */
-  Placement?: TableTotalsPlacement | string;
+  Placement?: TableTotalsPlacement;
 
   /**
    * @public
    * <p>The scroll status (pinned, scrolled) for the total cells.</p>
    */
-  ScrollStatus?: TableTotalsScrollStatus | string;
+  ScrollStatus?: TableTotalsScrollStatus;
 
   /**
    * @public
@@ -5271,7 +5271,7 @@ export interface PivotTableConditionalFormattingScope {
    * @public
    * <p>The role (field, field total, grand total) of the cell for conditional formatting.</p>
    */
-  Role?: PivotTableConditionalFormattingScopeRole | string;
+  Role?: PivotTableConditionalFormattingScopeRole;
 }
 
 /**
@@ -5419,7 +5419,7 @@ export interface RadarChartAreaStyleSettings {
    * @public
    * <p>The visibility settings of a radar chart.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -5535,7 +5535,7 @@ export interface RadarChartConfiguration {
    * @public
    * <p>The shape of the radar chart.</p>
    */
-  Shape?: RadarChartShape | string;
+  Shape?: RadarChartShape;
 
   /**
    * @public
@@ -5559,7 +5559,7 @@ export interface RadarChartConfiguration {
    * @public
    * <p>Determines the visibility of the colors of alternatign bands in a radar chart.</p>
    */
-  AlternateBandColorsVisibility?: Visibility | string;
+  AlternateBandColorsVisibility?: Visibility;
 
   /**
    * @public
@@ -5607,7 +5607,7 @@ export interface RadarChartConfiguration {
    * @public
    * <p>The axis behavior options of a radar chart.</p>
    */
-  AxesRangeScale?: RadarChartAxesRangeScale | string;
+  AxesRangeScale?: RadarChartAxesRangeScale;
 }
 
 /**
@@ -6009,7 +6009,7 @@ export interface TableCellImageSizingConfiguration {
    * @public
    * <p>The cell scaling configuration of the sizing options for the table image configuration.</p>
    */
-  TableCellImageScalingConfiguration?: TableCellImageScalingConfiguration | string;
+  TableCellImageScalingConfiguration?: TableCellImageScalingConfiguration;
 }
 
 /**
@@ -6046,7 +6046,7 @@ export interface TableFieldCustomIconContent {
    * @public
    * <p>The icon set type (link) of the custom icon content for table URL link content.</p>
    */
-  Icon?: TableFieldIconSetType | string;
+  Icon?: TableFieldIconSetType;
 }
 
 /**
@@ -6094,7 +6094,7 @@ export interface TableFieldLinkConfiguration {
    * @public
    * <p>The URL target (new tab, new window, same tab) for the table link configuration.</p>
    */
-  Target: URLTargetConfiguration | string | undefined;
+  Target: URLTargetConfiguration | undefined;
 
   /**
    * @public
@@ -6148,7 +6148,7 @@ export interface TableFieldOption {
    * @public
    * <p>The visibility of a table field.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -6263,13 +6263,13 @@ export interface TablePaginatedReportOptions {
    * @public
    * <p>The visibility of printing table overflow across pages.</p>
    */
-  VerticalOverflowVisibility?: Visibility | string;
+  VerticalOverflowVisibility?: Visibility;
 
   /**
    * @public
    * <p>The visibility of repeating header rows on each page.</p>
    */
-  OverflowColumnHeaderVisibility?: Visibility | string;
+  OverflowColumnHeaderVisibility?: Visibility;
 }
 
 /**
@@ -6349,7 +6349,7 @@ export interface TableOptions {
    * @public
    * <p>The orientation (vertical, horizontal) for a table.</p>
    */
-  Orientation?: TableOrientation | string;
+  Orientation?: TableOrientation;
 
   /**
    * @public
@@ -6379,19 +6379,19 @@ export interface TotalOptions {
    * @public
    * <p>The visibility configuration for the total cells.</p>
    */
-  TotalsVisibility?: Visibility | string;
+  TotalsVisibility?: Visibility;
 
   /**
    * @public
    * <p>The placement (start, end) for the total cells.</p>
    */
-  Placement?: TableTotalsPlacement | string;
+  Placement?: TableTotalsPlacement;
 
   /**
    * @public
    * <p>The scroll status (pinned, scrolled) for the total cells.</p>
    */
-  ScrollStatus?: TableTotalsScrollStatus | string;
+  ScrollStatus?: TableTotalsScrollStatus;
 
   /**
    * @public
@@ -7026,31 +7026,31 @@ export interface WordCloudOptions {
    * @public
    * <p>The word orientation options (horizontal, horizontal_and_vertical) for the words in a word cloud.</p>
    */
-  WordOrientation?: WordCloudWordOrientation | string;
+  WordOrientation?: WordCloudWordOrientation;
 
   /**
    * @public
    * <p>The word scaling options (emphasize, normal) for the words in a word cloud.</p>
    */
-  WordScaling?: WordCloudWordScaling | string;
+  WordScaling?: WordCloudWordScaling;
 
   /**
    * @public
    * <p>The cloud layout options (fluid, normal) of a word cloud.</p>
    */
-  CloudLayout?: WordCloudCloudLayout | string;
+  CloudLayout?: WordCloudCloudLayout;
 
   /**
    * @public
    * <p>The word casing options (lower_case, existing_case) for the words in a word cloud.</p>
    */
-  WordCasing?: WordCloudWordCasing | string;
+  WordCasing?: WordCloudWordCasing;
 
   /**
    * @public
    * <p>The word padding options (none, small, medium, large) for the words in a word cloud.</p>
    */
-  WordPadding?: WordCloudWordPadding | string;
+  WordPadding?: WordCloudWordPadding;
 
   /**
    * @public
@@ -7383,7 +7383,7 @@ export interface SheetDefinition {
    *             </li>
    *          </ul>
    */
-  ContentType?: SheetContentType | string;
+  ContentType?: SheetContentType;
 }
 
 /**
@@ -7486,7 +7486,7 @@ export interface AnalysisSearchFilter {
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"ANALYSIS_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>ANALYSIS_NAME</code>.</p>
    */
-  Operator?: FilterOperator | string;
+  Operator?: FilterOperator;
 
   /**
    * @public
@@ -7520,7 +7520,7 @@ export interface AnalysisSearchFilter {
    *             </li>
    *          </ul>
    */
-  Name?: AnalysisFilterAttribute | string;
+  Name?: AnalysisFilterAttribute;
 
   /**
    * @public
@@ -7607,7 +7607,7 @@ export interface AnalysisSummary {
    * @public
    * <p>The last known status for the analysis.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: ResourceStatus;
 
   /**
    * @public
@@ -7776,7 +7776,7 @@ export interface SnapshotFileSheetSelection {
    *             </li>
    *          </ul>
    */
-  SelectionScope: SnapshotFileSheetSelectionScope | string | undefined;
+  SelectionScope: SnapshotFileSheetSelectionScope | undefined;
 
   /**
    * @public
@@ -7802,7 +7802,7 @@ export interface SnapshotFile {
    * @public
    * <p>The format of the snapshot file to be generated. You can choose between <code>CSV</code>, <code>Excel</code>, or <code>PDF</code>.</p>
    */
-  FormatType: SnapshotFileFormatType | string | undefined;
+  FormatType: SnapshotFileFormatType | undefined;
 }
 
 /**

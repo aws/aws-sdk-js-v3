@@ -34,7 +34,7 @@ export class AccessDeniedException extends __BaseException {
    * @public
    * <p>Code that indicates the type of error that is generated.</p>
    */
-  errorCode: AccessDeniedErrorCode | string | undefined;
+  errorCode: AccessDeniedErrorCode | undefined;
 
   /**
    * @public
@@ -120,7 +120,7 @@ export interface FailedItemDetails {
    * @public
    * <p>The status code of a failed item.</p>
    */
-  failureCode: FailedItemErrorCode | string | undefined;
+  failureCode: FailedItemErrorCode | undefined;
 
   /**
    * @public
@@ -247,7 +247,7 @@ export class InvalidInputException extends __BaseException {
    * @public
    * <p>Code that indicates the type of error that is generated.</p>
    */
-  errorCode: InvalidInputErrorCode | string | undefined;
+  errorCode: InvalidInputErrorCode | undefined;
 
   /**
    * @public
@@ -302,7 +302,7 @@ export class NoSuchEntityException extends __BaseException {
    * @public
    * <p>Code that indicates the type of error that is generated.</p>
    */
-  errorCode: NoSuchEntityErrorCode | string | undefined;
+  errorCode: NoSuchEntityErrorCode | undefined;
 
   /**
    * @public
@@ -416,13 +416,13 @@ export interface AgentFilter {
    * @public
    * <p>The current health state of the agent. Values can be set to <b>HEALTHY</b> or <b>UNHEALTHY</b>.</p>
    */
-  agentHealths: (AgentHealth | string)[] | undefined;
+  agentHealths: AgentHealth[] | undefined;
 
   /**
    * @public
    * <p>The detailed health state of the agent. Values can be set to <b>IDLE</b>, <b>RUNNING</b>, <b>SHUTDOWN</b>, <b>UNHEALTHY</b>, <b>THROTTLED</b>, and <b>UNKNOWN</b>. </p>
    */
-  agentHealthCodes: (AgentHealthCode | string)[] | undefined;
+  agentHealthCodes: AgentHealthCode[] | undefined;
 }
 
 /**
@@ -453,7 +453,7 @@ export interface AgentPreview {
    * @public
    * <p>The health status of the Amazon Inspector Agent.</p>
    */
-  agentHealth?: AgentHealth | string;
+  agentHealth?: AgentHealth;
 
   /**
    * @public
@@ -592,7 +592,7 @@ export interface AssessmentRunNotification {
    * @public
    * <p>The event for which a notification is sent.</p>
    */
-  event: InspectorEvent | string | undefined;
+  event: InspectorEvent | undefined;
 
   /**
    * @public
@@ -617,7 +617,7 @@ export interface AssessmentRunNotification {
    * @public
    * <p>The status code of the SNS notification.</p>
    */
-  snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode | string;
+  snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode;
 }
 
 /**
@@ -661,7 +661,7 @@ export interface AssessmentRunStateChange {
    * @public
    * <p>The assessment run state.</p>
    */
-  state: AssessmentRunState | string | undefined;
+  state: AssessmentRunState | undefined;
 }
 
 /**
@@ -695,7 +695,7 @@ export interface AssessmentRun {
    * @public
    * <p>The state of the assessment run.</p>
    */
-  state: AssessmentRunState | string | undefined;
+  state: AssessmentRunState | undefined;
 
   /**
    * @public
@@ -764,7 +764,7 @@ export interface AssessmentRun {
    * @public
    * <p>Provides a total count of generated findings per severity.</p>
    */
-  findingCounts: Record<string, number> | undefined;
+  findingCounts: Record<Severity, number> | undefined;
 }
 
 /**
@@ -815,13 +815,13 @@ export interface AssessmentRunAgent {
    * @public
    * <p>The current health state of the agent.</p>
    */
-  agentHealth: AgentHealth | string | undefined;
+  agentHealth: AgentHealth | undefined;
 
   /**
    * @public
    * <p>The detailed health state of the agent.</p>
    */
-  agentHealthCode: AgentHealthCode | string | undefined;
+  agentHealthCode: AgentHealthCode | undefined;
 
   /**
    * @public
@@ -903,7 +903,7 @@ export interface AssessmentRunFilter {
    *          property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data
    *          type.</p>
    */
-  states?: (AssessmentRunState | string)[];
+  states?: AssessmentRunState[];
 
   /**
    * @public
@@ -1398,7 +1398,7 @@ export class InvalidCrossAccountRoleException extends __BaseException {
    * @public
    * <p>Code that indicates the type of error that is generated.</p>
    */
-  errorCode: InvalidCrossAccountRoleErrorCode | string | undefined;
+  errorCode: InvalidCrossAccountRoleErrorCode | undefined;
 
   /**
    * @public
@@ -1450,7 +1450,7 @@ export class LimitExceededException extends __BaseException {
    * @public
    * <p>Code that indicates the type of error that is generated.</p>
    */
-  errorCode: LimitExceededErrorCode | string | undefined;
+  errorCode: LimitExceededErrorCode | undefined;
 
   /**
    * @public
@@ -1785,7 +1785,7 @@ export interface DescribeExclusionsRequest {
    * <p>The locale into which you want to translate the exclusion's title, description, and
    *          recommendation.</p>
    */
-  locale?: Locale | string;
+  locale?: Locale;
 }
 
 /**
@@ -1812,7 +1812,7 @@ export interface Scope {
    * @public
    * <p>The type of the scope.</p>
    */
-  key?: ScopeType | string;
+  key?: ScopeType;
 
   /**
    * @public
@@ -1896,7 +1896,7 @@ export interface DescribeFindingsRequest {
    * <p>The locale into which you want to translate a finding description, recommendation,
    *          and the short description that identifies the finding.</p>
    */
-  locale?: Locale | string;
+  locale?: Locale;
 }
 
 /**
@@ -1957,7 +1957,7 @@ export interface Finding {
    * @public
    * <p>The type of the host from which the finding is generated.</p>
    */
-  assetType?: AssetType | string;
+  assetType?: AssetType;
 
   /**
    * @public
@@ -1994,7 +1994,7 @@ export interface Finding {
    * <p>The finding severity. Values can be set to High, Medium, Low, and
    *          Informational.</p>
    */
-  severity?: Severity | string;
+  severity?: Severity;
 
   /**
    * @public
@@ -2128,7 +2128,7 @@ export interface DescribeRulesPackagesRequest {
    * @public
    * <p>The locale that you want to translate a rules package description into.</p>
    */
-  locale?: Locale | string;
+  locale?: Locale;
 }
 
 /**
@@ -2196,7 +2196,7 @@ export interface EventSubscription {
    * <p>The event for which Amazon Simple Notification Service (SNS) notifications are
    *          sent.</p>
    */
-  event: InspectorEvent | string | undefined;
+  event: InspectorEvent | undefined;
 
   /**
    * @public
@@ -2275,7 +2275,7 @@ export interface FindingFilter {
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>severity</b> property of the <a>Finding</a> data type.</p>
    */
-  severities?: (Severity | string)[];
+  severities?: Severity[];
 
   /**
    * @public
@@ -2351,7 +2351,7 @@ export interface GetAssessmentReportRequest {
    * <p>Specifies the file format (html or pdf) of the assessment report that you want to
    *          generate.</p>
    */
-  reportFileFormat: ReportFileFormat | string | undefined;
+  reportFileFormat: ReportFileFormat | undefined;
 
   /**
    * @public
@@ -2359,7 +2359,7 @@ export interface GetAssessmentReportRequest {
    *          types of assessment reports: a finding report and a full report. For more information, see
    *             <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html">Assessment Reports</a>. </p>
    */
-  reportType: ReportType | string | undefined;
+  reportType: ReportType | undefined;
 }
 
 /**
@@ -2385,7 +2385,7 @@ export interface GetAssessmentReportResponse {
    * @public
    * <p>Specifies the status of the request to generate an assessment report. </p>
    */
-  status: ReportStatus | string | undefined;
+  status: ReportStatus | undefined;
 
   /**
    * @public
@@ -2459,7 +2459,7 @@ export interface GetExclusionsPreviewRequest {
    * <p>The locale into which you want to translate the exclusion's title, description, and
    *          recommendation.</p>
    */
-  locale?: Locale | string;
+  locale?: Locale;
 }
 
 /**
@@ -2484,7 +2484,7 @@ export interface GetExclusionsPreviewResponse {
    * @public
    * <p>Specifies the status of the request to generate an exclusions preview.</p>
    */
-  previewStatus: PreviewStatus | string | undefined;
+  previewStatus: PreviewStatus | undefined;
 
   /**
    * @public
@@ -3163,7 +3163,7 @@ export interface StopAssessmentRunRequest {
    *          the results evaluation and the findings generation process. SKIP_EVALUATION cancels the
    *          assessment run immediately, after which no findings are generated.</p>
    */
-  stopAction?: StopAction | string;
+  stopAction?: StopAction;
 }
 
 /**
@@ -3181,7 +3181,7 @@ export interface SubscribeToEventRequest {
    * @public
    * <p>The event for which you want to receive SNS notifications.</p>
    */
-  event: InspectorEvent | string | undefined;
+  event: InspectorEvent | undefined;
 
   /**
    * @public
@@ -3205,7 +3205,7 @@ export interface UnsubscribeFromEventRequest {
    * @public
    * <p>The event for which you want to stop receiving SNS notifications.</p>
    */
-  event: InspectorEvent | string | undefined;
+  event: InspectorEvent | undefined;
 
   /**
    * @public

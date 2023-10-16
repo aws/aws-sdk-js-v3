@@ -133,7 +133,7 @@ export interface DeleteScalingPolicyRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -300,7 +300,7 @@ export interface DeleteScalingPolicyRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 }
 
 /**
@@ -388,7 +388,7 @@ export interface DeleteScheduledActionRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -561,7 +561,7 @@ export interface DeleteScheduledActionRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 }
 
 /**
@@ -578,7 +578,7 @@ export interface DeregisterScalableTargetRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -746,7 +746,7 @@ export interface DeregisterScalableTargetRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 }
 
 /**
@@ -763,7 +763,7 @@ export interface DescribeScalableTargetsRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -931,7 +931,7 @@ export interface DescribeScalableTargetsRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: ScalableDimension;
 
   /**
    * @public
@@ -993,7 +993,7 @@ export interface ScalableTarget {
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -1161,7 +1161,7 @@ export interface ScalableTarget {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public
@@ -1251,7 +1251,7 @@ export interface DescribeScalingActivitiesRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -1419,7 +1419,7 @@ export interface DescribeScalingActivitiesRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: ScalableDimension;
 
   /**
    * @public
@@ -1533,7 +1533,7 @@ export interface ScalingActivity {
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -1700,7 +1700,7 @@ export interface ScalingActivity {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public
@@ -1730,7 +1730,7 @@ export interface ScalingActivity {
    * @public
    * <p>Indicates the status of the scaling activity.</p>
    */
-  StatusCode: ScalingActivityStatusCode | string | undefined;
+  StatusCode: ScalingActivityStatusCode | undefined;
 
   /**
    * @public
@@ -1785,7 +1785,7 @@ export interface DescribeScalingPoliciesRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -1953,7 +1953,7 @@ export interface DescribeScalingPoliciesRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: ScalableDimension;
 
   /**
    * @public
@@ -2088,7 +2088,7 @@ export interface StepScalingPolicyConfiguration {
    *             <code>AdjustmentType</code> is required if you are adding a new step scaling policy
    *          configuration.</p>
    */
-  AdjustmentType?: AdjustmentType | string;
+  AdjustmentType?: AdjustmentType;
 
   /**
    * @public
@@ -2124,7 +2124,7 @@ export interface StepScalingPolicyConfiguration {
    *             <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the
    *          value is treated as <code>Average</code>.</p>
    */
-  MetricAggregationType?: MetricAggregationType | string;
+  MetricAggregationType?: MetricAggregationType;
 }
 
 /**
@@ -2357,7 +2357,7 @@ export interface CustomizedMetricSpecification {
    * @public
    * <p>The statistic of the metric.</p>
    */
-  Statistic?: MetricStatistic | string;
+  Statistic?: MetricStatistic;
 
   /**
    * @public
@@ -2426,7 +2426,7 @@ export interface PredefinedMetricSpecification {
    * <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
    *          Spot Fleets and ECS services.</p>
    */
-  PredefinedMetricType: MetricType | string | undefined;
+  PredefinedMetricType: MetricType | undefined;
 
   /**
    * @public
@@ -2542,7 +2542,7 @@ export interface ScalingPolicy {
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -2709,7 +2709,7 @@ export interface ScalingPolicy {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public
@@ -2721,7 +2721,7 @@ export interface ScalingPolicy {
    *             <code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or
    *       Neptune.</p>
    */
-  PolicyType: PolicyType | string | undefined;
+  PolicyType: PolicyType | undefined;
 
   /**
    * @public
@@ -2806,7 +2806,7 @@ export interface DescribeScheduledActionsRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -2974,7 +2974,7 @@ export interface DescribeScheduledActionsRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: ScalableDimension;
 
   /**
    * @public
@@ -3044,7 +3044,7 @@ export interface ScheduledAction {
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -3245,7 +3245,7 @@ export interface ScheduledAction {
    *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: ScalableDimension;
 
   /**
    * @public
@@ -3386,7 +3386,7 @@ export interface PutScalingPolicyRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -3553,7 +3553,7 @@ export interface PutScalingPolicyRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public
@@ -3568,7 +3568,7 @@ export interface PutScalingPolicyRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
    *         tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
-  PolicyType?: PolicyType | string;
+  PolicyType?: PolicyType;
 
   /**
    * @public
@@ -3614,7 +3614,7 @@ export interface PutScheduledActionRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -3824,7 +3824,7 @@ export interface PutScheduledActionRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public
@@ -3862,7 +3862,7 @@ export interface RegisterScalableTargetRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -4030,7 +4030,7 @@ export interface RegisterScalableTargetRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public

@@ -50,26 +50,26 @@ export interface ResourceStatus {
    * @public
    * <p>The status of Amazon Inspector scanning for Amazon EC2 resources.</p>
    */
-  ec2: Status | string | undefined;
+  ec2: Status | undefined;
 
   /**
    * @public
    * <p>The status of Amazon Inspector scanning for Amazon ECR resources.</p>
    */
-  ecr: Status | string | undefined;
+  ecr: Status | undefined;
 
   /**
    * @public
    * <p>The status of Amazon Inspector scanning for AWS Lambda function.</p>
    */
-  lambda?: Status | string;
+  lambda?: Status;
 
   /**
    * @public
    * <p>The status of Amazon Inspector scanning for custom application code for Amazon Web Services Lambda functions.
    *       </p>
    */
-  lambdaCode?: Status | string;
+  lambdaCode?: Status;
 }
 
 /**
@@ -87,7 +87,7 @@ export interface Account {
    * @public
    * <p>The status of Amazon Inspector for the account.</p>
    */
-  status: Status | string | undefined;
+  status: Status | undefined;
 
   /**
    * @public
@@ -165,25 +165,25 @@ export interface AccountAggregation {
    * @public
    * <p>The type of finding.</p>
    */
-  findingType?: AggregationFindingType | string;
+  findingType?: AggregationFindingType;
 
   /**
    * @public
    * <p>The type of resource.</p>
    */
-  resourceType?: AggregationResourceType | string;
+  resourceType?: AggregationResourceType;
 
   /**
    * @public
    * <p>The sort order (ascending or descending).</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The value to sort by.</p>
    */
-  sortBy?: AccountSortBy | string;
+  sortBy?: AccountSortBy;
 }
 
 /**
@@ -269,13 +269,13 @@ export interface State {
    * @public
    * <p>The status of Amazon Inspector for the account.</p>
    */
-  status: Status | string | undefined;
+  status: Status | undefined;
 
   /**
    * @public
    * <p>The error code explaining why the account failed to enable Amazon Inspector.</p>
    */
-  errorCode: ErrorCode | string | undefined;
+  errorCode: ErrorCode | undefined;
 
   /**
    * @public
@@ -362,7 +362,7 @@ export interface StringFilter {
    * @public
    * <p>The operator to use when comparing values in the filter.</p>
    */
-  comparison: StringComparison | string | undefined;
+  comparison: StringComparison | undefined;
 
   /**
    * @public
@@ -402,13 +402,13 @@ export interface AmiAggregation {
    * @public
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The value to sort results by.</p>
    */
-  sortBy?: AmiSortBy | string;
+  sortBy?: AmiSortBy;
 }
 
 /**
@@ -465,13 +465,13 @@ export interface AwsEcrContainerAggregation {
    * @public
    * <p>The sort order (ascending or descending).</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The value to sort by.</p>
    */
-  sortBy?: AwsEcrContainerSortBy | string;
+  sortBy?: AwsEcrContainerSortBy;
 }
 
 /**
@@ -496,7 +496,7 @@ export interface MapFilter {
    * @public
    * <p>The operator to use when comparing values in the filter.</p>
    */
-  comparison: MapComparison | string | undefined;
+  comparison: MapComparison | undefined;
 
   /**
    * @public
@@ -562,13 +562,13 @@ export interface Ec2InstanceAggregation {
    * @public
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The value to sort results by.</p>
    */
-  sortBy?: Ec2InstanceSortBy | string;
+  sortBy?: Ec2InstanceSortBy;
 }
 
 /**
@@ -595,25 +595,25 @@ export interface FindingTypeAggregation {
    * @public
    * <p>The finding type to aggregate.</p>
    */
-  findingType?: AggregationFindingType | string;
+  findingType?: AggregationFindingType;
 
   /**
    * @public
    * <p>The resource type to aggregate.</p>
    */
-  resourceType?: AggregationResourceType | string;
+  resourceType?: AggregationResourceType;
 
   /**
    * @public
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The value to sort results by.</p>
    */
-  sortBy?: FindingTypeSortBy | string;
+  sortBy?: FindingTypeSortBy;
 }
 
 /**
@@ -658,13 +658,13 @@ export interface ImageLayerAggregation {
    * @public
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The value to sort results by.</p>
    */
-  sortBy?: ImageLayerSortBy | string;
+  sortBy?: ImageLayerSortBy;
 }
 
 /**
@@ -715,13 +715,13 @@ export interface LambdaFunctionAggregation {
    * @public
    * <p>The order to use for sorting the results.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The finding severity to use for sorting the results.</p>
    */
-  sortBy?: LambdaFunctionSortBy | string;
+  sortBy?: LambdaFunctionSortBy;
 }
 
 /**
@@ -767,13 +767,13 @@ export interface LambdaLayerAggregation {
    * @public
    * <p>The order to use for sorting the results.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The finding severity to use for sorting the results.</p>
    */
-  sortBy?: LambdaLayerSortBy | string;
+  sortBy?: LambdaLayerSortBy;
 }
 
 /**
@@ -806,13 +806,13 @@ export interface PackageAggregation {
    * @public
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The value to sort results by.</p>
    */
-  sortBy?: PackageSortBy | string;
+  sortBy?: PackageSortBy;
 }
 
 /**
@@ -846,13 +846,13 @@ export interface RepositoryAggregation {
    * @public
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The value to sort results by.</p>
    */
-  sortBy?: RepositorySortBy | string;
+  sortBy?: RepositorySortBy;
 }
 
 /**
@@ -891,25 +891,25 @@ export interface TitleAggregation {
    * @public
    * <p>The resource type to aggregate on.</p>
    */
-  resourceType?: AggregationResourceType | string;
+  resourceType?: AggregationResourceType;
 
   /**
    * @public
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
    * <p>The value to sort results by.</p>
    */
-  sortBy?: TitleSortBy | string;
+  sortBy?: TitleSortBy;
 
   /**
    * @public
    * <p>The type of finding to aggregate on.</p>
    */
-  findingType?: AggregationFindingType | string;
+  findingType?: AggregationFindingType;
 }
 
 /**
@@ -2000,7 +2000,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason for the validation failure.</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -2288,7 +2288,7 @@ export interface AwsLambdaFunctionDetails {
    * @public
    * <p>The runtime environment for the AWS Lambda function.</p>
    */
-  runtime: Runtime | string | undefined;
+  runtime: Runtime | undefined;
 
   /**
    * @public
@@ -2325,14 +2325,14 @@ export interface AwsLambdaFunctionDetails {
    * @public
    * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
    */
-  packageType?: PackageType | string;
+  packageType?: PackageType;
 
   /**
    * @public
    * <p>The instruction set architecture that the AWS Lambda function supports. Architecture is a string array with one of the
    *          valid values. The default architecture value is <code>x86_64</code>.</p>
    */
-  architectures?: (Architecture | string)[];
+  architectures?: Architecture[];
 
   /**
    * @public
@@ -2388,7 +2388,7 @@ export interface FailedAccount {
    * @public
    * <p>The status of Amazon Inspector for the account.</p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -2400,7 +2400,7 @@ export interface FailedAccount {
    * @public
    * <p>The error code explaining why the account failed to enable Amazon Inspector.</p>
    */
-  errorCode: ErrorCode | string | undefined;
+  errorCode: ErrorCode | undefined;
 
   /**
    * @public
@@ -2560,7 +2560,7 @@ export interface CodeSnippetError {
    * @public
    * <p>The error code for the error that prevented a code snippet from being retrieved.</p>
    */
-  errorCode: CodeSnippetErrorCode | string | undefined;
+  errorCode: CodeSnippetErrorCode | undefined;
 
   /**
    * @public
@@ -2628,7 +2628,7 @@ export interface FindingDetailsError {
    * @public
    * <p>The error code.</p>
    */
-  errorCode: FindingDetailsErrorCode | string | undefined;
+  errorCode: FindingDetailsErrorCode | undefined;
 
   /**
    * @public
@@ -2836,7 +2836,7 @@ export interface FreeTrialInfo {
    * @public
    * <p>The type of scan covered by the Amazon Inspector free trail.</p>
    */
-  type: FreeTrialType | string | undefined;
+  type: FreeTrialType | undefined;
 
   /**
    * @public
@@ -2854,7 +2854,7 @@ export interface FreeTrialInfo {
    * @public
    * <p>The order to sort results by.</p>
    */
-  status: FreeTrialStatus | string | undefined;
+  status: FreeTrialStatus | undefined;
 }
 
 /**
@@ -2904,7 +2904,7 @@ export interface FreeTrialInfoError {
    * @public
    * <p>The error code.</p>
    */
-  code: FreeTrialInfoErrorCode | string | undefined;
+  code: FreeTrialInfoErrorCode | undefined;
 
   /**
    * @public
@@ -2975,7 +2975,7 @@ export interface MemberAccountEc2DeepInspectionStatusState {
    * @public
    * <p>The state of Amazon Inspector deep inspection in the member account.</p>
    */
-  status?: Ec2DeepInspectionStatus | string;
+  status?: Ec2DeepInspectionStatus;
 
   /**
    * @public
@@ -2999,7 +2999,7 @@ export interface FailedMemberAccountEc2DeepInspectionStatusState {
    * @public
    * <p>The status of EC2 scanning in the account that failed to activate Amazon Inspector deep inspection.</p>
    */
-  ec2ScanStatus?: Status | string;
+  ec2ScanStatus?: Status;
 
   /**
    * @public
@@ -3272,7 +3272,7 @@ export interface Counts {
    * @public
    * <p>The key associated with this group</p>
    */
-  groupKey?: GroupKey | string;
+  groupKey?: GroupKey;
 }
 
 /**
@@ -3316,7 +3316,7 @@ export interface CoverageStringFilter {
    * @public
    * <p>The operator to compare strings on.</p>
    */
-  comparison: CoverageStringComparison | string | undefined;
+  comparison: CoverageStringComparison | undefined;
 
   /**
    * @public
@@ -3347,7 +3347,7 @@ export interface CoverageMapFilter {
    * @public
    * <p>The operator to compare coverage on.</p>
    */
-  comparison: CoverageMapComparison | string | undefined;
+  comparison: CoverageMapComparison | undefined;
 
   /**
    * @public
@@ -3499,7 +3499,7 @@ export interface Ec2Metadata {
    * @public
    * <p>The platform of the instance.</p>
    */
-  platform?: Ec2Platform | string;
+  platform?: Ec2Platform;
 }
 
 /**
@@ -3544,7 +3544,7 @@ export interface EcrRepositoryMetadata {
    * @public
    * <p>The frequency of scans.</p>
    */
-  scanFrequency?: EcrScanFrequency | string;
+  scanFrequency?: EcrScanFrequency;
 }
 
 /**
@@ -3574,7 +3574,7 @@ export interface LambdaFunctionMetadata {
    * @public
    * <p>An AWS Lambda function's runtime.</p>
    */
-  runtime?: Runtime | string;
+  runtime?: Runtime;
 }
 
 /**
@@ -3666,7 +3666,7 @@ export interface ScanStatus {
    * @public
    * <p>The status code of the scan.</p>
    */
-  statusCode: ScanStatusCode | string | undefined;
+  statusCode: ScanStatusCode | undefined;
 
   /**
    * @public
@@ -3721,7 +3721,7 @@ export interface ScanStatus {
    *             <code>DEEP_INSPECTION_NO_INVENTORY</code>  The Amazon Inspector plugin hasn't yet been able to collect an inventory of packages for this instance. This is usually the result of a pending scan, however, if this status persists after 6 hours, use SSM to ensure that the required Amazon Inspector associations exist and are running for the instance.</p>
    *          <p/>
    */
-  reason: ScanStatusReason | string | undefined;
+  reason: ScanStatusReason | undefined;
 }
 
 /**
@@ -3748,7 +3748,7 @@ export interface CoveredResource {
    * @public
    * <p>The type of the covered resource.</p>
    */
-  resourceType: CoverageResourceType | string | undefined;
+  resourceType: CoverageResourceType | undefined;
 
   /**
    * @public
@@ -3766,7 +3766,7 @@ export interface CoveredResource {
    * @public
    * <p>The Amazon Inspector scan type covering the resource.</p>
    */
-  scanType: ScanType | string | undefined;
+  scanType: ScanType | undefined;
 
   /**
    * @public
@@ -4171,7 +4171,7 @@ export interface CreateFilterRequest {
    * @public
    * <p>Defines the action that is to be applied to the findings that match the filter.</p>
    */
-  action: FilterAction | string | undefined;
+  action: FilterAction | undefined;
 
   /**
    * @public
@@ -4297,7 +4297,7 @@ export interface CreateFindingsReportRequest {
    * @public
    * <p>The format to generate the report in.</p>
    */
-  reportFormat: ReportFormat | string | undefined;
+  reportFormat: ReportFormat | undefined;
 
   /**
    * @public
@@ -4354,7 +4354,7 @@ export interface ResourceStringFilter {
    * @public
    * <p>The filter's comparison.</p>
    */
-  comparison: ResourceStringComparison | string | undefined;
+  comparison: ResourceStringComparison | undefined;
 
   /**
    * @public
@@ -4385,7 +4385,7 @@ export interface ResourceMapFilter {
    * @public
    * <p>The filter's comparison.</p>
    */
-  comparison: ResourceMapComparison | string | undefined;
+  comparison: ResourceMapComparison | undefined;
 
   /**
    * @public
@@ -4468,7 +4468,7 @@ export interface CreateSbomExportRequest {
    * @public
    * <p>The output format for the software bill of materials (SBOM) report.</p>
    */
-  reportFormat: SbomReportFormat | string | undefined;
+  reportFormat: SbomReportFormat | undefined;
 
   /**
    * @public
@@ -4666,7 +4666,7 @@ export interface DelegatedAdmin {
    * @public
    * <p>The status of the Amazon Inspector delegated administrator.</p>
    */
-  relationshipStatus?: RelationshipStatus | string;
+  relationshipStatus?: RelationshipStatus;
 }
 
 /**
@@ -4698,7 +4698,7 @@ export interface DelegatedAdminAccount {
    * @public
    * <p>The status of the Amazon Inspector delegated administrator.</p>
    */
-  status?: DelegatedAdminStatus | string;
+  status?: DelegatedAdminStatus;
 }
 
 /**
@@ -4775,7 +4775,7 @@ export interface DisableRequest {
    * @public
    * <p>The resource scan types you want to disable.</p>
    */
-  resourceTypes?: (ResourceScanType | string)[];
+  resourceTypes?: ResourceScanType[];
 }
 
 /**
@@ -4865,7 +4865,7 @@ export interface EcrConfiguration {
    * @public
    * <p>The ECR automated re-scan duration defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days since an image was last pushed exceeds the automated re-scan duration the monitoring state of that image becomes <code>inactive</code> and all associated findings are scheduled for closure.</p>
    */
-  rescanDuration: EcrRescanDuration | string | undefined;
+  rescanDuration: EcrRescanDuration | undefined;
 }
 
 /**
@@ -4892,13 +4892,13 @@ export interface EcrRescanDurationState {
    * @public
    * <p>The ECR automated re-scan duration defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days since an image was last pushed exceeds the automated re-scan duration the monitoring state of that image becomes <code>inactive</code> and all associated findings are scheduled for closure.</p>
    */
-  rescanDuration?: EcrRescanDuration | string;
+  rescanDuration?: EcrRescanDuration;
 
   /**
    * @public
    * <p>The status of changes to the ECR automated re-scan duration.</p>
    */
-  status?: EcrRescanDurationStatus | string;
+  status?: EcrRescanDurationStatus;
 
   /**
    * @public
@@ -4933,7 +4933,7 @@ export interface EnableRequest {
    * @public
    * <p>The resource scan types you want to enable.</p>
    */
-  resourceTypes: (ResourceScanType | string)[] | undefined;
+  resourceTypes: ResourceScanType[] | undefined;
 
   /**
    * @public
@@ -5088,7 +5088,7 @@ export interface Filter {
    * @public
    * <p>The action that is to be applied to the findings that match the filter.</p>
    */
-  action: FilterAction | string | undefined;
+  action: FilterAction | undefined;
 
   /**
    * @public
@@ -5225,7 +5225,7 @@ export interface NetworkReachabilityDetails {
    * @public
    * <p>The protocol associated with a finding.</p>
    */
-  protocol: NetworkProtocol | string | undefined;
+  protocol: NetworkProtocol | undefined;
 
   /**
    * @public
@@ -5308,7 +5308,7 @@ export interface VulnerablePackage {
    * @public
    * <p>The package manager of the vulnerable package.</p>
    */
-  packageManager?: PackageManager | string;
+  packageManager?: PackageManager;
 
   /**
    * @public
@@ -5480,7 +5480,7 @@ export interface Resource {
    * @public
    * <p>The type of resource.</p>
    */
-  type: ResourceType | string | undefined;
+  type: ResourceType | undefined;
 
   /**
    * @public
@@ -5582,7 +5582,7 @@ export interface Finding {
    * @public
    * <p>The type of the finding. The <code>type</code> value determines the valid values for <code>resource</code> in your request. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-types.html">Finding types</a> in the Amazon Inspector user guide.</p>
    */
-  type: FindingType | string | undefined;
+  type: FindingType | undefined;
 
   /**
    * @public
@@ -5606,7 +5606,7 @@ export interface Finding {
    * @public
    * <p>The severity of the finding. <code>UNTRIAGED</code> applies to <code>PACKAGE_VULNERABILITY</code> type findings that the vendor has not assigned a severity yet. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html">Severity levels for findings</a> in the Amazon Inspector user guide.</p>
    */
-  severity: Severity | string | undefined;
+  severity: Severity | undefined;
 
   /**
    * @public
@@ -5630,7 +5630,7 @@ export interface Finding {
    * @public
    * <p>The status of the finding.</p>
    */
-  status: FindingStatus | string | undefined;
+  status: FindingStatus | undefined;
 
   /**
    * @public
@@ -5666,13 +5666,13 @@ export interface Finding {
    * @public
    * <p>Details on whether a fix is available through a version update. This value can be <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>.  A <code>PARTIAL</code> fix means that some, but not all, of the packages identified in the finding have fixes available through updated versions.</p>
    */
-  fixAvailable?: FixAvailable | string;
+  fixAvailable?: FixAvailable;
 
   /**
    * @public
    * <p>If a finding discovered in your environment has an exploit available.</p>
    */
-  exploitAvailable?: ExploitAvailable | string;
+  exploitAvailable?: ExploitAvailable;
 
   /**
    * @public
@@ -5750,7 +5750,7 @@ export interface GetEc2DeepInspectionConfigurationResponse {
    * @public
    * <p>The activation status of Amazon Inspector deep inspection in your account.</p>
    */
-  status?: Ec2DeepInspectionStatus | string;
+  status?: Ec2DeepInspectionStatus;
 
   /**
    * @public
@@ -5767,13 +5767,13 @@ export interface GetEncryptionKeyRequest {
    * @public
    * <p>The scan type the key encrypts.</p>
    */
-  scanType: ScanType | string | undefined;
+  scanType: ScanType | undefined;
 
   /**
    * @public
    * <p>The resource type the key encrypts.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 }
 
 /**
@@ -5830,13 +5830,13 @@ export interface GetFindingsReportStatusResponse {
    * @public
    * <p>The status of the report.</p>
    */
-  status?: ExternalReportStatus | string;
+  status?: ExternalReportStatus;
 
   /**
    * @public
    * <p>The error code of the report.</p>
    */
-  errorCode?: ReportingErrorCode | string;
+  errorCode?: ReportingErrorCode;
 
   /**
    * @public
@@ -5883,7 +5883,7 @@ export interface Member {
    * @public
    * <p>The status of the member account.</p>
    */
-  relationshipStatus?: RelationshipStatus | string;
+  relationshipStatus?: RelationshipStatus;
 
   /**
    * @public
@@ -5934,19 +5934,19 @@ export interface GetSbomExportResponse {
    * @public
    * <p>The format of the software bill of materials (SBOM) report.</p>
    */
-  format?: SbomReportFormat | string;
+  format?: SbomReportFormat;
 
   /**
    * @public
    * <p>The status of the software bill of materials (SBOM) report.</p>
    */
-  status?: ExternalReportStatus | string;
+  status?: ExternalReportStatus;
 
   /**
    * @public
    * <p>An error code.</p>
    */
-  errorCode?: ReportingErrorCode | string;
+  errorCode?: ReportingErrorCode;
 
   /**
    * @public
@@ -5990,7 +5990,7 @@ export interface ListAccountPermissionsRequest {
    * @public
    * <p>The service scan type to check permissions for.</p>
    */
-  service?: Service | string;
+  service?: Service;
 
   /**
    * @public
@@ -6030,13 +6030,13 @@ export interface Permission {
    * @public
    * <p>The services that the permissions allow an account to perform the given operations for.</p>
    */
-  service: Service | string | undefined;
+  service: Service | undefined;
 
   /**
    * @public
    * <p>The operations that can be performed with the given permissions.</p>
    */
-  operation: Operation | string | undefined;
+  operation: Operation | undefined;
 }
 
 /**
@@ -6118,7 +6118,7 @@ export interface ListCoverageStatisticsRequest {
    * @public
    * <p>The value to group the results by.</p>
    */
-  groupBy?: GroupKey | string;
+  groupBy?: GroupKey;
 
   /**
    * @public
@@ -6207,7 +6207,7 @@ export interface ListFiltersRequest {
    * @public
    * <p>The action the filter applies to matched findings.</p>
    */
-  action?: FilterAction | string;
+  action?: FilterAction;
 
   /**
    * @public
@@ -6250,7 +6250,7 @@ export interface ListFindingAggregationsRequest {
    * @public
    * <p>The type of the aggregation request.</p>
    */
-  aggregationType: AggregationType | string | undefined;
+  aggregationType: AggregationType | undefined;
 
   /**
    * @public
@@ -6285,7 +6285,7 @@ export interface ListFindingAggregationsResponse {
    * @public
    * <p>The type of aggregation to perform.</p>
    */
-  aggregationType: AggregationType | string | undefined;
+  aggregationType: AggregationType | undefined;
 
   /**
    * @public
@@ -6341,13 +6341,13 @@ export interface SortCriteria {
    * @public
    * <p>The finding detail field by which results are sorted.</p>
    */
-  field: SortField | string | undefined;
+  field: SortField | undefined;
 
   /**
    * @public
    * <p>The order by which findings are sorted.</p>
    */
-  sortOrder: SortOrder | string | undefined;
+  sortOrder: SortOrder | undefined;
 }
 
 /**
@@ -6512,7 +6512,7 @@ export interface Usage {
    * @public
    * <p>The type scan.</p>
    */
-  type?: UsageType | string;
+  type?: UsageType;
 
   /**
    * @public
@@ -6530,7 +6530,7 @@ export interface Usage {
    * @public
    * <p>The currency type used when calculating usage data.</p>
    */
-  currency?: Currency | string;
+  currency?: Currency;
 }
 
 /**
@@ -6576,13 +6576,13 @@ export interface ResetEncryptionKeyRequest {
    * @public
    * <p>The scan type the key encrypts.</p>
    */
-  scanType: ScanType | string | undefined;
+  scanType: ScanType | undefined;
 
   /**
    * @public
    * <p>The resource type the key encrypts.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 }
 
 /**
@@ -6663,7 +6663,7 @@ export interface Vulnerability {
    * @public
    * <p>The source of the vulnerability information.  Possible results are <code>RHEL</code>, <code>AMAZON_CVE</code>, <code>DEBIAN</code> or <code>NVD</code>.</p>
    */
-  source?: VulnerabilitySource | string;
+  source?: VulnerabilitySource;
 
   /**
    * @public
@@ -6858,7 +6858,7 @@ export interface UpdateEc2DeepInspectionConfigurationResponse {
    * @public
    * <p>The status of Amazon Inspector deep inspection in your account.</p>
    */
-  status?: Ec2DeepInspectionStatus | string;
+  status?: Ec2DeepInspectionStatus;
 
   /**
    * @public
@@ -6881,13 +6881,13 @@ export interface UpdateEncryptionKeyRequest {
    * @public
    * <p>The scan type for the encryption key.</p>
    */
-  scanType: ScanType | string | undefined;
+  scanType: ScanType | undefined;
 
   /**
    * @public
    * <p>The resource type for the encryption key.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 }
 
 /**
@@ -6903,7 +6903,7 @@ export interface UpdateFilterRequest {
    * @public
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
-  action?: FilterAction | string;
+  action?: FilterAction;
 
   /**
    * @public

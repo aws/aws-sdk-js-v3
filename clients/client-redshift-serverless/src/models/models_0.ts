@@ -172,7 +172,7 @@ export interface Snapshot {
    * @public
    * <p>The status of the snapshot.</p>
    */
-  status?: SnapshotStatus | string;
+  status?: SnapshotStatus;
 
   /**
    * @public
@@ -637,7 +637,7 @@ export interface CreateNamespaceRequest {
    * <p>The types of logs the namespace can export.
    *          Available export types are <code>userlog</code>, <code>connectionlog</code>, and <code>useractivitylog</code>.</p>
    */
-  logExports?: (LogExport | string)[];
+  logExports?: LogExport[];
 
   /**
    * @public
@@ -721,13 +721,13 @@ export interface Namespace {
    * @public
    * <p>The types of logs the namespace can export. Available export types are User log, Connection log, and User activity log.</p>
    */
-  logExports?: (LogExport | string)[];
+  logExports?: LogExport[];
 
   /**
    * @public
    * <p>The status of the namespace.</p>
    */
-  status?: NamespaceStatus | string;
+  status?: NamespaceStatus;
 
   /**
    * @public
@@ -845,7 +845,7 @@ export interface CreateUsageLimitRequest {
    * @public
    * <p>The type of Amazon Redshift Serverless usage to create a usage limit for.</p>
    */
-  usageType: UsageLimitUsageType | string | undefined;
+  usageType: UsageLimitUsageType | undefined;
 
   /**
    * @public
@@ -858,13 +858,13 @@ export interface CreateUsageLimitRequest {
    * @public
    * <p>The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly.</p>
    */
-  period?: UsageLimitPeriod | string;
+  period?: UsageLimitPeriod;
 
   /**
    * @public
    * <p>The action that Amazon Redshift Serverless takes when the limit is reached. The default is log.</p>
    */
-  breachAction?: UsageLimitBreachAction | string;
+  breachAction?: UsageLimitBreachAction;
 }
 
 /**
@@ -894,7 +894,7 @@ export interface UsageLimit {
    * @public
    * <p>The Amazon Redshift Serverless feature to limit.</p>
    */
-  usageType?: UsageLimitUsageType | string;
+  usageType?: UsageLimitUsageType;
 
   /**
    * @public
@@ -906,13 +906,13 @@ export interface UsageLimit {
    * @public
    * <p>The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly.</p>
    */
-  period?: UsageLimitPeriod | string;
+  period?: UsageLimitPeriod;
 
   /**
    * @public
    * <p>The action that Amazon Redshift Serverless takes when the limit is reached.</p>
    */
-  breachAction?: UsageLimitBreachAction | string;
+  breachAction?: UsageLimitBreachAction;
 }
 
 /**
@@ -1103,7 +1103,7 @@ export interface Workgroup {
    * @public
    * <p>The status of the workgroup.</p>
    */
-  status?: WorkgroupStatus | string;
+  status?: WorkgroupStatus;
 
   /**
    * @public
@@ -2108,7 +2108,7 @@ export interface ListUsageLimitsRequest {
    * @public
    * <p>The Amazon Redshift Serverless feature whose limits you want to see.</p>
    */
-  usageType?: UsageLimitUsageType | string;
+  usageType?: UsageLimitUsageType;
 
   /**
    * @public
@@ -2233,7 +2233,7 @@ export interface UpdateNamespaceRequest {
    * @public
    * <p>The types of logs the namespace can export. The export types are <code>userlog</code>, <code>connectionlog</code>, and <code>useractivitylog</code>.</p>
    */
-  logExports?: (LogExport | string)[];
+  logExports?: LogExport[];
 }
 
 /**
@@ -2553,7 +2553,7 @@ export interface UpdateUsageLimitRequest {
    * @public
    * <p>The new action that Amazon Redshift Serverless takes when the limit is reached.</p>
    */
-  breachAction?: UsageLimitBreachAction | string;
+  breachAction?: UsageLimitBreachAction;
 }
 
 /**

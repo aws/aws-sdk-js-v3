@@ -72,7 +72,7 @@ export interface CapacitySpecification {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write capacity modes</a> in the <i>Amazon Keyspaces Developer
    *             Guide</i>.</p>
    */
-  throughputMode: ThroughputMode | string | undefined;
+  throughputMode: ThroughputMode | undefined;
 
   /**
    * @public
@@ -124,7 +124,7 @@ export interface CapacitySpecificationSummary {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write capacity modes</a> in the <i>Amazon Keyspaces Developer
    *             Guide</i>.</p>
    */
-  throughputMode: ThroughputMode | string | undefined;
+  throughputMode: ThroughputMode | undefined;
 
   /**
    * @public
@@ -171,7 +171,7 @@ export interface ClientSideTimestamps {
    * @public
    * <p>Shows how to enable client-side timestamps settings for the specified table.</p>
    */
-  status: ClientSideTimestampsStatus | string | undefined;
+  status: ClientSideTimestampsStatus | undefined;
 }
 
 /**
@@ -203,7 +203,7 @@ export interface ClusteringKey {
    * @public
    * <p>Sets the ascendant (<code>ASC</code>) or descendant (<code>DESC</code>) order modifier.</p>
    */
-  orderBy: SortOrder | string | undefined;
+  orderBy: SortOrder | undefined;
 }
 
 /**
@@ -297,7 +297,7 @@ export interface ReplicationSpecification {
    *             <code>MULTI_REGION</code>.
    *       </p>
    */
-  replicationStrategy: Rs | string | undefined;
+  replicationStrategy: Rs | undefined;
 
   /**
    * @public
@@ -495,7 +495,7 @@ export interface EncryptionSpecification {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption at rest</a> in the <i>Amazon Keyspaces Developer
    *             Guide</i>.</p>
    */
-  type: EncryptionType | string | undefined;
+  type: EncryptionType | undefined;
 
   /**
    * @public
@@ -541,7 +541,7 @@ export interface PointInTimeRecovery {
    *             </li>
    *          </ul>
    */
-  status: PointInTimeRecoveryStatus | string | undefined;
+  status: PointInTimeRecoveryStatus | undefined;
 }
 
 /**
@@ -624,7 +624,7 @@ export interface TimeToLive {
    * @public
    * <p>Shows how to enable custom Time to Live (TTL) settings for the specified table.</p>
    */
-  status: TimeToLiveStatus | string | undefined;
+  status: TimeToLiveStatus | undefined;
 }
 
 /**
@@ -946,7 +946,7 @@ export interface GetKeyspaceResponse {
    *          Returns the replication strategy of the keyspace. The options are <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>.
    *       </p>
    */
-  replicationStrategy: Rs | string | undefined;
+  replicationStrategy: Rs | undefined;
 
   /**
    * @public
@@ -983,7 +983,7 @@ export interface PointInTimeRecoverySummary {
    * @public
    * <p>Shows if point-in-time recovery is enabled or disabled for the specified table.</p>
    */
-  status: PointInTimeRecoveryStatus | string | undefined;
+  status: PointInTimeRecoveryStatus | undefined;
 
   /**
    * @public
@@ -1043,7 +1043,7 @@ export interface GetTableResponse {
    * @public
    * <p>The current status of the specified table.</p>
    */
-  status?: TableStatus | string;
+  status?: TableStatus;
 
   /**
    * @public
@@ -1150,7 +1150,7 @@ export interface KeyspaceSummary {
    *       values are <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>.
    *    </p>
    */
-  replicationStrategy: Rs | string | undefined;
+  replicationStrategy: Rs | undefined;
 
   /**
    * @public

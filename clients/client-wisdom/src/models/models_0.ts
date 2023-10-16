@@ -177,7 +177,7 @@ export interface CreateAssistantAssociationRequest {
    * @public
    * <p>The type of association.</p>
    */
-  associationType: AssociationType | string | undefined;
+  associationType: AssociationType | undefined;
 
   /**
    * @public
@@ -293,7 +293,7 @@ export interface AssistantAssociationData {
    * @public
    * <p>The type of association.</p>
    */
-  associationType: AssociationType | string | undefined;
+  associationType: AssociationType | undefined;
 
   /**
    * @public
@@ -494,7 +494,7 @@ export interface AssistantAssociationSummary {
    * @public
    * <p>The type of association.</p>
    */
-  associationType: AssociationType | string | undefined;
+  associationType: AssociationType | undefined;
 
   /**
    * @public
@@ -575,7 +575,7 @@ export interface CreateAssistantRequest {
    * @public
    * <p>The type of assistant.</p>
    */
-  type: AssistantType | string | undefined;
+  type: AssistantType | undefined;
 
   /**
    * @public
@@ -653,13 +653,13 @@ export interface AssistantData {
    * @public
    * <p>The type of assistant.</p>
    */
-  type: AssistantType | string | undefined;
+  type: AssistantType | undefined;
 
   /**
    * @public
    * <p>The status of the assistant.</p>
    */
-  status: AssistantStatus | string | undefined;
+  status: AssistantStatus | undefined;
 
   /**
    * @public
@@ -913,13 +913,13 @@ export interface RecommendationData {
    * @public
    * <p>The relevance level of the recommendation.</p>
    */
-  relevanceLevel?: RelevanceLevel | string;
+  relevanceLevel?: RelevanceLevel;
 
   /**
    * @public
    * <p>The type of recommendation.</p>
    */
-  type?: RecommendationType | string;
+  type?: RecommendationType;
 }
 
 /**
@@ -1019,7 +1019,7 @@ export interface RecommendationTrigger {
    * @public
    * <p>The type of recommendation trigger.</p>
    */
-  type: RecommendationTriggerType | string | undefined;
+  type: RecommendationTriggerType | undefined;
 
   /**
    * @public
@@ -1035,7 +1035,7 @@ export interface RecommendationTrigger {
    *             </li>
    *          </ul>
    */
-  source: RecommendationSourceType | string | undefined;
+  source: RecommendationSourceType | undefined;
 
   /**
    * @public
@@ -1112,13 +1112,13 @@ export interface AssistantSummary {
    * @public
    * <p>The type of the assistant.</p>
    */
-  type: AssistantType | string | undefined;
+  type: AssistantType | undefined;
 
   /**
    * @public
    * <p>The status of the assistant.</p>
    */
-  status: AssistantStatus | string | undefined;
+  status: AssistantStatus | undefined;
 
   /**
    * @public
@@ -1326,13 +1326,13 @@ export interface Filter {
    * @public
    * <p>The field on which to filter.</p>
    */
-  field: FilterField | string | undefined;
+  field: FilterField | undefined;
 
   /**
    * @public
    * <p>The operator to use for comparing the field’s value with the provided value.</p>
    */
-  operator: FilterOperator | string | undefined;
+  operator: FilterOperator | undefined;
 
   /**
    * @public
@@ -1697,7 +1697,7 @@ export interface ContentData {
    * @public
    * <p>The status of the content.</p>
    */
-  status: ContentStatus | string | undefined;
+  status: ContentStatus | undefined;
 
   /**
    * @public
@@ -1866,7 +1866,7 @@ export interface ContentSummary {
    * @public
    * <p>The status of the content.</p>
    */
-  status: ContentStatus | string | undefined;
+  status: ContentStatus | undefined;
 
   /**
    * @public
@@ -2137,7 +2137,7 @@ export interface CreateKnowledgeBaseRequest {
    *       EXTERNAL knowledge bases support integrations with third-party systems whose content is
    *       synchronized automatically. </p>
    */
-  knowledgeBaseType: KnowledgeBaseType | string | undefined;
+  knowledgeBaseType: KnowledgeBaseType | undefined;
 
   /**
    * @public
@@ -2216,13 +2216,13 @@ export interface KnowledgeBaseData {
    * @public
    * <p>The type of knowledge base.</p>
    */
-  knowledgeBaseType: KnowledgeBaseType | string | undefined;
+  knowledgeBaseType: KnowledgeBaseType | undefined;
 
   /**
    * @public
    * <p>The status of the knowledge base.</p>
    */
-  status: KnowledgeBaseStatus | string | undefined;
+  status: KnowledgeBaseStatus | undefined;
 
   /**
    * @public
@@ -2356,13 +2356,13 @@ export interface KnowledgeBaseSummary {
    * @public
    * <p>The type of knowledge base.</p>
    */
-  knowledgeBaseType: KnowledgeBaseType | string | undefined;
+  knowledgeBaseType: KnowledgeBaseType | undefined;
 
   /**
    * @public
    * <p>The status of the knowledge base summary.</p>
    */
-  status: KnowledgeBaseStatus | string | undefined;
+  status: KnowledgeBaseStatus | undefined;
 
   /**
    * @public

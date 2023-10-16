@@ -21573,9 +21573,9 @@ const de_EvaluationAnswersOutputMap = (
     if (value === null) {
       return acc;
     }
-    acc[key] = de_EvaluationAnswerOutput(value, context);
+    acc[key as string] = de_EvaluationAnswerOutput(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, EvaluationAnswerOutput>);
 };
 
 /**
@@ -21791,9 +21791,9 @@ const de_EvaluationScoresMap = (output: any, context: __SerdeContext): Record<st
     if (value === null) {
       return acc;
     }
-    acc[key] = de_EvaluationScore(value, context);
+    acc[key as string] = de_EvaluationScore(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, EvaluationScore>);
 };
 
 /**

@@ -450,7 +450,7 @@ export interface LoggingConfiguration {
    * @public
    * <p>Defines which category of execution history events are logged.</p>
    */
-  level?: LogLevel | string;
+  level?: LogLevel;
 
   /**
    * @public
@@ -545,7 +545,7 @@ export interface CreateStateMachineInput {
    *         <code>STANDARD</code>. You cannot update the <code>type</code> of a state machine once it
    *       has been created.</p>
    */
-  type?: StateMachineType | string;
+  type?: StateMachineType;
 
   /**
    * @public
@@ -801,7 +801,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @internal
@@ -1137,7 +1137,7 @@ export interface DescribeExecutionOutput {
    * @public
    * <p>The current status of the execution.</p>
    */
-  status: ExecutionStatus | string | undefined;
+  status: ExecutionStatus | undefined;
 
   /**
    * @public
@@ -1395,7 +1395,7 @@ export interface DescribeMapRunOutput {
    * @public
    * <p>The current status of the Map Run.</p>
    */
-  status: MapRunStatus | string | undefined;
+  status: MapRunStatus | undefined;
 
   /**
    * @public
@@ -1509,7 +1509,7 @@ export interface DescribeStateMachineOutput {
    * @public
    * <p>The current status of the state machine.</p>
    */
-  status?: StateMachineStatus | string;
+  status?: StateMachineStatus;
 
   /**
    * @public
@@ -1529,7 +1529,7 @@ export interface DescribeStateMachineOutput {
    * <p>The <code>type</code> of the state machine (<code>STANDARD</code> or
    *       <code>EXPRESS</code>).</p>
    */
-  type: StateMachineType | string | undefined;
+  type: StateMachineType | undefined;
 
   /**
    * @public
@@ -2515,7 +2515,7 @@ export interface HistoryEvent {
    * @public
    * <p>The type of the event.</p>
    */
-  type: HistoryEventType | string | undefined;
+  type: HistoryEventType | undefined;
 
   /**
    * @public
@@ -2830,7 +2830,7 @@ export interface ListExecutionsInput {
    * <p>If specified, only list the executions whose current execution status matches the given
    *       filter.</p>
    */
-  statusFilter?: ExecutionStatus | string;
+  statusFilter?: ExecutionStatus;
 
   /**
    * @public
@@ -2904,7 +2904,7 @@ export interface ExecutionListItem {
    * @public
    * <p>The current status of the execution.</p>
    */
-  status: ExecutionStatus | string | undefined;
+  status: ExecutionStatus | undefined;
 
   /**
    * @public
@@ -3170,7 +3170,7 @@ export interface StateMachineListItem {
    * @public
    * <p></p>
    */
-  type: StateMachineType | string | undefined;
+  type: StateMachineType | undefined;
 
   /**
    * @public
@@ -3741,7 +3741,7 @@ export interface StartSyncExecutionOutput {
    * @public
    * <p>The current status of the execution.</p>
    */
-  status: SyncExecutionStatus | string | undefined;
+  status: SyncExecutionStatus | undefined;
 
   /**
    * @public

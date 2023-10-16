@@ -326,7 +326,7 @@ export interface SubnetMapping {
    * @public
    * <p>The subnet's IP address type. You can't change the IP address type after you create the subnet.</p>
    */
-  IPAddressType?: IPAddressType | string;
+  IPAddressType?: IPAddressType;
 }
 
 /**
@@ -464,7 +464,7 @@ export interface Attachment {
    *          available for traffic, this value will reflect its state, for example
    *          <code>CREATING</code> or <code>DELETING</code>.</p>
    */
-  Status?: AttachmentStatus | string;
+  Status?: AttachmentStatus;
 
   /**
    * @public
@@ -595,7 +595,7 @@ export interface EncryptionConfiguration {
    * @public
    * <p>The type of Amazon Web Services KMS key to use for encryption of your Network Firewall resources.</p>
    */
-  Type: EncryptionType | string | undefined;
+  Type: EncryptionType | undefined;
 }
 
 /**
@@ -830,7 +830,7 @@ export interface PerObjectStatus {
    * @public
    * <p>Indicates whether this object is in sync with the version indicated in the update token.</p>
    */
-  SyncStatus?: PerObjectSyncStatus | string;
+  SyncStatus?: PerObjectSyncStatus;
 
   /**
    * @public
@@ -891,7 +891,7 @@ export interface FirewallStatus {
    *             <code>Status</code> values for all of the configured subnets are <code>READY</code>.
    *       </p>
    */
-  Status: FirewallStatusValue | string | undefined;
+  Status: FirewallStatusValue | undefined;
 
   /**
    * @public
@@ -906,7 +906,7 @@ export interface FirewallStatus {
    *          doesn't indicate that the firewall is ready. The <code>Status</code> setting indicates
    *          firewall readiness.</p>
    */
-  ConfigurationSyncStateSummary: ConfigurationSyncState | string | undefined;
+  ConfigurationSyncStateSummary: ConfigurationSyncState | undefined;
 
   /**
    * @public
@@ -1032,7 +1032,7 @@ export interface StatefulEngineOptions {
    *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.
    *       </p>
    */
-  RuleOrder?: RuleOrder | string;
+  RuleOrder?: RuleOrder;
 
   /**
    * @public
@@ -1052,7 +1052,7 @@ export interface StatefulEngineOptions {
    *             </li>
    *          </ul>
    */
-  StreamExceptionPolicy?: StreamExceptionPolicy | string;
+  StreamExceptionPolicy?: StreamExceptionPolicy;
 }
 
 /**
@@ -1078,7 +1078,7 @@ export interface StatefulRuleGroupOverride {
    * <p>The action that changes the rule group from <code>DROP</code> to <code>ALERT</code>. This only applies to
    *       managed rule groups.</p>
    */
-  Action?: OverrideAction | string;
+  Action?: OverrideAction;
 }
 
 /**
@@ -1379,7 +1379,7 @@ export interface FirewallPolicyResponse {
    *          by calling <a>DescribeFirewallPolicy</a> and providing the firewall policy's
    *          name or ARN.</p>
    */
-  FirewallPolicyStatus?: ResourceStatus | string;
+  FirewallPolicyStatus?: ResourceStatus;
 
   /**
    * @public
@@ -1516,13 +1516,13 @@ export interface RulesSourceList {
    * @public
    * <p>The protocols you want to inspect. Specify <code>TLS_SNI</code> for <code>HTTPS</code>. Specify <code>HTTP_HOST</code> for <code>HTTP</code>. You can specify either or both. </p>
    */
-  TargetTypes: (TargetType | string)[] | undefined;
+  TargetTypes: TargetType[] | undefined;
 
   /**
    * @public
    * <p>Whether you want to allow or deny access to the domains in your target list.</p>
    */
-  GeneratedRulesType: GeneratedRulesType | string | undefined;
+  GeneratedRulesType: GeneratedRulesType | undefined;
 }
 
 /**
@@ -1597,7 +1597,7 @@ export interface Header {
    * @public
    * <p>The protocol to inspect for. To specify all, you can use <code>IP</code>, because all traffic on Amazon Web Services and on the internet is IP.</p>
    */
-  Protocol: StatefulRuleProtocol | string | undefined;
+  Protocol: StatefulRuleProtocol | undefined;
 
   /**
    * @public
@@ -1640,7 +1640,7 @@ export interface Header {
    *          destination to the source. If set to <code>FORWARD</code>, the inspection only matches
    *          traffic going from the source to the destination. </p>
    */
-  Direction: StatefulRuleDirection | string | undefined;
+  Direction: StatefulRuleDirection | undefined;
 
   /**
    * @public
@@ -1732,7 +1732,7 @@ export interface StatefulRule {
    *             </li>
    *          </ul>
    */
-  Action: StatefulAction | string | undefined;
+  Action: StatefulAction | undefined;
 
   /**
    * @public
@@ -1808,13 +1808,13 @@ export interface TCPFlagField {
    *             </li>
    *          </ul>
    */
-  Flags: (TCPFlag | string)[] | undefined;
+  Flags: TCPFlag[] | undefined;
 
   /**
    * @public
    * <p>The set of flags to consider in the inspection. To inspect all flags in the valid values list, leave this with no setting.</p>
    */
-  Masks?: (TCPFlag | string)[];
+  Masks?: TCPFlag[];
 }
 
 /**
@@ -2063,7 +2063,7 @@ export interface StatefulRuleOptions {
    *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.
    *       </p>
    */
-  RuleOrder?: RuleOrder | string;
+  RuleOrder?: RuleOrder;
 }
 
 /**
@@ -2171,7 +2171,7 @@ export interface CreateRuleGroupRequest {
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
    */
-  Type: RuleGroupType | string | undefined;
+  Type: RuleGroupType | undefined;
 
   /**
    * @public
@@ -2294,7 +2294,7 @@ export interface RuleGroupResponse {
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
    */
-  Type?: RuleGroupType | string;
+  Type?: RuleGroupType;
 
   /**
    * @public
@@ -2310,7 +2310,7 @@ export interface RuleGroupResponse {
    * @public
    * <p>Detailed information about the current status of a rule group. </p>
    */
-  RuleGroupStatus?: ResourceStatus | string;
+  RuleGroupStatus?: ResourceStatus;
 
   /**
    * @public
@@ -2530,7 +2530,7 @@ export interface TLSInspectionConfigurationResponse {
    * @public
    * <p>Detailed information about the current status of a <a>TLSInspectionConfiguration</a>. You can retrieve this for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a> and providing the TLS inspection configuration name and ARN.</p>
    */
-  TLSInspectionConfigurationStatus?: ResourceStatus | string;
+  TLSInspectionConfigurationStatus?: ResourceStatus;
 
   /**
    * @public
@@ -2743,7 +2743,7 @@ export interface DeleteRuleGroupRequest {
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
-  Type?: RuleGroupType | string;
+  Type?: RuleGroupType;
 }
 
 /**
@@ -2937,14 +2937,14 @@ export interface LogDestinationConfig {
    * <p>The type of log to send. Alert logs report traffic that matches a <a>StatefulRule</a> with an action setting that sends an alert log message. Flow logs are
    *          standard network traffic flow logs. </p>
    */
-  LogType: LogType | string | undefined;
+  LogType: LogType | undefined;
 
   /**
    * @public
    * <p>The type of storage destination to send these logs to. You can send logs to an Amazon S3 bucket,
    *          a CloudWatch log group, or a Kinesis Data Firehose delivery stream.</p>
    */
-  LogDestinationType: LogDestinationType | string | undefined;
+  LogDestinationType: LogDestinationType | undefined;
 
   /**
    * @public
@@ -3061,7 +3061,7 @@ export interface DescribeRuleGroupRequest {
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
-  Type?: RuleGroupType | string;
+  Type?: RuleGroupType;
 }
 
 /**
@@ -3119,7 +3119,7 @@ export interface DescribeRuleGroupMetadataRequest {
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
-  Type?: RuleGroupType | string;
+  Type?: RuleGroupType;
 }
 
 /**
@@ -3155,7 +3155,7 @@ export interface DescribeRuleGroupMetadataResponse {
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
-  Type?: RuleGroupType | string;
+  Type?: RuleGroupType;
 
   /**
    * @public
@@ -3474,19 +3474,19 @@ export interface ListRuleGroupsRequest {
    *          <code>NULL</code> returns all of the rule groups in your account. A setting of
    *          <code>MANAGED</code> returns all available managed rule groups.</p>
    */
-  Scope?: ResourceManagedStatus | string;
+  Scope?: ResourceManagedStatus;
 
   /**
    * @public
    * <p>Indicates the general category of the Amazon Web Services managed rule group.</p>
    */
-  ManagedType?: ResourceManagedType | string;
+  ManagedType?: ResourceManagedType;
 
   /**
    * @public
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.</p>
    */
-  Type?: RuleGroupType | string;
+  Type?: RuleGroupType;
 }
 
 /**
@@ -4205,7 +4205,7 @@ export interface UpdateRuleGroupRequest {
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
-  Type?: RuleGroupType | string;
+  Type?: RuleGroupType;
 
   /**
    * @public

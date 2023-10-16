@@ -50,7 +50,7 @@ export interface CreateAccessPolicyRequest {
    * @public
    * <p>The type of policy.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: AccessPolicyType | undefined;
 
   /**
    * @public
@@ -87,7 +87,7 @@ export interface AccessPolicyDetail {
    * @public
    * <p>The type of access policy.</p>
    */
-  type?: AccessPolicyType | string;
+  type?: AccessPolicyType;
 
   /**
    * @public
@@ -234,7 +234,7 @@ export interface DeleteAccessPolicyRequest {
    * @public
    * <p>The type of policy.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: AccessPolicyType | undefined;
 
   /**
    * @public
@@ -282,7 +282,7 @@ export interface GetAccessPolicyRequest {
    * @public
    * <p>Tye type of policy. Currently the only supported value is <code>data</code>.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: AccessPolicyType | undefined;
 
   /**
    * @public
@@ -310,7 +310,7 @@ export interface ListAccessPoliciesRequest {
    * @public
    * <p>The type of access policy.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: AccessPolicyType | undefined;
 
   /**
    * @public
@@ -344,7 +344,7 @@ export interface AccessPolicySummary {
    * @public
    * <p>The type of access policy. Currently the only available type is <code>data</code>.</p>
    */
-  type?: AccessPolicyType | string;
+  type?: AccessPolicyType;
 
   /**
    * @public
@@ -404,7 +404,7 @@ export interface UpdateAccessPolicyRequest {
    * @public
    * <p>The type of policy.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: AccessPolicyType | undefined;
 
   /**
    * @public
@@ -589,13 +589,13 @@ export interface CollectionDetail {
    * @public
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: CollectionStatus;
 
   /**
    * @public
    * <p>The type of collection.</p>
    */
-  type?: CollectionType | string;
+  type?: CollectionType;
 
   /**
    * @public
@@ -771,7 +771,7 @@ export interface VpcEndpointDetail {
    * @public
    * <p>The current status of the endpoint.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: VpcEndpointStatus;
 
   /**
    * @public
@@ -853,7 +853,7 @@ export interface CreateCollectionRequest {
    * @public
    * <p>The type of collection.</p>
    */
-  type?: CollectionType | string;
+  type?: CollectionType;
 
   /**
    * @public
@@ -895,13 +895,13 @@ export interface CreateCollectionDetail {
    * @public
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: CollectionStatus;
 
   /**
    * @public
    * <p>The type of collection.</p>
    */
-  type?: CollectionType | string;
+  type?: CollectionType;
 
   /**
    * @public
@@ -1004,7 +1004,7 @@ export interface DeleteCollectionDetail {
    * @public
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: CollectionStatus;
 }
 
 /**
@@ -1034,7 +1034,7 @@ export interface CollectionFilters {
    * @public
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: CollectionStatus;
 }
 
 /**
@@ -1084,7 +1084,7 @@ export interface CollectionSummary {
    * @public
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: CollectionStatus;
 
   /**
    * @public
@@ -1156,13 +1156,13 @@ export interface UpdateCollectionDetail {
    * @public
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: CollectionStatus;
 
   /**
    * @public
    * <p>The collection type.</p>
    */
-  type?: CollectionType | string;
+  type?: CollectionType;
 
   /**
    * @public
@@ -1255,7 +1255,7 @@ export interface CreateSecurityConfigRequest {
    * @public
    * <p>The type of security configuration.</p>
    */
-  type: SecurityConfigType | string | undefined;
+  type: SecurityConfigType | undefined;
 
   /**
    * @public
@@ -1298,7 +1298,7 @@ export interface SecurityConfigDetail {
    * @public
    * <p>The type of security configuration.</p>
    */
-  type?: SecurityConfigType | string;
+  type?: SecurityConfigType;
 
   /**
    * @public
@@ -1370,7 +1370,7 @@ export interface CreateSecurityPolicyRequest {
    * @public
    * <p>The type of security policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: SecurityPolicyType | undefined;
 
   /**
    * @public
@@ -1407,7 +1407,7 @@ export interface SecurityPolicyDetail {
    * @public
    * <p>The type of security policy.</p>
    */
-  type?: SecurityPolicyType | string;
+  type?: SecurityPolicyType;
 
   /**
    * @public
@@ -1515,7 +1515,7 @@ export interface CreateVpcEndpointDetail {
    * @public
    * <p>The current status in the endpoint creation process.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: VpcEndpointStatus;
 }
 
 /**
@@ -1561,7 +1561,7 @@ export interface DeleteSecurityPolicyRequest {
    * @public
    * <p>The type of policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: SecurityPolicyType | undefined;
 
   /**
    * @public
@@ -1619,7 +1619,7 @@ export interface DeleteVpcEndpointDetail {
    * @public
    * <p>The current status of the endpoint deletion process.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: VpcEndpointStatus;
 }
 
 /**
@@ -1744,7 +1744,7 @@ export interface GetSecurityPolicyRequest {
    * @public
    * <p>The type of security policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: SecurityPolicyType | undefined;
 
   /**
    * @public
@@ -1772,7 +1772,7 @@ export interface ListSecurityConfigsRequest {
    * @public
    * <p>The type of security configuration.</p>
    */
-  type: SecurityConfigType | string | undefined;
+  type: SecurityConfigType | undefined;
 
   /**
    * @public
@@ -1806,7 +1806,7 @@ export interface SecurityConfigSummary {
    * @public
    * <p>The type of security configuration.</p>
    */
-  type?: SecurityConfigType | string;
+  type?: SecurityConfigType;
 
   /**
    * @public
@@ -1860,7 +1860,7 @@ export interface ListSecurityPoliciesRequest {
    * @public
    * <p>The type of policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: SecurityPolicyType | undefined;
 
   /**
    * @public
@@ -1894,7 +1894,7 @@ export interface SecurityPolicySummary {
    * @public
    * <p>The type of security policy.</p>
    */
-  type?: SecurityPolicyType | string;
+  type?: SecurityPolicyType;
 
   /**
    * @public
@@ -1979,7 +1979,7 @@ export interface VpcEndpointFilters {
    * @public
    * <p>The current status of the endpoint.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: VpcEndpointStatus;
 }
 
 /**
@@ -2032,7 +2032,7 @@ export interface VpcEndpointSummary {
    * @public
    * <p>The current status of the endpoint.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: VpcEndpointStatus;
 }
 
 /**
@@ -2112,7 +2112,7 @@ export interface UpdateSecurityPolicyRequest {
    * @public
    * <p>The type of access policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: SecurityPolicyType | undefined;
 
   /**
    * @public
@@ -2296,7 +2296,7 @@ export interface UpdateVpcEndpointDetail {
    * @public
    * <p>The current status of the endpoint update process.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: VpcEndpointStatus;
 
   /**
    * @public

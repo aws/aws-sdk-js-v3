@@ -3299,9 +3299,9 @@ const de_Sections = (output: any, context: __SerdeContext): Record<string, Secti
     if (value === null) {
       return acc;
     }
-    acc[key] = de_Section(value, context);
+    acc[key as string] = de_Section(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, Section>);
 };
 
 /**

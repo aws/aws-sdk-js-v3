@@ -113,7 +113,7 @@ export interface BatchLoadTask {
    * @public
    * <p>Status of the batch load task.</p>
    */
-  TaskStatus?: BatchLoadStatus | string;
+  TaskStatus?: BatchLoadStatus;
 
   /**
    * @public
@@ -222,7 +222,7 @@ export interface MultiMeasureAttributeMapping {
    * @public
    * <p></p>
    */
-  MeasureValueType?: ScalarMeasureValueType | string;
+  MeasureValueType?: ScalarMeasureValueType;
 }
 
 /**
@@ -252,7 +252,7 @@ export interface MixedMeasureMapping {
    * @public
    * <p></p>
    */
-  MeasureValueType: MeasureValueType | string | undefined;
+  MeasureValueType: MeasureValueType | undefined;
 
   /**
    * @public
@@ -312,7 +312,7 @@ export interface DataModel {
    *          milliseconds, nanoseconds, or other supported values. Default is <code>MILLISECONDS</code>.
    *       </p>
    */
-  TimeUnit?: TimeUnit | string;
+  TimeUnit?: TimeUnit;
 
   /**
    * @public
@@ -455,7 +455,7 @@ export interface DataSourceConfiguration {
    * @public
    * <p>This is currently CSV.</p>
    */
-  DataFormat: BatchLoadDataFormat | string | undefined;
+  DataFormat: BatchLoadDataFormat | undefined;
 }
 
 /**
@@ -493,7 +493,7 @@ export interface ReportS3Configuration {
    * @public
    * <p></p>
    */
-  EncryptionOption?: S3EncryptionOption | string;
+  EncryptionOption?: S3EncryptionOption;
 
   /**
    * @public
@@ -575,7 +575,7 @@ export interface BatchLoadTaskDescription {
    * @public
    * <p>Status of the batch load task.</p>
    */
-  TaskStatus?: BatchLoadStatus | string;
+  TaskStatus?: BatchLoadStatus;
 
   /**
    * @public
@@ -943,7 +943,7 @@ export interface S3Configuration {
    * <p>The encryption option for the customer S3 location. Options are S3 server-side
    *          encryption with an S3 managed key or Amazon Web Services managed key.</p>
    */
-  EncryptionOption?: S3EncryptionOption | string;
+  EncryptionOption?: S3EncryptionOption;
 
   /**
    * @public
@@ -1047,7 +1047,7 @@ export interface PartitionKey {
    * <p> The type of the partition key. Options are DIMENSION (dimension key) and MEASURE
    *          (measure key). </p>
    */
-  Type: PartitionKeyType | string | undefined;
+  Type: PartitionKeyType | undefined;
 
   /**
    * @public
@@ -1061,7 +1061,7 @@ export interface PartitionKey {
    *          Options are REQUIRED (dimension key must be specified) and OPTIONAL (dimension key does not
    *          have to be specified). </p>
    */
-  EnforcementInRecord?: PartitionKeyEnforcementLevel | string;
+  EnforcementInRecord?: PartitionKeyEnforcementLevel;
 }
 
 /**
@@ -1175,7 +1175,7 @@ export interface Table {
    *             </li>
    *          </ul>
    */
-  TableStatus?: TableStatus | string;
+  TableStatus?: TableStatus;
 
   /**
    * @public
@@ -1395,7 +1395,7 @@ export interface Dimension {
    * @public
    * <p>The data type of the dimension for the time-series data point.</p>
    */
-  DimensionValueType?: DimensionValueType | string;
+  DimensionValueType?: DimensionValueType;
 }
 
 /**
@@ -1422,7 +1422,7 @@ export interface ListBatchLoadTasksRequest {
    * @public
    * <p>Status of the batch load task.</p>
    */
-  TaskStatus?: BatchLoadStatus | string;
+  TaskStatus?: BatchLoadStatus;
 }
 
 /**
@@ -1577,7 +1577,7 @@ export interface MeasureValue {
    * @public
    * <p>Contains the data type of the MeasureValue for the time-series data point.</p>
    */
-  Type: MeasureValueType | string | undefined;
+  Type: MeasureValueType | undefined;
 }
 
 /**
@@ -1623,7 +1623,7 @@ export interface _Record {
    *          type is <code>DOUBLE</code>. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/writes.html#writes.data-types">Data
    *          types</a>.</p>
    */
-  MeasureValueType?: MeasureValueType | string;
+  MeasureValueType?: MeasureValueType;
 
   /**
    * @public
@@ -1640,7 +1640,7 @@ export interface _Record {
    *          milliseconds, nanoseconds, or other supported values. Default is <code>MILLISECONDS</code>.
    *       </p>
    */
-  TimeUnit?: TimeUnit | string;
+  TimeUnit?: TimeUnit;
 
   /**
    * @public
