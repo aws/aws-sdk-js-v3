@@ -103,12 +103,12 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  * //         ResourceType: "STRING_VALUE",
  * //         Replacement: "True" || "False" || "Conditional",
  * //         Scope: [ // Scope
- * //           "Properties" || "Metadata" || "CreationPolicy" || "UpdatePolicy" || "DeletionPolicy" || "Tags",
+ * //           "Properties" || "Metadata" || "CreationPolicy" || "UpdatePolicy" || "DeletionPolicy" || "UpdateReplacePolicy" || "Tags",
  * //         ],
  * //         Details: [ // ResourceChangeDetails
  * //           { // ResourceChangeDetail
  * //             Target: { // ResourceTargetDefinition
- * //               Attribute: "Properties" || "Metadata" || "CreationPolicy" || "UpdatePolicy" || "DeletionPolicy" || "Tags",
+ * //               Attribute: "Properties" || "Metadata" || "CreationPolicy" || "UpdatePolicy" || "DeletionPolicy" || "UpdateReplacePolicy" || "Tags",
  * //               Name: "STRING_VALUE",
  * //               RequiresRecreation: "Never" || "Conditionally" || "Always",
  * //             },

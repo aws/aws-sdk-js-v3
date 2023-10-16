@@ -780,6 +780,7 @@ export const ResourceAttribute = {
   Properties: "Properties",
   Tags: "Tags",
   UpdatePolicy: "UpdatePolicy",
+  UpdateReplacePolicy: "UpdateReplacePolicy",
 } as const;
 
 /**
