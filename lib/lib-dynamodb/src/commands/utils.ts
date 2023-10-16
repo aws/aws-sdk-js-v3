@@ -82,7 +82,10 @@ const processAllKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodes
     return obj.map((item) => processObj(item, processFunc, keyNodes));
   }
   return Object.entries(obj).reduce((acc, [key, value]) => {
-    acc[key] = processObj(value, processFunc, keyNodes);
+    const processedValue = processObj(value, processFunc, keyNodes);
+    if (processedValue !== undefined) {
+      acc[key] = processedValue;
+    }
     return acc;
   }, {} as any);
 };
