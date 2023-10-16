@@ -57,11 +57,12 @@ describe("hostHeaderMiddleware", () => {
       input: {},
       request: new HttpRequest({
         hostname: "foo.amazonaws.com",
+        port: 8080,
         headers: { host: "random host" },
       }),
     });
     expect(mockNextHandler.mock.calls.length).toEqual(1);
     expect(mockNextHandler.mock.calls[0][0].request.headers.host).not.toBeDefined();
-    expect(mockNextHandler.mock.calls[0][0].request.headers[":authority"]).toEqual("");
+    expect(mockNextHandler.mock.calls[0][0].request.headers[":authority"]).toEqual("foo.amazonaws.com:8080");
   });
 });
