@@ -82,6 +82,16 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * //   ],
  * //   ConfigurationSetName: "STRING_VALUE",
  * //   VerificationStatus: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE" || "NOT_STARTED",
+ * //   VerificationInfo: { // VerificationInfo
+ * //     LastCheckedTimestamp: new Date("TIMESTAMP"),
+ * //     LastSuccessTimestamp: new Date("TIMESTAMP"),
+ * //     ErrorType: "SERVICE_ERROR" || "DNS_SERVER_ERROR" || "HOST_NOT_FOUND" || "TYPE_NOT_FOUND" || "INVALID_VALUE",
+ * //     SOARecord: { // SOARecord
+ * //       PrimaryNameServer: "STRING_VALUE",
+ * //       AdminEmail: "STRING_VALUE",
+ * //       SerialNumber: Number("long"),
+ * //     },
+ * //   },
  * // };
  *
  * ```

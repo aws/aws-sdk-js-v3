@@ -391,6 +391,7 @@ import {
   TrackingOptions,
   VdmAttributes,
   VdmOptions,
+  VerificationInfo,
 } from "../models/models_0";
 import { SESv2ServiceException as __BaseException } from "../models/SESv2ServiceException";
 
@@ -5537,6 +5538,7 @@ export const de_GetEmailIdentityCommand = async (
     MailFromAttributes: _json,
     Policies: _json,
     Tags: _json,
+    VerificationInfo: (_) => de_VerificationInfo(_, context),
     VerificationStatus: __expectString,
     VerifiedForSendingStatus: __expectBoolean,
   });
@@ -9455,6 +9457,8 @@ const de_SendQuota = (output: any, context: __SerdeContext): SendQuota => {
 
 // de_SnsDestination omitted.
 
+// de_SOARecord omitted.
+
 /**
  * deserializeAws_restJson1SuppressedDestination
  */
@@ -9529,6 +9533,18 @@ const de_TimestampList = (output: any, context: __SerdeContext): Date[] => {
 // de_VdmAttributes omitted.
 
 // de_VdmOptions omitted.
+
+/**
+ * deserializeAws_restJson1VerificationInfo
+ */
+const de_VerificationInfo = (output: any, context: __SerdeContext): VerificationInfo => {
+  return take(output, {
+    ErrorType: __expectString,
+    LastCheckedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastSuccessTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SOARecord: _json,
+  }) as any;
+};
 
 // de_VolumeStatistics omitted.
 

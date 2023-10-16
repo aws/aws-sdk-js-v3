@@ -1999,7 +1999,9 @@ export interface RawMessage {
    *                <p>Attachments must be in a file format that the Amazon SES supports.</p>
    *             </li>
    *             <li>
-   *                <p>The entire message must be Base64 encoded.</p>
+   *                <p>The raw data of the message needs to base64-encoded if you are accessing
+   *                     Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an Amazon Web Services
+   *                     SDK, the SDK takes care of the base 64-encoding for you.</p>
    *             </li>
    *             <li>
    *                <p>If any of the MIME parts in your message contain content that is outside of
@@ -2072,7 +2074,9 @@ export interface EmailContent {
    *                     </p>
    *             </li>
    *             <li>
-   *                <p>The entire message must be Base64 encoded.</p>
+   *                <p>The raw data of the message needs to base64-encoded if you are accessing
+   *                     Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an Amazon Web Services
+   *                     SDK, the SDK takes care of the base 64-encoding for you.</p>
    *             </li>
    *             <li>
    *                <p>If any of the MIME parts in your message contain content that is outside of
@@ -2244,13 +2248,14 @@ export type DkimSigningKeyLength = (typeof DkimSigningKeyLength)[keyof typeof Dk
 
 /**
  * @public
- * <p>An object that contains configuration for Bring Your Own DKIM (BYODKIM), or, for Easy DKIM</p>
+ * <p>An object that contains configuration for Bring Your Own DKIM (BYODKIM), or, for Easy
+ *             DKIM</p>
  */
 export interface DkimSigningAttributes {
   /**
    * @public
-   * <p>[Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a
-   *             domain.</p>
+   * <p>[Bring Your Own DKIM] A string that's used to identify a public key in the DNS
+   *             configuration for a domain.</p>
    */
   DomainSigningSelector?: string;
 
@@ -2264,7 +2269,8 @@ export interface DkimSigningAttributes {
 
   /**
    * @public
-   * <p>[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.</p>
+   * <p>[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be
+   *             changed at most once per day.</p>
    */
   NextSigningKeyLength?: DkimSigningKeyLength;
 }
@@ -2431,7 +2437,8 @@ export interface DkimAttributes {
 
   /**
    * @public
-   * <p>[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.</p>
+   * <p>[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be
+   *             changed at most once per day.</p>
    */
   NextSigningKeyLength?: DkimSigningKeyLength;
 
@@ -5082,6 +5089,111 @@ export interface MailFromAttributes {
  * @public
  * @enum
  */
+export const VerificationError = {
+  DNS_SERVER_ERROR: "DNS_SERVER_ERROR",
+  HOST_NOT_FOUND: "HOST_NOT_FOUND",
+  INVALID_VALUE: "INVALID_VALUE",
+  SERVICE_ERROR: "SERVICE_ERROR",
+  TYPE_NOT_FOUND: "TYPE_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type VerificationError = (typeof VerificationError)[keyof typeof VerificationError];
+
+/**
+ * @public
+ * <p>An object that contains information about the start of authority (SOA) record
+ *             associated with the identity.</p>
+ */
+export interface SOARecord {
+  /**
+   * @public
+   * <p>Primary name server specified in the SOA record.</p>
+   */
+  PrimaryNameServer?: string;
+
+  /**
+   * @public
+   * <p>Administrative contact email from the SOA record.</p>
+   */
+  AdminEmail?: string;
+
+  /**
+   * @public
+   * <p>Serial number from the SOA record.</p>
+   */
+  SerialNumber?: number;
+}
+
+/**
+ * @public
+ * <p>An object that contains additional information about the verification status for the
+ *             identity.</p>
+ */
+export interface VerificationInfo {
+  /**
+   * @public
+   * <p>The last time a verification attempt was made for this identity.</p>
+   */
+  LastCheckedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The last time a successful verification was made for this identity.</p>
+   */
+  LastSuccessTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>Provides the reason for the failure describing why Amazon SES was not able to successfully
+   *             verify the identity. Below are the possible values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_VALUE</code> – Amazon SES was able to find the record, but the
+   *                     value contained within the record was invalid. Ensure you have published the
+   *                     correct values for the record.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TYPE_NOT_FOUND</code> – The queried hostname exists but does not
+   *                     have the requested type of DNS record. Ensure that you have published the
+   *                     correct type of DNS record.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HOST_NOT_FOUND</code> – The queried hostname does not exist or was
+   *                     not reachable at the time of the request. Ensure that you have published the
+   *                     required DNS record(s). </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SERVICE_ERROR</code> – A temporary issue is preventing Amazon SES from
+   *                     determining the verification status of the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DNS_SERVER_ERROR</code> – The DNS server encountered an issue and
+   *                     was unable to complete the request.</p>
+   *             </li>
+   *          </ul>
+   */
+  ErrorType?: VerificationError;
+
+  /**
+   * @public
+   * <p>An object that contains information about the start of authority (SOA) record
+   *             associated with the identity.</p>
+   */
+  SOARecord?: SOARecord;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const VerificationStatus = {
   FAILED: "FAILED",
   NOT_STARTED: "NOT_STARTED",
@@ -5191,6 +5303,13 @@ export interface GetEmailIdentityResponse {
    *          </ul>
    */
   VerificationStatus?: VerificationStatus;
+
+  /**
+   * @public
+   * <p>An object that contains additional information about the verification status for the
+   *             identity.</p>
+   */
+  VerificationInfo?: VerificationInfo;
 }
 
 /**
@@ -5560,7 +5679,8 @@ export interface IdentityInfo {
 
   /**
    * @public
-   * <p>The verification status of the identity. The status can be one of the following:</p>
+   * <p>The verification status of the identity. The status can be one of the
+   *             following:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6140,7 +6260,7 @@ export interface ListEmailTemplatesRequest {
    * <p>The number of results to show in a single call to <code>ListEmailTemplates</code>. If the number of
    *             results is larger than the number you specified in this parameter, then the response
    *             includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
-   *          <p>The value you specify has to be at least 1, and can be no more than 10.</p>
+   *          <p>The value you specify has to be at least 1, and can be no more than 100.</p>
    */
   PageSize?: number;
 }
@@ -7223,78 +7343,6 @@ export interface PutEmailIdentityFeedbackAttributesRequest {
  *             fails.</p>
  */
 export interface PutEmailIdentityFeedbackAttributesResponse {}
-
-/**
- * @public
- * <p>A request to configure the custom MAIL FROM domain for a verified identity.</p>
- */
-export interface PutEmailIdentityMailFromAttributesRequest {
-  /**
-   * @public
-   * <p>The verified email identity.</p>
-   */
-  EmailIdentity: string | undefined;
-
-  /**
-   * @public
-   * <p> The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM
-   *             domain must meet the following criteria:</p>
-   *          <ul>
-   *             <li>
-   *                <p>It has to be a subdomain of the verified identity.</p>
-   *             </li>
-   *             <li>
-   *                <p>It can't be used to receive email.</p>
-   *             </li>
-   *             <li>
-   *                <p>It can't be used in a "From" address if the MAIL FROM domain is a destination
-   *                     for feedback forwarding emails.</p>
-   *             </li>
-   *          </ul>
-   */
-  MailFromDomain?: string;
-
-  /**
-   * @public
-   * <p>The action to take if the required MX record isn't found when you send an email. When
-   *             you set this value to <code>UseDefaultValue</code>, the mail is sent using
-   *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
-   *             to <code>RejectMessage</code>, the Amazon SES API v2 returns a
-   *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
-   *             email.</p>
-   *          <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
-   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
-   *             states.</p>
-   */
-  BehaviorOnMxFailure?: BehaviorOnMxFailure;
-}
-
-/**
- * @public
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- */
-export interface PutEmailIdentityMailFromAttributesResponse {}
-
-/**
- * @public
- * <p>A request to add an email destination to the suppression list for your account.</p>
- */
-export interface PutSuppressedDestinationRequest {
-  /**
-   * @public
-   * <p>The email address that should be added to the suppression list for your
-   *             account.</p>
-   */
-  EmailAddress: string | undefined;
-
-  /**
-   * @public
-   * <p>The factors that should cause the email address to be added to the suppression list
-   *             for your account.</p>
-   */
-  Reason: SuppressionListReason | undefined;
-}
 
 /**
  * @internal

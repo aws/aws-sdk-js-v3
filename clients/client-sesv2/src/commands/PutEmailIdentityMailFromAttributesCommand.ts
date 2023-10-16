@@ -17,7 +17,7 @@ import {
 import {
   PutEmailIdentityMailFromAttributesRequest,
   PutEmailIdentityMailFromAttributesResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_PutEmailIdentityMailFromAttributesCommand,
   se_PutEmailIdentityMailFromAttributesCommand,

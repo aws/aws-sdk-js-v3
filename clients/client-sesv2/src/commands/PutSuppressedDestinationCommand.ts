@@ -14,8 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { PutSuppressedDestinationRequest } from "../models/models_0";
-import { PutSuppressedDestinationResponse } from "../models/models_1";
+import { PutSuppressedDestinationRequest, PutSuppressedDestinationResponse } from "../models/models_1";
 import { de_PutSuppressedDestinationCommand, se_PutSuppressedDestinationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
