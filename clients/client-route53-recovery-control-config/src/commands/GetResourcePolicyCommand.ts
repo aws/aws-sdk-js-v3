@@ -14,8 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { UpdateControlPanelRequest, UpdateControlPanelResponse } from "../models/models_0";
-import { de_UpdateControlPanelCommand, se_UpdateControlPanelCommand } from "../protocols/Aws_restJson1";
+import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_0";
+import { de_GetResourcePolicyCommand, se_GetResourcePolicyCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -29,56 +29,41 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateControlPanelCommand}.
+ * The input for {@link GetResourcePolicyCommand}.
  */
-export interface UpdateControlPanelCommandInput extends UpdateControlPanelRequest {}
+export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateControlPanelCommand}.
+ * The output of {@link GetResourcePolicyCommand}.
  */
-export interface UpdateControlPanelCommandOutput extends UpdateControlPanelResponse, __MetadataBearer {}
+export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates a control panel. The only update you can make to a control panel is to change the name of the control panel.</p>
+ * <p>Get information about the resource policy for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53RecoveryControlConfigClient, UpdateControlPanelCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
- * // const { Route53RecoveryControlConfigClient, UpdateControlPanelCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * import { Route53RecoveryControlConfigClient, GetResourcePolicyCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
+ * // const { Route53RecoveryControlConfigClient, GetResourcePolicyCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
- * const input = { // UpdateControlPanelRequest
- *   ControlPanelArn: "STRING_VALUE", // required
- *   ControlPanelName: "STRING_VALUE", // required
+ * const input = { // GetResourcePolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
  * };
- * const command = new UpdateControlPanelCommand(input);
+ * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
- * // { // UpdateControlPanelResponse
- * //   ControlPanel: { // ControlPanel
- * //     ClusterArn: "STRING_VALUE",
- * //     ControlPanelArn: "STRING_VALUE",
- * //     DefaultControlPanel: true || false,
- * //     Name: "STRING_VALUE",
- * //     RoutingControlCount: Number("int"),
- * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
- * //     Owner: "STRING_VALUE",
- * //   },
+ * // { // GetResourcePolicyResponse
+ * //   Policy: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param UpdateControlPanelCommandInput - {@link UpdateControlPanelCommandInput}
- * @returns {@link UpdateControlPanelCommandOutput}
- * @see {@link UpdateControlPanelCommandInput} for command's `input` shape.
- * @see {@link UpdateControlPanelCommandOutput} for command's `response` shape.
+ * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
+ * @returns {@link GetResourcePolicyCommandOutput}
+ * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
- *
- * @throws {@link AccessDeniedException} (client fault)
- *  <p>403 response - You do not have sufficient access to perform this action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>409 response - ConflictException. You might be using a predefined variable.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
@@ -86,19 +71,13 @@ export interface UpdateControlPanelCommandOutput extends UpdateControlPanelRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
  *
- * @throws {@link ThrottlingException} (client fault)
- *  <p>429 response - LimitExceededException or TooManyRequestsException.</p>
- *
- * @throws {@link ValidationException} (client fault)
- *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
- *
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
-export class UpdateControlPanelCommand extends $Command<
-  UpdateControlPanelCommandInput,
-  UpdateControlPanelCommandOutput,
+export class GetResourcePolicyCommand extends $Command<
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
   Route53RecoveryControlConfigClientResolvedConfig
 > {
   // Start section: command_properties
@@ -116,7 +95,7 @@ export class UpdateControlPanelCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateControlPanelCommandInput) {
+  constructor(readonly input: GetResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -129,17 +108,17 @@ export class UpdateControlPanelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53RecoveryControlConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateControlPanelCommandInput, UpdateControlPanelCommandOutput> {
+  ): Handler<GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateControlPanelCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetResourcePolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "Route53RecoveryControlConfigClient";
-    const commandName = "UpdateControlPanelCommand";
+    const commandName = "GetResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -148,7 +127,7 @@ export class UpdateControlPanelCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "Route53RecoveryControlConfig",
-        operation: "UpdateControlPanel",
+        operation: "GetResourcePolicy",
       },
     };
     const { requestHandler } = configuration;
@@ -162,15 +141,15 @@ export class UpdateControlPanelCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateControlPanelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateControlPanelCommand(input, context);
+  private serialize(input: GetResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetResourcePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateControlPanelCommandOutput> {
-    return de_UpdateControlPanelCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePolicyCommandOutput> {
+    return de_GetResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

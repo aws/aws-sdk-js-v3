@@ -66,6 +66,7 @@ export interface CreateControlPanelCommandOutput extends CreateControlPanelRespo
  * //     Name: "STRING_VALUE",
  * //     RoutingControlCount: Number("int"),
  * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //     Owner: "STRING_VALUE",
  * //   },
  * // };
  *

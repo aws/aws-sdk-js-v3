@@ -74,6 +74,7 @@ import {
   DescribeRoutingControlCommandOutput,
 } from "./commands/DescribeRoutingControlCommand";
 import { DescribeSafetyRuleCommandInput, DescribeSafetyRuleCommandOutput } from "./commands/DescribeSafetyRuleCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
   ListAssociatedRoute53HealthChecksCommandInput,
   ListAssociatedRoute53HealthChecksCommandOutput,
@@ -124,6 +125,7 @@ export type ServiceInputTypes =
   | DescribeControlPanelCommandInput
   | DescribeRoutingControlCommandInput
   | DescribeSafetyRuleCommandInput
+  | GetResourcePolicyCommandInput
   | ListAssociatedRoute53HealthChecksCommandInput
   | ListClustersCommandInput
   | ListControlPanelsCommandInput
@@ -152,6 +154,7 @@ export type ServiceOutputTypes =
   | DescribeControlPanelCommandOutput
   | DescribeRoutingControlCommandOutput
   | DescribeSafetyRuleCommandOutput
+  | GetResourcePolicyCommandOutput
   | ListAssociatedRoute53HealthChecksCommandOutput
   | ListClustersCommandOutput
   | ListControlPanelsCommandOutput

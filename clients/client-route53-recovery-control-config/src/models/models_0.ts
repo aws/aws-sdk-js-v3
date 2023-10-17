@@ -64,6 +64,12 @@ export interface Cluster {
    * <p>Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
   Status?: Status;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID of the cluster owner.</p>
+   */
+  Owner?: string;
 }
 
 /**
@@ -106,6 +112,12 @@ export interface ControlPanel {
    * <p>The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
   Status?: Status;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID of the control panel owner.</p>
+   */
+  Owner?: string;
 }
 
 /**
@@ -136,6 +148,12 @@ export interface RoutingControl {
    * <p>The deployment status of a routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
   Status?: Status;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID of the routing control owner.</p>
+   */
+  Owner?: string;
 }
 
 /**
@@ -223,6 +241,12 @@ export interface AssertionRule {
    * <p>An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.</p>
    */
   WaitPeriodMs: number | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID of the assertion rule owner.</p>
+   */
+  Owner?: string;
 }
 
 /**
@@ -277,6 +301,12 @@ export interface GatingRule {
    * <p>An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.</p>
    */
   WaitPeriodMs: number | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID of the gating rule owner.</p>
+   */
+  Owner?: string;
 }
 
 /**
@@ -897,6 +927,28 @@ export interface GatingRuleUpdate {
    * <p>An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.</p>
    */
   WaitPeriodMs: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResponse {
+  /**
+   * @public
+   * <p>The resource policy.</p>
+   */
+  Policy?: string;
 }
 
 /**

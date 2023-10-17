@@ -77,6 +77,7 @@ export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse,
  * //     SafetyRuleArn: "STRING_VALUE", // required
  * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION", // required
  * //     WaitPeriodMs: Number("int"), // required
+ * //     Owner: "STRING_VALUE",
  * //   },
  * //   GatingRule: { // GatingRule
  * //     ControlPanelArn: "STRING_VALUE", // required
@@ -95,6 +96,7 @@ export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse,
  * //       "STRING_VALUE",
  * //     ],
  * //     WaitPeriodMs: Number("int"), // required
+ * //     Owner: "STRING_VALUE",
  * //   },
  * // };
  *

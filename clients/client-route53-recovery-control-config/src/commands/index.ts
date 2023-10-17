@@ -11,6 +11,7 @@ export * from "./DescribeClusterCommand";
 export * from "./DescribeControlPanelCommand";
 export * from "./DescribeRoutingControlCommand";
 export * from "./DescribeSafetyRuleCommand";
+export * from "./GetResourcePolicyCommand";
 export * from "./ListAssociatedRoute53HealthChecksCommand";
 export * from "./ListClustersCommand";
 export * from "./ListControlPanelsCommand";

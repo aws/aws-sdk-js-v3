@@ -64,6 +64,7 @@ export interface ListControlPanelsCommandOutput extends ListControlPanelsRespons
  * //       Name: "STRING_VALUE",
  * //       RoutingControlCount: Number("int"),
  * //       Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //       Owner: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

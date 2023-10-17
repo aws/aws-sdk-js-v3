@@ -66,6 +66,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * //       ],
  * //       Name: "STRING_VALUE",
  * //       Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //       Owner: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

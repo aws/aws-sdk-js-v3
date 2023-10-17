@@ -68,6 +68,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //     ],
  * //     Name: "STRING_VALUE",
  * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //     Owner: "STRING_VALUE",
  * //   },
  * // };
  *

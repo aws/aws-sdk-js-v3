@@ -59,6 +59,7 @@ export interface DescribeRoutingControlCommandOutput extends DescribeRoutingCont
  * //     Name: "STRING_VALUE",
  * //     RoutingControlArn: "STRING_VALUE",
  * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //     Owner: "STRING_VALUE",
  * //   },
  * // };
  *

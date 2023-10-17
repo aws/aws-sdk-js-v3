@@ -63,6 +63,7 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * //       Name: "STRING_VALUE",
  * //       RoutingControlArn: "STRING_VALUE",
  * //       Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //       Owner: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
