@@ -735,7 +735,7 @@ export interface ClusterServiceConnectDefaultsRequest {
    * 			Cloud Map namespace with the "API calls" method of instance discovery only. This instance
    * 			discovery method is the "HTTP" namespace type in the Command Line Interface. Other types of instance
    * 			discovery aren't used by Service Connect.</p>
-   *          <p>If you update the service with an empty string <code>""</code> for the namespace name,
+   *          <p>If you update the cluster with an empty string <code>""</code> for the namespace name,
    * 			the cluster configuration for Service Connect is removed. Note that the namespace will
    * 			remain in Cloud Map and must be deleted separately.</p>
    *          <p>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html">Working
@@ -4049,13 +4049,11 @@ export type EnvironmentFileType = (typeof EnvironmentFileType)[keyof typeof Envi
 
 /**
  * @public
- * <p>A list of files containing the environment variables to pass to a container. You can
- * 			specify up to ten environment files. The file must have a <code>.env</code> file
- * 			extension. Each line in an environment file should contain an environment variable in
+ * <p>A list of files containing the environment variables to pass to a container. You can specify
+ * 			up to ten environment files. The file must have a <code>.env</code> file extension. Each
+ * 			line in an environment file should contain an environment variable in
  * 				<code>VARIABLE=VALUE</code> format. Lines beginning with <code>#</code> are treated
- * 			as comments and are ignored. For more information about the environment variable file
- * 			syntax, see <a href="https://docs.docker.com/compose/env-file/">Declare default
- * 				environment variables in file</a>.</p>
+ * 			as comments and are ignored.</p>
  *          <p>If there are environment variables specified using the <code>environment</code>
  * 			parameter in a container definition, they take precedence over the variables contained
  * 			within an environment file. If multiple environment files are specified that contain the
@@ -4069,6 +4067,18 @@ export type EnvironmentFileType = (typeof EnvironmentFileType)[keyof typeof Envi
  *             </li>
  *             <li>
  *                <p>Windows platform version <code>1.0.0</code> or later.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Consider the following when using the Fargate launch type:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The file is handled like a native Docker env-file.</p>
+ *             </li>
+ *             <li>
+ *                <p>There is no support for shell escape handling.</p>
+ *             </li>
+ *             <li>
+ *                <p>The container entry point interperts the <code>VARIABLE</code> values.</p>
  *             </li>
  *          </ul>
  */
@@ -4167,8 +4177,8 @@ export interface FirelensConfiguration {
  *          </note>
  *          <p>You can view the health status of both individual containers and a task with the
  * 			DescribeTasks API operation or when viewing the task details in the console.</p>
- *          <p>The health check is designed to make sure that your containers survive
- * 			agent restarts, upgrades, or temporary unavailability.</p>
+ *          <p>The health check is designed to make sure that your containers survive agent restarts,
+ * 			upgrades, or temporary unavailability.</p>
  *          <p>The following describes the possible <code>healthStatus</code> values for a
  * 			container:</p>
  *          <ul>
@@ -4183,19 +4193,15 @@ export interface FirelensConfiguration {
  *             </li>
  *             <li>
  *                <p>
- *                   <code>UNKNOWN</code>-The container health check is being evaluated or
- * 					there's no container health check defined.</p>
+ *                   <code>UNKNOWN</code>-The container health check is being evaluated,
+ * 					there's no container health check defined, or Amazon ECS doesn't have the health
+ * 					status of the container.</p>
  *             </li>
  *          </ul>
- *          <p>The following describes the possible <code>healthStatus</code> values for a task. The
- * 			container health check status of
- * 			non-essential containers don't have an effect on the health status of a task.</p>
+ *          <p>The following describes the possible <code>healthStatus</code> values based on the
+ * 			container health checker status of essential containers in the task with the following
+ * 			priority order (high to low):</p>
  *          <ul>
- *             <li>
- *                <p>
- *                   <code>HEALTHY</code>-All essential containers within the task have
- * 					passed their health checks.</p>
- *             </li>
  *             <li>
  *                <p>
  *                   <code>UNHEALTHY</code>-One or more essential containers have failed
@@ -4203,10 +4209,62 @@ export interface FirelensConfiguration {
  *             </li>
  *             <li>
  *                <p>
- *                   <code>UNKNOWN</code>-The essential containers within the task are still
- * 					having their health checks evaluated, there are only nonessential containers
- * 					with health checks defined, or there are no container health checks
- * 					defined.</p>
+ *                   <code>UNKNOWN</code>-Any essential container running within the task is
+ * 					in an <code>UNKNOWN</code> state and no other essential containers have an
+ * 						<code>UNHEALTHY</code> state.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>HEALTHY</code>-All essential containers within the task have
+ * 					passed their health checks.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Consider the following task health example with 2 containers.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If Container1 is <code>UNHEALTHY</code> and Container2 is
+ * 					<code>UNKNOWN</code>, the task health is <code>UNHEALTHY</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If Container1 is <code>UNHEALTHY</code> and Container2 is
+ * 					<code>HEALTHY</code>, the task health is <code>UNHEALTHY</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If Container1 is <code>HEALTHY</code> and Container2 is <code>UNKNOWN</code>,
+ * 					the task health is <code>UNKNOWN</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If Container1 is <code>HEALTHY</code> and Container2 is <code>HEALTHY</code>,
+ * 					the task health is <code>HEALTHY</code>.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Consider the following task health example with 3 containers.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If Container1 is <code>UNHEALTHY</code> and Container2 is <code>UNKNOWN</code>, and Container3
+ * 					is <code>UNKNOWN</code>, the task health is <code>UNHEALTHY</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If Container1 is <code>UNHEALTHY</code> and Container2 is <code>UNKNOWN</code>, and Container3
+ * 					is <code>HEALTHY</code>, the task health is <code>UNHEALTHY</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If Container1 is <code>UNHEALTHY</code> and Container2 is <code>HEALTHY</code>, and Container3
+ * 					is <code>HEALTHY</code>, the task health is <code>UNHEALTHY</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If Container1 is <code>HEALTHY</code> and Container2 is <code>UNKNOWN</code>, and Container3
+ * 					is <code>HEALTHY</code>, the task health is <code>UNKNOWN</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If Container1 is <code>HEALTHY</code> and Container2 is <code>UNKNOWN</code>,
+ * 					and Container3 is <code>UNKNOWN</code>, the task health is
+ * 					<code>UNKNOWN</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If Container1 is <code>HEALTHY</code> and Container2 is <code>HEALTHY</code>,
+ * 					and Container3 is <code>HEALTHY</code>, the task health is
+ * 					<code>HEALTHY</code>.</p>
  *             </li>
  *          </ul>
  *          <p>If a task is run manually, and not as part of a service, the task will continue its
@@ -4216,12 +4274,13 @@ export interface FirelensConfiguration {
  *          <p>The following are notes about container health check support:</p>
  *          <ul>
  *             <li>
- *                <p>When the Amazon ECS agent cannot connect to the Amazon ECS service,  the
- * 					service reports the container as <code>UNHEALTHY</code>. </p>
+ *                <p>When the Amazon ECS agent cannot connect to the Amazon ECS service, the service reports
+ * 					the container as <code>UNHEALTHY</code>. </p>
  *             </li>
  *             <li>
- *                <p>The health check statuses are the "last heard from" response from the Amazon ECS agent. There
- * 					are no assumptions made about the status of the container health checks.</p>
+ *                <p>The health check statuses are the "last heard from" response from the Amazon ECS
+ * 					agent. There are no assumptions made about the status of the container health
+ * 					checks.</p>
  *             </li>
  *             <li>
  *                <p>Container health checks require version 1.17.0 or greater of the Amazon ECS
@@ -4725,8 +4784,8 @@ export interface PortMapping {
    *                <ul>
    *                   <li>
    *                      <p>For containers in a task with the <code>awsvpc</code> network mode,
-   * 							the <code>hostPort</code> is set to the same value as the
-   * 								<code>containerPort</code>. This is a static mapping
+   * 							the <code>hostPortRange</code> is set to the same value as the
+   * 								<code>containerPortRange</code>. This is a static mapping
    * 							strategy.</p>
    *                   </li>
    *                   <li>
@@ -7718,8 +7777,8 @@ export interface NetworkBinding {
    *                <ul>
    *                   <li>
    *                      <p>For containers in a task with the <code>awsvpc</code> network mode,
-   * 							the <code>hostPort</code> is set to the same value as the
-   * 								<code>containerPort</code>. This is a static mapping
+   * 							the <code>hostPortRange</code> is set to the same value as the
+   * 								<code>containerPortRange</code>. This is a static mapping
    * 							strategy.</p>
    *                   </li>
    *                   <li>
