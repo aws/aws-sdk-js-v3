@@ -6922,6 +6922,7 @@ const de_DnsRequestAction = (output: any, context: __SerdeContext): DnsRequestAc
   return take(output, {
     Blocked: [, __expectBoolean, `blocked`],
     Domain: [, __expectString, `domain`],
+    DomainWithSuffix: [, __expectString, `domainWithSuffix`],
     Protocol: [, __expectString, `protocol`],
   }) as any;
 };

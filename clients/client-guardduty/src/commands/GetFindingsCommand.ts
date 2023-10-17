@@ -414,6 +414,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             Domain: "STRING_VALUE",
  * //             Protocol: "STRING_VALUE",
  * //             Blocked: true || false,
+ * //             DomainWithSuffix: "STRING_VALUE",
  * //           },
  * //           NetworkConnectionAction: { // NetworkConnectionAction
  * //             Blocked: true || false,

@@ -654,6 +654,13 @@ export interface DnsRequestAction {
    * <p>Indicates whether the targeted port is blocked.</p>
    */
   Blocked?: boolean;
+
+  /**
+   * @public
+   * <p>The second and top level domain involved in the
+   *       activity that prompted GuardDuty to generate this finding.</p>
+   */
+  DomainWithSuffix?: string;
 }
 
 /**
@@ -7121,6 +7128,9 @@ export interface ListFindingsRequest {
    *             </li>
    *             <li>
    *                <p>service.action.dnsRequestAction.domain</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.dnsRequestAction.domainWithSuffix</p>
    *             </li>
    *             <li>
    *                <p>service.action.networkConnectionAction.blocked</p>
