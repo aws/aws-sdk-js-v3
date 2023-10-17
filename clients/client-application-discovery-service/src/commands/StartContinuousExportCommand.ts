@@ -74,7 +74,7 @@ export interface StartContinuousExportCommandOutput extends StartContinuousExpor
  *       policy associated with this user.</p>
  *
  * @throws {@link ConflictErrorException} (client fault)
- *  <p></p>
+ *  <p>Conflict error.</p>
  *
  * @throws {@link HomeRegionNotSetException} (client fault)
  *  <p>The home Region is not set. Set the home Region to continue.</p>

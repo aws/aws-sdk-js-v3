@@ -1874,7 +1874,7 @@ export interface ListServerNeighborsResponse {
 
 /**
  * @public
- * <p></p>
+ * <p>Conflict error.</p>
  */
 export class ConflictErrorException extends __BaseException {
   readonly name: "ConflictErrorException" = "ConflictErrorException";
