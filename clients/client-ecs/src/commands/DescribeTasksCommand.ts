@@ -269,7 +269,7 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  *   "tasks": [
  *     {
  *       "clusterArn": "arn:aws:ecs:<region>:<aws_account_id>:cluster/default",
- *       "containerInstanceArn": "arn:aws:ecs:<region>:<aws_account_id>:container-instance/18f9eda5-27d7-4c19-b133-45adc516e8fb",
+ *       "containerInstanceArn": "arn:aws:ecs:<region>:<aws_account_id>:container-instance/default/18f9eda5-27d7-4c19-b133-45adc516e8fb",
  *       "containers": [
  *         {
  *           "name": "ecs-demo",
@@ -282,7 +282,7 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  *               "hostPort": 80
  *             }
  *           ],
- *           "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
+ *           "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/default/c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
  *         }
  *       ],
  *       "desiredStatus": "RUNNING",
@@ -295,7 +295,7 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  *         ]
  *       },
  *       "startedBy": "ecs-svc/9223370608528463088",
- *       "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/c5cba4eb-5dad-405e-96db-71ef8eefe6a8",
+ *       "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/default/c5cba4eb-5dad-405e-96db-71ef8eefe6a8",
  *       "taskDefinitionArn": "arn:aws:ecs:<region>:<aws_account_id>:task-definition/amazon-ecs-sample:1"
  *     }
  *   ]

@@ -368,10 +368,10 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  *       "loadBalancers": [],
  *       "pendingCount": 0,
  *       "runningCount": 0,
- *       "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/ecs-simple-service",
+ *       "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/default/ecs-simple-service",
  *       "serviceName": "ecs-simple-service",
  *       "status": "ACTIVE",
- *       "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6"
+ *       "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/default/hello_world:6"
  *     }
  *   ]
  * }

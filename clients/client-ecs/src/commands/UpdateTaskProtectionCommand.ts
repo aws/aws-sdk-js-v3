@@ -152,7 +152,7 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  *     {
  *       "expirationDate": "2022-11-02T06:56:32.553Z",
  *       "protectionEnabled": true,
- *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/b8b1cf532d0e46ba8d44a40d1de16772"
+ *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
  *     }
  *   ]
  * }
@@ -179,7 +179,7 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  *     {
  *       "expirationDate": "2022-11-02T06:56:32.553Z",
  *       "protectionEnabled": true,
- *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/b8b1cf532d0e46ba8d44a40d1de16772"
+ *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
  *     }
  *   ]
  * }
@@ -205,7 +205,7 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  *   "protectedTasks": [
  *     {
  *       "protectionEnabled": false,
- *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/b8b1cf532d0e46ba8d44a40d1de16772"
+ *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
  *     }
  *   ]
  * }

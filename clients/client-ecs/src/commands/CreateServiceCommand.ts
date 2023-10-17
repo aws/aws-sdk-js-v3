@@ -561,10 +561,10 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *     "loadBalancers": [],
  *     "pendingCount": 0,
  *     "runningCount": 0,
- *     "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/ecs-simple-service",
+ *     "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/default/ecs-simple-service",
  *     "serviceName": "ecs-simple-service",
  *     "status": "ACTIVE",
- *     "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6"
+ *     "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/default/hello_world:6"
  *   }
  * }
  * *\/
@@ -622,10 +622,10 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *     "pendingCount": 0,
  *     "roleArn": "arn:aws:iam::012345678910:role/ecsServiceRole",
  *     "runningCount": 0,
- *     "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/ecs-simple-service-elb",
+ *     "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/default/ecs-simple-service-elb",
  *     "serviceName": "ecs-simple-service-elb",
  *     "status": "ACTIVE",
- *     "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/console-sample-app-static:6"
+ *     "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/default/console-sample-app-static:6"
  *   }
  * }
  * *\/
