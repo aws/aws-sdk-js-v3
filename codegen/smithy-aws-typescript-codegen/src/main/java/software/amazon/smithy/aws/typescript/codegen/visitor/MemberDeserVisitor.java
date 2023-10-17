@@ -15,7 +15,6 @@ import software.amazon.smithy.typescript.codegen.knowledge.SerdeElisionIndex;
 
 public class MemberDeserVisitor extends DocumentMemberDeserVisitor {
     protected GenerationContext context;
-    protected String dataSource;
     protected SerdeElisionIndex serdeElisionIndex;
 
     public MemberDeserVisitor(
@@ -26,7 +25,6 @@ public class MemberDeserVisitor extends DocumentMemberDeserVisitor {
         super(context, dataSource, defaultTimestampFormat);
         this.serdeElisionIndex = SerdeElisionIndex.of(context.getModel());
         this.context = context;
-        this.dataSource = dataSource;
     }
 
     protected String getDelegateDeserializer(Shape shape, String customDataSource) {
