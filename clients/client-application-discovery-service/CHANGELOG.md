@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.430.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.429.0...v3.430.0) (2023-10-17)
+
+
+### Features
+
+* **client-application-discovery-service:** This release introduces three new APIs: StartBatchDeleteConfigurationTask, DescribeBatchDeleteConfigurationTask, and BatchDeleteAgents. ([c5617b0](https://github.com/aws/aws-sdk-js-v3/commit/c5617b08b4b2feac874fcb6f3c4d95c603d1cc59))
+
+
+
+
+
 # [3.429.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.428.0...v3.429.0) (2023-10-16)
 
 **Note:** Version bump only for package @aws-sdk/client-application-discovery-service

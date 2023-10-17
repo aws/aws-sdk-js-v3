@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.430.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.429.0...v3.430.0) (2023-10-17)
+
+
+### Features
+
+* **client-route53-recovery-control-config:** Adds permissions for GetResourcePolicy to support returning details about AWS Resource Access Manager resource policies for shared resources. ([81747e4](https://github.com/aws/aws-sdk-js-v3/commit/81747e4346ad85e5c9ddd9ca11eddecdd9d90539))
+
+
+
+
+
 # [3.429.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.428.0...v3.429.0) (2023-10-16)
 
 **Note:** Version bump only for package @aws-sdk/client-route53-recovery-control-config

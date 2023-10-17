@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.430.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.429.0...v3.430.0) (2023-10-17)
+
+
+### Features
+
+* **client-application-discovery-service:** This release introduces three new APIs: StartBatchDeleteConfigurationTask, DescribeBatchDeleteConfigurationTask, and BatchDeleteAgents. ([c5617b0](https://github.com/aws/aws-sdk-js-v3/commit/c5617b08b4b2feac874fcb6f3c4d95c603d1cc59))
+* **client-codepipeline:** Add retryMode ALL_ACTIONS to RetryStageExecution API that retries a failed stage starting from first action in the stage ([9d179e8](https://github.com/aws/aws-sdk-js-v3/commit/9d179e8473d003b7ea7fa8c7b309a27f3fb97507))
+* **client-global-accelerator:** Fixed error where ListCustomRoutingEndpointGroups did not have a paginator ([7d309f3](https://github.com/aws/aws-sdk-js-v3/commit/7d309f30a99af18a4b7f6c5c335f79fbc197e4c2))
+* **client-guardduty:** Add domainWithSuffix finding field to dnsRequestAction ([f1a4256](https://github.com/aws/aws-sdk-js-v3/commit/f1a4256cd690ff25f34847df5027aedf004f1013))
+* **client-kafka:** AWS Managed Streaming for Kafka is launching MSK Replicator, a new feature that enables customers to reliably replicate data across Amazon MSK clusters in same or different AWS regions. You can now use SDK to create, list, describe, delete, update, and manage tags of MSK Replicators. ([db53ab1](https://github.com/aws/aws-sdk-js-v3/commit/db53ab121b63a620c4725dcea4ae50711fc4fd21))
+* **client-route53-recovery-cluster:** Adds Owner field to ListRoutingControls API. ([375efbf](https://github.com/aws/aws-sdk-js-v3/commit/375efbf1f10fe7d91fcecc99fdc674fccc3d3d50))
+* **client-route53-recovery-control-config:** Adds permissions for GetResourcePolicy to support returning details about AWS Resource Access Manager resource policies for shared resources. ([81747e4](https://github.com/aws/aws-sdk-js-v3/commit/81747e4346ad85e5c9ddd9ca11eddecdd9d90539))
+* **clients:** update client endpoints as of 2023-10-17 ([13c7b74](https://github.com/aws/aws-sdk-js-v3/commit/13c7b744649d178295296421ff6e4a34135b6647))
+
+
+
+
+
 # [3.429.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.428.0...v3.429.0) (2023-10-16)
 
 
