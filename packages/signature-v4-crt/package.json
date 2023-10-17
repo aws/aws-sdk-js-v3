@@ -27,7 +27,7 @@
     "@smithy/signature-v4": "^2.0.0",
     "@smithy/types": "^2.3.5",
     "@smithy/util-middleware": "^2.0.4",
-    "aws-crt": "^1.15.9",
+    "aws-crt": "^1.18.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
