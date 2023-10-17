@@ -62,7 +62,6 @@ final class XmlMemberDeserVisitor extends MemberDeserVisitor {
         super(context, dataSource, defaultTimestampFormat);
         this.memberShape = memberShape;
         this.context = context;
-        this.dataSource = dataSource;
     }
 
     @Override
