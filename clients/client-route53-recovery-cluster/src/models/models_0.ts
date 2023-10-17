@@ -307,8 +307,8 @@ export interface ListRoutingControlsRequest {
 /**
  * @public
  * <p>A routing control, which is a simple on/off switch that you
- * 			can use to route traffic to cells. When a routing control state is On, traffic flows to a cell. When
- * 			the state is Off, traffic does not flow. </p>
+ * 			can use to route traffic to cells. When a routing control state is set to ON, traffic flows to a cell. When
+ * 			the state is set to OFF, traffic does not flow. </p>
  */
 export interface RoutingControl {
   /**
@@ -319,7 +319,8 @@ export interface RoutingControl {
 
   /**
    * @public
-   * <p>The name of the control panel where the routing control is located.</p>
+   * <p>The name of the control panel where the routing control is located. Only ASCII characters are supported for control
+   * 		panel names.</p>
    */
   ControlPanelName?: string;
 
@@ -337,10 +338,16 @@ export interface RoutingControl {
 
   /**
    * @public
-   * <p>The current state of the routing control. When a routing control state is On, traffic flows to a cell. When
-   * 			the state is Off, traffic does not flow. </p>
+   * <p>The current state of the routing control. When a routing control state is set to ON, traffic flows to a cell. When
+   * 			the state is set to OFF, traffic does not flow. </p>
    */
   RoutingControlState?: RoutingControlState;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID of the routing control owner.</p>
+   */
+  Owner?: string;
 }
 
 /**
@@ -420,7 +427,7 @@ export interface UpdateRoutingControlStateRequest {
 
   /**
    * @public
-   * <p>The state of the routing control. You can set the value to be On or Off.</p>
+   * <p>The state of the routing control. You can set the value to ON or OFF.</p>
    */
   RoutingControlState: RoutingControlState | undefined;
 

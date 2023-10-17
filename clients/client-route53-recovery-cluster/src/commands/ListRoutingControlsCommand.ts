@@ -46,8 +46,8 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * 			If you specify a control panel ARN, this call lists the routing controls in the control panel. Otherwise, it lists
  * 			all the routing controls in the cluster.</p>
  *          <p>A routing control is a simple on/off switch in Route 53 ARC that you
- * 			can use to route traffic to cells. When a routing control state is On, traffic flows to a cell. When
- * 			the state is Off, traffic does not flow.</p>
+ * 			can use to route traffic to cells. When a routing control state is set to ON, traffic flows to a cell. When
+ * 			the state is set to OFF, traffic does not flow.</p>
  *          <p>Before you can create a routing control, you must first create a cluster, and then host the control
  * 			in a control panel on the cluster. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.create.html">
  * 				Create routing control structures</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
@@ -94,6 +94,7 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * //       RoutingControlArn: "STRING_VALUE",
  * //       RoutingControlName: "STRING_VALUE",
  * //       RoutingControlState: "On" || "Off",
+ * //       Owner: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

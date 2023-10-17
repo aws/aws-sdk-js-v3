@@ -12,7 +12,7 @@ recover applications by rerouting traffic across
 Availability Zones or Amazon Web Services Regions. Routing controls are simple on/off switches hosted
 on a highly available cluster in Route 53 ARC. A cluster provides a set of five redundant Regional endpoints against which you
 can run API calls to get or update the state of routing controls. To implement failover, you set
-one routing control On and another one Off, to reroute traffic from one Availability Zone or Amazon Web Services Region
+one routing control to ON and another one to OFF, to reroute traffic from one Availability Zone or Amazon Web Services Region
 to another. </p>
 <p>
 <i>Be aware that you must specify a Regional endpoint for a cluster when you work with API cluster operations

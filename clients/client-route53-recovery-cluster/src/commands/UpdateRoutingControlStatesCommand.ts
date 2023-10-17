@@ -41,8 +41,8 @@ export interface UpdateRoutingControlStatesCommandOutput extends UpdateRoutingCo
 
 /**
  * @public
- * <p>Set multiple routing control states. You can set the value for each state to be On or Off.
- * 			When the state is On, traffic flows to a cell. When it's Off, traffic does not
+ * <p>Set multiple routing control states. You can set the value for each state to be ON or OFF.
+ * 			When the state is ON, traffic flows to a cell. When it's OFF, traffic does not
  * 			flow.</p>
  *          <p>With Route 53 ARC, you can add safety rules for routing controls, which are safeguards for routing
  * 				control state updates that help prevent unexpected outcomes, like fail open traffic routing. However,

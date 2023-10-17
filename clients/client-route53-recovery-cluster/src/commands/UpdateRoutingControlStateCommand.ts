@@ -41,8 +41,8 @@ export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingCon
 
 /**
  * @public
- * <p>Set the state of the routing control to reroute traffic. You can set the value to be On or
- * 			Off. When the state is On, traffic flows to a cell. When the state is Off, traffic does not
+ * <p>Set the state of the routing control to reroute traffic. You can set the value to ON or
+ * 			OFF. When the state is ON, traffic flows to a cell. When the state is OFF, traffic does not
  * 			flow.</p>
  *          <p>With Route 53 ARC, you can add safety rules for routing controls, which are safeguards for routing
  * 				control state updates that help prevent unexpected outcomes, like fail open traffic routing. However,

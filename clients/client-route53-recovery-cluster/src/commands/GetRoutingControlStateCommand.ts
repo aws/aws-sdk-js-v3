@@ -42,8 +42,8 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
 /**
  * @public
  * <p>Get the state for a routing control. A routing control is a simple on/off switch that you
- * 				can use to route traffic to cells. When a routing control state is On, traffic flows to a cell. When
- * 				the state is Off, traffic does not flow. </p>
+ * 				can use to route traffic to cells. When a routing control state is set to ON, traffic flows to a cell. When
+ * 				the state is set to OFF, traffic does not flow. </p>
  *          <p>Before you can create a routing control, you must first create a cluster, and then host the control
  * 				in a control panel on the cluster. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.create.html">
  * 					Create routing control structures</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
