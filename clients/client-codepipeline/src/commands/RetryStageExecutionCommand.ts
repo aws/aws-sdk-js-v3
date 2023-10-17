@@ -37,10 +37,10 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
 
 /**
  * @public
- * <p>Resumes the pipeline execution by retrying the last failed actions in a stage. You
- *             can retry a stage immediately if any of the actions in the stage fail. When you retry,
+ * <p>You can retry a stage that has failed without having to run a pipeline again from the beginning. You do
+ *             this by either retrying the failed actions in a stage or by retrying all actions in the stage starting from the first action in the stage. When you retry the failed actions in a stage,
  *             all actions that are still in progress continue working, and failed actions are
- *             triggered again.</p>
+ *             triggered again. When you retry a failed stage from the first action in the stage, the stage cannot have any actions in progress. Before a stage can be retried, it must either have all actions failed or some actions failed and some succeeded.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,7 +51,7 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  *   pipelineName: "STRING_VALUE", // required
  *   stageName: "STRING_VALUE", // required
  *   pipelineExecutionId: "STRING_VALUE", // required
- *   retryMode: "FAILED_ACTIONS", // required
+ *   retryMode: "FAILED_ACTIONS" || "ALL_ACTIONS", // required
  * };
  * const command = new RetryStageExecutionCommand(input);
  * const response = await client.send(command);

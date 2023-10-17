@@ -4481,6 +4481,7 @@ export class NotLatestPipelineExecutionException extends __BaseException {
  * @enum
  */
 export const StageRetryMode = {
+  ALL_ACTIONS: "ALL_ACTIONS",
   FAILED_ACTIONS: "FAILED_ACTIONS",
 } as const;
 
@@ -4515,8 +4516,7 @@ export interface RetryStageExecutionInput {
 
   /**
    * @public
-   * <p>The scope of the retry attempt. Currently, the only supported value is
-   *             FAILED_ACTIONS.</p>
+   * <p>The scope of the retry attempt.</p>
    */
   retryMode: StageRetryMode | undefined;
 }
