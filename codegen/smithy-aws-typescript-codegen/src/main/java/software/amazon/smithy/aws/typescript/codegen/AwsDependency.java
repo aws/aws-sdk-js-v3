@@ -37,6 +37,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 public enum AwsDependency implements Dependency {
 
+    AWS_SDK_CORE(NORMAL_DEPENDENCY, "@aws-sdk/core"),
     MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-signing"),
     MIDDLEWARE_TOKEN(NORMAL_DEPENDENCY, "@aws-sdk/middleware-token"),
     CREDENTIAL_PROVIDER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/credential-provider-node"),
