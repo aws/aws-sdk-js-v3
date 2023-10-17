@@ -94,6 +94,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected void importUnionDeserializer(TypeScriptWriter writer) {
+        writer.addDependency(AwsDependency.AWS_SDK_CORE);
         writer.addImport("awsExpectUnion", "__expectUnion", AwsDependency.AWS_SDK_CORE);
     }
 
