@@ -1472,6 +1472,96 @@ export interface Configuration {
 
 /**
  * @public
+ * <p>Details of an Amazon MSK Cluster.</p>
+ */
+export interface AmazonMskCluster {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an Amazon MSK cluster.</p>
+   */
+  MskClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
+ */
+export interface KafkaClusterClientVpcConfig {
+  /**
+   * @public
+   * <p>The security groups to attach to the ENIs for the broker nodes.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * @public
+   * <p>The list of subnets in the client VPC to connect to.</p>
+   */
+  SubnetIds: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about Kafka Cluster to be used as source / target for replication.</p>
+ */
+export interface KafkaCluster {
+  /**
+   * @public
+   * <p>Details of an Amazon MSK Cluster.</p>
+   */
+  AmazonMskCluster: AmazonMskCluster | undefined;
+
+  /**
+   * @public
+   * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
+   */
+  VpcConfig: KafkaClusterClientVpcConfig | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about Kafka Cluster used as source / target for replication.</p>
+ */
+export interface KafkaClusterDescription {
+  /**
+   * @public
+   * <p>Details of an Amazon MSK Cluster.</p>
+   */
+  AmazonMskCluster?: AmazonMskCluster;
+
+  /**
+   * @public
+   * <p>The alias of the Kafka cluster. Used to prefix names of replicated topics.</p>
+   */
+  KafkaClusterAlias?: string;
+
+  /**
+   * @public
+   * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
+   */
+  VpcConfig?: KafkaClusterClientVpcConfig;
+}
+
+/**
+ * @public
+ * <p>Summarized information about Kafka Cluster used as source / target for replication.</p>
+ */
+export interface KafkaClusterSummary {
+  /**
+   * @public
+   * <p>Details of an Amazon MSK Cluster.</p>
+   */
+  AmazonMskCluster?: AmazonMskCluster;
+
+  /**
+   * @public
+   * <p>The alias of the Kafka cluster. Used to prefix names of replicated topics.</p>
+   */
+  KafkaClusterAlias?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const KafkaVersionStatus = {
@@ -1623,6 +1713,256 @@ export interface NodeInfo {
    * <p>The ZookeeperNodeInfo.</p>
    */
   ZookeeperNodeInfo?: ZookeeperNodeInfo;
+}
+
+/**
+ * @public
+ * <p>Details about consumer group replication.</p>
+ */
+export interface ConsumerGroupReplication {
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the consumer groups that should not be replicated.</p>
+   */
+  ConsumerGroupsToExclude?: string[];
+
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the consumer groups to copy.</p>
+   */
+  ConsumerGroupsToReplicate: string[] | undefined;
+
+  /**
+   * @public
+   * <p>Enables synchronization of consumer groups to target cluster.</p>
+   */
+  DetectAndCopyNewConsumerGroups?: boolean;
+
+  /**
+   * @public
+   * <p>Enables synchronization of consumer group offsets to target cluster. The translated offsets will be written to topic __consumer_offsets.</p>
+   */
+  SynchroniseConsumerGroupOffsets?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetCompressionType = {
+  GZIP: "GZIP",
+  LZ4: "LZ4",
+  NONE: "NONE",
+  SNAPPY: "SNAPPY",
+  ZSTD: "ZSTD",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetCompressionType = (typeof TargetCompressionType)[keyof typeof TargetCompressionType];
+
+/**
+ * @public
+ * <p>Details about topic replication.</p>
+ */
+export interface TopicReplication {
+  /**
+   * @public
+   * <p>Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.</p>
+   */
+  CopyAccessControlListsForTopics?: boolean;
+
+  /**
+   * @public
+   * <p>Whether to periodically configure remote topics to match their corresponding upstream topics.</p>
+   */
+  CopyTopicConfigurations?: boolean;
+
+  /**
+   * @public
+   * <p>Whether to periodically check for new topics and partitions.</p>
+   */
+  DetectAndCopyNewTopics?: boolean;
+
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the topics that should not be replicated.</p>
+   */
+  TopicsToExclude?: string[];
+
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the topics to copy.</p>
+   */
+  TopicsToReplicate: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies configuration for replication between a source and target Kafka cluster.</p>
+ */
+export interface ReplicationInfo {
+  /**
+   * @public
+   * <p>Configuration relating to consumer group replication.</p>
+   */
+  ConsumerGroupReplication: ConsumerGroupReplication | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the source Kafka cluster.</p>
+   */
+  SourceKafkaClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The compression type to use when producing records to target cluster.</p>
+   */
+  TargetCompressionType: TargetCompressionType | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the target Kafka cluster.</p>
+   */
+  TargetKafkaClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Configuration relating to topic replication.</p>
+   */
+  TopicReplication: TopicReplication | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies configuration for replication between a source and target Kafka cluster (sourceKafkaClusterAlias -> targetKafkaClusterAlias)</p>
+ */
+export interface ReplicationInfoDescription {
+  /**
+   * @public
+   * <p>Configuration relating to consumer group replication.</p>
+   */
+  ConsumerGroupReplication?: ConsumerGroupReplication;
+
+  /**
+   * @public
+   * <p>The alias of the source Kafka cluster.</p>
+   */
+  SourceKafkaClusterAlias?: string;
+
+  /**
+   * @public
+   * <p>The compression type to use when producing records to target cluster.</p>
+   */
+  TargetCompressionType?: TargetCompressionType;
+
+  /**
+   * @public
+   * <p>The alias of the target Kafka cluster.</p>
+   */
+  TargetKafkaClusterAlias?: string;
+
+  /**
+   * @public
+   * <p>Configuration relating to topic replication.</p>
+   */
+  TopicReplication?: TopicReplication;
+}
+
+/**
+ * @public
+ * <p>Summarized information of replication between clusters.</p>
+ */
+export interface ReplicationInfoSummary {
+  /**
+   * @public
+   * <p>The alias of the source Kafka cluster.</p>
+   */
+  SourceKafkaClusterAlias?: string;
+
+  /**
+   * @public
+   * <p>The alias of the target Kafka cluster.</p>
+   */
+  TargetKafkaClusterAlias?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicatorState = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicatorState = (typeof ReplicatorState)[keyof typeof ReplicatorState];
+
+/**
+ * @public
+ * <p>Information about a replicator.</p>
+ */
+export interface ReplicatorSummary {
+  /**
+   * @public
+   * <p>The time the replicator was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The current version of the replicator.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * @public
+   * <p>Whether this resource is a replicator reference.</p>
+   */
+  IsReplicatorReference?: boolean;
+
+  /**
+   * @public
+   * <p>Kafka Clusters used in setting up sources / targets for replication.</p>
+   */
+  KafkaClustersSummary?: KafkaClusterSummary[];
+
+  /**
+   * @public
+   * <p>A list of summarized information of replications between clusters.</p>
+   */
+  ReplicationInfoSummaryList?: ReplicationInfoSummary[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   */
+  ReplicatorArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the replicator.</p>
+   */
+  ReplicatorName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator resource in the region where the replicator was created.</p>
+   */
+  ReplicatorResourceArn?: string;
+
+  /**
+   * @public
+   * <p>State of the replicator.</p>
+   */
+  ReplicatorState?: ReplicatorState;
 }
 
 /**
@@ -2165,6 +2505,36 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * <p>Details about consumer group replication.</p>
+ */
+export interface ConsumerGroupReplicationUpdate {
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the consumer groups that should not be replicated.</p>
+   */
+  ConsumerGroupsToExclude: string[] | undefined;
+
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the consumer groups to copy.</p>
+   */
+  ConsumerGroupsToReplicate: string[] | undefined;
+
+  /**
+   * @public
+   * <p>Enables synchronization of consumer groups to target cluster.</p>
+   */
+  DetectAndCopyNewConsumerGroups: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Enables synchronization of consumer group offsets to target cluster. The translated offsets will be written to topic __consumer_offsets.</p>
+   */
+  SynchroniseConsumerGroupOffsets: boolean | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateClusterRequest {
   /**
@@ -2467,6 +2837,71 @@ export interface CreateConfigurationResponse {
 
 /**
  * @public
+ * <p>Creates a replicator using the specified configuration.</p>
+ */
+export interface CreateReplicatorRequest {
+  /**
+   * @public
+   * <p>A summary description of the replicator.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>Kafka Clusters to use in setting up sources / targets for replication.</p>
+   */
+  KafkaClusters: KafkaCluster[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.</p>
+   */
+  ReplicationInfoList: ReplicationInfo[] | undefined;
+
+  /**
+   * @public
+   * <p>The name of the replicator. Alpha-numeric characters with '-' are allowed.</p>
+   */
+  ReplicatorName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters)</p>
+   */
+  ServiceExecutionRoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>List of tags to attach to created Replicator.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateReplicatorResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   */
+  ReplicatorArn?: string;
+
+  /**
+   * @public
+   * <p>Name of the replicator provided by the customer.</p>
+   */
+  ReplicatorName?: string;
+
+  /**
+   * @public
+   * <p>State of the replicator.</p>
+   */
+  ReplicatorState?: ReplicatorState;
+}
+
+/**
+ * @public
  */
 export interface CreateVpcConnectionRequest {
   /**
@@ -2635,6 +3070,40 @@ export interface DeleteConfigurationResponse {
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
   State?: ConfigurationState;
+}
+
+/**
+ * @public
+ */
+export interface DeleteReplicatorRequest {
+  /**
+   * @public
+   * <p>The current version of the replicator.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator to be deleted.</p>
+   */
+  ReplicatorArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteReplicatorResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   */
+  ReplicatorArn?: string;
+
+  /**
+   * @public
+   * <p>The state of the replicator.</p>
+   */
+  ReplicatorState?: ReplicatorState;
 }
 
 /**
@@ -2862,6 +3331,118 @@ export interface DescribeConfigurationRevisionResponse {
    *                When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>
    */
   ServerProperties?: Uint8Array;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReplicatorRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator to be described.</p>
+   */
+  ReplicatorArn: string | undefined;
+}
+
+/**
+ * @public
+ * Details about the state of a replicator
+ */
+export interface ReplicationStateInfo {
+  /**
+   * @public
+   * Code that describes the current state of the replicator.
+   */
+  Code?: string;
+
+  /**
+   * @public
+   * Message that describes the state of the replicator.
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReplicatorResponse {
+  /**
+   * @public
+   * <p>The time when the replicator was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The current version number of the replicator.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * @public
+   * <p>Whether this resource is a replicator reference.</p>
+   */
+  IsReplicatorReference?: boolean;
+
+  /**
+   * @public
+   * <p>Kafka Clusters used in setting up sources / targets for replication.</p>
+   */
+  KafkaClusters?: KafkaClusterDescription[];
+
+  /**
+   * @public
+   * <p>A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.</p>
+   */
+  ReplicationInfoList?: ReplicationInfoDescription[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   */
+  ReplicatorArn?: string;
+
+  /**
+   * @public
+   * <p>The description of the replicator.</p>
+   */
+  ReplicatorDescription?: string;
+
+  /**
+   * @public
+   * <p>The name of the replicator.</p>
+   */
+  ReplicatorName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator resource in the region where the replicator was created.</p>
+   */
+  ReplicatorResourceArn?: string;
+
+  /**
+   * @public
+   * <p>State of the replicator.</p>
+   */
+  ReplicatorState?: ReplicatorState;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters)</p>
+   */
+  ServiceExecutionRoleArn?: string;
+
+  /**
+   * @public
+   * <p>Details about the state of the replicator.</p>
+   */
+  StateInfo?: ReplicationStateInfo;
+
+  /**
+   * @public
+   * <p>List of tags attached to the Replicator.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
@@ -3415,6 +3996,46 @@ export interface ListNodesResponse {
    * <p>List containing a NodeInfo object.</p>
    */
   NodeInfoList?: NodeInfo[];
+}
+
+/**
+ * @public
+ */
+export interface ListReplicatorsRequest {
+  /**
+   * @public
+   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>If the response of ListReplicators is truncated, it returns a NextToken in the response. This NextToken should be sent in the subsequent request to ListReplicators.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Returns replicators starting with given name.</p>
+   */
+  ReplicatorNameFilter?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListReplicatorsResponse {
+  /**
+   * @public
+   * <p>If the response of ListReplicators is truncated, it returns a NextToken in the response. This NextToken should be sent in the subsequent request to ListReplicators.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>List containing information of each of the replicators in the account.</p>
+   */
+  Replicators?: ReplicatorSummary[];
 }
 
 /**
@@ -3994,6 +4615,101 @@ export interface UpdateMonitoringResponse {
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
+}
+
+/**
+ * @public
+ * <p>Details for updating the topic replication of a replicator.</p>
+ */
+export interface TopicReplicationUpdate {
+  /**
+   * @public
+   * <p>Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.</p>
+   */
+  CopyAccessControlListsForTopics: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Whether to periodically configure remote topics to match their corresponding upstream topics.</p>
+   */
+  CopyTopicConfigurations: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Whether to periodically check for new topics and partitions.</p>
+   */
+  DetectAndCopyNewTopics: boolean | undefined;
+
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the topics that should not be replicated.</p>
+   */
+  TopicsToExclude: string[] | undefined;
+
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the topics to copy.</p>
+   */
+  TopicsToReplicate: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Update information relating to replication between a given source and target Kafka cluster.</p>
+ */
+export interface UpdateReplicationInfoRequest {
+  /**
+   * @public
+   * <p>Updated consumer group replication information.</p>
+   */
+  ConsumerGroupReplication?: ConsumerGroupReplicationUpdate;
+
+  /**
+   * @public
+   * <p>Current replicator version.</p>
+   */
+  CurrentVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator to be updated.</p>
+   */
+  ReplicatorArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the source Kafka cluster.</p>
+   */
+  SourceKafkaClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the target Kafka cluster.</p>
+   */
+  TargetKafkaClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Updated topic replication information.</p>
+   */
+  TopicReplication?: TopicReplicationUpdate;
+}
+
+/**
+ * @public
+ */
+export interface UpdateReplicationInfoResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   */
+  ReplicatorArn?: string;
+
+  /**
+   * @public
+   * <p>State of the replicator.</p>
+   */
+  ReplicatorState?: ReplicatorState;
 }
 
 /**

@@ -9,5 +9,6 @@ export * from "./ListConfigurationRevisionsPaginator";
 export * from "./ListConfigurationsPaginator";
 export * from "./ListKafkaVersionsPaginator";
 export * from "./ListNodesPaginator";
+export * from "./ListReplicatorsPaginator";
 export * from "./ListScramSecretsPaginator";
 export * from "./ListVpcConnectionsPaginator";

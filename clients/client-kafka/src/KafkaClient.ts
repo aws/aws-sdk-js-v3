@@ -64,6 +64,7 @@ import {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
 } from "./commands/CreateConfigurationCommand";
+import { CreateReplicatorCommandInput, CreateReplicatorCommandOutput } from "./commands/CreateReplicatorCommand";
 import {
   CreateVpcConnectionCommandInput,
   CreateVpcConnectionCommandOutput,
@@ -77,6 +78,7 @@ import {
   DeleteConfigurationCommandInput,
   DeleteConfigurationCommandOutput,
 } from "./commands/DeleteConfigurationCommand";
+import { DeleteReplicatorCommandInput, DeleteReplicatorCommandOutput } from "./commands/DeleteReplicatorCommand";
 import {
   DeleteVpcConnectionCommandInput,
   DeleteVpcConnectionCommandOutput,
@@ -99,6 +101,7 @@ import {
   DescribeConfigurationRevisionCommandInput,
   DescribeConfigurationRevisionCommandOutput,
 } from "./commands/DescribeConfigurationRevisionCommand";
+import { DescribeReplicatorCommandInput, DescribeReplicatorCommandOutput } from "./commands/DescribeReplicatorCommand";
 import {
   DescribeVpcConnectionCommandInput,
   DescribeVpcConnectionCommandOutput,
@@ -133,6 +136,7 @@ import {
 import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
 import { ListKafkaVersionsCommandInput, ListKafkaVersionsCommandOutput } from "./commands/ListKafkaVersionsCommand";
 import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import { ListReplicatorsCommandInput, ListReplicatorsCommandOutput } from "./commands/ListReplicatorsCommand";
 import { ListScramSecretsCommandInput, ListScramSecretsCommandOutput } from "./commands/ListScramSecretsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -167,6 +171,10 @@ import {
 } from "./commands/UpdateConfigurationCommand";
 import { UpdateConnectivityCommandInput, UpdateConnectivityCommandOutput } from "./commands/UpdateConnectivityCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "./commands/UpdateMonitoringCommand";
+import {
+  UpdateReplicationInfoCommandInput,
+  UpdateReplicationInfoCommandOutput,
+} from "./commands/UpdateReplicationInfoCommand";
 import { UpdateSecurityCommandInput, UpdateSecurityCommandOutput } from "./commands/UpdateSecurityCommand";
 import { UpdateStorageCommandInput, UpdateStorageCommandOutput } from "./commands/UpdateStorageCommand";
 import {
@@ -189,10 +197,12 @@ export type ServiceInputTypes =
   | CreateClusterCommandInput
   | CreateClusterV2CommandInput
   | CreateConfigurationCommandInput
+  | CreateReplicatorCommandInput
   | CreateVpcConnectionCommandInput
   | DeleteClusterCommandInput
   | DeleteClusterPolicyCommandInput
   | DeleteConfigurationCommandInput
+  | DeleteReplicatorCommandInput
   | DeleteVpcConnectionCommandInput
   | DescribeClusterCommandInput
   | DescribeClusterOperationCommandInput
@@ -200,6 +210,7 @@ export type ServiceInputTypes =
   | DescribeClusterV2CommandInput
   | DescribeConfigurationCommandInput
   | DescribeConfigurationRevisionCommandInput
+  | DescribeReplicatorCommandInput
   | DescribeVpcConnectionCommandInput
   | GetBootstrapBrokersCommandInput
   | GetClusterPolicyCommandInput
@@ -213,6 +224,7 @@ export type ServiceInputTypes =
   | ListConfigurationsCommandInput
   | ListKafkaVersionsCommandInput
   | ListNodesCommandInput
+  | ListReplicatorsCommandInput
   | ListScramSecretsCommandInput
   | ListTagsForResourceCommandInput
   | ListVpcConnectionsCommandInput
@@ -229,6 +241,7 @@ export type ServiceInputTypes =
   | UpdateConfigurationCommandInput
   | UpdateConnectivityCommandInput
   | UpdateMonitoringCommandInput
+  | UpdateReplicationInfoCommandInput
   | UpdateSecurityCommandInput
   | UpdateStorageCommandInput;
 
@@ -241,10 +254,12 @@ export type ServiceOutputTypes =
   | CreateClusterCommandOutput
   | CreateClusterV2CommandOutput
   | CreateConfigurationCommandOutput
+  | CreateReplicatorCommandOutput
   | CreateVpcConnectionCommandOutput
   | DeleteClusterCommandOutput
   | DeleteClusterPolicyCommandOutput
   | DeleteConfigurationCommandOutput
+  | DeleteReplicatorCommandOutput
   | DeleteVpcConnectionCommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterOperationCommandOutput
@@ -252,6 +267,7 @@ export type ServiceOutputTypes =
   | DescribeClusterV2CommandOutput
   | DescribeConfigurationCommandOutput
   | DescribeConfigurationRevisionCommandOutput
+  | DescribeReplicatorCommandOutput
   | DescribeVpcConnectionCommandOutput
   | GetBootstrapBrokersCommandOutput
   | GetClusterPolicyCommandOutput
@@ -265,6 +281,7 @@ export type ServiceOutputTypes =
   | ListConfigurationsCommandOutput
   | ListKafkaVersionsCommandOutput
   | ListNodesCommandOutput
+  | ListReplicatorsCommandOutput
   | ListScramSecretsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListVpcConnectionsCommandOutput
@@ -281,6 +298,7 @@ export type ServiceOutputTypes =
   | UpdateConfigurationCommandOutput
   | UpdateConnectivityCommandOutput
   | UpdateMonitoringCommandOutput
+  | UpdateReplicationInfoCommandOutput
   | UpdateSecurityCommandOutput
   | UpdateStorageCommandOutput;
 

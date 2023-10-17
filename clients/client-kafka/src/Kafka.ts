@@ -28,6 +28,11 @@ import {
   CreateConfigurationCommandOutput,
 } from "./commands/CreateConfigurationCommand";
 import {
+  CreateReplicatorCommand,
+  CreateReplicatorCommandInput,
+  CreateReplicatorCommandOutput,
+} from "./commands/CreateReplicatorCommand";
+import {
   CreateVpcConnectionCommand,
   CreateVpcConnectionCommandInput,
   CreateVpcConnectionCommandOutput,
@@ -47,6 +52,11 @@ import {
   DeleteConfigurationCommandInput,
   DeleteConfigurationCommandOutput,
 } from "./commands/DeleteConfigurationCommand";
+import {
+  DeleteReplicatorCommand,
+  DeleteReplicatorCommandInput,
+  DeleteReplicatorCommandOutput,
+} from "./commands/DeleteReplicatorCommand";
 import {
   DeleteVpcConnectionCommand,
   DeleteVpcConnectionCommandInput,
@@ -82,6 +92,11 @@ import {
   DescribeConfigurationRevisionCommandInput,
   DescribeConfigurationRevisionCommandOutput,
 } from "./commands/DescribeConfigurationRevisionCommand";
+import {
+  DescribeReplicatorCommand,
+  DescribeReplicatorCommandInput,
+  DescribeReplicatorCommandOutput,
+} from "./commands/DescribeReplicatorCommand";
 import {
   DescribeVpcConnectionCommand,
   DescribeVpcConnectionCommandInput,
@@ -143,6 +158,11 @@ import {
   ListKafkaVersionsCommandOutput,
 } from "./commands/ListKafkaVersionsCommand";
 import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import {
+  ListReplicatorsCommand,
+  ListReplicatorsCommandInput,
+  ListReplicatorsCommandOutput,
+} from "./commands/ListReplicatorsCommand";
 import {
   ListScramSecretsCommand,
   ListScramSecretsCommandInput,
@@ -220,6 +240,11 @@ import {
   UpdateMonitoringCommandOutput,
 } from "./commands/UpdateMonitoringCommand";
 import {
+  UpdateReplicationInfoCommand,
+  UpdateReplicationInfoCommandInput,
+  UpdateReplicationInfoCommandOutput,
+} from "./commands/UpdateReplicationInfoCommand";
+import {
   UpdateSecurityCommand,
   UpdateSecurityCommandInput,
   UpdateSecurityCommandOutput,
@@ -237,10 +262,12 @@ const commands = {
   CreateClusterCommand,
   CreateClusterV2Command,
   CreateConfigurationCommand,
+  CreateReplicatorCommand,
   CreateVpcConnectionCommand,
   DeleteClusterCommand,
   DeleteClusterPolicyCommand,
   DeleteConfigurationCommand,
+  DeleteReplicatorCommand,
   DeleteVpcConnectionCommand,
   DescribeClusterCommand,
   DescribeClusterOperationCommand,
@@ -248,6 +275,7 @@ const commands = {
   DescribeClusterV2Command,
   DescribeConfigurationCommand,
   DescribeConfigurationRevisionCommand,
+  DescribeReplicatorCommand,
   DescribeVpcConnectionCommand,
   GetBootstrapBrokersCommand,
   GetClusterPolicyCommand,
@@ -261,6 +289,7 @@ const commands = {
   ListConfigurationsCommand,
   ListKafkaVersionsCommand,
   ListNodesCommand,
+  ListReplicatorsCommand,
   ListScramSecretsCommand,
   ListTagsForResourceCommand,
   ListVpcConnectionsCommand,
@@ -277,6 +306,7 @@ const commands = {
   UpdateConfigurationCommand,
   UpdateConnectivityCommand,
   UpdateMonitoringCommand,
+  UpdateReplicationInfoCommand,
   UpdateSecurityCommand,
   UpdateStorageCommand,
 };
@@ -359,6 +389,23 @@ export interface Kafka {
   ): void;
 
   /**
+   * @see {@link CreateReplicatorCommand}
+   */
+  createReplicator(
+    args: CreateReplicatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateReplicatorCommandOutput>;
+  createReplicator(
+    args: CreateReplicatorCommandInput,
+    cb: (err: any, data?: CreateReplicatorCommandOutput) => void
+  ): void;
+  createReplicator(
+    args: CreateReplicatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateReplicatorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateVpcConnectionCommand}
    */
   createVpcConnection(
@@ -418,6 +465,23 @@ export interface Kafka {
     args: DeleteConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteReplicatorCommand}
+   */
+  deleteReplicator(
+    args: DeleteReplicatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteReplicatorCommandOutput>;
+  deleteReplicator(
+    args: DeleteReplicatorCommandInput,
+    cb: (err: any, data?: DeleteReplicatorCommandOutput) => void
+  ): void;
+  deleteReplicator(
+    args: DeleteReplicatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteReplicatorCommandOutput) => void
   ): void;
 
   /**
@@ -534,6 +598,23 @@ export interface Kafka {
     args: DescribeConfigurationRevisionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeConfigurationRevisionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeReplicatorCommand}
+   */
+  describeReplicator(
+    args: DescribeReplicatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReplicatorCommandOutput>;
+  describeReplicator(
+    args: DescribeReplicatorCommandInput,
+    cb: (err: any, data?: DescribeReplicatorCommandOutput) => void
+  ): void;
+  describeReplicator(
+    args: DescribeReplicatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReplicatorCommandOutput) => void
   ): void;
 
   /**
@@ -740,6 +821,20 @@ export interface Kafka {
     args: ListNodesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListNodesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListReplicatorsCommand}
+   */
+  listReplicators(
+    args: ListReplicatorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReplicatorsCommandOutput>;
+  listReplicators(args: ListReplicatorsCommandInput, cb: (err: any, data?: ListReplicatorsCommandOutput) => void): void;
+  listReplicators(
+    args: ListReplicatorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReplicatorsCommandOutput) => void
   ): void;
 
   /**
@@ -994,6 +1089,23 @@ export interface Kafka {
     args: UpdateMonitoringCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateMonitoringCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateReplicationInfoCommand}
+   */
+  updateReplicationInfo(
+    args: UpdateReplicationInfoCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateReplicationInfoCommandOutput>;
+  updateReplicationInfo(
+    args: UpdateReplicationInfoCommandInput,
+    cb: (err: any, data?: UpdateReplicationInfoCommandOutput) => void
+  ): void;
+  updateReplicationInfo(
+    args: UpdateReplicationInfoCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateReplicationInfoCommandOutput) => void
   ): void;
 
   /**
