@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,

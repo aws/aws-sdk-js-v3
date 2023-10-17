@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import {
   acceptMatches as __acceptMatches,
   NotAcceptableException as __NotAcceptableException,
