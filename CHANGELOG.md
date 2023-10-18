@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.431.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.430.0...v3.431.0) (2023-10-18)
+
+
+### Features
+
+* **client-kendra:** Changes for a new feature in Amazon Kendra's Query API to Collapse/Expand query results ([92b6b26](https://github.com/aws/aws-sdk-js-v3/commit/92b6b265548c5cf8ae9c961632ece1f339f94ef1))
+* **client-rds:** This release adds support for upgrading the storage file system configuration on the DB instance using a blue/green deployment or a read replica. ([dbac71a](https://github.com/aws/aws-sdk-js-v3/commit/dbac71a6a3403999b94c91f84bede98ae2077265))
+* **client-wisdom:** This release adds an max limit of 25 recommendation ids for NotifyRecommendationsReceived API. ([12f6be4](https://github.com/aws/aws-sdk-js-v3/commit/12f6be4f445b947f98ff9b70f6b63a70e512967a))
+* **clients:** update client endpoints as of 2023-10-18 ([f985cbf](https://github.com/aws/aws-sdk-js-v3/commit/f985cbf0edad3f34c665ce3808869a049305e704))
+
+
+
+
+
 # [3.430.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.429.0...v3.430.0) (2023-10-17)
 
 
