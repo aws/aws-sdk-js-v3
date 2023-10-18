@@ -1676,9 +1676,9 @@ export interface Document {
   /**
    * @public
    * <p>The file type of the document in the <code>Blob</code> field.</p>
-   *          <p>If you want to index snippets or subsets of HTML documents instead of the entirety
-   *             of the HTML documents, you must add the <code>HTML</code> start and closing tags
-   *             (<code><HTML>content</HTML></code>) around the content.</p>
+   *          <p>If you want to index snippets or subsets of HTML documents instead of the entirety of
+   *             the HTML documents, you must add the <code>HTML</code> start and closing tags
+   *                 (<code><HTML>content</HTML></code>) around the content.</p>
    */
   ContentType?: ContentType;
 
@@ -1768,8 +1768,7 @@ export interface BatchPutDocumentResponse {
    *             validation check. Each document contains an error message that indicates why the
    *             document couldn't be added to the index.</p>
    *          <p>If there was an error adding a document to an index the error is reported in your
-   *                 Amazon Web Services CloudWatch log. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-logs.html">Monitoring
-   *                     Amazon Kendra with Amazon CloudWatch logs</a>.</p>
+   *                 Amazon Web Services CloudWatch log. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-logs.html">Monitoring Amazon Kendra with Amazon CloudWatch logs</a>.</p>
    */
   FailedDocuments?: BatchPutDocumentResponseFailedDocument[];
 }
@@ -5239,7 +5238,7 @@ export interface CreateExperienceRequest {
    * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access
    *             <code>Query</code> API, <code>GetQuerySuggestions</code> API, and other required APIs.
-   *             The role also must include permission to access IAM Identity Center (successor to Single Sign-On) that stores your
+   *             The role also must include permission to access IAM Identity Center that stores your
    *             user and group information. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM access roles for Amazon Kendra</a>.</p>
    */
   RoleArn?: string;
@@ -5698,7 +5697,7 @@ export type UserGroupResolutionMode = (typeof UserGroupResolutionMode)[keyof typ
 /**
  * @public
  * <p>Provides the configuration information to get users and groups from
- *          an IAM Identity Center (successor to Single Sign-On) identity source. This is useful for user context filtering, where
+ *          an IAM Identity Center identity source. This is useful for user context filtering, where
  *          search results are filtered based on the user or their group access to documents. You can
  *          also use the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html">PutPrincipalMapping</a> API to
  *          map users to their groups so that you only need to provide the user ID when you issue the
@@ -5715,7 +5714,7 @@ export interface UserGroupResolutionConfiguration {
   /**
    * @public
    * <p>The identity store provider (mode) you want to use to get users and groups.
-   *          IAM Identity Center (successor to Single Sign-On) is currently the only available mode. Your users and groups
+   *          IAM Identity Center is currently the only available mode. Your users and groups
    *          must exist in an IAM Identity Center identity source in order to use this mode.</p>
    */
   UserGroupResolutionMode: UserGroupResolutionMode | undefined;
@@ -5906,7 +5905,7 @@ export interface CreateIndexRequest {
 
   /**
    * @public
-   * <p>Gets users and groups from IAM Identity Center (successor to Single Sign-On)
+   * <p>Gets users and groups from IAM Identity Center
    *          identity source. To configure this, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>.</p>
    */
   UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
@@ -7219,7 +7218,7 @@ export interface DescribeIndexResponse {
   /**
    * @public
    * <p>Whether you have enabled the configuration for fetching access levels of groups and
-   *          users from an IAM Identity Center (successor to Single Sign-On) identity source.</p>
+   *          users from an IAM Identity Center identity source.</p>
    */
   UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
 }
@@ -9456,38 +9455,42 @@ export interface PutPrincipalMappingRequest {
 
 /**
  * @public
- * <p>Overrides the document relevance properties of a custom index field.</p>
+ * <p>Specifies the configuration information needed to customize how collapsed search
+ *             result groups expand.</p>
  */
-export interface DocumentRelevanceConfiguration {
+export interface ExpandConfiguration {
   /**
    * @public
-   * <p>The name of the index field.</p>
+   * <p>The number of collapsed search result groups to expand. If you set this value to 10,
+   *             for example, only the first 10 out of 100 result groups will have expand functionality.
+   *         </p>
    */
-  Name: string | undefined;
+  MaxResultItemsToExpand?: number;
 
   /**
    * @public
-   * <p>Provides information for tuning the relevance of a field in a search. When a query
-   *          includes terms that match the field, the results are given a boost in the response based on
-   *          these tuning parameters.</p>
+   * <p>The number of expanded results to show per collapsed primary document. For instance,
+   *             if you set this value to 3, then at most 3 results per collapsed group will be
+   *             displayed.</p>
    */
-  Relevance: Relevance | undefined;
+  MaxExpandedResultsPerItem?: number;
 }
 
 /**
  * @public
  * @enum
  */
-export const QueryResultType = {
-  ANSWER: "ANSWER",
-  DOCUMENT: "DOCUMENT",
-  QUESTION_ANSWER: "QUESTION_ANSWER",
+export const MissingAttributeKeyStrategy = {
+  COLLAPSE: "COLLAPSE",
+  EXPAND: "EXPAND",
+  IGNORE: "IGNORE",
 } as const;
 
 /**
  * @public
  */
-export type QueryResultType = (typeof QueryResultType)[keyof typeof QueryResultType];
+export type MissingAttributeKeyStrategy =
+  (typeof MissingAttributeKeyStrategy)[keyof typeof MissingAttributeKeyStrategy];
 
 /**
  * @public
@@ -9561,6 +9564,99 @@ export interface SortingConfiguration {
    */
   SortOrder: SortOrder | undefined;
 }
+
+/**
+ * @public
+ * <p>Specifies how to group results by document attribute value, and how to display them
+ *             collapsed/expanded under a designated primary document for each group.</p>
+ */
+export interface CollapseConfiguration {
+  /**
+   * @public
+   * <p>The document attribute used to group search results. You can use any attribute that
+   *             has the <code>Sortable</code> flag set to true. You can also sort by any of the
+   *             following built-in attributes:"_category","_created_at", "_last_updated_at", "_version",
+   *             "_view_count".</p>
+   */
+  DocumentAttributeKey: string | undefined;
+
+  /**
+   * @public
+   * <p>A prioritized list of document attributes/fields that determine the primary document
+   *             among those in a collapsed group.</p>
+   */
+  SortingConfigurations?: SortingConfiguration[];
+
+  /**
+   * @public
+   * <p>Specifies the behavior for documents without a value for the collapse
+   *             attribute.</p>
+   *          <p>Amazon Kendra offers three customization options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Choose to <code>COLLAPSE</code> all documents with null or missing values in
+   *                     one group. This is the default configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>Choose to <code>IGNORE</code> documents with null or missing values. Ignored
+   *                     documents will not appear in query results.</p>
+   *             </li>
+   *             <li>
+   *                <p>Choose to <code>EXPAND</code> each document with a null or missing value into
+   *                     a group of its own.</p>
+   *             </li>
+   *          </ul>
+   */
+  MissingAttributeKeyStrategy?: MissingAttributeKeyStrategy;
+
+  /**
+   * @public
+   * <p>Specifies whether to expand the collapsed results.</p>
+   */
+  Expand?: boolean;
+
+  /**
+   * @public
+   * <p>Provides configuration information to customize expansion options for a collapsed
+   *             group.</p>
+   */
+  ExpandConfiguration?: ExpandConfiguration;
+}
+
+/**
+ * @public
+ * <p>Overrides the document relevance properties of a custom index field.</p>
+ */
+export interface DocumentRelevanceConfiguration {
+  /**
+   * @public
+   * <p>The name of the index field.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>Provides information for tuning the relevance of a field in a search. When a query
+   *          includes terms that match the field, the results are given a boost in the response based on
+   *          these tuning parameters.</p>
+   */
+  Relevance: Relevance | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryResultType = {
+  ANSWER: "ANSWER",
+  DOCUMENT: "DOCUMENT",
+  QUESTION_ANSWER: "QUESTION_ANSWER",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryResultType = (typeof QueryResultType)[keyof typeof QueryResultType];
 
 /**
  * @public
@@ -9652,6 +9748,72 @@ export interface FeaturedResultsItem {
 
 /**
  * @public
+ * <p> A single expanded result in a collapsed group of search results.</p>
+ *          <p>An expanded result item contains information about an expanded result document within
+ *             a collapsed group of search results. This includes the original location of the
+ *             document, a list of attributes assigned to the document, and relevant text from the
+ *             document that satisfies the query. </p>
+ */
+export interface ExpandedResultItem {
+  /**
+   * @public
+   * <p>The identifier for the expanded result.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>The idenitifier of the document.</p>
+   */
+  DocumentId?: string;
+
+  /**
+   * @public
+   * <p>Provides text and information about where to highlight the text.</p>
+   */
+  DocumentTitle?: TextWithHighlights;
+
+  /**
+   * @public
+   * <p>Provides text and information about where to highlight the text.</p>
+   */
+  DocumentExcerpt?: TextWithHighlights;
+
+  /**
+   * @public
+   * <p>The URI of the original location of the document.</p>
+   */
+  DocumentURI?: string;
+
+  /**
+   * @public
+   * <p>An array of document attributes assigned to a document in the search results. For
+   *             example, the document author ("_author") or the source URI ("_source_uri") of the
+   *             document.</p>
+   */
+  DocumentAttributes?: DocumentAttribute[];
+}
+
+/**
+ * @public
+ * <p>Provides details about a collapsed group of search results.</p>
+ */
+export interface CollapsedResultDetail {
+  /**
+   * @public
+   * <p>The value of the document attribute that results are collapsed on.</p>
+   */
+  DocumentAttribute: DocumentAttribute | undefined;
+
+  /**
+   * @public
+   * <p>A list of results in the collapsed group.</p>
+   */
+  ExpandedResults?: ExpandedResultItem[];
+}
+
+/**
+ * @public
  * @enum
  */
 export const QueryResultFormat = {
@@ -9663,106 +9825,6 @@ export const QueryResultFormat = {
  * @public
  */
 export type QueryResultFormat = (typeof QueryResultFormat)[keyof typeof QueryResultFormat];
-
-/**
- * @public
- * @enum
- */
-export const ScoreConfidence = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  NOT_AVAILABLE: "NOT_AVAILABLE",
-  VERY_HIGH: "VERY_HIGH",
-} as const;
-
-/**
- * @public
- */
-export type ScoreConfidence = (typeof ScoreConfidence)[keyof typeof ScoreConfidence];
-
-/**
- * @public
- * <p>Provides a relative ranking that indicates how confident Amazon Kendra is that the
- *          response is relevant to the query.</p>
- */
-export interface ScoreAttributes {
-  /**
-   * @public
-   * <p>A relative ranking for how relevant the response is to the query.</p>
-   */
-  ScoreConfidence?: ScoreConfidence;
-}
-
-/**
- * @public
- * <p>Provides information about a table cell in a table excerpt.</p>
- */
-export interface TableCell {
-  /**
-   * @public
-   * <p>The actual value or content within a table cell. A table cell could contain a date
-   *             value of a year, or a string value of text, for example.</p>
-   */
-  Value?: string;
-
-  /**
-   * @public
-   * <p>
-   *             <code>TRUE</code> if the response of the table cell is the top answer. This is the
-   *             cell value or content with the highest confidence score or is the most relevant to the
-   *             query.</p>
-   */
-  TopAnswer?: boolean;
-
-  /**
-   * @public
-   * <p>
-   *             <code>TRUE</code> means that the table cell has a high enough confidence and is
-   *             relevant to the query, so the value or content should be highlighted.</p>
-   */
-  Highlighted?: boolean;
-
-  /**
-   * @public
-   * <p>
-   *             <code>TRUE</code> means that the table cell should be treated as a header.</p>
-   */
-  Header?: boolean;
-}
-
-/**
- * @public
- * <p>Information about a row in a table excerpt.</p>
- */
-export interface TableRow {
-  /**
-   * @public
-   * <p>A list of table cells in a row.</p>
-   */
-  Cells?: TableCell[];
-}
-
-/**
- * @public
- * <p>An excerpt from a table within a document. The table excerpt displays up to five
- *             columns and three rows, depending on how many table cells are relevant to the query and
- *             how many columns are available in the original table. The top most relevant cell is
- *             displayed in the table excerpt, along with the next most relevant cells.</p>
- */
-export interface TableExcerpt {
-  /**
-   * @public
-   * <p>A list of rows in the table excerpt.</p>
-   */
-  Rows?: TableRow[];
-
-  /**
-   * @public
-   * <p>A count of the number of rows in the original table within the document.</p>
-   */
-  TotalNumberOfRows?: number;
-}
 
 /**
  * @internal

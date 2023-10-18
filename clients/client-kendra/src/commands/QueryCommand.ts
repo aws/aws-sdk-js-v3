@@ -38,6 +38,12 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
 /**
  * @public
  * <p>Searches an index given an input query.</p>
+ *          <note>
+ *             <p>If you are working with large language models (LLMs) or implementing retrieval
+ *             augmented generation (RAG) systems, you can use Amazon Kendra's <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_Retrieve.html">Retrieve</a> API, which can return longer semantically relevant passages. We
+ *             recommend using the <code>Retrieve</code> API instead of filing a service limit increase
+ *             to increase the <code>Query</code> API document excerpt length.</p>
+ *          </note>
  *          <p>You can configure boosting or relevance tuning at the query level to override boosting
  *          at the index level, filter based on document fields/attributes and faceted search, and
  *          filter based on the user or their group access to documents. You can also include certain
@@ -52,15 +58,15 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *                <p>Matching FAQs or questions-answer from your FAQ file.</p>
  *             </li>
  *             <li>
- *                <p>Relevant documents. This result type includes an excerpt of the document with
- *                the document title. The searched terms can be highlighted in the excerpt.</p>
+ *                <p>Relevant documents. This result type includes an excerpt of the document with the
+ *                document title. The searched terms can be highlighted in the excerpt.</p>
  *             </li>
  *          </ul>
  *          <p>You can specify that the query return only one type of result using the
- *          <code>QueryResultTypeFilter</code> parameter. Each query returns the 100
- *          most relevant results. If you filter result type to only question-answers,
- *          a maximum of four results are returned. If you filter result type to only
- *          answers, a maximum of three results are returned.</p>
+ *             <code>QueryResultTypeFilter</code> parameter. Each query returns the 100 most relevant
+ *          results. If you filter result type to only question-answers, a maximum of four results are
+ *          returned. If you filter result type to only answers, a maximum of three results are
+ *          returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -188,6 +194,12 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *     DocumentAttributeKey: "STRING_VALUE", // required
  *     SortOrder: "DESC" || "ASC", // required
  *   },
+ *   SortingConfigurations: [ // SortingConfigurationList
+ *     {
+ *       DocumentAttributeKey: "STRING_VALUE", // required
+ *       SortOrder: "DESC" || "ASC", // required
+ *     },
+ *   ],
  *   UserContext: { // UserContext
  *     Token: "STRING_VALUE",
  *     UserId: "STRING_VALUE",
@@ -204,6 +216,18 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *   VisitorId: "STRING_VALUE",
  *   SpellCorrectionConfiguration: { // SpellCorrectionConfiguration
  *     IncludeQuerySpellCheckSuggestions: true || false, // required
+ *   },
+ *   CollapseConfiguration: { // CollapseConfiguration
+ *     DocumentAttributeKey: "STRING_VALUE", // required
+ *     SortingConfigurations: [
+ *       "<SortingConfiguration>",
+ *     ],
+ *     MissingAttributeKeyStrategy: "IGNORE" || "COLLAPSE" || "EXPAND",
+ *     Expand: true || false,
+ *     ExpandConfiguration: { // ExpandConfiguration
+ *       MaxResultItemsToExpand: Number("int"),
+ *       MaxExpandedResultsPerItem: Number("int"),
+ *     },
  *   },
  * };
  * const command = new QueryCommand(input);
@@ -290,6 +314,61 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  * //         ],
  * //         TotalNumberOfRows: Number("int"),
  * //       },
+ * //       CollapsedResultDetail: { // CollapsedResultDetail
+ * //         DocumentAttribute: {
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: {
+ * //             StringValue: "STRING_VALUE",
+ * //             StringListValue: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             LongValue: Number("long"),
+ * //             DateValue: new Date("TIMESTAMP"),
+ * //           },
+ * //         },
+ * //         ExpandedResults: [ // ExpandedResultList
+ * //           { // ExpandedResultItem
+ * //             Id: "STRING_VALUE",
+ * //             DocumentId: "STRING_VALUE",
+ * //             DocumentTitle: {
+ * //               Text: "STRING_VALUE",
+ * //               Highlights: [
+ * //                 {
+ * //                   BeginOffset: Number("int"), // required
+ * //                   EndOffset: Number("int"), // required
+ * //                   TopAnswer: true || false,
+ * //                   Type: "STANDARD" || "THESAURUS_SYNONYM",
+ * //                 },
+ * //               ],
+ * //             },
+ * //             DocumentExcerpt: {
+ * //               Text: "STRING_VALUE",
+ * //               Highlights: [
+ * //                 {
+ * //                   BeginOffset: Number("int"), // required
+ * //                   EndOffset: Number("int"), // required
+ * //                   TopAnswer: true || false,
+ * //                   Type: "STANDARD" || "THESAURUS_SYNONYM",
+ * //                 },
+ * //               ],
+ * //             },
+ * //             DocumentURI: "STRING_VALUE",
+ * //             DocumentAttributes: [
+ * //               {
+ * //                 Key: "STRING_VALUE", // required
+ * //                 Value: {
+ * //                   StringValue: "STRING_VALUE",
+ * //                   StringListValue: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   LongValue: Number("long"),
+ * //                   DateValue: new Date("TIMESTAMP"),
+ * //                 },
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   FacetResults: [ // FacetResultList
@@ -313,14 +392,7 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  * //               DocumentAttributeValueType: "STRING_VALUE" || "STRING_LIST_VALUE" || "LONG_VALUE" || "DATE_VALUE",
  * //               DocumentAttributeValueCountPairs: [
  * //                 {
- * //                   DocumentAttributeValue: {
- * //                     StringValue: "STRING_VALUE",
- * //                     StringListValue: [
- * //                       "STRING_VALUE",
- * //                     ],
- * //                     LongValue: Number("long"),
- * //                     DateValue: new Date("TIMESTAMP"),
- * //                   },
+ * //                   DocumentAttributeValue: "<DocumentAttributeValue>",
  * //                   Count: Number("int"),
  * //                   FacetResults: "<FacetResultList>",
  * //                 },
@@ -360,45 +432,18 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  * //           Key: "STRING_VALUE", // required
  * //           ValueType: "TEXT_WITH_HIGHLIGHTS_VALUE", // required
  * //           Value: {
- * //             TextWithHighlightsValue: {
- * //               Text: "STRING_VALUE",
- * //               Highlights: [
- * //                 {
- * //                   BeginOffset: Number("int"), // required
- * //                   EndOffset: Number("int"), // required
- * //                   TopAnswer: true || false,
- * //                   Type: "STANDARD" || "THESAURUS_SYNONYM",
- * //                 },
- * //               ],
- * //             },
+ * //             TextWithHighlightsValue: "<TextWithHighlights>",
  * //           },
  * //         },
  * //       ],
  * //       DocumentId: "STRING_VALUE",
- * //       DocumentTitle: {
- * //         Text: "STRING_VALUE",
- * //         Highlights: [
- * //           {
- * //             BeginOffset: Number("int"), // required
- * //             EndOffset: Number("int"), // required
- * //             TopAnswer: true || false,
- * //             Type: "STANDARD" || "THESAURUS_SYNONYM",
- * //           },
- * //         ],
- * //       },
+ * //       DocumentTitle: "<TextWithHighlights>",
  * //       DocumentExcerpt: "<TextWithHighlights>",
  * //       DocumentURI: "STRING_VALUE",
  * //       DocumentAttributes: [
  * //         {
  * //           Key: "STRING_VALUE", // required
- * //           Value: {
- * //             StringValue: "STRING_VALUE",
- * //             StringListValue: [
- * //               "STRING_VALUE",
- * //             ],
- * //             LongValue: Number("long"),
- * //             DateValue: new Date("TIMESTAMP"),
- * //           },
+ * //           Value: "<DocumentAttributeValue>", // required
  * //         },
  * //       ],
  * //       FeedbackToken: "STRING_VALUE",

@@ -40,9 +40,11 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * <p>Removes one or more documents from an index. The documents must have been added with
  *             the <code>BatchPutDocument</code> API.</p>
  *          <p>The documents are deleted asynchronously. You can see the progress of the deletion by
- *             using Amazon Web Services CloudWatch. Any error messages related to the processing of the
- *             batch are sent to your Amazon Web Services CloudWatch log. You can also use the
- *             <code>BatchGetDocumentStatus</code> API to monitor the progress of deleting your documents.</p>
+ *             using Amazon Web Services
+ *             CloudWatch. Any error messages related to the processing of the batch are sent to
+ *             your Amazon Web Services
+ *             CloudWatch log. You can also use the <code>BatchGetDocumentStatus</code> API to
+ *             monitor the progress of deleting your documents.</p>
  *          <p>Deleting documents from an index using <code>BatchDeleteDocument</code> could take up
  *             to an hour or more, depending on the number of documents you want to delete.</p>
  * @example
