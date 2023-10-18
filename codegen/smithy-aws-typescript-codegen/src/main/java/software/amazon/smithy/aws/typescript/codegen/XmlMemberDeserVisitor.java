@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import software.amazon.smithy.aws.typescript.codegen.visitor.MemberDeserVisitor;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.shapes.BigDecimalShape;
 import software.amazon.smithy.model.shapes.BigIntegerShape;
@@ -29,7 +30,6 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShortShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
-import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -47,7 +47,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
  */
 @SmithyInternalApi
-final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
+final class XmlMemberDeserVisitor extends MemberDeserVisitor {
 
     private final MemberShape memberShape;
 
@@ -61,11 +61,7 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
                           Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
         this.memberShape = memberShape;
-    }
-
-    @Override
-    protected MemberShape getMemberShape() {
-        return memberShape;
+        this.context = context;
     }
 
     @Override
@@ -112,12 +108,6 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
         return deserializeFloat();
     }
 
-    private String deserializeFloat() {
-        getContext().getWriter().addImport("strictParseFloat", "__strictParseFloat",
-            TypeScriptDependency.AWS_SMITHY_CLIENT);
-        return "__strictParseFloat(" + getDataSource() + ") as number";
-    }
-
     @Override
     public String bigDecimalShape(BigDecimalShape shape) {
         // Fail instead of losing precision through Number.
@@ -130,8 +120,19 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
         return unsupportedShape(shape);
     }
 
+    @Override
+    protected MemberShape getMemberShape() {
+        return memberShape;
+    }
+
     private String unsupportedShape(Shape shape) {
         throw new CodegenException(String.format("Cannot deserialize shape type %s on protocol, shape: %s.",
                 shape.getType(), shape.getId()));
+    }
+
+    private String deserializeFloat() {
+        getContext().getWriter().addImport("strictParseFloat", "__strictParseFloat",
+                TypeScriptDependency.AWS_SMITHY_CLIENT);
+        return "__strictParseFloat(" + getDataSource() + ") as number";
     }
 }

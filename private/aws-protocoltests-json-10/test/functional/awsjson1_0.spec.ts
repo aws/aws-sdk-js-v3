@@ -1674,7 +1674,7 @@ it("AwsJson10DeserializeStructureUnionValue:Response", async () => {
 /**
  * Ignores an unrecognized __type property
  */
-it.skip("AwsJson10DeserializeIgnoreType:Response", async () => {
+it("AwsJson10DeserializeIgnoreType:Response", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(

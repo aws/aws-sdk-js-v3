@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -6,7 +7,6 @@ import {
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
   serializeFloat as __serializeFloat,

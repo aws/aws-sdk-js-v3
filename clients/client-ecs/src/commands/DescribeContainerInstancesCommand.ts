@@ -190,7 +190,7 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  *   "containerInstances": [
  *     {
  *       "agentConnected": true,
- *       "containerInstanceArn": "arn:aws:ecs:us-east-1:012345678910:container-instance/f2756532-8f13-4d53-87c9-aed50dc94cd7",
+ *       "containerInstanceArn": "arn:aws:ecs:us-east-1:012345678910:container-instance/default/f2756532-8f13-4d53-87c9-aed50dc94cd7",
  *       "ec2InstanceId": "i-807f3249",
  *       "pendingTasksCount": 0,
  *       "registeredResources": [

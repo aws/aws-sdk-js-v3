@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import {
   acceptMatches as __acceptMatches,
   NotAcceptableException as __NotAcceptableException,
@@ -22,7 +23,6 @@ import {
   expectObject as __expectObject,
   expectShort as __expectShort,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,

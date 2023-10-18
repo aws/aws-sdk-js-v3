@@ -96,7 +96,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * /* response ==
  * {
  *   "serviceArns": [
- *     "arn:aws:ecs:us-east-1:012345678910:service/my-http-service"
+ *     "arn:aws:ecs:us-east-1:012345678910:service/default/my-http-service"
  *   ]
  * }
  * *\/

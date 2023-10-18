@@ -1,4 +1,4 @@
-# @aws-sdk/common
+# @aws-sdk/core
 
 This package provides common or core functionality to the AWS SDK for JavaScript (v3).
 

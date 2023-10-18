@@ -6989,7 +6989,7 @@ it("RestJsonDeserializeStructureUnionValue:Response", async () => {
 /**
  * Ignores an unrecognized __type property
  */
-it.skip("RestJsonDeserializeIgnoreType:Response", async () => {
+it("RestJsonDeserializeIgnoreType:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
