@@ -3805,7 +3805,7 @@ export interface IncrementalExportSpecification {
 
   /**
    * @public
-   * <p>Choice of whether to output the previous item image prior to the start time of the incremental export. Valid values are <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>.</p>
+   * <p>The view type that was chosen for the export. Valid values are <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>. The default value is <code>NEW_AND_OLD_IMAGES</code>.</p>
    */
   ExportViewType?: ExportViewType;
 }
@@ -3965,7 +3965,7 @@ export interface ExportDescription {
 
   /**
    * @public
-   * <p>Choice of whether to execute as a full export or incremental export. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>. If <code>INCREMENTAL_EXPORT</code> is provided, the <code>IncrementalExportSpecification</code> must also be used.</p>
+   * <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
    */
   ExportType?: ExportType;
 
@@ -5152,7 +5152,7 @@ export interface ExportTableToPointInTimeInput {
 
   /**
    * @public
-   * <p>Choice of whether to execute as a full export or incremental export. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>. If <code>INCREMENTAL_EXPORT</code> is provided, the <code>IncrementalExportSpecification</code> must also be used.</p>
+   * <p>Choice of whether to execute as a full export or incremental export. Valid values are FULL_EXPORT or INCREMENTAL_EXPORT. The default value is FULL_EXPORT. If INCREMENTAL_EXPORT is provided, the IncrementalExportSpecification must also be used.</p>
    */
   ExportType?: ExportType;
 
@@ -5477,7 +5477,7 @@ export interface ExportSummary {
 
   /**
    * @public
-   * <p>Choice of whether to execute as a full export or incremental export. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>. If <code>INCREMENTAL_EXPORT</code> is provided, the <code>IncrementalExportSpecification</code> must also be used.</p>
+   * <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
    */
   ExportType?: ExportType;
 }
@@ -8223,6 +8223,13 @@ export interface TransactGetItemsOutput {
  *             <li>
  *                <p>There is a user error, such as an invalid data format.</p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                     There is an ongoing <code>TransactWriteItems</code> operation that conflicts with a concurrent
+ *                     <code>TransactWriteItems</code> request. In this case the <code>TransactWriteItems</code> operation
+ *                     fails with a <code>TransactionCanceledException</code>.
+ *                 </p>
+ *             </li>
  *          </ul>
  *          <p>DynamoDB cancels a <code>TransactGetItems</code> request under the
  *             following circumstances:</p>
@@ -9794,7 +9801,7 @@ export interface ScanInput {
    *             <p>A <code>FilterExpression</code> is applied after the items have already been read;
    *                 the process of filtering does not consume any additional read capacity units.</p>
    *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
   FilterExpression?: string;
