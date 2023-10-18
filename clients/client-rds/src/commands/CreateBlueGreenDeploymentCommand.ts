@@ -70,6 +70,8 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   TargetDBInstanceClass: "STRING_VALUE",
+ *   UpgradeTargetStorageConfig: true || false,
  * };
  * const command = new CreateBlueGreenDeploymentCommand(input);
  * const response = await client.send(command);

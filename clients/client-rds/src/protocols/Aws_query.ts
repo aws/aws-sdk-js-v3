@@ -13807,6 +13807,12 @@ const se_CreateBlueGreenDeploymentRequest = (input: CreateBlueGreenDeploymentReq
       entries[loc] = value;
     });
   }
+  if (input.TargetDBInstanceClass != null) {
+    entries["TargetDBInstanceClass"] = input.TargetDBInstanceClass;
+  }
+  if (input.UpgradeTargetStorageConfig != null) {
+    entries["UpgradeTargetStorageConfig"] = input.UpgradeTargetStorageConfig;
+  }
   return entries;
 };
 
@@ -14560,6 +14566,9 @@ const se_CreateDBInstanceReadReplicaMessage = (
   }
   if (input.DedicatedLogVolume != null) {
     entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
+  }
+  if (input.UpgradeStorageConfig != null) {
+    entries["UpgradeStorageConfig"] = input.UpgradeStorageConfig;
   }
   return entries;
 };
@@ -21781,6 +21790,9 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   }
   if (output["DedicatedLogVolume"] !== undefined) {
     contents.DedicatedLogVolume = __parseBoolean(output["DedicatedLogVolume"]);
+  }
+  if (output["IsStorageConfigUpgradeAvailable"] !== undefined) {
+    contents.IsStorageConfigUpgradeAvailable = __parseBoolean(output["IsStorageConfigUpgradeAvailable"]);
   }
   return contents;
 };

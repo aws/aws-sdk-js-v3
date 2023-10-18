@@ -3181,6 +3181,20 @@ export interface CreateBlueGreenDeploymentRequest {
    * <p>Tags to assign to the blue/green deployment.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Specify the DB instance class for the databases in the green environment.</p>
+   */
+  TargetDBInstanceClass?: string;
+
+  /**
+   * @public
+   * <p>Whether to upgrade the storage file system configuration on the green database. This
+   *             option migrates the green DB instance from the older 32-bit file system to the preferred
+   *             configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.UpgradeFileSystem">Upgrading the storage file system for a DB instance</a>.</p>
+   */
+  UpgradeTargetStorageConfig?: boolean;
 }
 
 /**
@@ -9076,6 +9090,15 @@ export interface DBInstance {
    * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.</p>
    */
   DedicatedLogVolume?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether an upgrade is recommended for the storage file system configuration
+   *             on the DB instance. To migrate to the preferred configuration, you can either create a
+   *             blue/green deployment, or create a read replica from the DB instance. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.UpgradeFileSystem">Upgrading the storage file system for a DB instance</a>.</p>
+   */
+  IsStorageConfigUpgradeAvailable?: boolean;
 }
 
 /**
@@ -9832,6 +9855,13 @@ export interface CreateDBInstanceReadReplicaMessage {
    * <p>Indicates whether the DB instance has a dedicated log volume (DLV) enabled.</p>
    */
   DedicatedLogVolume?: boolean;
+
+  /**
+   * @public
+   * <p>Whether to upgrade the storage file system configuration on the read replica. This option
+   *             migrates the read replica from the old storage file system layout to the preferred layout.</p>
+   */
+  UpgradeStorageConfig?: boolean;
 }
 
 /**

@@ -284,6 +284,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //       ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //       PercentProgress: "STRING_VALUE",
  * //       DedicatedLogVolume: true || false,
+ * //       IsStorageConfigUpgradeAvailable: true || false,
  * //     },
  * //   ],
  * // };

@@ -349,6 +349,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //     PercentProgress: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
+ * //     IsStorageConfigUpgradeAvailable: true || false,
  * //   },
  * // };
  *

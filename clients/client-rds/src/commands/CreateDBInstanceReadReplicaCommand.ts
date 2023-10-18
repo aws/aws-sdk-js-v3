@@ -117,6 +117,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   AllocatedStorage: Number("int"),
  *   SourceDBClusterIdentifier: "STRING_VALUE",
  *   DedicatedLogVolume: true || false,
+ *   UpgradeStorageConfig: true || false,
  * };
  * const command = new CreateDBInstanceReadReplicaCommand(input);
  * const response = await client.send(command);
@@ -340,6 +341,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //     PercentProgress: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
+ * //     IsStorageConfigUpgradeAvailable: true || false,
  * //   },
  * // };
  *
