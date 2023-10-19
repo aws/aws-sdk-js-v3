@@ -82,6 +82,11 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * //   },
  * //   accelerators: "STRING_VALUE",
  * //   retentionMode: "STRING_VALUE",
+ * //   failureReason: "STRING_VALUE",
+ * //   logLocation: { // RunLogLocation
+ * //     engineLogStream: "STRING_VALUE",
+ * //     runLogStream: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

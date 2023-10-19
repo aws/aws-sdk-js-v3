@@ -3335,6 +3335,12 @@
         ]
       }
     },
+    "com.amazonaws.omics#EngineLogStream": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$"
+      }
+    },
     "com.amazonaws.omics#EscapeChar": {
       "type": "string",
       "traits": {
@@ -6316,6 +6322,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The run's retention mode.</p>"
           }
+        },
+        "failureReason": {
+          "target": "com.amazonaws.omics#RunFailureReason",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The reason a run has failed. \n    </p>"
+          }
+        },
+        "logLocation": {
+          "target": "com.amazonaws.omics#RunLogLocation",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The location of the run log. \n    </p>"
+          }
         }
       },
       "traits": {
@@ -6501,7 +6519,7 @@
         "id": {
           "target": "com.amazonaws.omics#RunId",
           "traits": {
-            "smithy.api#documentation": "<p>The task's ID.</p>",
+            "smithy.api#documentation": "<p>The workflow run ID.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -6601,6 +6619,12 @@
           "target": "com.amazonaws.omics#TaskInstanceType",
           "traits": {
             "smithy.api#documentation": "<p>\n      The instance type for a task. \n    </p>"
+          }
+        },
+        "failureReason": {
+          "target": "com.amazonaws.omics#TaskFailureReason",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The reason a task has failed. \n    </p>"
           }
         }
       },
@@ -10444,7 +10468,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -10463,7 +10486,6 @@
                 },
                 {
                   "conditions": [],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -10491,13 +10513,14 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -10510,7 +10533,6 @@
                       ]
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -10524,7 +10546,6 @@
                           "assign": "PartitionResult"
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -10547,7 +10568,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
@@ -10582,11 +10602,9 @@
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -10597,16 +10615,19 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [
@@ -10620,14 +10641,12 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
                                 {
                                   "fn": "booleanEquals",
                                   "argv": [
-                                    true,
                                     {
                                       "fn": "getAttr",
                                       "argv": [
@@ -10636,15 +10655,14 @@
                                         },
                                         "supportsFIPS"
                                       ]
-                                    }
+                                    },
+                                    true
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -10655,16 +10673,19 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "FIPS is enabled but this partition does not support FIPS",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [
@@ -10678,7 +10699,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
@@ -10698,11 +10718,9 @@
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -10713,20 +10731,22 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "DualStack is enabled but this partition does not support DualStack",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -10737,18 +10757,22 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 },
                 {
                   "conditions": [],
                   "error": "Invalid Configuration: Missing Region",
                   "type": "error"
                 }
-              ]
+              ],
+              "type": "tree"
             }
           ]
         },
@@ -12457,6 +12481,16 @@
         }
       }
     },
+    "com.amazonaws.omics#RunFailureReason": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$"
+      }
+    },
     "com.amazonaws.omics#RunGroupArn": {
       "type": "string",
       "traits": {
@@ -12762,6 +12796,32 @@
         }
       }
     },
+    "com.amazonaws.omics#RunLogLocation": {
+      "type": "structure",
+      "members": {
+        "engineLogStream": {
+          "target": "com.amazonaws.omics#EngineLogStream",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The log stream ARN for the engine log. \n    </p>"
+          }
+        },
+        "runLogStream": {
+          "target": "com.amazonaws.omics#RunLogStream",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The log stream ARN for the run log. \n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      The URI for the run log. \n    </p>"
+      }
+    },
+    "com.amazonaws.omics#RunLogStream": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$"
+      }
+    },
     "com.amazonaws.omics#RunName": {
       "type": "string",
       "traits": {
@@ -12777,7 +12837,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 128
+          "max": 750
         },
         "smithy.api#pattern": "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$"
       }
@@ -14776,6 +14836,16 @@
           "template": "tag/{tagKey}"
         },
         "aws.iam#disableConditionKeyInference": {}
+      }
+    },
+    "com.amazonaws.omics#TaskFailureReason": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$"
       }
     },
     "com.amazonaws.omics#TaskId": {

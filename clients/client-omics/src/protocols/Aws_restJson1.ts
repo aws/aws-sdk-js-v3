@@ -6075,8 +6075,10 @@ export const de_GetRunCommand = async (
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     definition: __expectString,
     digest: __expectString,
+    failureReason: __expectString,
     id: __expectString,
     logLevel: __expectString,
+    logLocation: _json,
     name: __expectString,
     outputUri: __expectString,
     parameters: (_) => de_RunParameters(_, context),
@@ -6237,6 +6239,7 @@ export const de_GetRunTaskCommand = async (
   const doc = take(data, {
     cpus: __expectInt32,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    failureReason: __expectString,
     gpus: __expectInt32,
     instanceType: __expectString,
     logStream: __expectString,
@@ -9825,6 +9828,8 @@ const de_RunListItem = (output: any, context: __SerdeContext): RunListItem => {
     workflowId: __expectString,
   }) as any;
 };
+
+// de_RunLogLocation omitted.
 
 /**
  * deserializeAws_restJson1RunParameters

@@ -4641,6 +4641,30 @@ export type RunLogLevel = (typeof RunLogLevel)[keyof typeof RunLogLevel];
 
 /**
  * @public
+ * <p>
+ *       The URI for the run log.
+ *     </p>
+ */
+export interface RunLogLocation {
+  /**
+   * @public
+   * <p>
+   *       The log stream ARN for the engine log.
+   *     </p>
+   */
+  engineLogStream?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The log stream ARN for the run log.
+   *     </p>
+   */
+  runLogStream?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const RunRetentionMode = {
@@ -4842,6 +4866,22 @@ export interface GetRunResponse {
    * <p>The run's retention mode.</p>
    */
   retentionMode?: RunRetentionMode;
+
+  /**
+   * @public
+   * <p>
+   *       The reason a run has failed.
+   *     </p>
+   */
+  failureReason?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The location of the run log.
+   *     </p>
+   */
+  logLocation?: RunLogLocation;
 }
 
 /**
@@ -4922,7 +4962,7 @@ export interface GetRunGroupResponse {
 export interface GetRunTaskRequest {
   /**
    * @public
-   * <p>The task's ID.</p>
+   * <p>The workflow run ID.</p>
    */
   id: string | undefined;
 
@@ -5031,6 +5071,14 @@ export interface GetRunTaskResponse {
    *     </p>
    */
   instanceType?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The reason a task has failed.
+   *     </p>
+   */
+  failureReason?: string;
 }
 
 /**
