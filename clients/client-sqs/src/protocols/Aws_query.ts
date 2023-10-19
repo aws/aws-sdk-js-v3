@@ -2283,7 +2283,7 @@ const se_MessageBodyAttributeMap = (input: Record<string, MessageAttributeValue>
     .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.Name`] = key;
-      const memberEntries = se_MessageAttributeValue(input[key as keyof typeof input], context);
+      const memberEntries = se_MessageAttributeValue(input[key as keyof typeof input]!, context);
       Object.entries(memberEntries).forEach(([key, value]) => {
         entries[`entry.${counter}.Value.${key}`] = value;
       });
@@ -2296,7 +2296,7 @@ const se_MessageBodyAttributeMap = (input: Record<string, MessageAttributeValue>
  * serializeAws_queryMessageBodySystemAttributeMap
  */
 const se_MessageBodySystemAttributeMap = (
-  input: Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>,
+  input: Partial<Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>>,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -2305,7 +2305,7 @@ const se_MessageBodySystemAttributeMap = (
     .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.Name`] = key;
-      const memberEntries = se_MessageSystemAttributeValue(input[key as keyof typeof input], context);
+      const memberEntries = se_MessageSystemAttributeValue(input[key as keyof typeof input]!, context);
       Object.entries(memberEntries).forEach(([key, value]) => {
         entries[`entry.${counter}.Value.${key}`] = value;
       });
@@ -2365,14 +2365,14 @@ const se_PurgeQueueRequest = (input: PurgeQueueRequest, context: __SerdeContext)
 /**
  * serializeAws_queryQueueAttributeMap
  */
-const se_QueueAttributeMap = (input: Record<QueueAttributeName, string>, context: __SerdeContext): any => {
+const se_QueueAttributeMap = (input: Partial<Record<QueueAttributeName, string>>, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
     .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.Name`] = key;
-      entries[`entry.${counter}.Value`] = input[key as keyof typeof input];
+      entries[`entry.${counter}.Value`] = input[key as keyof typeof input]!;
       counter++;
     });
   return entries;
@@ -2626,7 +2626,7 @@ const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any 
     .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.Key`] = key;
-      entries[`entry.${counter}.Value`] = input[key as keyof typeof input];
+      entries[`entry.${counter}.Value`] = input[key as keyof typeof input]!;
       counter++;
     });
   return entries;
@@ -3129,7 +3129,7 @@ const de_MessageNotInflight = (output: any, context: __SerdeContext): MessageNot
 const de_MessageSystemAttributeMap = (
   output: any,
   context: __SerdeContext
-): Record<MessageSystemAttributeName, string> => {
+): Partial<Record<MessageSystemAttributeName, string>> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["Value"] === null) {
       return acc;
@@ -3158,7 +3158,7 @@ const de_PurgeQueueInProgress = (output: any, context: __SerdeContext): PurgeQue
 /**
  * deserializeAws_queryQueueAttributeMap
  */
-const de_QueueAttributeMap = (output: any, context: __SerdeContext): Record<QueueAttributeName, string> => {
+const de_QueueAttributeMap = (output: any, context: __SerdeContext): Partial<Record<QueueAttributeName, string>> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["Value"] === null) {
       return acc;

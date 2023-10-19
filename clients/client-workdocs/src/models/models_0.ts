@@ -2170,13 +2170,13 @@ export interface DocumentVersionMetadata {
    * @public
    * <p>The thumbnail of the document.</p>
    */
-  Thumbnail?: Record<DocumentThumbnailType, string>;
+  Thumbnail?: Partial<Record<DocumentThumbnailType, string>>;
 
   /**
    * @public
    * <p>The source of the document.</p>
    */
-  Source?: Record<DocumentSourceType, string>;
+  Source?: Partial<Record<DocumentSourceType, string>>;
 }
 
 /**

@@ -1246,7 +1246,7 @@ export interface ImageGenerationConfiguration {
    *             If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the <code>JPEGQuality</code>
    *             key will be set to 80.</p>
    */
-  FormatConfig?: Record<FormatConfigKey, string>;
+  FormatConfig?: Partial<Record<FormatConfigKey, string>>;
 
   /**
    * @public

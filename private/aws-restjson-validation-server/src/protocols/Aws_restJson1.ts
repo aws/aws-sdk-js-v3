@@ -1093,14 +1093,14 @@ const de_EnumList = (output: any, context: __SerdeContext): EnumString[] => {
 /**
  * deserializeAws_restJson1EnumMap
  */
-const de_EnumMap = (output: any, context: __SerdeContext): Record<EnumString, EnumString> => {
-  return Object.entries(output).reduce((acc: Record<EnumString, EnumString>, [key, value]: [string, any]) => {
+const de_EnumMap = (output: any, context: __SerdeContext): Partial<Record<EnumString, EnumString>> => {
+  return Object.entries(output).reduce((acc: Partial<Record<EnumString, EnumString>>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
     acc[key as EnumString] = __expectString(value) as any;
     return acc;
-  }, {} as Record<EnumString, EnumString>);
+  }, {} as Partial<Record<EnumString, EnumString>>);
 };
 
 /**

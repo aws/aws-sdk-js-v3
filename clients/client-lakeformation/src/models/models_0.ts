@@ -3656,7 +3656,7 @@ export interface UpdateTableStorageOptimizerRequest {
    * @public
    * <p>Name of the table for which to enable the storage optimizer.</p>
    */
-  StorageOptimizerConfig: Record<OptimizerType, Record<string, string>> | undefined;
+  StorageOptimizerConfig: Partial<Record<OptimizerType, Record<string, string>>> | undefined;
 }
 
 /**

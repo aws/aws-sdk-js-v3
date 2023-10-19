@@ -310,7 +310,7 @@ export interface App {
    * @public
    * <p>The stack attributes.</p>
    */
-  Attributes?: Record<AppAttributesKeys, string>;
+  Attributes?: Partial<Record<AppAttributesKeys, string>>;
 
   /**
    * @public
@@ -720,7 +720,7 @@ export interface CloneStackRequest {
    * @public
    * <p>A list of stack attributes and values as key/value pairs to be added to the cloned stack.</p>
    */
-  Attributes?: Record<StackAttributesKeys, string>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>>;
 
   /**
    * @public
@@ -1455,7 +1455,7 @@ export interface CreateAppRequest {
    * @public
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<AppAttributesKeys, string>;
+  Attributes?: Partial<Record<AppAttributesKeys, string>>;
 
   /**
    * @public
@@ -2112,7 +2112,7 @@ export interface CreateLayerRequest {
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    *          <p>To create a cluster layer, set the <code>EcsClusterArn</code> attribute to the cluster's ARN.</p>
    */
-  Attributes?: Record<LayerAttributesKeys, string>;
+  Attributes?: Partial<Record<LayerAttributesKeys, string>>;
 
   /**
    * @public
@@ -2297,7 +2297,7 @@ export interface CreateStackRequest {
    * @public
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<StackAttributesKeys, string>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>>;
 
   /**
    * @public
@@ -3704,7 +3704,7 @@ export interface Layer {
    *       instead of the actual value</p>
    *          <p>For an ECS Cluster layer, AWS OpsWorks Stacks the <code>EcsClusterArn</code> attribute is set to the cluster's ARN.</p>
    */
-  Attributes?: Record<LayerAttributesKeys, string>;
+  Attributes?: Partial<Record<LayerAttributesKeys, string>>;
 
   /**
    * @public
@@ -4499,7 +4499,7 @@ export interface Stack {
    * @public
    * <p>The stack's attributes.</p>
    */
-  Attributes?: Record<StackAttributesKeys, string>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>>;
 
   /**
    * @public
@@ -5809,7 +5809,7 @@ export interface UpdateAppRequest {
    * @public
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<AppAttributesKeys, string>;
+  Attributes?: Partial<Record<AppAttributesKeys, string>>;
 
   /**
    * @public
@@ -6014,7 +6014,7 @@ export interface UpdateLayerRequest {
    * @public
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<LayerAttributesKeys, string>;
+  Attributes?: Partial<Record<LayerAttributesKeys, string>>;
 
   /**
    * @public
@@ -6168,7 +6168,7 @@ export interface UpdateStackRequest {
    * @public
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<StackAttributesKeys, string>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>>;
 
   /**
    * @public

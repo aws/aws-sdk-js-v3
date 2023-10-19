@@ -884,7 +884,7 @@ export interface SelfManagedEventSource {
    * <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS":
    *         ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]</code>.</p>
    */
-  Endpoints?: Record<EndPointType, string[]>;
+  Endpoints?: Partial<Record<EndPointType, string[]>>;
 }
 
 /**

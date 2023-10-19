@@ -5075,7 +5075,7 @@ export interface AutoMLCandidate {
    *          for jobs created by calling <code>CreateAutoMLJobV2</code>) related to image or text
    *          classification problem types only.</p>
    */
-  InferenceContainerDefinitions?: Record<AutoMLProcessingUnit, AutoMLContainerDefinition[]>;
+  InferenceContainerDefinitions?: Partial<Record<AutoMLProcessingUnit, AutoMLContainerDefinition[]>>;
 }
 
 /**
@@ -6089,7 +6089,7 @@ export interface TimeSeriesTransformations {
    *             <code>backfill</code> to a value of <code>2</code>, you must include two parameters:
    *             <code>"backfill": "value"</code> and <code>"backfill_value":"2"</code>.</p>
    */
-  Filling?: Record<string, Record<FillingType, string>>;
+  Filling?: Record<string, Partial<Record<FillingType, string>>>;
 
   /**
    * @public

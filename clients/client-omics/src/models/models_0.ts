@@ -1137,7 +1137,7 @@ export interface TsvStoreOptions {
    * @public
    * <p>The store's header key to column name mapping.</p>
    */
-  formatToHeader?: Record<FormatToHeaderKey, string>;
+  formatToHeader?: Partial<Record<FormatToHeaderKey, string>>;
 
   /**
    * @public
@@ -1695,7 +1695,7 @@ export interface TsvVersionOptions {
    * The annotation store version's header key to column name mapping.
    * </p>
    */
-  formatToHeader?: Record<FormatToHeaderKey, string>;
+  formatToHeader?: Partial<Record<FormatToHeaderKey, string>>;
 
   /**
    * @public

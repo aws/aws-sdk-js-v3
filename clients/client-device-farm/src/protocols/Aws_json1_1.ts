@@ -7152,14 +7152,17 @@ const de_UniqueProblems = (output: any, context: __SerdeContext): UniqueProblem[
 const de_UniqueProblemsByExecutionResultMap = (
   output: any,
   context: __SerdeContext
-): Record<ExecutionResult, UniqueProblem[]> => {
-  return Object.entries(output).reduce((acc: Record<ExecutionResult, UniqueProblem[]>, [key, value]: [string, any]) => {
-    if (value === null) {
+): Partial<Record<ExecutionResult, UniqueProblem[]>> => {
+  return Object.entries(output).reduce(
+    (acc: Partial<Record<ExecutionResult, UniqueProblem[]>>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key as ExecutionResult] = de_UniqueProblems(value, context);
       return acc;
-    }
-    acc[key as ExecutionResult] = de_UniqueProblems(value, context);
-    return acc;
-  }, {} as Record<ExecutionResult, UniqueProblem[]>);
+    },
+    {} as Partial<Record<ExecutionResult, UniqueProblem[]>>
+  );
 };
 
 // de_UntagResourceResponse omitted.

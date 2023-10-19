@@ -5798,14 +5798,17 @@ const de_Cost = (output: any, context: __SerdeContext): Cost => {
 /**
  * deserializeAws_restJson1DisruptionResiliencyScore
  */
-const de_DisruptionResiliencyScore = (output: any, context: __SerdeContext): Record<DisruptionType, number> => {
-  return Object.entries(output).reduce((acc: Record<DisruptionType, number>, [key, value]: [string, any]) => {
+const de_DisruptionResiliencyScore = (
+  output: any,
+  context: __SerdeContext
+): Partial<Record<DisruptionType, number>> => {
+  return Object.entries(output).reduce((acc: Partial<Record<DisruptionType, number>>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
     acc[key as DisruptionType] = __limitedParseDouble(value) as any;
     return acc;
-  }, {} as Record<DisruptionType, number>);
+  }, {} as Partial<Record<DisruptionType, number>>);
 };
 
 // de_EksNamespaceList omitted.

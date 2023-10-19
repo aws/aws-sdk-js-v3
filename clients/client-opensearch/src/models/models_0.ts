@@ -1924,7 +1924,7 @@ export interface CreateDomainRequest {
    * @public
    * <p>Key-value pairs to configure log publishing.</p>
    */
-  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
 
   /**
    * @public
@@ -2201,7 +2201,7 @@ export interface DomainStatus {
    * @public
    * <p>Log publishing options for the domain.</p>
    */
-  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
 
   /**
    * @public
@@ -3560,7 +3560,7 @@ export interface LogPublishingOptionsStatus {
    * @public
    * <p>The log publishing options configured for the domain.</p>
    */
-  Options?: Record<LogType, LogPublishingOption>;
+  Options?: Partial<Record<LogType, LogPublishingOption>>;
 
   /**
    * @public
@@ -6560,7 +6560,7 @@ export interface UpdateDomainConfigRequest {
    * @public
    * <p>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</p>
    */
-  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
 
   /**
    * @public

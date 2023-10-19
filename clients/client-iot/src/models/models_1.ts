@@ -626,7 +626,7 @@ export interface DescribeAccountAuditConfigurationResponse {
    * <p>Information about the targets to which audit notifications are sent for
    *             this account.</p>
    */
-  auditNotificationTargetConfigurations?: Record<AuditNotificationType, AuditNotificationTarget>;
+  auditNotificationTargetConfigurations?: Partial<Record<AuditNotificationType, AuditNotificationTarget>>;
 
   /**
    * @public
@@ -1959,7 +1959,7 @@ export interface DescribeEventConfigurationsResponse {
    * @public
    * <p>The event configurations.</p>
    */
-  eventConfigurations?: Record<EventType, Configuration>;
+  eventConfigurations?: Partial<Record<EventType, Configuration>>;
 
   /**
    * @public
@@ -3215,7 +3215,7 @@ export interface DescribeSecurityProfileResponse {
    * @public
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
-  alertTargets?: Record<AlertTargetType, AlertTarget>;
+  alertTargets?: Partial<Record<AlertTargetType, AlertTarget>>;
 
   /**
    * @public

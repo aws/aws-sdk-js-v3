@@ -1556,7 +1556,7 @@ export interface CreateElasticsearchDomainRequest {
    * @public
    * <p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>
    */
-  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
 
   /**
    * @public
@@ -1788,7 +1788,7 @@ export interface ElasticsearchDomainStatus {
    * @public
    * <p>Log publishing options for the given domain.</p>
    */
-  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
 
   /**
    * @public
@@ -2950,7 +2950,7 @@ export interface LogPublishingOptionsStatus {
    * @public
    * <p>The log publishing options configured for the Elasticsearch domain.</p>
    */
-  Options?: Record<LogType, LogPublishingOption>;
+  Options?: Partial<Record<LogType, LogPublishingOption>>;
 
   /**
    * @public
@@ -5040,7 +5040,7 @@ export interface UpdateElasticsearchDomainConfigRequest {
    * @public
    * <p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>
    */
-  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
 
   /**
    * @public

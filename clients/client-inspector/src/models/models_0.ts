@@ -764,7 +764,7 @@ export interface AssessmentRun {
    * @public
    * <p>Provides a total count of generated findings per severity.</p>
    */
-  findingCounts: Record<Severity, number> | undefined;
+  findingCounts: Partial<Record<Severity, number>> | undefined;
 }
 
 /**

@@ -22,7 +22,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/smithy-client": "^2.1.11"
+    "@smithy/smithy-client": "^2.1.12"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

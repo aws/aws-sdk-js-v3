@@ -28,13 +28,13 @@
     "@aws-crypto/crc32c": "3.0.0",
     "@aws-sdk/types": "*",
     "@smithy/is-array-buffer": "^2.0.0",
-    "@smithy/protocol-http": "^3.0.7",
-    "@smithy/types": "^2.3.5",
+    "@smithy/protocol-http": "^3.0.8",
+    "@smithy/types": "^2.4.0",
     "@smithy/util-utf8": "^2.0.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@smithy/node-http-handler": "^2.1.7",
+    "@smithy/node-http-handler": "^2.1.8",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",

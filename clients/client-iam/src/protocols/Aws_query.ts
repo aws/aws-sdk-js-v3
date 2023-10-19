@@ -18337,7 +18337,7 @@ const de_StatementListType = (output: any, context: __SerdeContext): Statement[]
 /**
  * deserializeAws_querysummaryMapType
  */
-const de_summaryMapType = (output: any, context: __SerdeContext): Record<SummaryKeyType, number> => {
+const de_summaryMapType = (output: any, context: __SerdeContext): Partial<Record<SummaryKeyType, number>> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;

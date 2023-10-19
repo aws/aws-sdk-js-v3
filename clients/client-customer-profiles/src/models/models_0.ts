@@ -719,7 +719,7 @@ export interface Task {
    * <p>A map used to store task-related information. The service looks for particular
    *          information based on the TaskType.</p>
    */
-  TaskProperties?: Record<OperatorPropertiesKeys, string>;
+  TaskProperties?: Partial<Record<OperatorPropertiesKeys, string>>;
 
   /**
    * @public

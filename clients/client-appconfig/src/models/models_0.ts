@@ -974,7 +974,7 @@ export interface CreateExtensionRequest {
    * @public
    * <p>The actions defined in the extension.</p>
    */
-  Actions: Record<ActionPoint, Action[]> | undefined;
+  Actions: Partial<Record<ActionPoint, Action[]>> | undefined;
 
   /**
    * @public
@@ -1040,7 +1040,7 @@ export interface Extension {
    * @public
    * <p>The actions defined in the extension.</p>
    */
-  Actions?: Record<ActionPoint, Action[]>;
+  Actions?: Partial<Record<ActionPoint, Action[]>>;
 
   /**
    * @public
@@ -2853,7 +2853,7 @@ export interface UpdateExtensionRequest {
    * @public
    * <p>The actions defined in the extension.</p>
    */
-  Actions?: Record<ActionPoint, Action[]>;
+  Actions?: Partial<Record<ActionPoint, Action[]>>;
 
   /**
    * @public

@@ -760,7 +760,7 @@ export interface CopyProductInput {
    * <p>The identifiers of the provisioning artifacts (also known as versions) of the product to copy.
    *          By default, all provisioning artifacts are copied.</p>
    */
-  SourceProvisioningArtifactIdentifiers?: Record<ProvisioningArtifactPropertyName, string>[];
+  SourceProvisioningArtifactIdentifiers?: Partial<Record<ProvisioningArtifactPropertyName, string>>[];
 
   /**
    * @public
@@ -2233,7 +2233,7 @@ export interface CreateServiceActionInput {
    *             </dd>
    *          </dl>
    */
-  Definition: Record<ServiceActionDefinitionKey, string> | undefined;
+  Definition: Partial<Record<ServiceActionDefinitionKey, string>> | undefined;
 
   /**
    * @public
@@ -2310,7 +2310,7 @@ export interface ServiceActionDetail {
    * @public
    * <p>A map that defines the self-service action.</p>
    */
-  Definition?: Record<ServiceActionDefinitionKey, string>;
+  Definition?: Partial<Record<ServiceActionDefinitionKey, string>>;
 }
 
 /**
@@ -7151,7 +7151,7 @@ export interface SearchProductsInput {
    * <p>The search filters. If no search filters are specified, the output includes
    *          all products to which the caller has access.</p>
    */
-  Filters?: Record<ProductViewFilterBy, string[]>;
+  Filters?: Partial<Record<ProductViewFilterBy, string[]>>;
 
   /**
    * @public
@@ -7264,7 +7264,7 @@ export interface SearchProductsAsAdminInput {
    * <p>The search filters. If no search filters are specified, the output includes all products
    *          to which the administrator has access.</p>
    */
-  Filters?: Record<ProductViewFilterBy, string[]>;
+  Filters?: Partial<Record<ProductViewFilterBy, string[]>>;
 
   /**
    * @public
@@ -7366,7 +7366,7 @@ export interface SearchProvisionedProductsInput {
    *          <p>Example: <code>"SearchQuery":["status:AVAILABLE"]</code>
    *          </p>
    */
-  Filters?: Record<ProvisionedProductViewFilterBy, string[]>;
+  Filters?: Partial<Record<ProvisionedProductViewFilterBy, string[]>>;
 
   /**
    * @public
@@ -8326,7 +8326,7 @@ export interface UpdateProvisionedProductPropertiesInput {
    *          If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through
    *          API or the Service Catalog console on that provisioned product.</p>
    */
-  ProvisionedProductProperties: Record<PropertyKey, string> | undefined;
+  ProvisionedProductProperties: Partial<Record<PropertyKey, string>> | undefined;
 
   /**
    * @public
@@ -8349,7 +8349,7 @@ export interface UpdateProvisionedProductPropertiesOutput {
    * @public
    * <p>A map that contains the properties updated.</p>
    */
-  ProvisionedProductProperties?: Record<PropertyKey, string>;
+  ProvisionedProductProperties?: Partial<Record<PropertyKey, string>>;
 
   /**
    * @public
@@ -8469,7 +8469,7 @@ export interface UpdateServiceActionInput {
    * @public
    * <p>A map that defines the self-service action.</p>
    */
-  Definition?: Record<ServiceActionDefinitionKey, string>;
+  Definition?: Partial<Record<ServiceActionDefinitionKey, string>>;
 
   /**
    * @public

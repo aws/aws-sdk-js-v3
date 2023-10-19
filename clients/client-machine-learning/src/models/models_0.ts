@@ -3822,7 +3822,7 @@ export interface Prediction {
    * @public
    * <p>Provides any additional details regarding the prediction.</p>
    */
-  details?: Record<DetailsAttributes, string>;
+  details?: Partial<Record<DetailsAttributes, string>>;
 }
 
 /**

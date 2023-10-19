@@ -26,7 +26,7 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@smithy/property-provider": "^2.0.0",
-    "@smithy/types": "^2.3.5",
+    "@smithy/types": "^2.4.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

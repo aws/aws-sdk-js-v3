@@ -2021,7 +2021,7 @@ const se_ComplexMap = (input: Record<string, GreetingStruct>, context: __SerdeCo
     .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      const memberEntries = se_GreetingStruct(input[key as keyof typeof input], context);
+      const memberEntries = se_GreetingStruct(input[key as keyof typeof input]!, context);
       Object.entries(memberEntries).forEach(([key, value]) => {
         entries[`entry.${counter}.value.${key}`] = value;
       });
@@ -2075,7 +2075,7 @@ const se_MapOfLists = (input: Record<string, string[]>, context: __SerdeContext)
     .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      const memberEntries = se_StringList(input[key as keyof typeof input], context);
+      const memberEntries = se_StringList(input[key as keyof typeof input]!, context);
       Object.entries(memberEntries).forEach(([key, value]) => {
         entries[`entry.${counter}.value.${key}`] = value;
       });
@@ -2094,7 +2094,7 @@ const se_MapWithXmlName = (input: Record<string, string>, context: __SerdeContex
     .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.K`] = key;
-      entries[`entry.${counter}.V`] = input[key as keyof typeof input];
+      entries[`entry.${counter}.V`] = input[key as keyof typeof input]!;
       counter++;
     });
   return entries;
@@ -2445,7 +2445,7 @@ const se_StringMap = (input: Record<string, string>, context: __SerdeContext): a
     .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key as keyof typeof input];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input]!;
       counter++;
     });
   return entries;

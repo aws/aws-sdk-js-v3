@@ -3797,7 +3797,7 @@ export interface DescribeStorageSystemResourcesRequest {
    * <p>Filters the storage system resources that you want returned. For example, this might be
    *       volumes associated with a specific storage virtual machine (SVM).</p>
    */
-  Filter?: Record<DiscoveryResourceFilter, string[]>;
+  Filter?: Partial<Record<DiscoveryResourceFilter, string[]>>;
 
   /**
    * @public

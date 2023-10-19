@@ -1648,13 +1648,13 @@ export interface CoverageStatistics {
    * @public
    * <p>Represents coverage statistics for EKS clusters aggregated by resource type.</p>
    */
-  CountByResourceType?: Record<ResourceType, number>;
+  CountByResourceType?: Partial<Record<ResourceType, number>>;
 
   /**
    * @public
    * <p>Represents coverage statistics for EKS clusters aggregated by coverage status.</p>
    */
-  CountByCoverageStatus?: Record<CoverageStatus, number>;
+  CountByCoverageStatus?: Partial<Record<CoverageStatus, number>>;
 }
 
 /**
@@ -6170,14 +6170,14 @@ export interface ScanResourceCriteria {
    * <p>Represents condition that when matched will allow a malware scan for a certain
    *       resource.</p>
    */
-  Include?: Record<ScanCriterionKey, ScanCondition>;
+  Include?: Partial<Record<ScanCriterionKey, ScanCondition>>;
 
   /**
    * @public
    * <p>Represents condition that when matched will prevent a malware scan for a certain
    *       resource.</p>
    */
-  Exclude?: Record<ScanCriterionKey, ScanCondition>;
+  Exclude?: Partial<Record<ScanCriterionKey, ScanCondition>>;
 }
 
 /**

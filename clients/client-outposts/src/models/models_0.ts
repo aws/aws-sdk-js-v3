@@ -1840,7 +1840,7 @@ export interface OrderSummary {
    * @public
    * <p> The status of all line items in the order. </p>
    */
-  LineItemCountsByStatus?: Record<LineItemStatus, number>;
+  LineItemCountsByStatus?: Partial<Record<LineItemStatus, number>>;
 
   /**
    * @public

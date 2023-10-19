@@ -902,7 +902,7 @@ export interface CheckSummary {
    * @public
    * <p>Account summary associated to the check.</p>
    */
-  AccountSummary?: Record<CheckStatus, number>;
+  AccountSummary?: Partial<Record<CheckStatus, number>>;
 }
 
 /**
@@ -995,7 +995,7 @@ export interface PillarMetric {
    * @public
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
 
   /**
    * @public
@@ -1025,7 +1025,7 @@ export interface LensMetric {
    * @public
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
 }
 
 /**
@@ -1056,7 +1056,7 @@ export interface ConsolidatedReportMetric {
    * @public
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
 
   /**
    * @public
@@ -2669,13 +2669,13 @@ export interface PillarReviewSummary {
    * @public
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
 
   /**
    * @public
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  PrioritizedRiskCounts?: Partial<Record<Risk, number>>;
 }
 
 /**
@@ -2761,7 +2761,7 @@ export interface LensReview {
    * @public
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
 
   /**
    * @public
@@ -2779,7 +2779,7 @@ export interface LensReview {
    * @public
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  PrioritizedRiskCounts?: Partial<Record<Risk, number>>;
 }
 
 /**
@@ -3337,7 +3337,7 @@ export interface Workload {
    * @public
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
 
   /**
    * @public
@@ -3394,7 +3394,7 @@ export interface Workload {
    * @public
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  PrioritizedRiskCounts?: Partial<Record<Risk, number>>;
 }
 
 /**
@@ -3792,7 +3792,7 @@ export interface ReviewTemplate {
    * @public
    * <p>A count of how many total questions are answered and unanswered in the review template.</p>
    */
-  QuestionCounts?: Record<Question, number>;
+  QuestionCounts?: Partial<Record<Question, number>>;
 
   /**
    * @public
@@ -4076,7 +4076,7 @@ export interface ReviewTemplatePillarReviewSummary {
    * @public
    * <p>A count of how many questions are answered and unanswered in the requested pillar of the lens review.</p>
    */
-  QuestionCounts?: Record<Question, number>;
+  QuestionCounts?: Partial<Record<Question, number>>;
 }
 
 /**
@@ -4144,7 +4144,7 @@ export interface ReviewTemplateLensReview {
    * @public
    * <p>A count of how many questions are answered and unanswered in the lens review.</p>
    */
-  QuestionCounts?: Record<Question, number>;
+  QuestionCounts?: Partial<Record<Question, number>>;
 
   /**
    * @public
@@ -4368,7 +4368,7 @@ export interface LensReviewSummary {
    * @public
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
 
   /**
    * @public
@@ -4380,7 +4380,7 @@ export interface LensReviewSummary {
    * @public
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  PrioritizedRiskCounts?: Partial<Record<Risk, number>>;
 }
 
 /**
@@ -5194,7 +5194,7 @@ export interface WorkloadSummary {
    * @public
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
 
   /**
    * @public
@@ -5212,7 +5212,7 @@ export interface WorkloadSummary {
    * @public
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  PrioritizedRiskCounts?: Partial<Record<Risk, number>>;
 }
 
 /**

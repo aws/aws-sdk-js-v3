@@ -7774,7 +7774,7 @@ const se_S3UserMetadata = (input: Record<string, string>, context: __SerdeContex
       const keyNode = __XmlNode.of("NonEmptyMaxLength1024String", key).withName("key");
       entryNode.addChildNode(keyNode);
       let node;
-      node = __XmlNode.of("MaxLength1024String", input[key as keyof typeof input]);
+      node = __XmlNode.of("MaxLength1024String", input[key as keyof typeof input]!);
       entryNode.addChildNode(node.withName("value"));
       return entryNode;
     });

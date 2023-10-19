@@ -6759,7 +6759,7 @@ export interface CreateSecurityProfileRequest {
    * <p>Specifies the destinations to which alerts are sent. (Alerts are always sent to the
    *         console.) Alerts are generated when a device (thing) violates a behavior.</p>
    */
-  alertTargets?: Record<AlertTargetType, AlertTarget>;
+  alertTargets?: Partial<Record<AlertTargetType, AlertTarget>>;
 
   /**
    * @public

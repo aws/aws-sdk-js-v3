@@ -5709,7 +5709,7 @@ export interface PromptSpecification {
    * @public
    * <p>Specifies the advanced settings on each attempt of the prompt.</p>
    */
-  promptAttemptsSpecification?: Record<PromptAttempt, PromptAttemptSpecification>;
+  promptAttemptsSpecification?: Partial<Record<PromptAttempt, PromptAttemptSpecification>>;
 }
 
 /**

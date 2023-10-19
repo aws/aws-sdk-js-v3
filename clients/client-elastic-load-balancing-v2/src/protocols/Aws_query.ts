@@ -3463,7 +3463,7 @@ const se_AuthenticateCognitoActionAuthenticationRequestExtraParams = (
     .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key as keyof typeof input];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input]!;
       counter++;
     });
   return entries;
@@ -3521,7 +3521,7 @@ const se_AuthenticateOidcActionAuthenticationRequestExtraParams = (
     .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key as keyof typeof input];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input]!;
       counter++;
     });
   return entries;

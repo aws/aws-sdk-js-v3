@@ -31,9 +31,9 @@
   "dependencies": {
     "@aws-sdk/endpoint-cache": "*",
     "@aws-sdk/types": "*",
-    "@smithy/node-config-provider": "^2.1.2",
-    "@smithy/protocol-http": "^3.0.7",
-    "@smithy/types": "^2.3.5",
+    "@smithy/node-config-provider": "^2.1.3",
+    "@smithy/protocol-http": "^3.0.8",
+    "@smithy/types": "^2.4.0",
     "tslib": "^2.5.0"
   },
   "engines": {

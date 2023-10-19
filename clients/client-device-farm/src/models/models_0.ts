@@ -52,14 +52,14 @@ export interface AccountSettings {
    * @public
    * <p>Returns the unmetered devices you have purchased or want to purchase.</p>
    */
-  unmeteredDevices?: Record<DevicePlatform, number>;
+  unmeteredDevices?: Partial<Record<DevicePlatform, number>>;
 
   /**
    * @public
    * <p>Returns the unmetered remote access devices you have purchased or want to
    *             purchase.</p>
    */
-  unmeteredRemoteAccessDevices?: Record<DevicePlatform, number>;
+  unmeteredRemoteAccessDevices?: Partial<Record<DevicePlatform, number>>;
 
   /**
    * @public
@@ -6524,7 +6524,7 @@ export interface ListUniqueProblemsResult {
    *             </li>
    *          </ul>
    */
-  uniqueProblems?: Record<ExecutionResult, UniqueProblem[]>;
+  uniqueProblems?: Partial<Record<ExecutionResult, UniqueProblem[]>>;
 
   /**
    * @public

@@ -1619,7 +1619,7 @@ export interface CopyJob {
    * <p>This returns the statistics of the included
    *          child (nested) copy jobs.</p>
    */
-  ChildJobsInState?: Record<CopyJobState, number>;
+  ChildJobsInState?: Partial<Record<CopyJobState, number>>;
 
   /**
    * @public
@@ -2790,7 +2790,7 @@ export interface DescribeBackupJobOutput {
    * @public
    * <p>This returns the statistics of the included child (nested) backup jobs.</p>
    */
-  ChildJobsInState?: Record<BackupJobState, number>;
+  ChildJobsInState?: Partial<Record<BackupJobState, number>>;
 
   /**
    * @public

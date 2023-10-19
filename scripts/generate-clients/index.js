@@ -31,6 +31,7 @@ const {
   keepFiles,
   repo,
   commit,
+  d: noSmithyCheckout,
 } = yargs(process.argv.slice(2))
   .alias("m", "models")
   .string("m")
@@ -46,6 +47,9 @@ const {
   .alias("n", "noPrivateClients")
   .boolean("n")
   .describe("n", "Disable generating private clients")
+  .alias("d", "noSmithyCheckout")
+  .boolean("d")
+  .describe("d", "use existing Smithy version instead of target hash")
   .alias("s", "server-artifacts")
   .boolean("s")
   .describe("s", "Generate server artifacts instead of client ones")
@@ -69,7 +73,9 @@ const {
 (async () => {
   try {
     require("../runtime-dependency-version-check/runtime-dep-version-check");
-    await buildSmithyTypeScript(repo, commit);
+    if (!noSmithyCheckout) {
+      await buildSmithyTypeScript(repo, commit);
+    }
 
     if (serverOnly === true) {
       await generateProtocolTests();
