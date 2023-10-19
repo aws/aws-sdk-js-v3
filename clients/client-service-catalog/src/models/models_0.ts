@@ -1267,6 +1267,7 @@ export class OperationNotSupportedException extends __BaseException {
  */
 export const ProductType = {
   CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  EXTERNAL: "EXTERNAL",
   MARKETPLACE: "MARKETPLACE",
   TERRAFORM_CLOUD: "TERRAFORM_CLOUD",
   TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",
@@ -1283,6 +1284,7 @@ export type ProductType = (typeof ProductType)[keyof typeof ProductType];
  */
 export const ProvisioningArtifactType = {
   CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  EXTERNAL: "EXTERNAL",
   MARKETPLACE_AMI: "MARKETPLACE_AMI",
   MARKETPLACE_CAR: "MARKETPLACE_CAR",
   TERRAFORM_CLOUD: "TERRAFORM_CLOUD",
@@ -1338,7 +1340,15 @@ export interface ProvisioningArtifactProperties {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TERRAFORM_OPEN_SOURCE</code> - Terraform open source configuration file</p>
+   *                   <code>TERRAFORM_OPEN_SOURCE</code> - Terraform Open Source configuration file</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TERRAFORM_CLOUD</code> - Terraform Cloud configuration file</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXTERNAL</code> - External configuration file</p>
    *             </li>
    *          </ul>
    */
@@ -1843,8 +1853,24 @@ export interface ProvisioningArtifactDetail {
   /**
    * @public
    * <p>The type of provisioning artifact.</p>
-   *          <p>
-   *             <code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TERRAFORM_OPEN_SOURCE</code> - Terraform Open Source configuration file</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TERRAFORM_CLOUD</code> - Terraform Cloud configuration file</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXTERNAL</code> - External configuration file</p>
+   *             </li>
+   *          </ul>
    */
   Type?: ProvisioningArtifactType;
 
@@ -3418,7 +3444,9 @@ export interface ProvisionedProductDetail {
 
   /**
    * @public
-   * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>
+   * <p>The type of provisioned product.
+   *          The supported values are <code>CFN_STACK</code>, <code>CFN_STACKSET</code>, <code>TERRAFORM_OPEN_SOURCE</code>,
+   *          <code>TERRAFORM_CLOUD</code>, and <code>EXTERNAL</code>.</p>
    */
   Type?: string;
 
@@ -4498,7 +4526,7 @@ export interface RecordDetail {
   /**
    * @public
    * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code>, <code>CFN_STACKSET</code>,
-   *          <code>TERRAFORM_OPEN_SOURCE</code>, and <code>TERRAFORM_CLOUD</code>.</p>
+   *          <code>TERRAFORM_OPEN_SOURCE</code>, <code>TERRAFORM_CLOUD</code>, and <code>EXTERNAL</code>.</p>
    */
   ProvisionedProductType?: string;
 
@@ -7385,7 +7413,9 @@ export interface ProvisionedProductAttribute {
 
   /**
    * @public
-   * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>
+   * <p>The type of provisioned product.
+   *          The supported values are <code>CFN_STACK</code>, <code>CFN_STACKSET</code>, <code>TERRAFORM_OPEN_SOURCE</code>,
+   *          <code>TERRAFORM_CLOUD</code>, and <code>EXTERNAL</code>.</p>
    */
   Type?: string;
 

@@ -58,7 +58,7 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  *   SupportDescription: "STRING_VALUE",
  *   SupportEmail: "STRING_VALUE",
  *   SupportUrl: "STRING_VALUE",
- *   ProductType: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD", // required
+ *   ProductType: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD" || "EXTERNAL", // required
  *   Tags: [ // AddTags
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -71,7 +71,7 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  *     Info: { // ProvisioningArtifactInfo
  *       "<keys>": "STRING_VALUE",
  *     },
- *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD",
+ *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD" || "EXTERNAL",
  *     DisableTemplateValidation: true || false,
  *   },
  *   IdempotencyToken: "STRING_VALUE", // required
@@ -97,7 +97,7 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  * //       Name: "STRING_VALUE",
  * //       Owner: "STRING_VALUE",
  * //       ShortDescription: "STRING_VALUE",
- * //       Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD",
+ * //       Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD" || "EXTERNAL",
  * //       Distributor: "STRING_VALUE",
  * //       HasDefaultPath: true || false,
  * //       SupportEmail: "STRING_VALUE",
@@ -130,7 +130,7 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  * //     Id: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
- * //     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD",
+ * //     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD" || "EXTERNAL",
  * //     CreatedTime: new Date("TIMESTAMP"),
  * //     Active: true || false,
  * //     Guidance: "DEFAULT" || "DEPRECATED",

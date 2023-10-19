@@ -47,8 +47,7 @@ export interface AssociatePrincipalWithPortfolioCommandOutput
  *          included in the share. </p>
  *          <p>The <code>PortfolioID</code>, <code>PrincipalARN</code>, and <code>PrincipalType</code> parameters are
  *       required. </p>
- *          <p>You can associate a maximum of 10 Principals with a portfolio using <code>PrincipalType</code> as <code>IAM_PATTERN</code>
- *          </p>
+ *          <p>You can associate a maximum of 10 Principals with a portfolio using <code>PrincipalType</code> as <code>IAM_PATTERN</code>. </p>
  *          <note>
  *             <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
  *          then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin,

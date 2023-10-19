@@ -57,7 +57,7 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  *     Info: { // ProvisioningArtifactInfo
  *       "<keys>": "STRING_VALUE",
  *     },
- *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD",
+ *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD" || "EXTERNAL",
  *     DisableTemplateValidation: true || false,
  *   },
  *   IdempotencyToken: "STRING_VALUE", // required
@@ -69,7 +69,7 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  * //     Id: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
- * //     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD",
+ * //     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD" || "EXTERNAL",
  * //     CreatedTime: new Date("TIMESTAMP"),
  * //     Active: true || false,
  * //     Guidance: "DEFAULT" || "DEPRECATED",
