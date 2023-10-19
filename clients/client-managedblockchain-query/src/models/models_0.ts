@@ -40,6 +40,10 @@ export const QueryNetwork = {
    * Ethereum main network
    */
   ETHEREUM_MAINNET: "ETHEREUM_MAINNET",
+  /**
+   * SEPOLIA network (ethereum testnet)
+   */
+  ETHEREUM_SEPOLIA_TESTNET: "ETHEREUM_SEPOLIA_TESTNET",
 } as const;
 
 /**
