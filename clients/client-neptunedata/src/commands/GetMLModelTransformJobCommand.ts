@@ -39,6 +39,10 @@ export interface GetMLModelTransformJobCommandOutput extends GetMLModelTransform
  * @public
  * <p>Gets information about a specified model transform job. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html">Use
  *       a trained model to generate new model artifacts</a>.</p>
+ *          <p>When invoking this operation in a Neptune cluster that has IAM
+ *       authentication enabled, the IAM user or role making the request must
+ *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlmodeltransformjobstatus">neptune-db:GetMLModelTransformJobStatus</a>
+ *       IAM action in that cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

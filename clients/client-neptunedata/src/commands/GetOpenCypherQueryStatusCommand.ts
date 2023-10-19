@@ -38,6 +38,14 @@ export interface GetOpenCypherQueryStatusCommandOutput extends GetOpenCypherQuer
 /**
  * @public
  * <p>Retrieves the status of a specified openCypher query.</p>
+ *          <p>When invoking this operation in a Neptune cluster that has IAM
+ *       authentication enabled, the IAM user or role making the request must
+ *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus">neptune-db:GetQueryStatus</a>
+ *       IAM action in that cluster.</p>
+ *          <p>Note that the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Opencypher</a>
+ *       IAM condition key can be used in the policy document to restrict the use of
+ *       openCypher queries (see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition
+ *       keys available in Neptune IAM data-access policy statements</a>).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

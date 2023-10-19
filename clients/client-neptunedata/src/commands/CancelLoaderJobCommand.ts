@@ -38,9 +38,12 @@ export interface CancelLoaderJobCommandOutput extends CancelLoaderJobOutput, __M
 /**
  * @public
  * <p>Cancels a specified load job. This is an HTTP <code>DELETE</code>
- *       request.</p>
- *          <p>See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/load-api-reference-status.htm">Neptune
+ *       request. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/load-api-reference-status.htm">Neptune
  *       Loader Get-Status API</a> for more information.</p>
+ *          <p>When invoking this operation in a Neptune cluster that has IAM
+ *       authentication enabled, the IAM user or role making the request must
+ *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelloaderjob">neptune-db:CancelLoaderJob</a>
+ *       IAM action in that cluster..</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -46,7 +46,31 @@ export interface GetPropertygraphStreamCommandOutput extends GetPropertygraphStr
  *       DBcluster. To enable streams, set the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/parameters.html#parameters-db-cluster-parameters-neptune_streams">neptune_streams</a>
  *       DB cluster parameter to <code>1</code>.</p>
  *          <p>See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/streams.html">Capturing
- *     graph changes in real time using Neptune streams</a>.</p>
+ *       graph changes in real time using Neptune streams</a>.</p>
+ *          <p>When invoking this operation in a Neptune cluster that has IAM
+ *       authentication enabled, the IAM user or role making the request must
+ *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstreamrecords">neptune-db:GetStreamRecords</a>
+ *       IAM action in that cluster.</p>
+ *          <p>When invoking this operation in a Neptune cluster that has IAM
+ *       authentication enabled, the IAM user or role making the request must
+ *       have a policy attached that enables one of the following IAM actions,
+ *       depending on the query:</p>
+ *          <p>Note that you can restrict property-graph queries using the
+ *       following IAM context keys:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Gremlin</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Opencypher</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition
+ *       keys available in Neptune IAM data-access policy statements</a>).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

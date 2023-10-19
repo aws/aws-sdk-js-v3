@@ -59,6 +59,31 @@ export interface ExecuteGremlinExplainQueryCommandOutput
  *       as explained  in <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-traversal-tuning.html">Tuning
  *       Gremlin queries</a>. You can also use query hints to improve
  *       query execution plans.</p>
+ *          <p>When invoking this operation in a Neptune cluster that has IAM
+ *       authentication enabled, the IAM user or role making the request must
+ *       have a policy attached that allows one of the following IAM actions
+ *       in that cluster, depending on the query:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery">neptune-db:ReadDataViaQuery</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#writedataviaquery">neptune-db:WriteDataViaQuery</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletedataviaquery">neptune-db:DeleteDataViaQuery</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Note that the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Gremlin</a>
+ *       IAM condition key can be used in the policy document to restrict the use of
+ *       Gremlin queries (see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition
+ *       keys available in Neptune IAM data-access policy statements</a>).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

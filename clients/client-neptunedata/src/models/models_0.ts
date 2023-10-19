@@ -2576,7 +2576,7 @@ export interface GetPropertygraphStatisticsOutput {
   /**
    * @public
    * <p>The HTTP return code of the request. If the request succeeded,
-   *       the code is 200. See <a href="docs.aws.amazon.comneptune/latest/userguide/neptune-dfe-statistics.html#neptune-dfe-statistics-errors">Common
+   *       the code is 200. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dfe-statistics.html#neptune-dfe-statistics-errors">Common
    *       error codes for DFE statistics request</a> for a list of common errors.</p>
    */
   status: string | undefined;
@@ -3275,7 +3275,7 @@ export interface RDFGraphSummaryValueMap {
 
   /**
    * @public
-   * <p>The graph summary of an RDF graph. See <a href="https://docs.aws.amazon.com/neptune-graph-summary.html#neptune-graph-summary-rdf-response">Graph
+   * <p>The graph summary of an RDF graph. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-graph-summary.html#neptune-graph-summary-rdf-response">Graph
    *       summary response for an RDF graph</a>.</p>
    */
   graphSummary?: RDFGraphSummary;
@@ -3306,8 +3306,12 @@ export interface GetSparqlStatisticsOutput {
   /**
    * @public
    * <p>The HTTP return code of the request. If the request succeeded,
-   *       the code is 200. See <a href="docs.aws.amazon.comneptune/latest/userguide/neptune-dfe-statistics.html#neptune-dfe-statistics-errors">Common
+   *       the code is 200. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dfe-statistics.html#neptune-dfe-statistics-errors">Common
    *       error codes for DFE statistics request</a> for a list of common errors.</p>
+   *          <p>When invoking this operation in a Neptune cluster that has IAM
+   *       authentication enabled, the IAM user or role making the request must
+   *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstatisticsstatus">neptune-db:GetStatisticsStatus</a>
+   *       IAM action in that cluster.</p>
    */
   status: string | undefined;
 

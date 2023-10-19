@@ -47,6 +47,14 @@ export interface GetSparqlStreamCommandOutput extends GetSparqlStreamOutput, __M
  *       DB cluster parameter to <code>1</code>.</p>
  *          <p>See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/streams.html">Capturing
  *     graph changes in real time using Neptune streams</a>.</p>
+ *          <p>When invoking this operation in a Neptune cluster that has IAM
+ *       authentication enabled, the IAM user or role making the request must
+ *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstreamrecords">neptune-db:GetStreamRecords</a>
+ *       IAM action in that cluster.</p>
+ *          <p>Note that the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Sparql</a>
+ *       IAM condition key can be used in the policy document to restrict the use of
+ *       SPARQL queries (see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition
+ *       keys available in Neptune IAM data-access policy statements</a>).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
