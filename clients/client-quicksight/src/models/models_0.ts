@@ -2247,6 +2247,24 @@ export interface RelativeDatesFilter {
 
 /**
  * @public
+ * <p>The rolling date configuration of a date time filter.</p>
+ */
+export interface RollingDateConfiguration {
+  /**
+   * @public
+   * <p>The data set that is used in the rolling date configuration.</p>
+   */
+  DataSetIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The expression of the rolling date configuration.</p>
+   */
+  Expression: string | undefined;
+}
+
+/**
+ * @public
  * <p>A <code>TimeEqualityFilter</code> filters values that are equal to a given value.</p>
  */
 export interface TimeEqualityFilter {
@@ -2265,14 +2283,14 @@ export interface TimeEqualityFilter {
   /**
    * @public
    * <p>The value of a <code>TimeEquality</code> filter.</p>
-   *          <p>This field is mutually exclusive to <code>ParameterName</code>.</p>
+   *          <p>This field is mutually exclusive to <code>RollingDate</code> and <code>ParameterName</code>.</p>
    */
   Value?: Date;
 
   /**
    * @public
    * <p>The parameter whose value should be used for the filter value.</p>
-   *          <p>This field is mutually exclusive to <code>Value</code>.</p>
+   *          <p>This field is mutually exclusive to <code>Value</code> and <code>RollingDate</code>.</p>
    */
   ParameterName?: string;
 
@@ -2281,24 +2299,13 @@ export interface TimeEqualityFilter {
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
   TimeGranularity?: TimeGranularity;
-}
-
-/**
- * @public
- * <p>The rolling date configuration of a date time filter.</p>
- */
-export interface RollingDateConfiguration {
-  /**
-   * @public
-   * <p>The data set that is used in the rolling date configuration.</p>
-   */
-  DataSetIdentifier?: string;
 
   /**
    * @public
-   * <p>The expression of the rolling date configuration.</p>
+   * <p>The rolling date input for the <code>TimeEquality</code> filter.</p>
+   *          <p>This field is mutually exclusive to <code>Value</code> and <code>ParameterName</code>.</p>
    */
-  Expression: string | undefined;
+  RollingDate?: RollingDateConfiguration;
 }
 
 /**
@@ -6189,6 +6196,20 @@ export interface ReferenceLineDynamicDataConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const ReferenceLineSeriesType = {
+  BAR: "BAR",
+  LINE: "LINE",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLineSeriesType = (typeof ReferenceLineSeriesType)[keyof typeof ReferenceLineSeriesType];
+
+/**
+ * @public
  * <p>The static data configuration of the reference line data configuration.</p>
  */
 export interface ReferenceLineStaticDataConfiguration {
@@ -6206,8 +6227,7 @@ export interface ReferenceLineStaticDataConfiguration {
 export interface ReferenceLineDataConfiguration {
   /**
    * @public
-   * <p>The static data configuration of the reference line data
-   *             configuration.</p>
+   * <p>The static data configuration of the reference line data configuration.</p>
    */
   StaticConfiguration?: ReferenceLineStaticDataConfiguration;
 
@@ -6222,14 +6242,36 @@ export interface ReferenceLineDataConfiguration {
    * <p>The axis binding type of the reference line. Choose one of the following options:</p>
    *          <ul>
    *             <li>
-   *                <p>PrimaryY</p>
+   *                <p>
+   *                   <code>PrimaryY</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>SecondaryY</p>
+   *                <p>
+   *                   <code>SecondaryY</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
   AxisBinding?: AxisBinding;
+
+  /**
+   * @public
+   * <p>The series type of the reference line data configuration. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BAR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LINE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  SeriesType?: ReferenceLineSeriesType;
 }
 
 /**
@@ -7020,6 +7062,52 @@ export interface TooltipOptions {
 
 /**
  * @public
+ * @enum
+ */
+export const PivotTableDataPathType = {
+  COUNT_METRIC_COLUMN: "COUNT_METRIC_COLUMN",
+  EMPTY_COLUMN_HEADER: "EMPTY_COLUMN_HEADER",
+  HIERARCHY_ROWS_LAYOUT_COLUMN: "HIERARCHY_ROWS_LAYOUT_COLUMN",
+  MULTIPLE_ROW_METRICS_COLUMN: "MULTIPLE_ROW_METRICS_COLUMN",
+} as const;
+
+/**
+ * @public
+ */
+export type PivotTableDataPathType = (typeof PivotTableDataPathType)[keyof typeof PivotTableDataPathType];
+
+/**
+ * @public
+ * <p>The type of the data path value.</p>
+ */
+export interface DataPathType {
+  /**
+   * @public
+   * <p>The type of data path value utilized in a pivot table. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HIERARCHY_ROWS_LAYOUT_COLUMN</code> - The type of data path for the rows layout column, when <code>RowsLayout</code> is set to <code>HIERARCHY</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MULTIPLE_ROW_METRICS_COLUMN</code> - The type of data path for the metric column when the row is set to Metric Placement.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EMPTY_COLUMN_HEADER</code> - The type of data path for the column with empty column header, when there is no field in <code>ColumnsFieldWell</code> and the row is set to Metric Placement.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COUNT_METRIC_COLUMN</code> - The type of data path for the column with <code>COUNT</code> as the metric, when there is no field in the <code>ValuesFieldWell</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  PivotTableDataPathType?: PivotTableDataPathType;
+}
+
+/**
+ * @public
  * <p>The data path that needs to be sorted.</p>
  */
 export interface DataPathValue {
@@ -7027,13 +7115,19 @@ export interface DataPathValue {
    * @public
    * <p>The field ID of the field that needs to be sorted.</p>
    */
-  FieldId: string | undefined;
+  FieldId?: string;
 
   /**
    * @public
    * <p>The actual value of the field that needs to be sorted.</p>
    */
-  FieldValue: string | undefined;
+  FieldValue?: string;
+
+  /**
+   * @public
+   * <p>The type configuration of the field.</p>
+   */
+  DataPathType?: DataPathType;
 }
 
 /**
@@ -7447,96 +7541,6 @@ export interface VisualTitleLabelOptions {
 }
 
 /**
- * @public
- * <p>A bar chart.</p>
- *          <p>The <code>BarChartVisual</code> structure describes a visual that is a member of the bar chart family. The following charts can be described using this structure:</p>
- *          <ul>
- *             <li>
- *                <p>Horizontal bar chart</p>
- *             </li>
- *             <li>
- *                <p>Vertical bar chart</p>
- *             </li>
- *             <li>
- *                <p>Horizontal stacked bar chart</p>
- *             </li>
- *             <li>
- *                <p>Vertical stacked bar chart</p>
- *             </li>
- *             <li>
- *                <p>Horizontal stacked 100% bar chart</p>
- *             </li>
- *             <li>
- *                <p>Vertical stacked 100% bar chart</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html">Using bar charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
- */
-export interface BarChartVisual {
-  /**
-   * @public
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.</p>
-   */
-  VisualId: string | undefined;
-
-  /**
-   * @public
-   * <p>The title that is displayed on the visual.</p>
-   */
-  Title?: VisualTitleLabelOptions;
-
-  /**
-   * @public
-   * <p>The subtitle that is displayed on the visual.</p>
-   */
-  Subtitle?: VisualSubtitleLabelOptions;
-
-  /**
-   * @public
-   * <p>The configuration settings of the visual.</p>
-   */
-  ChartConfiguration?: BarChartConfiguration;
-
-  /**
-   * @public
-   * <p>The list of custom actions that are configured for a visual.</p>
-   */
-  Actions?: VisualCustomAction[];
-
-  /**
-   * @public
-   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
-   */
-  ColumnHierarchies?: ColumnHierarchy[];
-}
-
-/**
- * @public
- * @enum
- */
-export const BoxPlotFillStyle = {
-  SOLID: "SOLID",
-  TRANSPARENT: "TRANSPARENT",
-} as const;
-
-/**
- * @public
- */
-export type BoxPlotFillStyle = (typeof BoxPlotFillStyle)[keyof typeof BoxPlotFillStyle];
-
-/**
- * @public
- * <p>The style options of the box plot.</p>
- */
-export interface BoxPlotStyleOptions {
-  /**
-   * @public
-   * <p>The fill styles (solid, transparent) of the box plot.</p>
-   */
-  FillStyle?: BoxPlotFillStyle;
-}
-
-/**
  * @internal
  */
 export const CalculatedFieldFilterSensitiveLog = (obj: CalculatedField): any => ({
@@ -7704,6 +7708,14 @@ export const RollingDateConfigurationFilterSensitiveLog = (obj: RollingDateConfi
 /**
  * @internal
  */
+export const TimeEqualityFilterFilterSensitiveLog = (obj: TimeEqualityFilter): any => ({
+  ...obj,
+  ...(obj.RollingDate && { RollingDate: RollingDateConfigurationFilterSensitiveLog(obj.RollingDate) }),
+});
+
+/**
+ * @internal
+ */
 export const TimeRangeFilterValueFilterSensitiveLog = (obj: TimeRangeFilterValue): any => ({
   ...obj,
   ...(obj.RollingDate && { RollingDate: RollingDateConfigurationFilterSensitiveLog(obj.RollingDate) }),
@@ -7723,6 +7735,7 @@ export const TimeRangeFilterFilterSensitiveLog = (obj: TimeRangeFilter): any => 
  */
 export const FilterFilterSensitiveLog = (obj: Filter): any => ({
   ...obj,
+  ...(obj.TimeEqualityFilter && { TimeEqualityFilter: TimeEqualityFilterFilterSensitiveLog(obj.TimeEqualityFilter) }),
   ...(obj.TimeRangeFilter && { TimeRangeFilter: TimeRangeFilterFilterSensitiveLog(obj.TimeRangeFilter) }),
 });
 
@@ -8230,11 +8243,4 @@ export const BarChartConfigurationFilterSensitiveLog = (obj: BarChartConfigurati
   ...(obj.ReferenceLines && {
     ReferenceLines: obj.ReferenceLines.map((item) => ReferenceLineFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const BarChartVisualFilterSensitiveLog = (obj: BarChartVisual): any => ({
-  ...obj,
 });

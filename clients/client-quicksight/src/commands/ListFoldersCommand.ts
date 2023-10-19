@@ -58,7 +58,7 @@ export interface ListFoldersCommandOutput extends ListFoldersResponse, __Metadat
  * //       Arn: "STRING_VALUE",
  * //       FolderId: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
- * //       FolderType: "SHARED",
+ * //       FolderType: "SHARED" || "RESTRICTED",
  * //       CreatedTime: new Date("TIMESTAMP"),
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
  * //       SharingModel: "ACCOUNT" || "NAMESPACE",

@@ -164,6 +164,17 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       Port: Number("int"), // required
  *       SqlEndpointPath: "STRING_VALUE", // required
  *     },
+ *     StarburstParameters: { // StarburstParameters
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Catalog: "STRING_VALUE", // required
+ *       ProductType: "GALAXY" || "ENTERPRISE",
+ *     },
+ *     TrinoParameters: { // TrinoParameters
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Catalog: "STRING_VALUE", // required
+ *     },
  *   },
  *   Credentials: { // DataSourceCredentials
  *     CredentialPair: { // CredentialPair
@@ -281,6 +292,17 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *             Host: "STRING_VALUE", // required
  *             Port: Number("int"), // required
  *             SqlEndpointPath: "STRING_VALUE", // required
+ *           },
+ *           StarburstParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Catalog: "STRING_VALUE", // required
+ *             ProductType: "GALAXY" || "ENTERPRISE",
+ *           },
+ *           TrinoParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Catalog: "STRING_VALUE", // required
  *           },
  *         },
  *       ],

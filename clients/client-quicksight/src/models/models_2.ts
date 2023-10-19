@@ -14,26 +14,155 @@ import {
   DashboardBehavior,
   DataSetIdentifierDeclaration,
   Edition,
-  Entity,
   FilterGroup,
   NumberScale,
   ParameterDeclaration,
   ParameterDeclarationFilterSensitiveLog,
   ResourceStatus,
-  Sheet,
   TimeGranularity,
 } from "./models_0";
 import {
   AnalysisDefinition,
   AnalysisSourceEntity,
   DataSetReference,
-  FilterOperator,
   SheetDefinition,
-  SnapshotFile,
-  SnapshotJobS3Result,
-  SnapshotJobS3ResultFilterSensitiveLog,
+  SnapshotFileFormatType,
+  SnapshotFileSheetSelectionScope,
 } from "./models_1";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>A structure that contains information that identifies the snapshot that needs to be generated.</p>
+ */
+export interface SnapshotFileSheetSelection {
+  /**
+   * @public
+   * <p>The sheet ID of the dashboard to generate the snapshot artifact from. This value is required for CSV, Excel, and PDF format types.</p>
+   */
+  SheetId: string | undefined;
+
+  /**
+   * @public
+   * <p>The selection scope of the visuals on a sheet of a dashboard that you are generating a snapthot of. You can choose one of the following options.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_VISUALS</code> - Selects all visuals that are on the sheet. This value is required if the snapshot is a PDF.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SELECTED_VISUALS</code> - Select the visual that you want to add to the snapshot. This value is required if the snapshot is a CSV or Excel workbook.</p>
+   *             </li>
+   *          </ul>
+   */
+  SelectionScope: SnapshotFileSheetSelectionScope | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             A structure that lists the IDs of the visuals in the selected sheet. Supported visual types are table, pivot table visuals. This value is required if you are generating a CSV or Excel workbook. This value supports a maximum of 1 visual ID for CSV and 5 visual IDs across up to 5 sheet selections for Excel. If you are generating an Excel workbook, the order of the visual IDs provided in this structure determines the order of the worksheets in the Excel file.
+   *         </p>
+   */
+  VisualIds?: string[];
+}
+
+/**
+ * @public
+ * <p>A structure that contains the information for the snapshot that you want to generate. This information is provided by you when you start a new snapshot job.</p>
+ */
+export interface SnapshotFile {
+  /**
+   * @public
+   * <p>A list of <code>SnapshotFileSheetSelection</code> objects that contain information on the dashboard sheet that is exported. These objects provide information about the snapshot artifacts that are generated during the job. This structure can hold a maximum of 5 CSV configurations, 5 Excel configurations, or 1 configuration for PDF.</p>
+   */
+  SheetSelections: SnapshotFileSheetSelection[] | undefined;
+
+  /**
+   * @public
+   * <p>The format of the snapshot file to be generated. You can choose between <code>CSV</code>, <code>Excel</code>, or <code>PDF</code>.</p>
+   */
+  FormatType: SnapshotFileFormatType | undefined;
+}
+
+/**
+ * @public
+ * <p>Information on the error that caused the snapshot job to fail.</p>
+ */
+export interface SnapshotJobResultErrorInfo {
+  /**
+   * @public
+   * <p>The error message.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * @public
+   * <p>The error type.</p>
+   */
+  ErrorType?: string;
+}
+
+/**
+ * @public
+ * <p>An optional structure that contains the Amazon S3 bucket configuration that the generated snapshots are stored in. If you don't provide this information, generated snapshots are stored in the default Amazon QuickSight bucket.</p>
+ */
+export interface S3BucketConfiguration {
+  /**
+   * @public
+   * <p>The name of an existing Amazon S3 bucket where the generated snapshot artifacts are sent.</p>
+   */
+  BucketName: string | undefined;
+
+  /**
+   * @public
+   * <p>The prefix of the Amazon S3 bucket that the generated snapshots are stored in.</p>
+   */
+  BucketPrefix: string | undefined;
+
+  /**
+   * @public
+   * <p>The region that the Amazon S3 bucket is located in. The bucket must be located in the same region that the <code>StartDashboardSnapshotJob</code> API call is made.</p>
+   */
+  BucketRegion: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A structure that describes the Amazon S3 settings to use to save the generated dashboard snapshot.</p>
+ */
+export interface SnapshotS3DestinationConfiguration {
+  /**
+   * @public
+   * <p>A structure that contains details about the Amazon S3 bucket that the generated dashboard snapshot is saved in.</p>
+   */
+  BucketConfiguration?: S3BucketConfiguration;
+}
+
+/**
+ * @public
+ * <p>The Amazon S3 result from the snapshot job. The result includes the <code>DestinationConfiguration</code> and the Amazon S3 Uri. If an error occured during the job, the result returns information on the error.</p>
+ */
+export interface SnapshotJobS3Result {
+  /**
+   * @public
+   * <p>A list of Amazon S3 bucket configurations that are provided when you make a <code>StartDashboardSnapshotJob</code> API call.
+   *         </p>
+   */
+  S3DestinationConfiguration?: SnapshotS3DestinationConfiguration;
+
+  /**
+   * @public
+   * <p>The Amazon S3 Uri.</p>
+   */
+  S3Uri?: string;
+
+  /**
+   * @public
+   * <p>An array of error records that describe any failures that occur while the dashboard snapshot job runs.</p>
+   */
+  ErrorInfo?: SnapshotJobResultErrorInfo[];
+}
 
 /**
  * @public
@@ -655,7 +784,7 @@ export interface AwsIotAnalyticsParameters {
 
 /**
  * @public
- * <p>The required parameters that are needed to connect to a Databricks data source.</p>
+ * <p>The parameters that are required to connect to a Databricks data source.</p>
  */
 export interface DatabricksParameters {
   /**
@@ -1032,6 +1161,50 @@ export interface SqlServerParameters {
 
 /**
  * @public
+ * @enum
+ */
+export const StarburstProductType = {
+  ENTERPRISE: "ENTERPRISE",
+  GALAXY: "GALAXY",
+} as const;
+
+/**
+ * @public
+ */
+export type StarburstProductType = (typeof StarburstProductType)[keyof typeof StarburstProductType];
+
+/**
+ * @public
+ * <p>The parameters that are required to connect to a Starburst data source.</p>
+ */
+export interface StarburstParameters {
+  /**
+   * @public
+   * <p>The host name of the Starburst data source.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * @public
+   * <p>The port for the Starburst data source.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * @public
+   * <p>The catalog name for the Starburst data source.</p>
+   */
+  Catalog: string | undefined;
+
+  /**
+   * @public
+   * <p>The product type for the Starburst data source.</p>
+   */
+  ProductType?: StarburstProductType;
+}
+
+/**
+ * @public
  * <p>The parameters for Teradata.</p>
  */
 export interface TeradataParameters {
@@ -1052,6 +1225,30 @@ export interface TeradataParameters {
    * <p>Database.</p>
    */
   Database: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters that are required to connect to a Trino data source.</p>
+ */
+export interface TrinoParameters {
+  /**
+   * @public
+   * <p>The host name of the Trino data source.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * @public
+   * <p>The port for the Trino data source.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * @public
+   * <p>The catalog name for the Trino data source.</p>
+   */
+  Catalog: string | undefined;
 }
 
 /**
@@ -1100,7 +1297,9 @@ export type DataSourceParameters =
   | DataSourceParameters.SnowflakeParametersMember
   | DataSourceParameters.SparkParametersMember
   | DataSourceParameters.SqlServerParametersMember
+  | DataSourceParameters.StarburstParametersMember
   | DataSourceParameters.TeradataParametersMember
+  | DataSourceParameters.TrinoParametersMember
   | DataSourceParameters.TwitterParametersMember
   | DataSourceParameters.$UnknownMember;
 
@@ -1136,6 +1335,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1167,6 +1368,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1198,6 +1401,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1229,6 +1434,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1260,6 +1467,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1291,6 +1500,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1322,6 +1533,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1353,6 +1566,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1384,6 +1599,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1415,6 +1632,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1446,6 +1665,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1477,6 +1698,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1508,6 +1731,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1539,6 +1764,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1570,6 +1797,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1601,6 +1830,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1632,6 +1863,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1663,6 +1896,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1694,6 +1929,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1725,6 +1962,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1756,6 +1995,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters: AmazonOpenSearchParameters;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
@@ -1787,12 +2028,14 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters: ExasolParameters;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown?: never;
   }
 
   /**
    * @public
-   * <p>The required parameters that are needed to connect to a Databricks data source.</p>
+   * <p>The parameters that are required to connect to a Databricks data source.</p>
    */
   export interface DatabricksParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -1818,6 +2061,74 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters: DatabricksParameters;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The parameters that are required to connect to a Starburst data source.</p>
+   */
+  export interface StarburstParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters: StarburstParameters;
+    TrinoParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The parameters that are required to connect to a Trino data source.</p>
+   */
+  export interface TrinoParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters: TrinoParameters;
     $unknown?: never;
   }
 
@@ -1848,6 +2159,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
     DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
     $unknown: [string, any];
   }
 
@@ -1875,6 +2188,8 @@ export namespace DataSourceParameters {
     AmazonOpenSearchParameters: (value: AmazonOpenSearchParameters) => T;
     ExasolParameters: (value: ExasolParameters) => T;
     DatabricksParameters: (value: DatabricksParameters) => T;
+    StarburstParameters: (value: StarburstParameters) => T;
+    TrinoParameters: (value: TrinoParameters) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1906,6 +2221,8 @@ export namespace DataSourceParameters {
       return visitor.AmazonOpenSearchParameters(value.AmazonOpenSearchParameters);
     if (value.ExasolParameters !== undefined) return visitor.ExasolParameters(value.ExasolParameters);
     if (value.DatabricksParameters !== undefined) return visitor.DatabricksParameters(value.DatabricksParameters);
+    if (value.StarburstParameters !== undefined) return visitor.StarburstParameters(value.StarburstParameters);
+    if (value.TrinoParameters !== undefined) return visitor.TrinoParameters(value.TrinoParameters);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -3614,6 +3931,12 @@ export interface CreateAnalysisRequest {
    * <p>The option to relax the validation needed to create an analysis with definition objects. This skips the validation step for specific errors.</p>
    */
   ValidationStrategy?: ValidationStrategy;
+
+  /**
+   * @public
+   * <p>When you create the analysis, Amazon QuickSight adds the analysis to these folders.</p>
+   */
+  FolderArns?: string[];
 }
 
 /**
@@ -4158,6 +4481,12 @@ export interface CreateDashboardRequest {
    * <p>The option to relax the validation needed to create a dashboard with definition objects. This option skips the validation step for specific errors.</p>
    */
   ValidationStrategy?: ValidationStrategy;
+
+  /**
+   * @public
+   * <p>When you create the dashboard, Amazon QuickSight adds the dashboard to these folders.</p>
+   */
+  FolderArns?: string[];
 }
 
 /**
@@ -5429,6 +5758,12 @@ export interface CreateDataSetRequest {
    * <p>The parameter declarations of the dataset.</p>
    */
   DatasetParameters?: DatasetParameter[];
+
+  /**
+   * @public
+   * <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+   */
+  FolderArns?: string[];
 }
 
 /**
@@ -5642,6 +5977,12 @@ export interface CreateDataSourceRequest {
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>When you create the data source, Amazon QuickSight adds the data source to these folders.</p>
+   */
+  FolderArns?: string[];
 }
 
 /**
@@ -5684,6 +6025,7 @@ export interface CreateDataSourceResponse {
  * @enum
  */
 export const FolderType = {
+  RESTRICTED: "RESTRICTED",
   SHARED: "SHARED",
 } as const;
 
@@ -8837,354 +9179,12 @@ export interface CreateVPCConnectionResponse {
 }
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const DashboardErrorType = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  COLUMN_GEOGRAPHIC_ROLE_MISMATCH: "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
-  COLUMN_REPLACEMENT_MISSING: "COLUMN_REPLACEMENT_MISSING",
-  COLUMN_TYPE_MISMATCH: "COLUMN_TYPE_MISMATCH",
-  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-  PARAMETER_NOT_FOUND: "PARAMETER_NOT_FOUND",
-  PARAMETER_TYPE_INVALID: "PARAMETER_TYPE_INVALID",
-  PARAMETER_VALUE_INCOMPATIBLE: "PARAMETER_VALUE_INCOMPATIBLE",
-  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type DashboardErrorType = (typeof DashboardErrorType)[keyof typeof DashboardErrorType];
-
-/**
- * @public
- * <p>Dashboard error.</p>
- */
-export interface DashboardError {
-  /**
-   * @public
-   * <p>Type.</p>
-   */
-  Type?: DashboardErrorType;
-
-  /**
-   * @public
-   * <p>Message.</p>
-   */
-  Message?: string;
-
-  /**
-   * @public
-   * <p>Lists the violated entities that caused the dashboard error.</p>
-   */
-  ViolatedEntities?: Entity[];
-}
-
-/**
- * @public
- * <p>Dashboard version.</p>
- */
-export interface DashboardVersion {
-  /**
-   * @public
-   * <p>The time that this dashboard version was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * @public
-   * <p>Errors associated with this dashboard version.</p>
-   */
-  Errors?: DashboardError[];
-
-  /**
-   * @public
-   * <p>Version number for this version of the dashboard.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: ResourceStatus;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>Source entity ARN.</p>
-   */
-  SourceEntityArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-   *             version of the dashboard.</p>
-   */
-  DataSetArns?: string[];
-
-  /**
-   * @public
-   * <p>Description.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The ARN of the theme associated with a version of the dashboard.</p>
-   */
-  ThemeArn?: string;
-
-  /**
-   * @public
-   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-   */
-  Sheets?: Sheet[];
-}
-
-/**
- * @public
- * <p>Dashboard.</p>
- */
-export interface Dashboard {
-  /**
-   * @public
-   * <p>Dashboard ID.</p>
-   */
-  DashboardId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>A display name for the dashboard.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>Version.</p>
-   */
-  Version?: DashboardVersion;
-
-  /**
-   * @public
-   * <p>The time that this dashboard was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * @public
-   * <p>The last time that this dashboard was published.</p>
-   */
-  LastPublishedTime?: Date;
-
-  /**
-   * @public
-   * <p>The last time that this dashboard was updated.</p>
-   */
-  LastUpdatedTime?: Date;
-}
-
-/**
- * @public
- * @enum
- */
-export const DashboardFilterAttribute = {
-  DASHBOARD_NAME: "DASHBOARD_NAME",
-  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
-  QUICKSIGHT_USER: "QUICKSIGHT_USER",
-  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
-} as const;
-
-/**
- * @public
- */
-export type DashboardFilterAttribute = (typeof DashboardFilterAttribute)[keyof typeof DashboardFilterAttribute];
-
-/**
- * @public
- * <p>A filter that you apply when searching for dashboards. </p>
- */
-export interface DashboardSearchFilter {
-  /**
-   * @public
-   * <p>The comparison operator that you want to use as a filter, for example  <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and  <code>"StringLike"</code>.</p>
-   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
-   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"DASHBOARD_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DASHBOARD_NAME</code>.</p>
-   */
-  Operator: FilterOperator | undefined;
-
-  /**
-   * @public
-   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
-   *             "QUICKSIGHT_OWNER"</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the dashboards's owners or viewers are returned. Implicit permissions from folders or groups are considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners of the dashboards are returned. Implicit permissions from folders or groups are considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as the only owner of the dashboard are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners of the dashboards are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners or viewers of the dashboards are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DASHBOARD_NAME</code>: Any dashboards whose names have a substring match to this value will be returned.</p>
-   *             </li>
-   *          </ul>
-   */
-  Name?: DashboardFilterAttribute;
-
-  /**
-   * @public
-   * <p>The value of the named item, in this case <code>QUICKSIGHT_USER</code>, that you want
-   *             to use as a filter, for example, <code>"Value":
-   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>. </p>
-   */
-  Value?: string;
-}
-
-/**
- * @public
- * <p>Dashboard summary.</p>
- */
-export interface DashboardSummary {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>Dashboard ID.</p>
-   */
-  DashboardId?: string;
-
-  /**
-   * @public
-   * <p>A display name for the dashboard.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The time that this dashboard was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * @public
-   * <p>The last time that this dashboard was updated.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * @public
-   * <p>Published version number.</p>
-   */
-  PublishedVersionNumber?: number;
-
-  /**
-   * @public
-   * <p>The last time that this dashboard was published.</p>
-   */
-  LastPublishedTime?: Date;
-}
-
-/**
- * @public
- * <p>Dashboard version summary.</p>
- */
-export interface DashboardVersionSummary {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The time that this dashboard version was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * @public
-   * <p>Version number.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: ResourceStatus;
-
-  /**
-   * @public
-   * <p>Source entity ARN.</p>
-   */
-  SourceEntityArn?: string;
-
-  /**
-   * @public
-   * <p>Description.</p>
-   */
-  Description?: string;
-}
-
-/**
- * @public
- * <p>Output column.</p>
- */
-export interface OutputColumn {
-  /**
-   * @public
-   * <p>A display name for the dataset.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>A description for a column.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The type.</p>
-   */
-  Type?: ColumnDataType;
-}
+export const SnapshotJobS3ResultFilterSensitiveLog = (obj: SnapshotJobS3Result): any => ({
+  ...obj,
+  ...(obj.S3Uri && { S3Uri: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

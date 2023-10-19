@@ -941,6 +941,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       },
  *                     },
  *                   },
+ *                   TotalAggregationOptions: [ // TotalAggregationOptionList
+ *                     { // TotalAggregationOption
+ *                       FieldId: "STRING_VALUE", // required
+ *                       TotalAggregationFunction: { // TotalAggregationFunction
+ *                         SimpleTotalAggregationFunction: "DEFAULT" || "SUM" || "AVERAGE" || "MIN" || "MAX" || "NONE",
+ *                       },
+ *                     },
+ *                   ],
  *                 },
  *                 FieldOptions: { // TableFieldOptions
  *                   SelectedFieldOptions: [ // TableFieldOptionList
@@ -1313,8 +1321,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           Direction: "ASC" || "DESC", // required
  *                           SortPaths: [ // DataPathValueList // required
  *                             { // DataPathValue
- *                               FieldId: "STRING_VALUE", // required
- *                               FieldValue: "STRING_VALUE", // required
+ *                               FieldId: "STRING_VALUE",
+ *                               FieldValue: "STRING_VALUE",
+ *                               DataPathType: { // DataPathType
+ *                                 PivotTableDataPathType: "HIERARCHY_ROWS_LAYOUT_COLUMN" || "MULTIPLE_ROW_METRICS_COLUMN" || "EMPTY_COLUMN_HEADER" || "COUNT_METRIC_COLUMN",
+ *                               },
  *                             },
  *                           ],
  *                         },
@@ -1429,6 +1440,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     TotalCellStyle: "<TableCellStyle>",
  *                     ValueCellStyle: "<TableCellStyle>",
  *                     MetricHeaderCellStyle: "<TableCellStyle>",
+ *                     TotalAggregationOptions: [
+ *                       {
+ *                         FieldId: "STRING_VALUE", // required
+ *                         TotalAggregationFunction: {
+ *                           SimpleTotalAggregationFunction: "DEFAULT" || "SUM" || "AVERAGE" || "MIN" || "MAX" || "NONE",
+ *                         },
+ *                       },
+ *                     ],
  *                   },
  *                   ColumnTotalOptions: {
  *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
@@ -1438,6 +1457,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     TotalCellStyle: "<TableCellStyle>",
  *                     ValueCellStyle: "<TableCellStyle>",
  *                     MetricHeaderCellStyle: "<TableCellStyle>",
+ *                     TotalAggregationOptions: [
+ *                       {
+ *                         FieldId: "STRING_VALUE", // required
+ *                         TotalAggregationFunction: {
+ *                           SimpleTotalAggregationFunction: "DEFAULT" || "SUM" || "AVERAGE" || "MIN" || "MAX" || "NONE",
+ *                         },
+ *                       },
+ *                     ],
  *                   },
  *                 },
  *                 FieldOptions: { // PivotTableFieldOptions
@@ -1452,8 +1479,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     { // PivotTableDataPathOption
  *                       DataPathList: [ // required
  *                         {
- *                           FieldId: "STRING_VALUE", // required
- *                           FieldValue: "STRING_VALUE", // required
+ *                           FieldId: "STRING_VALUE",
+ *                           FieldValue: "STRING_VALUE",
+ *                           DataPathType: {
+ *                             PivotTableDataPathType: "HIERARCHY_ROWS_LAYOUT_COLUMN" || "MULTIPLE_ROW_METRICS_COLUMN" || "EMPTY_COLUMN_HEADER" || "COUNT_METRIC_COLUMN",
+ *                           },
  *                         },
  *                       ],
  *                       Width: "STRING_VALUE",
@@ -2017,6 +2047,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ *                       SeriesType: "BAR" || "LINE",
  *                     },
  *                     StyleConfiguration: { // ReferenceLineStyleConfiguration
  *                       Pattern: "SOLID" || "DASHED" || "DOTTED",
@@ -3225,6 +3256,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ *                       SeriesType: "BAR" || "LINE",
  *                     },
  *                     StyleConfiguration: {
  *                       Pattern: "SOLID" || "DASHED" || "DOTTED",
@@ -3709,6 +3741,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ *                       SeriesType: "BAR" || "LINE",
  *                     },
  *                     StyleConfiguration: {
  *                       Pattern: "SOLID" || "DASHED" || "DOTTED",
@@ -3782,6 +3815,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ *                       SeriesType: "BAR" || "LINE",
  *                     },
  *                     StyleConfiguration: {
  *                       Pattern: "SOLID" || "DASHED" || "DOTTED",
@@ -4452,6 +4486,10 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *               Value: new Date("TIMESTAMP"),
  *               ParameterName: "STRING_VALUE",
  *               TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
+ *               RollingDate: {
+ *                 DataSetIdentifier: "STRING_VALUE",
+ *                 Expression: "STRING_VALUE", // required
+ *               },
  *             },
  *             TimeRangeFilter: { // TimeRangeFilter
  *               FilterId: "STRING_VALUE", // required
@@ -4460,18 +4498,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *               IncludeMaximum: true || false,
  *               RangeMinimumValue: { // TimeRangeFilterValue
  *                 StaticValue: new Date("TIMESTAMP"),
- *                 RollingDate: {
- *                   DataSetIdentifier: "STRING_VALUE",
- *                   Expression: "STRING_VALUE", // required
- *                 },
+ *                 RollingDate: "<RollingDateConfiguration>",
  *                 Parameter: "STRING_VALUE",
  *               },
  *               RangeMaximumValue: {
  *                 StaticValue: new Date("TIMESTAMP"),
- *                 RollingDate: {
- *                   DataSetIdentifier: "STRING_VALUE",
- *                   Expression: "STRING_VALUE", // required
- *                 },
+ *                 RollingDate: "<RollingDateConfiguration>",
  *                 Parameter: "STRING_VALUE",
  *               },
  *               NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY", // required
@@ -4592,6 +4624,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *   ValidationStrategy: { // ValidationStrategy
  *     Mode: "STRICT" || "LENIENT", // required
  *   },
+ *   FolderArns: [ // FolderArnList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateDashboardCommand(input);
  * const response = await client.send(command);

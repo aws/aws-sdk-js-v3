@@ -165,6 +165,17 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       Port: Number("int"), // required
  *       SqlEndpointPath: "STRING_VALUE", // required
  *     },
+ *     StarburstParameters: { // StarburstParameters
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Catalog: "STRING_VALUE", // required
+ *       ProductType: "GALAXY" || "ENTERPRISE",
+ *     },
+ *     TrinoParameters: { // TrinoParameters
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Catalog: "STRING_VALUE", // required
+ *     },
  *   },
  *   Credentials: { // DataSourceCredentials
  *     CredentialPair: { // CredentialPair
@@ -283,6 +294,17 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             Port: Number("int"), // required
  *             SqlEndpointPath: "STRING_VALUE", // required
  *           },
+ *           StarburstParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Catalog: "STRING_VALUE", // required
+ *             ProductType: "GALAXY" || "ENTERPRISE",
+ *           },
+ *           TrinoParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Catalog: "STRING_VALUE", // required
+ *           },
  *         },
  *       ],
  *     },
@@ -308,6 +330,9 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
+ *   ],
+ *   FolderArns: [ // FolderArnList
+ *     "STRING_VALUE",
  *   ],
  * };
  * const command = new CreateDataSourceCommand(input);

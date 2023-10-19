@@ -227,6 +227,17 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //             Port: Number("int"), // required
  * //             SqlEndpointPath: "STRING_VALUE", // required
  * //           },
+ * //           StarburstParameters: { // StarburstParameters
+ * //             Host: "STRING_VALUE", // required
+ * //             Port: Number("int"), // required
+ * //             Catalog: "STRING_VALUE", // required
+ * //             ProductType: "GALAXY" || "ENTERPRISE",
+ * //           },
+ * //           TrinoParameters: { // TrinoParameters
+ * //             Host: "STRING_VALUE", // required
+ * //             Port: Number("int"), // required
+ * //             Catalog: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //         VpcConnectionProperties: { // VpcConnectionProperties
  * //           VpcConnectionArn: "STRING_VALUE", // required

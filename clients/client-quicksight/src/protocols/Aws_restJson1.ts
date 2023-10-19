@@ -468,10 +468,8 @@ import {
   BarChartConfiguration,
   BarChartFieldWells,
   BarChartSortConfiguration,
-  BarChartVisual,
   BodySectionConfiguration,
   BodySectionContent,
-  BoxPlotStyleOptions,
   CalculatedField,
   CalculatedMeasureField,
   CascadingControlConfiguration,
@@ -503,6 +501,7 @@ import {
   DataLabelType,
   DataPathColor,
   DataPathLabelType,
+  DataPathType,
   DataPathValue,
   DataSetIdentifierDeclaration,
   DateAxisOptions,
@@ -685,6 +684,7 @@ import {
   ArcAxisDisplayRange,
   ArcConfiguration,
   ArcOptions,
+  BarChartVisual,
   BinCountOptions,
   BinWidthOptions,
   BoxPlotAggregatedFieldWells,
@@ -692,6 +692,7 @@ import {
   BoxPlotFieldWells,
   BoxPlotOptions,
   BoxPlotSortConfiguration,
+  BoxPlotStyleOptions,
   BoxPlotVisual,
   ClusterMarker,
   ClusterMarkerConfiguration,
@@ -843,7 +844,6 @@ import {
   RadarChartSortConfiguration,
   RadarChartVisual,
   RowAlternateColorOptions,
-  S3BucketConfiguration,
   SankeyDiagramAggregatedFieldWells,
   SankeyDiagramChartConfiguration,
   SankeyDiagramFieldWells,
@@ -859,9 +859,6 @@ import {
   ShapeConditionalFormat,
   SheetDefinition,
   SimpleClusterMarker,
-  SnapshotFile,
-  SnapshotFileSheetSelection,
-  SnapshotS3DestinationConfiguration,
   SubtotalOptions,
   TableAggregatedFieldWells,
   TableBorderOptions,
@@ -895,6 +892,8 @@ import {
   TopBottomMoversComputation,
   TopBottomRankedComputation,
   TotalAggregationComputation,
+  TotalAggregationFunction,
+  TotalAggregationOption,
   TotalOptions,
   TreeMapAggregatedFieldWells,
   TreeMapConfiguration,
@@ -977,15 +976,10 @@ import {
   CreateColumnsOperation,
   CredentialPair,
   CustomSql,
-  Dashboard,
   DashboardPublishOptions,
-  DashboardSearchFilter,
   DashboardSourceEntity,
   DashboardSourceTemplate,
-  DashboardSummary,
-  DashboardVersion,
   DashboardVersionDefinition,
-  DashboardVersionSummary,
   DashboardVisualPublishOptions,
   DataAggregation,
   DatabricksParameters,
@@ -1059,6 +1053,7 @@ import {
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagRule,
+  S3BucketConfiguration,
   S3Parameters,
   S3Source,
   ScheduleRefreshOnEntity,
@@ -1068,10 +1063,14 @@ import {
   SheetControlsOption,
   SheetLayoutElementMaximizationOption,
   SheetStyle,
+  SnapshotFile,
+  SnapshotFileSheetSelection,
+  SnapshotS3DestinationConfiguration,
   SnowflakeParameters,
   SparkParameters,
   SqlServerParameters,
   SslProperties,
+  StarburstParameters,
   StringDatasetParameter,
   StringDatasetParameterDefaultValues,
   StringParameter,
@@ -1101,6 +1100,7 @@ import {
   TopicRelativeDateFilter,
   TopicSingularFilterConstant,
   TransformOperation,
+  TrinoParameters,
   TwitterParameters,
   Typography,
   UIColorPalette,
@@ -1113,6 +1113,11 @@ import {
   VpcConnectionProperties,
 } from "../models/models_2";
 import {
+  Dashboard,
+  DashboardSearchFilter,
+  DashboardSummary,
+  DashboardVersion,
+  DashboardVersionSummary,
   DataSet,
   DataSetRefreshProperties,
   DataSetSearchFilter,
@@ -1142,7 +1147,6 @@ import {
   RegisteredUserQuickSightConsoleEmbeddingConfiguration,
   SessionLifetimeInMinutesInvalidException,
   SessionTag,
-  SnapshotAnonymousUser,
   SnapshotConfiguration,
   SnapshotDestinationConfiguration,
   SnapshotFileGroup,
@@ -1160,7 +1164,7 @@ import {
   VPCConnection,
   VPCConnectionSummary,
 } from "../models/models_3";
-import { SnapshotUserConfiguration } from "../models/models_4";
+import { SnapshotAnonymousUser, SnapshotUserConfiguration } from "../models/models_4";
 import { QuickSightServiceException as __BaseException } from "../models/QuickSightServiceException";
 
 /**
@@ -1317,6 +1321,7 @@ export const se_CreateAnalysisCommand = async (
   body = JSON.stringify(
     take(input, {
       Definition: (_) => se_AnalysisDefinition(_, context),
+      FolderArns: (_) => _json(_),
       Name: [],
       Parameters: (_) => se__Parameters(_, context),
       Permissions: (_) => _json(_),
@@ -1365,6 +1370,7 @@ export const se_CreateDashboardCommand = async (
     take(input, {
       DashboardPublishOptions: (_) => _json(_),
       Definition: (_) => se_DashboardVersionDefinition(_, context),
+      FolderArns: (_) => _json(_),
       Name: [],
       Parameters: (_) => se__Parameters(_, context),
       Permissions: (_) => _json(_),
@@ -1416,6 +1422,7 @@ export const se_CreateDataSetCommand = async (
       DataSetUsageConfiguration: (_) => _json(_),
       DatasetParameters: (_) => se_DatasetParameterList(_, context),
       FieldFolders: (_) => _json(_),
+      FolderArns: (_) => _json(_),
       ImportMode: [],
       LogicalTableMap: (_) => se_LogicalTableMap(_, context),
       Name: [],
@@ -1464,6 +1471,7 @@ export const se_CreateDataSourceCommand = async (
       Credentials: (_) => _json(_),
       DataSourceId: [],
       DataSourceParameters: (_) => _json(_),
+      FolderArns: (_) => _json(_),
       Name: [],
       Permissions: (_) => _json(_),
       SslProperties: (_) => _json(_),
@@ -19929,6 +19937,8 @@ const se_DataColor = (input: DataColor, context: __SerdeContext): any => {
 
 // se_DataPathSort omitted.
 
+// se_DataPathType omitted.
+
 // se_DataPathValue omitted.
 
 // se_DataPathValueList omitted.
@@ -20611,6 +20621,8 @@ const se_FilterSliderControl = (input: FilterSliderControl, context: __SerdeCont
 // se_FilterTextAreaControl omitted.
 
 // se_FilterTextFieldControl omitted.
+
+// se_FolderArnList omitted.
 
 // se_FolderColumnList omitted.
 
@@ -22295,6 +22307,7 @@ const se_ReferenceLineDataConfiguration = (input: ReferenceLineDataConfiguration
   return take(input, {
     AxisBinding: [],
     DynamicConfiguration: (_) => se_ReferenceLineDynamicDataConfiguration(_, context),
+    SeriesType: [],
     StaticConfiguration: (_) => se_ReferenceLineStaticDataConfiguration(_, context),
   });
 };
@@ -22787,6 +22800,8 @@ const se_SnapshotConfiguration = (input: SnapshotConfiguration, context: __Serde
 
 // se_SslProperties omitted.
 
+// se_StarburstParameters omitted.
+
 // se_StatePersistenceConfigurations omitted.
 
 // se_StringDatasetParameter omitted.
@@ -23051,6 +23066,7 @@ const se_TimeEqualityFilter = (input: TimeEqualityFilter, context: __SerdeContex
     Column: _json,
     FilterId: [],
     ParameterName: [],
+    RollingDate: _json,
     TimeGranularity: [],
     Value: (_) => Math.round(_.getTime() / 1000),
   });
@@ -23231,6 +23247,12 @@ const se_TotalAggregationComputation = (input: TotalAggregationComputation, cont
   });
 };
 
+// se_TotalAggregationFunction omitted.
+
+// se_TotalAggregationOption omitted.
+
+// se_TotalAggregationOptionList omitted.
+
 // se_TotalOptions omitted.
 
 /**
@@ -23338,6 +23360,8 @@ const se_TreeMapVisual = (input: TreeMapVisual, context: __SerdeContext): any =>
 };
 
 // se_TrendArrowOptions omitted.
+
+// se_TrinoParameters omitted.
 
 // se_TwitterParameters omitted.
 
@@ -24773,6 +24797,8 @@ const de_DataColor = (output: any, context: __SerdeContext): DataColor => {
 // de_DataPathLabelType omitted.
 
 // de_DataPathSort omitted.
+
+// de_DataPathType omitted.
 
 // de_DataPathValue omitted.
 
@@ -27382,6 +27408,7 @@ const de_ReferenceLineDataConfiguration = (output: any, context: __SerdeContext)
   return take(output, {
     AxisBinding: __expectString,
     DynamicConfiguration: (_: any) => de_ReferenceLineDynamicDataConfiguration(_, context),
+    SeriesType: __expectString,
     StaticConfiguration: (_: any) => de_ReferenceLineStaticDataConfiguration(_, context),
   }) as any;
 };
@@ -27901,6 +27928,8 @@ const de_SnapshotConfiguration = (output: any, context: __SerdeContext): Snapsho
 
 // de_SslProperties omitted.
 
+// de_StarburstParameters omitted.
+
 // de_StringDatasetParameter omitted.
 
 // de_StringDatasetParameterDefaultValues omitted.
@@ -28341,6 +28370,7 @@ const de_TimeEqualityFilter = (output: any, context: __SerdeContext): TimeEquali
     Column: _json,
     FilterId: __expectString,
     ParameterName: __expectString,
+    RollingDate: _json,
     TimeGranularity: __expectString,
     Value: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
@@ -28552,6 +28582,12 @@ const de_TotalAggregationComputation = (output: any, context: __SerdeContext): T
   }) as any;
 };
 
+// de_TotalAggregationFunction omitted.
+
+// de_TotalAggregationOption omitted.
+
+// de_TotalAggregationOptionList omitted.
+
 // de_TotalOptions omitted.
 
 /**
@@ -28692,6 +28728,8 @@ const de_TreeMapVisual = (output: any, context: __SerdeContext): TreeMapVisual =
 };
 
 // de_TrendArrowOptions omitted.
+
+// de_TrinoParameters omitted.
 
 // de_TwitterParameters omitted.
 

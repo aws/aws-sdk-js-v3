@@ -18,7 +18,7 @@ import {
   StartAssetBundleImportJobRequest,
   StartAssetBundleImportJobRequestFilterSensitiveLog,
   StartAssetBundleImportJobResponse,
-} from "../models/models_3";
+} from "../models/models_4";
 import { de_StartAssetBundleImportJobCommand, se_StartAssetBundleImportJobCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -199,6 +199,17 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *             Host: "STRING_VALUE", // required
  *             Port: Number("int"), // required
  *             SqlEndpointPath: "STRING_VALUE", // required
+ *           },
+ *           StarburstParameters: { // StarburstParameters
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Catalog: "STRING_VALUE", // required
+ *             ProductType: "GALAXY" || "ENTERPRISE",
+ *           },
+ *           TrinoParameters: { // TrinoParameters
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Catalog: "STRING_VALUE", // required
  *           },
  *         },
  *         VpcConnectionProperties: { // VpcConnectionProperties

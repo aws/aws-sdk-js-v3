@@ -19,8 +19,6 @@ import {
   AnonymousUserEmbeddingExperienceConfiguration,
   DashboardVisualId,
   FilterOperator,
-  SnapshotFile,
-  SnapshotS3DestinationConfiguration,
 } from "./models_1";
 import {
   _Parameters,
@@ -36,20 +34,14 @@ import {
   AssetBundleImportJobOverrideParameters,
   AssetBundleImportJobStatus,
   AssetBundleImportJobSummary,
-  AssetBundleImportSource,
   AssetBundleImportSourceDescription,
-  AssetBundleImportSourceFilterSensitiveLog,
   AssignmentStatus,
   BookmarksConfigurations,
+  ColumnDataType,
   ColumnGroup,
   ColumnLevelPermissionRule,
-  Dashboard,
-  DashboardError,
   DashboardPublishOptions,
-  DashboardSearchFilter,
-  DashboardSummary,
   DashboardVersionDefinition,
-  DashboardVersionSummary,
   DataSetConfiguration,
   DataSetImportMode,
   DatasetParameter,
@@ -66,7 +58,6 @@ import {
   LogicalTableFilterSensitiveLog,
   MemberType,
   NamespaceStatus,
-  OutputColumn,
   PhysicalTable,
   RefreshSchedule,
   ResourcePermission,
@@ -74,6 +65,8 @@ import {
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagConfigurationFilterSensitiveLog,
   SharingModel,
+  SnapshotFile,
+  SnapshotS3DestinationConfiguration,
   SslProperties,
   Tag,
   TemplateAlias,
@@ -87,6 +80,356 @@ import {
   VPCConnectionResourceStatus,
 } from "./models_2";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const DashboardErrorType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  COLUMN_GEOGRAPHIC_ROLE_MISMATCH: "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
+  COLUMN_REPLACEMENT_MISSING: "COLUMN_REPLACEMENT_MISSING",
+  COLUMN_TYPE_MISMATCH: "COLUMN_TYPE_MISMATCH",
+  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  PARAMETER_NOT_FOUND: "PARAMETER_NOT_FOUND",
+  PARAMETER_TYPE_INVALID: "PARAMETER_TYPE_INVALID",
+  PARAMETER_VALUE_INCOMPATIBLE: "PARAMETER_VALUE_INCOMPATIBLE",
+  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type DashboardErrorType = (typeof DashboardErrorType)[keyof typeof DashboardErrorType];
+
+/**
+ * @public
+ * <p>Dashboard error.</p>
+ */
+export interface DashboardError {
+  /**
+   * @public
+   * <p>Type.</p>
+   */
+  Type?: DashboardErrorType;
+
+  /**
+   * @public
+   * <p>Message.</p>
+   */
+  Message?: string;
+
+  /**
+   * @public
+   * <p>Lists the violated entities that caused the dashboard error.</p>
+   */
+  ViolatedEntities?: Entity[];
+}
+
+/**
+ * @public
+ * <p>Dashboard version.</p>
+ */
+export interface DashboardVersion {
+  /**
+   * @public
+   * <p>The time that this dashboard version was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>Errors associated with this dashboard version.</p>
+   */
+  Errors?: DashboardError[];
+
+  /**
+   * @public
+   * <p>Version number for this version of the dashboard.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: ResourceStatus;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>Source entity ARN.</p>
+   */
+  SourceEntityArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+   *             version of the dashboard.</p>
+   */
+  DataSetArns?: string[];
+
+  /**
+   * @public
+   * <p>Description.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the theme associated with a version of the dashboard.</p>
+   */
+  ThemeArn?: string;
+
+  /**
+   * @public
+   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+   */
+  Sheets?: Sheet[];
+}
+
+/**
+ * @public
+ * <p>Dashboard.</p>
+ */
+export interface Dashboard {
+  /**
+   * @public
+   * <p>Dashboard ID.</p>
+   */
+  DashboardId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>A display name for the dashboard.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>Version.</p>
+   */
+  Version?: DashboardVersion;
+
+  /**
+   * @public
+   * <p>The time that this dashboard was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time that this dashboard was published.</p>
+   */
+  LastPublishedTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time that this dashboard was updated.</p>
+   */
+  LastUpdatedTime?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DashboardFilterAttribute = {
+  DASHBOARD_NAME: "DASHBOARD_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_USER: "QUICKSIGHT_USER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type DashboardFilterAttribute = (typeof DashboardFilterAttribute)[keyof typeof DashboardFilterAttribute];
+
+/**
+ * @public
+ * <p>A filter that you apply when searching for dashboards. </p>
+ */
+export interface DashboardSearchFilter {
+  /**
+   * @public
+   * <p>The comparison operator that you want to use as a filter, for example  <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and  <code>"StringLike"</code>.</p>
+   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"DASHBOARD_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DASHBOARD_NAME</code>.</p>
+   */
+  Operator: FilterOperator | undefined;
+
+  /**
+   * @public
+   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
+   *             "QUICKSIGHT_OWNER"</code>.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the dashboards's owners or viewers are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners of the dashboards are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as the only owner of the dashboard are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners of the dashboards are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners or viewers of the dashboards are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DASHBOARD_NAME</code>: Any dashboards whose names have a substring match to this value will be returned.</p>
+   *             </li>
+   *          </ul>
+   */
+  Name?: DashboardFilterAttribute;
+
+  /**
+   * @public
+   * <p>The value of the named item, in this case <code>QUICKSIGHT_USER</code>, that you want
+   *             to use as a filter, for example, <code>"Value":
+   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>. </p>
+   */
+  Value?: string;
+}
+
+/**
+ * @public
+ * <p>Dashboard summary.</p>
+ */
+export interface DashboardSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>Dashboard ID.</p>
+   */
+  DashboardId?: string;
+
+  /**
+   * @public
+   * <p>A display name for the dashboard.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The time that this dashboard was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time that this dashboard was updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>Published version number.</p>
+   */
+  PublishedVersionNumber?: number;
+
+  /**
+   * @public
+   * <p>The last time that this dashboard was published.</p>
+   */
+  LastPublishedTime?: Date;
+}
+
+/**
+ * @public
+ * <p>Dashboard version summary.</p>
+ */
+export interface DashboardVersionSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The time that this dashboard version was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>Version number.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: ResourceStatus;
+
+  /**
+   * @public
+   * <p>Source entity ARN.</p>
+   */
+  SourceEntityArn?: string;
+
+  /**
+   * @public
+   * <p>Description.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ * <p>Output column.</p>
+ */
+export interface OutputColumn {
+  /**
+   * @public
+   * <p>A display name for the dataset.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>A description for a column.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The type.</p>
+   */
+  Type?: ColumnDataType;
+}
 
 /**
  * @public
@@ -8921,323 +9264,6 @@ export interface SearchDataSourcesResponse {
 }
 
 /**
- * @public
- */
-export interface SearchFoldersRequest {
-  /**
-   * @public
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The filters to apply to the search. Currently, you can search only by the parent folder ARN. For example, <code>"Filters": [ \{ "Name": "PARENT_FOLDER_ARN", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:folder/folderId" \} ]</code>.</p>
-   */
-  Filters: FolderSearchFilter[] | undefined;
-
-  /**
-   * @public
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface SearchFoldersResponse {
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * @public
-   * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
-   */
-  FolderSummaryList?: FolderSummary[];
-
-  /**
-   * @public
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface SearchGroupsRequest {
-  /**
-   * @public
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   *           Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of results to return from this request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The namespace that you want to search.</p>
-   */
-  Namespace: string | undefined;
-
-  /**
-   * @public
-   * <p>The structure for the search filters that you want to apply to your search.</p>
-   */
-  Filters: GroupSearchFilter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchGroupsResponse {
-  /**
-   * @public
-   * <p>A list of groups in a specified namespace that match the filters you set in your <code>SearchGroups</code> request.</p>
-   */
-  GroupList?: Group[];
-
-  /**
-   * @public
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface StartAssetBundleExportJobRequest {
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account to export assets from.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
-   */
-  AssetBundleExportJobId: string | undefined;
-
-  /**
-   * @public
-   * <p>An array of resource ARNs to export. The following resources are supported.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Analysis</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Dashboard</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DataSet</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DataSource</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RefreshSchedule</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Theme</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VPCConnection</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>The API caller must have the necessary permissions in their IAM role to access each resource before the resources can be exported.</p>
-   */
-  ResourceArns: string[] | undefined;
-
-  /**
-   * @public
-   * <p>A Boolean that determines whether all dependencies of each resource ARN are recursively
-   *          exported with the job. For example, say you provided a Dashboard ARN to the
-   *             <code>ResourceArns</code> parameter. If you set <code>IncludeAllDependencies</code> to
-   *             <code>TRUE</code>, any theme, dataset, and data source resource that is a dependency of the dashboard is also
-   *          exported.</p>
-   */
-  IncludeAllDependencies?: boolean;
-
-  /**
-   * @public
-   * <p>The export data format.</p>
-   */
-  ExportFormat: AssetBundleExportFormat | undefined;
-
-  /**
-   * @public
-   * <p>An optional collection of structures that generate CloudFormation parameters to override the existing resource property values when the resource is exported to a new CloudFormation template.</p>
-   *          <p>Use this field if the <code>ExportFormat</code> field of a <code>StartAssetBundleExportJobRequest</code> API call is set to <code>CLOUDFORMATION_JSON</code>.</p>
-   */
-  CloudFormationOverridePropertyConfiguration?: AssetBundleCloudFormationOverridePropertyConfiguration;
-}
-
-/**
- * @public
- */
-export interface StartAssetBundleExportJobResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the export job.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
-   */
-  AssetBundleExportJobId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services response ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the response.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface StartAssetBundleImportJobRequest {
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account to import assets into. </p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
-   */
-  AssetBundleImportJobId: string | undefined;
-
-  /**
-   * @public
-   * <p>The source of the asset bundle zip file that contains the data that you want to import. The file must be in <code>QUICKSIGHT_JSON</code> format.
-   *       </p>
-   */
-  AssetBundleImportSource: AssetBundleImportSource | undefined;
-
-  /**
-   * @public
-   * <p>Optional overrides to be applied to the resource configuration before import.</p>
-   */
-  OverrideParameters?: AssetBundleImportJobOverrideParameters;
-
-  /**
-   * @public
-   * <p>The failure action for the import job.</p>
-   *          <p>If you choose <code>ROLLBACK</code>, failed  import jobs will attempt to  undo any asset changes caused by the failed job.</p>
-   *          <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back
-   *          any asset changes caused by the failed job, possibly keeping the Amazon QuickSight account in an inconsistent state.</p>
-   */
-  FailureAction?: AssetBundleImportFailureAction;
-}
-
-/**
- * @public
- */
-export interface StartAssetBundleImportJobResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the import job.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
-   */
-  AssetBundleImportJobId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services response ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the response.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- * <p>A structure that contains information on the anonymous user configuration.</p>
- */
-export interface SnapshotAnonymousUser {
-  /**
-   * @public
-   * <p>The tags to be used for row-level security (RLS). Make sure that the relevant datasets have RLS tags configured before you start a snapshot export job. You can configure the RLS tags of a dataset with a <code>DataSet$RowLevelPermissionTagConfiguration</code> API call.</p>
-   *          <p>These are not the tags that are used for Amazon Web Services resource tagging. For more information on row level security in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</p>
-   */
-  RowLevelPermissionTags?: SessionTag[];
-}
-
-/**
  * @internal
  */
 export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
@@ -9393,24 +9419,4 @@ export const GetDashboardEmbedUrlResponseFilterSensitiveLog = (obj: GetDashboard
 export const GetSessionEmbedUrlResponseFilterSensitiveLog = (obj: GetSessionEmbedUrlResponse): any => ({
   ...obj,
   ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartAssetBundleImportJobRequestFilterSensitiveLog = (obj: StartAssetBundleImportJobRequest): any => ({
-  ...obj,
-  ...(obj.AssetBundleImportSource && {
-    AssetBundleImportSource: AssetBundleImportSourceFilterSensitiveLog(obj.AssetBundleImportSource),
-  }),
-});
-
-/**
- * @internal
- */
-export const SnapshotAnonymousUserFilterSensitiveLog = (obj: SnapshotAnonymousUser): any => ({
-  ...obj,
-  ...(obj.RowLevelPermissionTags && {
-    RowLevelPermissionTags: obj.RowLevelPermissionTags.map((item) => SessionTagFilterSensitiveLog(item)),
-  }),
 });

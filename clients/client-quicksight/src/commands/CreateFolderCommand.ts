@@ -48,7 +48,7 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  *   AwsAccountId: "STRING_VALUE", // required
  *   FolderId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
- *   FolderType: "SHARED",
+ *   FolderType: "SHARED" || "RESTRICTED",
  *   ParentFolderArn: "STRING_VALUE",
  *   Permissions: [ // ResourcePermissionList
  *     { // ResourcePermission

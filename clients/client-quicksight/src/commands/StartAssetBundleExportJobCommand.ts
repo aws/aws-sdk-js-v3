@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { StartAssetBundleExportJobRequest, StartAssetBundleExportJobResponse } from "../models/models_3";
+import { StartAssetBundleExportJobRequest, StartAssetBundleExportJobResponse } from "../models/models_4";
 import { de_StartAssetBundleExportJobCommand, se_StartAssetBundleExportJobCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

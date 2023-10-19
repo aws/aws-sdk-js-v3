@@ -297,6 +297,9 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *       },
  *     },
  *   ],
+ *   FolderArns: [ // FolderArnList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateDataSetCommand(input);
  * const response = await client.send(command);

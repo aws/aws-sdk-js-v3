@@ -56,7 +56,7 @@ export interface DescribeFolderCommandOutput extends DescribeFolderResponse, __M
  * //     FolderId: "STRING_VALUE",
  * //     Arn: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
- * //     FolderType: "SHARED",
+ * //     FolderType: "SHARED" || "RESTRICTED",
  * //     FolderPath: [ // Path
  * //       "STRING_VALUE",
  * //     ],

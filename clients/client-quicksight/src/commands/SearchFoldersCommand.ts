@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { SearchFoldersRequest, SearchFoldersResponse } from "../models/models_3";
+import { SearchFoldersRequest, SearchFoldersResponse } from "../models/models_4";
 import { de_SearchFoldersCommand, se_SearchFoldersCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -65,7 +65,7 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  * //       Arn: "STRING_VALUE",
  * //       FolderId: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
- * //       FolderType: "SHARED",
+ * //       FolderType: "SHARED" || "RESTRICTED",
  * //       CreatedTime: new Date("TIMESTAMP"),
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
  * //       SharingModel: "ACCOUNT" || "NAMESPACE",

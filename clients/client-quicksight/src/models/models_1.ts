@@ -5,9 +5,8 @@ import {
   AnalysisDefaults,
   AxisBinding,
   AxisDisplayOptions,
-  BarChartVisual,
+  BarChartConfiguration,
   BarsArrangement,
-  BoxPlotStyleOptions,
   CalculatedField,
   CalculatedFieldFilterSensitiveLog,
   ChartAxisLabelOptions,
@@ -63,6 +62,96 @@ import {
   VisualTitleLabelOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>A bar chart.</p>
+ *          <p>The <code>BarChartVisual</code> structure describes a visual that is a member of the bar chart family. The following charts can be described using this structure:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Horizontal bar chart</p>
+ *             </li>
+ *             <li>
+ *                <p>Vertical bar chart</p>
+ *             </li>
+ *             <li>
+ *                <p>Horizontal stacked bar chart</p>
+ *             </li>
+ *             <li>
+ *                <p>Vertical stacked bar chart</p>
+ *             </li>
+ *             <li>
+ *                <p>Horizontal stacked 100% bar chart</p>
+ *             </li>
+ *             <li>
+ *                <p>Vertical stacked 100% bar chart</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html">Using bar charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ */
+export interface BarChartVisual {
+  /**
+   * @public
+   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.</p>
+   */
+  VisualId: string | undefined;
+
+  /**
+   * @public
+   * <p>The title that is displayed on the visual.</p>
+   */
+  Title?: VisualTitleLabelOptions;
+
+  /**
+   * @public
+   * <p>The subtitle that is displayed on the visual.</p>
+   */
+  Subtitle?: VisualSubtitleLabelOptions;
+
+  /**
+   * @public
+   * <p>The configuration settings of the visual.</p>
+   */
+  ChartConfiguration?: BarChartConfiguration;
+
+  /**
+   * @public
+   * <p>The list of custom actions that are configured for a visual.</p>
+   */
+  Actions?: VisualCustomAction[];
+
+  /**
+   * @public
+   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
+   */
+  ColumnHierarchies?: ColumnHierarchy[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BoxPlotFillStyle = {
+  SOLID: "SOLID",
+  TRANSPARENT: "TRANSPARENT",
+} as const;
+
+/**
+ * @public
+ */
+export type BoxPlotFillStyle = (typeof BoxPlotFillStyle)[keyof typeof BoxPlotFillStyle];
+
+/**
+ * @public
+ * <p>The style options of the box plot.</p>
+ */
+export interface BoxPlotStyleOptions {
+  /**
+   * @public
+   * <p>The fill styles (solid, transparent) of the box plot.</p>
+   */
+  FillStyle?: BoxPlotFillStyle;
+}
 
 /**
  * @public
@@ -5128,6 +5217,55 @@ export type TableTotalsScrollStatus = (typeof TableTotalsScrollStatus)[keyof typ
 
 /**
  * @public
+ * @enum
+ */
+export const SimpleTotalAggregationFunction = {
+  AVERAGE: "AVERAGE",
+  DEFAULT: "DEFAULT",
+  MAX: "MAX",
+  MIN: "MIN",
+  NONE: "NONE",
+  SUM: "SUM",
+} as const;
+
+/**
+ * @public
+ */
+export type SimpleTotalAggregationFunction =
+  (typeof SimpleTotalAggregationFunction)[keyof typeof SimpleTotalAggregationFunction];
+
+/**
+ * @public
+ * <p>An aggregation function that aggregates the total values of a measure.</p>
+ */
+export interface TotalAggregationFunction {
+  /**
+   * @public
+   * <p>A built in aggregation function for total values.</p>
+   */
+  SimpleTotalAggregationFunction?: SimpleTotalAggregationFunction;
+}
+
+/**
+ * @public
+ * <p>The total aggregation settings map of a field id.</p>
+ */
+export interface TotalAggregationOption {
+  /**
+   * @public
+   * <p>The field id that's associated with the total aggregation option.</p>
+   */
+  FieldId: string | undefined;
+
+  /**
+   * @public
+   * <p>The total aggregation function that you want to set for a specified field id.</p>
+   */
+  TotalAggregationFunction: TotalAggregationFunction | undefined;
+}
+
+/**
+ * @public
  * <p>The optional configuration of totals cells in a <code>PivotTableVisual</code>.</p>
  */
 export interface PivotTotalOptions {
@@ -5172,6 +5310,12 @@ export interface PivotTotalOptions {
    * <p>The cell styling options for the total of header cells.</p>
    */
   MetricHeaderCellStyle?: TableCellStyle;
+
+  /**
+   * @public
+   * <p>The total aggregation options for each value field.</p>
+   */
+  TotalAggregationOptions?: TotalAggregationOption[];
 }
 
 /**
@@ -6404,6 +6548,12 @@ export interface TotalOptions {
    * <p>Cell styling options for the total cells.</p>
    */
   TotalCellStyle?: TableCellStyle;
+
+  /**
+   * @public
+   * <p>The total aggregation settings for each value field.</p>
+   */
+  TotalAggregationOptions?: TotalAggregationOption[];
 }
 
 /**
@@ -7752,137 +7902,11 @@ export type SnapshotFileSheetSelectionScope =
   (typeof SnapshotFileSheetSelectionScope)[keyof typeof SnapshotFileSheetSelectionScope];
 
 /**
- * @public
- * <p>A structure that contains information that identifies the snapshot that needs to be generated.</p>
+ * @internal
  */
-export interface SnapshotFileSheetSelection {
-  /**
-   * @public
-   * <p>The sheet ID of the dashboard to generate the snapshot artifact from. This value is required for CSV, Excel, and PDF format types.</p>
-   */
-  SheetId: string | undefined;
-
-  /**
-   * @public
-   * <p>The selection scope of the visuals on a sheet of a dashboard that you are generating a snapthot of. You can choose one of the following options.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_VISUALS</code> - Selects all visuals that are on the sheet. This value is required if the snapshot is a PDF.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SELECTED_VISUALS</code> - Select the visual that you want to add to the snapshot. This value is required if the snapshot is a CSV or Excel workbook.</p>
-   *             </li>
-   *          </ul>
-   */
-  SelectionScope: SnapshotFileSheetSelectionScope | undefined;
-
-  /**
-   * @public
-   * <p>
-   *             A structure that lists the IDs of the visuals in the selected sheet. Supported visual types are table, pivot table visuals. This value is required if you are generating a CSV or Excel workbook. This value supports a maximum of 1 visual ID for CSV and 5 visual IDs across up to 5 sheet selections for Excel. If you are generating an Excel workbook, the order of the visual IDs provided in this structure determines the order of the worksheets in the Excel file.
-   *         </p>
-   */
-  VisualIds?: string[];
-}
-
-/**
- * @public
- * <p>A structure that contains the information for the snapshot that you want to generate. This information is provided by you when you start a new snapshot job.</p>
- */
-export interface SnapshotFile {
-  /**
-   * @public
-   * <p>A list of <code>SnapshotFileSheetSelection</code> objects that contain information on the dashboard sheet that is exported. These objects provide information about the snapshot artifacts that are generated during the job. This structure can hold a maximum of 5 CSV configurations, 5 Excel configurations, or 1 configuration for PDF.</p>
-   */
-  SheetSelections: SnapshotFileSheetSelection[] | undefined;
-
-  /**
-   * @public
-   * <p>The format of the snapshot file to be generated. You can choose between <code>CSV</code>, <code>Excel</code>, or <code>PDF</code>.</p>
-   */
-  FormatType: SnapshotFileFormatType | undefined;
-}
-
-/**
- * @public
- * <p>Information on the error that caused the snapshot job to fail.</p>
- */
-export interface SnapshotJobResultErrorInfo {
-  /**
-   * @public
-   * <p>The error message.</p>
-   */
-  ErrorMessage?: string;
-
-  /**
-   * @public
-   * <p>The error type.</p>
-   */
-  ErrorType?: string;
-}
-
-/**
- * @public
- * <p>An optional structure that contains the Amazon S3 bucket configuration that the generated snapshots are stored in. If you don't provide this information, generated snapshots are stored in the default Amazon QuickSight bucket.</p>
- */
-export interface S3BucketConfiguration {
-  /**
-   * @public
-   * <p>The name of an existing Amazon S3 bucket where the generated snapshot artifacts are sent.</p>
-   */
-  BucketName: string | undefined;
-
-  /**
-   * @public
-   * <p>The prefix of the Amazon S3 bucket that the generated snapshots are stored in.</p>
-   */
-  BucketPrefix: string | undefined;
-
-  /**
-   * @public
-   * <p>The region that the Amazon S3 bucket is located in. The bucket must be located in the same region that the <code>StartDashboardSnapshotJob</code> API call is made.</p>
-   */
-  BucketRegion: string | undefined;
-}
-
-/**
- * @public
- * <p>A structure that describes the Amazon S3 settings to use to save the generated dashboard snapshot.</p>
- */
-export interface SnapshotS3DestinationConfiguration {
-  /**
-   * @public
-   * <p>A structure that contains details about the Amazon S3 bucket that the generated dashboard snapshot is saved in.</p>
-   */
-  BucketConfiguration?: S3BucketConfiguration;
-}
-
-/**
- * @public
- * <p>The Amazon S3 result from the snapshot job. The result includes the <code>DestinationConfiguration</code> and the Amazon S3 Uri. If an error occured during the job, the result returns information on the error.</p>
- */
-export interface SnapshotJobS3Result {
-  /**
-   * @public
-   * <p>A list of Amazon S3 bucket configurations that are provided when you make a <code>StartDashboardSnapshotJob</code> API call.
-   *         </p>
-   */
-  S3DestinationConfiguration?: SnapshotS3DestinationConfiguration;
-
-  /**
-   * @public
-   * <p>The Amazon S3 Uri.</p>
-   */
-  S3Uri?: string;
-
-  /**
-   * @public
-   * <p>An array of error records that describe any failures that occur while the dashboard snapshot job runs.</p>
-   */
-  ErrorInfo?: SnapshotJobResultErrorInfo[];
-}
+export const BarChartVisualFilterSensitiveLog = (obj: BarChartVisual): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9107,12 +9131,4 @@ export const AnalysisDefinitionFilterSensitiveLog = (obj: AnalysisDefinition): a
   ...(obj.ColumnConfigurations && {
     ColumnConfigurations: obj.ColumnConfigurations.map((item) => ColumnConfigurationFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const SnapshotJobS3ResultFilterSensitiveLog = (obj: SnapshotJobS3Result): any => ({
-  ...obj,
-  ...(obj.S3Uri && { S3Uri: SENSITIVE_STRING }),
 });

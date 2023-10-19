@@ -171,6 +171,17 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         Port: Number("int"), // required
  * //         SqlEndpointPath: "STRING_VALUE", // required
  * //       },
+ * //       StarburstParameters: { // StarburstParameters
+ * //         Host: "STRING_VALUE", // required
+ * //         Port: Number("int"), // required
+ * //         Catalog: "STRING_VALUE", // required
+ * //         ProductType: "GALAXY" || "ENTERPRISE",
+ * //       },
+ * //       TrinoParameters: { // TrinoParameters
+ * //         Host: "STRING_VALUE", // required
+ * //         Port: Number("int"), // required
+ * //         Catalog: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //     AlternateDataSourceParameters: [ // DataSourceParametersList
  * //       {//  Union: only one key present
@@ -284,6 +295,17 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //           Host: "STRING_VALUE", // required
  * //           Port: Number("int"), // required
  * //           SqlEndpointPath: "STRING_VALUE", // required
+ * //         },
+ * //         StarburstParameters: {
+ * //           Host: "STRING_VALUE", // required
+ * //           Port: Number("int"), // required
+ * //           Catalog: "STRING_VALUE", // required
+ * //           ProductType: "GALAXY" || "ENTERPRISE",
+ * //         },
+ * //         TrinoParameters: {
+ * //           Host: "STRING_VALUE", // required
+ * //           Port: Number("int"), // required
+ * //           Catalog: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     ],

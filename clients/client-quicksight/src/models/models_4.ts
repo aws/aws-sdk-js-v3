@@ -6,6 +6,12 @@ import { AnalysisDefinition, AnalysisSourceEntity } from "./models_1";
 import {
   _Parameters,
   _ParametersFilterSensitiveLog,
+  AssetBundleCloudFormationOverridePropertyConfiguration,
+  AssetBundleExportFormat,
+  AssetBundleImportFailureAction,
+  AssetBundleImportJobOverrideParameters,
+  AssetBundleImportSource,
+  AssetBundleImportSourceFilterSensitiveLog,
   AssignmentStatus,
   ColumnGroup,
   ColumnLevelPermissionRule,
@@ -41,7 +47,334 @@ import {
   VpcConnectionProperties,
   VPCConnectionResourceStatus,
 } from "./models_2";
-import { LinkSharingConfiguration, SnapshotAnonymousUser, SnapshotConfiguration, User, UserRole } from "./models_3";
+import {
+  FolderSearchFilter,
+  FolderSummary,
+  GroupSearchFilter,
+  LinkSharingConfiguration,
+  SessionTag,
+  SessionTagFilterSensitiveLog,
+  SnapshotConfiguration,
+  User,
+  UserRole,
+} from "./models_3";
+
+/**
+ * @public
+ */
+export interface SearchFoldersRequest {
+  /**
+   * @public
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The filters to apply to the search. Currently, you can search only by the parent folder ARN. For example, <code>"Filters": [ \{ "Name": "PARENT_FOLDER_ARN", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:folder/folderId" \} ]</code>.</p>
+   */
+  Filters: FolderSearchFilter[] | undefined;
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface SearchFoldersResponse {
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * @public
+   * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
+   */
+  FolderSummaryList?: FolderSummary[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface SearchGroupsRequest {
+  /**
+   * @public
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   *           Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return from this request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The namespace that you want to search.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
+   * @public
+   * <p>The structure for the search filters that you want to apply to your search.</p>
+   */
+  Filters: GroupSearchFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchGroupsResponse {
+  /**
+   * @public
+   * <p>A list of groups in a specified namespace that match the filters you set in your <code>SearchGroups</code> request.</p>
+   */
+  GroupList?: Group[];
+
+  /**
+   * @public
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface StartAssetBundleExportJobRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account to export assets from.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
+   */
+  AssetBundleExportJobId: string | undefined;
+
+  /**
+   * @public
+   * <p>An array of resource ARNs to export. The following resources are supported.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Analysis</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dashboard</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DataSet</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DataSource</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RefreshSchedule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Theme</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VPCConnection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>The API caller must have the necessary permissions in their IAM role to access each resource before the resources can be exported.</p>
+   */
+  ResourceArns: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A Boolean that determines whether all dependencies of each resource ARN are recursively
+   *          exported with the job. For example, say you provided a Dashboard ARN to the
+   *             <code>ResourceArns</code> parameter. If you set <code>IncludeAllDependencies</code> to
+   *             <code>TRUE</code>, any theme, dataset, and data source resource that is a dependency of the dashboard is also
+   *          exported.</p>
+   */
+  IncludeAllDependencies?: boolean;
+
+  /**
+   * @public
+   * <p>The export data format.</p>
+   */
+  ExportFormat: AssetBundleExportFormat | undefined;
+
+  /**
+   * @public
+   * <p>An optional collection of structures that generate CloudFormation parameters to override the existing resource property values when the resource is exported to a new CloudFormation template.</p>
+   *          <p>Use this field if the <code>ExportFormat</code> field of a <code>StartAssetBundleExportJobRequest</code> API call is set to <code>CLOUDFORMATION_JSON</code>.</p>
+   */
+  CloudFormationOverridePropertyConfiguration?: AssetBundleCloudFormationOverridePropertyConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface StartAssetBundleExportJobResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the export job.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
+   */
+  AssetBundleExportJobId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services response ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the response.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface StartAssetBundleImportJobRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account to import assets into. </p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
+   */
+  AssetBundleImportJobId: string | undefined;
+
+  /**
+   * @public
+   * <p>The source of the asset bundle zip file that contains the data that you want to import. The file must be in <code>QUICKSIGHT_JSON</code> format.
+   *       </p>
+   */
+  AssetBundleImportSource: AssetBundleImportSource | undefined;
+
+  /**
+   * @public
+   * <p>Optional overrides to be applied to the resource configuration before import.</p>
+   */
+  OverrideParameters?: AssetBundleImportJobOverrideParameters;
+
+  /**
+   * @public
+   * <p>The failure action for the import job.</p>
+   *          <p>If you choose <code>ROLLBACK</code>, failed  import jobs will attempt to  undo any asset changes caused by the failed job.</p>
+   *          <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back
+   *          any asset changes caused by the failed job, possibly keeping the Amazon QuickSight account in an inconsistent state.</p>
+   */
+  FailureAction?: AssetBundleImportFailureAction;
+}
+
+/**
+ * @public
+ */
+export interface StartAssetBundleImportJobResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the import job.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
+   */
+  AssetBundleImportJobId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services response ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the response.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ * <p>A structure that contains information on the anonymous user configuration.</p>
+ */
+export interface SnapshotAnonymousUser {
+  /**
+   * @public
+   * <p>The tags to be used for row-level security (RLS). Make sure that the relevant datasets have RLS tags configured before you start a snapshot export job. You can configure the RLS tags of a dataset with a <code>DataSet$RowLevelPermissionTagConfiguration</code> API call.</p>
+   *          <p>These are not the tags that are used for Amazon Web Services resource tagging. For more information on row level security in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</p>
+   */
+  RowLevelPermissionTags?: SessionTag[];
+}
 
 /**
  * @public
@@ -2375,6 +2708,26 @@ export interface UpdateVPCConnectionResponse {
    */
   Status?: number;
 }
+
+/**
+ * @internal
+ */
+export const StartAssetBundleImportJobRequestFilterSensitiveLog = (obj: StartAssetBundleImportJobRequest): any => ({
+  ...obj,
+  ...(obj.AssetBundleImportSource && {
+    AssetBundleImportSource: AssetBundleImportSourceFilterSensitiveLog(obj.AssetBundleImportSource),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const SnapshotAnonymousUserFilterSensitiveLog = (obj: SnapshotAnonymousUser): any => ({
+  ...obj,
+  ...(obj.RowLevelPermissionTags && {
+    RowLevelPermissionTags: obj.RowLevelPermissionTags.map((item) => SessionTagFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal
