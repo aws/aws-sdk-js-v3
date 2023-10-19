@@ -139,11 +139,19 @@ import {
   GetCompatibleVersionsCommandOutput,
 } from "./commands/GetCompatibleVersionsCommand";
 import {
+  GetDomainMaintenanceStatusCommandInput,
+  GetDomainMaintenanceStatusCommandOutput,
+} from "./commands/GetDomainMaintenanceStatusCommand";
+import {
   GetPackageVersionHistoryCommandInput,
   GetPackageVersionHistoryCommandOutput,
 } from "./commands/GetPackageVersionHistoryCommand";
 import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from "./commands/GetUpgradeHistoryCommand";
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
+import {
+  ListDomainMaintenancesCommandInput,
+  ListDomainMaintenancesCommandOutput,
+} from "./commands/ListDomainMaintenancesCommand";
 import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
 import {
   ListDomainsForPackageCommandInput,
@@ -185,6 +193,10 @@ import {
   RevokeVpcEndpointAccessCommandInput,
   RevokeVpcEndpointAccessCommandOutput,
 } from "./commands/RevokeVpcEndpointAccessCommand";
+import {
+  StartDomainMaintenanceCommandInput,
+  StartDomainMaintenanceCommandOutput,
+} from "./commands/StartDomainMaintenanceCommand";
 import {
   StartServiceSoftwareUpdateCommandInput,
   StartServiceSoftwareUpdateCommandOutput,
@@ -243,9 +255,11 @@ export type ServiceInputTypes =
   | DescribeVpcEndpointsCommandInput
   | DissociatePackageCommandInput
   | GetCompatibleVersionsCommandInput
+  | GetDomainMaintenanceStatusCommandInput
   | GetPackageVersionHistoryCommandInput
   | GetUpgradeHistoryCommandInput
   | GetUpgradeStatusCommandInput
+  | ListDomainMaintenancesCommandInput
   | ListDomainNamesCommandInput
   | ListDomainsForPackageCommandInput
   | ListInstanceTypeDetailsCommandInput
@@ -260,6 +274,7 @@ export type ServiceInputTypes =
   | RejectInboundConnectionCommandInput
   | RemoveTagsCommandInput
   | RevokeVpcEndpointAccessCommandInput
+  | StartDomainMaintenanceCommandInput
   | StartServiceSoftwareUpdateCommandInput
   | UpdateDomainConfigCommandInput
   | UpdatePackageCommandInput
@@ -302,9 +317,11 @@ export type ServiceOutputTypes =
   | DescribeVpcEndpointsCommandOutput
   | DissociatePackageCommandOutput
   | GetCompatibleVersionsCommandOutput
+  | GetDomainMaintenanceStatusCommandOutput
   | GetPackageVersionHistoryCommandOutput
   | GetUpgradeHistoryCommandOutput
   | GetUpgradeStatusCommandOutput
+  | ListDomainMaintenancesCommandOutput
   | ListDomainNamesCommandOutput
   | ListDomainsForPackageCommandOutput
   | ListInstanceTypeDetailsCommandOutput
@@ -319,6 +336,7 @@ export type ServiceOutputTypes =
   | RejectInboundConnectionCommandOutput
   | RemoveTagsCommandOutput
   | RevokeVpcEndpointAccessCommandOutput
+  | StartDomainMaintenanceCommandOutput
   | StartServiceSoftwareUpdateCommandOutput
   | UpdateDomainConfigCommandOutput
   | UpdatePackageCommandOutput

@@ -15,6 +15,7 @@ export * from "./GetPackageVersionHistoryPaginator";
 export * from "./GetUpgradeHistoryPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListDomainMaintenancesPaginator";
 export * from "./ListDomainsForPackagePaginator";
 export * from "./ListInstanceTypeDetailsPaginator";
 export * from "./ListPackagesForDomainPaginator";

@@ -1402,8 +1402,8 @@ export interface ClusterConfig {
 
   /**
    * @public
-   * <p>Number of dedicated master nodes in the cluster. This number must be greater than 1,
-   *    otherwise you receive a validation exception.</p>
+   * <p>Number of data nodes in the cluster. This number must be greater than 1, otherwise you
+   *    receive a validation exception.</p>
    */
   InstanceCount?: number;
 
@@ -5163,6 +5163,99 @@ export interface GetCompatibleVersionsResponse {
 
 /**
  * @public
+ * <p>Container for the parameters to the <code>GetDomainMaintenanceStatus</code>
+ *    operation.</p>
+ */
+export interface GetDomainMaintenanceStatusRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The request id of the maintenance action.</p>
+   */
+  MaintenanceId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceType = {
+  REBOOT_NODE: "REBOOT_NODE",
+  RESTART_DASHBOARD: "RESTART_DASHBOARD",
+  RESTART_SEARCH_PROCESS: "RESTART_SEARCH_PROCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type MaintenanceType = (typeof MaintenanceType)[keyof typeof MaintenanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type MaintenanceStatus = (typeof MaintenanceStatus)[keyof typeof MaintenanceStatus];
+
+/**
+ * @public
+ * <p>The result of a <code>GetDomainMaintenanceStatus</code> request. Contains information about the requested action. </p>
+ */
+export interface GetDomainMaintenanceStatusResponse {
+  /**
+   * @public
+   * <p>Contains status of the maintenance action.</p>
+   */
+  Status?: MaintenanceStatus;
+
+  /**
+   * @public
+   * <p>Contains status message of the maintenance action.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * @public
+   * <p>Contains node id of maintenance action.</p>
+   */
+  NodeId?: string;
+
+  /**
+   * @public
+   * <p>Contains action name.</p>
+   */
+  Action?: MaintenanceType;
+
+  /**
+   * @public
+   * <p>Contains time at which action created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>Contains time at which action updated.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+/**
+ * @public
  * <p>Container for the request parameters to the <code>GetPackageVersionHistory</code> operation.</p>
  */
 export interface GetPackageVersionHistoryRequest {
@@ -5459,6 +5552,120 @@ export interface GetUpgradeStatusResponse {
    * <p>A string that describes the update.</p>
    */
   UpgradeName?: string;
+}
+
+/**
+ * @public
+ * <p>Container for the parameters to the <code>ListDomainMaintenances</code>
+ *    operation.</p>
+ */
+export interface ListDomainMaintenancesRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the action.</p>
+   */
+  Action?: MaintenanceType;
+
+  /**
+   * @public
+   * <p>The status of the action.</p>
+   */
+  Status?: MaintenanceStatus;
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use
+   *    <code>nextToken</code> to get the next page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>If your initial <code>ListDomainMaintenances</code> operation returns a
+   *    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+   *    <code>ListDomainMaintenances</code> operations, which returns results in the next page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Container for the domain maintenance details.</p>
+ */
+export interface DomainMaintenanceDetails {
+  /**
+   * @public
+   * <p>Id of the requested action.</p>
+   */
+  MaintenanceId?: string;
+
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * @public
+   * <p>The name of the action.</p>
+   */
+  Action?: MaintenanceType;
+
+  /**
+   * @public
+   * <p>Id of the data node.</p>
+   */
+  NodeId?: string;
+
+  /**
+   * @public
+   * <p>The status of the action.</p>
+   */
+  Status?: MaintenanceStatus;
+
+  /**
+   * @public
+   * <p>The status message of the action.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * @public
+   * <p>Contains time at which action created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>Contains time at which action updated.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+/**
+ * @public
+ * <p>The result of a <code>ListDomainMaintenances</code> request. Contains information about the requested actions. </p>
+ */
+export interface ListDomainMaintenancesResponse {
+  /**
+   * @public
+   * <p>List of the submitted maintenance actions.</p>
+   */
+  DomainMaintenances?: DomainMaintenanceDetails[];
+
+  /**
+   * @public
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *    <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *    returned token to retrieve the next page.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -6141,6 +6348,43 @@ export interface RevokeVpcEndpointAccessRequest {
  * @public
  */
 export interface RevokeVpcEndpointAccessResponse {}
+
+/**
+ * @public
+ * <p>Container for the parameters to the <code>StartDomainMaintenance</code>
+ *    operation.</p>
+ */
+export interface StartDomainMaintenanceRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the action.</p>
+   */
+  Action: MaintenanceType | undefined;
+
+  /**
+   * @public
+   * <p>Id of the data node.</p>
+   */
+  NodeId?: string;
+}
+
+/**
+ * @public
+ * <p>The result of a <code>StartDomainMaintenance</code> request. Contains information about the requested action. </p>
+ */
+export interface StartDomainMaintenanceResponse {
+  /**
+   * @public
+   * <p>Contains request id of requested action.</p>
+   */
+  MaintenanceId?: string;
+}
 
 /**
  * @public

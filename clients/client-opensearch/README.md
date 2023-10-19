@@ -462,6 +462,14 @@ GetCompatibleVersions
 </details>
 <details>
 <summary>
+GetDomainMaintenanceStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/classes/getdomainmaintenancestatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/getdomainmaintenancestatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/getdomainmaintenancestatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetPackageVersionHistory
 </summary>
 
@@ -482,6 +490,14 @@ GetUpgradeStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/classes/getupgradestatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/getupgradestatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/getupgradestatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDomainMaintenances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/classes/listdomainmaintenancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/listdomainmaintenancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/listdomainmaintenancescommandoutput.html)
 
 </details>
 <details>
@@ -594,6 +610,14 @@ RevokeVpcEndpointAccess
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/classes/revokevpcendpointaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/revokevpcendpointaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/revokevpcendpointaccesscommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartDomainMaintenance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/classes/startdomainmaintenancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/startdomainmaintenancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/startdomainmaintenancecommandoutput.html)
 
 </details>
 <details>

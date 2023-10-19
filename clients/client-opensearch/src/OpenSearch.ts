@@ -154,6 +154,11 @@ import {
   GetCompatibleVersionsCommandOutput,
 } from "./commands/GetCompatibleVersionsCommand";
 import {
+  GetDomainMaintenanceStatusCommand,
+  GetDomainMaintenanceStatusCommandInput,
+  GetDomainMaintenanceStatusCommandOutput,
+} from "./commands/GetDomainMaintenanceStatusCommand";
+import {
   GetPackageVersionHistoryCommand,
   GetPackageVersionHistoryCommandInput,
   GetPackageVersionHistoryCommandOutput,
@@ -168,6 +173,11 @@ import {
   GetUpgradeStatusCommandInput,
   GetUpgradeStatusCommandOutput,
 } from "./commands/GetUpgradeStatusCommand";
+import {
+  ListDomainMaintenancesCommand,
+  ListDomainMaintenancesCommandInput,
+  ListDomainMaintenancesCommandOutput,
+} from "./commands/ListDomainMaintenancesCommand";
 import {
   ListDomainNamesCommand,
   ListDomainNamesCommandInput,
@@ -230,6 +240,11 @@ import {
   RevokeVpcEndpointAccessCommandInput,
   RevokeVpcEndpointAccessCommandOutput,
 } from "./commands/RevokeVpcEndpointAccessCommand";
+import {
+  StartDomainMaintenanceCommand,
+  StartDomainMaintenanceCommandInput,
+  StartDomainMaintenanceCommandOutput,
+} from "./commands/StartDomainMaintenanceCommand";
 import {
   StartServiceSoftwareUpdateCommand,
   StartServiceSoftwareUpdateCommandInput,
@@ -294,9 +309,11 @@ const commands = {
   DescribeVpcEndpointsCommand,
   DissociatePackageCommand,
   GetCompatibleVersionsCommand,
+  GetDomainMaintenanceStatusCommand,
   GetPackageVersionHistoryCommand,
   GetUpgradeHistoryCommand,
   GetUpgradeStatusCommand,
+  ListDomainMaintenancesCommand,
   ListDomainNamesCommand,
   ListDomainsForPackageCommand,
   ListInstanceTypeDetailsCommand,
@@ -311,6 +328,7 @@ const commands = {
   RejectInboundConnectionCommand,
   RemoveTagsCommand,
   RevokeVpcEndpointAccessCommand,
+  StartDomainMaintenanceCommand,
   StartServiceSoftwareUpdateCommand,
   UpdateDomainConfigCommand,
   UpdatePackageCommand,
@@ -812,6 +830,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link GetDomainMaintenanceStatusCommand}
+   */
+  getDomainMaintenanceStatus(
+    args: GetDomainMaintenanceStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDomainMaintenanceStatusCommandOutput>;
+  getDomainMaintenanceStatus(
+    args: GetDomainMaintenanceStatusCommandInput,
+    cb: (err: any, data?: GetDomainMaintenanceStatusCommandOutput) => void
+  ): void;
+  getDomainMaintenanceStatus(
+    args: GetDomainMaintenanceStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDomainMaintenanceStatusCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetPackageVersionHistoryCommand}
    */
   getPackageVersionHistory(
@@ -860,6 +895,23 @@ export interface OpenSearch {
     args: GetUpgradeStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetUpgradeStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDomainMaintenancesCommand}
+   */
+  listDomainMaintenances(
+    args: ListDomainMaintenancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainMaintenancesCommandOutput>;
+  listDomainMaintenances(
+    args: ListDomainMaintenancesCommandInput,
+    cb: (err: any, data?: ListDomainMaintenancesCommandOutput) => void
+  ): void;
+  listDomainMaintenances(
+    args: ListDomainMaintenancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDomainMaintenancesCommandOutput) => void
   ): void;
 
   /**
@@ -1077,6 +1129,23 @@ export interface OpenSearch {
     args: RevokeVpcEndpointAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartDomainMaintenanceCommand}
+   */
+  startDomainMaintenance(
+    args: StartDomainMaintenanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDomainMaintenanceCommandOutput>;
+  startDomainMaintenance(
+    args: StartDomainMaintenanceCommandInput,
+    cb: (err: any, data?: StartDomainMaintenanceCommandOutput) => void
+  ): void;
+  startDomainMaintenance(
+    args: StartDomainMaintenanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDomainMaintenanceCommandOutput) => void
   ): void;
 
   /**

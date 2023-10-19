@@ -114,11 +114,19 @@ import {
   GetCompatibleVersionsCommandOutput,
 } from "../commands/GetCompatibleVersionsCommand";
 import {
+  GetDomainMaintenanceStatusCommandInput,
+  GetDomainMaintenanceStatusCommandOutput,
+} from "../commands/GetDomainMaintenanceStatusCommand";
+import {
   GetPackageVersionHistoryCommandInput,
   GetPackageVersionHistoryCommandOutput,
 } from "../commands/GetPackageVersionHistoryCommand";
 import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from "../commands/GetUpgradeHistoryCommand";
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "../commands/GetUpgradeStatusCommand";
+import {
+  ListDomainMaintenancesCommandInput,
+  ListDomainMaintenancesCommandOutput,
+} from "../commands/ListDomainMaintenancesCommand";
 import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "../commands/ListDomainNamesCommand";
 import {
   ListDomainsForPackageCommandInput,
@@ -160,6 +168,10 @@ import {
   RevokeVpcEndpointAccessCommandInput,
   RevokeVpcEndpointAccessCommandOutput,
 } from "../commands/RevokeVpcEndpointAccessCommand";
+import {
+  StartDomainMaintenanceCommandInput,
+  StartDomainMaintenanceCommandOutput,
+} from "../commands/StartDomainMaintenanceCommand";
 import {
   StartServiceSoftwareUpdateCommandInput,
   StartServiceSoftwareUpdateCommandOutput,
@@ -205,6 +217,7 @@ import {
   DomainEndpointOptions,
   DomainEndpointOptionsStatus,
   DomainInformationContainer,
+  DomainMaintenanceDetails,
   DomainPackageDetails,
   DomainStatus,
   Duration,
@@ -1206,6 +1219,35 @@ export const se_GetCompatibleVersionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetDomainMaintenanceStatusCommand
+ */
+export const se_GetDomainMaintenanceStatusCommand = async (
+  input: GetDomainMaintenanceStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/domainMaintenance";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  const query: any = map({
+    maintenanceId: [, __expectNonNull(input.MaintenanceId!, `MaintenanceId`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetPackageVersionHistoryCommand
  */
 export const se_GetPackageVersionHistoryCommand = async (
@@ -1285,6 +1327,38 @@ export const se_GetUpgradeStatusCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListDomainMaintenancesCommand
+ */
+export const se_ListDomainMaintenancesCommand = async (
+  input: ListDomainMaintenancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/domainMaintenances";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  const query: any = map({
+    action: [, input.Action!],
+    status: [, input.Status!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1697,6 +1771,39 @@ export const se_RevokeVpcEndpointAccessCommand = async (
   body = JSON.stringify(
     take(input, {
       Account: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StartDomainMaintenanceCommand
+ */
+export const se_StartDomainMaintenanceCommand = async (
+  input: StartDomainMaintenanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/domainMaintenance";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Action: [],
+      NodeId: [],
     })
   );
   return new __HttpRequest({
@@ -3726,6 +3833,70 @@ const de_GetCompatibleVersionsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetDomainMaintenanceStatusCommand
+ */
+export const de_GetDomainMaintenanceStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDomainMaintenanceStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetDomainMaintenanceStatusCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Action: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NodeId: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDomainMaintenanceStatusCommandError
+ */
+const de_GetDomainMaintenanceStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDomainMaintenanceStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.opensearch#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetPackageVersionHistoryCommand
  */
 export const de_GetPackageVersionHistoryCommand = async (
@@ -3876,6 +4047,66 @@ const de_GetUpgradeStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUpgradeStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.opensearch#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListDomainMaintenancesCommand
+ */
+export const de_ListDomainMaintenancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDomainMaintenancesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListDomainMaintenancesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DomainMaintenances: (_) => de_DomainMaintenanceList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDomainMaintenancesCommandError
+ */
+const de_ListDomainMaintenancesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDomainMaintenancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4661,6 +4892,65 @@ const de_RevokeVpcEndpointAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeVpcEndpointAccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.opensearch#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartDomainMaintenanceCommand
+ */
+export const de_StartDomainMaintenanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDomainMaintenanceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartDomainMaintenanceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MaintenanceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartDomainMaintenanceCommandError
+ */
+const de_StartDomainMaintenanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDomainMaintenanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5709,6 +5999,34 @@ const de_DomainEndpointOptionsStatus = (output: any, context: __SerdeContext): D
 // de_DomainInfoList omitted.
 
 // de_DomainInformationContainer omitted.
+
+/**
+ * deserializeAws_restJson1DomainMaintenanceDetails
+ */
+const de_DomainMaintenanceDetails = (output: any, context: __SerdeContext): DomainMaintenanceDetails => {
+  return take(output, {
+    Action: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainName: __expectString,
+    MaintenanceId: __expectString,
+    NodeId: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DomainMaintenanceList
+ */
+const de_DomainMaintenanceList = (output: any, context: __SerdeContext): DomainMaintenanceDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DomainMaintenanceDetails(entry, context);
+    });
+  return retVal;
+};
 
 // de_DomainNodesStatus omitted.
 
