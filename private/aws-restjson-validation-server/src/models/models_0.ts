@@ -187,7 +187,7 @@ export interface MalformedEnumInput {
   string?: EnumString;
   stringWithEnumTrait?: EnumTraitString;
   list?: EnumString[];
-  map?: Record<EnumString, EnumString>;
+  map?: Partial<Record<EnumString, EnumString>>;
   union?: EnumUnion;
 }
 
@@ -196,7 +196,7 @@ export namespace MalformedEnumInput {
     string?: __MultiConstraintValidator<string>;
     stringWithEnumTrait?: __MultiConstraintValidator<string>;
     list?: __MultiConstraintValidator<Iterable<string>>;
-    map?: __MultiConstraintValidator<Record<EnumString, EnumString>>;
+    map?: __MultiConstraintValidator<Partial<Record<EnumString, EnumString>>>;
     union?: __MultiConstraintValidator<EnumUnion>;
   } = {};
   /**

@@ -1571,7 +1571,7 @@ export interface ListDeviceIdentifiersRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<DeviceIdentifierFilterKeys, string[]>;
+  filters?: Partial<Record<DeviceIdentifierFilterKeys, string[]>>;
 
   /**
    * @public
@@ -1647,7 +1647,7 @@ export interface ListNetworkResourcesRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<NetworkResourceFilterKeys, string[]>;
+  filters?: Partial<Record<NetworkResourceFilterKeys, string[]>>;
 
   /**
    * @public
@@ -1717,7 +1717,7 @@ export interface ListNetworksRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<NetworkFilterKeys, string[]>;
+  filters?: Partial<Record<NetworkFilterKeys, string[]>>;
 
   /**
    * @public
@@ -1782,7 +1782,7 @@ export interface ListNetworkSitesRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<NetworkSiteFilterKeys, string[]>;
+  filters?: Partial<Record<NetworkSiteFilterKeys, string[]>>;
 
   /**
    * @public
@@ -1875,7 +1875,7 @@ export interface ListOrdersRequest {
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
    */
-  filters?: Record<OrderFilterKeys, string[]>;
+  filters?: Partial<Record<OrderFilterKeys, string[]>>;
 }
 
 /**

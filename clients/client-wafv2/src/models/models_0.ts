@@ -3303,7 +3303,7 @@ export interface AssociationConfig {
    *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
    *          </note>
    */
-  RequestBody?: Record<AssociatedResourceType, RequestBodyAssociatedResourceTypeConfig>;
+  RequestBody?: Partial<Record<AssociatedResourceType, RequestBodyAssociatedResourceTypeConfig>>;
 }
 
 /**

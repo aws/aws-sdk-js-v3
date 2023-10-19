@@ -162,7 +162,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             }
 
             // Dispatch to the input value provider for any additional handling.
-            writer.write("node = $L;", valueTarget.accept(getMemberVisitor("input[key as " + keyTypeName + "]")));
+            writer.write("node = $L;", valueTarget.accept(getMemberVisitor("input[key as " + keyTypeName + "]!")));
 
             if (shape.hasTrait(SparseTrait.ID)) {
                 writer.dedent();

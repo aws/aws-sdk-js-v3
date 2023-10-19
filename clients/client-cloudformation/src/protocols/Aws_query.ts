@@ -6980,7 +6980,7 @@ const se_ResourceIdentifierProperties = (input: Record<string, string>, context:
     .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key as keyof typeof input];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input]!;
       counter++;
     });
   return entries;

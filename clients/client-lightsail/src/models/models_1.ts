@@ -2525,7 +2525,7 @@ export interface LoadBalancer {
    * <p>A string to string map of the configuration options for your load balancer. Valid values
    *       are listed below.</p>
    */
-  configurationOptions?: Record<LoadBalancerAttributeName, string>;
+  configurationOptions?: Partial<Record<LoadBalancerAttributeName, string>>;
 
   /**
    * @public

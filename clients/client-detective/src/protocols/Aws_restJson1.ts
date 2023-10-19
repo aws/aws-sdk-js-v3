@@ -2342,16 +2342,16 @@ const de_DatasourcePackageIngestDetail = (output: any, context: __SerdeContext):
 const de_DatasourcePackageIngestDetails = (
   output: any,
   context: __SerdeContext
-): Record<DatasourcePackage, DatasourcePackageIngestDetail> => {
+): Partial<Record<DatasourcePackage, DatasourcePackageIngestDetail>> => {
   return Object.entries(output).reduce(
-    (acc: Record<DatasourcePackage, DatasourcePackageIngestDetail>, [key, value]: [string, any]) => {
+    (acc: Partial<Record<DatasourcePackage, DatasourcePackageIngestDetail>>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
       acc[key as DatasourcePackage] = de_DatasourcePackageIngestDetail(value, context);
       return acc;
     },
-    {} as Record<DatasourcePackage, DatasourcePackageIngestDetail>
+    {} as Partial<Record<DatasourcePackage, DatasourcePackageIngestDetail>>
   );
 };
 
@@ -2361,10 +2361,10 @@ const de_DatasourcePackageIngestDetails = (
 const de_DatasourcePackageIngestHistory = (
   output: any,
   context: __SerdeContext
-): Record<DatasourcePackage, Record<DatasourcePackageIngestState, TimestampForCollection>> => {
+): Partial<Record<DatasourcePackage, Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>>> => {
   return Object.entries(output).reduce(
     (
-      acc: Record<DatasourcePackage, Record<DatasourcePackageIngestState, TimestampForCollection>>,
+      acc: Partial<Record<DatasourcePackage, Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>>>,
       [key, value]: [string, any]
     ) => {
       if (value === null) {
@@ -2373,7 +2373,7 @@ const de_DatasourcePackageIngestHistory = (
       acc[key as DatasourcePackage] = de_LastIngestStateChangeDates(value, context);
       return acc;
     },
-    {} as Record<DatasourcePackage, Record<DatasourcePackageIngestState, TimestampForCollection>>
+    {} as Partial<Record<DatasourcePackage, Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>>>
   );
 };
 
@@ -2417,16 +2417,16 @@ const de_GraphList = (output: any, context: __SerdeContext): Graph[] => {
 const de_LastIngestStateChangeDates = (
   output: any,
   context: __SerdeContext
-): Record<DatasourcePackageIngestState, TimestampForCollection> => {
+): Partial<Record<DatasourcePackageIngestState, TimestampForCollection>> => {
   return Object.entries(output).reduce(
-    (acc: Record<DatasourcePackageIngestState, TimestampForCollection>, [key, value]: [string, any]) => {
+    (acc: Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
       acc[key as DatasourcePackageIngestState] = de_TimestampForCollection(value, context);
       return acc;
     },
-    {} as Record<DatasourcePackageIngestState, TimestampForCollection>
+    {} as Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>
   );
 };
 
@@ -2516,16 +2516,16 @@ const de_TimestampForCollection = (output: any, context: __SerdeContext): Timest
 const de_VolumeUsageByDatasourcePackage = (
   output: any,
   context: __SerdeContext
-): Record<DatasourcePackage, DatasourcePackageUsageInfo> => {
+): Partial<Record<DatasourcePackage, DatasourcePackageUsageInfo>> => {
   return Object.entries(output).reduce(
-    (acc: Record<DatasourcePackage, DatasourcePackageUsageInfo>, [key, value]: [string, any]) => {
+    (acc: Partial<Record<DatasourcePackage, DatasourcePackageUsageInfo>>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
       acc[key as DatasourcePackage] = de_DatasourcePackageUsageInfo(value, context);
       return acc;
     },
-    {} as Record<DatasourcePackage, DatasourcePackageUsageInfo>
+    {} as Partial<Record<DatasourcePackage, DatasourcePackageUsageInfo>>
   );
 };
 

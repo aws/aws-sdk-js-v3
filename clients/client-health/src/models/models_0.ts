@@ -41,7 +41,7 @@ export interface AccountEntityAggregate {
    * @public
    * <p>The number of affected entities aggregated by the entity status codes.</p>
    */
-  statuses?: Record<EntityStatusCode, number>;
+  statuses?: Partial<Record<EntityStatusCode, number>>;
 }
 
 /**
@@ -574,7 +574,7 @@ export interface EntityAggregate {
    * @public
    * <p>The number of affected entities aggregated by the entity status codes.</p>
    */
-  statuses?: Record<EntityStatusCode, number>;
+  statuses?: Partial<Record<EntityStatusCode, number>>;
 }
 
 /**
@@ -629,7 +629,7 @@ export interface OrganizationEntityAggregate {
    * @public
    * <p>The number of affected entities aggregated by the entitiy status codes.</p>
    */
-  statuses?: Record<EntityStatusCode, number>;
+  statuses?: Partial<Record<EntityStatusCode, number>>;
 
   /**
    * @public

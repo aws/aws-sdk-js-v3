@@ -2943,16 +2943,16 @@ const de_ConnectorConfiguration = (output: any, context: __SerdeContext): Connec
 const de_ConnectorConfigurationsMap = (
   output: any,
   context: __SerdeContext
-): Record<ConnectorType, ConnectorConfiguration> => {
+): Partial<Record<ConnectorType, ConnectorConfiguration>> => {
   return Object.entries(output).reduce(
-    (acc: Record<ConnectorType, ConnectorConfiguration>, [key, value]: [string, any]) => {
+    (acc: Partial<Record<ConnectorType, ConnectorConfiguration>>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
       acc[key as ConnectorType] = de_ConnectorConfiguration(value, context);
       return acc;
     },
-    {} as Record<ConnectorType, ConnectorConfiguration>
+    {} as Partial<Record<ConnectorType, ConnectorConfiguration>>
   );
 };
 

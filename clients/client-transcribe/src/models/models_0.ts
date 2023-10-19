@@ -538,7 +538,7 @@ export interface CallAnalyticsJobSettings {
    *          <p>For a list of languages supported with Call Analytics, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages and
    *             language-specific features</a>.</p>
    */
-  LanguageIdSettings?: Record<LanguageCode, LanguageIdSettings>;
+  LanguageIdSettings?: Partial<Record<LanguageCode, LanguageIdSettings>>;
 }
 
 /**
@@ -3230,7 +3230,7 @@ export interface TranscriptionJob {
    * <p>Provides the name and language of all custom language models, custom vocabularies, and
    *             custom vocabulary filters that you included in your request.</p>
    */
-  LanguageIdSettings?: Record<LanguageCode, LanguageIdSettings>;
+  LanguageIdSettings?: Partial<Record<LanguageCode, LanguageIdSettings>>;
 
   /**
    * @public
@@ -4916,7 +4916,7 @@ export interface StartTranscriptionJobRequest {
    *                 <code>VocabularyName</code> or <code>VocabularyFilterName</code> (or both)
    *             sub-parameter.</p>
    */
-  LanguageIdSettings?: Record<LanguageCode, LanguageIdSettings>;
+  LanguageIdSettings?: Partial<Record<LanguageCode, LanguageIdSettings>>;
 
   /**
    * @public

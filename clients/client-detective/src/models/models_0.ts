@@ -313,9 +313,8 @@ export interface MembershipDatasources {
    * @public
    * <p>Details on when a data source package was added to a behavior graph.</p>
    */
-  DatasourcePackageIngestHistory?: Record<
-    DatasourcePackage,
-    Record<DatasourcePackageIngestState, TimestampForCollection>
+  DatasourcePackageIngestHistory?: Partial<
+    Record<DatasourcePackage, Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>>
   >;
 }
 
@@ -748,13 +747,13 @@ export interface MemberDetail {
    * @public
    * <p>Details on the volume of usage for each data source package in a behavior graph.</p>
    */
-  VolumeUsageByDatasourcePackage?: Record<DatasourcePackage, DatasourcePackageUsageInfo>;
+  VolumeUsageByDatasourcePackage?: Partial<Record<DatasourcePackage, DatasourcePackageUsageInfo>>;
 
   /**
    * @public
    * <p>The state of a data source package for the behavior graph.</p>
    */
-  DatasourcePackageIngestStates?: Record<DatasourcePackage, DatasourcePackageIngestState>;
+  DatasourcePackageIngestStates?: Partial<Record<DatasourcePackage, DatasourcePackageIngestState>>;
 }
 
 /**
@@ -978,7 +977,7 @@ export interface DatasourcePackageIngestDetail {
    * @public
    * <p>The date a data source package was enabled for this account</p>
    */
-  LastIngestStateChange?: Record<DatasourcePackageIngestState, TimestampForCollection>;
+  LastIngestStateChange?: Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>;
 }
 
 /**
@@ -989,7 +988,7 @@ export interface ListDatasourcePackagesResponse {
    * @public
    * <p>Details on the data source packages active in the behavior graph.</p>
    */
-  DatasourcePackages?: Record<DatasourcePackage, DatasourcePackageIngestDetail>;
+  DatasourcePackages?: Partial<Record<DatasourcePackage, DatasourcePackageIngestDetail>>;
 
   /**
    * @public

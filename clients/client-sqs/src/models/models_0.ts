@@ -740,7 +740,7 @@ export interface CreateQueueRequest {
    *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
    *   in the <i>Amazon SQS Developer Guide</i>.</p>
    */
-  Attributes?: Record<QueueAttributeName, string>;
+  Attributes?: Partial<Record<QueueAttributeName, string>>;
 }
 
 /**
@@ -1187,7 +1187,7 @@ export interface GetQueueAttributesResult {
    * @public
    * <p>A map of attributes to their respective values.</p>
    */
-  Attributes?: Record<QueueAttributeName, string>;
+  Attributes?: Partial<Record<QueueAttributeName, string>>;
 }
 
 /**
@@ -1891,7 +1891,7 @@ export interface Message {
    *             returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in
    *             milliseconds.</p>
    */
-  Attributes?: Record<MessageSystemAttributeName, string>;
+  Attributes?: Partial<Record<MessageSystemAttributeName, string>>;
 
   /**
    * @public
@@ -2089,7 +2089,7 @@ export interface SendMessageRequest {
    *             </ul>
    *          </important>
    */
-  MessageSystemAttributes?: Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>;
+  MessageSystemAttributes?: Partial<Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>>;
 
   /**
    * @public
@@ -2313,7 +2313,7 @@ export interface SendMessageBatchRequestEntry {
    *             </ul>
    *          </important>
    */
-  MessageSystemAttributes?: Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>;
+  MessageSystemAttributes?: Partial<Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>>;
 
   /**
    * @public
@@ -2759,7 +2759,7 @@ export interface SetQueueAttributesRequest {
    *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
    *   in the <i>Amazon SQS Developer Guide</i>.</p>
    */
-  Attributes: Record<QueueAttributeName, string> | undefined;
+  Attributes: Partial<Record<QueueAttributeName, string>> | undefined;
 }
 
 /**

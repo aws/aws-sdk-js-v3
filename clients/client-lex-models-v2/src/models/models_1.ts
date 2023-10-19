@@ -1035,13 +1035,13 @@ export interface IntentClassificationTestResultItemCounts {
    * @public
    * <p>The number of matched, mismatched, and execution error results for speech transcription for the intent.</p>
    */
-  speechTranscriptionResultCounts?: Record<TestResultMatchStatus, number>;
+  speechTranscriptionResultCounts?: Partial<Record<TestResultMatchStatus, number>>;
 
   /**
    * @public
    * <p>The number of matched and mismatched results for intent recognition for the intent.</p>
    */
-  intentMatchResultCounts: Record<TestResultMatchStatus, number> | undefined;
+  intentMatchResultCounts: Partial<Record<TestResultMatchStatus, number>> | undefined;
 }
 
 /**
@@ -1151,13 +1151,13 @@ export interface SlotResolutionTestResultItemCounts {
    * @public
    * <p>The number of matched, mismatched and execution error results for speech transcription for the slot.</p>
    */
-  speechTranscriptionResultCounts?: Record<TestResultMatchStatus, number>;
+  speechTranscriptionResultCounts?: Partial<Record<TestResultMatchStatus, number>>;
 
   /**
    * @public
    * <p>The number of matched and mismatched results for slot resolution for the slot.</p>
    */
-  slotMatchResultCounts: Record<TestResultMatchStatus, number> | undefined;
+  slotMatchResultCounts: Partial<Record<TestResultMatchStatus, number>> | undefined;
 }
 
 /**
@@ -3829,13 +3829,13 @@ export interface OverallTestResultItem {
    * @public
    * <p>The number of speech transcription results in the overall test.</p>
    */
-  speechTranscriptionResultCounts?: Record<TestResultMatchStatus, number>;
+  speechTranscriptionResultCounts?: Partial<Record<TestResultMatchStatus, number>>;
 
   /**
    * @public
    * <p>The number of results that succeeded.</p>
    */
-  endToEndResultCounts: Record<TestResultMatchStatus, number> | undefined;
+  endToEndResultCounts: Partial<Record<TestResultMatchStatus, number>> | undefined;
 }
 
 /**

@@ -2222,7 +2222,7 @@ export interface Operation {
    *             </dd>
    *          </dl>
    */
-  Targets?: Record<OperationTargetType, string>;
+  Targets?: Partial<Record<OperationTargetType, string>>;
 }
 
 /**

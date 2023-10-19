@@ -3423,7 +3423,7 @@ export interface SendTextMessageRequest {
    *             For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-senderid-india.html">Special requirements for sending SMS messages to recipients in India</a>.
    *         </p>
    */
-  DestinationCountryParameters?: Record<DestinationCountryParameterKey, string>;
+  DestinationCountryParameters?: Partial<Record<DestinationCountryParameterKey, string>>;
 
   /**
    * @public

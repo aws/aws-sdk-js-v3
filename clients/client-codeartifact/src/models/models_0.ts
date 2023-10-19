@@ -99,7 +99,7 @@ export interface AssetSummary {
    *       The hashes of the asset.
    *     </p>
    */
-  hashes?: Record<HashAlgorithm, string>;
+  hashes?: Partial<Record<HashAlgorithm, string>>;
 }
 
 /**

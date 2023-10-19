@@ -4871,31 +4871,31 @@ export interface OpenHours {
    * @public
    * <p>Specifies the schedule settings for the email channel.</p>
    */
-  EMAIL?: Record<DayOfWeek, OpenHoursRule[]>;
+  EMAIL?: Partial<Record<DayOfWeek, OpenHoursRule[]>>;
 
   /**
    * @public
    * <p>Specifies the schedule settings for the SMS channel.</p>
    */
-  SMS?: Record<DayOfWeek, OpenHoursRule[]>;
+  SMS?: Partial<Record<DayOfWeek, OpenHoursRule[]>>;
 
   /**
    * @public
    * <p>Specifies the schedule settings for the push channel.</p>
    */
-  PUSH?: Record<DayOfWeek, OpenHoursRule[]>;
+  PUSH?: Partial<Record<DayOfWeek, OpenHoursRule[]>>;
 
   /**
    * @public
    * <p>Specifies the schedule settings for the voice channel.</p>
    */
-  VOICE?: Record<DayOfWeek, OpenHoursRule[]>;
+  VOICE?: Partial<Record<DayOfWeek, OpenHoursRule[]>>;
 
   /**
    * @public
    * <p>Specifies the schedule settings for the custom channel.</p>
    */
-  CUSTOM?: Record<DayOfWeek, OpenHoursRule[]>;
+  CUSTOM?: Partial<Record<DayOfWeek, OpenHoursRule[]>>;
 }
 
 /**

@@ -1250,7 +1250,7 @@ export interface ResiliencyPolicy {
    * @public
    * <p>The resiliency policy.</p>
    */
-  policy?: Record<DisruptionType, FailurePolicy>;
+  policy?: Partial<Record<DisruptionType, FailurePolicy>>;
 
   /**
    * @public
@@ -1282,7 +1282,7 @@ export interface ResiliencyScore {
    * @public
    * <p>The disruption score for a valid key.</p>
    */
-  disruptionScore: Record<DisruptionType, number> | undefined;
+  disruptionScore: Partial<Record<DisruptionType, number>> | undefined;
 }
 
 /**
@@ -1374,7 +1374,7 @@ export interface AppAssessment {
    * <p>Application
    *       compliance against the resiliency policy.</p>
    */
-  compliance?: Record<DisruptionType, DisruptionCompliance>;
+  compliance?: Partial<Record<DisruptionType, DisruptionCompliance>>;
 
   /**
    * @public
@@ -1614,7 +1614,7 @@ export interface AppComponentCompliance {
    * @public
    * <p>The compliance of the Application Component against the resiliency policy.</p>
    */
-  compliance?: Record<DisruptionType, DisruptionCompliance>;
+  compliance?: Partial<Record<DisruptionType, DisruptionCompliance>>;
 
   /**
    * @public
@@ -2693,7 +2693,7 @@ export interface CreateResiliencyPolicyRequest {
    * <p>The type of resiliency policy to be created, including the recovery time objective (RTO)
    *       and recovery point objective (RPO) in seconds.</p>
    */
-  policy: Record<DisruptionType, FailurePolicy> | undefined;
+  policy: Partial<Record<DisruptionType, FailurePolicy>> | undefined;
 
   /**
    * @public
@@ -4080,7 +4080,7 @@ export interface ComplianceDrift {
    * @public
    * <p>The expected compliance value of an entity.</p>
    */
-  expectedValue?: Record<DisruptionType, DisruptionCompliance>;
+  expectedValue?: Partial<Record<DisruptionType, DisruptionCompliance>>;
 
   /**
    * @public
@@ -4093,7 +4093,7 @@ export interface ComplianceDrift {
    * <p>Actual
    *       compliance value of the entity.</p>
    */
-  actualValue?: Record<DisruptionType, DisruptionCompliance>;
+  actualValue?: Partial<Record<DisruptionType, DisruptionCompliance>>;
 
   /**
    * @public
@@ -4378,14 +4378,14 @@ export interface ConfigRecommendation {
    * <p>The current compliance against the resiliency policy before applying the configuration
    *       change.</p>
    */
-  compliance?: Record<DisruptionType, DisruptionCompliance>;
+  compliance?: Partial<Record<DisruptionType, DisruptionCompliance>>;
 
   /**
    * @public
    * <p>The expected compliance against the resiliency policy after applying the configuration
    *       change.</p>
    */
-  recommendationCompliance?: Record<DisruptionType, RecommendationDisruptionCompliance>;
+  recommendationCompliance?: Partial<Record<DisruptionType, RecommendationDisruptionCompliance>>;
 
   /**
    * @public
@@ -6280,7 +6280,7 @@ export interface UpdateResiliencyPolicyRequest {
    * <p>The type of resiliency policy to be created, including the recovery time objective (RTO)
    *       and recovery point objective (RPO) in seconds.</p>
    */
-  policy?: Record<DisruptionType, FailurePolicy>;
+  policy?: Partial<Record<DisruptionType, FailurePolicy>>;
 }
 
 /**

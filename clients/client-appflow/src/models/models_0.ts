@@ -5316,7 +5316,7 @@ export interface Task {
    * <p> A map used to store task-related information. The execution service looks for particular
    *       information based on the <code>TaskType</code>. </p>
    */
-  taskProperties?: Record<OperatorPropertiesKeys, string>;
+  taskProperties?: Partial<Record<OperatorPropertiesKeys, string>>;
 }
 
 /**
@@ -5765,7 +5765,7 @@ export interface DescribeConnectorsResponse {
    * @public
    * <p> The configuration that is applied to the connectors used in the flow. </p>
    */
-  connectorConfigurations?: Record<ConnectorType, ConnectorConfiguration>;
+  connectorConfigurations?: Partial<Record<ConnectorType, ConnectorConfiguration>>;
 
   /**
    * @public

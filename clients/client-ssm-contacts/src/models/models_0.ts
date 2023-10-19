@@ -978,7 +978,7 @@ export interface RecurrenceSettings {
    * @public
    * <p>Information about the days of the week included in on-call rotation coverage.</p>
    */
-  ShiftCoverages?: Record<DayOfWeek, CoverageTime[]>;
+  ShiftCoverages?: Partial<Record<DayOfWeek, CoverageTime[]>>;
 
   /**
    * @public

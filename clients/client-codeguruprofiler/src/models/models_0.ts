@@ -338,7 +338,7 @@ export interface AgentConfiguration {
    *             </li>
    *          </ul>
    */
-  agentParameters?: Record<AgentParameterField, string>;
+  agentParameters?: Partial<Record<AgentParameterField, string>>;
 }
 
 /**
@@ -1093,7 +1093,7 @@ export interface ConfigureAgentRequest {
    *             </li>
    *          </ul>
    */
-  metadata?: Record<MetadataField, string>;
+  metadata?: Partial<Record<MetadataField, string>>;
 }
 
 /**

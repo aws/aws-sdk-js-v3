@@ -133,13 +133,13 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
             Shape valueTarget = model.expectShape(valueMember.getTarget());
             String valueName = getMemberSerializedLocationName(valueMember, "value");
 
-            QueryMemberSerVisitor inputVisitor = getMemberVisitor("input[key as " + keyTypeName + "]");
+            QueryMemberSerVisitor inputVisitor = getMemberVisitor("input[key as " + keyTypeName + "]!");
             String valueLocation = "entry.${counter}." + valueName;
             if (inputVisitor.visitSuppliesEntryList(valueTarget)) {
                 serializeUnnamedMemberEntryList(
                     context,
                     valueTarget,
-                    "input[key as " + keyTypeName + "]",
+                    "input[key as " + keyTypeName + "]!",
                     valueLocation
                 );
             } else {
