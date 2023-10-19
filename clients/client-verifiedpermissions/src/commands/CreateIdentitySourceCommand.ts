@@ -113,6 +113,10 @@ export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceO
  * @see {@link CreateIdentitySourceCommandOutput} for command's `response` shape.
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request failed because another request to modify a resource occurred at the
+ *             same.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request failed because it references a resource that doesn't exist.</p>
  *
@@ -174,7 +178,7 @@ export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceO
  *                </p>
  *                <p>The policy attempts to access a record or entity attribute that isn't
  *                     specified in the schema. Test for the existence of the attribute first before
- *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>
@@ -184,7 +188,7 @@ export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceO
  *                <p>The policy attempts to access a record or entity attribute that is optional
  *                     and isn't guaranteed to be present. Test for the existence of the attribute
  *                     first before attempting to access its value. For more information, see the
- *                         <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                         <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>

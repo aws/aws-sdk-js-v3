@@ -43,8 +43,7 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
  * @public
  * <p>Creates a policy store. A policy store is a container for policy resources.</p>
  *          <note>
- *             <p>Although <a href="https://docs.cedarpolicy.com/schema.html#namespace">Cedar
- *                     supports multiple namespaces</a>, Verified Permissions currently supports only one
+ *             <p>Although <a href="https://docs.cedarpolicy.com/schema/schema.html#namespace">Cedar supports multiple namespaces</a>, Verified Permissions currently supports only one
  *                 namespace per policy store.</p>
  *          </note>
  *          <note>
@@ -81,6 +80,10 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
  * @see {@link CreatePolicyStoreCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyStoreCommandOutput} for command's `response` shape.
  * @see {@link VerifiedPermissionsClientResolvedConfig | config} for VerifiedPermissionsClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request failed because another request to modify a resource occurred at the
+ *             same.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request failed because it would cause a service quota to be exceeded.</p>
@@ -140,7 +143,7 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
  *                </p>
  *                <p>The policy attempts to access a record or entity attribute that isn't
  *                     specified in the schema. Test for the existence of the attribute first before
- *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>
@@ -150,7 +153,7 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
  *                <p>The policy attempts to access a record or entity attribute that is optional
  *                     and isn't guaranteed to be present. Test for the existence of the attribute
  *                     first before attempting to access its value. For more information, see the
- *                         <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                         <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>

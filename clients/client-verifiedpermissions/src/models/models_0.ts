@@ -505,7 +505,7 @@ export interface ValidationExceptionField {
  *                </p>
  *                <p>The policy attempts to access a record or entity attribute that isn't
  *                     specified in the schema. Test for the existence of the attribute first before
- *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>
@@ -515,7 +515,7 @@ export interface ValidationExceptionField {
  *                <p>The policy attempts to access a record or entity attribute that is optional
  *                     and isn't guaranteed to be present. Test for the existence of the attribute
  *                     first before attempting to access its value. For more information, see the
- *                         <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                         <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>
@@ -2813,7 +2813,7 @@ export type AttributeValue =
 export namespace AttributeValue {
   /**
    * @public
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/syntax-datatypes.html#boolean">Boolean</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#boolean">Boolean</a> type.</p>
    *          <p>Example: <code>\{"boolean": true\}</code>
    *          </p>
    */
@@ -2846,7 +2846,7 @@ export namespace AttributeValue {
 
   /**
    * @public
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/syntax-datatypes.html#long">Long</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#long">Long</a> type.</p>
    *          <p>Example: <code>\{"long": 0\}</code>
    *          </p>
    */
@@ -2862,7 +2862,7 @@ export namespace AttributeValue {
 
   /**
    * @public
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/syntax-datatypes.html#string">String</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#string">String</a> type.</p>
    *          <p>Example: <code>\{"string": "abc"\}</code>
    *          </p>
    */
@@ -2878,7 +2878,7 @@ export namespace AttributeValue {
 
   /**
    * @public
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/syntax-datatypes.html#set">Set</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#set">Set</a> type.</p>
    *          <p>Example: <code>\{"set": [ \{\} ] \}</code>
    *          </p>
    */
@@ -2894,7 +2894,7 @@ export namespace AttributeValue {
 
   /**
    * @public
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/syntax-datatypes.html#record">Record</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#record">Record</a> type.</p>
    *          <p>Example: <code>\{"record": \{ "keyName": \{\} \} \}</code>
    *          </p>
    */

@@ -495,6 +495,9 @@ const de_CreateIdentitySourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.verifiedpermissions#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.verifiedpermissions#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.verifiedpermissions#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -556,6 +559,9 @@ const de_CreatePolicyCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.verifiedpermissions#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.verifiedpermissions#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.verifiedpermissions#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -617,6 +623,9 @@ const de_CreatePolicyStoreCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.verifiedpermissions#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.verifiedpermissions#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.verifiedpermissions#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -675,6 +684,9 @@ const de_CreatePolicyTemplateCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.verifiedpermissions#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.verifiedpermissions#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.verifiedpermissions#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);

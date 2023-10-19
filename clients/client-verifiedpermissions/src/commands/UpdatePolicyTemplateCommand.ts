@@ -48,8 +48,9 @@ export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateO
  * <p>Updates the specified policy template. You can update only the description and the some elements
  *             of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html#amazonverifiedpermissions-UpdatePolicyTemplate-request-policyBody">policyBody</a>. </p>
  *          <important>
- *             <p>Changes you make to the policy template content are immediately reflected in authorization
- *                 decisions that involve all template-linked policies instantiated from this template.</p>
+ *             <p>Changes you make to the policy template content are immediately (within the constraints of
+ *                 eventual consistency) reflected in authorization decisions that involve all template-linked policies
+ *                 instantiated from this template.</p>
  *          </important>
  *          <note>
  *             <p>Verified Permissions is <i>
@@ -148,7 +149,7 @@ export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateO
  *                </p>
  *                <p>The policy attempts to access a record or entity attribute that isn't
  *                     specified in the schema. Test for the existence of the attribute first before
- *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>
@@ -158,7 +159,7 @@ export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateO
  *                <p>The policy attempts to access a record or entity attribute that is optional
  *                     and isn't guaranteed to be present. Test for the existence of the attribute
  *                     first before attempting to access its value. For more information, see the
- *                         <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                         <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>
