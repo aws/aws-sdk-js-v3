@@ -20,9 +20,9 @@
   "types": "./dist-types/index.d.ts",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/protocol-http": "^3.0.7",
-    "@smithy/querystring-builder": "^2.0.11",
-    "@smithy/types": "^2.3.5",
+    "@smithy/protocol-http": "^3.0.8",
+    "@smithy/querystring-builder": "^2.0.12",
+    "@smithy/types": "^2.4.0",
     "events": "3.3.0",
     "tslib": "^2.5.0"
   },

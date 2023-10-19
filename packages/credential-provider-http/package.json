@@ -27,11 +27,11 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/fetch-http-handler": "^2.2.3",
-    "@smithy/node-http-handler": "^2.1.7",
+    "@smithy/fetch-http-handler": "^2.2.4",
+    "@smithy/node-http-handler": "^2.1.8",
     "@smithy/property-provider": "^2.0.0",
-    "@smithy/protocol-http": "^3.0.7",
-    "@smithy/types": "^2.3.5",
+    "@smithy/protocol-http": "^3.0.8",
+    "@smithy/types": "^2.4.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
