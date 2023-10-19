@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.432.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.431.0...v3.432.0) (2023-10-19)
+
+
+### Features
+
+* **client-verifiedpermissions:** Improving Amazon Verified Permissions Create experience ([c86d343](https://github.com/aws/aws-sdk-js-v3/commit/c86d34336b5ff57c79e279059e9c967a8e8125ca))
+
+
+
+
+
 # [3.431.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.430.0...v3.431.0) (2023-10-18)
 
 **Note:** Version bump only for package @aws-sdk/client-verifiedpermissions

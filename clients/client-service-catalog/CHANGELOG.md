@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.432.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.431.0...v3.432.0) (2023-10-19)
+
+
+### Features
+
+* **client-service-catalog:** Introduce support for EXTERNAL product and provisioning artifact type in CreateProduct and CreateProvisioningArtifact APIs. ([9b32c6e](https://github.com/aws/aws-sdk-js-v3/commit/9b32c6edbbfc6e2c53e55ebbc34d4cc8f7ab846b))
+
+
+
+
+
 # [3.431.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.430.0...v3.431.0) (2023-10-18)
 
 **Note:** Version bump only for package @aws-sdk/client-service-catalog

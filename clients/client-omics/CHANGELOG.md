@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.432.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.431.0...v3.432.0) (2023-10-19)
+
+
+### Features
+
+* **client-omics:** This change enables customers to retrieve failure reasons with detailed status messages for their failed runs ([8092cfa](https://github.com/aws/aws-sdk-js-v3/commit/8092cfa8c2ee882d8ba788e22208fd71ae7328f1))
+
+
+
+
+
 # [3.431.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.430.0...v3.431.0) (2023-10-18)
 
 **Note:** Version bump only for package @aws-sdk/client-omics

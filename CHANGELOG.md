@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.432.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.431.0...v3.432.0) (2023-10-19)
+
+
+### Features
+
+* **client-ec2:** Amazon EC2 C7a instances, powered by 4th generation AMD EPYC processors, are ideal for high performance, compute-intensive workloads such as high performance computing. Amazon EC2 R7i instances are next-generation memory optimized and powered by custom 4th Generation Intel Xeon Scalable processors. ([99fa7ff](https://github.com/aws/aws-sdk-js-v3/commit/99fa7ffef1d3950aaa630736b6170e752c1b8529))
+* **client-managedblockchain-query:** This release adds support for Ethereum Sepolia network ([2c6f82d](https://github.com/aws/aws-sdk-js-v3/commit/2c6f82d632c293813b9a51355a929c3e164d3377))
+* **client-omics:** This change enables customers to retrieve failure reasons with detailed status messages for their failed runs ([8092cfa](https://github.com/aws/aws-sdk-js-v3/commit/8092cfa8c2ee882d8ba788e22208fd71ae7328f1))
+* **client-opensearch:** Added Cluster Administrative options for node restart, opensearch process restart and opensearch dashboard restart for Multi-AZ without standby domains ([574314c](https://github.com/aws/aws-sdk-js-v3/commit/574314c1d045219f35179e4c29f335fb8312f002))
+* **client-quicksight:** This release adds the following: 1) Trino and Starburst Database Connectors 2) Custom total for tables and pivot tables 3) Enable restricted folders 4) Add rolling dates for time equality filters 5) Refine DataPathValue and introduce DataPathType 6) Add SeriesType to ReferenceLineDataConfiguration ([de46ff2](https://github.com/aws/aws-sdk-js-v3/commit/de46ff2fdb3aa3653b9a26865d6353a128293354))
+* **client-service-catalog:** Introduce support for EXTERNAL product and provisioning artifact type in CreateProduct and CreateProvisioningArtifact APIs. ([9b32c6e](https://github.com/aws/aws-sdk-js-v3/commit/9b32c6edbbfc6e2c53e55ebbc34d4cc8f7ab846b))
+* **client-verifiedpermissions:** Improving Amazon Verified Permissions Create experience ([c86d343](https://github.com/aws/aws-sdk-js-v3/commit/c86d34336b5ff57c79e279059e9c967a8e8125ca))
+* **clients:** update client endpoints as of 2023-10-19 ([36bd472](https://github.com/aws/aws-sdk-js-v3/commit/36bd472f4a92acfbc4870d444ae164d0f4b6e519))
+
+
+
+
+
 # [3.431.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.430.0...v3.431.0) (2023-10-18)
 
 
