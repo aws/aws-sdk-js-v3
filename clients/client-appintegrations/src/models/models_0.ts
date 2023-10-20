@@ -355,7 +355,7 @@ export interface CreateDataIntegrationRequest {
    * @public
    * <p>The name of the data and how often it should be pulled from the source.</p>
    */
-  ScheduleConfig: ScheduleConfiguration | undefined;
+  ScheduleConfig?: ScheduleConfiguration;
 
   /**
    * @public
