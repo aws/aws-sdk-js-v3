@@ -14,11 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
+import { DescribeMaintenanceWindowTasksRequest } from "../models/models_0";
 import {
-  DescribeMaintenanceWindowTasksRequest,
   DescribeMaintenanceWindowTasksResult,
   DescribeMaintenanceWindowTasksResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_DescribeMaintenanceWindowTasksCommand,
   se_DescribeMaintenanceWindowTasksCommand,

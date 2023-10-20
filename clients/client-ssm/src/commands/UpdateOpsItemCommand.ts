@@ -105,6 +105,9 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  * @throws {@link OpsItemAlreadyExistsException} (client fault)
  *  <p>The OpsItem already exists.</p>
  *
+ * @throws {@link OpsItemConflictException} (client fault)
+ *  <p>The specified OpsItem is in the process of being deleted.</p>
+ *
  * @throws {@link OpsItemInvalidParameterException} (client fault)
  *  <p>A specified parameter argument isn't valid. Verify the available arguments and try
  *    again.</p>

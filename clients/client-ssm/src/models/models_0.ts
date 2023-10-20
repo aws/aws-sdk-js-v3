@@ -444,6 +444,28 @@ export interface AssociateOpsItemRelatedItemResponse {
 
 /**
  * @public
+ * <p>The specified OpsItem is in the process of being deleted.</p>
+ */
+export class OpsItemConflictException extends __BaseException {
+  readonly name: "OpsItemConflictException" = "OpsItemConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OpsItemConflictException, __BaseException>) {
+    super({
+      name: "OpsItemConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OpsItemConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>A specified parameter argument isn't valid. Verify the available arguments and try
  *    again.</p>
  */
@@ -3064,11 +3086,10 @@ export interface RelatedOpsItem {
 export interface CreateOpsItemRequest {
   /**
    * @public
-   * <p>User-defined text that contains information about the OpsItem, in Markdown format.
-   *   </p>
+   * <p>User-defined text that contains information about the OpsItem, in Markdown format. </p>
    *          <note>
-   *             <p>Provide enough information so that users viewing this OpsItem for the first time
-   *     understand the issue. </p>
+   *             <p>Provide enough information so that users viewing this OpsItem for the first time understand
+   *     the issue. </p>
    *          </note>
    */
   Description: string | undefined;
@@ -3092,7 +3113,7 @@ export interface CreateOpsItemRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/aws/insight</code>
+   *                   <code>/aws/insights</code>
    *                </p>
    *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
    *      OpsItems. </p>
@@ -4517,6 +4538,22 @@ export interface DeleteMaintenanceWindowResult {
    */
   WindowId?: string;
 }
+
+/**
+ * @public
+ */
+export interface DeleteOpsItemRequest {
+  /**
+   * @public
+   * <p>The ID of the OpsItem that you want to delete.</p>
+   */
+  OpsItemId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteOpsItemResponse {}
 
 /**
  * @public
@@ -9407,80 +9444,6 @@ export interface MaintenanceWindowTask {
 }
 
 /**
- * @public
- */
-export interface DescribeMaintenanceWindowTasksResult {
-  /**
-   * @public
-   * <p>Information about the tasks in the maintenance window.</p>
-   */
-  Tasks?: MaintenanceWindowTask[];
-
-  /**
-   * @public
-   * <p>The token to use when requesting the next set of items. If there are no additional items to
-   *    return, the string is empty.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const OpsItemFilterKey = {
-  ACCOUNT_ID: "AccountId",
-  ACTUAL_END_TIME: "ActualEndTime",
-  ACTUAL_START_TIME: "ActualStartTime",
-  AUTOMATION_ID: "AutomationId",
-  CATEGORY: "Category",
-  CHANGE_REQUEST_APPROVER_ARN: "ChangeRequestByApproverArn",
-  CHANGE_REQUEST_APPROVER_NAME: "ChangeRequestByApproverName",
-  CHANGE_REQUEST_REQUESTER_ARN: "ChangeRequestByRequesterArn",
-  CHANGE_REQUEST_REQUESTER_NAME: "ChangeRequestByRequesterName",
-  CHANGE_REQUEST_TARGETS_RESOURCE_GROUP: "ChangeRequestByTargetsResourceGroup",
-  CHANGE_REQUEST_TEMPLATE: "ChangeRequestByTemplate",
-  CREATED_BY: "CreatedBy",
-  CREATED_TIME: "CreatedTime",
-  INSIGHT_TYPE: "InsightByType",
-  LAST_MODIFIED_TIME: "LastModifiedTime",
-  OPERATIONAL_DATA: "OperationalData",
-  OPERATIONAL_DATA_KEY: "OperationalDataKey",
-  OPERATIONAL_DATA_VALUE: "OperationalDataValue",
-  OPSITEM_ID: "OpsItemId",
-  OPSITEM_TYPE: "OpsItemType",
-  PLANNED_END_TIME: "PlannedEndTime",
-  PLANNED_START_TIME: "PlannedStartTime",
-  PRIORITY: "Priority",
-  RESOURCE_ID: "ResourceId",
-  SEVERITY: "Severity",
-  SOURCE: "Source",
-  STATUS: "Status",
-  TITLE: "Title",
-} as const;
-
-/**
- * @public
- */
-export type OpsItemFilterKey = (typeof OpsItemFilterKey)[keyof typeof OpsItemFilterKey];
-
-/**
- * @public
- * @enum
- */
-export const OpsItemFilterOperator = {
-  CONTAINS: "Contains",
-  EQUAL: "Equal",
-  GREATER_THAN: "GreaterThan",
-  LESS_THAN: "LessThan",
-} as const;
-
-/**
- * @public
- */
-export type OpsItemFilterOperator = (typeof OpsItemFilterOperator)[keyof typeof OpsItemFilterOperator];
-
-/**
  * @internal
  */
 export const CreateAssociationRequestFilterSensitiveLog = (obj: CreateAssociationRequest): any => ({
@@ -9684,14 +9647,4 @@ export const MaintenanceWindowTaskFilterSensitiveLog = (obj: MaintenanceWindowTa
   ...obj,
   ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowTasksResultFilterSensitiveLog = (
-  obj: DescribeMaintenanceWindowTasksResult
-): any => ({
-  ...obj,
-  ...(obj.Tasks && { Tasks: obj.Tasks.map((item) => MaintenanceWindowTaskFilterSensitiveLog(item)) }),
 });

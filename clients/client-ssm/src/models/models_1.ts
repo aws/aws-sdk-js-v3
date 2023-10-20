@@ -20,14 +20,14 @@ import {
   LoggingInfo,
   MaintenanceWindowExecutionStatus,
   MaintenanceWindowResourceType,
+  MaintenanceWindowTask,
   MaintenanceWindowTaskCutoffBehavior,
+  MaintenanceWindowTaskFilterSensitiveLog,
   MaintenanceWindowTaskParameterValueExpression,
   MaintenanceWindowTaskType,
   MetadataValue,
   OperatingSystem,
   OpsItemDataValue,
-  OpsItemFilterKey,
-  OpsItemFilterOperator,
   OpsItemNotification,
   PatchAction,
   PatchComplianceLevel,
@@ -50,6 +50,80 @@ import {
   TargetLocation,
 } from "./models_0";
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * @public
+ */
+export interface DescribeMaintenanceWindowTasksResult {
+  /**
+   * @public
+   * <p>Information about the tasks in the maintenance window.</p>
+   */
+  Tasks?: MaintenanceWindowTask[];
+
+  /**
+   * @public
+   * <p>The token to use when requesting the next set of items. If there are no additional items to
+   *    return, the string is empty.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OpsItemFilterKey = {
+  ACCOUNT_ID: "AccountId",
+  ACTUAL_END_TIME: "ActualEndTime",
+  ACTUAL_START_TIME: "ActualStartTime",
+  AUTOMATION_ID: "AutomationId",
+  CATEGORY: "Category",
+  CHANGE_REQUEST_APPROVER_ARN: "ChangeRequestByApproverArn",
+  CHANGE_REQUEST_APPROVER_NAME: "ChangeRequestByApproverName",
+  CHANGE_REQUEST_REQUESTER_ARN: "ChangeRequestByRequesterArn",
+  CHANGE_REQUEST_REQUESTER_NAME: "ChangeRequestByRequesterName",
+  CHANGE_REQUEST_TARGETS_RESOURCE_GROUP: "ChangeRequestByTargetsResourceGroup",
+  CHANGE_REQUEST_TEMPLATE: "ChangeRequestByTemplate",
+  CREATED_BY: "CreatedBy",
+  CREATED_TIME: "CreatedTime",
+  INSIGHT_TYPE: "InsightByType",
+  LAST_MODIFIED_TIME: "LastModifiedTime",
+  OPERATIONAL_DATA: "OperationalData",
+  OPERATIONAL_DATA_KEY: "OperationalDataKey",
+  OPERATIONAL_DATA_VALUE: "OperationalDataValue",
+  OPSITEM_ID: "OpsItemId",
+  OPSITEM_TYPE: "OpsItemType",
+  PLANNED_END_TIME: "PlannedEndTime",
+  PLANNED_START_TIME: "PlannedStartTime",
+  PRIORITY: "Priority",
+  RESOURCE_ID: "ResourceId",
+  SEVERITY: "Severity",
+  SOURCE: "Source",
+  STATUS: "Status",
+  TITLE: "Title",
+} as const;
+
+/**
+ * @public
+ */
+export type OpsItemFilterKey = (typeof OpsItemFilterKey)[keyof typeof OpsItemFilterKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const OpsItemFilterOperator = {
+  CONTAINS: "Contains",
+  EQUAL: "Equal",
+  GREATER_THAN: "GreaterThan",
+  LESS_THAN: "LessThan",
+} as const;
+
+/**
+ * @public
+ */
+export type OpsItemFilterOperator = (typeof OpsItemFilterOperator)[keyof typeof OpsItemFilterOperator];
 
 /**
  * @public
@@ -293,7 +367,7 @@ export interface OpsItemSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/aws/insight</code>
+   *                   <code>/aws/insights</code>
    *                </p>
    *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
    *      OpsItems. </p>
@@ -3696,7 +3770,7 @@ export interface OpsItem {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/aws/insight</code>
+   *                   <code>/aws/insights</code>
    *                </p>
    *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
    *      OpsItems. </p>
@@ -10674,68 +10748,14 @@ export interface TerminateSessionResponse {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface UnlabelParameterVersionRequest {
-  /**
-   * @public
-   * <p>The name of the parameter from which you want to delete one or more labels.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>The specific version of the parameter which you want to delete one or more labels from. If
-   *    it isn't present, the call will fail.</p>
-   */
-  ParameterVersion: number | undefined;
-
-  /**
-   * @public
-   * <p>One or more labels to delete from the specified parameter version.</p>
-   */
-  Labels: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UnlabelParameterVersionResult {
-  /**
-   * @public
-   * <p>A list of all labels deleted from the parameter.</p>
-   */
-  RemovedLabels?: string[];
-
-  /**
-   * @public
-   * <p>The labels that aren't attached to the given parameter version.</p>
-   */
-  InvalidLabels?: string[];
-}
-
-/**
- * @public
- * <p>You have reached the maximum number versions allowed for an association. Each association
- *    has a limit of 1,000 versions. </p>
- */
-export class AssociationVersionLimitExceeded extends __BaseException {
-  readonly name: "AssociationVersionLimitExceeded" = "AssociationVersionLimitExceeded";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AssociationVersionLimitExceeded, __BaseException>) {
-    super({
-      name: "AssociationVersionLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AssociationVersionLimitExceeded.prototype);
-    this.Message = opts.Message;
-  }
-}
+export const DescribeMaintenanceWindowTasksResultFilterSensitiveLog = (
+  obj: DescribeMaintenanceWindowTasksResult
+): any => ({
+  ...obj,
+  ...(obj.Tasks && { Tasks: obj.Tasks.map((item) => MaintenanceWindowTaskFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal

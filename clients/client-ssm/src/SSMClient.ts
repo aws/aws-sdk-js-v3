@@ -89,6 +89,7 @@ import {
   DeleteMaintenanceWindowCommandInput,
   DeleteMaintenanceWindowCommandOutput,
 } from "./commands/DeleteMaintenanceWindowCommand";
+import { DeleteOpsItemCommandInput, DeleteOpsItemCommandOutput } from "./commands/DeleteOpsItemCommand";
 import { DeleteOpsMetadataCommandInput, DeleteOpsMetadataCommandOutput } from "./commands/DeleteOpsMetadataCommand";
 import { DeleteParameterCommandInput, DeleteParameterCommandOutput } from "./commands/DeleteParameterCommand";
 import { DeleteParametersCommandInput, DeleteParametersCommandOutput } from "./commands/DeleteParametersCommand";
@@ -497,6 +498,7 @@ export type ServiceInputTypes =
   | DeleteDocumentCommandInput
   | DeleteInventoryCommandInput
   | DeleteMaintenanceWindowCommandInput
+  | DeleteOpsItemCommandInput
   | DeleteOpsMetadataCommandInput
   | DeleteParameterCommandInput
   | DeleteParametersCommandInput
@@ -640,6 +642,7 @@ export type ServiceOutputTypes =
   | DeleteDocumentCommandOutput
   | DeleteInventoryCommandOutput
   | DeleteMaintenanceWindowCommandOutput
+  | DeleteOpsItemCommandOutput
   | DeleteOpsMetadataCommandOutput
   | DeleteParameterCommandOutput
   | DeleteParametersCommandOutput
@@ -942,7 +945,7 @@ export interface SSMClientResolvedConfig extends SSMClientResolvedConfigType {}
  *          </p>
  *          <ul>
  *             <li>
- *                <p>For information about each of the capabilities that comprise Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html#systems-manager-capabilities">Systems Manager capabilities</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *                <p>For information about each of the capabilities that comprise Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/systems-manager-capabilities.html">Systems Manager capabilities</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>For details about predefined runbooks for Automation, a capability of Amazon Web Services Systems Manager, see the

@@ -45,6 +45,70 @@ import { SSMServiceException as __BaseException } from "./SSMServiceException";
 
 /**
  * @public
+ */
+export interface UnlabelParameterVersionRequest {
+  /**
+   * @public
+   * <p>The name of the parameter from which you want to delete one or more labels.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The specific version of the parameter which you want to delete one or more labels from. If
+   *    it isn't present, the call will fail.</p>
+   */
+  ParameterVersion: number | undefined;
+
+  /**
+   * @public
+   * <p>One or more labels to delete from the specified parameter version.</p>
+   */
+  Labels: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UnlabelParameterVersionResult {
+  /**
+   * @public
+   * <p>A list of all labels deleted from the parameter.</p>
+   */
+  RemovedLabels?: string[];
+
+  /**
+   * @public
+   * <p>The labels that aren't attached to the given parameter version.</p>
+   */
+  InvalidLabels?: string[];
+}
+
+/**
+ * @public
+ * <p>You have reached the maximum number versions allowed for an association. Each association
+ *    has a limit of 1,000 versions. </p>
+ */
+export class AssociationVersionLimitExceeded extends __BaseException {
+  readonly name: "AssociationVersionLimitExceeded" = "AssociationVersionLimitExceeded";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AssociationVersionLimitExceeded, __BaseException>) {
+    super({
+      name: "AssociationVersionLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AssociationVersionLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>The update isn't valid.</p>
  */
 export class InvalidUpdate extends __BaseException {

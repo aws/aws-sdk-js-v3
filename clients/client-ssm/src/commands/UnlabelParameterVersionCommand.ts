@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { UnlabelParameterVersionRequest, UnlabelParameterVersionResult } from "../models/models_1";
+import { UnlabelParameterVersionRequest, UnlabelParameterVersionResult } from "../models/models_2";
 import { de_UnlabelParameterVersionCommand, se_UnlabelParameterVersionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
