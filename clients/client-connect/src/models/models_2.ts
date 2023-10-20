@@ -158,6 +158,32 @@ export interface UpdatePhoneNumberResponse {
 /**
  * @public
  */
+export interface UpdatePhoneNumberMetadataRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) or resource ID of the phone number.</p>
+   */
+  PhoneNumberId: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the phone number.</p>
+   */
+  PhoneNumberDescription?: string;
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface UpdatePromptRequest {
   /**
    * @public
@@ -758,7 +784,8 @@ export interface UpdateTrafficDistributionRequest {
 
   /**
    * @public
-   * <p>The distribution of allowing signing in to the instance and its replica(s).</p>
+   * <p>The distribution that determines which Amazon Web Services Regions should be used to sign in
+   *    agents in to both the instance and its replica(s).</p>
    */
   SignInConfig?: SignInConfig;
 
@@ -1894,6 +1921,9 @@ export interface SearchUsersRequest {
   /**
    * @public
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   *          <note>
+   *             <p>InstanceID is a required field. The "Required: No" below is incorrect.</p>
+   *          </note>
    */
   InstanceId?: string;
 

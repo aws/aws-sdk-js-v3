@@ -851,6 +851,11 @@ import {
   UpdatePhoneNumberCommandOutput,
 } from "./commands/UpdatePhoneNumberCommand";
 import {
+  UpdatePhoneNumberMetadataCommand,
+  UpdatePhoneNumberMetadataCommandInput,
+  UpdatePhoneNumberMetadataCommandOutput,
+} from "./commands/UpdatePhoneNumberMetadataCommand";
+import {
   UpdatePromptCommand,
   UpdatePromptCommandInput,
   UpdatePromptCommandOutput,
@@ -1163,6 +1168,7 @@ const commands = {
   UpdateInstanceStorageConfigCommand,
   UpdateParticipantRoleConfigCommand,
   UpdatePhoneNumberCommand,
+  UpdatePhoneNumberMetadataCommand,
   UpdatePromptCommand,
   UpdateQueueHoursOfOperationCommand,
   UpdateQueueMaxContactsCommand,
@@ -4075,6 +4081,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link UpdatePhoneNumberMetadataCommand}
+   */
+  updatePhoneNumberMetadata(
+    args: UpdatePhoneNumberMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePhoneNumberMetadataCommandOutput>;
+  updatePhoneNumberMetadata(
+    args: UpdatePhoneNumberMetadataCommandInput,
+    cb: (err: any, data?: UpdatePhoneNumberMetadataCommandOutput) => void
+  ): void;
+  updatePhoneNumberMetadata(
+    args: UpdatePhoneNumberMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePhoneNumberMetadataCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdatePromptCommand}
    */
   updatePrompt(args: UpdatePromptCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePromptCommandOutput>;
@@ -4510,9 +4533,9 @@ export interface Connect {
  *    contact routing. You can also resolve customer issues more efficiently by getting customers in
  *    touch with the appropriate agents.</p>
  *          <p>There are limits to the number of Amazon Connect resources that you can create. There
- *    are also limits to the number of requests that you can make per second. For more information, see
- *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
- *     Guide</i>.</p>
+ *    are also limits to the number of requests that you can make per second. For more information,
+ *    seeP98941055 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service
+ *     Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *          <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For
  *    a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
  */

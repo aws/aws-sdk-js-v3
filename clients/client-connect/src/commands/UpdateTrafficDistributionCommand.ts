@@ -39,7 +39,7 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * @public
  * <p>Updates the traffic distribution for a given traffic distribution group. </p>
  *          <note>
- *             <p>You can change the <code>SignInConfig</code> distribution only for a
+ *             <p>The <code>SignInConfig</code> distribution is available only on a
  * default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the
  * <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html">TrafficDistributionGroup</a>
  *  data type). If you call

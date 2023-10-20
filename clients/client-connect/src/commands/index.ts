@@ -183,6 +183,7 @@ export * from "./UpdateInstanceAttributeCommand";
 export * from "./UpdateInstanceStorageConfigCommand";
 export * from "./UpdateParticipantRoleConfigCommand";
 export * from "./UpdatePhoneNumberCommand";
+export * from "./UpdatePhoneNumberMetadataCommand";
 export * from "./UpdatePromptCommand";
 export * from "./UpdateQueueHoursOfOperationCommand";
 export * from "./UpdateQueueMaxContactsCommand";

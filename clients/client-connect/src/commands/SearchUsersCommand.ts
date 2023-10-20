@@ -38,7 +38,7 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
 
 /**
  * @public
- * <p>Searches users in an Amazon Connect instance, with optional filtering.</p>
+ * <p>Searches users in an Amazon Connect instance, with optional filtering. </p>
  *          <note>
  *             <p>
  *                <code>AfterContactWorkTimeLimit</code> is returned in milliseconds. </p>

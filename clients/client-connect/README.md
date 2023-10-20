@@ -12,9 +12,9 @@ manage a customer contact center and provide reliable customer engagement at any
 contact routing. You can also resolve customer issues more efficiently by getting customers in
 touch with the appropriate agents.</p>
 <p>There are limits to the number of Amazon Connect resources that you can create. There
-are also limits to the number of requests that you can make per second. For more information, see
-<a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
-Guide</i>.</p>
+are also limits to the number of requests that you can make per second. For more information,
+seeP98941055 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service
+Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
 <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For
 a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
 
@@ -1683,6 +1683,14 @@ UpdatePhoneNumber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/updatephonenumbercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/updatephonenumbercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/updatephonenumbercommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdatePhoneNumberMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/updatephonenumbermetadatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/updatephonenumbermetadatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/updatephonenumbermetadatacommandoutput.html)
 
 </details>
 <details>

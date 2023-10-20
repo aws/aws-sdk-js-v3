@@ -1653,9 +1653,8 @@ export interface IntervalDetails {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>FIFTEEN_MIN</code>: The
-   *      difference between <code>StartTime</code> and <code>EndTime</code> must be less than 3
-   *      days.</p>
+   *                   <code>FIFTEEN_MIN</code>: The difference between <code>StartTime</code> and
+   *       <code>EndTime</code> must be less than 3 days.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1790,8 +1789,8 @@ export interface GetMetricDataV2Request {
    * @public
    * <p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the
    *    retrieval of historical metrics data. The time must be before the end time timestamp. The start
-   *    and end time depends on the <code>IntervalPeriod</code> selected. By default the time range between
-   *    start and end time is 35 days. Historical metrics are available for 3 months.</p>
+   *    and end time depends on the <code>IntervalPeriod</code> selected. By default the time range
+   *    between start and end time is 35 days. Historical metrics are available for 3 months.</p>
    */
   StartTime: Date | undefined;
 
@@ -1821,8 +1820,8 @@ export interface GetMetricDataV2Request {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>FIFTEEN_MIN</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 3
-   *        days.</p>
+   *                         <code>FIFTEEN_MIN</code>: The difference between <code>StartTime</code> and
+   *         <code>EndTime</code> must be less than 3 days.</p>
    *                   </li>
    *                   <li>
    *                      <p>
@@ -1996,7 +1995,8 @@ export interface GetMetricDataV2Request {
    *                </p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
    *                <note>
-   *                   <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p>
+   *                   <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this
+   *        metric.</p>
    *                </note>
    *             </dd>
    *             <dt>AVG_CONTACT_DURATION</dt>
@@ -2496,7 +2496,8 @@ export interface SignInDistribution {
 
 /**
  * @public
- * <p>The distribution of allowing signing in to the instance and its replica(s).</p>
+ * <p>The distribution that determines which Amazon Web Services Regions should be used to sign in
+ *    agents in to both the instance and its replica(s).</p>
  */
 export interface SignInConfig {
   /**
@@ -2544,7 +2545,8 @@ export interface GetTrafficDistributionResponse {
 
   /**
    * @public
-   * <p>The distribution of allowing signing in to the instance and its replica(s).</p>
+   * <p>The distribution that determines which Amazon Web Services Regions should be used to sign in
+   *    agents in to both the instance and its replica(s).</p>
    */
   SignInConfig?: SignInConfig;
 
@@ -7414,7 +7416,9 @@ export interface StartTaskContactRequest {
 
   /**
    * @public
-   * <p>The identifier of the previous chat, voice, or task contact. </p>
+   * <p>The identifier of the previous chat, voice, or task contact. Any updates to user-defined
+   *    attributes to task contacts linked using the same <code>PreviousContactID</code> will affect
+   *    every contact in the chain. There can be a maximum of 12 linked task contacts in a chain.</p>
    */
   PreviousContactId?: string;
 
@@ -7444,7 +7448,10 @@ export interface StartTaskContactRequest {
 
   /**
    * @public
-   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>
+   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have
+   *    the following reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> |
+   *     <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>. <code>ATTACHMENT</code> is not a
+   *    supported reference type during task creation.</p>
    */
   References?: Record<string, Reference>;
 
@@ -7472,19 +7479,28 @@ export interface StartTaskContactRequest {
 
   /**
    * @public
-   * <p>A unique identifier for the task template.</p>
+   * <p>A unique identifier for the task template. For more information about task templates, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/task-templates.html">Create task templates</a> in the
+   *      <i>Amazon Connect Administrator Guide</i>. </p>
    */
   TaskTemplateId?: string;
 
   /**
    * @public
-   * <p>The identifier for the quick connect.</p>
+   * <p>The identifier for the quick connect. Tasks that are created by using <code>QuickConnectId</code> will use the
+   *    flow that is defined on agent or queue quick connect. For more information about quick connects,
+   *    see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/quick-connects.html">Create quick
+   *     connects</a>.</p>
    */
   QuickConnectId?: string;
 
   /**
    * @public
-   * <p>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks">related</a> to this contact.</p>
+   * <p>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks">related</a> to this contact. Linking
+   *    tasks together by using <code>RelatedContactID</code> copies over contact attributes from the
+   *    related task contact to the new task contact. All updates to user-defined attributes in the new
+   *    task contact are limited to the individual contact ID, unlike what happens when tasks are linked
+   *    by using <code>PreviousContactID</code>. There are no limits to the number of contacts that can
+   *    be linked by using <code>RelatedContactId</code>. </p>
    */
   RelatedContactId?: string;
 }
@@ -7974,7 +7990,7 @@ export interface UpdateContactFlowContentRequest {
   /**
    * @public
    * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
-   *     contact flow in Amazon Connect Flow language</a>. </p>
+   *     flow in Amazon Connect Flow language</a>. </p>
    *          <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>
    */
   Content: string | undefined;
@@ -8044,7 +8060,7 @@ export interface UpdateContactFlowModuleContentRequest {
   /**
    * @public
    * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
-   *     contact flow in Amazon Connect Flow language</a>. </p>
+   *     flow in Amazon Connect Flow language</a>. </p>
    */
   Content: string | undefined;
 }

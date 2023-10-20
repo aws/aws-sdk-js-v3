@@ -1419,7 +1419,7 @@ export interface CreateContactFlowRequest {
   /**
    * @public
    * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
-   *     contact flow in Amazon Connect Flow language</a>. </p>
+   *     flow in Amazon Connect Flow language</a>. </p>
    *          <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>
    */
   Content: string | undefined;
@@ -1510,7 +1510,8 @@ export interface CreateContactFlowModuleRequest {
 
   /**
    * @public
-   * <p>The content of the flow module.</p>
+   * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
+   *     flow in Amazon Connect Flow language</a>. </p>
    */
   Content: string | undefined;
 
@@ -3287,7 +3288,8 @@ export interface Application {
 
   /**
    * @public
-   * <p>The permissions that the agent is granted on the application. Only the <code>ACCESS</code> permission is supported.</p>
+   * <p>The permissions that the agent is granted on the application. Only the <code>ACCESS</code>
+   *    permission is supported.</p>
    */
   ApplicationPermissions?: string[];
 }
@@ -5503,7 +5505,8 @@ export interface ContactFlow {
   /**
    * @public
    * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
-   *     contact flow in Amazon Connect Flow language</a>. </p>
+   *     flow in Amazon Connect Flow language</a>. </p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>
    */
   Content?: string;
 
@@ -5596,8 +5599,7 @@ export interface ContactFlowModule {
   /**
    * @public
    * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
-   *     contact flow in Amazon Connect Flow language</a>. </p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>
+   *     flow in Amazon Connect Flow language</a>. </p>
    */
   Content?: string;
 
@@ -6259,20 +6261,17 @@ export type PhoneNumberWorkflowStatus = (typeof PhoneNumberWorkflowStatus)[keyof
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>CLAIMED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or
- *       <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation succeeded.</p>
+ *                   <code>CLAIMED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation succeeded.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>IN_PROGRESS</code> means a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or
- *       <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation is still in progress and has not yet completed. You can
- *      call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> at a later time to verify if the previous operation has
- *      completed.</p>
+ *                   <code>IN_PROGRESS</code> means a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>, <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a>, or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumberMetadata.html">UpdatePhoneNumberMetadata</a> operation is still in progress and has not yet completed.
+ *      You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> at
+ *      a later time to verify if the previous operation has completed.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or
- *       <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the
+ *                   <code>FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the
  *      failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you
  *      are claiming or updating a phone number to has reached its limit of total claimed numbers. If
  *      you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you
@@ -6373,20 +6372,17 @@ export interface ClaimedPhoneNumberSummary {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CLAIMED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or
-   *       <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation succeeded.</p>
+   *                   <code>CLAIMED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation succeeded.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_PROGRESS</code> means a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or
-   *       <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation is still in progress and has not yet completed. You can
-   *      call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> at a later time to verify if the previous operation has
-   *      completed.</p>
+   *                   <code>IN_PROGRESS</code> means a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>, <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a>, or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumberMetadata.html">UpdatePhoneNumberMetadata</a> operation is still in progress and has not yet completed.
+   *      You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> at
+   *      a later time to verify if the previous operation has completed.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or
-   *       <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the
+   *                   <code>FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the
    *      failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you
    *      are claiming or updating a phone number to has reached its limit of total claimed numbers. If
    *      you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you
@@ -7032,7 +7028,7 @@ export interface TrafficDistributionGroup {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html">UpdateTrafficDistributionGroup</a> operation is still in progress and has not yet
+   *                   <code>UPDATE_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistribution.html">UpdateTrafficDistribution</a> operation is still in progress and has not yet
    *      completed.</p>
    *             </li>
    *          </ul>
@@ -7052,12 +7048,10 @@ export interface TrafficDistributionGroup {
    *    <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as
    *    part of the process for deleting a replica.</p>
    *          <note>
-   *             <p>You can change the <code>SignInConfig</code> distribution only for a
-   * default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the
-   * <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html">TrafficDistributionGroup</a>
-   *  data type). If you call
-   *     <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>,
-   *     an <code>InvalidRequestException</code> is returned.</p>
+   *             <p>The <code>SignInConfig</code> distribution is available only on the default
+   *      <code>TrafficDistributionGroup</code>. If you call <code>UpdateTrafficDistribution</code> with
+   *     a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>, an
+   *      <code>InvalidRequestException</code> is returned.</p>
    *          </note>
    */
   IsDefault?: boolean;
