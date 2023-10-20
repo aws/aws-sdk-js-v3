@@ -7031,6 +7031,10 @@
                 {
                   "hostname": "elasticmapreduce-fips.us-east-2.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "elasticmapreduce.us-east-2.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -7166,6 +7170,7 @@
             "ap-east-1": {},
             "ap-northeast-1": {},
             "ap-northeast-2": {},
+            "ap-northeast-3": {},
             "ap-south-1": {},
             "ap-southeast-1": {},
             "ap-southeast-2": {},
@@ -21207,8 +21212,22 @@
             "protocols": ["https"]
           },
           "endpoints": {
-            "cn-north-1": {},
-            "cn-northwest-1": {}
+            "cn-north-1": {
+              "variants": [
+                {
+                  "hostname": "elasticmapreduce.cn-north-1.api.amazonwebservices.com.cn",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "cn-northwest-1": {
+              "variants": [
+                {
+                  "hostname": "elasticmapreduce.cn-northwest-1.api.amazonwebservices.com.cn",
+                  "tags": ["dualstack"]
+                }
+              ]
+            }
           }
         },
         "emr-containers": {
@@ -23965,6 +23984,10 @@
                 {
                   "hostname": "elasticmapreduce.us-gov-east-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "elasticmapreduce.us-gov-east-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -23974,6 +23997,10 @@
                 {
                   "hostname": "elasticmapreduce.us-gov-west-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "elasticmapreduce.us-gov-west-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             }
@@ -27937,6 +27964,11 @@
               },
               "hostname": "api.ecr.us-isob-east-1.sc2s.sgov.gov"
             }
+          }
+        },
+        "api.sagemaker": {
+          "endpoints": {
+            "us-isob-east-1": {}
           }
         },
         "appconfig": {
