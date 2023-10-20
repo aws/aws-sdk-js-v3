@@ -31,6 +31,7 @@
     "@smithy/node-http-handler": "^2.1.8",
     "@smithy/property-provider": "^2.0.0",
     "@smithy/protocol-http": "^3.0.8",
+    "@smithy/smithy-client": "^2.1.12",
     "@smithy/types": "^2.4.0",
     "tslib": "^2.5.0"
   },
