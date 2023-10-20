@@ -12,6 +12,11 @@ import {
   AssociateConfigurationItemsToApplicationCommandOutput,
 } from "./commands/AssociateConfigurationItemsToApplicationCommand";
 import {
+  BatchDeleteAgentsCommand,
+  BatchDeleteAgentsCommandInput,
+  BatchDeleteAgentsCommandOutput,
+} from "./commands/BatchDeleteAgentsCommand";
+import {
   BatchDeleteImportDataCommand,
   BatchDeleteImportDataCommandInput,
   BatchDeleteImportDataCommandOutput,
@@ -33,6 +38,11 @@ import {
   DescribeAgentsCommandInput,
   DescribeAgentsCommandOutput,
 } from "./commands/DescribeAgentsCommand";
+import {
+  DescribeBatchDeleteConfigurationTaskCommand,
+  DescribeBatchDeleteConfigurationTaskCommandInput,
+  DescribeBatchDeleteConfigurationTaskCommandOutput,
+} from "./commands/DescribeBatchDeleteConfigurationTaskCommand";
 import {
   DescribeConfigurationsCommand,
   DescribeConfigurationsCommandInput,
@@ -89,6 +99,11 @@ import {
   ListServerNeighborsCommandOutput,
 } from "./commands/ListServerNeighborsCommand";
 import {
+  StartBatchDeleteConfigurationTaskCommand,
+  StartBatchDeleteConfigurationTaskCommandInput,
+  StartBatchDeleteConfigurationTaskCommandOutput,
+} from "./commands/StartBatchDeleteConfigurationTaskCommand";
+import {
   StartContinuousExportCommand,
   StartContinuousExportCommandInput,
   StartContinuousExportCommandOutput,
@@ -126,12 +141,14 @@ import {
 
 const commands = {
   AssociateConfigurationItemsToApplicationCommand,
+  BatchDeleteAgentsCommand,
   BatchDeleteImportDataCommand,
   CreateApplicationCommand,
   CreateTagsCommand,
   DeleteApplicationsCommand,
   DeleteTagsCommand,
   DescribeAgentsCommand,
+  DescribeBatchDeleteConfigurationTaskCommand,
   DescribeConfigurationsCommand,
   DescribeContinuousExportsCommand,
   DescribeExportConfigurationsCommand,
@@ -143,6 +160,7 @@ const commands = {
   GetDiscoverySummaryCommand,
   ListConfigurationsCommand,
   ListServerNeighborsCommand,
+  StartBatchDeleteConfigurationTaskCommand,
   StartContinuousExportCommand,
   StartDataCollectionByAgentIdsCommand,
   StartExportTaskCommand,
@@ -168,6 +186,23 @@ export interface ApplicationDiscoveryService {
     args: AssociateConfigurationItemsToApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateConfigurationItemsToApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteAgentsCommand}
+   */
+  batchDeleteAgents(
+    args: BatchDeleteAgentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteAgentsCommandOutput>;
+  batchDeleteAgents(
+    args: BatchDeleteAgentsCommandInput,
+    cb: (err: any, data?: BatchDeleteAgentsCommandOutput) => void
+  ): void;
+  batchDeleteAgents(
+    args: BatchDeleteAgentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteAgentsCommandOutput) => void
   ): void;
 
   /**
@@ -255,6 +290,23 @@ export interface ApplicationDiscoveryService {
     args: DescribeAgentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAgentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeBatchDeleteConfigurationTaskCommand}
+   */
+  describeBatchDeleteConfigurationTask(
+    args: DescribeBatchDeleteConfigurationTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBatchDeleteConfigurationTaskCommandOutput>;
+  describeBatchDeleteConfigurationTask(
+    args: DescribeBatchDeleteConfigurationTaskCommandInput,
+    cb: (err: any, data?: DescribeBatchDeleteConfigurationTaskCommandOutput) => void
+  ): void;
+  describeBatchDeleteConfigurationTask(
+    args: DescribeBatchDeleteConfigurationTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBatchDeleteConfigurationTaskCommandOutput) => void
   ): void;
 
   /**
@@ -436,6 +488,23 @@ export interface ApplicationDiscoveryService {
     args: ListServerNeighborsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListServerNeighborsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartBatchDeleteConfigurationTaskCommand}
+   */
+  startBatchDeleteConfigurationTask(
+    args: StartBatchDeleteConfigurationTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartBatchDeleteConfigurationTaskCommandOutput>;
+  startBatchDeleteConfigurationTask(
+    args: StartBatchDeleteConfigurationTaskCommandInput,
+    cb: (err: any, data?: StartBatchDeleteConfigurationTaskCommandOutput) => void
+  ): void;
+  startBatchDeleteConfigurationTask(
+    args: StartBatchDeleteConfigurationTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartBatchDeleteConfigurationTaskCommandOutput) => void
   ): void;
 
   /**

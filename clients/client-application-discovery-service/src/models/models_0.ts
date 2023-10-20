@@ -264,6 +264,108 @@ export class ServerInternalErrorException extends __BaseException {
 
 /**
  * @public
+ * <p>
+ *       An object representing the agent or data collector to be deleted along with
+ *       the optional configurations for error handling.
+ *     </p>
+ */
+export interface DeleteAgent {
+  /**
+   * @public
+   * <p>
+   *       The ID of the agent or data collector to delete.
+   *     </p>
+   */
+  agentId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *       Optional flag used to force delete an agent or data collector. It is needed to delete any agent in
+   *       HEALTHY/UNHEALTHY/RUNNING status. Note that deleting an agent that is actively reporting health causes it
+   *       to be re-registered with a different agent ID after data collector re-connects with Amazon Web Services.
+   *     </p>
+   */
+  force?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteAgentsRequest {
+  /**
+   * @public
+   * <p>
+   *       The list of agents to delete.
+   *     </p>
+   */
+  deleteAgents: DeleteAgent[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DeleteAgentErrorCode = {
+  AGENT_IN_USE: "AGENT_IN_USE",
+  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+  NOT_FOUND: "NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type DeleteAgentErrorCode = (typeof DeleteAgentErrorCode)[keyof typeof DeleteAgentErrorCode];
+
+/**
+ * @public
+ * <p>
+ *       An object representing the agent or data collector that failed to delete, each containing agentId,
+ *       errorMessage, and errorCode.
+ *     </p>
+ */
+export interface BatchDeleteAgentError {
+  /**
+   * @public
+   * <p>
+   *       The ID of the agent or data collector to delete.
+   *     </p>
+   */
+  agentId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *       The description of the error that occurred for the delete failed agent.
+   *     </p>
+   */
+  errorMessage: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *       The type of error that occurred for the delete failed agent.
+   *       Valid status are: AGENT_IN_USE | NOT_FOUND | INTERNAL_SERVER_ERROR.
+   *     </p>
+   */
+  errorCode: DeleteAgentErrorCode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteAgentsResponse {
+  /**
+   * @public
+   * <p>
+   *       A list of agent IDs that failed to delete during the deletion task, each paired with an error message.
+   *     </p>
+   */
+  errors?: BatchDeleteAgentError[];
+}
+
+/**
+ * @public
  */
 export interface BatchDeleteImportDataRequest {
   /**
@@ -271,6 +373,15 @@ export interface BatchDeleteImportDataRequest {
    * <p>The IDs for the import tasks that you want to delete.</p>
    */
   importTaskIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>
+   *       Set to <code>true</code> to remove the deleted import task from
+   *       <a>DescribeImportTasks</a>.
+   *     </p>
+   */
+  deleteHistory?: boolean;
 }
 
 /**
@@ -559,6 +670,211 @@ export interface DescribeAgentsResponse {
    *       with this token. Use this token in the next query to retrieve the next set of 10.</p>
    */
   nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBatchDeleteConfigurationTaskRequest {
+  /**
+   * @public
+   * <p>
+   *         The ID of the task to delete.
+   *       </p>
+   */
+  taskId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DeletionConfigurationItemType = {
+  SERVER: "SERVER",
+} as const;
+
+/**
+ * @public
+ */
+export type DeletionConfigurationItemType =
+  (typeof DeletionConfigurationItemType)[keyof typeof DeletionConfigurationItemType];
+
+/**
+ * @public
+ * <p>
+ *       A configuration ID paired with a warning message.
+ *     </p>
+ */
+export interface DeletionWarning {
+  /**
+   * @public
+   * <p>
+   *       The unique identifier of the configuration that produced a warning.
+   *     </p>
+   */
+  configurationId?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The integer warning code associated with the warning message.
+   *     </p>
+   */
+  warningCode?: number;
+
+  /**
+   * @public
+   * <p>
+   *       A descriptive message of the warning the associated configuration ID produced.
+   *     </p>
+   */
+  warningText?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *       A configuration ID paired with an error message.
+ *     </p>
+ */
+export interface FailedConfiguration {
+  /**
+   * @public
+   * <p>
+   *       The unique identifier of the configuration the failed to delete.
+   *     </p>
+   */
+  configurationId?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The integer error code associated with the error message.
+   *     </p>
+   */
+  errorStatusCode?: number;
+
+  /**
+   * @public
+   * <p>
+   *       A descriptive message indicating why the associated configuration failed to delete.
+   *     </p>
+   */
+  errorMessage?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchDeleteConfigurationTaskStatus = {
+  COMPLETED: "COMPLETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INITIALIZING: "INITIALIZING",
+  VALIDATING: "VALIDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchDeleteConfigurationTaskStatus =
+  (typeof BatchDeleteConfigurationTaskStatus)[keyof typeof BatchDeleteConfigurationTaskStatus];
+
+/**
+ * @public
+ * <p>
+ *       A metadata object that represents the deletion task being executed.
+ *     </p>
+ */
+export interface BatchDeleteConfigurationTask {
+  /**
+   * @public
+   * <p>
+   *       The deletion task's unique identifier.
+   *     </p>
+   */
+  taskId?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The current execution status of the deletion task.
+   *       Valid status are: INITIALIZING | VALIDATING | DELETING | COMPLETED | FAILED.
+   *     </p>
+   */
+  status?: BatchDeleteConfigurationTaskStatus;
+
+  /**
+   * @public
+   * <p>
+   *       An epoch seconds timestamp (UTC) of when the deletion task was started.
+   *     </p>
+   */
+  startTime?: Date;
+
+  /**
+   * @public
+   * <p>
+   *       An epoch seconds timestamp (UTC) of when the deletion task was completed or failed.
+   *     </p>
+   */
+  endTime?: Date;
+
+  /**
+   * @public
+   * <p>
+   *       The type of configuration item to delete. Supported types are: SERVER.
+   *     </p>
+   */
+  configurationType?: DeletionConfigurationItemType;
+
+  /**
+   * @public
+   * <p>
+   *       The list of configuration IDs that were originally requested to be deleted by the deletion task.
+   *     </p>
+   */
+  requestedConfigurations?: string[];
+
+  /**
+   * @public
+   * <p>
+   *       The list of configuration IDs that were successfully deleted by the deletion task.
+   *     </p>
+   */
+  deletedConfigurations?: string[];
+
+  /**
+   * @public
+   * <p>
+   *       A list of configuration IDs that failed to delete during the deletion task,
+   *       each paired with an error message.
+   *     </p>
+   */
+  failedConfigurations?: FailedConfiguration[];
+
+  /**
+   * @public
+   * <p>
+   *       A list of configuration IDs that produced warnings regarding their deletion,
+   *       paired with a warning message.
+   *     </p>
+   */
+  deletionWarnings?: DeletionWarning[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeBatchDeleteConfigurationTaskResponse {
+  /**
+   * @public
+   * <p>
+   *         The <code>BatchDeleteConfigurationTask</code> that represents the deletion task being executed.
+   *       </p>
+   */
+  task?: BatchDeleteConfigurationTask;
 }
 
 /**
@@ -1870,6 +2186,62 @@ export interface ListServerNeighborsResponse {
    * <p>Count of distinct servers that are one hop away from the given server.</p>
    */
   knownDependencyCount?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *       The limit of 200 configuration IDs per request has been exceeded.
+ *     </p>
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartBatchDeleteConfigurationTaskRequest {
+  /**
+   * @public
+   * <p>
+   *         The type of configuration item to delete. Supported types are: SERVER.
+   *       </p>
+   */
+  configurationType: DeletionConfigurationItemType | undefined;
+
+  /**
+   * @public
+   * <p>
+   *         The list of configuration IDs that will be deleted by the task.
+   *       </p>
+   */
+  configurationIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartBatchDeleteConfigurationTaskResponse {
+  /**
+   * @public
+   * <p>
+   *         The unique identifier associated with the newly started deletion task.
+   *       </p>
+   */
+  taskId?: string;
 }
 
 /**

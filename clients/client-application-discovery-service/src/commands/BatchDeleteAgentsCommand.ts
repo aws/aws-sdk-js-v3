@@ -19,8 +19,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { BatchDeleteImportDataRequest, BatchDeleteImportDataResponse } from "../models/models_0";
-import { de_BatchDeleteImportDataCommand, se_BatchDeleteImportDataCommand } from "../protocols/Aws_json1_1";
+import { BatchDeleteAgentsRequest, BatchDeleteAgentsResponse } from "../models/models_0";
+import { de_BatchDeleteAgentsCommand, se_BatchDeleteAgentsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -29,63 +29,61 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link BatchDeleteImportDataCommand}.
+ * The input for {@link BatchDeleteAgentsCommand}.
  */
-export interface BatchDeleteImportDataCommandInput extends BatchDeleteImportDataRequest {}
+export interface BatchDeleteAgentsCommandInput extends BatchDeleteAgentsRequest {}
 /**
  * @public
  *
- * The output of {@link BatchDeleteImportDataCommand}.
+ * The output of {@link BatchDeleteAgentsCommand}.
  */
-export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDataResponse, __MetadataBearer {}
+export interface BatchDeleteAgentsCommandOutput extends BatchDeleteAgentsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes one or more import tasks, each identified by their import ID. Each import task has
- *       a number of records that can identify servers or applications. </p>
- *          <p>Amazon Web Services Application Discovery Service has built-in matching logic that will identify when
- *       discovered servers match existing entries that you've previously discovered, the information
- *       for the already-existing discovered server is updated. When you delete an import task that
- *       contains records that were used to match, the information in those matched records that comes
- *       from the deleted records will also be deleted.</p>
+ * <p>
+ *       Deletes one or more agents or collectors as specified by ID. Deleting an agent or collector does not
+ *       delete the previously discovered data.
+ *       To delete the data collected, use <code>StartBatchDeleteConfigurationTask</code>.
+ *
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
- * // const { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * import { ApplicationDiscoveryServiceClient, BatchDeleteAgentsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, BatchDeleteAgentsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
- * const input = { // BatchDeleteImportDataRequest
- *   importTaskIds: [ // ToDeleteIdentifierList // required
- *     "STRING_VALUE",
+ * const input = { // BatchDeleteAgentsRequest
+ *   deleteAgents: [ // DeleteAgents // required
+ *     { // DeleteAgent
+ *       agentId: "STRING_VALUE", // required
+ *       force: true || false,
+ *     },
  *   ],
- *   deleteHistory: true || false,
  * };
- * const command = new BatchDeleteImportDataCommand(input);
+ * const command = new BatchDeleteAgentsCommand(input);
  * const response = await client.send(command);
- * // { // BatchDeleteImportDataResponse
- * //   errors: [ // BatchDeleteImportDataErrorList
- * //     { // BatchDeleteImportDataError
- * //       importTaskId: "STRING_VALUE",
- * //       errorCode: "NOT_FOUND" || "INTERNAL_SERVER_ERROR" || "OVER_LIMIT",
- * //       errorDescription: "STRING_VALUE",
+ * // { // BatchDeleteAgentsResponse
+ * //   errors: [ // BatchDeleteAgentErrors
+ * //     { // BatchDeleteAgentError
+ * //       agentId: "STRING_VALUE", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //       errorCode: "NOT_FOUND" || "INTERNAL_SERVER_ERROR" || "AGENT_IN_USE", // required
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param BatchDeleteImportDataCommandInput - {@link BatchDeleteImportDataCommandInput}
- * @returns {@link BatchDeleteImportDataCommandOutput}
- * @see {@link BatchDeleteImportDataCommandInput} for command's `input` shape.
- * @see {@link BatchDeleteImportDataCommandOutput} for command's `response` shape.
+ * @param BatchDeleteAgentsCommandInput - {@link BatchDeleteAgentsCommandInput}
+ * @returns {@link BatchDeleteAgentsCommandOutput}
+ * @see {@link BatchDeleteAgentsCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteAgentsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
  *  <p>The user does not have permission to perform the action. Check the IAM
  *       policy associated with this user.</p>
- *
- * @throws {@link HomeRegionNotSetException} (client fault)
- *  <p>The home Region is not set. Set the home Region to continue.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
@@ -101,9 +99,9 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
-export class BatchDeleteImportDataCommand extends $Command<
-  BatchDeleteImportDataCommandInput,
-  BatchDeleteImportDataCommandOutput,
+export class BatchDeleteAgentsCommand extends $Command<
+  BatchDeleteAgentsCommandInput,
+  BatchDeleteAgentsCommandOutput,
   ApplicationDiscoveryServiceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -121,7 +119,7 @@ export class BatchDeleteImportDataCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: BatchDeleteImportDataCommandInput) {
+  constructor(readonly input: BatchDeleteAgentsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -134,17 +132,17 @@ export class BatchDeleteImportDataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<BatchDeleteImportDataCommandInput, BatchDeleteImportDataCommandOutput> {
+  ): Handler<BatchDeleteAgentsCommandInput, BatchDeleteAgentsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchDeleteImportDataCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, BatchDeleteAgentsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ApplicationDiscoveryServiceClient";
-    const commandName = "BatchDeleteImportDataCommand";
+    const commandName = "BatchDeleteAgentsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -153,7 +151,7 @@ export class BatchDeleteImportDataCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSPoseidonService_V2015_11_01",
-        operation: "BatchDeleteImportData",
+        operation: "BatchDeleteAgents",
       },
     };
     const { requestHandler } = configuration;
@@ -167,15 +165,15 @@ export class BatchDeleteImportDataCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: BatchDeleteImportDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchDeleteImportDataCommand(input, context);
+  private serialize(input: BatchDeleteAgentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_BatchDeleteAgentsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteImportDataCommandOutput> {
-    return de_BatchDeleteImportDataCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteAgentsCommandOutput> {
+    return de_BatchDeleteAgentsCommand(output, context);
   }
 
   // Start section: command_body_extra

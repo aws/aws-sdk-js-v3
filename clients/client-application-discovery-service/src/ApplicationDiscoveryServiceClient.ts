@@ -54,6 +54,7 @@ import {
   AssociateConfigurationItemsToApplicationCommandInput,
   AssociateConfigurationItemsToApplicationCommandOutput,
 } from "./commands/AssociateConfigurationItemsToApplicationCommand";
+import { BatchDeleteAgentsCommandInput, BatchDeleteAgentsCommandOutput } from "./commands/BatchDeleteAgentsCommand";
 import {
   BatchDeleteImportDataCommandInput,
   BatchDeleteImportDataCommandOutput,
@@ -63,6 +64,10 @@ import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/Crea
 import { DeleteApplicationsCommandInput, DeleteApplicationsCommandOutput } from "./commands/DeleteApplicationsCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import { DescribeAgentsCommandInput, DescribeAgentsCommandOutput } from "./commands/DescribeAgentsCommand";
+import {
+  DescribeBatchDeleteConfigurationTaskCommandInput,
+  DescribeBatchDeleteConfigurationTaskCommandOutput,
+} from "./commands/DescribeBatchDeleteConfigurationTaskCommand";
 import {
   DescribeConfigurationsCommandInput,
   DescribeConfigurationsCommandOutput,
@@ -102,6 +107,10 @@ import {
   ListServerNeighborsCommandOutput,
 } from "./commands/ListServerNeighborsCommand";
 import {
+  StartBatchDeleteConfigurationTaskCommandInput,
+  StartBatchDeleteConfigurationTaskCommandOutput,
+} from "./commands/StartBatchDeleteConfigurationTaskCommand";
+import {
   StartContinuousExportCommandInput,
   StartContinuousExportCommandOutput,
 } from "./commands/StartContinuousExportCommand";
@@ -136,12 +145,14 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateConfigurationItemsToApplicationCommandInput
+  | BatchDeleteAgentsCommandInput
   | BatchDeleteImportDataCommandInput
   | CreateApplicationCommandInput
   | CreateTagsCommandInput
   | DeleteApplicationsCommandInput
   | DeleteTagsCommandInput
   | DescribeAgentsCommandInput
+  | DescribeBatchDeleteConfigurationTaskCommandInput
   | DescribeConfigurationsCommandInput
   | DescribeContinuousExportsCommandInput
   | DescribeExportConfigurationsCommandInput
@@ -153,6 +164,7 @@ export type ServiceInputTypes =
   | GetDiscoverySummaryCommandInput
   | ListConfigurationsCommandInput
   | ListServerNeighborsCommandInput
+  | StartBatchDeleteConfigurationTaskCommandInput
   | StartContinuousExportCommandInput
   | StartDataCollectionByAgentIdsCommandInput
   | StartExportTaskCommandInput
@@ -166,12 +178,14 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateConfigurationItemsToApplicationCommandOutput
+  | BatchDeleteAgentsCommandOutput
   | BatchDeleteImportDataCommandOutput
   | CreateApplicationCommandOutput
   | CreateTagsCommandOutput
   | DeleteApplicationsCommandOutput
   | DeleteTagsCommandOutput
   | DescribeAgentsCommandOutput
+  | DescribeBatchDeleteConfigurationTaskCommandOutput
   | DescribeConfigurationsCommandOutput
   | DescribeContinuousExportsCommandOutput
   | DescribeExportConfigurationsCommandOutput
@@ -183,6 +197,7 @@ export type ServiceOutputTypes =
   | GetDiscoverySummaryCommandOutput
   | ListConfigurationsCommandOutput
   | ListServerNeighborsCommandOutput
+  | StartBatchDeleteConfigurationTaskCommandOutput
   | StartContinuousExportCommandOutput
   | StartDataCollectionByAgentIdsCommandOutput
   | StartExportTaskCommandOutput

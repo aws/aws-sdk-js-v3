@@ -325,6 +325,14 @@ AssociateConfigurationItemsToApplication
 </details>
 <details>
 <summary>
+BatchDeleteAgents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/batchdeleteagentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/batchdeleteagentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/batchdeleteagentscommandoutput.html)
+
+</details>
+<details>
+<summary>
 BatchDeleteImportData
 </summary>
 
@@ -369,6 +377,14 @@ DescribeAgents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/describeagentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describeagentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describeagentscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBatchDeleteConfigurationTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/describebatchdeleteconfigurationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describebatchdeleteconfigurationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/describebatchdeleteconfigurationtaskcommandoutput.html)
 
 </details>
 <details>
@@ -457,6 +473,14 @@ ListServerNeighbors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/listserverneighborscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/listserverneighborscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/listserverneighborscommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartBatchDeleteConfigurationTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/classes/startbatchdeleteconfigurationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/startbatchdeleteconfigurationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-discovery-service/interfaces/startbatchdeleteconfigurationtaskcommandoutput.html)
 
 </details>
 <details>

@@ -19,8 +19,14 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { BatchDeleteImportDataRequest, BatchDeleteImportDataResponse } from "../models/models_0";
-import { de_BatchDeleteImportDataCommand, se_BatchDeleteImportDataCommand } from "../protocols/Aws_json1_1";
+import {
+  StartBatchDeleteConfigurationTaskRequest,
+  StartBatchDeleteConfigurationTaskResponse,
+} from "../models/models_0";
+import {
+  de_StartBatchDeleteConfigurationTaskCommand,
+  se_StartBatchDeleteConfigurationTaskCommand,
+} from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -29,55 +35,48 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link BatchDeleteImportDataCommand}.
+ * The input for {@link StartBatchDeleteConfigurationTaskCommand}.
  */
-export interface BatchDeleteImportDataCommandInput extends BatchDeleteImportDataRequest {}
+export interface StartBatchDeleteConfigurationTaskCommandInput extends StartBatchDeleteConfigurationTaskRequest {}
 /**
  * @public
  *
- * The output of {@link BatchDeleteImportDataCommand}.
+ * The output of {@link StartBatchDeleteConfigurationTaskCommand}.
  */
-export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDataResponse, __MetadataBearer {}
+export interface StartBatchDeleteConfigurationTaskCommandOutput
+  extends StartBatchDeleteConfigurationTaskResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes one or more import tasks, each identified by their import ID. Each import task has
- *       a number of records that can identify servers or applications. </p>
- *          <p>Amazon Web Services Application Discovery Service has built-in matching logic that will identify when
- *       discovered servers match existing entries that you've previously discovered, the information
- *       for the already-existing discovered server is updated. When you delete an import task that
- *       contains records that were used to match, the information in those matched records that comes
- *       from the deleted records will also be deleted.</p>
+ * <p>
+ *         Takes a list of configurationId as input and starts an asynchronous deletion
+ *         task to remove the configurationItems. Returns a unique deletion task identifier.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
- * // const { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * import { ApplicationDiscoveryServiceClient, StartBatchDeleteConfigurationTaskCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, StartBatchDeleteConfigurationTaskCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
- * const input = { // BatchDeleteImportDataRequest
- *   importTaskIds: [ // ToDeleteIdentifierList // required
+ * const input = { // StartBatchDeleteConfigurationTaskRequest
+ *   configurationType: "SERVER", // required
+ *   configurationIds: [ // ConfigurationIdList // required
  *     "STRING_VALUE",
  *   ],
- *   deleteHistory: true || false,
  * };
- * const command = new BatchDeleteImportDataCommand(input);
+ * const command = new StartBatchDeleteConfigurationTaskCommand(input);
  * const response = await client.send(command);
- * // { // BatchDeleteImportDataResponse
- * //   errors: [ // BatchDeleteImportDataErrorList
- * //     { // BatchDeleteImportDataError
- * //       importTaskId: "STRING_VALUE",
- * //       errorCode: "NOT_FOUND" || "INTERNAL_SERVER_ERROR" || "OVER_LIMIT",
- * //       errorDescription: "STRING_VALUE",
- * //     },
- * //   ],
+ * // { // StartBatchDeleteConfigurationTaskResponse
+ * //   taskId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param BatchDeleteImportDataCommandInput - {@link BatchDeleteImportDataCommandInput}
- * @returns {@link BatchDeleteImportDataCommandOutput}
- * @see {@link BatchDeleteImportDataCommandInput} for command's `input` shape.
- * @see {@link BatchDeleteImportDataCommandOutput} for command's `response` shape.
+ * @param StartBatchDeleteConfigurationTaskCommandInput - {@link StartBatchDeleteConfigurationTaskCommandInput}
+ * @returns {@link StartBatchDeleteConfigurationTaskCommandOutput}
+ * @see {@link StartBatchDeleteConfigurationTaskCommandInput} for command's `input` shape.
+ * @see {@link StartBatchDeleteConfigurationTaskCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
@@ -87,12 +86,17 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  * @throws {@link HomeRegionNotSetException} (client fault)
  *  <p>The home Region is not set. Set the home Region to continue.</p>
  *
- * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
- *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of one or more parameters are either invalid or out of range. Verify the
  *       parameter values and try again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>
+ *       The limit of 200 configuration IDs per request has been exceeded.
+ *     </p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not permitted.</p>
  *
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
@@ -101,9 +105,9 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
-export class BatchDeleteImportDataCommand extends $Command<
-  BatchDeleteImportDataCommandInput,
-  BatchDeleteImportDataCommandOutput,
+export class StartBatchDeleteConfigurationTaskCommand extends $Command<
+  StartBatchDeleteConfigurationTaskCommandInput,
+  StartBatchDeleteConfigurationTaskCommandOutput,
   ApplicationDiscoveryServiceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -121,7 +125,7 @@ export class BatchDeleteImportDataCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: BatchDeleteImportDataCommandInput) {
+  constructor(readonly input: StartBatchDeleteConfigurationTaskCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -134,17 +138,17 @@ export class BatchDeleteImportDataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<BatchDeleteImportDataCommandInput, BatchDeleteImportDataCommandOutput> {
+  ): Handler<StartBatchDeleteConfigurationTaskCommandInput, StartBatchDeleteConfigurationTaskCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchDeleteImportDataCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StartBatchDeleteConfigurationTaskCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ApplicationDiscoveryServiceClient";
-    const commandName = "BatchDeleteImportDataCommand";
+    const commandName = "StartBatchDeleteConfigurationTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -153,7 +157,7 @@ export class BatchDeleteImportDataCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSPoseidonService_V2015_11_01",
-        operation: "BatchDeleteImportData",
+        operation: "StartBatchDeleteConfigurationTask",
       },
     };
     const { requestHandler } = configuration;
@@ -167,15 +171,21 @@ export class BatchDeleteImportDataCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: BatchDeleteImportDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchDeleteImportDataCommand(input, context);
+  private serialize(
+    input: StartBatchDeleteConfigurationTaskCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_StartBatchDeleteConfigurationTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteImportDataCommandOutput> {
-    return de_BatchDeleteImportDataCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<StartBatchDeleteConfigurationTaskCommandOutput> {
+    return de_StartBatchDeleteConfigurationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra
