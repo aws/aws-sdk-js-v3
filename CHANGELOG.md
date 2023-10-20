@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
+
+
+### Bug Fixes
+
+* **codegen:** use partial record for enum keyed types ([#5391](https://github.com/aws/aws-sdk-js-v3/issues/5391)) ([70c2107](https://github.com/aws/aws-sdk-js-v3/commit/70c2107b970d035bfedb211278c88fdbfc2e5334))
+* **credential-provider-http:** add undeclared dependency ([#5395](https://github.com/aws/aws-sdk-js-v3/issues/5395)) ([b926b5b](https://github.com/aws/aws-sdk-js-v3/commit/b926b5b32a6d7febc9f051c0b4b5eede090a2b64))
+
+
+### Features
+
+* **client-appconfig:** Update KmsKeyIdentifier constraints to support AWS KMS multi-Region keys. ([81a0ee6](https://github.com/aws/aws-sdk-js-v3/commit/81a0ee6c51285e1afb775aef947f3e892fb07761))
+* **client-appintegrations:** Updated ScheduleConfig to be an optional input to CreateDataIntegration to support event driven downloading of files from sources such as Amazon s3 using Amazon Connect AppIntegrations. ([14cf31c](https://github.com/aws/aws-sdk-js-v3/commit/14cf31c260368a8d2291bad2e6ae35c4923dd066))
+* **client-application-discovery-service:** This release introduces three new APIs: StartBatchDeleteConfigurationTask, DescribeBatchDeleteConfigurationTask, and BatchDeleteAgents. ([e82998a](https://github.com/aws/aws-sdk-js-v3/commit/e82998a9c9e19dc892fdf55aee4b4c277428ac05))
+* **client-connect:** This release adds support for updating phone number metadata, such as phone number description. ([963f743](https://github.com/aws/aws-sdk-js-v3/commit/963f7436424deb9b8b645e7efb8034cc24b78be7))
+* **client-ssm:** This release introduces a new API: DeleteOpsItem. This allows deletion of an OpsItem. ([7120ec9](https://github.com/aws/aws-sdk-js-v3/commit/7120ec94caccdbea61b2ec593c25d60c23bbef64))
+* **clients:** update client endpoints as of 2023-10-20 ([74b4aad](https://github.com/aws/aws-sdk-js-v3/commit/74b4aad8191a4779380eef439452936c849a8f40))
+
+
+
+
+
 # [3.432.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.431.0...v3.432.0) (2023-10-19)
 
 
