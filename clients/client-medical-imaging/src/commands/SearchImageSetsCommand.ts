@@ -43,6 +43,15 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
 /**
  * @public
  * <p>Search image sets based on defined input attributes.</p>
+ *          <note>
+ *             <p>
+ *                <code>SearchImageSets</code> accepts a single search
+ *                query parameter and returns a paginated response of all image sets that have the
+ *                matching criteria. All range queries must be input as <code>(lowerBound, upperBound)</code>.</p>
+ *             <p>
+ *                <code>SearchImageSets</code> uses the <code>updatedAt</code> field for sorting
+ *                in decreasing order from latest to oldest.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,7 +135,7 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  *  <p>The request was denied due to throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints set by the service.</p>
  *
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>

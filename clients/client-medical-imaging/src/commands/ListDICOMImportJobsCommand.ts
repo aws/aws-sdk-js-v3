@@ -37,7 +37,7 @@ export interface ListDICOMImportJobsCommandOutput extends ListDICOMImportJobsRes
 
 /**
  * @public
- * <p>List import jobs created by this AWS account for a specific data store.</p>
+ * <p>List import jobs created for a specific data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,7 +92,7 @@ export interface ListDICOMImportJobsCommandOutput extends ListDICOMImportJobsRes
  *  <p>The request was denied due to throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints set by the service.</p>
  *
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>

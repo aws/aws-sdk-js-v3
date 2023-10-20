@@ -353,7 +353,7 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * <p>The input fails to satisfy the constraints set by the service.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -395,7 +395,7 @@ export interface CreateDatastoreRequest {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) assigned to the AWS Key Management Service (AWS KMS) key for accessing encrypted data.</p>
+   * <p>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.</p>
    */
   kmsKeyArn?: string;
 }
@@ -498,7 +498,7 @@ export interface DatastoreProperties {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) assigned to the AWS Key Management Service (AWS KMS) key for accessing encrypted data.</p>
+   * <p>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.</p>
    */
   kmsKeyArn?: string;
 
@@ -1504,14 +1504,14 @@ export interface ImageSetsMetadataSummary {
 
   /**
    * @public
-   * <p>The time an image set is created in AWS HealthImaging. Sample creation
+   * <p>The time an image set is created. Sample creation
    *             date is provided in <code>1985-04-12T23:20:50.52Z</code> format.</p>
    */
   createdAt?: Date;
 
   /**
    * @public
-   * <p>The time when an image was last updated in AWS HealthImaging.</p>
+   * <p>The time an image set was last updated.</p>
    */
   updatedAt?: Date;
 
