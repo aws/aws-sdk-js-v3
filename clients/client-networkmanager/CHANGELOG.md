@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.434.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.433.0...v3.434.0) (2023-10-23)
+
+
+### Features
+
+* **client-networkmanager:** This release adds API support for Tunnel-less Connect (NoEncap Protocol) for AWS Cloud WAN ([2b13ffd](https://github.com/aws/aws-sdk-js-v3/commit/2b13ffd9a289ba6d8e871c44bf333b0a574d13d4))
+
+
+
+
+
 # [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
 
 

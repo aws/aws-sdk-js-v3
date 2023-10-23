@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.434.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.433.0...v3.434.0) (2023-10-23)
+
+
+### Features
+
+* **client-marketplace-commerce-analytics:** The StartSupportDataExport operation has been deprecated as part of the Product Support Connection deprecation. As of December 2022, Product Support Connection is no longer supported. ([2ec8d4f](https://github.com/aws/aws-sdk-js-v3/commit/2ec8d4fd6e1bef7170f08beb34726a2096fe7621))
+
+
+
+
+
 # [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
 
 

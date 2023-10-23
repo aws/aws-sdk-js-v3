@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.434.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.433.0...v3.434.0) (2023-10-23)
+
+
+### Features
+
+* **client-rekognition:** Amazon Rekognition introduces StartMediaAnalysisJob, GetMediaAnalysisJob, and ListMediaAnalysisJobs operations to run a bulk analysis of images with a Detect Moderation model. ([6f675cf](https://github.com/aws/aws-sdk-js-v3/commit/6f675cf50b40e5771fe8fdebb98f63b9c3986512))
+
+
+
+
+
 # [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
 
 

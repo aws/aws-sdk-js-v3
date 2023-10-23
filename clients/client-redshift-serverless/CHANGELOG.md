@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.434.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.433.0...v3.434.0) (2023-10-23)
+
+
+### Features
+
+* **client-redshift-serverless:** This release adds support for customers to see the patch version and workgroup version in Amazon Redshift Serverless. ([4f9715e](https://github.com/aws/aws-sdk-js-v3/commit/4f9715e2a14dd18325d870c860e8b38d207097bc))
+
+
+
+
+
 # [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
 
 

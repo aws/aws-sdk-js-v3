@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.434.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.433.0...v3.434.0) (2023-10-23)
+
+
+### Features
+
+* **client-marketplace-commerce-analytics:** The StartSupportDataExport operation has been deprecated as part of the Product Support Connection deprecation. As of December 2022, Product Support Connection is no longer supported. ([2ec8d4f](https://github.com/aws/aws-sdk-js-v3/commit/2ec8d4fd6e1bef7170f08beb34726a2096fe7621))
+* **client-networkmanager:** This release adds API support for Tunnel-less Connect (NoEncap Protocol) for AWS Cloud WAN ([2b13ffd](https://github.com/aws/aws-sdk-js-v3/commit/2b13ffd9a289ba6d8e871c44bf333b0a574d13d4))
+* **client-redshift-serverless:** This release adds support for customers to see the patch version and workgroup version in Amazon Redshift Serverless. ([4f9715e](https://github.com/aws/aws-sdk-js-v3/commit/4f9715e2a14dd18325d870c860e8b38d207097bc))
+* **client-rekognition:** Amazon Rekognition introduces StartMediaAnalysisJob, GetMediaAnalysisJob, and ListMediaAnalysisJobs operations to run a bulk analysis of images with a Detect Moderation model. ([6f675cf](https://github.com/aws/aws-sdk-js-v3/commit/6f675cf50b40e5771fe8fdebb98f63b9c3986512))
+* **clients:** update client endpoints as of 2023-10-23 ([1aa0312](https://github.com/aws/aws-sdk-js-v3/commit/1aa03127b9cbf4dd8cdcf550c07af0714ec0634f))
+
+
+
+
+
 # [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
 
 
