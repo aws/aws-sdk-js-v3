@@ -3720,6 +3720,7 @@ const de_Workgroup = (output: any, context: __SerdeContext): Workgroup => {
     endpoint: _json,
     enhancedVpcRouting: __expectBoolean,
     namespaceName: __expectString,
+    patchVersion: __expectString,
     port: __expectInt32,
     publiclyAccessible: __expectBoolean,
     securityGroupIds: _json,
@@ -3728,6 +3729,7 @@ const de_Workgroup = (output: any, context: __SerdeContext): Workgroup => {
     workgroupArn: __expectString,
     workgroupId: __expectString,
     workgroupName: __expectString,
+    workgroupVersion: __expectString,
   }) as any;
 };
 

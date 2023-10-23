@@ -1171,6 +1171,19 @@ export interface Workgroup {
    * <p>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</p>
    */
   port?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Redshift Serverless version of your workgroup. For more information about Amazon Redshift Serverless versions, see<a href="https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html">Cluster versions for Amazon Redshift</a>.</p>
+   */
+  workgroupVersion?: string;
+
+  /**
+   * @public
+   * <p>The patch version of your Amazon Redshift Serverless workgroup. For more information about patch versions, see
+   *          <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html">Cluster versions for Amazon Redshift</a>.</p>
+   */
+  patchVersion?: string;
 }
 
 /**
@@ -2242,7 +2255,7 @@ export interface UpdateNamespaceRequest {
    * @public
    * <p>The password of the administrator for the first database created in the namespace. This parameter must be updated together
    *       with <code>adminUsername</code>.</p>
-   *          <p>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. </p>
+   *          <p>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true.</p>
    */
   adminUserPassword?: string;
 

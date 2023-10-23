@@ -95,6 +95,8 @@ export interface GetWorkgroupCommandOutput extends GetWorkgroupResponse, __Metad
  * //     publiclyAccessible: true || false,
  * //     creationDate: new Date("TIMESTAMP"),
  * //     port: Number("int"),
+ * //     workgroupVersion: "STRING_VALUE",
+ * //     patchVersion: "STRING_VALUE",
  * //   },
  * // };
  *

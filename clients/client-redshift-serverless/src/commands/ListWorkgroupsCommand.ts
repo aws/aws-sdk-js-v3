@@ -98,6 +98,8 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * //       publiclyAccessible: true || false,
  * //       creationDate: new Date("TIMESTAMP"),
  * //       port: Number("int"),
+ * //       workgroupVersion: "STRING_VALUE",
+ * //       patchVersion: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

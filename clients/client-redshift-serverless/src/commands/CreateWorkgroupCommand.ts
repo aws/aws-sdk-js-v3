@@ -118,6 +118,8 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  * //     publiclyAccessible: true || false,
  * //     creationDate: new Date("TIMESTAMP"),
  * //     port: Number("int"),
+ * //     workgroupVersion: "STRING_VALUE",
+ * //     patchVersion: "STRING_VALUE",
  * //   },
  * // };
  *

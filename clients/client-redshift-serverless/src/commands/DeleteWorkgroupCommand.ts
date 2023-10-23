@@ -95,6 +95,8 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * //     publiclyAccessible: true || false,
  * //     creationDate: new Date("TIMESTAMP"),
  * //     port: Number("int"),
+ * //     workgroupVersion: "STRING_VALUE",
+ * //     patchVersion: "STRING_VALUE",
  * //   },
  * // };
  *
