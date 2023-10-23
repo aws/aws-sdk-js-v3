@@ -253,6 +253,22 @@ class SdkThemeContext extends DefaultThemeRenderContext {
               We are excited to announce our{" "}
               <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/">new API Documentation</a>.
             </p>
+            {/* Dynamically create a deep link to the new documentation based on the current page's context */}
+            {(() => {
+              const { model } = props;
+              const { parent } = model || {};
+              const alias = parent ? parent["_alias"] : null;
+              const kindString = model ? model.kindString : null;
+              const name = model ? model.name : null;
+
+              if (alias && kindString && name) {
+                const newDocUrl = `https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/${alias.replaceAll(
+                  "_",
+                  "-"
+                )}/${kindString}/${name}/`;
+                return <a href={newDocUrl}>Visit this page in our new documentation.</a>;
+              }
+            })()}
           </div>
           {oldHeader(props)}
         </>
