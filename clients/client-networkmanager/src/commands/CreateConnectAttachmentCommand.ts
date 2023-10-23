@@ -52,7 +52,7 @@ export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttac
  *   EdgeLocation: "STRING_VALUE", // required
  *   TransportAttachmentId: "STRING_VALUE", // required
  *   Options: { // ConnectAttachmentOptions
- *     Protocol: "GRE",
+ *     Protocol: "GRE" || "NO_ENCAP",
  *   },
  *   Tags: [ // TagList
  *     { // Tag
@@ -98,7 +98,7 @@ export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttac
  * //     },
  * //     TransportAttachmentId: "STRING_VALUE",
  * //     Options: { // ConnectAttachmentOptions
- * //       Protocol: "GRE",
+ * //       Protocol: "GRE" || "NO_ENCAP",
  * //     },
  * //   },
  * // };

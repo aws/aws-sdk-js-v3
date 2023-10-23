@@ -981,6 +981,7 @@ export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
  */
 export const TunnelProtocol = {
   GRE: "GRE",
+  NO_ENCAP: "NO_ENCAP",
 } as const;
 
 /**
@@ -1298,6 +1299,12 @@ export interface ConnectPeer {
    * <p>The list of key-value tags associated with the Connect peer.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The subnet ARN for the Connect peer.</p>
+   */
+  SubnetArn?: string;
 }
 
 /**
@@ -1346,6 +1353,12 @@ export interface ConnectPeerSummary {
    * <p>The list of key-value tags associated with the Connect peer summary.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The subnet ARN for the Connect peer summary.</p>
+   */
+  SubnetArn?: string;
 }
 
 /**
@@ -2011,7 +2024,7 @@ export interface CreateConnectPeerRequest {
    * @public
    * <p>The inside IP addresses used for BGP peering.</p>
    */
-  InsideCidrBlocks: string[] | undefined;
+  InsideCidrBlocks?: string[];
 
   /**
    * @public
@@ -2024,6 +2037,12 @@ export interface CreateConnectPeerRequest {
    * <p>The client token associated with the request.</p>
    */
   ClientToken?: string;
+
+  /**
+   * @public
+   * <p>The subnet ARN for the Connect peer.</p>
+   */
+  SubnetArn?: string;
 }
 
 /**
@@ -4676,7 +4695,7 @@ export interface GetNetworkResourcesResponse {
 export interface RouteTableIdentifier {
   /**
    * @public
-   * <p>The ARN of the transit gateway route table.</p>
+   * <p>The ARN of the transit gateway route table for the attachment request. For example, <code>"TransitGatewayRouteTableArn": "arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table/tgw-rtb-9876543210123456"</code>.</p>
    */
   TransitGatewayRouteTableArn?: string;
 

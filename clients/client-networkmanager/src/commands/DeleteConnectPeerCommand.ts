@@ -63,7 +63,7 @@ export interface DeleteConnectPeerCommandOutput extends DeleteConnectPeerRespons
  * //       InsideCidrBlocks: [ // ConstrainedStringList
  * //         "STRING_VALUE",
  * //       ],
- * //       Protocol: "GRE",
+ * //       Protocol: "GRE" || "NO_ENCAP",
  * //       BgpConfigurations: [ // ConnectPeerBgpConfigurationList
  * //         { // ConnectPeerBgpConfiguration
  * //           CoreNetworkAsn: Number("long"),
@@ -79,6 +79,7 @@ export interface DeleteConnectPeerCommandOutput extends DeleteConnectPeerRespons
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SubnetArn: "STRING_VALUE",
  * //   },
  * // };
  *

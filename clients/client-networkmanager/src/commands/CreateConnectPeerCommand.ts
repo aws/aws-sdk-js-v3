@@ -52,7 +52,7 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  *   BgpOptions: { // BgpOptions
  *     PeerAsn: Number("long"),
  *   },
- *   InsideCidrBlocks: [ // ConstrainedStringList // required
+ *   InsideCidrBlocks: [ // ConstrainedStringList
  *     "STRING_VALUE",
  *   ],
  *   Tags: [ // TagList
@@ -62,6 +62,7 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  *     },
  *   ],
  *   ClientToken: "STRING_VALUE",
+ *   SubnetArn: "STRING_VALUE",
  * };
  * const command = new CreateConnectPeerCommand(input);
  * const response = await client.send(command);
@@ -79,7 +80,7 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  * //       InsideCidrBlocks: [ // ConstrainedStringList
  * //         "STRING_VALUE",
  * //       ],
- * //       Protocol: "GRE",
+ * //       Protocol: "GRE" || "NO_ENCAP",
  * //       BgpConfigurations: [ // ConnectPeerBgpConfigurationList
  * //         { // ConnectPeerBgpConfiguration
  * //           CoreNetworkAsn: Number("long"),
@@ -95,6 +96,7 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SubnetArn: "STRING_VALUE",
  * //   },
  * // };
  *

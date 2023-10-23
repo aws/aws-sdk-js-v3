@@ -83,7 +83,7 @@ export interface GetConnectAttachmentCommandOutput extends GetConnectAttachmentR
  * //     },
  * //     TransportAttachmentId: "STRING_VALUE",
  * //     Options: { // ConnectAttachmentOptions
- * //       Protocol: "GRE",
+ * //       Protocol: "GRE" || "NO_ENCAP",
  * //     },
  * //   },
  * // };

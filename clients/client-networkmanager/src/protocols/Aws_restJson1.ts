@@ -582,6 +582,7 @@ export const se_CreateConnectPeerCommand = async (
       CoreNetworkAddress: [],
       InsideCidrBlocks: (_) => _json(_),
       PeerAddress: [],
+      SubnetArn: [],
       Tags: (_) => _json(_),
     })
   );
@@ -8872,6 +8873,7 @@ const de_ConnectPeer = (output: any, context: __SerdeContext): ConnectPeer => {
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EdgeLocation: __expectString,
     State: __expectString,
+    SubnetArn: __expectString,
     Tags: _json,
   }) as any;
 };
@@ -8897,6 +8899,7 @@ const de_ConnectPeerSummary = (output: any, context: __SerdeContext): ConnectPee
     CoreNetworkId: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EdgeLocation: __expectString,
+    SubnetArn: __expectString,
     Tags: _json,
   }) as any;
 };

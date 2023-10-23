@@ -63,7 +63,7 @@ export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __M
  * //       InsideCidrBlocks: [ // ConstrainedStringList
  * //         "STRING_VALUE",
  * //       ],
- * //       Protocol: "GRE",
+ * //       Protocol: "GRE" || "NO_ENCAP",
  * //       BgpConfigurations: [ // ConnectPeerBgpConfigurationList
  * //         { // ConnectPeerBgpConfiguration
  * //           CoreNetworkAsn: Number("long"),
@@ -79,6 +79,7 @@ export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __M
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SubnetArn: "STRING_VALUE",
  * //   },
  * // };
  *
