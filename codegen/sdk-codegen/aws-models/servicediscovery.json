@@ -420,7 +420,7 @@
             "output": {
               "Service": {
                 "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-p5zdwlg5uvvzjita",
-                "CreateDate": 1.587081768334e9,
+                "CreateDate": 1587081768.334,
                 "CreatorRequestId": "567c1193-6b00-4308-bd57-ad38a8822d25",
                 "DnsConfig": {
                   "DnsRecords": [
@@ -1368,14 +1368,14 @@
             },
             "output": {
               "Operation": {
-                "CreateDate": 1.587055860121e9,
+                "CreateDate": 1587055860.121,
                 "Id": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd",
                 "Status": "SUCCESS",
                 "Targets": {
                   "NAMESPACE": "ns-ylexjili4cdxy3xm"
                 },
                 "Type": "CREATE_NAMESPACE",
-                "UpdateDate": 1.587055900469e9
+                "UpdateDate": 1587055900.469
               }
             }
           }
@@ -1882,7 +1882,7 @@
               "Namespaces": [
                 {
                   "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-a3ccy2e7e3a7rile",
-                  "CreateDate": 1.585354387357e9,
+                  "CreateDate": 1585354387.357,
                   "Id": "ns-a3ccy2e7e3a7rile",
                   "Name": "local",
                   "Properties": {
@@ -1897,7 +1897,7 @@
                 },
                 {
                   "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-pocfyjtrsmwtvcxx",
-                  "CreateDate": 1.586468974698e9,
+                  "CreateDate": 1586468974.698,
                   "Description": "My second namespace",
                   "Id": "ns-pocfyjtrsmwtvcxx",
                   "Name": "My-second-namespace",
@@ -1911,7 +1911,7 @@
                 },
                 {
                   "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-ylexjili4cdxy3xm",
-                  "CreateDate": 1.587055896798e9,
+                  "CreateDate": 1587055896.798,
                   "Id": "ns-ylexjili4cdxy3xm",
                   "Name": "example.com",
                   "Properties": {
@@ -2103,7 +2103,7 @@
               "Services": [
                 {
                   "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-p5zdwlg5uvvzjita",
-                  "CreateDate": 1.587081768334e9,
+                  "CreateDate": 1587081768.334,
                   "DnsConfig": {
                     "DnsRecords": [
                       {
@@ -3371,7 +3371,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -3414,7 +3413,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [
@@ -3427,7 +3427,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -3441,7 +3440,6 @@
                       "assign": "PartitionResult"
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -3464,7 +3462,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -3499,7 +3496,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -3510,14 +3506,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -3531,14 +3529,12 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
-                                true,
                                 {
                                   "fn": "getAttr",
                                   "argv": [
@@ -3547,11 +3543,11 @@
                                     },
                                     "supportsFIPS"
                                   ]
-                                }
+                                },
+                                true
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -3562,14 +3558,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -3583,7 +3581,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -3603,7 +3600,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
@@ -3689,14 +3685,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "DualStack is enabled but this partition does not support DualStack",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
@@ -3707,9 +3705,11 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],

@@ -272,7 +272,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -315,7 +314,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [
@@ -328,7 +328,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -342,7 +341,6 @@
                       "assign": "PartitionResult"
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -365,7 +363,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -400,7 +397,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -411,14 +407,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -432,14 +430,12 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
-                                true,
                                 {
                                   "fn": "getAttr",
                                   "argv": [
@@ -448,18 +444,17 @@
                                     },
                                     "supportsFIPS"
                                   ]
-                                }
+                                },
+                                true
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
                                 {
                                   "fn": "stringEquals",
                                   "argv": [
-                                    "aws",
                                     {
                                       "fn": "getAttr",
                                       "argv": [
@@ -468,7 +463,8 @@
                                         },
                                         "name"
                                       ]
-                                    }
+                                    },
+                                    "aws"
                                   ]
                                 }
                               ],
@@ -484,7 +480,6 @@
                                 {
                                   "fn": "stringEquals",
                                   "argv": [
-                                    "aws-us-gov",
                                     {
                                       "fn": "getAttr",
                                       "argv": [
@@ -493,7 +488,8 @@
                                         },
                                         "name"
                                       ]
-                                    }
+                                    },
+                                    "aws-us-gov"
                                   ]
                                 }
                               ],
@@ -513,14 +509,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -534,7 +532,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -554,7 +551,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -565,14 +561,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "DualStack is enabled but this partition does not support DualStack",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
@@ -583,9 +581,11 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
@@ -2483,13 +2483,8 @@
               "version": "1.10",
               "roleArn": "arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI",
               "resourcesVpcConfig": {
-                "subnetIds": [
-                  "subnet-6782e71e",
-                  "subnet-e7e761ac"
-                ],
-                "securityGroupIds": [
-                  "sg-6979fe18"
-                ]
+                "subnetIds": ["subnet-6782e71e", "subnet-e7e761ac"],
+                "securityGroupIds": ["sg-6979fe18"]
               },
               "clientRequestToken": "1d2129a1-3d38-460a-9756-e5b91fddb951"
             },
@@ -3595,13 +3590,8 @@
                 "endpoint": "https://A0DCCD80A04F01705DD065655C30CC3D.yl4.us-west-2.eks.amazonaws.com",
                 "roleArn": "arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI",
                 "resourcesVpcConfig": {
-                  "subnetIds": [
-                    "subnet-6782e71e",
-                    "subnet-e7e761ac"
-                  ],
-                  "securityGroupIds": [
-                    "sg-6979fe18"
-                  ],
+                  "subnetIds": ["subnet-6782e71e", "subnet-e7e761ac"],
+                  "securityGroupIds": ["sg-6979fe18"],
                   "vpcId": "vpc-950809ec"
                 },
                 "status": "ACTIVE",
@@ -4881,10 +4871,7 @@
             "title": "To list your available clusters",
             "documentation": "This example command lists all of your available clusters in your default region.",
             "output": {
-              "clusters": [
-                "devel",
-                "prod"
-              ]
+              "clusters": ["devel", "prod"]
             }
           }
         ],

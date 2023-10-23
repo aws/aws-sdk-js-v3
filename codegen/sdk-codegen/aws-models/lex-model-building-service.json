@@ -217,7 +217,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -260,7 +259,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [
@@ -273,7 +273,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -287,7 +286,6 @@
                       "assign": "PartitionResult"
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -310,7 +308,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -345,7 +342,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -356,14 +352,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -377,14 +375,12 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
-                                true,
                                 {
                                   "fn": "getAttr",
                                   "argv": [
@@ -393,18 +389,17 @@
                                     },
                                     "supportsFIPS"
                                   ]
-                                }
+                                },
+                                true
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
                                 {
                                   "fn": "stringEquals",
                                   "argv": [
-                                    "aws",
                                     {
                                       "fn": "getAttr",
                                       "argv": [
@@ -413,7 +408,8 @@
                                         },
                                         "name"
                                       ]
-                                    }
+                                    },
+                                    "aws"
                                   ]
                                 }
                               ],
@@ -429,7 +425,6 @@
                                 {
                                   "fn": "stringEquals",
                                   "argv": [
-                                    "aws-us-gov",
                                     {
                                       "fn": "getAttr",
                                       "argv": [
@@ -438,7 +433,8 @@
                                         },
                                         "name"
                                       ]
-                                    }
+                                    },
+                                    "aws-us-gov"
                                   ]
                                 }
                               ],
@@ -458,14 +454,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -479,7 +477,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -499,7 +496,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -510,14 +506,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "DualStack is enabled but this partition does not support DualStack",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -578,9 +576,11 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
@@ -4169,11 +4169,7 @@
                   },
                   "priority": 1,
                   "slotTypeVersion": "$LATEST",
-                  "sampleUtterances": [
-                    "Get me a {Type} pizza.",
-                    "A {Type} pizza please.",
-                    "I'd like a {Type} pizza."
-                  ],
+                  "sampleUtterances": ["Get me a {Type} pizza.", "A {Type} pizza please.", "I'd like a {Type} pizza."],
                   "description": "The type of pizza to order."
                 },
                 {
@@ -4195,10 +4191,7 @@
                   },
                   "priority": 2,
                   "slotTypeVersion": "$LATEST",
-                  "sampleUtterances": [
-                    "Make it a {Crust} crust.",
-                    "I'd like a {Crust} crust."
-                  ],
+                  "sampleUtterances": ["Make it a {Crust} crust.", "I'd like a {Crust} crust."],
                   "description": "The type of pizza crust to order."
                 },
                 {
@@ -4220,10 +4213,7 @@
                   },
                   "priority": 3,
                   "slotTypeVersion": "$LATEST",
-                  "sampleUtterances": [
-                    "Make it {Sauce} sauce.",
-                    "I'd like {Sauce} sauce."
-                  ],
+                  "sampleUtterances": ["Make it {Sauce} sauce.", "I'd like {Sauce} sauce."],
                   "description": "The type of sauce to use on the pizza."
                 }
               ],
@@ -6787,11 +6777,7 @@
                     "maxAttempts": 1
                   },
                   "priority": 1,
-                  "sampleUtterances": [
-                    "Get me a {Type} pizza.",
-                    "A {Type} pizza please.",
-                    "I'd like a {Type} pizza."
-                  ]
+                  "sampleUtterances": ["Get me a {Type} pizza.", "A {Type} pizza please.", "I'd like a {Type} pizza."]
                 },
                 {
                   "name": "Crust",
@@ -6813,10 +6799,7 @@
                     "maxAttempts": 1
                   },
                   "priority": 2,
-                  "sampleUtterances": [
-                    "Make it a {Crust} crust.",
-                    "I'd like a {Crust} crust."
-                  ]
+                  "sampleUtterances": ["Make it a {Crust} crust.", "I'd like a {Crust} crust."]
                 },
                 {
                   "name": "Sauce",
@@ -6838,10 +6821,7 @@
                     "maxAttempts": 1
                   },
                   "priority": 3,
-                  "sampleUtterances": [
-                    "Make it {Sauce} sauce.",
-                    "I'd like {Sauce} sauce."
-                  ]
+                  "sampleUtterances": ["Make it {Sauce} sauce.", "I'd like {Sauce} sauce."]
                 }
               ],
               "sampleUtterances": [
@@ -6954,10 +6934,7 @@
                   },
                   "priority": 3,
                   "slotTypeVersion": "$LATEST",
-                  "sampleUtterances": [
-                    "Make it {Sauce} sauce.",
-                    "I'd like {Sauce} sauce."
-                  ],
+                  "sampleUtterances": ["Make it {Sauce} sauce.", "I'd like {Sauce} sauce."],
                   "description": "The type of sauce to use on the pizza."
                 },
                 {
@@ -6983,11 +6960,7 @@
                   },
                   "priority": 1,
                   "slotTypeVersion": "$LATEST",
-                  "sampleUtterances": [
-                    "Get me a {Type} pizza.",
-                    "A {Type} pizza please.",
-                    "I'd like a {Type} pizza."
-                  ],
+                  "sampleUtterances": ["Get me a {Type} pizza.", "A {Type} pizza please.", "I'd like a {Type} pizza."],
                   "description": "The type of pizza to order."
                 },
                 {
@@ -7009,10 +6982,7 @@
                   },
                   "priority": 2,
                   "slotTypeVersion": "$LATEST",
-                  "sampleUtterances": [
-                    "Make it a {Crust} crust.",
-                    "I'd like a {Crust} crust."
-                  ],
+                  "sampleUtterances": ["Make it a {Crust} crust.", "I'd like a {Crust} crust."],
                   "description": "The type of pizza crust to order."
                 }
               ],

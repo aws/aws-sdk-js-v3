@@ -142,9 +142,7 @@
         "aws.api#arn": {
           "template": "app/{applicationId}"
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {}
       }
     },
@@ -495,7 +493,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -538,7 +535,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [
@@ -551,7 +549,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -565,7 +562,6 @@
                       "assign": "PartitionResult"
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -588,7 +584,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -623,7 +618,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -634,14 +628,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -655,14 +651,12 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
-                                true,
                                 {
                                   "fn": "getAttr",
                                   "argv": [
@@ -671,11 +665,11 @@
                                     },
                                     "supportsFIPS"
                                   ]
-                                }
+                                },
+                                true
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -686,14 +680,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -707,7 +703,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -727,7 +722,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -738,14 +732,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "DualStack is enabled but this partition does not support DualStack",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
@@ -756,9 +752,11 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
@@ -1514,14 +1512,8 @@
       ],
       "traits": {
         "aws.api#controlPlane": {},
-        "aws.iam#conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
-        "aws.iam#requiredActions": [
-          "s3:GetObject",
-          "s3:ListBucket"
-        ],
+        "aws.iam#conditionKeys": ["aws:RequestTag/${TagKey}", "aws:TagKeys"],
+        "aws.iam#requiredActions": ["s3:GetObject", "s3:ListBucket"],
         "smithy.api#documentation": "<p>Creates a new application with given parameters. Requires an existing runtime\n         environment and application definition file.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -1728,10 +1720,7 @@
       ],
       "traits": {
         "aws.api#controlPlane": {},
-        "aws.iam#requiredActions": [
-          "elasticloadbalancing:CreateTargetGroup",
-          "elasticloadbalancing:CreateListener"
-        ],
+        "aws.iam#requiredActions": ["elasticloadbalancing:CreateTargetGroup", "elasticloadbalancing:CreateListener"],
         "smithy.api#documentation": "<p>Creates and starts a deployment to deploy an application into a runtime\n         environment.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -1824,10 +1813,7 @@
       ],
       "traits": {
         "aws.api#controlPlane": {},
-        "aws.iam#conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "aws.iam#conditionKeys": ["aws:RequestTag/${TagKey}", "aws:TagKeys"],
         "aws.iam#requiredActions": [
           "ec2:DescribeSecurityGroups",
           "ec2:DescribeSubnets",
@@ -2310,10 +2296,7 @@
       ],
       "traits": {
         "aws.api#controlPlane": {},
-        "aws.iam#requiredActions": [
-          "elasticloadbalancing:DeleteTargetGroup",
-          "elasticloadbalancing:DeleteListener"
-        ],
+        "aws.iam#requiredActions": ["elasticloadbalancing:DeleteTargetGroup", "elasticloadbalancing:DeleteListener"],
         "smithy.api#documentation": "<p>Deletes a specific application. You cannot delete a running application.</p>",
         "smithy.api#http": {
           "method": "DELETE",
@@ -2430,9 +2413,7 @@
       ],
       "traits": {
         "aws.api#controlPlane": {},
-        "aws.iam#requiredActions": [
-          "elasticloadbalancing:DeleteLoadBalancer"
-        ],
+        "aws.iam#requiredActions": ["elasticloadbalancing:DeleteLoadBalancer"],
         "smithy.api#documentation": "<p>Deletes a specific runtime environment. The environment cannot contain deployed\n         applications. If it does, you must delete those applications before you delete the\n         environment.</p>",
         "smithy.api#http": {
           "method": "DELETE",
@@ -2694,9 +2675,7 @@
         "aws.api#arn": {
           "template": "env/{environmentId}"
         },
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {}
       }
     },
@@ -5601,10 +5580,7 @@
       ],
       "traits": {
         "aws.api#controlPlane": {},
-        "aws.iam#conditionKeys": [
-          "aws:RequestTag/${TagKey}",
-          "aws:TagKeys"
-        ],
+        "aws.iam#conditionKeys": ["aws:RequestTag/${TagKey}", "aws:TagKeys"],
         "smithy.api#documentation": "<p>Adds one or more tags to the specified resource.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -5715,9 +5691,7 @@
       ],
       "traits": {
         "aws.api#controlPlane": {},
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys"],
         "smithy.api#documentation": "<p>Removes one or more tags from the specified resource.</p>",
         "smithy.api#http": {
           "method": "DELETE",
@@ -5781,10 +5755,7 @@
       ],
       "traits": {
         "aws.api#controlPlane": {},
-        "aws.iam#requiredActions": [
-          "s3:GetObject",
-          "s3:ListBucket"
-        ],
+        "aws.iam#requiredActions": ["s3:GetObject", "s3:ListBucket"],
         "smithy.api#documentation": "<p>Updates an application and creates a new version.</p>",
         "smithy.api#http": {
           "method": "PATCH",

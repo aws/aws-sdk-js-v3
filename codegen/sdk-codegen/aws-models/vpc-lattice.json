@@ -4622,11 +4622,7 @@
             "x-amzn-platform-id",
             "x-amzn-trace-id"
           ],
-          "additionalExposedHeaders": [
-            "x-amzn-errortype",
-            "x-amzn-requestid",
-            "x-amzn-trace-id"
-          ]
+          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id"]
         },
         "smithy.api#documentation": "<p>Amazon VPC Lattice is a fully managed application networking service that you use to connect, secure,\n   and monitor all of your services across multiple accounts and virtual private clouds (VPCs).\n   Amazon VPC Lattice interconnects your microservices and legacy services within a logical boundary, so that\n   you can discover and manage them more efficiently. For more information, see the <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/\">Amazon VPC Lattice User Guide</a>\n         </p>",
         "smithy.api#title": "Amazon VPC Lattice",
@@ -4672,7 +4668,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -4691,7 +4686,6 @@
                 },
                 {
                   "conditions": [],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -4719,13 +4713,14 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -4738,7 +4733,6 @@
                       ]
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -4752,7 +4746,6 @@
                           "assign": "PartitionResult"
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -4775,7 +4768,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
@@ -4810,11 +4802,9 @@
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -4825,16 +4815,19 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [
@@ -4848,14 +4841,12 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
                                 {
                                   "fn": "booleanEquals",
                                   "argv": [
-                                    true,
                                     {
                                       "fn": "getAttr",
                                       "argv": [
@@ -4864,15 +4855,14 @@
                                         },
                                         "supportsFIPS"
                                       ]
-                                    }
+                                    },
+                                    true
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -4883,16 +4873,19 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "FIPS is enabled but this partition does not support FIPS",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [
@@ -4906,7 +4899,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
@@ -4926,11 +4918,9 @@
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -4941,20 +4931,22 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "DualStack is enabled but this partition does not support DualStack",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -4965,18 +4957,22 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 },
                 {
                   "conditions": [],
                   "error": "Invalid Configuration: Missing Region",
                   "type": "error"
                 }
-              ]
+              ],
+              "type": "tree"
             }
           ]
         },

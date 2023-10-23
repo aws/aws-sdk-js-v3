@@ -413,7 +413,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -456,7 +455,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [
@@ -469,7 +469,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -483,7 +482,6 @@
                       "assign": "PartitionResult"
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -506,7 +504,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -541,7 +538,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -552,14 +548,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -573,14 +571,12 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
-                                true,
                                 {
                                   "fn": "getAttr",
                                   "argv": [
@@ -589,11 +585,11 @@
                                     },
                                     "supportsFIPS"
                                   ]
-                                }
+                                },
+                                true
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -604,14 +600,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -625,7 +623,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -645,7 +642,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -656,14 +652,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "DualStack is enabled but this partition does not support DualStack",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
@@ -674,9 +672,11 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
@@ -1716,8 +1716,8 @@
                   }
                 ],
                 "Enabled": true,
-                "UserCreateDate": 1.689980857949e9,
-                "UserLastModifiedDate": 1.689980857949e9,
+                "UserCreateDate": 1689980857.949,
+                "UserLastModifiedDate": 1689980857.949,
                 "UserStatus": "FORCE_CHANGE_PASSWORD",
                 "Username": "testuser"
               }
@@ -5695,7 +5695,7 @@
                 "AliasAttributes": ["email"],
                 "Arn": "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_EXAMPLE",
                 "AutoVerifiedAttributes": ["email"],
-                "CreationDate": 1.689721665239e9,
+                "CreationDate": 1689721665.239,
                 "DeletionProtection": "ACTIVE",
                 "DeviceConfiguration": {
                   "ChallengeRequiredOnNewDevice": true,
@@ -5732,7 +5732,7 @@
                   "UserMigration": "arn:aws:lambda:us-east-1:123456789012:function:MyFunction",
                   "VerifyAuthChallengeResponse": "arn:aws:lambda:us-east-1:123456789012:function:MyFunction"
                 },
-                "LastModifiedDate": 1.689721665239e9,
+                "LastModifiedDate": 1689721665.239,
                 "MfaConfiguration": "OPTIONAL",
                 "Name": "my-test-user-pool",
                 "Policies": {
@@ -6093,7 +6093,7 @@
                 "ClientId": "26cb2c60kq7nbmas7rbme9b6pp",
                 "ClientName": "my-test-app-client",
                 "ClientSecret": "13ka4h7u28d9oo44tqpq9djqsfvhvu8rk4d2ighvpu0k8fj1c2r9",
-                "CreationDate": 1.689885426107e9,
+                "CreationDate": 1689885426.107,
                 "DefaultRedirectURI": "https://example.com",
                 "EnablePropagateAdditionalUserContextData": false,
                 "EnableTokenRevocation": true,
@@ -6103,7 +6103,7 @@
                   "ALLOW_REFRESH_TOKEN_AUTH"
                 ],
                 "IdTokenValidity": 6,
-                "LastModifiedDate": 1.689885426107e9,
+                "LastModifiedDate": 1689885426.107,
                 "LogoutURLs": ["https://example.com/logout"],
                 "PreventUserExistenceErrors": "ENABLED",
                 "ReadAttributes": ["address", "preferred_username", "email"],
@@ -10270,7 +10270,6 @@
     "com.amazonaws.cognitoidentityprovider#ListResourceServersLimitType": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 50
@@ -10290,7 +10289,6 @@
         "MaxResults": {
           "target": "com.amazonaws.cognitoidentityprovider#ListResourceServersLimitType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of resource servers to return.</p>"
           }
         },
@@ -10426,7 +10424,6 @@
         "MaxResults": {
           "target": "com.amazonaws.cognitoidentityprovider#PoolQueryLimitType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of import jobs you want the request to return.</p>",
             "smithy.api#required": {}
           }
@@ -10512,7 +10509,6 @@
         "MaxResults": {
           "target": "com.amazonaws.cognitoidentityprovider#QueryLimit",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results you want the request to return when listing the user\n            pool clients.</p>"
           }
         },
@@ -10593,7 +10589,6 @@
         "MaxResults": {
           "target": "com.amazonaws.cognitoidentityprovider#PoolQueryLimitType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results you want the request to return when listing the user\n            pools.</p>",
             "smithy.api#required": {}
           }
@@ -10678,8 +10673,8 @@
                     }
                   ],
                   "Enabled": true,
-                  "UserCreateDate": 1.682955829578e9,
-                  "UserLastModifiedDate": 1.68903018163e9,
+                  "UserCreateDate": 1682955829.578,
+                  "UserLastModifiedDate": 1689030181.63,
                   "UserStatus": "CONFIRMED",
                   "Username": "testuser"
                 },
@@ -10695,8 +10690,8 @@
                     }
                   ],
                   "Enabled": true,
-                  "UserCreateDate": 1.684427979201e9,
-                  "UserLastModifiedDate": 1.684427979201e9,
+                  "UserCreateDate": 1684427979.201,
+                  "UserLastModifiedDate": 1684427979.201,
                   "UserStatus": "UNCONFIRMED",
                   "Username": "testuser2"
                 },
@@ -10712,8 +10707,8 @@
                     }
                   ],
                   "Enabled": true,
-                  "UserCreateDate": 1.684427823641e9,
-                  "UserLastModifiedDate": 1.684427823641e9,
+                  "UserCreateDate": 1684427823.641,
+                  "UserLastModifiedDate": 1684427823.641,
                   "UserStatus": "UNCONFIRMED",
                   "Username": "testuser3@example.com"
                 }
@@ -11243,7 +11238,6 @@
     "com.amazonaws.cognitoidentityprovider#PasswordPolicyMinLengthType": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 6,
           "max": 99
@@ -11256,7 +11250,6 @@
         "MinimumLength": {
           "target": "com.amazonaws.cognitoidentityprovider#PasswordPolicyMinLengthType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The minimum length of the password in the policy that you have set. This value can't\n            be less than 6.</p>"
           }
         },
@@ -11330,7 +11323,6 @@
     "com.amazonaws.cognitoidentityprovider#PoolQueryLimitType": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 60
@@ -11390,7 +11382,6 @@
     "com.amazonaws.cognitoidentityprovider#PriorityType": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 2
@@ -11499,7 +11490,6 @@
     "com.amazonaws.cognitoidentityprovider#QueryLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 60
@@ -11556,7 +11546,6 @@
         "Priority": {
           "target": "com.amazonaws.cognitoidentityprovider#PriorityType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>A positive integer specifying priority of a method with 1 being the highest\n            priority.</p>",
             "smithy.api#required": {}
           }

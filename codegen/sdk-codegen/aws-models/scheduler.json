@@ -77,7 +77,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -96,7 +95,6 @@
                 },
                 {
                   "conditions": [],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -124,13 +122,14 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -143,7 +142,6 @@
                       ]
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -157,7 +155,6 @@
                           "assign": "PartitionResult"
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -180,7 +177,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
@@ -215,11 +211,9 @@
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -230,16 +224,19 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [
@@ -253,14 +250,12 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
                                 {
                                   "fn": "booleanEquals",
                                   "argv": [
-                                    true,
                                     {
                                       "fn": "getAttr",
                                       "argv": [
@@ -269,15 +264,14 @@
                                         },
                                         "supportsFIPS"
                                       ]
-                                    }
+                                    },
+                                    true
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -288,16 +282,19 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "FIPS is enabled but this partition does not support FIPS",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [
@@ -311,7 +308,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
@@ -331,11 +327,9 @@
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -346,20 +340,22 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "DualStack is enabled but this partition does not support DualStack",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -370,18 +366,22 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 },
                 {
                   "conditions": [],
                   "error": "Invalid Configuration: Missing Region",
                   "type": "error"
                 }
-              ]
+              ],
+              "type": "tree"
             }
           ]
         },
@@ -1583,9 +1583,7 @@
           "traits": {
             "aws.cloudformation#cfnExcludeProperty": {},
             "smithy.api#documentation": "<p>The time at which the schedule was created.</p>",
-            "smithy.api#suppress": [
-              "UnstableTrait"
-            ]
+            "smithy.api#suppress": ["UnstableTrait"]
           }
         },
         "LastModificationDate": {
@@ -1593,9 +1591,7 @@
           "traits": {
             "aws.cloudformation#cfnExcludeProperty": {},
             "smithy.api#documentation": "<p>The time at which the schedule was last modified.</p>",
-            "smithy.api#suppress": [
-              "UnstableTrait"
-            ]
+            "smithy.api#suppress": ["UnstableTrait"]
           }
         },
         "KmsKeyArn": {
@@ -2302,9 +2298,7 @@
       "traits": {
         "aws.cloudformation#cfnResource": {},
         "smithy.api#noReplace": {},
-        "smithy.api#suppress": [
-          "UnstableTrait"
-        ]
+        "smithy.api#suppress": ["UnstableTrait"]
       }
     },
     "com.amazonaws.scheduler#ScheduleArn": {
@@ -2357,9 +2351,7 @@
       "traits": {
         "aws.cloudformation#cfnResource": {},
         "smithy.api#noReplace": {},
-        "smithy.api#suppress": [
-          "UnstableTrait"
-        ]
+        "smithy.api#suppress": ["UnstableTrait"]
       }
     },
     "com.amazonaws.scheduler#ScheduleGroupArn": {
@@ -2991,10 +2983,7 @@
         }
       ],
       "traits": {
-        "aws.iam#requiredActions": [
-          "scheduler:TagResource",
-          "scheduler:UntagResource"
-        ],
+        "aws.iam#requiredActions": ["scheduler:TagResource", "scheduler:UntagResource"],
         "smithy.api#documentation": "<p>\n         Updates the specified schedule. When you call <code>UpdateSchedule</code>, EventBridge Scheduler uses all values, including empty values, specified in the request and\n         overrides the existing schedule. This is by design. This means that if you do not set an optional field in your request, that field will be set to\n         its system-default value after the update.\n      </p>\n         <p>\n         Before calling this operation, we recommend that you call the <code>GetSchedule</code> API operation and make a note of all optional parameters\n         for your <code>UpdateSchedule</code> call.\n      </p>",
         "smithy.api#http": {
           "code": 200,

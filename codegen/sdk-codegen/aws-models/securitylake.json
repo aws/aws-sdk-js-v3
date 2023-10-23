@@ -468,10 +468,7 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create a new security data lake",
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
         "aws.iam#requiredActions": [
           "iam:CreateServiceLinkedRole",
           "iam:GetRole",
@@ -714,10 +711,7 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create a subscriber",
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
         "aws.iam#requiredActions": [
           "iam:GetRole",
           "iam:PutRolePolicy",
@@ -1596,9 +1590,7 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to remove a custom source",
-        "aws.iam#requiredActions": [
-          "glue:StopCrawlerSchedule"
-        ],
+        "aws.iam#requiredActions": ["glue:StopCrawlerSchedule"],
         "smithy.api#documentation": "<p>Removes a custom log source from Amazon Security Lake, to stop sending data from the custom\n         source to Security Lake.</p>",
         "smithy.api#http": {
           "method": "DELETE",
@@ -2150,9 +2142,7 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to get an organization’s configuration setting for automatically enabling Amazon Security Lake access for new organization accounts",
-        "aws.iam#requiredActions": [
-          "organizations:DescribeOrganization"
-        ],
+        "aws.iam#requiredActions": ["organizations:DescribeOrganization"],
         "smithy.api#documentation": "<p>Retrieves the configuration that will be automatically set up for accounts added to the\n         organization after the organization has onboarded to Amazon Security Lake. This API does not take\n         input parameters.</p>",
         "smithy.api#http": {
           "method": "GET",
@@ -3170,12 +3160,7 @@
             "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys"
           }
         },
-        "aws.iam#supportedPrincipalTypes": [
-          "Root",
-          "IAMUser",
-          "IAMRole",
-          "FederatedUser"
-        ],
+        "aws.iam#supportedPrincipalTypes": ["Root", "IAMUser", "IAMRole", "FederatedUser"],
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
           "additionalAllowedHeaders": [
@@ -3186,11 +3171,7 @@
             "x-amzn-platform-id",
             "x-amzn-trace-id"
           ],
-          "additionalExposedHeaders": [
-            "x-amzn-errortype",
-            "x-amzn-requestid",
-            "x-amzn-trace-id"
-          ],
+          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id"],
           "maxAge": 86400
         },
         "smithy.api#documentation": "<p>Amazon Security Lake is a fully managed security data lake service. You can use Security Lake to\n         automatically centralize security data from cloud, on-premises, and custom sources into a\n         data lake that's stored in your Amazon Web Services account. Amazon Web Services Organizations\n         is an account management service that lets you consolidate multiple Amazon Web Services\n         accounts into an organization that you create and centrally manage. With Organizations, you\n         can create member accounts and invite existing accounts to join your organization.\n         Security Lake helps you analyze security data for a more complete understanding of your\n         security posture across the entire organization. It can also help you improve the\n         protection of your workloads, applications, and data.</p>\n         <p>The data lake is backed by Amazon Simple Storage Service (Amazon S3) buckets, and you\n         retain ownership over your data.</p>\n         <p>Amazon Security Lake integrates with CloudTrail, a service that provides a record of\n         actions taken by a user, role, or an Amazon Web Services service. In Security Lake, CloudTrail captures API calls for Security Lake as events. The calls captured include calls\n         from the Security Lake console and code calls to the Security Lake API operations. If you create a\n         trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Security Lake. If you don't configure a trail, you can still\n         view the most recent events in the CloudTrail console in Event history. Using the\n         information collected by CloudTrail you can determine the request that was made to\n         Security Lake, the IP address from which the request was made, who made the request, when it\n         was made, and additional details. To learn more about Security Lake information in CloudTrail, see the <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/securitylake-cloudtrail.html\">Amazon Security Lake User Guide</a>.</p>\n         <p>Security Lake automates the collection of security-related log and event data from\n         integrated Amazon Web Services and third-party services. It also helps you manage\n         the lifecycle of data with customizable retention and replication settings. Security Lake\n         converts ingested data into Apache Parquet format and a standard open-source schema called\n         the Open Cybersecurity Schema Framework (OCSF).</p>\n         <p>Other Amazon Web Services and third-party services can subscribe to the data that's stored in Security Lake for \n         incident response and security data analytics.</p>",
@@ -3237,7 +3218,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -3256,7 +3236,6 @@
                 },
                 {
                   "conditions": [],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -3284,13 +3263,14 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -3303,7 +3283,6 @@
                       ]
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -3317,7 +3296,6 @@
                           "assign": "PartitionResult"
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -3340,7 +3318,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
@@ -3375,11 +3352,9 @@
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -3390,16 +3365,19 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [
@@ -3413,14 +3391,12 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
                                 {
                                   "fn": "booleanEquals",
                                   "argv": [
-                                    true,
                                     {
                                       "fn": "getAttr",
                                       "argv": [
@@ -3429,15 +3405,14 @@
                                         },
                                         "supportsFIPS"
                                       ]
-                                    }
+                                    },
+                                    true
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -3448,16 +3423,19 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "FIPS is enabled but this partition does not support FIPS",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [
@@ -3471,7 +3449,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
@@ -3491,11 +3468,9 @@
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -3506,20 +3481,22 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "DualStack is enabled but this partition does not support DualStack",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -3530,18 +3507,22 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 },
                 {
                   "conditions": [],
                   "error": "Invalid Configuration: Missing Region",
                   "type": "error"
                 }
-              ]
+              ],
+              "type": "tree"
             }
           ]
         },
@@ -4165,10 +4146,7 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
         "smithy.api#documentation": "<p>Adds or updates one or more tags that are associated with an Amazon Security Lake resource: a subscriber, or the data lake configuration for your \n         Amazon Web Services account in a particular Amazon Web Services Region. A <i>tag</i> is a label that you can define and associate with \n         Amazon Web Services resources. Each tag consists of a required <i>tag key</i> and an associated <i>tag value</i>. A \n         <i>tag key</i> is a general label that acts as a category for a more specific tag value. A <i>tag value</i> acts as a \n         descriptor for a tag key. Tags can help you identify, categorize, and manage resources in different ways, such as by owner, environment, or other \n         criteria. For more information, see \n         <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/tagging-resources.html\">Tagging Amazon Security Lake resources</a> in the \n         <i>Amazon Security Lake User Guide</i>.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -4292,9 +4270,7 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys"],
         "smithy.api#documentation": "<p>Removes one or more tags (keys and values) from an Amazon Security Lake resource: a subscriber, or the data lake configuration for your \n         Amazon Web Services account in a particular Amazon Web Services Region.</p>",
         "smithy.api#http": {
           "method": "DELETE",
