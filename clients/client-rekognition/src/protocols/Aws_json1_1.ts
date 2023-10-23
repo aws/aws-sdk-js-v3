@@ -105,6 +105,10 @@ import {
 } from "../commands/GetFaceLivenessSessionResultsCommand";
 import { GetFaceSearchCommandInput, GetFaceSearchCommandOutput } from "../commands/GetFaceSearchCommand";
 import { GetLabelDetectionCommandInput, GetLabelDetectionCommandOutput } from "../commands/GetLabelDetectionCommand";
+import {
+  GetMediaAnalysisJobCommandInput,
+  GetMediaAnalysisJobCommandOutput,
+} from "../commands/GetMediaAnalysisJobCommand";
 import { GetPersonTrackingCommandInput, GetPersonTrackingCommandOutput } from "../commands/GetPersonTrackingCommand";
 import {
   GetSegmentDetectionCommandInput,
@@ -116,6 +120,10 @@ import { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "../co
 import { ListDatasetEntriesCommandInput, ListDatasetEntriesCommandOutput } from "../commands/ListDatasetEntriesCommand";
 import { ListDatasetLabelsCommandInput, ListDatasetLabelsCommandOutput } from "../commands/ListDatasetLabelsCommand";
 import { ListFacesCommandInput, ListFacesCommandOutput } from "../commands/ListFacesCommand";
+import {
+  ListMediaAnalysisJobsCommandInput,
+  ListMediaAnalysisJobsCommandOutput,
+} from "../commands/ListMediaAnalysisJobsCommand";
 import {
   ListProjectPoliciesCommandInput,
   ListProjectPoliciesCommandOutput,
@@ -152,6 +160,10 @@ import {
   StartLabelDetectionCommandInput,
   StartLabelDetectionCommandOutput,
 } from "../commands/StartLabelDetectionCommand";
+import {
+  StartMediaAnalysisJobCommandInput,
+  StartMediaAnalysisJobCommandOutput,
+} from "../commands/StartMediaAnalysisJobCommand";
 import {
   StartPersonTrackingCommandInput,
   StartPersonTrackingCommandOutput,
@@ -297,6 +309,8 @@ import {
   GetFaceSearchResponse,
   GetLabelDetectionRequest,
   GetLabelDetectionResponse,
+  GetMediaAnalysisJobRequest,
+  GetMediaAnalysisJobResponse,
   GetPersonTrackingRequest,
   GetPersonTrackingResponse,
   GetSegmentDetectionRequest,
@@ -317,6 +331,7 @@ import {
   Instance,
   InternalServerError,
   InvalidImageFormatException,
+  InvalidManifestException,
   InvalidPaginationTokenException,
   InvalidParameterException,
   InvalidPolicyRevisionIdException,
@@ -335,6 +350,8 @@ import {
   ListDatasetLabelsRequest,
   ListFacesRequest,
   ListFacesResponse,
+  ListMediaAnalysisJobsRequest,
+  ListMediaAnalysisJobsResponse,
   ListProjectPoliciesRequest,
   ListProjectPoliciesResponse,
   ListStreamProcessorsRequest,
@@ -342,6 +359,11 @@ import {
   ListUsersRequest,
   LivenessOutputConfig,
   MalformedPolicyDocumentException,
+  MediaAnalysisDetectModerationLabelsConfig,
+  MediaAnalysisInput,
+  MediaAnalysisJobDescription,
+  MediaAnalysisOperationsConfig,
+  MediaAnalysisOutputConfig,
   ModerationLabel,
   MouthOpen,
   Mustache,
@@ -360,9 +382,6 @@ import {
   ProtectiveEquipmentSummarizationAttributes,
   ProtectiveEquipmentType,
   ProvisionedThroughputExceededException,
-  PutProjectPolicyRequest,
-  RecognizeCelebritiesRequest,
-  RecognizeCelebritiesResponse,
   RegionOfInterest,
   ResourceAlreadyExistsException,
   ResourceInUseException,
@@ -370,14 +389,6 @@ import {
   ResourceNotReadyException,
   S3Destination,
   S3Object,
-  SearchedFaceDetails,
-  SearchFacesByImageRequest,
-  SearchFacesByImageResponse,
-  SearchFacesRequest,
-  SearchFacesResponse,
-  SearchUsersByImageRequest,
-  SearchUsersRequest,
-  SearchUsersResponse,
   SegmentDetection,
   SegmentType,
   ServiceQuotaExceededException,
@@ -398,17 +409,28 @@ import {
   TrainingData,
   UnindexedFace,
   UnsuccessfulFaceAssociation,
-  UserMatch,
   Video,
   VideoMetadata,
 } from "../models/models_0";
 import {
+  PutProjectPolicyRequest,
+  RecognizeCelebritiesRequest,
+  RecognizeCelebritiesResponse,
+  SearchedFaceDetails,
+  SearchFacesByImageRequest,
+  SearchFacesByImageResponse,
+  SearchFacesRequest,
+  SearchFacesResponse,
+  SearchUsersByImageRequest,
   SearchUsersByImageResponse,
+  SearchUsersRequest,
+  SearchUsersResponse,
   StartCelebrityRecognitionRequest,
   StartContentModerationRequest,
   StartFaceDetectionRequest,
   StartFaceSearchRequest,
   StartLabelDetectionRequest,
+  StartMediaAnalysisJobRequest,
   StartPersonTrackingRequest,
   StartProjectVersionRequest,
   StartSegmentDetectionFilters,
@@ -429,6 +451,7 @@ import {
   UntagResourceRequest,
   UpdateDatasetEntriesRequest,
   UpdateStreamProcessorRequest,
+  UserMatch,
   VideoTooLargeException,
 } from "../models/models_1";
 import { RekognitionServiceException as __BaseException } from "../models/RekognitionServiceException";
@@ -928,6 +951,19 @@ export const se_GetLabelDetectionCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetMediaAnalysisJobCommand
+ */
+export const se_GetMediaAnalysisJobCommand = async (
+  input: GetMediaAnalysisJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetMediaAnalysisJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetPersonTrackingCommand
  */
 export const se_GetPersonTrackingCommand = async (
@@ -1026,6 +1062,19 @@ export const se_ListFacesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListFaces");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListMediaAnalysisJobsCommand
+ */
+export const se_ListMediaAnalysisJobsCommand = async (
+  input: ListMediaAnalysisJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListMediaAnalysisJobs");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1223,6 +1272,19 @@ export const se_StartLabelDetectionCommand = async (
   const headers: __HeaderBag = sharedHeaders("StartLabelDetection");
   let body: any;
   body = JSON.stringify(se_StartLabelDetectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartMediaAnalysisJobCommand
+ */
+export const se_StartMediaAnalysisJobCommand = async (
+  input: StartMediaAnalysisJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartMediaAnalysisJob");
+  let body: any;
+  body = JSON.stringify(se_StartMediaAnalysisJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3853,6 +3915,67 @@ const de_GetLabelDetectionCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GetMediaAnalysisJobCommand
+ */
+export const de_GetMediaAnalysisJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMediaAnalysisJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetMediaAnalysisJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetMediaAnalysisJobResponse(data, context);
+  const response: GetMediaAnalysisJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetMediaAnalysisJobCommandError
+ */
+const de_GetMediaAnalysisJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMediaAnalysisJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1GetPersonTrackingCommand
  */
 export const de_GetPersonTrackingCommand = async (
@@ -4372,6 +4495,67 @@ const de_ListFacesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.rekognition#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListMediaAnalysisJobsCommand
+ */
+export const de_ListMediaAnalysisJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMediaAnalysisJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListMediaAnalysisJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListMediaAnalysisJobsResponse(data, context);
+  const response: ListMediaAnalysisJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListMediaAnalysisJobsCommandError
+ */
+const de_ListMediaAnalysisJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMediaAnalysisJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rekognition#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -5394,6 +5578,82 @@ const de_StartLabelDetectionCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1StartMediaAnalysisJobCommand
+ */
+export const de_StartMediaAnalysisJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMediaAnalysisJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartMediaAnalysisJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartMediaAnalysisJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMediaAnalysisJobCommandError
+ */
+const de_StartMediaAnalysisJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMediaAnalysisJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidManifestException":
+    case "com.amazonaws.rekognition#InvalidManifestException":
+      throw await de_InvalidManifestExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.rekognition#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.rekognition#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceNotReadyException":
+    case "com.amazonaws.rekognition#ResourceNotReadyException":
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1StartPersonTrackingCommand
  */
 export const de_StartPersonTrackingCommand = async (
@@ -6225,6 +6485,22 @@ const de_InvalidImageFormatExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1InvalidManifestExceptionRes
+ */
+const de_InvalidManifestExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidManifestException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InvalidManifestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1InvalidPaginationTokenExceptionRes
  */
 const de_InvalidPaginationTokenExceptionRes = async (
@@ -6809,6 +7085,8 @@ const se_FaceSearchSettings = (input: FaceSearchSettings, context: __SerdeContex
 
 // se_GetLabelDetectionRequest omitted.
 
+// se_GetMediaAnalysisJobRequest omitted.
+
 // se_GetPersonTrackingRequest omitted.
 
 // se_GetSegmentDetectionRequest omitted.
@@ -6863,6 +7141,8 @@ const se_IndexFacesRequest = (input: IndexFacesRequest, context: __SerdeContext)
 
 // se_ListFacesRequest omitted.
 
+// se_ListMediaAnalysisJobsRequest omitted.
+
 // se_ListProjectPoliciesRequest omitted.
 
 // se_ListStreamProcessorsRequest omitted.
@@ -6872,6 +7152,32 @@ const se_IndexFacesRequest = (input: IndexFacesRequest, context: __SerdeContext)
 // se_ListUsersRequest omitted.
 
 // se_LivenessOutputConfig omitted.
+
+/**
+ * serializeAws_json1_1MediaAnalysisDetectModerationLabelsConfig
+ */
+const se_MediaAnalysisDetectModerationLabelsConfig = (
+  input: MediaAnalysisDetectModerationLabelsConfig,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    MinConfidence: __serializeFloat,
+    ProjectVersion: [],
+  });
+};
+
+// se_MediaAnalysisInput omitted.
+
+/**
+ * serializeAws_json1_1MediaAnalysisOperationsConfig
+ */
+const se_MediaAnalysisOperationsConfig = (input: MediaAnalysisOperationsConfig, context: __SerdeContext): any => {
+  return take(input, {
+    DetectModerationLabels: (_) => se_MediaAnalysisDetectModerationLabelsConfig(_, context),
+  });
+};
+
+// se_MediaAnalysisOutputConfig omitted.
 
 // se_NotificationChannel omitted.
 
@@ -7047,6 +7353,20 @@ const se_StartLabelDetectionRequest = (input: StartLabelDetectionRequest, contex
     NotificationChannel: _json,
     Settings: _json,
     Video: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_1StartMediaAnalysisJobRequest
+ */
+const se_StartMediaAnalysisJobRequest = (input: StartMediaAnalysisJobRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    Input: _json,
+    JobName: [],
+    KmsKeyId: [],
+    OperationsConfig: (_) => se_MediaAnalysisOperationsConfig(_, context),
+    OutputConfig: _json,
   });
 };
 
@@ -8185,6 +8505,26 @@ const de_GetLabelDetectionResponse = (output: any, context: __SerdeContext): Get
 };
 
 /**
+ * deserializeAws_json1_1GetMediaAnalysisJobResponse
+ */
+const de_GetMediaAnalysisJobResponse = (output: any, context: __SerdeContext): GetMediaAnalysisJobResponse => {
+  return take(output, {
+    CompletionTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureDetails: _json,
+    Input: _json,
+    JobId: __expectString,
+    JobName: __expectString,
+    KmsKeyId: __expectString,
+    ManifestSummary: _json,
+    OperationsConfig: (_: any) => de_MediaAnalysisOperationsConfig(_, context),
+    OutputConfig: _json,
+    Results: _json,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1GetPersonTrackingResponse
  */
 const de_GetPersonTrackingResponse = (output: any, context: __SerdeContext): GetPersonTrackingResponse => {
@@ -8305,6 +8645,8 @@ const de_Instances = (output: any, context: __SerdeContext): Instance[] => {
 
 // de_InvalidImageFormatException omitted.
 
+// de_InvalidManifestException omitted.
+
 // de_InvalidPaginationTokenException omitted.
 
 // de_InvalidParameterException omitted.
@@ -8421,6 +8763,16 @@ const de_ListFacesResponse = (output: any, context: __SerdeContext): ListFacesRe
 };
 
 /**
+ * deserializeAws_json1_1ListMediaAnalysisJobsResponse
+ */
+const de_ListMediaAnalysisJobsResponse = (output: any, context: __SerdeContext): ListMediaAnalysisJobsResponse => {
+  return take(output, {
+    MediaAnalysisJobs: (_: any) => de_MediaAnalysisJobDescriptions(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ListProjectPoliciesResponse
  */
 const de_ListProjectPoliciesResponse = (output: any, context: __SerdeContext): ListProjectPoliciesResponse => {
@@ -8439,6 +8791,70 @@ const de_ListProjectPoliciesResponse = (output: any, context: __SerdeContext): L
 // de_MalformedPolicyDocumentException omitted.
 
 // de_MatchedUser omitted.
+
+/**
+ * deserializeAws_json1_1MediaAnalysisDetectModerationLabelsConfig
+ */
+const de_MediaAnalysisDetectModerationLabelsConfig = (
+  output: any,
+  context: __SerdeContext
+): MediaAnalysisDetectModerationLabelsConfig => {
+  return take(output, {
+    MinConfidence: __limitedParseFloat32,
+    ProjectVersion: __expectString,
+  }) as any;
+};
+
+// de_MediaAnalysisInput omitted.
+
+/**
+ * deserializeAws_json1_1MediaAnalysisJobDescription
+ */
+const de_MediaAnalysisJobDescription = (output: any, context: __SerdeContext): MediaAnalysisJobDescription => {
+  return take(output, {
+    CompletionTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureDetails: _json,
+    Input: _json,
+    JobId: __expectString,
+    JobName: __expectString,
+    KmsKeyId: __expectString,
+    ManifestSummary: _json,
+    OperationsConfig: (_: any) => de_MediaAnalysisOperationsConfig(_, context),
+    OutputConfig: _json,
+    Results: _json,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1MediaAnalysisJobDescriptions
+ */
+const de_MediaAnalysisJobDescriptions = (output: any, context: __SerdeContext): MediaAnalysisJobDescription[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MediaAnalysisJobDescription(entry, context);
+    });
+  return retVal;
+};
+
+// de_MediaAnalysisJobFailureDetails omitted.
+
+// de_MediaAnalysisManifestSummary omitted.
+
+/**
+ * deserializeAws_json1_1MediaAnalysisOperationsConfig
+ */
+const de_MediaAnalysisOperationsConfig = (output: any, context: __SerdeContext): MediaAnalysisOperationsConfig => {
+  return take(output, {
+    DetectModerationLabels: (_: any) => de_MediaAnalysisDetectModerationLabelsConfig(_, context),
+  }) as any;
+};
+
+// de_MediaAnalysisOutputConfig omitted.
+
+// de_MediaAnalysisResults omitted.
 
 /**
  * deserializeAws_json1_1ModerationLabel
@@ -8888,6 +9304,8 @@ const de_Smile = (output: any, context: __SerdeContext): Smile => {
 // de_StartFaceSearchResponse omitted.
 
 // de_StartLabelDetectionResponse omitted.
+
+// de_StartMediaAnalysisJobResponse omitted.
 
 // de_StartPersonTrackingResponse omitted.
 

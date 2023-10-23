@@ -130,6 +130,10 @@ import {
 } from "./commands/GetFaceLivenessSessionResultsCommand";
 import { GetFaceSearchCommandInput, GetFaceSearchCommandOutput } from "./commands/GetFaceSearchCommand";
 import { GetLabelDetectionCommandInput, GetLabelDetectionCommandOutput } from "./commands/GetLabelDetectionCommand";
+import {
+  GetMediaAnalysisJobCommandInput,
+  GetMediaAnalysisJobCommandOutput,
+} from "./commands/GetMediaAnalysisJobCommand";
 import { GetPersonTrackingCommandInput, GetPersonTrackingCommandOutput } from "./commands/GetPersonTrackingCommand";
 import {
   GetSegmentDetectionCommandInput,
@@ -141,6 +145,10 @@ import { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "./com
 import { ListDatasetEntriesCommandInput, ListDatasetEntriesCommandOutput } from "./commands/ListDatasetEntriesCommand";
 import { ListDatasetLabelsCommandInput, ListDatasetLabelsCommandOutput } from "./commands/ListDatasetLabelsCommand";
 import { ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand";
+import {
+  ListMediaAnalysisJobsCommandInput,
+  ListMediaAnalysisJobsCommandOutput,
+} from "./commands/ListMediaAnalysisJobsCommand";
 import {
   ListProjectPoliciesCommandInput,
   ListProjectPoliciesCommandOutput,
@@ -177,6 +185,10 @@ import {
   StartLabelDetectionCommandInput,
   StartLabelDetectionCommandOutput,
 } from "./commands/StartLabelDetectionCommand";
+import {
+  StartMediaAnalysisJobCommandInput,
+  StartMediaAnalysisJobCommandOutput,
+} from "./commands/StartMediaAnalysisJobCommand";
 import {
   StartPersonTrackingCommandInput,
   StartPersonTrackingCommandOutput,
@@ -262,6 +274,7 @@ export type ServiceInputTypes =
   | GetFaceLivenessSessionResultsCommandInput
   | GetFaceSearchCommandInput
   | GetLabelDetectionCommandInput
+  | GetMediaAnalysisJobCommandInput
   | GetPersonTrackingCommandInput
   | GetSegmentDetectionCommandInput
   | GetTextDetectionCommandInput
@@ -270,6 +283,7 @@ export type ServiceInputTypes =
   | ListDatasetEntriesCommandInput
   | ListDatasetLabelsCommandInput
   | ListFacesCommandInput
+  | ListMediaAnalysisJobsCommandInput
   | ListProjectPoliciesCommandInput
   | ListStreamProcessorsCommandInput
   | ListTagsForResourceCommandInput
@@ -285,6 +299,7 @@ export type ServiceInputTypes =
   | StartFaceDetectionCommandInput
   | StartFaceSearchCommandInput
   | StartLabelDetectionCommandInput
+  | StartMediaAnalysisJobCommandInput
   | StartPersonTrackingCommandInput
   | StartProjectVersionCommandInput
   | StartSegmentDetectionCommandInput
@@ -339,6 +354,7 @@ export type ServiceOutputTypes =
   | GetFaceLivenessSessionResultsCommandOutput
   | GetFaceSearchCommandOutput
   | GetLabelDetectionCommandOutput
+  | GetMediaAnalysisJobCommandOutput
   | GetPersonTrackingCommandOutput
   | GetSegmentDetectionCommandOutput
   | GetTextDetectionCommandOutput
@@ -347,6 +363,7 @@ export type ServiceOutputTypes =
   | ListDatasetEntriesCommandOutput
   | ListDatasetLabelsCommandOutput
   | ListFacesCommandOutput
+  | ListMediaAnalysisJobsCommandOutput
   | ListProjectPoliciesCommandOutput
   | ListStreamProcessorsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -362,6 +379,7 @@ export type ServiceOutputTypes =
   | StartFaceDetectionCommandOutput
   | StartFaceSearchCommandOutput
   | StartLabelDetectionCommandOutput
+  | StartMediaAnalysisJobCommandOutput
   | StartPersonTrackingCommandOutput
   | StartProjectVersionCommandOutput
   | StartSegmentDetectionCommandOutput

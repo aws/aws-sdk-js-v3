@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { SearchFacesByImageRequest, SearchFacesByImageResponse } from "../models/models_0";
+import { SearchFacesByImageRequest, SearchFacesByImageResponse } from "../models/models_1";
 import { de_SearchFacesByImageCommand, se_SearchFacesByImageCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 

@@ -14,8 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { SearchUsersRequest, SearchUsersResponse } from "../models/models_1";
-import { de_SearchUsersCommand, se_SearchUsersCommand } from "../protocols/Aws_json1_1";
+import { GetMediaAnalysisJobRequest, GetMediaAnalysisJobResponse } from "../models/models_0";
+import { de_GetMediaAnalysisJobCommand, se_GetMediaAnalysisJobCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -25,64 +25,81 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link SearchUsersCommand}.
+ * The input for {@link GetMediaAnalysisJobCommand}.
  */
-export interface SearchUsersCommandInput extends SearchUsersRequest {}
+export interface GetMediaAnalysisJobCommandInput extends GetMediaAnalysisJobRequest {}
 /**
  * @public
  *
- * The output of {@link SearchUsersCommand}.
+ * The output of {@link GetMediaAnalysisJobCommand}.
  */
-export interface SearchUsersCommandOutput extends SearchUsersResponse, __MetadataBearer {}
+export interface GetMediaAnalysisJobCommandOutput extends GetMediaAnalysisJobResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Searches for UserIDs within a collection based on a <code>FaceId</code> or
- *         <code>UserId</code>. This API can be used to find the closest UserID (with a highest
- *       similarity) to associate a face. The request must be provided with either <code>FaceId</code>
- *       or <code>UserId</code>. The operation returns an array of UserID that match the
- *         <code>FaceId</code> or <code>UserId</code>, ordered by similarity score with the highest
- *       similarity first. </p>
+ * <p>Retrieves the results for a given media analysis job.
+ *         Takes a <code>JobId</code> returned by StartMediaAnalysisJob.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, SearchUsersCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, SearchUsersCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, GetMediaAnalysisJobCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, GetMediaAnalysisJobCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = { // SearchUsersRequest
- *   CollectionId: "STRING_VALUE", // required
- *   UserId: "STRING_VALUE",
- *   FaceId: "STRING_VALUE",
- *   UserMatchThreshold: Number("float"),
- *   MaxUsers: Number("int"),
+ * const input = { // GetMediaAnalysisJobRequest
+ *   JobId: "STRING_VALUE", // required
  * };
- * const command = new SearchUsersCommand(input);
+ * const command = new GetMediaAnalysisJobCommand(input);
  * const response = await client.send(command);
- * // { // SearchUsersResponse
- * //   UserMatches: [ // UserMatchList
- * //     { // UserMatch
- * //       Similarity: Number("float"),
- * //       User: { // MatchedUser
- * //         UserId: "STRING_VALUE",
- * //         UserStatus: "ACTIVE" || "UPDATING" || "CREATING" || "CREATED",
- * //       },
+ * // { // GetMediaAnalysisJobResponse
+ * //   JobId: "STRING_VALUE", // required
+ * //   JobName: "STRING_VALUE",
+ * //   OperationsConfig: { // MediaAnalysisOperationsConfig
+ * //     DetectModerationLabels: { // MediaAnalysisDetectModerationLabelsConfig
+ * //       MinConfidence: Number("float"),
+ * //       ProjectVersion: "STRING_VALUE",
  * //     },
- * //   ],
- * //   FaceModelVersion: "STRING_VALUE",
- * //   SearchedFace: { // SearchedFace
- * //     FaceId: "STRING_VALUE",
  * //   },
- * //   SearchedUser: { // SearchedUser
- * //     UserId: "STRING_VALUE",
+ * //   Status: "CREATED" || "QUEUED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED", // required
+ * //   FailureDetails: { // MediaAnalysisJobFailureDetails
+ * //     Code: "INTERNAL_ERROR" || "INVALID_S3_OBJECT" || "INVALID_MANIFEST" || "INVALID_OUTPUT_CONFIG" || "INVALID_KMS_KEY" || "ACCESS_DENIED" || "RESOURCE_NOT_FOUND" || "RESOURCE_NOT_READY" || "THROTTLED",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   CreationTimestamp: new Date("TIMESTAMP"), // required
+ * //   CompletionTimestamp: new Date("TIMESTAMP"),
+ * //   Input: { // MediaAnalysisInput
+ * //     S3Object: { // S3Object
+ * //       Bucket: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   OutputConfig: { // MediaAnalysisOutputConfig
+ * //     S3Bucket: "STRING_VALUE", // required
+ * //     S3KeyPrefix: "STRING_VALUE",
+ * //   },
+ * //   KmsKeyId: "STRING_VALUE",
+ * //   Results: { // MediaAnalysisResults
+ * //     S3Object: {
+ * //       Bucket: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ManifestSummary: { // MediaAnalysisManifestSummary
+ * //     S3Object: {
+ * //       Bucket: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
  * ```
  *
- * @param SearchUsersCommandInput - {@link SearchUsersCommandInput}
- * @returns {@link SearchUsersCommandOutput}
- * @see {@link SearchUsersCommandInput} for command's `input` shape.
- * @see {@link SearchUsersCommandOutput} for command's `response` shape.
+ * @param GetMediaAnalysisJobCommandInput - {@link GetMediaAnalysisJobCommandInput}
+ * @returns {@link GetMediaAnalysisJobCommandOutput}
+ * @see {@link GetMediaAnalysisJobCommandInput} for command's `input` shape.
+ * @see {@link GetMediaAnalysisJobCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -108,41 +125,10 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @example SearchUsers
- * ```javascript
- * // Searches for UserIDs within a collection based on a FaceId or UserId.
- * const input = {
- *   "CollectionId": "MyCollection",
- *   "MaxUsers": 2,
- *   "UserId": "DemoUser",
- *   "UserMatchThreshold": 70
- * };
- * const command = new SearchUsersCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "FaceModelVersion": "6",
- *   "SearchedUser": {
- *     "UserId": "DemoUser"
- *   },
- *   "UserMatches": [
- *     {
- *       "Similarity": 99.88186645507812,
- *       "User": {
- *         "UserId": "demoUser1",
- *         "UserStatus": "ACTIVE"
- *       }
- *     }
- *   ]
- * }
- * *\/
- * // example id: searchusers-1686182912030
- * ```
- *
  */
-export class SearchUsersCommand extends $Command<
-  SearchUsersCommandInput,
-  SearchUsersCommandOutput,
+export class GetMediaAnalysisJobCommand extends $Command<
+  GetMediaAnalysisJobCommandInput,
+  GetMediaAnalysisJobCommandOutput,
   RekognitionClientResolvedConfig
 > {
   // Start section: command_properties
@@ -160,7 +146,7 @@ export class SearchUsersCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: SearchUsersCommandInput) {
+  constructor(readonly input: GetMediaAnalysisJobCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -173,15 +159,17 @@ export class SearchUsersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<SearchUsersCommandInput, SearchUsersCommandOutput> {
+  ): Handler<GetMediaAnalysisJobCommandInput, GetMediaAnalysisJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, SearchUsersCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetMediaAnalysisJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RekognitionClient";
-    const commandName = "SearchUsersCommand";
+    const commandName = "GetMediaAnalysisJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -190,7 +178,7 @@ export class SearchUsersCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "RekognitionService",
-        operation: "SearchUsers",
+        operation: "GetMediaAnalysisJob",
       },
     };
     const { requestHandler } = configuration;
@@ -204,15 +192,15 @@ export class SearchUsersCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: SearchUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_SearchUsersCommand(input, context);
+  private serialize(input: GetMediaAnalysisJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetMediaAnalysisJobCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchUsersCommandOutput> {
-    return de_SearchUsersCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMediaAnalysisJobCommandOutput> {
+    return de_GetMediaAnalysisJobCommand(output, context);
   }
 
   // Start section: command_body_extra

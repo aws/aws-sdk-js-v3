@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { PutProjectPolicyRequest, PutProjectPolicyResponse } from "../models/models_0";
+import { PutProjectPolicyRequest, PutProjectPolicyResponse } from "../models/models_1";
 import { de_PutProjectPolicyCommand, se_PutProjectPolicyCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 

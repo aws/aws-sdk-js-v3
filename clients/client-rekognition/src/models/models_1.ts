@@ -3,24 +3,483 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 
 import {
   BlackFrame,
+  BoundingBox,
+  Celebrity,
+  ComparedFace,
   ConnectedHomeSettingsForUpdate,
   DatasetChanges,
   DetectionFilter,
   FaceAttributes,
   FaceDetail,
+  FaceMatch,
+  Image,
   KinesisVideoStreamStartSelector,
   LabelDetectionFeatureName,
   LabelDetectionSettings,
+  MatchedUser,
+  MediaAnalysisInput,
+  MediaAnalysisOperationsConfig,
+  MediaAnalysisOutputConfig,
   NotificationChannel,
+  OrientationCorrection,
   ProjectVersionStatus,
+  QualityFilter,
   RegionOfInterest,
-  SearchedFaceDetails,
   SegmentType,
   StreamProcessorDataSharingPreference,
-  UserMatch,
   Video,
 } from "./models_0";
 import { RekognitionServiceException as __BaseException } from "./RekognitionServiceException";
+
+/**
+ * @public
+ */
+export interface PutProjectPolicyRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the project that the project policy is attached to.</p>
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A name for the policy.</p>
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * @public
+   * <p>The revision ID for the Project Policy. Each time you modify a policy, Amazon Rekognition Custom Labels
+   *          generates and assigns a new <code>PolicyRevisionId</code> and then deletes the previous version of the
+   *          policy.</p>
+   */
+  PolicyRevisionId?: string;
+
+  /**
+   * @public
+   * <p>A resource policy to add to the model. The policy is a JSON structure that contains
+   *          one or more statements that define the policy.
+   *          The policy must follow the IAM syntax. For
+   *          more information about the contents of a JSON policy document, see
+   *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON policy reference</a>. </p>
+   */
+  PolicyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProjectPolicyResponse {
+  /**
+   * @public
+   * <p>The ID of the project policy.</p>
+   */
+  PolicyRevisionId?: string;
+}
+
+/**
+ * @public
+ */
+export interface RecognizeCelebritiesRequest {
+  /**
+   * @public
+   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
+   *       call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
+   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to
+   *       base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see
+   *       Images in the Amazon Rekognition developer guide.</p>
+   */
+  Image: Image | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RecognizeCelebritiesResponse {
+  /**
+   * @public
+   * <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64
+   *       celebrities in an image. Each celebrity object includes the following attributes:
+   *         <code>Face</code>, <code>Confidence</code>, <code>Emotions</code>, <code>Landmarks</code>,
+   *         <code>Pose</code>, <code>Quality</code>, <code>Smile</code>, <code>Id</code>,
+   *         <code>KnownGender</code>, <code>MatchConfidence</code>, <code>Name</code>,
+   *       <code>Urls</code>.</p>
+   */
+  CelebrityFaces?: Celebrity[];
+
+  /**
+   * @public
+   * <p>Details about each unrecognized face in the image.</p>
+   */
+  UnrecognizedFaces?: ComparedFace[];
+
+  /**
+   * @public
+   * <note>
+   *             <p>Support for estimating image orientation using the the OrientationCorrection field
+   *         has ceased as of August 2021. Any returned values for this field included in an API response
+   *         will always be NULL.</p>
+   *          </note>
+   *          <p>The orientation of the input image (counterclockwise direction). If your application
+   *       displays the image, you can use this value to correct the orientation. The bounding box
+   *       coordinates returned in <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code>
+   *       represent face locations before the image orientation is corrected. </p>
+   *          <note>
+   *             <p>If the input image is in .jpeg format, it might contain exchangeable image (Exif)
+   *         metadata that includes the image's orientation. If so, and the Exif metadata for the input
+   *         image populates the orientation field, the value of <code>OrientationCorrection</code> is
+   *         null. The <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> bounding box
+   *         coordinates represent face locations after Exif metadata is used to correct the image
+   *         orientation. Images in .png format don't contain Exif metadata. </p>
+   *          </note>
+   */
+  OrientationCorrection?: OrientationCorrection;
+}
+
+/**
+ * @public
+ */
+export interface SearchFacesRequest {
+  /**
+   * @public
+   * <p>ID of the collection the face belongs to.</p>
+   */
+  CollectionId: string | undefined;
+
+  /**
+   * @public
+   * <p>ID of a face to find matches for in the collection.</p>
+   */
+  FaceId: string | undefined;
+
+  /**
+   * @public
+   * <p>Maximum number of faces to return. The operation returns the maximum number of faces
+   *       with the highest confidence in the match.</p>
+   */
+  MaxFaces?: number;
+
+  /**
+   * @public
+   * <p>Optional value specifying the minimum confidence in the face match to return. For
+   *       example, don't return any matches where confidence in matches is less than 70%. The default
+   *       value is 80%. </p>
+   */
+  FaceMatchThreshold?: number;
+}
+
+/**
+ * @public
+ */
+export interface SearchFacesResponse {
+  /**
+   * @public
+   * <p>ID of the face that was searched for matches in a collection.</p>
+   */
+  SearchedFaceId?: string;
+
+  /**
+   * @public
+   * <p>An array of faces that matched the input face, along with the confidence in the
+   *       match.</p>
+   */
+  FaceMatches?: FaceMatch[];
+
+  /**
+   * @public
+   * <p>Version number of the face detection model associated with the input collection
+   *         (<code>CollectionId</code>).</p>
+   */
+  FaceModelVersion?: string;
+}
+
+/**
+ * @public
+ */
+export interface SearchFacesByImageRequest {
+  /**
+   * @public
+   * <p>ID of the collection to search.</p>
+   */
+  CollectionId: string | undefined;
+
+  /**
+   * @public
+   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
+   *       call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
+   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to
+   *       base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see
+   *       Images in the Amazon Rekognition developer guide.</p>
+   */
+  Image: Image | undefined;
+
+  /**
+   * @public
+   * <p>Maximum number of faces to return. The operation returns the maximum number of faces
+   *       with the highest confidence in the match.</p>
+   */
+  MaxFaces?: number;
+
+  /**
+   * @public
+   * <p>(Optional) Specifies the minimum confidence in the face match to return. For example,
+   *       don't return any matches where confidence in matches is less than 70%. The default value is
+   *       80%.</p>
+   */
+  FaceMatchThreshold?: number;
+
+  /**
+   * @public
+   * <p>A filter that specifies a quality bar for how much filtering is done to identify faces.
+   *       Filtered faces aren't searched for in the collection. If you specify <code>AUTO</code>,
+   *       Amazon Rekognition chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or
+   *         <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality bar.
+   *        The quality bar is
+   *       based on a variety of common use cases. Low-quality detections can occur for a number of
+   *       reasons. Some examples are an object that's misidentified as a face, a face that's too blurry,
+   *       or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no
+   *       filtering is performed. The default value is <code>NONE</code>. </p>
+   *          <p>To use quality filtering, the collection you are using must be associated with version 3
+   *       of the face model or higher.</p>
+   */
+  QualityFilter?: QualityFilter;
+}
+
+/**
+ * @public
+ */
+export interface SearchFacesByImageResponse {
+  /**
+   * @public
+   * <p>The bounding box around the face in the input image that Amazon Rekognition used for the
+   *       search.</p>
+   */
+  SearchedFaceBoundingBox?: BoundingBox;
+
+  /**
+   * @public
+   * <p>The level of confidence that the <code>searchedFaceBoundingBox</code>, contains a
+   *       face.</p>
+   */
+  SearchedFaceConfidence?: number;
+
+  /**
+   * @public
+   * <p>An array of faces that match the input face, along with the confidence in the
+   *       match.</p>
+   */
+  FaceMatches?: FaceMatch[];
+
+  /**
+   * @public
+   * <p>Version number of the face detection model associated with the input collection
+   *         (<code>CollectionId</code>).</p>
+   */
+  FaceModelVersion?: string;
+}
+
+/**
+ * @public
+ */
+export interface SearchUsersRequest {
+  /**
+   * @public
+   * <p>The ID of an existing collection containing the UserID, used with a UserId or FaceId. If a
+   *       FaceId is provided, UserId isn’t required to be present in the Collection.</p>
+   */
+  CollectionId: string | undefined;
+
+  /**
+   * @public
+   * <p>ID for the existing User.</p>
+   */
+  UserId?: string;
+
+  /**
+   * @public
+   * <p>ID for the existing face.</p>
+   */
+  FaceId?: string;
+
+  /**
+   * @public
+   * <p>Optional value that specifies the minimum confidence in the matched UserID to return.
+   *       Default value of 80.</p>
+   */
+  UserMatchThreshold?: number;
+
+  /**
+   * @public
+   * <p>Maximum number of identities to return.</p>
+   */
+  MaxUsers?: number;
+}
+
+/**
+ * @public
+ * <p>Provides face metadata such as FaceId, BoundingBox, Confidence of the input face used for
+ *       search.</p>
+ */
+export interface SearchedFace {
+  /**
+   * @public
+   * <p> Unique identifier assigned to the face.</p>
+   */
+  FaceId?: string;
+}
+
+/**
+ * @public
+ * <p>Contains metadata about a User searched for within a collection.</p>
+ */
+export interface SearchedUser {
+  /**
+   * @public
+   * <p> A provided ID for the UserID. Unique within the collection. </p>
+   */
+  UserId?: string;
+}
+
+/**
+ * @public
+ * <p>Provides UserID metadata along with the confidence in the match of this UserID with the
+ *       input face.</p>
+ */
+export interface UserMatch {
+  /**
+   * @public
+   * <p> Describes the UserID metadata.</p>
+   */
+  Similarity?: number;
+
+  /**
+   * @public
+   * <p> Confidence in the match of this UserID with the input face. </p>
+   */
+  User?: MatchedUser;
+}
+
+/**
+ * @public
+ */
+export interface SearchUsersResponse {
+  /**
+   * @public
+   * <p>An array of UserMatch objects that matched the input face along with the confidence in the
+   *       match. Array will be empty if there are no matches.</p>
+   */
+  UserMatches?: UserMatch[];
+
+  /**
+   * @public
+   * <p>Version number of the face detection model associated with the input CollectionId.</p>
+   */
+  FaceModelVersion?: string;
+
+  /**
+   * @public
+   * <p>Contains the ID of a face that was used to search for matches in a collection.</p>
+   */
+  SearchedFace?: SearchedFace;
+
+  /**
+   * @public
+   * <p>Contains the ID of the UserID that was used to search for matches in a collection.</p>
+   */
+  SearchedUser?: SearchedUser;
+}
+
+/**
+ * @public
+ */
+export interface SearchUsersByImageRequest {
+  /**
+   * @public
+   * <p>The ID of an existing collection containing the UserID.</p>
+   */
+  CollectionId: string | undefined;
+
+  /**
+   * @public
+   * <p>Provides the input image either as bytes or an S3 object.</p>
+   *          <p>You pass image bytes to an Amazon Rekognition API operation by using the <code>Bytes</code>
+   *       property. For example, you would use the <code>Bytes</code> property to pass an image loaded
+   *       from a local file system. Image bytes passed by using the <code>Bytes</code> property must be
+   *       base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to
+   *       call Amazon Rekognition API operations. </p>
+   *          <p>For more information, see Analyzing an Image Loaded from a Local File System
+   *       in the Amazon Rekognition Developer Guide.</p>
+   *          <p> You pass images stored in an S3 bucket to an Amazon Rekognition API operation by using the
+   *         <code>S3Object</code> property. Images stored in an S3 bucket do not need to be
+   *       base64-encoded.</p>
+   *          <p>The region for the S3 bucket containing the S3 object must match the region you use for
+   *       Amazon Rekognition operations.</p>
+   *          <p>If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes using the
+   *       Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and
+   *       then call the operation using the S3Object property.</p>
+   *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
+   *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
+   *       Amazon Rekognition Developer Guide. </p>
+   */
+  Image: Image | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the minimum confidence in the UserID match to return. Default value is
+   *       80.</p>
+   */
+  UserMatchThreshold?: number;
+
+  /**
+   * @public
+   * <p>Maximum number of UserIDs to return.</p>
+   */
+  MaxUsers?: number;
+
+  /**
+   * @public
+   * <p>A filter that specifies a quality bar for how much filtering is done to identify faces.
+   *       Filtered faces aren't searched for in the collection. The default value is NONE.</p>
+   */
+  QualityFilter?: QualityFilter;
+}
+
+/**
+ * @public
+ * <p>Contains data regarding the input face used for a search.</p>
+ */
+export interface SearchedFaceDetails {
+  /**
+   * @public
+   * <p>Structure containing attributes of the face that the algorithm detected.</p>
+   *          <p>A <code>FaceDetail</code> object contains either the default facial attributes or all
+   *       facial attributes. The default attributes are <code>BoundingBox</code>,
+   *         <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and
+   *       <code>Quality</code>.</p>
+   *          <p>
+   *             <a>GetFaceDetection</a> is the only Amazon Rekognition Video stored video operation that can
+   *       return a <code>FaceDetail</code> object with all attributes. To specify which attributes to
+   *       return, use the <code>FaceAttributes</code> input parameter for <a>StartFaceDetection</a>. The following Amazon Rekognition Video operations return only the default
+   *       attributes. The corresponding Start operations don't have a <code>FaceAttributes</code> input
+   *       parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>GetCelebrityRecognition</p>
+   *             </li>
+   *             <li>
+   *                <p>GetPersonTracking</p>
+   *             </li>
+   *             <li>
+   *                <p>GetFaceSearch</p>
+   *             </li>
+   *          </ul>
+   *          <p>The Amazon Rekognition Image <a>DetectFaces</a> and <a>IndexFaces</a> operations
+   *       can return all facial attributes. To specify which attributes to return, use the
+   *         <code>Attributes</code> input parameter for <code>DetectFaces</code>. For
+   *         <code>IndexFaces</code>, use the <code>DetectAttributes</code> input parameter.</p>
+   */
+  FaceDetail?: FaceDetail;
+}
 
 /**
  * @public
@@ -436,6 +895,63 @@ export interface StartLabelDetectionResponse {
    *     a subsequent call to <code>GetLabelDetection</code>. </p>
    */
   JobId?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartMediaAnalysisJobRequest {
+  /**
+   * @public
+   * <p>Idempotency token used to prevent the accidental creation of duplicate versions. If
+   *             you use the same token with multiple <code>StartMediaAnalysisJobRequest</code> requests, the same
+   *             response is returned. Use <code>ClientRequestToken</code> to prevent the same request from being
+   *             processed more than once.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * @public
+   * <p>The name of the job. Does not have to be unique.</p>
+   */
+  JobName?: string;
+
+  /**
+   * @public
+   * <p>Configuration options for the media analysis job to be created.</p>
+   */
+  OperationsConfig: MediaAnalysisOperationsConfig | undefined;
+
+  /**
+   * @public
+   * <p>Input data to be analyzed by the job.</p>
+   */
+  Input: MediaAnalysisInput | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 bucket location to store the results.</p>
+   */
+  OutputConfig: MediaAnalysisOutputConfig | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of customer managed AWS KMS key (name or ARN). The key
+   *         is used to encrypt images copied into the service. The key is also used
+   *         to encrypt results and manifest files written to the output Amazon S3 bucket.</p>
+   */
+  KmsKeyId?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartMediaAnalysisJobResponse {
+  /**
+   * @public
+   * <p>Identifier for the created job.</p>
+   */
+  JobId: string | undefined;
 }
 
 /**

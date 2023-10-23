@@ -23,6 +23,7 @@ export * from "./ListCollectionsPaginator";
 export * from "./ListDatasetEntriesPaginator";
 export * from "./ListDatasetLabelsPaginator";
 export * from "./ListFacesPaginator";
+export * from "./ListMediaAnalysisJobsPaginator";
 export * from "./ListProjectPoliciesPaginator";
 export * from "./ListStreamProcessorsPaginator";
 export * from "./ListUsersPaginator";
