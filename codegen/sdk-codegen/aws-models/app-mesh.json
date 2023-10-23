@@ -100,7 +100,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -143,7 +142,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [
@@ -156,7 +156,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -170,7 +169,6 @@
                       "assign": "PartitionResult"
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -193,7 +191,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -228,7 +225,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -239,14 +235,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -260,14 +258,12 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
-                                true,
                                 {
                                   "fn": "getAttr",
                                   "argv": [
@@ -276,11 +272,11 @@
                                     },
                                     "supportsFIPS"
                                   ]
-                                }
+                                },
+                                true
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -291,14 +287,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -312,7 +310,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -332,7 +329,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -343,14 +339,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "DualStack is enabled but this partition does not support DualStack",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
@@ -361,9 +359,11 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
@@ -1618,9 +1618,7 @@
           "target": "com.amazonaws.appmesh#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Optional metadata that you can apply to the service mesh to assist with categorization\n         and organization. Each tag consists of a key and an optional value, both of which you\n         define. Tag keys can have a maximum character length of 128 characters, and tag values can have\n            a maximum length of 256 characters.</p>",
-            "smithy.api#tags": [
-              "not-preview"
-            ]
+            "smithy.api#tags": ["not-preview"]
           }
         },
         "clientToken": {
@@ -1732,9 +1730,7 @@
           "target": "com.amazonaws.appmesh#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Optional metadata that you can apply to the route to assist with categorization and\n         organization. Each tag consists of a key and an optional value, both of which you define.\n         Tag keys can have a maximum character length of 128 characters, and tag values can have\n            a maximum length of 256 characters.</p>",
-            "smithy.api#tags": [
-              "not-preview"
-            ]
+            "smithy.api#tags": ["not-preview"]
           }
         },
         "clientToken": {
@@ -1949,9 +1945,7 @@
           "target": "com.amazonaws.appmesh#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Optional metadata that you can apply to the virtual node to assist with categorization\n         and organization. Each tag consists of a key and an optional value, both of which you\n         define. Tag keys can have a maximum character length of 128 characters, and tag values can have\n            a maximum length of 256 characters.</p>",
-            "smithy.api#tags": [
-              "not-preview"
-            ]
+            "smithy.api#tags": ["not-preview"]
           }
         },
         "clientToken": {
@@ -2062,9 +2056,7 @@
           "target": "com.amazonaws.appmesh#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Optional metadata that you can apply to the virtual router to assist with categorization\n         and organization. Each tag consists of a key and an optional value, both of which you\n         define. Tag keys can have a maximum character length of 128 characters, and tag values can have\n            a maximum length of 256 characters.</p>",
-            "smithy.api#tags": [
-              "not-preview"
-            ]
+            "smithy.api#tags": ["not-preview"]
           }
         },
         "clientToken": {
@@ -2175,9 +2167,7 @@
           "target": "com.amazonaws.appmesh#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Optional metadata that you can apply to the virtual service to assist with\n         categorization and organization. Each tag consists of a key and an optional value, both of\n         which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have\n            a maximum length of 256 characters.</p>",
-            "smithy.api#tags": [
-              "not-preview"
-            ]
+            "smithy.api#tags": ["not-preview"]
           }
         },
         "clientToken": {
@@ -5480,9 +5470,7 @@
           "pageSize": "limit"
         },
         "smithy.api#readonly": {},
-        "smithy.api#tags": [
-          "not-preview"
-        ]
+        "smithy.api#tags": ["not-preview"]
       }
     },
     "com.amazonaws.appmesh#ListTagsForResourceInput": {
@@ -7220,9 +7208,7 @@
           "code": 200
         },
         "smithy.api#idempotent": {},
-        "smithy.api#tags": [
-          "not-preview"
-        ]
+        "smithy.api#tags": ["not-preview"]
       }
     },
     "com.amazonaws.appmesh#TagResourceInput": {
@@ -7532,9 +7518,7 @@
           "code": 200
         },
         "smithy.api#idempotent": {},
-        "smithy.api#tags": [
-          "not-preview"
-        ]
+        "smithy.api#tags": ["not-preview"]
       }
     },
     "com.amazonaws.appmesh#UntagResourceInput": {

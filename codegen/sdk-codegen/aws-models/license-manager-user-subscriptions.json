@@ -568,11 +568,7 @@
             "Access-Control-Allow-Methods",
             "Access-Control-Allow-Origin"
           ],
-          "additionalExposedHeaders": [
-            "x-amzn-errortype",
-            "x-amzn-requestid",
-            "x-amzn-trace-id"
-          ]
+          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id"]
         },
         "smithy.api#documentation": "<p>With License Manager, you can create user-based subscriptions to utilize licensed software with\n      a per user subscription fee on Amazon EC2 instances.</p>",
         "smithy.api#title": "AWS License Manager User Subscriptions",
@@ -618,7 +614,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -661,7 +656,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [
@@ -674,7 +670,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -688,7 +683,6 @@
                       "assign": "PartitionResult"
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -711,7 +705,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -746,7 +739,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -757,14 +749,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -778,14 +772,12 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
-                                true,
                                 {
                                   "fn": "getAttr",
                                   "argv": [
@@ -794,11 +786,11 @@
                                     },
                                     "supportsFIPS"
                                   ]
-                                }
+                                },
+                                true
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -809,14 +801,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -830,7 +824,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -850,7 +843,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -861,14 +853,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "DualStack is enabled but this partition does not support DualStack",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
@@ -879,9 +873,11 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],

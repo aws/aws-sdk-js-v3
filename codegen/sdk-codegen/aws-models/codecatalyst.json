@@ -216,13 +216,10 @@
                 },
                 {
                   "fn": "aws.partition",
-                  "argv": [
-                    "us-west-2"
-                  ],
+                  "argv": ["us-west-2"],
                   "assign": "PartitionResult"
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -236,7 +233,6 @@
                       ]
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -268,7 +264,8 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 },
                 {
                   "conditions": [],
@@ -279,7 +276,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [
@@ -301,7 +299,6 @@
                   "assign": "PartitionResult"
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -315,7 +312,6 @@
                       ]
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -347,7 +343,8 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 },
                 {
                   "conditions": [],
@@ -358,7 +355,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             }
           ]
         },

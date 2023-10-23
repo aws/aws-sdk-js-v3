@@ -4517,14 +4517,14 @@
                   "status": "ACTIVE",
                   "registeredResources": [
                     {
-                      "doubleValue": 0.0,
+                      "doubleValue": 0,
                       "type": "INTEGER",
                       "longValue": 0,
                       "integerValue": 2048,
                       "name": "CPU"
                     },
                     {
-                      "doubleValue": 0.0,
+                      "doubleValue": 0,
                       "type": "INTEGER",
                       "longValue": 0,
                       "integerValue": 3768,
@@ -4533,7 +4533,7 @@
                     {
                       "name": "PORTS",
                       "longValue": 0,
-                      "doubleValue": 0.0,
+                      "doubleValue": 0,
                       "stringSetValue": ["2376", "22", "51678", "2375"],
                       "type": "STRINGSET",
                       "integerValue": 0
@@ -4545,14 +4545,14 @@
                   "pendingTasksCount": 0,
                   "remainingResources": [
                     {
-                      "doubleValue": 0.0,
+                      "doubleValue": 0,
                       "type": "INTEGER",
                       "longValue": 0,
                       "integerValue": 1948,
                       "name": "CPU"
                     },
                     {
-                      "doubleValue": 0.0,
+                      "doubleValue": 0,
                       "type": "INTEGER",
                       "longValue": 0,
                       "integerValue": 3668,
@@ -4561,7 +4561,7 @@
                     {
                       "name": "PORTS",
                       "longValue": 0,
-                      "doubleValue": 0.0,
+                      "doubleValue": 0,
                       "stringSetValue": ["2376", "22", "80", "51678", "2375"],
                       "type": "STRINGSET",
                       "integerValue": 0

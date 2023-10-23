@@ -1736,10 +1736,7 @@
               "nsdId": "be1abe66-1fcc-11ec-9621-0242ac130002",
               "nsdName": "Sample-City",
               "nsdVersion": "1.0",
-              "vnfPkgIds": [
-                "fp-0b627c4a170a97f79",
-                "fp-8c253b2e898d23f92"
-              ],
+              "vnfPkgIds": ["fp-0b627c4a170a97f79", "fp-8c253b2e898d23f92"],
               "nsdOnboardingState": "ONBOARDED",
               "nsdOperationalState": "ENABLED",
               "nsdUsageState": "IN_USE",
@@ -3402,10 +3399,7 @@
                   "nsdVersion": "1.0",
                   "nsdDesigner": "Sample",
                   "nsdInvariantId": "SAMPLE_CITY",
-                  "vnfPkgIds": [
-                    "fp-0b627c4a170a97f79",
-                    "fp-09a2ba09fad0212cd"
-                  ],
+                  "vnfPkgIds": ["fp-0b627c4a170a97f79", "fp-09a2ba09fad0212cd"],
                   "nsdOnboardingState": "ONBOARDED",
                   "nsdOperationalState": "ENABLED",
                   "nsdUsageState": "IN_USE",
@@ -3445,10 +3439,7 @@
                   "nsdVersion": "1.0",
                   "nsdDesigner": "Sample",
                   "nsdInvariantId": "SAMPLE_CITY",
-                  "vnfPkgIds": [
-                    "fp-0b627c4a170a97f79",
-                    "fp-09a2ba09fad0212cd"
-                  ],
+                  "vnfPkgIds": ["fp-0b627c4a170a97f79", "fp-09a2ba09fad0212cd"],
                   "nsdOnboardingState": "ONBOARDED",
                   "nsdOperationalState": "ENABLED",
                   "nsdUsageState": "IN_USE",
@@ -4065,10 +4056,7 @@
               "nsdId": "0d72acd9-e45d-4644-9bcd-1fe67cd0e2c8",
               "nsdName": "Sample Single Cluster",
               "nsdVersion": "1.0.0",
-              "vnfPkgIds": [
-                "fp-1234567890abcdabc",
-                "fp-0b627c4a170a97f79"
-              ],
+              "vnfPkgIds": ["fp-1234567890abcdabc", "fp-0b627c4a170a97f79"],
               "metadata": {
                 "nsd": {
                   "overrides": [
@@ -4356,11 +4344,7 @@
             "x-amzn-platform-id",
             "x-amzn-trace-id"
           ],
-          "additionalExposedHeaders": [
-            "x-amzn-errortype",
-            "x-amzn-requestid",
-            "x-amzn-trace-id"
-          ],
+          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id"],
           "maxAge": 86400
         },
         "smithy.api#documentation": "<p> Amazon Web Services Telco Network Builder (TNB) is a network automation service that helps you deploy and manage telecom networks. AWS TNB helps you with the lifecycle management of your telecommunication network functions throughout planning, deployment, and post-deployment activities.</p>",
@@ -4407,7 +4391,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -4426,7 +4409,6 @@
                 },
                 {
                   "conditions": [],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -4454,13 +4436,14 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -4473,7 +4456,6 @@
                       ]
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -4487,7 +4469,6 @@
                           "assign": "PartitionResult"
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -4510,7 +4491,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
@@ -4545,11 +4525,9 @@
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -4560,16 +4538,19 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [
@@ -4583,14 +4564,12 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
                                 {
                                   "fn": "booleanEquals",
                                   "argv": [
-                                    true,
                                     {
                                       "fn": "getAttr",
                                       "argv": [
@@ -4599,15 +4578,14 @@
                                         },
                                         "supportsFIPS"
                                       ]
-                                    }
+                                    },
+                                    true
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -4618,16 +4596,19 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "FIPS is enabled but this partition does not support FIPS",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [
@@ -4641,7 +4622,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
@@ -4661,11 +4641,9 @@
                                   ]
                                 }
                               ],
-                              "type": "tree",
                               "rules": [
                                 {
                                   "conditions": [],
-                                  "type": "tree",
                                   "rules": [
                                     {
                                       "conditions": [],
@@ -4676,20 +4654,22 @@
                                       },
                                       "type": "endpoint"
                                     }
-                                  ]
+                                  ],
+                                  "type": "tree"
                                 }
-                              ]
+                              ],
+                              "type": "tree"
                             },
                             {
                               "conditions": [],
                               "error": "DualStack is enabled but this partition does not support DualStack",
                               "type": "error"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -4700,18 +4680,22 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 },
                 {
                   "conditions": [],
                   "error": "Invalid Configuration: Missing Region",
                   "type": "error"
                 }
-              ]
+              ],
+              "type": "tree"
             }
           ]
         },
@@ -5931,10 +5915,7 @@
               "nsdId": "0d72acd9-e45d-4644-9bcd-1fe67cd0e2c8",
               "nsdName": "Sample Single Cluster",
               "nsdVersion": "1.0.0",
-              "vnfPkgIds": [
-                "fp-1234567890abcdabc",
-                "fp-0b627c4a170a97f79"
-              ],
+              "vnfPkgIds": ["fp-1234567890abcdabc", "fp-0b627c4a170a97f79"],
               "metadata": {
                 "nsd": {
                   "overrides": [

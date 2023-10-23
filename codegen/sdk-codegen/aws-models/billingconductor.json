@@ -62,9 +62,7 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
-          "additionalAllowedHeaders": [
-            "X-Api-Key"
-          ]
+          "additionalAllowedHeaders": ["X-Api-Key"]
         },
         "smithy.api#documentation": "<p>Amazon Web Services Billing Conductor is a fully managed service that you can use\n      to customize a <a href=\"https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions\">pro forma</a> version of your billing data each month, to accurately show or chargeback\n      your end customers. Amazon Web Services Billing Conductor doesn't change the way\n      you're billed by Amazon Web Services each month by design. Instead, it provides you with a\n      mechanism to configure, generate, and display rates to certain customers over a given billing\n      period. You can also analyze the difference between the rates you apply to your accounting\n      groupings relative to your actual rates from Amazon Web Services. As a result of your Amazon Web Services Billing Conductor configuration, the payer account can also see the\n      custom rate applied on the billing details page of the <a href=\"https://console.aws.amazon.com/billing\">Amazon Web Services Billing console</a>, or configure a cost and usage report per\n      billing group.</p>\n         <p>This documentation shows how you can configure Amazon Web Services Billing Conductor using its\n      API. For more information about using the <a href=\"https://console.aws.amazon.com/billingconductor/\">Amazon Web Services\n        Billing Conductor</a> user interface, see the <a href=\"https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html\"> Amazon Web Services Billing Conductor User Guide</a>.</p>",
         "smithy.api#title": "AWSBillingConductor",
@@ -110,7 +108,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -153,7 +150,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [
@@ -166,7 +164,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -180,7 +177,6 @@
                       "assign": "PartitionResult"
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -254,7 +250,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -289,7 +284,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -300,14 +294,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -321,14 +317,12 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
-                                true,
                                 {
                                   "fn": "getAttr",
                                   "argv": [
@@ -337,11 +331,11 @@
                                     },
                                     "supportsFIPS"
                                   ]
-                                }
+                                },
+                                true
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -352,14 +346,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -373,7 +369,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -393,7 +388,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -404,14 +398,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "DualStack is enabled but this partition does not support DualStack",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
@@ -422,9 +418,11 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
@@ -1324,9 +1322,7 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "smithy.api#documentation": "A billing group is a set of linked account which belong to the same end customer.\nIt can be seen as a virtual consolidated billing family.\n"
       }
@@ -1659,10 +1655,7 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
         "smithy.api#documentation": "<p>\n      Creates a billing group that resembles a consolidated billing family that Amazon Web Services charges, based off of the predefined pricing plan computation.\n    </p>",
         "smithy.api#http": {
           "method": "POST",
@@ -1764,10 +1757,7 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
         "smithy.api#documentation": "<p>\n      Creates a custom line item that can be used to create a one-time fixed charge that can be applied to a single billing group for the current or previous billing period. The one-time fixed charge is either a fee or discount. \n    </p>",
         "smithy.api#http": {
           "method": "POST",
@@ -1897,10 +1887,7 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
         "smithy.api#documentation": "<p>Creates a pricing plan that is used for computing Amazon Web Services charges for billing groups.\n    </p>",
         "smithy.api#http": {
           "method": "POST",
@@ -1989,10 +1976,7 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
         "smithy.api#documentation": "<p>\n      Creates a pricing rule can be associated to a pricing plan, or a set of pricing plans.\n    </p>",
         "smithy.api#http": {
           "method": "POST",
@@ -2163,9 +2147,7 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "smithy.api#documentation": "Represents the custom line item\n"
       }
@@ -4308,10 +4290,7 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
         "smithy.api#documentation": "<p>\n      A list the tags for a resource.\n    </p>",
         "smithy.api#http": {
           "method": "GET",
@@ -4513,9 +4492,7 @@
       ],
       "traits": {
         "aws.cloudformation#cfnResource": {},
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "smithy.api#documentation": "Pricing Plan enables you to customize your billing\ndetails consistent with the usage that accrues\nin each of your billing groups.\n"
       }
@@ -4643,9 +4620,7 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:ResourceTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
         "aws.iam#disableConditionKeyInference": {},
         "smithy.api#documentation": "A markup/discount that is defined for a specific set\nof services that can later be associated with a pricing plan.\n"
       }
@@ -5012,10 +4987,7 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
         "smithy.api#documentation": "<p> Associates the specified tags to a resource with the specified <code>resourceArn</code>.\n      If existing tags on a resource are not specified in the request parameters, they are not\n      changed. </p>",
         "smithy.api#http": {
           "method": "POST",
@@ -5157,10 +5129,7 @@
         }
       ],
       "traits": {
-        "aws.iam#conditionKeys": [
-          "aws:TagKeys",
-          "aws:RequestTag/${TagKey}"
-        ],
+        "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
         "smithy.api#documentation": "<p>\n      Deletes specified tags from a resource.\n    </p>",
         "smithy.api#http": {
           "method": "DELETE",

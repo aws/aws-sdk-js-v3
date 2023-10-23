@@ -216,7 +216,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -259,7 +258,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [
@@ -272,7 +272,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -286,7 +285,6 @@
                       "assign": "PartitionResult"
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -309,7 +307,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -344,7 +341,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -355,14 +351,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -376,14 +374,12 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
-                                true,
                                 {
                                   "fn": "getAttr",
                                   "argv": [
@@ -392,18 +388,17 @@
                                     },
                                     "supportsFIPS"
                                   ]
-                                }
+                                },
+                                true
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
                                 {
                                   "fn": "stringEquals",
                                   "argv": [
-                                    "aws",
                                     {
                                       "fn": "getAttr",
                                       "argv": [
@@ -412,7 +407,8 @@
                                         },
                                         "name"
                                       ]
-                                    }
+                                    },
+                                    "aws"
                                   ]
                                 }
                               ],
@@ -428,7 +424,6 @@
                                 {
                                   "fn": "stringEquals",
                                   "argv": [
-                                    "aws-us-gov",
                                     {
                                       "fn": "getAttr",
                                       "argv": [
@@ -437,7 +432,8 @@
                                         },
                                         "name"
                                       ]
-                                    }
+                                    },
+                                    "aws-us-gov"
                                   ]
                                 }
                               ],
@@ -457,14 +453,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -478,7 +476,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -498,7 +495,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -509,14 +505,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "DualStack is enabled but this partition does not support DualStack",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
@@ -527,9 +525,11 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
@@ -3605,13 +3605,13 @@
         "nextToken": {
           "target": "com.amazonaws.ecr#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>nextToken</code> value returned from a previous paginated\u2028\n                <code>GetLifecyclePolicyPreviewRequest</code> request where <code>maxResults</code>\n            was used and the\u2028 results exceeded the value of that parameter. Pagination continues\n            from the end of the\u2028 previous results that returned the <code>nextToken</code> value.\n            This value is\u2028 <code>null</code> when there are no more results to return. This option\n            cannot be used when you specify images with <code>imageIds</code>.</p>"
+            "smithy.api#documentation": "<p>The <code>nextToken</code> value returned from a previous paginated \n                <code>GetLifecyclePolicyPreviewRequest</code> request where <code>maxResults</code>\n            was used and the  results exceeded the value of that parameter. Pagination continues\n            from the end of the  previous results that returned the <code>nextToken</code> value.\n            This value is  <code>null</code> when there are no more results to return. This option\n            cannot be used when you specify images with <code>imageIds</code>.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.ecr#LifecyclePreviewMaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of repository results returned by\n                <code>GetLifecyclePolicyPreviewRequest</code> in\u2028 paginated output. When this\n            parameter is used, <code>GetLifecyclePolicyPreviewRequest</code> only returns\u2028\n                <code>maxResults</code> results in a single page along with a\n            <code>nextToken</code>\u2028 response element. The remaining results of the initial request\n            can be seen by sending\u2028 another <code>GetLifecyclePolicyPreviewRequest</code> request\n            with the returned <code>nextToken</code>\u2028 value. This value can be between\n            1 and 1000. If this\u2028 parameter is not used, then\n                <code>GetLifecyclePolicyPreviewRequest</code> returns up to\u2028 100\n            results and a <code>nextToken</code> value, if\u2028 applicable. This option cannot be used\n            when you specify images with <code>imageIds</code>.</p>"
+            "smithy.api#documentation": "<p>The maximum number of repository results returned by\n                <code>GetLifecyclePolicyPreviewRequest</code> in  paginated output. When this\n            parameter is used, <code>GetLifecyclePolicyPreviewRequest</code> only returns \n                <code>maxResults</code> results in a single page along with a\n            <code>nextToken</code>  response element. The remaining results of the initial request\n            can be seen by sending  another <code>GetLifecyclePolicyPreviewRequest</code> request\n            with the returned <code>nextToken</code>  value. This value can be between\n            1 and 1000. If this  parameter is not used, then\n                <code>GetLifecyclePolicyPreviewRequest</code> returns up to  100\n            results and a <code>nextToken</code> value, if  applicable. This option cannot be used\n            when you specify images with <code>imageIds</code>.</p>"
           }
         },
         "filter": {
@@ -5693,7 +5693,7 @@
         "registryId": {
           "target": "com.amazonaws.ecr#RegistryId",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Web Services account ID associated with the registry that contains the repository. If you\n            do\u2028 not specify a registry, the default registry is assumed.</p>"
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID associated with the registry that contains the repository. If you\n            do  not specify a registry, the default registry is assumed.</p>"
           }
         },
         "repositoryName": {

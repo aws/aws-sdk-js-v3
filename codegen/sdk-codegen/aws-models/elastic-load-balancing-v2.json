@@ -52,6 +52,7 @@
         "Type": {
           "target": "com.amazonaws.elasticloadbalancingv2#ActionTypeEnum",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The type of action.</p>",
             "smithy.api#required": {}
           }
@@ -182,6 +183,7 @@
         "ListenerArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#ListenerArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the listener.</p>",
             "smithy.api#required": {}
           }
@@ -189,6 +191,7 @@
         "Certificates": {
           "target": "com.amazonaws.elasticloadbalancingv2#CertificateList",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The certificate to add. You can specify one certificate per call. Set\n        <code>CertificateArn</code> to the certificate ARN but do not set\n      <code>IsDefault</code>.</p>",
             "smithy.api#required": {}
           }
@@ -271,6 +274,7 @@
         "ResourceArns": {
           "target": "com.amazonaws.elasticloadbalancingv2#ResourceArns",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
             "smithy.api#required": {}
           }
@@ -278,6 +282,7 @@
         "Tags": {
           "target": "com.amazonaws.elasticloadbalancingv2#TagList",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The tags.</p>",
             "smithy.api#required": {}
           }
@@ -367,6 +372,7 @@
         "UserPoolArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#AuthenticateCognitoActionUserPoolArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Cognito user pool.</p>",
             "smithy.api#required": {}
           }
@@ -374,6 +380,7 @@
         "UserPoolClientId": {
           "target": "com.amazonaws.elasticloadbalancingv2#AuthenticateCognitoActionUserPoolClientId",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The ID of the Amazon Cognito user pool client.</p>",
             "smithy.api#required": {}
           }
@@ -381,6 +388,7 @@
         "UserPoolDomain": {
           "target": "com.amazonaws.elasticloadbalancingv2#AuthenticateCognitoActionUserPoolDomain",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.</p>",
             "smithy.api#required": {}
           }
@@ -491,6 +499,7 @@
         "Issuer": {
           "target": "com.amazonaws.elasticloadbalancingv2#AuthenticateOidcActionIssuer",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS\n      protocol, the domain, and the path.</p>",
             "smithy.api#required": {}
           }
@@ -498,6 +507,7 @@
         "AuthorizationEndpoint": {
           "target": "com.amazonaws.elasticloadbalancingv2#AuthenticateOidcActionAuthorizationEndpoint",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The authorization endpoint of the IdP. This must be a full URL, including the HTTPS\n      protocol, the domain, and the path.</p>",
             "smithy.api#required": {}
           }
@@ -505,6 +515,7 @@
         "TokenEndpoint": {
           "target": "com.amazonaws.elasticloadbalancingv2#AuthenticateOidcActionTokenEndpoint",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the\n      domain, and the path.</p>",
             "smithy.api#required": {}
           }
@@ -512,6 +523,7 @@
         "UserInfoEndpoint": {
           "target": "com.amazonaws.elasticloadbalancingv2#AuthenticateOidcActionUserInfoEndpoint",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol,\n      the domain, and the path.</p>",
             "smithy.api#required": {}
           }
@@ -519,6 +531,7 @@
         "ClientId": {
           "target": "com.amazonaws.elasticloadbalancingv2#AuthenticateOidcActionClientId",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The OAuth 2.0 client identifier.</p>",
             "smithy.api#required": {}
           }
@@ -707,7 +720,6 @@
         "Priority": {
           "target": "com.amazonaws.elasticloadbalancingv2#CipherPriority",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The priority of the cipher.</p>"
           }
         }
@@ -720,10 +732,7 @@
       "type": "string"
     },
     "com.amazonaws.elasticloadbalancingv2#CipherPriority": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#default": 0
-      }
+      "type": "integer"
     },
     "com.amazonaws.elasticloadbalancingv2#Ciphers": {
       "type": "list",
@@ -847,6 +856,7 @@
         "LoadBalancerArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the load balancer.</p>",
             "smithy.api#required": {}
           }
@@ -878,6 +888,7 @@
         "DefaultActions": {
           "target": "com.amazonaws.elasticloadbalancingv2#Actions",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The actions for the default rule.</p>",
             "smithy.api#required": {}
           }
@@ -1010,6 +1021,7 @@
         "Name": {
           "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerName",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the load balancer.</p>\n         <p>This name must be unique per region per account, can have a maximum of 32 characters, must\n      contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must\n      not begin with \"internal-\".</p>",
             "smithy.api#required": {}
           }
@@ -1189,6 +1201,7 @@
         "ListenerArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#ListenerArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the listener.</p>",
             "smithy.api#required": {}
           }
@@ -1196,6 +1209,7 @@
         "Conditions": {
           "target": "com.amazonaws.elasticloadbalancingv2#RuleConditionList",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The conditions.</p>",
             "smithy.api#required": {}
           }
@@ -1203,6 +1217,7 @@
         "Priority": {
           "target": "com.amazonaws.elasticloadbalancingv2#RulePriority",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The rule priority. A listener can't have multiple rules with the same priority.</p>",
             "smithy.api#required": {}
           }
@@ -1210,6 +1225,7 @@
         "Actions": {
           "target": "com.amazonaws.elasticloadbalancingv2#Actions",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The actions.</p>",
             "smithy.api#required": {}
           }
@@ -1304,6 +1320,7 @@
         "Name": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupName",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the target group.</p>\n         <p>This name must be unique per region per account, can have a maximum of 32 characters, must\n      contain only alphanumeric characters or hyphens, and must not begin or end with a\n      hyphen.</p>",
             "smithy.api#required": {}
           }
@@ -1477,6 +1494,7 @@
         "ListenerArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#ListenerArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the listener.</p>",
             "smithy.api#required": {}
           }
@@ -1531,6 +1549,7 @@
         "LoadBalancerArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the load balancer.</p>",
             "smithy.api#required": {}
           }
@@ -1582,6 +1601,7 @@
         "RuleArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#RuleArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule.</p>",
             "smithy.api#required": {}
           }
@@ -1630,6 +1650,7 @@
         "TargetGroupArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the target group.</p>",
             "smithy.api#required": {}
           }
@@ -1686,6 +1707,7 @@
         "TargetGroupArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the target group.</p>",
             "smithy.api#required": {}
           }
@@ -1693,6 +1715,7 @@
         "Targets": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetDescriptions",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The targets. If you specified a port override when you registered a target, you must\n      specify both the target ID and the port when you deregister it.</p>",
             "smithy.api#required": {}
           }
@@ -1784,6 +1807,7 @@
         "ListenerArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#ListenerArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the listener.</p>",
             "smithy.api#required": {}
           }
@@ -1988,6 +2012,7 @@
         "LoadBalancerArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the load balancer.</p>",
             "smithy.api#required": {}
           }
@@ -2527,6 +2552,7 @@
         "ResourceArns": {
           "target": "com.amazonaws.elasticloadbalancingv2#ResourceArns",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the resources. You can specify up to 20 resources in a\n      single call.</p>",
             "smithy.api#required": {}
           }
@@ -2602,6 +2628,7 @@
         "TargetGroupArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the target group.</p>",
             "smithy.api#required": {}
           }
@@ -2851,6 +2878,7 @@
         "TargetGroupArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the target group.</p>",
             "smithy.api#required": {}
           }
@@ -3118,7 +3146,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -3161,7 +3188,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [
@@ -3174,7 +3202,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -3188,7 +3215,6 @@
                       "assign": "PartitionResult"
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -3211,7 +3237,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -3246,7 +3271,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -3257,14 +3281,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -3278,14 +3304,12 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
-                                true,
                                 {
                                   "fn": "getAttr",
                                   "argv": [
@@ -3294,18 +3318,17 @@
                                     },
                                     "supportsFIPS"
                                   ]
-                                }
+                                },
+                                true
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [
                                 {
                                   "fn": "stringEquals",
                                   "argv": [
-                                    "aws-us-gov",
                                     {
                                       "fn": "getAttr",
                                       "argv": [
@@ -3314,7 +3337,8 @@
                                         },
                                         "name"
                                       ]
-                                    }
+                                    },
+                                    "aws-us-gov"
                                   ]
                                 }
                               ],
@@ -3334,14 +3358,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -3355,7 +3381,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -3375,7 +3400,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -3386,14 +3410,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "DualStack is enabled but this partition does not support DualStack",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
@@ -3404,9 +3430,11 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
@@ -4130,6 +4158,7 @@
         "StatusCode": {
           "target": "com.amazonaws.elasticloadbalancingv2#FixedResponseActionStatusCode",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The HTTP response code (2XX, 4XX, or 5XX).</p>",
             "smithy.api#required": {}
           }
@@ -4439,10 +4468,7 @@
       }
     },
     "com.amazonaws.elasticloadbalancingv2#IsDefault": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#default": false
-      }
+      "type": "boolean"
     },
     "com.amazonaws.elasticloadbalancingv2#Limit": {
       "type": "structure",
@@ -5003,6 +5029,7 @@
         "ListenerArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#ListenerArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the listener.</p>",
             "smithy.api#required": {}
           }
@@ -5127,6 +5154,7 @@
         "LoadBalancerArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the load balancer.</p>",
             "smithy.api#required": {}
           }
@@ -5134,6 +5162,7 @@
         "Attributes": {
           "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerAttributes",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The load balancer attributes.</p>",
             "smithy.api#required": {}
           }
@@ -5246,6 +5275,7 @@
         "RuleArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#RuleArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the rule.</p>",
             "smithy.api#required": {}
           }
@@ -5396,6 +5426,7 @@
         "TargetGroupArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the target group.</p>",
             "smithy.api#required": {}
           }
@@ -5403,6 +5434,7 @@
         "Attributes": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupAttributes",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The attributes.</p>",
             "smithy.api#required": {}
           }
@@ -5432,6 +5464,7 @@
         "TargetGroupArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the target group.</p>",
             "smithy.api#required": {}
           }
@@ -5719,6 +5752,7 @@
         "StatusCode": {
           "target": "com.amazonaws.elasticloadbalancingv2#RedirectActionStatusCodeEnum",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP\n      302).</p>",
             "smithy.api#required": {}
           }
@@ -5830,6 +5864,7 @@
         "TargetGroupArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the target group.</p>",
             "smithy.api#required": {}
           }
@@ -5837,6 +5872,7 @@
         "Targets": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetDescriptions",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The targets.</p>",
             "smithy.api#required": {}
           }
@@ -5879,6 +5915,7 @@
         "ListenerArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#ListenerArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the listener.</p>",
             "smithy.api#required": {}
           }
@@ -5886,6 +5923,7 @@
         "Certificates": {
           "target": "com.amazonaws.elasticloadbalancingv2#CertificateList",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The certificate to remove. You can specify one certificate per call. Set\n        <code>CertificateArn</code> to the certificate ARN but do not set\n      <code>IsDefault</code>.</p>",
             "smithy.api#required": {}
           }
@@ -5949,6 +5987,7 @@
         "ResourceArns": {
           "target": "com.amazonaws.elasticloadbalancingv2#ResourceArns",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
             "smithy.api#required": {}
           }
@@ -5956,6 +5995,7 @@
         "TagKeys": {
           "target": "com.amazonaws.elasticloadbalancingv2#TagKeys",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The tag keys for the tags to remove.</p>",
             "smithy.api#required": {}
           }
@@ -6028,7 +6068,6 @@
         "IsDefault": {
           "target": "com.amazonaws.elasticloadbalancingv2#IsDefault",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether this is the default rule.</p>"
           }
         }
@@ -6221,6 +6260,7 @@
         "LoadBalancerArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the load balancer.</p>",
             "smithy.api#required": {}
           }
@@ -6228,6 +6268,7 @@
         "IpAddressType": {
           "target": "com.amazonaws.elasticloadbalancingv2#IpAddressType",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses) and\n        <code>dualstack</code> (for IPv4 and IPv6 addresses).  You can’t specify <code>dualstack</code> for a load balancer\n      with a UDP or TCP_UDP listener.</p>",
             "smithy.api#required": {}
           }
@@ -6315,6 +6356,7 @@
         "RulePriorities": {
           "target": "com.amazonaws.elasticloadbalancingv2#RulePriorityList",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The rule priorities.</p>",
             "smithy.api#required": {}
           }
@@ -6380,6 +6422,7 @@
         "LoadBalancerArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the load balancer.</p>",
             "smithy.api#required": {}
           }
@@ -6387,6 +6430,7 @@
         "SecurityGroups": {
           "target": "com.amazonaws.elasticloadbalancingv2#SecurityGroups",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The IDs of the security groups.</p>",
             "smithy.api#required": {}
           }
@@ -6482,6 +6526,7 @@
         "LoadBalancerArn": {
           "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the load balancer.</p>",
             "smithy.api#required": {}
           }
@@ -6678,6 +6723,7 @@
         "Key": {
           "target": "com.amazonaws.elasticloadbalancingv2#TagKey",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The key of the tag.</p>",
             "smithy.api#required": {}
           }
@@ -6762,6 +6808,7 @@
         "Id": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetId",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The ID of the target. If the target type of the target group is <code>instance</code>,\n      specify an instance ID. If the target type is <code>ip</code>, specify an IP address. If the\n      target type is <code>lambda</code>, specify the ARN of the Lambda function. If the target type\n      is <code>alb</code>, specify the ARN of the Application Load Balancer target. </p>",
             "smithy.api#required": {}
           }
