@@ -138,6 +138,20 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         return List.of(new AwsRegionExtensionConfiguration());
     }
 
+    @Override
+    public void prepareCustomizations(
+        TypeScriptWriter writer,
+        LanguageTarget target,
+        TypeScriptSettings settings,
+        Model model
+    ) {
+        if (target.equals(LanguageTarget.NODE)) {
+            writer.addDependency(AwsDependency.AWS_SDK_CORE);
+            writer.addImport("emitWarningIfUnsupportedVersion", "awsCheckVersion", AwsDependency.AWS_SDK_CORE);
+            writer.write("awsCheckVersion(process.version);");
+        }
+    }
+
     private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(
             LanguageTarget target,
             TypeScriptSettings settings,
