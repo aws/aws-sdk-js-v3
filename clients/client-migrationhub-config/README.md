@@ -9,7 +9,6 @@ AWS SDK for JavaScript MigrationHubConfig Client for Node.js, Browser and React 
 <p>The AWS Migration Hub home region APIs are available specifically for working with your
 Migration Hub home region. You can use these APIs to determine a home region, as well as to
 create and work with controls that describe the home region.</p>
-
 <ul>
 <li>
 <p>You must make API calls for write actions (create, notify, associate, disassociate,
@@ -29,7 +28,6 @@ is returned.</p>
 home region.</p>
 </li>
 </ul>
-
 <p>For specific API usage, see the sections that follow in this AWS Migration Hub Home Region
 API reference. </p>
 
@@ -234,6 +232,14 @@ CreateHomeRegionControl
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhub-config/classes/createhomeregioncontrolcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhub-config/interfaces/createhomeregioncontrolcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhub-config/interfaces/createhomeregioncontrolcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteHomeRegionControl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhub-config/classes/deletehomeregioncontrolcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhub-config/interfaces/deletehomeregioncontrolcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhub-config/interfaces/deletehomeregioncontrolcommandoutput.html)
 
 </details>
 <details>

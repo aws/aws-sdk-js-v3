@@ -55,6 +55,10 @@ import {
   CreateHomeRegionControlCommandOutput,
 } from "./commands/CreateHomeRegionControlCommand";
 import {
+  DeleteHomeRegionControlCommandInput,
+  DeleteHomeRegionControlCommandOutput,
+} from "./commands/DeleteHomeRegionControlCommand";
+import {
   DescribeHomeRegionControlsCommandInput,
   DescribeHomeRegionControlsCommandOutput,
 } from "./commands/DescribeHomeRegionControlsCommand";
@@ -75,6 +79,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateHomeRegionControlCommandInput
+  | DeleteHomeRegionControlCommandInput
   | DescribeHomeRegionControlsCommandInput
   | GetHomeRegionCommandInput;
 
@@ -83,6 +88,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateHomeRegionControlCommandOutput
+  | DeleteHomeRegionControlCommandOutput
   | DescribeHomeRegionControlsCommandOutput
   | GetHomeRegionCommandOutput;
 
@@ -261,7 +267,6 @@ export interface MigrationHubConfigClientResolvedConfig extends MigrationHubConf
  * <p>The AWS Migration Hub home region APIs are available specifically for working with your
  *       Migration Hub home region. You can use these APIs to determine a home region, as well as to
  *       create and work with controls that describe the home region.</p>
- *
  *          <ul>
  *             <li>
  *                <p>You must make API calls for write actions (create, notify, associate, disassociate,
@@ -281,7 +286,6 @@ export interface MigrationHubConfigClientResolvedConfig extends MigrationHubConf
  *           home region.</p>
  *             </li>
  *          </ul>
- *
  *          <p>For specific API usage, see the sections that follow in this AWS Migration Hub Home Region
  *       API reference. </p>
  */

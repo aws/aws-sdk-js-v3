@@ -256,6 +256,23 @@ export class ThrottlingException extends __BaseException {
 /**
  * @public
  */
+export interface DeleteHomeRegionControlRequest {
+  /**
+   * @public
+   * <p>A unique identifier that's generated for each home region control. It's always a string
+   *       that begins with "hrc-" followed by 12 lowercase letters and numbers.</p>
+   */
+  ControlId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHomeRegionControlResult {}
+
+/**
+ * @public
+ */
 export interface DescribeHomeRegionControlsRequest {
   /**
    * @public

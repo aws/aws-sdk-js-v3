@@ -23,6 +23,10 @@ import {
   CreateHomeRegionControlCommandOutput,
 } from "../commands/CreateHomeRegionControlCommand";
 import {
+  DeleteHomeRegionControlCommandInput,
+  DeleteHomeRegionControlCommandOutput,
+} from "../commands/DeleteHomeRegionControlCommand";
+import {
   DescribeHomeRegionControlsCommandInput,
   DescribeHomeRegionControlsCommandOutput,
 } from "../commands/DescribeHomeRegionControlsCommand";
@@ -32,6 +36,7 @@ import {
   AccessDeniedException,
   CreateHomeRegionControlRequest,
   CreateHomeRegionControlResult,
+  DeleteHomeRegionControlRequest,
   DescribeHomeRegionControlsRequest,
   DescribeHomeRegionControlsResult,
   DryRunOperation,
@@ -52,6 +57,19 @@ export const se_CreateHomeRegionControlCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateHomeRegionControl");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteHomeRegionControlCommand
+ */
+export const se_DeleteHomeRegionControlCommand = async (
+  input: DeleteHomeRegionControlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteHomeRegionControl");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -122,6 +140,64 @@ const de_CreateHomeRegionControlCommandError = async (
     case "DryRunOperation":
     case "com.amazonaws.migrationhubconfig#DryRunOperation":
       throw await de_DryRunOperationRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.migrationhubconfig#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.migrationhubconfig#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.migrationhubconfig#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhubconfig#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteHomeRegionControlCommand
+ */
+export const de_DeleteHomeRegionControlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHomeRegionControlCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteHomeRegionControlCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteHomeRegionControlCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteHomeRegionControlCommandError
+ */
+const de_DeleteHomeRegionControlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHomeRegionControlCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.migrationhubconfig#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.migrationhubconfig#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
@@ -349,6 +425,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CreateHomeRegionControlRequest omitted.
 
+// se_DeleteHomeRegionControlRequest omitted.
+
 // se_DescribeHomeRegionControlsRequest omitted.
 
 // se_GetHomeRegionRequest omitted.
@@ -365,6 +443,8 @@ const de_CreateHomeRegionControlResult = (output: any, context: __SerdeContext):
     HomeRegionControl: (_: any) => de_HomeRegionControl(_, context),
   }) as any;
 };
+
+// de_DeleteHomeRegionControlResult omitted.
 
 /**
  * deserializeAws_json1_1DescribeHomeRegionControlsResult
