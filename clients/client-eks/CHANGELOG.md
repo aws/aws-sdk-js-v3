@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.435.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.434.0...v3.435.0) (2023-10-24)
+
+
+### Features
+
+* **client-eks:** Added support for Cluster Subnet and Security Group mutability. ([1e99a41](https://github.com/aws/aws-sdk-js-v3/commit/1e99a41fee065175e39cdde8e6d695a0818fb2c7))
+
+
+
+
+
 # [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
 
 

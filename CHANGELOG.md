@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.435.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.434.0...v3.435.0) (2023-10-24)
+
+
+### Features
+
+* **client-codepipeline:** Add ability to trigger pipelines from git tags, define variables at pipeline level and new pipeline type V2. ([2c3ba68](https://github.com/aws/aws-sdk-js-v3/commit/2c3ba6800066f6af8484d1e5bca763b23c797ada))
+* **client-ec2:** This release updates the documentation for InstanceInterruptionBehavior and HibernationOptionsRequest to more accurately describe the behavior of these two parameters when using Spot hibernation. ([4e920f1](https://github.com/aws/aws-sdk-js-v3/commit/4e920f178227b3f01d436ce0e291a13fcdc07387))
+* **client-eks:** Added support for Cluster Subnet and Security Group mutability. ([1e99a41](https://github.com/aws/aws-sdk-js-v3/commit/1e99a41fee065175e39cdde8e6d695a0818fb2c7))
+* **client-iam:** Add the partitional endpoint for IAM in iso-f. ([1ccadc3](https://github.com/aws/aws-sdk-js-v3/commit/1ccadc3710c810c1085294c6ee523ffd1bce6463))
+* **client-migrationhub-config:** This release introduces DeleteHomeRegionControl API that customers can use to delete the Migration Hub Home Region configuration ([442a399](https://github.com/aws/aws-sdk-js-v3/commit/442a39959a07caf7f07c470b47eaf222a40baf6c))
+* **client-migrationhubstrategy:** This release introduces multi-data-source feature in Migration Hub Strategy Recommendations. This feature now supports vCenter as a data source to fetch inventory in addition to ADS and Import from file workflow that is currently supported with MHSR collector. ([fe4dd4f](https://github.com/aws/aws-sdk-js-v3/commit/fe4dd4fc315061e472996b09c8d2462091dc6cbc))
+* **client-opensearchserverless:** This release includes the following new APIs: CreateLifecyclePolicy, UpdateLifecyclePolicy, BatchGetLifecyclePolicy, DeleteLifecyclePolicy, ListLifecyclePolicies and BatchGetEffectiveLifecyclePolicy to support the data lifecycle management feature. ([dc52243](https://github.com/aws/aws-sdk-js-v3/commit/dc522436fa037dda723b887f743688e8f9fa1e60))
+* **clients:** update client endpoints as of 2023-10-24 ([2d3c969](https://github.com/aws/aws-sdk-js-v3/commit/2d3c9699f3f94ffb3a512ad90c6bd3f84140d63c))
+
+
+
+
+
 # [3.434.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.433.0...v3.434.0) (2023-10-23)
 
 

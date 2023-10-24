@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.435.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.434.0...v3.435.0) (2023-10-24)
+
+
+### Features
+
+* **client-migrationhub-config:** This release introduces DeleteHomeRegionControl API that customers can use to delete the Migration Hub Home Region configuration ([442a399](https://github.com/aws/aws-sdk-js-v3/commit/442a39959a07caf7f07c470b47eaf222a40baf6c))
+
+
+
+
+
 # [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.435.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.434.0...v3.435.0) (2023-10-24)
+
+
+### Features
+
+* **client-codepipeline:** Add ability to trigger pipelines from git tags, define variables at pipeline level and new pipeline type V2. ([2c3ba68](https://github.com/aws/aws-sdk-js-v3/commit/2c3ba6800066f6af8484d1e5bca763b23c797ada))
+
+
+
+
+
 # [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
 
 
