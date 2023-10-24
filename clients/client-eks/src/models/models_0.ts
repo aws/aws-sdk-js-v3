@@ -491,6 +491,7 @@ export interface ErrorDetail {
 export const UpdateParamType = {
   ADDON_VERSION: "AddonVersion",
   CLUSTER_LOGGING: "ClusterLogging",
+  CONFIGURATION_VALUES: "ConfigurationValues",
   DESIRED_SIZE: "DesiredSize",
   ENCRYPTION_CONFIG: "EncryptionConfig",
   ENDPOINT_PRIVATE_ACCESS: "EndpointPrivateAccess",
@@ -508,7 +509,9 @@ export const UpdateParamType = {
   PUBLIC_ACCESS_CIDRS: "PublicAccessCidrs",
   RELEASE_VERSION: "ReleaseVersion",
   RESOLVE_CONFLICTS: "ResolveConflicts",
+  SECURITY_GROUPS: "SecurityGroups",
   SERVICE_ACCOUNT_ROLE_ARN: "ServiceAccountRoleArn",
+  SUBNETS: "Subnets",
   TAINTS_TO_ADD: "TaintsToAdd",
   TAINTS_TO_REMOVE: "TaintsToRemove",
   VERSION: "Version",
@@ -566,6 +569,7 @@ export const UpdateType = {
   ENDPOINT_ACCESS_UPDATE: "EndpointAccessUpdate",
   LOGGING_UPDATE: "LoggingUpdate",
   VERSION_UPDATE: "VersionUpdate",
+  VPC_CONFIG_UPDATE: "VpcConfigUpdate",
 } as const;
 
 /**
@@ -1517,9 +1521,22 @@ export const ClusterIssueCode = {
   ACCESS_DENIED: "AccessDenied",
   CLUSTER_UNREACHABLE: "ClusterUnreachable",
   CONFIGURATION_CONFLICT: "ConfigurationConflict",
+  EC2_SECURITY_GROUP_NOT_FOUND: "Ec2SecurityGroupNotFound",
+  EC2_SERVICE_NOT_SUBSCRIBED: "Ec2ServiceNotSubscribed",
+  EC2_SUBNET_NOT_FOUND: "Ec2SubnetNotFound",
+  IAM_ROLE_NOT_FOUND: "IamRoleNotFound",
+  INSUFFICIENT_FREE_ADDRESSES: "InsufficientFreeAddresses",
   INTERNAL_FAILURE: "InternalFailure",
+  KMS_GRANT_REVOKED: "KmsGrantRevoked",
+  KMS_KEY_DISABLED: "KmsKeyDisabled",
+  KMS_KEY_MARKED_FOR_DELETION: "KmsKeyMarkedForDeletion",
+  KMS_KEY_NOT_FOUND: "KmsKeyNotFound",
+  OTHER: "Other",
   RESOURCE_LIMIT_EXCEEDED: "ResourceLimitExceeded",
   RESOURCE_NOT_FOUND: "ResourceNotFound",
+  STS_REGIONAL_ENDPOINT_DISABLED: "StsRegionalEndpointDisabled",
+  UNSUPPORTED_VERSION: "UnsupportedVersion",
+  VPC_NOT_FOUND: "VpcNotFound",
 } as const;
 
 /**

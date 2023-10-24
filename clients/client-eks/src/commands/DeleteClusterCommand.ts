@@ -129,7 +129,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //     health: { // ClusterHealth
  * //       issues: [ // ClusterIssueList
  * //         { // ClusterIssue
- * //           code: "AccessDenied" || "ClusterUnreachable" || "ConfigurationConflict" || "InternalFailure" || "ResourceLimitExceeded" || "ResourceNotFound",
+ * //           code: "AccessDenied" || "ClusterUnreachable" || "ConfigurationConflict" || "InternalFailure" || "ResourceLimitExceeded" || "ResourceNotFound" || "IamRoleNotFound" || "VpcNotFound" || "InsufficientFreeAddresses" || "Ec2ServiceNotSubscribed" || "Ec2SubnetNotFound" || "Ec2SecurityGroupNotFound" || "KmsGrantRevoked" || "KmsKeyNotFound" || "KmsKeyMarkedForDeletion" || "KmsKeyDisabled" || "StsRegionalEndpointDisabled" || "UnsupportedVersion" || "Other",
  * //           message: "STRING_VALUE",
  * //           resourceIds: "<StringList>",
  * //         },

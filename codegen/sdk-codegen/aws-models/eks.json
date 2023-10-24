@@ -2093,6 +2093,84 @@
           "traits": {
             "smithy.api#enumValue": "ResourceNotFound"
           }
+        },
+        "IAM_ROLE_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IamRoleNotFound"
+          }
+        },
+        "VPC_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VpcNotFound"
+          }
+        },
+        "INSUFFICIENT_FREE_ADDRESSES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InsufficientFreeAddresses"
+          }
+        },
+        "EC2_SERVICE_NOT_SUBSCRIBED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Ec2ServiceNotSubscribed"
+          }
+        },
+        "EC2_SUBNET_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Ec2SubnetNotFound"
+          }
+        },
+        "EC2_SECURITY_GROUP_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Ec2SecurityGroupNotFound"
+          }
+        },
+        "KMS_GRANT_REVOKED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KmsGrantRevoked"
+          }
+        },
+        "KMS_KEY_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KmsKeyNotFound"
+          }
+        },
+        "KMS_KEY_MARKED_FOR_DELETION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KmsKeyMarkedForDeletion"
+          }
+        },
+        "KMS_KEY_DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KmsKeyDisabled"
+          }
+        },
+        "STS_REGIONAL_ENDPOINT_DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "StsRegionalEndpointDisabled"
+          }
+        },
+        "UNSUPPORTED_VERSION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UnsupportedVersion"
+          }
+        },
+        "OTHER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Other"
+          }
         }
       }
     },
@@ -3585,7 +3663,7 @@
               "cluster": {
                 "name": "devel",
                 "arn": "arn:aws:eks:us-west-2:012345678910:cluster/devel",
-                "createdAt": 1527807879.988,
+                "createdAt": 1.527807879988e9,
                 "version": "1.10",
                 "endpoint": "https://A0DCCD80A04F01705DD065655C30CC3D.yl4.us-west-2.eks.amazonaws.com",
                 "roleArn": "arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI",
@@ -7465,6 +7543,24 @@
           "traits": {
             "smithy.api#enumValue": "MaxUnavailablePercentage"
           }
+        },
+        "CONFIGURATION_VALUES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ConfigurationValues"
+          }
+        },
+        "SECURITY_GROUPS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SecurityGroups"
+          }
+        },
+        "SUBNETS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Subnets"
+          }
         }
       }
     },
@@ -7572,6 +7668,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "AddonUpdate"
+          }
+        },
+        "VPC_CONFIG_UPDATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VpcConfigUpdate"
           }
         }
       }
