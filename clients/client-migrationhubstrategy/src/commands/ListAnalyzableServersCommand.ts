@@ -19,8 +19,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import { StartAssessmentRequest, StartAssessmentResponse } from "../models/models_0";
-import { de_StartAssessmentCommand, se_StartAssessmentCommand } from "../protocols/Aws_restJson1";
+import { ListAnalyzableServersRequest, ListAnalyzableServersResponse } from "../models/models_0";
+import { de_ListAnalyzableServersCommand, se_ListAnalyzableServersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -29,51 +29,50 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StartAssessmentCommand}.
+ * The input for {@link ListAnalyzableServersCommand}.
  */
-export interface StartAssessmentCommandInput extends StartAssessmentRequest {}
+export interface ListAnalyzableServersCommandInput extends ListAnalyzableServersRequest {}
 /**
  * @public
  *
- * The output of {@link StartAssessmentCommand}.
+ * The output of {@link ListAnalyzableServersCommand}.
  */
-export interface StartAssessmentCommandOutput extends StartAssessmentResponse, __MetadataBearer {}
+export interface ListAnalyzableServersCommandOutput extends ListAnalyzableServersResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p> Starts the assessment of an on-premises environment. </p>
+ * Retrieves a list of all the servers fetched from customer vCenter using Strategy Recommendation Collector.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubStrategyClient, StartAssessmentCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
- * // const { MigrationHubStrategyClient, StartAssessmentCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * import { MigrationHubStrategyClient, ListAnalyzableServersCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
+ * // const { MigrationHubStrategyClient, ListAnalyzableServersCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
- * const input = { // StartAssessmentRequest
- *   s3bucketForAnalysisData: "STRING_VALUE",
- *   s3bucketForReportData: "STRING_VALUE",
- *   assessmentTargets: [ // AssessmentTargets
- *     { // AssessmentTarget
- *       condition: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       values: [ // AssessmentTargetValues // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   assessmentDataSourceType: "STRING_VALUE",
+ * const input = { // ListAnalyzableServersRequest
+ *   sort: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new StartAssessmentCommand(input);
+ * const command = new ListAnalyzableServersCommand(input);
  * const response = await client.send(command);
- * // { // StartAssessmentResponse
- * //   assessmentId: "STRING_VALUE",
+ * // { // ListAnalyzableServersResponse
+ * //   analyzableServers: [ // AnalyzableServerSummaryList
+ * //     { // AnalyzableServerSummary
+ * //       hostname: "STRING_VALUE",
+ * //       ipAddress: "STRING_VALUE",
+ * //       source: "STRING_VALUE",
+ * //       vmId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param StartAssessmentCommandInput - {@link StartAssessmentCommandInput}
- * @returns {@link StartAssessmentCommandOutput}
- * @see {@link StartAssessmentCommandInput} for command's `input` shape.
- * @see {@link StartAssessmentCommandOutput} for command's `response` shape.
+ * @param ListAnalyzableServersCommandInput - {@link ListAnalyzableServersCommandInput}
+ * @returns {@link ListAnalyzableServersCommandOutput}
+ * @see {@link ListAnalyzableServersCommandInput} for command's `input` shape.
+ * @see {@link ListAnalyzableServersCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -83,20 +82,19 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * @throws {@link InternalServerException} (server fault)
  *  <p> The server experienced an internal error. Try again. </p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> The AWS account has reached its quota of imports. Contact AWS Support to increase the
- *       quota for this account. </p>
- *
  * @throws {@link ThrottlingException} (client fault)
  *  <p> The request was denied due to request throttling. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request body isn't valid. </p>
  *
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
-export class StartAssessmentCommand extends $Command<
-  StartAssessmentCommandInput,
-  StartAssessmentCommandOutput,
+export class ListAnalyzableServersCommand extends $Command<
+  ListAnalyzableServersCommandInput,
+  ListAnalyzableServersCommandOutput,
   MigrationHubStrategyClientResolvedConfig
 > {
   // Start section: command_properties
@@ -114,7 +112,7 @@ export class StartAssessmentCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StartAssessmentCommandInput) {
+  constructor(readonly input: ListAnalyzableServersCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -127,17 +125,17 @@ export class StartAssessmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubStrategyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartAssessmentCommandInput, StartAssessmentCommandOutput> {
+  ): Handler<ListAnalyzableServersCommandInput, ListAnalyzableServersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartAssessmentCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListAnalyzableServersCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MigrationHubStrategyClient";
-    const commandName = "StartAssessmentCommand";
+    const commandName = "ListAnalyzableServersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -146,7 +144,7 @@ export class StartAssessmentCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSMigrationHubStrategyRecommendation",
-        operation: "StartAssessment",
+        operation: "ListAnalyzableServers",
       },
     };
     const { requestHandler } = configuration;
@@ -160,15 +158,15 @@ export class StartAssessmentCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StartAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartAssessmentCommand(input, context);
+  private serialize(input: ListAnalyzableServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListAnalyzableServersCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAssessmentCommandOutput> {
-    return de_StartAssessmentCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnalyzableServersCommandOutput> {
+    return de_ListAnalyzableServersCommand(output, context);
   }
 
   // Start section: command_body_extra

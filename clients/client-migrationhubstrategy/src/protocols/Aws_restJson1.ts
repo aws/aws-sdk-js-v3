@@ -55,6 +55,10 @@ import {
   GetServerStrategiesCommandOutput,
 } from "../commands/GetServerStrategiesCommand";
 import {
+  ListAnalyzableServersCommandInput,
+  ListAnalyzableServersCommandOutput,
+} from "../commands/ListAnalyzableServersCommand";
+import {
   ListApplicationComponentsCommandInput,
   ListApplicationComponentsCommandOutput,
 } from "../commands/ListApplicationComponentsCommand";
@@ -387,6 +391,38 @@ export const se_GetServerStrategiesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListAnalyzableServersCommand
+ */
+export const se_ListAnalyzableServersCommand = async (
+  input: ListAnalyzableServersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-analyzable-servers";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      sort: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListApplicationComponentsCommand
  */
 export const se_ListApplicationComponentsCommand = async (
@@ -557,6 +593,7 @@ export const se_StartAssessmentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      assessmentDataSourceType: [],
       assessmentTargets: (_) => _json(_),
       s3bucketForAnalysisData: [],
       s3bucketForReportData: [],
@@ -1302,6 +1339,63 @@ const de_GetServerStrategiesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.migrationhubstrategy#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.migrationhubstrategy#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListAnalyzableServersCommand
+ */
+export const de_ListAnalyzableServersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnalyzableServersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAnalyzableServersCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    analyzableServers: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAnalyzableServersCommandError
+ */
+const de_ListAnalyzableServersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnalyzableServersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.migrationhubstrategy#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.migrationhubstrategy#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2153,6 +2247,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TargetDatabaseEngines omitted.
 
 // de_AnalysisStatusUnion omitted.
+
+// de_AnalyzableServerSummary omitted.
+
+// de_AnalyzableServerSummaryList omitted.
 
 // de_AnalyzerNameUnion omitted.
 

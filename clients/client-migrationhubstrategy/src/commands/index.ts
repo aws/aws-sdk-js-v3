@@ -9,6 +9,7 @@ export * from "./GetPortfolioSummaryCommand";
 export * from "./GetRecommendationReportDetailsCommand";
 export * from "./GetServerDetailsCommand";
 export * from "./GetServerStrategiesCommand";
+export * from "./ListAnalyzableServersCommand";
 export * from "./ListApplicationComponentsCommand";
 export * from "./ListCollectorsCommand";
 export * from "./ListImportFileTaskCommand";

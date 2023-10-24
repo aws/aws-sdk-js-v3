@@ -133,6 +133,36 @@ export type AnalysisType = (typeof AnalysisType)[keyof typeof AnalysisType];
 
 /**
  * @public
+ * Summary information about an analyzable server.
+ */
+export interface AnalyzableServerSummary {
+  /**
+   * @public
+   * The host name of the analyzable server.
+   */
+  hostname?: string;
+
+  /**
+   * @public
+   * The ip address of the analyzable server.
+   */
+  ipAddress?: string;
+
+  /**
+   * @public
+   * The data source of the analyzable server.
+   */
+  source?: string;
+
+  /**
+   * @public
+   * The virtual machine id of the analyzable server.
+   */
+  vmId?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const BinaryAnalyzerName = {
@@ -1060,6 +1090,21 @@ export interface ApplicationPreferences {
    */
   managementPreference?: ManagementPreference;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const AssessmentDataSourceType = {
+  ADS: "ApplicationDiscoveryService",
+  MANUAL_IMPORT: "ManualImport",
+  SR_COLLECTOR: "StrategyRecommendationsApplicationDataCollector",
+} as const;
+
+/**
+ * @public
+ */
+export type AssessmentDataSourceType = (typeof AssessmentDataSourceType)[keyof typeof AssessmentDataSourceType];
 
 /**
  * @public
@@ -2386,6 +2431,62 @@ export interface GetServerStrategiesResponse {
  * @public
  * @enum
  */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ * Represents input for ListAnalyzableServers operation.
+ */
+export interface ListAnalyzableServersRequest {
+  /**
+   * @public
+   * Specifies whether to sort by ascending (ASC) or descending (DESC) order.
+   */
+  sort?: SortOrder;
+
+  /**
+   * @public
+   * The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set maxResults to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10.
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * The maximum number of items to include in the response. The maximum value is 100.
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * Represents output for ListAnalyzableServers operation.
+ */
+export interface ListAnalyzableServersResponse {
+  /**
+   * @public
+   * The list of analyzable servers with summary information about each server.
+   */
+  analyzableServers?: AnalyzableServerSummary[];
+
+  /**
+   * @public
+   * The token you use to retrieve the next set of results, or null if there are no more results.
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const GroupName = {
   EXTERNAL_ID: "ExternalId",
   EXTERNAL_SOURCE_TYPE: "ExternalSourceType",
@@ -2413,20 +2514,6 @@ export interface Group {
    */
   value?: string;
 }
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASC: "ASC",
-  DESC: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -3063,6 +3150,12 @@ export interface StartAssessmentRequest {
    * <p>List of criteria for assessment.</p>
    */
   assessmentTargets?: AssessmentTarget[];
+
+  /**
+   * @public
+   * The data source type of an assessment to be started.
+   */
+  assessmentDataSourceType?: AssessmentDataSourceType;
 }
 
 /**
@@ -3083,6 +3176,7 @@ export interface StartAssessmentResponse {
 export const DataSourceType = {
   ADS: "ApplicationDiscoveryService",
   IMPORT: "Import",
+  MHSR_COLLECTOR: "StrategyRecommendationsApplicationDataCollector",
   MPA: "MPA",
 } as const;
 

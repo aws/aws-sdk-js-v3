@@ -53,6 +53,11 @@ import {
   GetServerStrategiesCommandOutput,
 } from "./commands/GetServerStrategiesCommand";
 import {
+  ListAnalyzableServersCommand,
+  ListAnalyzableServersCommandInput,
+  ListAnalyzableServersCommandOutput,
+} from "./commands/ListAnalyzableServersCommand";
+import {
   ListApplicationComponentsCommand,
   ListApplicationComponentsCommandInput,
   ListApplicationComponentsCommandOutput,
@@ -116,6 +121,7 @@ const commands = {
   GetRecommendationReportDetailsCommand,
   GetServerDetailsCommand,
   GetServerStrategiesCommand,
+  ListAnalyzableServersCommand,
   ListApplicationComponentsCommand,
   ListCollectorsCommand,
   ListImportFileTaskCommand,
@@ -292,6 +298,23 @@ export interface MigrationHubStrategy {
     args: GetServerStrategiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetServerStrategiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAnalyzableServersCommand}
+   */
+  listAnalyzableServers(
+    args: ListAnalyzableServersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnalyzableServersCommandOutput>;
+  listAnalyzableServers(
+    args: ListAnalyzableServersCommandInput,
+    cb: (err: any, data?: ListAnalyzableServersCommandOutput) => void
+  ): void;
+  listAnalyzableServers(
+    args: ListAnalyzableServersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnalyzableServersCommandOutput) => void
   ): void;
 
   /**

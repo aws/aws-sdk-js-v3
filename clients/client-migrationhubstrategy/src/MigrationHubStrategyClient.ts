@@ -82,6 +82,10 @@ import {
   GetServerStrategiesCommandOutput,
 } from "./commands/GetServerStrategiesCommand";
 import {
+  ListAnalyzableServersCommandInput,
+  ListAnalyzableServersCommandOutput,
+} from "./commands/ListAnalyzableServersCommand";
+import {
   ListApplicationComponentsCommandInput,
   ListApplicationComponentsCommandOutput,
 } from "./commands/ListApplicationComponentsCommand";
@@ -132,6 +136,7 @@ export type ServiceInputTypes =
   | GetRecommendationReportDetailsCommandInput
   | GetServerDetailsCommandInput
   | GetServerStrategiesCommandInput
+  | ListAnalyzableServersCommandInput
   | ListApplicationComponentsCommandInput
   | ListCollectorsCommandInput
   | ListImportFileTaskCommandInput
@@ -158,6 +163,7 @@ export type ServiceOutputTypes =
   | GetRecommendationReportDetailsCommandOutput
   | GetServerDetailsCommandOutput
   | GetServerStrategiesCommandOutput
+  | ListAnalyzableServersCommandOutput
   | ListApplicationComponentsCommandOutput
   | ListCollectorsCommandOutput
   | ListImportFileTaskCommandOutput

@@ -291,6 +291,14 @@ GetServerStrategies
 </details>
 <details>
 <summary>
+ListAnalyzableServers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/listanalyzableserverscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/listanalyzableserverscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/listanalyzableserverscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListApplicationComponents
 </summary>
 
