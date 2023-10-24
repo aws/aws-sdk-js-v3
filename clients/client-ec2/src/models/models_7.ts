@@ -71,6 +71,21 @@ export interface HibernationOptionsRequest {
   /**
    * @public
    * <p>Set to <code>true</code> to enable your instance for hibernation.</p>
+   *          <p>For Spot Instances, if you set <code>Configured</code> to <code>true</code>, either
+   *             omit the <code>InstanceInterruptionBehavior</code> parameter (for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotMarketOptions.html">
+   *                <code>SpotMarketOptions</code>
+   *             </a>), or set it to
+   *                 <code>hibernate</code>. When <code>Configured</code> is true:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you omit <code>InstanceInterruptionBehavior</code>, it defaults to
+   *                         <code>hibernate</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you set <code>InstanceInterruptionBehavior</code> to a value other than
+   *                         <code>hibernate</code>, you'll get an error.</p>
+   *             </li>
+   *          </ul>
    *          <p>Default: <code>false</code>
    *          </p>
    */
@@ -129,8 +144,21 @@ export interface SpotMarketOptions {
 
   /**
    * @public
-   * <p>The behavior when a Spot Instance is interrupted. The default is
-   *                 <code>terminate</code>.</p>
+   * <p>The behavior when a Spot Instance is interrupted.</p>
+   *          <p>If <code>Configured</code> (for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_HibernationOptionsRequest.html">
+   *                <code>HibernationOptions</code>
+   *             </a>) is set to <code>true</code>, the
+   *                 <code>InstanceInterruptionBehavior</code> parameter is automatically set to
+   *                 <code>hibernate</code>. If you set it to <code>stop</code> or
+   *             <code>terminate</code>, you'll get an error.</p>
+   *          <p>If <code>Configured</code> (for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_HibernationOptionsRequest.html">
+   *                <code>HibernationOptions</code>
+   *             </a>) is set to <code>false</code> or
+   *                 <code>null</code>, the <code>InstanceInterruptionBehavior</code> parameter is
+   *             automatically set to <code>terminate</code>. You can also set it to <code>stop</code> or
+   *                 <code>hibernate</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/interruption-behavior.html">Interruption
+   *                 behavior</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   InstanceInterruptionBehavior?: InstanceInterruptionBehavior;
 }

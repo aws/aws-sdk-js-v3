@@ -10400,9 +10400,10 @@ export interface DescribeSpotPriceHistoryRequest {
    *             <li>
    *                <p>
    *                   <code>timestamp</code> - The time stamp of the Spot price history, in UTC format
-   *                     (for example,
-   *                     <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *                     You can use wildcards (* and ?). Greater than or less than comparison is not
+   *                     (for example, <i>ddd MMM dd
+   *                         HH</i>:<i>mm</i>:<i>ss</i> UTC
+   *                         <i>YYYY</i>). You can use wildcards (<code>*</code> and
+   *                         <code>?</code>). Greater than or less than comparison is not
    *                     supported.</p>
    *             </li>
    *          </ul>
