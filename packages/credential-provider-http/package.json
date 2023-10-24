@@ -33,6 +33,7 @@
     "@smithy/protocol-http": "^3.0.8",
     "@smithy/smithy-client": "^2.1.12",
     "@smithy/types": "^2.4.0",
+    "@smithy/util-stream": "^2.0.17",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
