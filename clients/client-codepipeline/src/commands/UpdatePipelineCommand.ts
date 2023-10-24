@@ -109,6 +109,34 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  *       },
  *     ],
  *     version: Number("int"),
+ *     pipelineType: "V1" || "V2",
+ *     triggers: [ // PipelineTriggerDeclarationList
+ *       { // PipelineTriggerDeclaration
+ *         providerType: "CodeStarSourceConnection", // required
+ *         gitConfiguration: { // GitConfiguration
+ *           sourceActionName: "STRING_VALUE", // required
+ *           push: [ // GitPushFilterList
+ *             { // GitPushFilter
+ *               tags: { // GitTagFilterCriteria
+ *                 includes: [ // GitTagPatternList
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 excludes: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     variables: [ // PipelineVariableDeclarationList
+ *       { // PipelineVariableDeclaration
+ *         name: "STRING_VALUE", // required
+ *         defaultValue: "STRING_VALUE",
+ *         description: "STRING_VALUE",
+ *       },
+ *     ],
  *   },
  * };
  * const command = new UpdatePipelineCommand(input);
@@ -175,6 +203,34 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * //       },
  * //     ],
  * //     version: Number("int"),
+ * //     pipelineType: "V1" || "V2",
+ * //     triggers: [ // PipelineTriggerDeclarationList
+ * //       { // PipelineTriggerDeclaration
+ * //         providerType: "CodeStarSourceConnection", // required
+ * //         gitConfiguration: { // GitConfiguration
+ * //           sourceActionName: "STRING_VALUE", // required
+ * //           push: [ // GitPushFilterList
+ * //             { // GitPushFilter
+ * //               tags: { // GitTagFilterCriteria
+ * //                 includes: [ // GitTagPatternList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 excludes: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
+ * //     variables: [ // PipelineVariableDeclarationList
+ * //       { // PipelineVariableDeclaration
+ * //         name: "STRING_VALUE", // required
+ * //         defaultValue: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

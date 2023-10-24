@@ -69,6 +69,16 @@ export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionO
  * //         revisionUrl: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     trigger: { // ExecutionTrigger
+ * //       triggerType: "CreatePipeline" || "StartPipelineExecution" || "PollForSourceChanges" || "Webhook" || "CloudWatchEvent" || "PutActionRevision" || "WebhookV2",
+ * //       triggerDetail: "STRING_VALUE",
+ * //     },
+ * //     variables: [ // ResolvedPipelineVariableList
+ * //       { // ResolvedPipelineVariable
+ * //         name: "STRING_VALUE",
+ * //         resolvedValue: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

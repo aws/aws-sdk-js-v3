@@ -55,6 +55,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * //     { // PipelineSummary
  * //       name: "STRING_VALUE",
  * //       version: Number("int"),
+ * //       pipelineType: "V1" || "V2",
  * //       created: new Date("TIMESTAMP"),
  * //       updated: new Date("TIMESTAMP"),
  * //     },

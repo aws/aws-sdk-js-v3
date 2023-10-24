@@ -47,6 +47,12 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * const client = new CodePipelineClient(config);
  * const input = { // StartPipelineExecutionInput
  *   name: "STRING_VALUE", // required
+ *   variables: [ // PipelineVariableList
+ *     { // PipelineVariable
+ *       name: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
  *   clientRequestToken: "STRING_VALUE",
  * };
  * const command = new StartPipelineExecutionCommand(input);

@@ -1882,6 +1882,20 @@ export class TooManyTagsException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const PipelineType = {
+  V1: "V1",
+  V2: "V2",
+} as const;
+
+/**
+ * @public
+ */
+export type PipelineType = (typeof PipelineType)[keyof typeof PipelineType];
+
+/**
+ * @public
  * <p>Represents information about a stage and its definition.</p>
  */
 export interface StageDeclaration {
@@ -1902,6 +1916,139 @@ export interface StageDeclaration {
    * <p>The actions included in a stage.</p>
    */
   actions: ActionDeclaration[] | undefined;
+}
+
+/**
+ * @public
+ * <p>The Git tags specified as filter criteria for whether a Git tag repository event
+ *             will start the pipeline.</p>
+ */
+export interface GitTagFilterCriteria {
+  /**
+   * @public
+   * <p>The list of patterns of Git tags that, when pushed, are to be included as criteria
+   *             that starts the pipeline.</p>
+   */
+  includes?: string[];
+
+  /**
+   * @public
+   * <p>The list of patterns of Git tags that, when pushed, are to be excluded from
+   *             starting the pipeline.</p>
+   */
+  excludes?: string[];
+}
+
+/**
+ * @public
+ * <p>The event criteria that specify when a specified repository event will start the pipeline for the specified trigger configuration, such as the lists of Git tags to include and exclude.</p>
+ */
+export interface GitPushFilter {
+  /**
+   * @public
+   * <p>The field that contains the details for the Git tags trigger
+   *             configuration.</p>
+   */
+  tags?: GitTagFilterCriteria;
+}
+
+/**
+ * @public
+ * <p>A type of trigger configuration for Git-based source actions.</p>
+ *          <note>
+ *             <p>You can specify the Git configuration trigger type for all third-party
+ *                 Git-based source actions that are supported by the
+ *                     <code>CodeStarSourceConnection</code> action type.</p>
+ *          </note>
+ */
+export interface GitConfiguration {
+  /**
+   * @public
+   * <p>The name of the pipeline source action where the trigger configuration, such as Git
+   *             tags, is specified. The trigger configuration will start the pipeline upon the specified
+   *             change only.</p>
+   *          <note>
+   *             <p>You can only specify one trigger configuration per source action.</p>
+   *          </note>
+   */
+  sourceActionName: string | undefined;
+
+  /**
+   * @public
+   * <p>The field where the repository event that will start the pipeline, such as pushing
+   *             Git tags, is specified with details.</p>
+   *          <note>
+   *             <p>Git tags is the only supported event type.</p>
+   *          </note>
+   */
+  push?: GitPushFilter[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PipelineTriggerProviderType = {
+  CodeStarSourceConnection: "CodeStarSourceConnection",
+} as const;
+
+/**
+ * @public
+ */
+export type PipelineTriggerProviderType =
+  (typeof PipelineTriggerProviderType)[keyof typeof PipelineTriggerProviderType];
+
+/**
+ * @public
+ * <p>Represents information about the specified trigger configuration, such as the
+ *             filter criteria and the source stage for the action that contains the trigger.</p>
+ *          <note>
+ *             <p>This is only supported for the <code>CodeStarSourceConnection</code> action
+ *                 type.</p>
+ *          </note>
+ *          <note>
+ *             <p>When a trigger configuration is specified, default change detection for
+ *                 repository and branch commits is disabled.</p>
+ *          </note>
+ */
+export interface PipelineTriggerDeclaration {
+  /**
+   * @public
+   * <p>The source provider for the event, such as connections configured for a repository
+   *             with Git tags, for the specified trigger configuration.</p>
+   */
+  providerType: PipelineTriggerProviderType | undefined;
+
+  /**
+   * @public
+   * <p>Provides the filter criteria and the source stage for the repository event that
+   *             starts the pipeline, such as Git tags.</p>
+   */
+  gitConfiguration: GitConfiguration | undefined;
+}
+
+/**
+ * @public
+ * <p>A variable declared at the pipeline level.</p>
+ */
+export interface PipelineVariableDeclaration {
+  /**
+   * @public
+   * <p>The name of a pipeline-level variable.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The value of a pipeline-level variable.</p>
+   */
+  defaultValue?: string;
+
+  /**
+   * @public
+   * <p>The description of a pipeline-level variable. It's used to add additional context about the variable, and not being used at time when pipeline executes.</p>
+   */
+  description?: string;
 }
 
 /**
@@ -1962,6 +2109,50 @@ export interface PipelineDeclaration {
    *             1. This number is incremented when a pipeline is updated.</p>
    */
   version?: number;
+
+  /**
+   * @public
+   * <p>CodePipeline provides the following pipeline types, which differ in characteristics and
+   *             price, so that you can tailor your pipeline features and cost to the needs of your
+   *             applications.</p>
+   *          <ul>
+   *             <li>
+   *                <p>V1 type pipelines have a JSON structure that contains standard pipeline,
+   *                     stage, and action-level parameters.</p>
+   *             </li>
+   *             <li>
+   *                <p>V2 type pipelines have the same structure as a V1 type, along with additional
+   *                     parameters for release safety and trigger configuration.</p>
+   *             </li>
+   *          </ul>
+   *          <important>
+   *             <p>Including V2 parameters, such as triggers on Git tags, in the pipeline JSON when
+   *                 creating or updating a pipeline will result in the pipeline having the V2 type of
+   *                 pipeline and the associated costs.</p>
+   *          </important>
+   *          <p>For information about pricing for CodePipeline, see <a href="https://aws.amazon.com/codepipeline/pricing/">Pricing</a>.</p>
+   *          <p>
+   *             For information about which type of pipeline to choose, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html">What type of pipeline is right for me?</a>.</p>
+   */
+  pipelineType?: PipelineType;
+
+  /**
+   * @public
+   * <p>The trigger configuration specifying a type of event, such as Git tags, that starts the pipeline.</p>
+   *          <note>
+   *             <p>When a trigger configuration is specified, default change detection for
+   *                 repository and branch commits is disabled.</p>
+   *          </note>
+   */
+  triggers?: PipelineTriggerDeclaration[];
+
+  /**
+   * @public
+   * <p>A list that defines the pipeline variables for a pipeline resource. Variable names can
+   *             have alphanumeric and underscore characters, and the values must match
+   *                 <code>[A-Za-z0-9@\-_]+</code>.</p>
+   */
+  variables?: PipelineVariableDeclaration[];
 }
 
 /**
@@ -2698,6 +2889,64 @@ export type PipelineExecutionStatus = (typeof PipelineExecutionStatus)[keyof typ
 
 /**
  * @public
+ * @enum
+ */
+export const TriggerType = {
+  CloudWatchEvent: "CloudWatchEvent",
+  CreatePipeline: "CreatePipeline",
+  PollForSourceChanges: "PollForSourceChanges",
+  PutActionRevision: "PutActionRevision",
+  StartPipelineExecution: "StartPipelineExecution",
+  Webhook: "Webhook",
+  WebhookV2: "WebhookV2",
+} as const;
+
+/**
+ * @public
+ */
+export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
+
+/**
+ * @public
+ * <p>The interaction or event that started a pipeline execution.</p>
+ */
+export interface ExecutionTrigger {
+  /**
+   * @public
+   * <p>The type of change-detection method, command, or user interaction that started a
+   *             pipeline execution.</p>
+   */
+  triggerType?: TriggerType;
+
+  /**
+   * @public
+   * <p>Detail related to the event that started a pipeline execution, such as the webhook ARN
+   *             of the webhook that triggered the pipeline execution or the user ARN for a
+   *             user-initiated <code>start-pipeline-execution</code> CLI command.</p>
+   */
+  triggerDetail?: string;
+}
+
+/**
+ * @public
+ * <p>A pipeline-level variable used for a pipeline execution.</p>
+ */
+export interface ResolvedPipelineVariable {
+  /**
+   * @public
+   * <p>The name of a pipeline-level variable.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The resolved value of a pipeline-level variable.</p>
+   */
+  resolvedValue?: string;
+}
+
+/**
+ * @public
  * <p>Represents information about an execution of a pipeline.</p>
  */
 export interface PipelineExecution {
@@ -2766,6 +3015,18 @@ export interface PipelineExecution {
    *             execution.</p>
    */
   artifactRevisions?: ArtifactRevision[];
+
+  /**
+   * @public
+   * <p>The interaction or event that started a pipeline execution.</p>
+   */
+  trigger?: ExecutionTrigger;
+
+  /**
+   * @public
+   * <p>A list of pipeline variables used for the pipeline execution.</p>
+   */
+  variables?: ResolvedPipelineVariable[];
 }
 
 /**
@@ -3315,45 +3576,6 @@ export interface StopExecutionTrigger {
 
 /**
  * @public
- * @enum
- */
-export const TriggerType = {
-  CloudWatchEvent: "CloudWatchEvent",
-  CreatePipeline: "CreatePipeline",
-  PollForSourceChanges: "PollForSourceChanges",
-  PutActionRevision: "PutActionRevision",
-  StartPipelineExecution: "StartPipelineExecution",
-  Webhook: "Webhook",
-} as const;
-
-/**
- * @public
- */
-export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
-
-/**
- * @public
- * <p>The interaction or event that started a pipeline execution.</p>
- */
-export interface ExecutionTrigger {
-  /**
-   * @public
-   * <p>The type of change-detection method, command, or user interaction that started a
-   *             pipeline execution.</p>
-   */
-  triggerType?: TriggerType;
-
-  /**
-   * @public
-   * <p>Detail related to the event that started a pipeline execution, such as the webhook ARN
-   *             of the webhook that triggered the pipeline execution or the user ARN for a
-   *             user-initiated <code>start-pipeline-execution</code> CLI command.</p>
-   */
-  triggerDetail?: string;
-}
-
-/**
- * @public
  * <p>Summary information about a pipeline execution.</p>
  */
 export interface PipelineExecutionSummary {
@@ -3485,6 +3707,32 @@ export interface PipelineSummary {
    * <p>The version number of the pipeline.</p>
    */
   version?: number;
+
+  /**
+   * @public
+   * <p>CodePipeline provides the following pipeline types, which differ in characteristics and
+   *             price, so that you can tailor your pipeline features and cost to the needs of your
+   *             applications.</p>
+   *          <ul>
+   *             <li>
+   *                <p>V1 type pipelines have a JSON structure that contains standard pipeline,
+   *                     stage, and action-level parameters.</p>
+   *             </li>
+   *             <li>
+   *                <p>V2 type pipelines have the same structure as a V1 type, along with additional
+   *                     parameters for release safety and trigger configuration.</p>
+   *             </li>
+   *          </ul>
+   *          <important>
+   *             <p>Including V2 parameters, such as triggers on Git tags, in the pipeline JSON when
+   *                 creating or updating a pipeline will result in the pipeline having the V2 type of
+   *                 pipeline and the associated costs.</p>
+   *          </important>
+   *          <p>For information about pricing for CodePipeline, see <a href="https://aws.amazon.com/codepipeline/pricing/">Pricing</a>.</p>
+   *          <p>
+   *             For information about which type of pipeline to choose, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html">What type of pipeline is right for me?</a>.</p>
+   */
+  pipelineType?: PipelineType;
 
   /**
    * @public
@@ -4557,6 +4805,24 @@ export class StageNotRetryableException extends __BaseException {
 
 /**
  * @public
+ * <p>A pipeline-level variable used for a pipeline execution.</p>
+ */
+export interface PipelineVariable {
+  /**
+   * @public
+   * <p>The name of a pipeline-level variable.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The value of a pipeline-level variable.</p>
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
  * <p>Represents the input of a <code>StartPipelineExecution</code> action.</p>
  */
 export interface StartPipelineExecutionInput {
@@ -4565,6 +4831,13 @@ export interface StartPipelineExecutionInput {
    * <p>The name of the pipeline to start.</p>
    */
   name: string | undefined;
+
+  /**
+   * @public
+   * <p>A list that overrides pipeline variables for a pipeline execution that's being started. Variable names must match <code>[A-Za-z0-9@\-_]+</code>,
+   *             and the values can be anything except an empty string.</p>
+   */
+  variables?: PipelineVariable[];
 
   /**
    * @public

@@ -67,7 +67,7 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * //         },
  * //       ],
  * //       trigger: { // ExecutionTrigger
- * //         triggerType: "CreatePipeline" || "StartPipelineExecution" || "PollForSourceChanges" || "Webhook" || "CloudWatchEvent" || "PutActionRevision",
+ * //         triggerType: "CreatePipeline" || "StartPipelineExecution" || "PollForSourceChanges" || "Webhook" || "CloudWatchEvent" || "PutActionRevision" || "WebhookV2",
  * //         triggerDetail: "STRING_VALUE",
  * //       },
  * //       stopTrigger: { // StopExecutionTrigger
