@@ -14,13 +14,13 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { GetPoliciesStatsRequest, GetPoliciesStatsResponse } from "../models/models_0";
+import { DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { de_GetPoliciesStatsCommand, se_GetPoliciesStatsCommand } from "../protocols/Aws_json1_0";
+import { de_DeleteLifecyclePolicyCommand, se_DeleteLifecyclePolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -29,64 +29,64 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetPoliciesStatsCommand}.
+ * The input for {@link DeleteLifecyclePolicyCommand}.
  */
-export interface GetPoliciesStatsCommandInput extends GetPoliciesStatsRequest {}
+export interface DeleteLifecyclePolicyCommandInput extends DeleteLifecyclePolicyRequest {}
 /**
  * @public
  *
- * The output of {@link GetPoliciesStatsCommand}.
+ * The output of {@link DeleteLifecyclePolicyCommand}.
  */
-export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse, __MetadataBearer {}
+export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns statistical information about your OpenSearch Serverless access policies, security
- *             configurations, and security policies.</p>
+ * <p>Deletes an OpenSearch Serverless lifecycle policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-delete">Deleting data lifecycle policies</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, GetPoliciesStatsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, GetPoliciesStatsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, DeleteLifecyclePolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
+ * // const { OpenSearchServerlessClient, DeleteLifecyclePolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {};
- * const command = new GetPoliciesStatsCommand(input);
+ * const input = { // DeleteLifecyclePolicyRequest
+ *   type: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
+ * const command = new DeleteLifecyclePolicyCommand(input);
  * const response = await client.send(command);
- * // { // GetPoliciesStatsResponse
- * //   AccessPolicyStats: { // AccessPolicyStats
- * //     DataPolicyCount: Number("long"),
- * //   },
- * //   SecurityPolicyStats: { // SecurityPolicyStats
- * //     EncryptionPolicyCount: Number("long"),
- * //     NetworkPolicyCount: Number("long"),
- * //   },
- * //   SecurityConfigStats: { // SecurityConfigStats
- * //     SamlConfigCount: Number("long"),
- * //   },
- * //   LifecyclePolicyStats: { // LifecyclePolicyStats
- * //     RetentionPolicyCount: Number("long"),
- * //   },
- * //   TotalPolicyCount: Number("long"),
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetPoliciesStatsCommandInput - {@link GetPoliciesStatsCommandInput}
- * @returns {@link GetPoliciesStatsCommandOutput}
- * @see {@link GetPoliciesStatsCommandInput} for command's `input` shape.
- * @see {@link GetPoliciesStatsCommandOutput} for command's `response` shape.
+ * @param DeleteLifecyclePolicyCommandInput - {@link DeleteLifecyclePolicyCommandInput}
+ * @returns {@link DeleteLifecyclePolicyCommandOutput}
+ * @see {@link DeleteLifecyclePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
+ *             the ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
  *
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
-export class GetPoliciesStatsCommand extends $Command<
-  GetPoliciesStatsCommandInput,
-  GetPoliciesStatsCommandOutput,
+export class DeleteLifecyclePolicyCommand extends $Command<
+  DeleteLifecyclePolicyCommandInput,
+  DeleteLifecyclePolicyCommandOutput,
   OpenSearchServerlessClientResolvedConfig
 > {
   // Start section: command_properties
@@ -104,7 +104,7 @@ export class GetPoliciesStatsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetPoliciesStatsCommandInput) {
+  constructor(readonly input: DeleteLifecyclePolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -117,17 +117,17 @@ export class GetPoliciesStatsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpenSearchServerlessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetPoliciesStatsCommandInput, GetPoliciesStatsCommandOutput> {
+  ): Handler<DeleteLifecyclePolicyCommandInput, DeleteLifecyclePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetPoliciesStatsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteLifecyclePolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "OpenSearchServerlessClient";
-    const commandName = "GetPoliciesStatsCommand";
+    const commandName = "DeleteLifecyclePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -136,7 +136,7 @@ export class GetPoliciesStatsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "OpenSearchServerless",
-        operation: "GetPoliciesStats",
+        operation: "DeleteLifecyclePolicy",
       },
     };
     const { requestHandler } = configuration;
@@ -150,15 +150,15 @@ export class GetPoliciesStatsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetPoliciesStatsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetPoliciesStatsCommand(input, context);
+  private serialize(input: DeleteLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteLifecyclePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPoliciesStatsCommandOutput> {
-    return de_GetPoliciesStatsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLifecyclePolicyCommandOutput> {
+    return de_DeleteLifecyclePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -52,11 +52,23 @@ import {
 
 import { BatchGetCollectionCommandInput, BatchGetCollectionCommandOutput } from "./commands/BatchGetCollectionCommand";
 import {
+  BatchGetEffectiveLifecyclePolicyCommandInput,
+  BatchGetEffectiveLifecyclePolicyCommandOutput,
+} from "./commands/BatchGetEffectiveLifecyclePolicyCommand";
+import {
+  BatchGetLifecyclePolicyCommandInput,
+  BatchGetLifecyclePolicyCommandOutput,
+} from "./commands/BatchGetLifecyclePolicyCommand";
+import {
   BatchGetVpcEndpointCommandInput,
   BatchGetVpcEndpointCommandOutput,
 } from "./commands/BatchGetVpcEndpointCommand";
 import { CreateAccessPolicyCommandInput, CreateAccessPolicyCommandOutput } from "./commands/CreateAccessPolicyCommand";
 import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand";
+import {
+  CreateLifecyclePolicyCommandInput,
+  CreateLifecyclePolicyCommandOutput,
+} from "./commands/CreateLifecyclePolicyCommand";
 import {
   CreateSecurityConfigCommandInput,
   CreateSecurityConfigCommandOutput,
@@ -68,6 +80,10 @@ import {
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
 import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "./commands/DeleteAccessPolicyCommand";
 import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "./commands/DeleteCollectionCommand";
+import {
+  DeleteLifecyclePolicyCommandInput,
+  DeleteLifecyclePolicyCommandOutput,
+} from "./commands/DeleteLifecyclePolicyCommand";
 import {
   DeleteSecurityConfigCommandInput,
   DeleteSecurityConfigCommandOutput,
@@ -84,6 +100,10 @@ import { GetSecurityConfigCommandInput, GetSecurityConfigCommandOutput } from ".
 import { GetSecurityPolicyCommandInput, GetSecurityPolicyCommandOutput } from "./commands/GetSecurityPolicyCommand";
 import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "./commands/ListAccessPoliciesCommand";
 import { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "./commands/ListCollectionsCommand";
+import {
+  ListLifecyclePoliciesCommandInput,
+  ListLifecyclePoliciesCommandOutput,
+} from "./commands/ListLifecyclePoliciesCommand";
 import {
   ListSecurityConfigsCommandInput,
   ListSecurityConfigsCommandOutput,
@@ -105,6 +125,10 @@ import {
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
 import { UpdateCollectionCommandInput, UpdateCollectionCommandOutput } from "./commands/UpdateCollectionCommand";
+import {
+  UpdateLifecyclePolicyCommandInput,
+  UpdateLifecyclePolicyCommandOutput,
+} from "./commands/UpdateLifecyclePolicyCommand";
 import {
   UpdateSecurityConfigCommandInput,
   UpdateSecurityConfigCommandOutput,
@@ -130,14 +154,18 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | BatchGetCollectionCommandInput
+  | BatchGetEffectiveLifecyclePolicyCommandInput
+  | BatchGetLifecyclePolicyCommandInput
   | BatchGetVpcEndpointCommandInput
   | CreateAccessPolicyCommandInput
   | CreateCollectionCommandInput
+  | CreateLifecyclePolicyCommandInput
   | CreateSecurityConfigCommandInput
   | CreateSecurityPolicyCommandInput
   | CreateVpcEndpointCommandInput
   | DeleteAccessPolicyCommandInput
   | DeleteCollectionCommandInput
+  | DeleteLifecyclePolicyCommandInput
   | DeleteSecurityConfigCommandInput
   | DeleteSecurityPolicyCommandInput
   | DeleteVpcEndpointCommandInput
@@ -148,6 +176,7 @@ export type ServiceInputTypes =
   | GetSecurityPolicyCommandInput
   | ListAccessPoliciesCommandInput
   | ListCollectionsCommandInput
+  | ListLifecyclePoliciesCommandInput
   | ListSecurityConfigsCommandInput
   | ListSecurityPoliciesCommandInput
   | ListTagsForResourceCommandInput
@@ -157,6 +186,7 @@ export type ServiceInputTypes =
   | UpdateAccessPolicyCommandInput
   | UpdateAccountSettingsCommandInput
   | UpdateCollectionCommandInput
+  | UpdateLifecyclePolicyCommandInput
   | UpdateSecurityConfigCommandInput
   | UpdateSecurityPolicyCommandInput
   | UpdateVpcEndpointCommandInput;
@@ -166,14 +196,18 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | BatchGetCollectionCommandOutput
+  | BatchGetEffectiveLifecyclePolicyCommandOutput
+  | BatchGetLifecyclePolicyCommandOutput
   | BatchGetVpcEndpointCommandOutput
   | CreateAccessPolicyCommandOutput
   | CreateCollectionCommandOutput
+  | CreateLifecyclePolicyCommandOutput
   | CreateSecurityConfigCommandOutput
   | CreateSecurityPolicyCommandOutput
   | CreateVpcEndpointCommandOutput
   | DeleteAccessPolicyCommandOutput
   | DeleteCollectionCommandOutput
+  | DeleteLifecyclePolicyCommandOutput
   | DeleteSecurityConfigCommandOutput
   | DeleteSecurityPolicyCommandOutput
   | DeleteVpcEndpointCommandOutput
@@ -184,6 +218,7 @@ export type ServiceOutputTypes =
   | GetSecurityPolicyCommandOutput
   | ListAccessPoliciesCommandOutput
   | ListCollectionsCommandOutput
+  | ListLifecyclePoliciesCommandOutput
   | ListSecurityConfigsCommandOutput
   | ListSecurityPoliciesCommandOutput
   | ListTagsForResourceCommandOutput
@@ -193,6 +228,7 @@ export type ServiceOutputTypes =
   | UpdateAccessPolicyCommandOutput
   | UpdateAccountSettingsCommandOutput
   | UpdateCollectionCommandOutput
+  | UpdateLifecyclePolicyCommandOutput
   | UpdateSecurityConfigCommandOutput
   | UpdateSecurityPolicyCommandOutput
   | UpdateVpcEndpointCommandOutput;

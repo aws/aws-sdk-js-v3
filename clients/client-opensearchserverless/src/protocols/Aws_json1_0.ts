@@ -20,11 +20,23 @@ import { v4 as generateIdempotencyToken } from "uuid";
 
 import { BatchGetCollectionCommandInput, BatchGetCollectionCommandOutput } from "../commands/BatchGetCollectionCommand";
 import {
+  BatchGetEffectiveLifecyclePolicyCommandInput,
+  BatchGetEffectiveLifecyclePolicyCommandOutput,
+} from "../commands/BatchGetEffectiveLifecyclePolicyCommand";
+import {
+  BatchGetLifecyclePolicyCommandInput,
+  BatchGetLifecyclePolicyCommandOutput,
+} from "../commands/BatchGetLifecyclePolicyCommand";
+import {
   BatchGetVpcEndpointCommandInput,
   BatchGetVpcEndpointCommandOutput,
 } from "../commands/BatchGetVpcEndpointCommand";
 import { CreateAccessPolicyCommandInput, CreateAccessPolicyCommandOutput } from "../commands/CreateAccessPolicyCommand";
 import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "../commands/CreateCollectionCommand";
+import {
+  CreateLifecyclePolicyCommandInput,
+  CreateLifecyclePolicyCommandOutput,
+} from "../commands/CreateLifecyclePolicyCommand";
 import {
   CreateSecurityConfigCommandInput,
   CreateSecurityConfigCommandOutput,
@@ -36,6 +48,10 @@ import {
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "../commands/CreateVpcEndpointCommand";
 import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "../commands/DeleteAccessPolicyCommand";
 import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "../commands/DeleteCollectionCommand";
+import {
+  DeleteLifecyclePolicyCommandInput,
+  DeleteLifecyclePolicyCommandOutput,
+} from "../commands/DeleteLifecyclePolicyCommand";
 import {
   DeleteSecurityConfigCommandInput,
   DeleteSecurityConfigCommandOutput,
@@ -52,6 +68,10 @@ import { GetSecurityConfigCommandInput, GetSecurityConfigCommandOutput } from ".
 import { GetSecurityPolicyCommandInput, GetSecurityPolicyCommandOutput } from "../commands/GetSecurityPolicyCommand";
 import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "../commands/ListAccessPoliciesCommand";
 import { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "../commands/ListCollectionsCommand";
+import {
+  ListLifecyclePoliciesCommandInput,
+  ListLifecyclePoliciesCommandOutput,
+} from "../commands/ListLifecyclePoliciesCommand";
 import {
   ListSecurityConfigsCommandInput,
   ListSecurityConfigsCommandOutput,
@@ -74,6 +94,10 @@ import {
 } from "../commands/UpdateAccountSettingsCommand";
 import { UpdateCollectionCommandInput, UpdateCollectionCommandOutput } from "../commands/UpdateCollectionCommand";
 import {
+  UpdateLifecyclePolicyCommandInput,
+  UpdateLifecyclePolicyCommandOutput,
+} from "../commands/UpdateLifecyclePolicyCommand";
+import {
   UpdateSecurityConfigCommandInput,
   UpdateSecurityConfigCommandOutput,
 } from "../commands/UpdateSecurityConfigCommand";
@@ -85,6 +109,9 @@ import { UpdateVpcEndpointCommandInput, UpdateVpcEndpointCommandOutput } from ".
 import {
   AccessPolicyDetail,
   BatchGetCollectionRequest,
+  BatchGetEffectiveLifecyclePolicyRequest,
+  BatchGetLifecyclePolicyRequest,
+  BatchGetLifecyclePolicyResponse,
   BatchGetVpcEndpointRequest,
   CapacityLimits,
   CollectionFilters,
@@ -92,12 +119,15 @@ import {
   CreateAccessPolicyRequest,
   CreateAccessPolicyResponse,
   CreateCollectionRequest,
+  CreateLifecyclePolicyRequest,
+  CreateLifecyclePolicyResponse,
   CreateSecurityConfigRequest,
   CreateSecurityPolicyRequest,
   CreateSecurityPolicyResponse,
   CreateVpcEndpointRequest,
   DeleteAccessPolicyRequest,
   DeleteCollectionRequest,
+  DeleteLifecyclePolicyRequest,
   DeleteSecurityConfigRequest,
   DeleteSecurityPolicyRequest,
   DeleteVpcEndpointRequest,
@@ -109,8 +139,12 @@ import {
   GetSecurityPolicyRequest,
   GetSecurityPolicyResponse,
   InternalServerException,
+  LifecyclePolicyDetail,
+  LifecyclePolicyIdentifier,
+  LifecyclePolicyResourceIdentifier,
   ListAccessPoliciesRequest,
   ListCollectionsRequest,
+  ListLifecyclePoliciesRequest,
   ListSecurityConfigsRequest,
   ListSecurityPoliciesRequest,
   ListTagsForResourceRequest,
@@ -127,6 +161,8 @@ import {
   UpdateAccessPolicyResponse,
   UpdateAccountSettingsRequest,
   UpdateCollectionRequest,
+  UpdateLifecyclePolicyRequest,
+  UpdateLifecyclePolicyResponse,
   UpdateSecurityConfigRequest,
   UpdateSecurityPolicyRequest,
   UpdateSecurityPolicyResponse,
@@ -144,6 +180,32 @@ export const se_BatchGetCollectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetCollection");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0BatchGetEffectiveLifecyclePolicyCommand
+ */
+export const se_BatchGetEffectiveLifecyclePolicyCommand = async (
+  input: BatchGetEffectiveLifecyclePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchGetEffectiveLifecyclePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0BatchGetLifecyclePolicyCommand
+ */
+export const se_BatchGetLifecyclePolicyCommand = async (
+  input: BatchGetLifecyclePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchGetLifecyclePolicy");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -185,6 +247,19 @@ export const se_CreateCollectionCommand = async (
   const headers: __HeaderBag = sharedHeaders("CreateCollection");
   let body: any;
   body = JSON.stringify(se_CreateCollectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0CreateLifecyclePolicyCommand
+ */
+export const se_CreateLifecyclePolicyCommand = async (
+  input: CreateLifecyclePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateLifecyclePolicy");
+  let body: any;
+  body = JSON.stringify(se_CreateLifecyclePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -250,6 +325,19 @@ export const se_DeleteCollectionCommand = async (
   const headers: __HeaderBag = sharedHeaders("DeleteCollection");
   let body: any;
   body = JSON.stringify(se_DeleteCollectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteLifecyclePolicyCommand
+ */
+export const se_DeleteLifecyclePolicyCommand = async (
+  input: DeleteLifecyclePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteLifecyclePolicy");
+  let body: any;
+  body = JSON.stringify(se_DeleteLifecyclePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -384,6 +472,19 @@ export const se_ListCollectionsCommand = async (
 };
 
 /**
+ * serializeAws_json1_0ListLifecyclePoliciesCommand
+ */
+export const se_ListLifecyclePoliciesCommand = async (
+  input: ListLifecyclePoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListLifecyclePolicies");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListSecurityConfigsCommand
  */
 export const se_ListSecurityConfigsCommand = async (
@@ -501,6 +602,19 @@ export const se_UpdateCollectionCommand = async (
 };
 
 /**
+ * serializeAws_json1_0UpdateLifecyclePolicyCommand
+ */
+export const se_UpdateLifecyclePolicyCommand = async (
+  input: UpdateLifecyclePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateLifecyclePolicy");
+  let body: any;
+  body = JSON.stringify(se_UpdateLifecyclePolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0UpdateSecurityConfigCommand
  */
 export const se_UpdateSecurityConfigCommand = async (
@@ -566,6 +680,104 @@ const de_BatchGetCollectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetCollectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.opensearchserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearchserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0BatchGetEffectiveLifecyclePolicyCommand
+ */
+export const de_BatchGetEffectiveLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetEffectiveLifecyclePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_BatchGetEffectiveLifecyclePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: BatchGetEffectiveLifecyclePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0BatchGetEffectiveLifecyclePolicyCommandError
+ */
+const de_BatchGetEffectiveLifecyclePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetEffectiveLifecyclePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.opensearchserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearchserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0BatchGetLifecyclePolicyCommand
+ */
+export const de_BatchGetLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetLifecyclePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_BatchGetLifecyclePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetLifecyclePolicyResponse(data, context);
+  const response: BatchGetLifecyclePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0BatchGetLifecyclePolicyCommandError
+ */
+const de_BatchGetLifecyclePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -734,6 +946,61 @@ const de_CreateCollectionCommandError = async (
     case "OcuLimitExceededException":
     case "com.amazonaws.opensearchserverless#OcuLimitExceededException":
       throw await de_OcuLimitExceededExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearchserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0CreateLifecyclePolicyCommand
+ */
+export const de_CreateLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLifecyclePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateLifecyclePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateLifecyclePolicyResponse(data, context);
+  const response: CreateLifecyclePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CreateLifecyclePolicyCommandError
+ */
+const de_CreateLifecyclePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLifecyclePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.opensearchserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.opensearchserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -997,6 +1264,61 @@ const de_DeleteCollectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCollectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.opensearchserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.opensearchserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearchserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DeleteLifecyclePolicyCommand
+ */
+export const de_DeleteLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLifecyclePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteLifecyclePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteLifecyclePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteLifecyclePolicyCommandError
+ */
+const de_DeleteLifecyclePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1540,6 +1862,55 @@ const de_ListCollectionsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0ListLifecyclePoliciesCommand
+ */
+export const de_ListLifecyclePoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecyclePoliciesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListLifecyclePoliciesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListLifecyclePoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListLifecyclePoliciesCommandError
+ */
+const de_ListLifecyclePoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecyclePoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.opensearchserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearchserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0ListSecurityConfigsCommand
  */
 export const de_ListSecurityConfigsCommand = async (
@@ -2008,6 +2379,64 @@ const de_UpdateCollectionCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0UpdateLifecyclePolicyCommand
+ */
+export const de_UpdateLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLifecyclePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateLifecyclePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateLifecyclePolicyResponse(data, context);
+  const response: UpdateLifecyclePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateLifecyclePolicyCommandError
+ */
+const de_UpdateLifecyclePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLifecyclePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.opensearchserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.opensearchserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearchserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0UpdateSecurityConfigCommand
  */
 export const de_UpdateSecurityConfigCommand = async (
@@ -2264,6 +2693,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_BatchGetCollectionRequest omitted.
 
+// se_BatchGetEffectiveLifecyclePolicyRequest omitted.
+
+// se_BatchGetLifecyclePolicyRequest omitted.
+
 // se_BatchGetVpcEndpointRequest omitted.
 
 // se_CapacityLimits omitted.
@@ -2296,6 +2729,19 @@ const se_CreateCollectionRequest = (input: CreateCollectionRequest, context: __S
     description: [],
     name: [],
     tags: _json,
+    type: [],
+  });
+};
+
+/**
+ * serializeAws_json1_0CreateLifecyclePolicyRequest
+ */
+const se_CreateLifecyclePolicyRequest = (input: CreateLifecyclePolicyRequest, context: __SerdeContext): any => {
+  return take(input, {
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    description: [],
+    name: [],
+    policy: [],
     type: [],
   });
 };
@@ -2361,6 +2807,17 @@ const se_DeleteCollectionRequest = (input: DeleteCollectionRequest, context: __S
 };
 
 /**
+ * serializeAws_json1_0DeleteLifecyclePolicyRequest
+ */
+const se_DeleteLifecyclePolicyRequest = (input: DeleteLifecyclePolicyRequest, context: __SerdeContext): any => {
+  return take(input, {
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    name: [],
+    type: [],
+  });
+};
+
+/**
  * serializeAws_json1_0DeleteSecurityConfigRequest
  */
 const se_DeleteSecurityConfigRequest = (input: DeleteSecurityConfigRequest, context: __SerdeContext): any => {
@@ -2401,9 +2858,21 @@ const se_DeleteVpcEndpointRequest = (input: DeleteVpcEndpointRequest, context: _
 
 // se_GetSecurityPolicyRequest omitted.
 
+// se_LifecyclePolicyIdentifier omitted.
+
+// se_LifecyclePolicyIdentifiers omitted.
+
+// se_LifecyclePolicyResourceIdentifier omitted.
+
+// se_LifecyclePolicyResourceIdentifiers omitted.
+
+// se_LifecycleResourceFilter omitted.
+
 // se_ListAccessPoliciesRequest omitted.
 
 // se_ListCollectionsRequest omitted.
+
+// se_ListLifecyclePoliciesRequest omitted.
 
 // se_ListSecurityConfigsRequest omitted.
 
@@ -2455,6 +2924,20 @@ const se_UpdateCollectionRequest = (input: UpdateCollectionRequest, context: __S
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
     id: [],
+  });
+};
+
+/**
+ * serializeAws_json1_0UpdateLifecyclePolicyRequest
+ */
+const se_UpdateLifecyclePolicyRequest = (input: UpdateLifecyclePolicyRequest, context: __SerdeContext): any => {
+  return take(input, {
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    description: [],
+    name: [],
+    policy: [],
+    policyVersion: [],
+    type: [],
   });
 };
 
@@ -2528,6 +3011,18 @@ const de_AccessPolicyDetail = (output: any, context: __SerdeContext): AccessPoli
 
 // de_BatchGetCollectionResponse omitted.
 
+// de_BatchGetEffectiveLifecyclePolicyResponse omitted.
+
+/**
+ * deserializeAws_json1_0BatchGetLifecyclePolicyResponse
+ */
+const de_BatchGetLifecyclePolicyResponse = (output: any, context: __SerdeContext): BatchGetLifecyclePolicyResponse => {
+  return take(output, {
+    lifecyclePolicyDetails: (_: any) => de_LifecyclePolicyDetails(_, context),
+    lifecyclePolicyErrorDetails: _json,
+  }) as any;
+};
+
 // de_BatchGetVpcEndpointResponse omitted.
 
 // de_CapacityLimits omitted.
@@ -2559,6 +3054,15 @@ const de_CreateAccessPolicyResponse = (output: any, context: __SerdeContext): Cr
 
 // de_CreateCollectionResponse omitted.
 
+/**
+ * deserializeAws_json1_0CreateLifecyclePolicyResponse
+ */
+const de_CreateLifecyclePolicyResponse = (output: any, context: __SerdeContext): CreateLifecyclePolicyResponse => {
+  return take(output, {
+    lifecyclePolicyDetail: (_: any) => de_LifecyclePolicyDetail(_, context),
+  }) as any;
+};
+
 // de_CreateSecurityConfigResponse omitted.
 
 /**
@@ -2580,6 +3084,8 @@ const de_CreateSecurityPolicyResponse = (output: any, context: __SerdeContext): 
 
 // de_DeleteCollectionResponse omitted.
 
+// de_DeleteLifecyclePolicyResponse omitted.
+
 // de_DeleteSecurityConfigResponse omitted.
 
 // de_DeleteSecurityPolicyResponse omitted.
@@ -2587,6 +3093,14 @@ const de_CreateSecurityPolicyResponse = (output: any, context: __SerdeContext): 
 // de_DeleteVpcEndpointDetail omitted.
 
 // de_DeleteVpcEndpointResponse omitted.
+
+// de_EffectiveLifecyclePolicyDetail omitted.
+
+// de_EffectiveLifecyclePolicyDetails omitted.
+
+// de_EffectiveLifecyclePolicyErrorDetail omitted.
+
+// de_EffectiveLifecyclePolicyErrorDetails omitted.
 
 /**
  * deserializeAws_json1_0GetAccessPolicyResponse
@@ -2614,9 +3128,48 @@ const de_GetSecurityPolicyResponse = (output: any, context: __SerdeContext): Get
 
 // de_InternalServerException omitted.
 
+/**
+ * deserializeAws_json1_0LifecyclePolicyDetail
+ */
+const de_LifecyclePolicyDetail = (output: any, context: __SerdeContext): LifecyclePolicyDetail => {
+  return take(output, {
+    createdDate: __expectLong,
+    description: __expectString,
+    lastModifiedDate: __expectLong,
+    name: __expectString,
+    policy: (_: any) => de_Document(_, context),
+    policyVersion: __expectString,
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0LifecyclePolicyDetails
+ */
+const de_LifecyclePolicyDetails = (output: any, context: __SerdeContext): LifecyclePolicyDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LifecyclePolicyDetail(entry, context);
+    });
+  return retVal;
+};
+
+// de_LifecyclePolicyErrorDetail omitted.
+
+// de_LifecyclePolicyErrorDetails omitted.
+
+// de_LifecyclePolicyStats omitted.
+
+// de_LifecyclePolicySummaries omitted.
+
+// de_LifecyclePolicySummary omitted.
+
 // de_ListAccessPoliciesResponse omitted.
 
 // de_ListCollectionsResponse omitted.
+
+// de_ListLifecyclePoliciesResponse omitted.
 
 // de_ListSecurityConfigsResponse omitted.
 
@@ -2689,6 +3242,15 @@ const de_UpdateAccessPolicyResponse = (output: any, context: __SerdeContext): Up
 // de_UpdateCollectionDetail omitted.
 
 // de_UpdateCollectionResponse omitted.
+
+/**
+ * deserializeAws_json1_0UpdateLifecyclePolicyResponse
+ */
+const de_UpdateLifecyclePolicyResponse = (output: any, context: __SerdeContext): UpdateLifecyclePolicyResponse => {
+  return take(output, {
+    lifecyclePolicyDetail: (_: any) => de_LifecyclePolicyDetail(_, context),
+  }) as any;
+};
 
 // de_UpdateSecurityConfigResponse omitted.
 

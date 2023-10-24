@@ -14,13 +14,13 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { GetPoliciesStatsRequest, GetPoliciesStatsResponse } from "../models/models_0";
+import { ListLifecyclePoliciesRequest, ListLifecyclePoliciesResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { de_GetPoliciesStatsCommand, se_GetPoliciesStatsCommand } from "../protocols/Aws_json1_0";
+import { de_ListLifecyclePoliciesCommand, se_ListLifecyclePoliciesCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -29,64 +29,71 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetPoliciesStatsCommand}.
+ * The input for {@link ListLifecyclePoliciesCommand}.
  */
-export interface GetPoliciesStatsCommandInput extends GetPoliciesStatsRequest {}
+export interface ListLifecyclePoliciesCommandInput extends ListLifecyclePoliciesRequest {}
 /**
  * @public
  *
- * The output of {@link GetPoliciesStatsCommand}.
+ * The output of {@link ListLifecyclePoliciesCommand}.
  */
-export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse, __MetadataBearer {}
+export interface ListLifecyclePoliciesCommandOutput extends ListLifecyclePoliciesResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns statistical information about your OpenSearch Serverless access policies, security
- *             configurations, and security policies.</p>
+ * <p>Returns a list of OpenSearch Serverless lifecycle policies. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list">Viewing data lifecycle policies</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, GetPoliciesStatsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, GetPoliciesStatsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, ListLifecyclePoliciesCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
+ * // const { OpenSearchServerlessClient, ListLifecyclePoliciesCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {};
- * const command = new GetPoliciesStatsCommand(input);
+ * const input = { // ListLifecyclePoliciesRequest
+ *   type: "STRING_VALUE", // required
+ *   resources: [ // LifecycleResourceFilter
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
+ * const command = new ListLifecyclePoliciesCommand(input);
  * const response = await client.send(command);
- * // { // GetPoliciesStatsResponse
- * //   AccessPolicyStats: { // AccessPolicyStats
- * //     DataPolicyCount: Number("long"),
- * //   },
- * //   SecurityPolicyStats: { // SecurityPolicyStats
- * //     EncryptionPolicyCount: Number("long"),
- * //     NetworkPolicyCount: Number("long"),
- * //   },
- * //   SecurityConfigStats: { // SecurityConfigStats
- * //     SamlConfigCount: Number("long"),
- * //   },
- * //   LifecyclePolicyStats: { // LifecyclePolicyStats
- * //     RetentionPolicyCount: Number("long"),
- * //   },
- * //   TotalPolicyCount: Number("long"),
+ * // { // ListLifecyclePoliciesResponse
+ * //   lifecyclePolicySummaries: [ // LifecyclePolicySummaries
+ * //     { // LifecyclePolicySummary
+ * //       type: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       policyVersion: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       createdDate: Number("long"),
+ * //       lastModifiedDate: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetPoliciesStatsCommandInput - {@link GetPoliciesStatsCommandInput}
- * @returns {@link GetPoliciesStatsCommandOutput}
- * @see {@link GetPoliciesStatsCommandInput} for command's `input` shape.
- * @see {@link GetPoliciesStatsCommandOutput} for command's `response` shape.
+ * @param ListLifecyclePoliciesCommandInput - {@link ListLifecyclePoliciesCommandInput}
+ * @returns {@link ListLifecyclePoliciesCommandOutput}
+ * @see {@link ListLifecyclePoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListLifecyclePoliciesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
-export class GetPoliciesStatsCommand extends $Command<
-  GetPoliciesStatsCommandInput,
-  GetPoliciesStatsCommandOutput,
+export class ListLifecyclePoliciesCommand extends $Command<
+  ListLifecyclePoliciesCommandInput,
+  ListLifecyclePoliciesCommandOutput,
   OpenSearchServerlessClientResolvedConfig
 > {
   // Start section: command_properties
@@ -104,7 +111,7 @@ export class GetPoliciesStatsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetPoliciesStatsCommandInput) {
+  constructor(readonly input: ListLifecyclePoliciesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -117,17 +124,17 @@ export class GetPoliciesStatsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpenSearchServerlessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetPoliciesStatsCommandInput, GetPoliciesStatsCommandOutput> {
+  ): Handler<ListLifecyclePoliciesCommandInput, ListLifecyclePoliciesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetPoliciesStatsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListLifecyclePoliciesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "OpenSearchServerlessClient";
-    const commandName = "GetPoliciesStatsCommand";
+    const commandName = "ListLifecyclePoliciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -136,7 +143,7 @@ export class GetPoliciesStatsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "OpenSearchServerless",
-        operation: "GetPoliciesStats",
+        operation: "ListLifecyclePolicies",
       },
     };
     const { requestHandler } = configuration;
@@ -150,15 +157,15 @@ export class GetPoliciesStatsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetPoliciesStatsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetPoliciesStatsCommand(input, context);
+  private serialize(input: ListLifecyclePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListLifecyclePoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPoliciesStatsCommandOutput> {
-    return de_GetPoliciesStatsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLifecyclePoliciesCommandOutput> {
+    return de_ListLifecyclePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

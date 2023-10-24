@@ -222,6 +222,22 @@ BatchGetCollection
 </details>
 <details>
 <summary>
+BatchGetEffectiveLifecyclePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/classes/batchgeteffectivelifecyclepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/batchgeteffectivelifecyclepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/batchgeteffectivelifecyclepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchGetLifecyclePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/classes/batchgetlifecyclepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/batchgetlifecyclepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/batchgetlifecyclepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
 BatchGetVpcEndpoint
 </summary>
 
@@ -242,6 +258,14 @@ CreateCollection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/classes/createcollectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/createcollectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/createcollectioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateLifecyclePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/classes/createlifecyclepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/createlifecyclepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/createlifecyclepolicycommandoutput.html)
 
 </details>
 <details>
@@ -282,6 +306,14 @@ DeleteCollection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/classes/deletecollectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/deletecollectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/deletecollectioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteLifecyclePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/classes/deletelifecyclepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/deletelifecyclepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/deletelifecyclepolicycommandoutput.html)
 
 </details>
 <details>
@@ -366,6 +398,14 @@ ListCollections
 </details>
 <details>
 <summary>
+ListLifecyclePolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/classes/listlifecyclepoliciescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/listlifecyclepoliciescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/listlifecyclepoliciescommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListSecurityConfigs
 </summary>
 
@@ -434,6 +474,14 @@ UpdateCollection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/classes/updatecollectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/updatecollectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/updatecollectioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateLifecyclePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/classes/updatelifecyclepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/updatelifecyclepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/interfaces/updatelifecyclepolicycommandoutput.html)
 
 </details>
 <details>
