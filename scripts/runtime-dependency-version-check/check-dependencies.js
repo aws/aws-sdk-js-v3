@@ -11,6 +11,8 @@ const packages = path.join(root, "packages");
 const walk = require("../utils/walk");
 
 (async () => {
+  const errors = [];
+
   for (const folder of fs.readdirSync(packages)) {
     if (folder === "util-dynamodb") {
       // exempt
@@ -32,9 +34,24 @@ const walk = require("../utils/walk");
         continue;
       }
 
+      const importedDependencies = [];
+      importedDependencies.push(
+        ...new Set(
+          [...(contents.toString().match(/from "(@(aws-sdk|smithy)\/.*?)"/g) || [])]
+            .slice(1)
+            .map((_) => _.replace(/from "/g, "").replace(/"$/, ""))
+        )
+      );
+
+      for (const dependency of importedDependencies) {
+        if (!(dependency in pkgJson.dependencies) && dependency !== pkgJson.name) {
+          errors.push(`${dependency} undeclared but imported in ${pkgJson.name} ${file}}`);
+        }
+      }
+
       for (const [dep, version] of Object.entries(pkgJson.devDependencies ?? {})) {
         if ((dep.startsWith("@smithy") || dep.startsWith("@aws-sdk")) && contents.includes(`from "${dep}";`)) {
-          console.warn(`${dep} incorrectly declared in devDependencies of ${folder}`);
+          errors.push(`${dep} incorrectly declared in devDependencies of ${folder}`);
           delete pkgJson.devDependencies[dep];
           if (!pkgJson.dependencies) {
             pkgJson.dependencies = {};
@@ -45,5 +62,9 @@ const walk = require("../utils/walk");
         }
       }
     }
+  }
+
+  if (errors.length) {
+    throw new Error(errors.join("\n"));
   }
 })();
