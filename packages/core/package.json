@@ -4,11 +4,12 @@
   "description": "Core functions & classes shared by multiple AWS SDK clients",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json && yarn lint",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "lint": "node ./scripts/lint.js",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "test": "jest --passWithNoTests"
@@ -16,6 +17,21 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist-cjs/index.js",
+      "require": "./dist-cjs/index.js"
+    },
+    "./client": {
+      "import": "./dist-cjs/client/index.js",
+      "require": "./dist-cjs/client/index.js"
+    },
+    "./protocols": {
+      "import": "./dist-cjs/protocols/index.js",
+      "require": "./dist-cjs/protocols/index.js"
+    }
+  },
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
