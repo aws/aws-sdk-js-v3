@@ -10,16 +10,18 @@ import { RDSDataClientConfig } from "./RDSDataClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: RDSDataClientConfig) => ({
-  apiVersion: "2018-08-01",
-  base64Decoder: config?.base64Decoder ?? fromBase64,
-  base64Encoder: config?.base64Encoder ?? toBase64,
-  disableHostPrefix: config?.disableHostPrefix ?? false,
-  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
-  extensions: config?.extensions ?? [],
-  logger: config?.logger ?? new NoOpLogger(),
-  serviceId: config?.serviceId ?? "RDS Data",
-  urlParser: config?.urlParser ?? parseUrl,
-  utf8Decoder: config?.utf8Decoder ?? fromUtf8,
-  utf8Encoder: config?.utf8Encoder ?? toUtf8,
-});
+export const getRuntimeConfig = (config: RDSDataClientConfig) => {
+  return {
+    apiVersion: "2018-08-01",
+    base64Decoder: config?.base64Decoder ?? fromBase64,
+    base64Encoder: config?.base64Encoder ?? toBase64,
+    disableHostPrefix: config?.disableHostPrefix ?? false,
+    endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
+    extensions: config?.extensions ?? [],
+    logger: config?.logger ?? new NoOpLogger(),
+    serviceId: config?.serviceId ?? "RDS Data",
+    urlParser: config?.urlParser ?? parseUrl,
+    utf8Decoder: config?.utf8Decoder ?? fromUtf8,
+    utf8Encoder: config?.utf8Encoder ?? toUtf8,
+  };
+};

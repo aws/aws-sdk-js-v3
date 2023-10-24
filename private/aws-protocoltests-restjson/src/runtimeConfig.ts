@@ -2,6 +2,7 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
+import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
@@ -29,6 +30,7 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
+  awsCheckVersion(process.version);
   return {
     ...clientSharedValues,
     ...config,

@@ -11,17 +11,19 @@ import { SageMakerGeospatialClientConfig } from "./SageMakerGeospatialClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SageMakerGeospatialClientConfig) => ({
-  apiVersion: "2020-05-27",
-  base64Decoder: config?.base64Decoder ?? fromBase64,
-  base64Encoder: config?.base64Encoder ?? toBase64,
-  disableHostPrefix: config?.disableHostPrefix ?? false,
-  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
-  extensions: config?.extensions ?? [],
-  logger: config?.logger ?? new NoOpLogger(),
-  sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
-  serviceId: config?.serviceId ?? "SageMaker Geospatial",
-  urlParser: config?.urlParser ?? parseUrl,
-  utf8Decoder: config?.utf8Decoder ?? fromUtf8,
-  utf8Encoder: config?.utf8Encoder ?? toUtf8,
-});
+export const getRuntimeConfig = (config: SageMakerGeospatialClientConfig) => {
+  return {
+    apiVersion: "2020-05-27",
+    base64Decoder: config?.base64Decoder ?? fromBase64,
+    base64Encoder: config?.base64Encoder ?? toBase64,
+    disableHostPrefix: config?.disableHostPrefix ?? false,
+    endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
+    extensions: config?.extensions ?? [],
+    logger: config?.logger ?? new NoOpLogger(),
+    sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
+    serviceId: config?.serviceId ?? "SageMaker Geospatial",
+    urlParser: config?.urlParser ?? parseUrl,
+    utf8Decoder: config?.utf8Decoder ?? fromUtf8,
+    utf8Encoder: config?.utf8Encoder ?? toUtf8,
+  };
+};
