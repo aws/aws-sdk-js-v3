@@ -61,6 +61,7 @@ export interface UpdateMissionProfileCommandOutput extends MissionProfileIdRespo
  *   streamsKmsKey: { // KmsKey Union: only one key present
  *     kmsKeyArn: "STRING_VALUE",
  *     kmsAliasArn: "STRING_VALUE",
+ *     kmsAliasName: "STRING_VALUE",
  *   },
  *   streamsKmsRole: "STRING_VALUE",
  * };

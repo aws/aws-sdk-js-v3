@@ -2242,7 +2242,11 @@ export interface EphemerisIdResponse {
  * @public
  * <p>AWS Key Management Service (KMS) Key.</p>
  */
-export type KmsKey = KmsKey.KmsAliasArnMember | KmsKey.KmsKeyArnMember | KmsKey.$UnknownMember;
+export type KmsKey =
+  | KmsKey.KmsAliasArnMember
+  | KmsKey.KmsAliasNameMember
+  | KmsKey.KmsKeyArnMember
+  | KmsKey.$UnknownMember;
 
 /**
  * @public
@@ -2255,6 +2259,7 @@ export namespace KmsKey {
   export interface KmsKeyArnMember {
     kmsKeyArn: string;
     kmsAliasArn?: never;
+    kmsAliasName?: never;
     $unknown?: never;
   }
 
@@ -2265,6 +2270,18 @@ export namespace KmsKey {
   export interface KmsAliasArnMember {
     kmsKeyArn?: never;
     kmsAliasArn: string;
+    kmsAliasName?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>KMS Alias Name.</p>
+   */
+  export interface KmsAliasNameMember {
+    kmsKeyArn?: never;
+    kmsAliasArn?: never;
+    kmsAliasName: string;
     $unknown?: never;
   }
 
@@ -2274,18 +2291,21 @@ export namespace KmsKey {
   export interface $UnknownMember {
     kmsKeyArn?: never;
     kmsAliasArn?: never;
+    kmsAliasName?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     kmsKeyArn: (value: string) => T;
     kmsAliasArn: (value: string) => T;
+    kmsAliasName: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: KmsKey, visitor: Visitor<T>): T => {
     if (value.kmsKeyArn !== undefined) return visitor.kmsKeyArn(value.kmsKeyArn);
     if (value.kmsAliasArn !== undefined) return visitor.kmsAliasArn(value.kmsAliasArn);
+    if (value.kmsAliasName !== undefined) return visitor.kmsAliasName(value.kmsAliasName);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
