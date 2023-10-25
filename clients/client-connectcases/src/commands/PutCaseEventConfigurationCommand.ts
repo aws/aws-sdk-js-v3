@@ -37,7 +37,10 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
 
 /**
  * @public
- * <p>API for adding case event publishing configuration</p>
+ * <p>Adds case event publishing configuration. For a complete list of
+ *       fields you can add to the event message, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html">Create case fields</a> in the
+ *       <i>Amazon Connect Administrator Guide</i>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -47,8 +47,10 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
- * <p>An empty value. You cannot set <code>EmptyFieldValue</code> on a field that is required on a case template.</p>
- *          <p>This structure will never have any data members. It signifies an empty value on a case field.</p>
+ * <p>An empty value. You cannot set <code>EmptyFieldValue</code> on a field that is required on
+ *       a case template.</p>
+ *          <p>This structure will never have any data members. It signifies an empty value on a case
+ *       field.</p>
  */
 export interface EmptyFieldValue {}
 
@@ -2166,8 +2168,7 @@ export interface UpdateLayoutRequest {
 
   /**
    * @public
-   * <p>Information about which fields will be present in the layout, the order of the fields, and
-   *       a read-only attribute of the field. </p>
+   * <p>Information about which fields will be present in the layout, the order of the fields.</p>
    */
   content?: LayoutContent;
 }

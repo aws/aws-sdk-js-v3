@@ -39,25 +39,21 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * @public
  * <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
  *       as an array id/value pairs with a declared data types.</p>
- *          <note>
- *             <p>The following fields are required when creating a case:</p>
+ *           <p>The following fields are required when creating a case:</p>
  *
- *             <ul>
- *                <li>
- *                   <p>
- *                      <code>customer_id</code> - You must provide the full customer profile ARN in this
- *             format: <code>arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles
- *               domain name/profiles/profile ID</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>title</code>
- *                   </p>
- *                </li>
- *             </ul>
- *
- *          </note>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>customer_id</code> - You must provide the full customer profile ARN in this
+ *             format: <code>arn:aws:profile:your_AWS_Region:your_AWS_account ID:domains/your_profiles_domain_name/profiles/profile_ID</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>title</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
