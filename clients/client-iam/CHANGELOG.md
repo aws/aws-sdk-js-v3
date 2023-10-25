@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.436.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.435.0...v3.436.0) (2023-10-25)
+
+
+### Features
+
+* **client-iam:** Updates to GetAccessKeyLastUsed action to replace NoSuchEntity error with AccessDeniedException error. ([6154aab](https://github.com/aws/aws-sdk-js-v3/commit/6154aab5d3dc06199769c8b2dd1ca7668581d3c1))
+
+
+
+
+
 # [3.435.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.434.0...v3.435.0) (2023-10-24)
 
 

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.436.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.435.0...v3.436.0) (2023-10-25)
+
+
+### Features
+
+* **client-connectcases:** Increase maximum length of CommentBody to 3000, and increase maximum length of StringValue to 1500 ([6e15ab2](https://github.com/aws/aws-sdk-js-v3/commit/6e15ab264f98fe5484e0551a6540f0fd91f18957))
+* **client-groundstation:** This release will allow KMS alias names to be used when creating Mission Profiles ([54499b4](https://github.com/aws/aws-sdk-js-v3/commit/54499b4692684390bcd53d60683ef9e6e08e05f5))
+* **client-iam:** Updates to GetAccessKeyLastUsed action to replace NoSuchEntity error with AccessDeniedException error. ([6154aab](https://github.com/aws/aws-sdk-js-v3/commit/6154aab5d3dc06199769c8b2dd1ca7668581d3c1))
+
+
+
+
+
 # [3.435.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.434.0...v3.435.0) (2023-10-24)
 
 

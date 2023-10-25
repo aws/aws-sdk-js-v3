@@ -93,10 +93,11 @@
     tslib "^1.11.1"
 
 "@aws-sdk/client-sts@file:clients/client-sts":
-  version "3.435.0"
+  version "3.436.0"
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"
+    "@aws-sdk/core" "*"
     "@aws-sdk/credential-provider-node" "*"
     "@aws-sdk/middleware-host-header" "*"
     "@aws-sdk/middleware-logger" "*"

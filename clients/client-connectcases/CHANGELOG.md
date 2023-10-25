@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.436.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.435.0...v3.436.0) (2023-10-25)
+
+
+### Features
+
+* **client-connectcases:** Increase maximum length of CommentBody to 3000, and increase maximum length of StringValue to 1500 ([6e15ab2](https://github.com/aws/aws-sdk-js-v3/commit/6e15ab264f98fe5484e0551a6540f0fd91f18957))
+
+
+
+
+
 # [3.435.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.434.0...v3.435.0) (2023-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-connectcases
