@@ -4,6 +4,7 @@ import packageInfo from "../package.json"; // eslint-disable-line
 
 import { bodyChecksumGenerator } from "@aws-sdk/body-checksum-node";
 import { decorateDefaultCredentialProvider } from "@aws-sdk/client-sts";
+import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import {
@@ -32,6 +33,7 @@ export const getRuntimeConfig = (config: GlacierClientConfig) => {
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
+  awsCheckVersion(process.version);
   return {
     ...clientSharedValues,
     ...config,

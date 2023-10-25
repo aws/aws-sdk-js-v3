@@ -24,6 +24,7 @@
     "@aws-sdk/body-checksum-browser": "*",
     "@aws-sdk/body-checksum-node": "*",
     "@aws-sdk/client-sts": "*",
+    "@aws-sdk/core": "*",
     "@aws-sdk/credential-provider-node": "*",
     "@aws-sdk/middleware-host-header": "*",
     "@aws-sdk/middleware-logger": "*",
