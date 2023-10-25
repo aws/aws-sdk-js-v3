@@ -44,9 +44,10 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  *          <p>If the <code>UserName</code> is not specified, the user name is determined implicitly
  *             based on the Amazon Web Services access key ID used to sign the request. If a temporary access key is
  *             used, then <code>UserName</code> is required. If a long-term key is assigned to the
- *             user, then <code>UserName</code> is not required. This operation works for access keys
- *             under the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root user
- *             credentials even if the Amazon Web Services account has no associated users.</p>
+ *             user, then <code>UserName</code> is not required.</p>
+ *          <p>This operation works for access keys under the Amazon Web Services account. If the Amazon Web Services account has
+ *             no associated users, the root user returns it's own access key IDs by running this
+ *             command.</p>
  *          <note>
  *             <p>To ensure the security of your Amazon Web Services account, the secret access key is accessible
  *                 only during key and user creation.</p>

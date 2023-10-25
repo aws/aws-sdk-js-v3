@@ -6225,18 +6225,12 @@ const de_GetAccessKeyLastUsedCommandError = async (
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
 };
 
 /**
