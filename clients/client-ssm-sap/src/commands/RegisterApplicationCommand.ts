@@ -57,7 +57,7 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * const client = new SsmSapClient(config);
  * const input = { // RegisterApplicationInput
  *   ApplicationId: "STRING_VALUE", // required
- *   ApplicationType: "HANA", // required
+ *   ApplicationType: "HANA" || "SAP_ABAP", // required
  *   Instances: [ // InstanceList // required
  *     "STRING_VALUE",
  *   ],
@@ -66,20 +66,21 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Credentials: [ // ApplicationCredentialList // required
+ *   Credentials: [ // ApplicationCredentialList
  *     { // ApplicationCredential
  *       DatabaseName: "STRING_VALUE", // required
  *       CredentialType: "ADMIN", // required
  *       SecretId: "STRING_VALUE", // required
  *     },
  *   ],
+ *   DatabaseArn: "STRING_VALUE",
  * };
  * const command = new RegisterApplicationCommand(input);
  * const response = await client.send(command);
  * // { // RegisterApplicationOutput
  * //   Application: { // Application
  * //     Id: "STRING_VALUE",
- * //     Type: "HANA",
+ * //     Type: "HANA" || "SAP_ABAP",
  * //     Arn: "STRING_VALUE",
  * //     AppRegistryArn: "STRING_VALUE",
  * //     Status: "ACTIVATED" || "STARTING" || "STOPPED" || "STOPPING" || "FAILED" || "REGISTERING" || "DELETING" || "UNKNOWN",
@@ -106,6 +107,9 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource is not available.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>

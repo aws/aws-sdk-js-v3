@@ -54,14 +54,17 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * // { // GetComponentOutput
  * //   Component: { // Component
  * //     ComponentId: "STRING_VALUE",
+ * //     Sid: "STRING_VALUE",
+ * //     SystemNumber: "STRING_VALUE",
  * //     ParentComponent: "STRING_VALUE",
  * //     ChildComponents: [ // ComponentIdList
  * //       "STRING_VALUE",
  * //     ],
  * //     ApplicationId: "STRING_VALUE",
- * //     ComponentType: "HANA" || "HANA_NODE",
+ * //     ComponentType: "HANA" || "HANA_NODE" || "ABAP" || "ASCS" || "DIALOG" || "WEBDISP" || "WD" || "ERS",
  * //     Status: "ACTIVATED" || "STARTING" || "STOPPED" || "STOPPING" || "RUNNING" || "RUNNING_WITH_ERROR" || "UNDEFINED",
  * //     SapHostname: "STRING_VALUE",
+ * //     SapFeature: "STRING_VALUE",
  * //     SapKernelVersion: "STRING_VALUE",
  * //     HdbVersion: "STRING_VALUE",
  * //     Resilience: { // Resilience
@@ -69,10 +72,18 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * //       HsrReplicationMode: "PRIMARY" || "NONE" || "SYNC" || "SYNCMEM" || "ASYNC",
  * //       HsrOperationMode: "PRIMARY" || "LOGREPLAY" || "DELTA_DATASHIPPING" || "LOGREPLAY_READACCESS" || "NONE",
  * //       ClusterStatus: "ONLINE" || "STANDBY" || "MAINTENANCE" || "OFFLINE" || "NONE",
+ * //       EnqueueReplication: true || false,
  * //     },
  * //     AssociatedHost: { // AssociatedHost
  * //       Hostname: "STRING_VALUE",
  * //       Ec2InstanceId: "STRING_VALUE",
+ * //       IpAddresses: [ // IpAddressList
+ * //         { // IpAddressMember
+ * //           IpAddress: "STRING_VALUE",
+ * //           Primary: true || false,
+ * //           AllocationType: "VPC_SUBNET" || "ELASTIC_IP" || "OVERLAY" || "UNKNOWN",
+ * //         },
+ * //       ],
  * //       OsVersion: "STRING_VALUE",
  * //     },
  * //     Databases: [ // DatabaseIdList
@@ -89,6 +100,11 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * //       },
  * //     ],
  * //     PrimaryHost: "STRING_VALUE",
+ * //     DatabaseConnection: { // DatabaseConnection
+ * //       DatabaseConnectionMethod: "DIRECT" || "OVERLAY",
+ * //       DatabaseArn: "STRING_VALUE",
+ * //       ConnectionIp: "STRING_VALUE",
+ * //     },
  * //     LastUpdated: new Date("TIMESTAMP"),
  * //     Arn: "STRING_VALUE",
  * //   },
@@ -107,6 +123,9 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is not authorized.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>

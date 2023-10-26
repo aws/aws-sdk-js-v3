@@ -70,6 +70,9 @@ export interface StartApplicationRefreshCommandOutput extends StartApplicationRe
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource is not available.</p>
  *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is not authorized.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *

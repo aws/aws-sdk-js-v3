@@ -47,6 +47,13 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * const input = { // ListApplicationsInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *       Operator: "Equals" || "GreaterThanOrEquals" || "LessThanOrEquals", // required
+ *     },
+ *   ],
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
@@ -54,7 +61,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * //   Applications: [ // ApplicationSummaryList
  * //     { // ApplicationSummary
  * //       Id: "STRING_VALUE",
- * //       Type: "HANA",
+ * //       DiscoveryStatus: "SUCCESS" || "REGISTRATION_FAILED" || "REFRESH_FAILED" || "REGISTERING" || "DELETING",
+ * //       Type: "HANA" || "SAP_ABAP",
  * //       Arn: "STRING_VALUE",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",

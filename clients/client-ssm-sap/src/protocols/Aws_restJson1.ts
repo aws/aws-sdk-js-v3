@@ -75,6 +75,7 @@ import {
   InternalServerException,
   Operation,
   ResourceNotFoundException,
+  UnauthorizedException,
   ValidationException,
 } from "../models/models_0";
 import { SsmSapServiceException as __BaseException } from "../models/SsmSapServiceException";
@@ -309,6 +310,7 @@ export const se_ListApplicationsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      Filters: (_) => _json(_),
       MaxResults: [],
       NextToken: [],
     })
@@ -492,6 +494,7 @@ export const se_RegisterApplicationCommand = async (
       ApplicationId: [],
       ApplicationType: [],
       Credentials: (_) => _json(_),
+      DatabaseArn: [],
       Instances: (_) => _json(_),
       SapInstanceNumber: [],
       Sid: [],
@@ -619,6 +622,7 @@ export const se_UpdateApplicationSettingsCommand = async (
       Backint: (_) => _json(_),
       CredentialsToAddOrUpdate: (_) => _json(_),
       CredentialsToRemove: (_) => _json(_),
+      DatabaseArn: [],
     })
   );
   return new __HttpRequest({
@@ -718,6 +722,9 @@ const de_DeregisterApplicationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.ssmsap#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.ssmsap#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmsap#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -820,6 +827,9 @@ const de_GetComponentCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.ssmsap#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.ssmsap#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmsap#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1082,6 +1092,9 @@ const de_ListComponentsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmsap#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.ssmsap#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmsap#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1347,6 +1360,9 @@ const de_RegisterApplicationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.ssmsap#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmsap#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmsap#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1403,6 +1419,9 @@ const de_StartApplicationRefreshCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmsap#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.ssmsap#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmsap#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1558,6 +1577,9 @@ const de_UpdateApplicationSettingsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmsap#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.ssmsap#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmsap#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1623,6 +1645,26 @@ const de_ResourceNotFoundExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1UnauthorizedExceptionRes
+ */
+const de_UnauthorizedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnauthorizedException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -1698,6 +1740,7 @@ const de_Component = (output: any, context: __SerdeContext): Component => {
     ChildComponents: _json,
     ComponentId: __expectString,
     ComponentType: __expectString,
+    DatabaseConnection: _json,
     Databases: _json,
     HdbVersion: __expectString,
     Hosts: _json,
@@ -1705,9 +1748,12 @@ const de_Component = (output: any, context: __SerdeContext): Component => {
     ParentComponent: __expectString,
     PrimaryHost: __expectString,
     Resilience: _json,
+    SapFeature: __expectString,
     SapHostname: __expectString,
     SapKernelVersion: __expectString,
+    Sid: __expectString,
     Status: __expectString,
+    SystemNumber: __expectString,
   }) as any;
 };
 
@@ -1736,6 +1782,8 @@ const de_Database = (output: any, context: __SerdeContext): Database => {
   }) as any;
 };
 
+// de_DatabaseConnection omitted.
+
 // de_DatabaseIdList omitted.
 
 // de_DatabaseSummary omitted.
@@ -1745,6 +1793,10 @@ const de_Database = (output: any, context: __SerdeContext): Database => {
 // de_Host omitted.
 
 // de_HostList omitted.
+
+// de_IpAddressList omitted.
+
+// de_IpAddressMember omitted.
 
 /**
  * deserializeAws_restJson1Operation

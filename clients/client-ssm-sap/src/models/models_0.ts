@@ -7,6 +7,22 @@ import { SsmSapServiceException as __BaseException } from "./SsmSapServiceExcept
  * @public
  * @enum
  */
+export const AllocationType = {
+  ELASTIC_IP: "ELASTIC_IP",
+  OVERLAY: "OVERLAY",
+  UNKNOWN: "UNKNOWN",
+  VPC_SUBNET: "VPC_SUBNET",
+} as const;
+
+/**
+ * @public
+ */
+export type AllocationType = (typeof AllocationType)[keyof typeof AllocationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ApplicationDiscoveryStatus = {
   DELETING: "DELETING",
   REFRESH_FAILED: "REFRESH_FAILED",
@@ -46,6 +62,7 @@ export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof Applicat
  */
 export const ApplicationType = {
   HANA: "HANA",
+  SAP_ABAP: "SAP_ABAP",
 } as const;
 
 /**
@@ -165,6 +182,12 @@ export interface ApplicationSummary {
 
   /**
    * @public
+   * <p>The status of the latest discovery.</p>
+   */
+  DiscoveryStatus?: ApplicationDiscoveryStatus;
+
+  /**
+   * @public
    * <p>The type of the application.</p>
    */
   Type?: ApplicationType;
@@ -184,6 +207,30 @@ export interface ApplicationSummary {
 
 /**
  * @public
+ * <p>Provides information of the IP address.</p>
+ */
+export interface IpAddressMember {
+  /**
+   * @public
+   * <p>The IP address.</p>
+   */
+  IpAddress?: string;
+
+  /**
+   * @public
+   * <p>The primary IP address.</p>
+   */
+  Primary?: boolean;
+
+  /**
+   * @public
+   * <p>The type of allocation for the IP address.</p>
+   */
+  AllocationType?: AllocationType;
+}
+
+/**
+ * @public
  * <p>Describes the properties of the associated host.</p>
  */
 export interface AssociatedHost {
@@ -198,6 +245,12 @@ export interface AssociatedHost {
    * <p>The ID of the Amazon EC2 instance.</p>
    */
   Ec2InstanceId?: string;
+
+  /**
+   * @public
+   * <p>The IP addresses of the associated host.</p>
+   */
+  IpAddresses?: IpAddressMember[];
 
   /**
    * @public
@@ -260,14 +313,58 @@ export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
  * @enum
  */
 export const ComponentType = {
+  ABAP: "ABAP",
+  ASCS: "ASCS",
+  DIALOG: "DIALOG",
+  ERS: "ERS",
   HANA: "HANA",
   HANA_NODE: "HANA_NODE",
+  WD: "WD",
+  WEBDISP: "WEBDISP",
 } as const;
 
 /**
  * @public
  */
 export type ComponentType = (typeof ComponentType)[keyof typeof ComponentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatabaseConnectionMethod = {
+  DIRECT: "DIRECT",
+  OVERLAY: "OVERLAY",
+} as const;
+
+/**
+ * @public
+ */
+export type DatabaseConnectionMethod = (typeof DatabaseConnectionMethod)[keyof typeof DatabaseConnectionMethod];
+
+/**
+ * @public
+ * <p>The connection specifications for the database.</p>
+ */
+export interface DatabaseConnection {
+  /**
+   * @public
+   * <p>The method of connection.</p>
+   */
+  DatabaseConnectionMethod?: DatabaseConnectionMethod;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name of the connected SAP HANA database.</p>
+   */
+  DatabaseArn?: string;
+
+  /**
+   * @public
+   * <p>The IP address for connection.</p>
+   */
+  ConnectionIp?: string;
+}
 
 /**
  * @public
@@ -389,6 +486,12 @@ export interface Resilience {
    * <p>The cluster status of the component.</p>
    */
   ClusterStatus?: ClusterStatus;
+
+  /**
+   * @public
+   * <p>Indicates if or not enqueue replication is enabled for the ASCS component.</p>
+   */
+  EnqueueReplication?: boolean;
 }
 
 /**
@@ -423,6 +526,18 @@ export interface Component {
 
   /**
    * @public
+   * <p>The SAP System Identifier of the application component.</p>
+   */
+  Sid?: string;
+
+  /**
+   * @public
+   * <p>The SAP system number of the application component.</p>
+   */
+  SystemNumber?: string;
+
+  /**
+   * @public
    * <p>The parent component of a highly available environment. For example, in a highly
    *          available SAP on AWS workload, the parent component consists of the entire setup,
    *          including the child components.</p>
@@ -452,6 +567,34 @@ export interface Component {
   /**
    * @public
    * <p>The status of the component.</p>
+   *          <ul>
+   *             <li>
+   *                <p>ACTIVATED - this status has been deprecated.</p>
+   *             </li>
+   *             <li>
+   *                <p>STARTING - the component is in the process of being started.</p>
+   *             </li>
+   *             <li>
+   *                <p>STOPPED - the component is not running.</p>
+   *             </li>
+   *             <li>
+   *                <p>STOPPING - the component is in the process of being stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>RUNNING - the component is running.</p>
+   *             </li>
+   *             <li>
+   *                <p>RUNNING_WITH_ERROR - one or more child component(s) of the parent component is not
+   *                running. Call <a href="https://docs.aws.amazon.com/ssmsap/latest/APIReference/API_GetComponent.html">
+   *                      <code>GetComponent</code>
+   *                   </a> to review the status of each child
+   *                component.</p>
+   *             </li>
+   *             <li>
+   *                <p>UNDEFINED - AWS Systems Manager for SAP cannot provide the component status
+   *                based on the discovered information. Verify your SAP application.</p>
+   *             </li>
+   *          </ul>
    */
   Status?: ComponentStatus;
 
@@ -460,6 +603,12 @@ export interface Component {
    * <p>The hostname of the component.</p>
    */
   SapHostname?: string;
+
+  /**
+   * @public
+   * <p>The SAP feature of the component.</p>
+   */
+  SapFeature?: string;
 
   /**
    * @public
@@ -506,6 +655,12 @@ export interface Component {
    * <p>The primary host of the component.</p>
    */
   PrimaryHost?: string;
+
+  /**
+   * @public
+   * <p>The connection specifications for the database of the component.</p>
+   */
+  DatabaseConnection?: DatabaseConnection;
 
   /**
    * @public
@@ -856,6 +1011,28 @@ export interface DeregisterApplicationOutput {}
 
 /**
  * @public
+ * <p>The request is not authorized.</p>
+ */
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const FilterOperator = {
@@ -1170,6 +1347,12 @@ export interface ListApplicationsInput {
    *          results, make another call with the returned nextToken value. </p>
    */
   MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The filter of name, value, and operator.</p>
+   */
+  Filters?: Filter[];
 }
 
 /**
@@ -1432,7 +1615,13 @@ export interface RegisterApplicationInput {
    * @public
    * <p>The credentials of the SAP application.</p>
    */
-  Credentials: ApplicationCredential[] | undefined;
+  Credentials?: ApplicationCredential[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name of the SAP HANA database.</p>
+   */
+  DatabaseArn?: string;
 }
 
 /**
@@ -1546,6 +1735,13 @@ export interface UpdateApplicationSettingsInput {
    * <p>Installation of AWS Backint Agent for SAP HANA.</p>
    */
   Backint?: BackintConfig;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name of the SAP HANA database that replaces the current SAP HANA
+   *          connection with the SAP_ABAP application.</p>
+   */
+  DatabaseArn?: string;
 }
 
 /**

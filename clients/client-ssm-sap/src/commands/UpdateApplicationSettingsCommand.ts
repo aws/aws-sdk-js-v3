@@ -69,6 +69,7 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  *     BackintMode: "AWSBackup", // required
  *     EnsureNoBackupInProcess: true || false, // required
  *   },
+ *   DatabaseArn: "STRING_VALUE",
  * };
  * const command = new UpdateApplicationSettingsCommand(input);
  * const response = await client.send(command);
@@ -95,6 +96,9 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource is not available.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is not authorized.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>

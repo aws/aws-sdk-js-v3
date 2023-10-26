@@ -63,6 +63,9 @@ export interface DeregisterApplicationCommandOutput extends DeregisterApplicatio
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error has occurred.</p>
  *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is not authorized.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *

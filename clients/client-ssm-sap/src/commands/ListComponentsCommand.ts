@@ -56,7 +56,7 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * //     { // ComponentSummary
  * //       ApplicationId: "STRING_VALUE",
  * //       ComponentId: "STRING_VALUE",
- * //       ComponentType: "HANA" || "HANA_NODE",
+ * //       ComponentType: "HANA" || "HANA_NODE" || "ABAP" || "ASCS" || "DIALOG" || "WEBDISP" || "WD" || "ERS",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
@@ -79,6 +79,9 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource is not available.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is not authorized.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>

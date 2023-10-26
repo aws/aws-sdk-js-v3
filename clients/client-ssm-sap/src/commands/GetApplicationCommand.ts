@@ -55,7 +55,7 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * // { // GetApplicationOutput
  * //   Application: { // Application
  * //     Id: "STRING_VALUE",
- * //     Type: "HANA",
+ * //     Type: "HANA" || "SAP_ABAP",
  * //     Arn: "STRING_VALUE",
  * //     AppRegistryArn: "STRING_VALUE",
  * //     Status: "ACTIVATED" || "STARTING" || "STOPPED" || "STOPPING" || "FAILED" || "REGISTERING" || "DELETING" || "UNKNOWN",
