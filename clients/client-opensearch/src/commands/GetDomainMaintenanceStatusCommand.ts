@@ -37,7 +37,7 @@ export interface GetDomainMaintenanceStatusCommandOutput extends GetDomainMainte
 
 /**
  * @public
- * <p>Get the status of the maintenance action.</p>
+ * <p>The status of the maintenance action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -72,6 +72,7 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * //     Created: true || false,
  * //     Deleted: true || false,
  * //     Endpoint: "STRING_VALUE",
+ * //     EndpointV2: "STRING_VALUE",
  * //     Endpoints: { // EndpointsMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -104,6 +105,7 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * //       Throughput: Number("int"),
  * //     },
  * //     AccessPolicies: "STRING_VALUE",
+ * //     IPAddressType: "ipv4" || "dualstack",
  * //     SnapshotOptions: { // SnapshotOptions
  * //       AutomatedSnapshotStartHour: Number("int"),
  * //     },

@@ -97,6 +97,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *     "<keys>": "STRING_VALUE",
  *   },
  *   AccessPolicies: "STRING_VALUE",
+ *   IPAddressType: "ipv4" || "dualstack",
  *   LogPublishingOptions: { // LogPublishingOptions
  *     "<keys>": { // LogPublishingOption
  *       CloudWatchLogsLogGroupArn: "STRING_VALUE",
@@ -236,10 +237,8 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //         PendingDeletion: true || false,
  * //       },
  * //     },
- * //     SnapshotOptions: { // SnapshotOptionsStatus
- * //       Options: { // SnapshotOptions
- * //         AutomatedSnapshotStartHour: Number("int"),
- * //       },
+ * //     IPAddressType: { // IPAddressTypeStatus
+ * //       Options: "ipv4" || "dualstack", // required
  * //       Status: {
  * //         CreationDate: new Date("TIMESTAMP"), // required
  * //         UpdateDate: new Date("TIMESTAMP"), // required
@@ -247,6 +246,12 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //         State: "RequiresIndexDocuments" || "Processing" || "Active", // required
  * //         PendingDeletion: true || false,
  * //       },
+ * //     },
+ * //     SnapshotOptions: { // SnapshotOptionsStatus
+ * //       Options: { // SnapshotOptions
+ * //         AutomatedSnapshotStartHour: Number("int"),
+ * //       },
+ * //       Status: "<OptionStatus>", // required
  * //     },
  * //     VPCOptions: { // VPCDerivedInfoStatus
  * //       Options: { // VPCDerivedInfo

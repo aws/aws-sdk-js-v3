@@ -114,10 +114,8 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * //         PendingDeletion: true || false,
  * //       },
  * //     },
- * //     SnapshotOptions: { // SnapshotOptionsStatus
- * //       Options: { // SnapshotOptions
- * //         AutomatedSnapshotStartHour: Number("int"),
- * //       },
+ * //     IPAddressType: { // IPAddressTypeStatus
+ * //       Options: "ipv4" || "dualstack", // required
  * //       Status: {
  * //         CreationDate: new Date("TIMESTAMP"), // required
  * //         UpdateDate: new Date("TIMESTAMP"), // required
@@ -125,6 +123,12 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * //         State: "RequiresIndexDocuments" || "Processing" || "Active", // required
  * //         PendingDeletion: true || false,
  * //       },
+ * //     },
+ * //     SnapshotOptions: { // SnapshotOptionsStatus
+ * //       Options: { // SnapshotOptions
+ * //         AutomatedSnapshotStartHour: Number("int"),
+ * //       },
+ * //       Status: "<OptionStatus>", // required
  * //     },
  * //     VPCOptions: { // VPCDerivedInfoStatus
  * //       Options: { // VPCDerivedInfo

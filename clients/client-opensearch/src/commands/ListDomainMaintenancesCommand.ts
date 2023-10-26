@@ -37,7 +37,7 @@ export interface ListDomainMaintenancesCommandOutput extends ListDomainMaintenan
 
 /**
  * @public
- * <p>Get the list of the maintenance action.</p>
+ * <p>A list of maintenance actions for the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

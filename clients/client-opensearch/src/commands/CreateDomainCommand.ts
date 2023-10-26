@@ -73,6 +73,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *     Throughput: Number("int"),
  *   },
  *   AccessPolicies: "STRING_VALUE",
+ *   IPAddressType: "ipv4" || "dualstack",
  *   SnapshotOptions: { // SnapshotOptions
  *     AutomatedSnapshotStartHour: Number("int"),
  *   },
@@ -178,6 +179,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //     Created: true || false,
  * //     Deleted: true || false,
  * //     Endpoint: "STRING_VALUE",
+ * //     EndpointV2: "STRING_VALUE",
  * //     Endpoints: { // EndpointsMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -210,6 +212,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //       Throughput: Number("int"),
  * //     },
  * //     AccessPolicies: "STRING_VALUE",
+ * //     IPAddressType: "ipv4" || "dualstack",
  * //     SnapshotOptions: { // SnapshotOptions
  * //       AutomatedSnapshotStartHour: Number("int"),
  * //     },

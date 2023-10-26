@@ -229,6 +229,7 @@ import {
   InternalException,
   InvalidPaginationTokenException,
   InvalidTypeException,
+  IPAddressTypeStatus,
   LimitExceededException,
   LogPublishingOption,
   LogPublishingOptionsStatus,
@@ -447,6 +448,7 @@ export const se_CreateDomainCommand = async (
       EBSOptions: (_) => _json(_),
       EncryptionAtRestOptions: (_) => _json(_),
       EngineVersion: [],
+      IPAddressType: [],
       LogPublishingOptions: (_) => _json(_),
       NodeToNodeEncryptionOptions: (_) => _json(_),
       OffPeakWindowOptions: (_) => _json(_),
@@ -1879,6 +1881,7 @@ export const se_UpdateDomainConfigCommand = async (
       DryRunMode: [],
       EBSOptions: (_) => _json(_),
       EncryptionAtRestOptions: (_) => _json(_),
+      IPAddressType: [],
       LogPublishingOptions: (_) => _json(_),
       NodeToNodeEncryptionOptions: (_) => _json(_),
       OffPeakWindowOptions: (_) => _json(_),
@@ -5973,6 +5976,7 @@ const de_DomainConfig = (output: any, context: __SerdeContext): DomainConfig => 
     EBSOptions: (_: any) => de_EBSOptionsStatus(_, context),
     EncryptionAtRestOptions: (_: any) => de_EncryptionAtRestOptionsStatus(_, context),
     EngineVersion: (_: any) => de_VersionStatus(_, context),
+    IPAddressType: (_: any) => de_IPAddressTypeStatus(_, context),
     LogPublishingOptions: (_: any) => de_LogPublishingOptionsStatus(_, context),
     NodeToNodeEncryptionOptions: (_: any) => de_NodeToNodeEncryptionOptionsStatus(_, context),
     OffPeakWindowOptions: (_: any) => de_OffPeakWindowOptionsStatus(_, context),
@@ -6082,8 +6086,10 @@ const de_DomainStatus = (output: any, context: __SerdeContext): DomainStatus => 
     EBSOptions: _json,
     EncryptionAtRestOptions: _json,
     Endpoint: __expectString,
+    EndpointV2: __expectString,
     Endpoints: _json,
     EngineVersion: __expectString,
+    IPAddressType: __expectString,
     LogPublishingOptions: _json,
     NodeToNodeEncryptionOptions: _json,
     OffPeakWindowOptions: _json,
@@ -6161,6 +6167,16 @@ const de_EncryptionAtRestOptionsStatus = (output: any, context: __SerdeContext):
 // de_InstanceTypeDetails omitted.
 
 // de_InstanceTypeDetailsList omitted.
+
+/**
+ * deserializeAws_restJson1IPAddressTypeStatus
+ */
+const de_IPAddressTypeStatus = (output: any, context: __SerdeContext): IPAddressTypeStatus => {
+  return take(output, {
+    Options: __expectString,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
+};
 
 // de_Issues omitted.
 

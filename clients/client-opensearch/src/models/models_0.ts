@@ -1650,6 +1650,20 @@ export interface EncryptionAtRestOptions {
  * @public
  * @enum
  */
+export const IPAddressType = {
+  DUALSTACK: "dualstack",
+  IPV4: "ipv4",
+} as const;
+
+/**
+ * @public
+ */
+export type IPAddressType = (typeof IPAddressType)[keyof typeof IPAddressType];
+
+/**
+ * @public
+ * @enum
+ */
 export const LogType = {
   AUDIT_LOGS: "AUDIT_LOGS",
   ES_APPLICATION_LOGS: "ES_APPLICATION_LOGS",
@@ -1847,6 +1861,12 @@ export interface CreateDomainRequest {
    *    new domain.</p>
    */
   AccessPolicies?: string;
+
+  /**
+   * @public
+   * <p>The type of IP addresses supported by the endpoint for the domain.</p>
+   */
+  IPAddressType?: IPAddressType;
 
   /**
    * @public
@@ -2113,6 +2133,14 @@ export interface DomainStatus {
 
   /**
    * @public
+   * <p>The domain endpoint to which index and search requests are submitted. For example,
+   *     <code>search-imdb-movies-oopcnjfn6ugo.eu-west-1.es.amazonaws.com</code> or
+   *     <code>doc-imdb-movies-oopcnjfn6u.eu-west-1.es.amazonaws.com</code>.</p>
+   */
+  EndpointV2?: string;
+
+  /**
+   * @public
    * <p>The key-value pair that exists if the OpenSearch Service domain uses VPC endpoints.. Example
    *     <code>key, value</code>:
    *     <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>.</p>
@@ -2159,6 +2187,12 @@ export interface DomainStatus {
    *    domain.</p>
    */
   AccessPolicies?: string;
+
+  /**
+   * @public
+   * <p>The type of IP addresses supported by the endpoint for the domain.</p>
+   */
+  IPAddressType?: IPAddressType;
 
   /**
    * @public
@@ -3553,6 +3587,24 @@ export interface VersionStatus {
 
 /**
  * @public
+ * <p>The IP address type status for the domain.</p>
+ */
+export interface IPAddressTypeStatus {
+  /**
+   * @public
+   * <p>The IP address options for the domain.</p>
+   */
+  Options: IPAddressType | undefined;
+
+  /**
+   * @public
+   * <p>Provides the current status of an entity.</p>
+   */
+  Status: OptionStatus | undefined;
+}
+
+/**
+ * @public
  * <p>The configured log publishing options for the domain and their current status.</p>
  */
 export interface LogPublishingOptionsStatus {
@@ -3689,6 +3741,12 @@ export interface DomainConfig {
    * <p>Specifies the access policies for the domain.</p>
    */
   AccessPolicies?: AccessPoliciesStatus;
+
+  /**
+   * @public
+   * <p>The type of IP addresses supported by the endpoint for the domain.</p>
+   */
+  IPAddressType?: IPAddressTypeStatus;
 
   /**
    * @public
@@ -5175,7 +5233,7 @@ export interface GetDomainMaintenanceStatusRequest {
 
   /**
    * @public
-   * <p>The request id of the maintenance action.</p>
+   * <p>The request ID of the maintenance action.</p>
    */
   MaintenanceId: string | undefined;
 }
@@ -5214,42 +5272,42 @@ export type MaintenanceStatus = (typeof MaintenanceStatus)[keyof typeof Maintena
 
 /**
  * @public
- * <p>The result of a <code>GetDomainMaintenanceStatus</code> request. Contains information about the requested action. </p>
+ * <p>The result of a <code>GetDomainMaintenanceStatus</code> request that information about the requested action.</p>
  */
 export interface GetDomainMaintenanceStatusResponse {
   /**
    * @public
-   * <p>Contains status of the maintenance action.</p>
+   * <p>The status of the maintenance action.</p>
    */
   Status?: MaintenanceStatus;
 
   /**
    * @public
-   * <p>Contains status message of the maintenance action.</p>
+   * <p>The status message of the maintenance action.</p>
    */
   StatusMessage?: string;
 
   /**
    * @public
-   * <p>Contains node id of maintenance action.</p>
+   * <p>The node ID of the maintenance action.</p>
    */
   NodeId?: string;
 
   /**
    * @public
-   * <p>Contains action name.</p>
+   * <p>The action name.</p>
    */
   Action?: MaintenanceType;
 
   /**
    * @public
-   * <p>Contains time at which action created.</p>
+   * <p>The time at which the action was created.</p>
    */
   CreatedAt?: Date;
 
   /**
    * @public
-   * <p>Contains time at which action updated.</p>
+   * <p>The time at which the action was updated.</p>
    */
   UpdatedAt?: Date;
 }
@@ -5588,7 +5646,7 @@ export interface ListDomainMaintenancesRequest {
   /**
    * @public
    * <p>If your initial <code>ListDomainMaintenances</code> operation returns a
-   *    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+   *    <code>nextToken</code>, include the returned <code>nextToken</code> in subsequent
    *    <code>ListDomainMaintenances</code> operations, which returns results in the next page.</p>
    */
   NextToken?: string;
@@ -5601,7 +5659,7 @@ export interface ListDomainMaintenancesRequest {
 export interface DomainMaintenanceDetails {
   /**
    * @public
-   * <p>Id of the requested action.</p>
+   * <p>The ID of the requested action.</p>
    */
   MaintenanceId?: string;
 
@@ -5619,7 +5677,7 @@ export interface DomainMaintenanceDetails {
 
   /**
    * @public
-   * <p>Id of the data node.</p>
+   * <p>The ID of the data node.</p>
    */
   NodeId?: string;
 
@@ -5631,31 +5689,31 @@ export interface DomainMaintenanceDetails {
 
   /**
    * @public
-   * <p>The status message of the action.</p>
+   * <p>The status message for the action.</p>
    */
   StatusMessage?: string;
 
   /**
    * @public
-   * <p>Contains time at which action created.</p>
+   * <p>The time at which the action was created.</p>
    */
   CreatedAt?: Date;
 
   /**
    * @public
-   * <p>Contains time at which action updated.</p>
+   * <p>The time at which the action was updated.</p>
    */
   UpdatedAt?: Date;
 }
 
 /**
  * @public
- * <p>The result of a <code>ListDomainMaintenances</code> request. Contains information about the requested actions. </p>
+ * <p>The result of a <code>ListDomainMaintenances</code> request that contains information about the requested actions. </p>
  */
 export interface ListDomainMaintenancesResponse {
   /**
    * @public
-   * <p>List of the submitted maintenance actions.</p>
+   * <p>A list of the submitted maintenance actions.</p>
    */
   DomainMaintenances?: DomainMaintenanceDetails[];
 
@@ -6369,19 +6427,19 @@ export interface StartDomainMaintenanceRequest {
 
   /**
    * @public
-   * <p>Id of the data node.</p>
+   * <p>The ID of the data node.</p>
    */
   NodeId?: string;
 }
 
 /**
  * @public
- * <p>The result of a <code>StartDomainMaintenance</code> request. Contains information about the requested action. </p>
+ * <p>The result of a <code>StartDomainMaintenance</code> request that information about the requested action. </p>
  */
 export interface StartDomainMaintenanceResponse {
   /**
    * @public
-   * <p>Contains request id of requested action.</p>
+   * <p>The request ID of requested action.</p>
    */
   MaintenanceId?: string;
 }
@@ -6555,6 +6613,12 @@ export interface UpdateDomainConfigRequest {
    * <p>Identity and Access Management (IAM) access policy as a JSON-formatted string.</p>
    */
   AccessPolicies?: string;
+
+  /**
+   * @public
+   * <p>The type of IP addresses supported by the endpoint for the domain.</p>
+   */
+  IPAddressType?: IPAddressType;
 
   /**
    * @public

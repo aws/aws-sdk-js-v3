@@ -37,8 +37,8 @@ export interface StartDomainMaintenanceCommandOutput extends StartDomainMaintena
 
 /**
  * @public
- * <p>Starts the node maintenance (Node restart, Node reboot, Opensearch/Elasticsearch process restart,
- *    Dashboard/kibana restart) on the data node.</p>
+ * <p>Starts the node maintenance process on the data node. These processes can include a node reboot, an Opensearch or Elasticsearch process restart,
+ *    or a Dashboard or Kibana restart.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

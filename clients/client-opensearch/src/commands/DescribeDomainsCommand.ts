@@ -61,6 +61,7 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * //       Created: true || false,
  * //       Deleted: true || false,
  * //       Endpoint: "STRING_VALUE",
+ * //       EndpointV2: "STRING_VALUE",
  * //       Endpoints: { // EndpointsMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
@@ -93,6 +94,7 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * //         Throughput: Number("int"),
  * //       },
  * //       AccessPolicies: "STRING_VALUE",
+ * //       IPAddressType: "ipv4" || "dualstack",
  * //       SnapshotOptions: { // SnapshotOptions
  * //         AutomatedSnapshotStartHour: Number("int"),
  * //       },
