@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.437.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.436.0...v3.437.0) (2023-10-26)
+
+
+### Features
+
+* **client-ec2:** Launching GetSecurityGroupsForVpc API. This API gets security groups that can be associated by the AWS account making the request with network interfaces in the specified VPC. ([0bc9a39](https://github.com/aws/aws-sdk-js-v3/commit/0bc9a39b6069ab8a1df7b29798e93045167dcffe))
+
+
+
+
+
 # [3.436.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.435.0...v3.436.0) (2023-10-25)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.437.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.436.0...v3.437.0) (2023-10-26)
+
+
+### Bug Fixes
+
+* **signature-v4-crt:** remove dynamic imports (!) ([#5225](https://github.com/aws/aws-sdk-js-v3/issues/5225)) ([89f97b5](https://github.com/aws/aws-sdk-js-v3/commit/89f97b5cea8052510471cdad69acced9f5be60d1))
+
+
+### Features
+
+* **client-appstream:** This release introduces multi-session fleets, allowing customers to provision more than one user session on a single fleet instance. ([8e3c248](https://github.com/aws/aws-sdk-js-v3/commit/8e3c248319464415579b5dcea13d5f1c6b784090))
+* **client-ec2:** Launching GetSecurityGroupsForVpc API. This API gets security groups that can be associated by the AWS account making the request with network interfaces in the specified VPC. ([0bc9a39](https://github.com/aws/aws-sdk-js-v3/commit/0bc9a39b6069ab8a1df7b29798e93045167dcffe))
+* **client-network-firewall:** Network Firewall now supports inspection of outbound SSL/TLS traffic. ([3686e69](https://github.com/aws/aws-sdk-js-v3/commit/3686e694042ada9360f9dee41c7ce928da8de069))
+* **client-opensearch:** You can specify ipv4 or dualstack IPAddressType for cluster endpoints. If you specify IPAddressType as dualstack, the new endpoint will be visible under the 'EndpointV2' parameter and will support IPv4 and IPv6 requests. Whereas, the 'Endpoint' will continue to serve IPv4 requests. ([a9637b1](https://github.com/aws/aws-sdk-js-v3/commit/a9637b16a328233b3dbf0b47d736446f28ddd63c))
+* **client-redshift:** Add Redshift APIs GetResourcePolicy, DeleteResourcePolicy, PutResourcePolicy and DescribeInboundIntegrations for the new Amazon Redshift Zero-ETL integration feature, which can be used to control data ingress into Redshift namespace, and view inbound integrations. ([f0791f1](https://github.com/aws/aws-sdk-js-v3/commit/f0791f139f80d0a27a601237b2dc65e510a967bf))
+* **client-sagemaker:** Amazon Sagemaker Autopilot now supports Text Generation jobs. ([fd8ca90](https://github.com/aws/aws-sdk-js-v3/commit/fd8ca9031d4f06d108b60f43f98bfb288ab2a261))
+* **client-sns:** Message Archiving and Replay is now supported in Amazon SNS for FIFO topics. ([10014a8](https://github.com/aws/aws-sdk-js-v3/commit/10014a819d3e8a2d1732b85b666f7cafd25590b7))
+* **client-ssm-sap:** AWS Systems Manager for SAP added support for registration and discovery of SAP ABAP applications ([6a156d7](https://github.com/aws/aws-sdk-js-v3/commit/6a156d7d8482bc018a4f6b15cd7f121e54c58f44))
+* **client-transfer:** No API changes from previous release. This release migrated the model to Smithy keeping all features unchanged. ([6bd6402](https://github.com/aws/aws-sdk-js-v3/commit/6bd640200ded7ee472800de542748e26ea8def71))
+* **clients:** update client endpoints as of 2023-10-26 ([dead611](https://github.com/aws/aws-sdk-js-v3/commit/dead611e044211944e1bd76cef0eaf31bc2a1645))
+
+
+
+
+
 # [3.436.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.435.0...v3.436.0) (2023-10-25)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.437.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.436.0...v3.437.0) (2023-10-26)
+
+
+### Features
+
+* **client-network-firewall:** Network Firewall now supports inspection of outbound SSL/TLS traffic. ([3686e69](https://github.com/aws/aws-sdk-js-v3/commit/3686e694042ada9360f9dee41c7ce928da8de069))
+
+
+
+
+
 # [3.436.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.435.0...v3.436.0) (2023-10-25)
 
 **Note:** Version bump only for package @aws-sdk/client-network-firewall

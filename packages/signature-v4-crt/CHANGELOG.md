@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.437.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.436.0...v3.437.0) (2023-10-26)
+
+
+### Bug Fixes
+
+* **signature-v4-crt:** remove dynamic imports (!) ([#5225](https://github.com/aws/aws-sdk-js-v3/issues/5225)) ([89f97b5](https://github.com/aws/aws-sdk-js-v3/commit/89f97b5cea8052510471cdad69acced9f5be60d1))
+
+
+
+
+
 # [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
 
 
