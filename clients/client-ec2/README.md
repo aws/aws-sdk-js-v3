@@ -3791,6 +3791,14 @@ GetReservedInstancesExchangeQuote
 </details>
 <details>
 <summary>
+GetSecurityGroupsForVpc
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/getsecuritygroupsforvpccommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getsecuritygroupsforvpccommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/getsecuritygroupsforvpccommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetSerialConsoleAccessStatus
 </summary>
 

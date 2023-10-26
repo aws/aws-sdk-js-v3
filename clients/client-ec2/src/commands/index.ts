@@ -444,6 +444,7 @@ export * from "./GetNetworkInsightsAccessScopeAnalysisFindingsCommand";
 export * from "./GetNetworkInsightsAccessScopeContentCommand";
 export * from "./GetPasswordDataCommand";
 export * from "./GetReservedInstancesExchangeQuoteCommand";
+export * from "./GetSecurityGroupsForVpcCommand";
 export * from "./GetSerialConsoleAccessStatusCommand";
 export * from "./GetSpotPlacementScoresCommand";
 export * from "./GetSubnetCidrReservationsCommand";

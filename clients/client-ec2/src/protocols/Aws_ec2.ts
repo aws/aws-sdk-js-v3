@@ -1529,6 +1529,10 @@ import {
   GetReservedInstancesExchangeQuoteCommandOutput,
 } from "../commands/GetReservedInstancesExchangeQuoteCommand";
 import {
+  GetSecurityGroupsForVpcCommandInput,
+  GetSecurityGroupsForVpcCommandOutput,
+} from "../commands/GetSecurityGroupsForVpcCommand";
+import {
   GetSerialConsoleAccessStatusCommandInput,
   GetSerialConsoleAccessStatusCommandOutput,
 } from "../commands/GetSerialConsoleAccessStatusCommand";
@@ -3515,6 +3519,8 @@ import {
   GetPasswordDataResult,
   GetReservedInstancesExchangeQuoteRequest,
   GetReservedInstancesExchangeQuoteResult,
+  GetSecurityGroupsForVpcRequest,
+  GetSecurityGroupsForVpcResult,
   GetSerialConsoleAccessStatusRequest,
   GetSerialConsoleAccessStatusResult,
   GetSpotPlacementScoresRequest,
@@ -3532,8 +3538,6 @@ import {
   GetTransitGatewayPrefixListReferencesRequest,
   GetTransitGatewayPrefixListReferencesResult,
   GetTransitGatewayRouteTableAssociationsRequest,
-  GetTransitGatewayRouteTableAssociationsResult,
-  GetTransitGatewayRouteTablePropagationsRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3553,6 +3557,7 @@ import {
   Purchase,
   ReservationValue,
   ReservedInstanceReservationValue,
+  SecurityGroupForVpc,
   ServiceDetail,
   SpotPlacementScore,
   TargetConfiguration,
@@ -3563,7 +3568,6 @@ import {
   TransitGatewayPolicyRuleMetaData,
   TransitGatewayPolicyTableEntry,
   TransitGatewayPropagation,
-  TransitGatewayRouteTableAssociation,
   VerifiedAccessInstanceLoggingConfiguration,
   VerifiedAccessLogCloudWatchLogsDestination,
   VerifiedAccessLogDeliveryStatus,
@@ -3585,13 +3589,13 @@ import {
   CapacityReservationSpecification,
   CidrAuthorizationContext,
   ClientData,
-  CpuOptionsRequest,
   CreateVolumePermissionModifications,
   DiskImage,
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
-  ElasticInferenceAccelerator,
+  GetTransitGatewayRouteTableAssociationsResult,
+  GetTransitGatewayRouteTablePropagationsRequest,
   GetTransitGatewayRouteTablePropagationsResult,
   GetVerifiedAccessEndpointPolicyRequest,
   GetVerifiedAccessEndpointPolicyResult,
@@ -3850,7 +3854,6 @@ import {
   RevokeSecurityGroupEgressRequest,
   RevokeSecurityGroupEgressResult,
   RevokeSecurityGroupIngressRequest,
-  RevokeSecurityGroupIngressResult,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -3860,6 +3863,7 @@ import {
   TrafficMirrorSessionField,
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
+  TransitGatewayRouteTableAssociation,
   TransitGatewayRouteTablePropagation,
   UnsuccessfulInstanceCreditSpecificationItem,
   UnsuccessfulInstanceCreditSpecificationItemError,
@@ -3873,6 +3877,8 @@ import {
   VpnConnectionDeviceType,
 } from "../models/models_6";
 import {
+  CpuOptionsRequest,
+  ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
   HibernationOptionsRequest,
   InstanceMaintenanceOptionsRequest,
@@ -3882,6 +3888,7 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RevokeSecurityGroupIngressResult,
   RunInstancesRequest,
   RunScheduledInstancesRequest,
   RunScheduledInstancesResult,
@@ -11494,6 +11501,23 @@ export const se_GetReservedInstancesExchangeQuoteCommand = async (
   body = buildFormUrlencodedString({
     ...se_GetReservedInstancesExchangeQuoteRequest(input, context),
     Action: "GetReservedInstancesExchangeQuote",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetSecurityGroupsForVpcCommand
+ */
+export const se_GetSecurityGroupsForVpcCommand = async (
+  input: GetSecurityGroupsForVpcCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetSecurityGroupsForVpcRequest(input, context),
+    Action: "GetSecurityGroupsForVpc",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -31799,6 +31823,46 @@ const de_GetReservedInstancesExchangeQuoteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetReservedInstancesExchangeQuoteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_ec2GetSecurityGroupsForVpcCommand
+ */
+export const de_GetSecurityGroupsForVpcCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSecurityGroupsForVpcCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetSecurityGroupsForVpcCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetSecurityGroupsForVpcResult(data, context);
+  const response: GetSecurityGroupsForVpcCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2GetSecurityGroupsForVpcCommandError
+ */
+const de_GetSecurityGroupsForVpcCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSecurityGroupsForVpcCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -53227,6 +53291,36 @@ const se_GetReservedInstancesExchangeQuoteRequest = (
       const loc = `TargetConfiguration.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2GetSecurityGroupsForVpcRequest
+ */
+const se_GetSecurityGroupsForVpcRequest = (input: GetSecurityGroupsForVpcRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.VpcId != null) {
+    entries["VpcId"] = input.VpcId;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.Filters != null) {
+    const memberEntries = se_FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -77863,6 +77957,25 @@ const de_GetReservedInstancesExchangeQuoteResult = (
 };
 
 /**
+ * deserializeAws_ec2GetSecurityGroupsForVpcResult
+ */
+const de_GetSecurityGroupsForVpcResult = (output: any, context: __SerdeContext): GetSecurityGroupsForVpcResult => {
+  const contents: any = {};
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  if (output.securityGroupForVpcSet === "") {
+    contents.SecurityGroupForVpcs = [];
+  } else if (output["securityGroupForVpcSet"] !== undefined && output["securityGroupForVpcSet"]["item"] !== undefined) {
+    contents.SecurityGroupForVpcs = de_SecurityGroupForVpcList(
+      __getArrayIfSingleItem(output["securityGroupForVpcSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2GetSerialConsoleAccessStatusResult
  */
 const de_GetSerialConsoleAccessStatusResult = (
@@ -88399,6 +88512,45 @@ const de_SecurityGroup = (output: any, context: __SerdeContext): SecurityGroup =
     contents.VpcId = __expectString(output["vpcId"]);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_ec2SecurityGroupForVpc
+ */
+const de_SecurityGroupForVpc = (output: any, context: __SerdeContext): SecurityGroupForVpc => {
+  const contents: any = {};
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output["groupName"] !== undefined) {
+    contents.GroupName = __expectString(output["groupName"]);
+  }
+  if (output["ownerId"] !== undefined) {
+    contents.OwnerId = __expectString(output["ownerId"]);
+  }
+  if (output["groupId"] !== undefined) {
+    contents.GroupId = __expectString(output["groupId"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = de_TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["primaryVpcId"] !== undefined) {
+    contents.PrimaryVpcId = __expectString(output["primaryVpcId"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2SecurityGroupForVpcList
+ */
+const de_SecurityGroupForVpcList = (output: any, context: __SerdeContext): SecurityGroupForVpc[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SecurityGroupForVpc(entry, context);
+    });
 };
 
 /**

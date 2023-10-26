@@ -2176,6 +2176,11 @@ import {
   GetReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/GetReservedInstancesExchangeQuoteCommand";
 import {
+  GetSecurityGroupsForVpcCommand,
+  GetSecurityGroupsForVpcCommandInput,
+  GetSecurityGroupsForVpcCommandOutput,
+} from "./commands/GetSecurityGroupsForVpcCommand";
+import {
   GetSerialConsoleAccessStatusCommand,
   GetSerialConsoleAccessStatusCommandInput,
   GetSerialConsoleAccessStatusCommandOutput,
@@ -3377,6 +3382,7 @@ const commands = {
   GetNetworkInsightsAccessScopeContentCommand,
   GetPasswordDataCommand,
   GetReservedInstancesExchangeQuoteCommand,
+  GetSecurityGroupsForVpcCommand,
   GetSerialConsoleAccessStatusCommand,
   GetSpotPlacementScoresCommand,
   GetSubnetCidrReservationsCommand,
@@ -10842,6 +10848,23 @@ export interface EC2 {
     args: GetReservedInstancesExchangeQuoteCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetReservedInstancesExchangeQuoteCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSecurityGroupsForVpcCommand}
+   */
+  getSecurityGroupsForVpc(
+    args: GetSecurityGroupsForVpcCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSecurityGroupsForVpcCommandOutput>;
+  getSecurityGroupsForVpc(
+    args: GetSecurityGroupsForVpcCommandInput,
+    cb: (err: any, data?: GetSecurityGroupsForVpcCommandOutput) => void
+  ): void;
+  getSecurityGroupsForVpc(
+    args: GetSecurityGroupsForVpcCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSecurityGroupsForVpcCommandOutput) => void
   ): void;
 
   /**

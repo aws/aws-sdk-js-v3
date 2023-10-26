@@ -15,7 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RevokeSecurityGroupIngressRequest, RevokeSecurityGroupIngressResult } from "../models/models_6";
+import { RevokeSecurityGroupIngressRequest } from "../models/models_6";
+import { RevokeSecurityGroupIngressResult } from "../models/models_7";
 import { de_RevokeSecurityGroupIngressCommand, se_RevokeSecurityGroupIngressCommand } from "../protocols/Aws_ec2";
 
 /**

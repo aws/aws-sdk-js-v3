@@ -1555,6 +1555,10 @@ import {
   GetReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/GetReservedInstancesExchangeQuoteCommand";
 import {
+  GetSecurityGroupsForVpcCommandInput,
+  GetSecurityGroupsForVpcCommandOutput,
+} from "./commands/GetSecurityGroupsForVpcCommand";
+import {
   GetSerialConsoleAccessStatusCommandInput,
   GetSerialConsoleAccessStatusCommandOutput,
 } from "./commands/GetSerialConsoleAccessStatusCommand";
@@ -2534,6 +2538,7 @@ export type ServiceInputTypes =
   | GetNetworkInsightsAccessScopeContentCommandInput
   | GetPasswordDataCommandInput
   | GetReservedInstancesExchangeQuoteCommandInput
+  | GetSecurityGroupsForVpcCommandInput
   | GetSerialConsoleAccessStatusCommandInput
   | GetSpotPlacementScoresCommandInput
   | GetSubnetCidrReservationsCommandInput
@@ -3138,6 +3143,7 @@ export type ServiceOutputTypes =
   | GetNetworkInsightsAccessScopeContentCommandOutput
   | GetPasswordDataCommandOutput
   | GetReservedInstancesExchangeQuoteCommandOutput
+  | GetSecurityGroupsForVpcCommandOutput
   | GetSerialConsoleAccessStatusCommandOutput
   | GetSpotPlacementScoresCommandOutput
   | GetSubnetCidrReservationsCommandOutput

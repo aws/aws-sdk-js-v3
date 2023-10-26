@@ -11,6 +11,7 @@ import {
   TransitGatewayAttachmentResourceType,
 } from "./models_0";
 import {
+  AmdSevSnpSpecification,
   BlockDeviceMapping,
   CreditSpecificationRequest,
   ElasticGpuSpecification,
@@ -37,12 +38,80 @@ import {
   NetworkInsightsAnalysis,
   RunInstancesMonitoringEnabled,
 } from "./models_4";
-import {
-  CapacityReservationSpecification,
-  CpuOptionsRequest,
-  ElasticInferenceAccelerator,
-  InstanceMonitoring,
-} from "./models_6";
+import { CapacityReservationSpecification, InstanceMonitoring } from "./models_6";
+
+/**
+ * @public
+ */
+export interface RevokeSecurityGroupIngressResult {
+  /**
+   * @public
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   */
+  Return?: boolean;
+
+  /**
+   * @public
+   * <p>The inbound rules that were unknown to the service. In some cases,
+   *                 <code>unknownIpPermissionSet</code> might be in a different format from the request
+   *             parameter. </p>
+   */
+  UnknownIpPermissions?: IpPermission[];
+}
+
+/**
+ * @public
+ * <p>The CPU options for the instance. Both the core count and threads per core must be
+ *             specified in the request.</p>
+ */
+export interface CpuOptionsRequest {
+  /**
+   * @public
+   * <p>The number of CPU cores for the instance.</p>
+   */
+  CoreCount?: number;
+
+  /**
+   * @public
+   * <p>The number of threads per CPU core. To disable multithreading for the instance,
+   *             specify a value of <code>1</code>. Otherwise, specify the default value of
+   *                 <code>2</code>.</p>
+   */
+  ThreadsPerCore?: number;
+
+  /**
+   * @public
+   * <p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported
+   *             with M6a, R6a, and C6a instance types only. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
+   */
+  AmdSevSnp?: AmdSevSnpSpecification;
+}
+
+/**
+ * @public
+ * <p>
+ *            Describes an elastic inference accelerator.
+ *         </p>
+ */
+export interface ElasticInferenceAccelerator {
+  /**
+   * @public
+   * <p>
+   *         	The type of elastic inference accelerator. The possible values are <code>eia1.medium</code>, <code>eia1.large</code>, <code>eia1.xlarge</code>, <code>eia2.medium</code>, <code>eia2.large</code>, and <code>eia2.xlarge</code>.
+   *         </p>
+   */
+  Type: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The number of elastic inference accelerators to attach to the instance.
+   *         </p>
+   *          <p>Default: 1</p>
+   */
+  Count?: number;
+}
 
 /**
  * @public

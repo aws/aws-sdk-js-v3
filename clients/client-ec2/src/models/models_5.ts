@@ -19,7 +19,6 @@ import {
   TagSpecification,
   TargetConfigurationRequest,
   TransitGatewayAssociation,
-  TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPolicyTableAssociation,
@@ -7572,6 +7571,126 @@ export interface GetReservedInstancesExchangeQuoteResult {
 /**
  * @public
  */
+export interface GetSecurityGroupsForVpcRequest {
+  /**
+   * @public
+   * <p>The VPC ID where the security group can be used.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * @public
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The filters. If using multiple filters, the results include security groups which match all filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>group-id</code>: The security group ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>description</code>: The security group's description.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>group-name</code>: The security group name.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code>: The security group owner ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>primary-vpc-id</code>: The VPC ID in which the security group was created.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * <p>A security group that can be used by interfaces in the VPC.</p>
+ */
+export interface SecurityGroupForVpc {
+  /**
+   * @public
+   * <p>The security group's description.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The security group name.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * @public
+   * <p>The security group owner ID.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * @public
+   * <p>The security group ID.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * @public
+   * <p>The security group tags.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The VPC ID in which the security group was created.</p>
+   */
+  PrimaryVpcId?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetSecurityGroupsForVpcResult {
+  /**
+   * @public
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The security group that can be used by interfaces in the VPC.</p>
+   */
+  SecurityGroupForVpcs?: SecurityGroupForVpc[];
+}
+
+/**
+ * @public
+ */
 export interface GetSerialConsoleAccessStatusRequest {
   /**
    * @public
@@ -8314,107 +8433,6 @@ export interface GetTransitGatewayPrefixListReferencesResult {
  * @public
  */
 export interface GetTransitGatewayRouteTableAssociationsRequest {
-  /**
-   * @public
-   * <p>The ID of the transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>resource-id</code> - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
-   *                     | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>
-   *                     | <code>connect</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- * <p>Describes an association between a route table and a resource attachment.</p>
- */
-export interface TransitGatewayRouteTableAssociation {
-  /**
-   * @public
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * @public
-   * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType;
-
-  /**
-   * @public
-   * <p>The state of the association.</p>
-   */
-  State?: TransitGatewayAssociationState;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayRouteTableAssociationsResult {
-  /**
-   * @public
-   * <p>Information about the associations.</p>
-   */
-  Associations?: TransitGatewayRouteTableAssociation[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayRouteTablePropagationsRequest {
   /**
    * @public
    * <p>The ID of the transit gateway route table.</p>

@@ -28,6 +28,7 @@ import {
   RouteTableAssociationState,
   Tag,
   TagSpecification,
+  TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
@@ -39,7 +40,6 @@ import {
   VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 import {
-  AmdSevSnpSpecification,
   AttributeValue,
   BlockDeviceMapping,
   CapacityReservationPreference,
@@ -113,6 +113,7 @@ import {
   BootModeValues,
   ConversionTask,
   ConversionTaskFilterSensitiveLog,
+  Filter,
   FpgaImageAttribute,
   FpgaImageAttributeName,
   ImdsSupportValues,
@@ -161,6 +162,107 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ * <p>Describes an association between a route table and a resource attachment.</p>
+ */
+export interface TransitGatewayRouteTableAssociation {
+  /**
+   * @public
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * @public
+   * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType;
+
+  /**
+   * @public
+   * <p>The state of the association.</p>
+   */
+  State?: TransitGatewayAssociationState;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayRouteTableAssociationsResult {
+  /**
+   * @public
+   * <p>Information about the associations.</p>
+   */
+  Associations?: TransitGatewayRouteTableAssociation[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayRouteTablePropagationsRequest {
+  /**
+   * @public
+   * <p>The ID of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * @public
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
+   *                     | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>
+   *                     | <code>connect</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * @public
@@ -9148,79 +9250,6 @@ export interface RevokeSecurityGroupIngressRequest {
    * <p>The IDs of the security group rules.</p>
    */
   SecurityGroupRuleIds?: string[];
-}
-
-/**
- * @public
- */
-export interface RevokeSecurityGroupIngressResult {
-  /**
-   * @public
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
-   */
-  Return?: boolean;
-
-  /**
-   * @public
-   * <p>The inbound rules that were unknown to the service. In some cases,
-   *                 <code>unknownIpPermissionSet</code> might be in a different format from the request
-   *             parameter. </p>
-   */
-  UnknownIpPermissions?: IpPermission[];
-}
-
-/**
- * @public
- * <p>The CPU options for the instance. Both the core count and threads per core must be
- *             specified in the request.</p>
- */
-export interface CpuOptionsRequest {
-  /**
-   * @public
-   * <p>The number of CPU cores for the instance.</p>
-   */
-  CoreCount?: number;
-
-  /**
-   * @public
-   * <p>The number of threads per CPU core. To disable multithreading for the instance,
-   *             specify a value of <code>1</code>. Otherwise, specify the default value of
-   *                 <code>2</code>.</p>
-   */
-  ThreadsPerCore?: number;
-
-  /**
-   * @public
-   * <p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported
-   *             with M6a, R6a, and C6a instance types only. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
-   */
-  AmdSevSnp?: AmdSevSnpSpecification;
-}
-
-/**
- * @public
- * <p>
- *            Describes an elastic inference accelerator.
- *         </p>
- */
-export interface ElasticInferenceAccelerator {
-  /**
-   * @public
-   * <p>
-   *         	The type of elastic inference accelerator. The possible values are <code>eia1.medium</code>, <code>eia1.large</code>, <code>eia1.xlarge</code>, <code>eia2.medium</code>, <code>eia2.large</code>, and <code>eia2.xlarge</code>.
-   *         </p>
-   */
-  Type: string | undefined;
-
-  /**
-   * @public
-   * <p>
-   *             The number of elastic inference accelerators to attach to the instance.
-   *         </p>
-   *          <p>Default: 1</p>
-   */
-  Count?: number;
 }
 
 /**

@@ -133,6 +133,7 @@ export * from "./GetIpamResourceCidrsPaginator";
 export * from "./GetManagedPrefixListAssociationsPaginator";
 export * from "./GetManagedPrefixListEntriesPaginator";
 export * from "./GetNetworkInsightsAccessScopeAnalysisFindingsPaginator";
+export * from "./GetSecurityGroupsForVpcPaginator";
 export * from "./GetSpotPlacementScoresPaginator";
 export * from "./GetTransitGatewayAttachmentPropagationsPaginator";
 export * from "./GetTransitGatewayMulticastDomainAssociationsPaginator";
