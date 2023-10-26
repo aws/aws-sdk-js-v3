@@ -11,8 +11,7 @@ import { S3, SelectObjectContentEventStream } from "../../src/index";
 import { createBuffer } from "./helpers";
 chai.use(chaiAsPromised);
 const { expect } = chai;
-// There will be default values of defaultRegion, credentials, and isBrowser variable in browser tests.
-// Define the values for Node.js tests
+
 const region: string | undefined = (globalThis as any).defaultRegion || process?.env?.AWS_SMOKE_TEST_REGION;
 const credentials: Credentials | undefined = (globalThis as any).credentials || undefined;
 const isBrowser: boolean | undefined = (globalThis as any).isBrowser || false;
@@ -21,7 +20,7 @@ const mrapArn = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_MRAP_ARN ||
 
 let Key = `${Date.now()}`;
 
-describe("@aws-sdk/client-s3", () => {
+(isBrowser ? describe : xdescribe)("@aws-sdk/client-s3", () => {
   const client = new S3({
     region: region,
     credentials,
@@ -34,81 +33,51 @@ describe("@aws-sdk/client-s3", () => {
     after(async () => {
       await client.deleteObject({ Bucket, Key });
     });
-    if (isBrowser) {
-      const buf = createBuffer("1KB");
-      it("should succeed with blob body", async () => {
-        const result = await client.putObject({
-          Bucket,
-          Key,
-          Body: new Blob([buf]),
-        });
-        expect(result.$metadata.httpStatusCode).to.equal(200);
+    const buf = createBuffer("1KB");
+    it("should succeed with blob body", async () => {
+      const result = await client.putObject({
+        Bucket,
+        Key,
+        Body: new Blob([buf]),
       });
+      expect(result.$metadata.httpStatusCode).to.equal(200);
+    });
 
-      it("should succeed with TypedArray body", async () => {
-        const result = await client.putObject({
-          Bucket,
-          Key,
-          Body: buf,
-        });
-        expect(result.$metadata.httpStatusCode).to.equal(200);
+    it("should succeed with TypedArray body", async () => {
+      const result = await client.putObject({
+        Bucket,
+        Key,
+        Body: buf,
       });
+      expect(result.$metadata.httpStatusCode).to.equal(200);
+    });
 
-      // todo: fix needed
-      // todo: TypeError: Failed to construct 'Request': The `duplex` member must
-      // todo: be specified for a request with a streaming body
-      it.skip("should succeed with ReadableStream body", async () => {
-        const length = 10 * 1000; // 10KB
-        const chunkSize = 10;
-        const readableStream = new ReadableStream({
-          start(controller) {
-            let sizeLeft = length;
-            while (sizeLeft > 0) {
-              let chunk = "";
-              for (let i = 0; i < Math.min(sizeLeft, chunkSize); i++) {
-                chunk += "x";
-              }
-              controller.enqueue(chunk);
-              sizeLeft -= chunk.length;
-            }
-          },
-        });
-        const result = await client.putObject({
-          Bucket,
-          Key,
-          Body: readableStream,
-        });
-        expect(result.$metadata.httpStatusCode).to.equal(200);
-      });
-    } else {
-      it("should succeed with Node.js readable stream body", async () => {
-        const length = 10 * 1000; // 10KB
-        const chunkSize = 10;
-        const { Readable } = require("stream");
-        let sizeLeft = length;
-        const inputStream = new Readable({
-          read() {
-            if (sizeLeft <= 0) {
-              this.push(null); //end stream;
-              return;
-            }
+    // todo: fix needed
+    // todo: TypeError: Failed to construct 'Request': The `duplex` member must
+    // todo: be specified for a request with a streaming body
+    it.skip("should succeed with ReadableStream body", async () => {
+      const length = 10 * 1000; // 10KB
+      const chunkSize = 10;
+      const readableStream = new ReadableStream({
+        start(controller) {
+          let sizeLeft = length;
+          while (sizeLeft > 0) {
             let chunk = "";
             for (let i = 0; i < Math.min(sizeLeft, chunkSize); i++) {
               chunk += "x";
             }
-            this.push(chunk);
+            controller.enqueue(chunk);
             sizeLeft -= chunk.length;
-          },
-        });
-        inputStream.size = length; // This is required
-        const result = await client.putObject({
-          Bucket,
-          Key,
-          Body: inputStream,
-        });
-        expect(result.$metadata.httpStatusCode).to.equal(200);
+          }
+        },
       });
-    }
+      const result = await client.putObject({
+        Bucket,
+        Key,
+        Body: readableStream,
+      });
+      expect(result.$metadata.httpStatusCode).to.equal(200);
+    });
   });
 
   describe("GetObject", function () {
@@ -141,12 +110,7 @@ describe("@aws-sdk/client-s3", () => {
       }
 
       expect(result.$metadata.httpStatusCode).to.equal(200);
-      if (isBrowser) {
-        expect(result.Body).to.be.instanceOf(ReadableStream);
-      } else {
-        const { Readable } = require("stream");
-        expect(result.Body).to.be.instanceOf(Readable);
-      }
+      expect(result.Body).to.be.instanceOf(ReadableStream);
     });
   });
 
@@ -310,34 +274,17 @@ esfuture,29`;
   describe("Multi-region access point", () => {
     before(async () => {
       Key = `${Date.now()}`;
-      if (!isBrowser) {
-        await client.putObject({ Bucket: mrapArn, Key, Body: "foo" });
-      }
     });
-    after(async () => {
-      if (!isBrowser) {
-        await client.deleteObject({ Bucket: mrapArn, Key });
-      }
-    });
-    if (isBrowser) {
-      it("should throw for aws-crt no available in browser", async () => {
-        try {
-          await client.listObjects({
-            Bucket: mrapArn,
-          });
-          expect.fail("MRAP call in browser should throw");
-        } catch (e) {
-          expect(e.message).include("only available in Node.js");
-        }
-      });
-    } else {
-      it("should succeed with valid MRAP ARN", async () => {
-        const result = await client.listObjects({
+    after(async () => {});
+    it("should throw for aws-crt no available in browser", async () => {
+      try {
+        await client.listObjects({
           Bucket: mrapArn,
         });
-        expect(result.$metadata.httpStatusCode).to.equal(200);
-        expect(result.Contents).to.be.instanceOf(Array);
-      });
-    }
+        expect.fail("MRAP call in browser should throw");
+      } catch (e) {
+        expect(e.message).include("only available in Node.js");
+      }
+    });
   });
 });
