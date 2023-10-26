@@ -23,6 +23,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/signature-v4-multi-region": "*",
+    "@aws-sdk/util-user-agent-node": "*",
     "@smithy/querystring-parser": "^2.0.0",
     "@smithy/signature-v4": "^2.0.0",
     "@smithy/types": "^2.4.0",

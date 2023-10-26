@@ -3,11 +3,8 @@
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/signature-v4-multi-region/latest.svg)](https://www.npmjs.com/package/@aws-sdk/signature-v4-multi-region)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/signature-v4-multi-region.svg)](https://www.npmjs.com/package/@aws-sdk/signature-v4-multi-region)
 
-> An internal package
-
+See also https://github.com/aws/aws-sdk-js-v3/tree/main#functionality-requiring-aws-common-runtime-crt.
 ## Usage
-
-You probably shouldn't, at least directly.
 
 This package contains optional dependency [`@aws-sdk/signature-v4-crt`](https://www.npmjs.com/package/@aws-sdk/signature-v4).
 You need to install this package explicitly to sign an un-regional request using SigV4a algorithm. The package contains

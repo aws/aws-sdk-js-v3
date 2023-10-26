@@ -5,7 +5,7 @@ import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
 import { PassThrough, Readable } from "stream";
 
-import { S3 } from "../src/S3";
+import { S3 } from "../../src/S3";
 
 chai.use(chaiAsPromised);
 const { expect } = chai;

@@ -80,7 +80,10 @@ describe("SignatureV4MultiRegion", () => {
     expect.assertions(1);
     const signer = new SignatureV4MultiRegion({ ...params });
     await expect(async () => await signer.sign(minimalRequest, { signingRegion: "*" })).rejects.toThrow(
-      `\nPlease check if you have installed "@aws-sdk/signature-v4-crt" package explicitly. \n` +
+      "\n" +
+        `Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly. \n` +
+        `You must also register the package by calling [require("@aws-sdk/signature-v4-crt");] ` +
+        `or an ESM equivalent such as [import "@aws-sdk/signature-v4-crt";]. \n` +
         "For more information please go to " +
         "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt"
     );
