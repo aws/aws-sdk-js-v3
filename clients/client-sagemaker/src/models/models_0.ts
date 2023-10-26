@@ -267,7 +267,8 @@ export interface AdditionalS3DataSource {
   /**
    * @public
    * <p>The type of compression used for an additional data source used in inference or
-   *             training. Specify <code>None</code> if your additional data source is not compressed.</p>
+   *             training. Specify <code>None</code> if your additional data source is not
+   *             compressed.</p>
    */
   CompressionType?: CompressionType;
 }
@@ -4768,12 +4769,19 @@ export const AutoMLMetricExtendedEnum = {
   MAPE: "MAPE",
   MASE: "MASE",
   MSE: "MSE",
+  PERPLEXITY: "Perplexity",
   PRECISION: "Precision",
   PRECISION_MACRO: "PrecisionMacro",
   R2: "R2",
   RECALL: "Recall",
   RECALL_MACRO: "RecallMacro",
   RMSE: "RMSE",
+  ROUGE1: "Rouge1",
+  ROUGE2: "Rouge2",
+  ROUGEL: "RougeL",
+  ROUGEL_SUM: "RougeLSum",
+  TRAINING_LOSS: "TrainingLoss",
+  VALIDATION_LOSS: "ValidationLoss",
   WAPE: "WAPE",
 } as const;
 
@@ -5398,6 +5406,11 @@ export interface AutoMLJobChannel {
    *                   <code>x-application/vnd.amazon+parquet</code>. The default value is
    *                   <code>text/csv;header=present</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>For text generation (LLMs fine-tuning): <code>text/csv;header=present</code> or
+   *                   <code>x-application/vnd.amazon+parquet</code>. The default value is
+   *                   <code>text/csv;header=present</code>.</p>
+   *             </li>
    *          </ul>
    */
   ContentType?: string;
@@ -5427,8 +5440,9 @@ export interface AutoMLJobCompletionCriteria {
   /**
    * @public
    * <p>The maximum number of times a training job is allowed to run.</p>
-   *          <p>For text and image classification, as well as time-series forecasting problem types, the
-   *          supported value is 1. For tabular problem types, the maximum value is 750.</p>
+   *          <p>For text and image classification, time-series forecasting, as well as text generation
+   *          (LLMs fine-tuning) problem types, the supported value is 1. For tabular problem types, the
+   *          maximum value is 750.</p>
    */
   MaxCandidates?: number;
 
@@ -5572,7 +5586,7 @@ export interface AutoMLJobConfig {
 
 /**
  * @public
- * <p>Specifies a metric to minimize or maximize as the objective of a job.</p>
+ * <p>Specifies a metric to minimize or maximize as the objective of an AutoML job.</p>
  */
 export interface AutoMLJobObjective {
   /**
@@ -5581,33 +5595,94 @@ export interface AutoMLJobObjective {
    *          learning system. During training, the model's parameters are updated iteratively to
    *          optimize its performance based on the feedback provided by the objective metric when
    *          evaluating the model on the validation dataset.</p>
-   *          <p>For the list of all available metrics supported by Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot
-   *             metrics</a>.</p>
-   *          <p>If you do not specify a metric explicitly, the default behavior is to automatically
-   *          use:</p>
+   *          <p>The list of available metrics supported by Autopilot and the default metric applied when you
+   *          do not specify a metric name explicitly depend on the problem type.</p>
    *          <ul>
    *             <li>
    *                <p>For tabular problem types:</p>
    *                <ul>
    *                   <li>
-   *                      <p>Regression: <code>MSE</code>.</p>
+   *                      <p>List of available metrics: </p>
+   *                      <ul>
+   *                         <li>
+   *                            <p> Regression: <code>InferenceLatency</code>, <code>MAE</code>,
+   *                               <code>MSE</code>, <code>R2</code>, <code>RMSE</code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p> Binary classification: <code>Accuracy</code>, <code>AUC</code>,
+   *                               <code>BalancedAccuracy</code>, <code>F1</code>,
+   *                               <code>InferenceLatency</code>, <code>LogLoss</code>,
+   *                               <code>Precision</code>, <code>Recall</code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p> Multiclass classification: <code>Accuracy</code>,
+   *                               <code>BalancedAccuracy</code>, <code>F1macro</code>,
+   *                               <code>InferenceLatency</code>, <code>LogLoss</code>,
+   *                               <code>PrecisionMacro</code>, <code>RecallMacro</code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *                      <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot metrics for classification and regression</a>.</p>
    *                   </li>
    *                   <li>
-   *                      <p>Binary classification: <code>F1</code>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Multiclass classification: <code>Accuracy</code>.</p>
+   *                      <p>Default objective metrics:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>Regression: <code>MSE</code>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Binary classification: <code>F1</code>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Multiclass classification: <code>Accuracy</code>.</p>
+   *                         </li>
+   *                      </ul>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>For image or text classification problem types: <code>Accuracy</code>
-   *                </p>
+   *                <p>For image or text classification problem types:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>List of available metrics: <code>Accuracy</code>
+   *                      </p>
+   *                      <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/text-classification-data-format-and-metric.html">Autopilot metrics for text and image classification</a>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Default objective metrics: <code>Accuracy</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *             <li>
-   *                <p>For time-series forecasting problem types:
-   *                   <code>AverageWeightedQuantileLoss</code>
-   *                </p>
+   *                <p>For time-series forecasting problem types:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>List of available metrics: <code>RMSE</code>, <code>wQL</code>,
+   *                         <code>Average wQL</code>, <code>MASE</code>, <code>MAPE</code>,
+   *                         <code>WAPE</code>
+   *                      </p>
+   *                      <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/timeseries-objective-metric.html">Autopilot metrics for
+   *                         time-series forecasting</a>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Default objective metrics: <code>AverageWeightedQuantileLoss</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For text generation problem types (LLMs fine-tuning):
+   *                   Fine-tuning language models in Autopilot does not
+   *                   require setting the <code>AutoMLJobObjective</code> field. Autopilot fine-tunes LLMs
+   *                   without requiring multiple candidates to be trained and evaluated.
+   *                   Instead, using your dataset, Autopilot directly fine-tunes your target model to enhance a
+   *                   default objective metric, the cross-entropy loss. After fine-tuning a language model,
+   *                   you can evaluate the quality of its generated text using different metrics.
+   *                   For a list of the available metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/llms-finetuning-models.html">Metrics for
+   *                         fine-tuning LLMs in Autopilot</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -5766,8 +5841,8 @@ export interface AutoMLOutputDataConfig {
 
 /**
  * @public
- * <p>Stores the configuration information for the image classification problem of an AutoML
- *          job V2.</p>
+ * <p>The collection of settings used by an AutoML job V2 for the image classification problem
+ *          type.</p>
  */
 export interface ImageClassificationJobConfig {
   /**
@@ -5835,8 +5910,7 @@ export type ProblemType = (typeof ProblemType)[keyof typeof ProblemType];
 
 /**
  * @public
- * <p>The collection of settings used by an AutoML job V2 for the <code>TABULAR</code> problem
- *          type.</p>
+ * <p>The collection of settings used by an AutoML job V2 for the tabular problem type.</p>
  */
 export interface TabularJobConfig {
   /**
@@ -5948,8 +6022,8 @@ export interface TabularJobConfig {
 
 /**
  * @public
- * <p>Stores the configuration information for the text classification problem of an AutoML job
- *          V2.</p>
+ * <p>The collection of settings used by an AutoML job V2 for the text classification problem
+ *          type.</p>
  */
 export interface TextClassificationJobConfig {
   /**
@@ -5972,6 +6046,34 @@ export interface TextClassificationJobConfig {
    *          content column.</p>
    */
   TargetLabelColumn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The collection of settings used by an AutoML job V2 for the text generation problem
+ *          type.</p>
+ *          <note>
+ *             <p>The text generation models that support fine-tuning in Autopilot are currently accessible
+ *             exclusively in regions supported by Canvas. Refer to the documentation of Canvas for the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas.html">full list of its supported
+ *                Regions</a>.</p>
+ *          </note>
+ */
+export interface TextGenerationJobConfig {
+  /**
+   * @public
+   * <p>How long a job is allowed to run, or how many candidates a job is allowed to
+   *          generate.</p>
+   */
+  CompletionCriteria?: AutoMLJobCompletionCriteria;
+
+  /**
+   * @public
+   * <p>The name of the base model to fine-tune. Autopilot supports fine-tuning a variety of large
+   *          language models. For information on the list of supported models, see <a href="https://docs.aws.amazon.com/sagemaker/src/AWSIronmanApiDoc/build/server-root/sagemaker/latest/dg/llms-finetuning-models.html#llms-finetuning-supported-llms">Text generation models supporting fine-tuning in Autopilot</a>. If no
+   *             <code>BaseModelName</code> is provided, the default model used is Falcon-7B-Instruct.
+   *       </p>
+   */
+  BaseModelName?: string;
 }
 
 /**
@@ -6223,6 +6325,7 @@ export type AutoMLProblemTypeConfig =
   | AutoMLProblemTypeConfig.ImageClassificationJobConfigMember
   | AutoMLProblemTypeConfig.TabularJobConfigMember
   | AutoMLProblemTypeConfig.TextClassificationJobConfigMember
+  | AutoMLProblemTypeConfig.TextGenerationJobConfigMember
   | AutoMLProblemTypeConfig.TimeSeriesForecastingJobConfigMember
   | AutoMLProblemTypeConfig.$UnknownMember;
 
@@ -6240,6 +6343,7 @@ export namespace AutoMLProblemTypeConfig {
     TextClassificationJobConfig?: never;
     TabularJobConfig?: never;
     TimeSeriesForecastingJobConfig?: never;
+    TextGenerationJobConfig?: never;
     $unknown?: never;
   }
 
@@ -6253,12 +6357,13 @@ export namespace AutoMLProblemTypeConfig {
     TextClassificationJobConfig: TextClassificationJobConfig;
     TabularJobConfig?: never;
     TimeSeriesForecastingJobConfig?: never;
+    TextGenerationJobConfig?: never;
     $unknown?: never;
   }
 
   /**
    * @public
-   * <p>Settings used to configure an AutoML job V2 for a tabular problem type (regression,
+   * <p>Settings used to configure an AutoML job V2 for the tabular problem type (regression,
    *          classification).</p>
    */
   export interface TabularJobConfigMember {
@@ -6266,12 +6371,13 @@ export namespace AutoMLProblemTypeConfig {
     TextClassificationJobConfig?: never;
     TabularJobConfig: TabularJobConfig;
     TimeSeriesForecastingJobConfig?: never;
+    TextGenerationJobConfig?: never;
     $unknown?: never;
   }
 
   /**
    * @public
-   * <p>Settings used to configure an AutoML job V2 for a time-series forecasting problem
+   * <p>Settings used to configure an AutoML job V2 for the time-series forecasting problem
    *          type.</p>
    */
   export interface TimeSeriesForecastingJobConfigMember {
@@ -6279,6 +6385,26 @@ export namespace AutoMLProblemTypeConfig {
     TextClassificationJobConfig?: never;
     TabularJobConfig?: never;
     TimeSeriesForecastingJobConfig: TimeSeriesForecastingJobConfig;
+    TextGenerationJobConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Settings used to configure an AutoML job V2 for the text generation (LLMs fine-tuning)
+   *          problem type.</p>
+   *          <note>
+   *             <p>The text generation models that support fine-tuning in Autopilot are currently accessible
+   *             exclusively in regions supported by Canvas. Refer to the documentation of Canvas for the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas.html">full list of its supported
+   *                Regions</a>.</p>
+   *          </note>
+   */
+  export interface TextGenerationJobConfigMember {
+    ImageClassificationJobConfig?: never;
+    TextClassificationJobConfig?: never;
+    TabularJobConfig?: never;
+    TimeSeriesForecastingJobConfig?: never;
+    TextGenerationJobConfig: TextGenerationJobConfig;
     $unknown?: never;
   }
 
@@ -6290,6 +6416,7 @@ export namespace AutoMLProblemTypeConfig {
     TextClassificationJobConfig?: never;
     TabularJobConfig?: never;
     TimeSeriesForecastingJobConfig?: never;
+    TextGenerationJobConfig?: never;
     $unknown: [string, any];
   }
 
@@ -6298,6 +6425,7 @@ export namespace AutoMLProblemTypeConfig {
     TextClassificationJobConfig: (value: TextClassificationJobConfig) => T;
     TabularJobConfig: (value: TabularJobConfig) => T;
     TimeSeriesForecastingJobConfig: (value: TimeSeriesForecastingJobConfig) => T;
+    TextGenerationJobConfig: (value: TextGenerationJobConfig) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -6309,6 +6437,8 @@ export namespace AutoMLProblemTypeConfig {
     if (value.TabularJobConfig !== undefined) return visitor.TabularJobConfig(value.TabularJobConfig);
     if (value.TimeSeriesForecastingJobConfig !== undefined)
       return visitor.TimeSeriesForecastingJobConfig(value.TimeSeriesForecastingJobConfig);
+    if (value.TextGenerationJobConfig !== undefined)
+      return visitor.TextGenerationJobConfig(value.TextGenerationJobConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -6321,6 +6451,7 @@ export const AutoMLProblemTypeConfigName = {
   IMAGE_CLASSIFICATION: "ImageClassification",
   TABULAR: "Tabular",
   TEXT_CLASSIFICATION: "TextClassification",
+  TEXT_GENERATION: "TextGeneration",
   TIMESERIES_FORECASTING: "TimeSeriesForecasting",
 } as const;
 
@@ -6332,7 +6463,7 @@ export type AutoMLProblemTypeConfigName =
 
 /**
  * @public
- * <p>The resolved attributes specific to the <code>TABULAR</code> problem type.</p>
+ * <p>The resolved attributes specific to the tabular problem type.</p>
  */
 export interface TabularResolvedAttributes {
   /**
@@ -6347,10 +6478,23 @@ export interface TabularResolvedAttributes {
 
 /**
  * @public
- * <p>The resolved attributes specific to the problem type of an AutoML job V2.</p>
+ * <p>The resolved attributes specific to the text generation problem type.</p>
+ */
+export interface TextGenerationResolvedAttributes {
+  /**
+   * @public
+   * <p>The name of the base model to fine-tune.</p>
+   */
+  BaseModelName?: string;
+}
+
+/**
+ * @public
+ * <p>Stores resolved attributes specific to the problem type of an AutoML job V2.</p>
  */
 export type AutoMLProblemTypeResolvedAttributes =
   | AutoMLProblemTypeResolvedAttributes.TabularResolvedAttributesMember
+  | AutoMLProblemTypeResolvedAttributes.TextGenerationResolvedAttributesMember
   | AutoMLProblemTypeResolvedAttributes.$UnknownMember;
 
 /**
@@ -6359,10 +6503,21 @@ export type AutoMLProblemTypeResolvedAttributes =
 export namespace AutoMLProblemTypeResolvedAttributes {
   /**
    * @public
-   * <p>Defines the resolved attributes for the <code>TABULAR</code> problem type.</p>
+   * <p>The resolved attributes for the tabular problem type.</p>
    */
   export interface TabularResolvedAttributesMember {
     TabularResolvedAttributes: TabularResolvedAttributes;
+    TextGenerationResolvedAttributes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The resolved attributes for the text generation problem type.</p>
+   */
+  export interface TextGenerationResolvedAttributesMember {
+    TabularResolvedAttributes?: never;
+    TextGenerationResolvedAttributes: TextGenerationResolvedAttributes;
     $unknown?: never;
   }
 
@@ -6371,17 +6526,21 @@ export namespace AutoMLProblemTypeResolvedAttributes {
    */
   export interface $UnknownMember {
     TabularResolvedAttributes?: never;
+    TextGenerationResolvedAttributes?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     TabularResolvedAttributes: (value: TabularResolvedAttributes) => T;
+    TextGenerationResolvedAttributes: (value: TextGenerationResolvedAttributes) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: AutoMLProblemTypeResolvedAttributes, visitor: Visitor<T>): T => {
     if (value.TabularResolvedAttributes !== undefined)
       return visitor.TabularResolvedAttributes(value.TabularResolvedAttributes);
+    if (value.TextGenerationResolvedAttributes !== undefined)
+      return visitor.TextGenerationResolvedAttributes(value.TextGenerationResolvedAttributes);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -6393,7 +6552,7 @@ export namespace AutoMLProblemTypeResolvedAttributes {
 export interface AutoMLResolvedAttributes {
   /**
    * @public
-   * <p>Specifies a metric to minimize or maximize as the objective of a job.</p>
+   * <p>Specifies a metric to minimize or maximize as the objective of an AutoML job.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
@@ -9361,19 +9520,16 @@ export type HyperParameterTuningJobObjectiveType =
 
 /**
  * @public
- * <p>Defines the objective metric for a hyperparameter tuning job.
- *             Hyperparameter
- *             tuning uses the value of this metric to evaluate the training jobs it launches, and
- *             returns the training job that results in either the highest or lowest value for this
- *             metric, depending on the value you specify for the <code>Type</code>
- *             parameter.</p>
+ * <p>Defines the objective metric for a hyperparameter tuning job. Hyperparameter tuning
+ *             uses the value of this metric to evaluate the training jobs it launches, and returns the
+ *             training job that results in either the highest or lowest value for this metric,
+ *             depending on the value you specify for the <code>Type</code> parameter. If you want to
+ *             define a custom objective metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Define metrics and environment variables</a>.</p>
  */
 export interface HyperParameterTuningJobObjective {
   /**
    * @public
-   * <p>Whether to
-   *             minimize
-   *             or maximize the objective metric.</p>
+   * <p>Whether to minimize or maximize the objective metric.</p>
    */
   Type: HyperParameterTuningJobObjectiveType | undefined;
 
@@ -9922,6 +10078,9 @@ export interface CreateAutoMLJobV2Request {
    *             <li>
    *                <p>For time-series forecasting: <code>S3Prefix</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>For text generation (LLMs fine-tuning): <code>S3Prefix</code>.</p>
+   *             </li>
    *          </ul>
    */
   AutoMLJobInputDataConfig: AutoMLJobChannel[] | undefined;
@@ -9966,10 +10125,25 @@ export interface CreateAutoMLJobV2Request {
    *          the default objective metric depends on the problem type. For the list of default values
    *          per problem type, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective</a>.</p>
    *          <note>
-   *             <p>For tabular problem types, you must either provide both the
-   *                <code>AutoMLJobObjective</code> and indicate the type of supervised learning problem
-   *             in <code>AutoMLProblemTypeConfig</code> (<code>TabularJobConfig.ProblemType</code>), or
-   *             none at all.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>For tabular problem types: You must either provide both the
+   *                      <code>AutoMLJobObjective</code> and indicate the type of supervised learning
+   *                   problem in <code>AutoMLProblemTypeConfig</code>
+   *                      (<code>TabularJobConfig.ProblemType</code>), or none at all.</p>
+   *                </li>
+   *                <li>
+   *                   <p>For text generation problem types (LLMs fine-tuning):
+   *                   Fine-tuning language models in Autopilot does not
+   *                   require setting the <code>AutoMLJobObjective</code> field. Autopilot fine-tunes LLMs
+   *                   without requiring multiple candidates to be trained and evaluated.
+   *                   Instead, using your dataset, Autopilot directly fine-tunes your target model to enhance a
+   *                   default objective metric, the cross-entropy loss. After fine-tuning a language model,
+   *                   you can evaluate the quality of its generated text using different metrics.
+   *                   For a list of the available metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/llms-finetuning-models.html">Metrics for
+   *                         fine-tuning LLMs in Autopilot</a>.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
@@ -11391,91 +11565,4 @@ export interface MonitoringNetworkConfig {
    *                 by Using an Amazon Virtual Private Cloud</a>. </p>
    */
   VpcConfig?: VpcConfig;
-}
-
-/**
- * @public
- * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
- */
-export interface MonitoringStoppingCondition {
-  /**
-   * @public
-   * <p>The maximum runtime allowed in seconds.</p>
-   *          <note>
-   *             <p>The <code>MaxRuntimeInSeconds</code> cannot exceed the frequency of the job. For data
-   *             quality and model explainability, this can be up to 3600 seconds for an hourly schedule.
-   *             For model bias and model quality hourly schedules, this can be up to 1800
-   *             seconds.</p>
-   *          </note>
-   */
-  MaxRuntimeInSeconds: number | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDataQualityJobDefinitionRequest {
-  /**
-   * @public
-   * <p>The name for the monitoring job definition.</p>
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * @public
-   * <p>Configures the constraints and baselines for the monitoring job.</p>
-   */
-  DataQualityBaselineConfig?: DataQualityBaselineConfig;
-
-  /**
-   * @public
-   * <p>Specifies the container that runs the monitoring job.</p>
-   */
-  DataQualityAppSpecification: DataQualityAppSpecification | undefined;
-
-  /**
-   * @public
-   * <p>A list of inputs for the monitoring job. Currently endpoints are supported as monitoring
-   *          inputs.</p>
-   */
-  DataQualityJobInput: DataQualityJobInput | undefined;
-
-  /**
-   * @public
-   * <p>The output configuration for monitoring jobs.</p>
-   */
-  DataQualityJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * @public
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * @public
-   * <p>Specifies networking configuration for the monitoring job.</p>
-   */
-  NetworkConfig?: MonitoringNetworkConfig;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
-   *    assume to perform tasks on your behalf.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * @public
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-
-  /**
-   * @public
-   * <p>(Optional) An array of key-value pairs. For more information, see
-   *    <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">
-   *    Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
-   */
-  Tags?: Tag[];
 }

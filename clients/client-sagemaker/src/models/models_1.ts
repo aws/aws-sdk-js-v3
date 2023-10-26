@@ -43,6 +43,9 @@ import {
   ContentClassifier,
   ContinuousParameterRange,
   ConvergenceDetected,
+  DataQualityAppSpecification,
+  DataQualityBaselineConfig,
+  DataQualityJobInput,
   EndpointInput,
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
@@ -56,7 +59,6 @@ import {
   MonitoringOutputConfig,
   MonitoringResources,
   MonitoringStatisticsResource,
-  MonitoringStoppingCondition,
   OutputDataConfig,
   ProcessingInstanceType,
   ProcessingS3DataDistributionType,
@@ -75,6 +77,93 @@ import {
   TransformResources,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+ */
+export interface MonitoringStoppingCondition {
+  /**
+   * @public
+   * <p>The maximum runtime allowed in seconds.</p>
+   *          <note>
+   *             <p>The <code>MaxRuntimeInSeconds</code> cannot exceed the frequency of the job. For data
+   *             quality and model explainability, this can be up to 3600 seconds for an hourly schedule.
+   *             For model bias and model quality hourly schedules, this can be up to 1800
+   *             seconds.</p>
+   *          </note>
+   */
+  MaxRuntimeInSeconds: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataQualityJobDefinitionRequest {
+  /**
+   * @public
+   * <p>The name for the monitoring job definition.</p>
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * @public
+   * <p>Configures the constraints and baselines for the monitoring job.</p>
+   */
+  DataQualityBaselineConfig?: DataQualityBaselineConfig;
+
+  /**
+   * @public
+   * <p>Specifies the container that runs the monitoring job.</p>
+   */
+  DataQualityAppSpecification: DataQualityAppSpecification | undefined;
+
+  /**
+   * @public
+   * <p>A list of inputs for the monitoring job. Currently endpoints are supported as monitoring
+   *          inputs.</p>
+   */
+  DataQualityJobInput: DataQualityJobInput | undefined;
+
+  /**
+   * @public
+   * <p>The output configuration for monitoring jobs.</p>
+   */
+  DataQualityJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * @public
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * @public
+   * <p>Specifies networking configuration for the monitoring job.</p>
+   */
+  NetworkConfig?: MonitoringNetworkConfig;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   *    assume to perform tasks on your behalf.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   */
+  StoppingCondition?: MonitoringStoppingCondition;
+
+  /**
+   * @public
+   * <p>(Optional) An array of key-value pairs. For more information, see
+   *    <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">
+   *    Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
 
 /**
  * @public
@@ -3588,12 +3677,11 @@ export interface HyperParameterTrainingJobDefinition {
 
   /**
    * @public
-   * <p>Defines the objective metric for a hyperparameter tuning job.
-   *             Hyperparameter
-   *             tuning uses the value of this metric to evaluate the training jobs it launches, and
-   *             returns the training job that results in either the highest or lowest value for this
-   *             metric, depending on the value you specify for the <code>Type</code>
-   *             parameter.</p>
+   * <p>Defines the objective metric for a hyperparameter tuning job. Hyperparameter tuning
+   *             uses the value of this metric to evaluate the training jobs it launches, and returns the
+   *             training job that results in either the highest or lowest value for this metric,
+   *             depending on the value you specify for the <code>Type</code> parameter. If you want to
+   *             define a custom objective metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Define metrics and environment variables</a>.</p>
    */
   TuningObjective?: HyperParameterTuningJobObjective;
 
@@ -11963,28 +12051,6 @@ export interface DeleteCodeRepositoryInput {
    * <p>The name of the Git repository to delete.</p>
    */
   CodeRepositoryName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteContextRequest {
-  /**
-   * @public
-   * <p>The name of the context to delete.</p>
-   */
-  ContextName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteContextResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the context.</p>
-   */
-  ContextArn?: string;
 }
 
 /**

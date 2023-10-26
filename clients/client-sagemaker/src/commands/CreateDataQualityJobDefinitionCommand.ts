@@ -14,8 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { CreateDataQualityJobDefinitionRequest } from "../models/models_0";
-import { CreateDataQualityJobDefinitionResponse } from "../models/models_1";
+import { CreateDataQualityJobDefinitionRequest, CreateDataQualityJobDefinitionResponse } from "../models/models_1";
 import {
   de_CreateDataQualityJobDefinitionCommand,
   se_CreateDataQualityJobDefinitionCommand,

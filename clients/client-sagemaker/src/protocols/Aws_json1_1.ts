@@ -892,7 +892,6 @@ import {
   CreateCodeRepositoryInput,
   CreateCompilationJobRequest,
   CreateContextRequest,
-  CreateDataQualityJobDefinitionRequest,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
@@ -938,7 +937,6 @@ import {
   MonitoringResources,
   MonitoringS3Output,
   MonitoringStatisticsResource,
-  MonitoringStoppingCondition,
   MultiModelConfig,
   NeoVpcConfig,
   OutputConfig,
@@ -960,6 +958,7 @@ import {
   Tag,
   TargetPlatform,
   TextClassificationJobConfig,
+  TextGenerationJobConfig,
   TimeSeriesConfig,
   TimeSeriesForecastingJobConfig,
   TimeSeriesForecastingSettings,
@@ -983,6 +982,7 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  CreateDataQualityJobDefinitionRequest,
   CreateDeviceFleetRequest,
   CreateDomainRequest,
   CreateEdgeDeploymentPlanRequest,
@@ -1042,7 +1042,6 @@ import {
   DeleteArtifactRequest,
   DeleteAssociationRequest,
   DeleteCodeRepositoryInput,
-  DeleteContextRequest,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -1121,6 +1120,7 @@ import {
   MonitoringInput,
   MonitoringJobDefinition,
   MonitoringScheduleConfig,
+  MonitoringStoppingCondition,
   NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
@@ -1193,6 +1193,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteContextRequest,
   DeleteDataQualityJobDefinitionRequest,
   DeleteDeviceFleetRequest,
   DeleteDomainRequest,
@@ -1363,7 +1364,6 @@ import {
   EdgeModel,
   EdgePackagingJobSummary,
   EnableSagemakerServicecatalogPortfolioInput,
-  Endpoint,
   FeatureParameter,
   FinalHyperParameterTuningJobObjectiveMetric,
   HyperParameterTrainingJobSummary,
@@ -1391,6 +1391,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  Endpoint,
   EndpointConfigSummary,
   EndpointSummary,
   Experiment,
@@ -1568,7 +1569,6 @@ import {
   ModelCardExportJobSummary,
   ModelCardSummary,
   ModelCardVersionSummary,
-  ModelDashboardEndpoint,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
   ModelPackageGroupSummary,
@@ -1594,13 +1594,13 @@ import {
   StudioLifecycleConfigDetails,
   SuggestionQuery,
   TrainingJobSummary,
-  TransformJob,
   TransformJobSummary,
   TrialComponentSummary,
   TrialSummary,
   UserProfileDetails,
 } from "../models/models_3";
 import {
+  ModelDashboardEndpoint,
   ModelDashboardModel,
   ModelDashboardModelCard,
   ModelDashboardMonitoringSchedule,
@@ -1649,6 +1649,7 @@ import {
   StopTrainingJobRequest,
   StopTransformJobRequest,
   TrainingJob,
+  TransformJob,
   Trial,
   TrialComponent,
   TrialComponentSimpleSummary,
@@ -21999,6 +22000,8 @@ const se_StopPipelineExecutionRequest = (input: StopPipelineExecutionRequest, co
 
 // se_TextClassificationJobConfig omitted.
 
+// se_TextGenerationJobConfig omitted.
+
 // se_TimeSeriesConfig omitted.
 
 // se_TimeSeriesForecastingJobConfig omitted.
@@ -28044,6 +28047,10 @@ const de_TargetTrackingScalingPolicyConfiguration = (
 // de_TensorBoardOutputConfig omitted.
 
 // de_TextClassificationJobConfig omitted.
+
+// de_TextGenerationJobConfig omitted.
+
+// de_TextGenerationResolvedAttributes omitted.
 
 // de_TimeSeriesConfig omitted.
 

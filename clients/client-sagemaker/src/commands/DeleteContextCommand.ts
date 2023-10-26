@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DeleteContextRequest, DeleteContextResponse } from "../models/models_1";
+import { DeleteContextRequest, DeleteContextResponse } from "../models/models_2";
 import { de_DeleteContextCommand, se_DeleteContextCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

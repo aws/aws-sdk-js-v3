@@ -58,7 +58,6 @@ import {
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
-  MonitoringStoppingCondition,
   NeoVpcConfig,
   ObjectiveStatus,
   OutputConfig,
@@ -138,6 +137,7 @@ import {
   ModelQualityBaselineConfig,
   ModelQualityJobInput,
   MonitoringScheduleConfig,
+  MonitoringStoppingCondition,
   MonitoringType,
   NetworkConfig,
   NotebookInstanceAcceleratorType,
@@ -176,6 +176,28 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DeleteContextRequest {
+  /**
+   * @public
+   * <p>The name of the context to delete.</p>
+   */
+  ContextName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContextResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the context.</p>
+   */
+  ContextArn?: string;
+}
 
 /**
  * @public
@@ -1468,7 +1490,7 @@ export interface ModelDeployResult {
 export interface ResolvedAttributes {
   /**
    * @public
-   * <p>Specifies a metric to minimize or maximize as the objective of a job.</p>
+   * <p>Specifies a metric to minimize or maximize as the objective of an AutoML job.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
@@ -10746,102 +10768,6 @@ export interface MonitoringSchedule {
    */
   Tags?: Tag[];
 }
-
-/**
- * @public
- * <p>A hosted endpoint for real-time inference.</p>
- */
-export interface Endpoint {
-  /**
-   * @public
-   * <p>The name of the endpoint.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The endpoint configuration associated with the endpoint.</p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * @public
-   * <p>A list of the production variants hosted on the endpoint. Each production variant is a
-   *             model.</p>
-   */
-  ProductionVariants?: ProductionVariantSummary[];
-
-  /**
-   * @public
-   * <p>The currently active data capture configuration used by your Endpoint.</p>
-   */
-  DataCaptureConfig?: DataCaptureConfigSummary;
-
-  /**
-   * @public
-   * <p>The status of the endpoint.</p>
-   */
-  EndpointStatus: EndpointStatus | undefined;
-
-  /**
-   * @public
-   * <p>If the endpoint failed, the reason it failed.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * @public
-   * <p>The time that the endpoint was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The last time the endpoint was modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>A list of monitoring schedules for the endpoint. For information about model
-   *             monitoring, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model Monitor</a>.</p>
-   */
-  MonitoringSchedules?: MonitoringSchedule[];
-
-  /**
-   * @public
-   * <p>A list of the tags associated with the endpoint. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General
-   *                 Reference Guide</i>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>A list of the shadow variants hosted on the endpoint. Each shadow variant is a model
-   *             in shadow mode with production traffic replicated from the production variant.</p>
-   */
-  ShadowProductionVariants?: ProductionVariantSummary[];
-}
-
-/**
- * @public
- * @enum
- */
-export const EndpointConfigSortKey = {
-  CreationTime: "CreationTime",
-  Name: "Name",
-} as const;
-
-/**
- * @public
- */
-export type EndpointConfigSortKey = (typeof EndpointConfigSortKey)[keyof typeof EndpointConfigSortKey];
 
 /**
  * @internal

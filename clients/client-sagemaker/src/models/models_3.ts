@@ -19,8 +19,6 @@ import {
   AutoMLJobSummary,
   AutoMLSortBy,
   AutoMLSortOrder,
-  BatchDataCaptureConfig,
-  BatchStrategy,
   CacheHitResult,
   CallbackStepMetadata,
   CandidateSortBy,
@@ -38,17 +36,13 @@ import {
   ModelPackageStatus,
   OutputParameter,
   Tag,
-  TransformInput,
-  TransformOutput,
-  TransformResources,
   UserContext,
   VpcConfig,
 } from "./models_0";
 import {
   _InstanceType,
-  DataProcessing,
+  DataCaptureConfigSummary,
   EdgeOutputConfig,
-  ExperimentConfig,
   FeatureDefinition,
   FeatureType,
   HyperParameterTrainingJobDefinition,
@@ -61,7 +55,6 @@ import {
   LabelingJobInputConfig,
   ModelCardSecurityConfig,
   ModelCardStatus,
-  ModelClientConfig,
   MonitoringType,
   OfflineStoreConfig,
   OnlineStoreConfig,
@@ -83,7 +76,6 @@ import {
   EdgePackagingJobStatus,
   EdgePackagingJobSummary,
   EMRStepMetadata,
-  EndpointConfigSortKey,
   EndpointOutputConfiguration,
   EndpointStatus,
   ExecutionStatus,
@@ -110,12 +102,14 @@ import {
   ModelConfiguration,
   ModelPackageGroupStatus,
   MonitoringExecutionSummary,
+  MonitoringSchedule,
   NotebookInstanceStatus,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OfflineStoreStatusValue,
   PipelineExecutionStatus,
   ProcessingJobStatus,
+  ProductionVariantSummary,
   ProjectStatus,
   RecommendationJobStatus,
   RecommendationMetrics,
@@ -133,6 +127,102 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>A hosted endpoint for real-time inference.</p>
+ */
+export interface Endpoint {
+  /**
+   * @public
+   * <p>The name of the endpoint.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The endpoint configuration associated with the endpoint.</p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of the production variants hosted on the endpoint. Each production variant is a
+   *             model.</p>
+   */
+  ProductionVariants?: ProductionVariantSummary[];
+
+  /**
+   * @public
+   * <p>The currently active data capture configuration used by your Endpoint.</p>
+   */
+  DataCaptureConfig?: DataCaptureConfigSummary;
+
+  /**
+   * @public
+   * <p>The status of the endpoint.</p>
+   */
+  EndpointStatus: EndpointStatus | undefined;
+
+  /**
+   * @public
+   * <p>If the endpoint failed, the reason it failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>The time that the endpoint was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The last time the endpoint was modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>A list of monitoring schedules for the endpoint. For information about model
+   *             monitoring, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model Monitor</a>.</p>
+   */
+  MonitoringSchedules?: MonitoringSchedule[];
+
+  /**
+   * @public
+   * <p>A list of the tags associated with the endpoint. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General
+   *                 Reference Guide</i>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>A list of the shadow variants hosted on the endpoint. Each shadow variant is a model
+   *             in shadow mode with production traffic replicated from the production variant.</p>
+   */
+  ShadowProductionVariants?: ProductionVariantSummary[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointConfigSortKey = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointConfigSortKey = (typeof EndpointConfigSortKey)[keyof typeof EndpointConfigSortKey];
 
 /**
  * @public
@@ -10352,250 +10442,6 @@ export interface ModelCard {
    *       </p>
    */
   ModelPackageGroupName?: string;
-}
-
-/**
- * @public
- * <p>An endpoint that hosts a model displayed in the Amazon SageMaker Model Dashboard.</p>
- */
-export interface ModelDashboardEndpoint {
-  /**
-   * @public
-   * <p>The endpoint name.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-
-  /**
-   * @public
-   * <p>A timestamp that indicates when the endpoint was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The last time the endpoint was modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The endpoint status.</p>
-   */
-  EndpointStatus: EndpointStatus | undefined;
-}
-
-/**
- * @public
- * <p>A batch transform job. For information about SageMaker batch transform, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Use Batch
- *         Transform</a>.</p>
- */
-export interface TransformJob {
-  /**
-   * @public
-   * <p>The name of the transform job.</p>
-   */
-  TransformJobName?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
-   */
-  TransformJobArn?: string;
-
-  /**
-   * @public
-   * <p>The status of the transform job.</p>
-   *          <p>Transform job statuses are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>InProgress</code> - The job is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Completed</code> - The job has completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Failed</code> - The transform job has failed. To see the reason for the failure,
-   *           see the <code>FailureReason</code> field in the response to a
-   *             <code>DescribeTransformJob</code> call.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Stopping</code> - The transform job is stopping.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Stopped</code> - The transform job has stopped.</p>
-   *             </li>
-   *          </ul>
-   */
-  TransformJobStatus?: TransformJobStatus;
-
-  /**
-   * @public
-   * <p>If the transform job failed, the reason it failed.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * @public
-   * <p>The name of the model associated with the transform job.</p>
-   */
-  ModelName?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of parallel requests that can be sent to each instance in a transform
-   *       job. If <code>MaxConcurrentTransforms</code> is set to 0 or left unset, SageMaker checks the
-   *       optional execution-parameters to determine the settings for your chosen algorithm. If the
-   *       execution-parameters endpoint is not enabled, the default value is 1. For built-in algorithms,
-   *       you don't need to set a value for <code>MaxConcurrentTransforms</code>.</p>
-   */
-  MaxConcurrentTransforms?: number;
-
-  /**
-   * @public
-   * <p>Configures the timeout and maximum number of retries for processing a transform job
-   *             invocation.</p>
-   */
-  ModelClientConfig?: ModelClientConfig;
-
-  /**
-   * @public
-   * <p>The maximum allowed size of the payload, in MB. A payload is the data portion of a record
-   *       (without metadata). The value in <code>MaxPayloadInMB</code> must be greater than, or equal
-   *       to, the size of a single record. To estimate the size of a record in MB, divide the size of
-   *       your dataset by the number of records. To ensure that the records fit within the maximum
-   *       payload size, we recommend using a slightly larger value. The default value is 6 MB. For cases
-   *       where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding,
-   *       set the value to 0. This feature works only in supported algorithms. Currently, SageMaker built-in
-   *       algorithms do not support HTTP chunked encoding.</p>
-   */
-  MaxPayloadInMB?: number;
-
-  /**
-   * @public
-   * <p>Specifies the number of records to include in a mini-batch for an HTTP inference request.
-   *       A record is a single unit of input data that inference can be made on. For example, a single
-   *       line in a CSV file is a record.</p>
-   */
-  BatchStrategy?: BatchStrategy;
-
-  /**
-   * @public
-   * <p>The environment variables to set in the Docker container. We support up to 16 key and
-   *       values entries in the map.</p>
-   */
-  Environment?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Describes the input source of a transform job and the way the transform job consumes
-   *             it.</p>
-   */
-  TransformInput?: TransformInput;
-
-  /**
-   * @public
-   * <p>Describes the results of a transform job.</p>
-   */
-  TransformOutput?: TransformOutput;
-
-  /**
-   * @public
-   * <p>Describes the resources, including ML instance types and ML instance count, to use for
-   *             transform job.</p>
-   */
-  TransformResources?: TransformResources;
-
-  /**
-   * @public
-   * <p>A timestamp that shows when the transform Job was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>Indicates when the transform job starts on ML instances. You are billed for the time
-   *       interval between this time and the value of <code>TransformEndTime</code>.</p>
-   */
-  TransformStartTime?: Date;
-
-  /**
-   * @public
-   * <p>Indicates when the transform job has been completed, or has stopped or failed. You are
-   *       billed for the time interval between this time and the value of
-   *         <code>TransformStartTime</code>.</p>
-   */
-  TransformEndTime?: Date;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the  labeling job that created the transform job.</p>
-   */
-  LabelingJobArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the AutoML job that created the transform job.</p>
-   */
-  AutoMLJobArn?: string;
-
-  /**
-   * @public
-   * <p>The data structure used to specify the data to be used for inference in a batch
-   *             transform job and to associate the data that is relevant to the prediction results in
-   *             the output. The input filter provided allows you to exclude input data that is not
-   *             needed for inference in a batch transform job. The output filter provided allows you to
-   *             include input data relevant to interpreting the predictions in the output from the job.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate Prediction
-   *                 Results with their Corresponding Input Records</a>.</p>
-   */
-  DataProcessing?: DataProcessing;
-
-  /**
-   * @public
-   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
-   *       you call the following APIs:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ExperimentConfig?: ExperimentConfig;
-
-  /**
-   * @public
-   * <p>A list of tags associated with the transform job.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>Configuration to control how SageMaker captures inference data for batch transform jobs.</p>
-   */
-  DataCaptureConfig?: BatchDataCaptureConfig;
 }
 
 /**
