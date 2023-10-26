@@ -85,6 +85,9 @@ public enum AwsDependency implements Dependency {
     // Conditionally added when auth trait is present
     MIDDLEWARE_API_KEY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-api-key"),
 
+    // Conditionally added when EndpointRuleSetTrait is present
+    UTIL_ENDPOINTS(NORMAL_DEPENDENCY, "@aws-sdk/util-endpoints"),
+
     // feat(experimentalIdentityAndAuth): Conditionally added when @httpBearerAuth is used in an AWS service
     TOKEN_PROVIDERS(NORMAL_DEPENDENCY, "@aws-sdk/token-providers"),
     TYPES(NORMAL_DEPENDENCY, "@aws-sdk/types"),

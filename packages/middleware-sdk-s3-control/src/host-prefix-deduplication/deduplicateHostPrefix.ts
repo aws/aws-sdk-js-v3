@@ -1,4 +1,4 @@
-import { isIpAddress } from "@aws-sdk/util-endpoints";
+import { isIpAddress } from "@smithy/util-endpoints";
 
 /**
  * @example
