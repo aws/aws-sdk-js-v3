@@ -33,4 +33,6 @@ export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
 
+import "@aws-sdk/util-endpoints";
+
 export { ElasticLoadBalancingServiceException } from "./models/ElasticLoadBalancingServiceException";

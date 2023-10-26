@@ -17,4 +17,6 @@ export * from "./commands";
 export * from "./pagination";
 export * from "./models";
 
+import "@aws-sdk/util-endpoints";
+
 export { WellArchitectedServiceException } from "./models/WellArchitectedServiceException";

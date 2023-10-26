@@ -46,4 +46,6 @@ export * from "./commands";
 export * from "./pagination";
 export * from "./models";
 
+import "@aws-sdk/util-endpoints";
+
 export { AppflowServiceException } from "./models/AppflowServiceException";

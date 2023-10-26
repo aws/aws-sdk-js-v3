@@ -48,4 +48,6 @@ export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
 
+import "@aws-sdk/util-endpoints";
+
 export { SSMServiceException } from "./models/SSMServiceException";
