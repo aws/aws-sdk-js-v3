@@ -42,13 +42,13 @@ export interface CreateTLSInspectionConfigurationCommandOutput
 
 /**
  * @public
- * <p>Creates an Network Firewall TLS inspection configuration. A TLS inspection configuration contains the Certificate Manager certificate references that Network Firewall uses to decrypt and re-encrypt inbound traffic.</p>
- *          <p>After you create a TLS inspection configuration, you associate it with a new firewall policy.</p>
+ * <p>Creates an Network Firewall TLS inspection configuration. A TLS inspection configuration contains the Certificate Manager certificate associations that Network Firewall uses to decrypt and re-encrypt traffic traveling through your firewall.</p>
+ *          <p>After you create a TLS inspection configuration, you can associate it with a new firewall policy.</p>
  *          <p>To update the settings for a TLS inspection configuration, use <a>UpdateTLSInspectionConfiguration</a>.</p>
  *          <p>To manage a TLS inspection configuration's tags, use the standard Amazon Web Services resource tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.</p>
  *          <p>To retrieve information about TLS inspection configurations, use <a>ListTLSInspectionConfigurations</a> and <a>DescribeTLSInspectionConfiguration</a>.</p>
  *          <p>
- *               For more information about TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Decrypting SSL/TLS traffic with TLS
+ *               For more information about TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Inspecting SSL/TLS traffic with TLS
  * inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.
  *             </p>
  * @example
@@ -96,6 +96,11 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  *             ],
  *           },
  *         ],
+ *         CertificateAuthorityArn: "STRING_VALUE",
+ *         CheckCertificateRevocationStatus: { // CheckCertificateRevocationStatusActions
+ *           RevokedStatusAction: "PASS" || "DROP" || "REJECT",
+ *           UnknownStatusAction: "PASS" || "DROP" || "REJECT",
+ *         },
  *       },
  *     ],
  *   },
@@ -119,7 +124,7 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  * //     TLSInspectionConfigurationArn: "STRING_VALUE", // required
  * //     TLSInspectionConfigurationName: "STRING_VALUE", // required
  * //     TLSInspectionConfigurationId: "STRING_VALUE", // required
- * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING",
+ * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING" || "ERROR",
  * //     Description: "STRING_VALUE",
  * //     Tags: [ // TagList
  * //       { // Tag
@@ -141,6 +146,12 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  * //         StatusMessage: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     CertificateAuthority: {
+ * //       CertificateArn: "STRING_VALUE",
+ * //       CertificateSerial: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -157,7 +168,7 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  *          request later. </p>
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
+ *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
  *          system problem. Retry your request. </p>
  *
  * @throws {@link InvalidRequestException} (client fault)

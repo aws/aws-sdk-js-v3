@@ -118,7 +118,7 @@ export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyR
  * //     FirewallPolicyArn: "STRING_VALUE", // required
  * //     FirewallPolicyId: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
- * //     FirewallPolicyStatus: "ACTIVE" || "DELETING",
+ * //     FirewallPolicyStatus: "ACTIVE" || "DELETING" || "ERROR",
  * //     Tags: [ // TagList
  * //       { // Tag
  * //         Key: "STRING_VALUE", // required
@@ -145,7 +145,7 @@ export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyR
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
+ *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
  *          system problem. Retry your request. </p>
  *
  * @throws {@link InvalidRequestException} (client fault)

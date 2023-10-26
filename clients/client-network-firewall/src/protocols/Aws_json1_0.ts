@@ -129,6 +129,7 @@ import {
   Address,
   AssociateFirewallPolicyRequest,
   AssociateSubnetsRequest,
+  CheckCertificateRevocationStatusActions,
   CreateFirewallPolicyRequest,
   CreateFirewallPolicyResponse,
   CreateFirewallRequest,
@@ -2972,6 +2973,8 @@ const de_UnsupportedOperationExceptionRes = async (
 
 // se_AzSubnets omitted.
 
+// se_CheckCertificateRevocationStatusActions omitted.
+
 // se_CreateFirewallPolicyRequest omitted.
 
 // se_CreateFirewallRequest omitted.
@@ -3219,6 +3222,8 @@ const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __Ser
 // de_CapacityUsageSummary omitted.
 
 // de_Certificates omitted.
+
+// de_CheckCertificateRevocationStatusActions omitted.
 
 // de_CIDRSummary omitted.
 
@@ -3596,6 +3601,7 @@ const de_TLSInspectionConfigurationResponse = (
   context: __SerdeContext
 ): TLSInspectionConfigurationResponse => {
   return take(output, {
+    CertificateAuthority: _json,
     Certificates: _json,
     Description: __expectString,
     EncryptionConfiguration: _json,

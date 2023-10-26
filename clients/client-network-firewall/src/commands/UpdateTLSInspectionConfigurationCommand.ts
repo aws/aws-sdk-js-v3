@@ -43,7 +43,7 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
 /**
  * @public
  * <p>Updates the TLS inspection configuration settings for the specified TLS inspection configuration. You use a TLS inspection configuration by
- *         reference in one or more firewall policies. When you modify a TLS inspection configuration, you modify all
+ *         referencing it in one or more firewall policies. When you modify a TLS inspection configuration, you modify all
  *         firewall policies that use the TLS inspection configuration. </p>
  *          <p>To update a TLS inspection configuration, first call <a>DescribeTLSInspectionConfiguration</a> to retrieve the
  *         current <a>TLSInspectionConfiguration</a> object, update the object as needed, and then provide
@@ -94,6 +94,11 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
  *             ],
  *           },
  *         ],
+ *         CertificateAuthorityArn: "STRING_VALUE",
+ *         CheckCertificateRevocationStatus: { // CheckCertificateRevocationStatusActions
+ *           RevokedStatusAction: "PASS" || "DROP" || "REJECT",
+ *           UnknownStatusAction: "PASS" || "DROP" || "REJECT",
+ *         },
  *       },
  *     ],
  *   },
@@ -112,7 +117,7 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
  * //     TLSInspectionConfigurationArn: "STRING_VALUE", // required
  * //     TLSInspectionConfigurationName: "STRING_VALUE", // required
  * //     TLSInspectionConfigurationId: "STRING_VALUE", // required
- * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING",
+ * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING" || "ERROR",
  * //     Description: "STRING_VALUE",
  * //     Tags: [ // TagList
  * //       { // Tag
@@ -134,6 +139,12 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
  * //         StatusMessage: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     CertificateAuthority: {
+ * //       CertificateArn: "STRING_VALUE",
+ * //       CertificateSerial: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -146,7 +157,7 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
+ *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
  *          system problem. Retry your request. </p>
  *
  * @throws {@link InvalidRequestException} (client fault)

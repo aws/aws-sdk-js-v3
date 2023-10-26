@@ -59,7 +59,7 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * //     Description: "STRING_VALUE",
  * //     Type: "STATELESS" || "STATEFUL",
  * //     Capacity: Number("int"),
- * //     RuleGroupStatus: "ACTIVE" || "DELETING",
+ * //     RuleGroupStatus: "ACTIVE" || "DELETING" || "ERROR",
  * //     Tags: [ // TagList
  * //       { // Tag
  * //         Key: "STRING_VALUE", // required
@@ -90,7 +90,7 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
+ *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
  *          system problem. Retry your request. </p>
  *
  * @throws {@link InvalidOperationException} (client fault)

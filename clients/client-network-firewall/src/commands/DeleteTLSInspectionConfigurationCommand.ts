@@ -60,7 +60,7 @@ export interface DeleteTLSInspectionConfigurationCommandOutput
  * //     TLSInspectionConfigurationArn: "STRING_VALUE", // required
  * //     TLSInspectionConfigurationName: "STRING_VALUE", // required
  * //     TLSInspectionConfigurationId: "STRING_VALUE", // required
- * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING",
+ * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING" || "ERROR",
  * //     Description: "STRING_VALUE",
  * //     Tags: [ // TagList
  * //       { // Tag
@@ -82,6 +82,12 @@ export interface DeleteTLSInspectionConfigurationCommandOutput
  * //         StatusMessage: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     CertificateAuthority: {
+ * //       CertificateArn: "STRING_VALUE",
+ * //       CertificateSerial: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -94,7 +100,7 @@ export interface DeleteTLSInspectionConfigurationCommandOutput
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
+ *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
  *          system problem. Retry your request. </p>
  *
  * @throws {@link InvalidOperationException} (client fault)
