@@ -187,6 +187,10 @@ import {
 } from "./commands/DeleteHsmConfigurationCommand";
 import { DeletePartnerCommandInput, DeletePartnerCommandOutput } from "./commands/DeletePartnerCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteScheduledActionCommandInput,
   DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand";
@@ -284,6 +288,10 @@ import {
   DescribeHsmConfigurationsCommandOutput,
 } from "./commands/DescribeHsmConfigurationsCommand";
 import {
+  DescribeInboundIntegrationsCommandInput,
+  DescribeInboundIntegrationsCommandOutput,
+} from "./commands/DescribeInboundIntegrationsCommand";
+import {
   DescribeLoggingStatusCommandInput,
   DescribeLoggingStatusCommandOutput,
 } from "./commands/DescribeLoggingStatusCommand";
@@ -358,6 +366,7 @@ import {
   GetReservedNodeExchangeOfferingsCommandInput,
   GetReservedNodeExchangeOfferingsCommandOutput,
 } from "./commands/GetReservedNodeExchangeOfferingsCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
   ModifyAquaConfigurationCommandInput,
   ModifyAquaConfigurationCommandOutput,
@@ -425,6 +434,7 @@ import {
   PurchaseReservedNodeOfferingCommandInput,
   PurchaseReservedNodeOfferingCommandOutput,
 } from "./commands/PurchaseReservedNodeOfferingCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { RebootClusterCommandInput, RebootClusterCommandOutput } from "./commands/RebootClusterCommand";
 import { RejectDataShareCommandInput, RejectDataShareCommandOutput } from "./commands/RejectDataShareCommand";
 import {
@@ -516,6 +526,7 @@ export type ServiceInputTypes =
   | DeleteHsmClientCertificateCommandInput
   | DeleteHsmConfigurationCommandInput
   | DeletePartnerCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeleteScheduledActionCommandInput
   | DeleteSnapshotCopyGrantCommandInput
   | DeleteSnapshotScheduleCommandInput
@@ -544,6 +555,7 @@ export type ServiceInputTypes =
   | DescribeEventsCommandInput
   | DescribeHsmClientCertificatesCommandInput
   | DescribeHsmConfigurationsCommandInput
+  | DescribeInboundIntegrationsCommandInput
   | DescribeLoggingStatusCommandInput
   | DescribeNodeConfigurationOptionsCommandInput
   | DescribeOrderableClusterOptionsCommandInput
@@ -568,6 +580,7 @@ export type ServiceInputTypes =
   | GetClusterCredentialsWithIAMCommandInput
   | GetReservedNodeExchangeConfigurationOptionsCommandInput
   | GetReservedNodeExchangeOfferingsCommandInput
+  | GetResourcePolicyCommandInput
   | ModifyAquaConfigurationCommandInput
   | ModifyAuthenticationProfileCommandInput
   | ModifyClusterCommandInput
@@ -587,6 +600,7 @@ export type ServiceInputTypes =
   | ModifyUsageLimitCommandInput
   | PauseClusterCommandInput
   | PurchaseReservedNodeOfferingCommandInput
+  | PutResourcePolicyCommandInput
   | RebootClusterCommandInput
   | RejectDataShareCommandInput
   | ResetClusterParameterGroupCommandInput
@@ -644,6 +658,7 @@ export type ServiceOutputTypes =
   | DeleteHsmClientCertificateCommandOutput
   | DeleteHsmConfigurationCommandOutput
   | DeletePartnerCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeleteScheduledActionCommandOutput
   | DeleteSnapshotCopyGrantCommandOutput
   | DeleteSnapshotScheduleCommandOutput
@@ -672,6 +687,7 @@ export type ServiceOutputTypes =
   | DescribeEventsCommandOutput
   | DescribeHsmClientCertificatesCommandOutput
   | DescribeHsmConfigurationsCommandOutput
+  | DescribeInboundIntegrationsCommandOutput
   | DescribeLoggingStatusCommandOutput
   | DescribeNodeConfigurationOptionsCommandOutput
   | DescribeOrderableClusterOptionsCommandOutput
@@ -696,6 +712,7 @@ export type ServiceOutputTypes =
   | GetClusterCredentialsWithIAMCommandOutput
   | GetReservedNodeExchangeConfigurationOptionsCommandOutput
   | GetReservedNodeExchangeOfferingsCommandOutput
+  | GetResourcePolicyCommandOutput
   | ModifyAquaConfigurationCommandOutput
   | ModifyAuthenticationProfileCommandOutput
   | ModifyClusterCommandOutput
@@ -715,6 +732,7 @@ export type ServiceOutputTypes =
   | ModifyUsageLimitCommandOutput
   | PauseClusterCommandOutput
   | PurchaseReservedNodeOfferingCommandOutput
+  | PutResourcePolicyCommandOutput
   | RebootClusterCommandOutput
   | RejectDataShareCommandOutput
   | ResetClusterParameterGroupCommandOutput

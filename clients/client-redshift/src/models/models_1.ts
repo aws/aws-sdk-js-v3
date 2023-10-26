@@ -10,7 +10,6 @@ import {
   ClusterFilterSensitiveLog,
   ClusterSecurityGroup,
   ClusterSubnetGroup,
-  EventCategoriesMap,
   EventSubscription,
   HsmClientCertificate,
   HsmConfiguration,
@@ -30,6 +29,56 @@ import {
   UsageLimitFeatureType,
 } from "./models_0";
 import { RedshiftServiceException as __BaseException } from "./RedshiftServiceException";
+
+/**
+ * @public
+ * <p>Describes event information.</p>
+ */
+export interface EventInfoMap {
+  /**
+   * @public
+   * <p>The identifier of an Amazon Redshift event.</p>
+   */
+  EventId?: string;
+
+  /**
+   * @public
+   * <p>The category of an Amazon Redshift event.</p>
+   */
+  EventCategories?: string[];
+
+  /**
+   * @public
+   * <p>The description of an Amazon Redshift event.</p>
+   */
+  EventDescription?: string;
+
+  /**
+   * @public
+   * <p>The severity of the event.</p>
+   *          <p>Values: ERROR, INFO</p>
+   */
+  Severity?: string;
+}
+
+/**
+ * @public
+ * <p>Describes event categories.</p>
+ */
+export interface EventCategoriesMap {
+  /**
+   * @public
+   * <p>The source type, such as cluster or cluster-snapshot, that the returned categories
+   *             belong to.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * @public
+   * <p>The events in the event category.</p>
+   */
+  Events?: EventInfoMap[];
+}
 
 /**
  * @public
@@ -491,6 +540,166 @@ export interface HsmConfigurationMessage {
    * <p>A list of <code>HsmConfiguration</code> objects.</p>
    */
   HsmConfigurations?: HsmConfiguration[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeInboundIntegrationsMessage {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the inbound integration.</p>
+   */
+  IntegrationArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the target of an inbound integration.</p>
+   */
+  TargetArn?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeInboundIntegrations</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * <p>The error of an inbound integration.</p>
+ */
+export interface IntegrationError {
+  /**
+   * @public
+   * <p>The error code of an inbound integration error.</p>
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * @public
+   * <p>The error message of an inbound integration error.</p>
+   */
+  ErrorMessage?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ZeroETLIntegrationStatus = {
+  ACTIVE: "active",
+  CREATING: "creating",
+  DELETING: "deleting",
+  FAILED: "failed",
+  MODIFYING: "modifying",
+  NEEDS_ATTENTION: "needs_attention",
+  SYNCING: "syncing",
+} as const;
+
+/**
+ * @public
+ */
+export type ZeroETLIntegrationStatus = (typeof ZeroETLIntegrationStatus)[keyof typeof ZeroETLIntegrationStatus];
+
+/**
+ * @public
+ * <p>The content of an inbound integration.</p>
+ */
+export interface InboundIntegration {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an inbound integration.</p>
+   */
+  IntegrationArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the source of an inbound integration.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the target of an inbound integration.</p>
+   */
+  TargetArn?: string;
+
+  /**
+   * @public
+   * <p>The status of an inbound integration.</p>
+   */
+  Status?: ZeroETLIntegrationStatus;
+
+  /**
+   * @public
+   * <p>The outstanding errors of an inbound  integration. Each item is an "IntegrationError". This is null if there is no error.</p>
+   */
+  Errors?: IntegrationError[];
+
+  /**
+   * @public
+   * <p>The creation time of an inbound integration.</p>
+   */
+  CreateTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface InboundIntegrationsMessage {
+  /**
+   * @public
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>A list of <a>InboundIntegration</a> instances.</p>
+   */
+  InboundIntegrations?: InboundIntegration[];
+}
+
+/**
+ * @public
+ * <p>The integration can't be found.</p>
+ */
+export class IntegrationNotFoundFault extends __BaseException {
+  readonly name: "IntegrationNotFoundFault" = "IntegrationNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationNotFoundFault, __BaseException>) {
+    super({
+      name: "IntegrationNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -2668,6 +2877,66 @@ export interface GetReservedNodeExchangeOfferingsOutputMessage {
 
 /**
  * @public
+ */
+export interface GetResourcePolicyMessage {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource of which its resource policy is fetched.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The policy that is attached to a resource.</p>
+ */
+export interface ResourcePolicy {
+  /**
+   * @public
+   * <p>The resources that a policy is attached to.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * @public
+   * <p>The content of a resource policy.</p>
+   */
+  Policy?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResult {
+  /**
+   * @public
+   * <p>The content of the resource policy.</p>
+   */
+  ResourcePolicy?: ResourcePolicy;
+}
+
+/**
+ * @public
+ * <p>The resource policy isn't valid.</p>
+ */
+export class InvalidPolicyFault extends __BaseException {
+  readonly name: "InvalidPolicyFault" = "InvalidPolicyFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPolicyFault, __BaseException>) {
+    super({
+      name: "InvalidPolicyFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPolicyFault.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>You have exceeded the allowed number of table restore requests. Wait for your
  *             current table restore requests to complete before making a new request.</p>
  */
@@ -3840,6 +4109,34 @@ export class ReservedNodeQuotaExceededFault extends __BaseException {
     });
     Object.setPrototypeOf(this, ReservedNodeQuotaExceededFault.prototype);
   }
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyMessage {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource of which its resource policy is updated.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The content of the resource policy being updated.</p>
+   */
+  Policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResult {
+  /**
+   * @public
+   * <p>The content of the updated resource policy.</p>
+   */
+  ResourcePolicy?: ResourcePolicy;
 }
 
 /**

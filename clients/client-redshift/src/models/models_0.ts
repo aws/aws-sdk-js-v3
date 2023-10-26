@@ -4126,6 +4126,26 @@ export interface ClusterVersionsMessage {
 
 /**
  * @public
+ * <p>There is a conflict while updating the resource policy.</p>
+ */
+export class ConflictPolicyUpdateFault extends __BaseException {
+  readonly name: "ConflictPolicyUpdateFault" = "ConflictPolicyUpdateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictPolicyUpdateFault, __BaseException>) {
+    super({
+      name: "ConflictPolicyUpdateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictPolicyUpdateFault.prototype);
+  }
+}
+
+/**
+ * @public
  * <p></p>
  */
 export interface CopyClusterSnapshotMessage {
@@ -7532,6 +7552,17 @@ export class InvalidHsmConfigurationStateFault extends __BaseException {
 /**
  * @public
  */
+export interface DeleteResourcePolicyMessage {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource of which its resource policy is deleted.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteScheduledActionMessage {
   /**
    * @public
@@ -8813,56 +8844,6 @@ export interface DescribeEventCategoriesMessage {
    *          <p>Valid values: cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, and scheduled-action.</p>
    */
   SourceType?: string;
-}
-
-/**
- * @public
- * <p>Describes event information.</p>
- */
-export interface EventInfoMap {
-  /**
-   * @public
-   * <p>The identifier of an Amazon Redshift event.</p>
-   */
-  EventId?: string;
-
-  /**
-   * @public
-   * <p>The category of an Amazon Redshift event.</p>
-   */
-  EventCategories?: string[];
-
-  /**
-   * @public
-   * <p>The description of an Amazon Redshift event.</p>
-   */
-  EventDescription?: string;
-
-  /**
-   * @public
-   * <p>The severity of the event.</p>
-   *          <p>Values: ERROR, INFO</p>
-   */
-  Severity?: string;
-}
-
-/**
- * @public
- * <p>Describes event categories.</p>
- */
-export interface EventCategoriesMap {
-  /**
-   * @public
-   * <p>The source type, such as cluster or cluster-snapshot, that the returned categories
-   *             belong to.</p>
-   */
-  SourceType?: string;
-
-  /**
-   * @public
-   * <p>The events in the event category.</p>
-   */
-  Events?: EventInfoMap[];
 }
 
 /**

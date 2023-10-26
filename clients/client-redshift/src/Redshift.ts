@@ -195,6 +195,11 @@ import {
   DeletePartnerCommandOutput,
 } from "./commands/DeletePartnerCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteScheduledActionCommand,
   DeleteScheduledActionCommandInput,
   DeleteScheduledActionCommandOutput,
@@ -331,6 +336,11 @@ import {
   DescribeHsmConfigurationsCommandOutput,
 } from "./commands/DescribeHsmConfigurationsCommand";
 import {
+  DescribeInboundIntegrationsCommand,
+  DescribeInboundIntegrationsCommandInput,
+  DescribeInboundIntegrationsCommandOutput,
+} from "./commands/DescribeInboundIntegrationsCommand";
+import {
   DescribeLoggingStatusCommand,
   DescribeLoggingStatusCommandInput,
   DescribeLoggingStatusCommandOutput,
@@ -451,6 +461,11 @@ import {
   GetReservedNodeExchangeOfferingsCommandOutput,
 } from "./commands/GetReservedNodeExchangeOfferingsCommand";
 import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import {
   ModifyAquaConfigurationCommand,
   ModifyAquaConfigurationCommandInput,
   ModifyAquaConfigurationCommandOutput,
@@ -545,6 +560,11 @@ import {
   PurchaseReservedNodeOfferingCommandInput,
   PurchaseReservedNodeOfferingCommandOutput,
 } from "./commands/PurchaseReservedNodeOfferingCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import {
   RebootClusterCommand,
   RebootClusterCommandInput,
@@ -648,6 +668,7 @@ const commands = {
   DeleteHsmClientCertificateCommand,
   DeleteHsmConfigurationCommand,
   DeletePartnerCommand,
+  DeleteResourcePolicyCommand,
   DeleteScheduledActionCommand,
   DeleteSnapshotCopyGrantCommand,
   DeleteSnapshotScheduleCommand,
@@ -676,6 +697,7 @@ const commands = {
   DescribeEventSubscriptionsCommand,
   DescribeHsmClientCertificatesCommand,
   DescribeHsmConfigurationsCommand,
+  DescribeInboundIntegrationsCommand,
   DescribeLoggingStatusCommand,
   DescribeNodeConfigurationOptionsCommand,
   DescribeOrderableClusterOptionsCommand,
@@ -700,6 +722,7 @@ const commands = {
   GetClusterCredentialsWithIAMCommand,
   GetReservedNodeExchangeConfigurationOptionsCommand,
   GetReservedNodeExchangeOfferingsCommand,
+  GetResourcePolicyCommand,
   ModifyAquaConfigurationCommand,
   ModifyAuthenticationProfileCommand,
   ModifyClusterCommand,
@@ -719,6 +742,7 @@ const commands = {
   ModifyUsageLimitCommand,
   PauseClusterCommand,
   PurchaseReservedNodeOfferingCommand,
+  PutResourcePolicyCommand,
   RebootClusterCommand,
   RejectDataShareCommand,
   ResetClusterParameterGroupCommand,
@@ -1379,6 +1403,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteScheduledActionCommand}
    */
   deleteScheduledAction(
@@ -1846,6 +1887,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link DescribeInboundIntegrationsCommand}
+   */
+  describeInboundIntegrations(
+    args: DescribeInboundIntegrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInboundIntegrationsCommandOutput>;
+  describeInboundIntegrations(
+    args: DescribeInboundIntegrationsCommandInput,
+    cb: (err: any, data?: DescribeInboundIntegrationsCommandOutput) => void
+  ): void;
+  describeInboundIntegrations(
+    args: DescribeInboundIntegrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInboundIntegrationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeLoggingStatusCommand}
    */
   describeLoggingStatus(
@@ -2233,6 +2291,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyAquaConfigurationCommand}
    */
   modifyAquaConfiguration(
@@ -2541,6 +2616,23 @@ export interface Redshift {
     args: PurchaseReservedNodeOfferingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PurchaseReservedNodeOfferingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
   /**

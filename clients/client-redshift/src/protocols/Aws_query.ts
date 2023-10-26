@@ -160,6 +160,10 @@ import {
 } from "../commands/DeleteHsmConfigurationCommand";
 import { DeletePartnerCommandInput, DeletePartnerCommandOutput } from "../commands/DeletePartnerCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
+import {
   DeleteScheduledActionCommandInput,
   DeleteScheduledActionCommandOutput,
 } from "../commands/DeleteScheduledActionCommand";
@@ -257,6 +261,10 @@ import {
   DescribeHsmConfigurationsCommandOutput,
 } from "../commands/DescribeHsmConfigurationsCommand";
 import {
+  DescribeInboundIntegrationsCommandInput,
+  DescribeInboundIntegrationsCommandOutput,
+} from "../commands/DescribeInboundIntegrationsCommand";
+import {
   DescribeLoggingStatusCommandInput,
   DescribeLoggingStatusCommandOutput,
 } from "../commands/DescribeLoggingStatusCommand";
@@ -331,6 +339,7 @@ import {
   GetReservedNodeExchangeOfferingsCommandInput,
   GetReservedNodeExchangeOfferingsCommandOutput,
 } from "../commands/GetReservedNodeExchangeOfferingsCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import {
   ModifyAquaConfigurationCommandInput,
   ModifyAquaConfigurationCommandOutput,
@@ -398,6 +407,7 @@ import {
   PurchaseReservedNodeOfferingCommandInput,
   PurchaseReservedNodeOfferingCommandOutput,
 } from "../commands/PurchaseReservedNodeOfferingCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { RebootClusterCommandInput, RebootClusterCommandOutput } from "../commands/RebootClusterCommand";
 import { RejectDataShareCommandInput, RejectDataShareCommandOutput } from "../commands/RejectDataShareCommand";
 import {
@@ -509,6 +519,7 @@ import {
   ClusterSubnetQuotaExceededFault,
   ClusterVersion,
   ClusterVersionsMessage,
+  ConflictPolicyUpdateFault,
   CopyClusterSnapshotMessage,
   CopyClusterSnapshotResult,
   CopyToRegionDisabledFault,
@@ -563,6 +574,7 @@ import {
   DeleteEventSubscriptionMessage,
   DeleteHsmClientCertificateMessage,
   DeleteHsmConfigurationMessage,
+  DeleteResourcePolicyMessage,
   DeleteScheduledActionMessage,
   DeleteSnapshotCopyGrantMessage,
   DeleteSnapshotScheduleMessage,
@@ -607,8 +619,6 @@ import {
   EndpointNotFoundFault,
   EndpointsPerAuthorizationLimitExceededFault,
   EndpointsPerClusterLimitExceededFault,
-  EventCategoriesMap,
-  EventInfoMap,
   EventSubscription,
   EventSubscriptionQuotaExceededFault,
   HsmClientCertificate,
@@ -723,6 +733,7 @@ import {
   DescribeEventSubscriptionsMessage,
   DescribeHsmClientCertificatesMessage,
   DescribeHsmConfigurationsMessage,
+  DescribeInboundIntegrationsMessage,
   DescribeLoggingStatusMessage,
   DescribeNodeConfigurationOptionsMessage,
   DescribeOrderableClusterOptionsMessage,
@@ -749,7 +760,9 @@ import {
   EnableSnapshotCopyResult,
   EndpointAuthorizationNotFoundFault,
   Event,
+  EventCategoriesMap,
   EventCategoriesMessage,
+  EventInfoMap,
   EventsMessage,
   EventSubscriptionsMessage,
   GetClusterCredentialsMessage,
@@ -758,11 +771,18 @@ import {
   GetReservedNodeExchangeConfigurationOptionsOutputMessage,
   GetReservedNodeExchangeOfferingsInputMessage,
   GetReservedNodeExchangeOfferingsOutputMessage,
+  GetResourcePolicyMessage,
+  GetResourcePolicyResult,
   HsmClientCertificateMessage,
   HsmConfigurationMessage,
+  InboundIntegration,
+  InboundIntegrationsMessage,
   IncompatibleOrderableOptions,
   InProgressTableRestoreQuotaExceededFault,
   InsufficientS3BucketPolicyFault,
+  IntegrationError,
+  IntegrationNotFoundFault,
+  InvalidPolicyFault,
   InvalidRestoreFault,
   InvalidS3BucketNameFault,
   InvalidS3KeyPrefixFault,
@@ -805,6 +825,8 @@ import {
   PauseClusterResult,
   PurchaseReservedNodeOfferingMessage,
   PurchaseReservedNodeOfferingResult,
+  PutResourcePolicyMessage,
+  PutResourcePolicyResult,
   RebootClusterMessage,
   RebootClusterResult,
   RejectDataShareMessage,
@@ -816,6 +838,7 @@ import {
   ReservedNodesMessage,
   ResetClusterParameterGroupMessage,
   ResizeClusterResult,
+  ResourcePolicy,
   RestoreFromClusterSnapshotMessage,
   RestoreFromClusterSnapshotResult,
   RestoreTableFromClusterSnapshotMessage,
@@ -1530,6 +1553,23 @@ export const se_DeletePartnerCommand = async (
 };
 
 /**
+ * serializeAws_queryDeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteResourcePolicyMessage(input, context),
+    Action: "DeleteResourcePolicy",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDeleteScheduledActionCommand
  */
 export const se_DeleteScheduledActionCommand = async (
@@ -2006,6 +2046,23 @@ export const se_DescribeHsmConfigurationsCommand = async (
 };
 
 /**
+ * serializeAws_queryDescribeInboundIntegrationsCommand
+ */
+export const se_DescribeInboundIntegrationsCommand = async (
+  input: DescribeInboundIntegrationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeInboundIntegrationsMessage(input, context),
+    Action: "DescribeInboundIntegrations",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDescribeLoggingStatusCommand
  */
 export const se_DescribeLoggingStatusCommand = async (
@@ -2412,6 +2469,23 @@ export const se_GetReservedNodeExchangeOfferingsCommand = async (
 };
 
 /**
+ * serializeAws_queryGetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetResourcePolicyMessage(input, context),
+    Action: "GetResourcePolicy",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryModifyAquaConfigurationCommand
  */
 export const se_ModifyAquaConfigurationCommand = async (
@@ -2729,6 +2803,23 @@ export const se_PurchaseReservedNodeOfferingCommand = async (
   body = buildFormUrlencodedString({
     ...se_PurchaseReservedNodeOfferingMessage(input, context),
     Action: "PurchaseReservedNodeOffering",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryPutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_PutResourcePolicyMessage(input, context),
+    Action: "PutResourcePolicy",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5190,6 +5281,52 @@ const de_DeletePartnerCommandError = async (
 };
 
 /**
+ * deserializeAws_queryDeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteResourcePolicyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteResourcePolicyCommandError
+ */
+const de_DeleteResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.redshift#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryDeleteScheduledActionCommand
  */
 export const de_DeleteScheduledActionCommand = async (
@@ -6499,6 +6636,58 @@ const de_DescribeHsmConfigurationsCommandError = async (
 };
 
 /**
+ * deserializeAws_queryDescribeInboundIntegrationsCommand
+ */
+export const de_DescribeInboundIntegrationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInboundIntegrationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeInboundIntegrationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_InboundIntegrationsMessage(data.DescribeInboundIntegrationsResult, context);
+  const response: DescribeInboundIntegrationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeInboundIntegrationsCommandError
+ */
+const de_DescribeInboundIntegrationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInboundIntegrationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IntegrationNotFoundFault":
+    case "com.amazonaws.redshift#IntegrationNotFoundFault":
+      throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
+    case "InvalidNamespaceFault":
+    case "com.amazonaws.redshift#InvalidNamespaceFault":
+      throw await de_InvalidNamespaceFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryDescribeLoggingStatusCommand
  */
 export const de_DescribeLoggingStatusCommand = async (
@@ -7738,6 +7927,58 @@ const de_GetReservedNodeExchangeOfferingsCommandError = async (
 };
 
 /**
+ * deserializeAws_queryGetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetResourcePolicyResult(data.GetResourcePolicyResult, context);
+  const response: GetResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetResourcePolicyCommandError
+ */
+const de_GetResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidPolicyFault":
+    case "com.amazonaws.redshift#InvalidPolicyFault":
+      throw await de_InvalidPolicyFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.redshift#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryModifyAquaConfigurationCommand
  */
 export const de_ModifyAquaConfigurationCommand = async (
@@ -8802,6 +9043,61 @@ const de_PurchaseReservedNodeOfferingCommandError = async (
     case "ReservedNodeQuotaExceeded":
     case "com.amazonaws.redshift#ReservedNodeQuotaExceededFault":
       throw await de_ReservedNodeQuotaExceededFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryPutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PutResourcePolicyResult(data.PutResourcePolicyResult, context);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryPutResourcePolicyCommandError
+ */
+const de_PutResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictPolicyUpdateFault":
+    case "com.amazonaws.redshift#ConflictPolicyUpdateFault":
+      throw await de_ConflictPolicyUpdateFaultRes(parsedOutput, context);
+    case "InvalidPolicyFault":
+    case "com.amazonaws.redshift#InvalidPolicyFault":
+      throw await de_InvalidPolicyFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.redshift#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
     case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
@@ -10023,6 +10319,22 @@ const de_ClusterSubnetQuotaExceededFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryConflictPolicyUpdateFaultRes
+ */
+const de_ConflictPolicyUpdateFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictPolicyUpdateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ConflictPolicyUpdateFault(body.Error, context);
+  const exception = new ConflictPolicyUpdateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryCopyToRegionDisabledFaultRes
  */
 const de_CopyToRegionDisabledFaultRes = async (
@@ -10391,6 +10703,22 @@ const de_InsufficientS3BucketPolicyFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryIntegrationNotFoundFaultRes
+ */
+const de_IntegrationNotFoundFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IntegrationNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_IntegrationNotFoundFault(body.Error, context);
+  const exception = new IntegrationNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryInvalidAuthenticationProfileRequestFaultRes
  */
 const de_InvalidAuthenticationProfileRequestFaultRes = async (
@@ -10640,6 +10968,19 @@ const de_InvalidNamespaceFaultRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_InvalidNamespaceFault(body.Error, context);
   const exception = new InvalidNamespaceFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryInvalidPolicyFaultRes
+ */
+const de_InvalidPolicyFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidPolicyFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InvalidPolicyFault(body.Error, context);
+  const exception = new InvalidPolicyFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -12630,6 +12971,17 @@ const se_DeleteHsmConfigurationMessage = (input: DeleteHsmConfigurationMessage, 
 };
 
 /**
+ * serializeAws_queryDeleteResourcePolicyMessage
+ */
+const se_DeleteResourcePolicyMessage = (input: DeleteResourcePolicyMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ResourceArn != null) {
+    entries["ResourceArn"] = input.ResourceArn;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDeleteScheduledActionMessage
  */
 const se_DeleteScheduledActionMessage = (input: DeleteScheduledActionMessage, context: __SerdeContext): any => {
@@ -13344,6 +13696,29 @@ const se_DescribeHsmConfigurationsMessage = (input: DescribeHsmConfigurationsMes
 };
 
 /**
+ * serializeAws_queryDescribeInboundIntegrationsMessage
+ */
+const se_DescribeInboundIntegrationsMessage = (
+  input: DescribeInboundIntegrationsMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.IntegrationArn != null) {
+    entries["IntegrationArn"] = input.IntegrationArn;
+  }
+  if (input.TargetArn != null) {
+    entries["TargetArn"] = input.TargetArn;
+  }
+  if (input.MaxRecords != null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker != null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeLoggingStatusMessage
  */
 const se_DescribeLoggingStatusMessage = (input: DescribeLoggingStatusMessage, context: __SerdeContext): any => {
@@ -13950,6 +14325,17 @@ const se_GetReservedNodeExchangeOfferingsInputMessage = (
   }
   if (input.Marker != null) {
     entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryGetResourcePolicyMessage
+ */
+const se_GetResourcePolicyMessage = (input: GetResourcePolicyMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ResourceArn != null) {
+    entries["ResourceArn"] = input.ResourceArn;
   }
   return entries;
 };
@@ -14601,6 +14987,20 @@ const se_PurchaseReservedNodeOfferingMessage = (
   }
   if (input.NodeCount != null) {
     entries["NodeCount"] = input.NodeCount;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryPutResourcePolicyMessage
+ */
+const se_PutResourcePolicyMessage = (input: PutResourcePolicyMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ResourceArn != null) {
+    entries["ResourceArn"] = input.ResourceArn;
+  }
+  if (input.Policy != null) {
+    entries["Policy"] = input.Policy;
   }
   return entries;
 };
@@ -16751,6 +17151,17 @@ const de_ClusterVersionsMessage = (output: any, context: __SerdeContext): Cluste
 };
 
 /**
+ * deserializeAws_queryConflictPolicyUpdateFault
+ */
+const de_ConflictPolicyUpdateFault = (output: any, context: __SerdeContext): ConflictPolicyUpdateFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryCopyClusterSnapshotResult
  */
 const de_CopyClusterSnapshotResult = (output: any, context: __SerdeContext): CopyClusterSnapshotResult => {
@@ -17999,6 +18410,17 @@ const de_GetReservedNodeExchangeOfferingsOutputMessage = (
 };
 
 /**
+ * deserializeAws_queryGetResourcePolicyResult
+ */
+const de_GetResourcePolicyResult = (output: any, context: __SerdeContext): GetResourcePolicyResult => {
+  const contents: any = {};
+  if (output["ResourcePolicy"] !== undefined) {
+    contents.ResourcePolicy = de_ResourcePolicy(output["ResourcePolicy"], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryHsmClientCertificate
  */
 const de_HsmClientCertificate = (output: any, context: __SerdeContext): HsmClientCertificate => {
@@ -18240,6 +18662,67 @@ const de_ImportTablesNotStarted = (output: any, context: __SerdeContext): string
 };
 
 /**
+ * deserializeAws_queryInboundIntegration
+ */
+const de_InboundIntegration = (output: any, context: __SerdeContext): InboundIntegration => {
+  const contents: any = {};
+  if (output["IntegrationArn"] !== undefined) {
+    contents.IntegrationArn = __expectString(output["IntegrationArn"]);
+  }
+  if (output["SourceArn"] !== undefined) {
+    contents.SourceArn = __expectString(output["SourceArn"]);
+  }
+  if (output["TargetArn"] !== undefined) {
+    contents.TargetArn = __expectString(output["TargetArn"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output.Errors === "") {
+    contents.Errors = [];
+  } else if (output["Errors"] !== undefined && output["Errors"]["IntegrationError"] !== undefined) {
+    contents.Errors = de_IntegrationErrorList(__getArrayIfSingleItem(output["Errors"]["IntegrationError"]), context);
+  }
+  if (output["CreateTime"] !== undefined) {
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateTime"]));
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryInboundIntegrationList
+ */
+const de_InboundIntegrationList = (output: any, context: __SerdeContext): InboundIntegration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InboundIntegration(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryInboundIntegrationsMessage
+ */
+const de_InboundIntegrationsMessage = (output: any, context: __SerdeContext): InboundIntegrationsMessage => {
+  const contents: any = {};
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
+  if (output.InboundIntegrations === "") {
+    contents.InboundIntegrations = [];
+  } else if (
+    output["InboundIntegrations"] !== undefined &&
+    output["InboundIntegrations"]["InboundIntegration"] !== undefined
+  ) {
+    contents.InboundIntegrations = de_InboundIntegrationList(
+      __getArrayIfSingleItem(output["InboundIntegrations"]["InboundIntegration"]),
+      context
+    );
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryIncompatibleOrderableOptions
  */
 const de_IncompatibleOrderableOptions = (output: any, context: __SerdeContext): IncompatibleOrderableOptions => {
@@ -18282,6 +18765,42 @@ const de_InsufficientClusterCapacityFault = (
  * deserializeAws_queryInsufficientS3BucketPolicyFault
  */
 const de_InsufficientS3BucketPolicyFault = (output: any, context: __SerdeContext): InsufficientS3BucketPolicyFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationError
+ */
+const de_IntegrationError = (output: any, context: __SerdeContext): IntegrationError => {
+  const contents: any = {};
+  if (output["ErrorCode"] !== undefined) {
+    contents.ErrorCode = __expectString(output["ErrorCode"]);
+  }
+  if (output["ErrorMessage"] !== undefined) {
+    contents.ErrorMessage = __expectString(output["ErrorMessage"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationErrorList
+ */
+const de_IntegrationErrorList = (output: any, context: __SerdeContext): IntegrationError[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IntegrationError(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryIntegrationNotFoundFault
+ */
+const de_IntegrationNotFoundFault = (output: any, context: __SerdeContext): IntegrationNotFoundFault => {
   const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
@@ -18482,6 +19001,17 @@ const de_InvalidHsmConfigurationStateFault = (
  * deserializeAws_queryInvalidNamespaceFault
  */
 const de_InvalidNamespaceFault = (output: any, context: __SerdeContext): InvalidNamespaceFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryInvalidPolicyFault
+ */
+const de_InvalidPolicyFault = (output: any, context: __SerdeContext): InvalidPolicyFault => {
   const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
@@ -19281,6 +19811,17 @@ const de_PurchaseReservedNodeOfferingResult = (
 };
 
 /**
+ * deserializeAws_queryPutResourcePolicyResult
+ */
+const de_PutResourcePolicyResult = (output: any, context: __SerdeContext): PutResourcePolicyResult => {
+  const contents: any = {};
+  if (output["ResourcePolicy"] !== undefined) {
+    contents.ResourcePolicy = de_ResourcePolicy(output["ResourcePolicy"], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryRebootClusterResult
  */
 const de_RebootClusterResult = (output: any, context: __SerdeContext): RebootClusterResult => {
@@ -19776,6 +20317,20 @@ const de_ResourceNotFoundFault = (output: any, context: __SerdeContext): Resourc
   const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryResourcePolicy
+ */
+const de_ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
+  const contents: any = {};
+  if (output["ResourceArn"] !== undefined) {
+    contents.ResourceArn = __expectString(output["ResourceArn"]);
+  }
+  if (output["Policy"] !== undefined) {
+    contents.Policy = __expectString(output["Policy"]);
   }
   return contents;
 };

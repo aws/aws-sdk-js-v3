@@ -546,6 +546,14 @@ DeletePartner
 </details>
 <details>
 <summary>
+DeleteResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/classes/deleteresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/interfaces/deleteresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/interfaces/deleteresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteScheduledAction
 </summary>
 
@@ -770,6 +778,14 @@ DescribeHsmConfigurations
 </details>
 <details>
 <summary>
+DescribeInboundIntegrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/classes/describeinboundintegrationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/interfaces/describeinboundintegrationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/interfaces/describeinboundintegrationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeLoggingStatus
 </summary>
 
@@ -962,6 +978,14 @@ GetReservedNodeExchangeOfferings
 </details>
 <details>
 <summary>
+GetResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/classes/getresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/interfaces/getresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/interfaces/getresourcepolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
 ModifyAquaConfiguration
 </summary>
 
@@ -1110,6 +1134,14 @@ PurchaseReservedNodeOffering
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/classes/purchasereservednodeofferingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/interfaces/purchasereservednodeofferingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/interfaces/purchasereservednodeofferingcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/classes/putresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/interfaces/putresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/interfaces/putresourcepolicycommandoutput.html)
 
 </details>
 <details>
