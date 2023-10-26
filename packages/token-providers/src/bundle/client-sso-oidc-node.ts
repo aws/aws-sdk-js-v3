@@ -46,7 +46,7 @@ import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 // ../../clients/client-sso-oidc/src/endpoint/endpointResolver.ts
-import { resolveEndpoint } from "@aws-sdk/util-endpoints";
+import { resolveEndpoint } from "@smithy/util-endpoints";
 
 // ../../clients/client-sso-oidc/src/endpoint/ruleset.ts
 var s = "required";

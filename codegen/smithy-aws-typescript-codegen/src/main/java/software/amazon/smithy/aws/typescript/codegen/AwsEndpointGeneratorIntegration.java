@@ -59,6 +59,15 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             SymbolProvider symbolProvider,
             BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
     ) {
+        if (settings.generateClient()
+            && isAwsService(settings, model)
+            && settings.getService(model).hasTrait(EndpointRuleSetTrait.class)) {
+                writerFactory.accept(Paths.get(CodegenUtils.SOURCE_FOLDER, "index.ts").toString(), writer -> {
+                    writer.addDependency(AwsDependency.UTIL_ENDPOINTS);
+                    writer.write("import $S", AwsDependency.UTIL_ENDPOINTS.packageName);
+                });
+        }
+
         if (!settings.generateClient()
             || !isAwsService(settings, model)
             || settings.getService(model).hasTrait(EndpointRuleSetTrait.class)) {

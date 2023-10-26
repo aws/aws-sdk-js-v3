@@ -1,3 +1,5 @@
+import "./aws";
+
 import { existsSync, readdirSync } from "fs";
 import { resolve } from "path";
 

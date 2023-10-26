@@ -1,9 +1,10 @@
+import { isValidHostLabel } from "@smithy/util-endpoints";
+
 import { isIpAddress } from "../isIpAddress";
-import { isValidHostLabel } from "../isValidHostLabel";
 import { isVirtualHostableS3Bucket } from "./isVirtualHostableS3Bucket";
 
 jest.mock("../isIpAddress");
-jest.mock("../isValidHostLabel");
+jest.mock("@smithy/util-endpoints");
 
 describe(isVirtualHostableS3Bucket.name, () => {
   const mockValue = "mockvalue";

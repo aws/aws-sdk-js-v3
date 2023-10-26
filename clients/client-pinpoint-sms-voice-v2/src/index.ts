@@ -27,4 +27,6 @@ export * from "./commands";
 export * from "./pagination";
 export * from "./models";
 
+import "@aws-sdk/util-endpoints";
+
 export { PinpointSMSVoiceV2ServiceException } from "./models/PinpointSMSVoiceV2ServiceException";

@@ -49,4 +49,6 @@ export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 
+import "@aws-sdk/util-endpoints";
+
 export { SSOOIDCServiceException } from "./models/SSOOIDCServiceException";

@@ -130,6 +130,7 @@
     "@smithy/util-body-length-node" "^2.1.0"
     "@smithy/util-defaults-mode-browser" "^2.0.16"
     "@smithy/util-defaults-mode-node" "^2.0.21"
+    "@smithy/util-endpoints" "^1.0.2"
     "@smithy/util-retry" "^2.0.5"
     "@smithy/util-utf8" "^2.0.0"
     fast-xml-parser "4.2.5"
@@ -3303,6 +3304,15 @@
     "@smithy/node-config-provider" "^2.1.3"
     "@smithy/property-provider" "^2.0.13"
     "@smithy/smithy-client" "^2.1.12"
+    "@smithy/types" "^2.4.0"
+    tslib "^2.5.0"
+
+"@smithy/util-endpoints@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@smithy/util-endpoints/-/util-endpoints-1.0.2.tgz#8be5b840c19661e3830ca10973f775b331bd94cd"
+  integrity sha512-QEdq+sP68IJHAMVB2ugKVVZEWeKQtZLuf+akHzc8eTVElsZ2ZdVLWC6Cp+uKjJ/t4yOj1qu6ZzyxJQEQ8jdEjg==
+  dependencies:
+    "@smithy/node-config-provider" "^2.1.3"
     "@smithy/types" "^2.4.0"
     tslib "^2.5.0"
 

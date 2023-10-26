@@ -1,5 +1,6 @@
+import { isValidHostLabel } from "@smithy/util-endpoints";
+
 import { isIpAddress } from "../isIpAddress";
-import { isValidHostLabel } from "../isValidHostLabel";
 
 /**
  * Evaluates whether a string is a DNS compatible bucket name and can be used with

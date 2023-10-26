@@ -13,4 +13,6 @@ export * from "./commands";
 export * from "./pagination";
 export * from "./models";
 
+import "@aws-sdk/util-endpoints";
+
 export { Route53DomainsServiceException } from "./models/Route53DomainsServiceException";

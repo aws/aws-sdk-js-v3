@@ -1,6 +1,6 @@
 // smithy-typescript generated code
-import { EndpointParams, resolveEndpoint } from "@aws-sdk/util-endpoints";
 import { EndpointV2, Logger } from "@smithy/types";
+import { EndpointParams, resolveEndpoint } from "@smithy/util-endpoints";
 
 import { EndpointParameters } from "./EndpointParameters";
 import { ruleSet } from "./ruleset";

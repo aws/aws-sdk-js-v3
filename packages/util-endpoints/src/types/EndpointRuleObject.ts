@@ -1,18 +1,6 @@
-import { EndpointObjectProperty } from "@aws-sdk/types";
-
-import { ConditionObject, Expression } from "./shared";
-
-export type EndpointObjectProperties = Record<string, EndpointObjectProperty>;
-export type EndpointObjectHeaders = Record<string, Expression[]>;
-export type EndpointObject = {
-  url: Expression;
-  properties?: EndpointObjectProperties;
-  headers?: EndpointObjectHeaders;
-};
-
-export type EndpointRuleObject = {
-  type: "endpoint";
-  conditions?: ConditionObject[];
-  endpoint: EndpointObject;
-  documentation?: string;
-};
+export {
+  EndpointObjectProperties,
+  EndpointObjectHeaders,
+  EndpointObject,
+  EndpointRuleObject,
+} from "@smithy/util-endpoints";

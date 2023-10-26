@@ -33,4 +33,6 @@ export * from "./commands";
 export * from "./pagination";
 export * from "./models";
 
+import "@aws-sdk/util-endpoints";
+
 export { TranscribeServiceException } from "./models/TranscribeServiceException";
