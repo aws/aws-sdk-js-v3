@@ -181,6 +181,7 @@ import {
   InvalidParameterException,
   InvalidParameterValueException,
   InvalidSecurityException,
+  InvalidStateException,
   KMSAccessDeniedException,
   KMSDisabledException,
   KMSInvalidStateException,
@@ -222,6 +223,7 @@ import {
   PublishResponse,
   PutDataProtectionPolicyInput,
   RemovePermissionInput,
+  ReplayLimitExceededException,
   ResourceNotFoundException,
   SetEndpointAttributesInput,
   SetPlatformApplicationAttributesInput,
@@ -1124,6 +1126,9 @@ const de_ConfirmSubscriptionCommandError = async (
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ReplayLimitExceeded":
+    case "com.amazonaws.sns#ReplayLimitExceededException":
+      throw await de_ReplayLimitExceededExceptionRes(parsedOutput, context);
     case "SubscriptionLimitExceeded":
     case "com.amazonaws.sns#SubscriptionLimitExceededException":
       throw await de_SubscriptionLimitExceededExceptionRes(parsedOutput, context);
@@ -1576,6 +1581,9 @@ const de_DeleteTopicCommandError = async (
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidState":
+    case "com.amazonaws.sns#InvalidStateException":
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
@@ -3035,6 +3043,9 @@ const de_SetSubscriptionAttributesCommandError = async (
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ReplayLimitExceeded":
+    case "com.amazonaws.sns#ReplayLimitExceededException":
+      throw await de_ReplayLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3151,6 +3162,9 @@ const de_SubscribeCommandError = async (
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ReplayLimitExceeded":
+    case "com.amazonaws.sns#ReplayLimitExceededException":
+      throw await de_ReplayLimitExceededExceptionRes(parsedOutput, context);
     case "SubscriptionLimitExceeded":
     case "com.amazonaws.sns#SubscriptionLimitExceededException":
       throw await de_SubscriptionLimitExceededExceptionRes(parsedOutput, context);
@@ -3601,6 +3615,22 @@ const de_InvalidSecurityExceptionRes = async (
 };
 
 /**
+ * deserializeAws_queryInvalidStateExceptionRes
+ */
+const de_InvalidStateExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidStateException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InvalidStateException(body.Error, context);
+  const exception = new InvalidStateException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryKMSAccessDeniedExceptionRes
  */
 const de_KMSAccessDeniedExceptionRes = async (
@@ -3729,6 +3759,22 @@ const de_PlatformApplicationDisabledExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_PlatformApplicationDisabledException(body.Error, context);
   const exception = new PlatformApplicationDisabledException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryReplayLimitExceededExceptionRes
+ */
+const de_ReplayLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReplayLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ReplayLimitExceededException(body.Error, context);
+  const exception = new ReplayLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5172,6 +5218,17 @@ const de_InvalidSecurityException = (output: any, context: __SerdeContext): Inva
 };
 
 /**
+ * deserializeAws_queryInvalidStateException
+ */
+const de_InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryKMSAccessDeniedException
  */
 const de_KMSAccessDeniedException = (output: any, context: __SerdeContext): KMSAccessDeniedException => {
@@ -5620,6 +5677,17 @@ const de_PublishResponse = (output: any, context: __SerdeContext): PublishRespon
   }
   if (output["SequenceNumber"] !== undefined) {
     contents.SequenceNumber = __expectString(output["SequenceNumber"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryReplayLimitExceededException
+ */
+const de_ReplayLimitExceededException = (output: any, context: __SerdeContext): ReplayLimitExceededException => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };

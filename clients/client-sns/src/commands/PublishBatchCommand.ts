@@ -149,13 +149,12 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  *             to.</p>
  *
  * @throws {@link KMSDisabledException} (client fault)
- *  <p>The request was rejected because the specified customer master key (CMK) isn't
+ *  <p>The request was rejected because the specified Amazon Web Services KMS key isn't
  *             enabled.</p>
  *
  * @throws {@link KMSInvalidStateException} (client fault)
  *  <p>The request was rejected because the state of the specified resource isn't valid for
- *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
- *                 Customer Master Key</a> in the <i>Key Management Service Developer
+ *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of Amazon Web Services KMS keys</a> in the <i>Key Management Service Developer
  *                 Guide</i>.</p>
  *
  * @throws {@link KMSNotFoundException} (client fault)

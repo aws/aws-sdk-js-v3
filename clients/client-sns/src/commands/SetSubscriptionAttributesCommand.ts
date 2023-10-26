@@ -80,6 +80,9 @@ export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link ReplayLimitExceededException} (client fault)
+ *  <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
+ *
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *

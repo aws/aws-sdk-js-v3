@@ -85,6 +85,9 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link ReplayLimitExceededException} (client fault)
+ *  <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
+ *
  * @throws {@link SubscriptionLimitExceededException} (client fault)
  *  <p>Indicates that the customer already owns the maximum allowed number of
  *             subscriptions.</p>

@@ -41,7 +41,7 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  *             if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must
  *             run the <code>ConfirmSubscription</code> action to confirm the subscription.</p>
  *          <p>You call the <code>ConfirmSubscription</code> action with the token from the
- *             subscription response. Confirmation tokens are valid for three days.</p>
+ *             subscription response. Confirmation tokens are valid for two days.</p>
  *          <p>This action is throttled at 100 transactions per second (TPS).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +93,9 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  *
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * @throws {@link ReplayLimitExceededException} (client fault)
+ *  <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
  *
  * @throws {@link SubscriptionLimitExceededException} (client fault)
  *  <p>Indicates that the customer already owns the maximum allowed number of

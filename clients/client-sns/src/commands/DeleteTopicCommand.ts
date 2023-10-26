@@ -76,6 +76,9 @@ export interface DeleteTopicCommandOutput extends __MetadataBearer {}
  *  <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>Indicates that the specified state is not a valid state for an event source.</p>
+ *
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
