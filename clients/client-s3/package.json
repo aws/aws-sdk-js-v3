@@ -17,7 +17,7 @@
     "test:e2e": "yarn test:e2e:node && yarn test:e2e:browser",
     "test:e2e:browser": "ts-mocha test/**/*.browser.ispec.ts && karma start karma.conf.js",
     "test:e2e:node": "jest --c jest.config.e2e.js",
-    "test:unit": "ts-mocha test/**/*.spec.ts"
+    "test:unit": "ts-mocha test/unit/**/*.spec.ts"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",
