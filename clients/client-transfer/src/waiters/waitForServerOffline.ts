@@ -38,7 +38,7 @@ export const waitForServerOffline = async (
   params: WaiterConfiguration<TransferClient>,
   input: DescribeServerCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 30, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 30, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
@@ -50,7 +50,7 @@ export const waitUntilServerOffline = async (
   params: WaiterConfiguration<TransferClient>,
   input: DescribeServerCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 30, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 30, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
   return checkExceptions(result);
 };

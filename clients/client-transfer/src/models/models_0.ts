@@ -917,7 +917,7 @@ export class ThrottlingException extends __BaseException {
 export interface SftpConnectorConfig {
   /**
    * @public
-   * <p>The identifier for the secret (in Amazon Web Services Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.</p>
+   * <p>The identifier for the secret (in Amazon Web Services Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier must be the Amazon Resource Name (ARN) of the secret.</p>
    */
   UserSecretId?: string;
 
@@ -925,17 +925,17 @@ export interface SftpConnectorConfig {
    * @public
    * <p>The public portion of the host key, or keys, that are used to identify the external server to which you are connecting.
    *       You can use the <code>ssh-keyscan</code> command against the SFTP server to retrieve the necessary key.</p>
-   *          <p>The three standard SSH public key format elements are <code><key type></code>,
-   *         <code><body base64></code>, and an optional <code><comment></code>, with spaces
-   *       between each element. Specify only the  <code><key type></code> and <code><body
-   *         base64></code>: do not enter the <code><comment></code> portion of the key.</p>
+   *          <p>The three standard SSH public key format elements are <code>&lt;key type&gt;</code>,
+   *         <code>&lt;body base64&gt;</code>, and an optional <code>&lt;comment&gt;</code>, with spaces
+   *       between each element. Specify only the  <code>&lt;key type&gt;</code> and <code>&lt;body
+   *         base64&gt;</code>: do not enter the <code>&lt;comment&gt;</code> portion of the key.</p>
    *          <p>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</p>
    *          <ul>
    *             <li>
-   *                <p>For RSA keys, the <code><key type></code> string is <code>ssh-rsa</code>.</p>
+   *                <p>For RSA keys, the <code>&lt;key type&gt;</code> string is <code>ssh-rsa</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For ECDSA keys, the <code><key type></code> string is either
+   *                <p>For ECDSA keys, the <code>&lt;key type&gt;</code> string is either
    *             <code>ecdsa-sha2-nistp256</code>, <code>ecdsa-sha2-nistp384</code>, or
    *             <code>ecdsa-sha2-nistp521</code>, depending on the size of the key you generated.</p>
    *             </li>
@@ -1876,8 +1876,8 @@ export interface CreateUserRequest {
    * @public
    * <p>The public portion of the Secure Shell (SSH) key used to authenticate the user to the
    *       server.</p>
-   *          <p>The three standard SSH public key format elements are <code><key type></code>,
-   *         <code><body base64></code>, and  an optional <code><comment></code>, with spaces
+   *          <p>The three standard SSH public key format elements are <code>&lt;key type&gt;</code>,
+   *         <code>&lt;body base64&gt;</code>, and  an optional <code>&lt;comment&gt;</code>, with spaces
    *       between each element.</p>
    *          <p>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</p>
    *          <ul>
