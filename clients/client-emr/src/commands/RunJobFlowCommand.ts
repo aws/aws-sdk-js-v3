@@ -56,7 +56,7 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *          <p>For long-running clusters, we recommend that you periodically store your results.</p>
  *          <note>
  *             <p>The instance fleets configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions. The RunJobFlow request can contain
+ *             4.8.0 and higher, excluding 5.0.x versions. The RunJobFlow request can contain
  *             InstanceFleets parameters or InstanceGroups parameters, but not both.</p>
  *          </note>
  * @example
@@ -330,6 +330,8 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *     IdleTimeout: Number("long"),
  *   },
  *   OSReleaseLabel: "STRING_VALUE",
+ *   EbsRootVolumeIops: Number("int"),
+ *   EbsRootVolumeThroughput: Number("int"),
  * };
  * const command = new RunJobFlowCommand(input);
  * const response = await client.send(command);
