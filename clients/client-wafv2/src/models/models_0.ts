@@ -265,7 +265,12 @@ export interface Cookies {
   /**
    * @public
    * <p>The parts of the cookies to inspect with the rule inspection criteria. If you specify
-   *             <code>All</code>, WAF inspects both keys and values. </p>
+   *             <code>ALL</code>, WAF inspects both keys and values. </p>
+   *          <p>
+   *             <code>All</code> does not require a match to be found in the keys
+   *  and a match to be found in the values. It requires a match to be found in the keys
+   *  or the values or both. To require a match in the keys and in the values, use a logical <code>AND</code> statement
+   *  to combine two match rules, one that inspects the keys and another that inspects the values. </p>
    */
   MatchScope: MapMatchScope | undefined;
 
@@ -386,7 +391,12 @@ export interface Headers {
   /**
    * @public
    * <p>The parts of the headers to match with the rule inspection criteria. If you specify
-   *             <code>All</code>, WAF inspects both keys and values. </p>
+   *             <code>ALL</code>, WAF inspects both keys and values. </p>
+   *          <p>
+   *             <code>All</code> does not require a match to be found in the keys
+   *  and a match to be found in the values. It requires a match to be found in the keys
+   *  or the values or both. To require a match in the keys and in the values, use a logical <code>AND</code> statement
+   *  to combine two match rules, one that inspects the keys and another that inspects the values. </p>
    */
   MatchScope: MapMatchScope | undefined;
 
@@ -556,7 +566,12 @@ export interface JsonBody {
   /**
    * @public
    * <p>The parts of the JSON to match against using the <code>MatchPattern</code>. If you
-   *          specify <code>All</code>, WAF matches against keys and values. </p>
+   *          specify <code>ALL</code>, WAF matches against keys and values. </p>
+   *          <p>
+   *             <code>All</code> does not require a match to be found in the keys
+   *  and a match to be found in the values. It requires a match to be found in the keys
+   *  or the values or both. To require a match in the keys and in the values, use a logical <code>AND</code> statement
+   *  to combine two match rules, one that inspects the keys and another that inspects the values. </p>
    */
   MatchScope: JsonMatchScope | undefined;
 
@@ -957,7 +972,7 @@ export interface ByteMatchStatement {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>HeaderOrder</code>: The comma-separated list of header names to match for. WAF creates a
+   *                   <code>HeaderOrder</code>: The list of header names to match for. WAF creates a
    *                  string that contains the ordered list of header names, from the headers in the web request, and then matches against that string. </p>
    *             </li>
    *          </ul>

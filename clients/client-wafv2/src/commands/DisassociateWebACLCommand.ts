@@ -42,6 +42,11 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
  *          disassociate a web ACL, provide an empty web ACL ID in the CloudFront call
  *             <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a> in the <i>Amazon CloudFront API Reference</i>. </p>
+ *          <p>
+ *             <b>Required permissions for customer-managed IAM policies</b>
+ *          </p>
+ *          <p>This call requires permissions that are specific to the protected resource type.
+ *     For details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/security_iam_service-with-iam.html#security_iam_action-DisassociateWebACL">Permissions for DisassociateWebACL</a> in the <i>WAF Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
