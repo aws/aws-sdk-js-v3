@@ -202,7 +202,7 @@ export interface GetEndpointRequest {
 
   /**
    * @public
-   * <p>The unique identifier for the endpoint.</p>
+   * <p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>\{</code> or <code>\}</code>.</p>
    */
   EndpointId: string | undefined;
 }
@@ -3220,7 +3220,7 @@ export interface UpdateEndpointRequest {
 
   /**
    * @public
-   * <p>The unique identifier for the endpoint.</p>
+   * <p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>\{</code> or <code>\}</code>.</p>
    */
   EndpointId: string | undefined;
 
