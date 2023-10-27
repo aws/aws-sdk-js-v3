@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { NeptuneServiceException as __BaseException } from "./NeptuneServiceException";
 
@@ -23,7 +23,7 @@ export interface AddRoleToDBClusterMessage {
   /**
    * @public
    * <p>The name of the feature for the Neptune DB cluster that the IAM role is to be associated with.
-   *       For the list of supported feature names, see <a href="neptune/latest/userguide/api-other-apis.html#DBEngineVersion">DBEngineVersion</a>.</p>
+   *       For the list of supported feature names, see <a>DBEngineVersion</a>.</p>
    */
   FeatureName?: string;
 }
@@ -1280,7 +1280,7 @@ export interface CreateDBClusterMessage {
    * <p>The daily time range during which automated backups are created if automated backups are
    *       enabled using the <code>BackupRetentionPeriod</code> parameter.</p>
    *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
-   *       Amazon Region. To see the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the Preferred
+   *       Amazon Region. To see the time blocks available, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-maintaining.html#manage-console-maintaining-window">Neptune
    *       Maintenance Window</a> in the <i>Amazon Neptune User Guide.</i>
    *          </p>
    *          <p>Constraints:</p>
@@ -1308,8 +1308,7 @@ export interface CreateDBClusterMessage {
    *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *          </p>
    *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
-   *       Amazon Region, occurring on a random day of the week. To see the time blocks available, see
-   *       <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the Preferred
+   *       Amazon Region, occurring on a random day of the week. To see the time blocks available, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-maintaining.html#manage-console-maintaining-window">Neptune
    *       Maintenance Window</a> in the <i>Amazon Neptune User Guide.</i>
    *          </p>
    *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
@@ -1450,7 +1449,7 @@ export interface DBClusterRole {
   /**
    * @public
    * <p>The name of the feature associated with the Amazon Identity and Access Management (IAM) role.
-   *       For the list of supported feature names, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions">DescribeDBEngineVersions</a>.
+   *       For the list of supported feature names, see <a>DescribeDBEngineVersions</a>.
    *     </p>
    */
   FeatureName?: string;
@@ -1624,7 +1623,7 @@ export interface VpcSecurityGroupMembership {
 /**
  * @public
  * <p>Contains the details of an Amazon Neptune DB cluster.</p>
- *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
+ *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
  */
 export interface DBCluster {
   /**
@@ -1926,7 +1925,7 @@ export interface CreateDBClusterResult {
   /**
    * @public
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
-   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
+   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    */
   DBCluster?: DBCluster;
 }
@@ -4435,7 +4434,7 @@ export interface DeleteDBClusterResult {
   /**
    * @public
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
-   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
+   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    */
   DBCluster?: DBCluster;
 }
@@ -6990,7 +6989,7 @@ export interface FailoverDBClusterResult {
   /**
    * @public
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
-   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
+   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    */
   DBCluster?: DBCluster;
 }
@@ -7271,7 +7270,7 @@ export interface ModifyDBClusterMessage {
    *       parameter results in an outage. The change is applied during the next maintenance window
    *       unless the <code>ApplyImmediately</code> parameter is set to true.</p>
    *          <p>For a list of valid engine versions, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases.html">Engine Releases for Amazon
-   *       Neptune</a>, or call <a href="https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions">DescribeDBEngineVersions</a>.</p>
+   *       Neptune</a>, or call <a>DescribeDBEngineVersions</a>.</p>
    */
   EngineVersion?: string;
 
@@ -7340,7 +7339,7 @@ export interface ModifyDBClusterResult {
   /**
    * @public
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
-   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
+   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    */
   DBCluster?: DBCluster;
 }
@@ -8275,7 +8274,7 @@ export interface PromoteReadReplicaDBClusterResult {
   /**
    * @public
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
-   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
+   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    */
   DBCluster?: DBCluster;
 }
@@ -8394,7 +8393,7 @@ export interface RemoveRoleFromDBClusterMessage {
   /**
    * @public
    * <p>The name of the feature for the DB cluster that the IAM role is to be disassociated from.
-   *       For the list of supported feature names, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions">DescribeDBEngineVersions</a>.</p>
+   *       For the list of supported feature names, see <a>DescribeDBEngineVersions</a>.</p>
    */
   FeatureName?: string;
 }
@@ -8762,7 +8761,7 @@ export interface RestoreDBClusterFromSnapshotResult {
   /**
    * @public
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
-   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
+   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    */
   DBCluster?: DBCluster;
 }
@@ -8977,7 +8976,7 @@ export interface RestoreDBClusterToPointInTimeResult {
   /**
    * @public
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
-   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
+   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    */
   DBCluster?: DBCluster;
 }
@@ -9001,7 +9000,7 @@ export interface StartDBClusterResult {
   /**
    * @public
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
-   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
+   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    */
   DBCluster?: DBCluster;
 }
@@ -9025,7 +9024,23 @@ export interface StopDBClusterResult {
   /**
    * @public
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
-   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
+   *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a>.</p>
    */
   DBCluster?: DBCluster;
 }
+
+/**
+ * @internal
+ */
+export const CreateDBInstanceMessageFilterSensitiveLog = (obj: CreateDBInstanceMessage): any => ({
+  ...obj,
+  ...(obj.TdeCredentialPassword && { TdeCredentialPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyDBInstanceMessageFilterSensitiveLog = (obj: ModifyDBInstanceMessage): any => ({
+  ...obj,
+  ...(obj.TdeCredentialPassword && { TdeCredentialPassword: SENSITIVE_STRING }),
+});

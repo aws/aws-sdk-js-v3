@@ -14,7 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0";
+import {
+  CreateDBInstanceMessage,
+  CreateDBInstanceMessageFilterSensitiveLog,
+  CreateDBInstanceResult,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import { de_CreateDBInstanceCommand, se_CreateDBInstanceCommand } from "../protocols/Aws_query";
 
@@ -368,7 +372,7 @@ export class CreateDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CreateDBInstanceMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonRDSv19",
