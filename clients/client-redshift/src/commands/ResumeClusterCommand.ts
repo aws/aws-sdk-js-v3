@@ -72,6 +72,7 @@ export interface ResumeClusterCommandOutput extends ResumeClusterResult, __Metad
  * //               SubnetId: "STRING_VALUE",
  * //               PrivateIpAddress: "STRING_VALUE",
  * //               AvailabilityZone: "STRING_VALUE",
+ * //               Ipv6Address: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -226,6 +227,7 @@ export interface ResumeClusterCommandOutput extends ResumeClusterResult, __Metad
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
  * //     MasterPasswordSecretArn: "STRING_VALUE",
  * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
+ * //     IpAddressType: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -2434,6 +2434,12 @@ export interface NetworkInterface {
    * <p>The Availability Zone. </p>
    */
   AvailabilityZone?: string;
+
+  /**
+   * @public
+   * <p>The IPv6 address of the network interface within the subnet. </p>
+   */
+  Ipv6Address?: string;
 }
 
 /**
@@ -3318,6 +3324,12 @@ export interface Cluster {
    * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.</p>
    */
   MasterPasswordSecretKmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The IP address type for the cluster. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
+   */
+  IpAddressType?: string;
 }
 
 /**
@@ -3961,6 +3973,12 @@ export interface ClusterSubnetGroup {
    * <p>The list of tags for the cluster subnet group.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The IP address types supported by this cluster subnet group. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
+   */
+  SupportedClusterIpAddressTypes?: string[];
 }
 
 /**
@@ -4726,6 +4744,12 @@ export interface CreateClusterMessage {
    *             You can only use this parameter if <code>ManageMasterPassword</code> is true.</p>
    */
   MasterPasswordSecretKmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The IP address types that the cluster supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
+   */
+  IpAddressType?: string;
 }
 
 /**
@@ -4919,6 +4943,27 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidVPCNetworkStateFault.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode,
+ *             associate an IPv6 CIDR block with each subnet in your VPC.</p>
+ */
+export class Ipv6CidrBlockNotFoundFault extends __BaseException {
+  readonly name: "Ipv6CidrBlockNotFoundFault" = "Ipv6CidrBlockNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<Ipv6CidrBlockNotFoundFault, __BaseException>) {
+    super({
+      name: "Ipv6CidrBlockNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, Ipv6CidrBlockNotFoundFault.prototype);
   }
 }
 
@@ -8830,20 +8875,6 @@ export interface EndpointAuthorizationList {
    *             <code>MaxRecords</code> parameter.</p>
    */
   Marker?: string;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DescribeEventCategoriesMessage {
-  /**
-   * @public
-   * <p>The source type, such as cluster or parameter group, to which the described event
-   *             categories apply.</p>
-   *          <p>Valid values: cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, and scheduled-action.</p>
-   */
-  SourceType?: string;
 }
 
 /**

@@ -32,6 +32,20 @@ import { RedshiftServiceException as __BaseException } from "./RedshiftServiceEx
 
 /**
  * @public
+ * <p></p>
+ */
+export interface DescribeEventCategoriesMessage {
+  /**
+   * @public
+   * <p>The source type, such as cluster or parameter group, to which the described event
+   *             categories apply.</p>
+   *          <p>Valid values: cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, and scheduled-action.</p>
+   */
+  SourceType?: string;
+}
+
+/**
+ * @public
  * <p>Describes event information.</p>
  */
 export interface EventInfoMap {
@@ -3381,6 +3395,12 @@ export interface ModifyClusterMessage {
    *             You can only use this parameter if <code>ManageMasterPassword</code> is true.</p>
    */
   MasterPasswordSecretKmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The IP address types that the cluster supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
+   */
+  IpAddressType?: string;
 }
 
 /**
@@ -4537,6 +4557,12 @@ export interface RestoreFromClusterSnapshotMessage {
    *             You can only use this parameter if <code>ManageMasterPassword</code> is true.</p>
    */
   MasterPasswordSecretKmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The IP address type for the cluster. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
+   */
+  IpAddressType?: string;
 }
 
 /**

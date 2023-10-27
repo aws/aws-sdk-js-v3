@@ -79,6 +79,7 @@ export interface CreateEndpointAccessCommandOutput extends EndpointAccess, __Met
  * //         SubnetId: "STRING_VALUE",
  * //         PrivateIpAddress: "STRING_VALUE",
  * //         AvailabilityZone: "STRING_VALUE",
+ * //         Ipv6Address: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },

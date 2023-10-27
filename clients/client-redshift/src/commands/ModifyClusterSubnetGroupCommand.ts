@@ -80,6 +80,9 @@ export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubn
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SupportedClusterIpAddressTypes: [ // ValueStringList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

@@ -79,6 +79,7 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  * //               SubnetId: "STRING_VALUE",
  * //               PrivateIpAddress: "STRING_VALUE",
  * //               AvailabilityZone: "STRING_VALUE",
+ * //               Ipv6Address: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -233,6 +234,7 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
  * //     MasterPasswordSecretArn: "STRING_VALUE",
  * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
+ * //     IpAddressType: "STRING_VALUE",
  * //   },
  * // };
  *

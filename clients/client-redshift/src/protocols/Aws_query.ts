@@ -605,7 +605,6 @@ import {
   DescribeDefaultClusterParametersResult,
   DescribeEndpointAccessMessage,
   DescribeEndpointAuthorizationMessage,
-  DescribeEventCategoriesMessage,
   EC2SecurityGroup,
   ElasticIpStatus,
   Endpoint,
@@ -658,6 +657,7 @@ import {
   InvalidUsageLimitFault,
   InvalidVPCNetworkStateFault,
   IPRange,
+  Ipv6CidrBlockNotFoundFault,
   LimitExceededFault,
   MaintenanceTrack,
   NetworkInterface,
@@ -729,6 +729,7 @@ import {
   VpcSecurityGroupMembership,
 } from "../models/models_0";
 import {
+  DescribeEventCategoriesMessage,
   DescribeEventsMessage,
   DescribeEventSubscriptionsMessage,
   DescribeHsmClientCertificatesMessage,
@@ -3761,6 +3762,9 @@ const de_CreateClusterCommandError = async (
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.redshift#InvalidVPCNetworkStateFault":
       throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
+    case "Ipv6CidrBlockNotFoundFault":
+    case "com.amazonaws.redshift#Ipv6CidrBlockNotFoundFault":
+      throw await de_Ipv6CidrBlockNotFoundFaultRes(parsedOutput, context);
     case "LimitExceededFault":
     case "com.amazonaws.redshift#LimitExceededFault":
       throw await de_LimitExceededFaultRes(parsedOutput, context);
@@ -8157,6 +8161,9 @@ const de_ModifyClusterCommandError = async (
     case "InvalidRetentionPeriodFault":
     case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
       throw await de_InvalidRetentionPeriodFaultRes(parsedOutput, context);
+    case "Ipv6CidrBlockNotFoundFault":
+    case "com.amazonaws.redshift#Ipv6CidrBlockNotFoundFault":
+      throw await de_Ipv6CidrBlockNotFoundFaultRes(parsedOutput, context);
     case "LimitExceededFault":
     case "com.amazonaws.redshift#LimitExceededFault":
       throw await de_LimitExceededFaultRes(parsedOutput, context);
@@ -9439,6 +9446,9 @@ const de_RestoreFromClusterSnapshotCommandError = async (
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.redshift#InvalidVPCNetworkStateFault":
       throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
+    case "Ipv6CidrBlockNotFoundFault":
+    case "com.amazonaws.redshift#Ipv6CidrBlockNotFoundFault":
+      throw await de_Ipv6CidrBlockNotFoundFaultRes(parsedOutput, context);
     case "LimitExceededFault":
     case "com.amazonaws.redshift#LimitExceededFault":
       throw await de_LimitExceededFaultRes(parsedOutput, context);
@@ -11203,6 +11213,22 @@ const de_InvalidVPCNetworkStateFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryIpv6CidrBlockNotFoundFaultRes
+ */
+const de_Ipv6CidrBlockNotFoundFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<Ipv6CidrBlockNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_Ipv6CidrBlockNotFoundFault(body.Error, context);
+  const exception = new Ipv6CidrBlockNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryLimitExceededFaultRes
  */
 const de_LimitExceededFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<LimitExceededFault> => {
@@ -12331,6 +12357,9 @@ const se_CreateClusterMessage = (input: CreateClusterMessage, context: __SerdeCo
   }
   if (input.MasterPasswordSecretKmsKeyId != null) {
     entries["MasterPasswordSecretKmsKeyId"] = input.MasterPasswordSecretKmsKeyId;
+  }
+  if (input.IpAddressType != null) {
+    entries["IpAddressType"] = input.IpAddressType;
   }
   return entries;
 };
@@ -14577,6 +14606,9 @@ const se_ModifyClusterMessage = (input: ModifyClusterMessage, context: __SerdeCo
   if (input.MasterPasswordSecretKmsKeyId != null) {
     entries["MasterPasswordSecretKmsKeyId"] = input.MasterPasswordSecretKmsKeyId;
   }
+  if (input.IpAddressType != null) {
+    entries["IpAddressType"] = input.IpAddressType;
+  }
   return entries;
 };
 
@@ -15216,6 +15248,9 @@ const se_RestoreFromClusterSnapshotMessage = (
   }
   if (input.MasterPasswordSecretKmsKeyId != null) {
     entries["MasterPasswordSecretKmsKeyId"] = input.MasterPasswordSecretKmsKeyId;
+  }
+  if (input.IpAddressType != null) {
+    entries["IpAddressType"] = input.IpAddressType;
   }
   return entries;
 };
@@ -16372,6 +16407,9 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
   if (output["MasterPasswordSecretKmsKeyId"] !== undefined) {
     contents.MasterPasswordSecretKmsKeyId = __expectString(output["MasterPasswordSecretKmsKeyId"]);
   }
+  if (output["IpAddressType"] !== undefined) {
+    contents.IpAddressType = __expectString(output["IpAddressType"]);
+  }
   return contents;
 };
 
@@ -17016,6 +17054,17 @@ const de_ClusterSubnetGroup = (output: any, context: __SerdeContext): ClusterSub
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     contents.Tags = de_TagList(__getArrayIfSingleItem(output["Tags"]["Tag"]), context);
+  }
+  if (output.SupportedClusterIpAddressTypes === "") {
+    contents.SupportedClusterIpAddressTypes = [];
+  } else if (
+    output["SupportedClusterIpAddressTypes"] !== undefined &&
+    output["SupportedClusterIpAddressTypes"]["item"] !== undefined
+  ) {
+    contents.SupportedClusterIpAddressTypes = de_ValueStringList(
+      __getArrayIfSingleItem(output["SupportedClusterIpAddressTypes"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -19210,6 +19259,17 @@ const de_IPRangeList = (output: any, context: __SerdeContext): IPRange[] => {
 };
 
 /**
+ * deserializeAws_queryIpv6CidrBlockNotFoundFault
+ */
+const de_Ipv6CidrBlockNotFoundFault = (output: any, context: __SerdeContext): Ipv6CidrBlockNotFoundFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryLimitExceededFault
  */
 const de_LimitExceededFault = (output: any, context: __SerdeContext): LimitExceededFault => {
@@ -19447,6 +19507,9 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   }
   if (output["AvailabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
+  }
+  if (output["Ipv6Address"] !== undefined) {
+    contents.Ipv6Address = __expectString(output["Ipv6Address"]);
   }
   return contents;
 };
@@ -21706,6 +21769,17 @@ const de_UsageLimits = (output: any, context: __SerdeContext): UsageLimit[] => {
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_UsageLimit(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryValueStringList
+ */
+const de_ValueStringList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
     });
 };
 

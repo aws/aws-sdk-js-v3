@@ -95,6 +95,9 @@ export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetG
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SupportedClusterIpAddressTypes: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * // };

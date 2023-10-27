@@ -89,6 +89,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  *   Port: Number("int"),
  *   ManageMasterPassword: true || false,
  *   MasterPasswordSecretKmsKeyId: "STRING_VALUE",
+ *   IpAddressType: "STRING_VALUE",
  * };
  * const command = new ModifyClusterCommand(input);
  * const response = await client.send(command);
@@ -114,6 +115,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * //               SubnetId: "STRING_VALUE",
  * //               PrivateIpAddress: "STRING_VALUE",
  * //               AvailabilityZone: "STRING_VALUE",
+ * //               Ipv6Address: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -268,6 +270,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
  * //     MasterPasswordSecretArn: "STRING_VALUE",
  * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
+ * //     IpAddressType: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -326,6 +329,10 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * @throws {@link InvalidRetentionPeriodFault} (client fault)
  *  <p>The retention period specified is either in the past or is not a valid value.</p>
  *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * @throws {@link Ipv6CidrBlockNotFoundFault} (client fault)
+ *  <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode,
+ *             associate an IPv6 CIDR block with each subnet in your VPC.</p>
  *
  * @throws {@link LimitExceededFault} (client fault)
  *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>

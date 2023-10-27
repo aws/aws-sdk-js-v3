@@ -91,6 +91,9 @@ export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubn
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SupportedClusterIpAddressTypes: [ // ValueStringList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

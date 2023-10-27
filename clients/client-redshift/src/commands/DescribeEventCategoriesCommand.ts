@@ -14,8 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DescribeEventCategoriesMessage } from "../models/models_0";
-import { EventCategoriesMessage } from "../models/models_1";
+import { DescribeEventCategoriesMessage, EventCategoriesMessage } from "../models/models_1";
 import { de_DescribeEventCategoriesCommand, se_DescribeEventCategoriesCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 

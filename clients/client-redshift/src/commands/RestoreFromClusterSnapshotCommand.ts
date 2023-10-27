@@ -101,6 +101,7 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  *   Encrypted: true || false,
  *   ManageMasterPassword: true || false,
  *   MasterPasswordSecretKmsKeyId: "STRING_VALUE",
+ *   IpAddressType: "STRING_VALUE",
  * };
  * const command = new RestoreFromClusterSnapshotCommand(input);
  * const response = await client.send(command);
@@ -126,6 +127,7 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * //               SubnetId: "STRING_VALUE",
  * //               PrivateIpAddress: "STRING_VALUE",
  * //               AvailabilityZone: "STRING_VALUE",
+ * //               Ipv6Address: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -280,6 +282,7 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
  * //     MasterPasswordSecretArn: "STRING_VALUE",
  * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
+ * //     IpAddressType: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -366,6 +369,10 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
  *  <p>The cluster subnet group does not cover all Availability Zones.</p>
+ *
+ * @throws {@link Ipv6CidrBlockNotFoundFault} (client fault)
+ *  <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode,
+ *             associate an IPv6 CIDR block with each subnet in your VPC.</p>
  *
  * @throws {@link LimitExceededFault} (client fault)
  *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
