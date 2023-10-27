@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
+
+
+### Bug Fixes
+
+* **signature-v4-crt:** set min version of aws-crt to 1.18.3 ([#5426](https://github.com/aws/aws-sdk-js-v3/issues/5426)) ([5e5784f](https://github.com/aws/aws-sdk-js-v3/commit/5e5784fccaf45524cbb62c5691ea56c0456478e8))
+
+
+### Features
+
+* **client-emr:** Updated CreateCluster API request and DescribeCluster API responses to include EbsRootVolumeIops, and EbsRootVolumeThroughput attributes that specify the user configured root volume IOPS and throughput for Amazon EBS root device volume. This feature will be available from Amazon EMR releases 6.15.0 ([ce8979f](https://github.com/aws/aws-sdk-js-v3/commit/ce8979f6a081ec561f152660f74663fb959a406d))
+* **client-neptune:** Update TdeCredentialPassword type to SensitiveString ([e7cee7e](https://github.com/aws/aws-sdk-js-v3/commit/e7cee7e19bba83116b49874c21231299990030b3))
+* **client-redshift:** added support to create a dual stack cluster ([45b42fc](https://github.com/aws/aws-sdk-js-v3/commit/45b42fc0040d3d01fd0f3514c4c5530138fb3214))
+* **clients:** update client endpoints as of 2023-10-27 ([45e96d3](https://github.com/aws/aws-sdk-js-v3/commit/45e96d32540c82c5464676527e5b04fc544abc61))
+
+
+
+
+
 # [3.437.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.436.0...v3.437.0) (2023-10-26)
 
 

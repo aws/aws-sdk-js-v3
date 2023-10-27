@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
+
+
+### Features
+
+* **client-emr:** Updated CreateCluster API request and DescribeCluster API responses to include EbsRootVolumeIops, and EbsRootVolumeThroughput attributes that specify the user configured root volume IOPS and throughput for Amazon EBS root device volume. This feature will be available from Amazon EMR releases 6.15.0 ([ce8979f](https://github.com/aws/aws-sdk-js-v3/commit/ce8979f6a081ec561f152660f74663fb959a406d))
+
+
+
+
+
 # [3.437.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.436.0...v3.437.0) (2023-10-26)
 
 **Note:** Version bump only for package @aws-sdk/client-emr

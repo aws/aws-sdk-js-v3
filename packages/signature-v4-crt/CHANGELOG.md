@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
+
+
+### Bug Fixes
+
+* **signature-v4-crt:** set min version of aws-crt to 1.18.3 ([#5426](https://github.com/aws/aws-sdk-js-v3/issues/5426)) ([5e5784f](https://github.com/aws/aws-sdk-js-v3/commit/5e5784fccaf45524cbb62c5691ea56c0456478e8))
+
+
+
+
+
 # [3.437.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.436.0...v3.437.0) (2023-10-26)
 
 

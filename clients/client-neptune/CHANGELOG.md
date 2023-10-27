@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
+
+
+### Features
+
+* **client-neptune:** Update TdeCredentialPassword type to SensitiveString ([e7cee7e](https://github.com/aws/aws-sdk-js-v3/commit/e7cee7e19bba83116b49874c21231299990030b3))
+
+
+
+
+
 # [3.437.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.436.0...v3.437.0) (2023-10-26)
 
 **Note:** Version bump only for package @aws-sdk/client-neptune

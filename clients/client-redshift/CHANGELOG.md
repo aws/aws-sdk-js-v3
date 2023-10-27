@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
+
+
+### Features
+
+* **client-redshift:** added support to create a dual stack cluster ([45b42fc](https://github.com/aws/aws-sdk-js-v3/commit/45b42fc0040d3d01fd0f3514c4c5530138fb3214))
+
+
+
+
+
 # [3.437.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.436.0...v3.437.0) (2023-10-26)
 
 

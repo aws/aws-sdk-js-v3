@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/token-providers",
-  "version": "3.437.0",
+  "version": "3.438.0",
   "description": "A collection of token providers",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -60,8 +60,8 @@
     "@smithy/util-body-length-node": "^2.1.0",
     "@smithy/util-defaults-mode-browser": "^2.0.16",
     "@smithy/util-defaults-mode-node": "^2.0.21",
-    "@smithy/util-retry": "^2.0.5",
     "@smithy/util-endpoints": "^1.0.2",
+    "@smithy/util-retry": "^2.0.5",
     "@smithy/util-utf8": "^2.0.0",
     "tslib": "^2.5.0"
   },
