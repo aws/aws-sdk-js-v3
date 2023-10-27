@@ -12,6 +12,7 @@ import {
   BatchGetCommandOutput,
   BatchWriteCommandOutput,
   DynamoDBDocument,
+  DynamoDBNumber,
   ExecuteStatementCommandOutput,
   ExecuteTransactionCommandOutput,
   GetCommandOutput,
@@ -31,6 +32,9 @@ describe(DynamoDBDocument.name, () => {
   const doc = DynamoDBDocument.from(dynamodb, {
     marshallOptions: {
       convertTopLevelContainer: true,
+    },
+    unmarshallOptions: {
+      useDynamoDBNumberWrapper: "bigNumbersOnly",
     },
   });
 
@@ -77,6 +81,7 @@ describe(DynamoDBDocument.name, () => {
     null: null,
     string: "myString",
     number: 1,
+    bigNumber: DynamoDBNumber.from("3210000000000000000.0000000000000123"),
     boolean: true,
     sSet: new Set(["my", "string", "set"]),
     nSet: new Set([2, 3, 4]),
@@ -115,6 +120,9 @@ describe(DynamoDBDocument.name, () => {
         }
         if (input instanceof Set) {
           return new Set([...input].map(updateTransform)) as T;
+        }
+        if (input instanceof DynamoDBNumber) {
+          return DynamoDBNumber.from(input.toString() + "4") as T;
         }
         return Object.entries(input).reduce((acc, [k, v]) => {
           acc[updateTransform(k)] = updateTransform(v);
@@ -437,6 +445,7 @@ describe(DynamoDBDocument.name, () => {
         "null-x": null,
         "string-x": "myString-x",
         "number-x": 2,
+        "bigNumber-x": DynamoDBNumber.from("3210000000000000000.00000000000001234"),
         "boolean-x": false,
         "sSet-x": new Set(["my-x", "string-x", "set-x"]),
         "nSet-x": new Set([3, 4, 5]),

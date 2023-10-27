@@ -1,0 +1,96 @@
+/**
+ *
+ * Class for storing DynamoDB numbers that exceed the scale of
+ * JavaScript's MAX_SAFE_INTEGER and MIN_SAFE_INTEGER.
+ *
+ * This class does not support mathematical operations in JavaScript.
+ * Convert the contained string value to your application-specific
+ * large number implementation to perform mathematical operations.
+ *
+ */
+export class DynamoDBNumber {
+  private value: string;
+
+  /**
+   * This class does not validate that your string input is a valid number.
+   *
+   * @param value - a precise number, or any BigInt or string, or AttributeValue.
+   */
+  public constructor(value: number | Number | BigInt | string | { N: string }) {
+    if (typeof value === "object" && "N" in value) {
+      this.value = String(value.N);
+    } else {
+      this.value = String(value);
+    }
+
+    const valueOf = typeof value.valueOf() === "number" ? (value.valueOf() as number) : 0;
+    const imprecise =
+      valueOf > Number.MAX_SAFE_INTEGER ||
+      valueOf < Number.MIN_SAFE_INTEGER ||
+      Math.abs(valueOf) === Infinity ||
+      Number.isNaN(valueOf);
+
+    if (imprecise) {
+      throw new Error(
+        `DynamoDBNumber should not be initialized with an imprecise number=${valueOf}. Use a string instead.`
+      );
+    }
+  }
+
+  /**
+   * This class does not validate that your string input is a valid number.
+   *
+   * @param value - a precise number, or any BigInt or string, or AttributeValue.
+   */
+  public static from(value: number | Number | BigInt | string | { N: string }) {
+    return new DynamoDBNumber(value);
+  }
+
+  /**
+   * @returns the AttributeValue form for DynamoDB.
+   */
+  public toAttributeValue() {
+    return {
+      N: this.toString(),
+    };
+  }
+
+  /**
+   * @param allowImprecision - if true, will throw if the number cannot be precisely conveyed as a JavaScript number.
+   * @returns the number representation.
+   */
+  public toNumber(allowImprecision = false) {
+    const stringValue = this.toString();
+    const numberValue = Number(stringValue);
+    if (!allowImprecision && String(numberValue) !== stringValue) {
+      throw new Error(`Cannot convert ${stringValue} with precision to number.`);
+    }
+    return numberValue;
+  }
+
+  /**
+   * @returns BigInt representation.
+   *
+   * @throws SyntaxError if the string representation is not convertable to a BigInt.
+   */
+  public toBigInt() {
+    const stringValue = this.toString();
+    return BigInt(stringValue);
+  }
+
+  /**
+   * @override
+   *
+   * @returns string representation. This is the canonical format in DynamoDB.
+   */
+  public toString() {
+    return String(this.value);
+  }
+
+  /**
+   * @override
+   */
+  public valueOf() {
+    return this.toString();
+  }
+}

@@ -23,13 +23,13 @@ by the `DocumentClient`. The `DocumentClient` does not accept
 |          JavaScript Type          | DynamoDB AttributeValue |
 | :-------------------------------: | ----------------------- |
 |              String               | S                       |
-|          Number / BigInt          | N                       |
+|  Number / BigInt / DynamoDBNumber | N                       |
 |              Boolean              | BOOL                    |
 |               null                | NULL                    |
 |               Array               | L                       |
 |              Object               | M                       |
 |   Set\<Uint8Array, Blob, ...\>    | BS                      |
-|       Set\<Number, BigInt\>       | NS                      |
+|Set\<Number, BigInt, DynamoDBNumber\>| NS                    |
 |           Set\<String\>           | SS                      |
 | Uint8Array, Buffer, File, Blob... | B                       |
 

@@ -1,3 +1,4 @@
+export * from "./DynamoDBNumber";
 export * from "./convertToAttr";
 export * from "./convertToNative";
 export * from "./marshall";

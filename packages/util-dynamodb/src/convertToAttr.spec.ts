@@ -4,6 +4,7 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { convertToAttr } from "./convertToAttr";
+import { DynamoDBNumber } from "./DynamoDBNumber";
 import { marshallOptions } from "./marshall";
 import { NativeAttributeValue } from "./models";
 
@@ -110,6 +111,27 @@ describe("convertToAttr", () => {
       ].forEach((num) => {
         it(`returns for bigint: ${num}`, () => {
           expect(convertToAttr(num, { convertClassInstanceToMap })).toEqual({ N: num.toString() });
+        });
+      });
+    });
+  });
+
+  describe("DynamoDBNumber", () => {
+    [true, false].forEach((convertClassInstanceToMap) => {
+      const maxSafe = BigInt(Number.MAX_SAFE_INTEGER);
+      [
+        // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
+        1n,
+        // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
+        maxSafe * 2n,
+        // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
+        maxSafe * -2n,
+        BigInt(Number.MAX_VALUE),
+        BigInt("0x1fffffffffffff"),
+        BigInt("0b11111111111111111111111111111111111111111111111111111"),
+      ].forEach((num) => {
+        it(`returns for DynamoDBNumber: ${num}`, () => {
+          expect(convertToAttr(DynamoDBNumber.from(num), { convertClassInstanceToMap })).toEqual({ N: num.toString() });
         });
       });
     });
