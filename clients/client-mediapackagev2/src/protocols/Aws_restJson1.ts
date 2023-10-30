@@ -86,6 +86,9 @@ import {
   Encryption,
   EncryptionContractConfiguration,
   EncryptionMethod,
+  FilterConfiguration,
+  GetHlsManifestConfiguration,
+  GetLowLatencyHlsManifestConfiguration,
   InternalServerException,
   OriginEndpointListConfiguration,
   ResourceNotFoundException,
@@ -201,8 +204,8 @@ export const se_CreateOriginEndpointCommand = async (
     take(input, {
       ContainerType: [],
       Description: [],
-      HlsManifests: (_) => _json(_),
-      LowLatencyHlsManifests: (_) => _json(_),
+      HlsManifests: (_) => se_CreateHlsManifests(_, context),
+      LowLatencyHlsManifests: (_) => se_CreateLowLatencyHlsManifests(_, context),
       OriginEndpointName: [],
       Segment: (_) => _json(_),
       StartoverWindowSeconds: [],
@@ -964,8 +967,8 @@ export const se_UpdateOriginEndpointCommand = async (
     take(input, {
       ContainerType: [],
       Description: [],
-      HlsManifests: (_) => _json(_),
-      LowLatencyHlsManifests: (_) => _json(_),
+      HlsManifests: (_) => se_CreateHlsManifests(_, context),
+      LowLatencyHlsManifests: (_) => se_CreateLowLatencyHlsManifests(_, context),
       Segment: (_) => _json(_),
       StartoverWindowSeconds: [],
     })
@@ -1145,8 +1148,8 @@ export const de_CreateOriginEndpointCommand = async (
     ContainerType: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
-    HlsManifests: _json,
-    LowLatencyHlsManifests: _json,
+    HlsManifests: (_) => de_GetHlsManifests(_, context),
+    LowLatencyHlsManifests: (_) => de_GetLowLatencyHlsManifests(_, context),
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     OriginEndpointName: __expectString,
     Segment: _json,
@@ -1686,8 +1689,8 @@ export const de_GetOriginEndpointCommand = async (
     ContainerType: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
-    HlsManifests: _json,
-    LowLatencyHlsManifests: _json,
+    HlsManifests: (_) => de_GetHlsManifests(_, context),
+    LowLatencyHlsManifests: (_) => de_GetLowLatencyHlsManifests(_, context),
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     OriginEndpointName: __expectString,
     Segment: _json,
@@ -1896,6 +1899,9 @@ const de_ListChannelsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.mediapackagev2#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mediapackagev2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.mediapackagev2#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2379,8 +2385,8 @@ export const de_UpdateOriginEndpointCommand = async (
     ContainerType: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
-    HlsManifests: _json,
-    LowLatencyHlsManifests: _json,
+    HlsManifests: (_) => de_GetHlsManifests(_, context),
+    LowLatencyHlsManifests: (_) => de_GetLowLatencyHlsManifests(_, context),
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     OriginEndpointName: __expectString,
     Segment: _json,
@@ -2570,13 +2576,61 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-// se_CreateHlsManifestConfiguration omitted.
+/**
+ * serializeAws_restJson1CreateHlsManifestConfiguration
+ */
+const se_CreateHlsManifestConfiguration = (input: CreateHlsManifestConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    ChildManifestName: [],
+    FilterConfiguration: (_) => se_FilterConfiguration(_, context),
+    ManifestName: [],
+    ManifestWindowSeconds: [],
+    ProgramDateTimeIntervalSeconds: [],
+    ScteHls: _json,
+  });
+};
 
-// se_CreateHlsManifests omitted.
+/**
+ * serializeAws_restJson1CreateHlsManifests
+ */
+const se_CreateHlsManifests = (input: CreateHlsManifestConfiguration[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_CreateHlsManifestConfiguration(entry, context);
+    });
+};
 
-// se_CreateLowLatencyHlsManifestConfiguration omitted.
+/**
+ * serializeAws_restJson1CreateLowLatencyHlsManifestConfiguration
+ */
+const se_CreateLowLatencyHlsManifestConfiguration = (
+  input: CreateLowLatencyHlsManifestConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ChildManifestName: [],
+    FilterConfiguration: (_) => se_FilterConfiguration(_, context),
+    ManifestName: [],
+    ManifestWindowSeconds: [],
+    ProgramDateTimeIntervalSeconds: [],
+    ScteHls: _json,
+  });
+};
 
-// se_CreateLowLatencyHlsManifests omitted.
+/**
+ * serializeAws_restJson1CreateLowLatencyHlsManifests
+ */
+const se_CreateLowLatencyHlsManifests = (
+  input: CreateLowLatencyHlsManifestConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_CreateLowLatencyHlsManifestConfiguration(entry, context);
+    });
+};
 
 // se_DrmSystems omitted.
 
@@ -2585,6 +2639,18 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_EncryptionContractConfiguration omitted.
 
 // se_EncryptionMethod omitted.
+
+/**
+ * serializeAws_restJson1FilterConfiguration
+ */
+const se_FilterConfiguration = (input: FilterConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    End: (_) => Math.round(_.getTime() / 1000),
+    ManifestFilter: [],
+    Start: (_) => Math.round(_.getTime() / 1000),
+    TimeDelaySeconds: [],
+  });
+};
 
 // se_Scte omitted.
 
@@ -2657,13 +2723,77 @@ const de_ChannelListConfiguration = (output: any, context: __SerdeContext): Chan
 
 // de_EncryptionMethod omitted.
 
-// de_GetHlsManifestConfiguration omitted.
+/**
+ * deserializeAws_restJson1FilterConfiguration
+ */
+const de_FilterConfiguration = (output: any, context: __SerdeContext): FilterConfiguration => {
+  return take(output, {
+    End: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ManifestFilter: __expectString,
+    Start: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TimeDelaySeconds: __expectInt32,
+  }) as any;
+};
 
-// de_GetHlsManifests omitted.
+/**
+ * deserializeAws_restJson1GetHlsManifestConfiguration
+ */
+const de_GetHlsManifestConfiguration = (output: any, context: __SerdeContext): GetHlsManifestConfiguration => {
+  return take(output, {
+    ChildManifestName: __expectString,
+    FilterConfiguration: (_: any) => de_FilterConfiguration(_, context),
+    ManifestName: __expectString,
+    ManifestWindowSeconds: __expectInt32,
+    ProgramDateTimeIntervalSeconds: __expectInt32,
+    ScteHls: _json,
+    Url: __expectString,
+  }) as any;
+};
 
-// de_GetLowLatencyHlsManifestConfiguration omitted.
+/**
+ * deserializeAws_restJson1GetHlsManifests
+ */
+const de_GetHlsManifests = (output: any, context: __SerdeContext): GetHlsManifestConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GetHlsManifestConfiguration(entry, context);
+    });
+  return retVal;
+};
 
-// de_GetLowLatencyHlsManifests omitted.
+/**
+ * deserializeAws_restJson1GetLowLatencyHlsManifestConfiguration
+ */
+const de_GetLowLatencyHlsManifestConfiguration = (
+  output: any,
+  context: __SerdeContext
+): GetLowLatencyHlsManifestConfiguration => {
+  return take(output, {
+    ChildManifestName: __expectString,
+    FilterConfiguration: (_: any) => de_FilterConfiguration(_, context),
+    ManifestName: __expectString,
+    ManifestWindowSeconds: __expectInt32,
+    ProgramDateTimeIntervalSeconds: __expectInt32,
+    ScteHls: _json,
+    Url: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GetLowLatencyHlsManifests
+ */
+const de_GetLowLatencyHlsManifests = (
+  output: any,
+  context: __SerdeContext
+): GetLowLatencyHlsManifestConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GetLowLatencyHlsManifestConfiguration(entry, context);
+    });
+  return retVal;
+};
 
 // de_IngestEndpoint omitted.
 

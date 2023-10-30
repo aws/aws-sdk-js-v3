@@ -93,6 +93,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       },
  *       ManifestWindowSeconds: Number("int"),
  *       ProgramDateTimeIntervalSeconds: Number("int"),
+ *       FilterConfiguration: { // FilterConfiguration
+ *         ManifestFilter: "STRING_VALUE",
+ *         Start: new Date("TIMESTAMP"),
+ *         End: new Date("TIMESTAMP"),
+ *         TimeDelaySeconds: Number("int"),
+ *       },
  *     },
  *   ],
  *   LowLatencyHlsManifests: [ // CreateLowLatencyHlsManifests
@@ -104,6 +110,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       },
  *       ManifestWindowSeconds: Number("int"),
  *       ProgramDateTimeIntervalSeconds: Number("int"),
+ *       FilterConfiguration: {
+ *         ManifestFilter: "STRING_VALUE",
+ *         Start: new Date("TIMESTAMP"),
+ *         End: new Date("TIMESTAMP"),
+ *         TimeDelaySeconds: Number("int"),
+ *       },
  *     },
  *   ],
  * };
@@ -161,6 +173,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //       ScteHls: { // ScteHls
  * //         AdMarkerHls: "DATERANGE",
  * //       },
+ * //       FilterConfiguration: { // FilterConfiguration
+ * //         ManifestFilter: "STRING_VALUE",
+ * //         Start: new Date("TIMESTAMP"),
+ * //         End: new Date("TIMESTAMP"),
+ * //         TimeDelaySeconds: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * //   LowLatencyHlsManifests: [ // GetLowLatencyHlsManifests
@@ -172,6 +190,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //       ProgramDateTimeIntervalSeconds: Number("int"),
  * //       ScteHls: {
  * //         AdMarkerHls: "DATERANGE",
+ * //       },
+ * //       FilterConfiguration: {
+ * //         ManifestFilter: "STRING_VALUE",
+ * //         Start: new Date("TIMESTAMP"),
+ * //         End: new Date("TIMESTAMP"),
+ * //         TimeDelaySeconds: Number("int"),
  * //       },
  * //     },
  * //   ],

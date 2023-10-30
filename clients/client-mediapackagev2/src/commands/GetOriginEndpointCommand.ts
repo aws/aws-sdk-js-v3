@@ -103,6 +103,12 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //       ScteHls: { // ScteHls
  * //         AdMarkerHls: "DATERANGE",
  * //       },
+ * //       FilterConfiguration: { // FilterConfiguration
+ * //         ManifestFilter: "STRING_VALUE",
+ * //         Start: new Date("TIMESTAMP"),
+ * //         End: new Date("TIMESTAMP"),
+ * //         TimeDelaySeconds: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * //   LowLatencyHlsManifests: [ // GetLowLatencyHlsManifests
@@ -114,6 +120,12 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //       ProgramDateTimeIntervalSeconds: Number("int"),
  * //       ScteHls: {
  * //         AdMarkerHls: "DATERANGE",
+ * //       },
+ * //       FilterConfiguration: {
+ * //         ManifestFilter: "STRING_VALUE",
+ * //         Start: new Date("TIMESTAMP"),
+ * //         End: new Date("TIMESTAMP"),
+ * //         TimeDelaySeconds: Number("int"),
  * //       },
  * //     },
  * //   ],

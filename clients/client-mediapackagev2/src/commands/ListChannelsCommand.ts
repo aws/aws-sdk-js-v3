@@ -79,6 +79,9 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @throws {@link InternalServerException} (server fault)
  *  <p>Indicates that an error from the service occurred while trying to process a request.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request throughput limit was exceeded.</p>
  *

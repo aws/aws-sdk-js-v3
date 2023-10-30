@@ -93,6 +93,12 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       },
  *       ManifestWindowSeconds: Number("int"),
  *       ProgramDateTimeIntervalSeconds: Number("int"),
+ *       FilterConfiguration: { // FilterConfiguration
+ *         ManifestFilter: "STRING_VALUE",
+ *         Start: new Date("TIMESTAMP"),
+ *         End: new Date("TIMESTAMP"),
+ *         TimeDelaySeconds: Number("int"),
+ *       },
  *     },
  *   ],
  *   LowLatencyHlsManifests: [ // CreateLowLatencyHlsManifests
@@ -104,6 +110,12 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       },
  *       ManifestWindowSeconds: Number("int"),
  *       ProgramDateTimeIntervalSeconds: Number("int"),
+ *       FilterConfiguration: {
+ *         ManifestFilter: "STRING_VALUE",
+ *         Start: new Date("TIMESTAMP"),
+ *         End: new Date("TIMESTAMP"),
+ *         TimeDelaySeconds: Number("int"),
+ *       },
  *     },
  *   ],
  *   Tags: { // TagMap
@@ -164,6 +176,12 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //       ScteHls: { // ScteHls
  * //         AdMarkerHls: "DATERANGE",
  * //       },
+ * //       FilterConfiguration: { // FilterConfiguration
+ * //         ManifestFilter: "STRING_VALUE",
+ * //         Start: new Date("TIMESTAMP"),
+ * //         End: new Date("TIMESTAMP"),
+ * //         TimeDelaySeconds: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * //   LowLatencyHlsManifests: [ // GetLowLatencyHlsManifests
@@ -175,6 +193,12 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //       ProgramDateTimeIntervalSeconds: Number("int"),
  * //       ScteHls: {
  * //         AdMarkerHls: "DATERANGE",
+ * //       },
+ * //       FilterConfiguration: {
+ * //         ManifestFilter: "STRING_VALUE",
+ * //         Start: new Date("TIMESTAMP"),
+ * //         End: new Date("TIMESTAMP"),
+ * //         TimeDelaySeconds: Number("int"),
  * //       },
  * //     },
  * //   ],

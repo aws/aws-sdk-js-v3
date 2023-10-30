@@ -196,10 +196,13 @@ export const ValidationExceptionType = {
   ENCRYPTION_CONTRACT_UNENCRYPTED: "ENCRYPTION_CONTRACT_UNENCRYPTED",
   ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE: "ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE",
   ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH: "ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH",
+  END_TIME_EARLIER_THAN_START_TIME: "END_TIME_EARLIER_THAN_START_TIME",
+  INVALID_MANIFEST_FILTER: "INVALID_MANIFEST_FILTER",
   INVALID_PAGINATION_MAX_RESULTS: "INVALID_PAGINATION_MAX_RESULTS",
   INVALID_PAGINATION_TOKEN: "INVALID_PAGINATION_TOKEN",
   INVALID_POLICY: "INVALID_POLICY",
   INVALID_ROLE_ARN: "INVALID_ROLE_ARN",
+  INVALID_TIME_DELAY_SECONDS: "INVALID_TIME_DELAY_SECONDS",
   MANIFEST_NAME_COLLISION: "MANIFEST_NAME_COLLISION",
   MEMBER_DOES_NOT_MATCH_PATTERN: "MEMBER_DOES_NOT_MATCH_PATTERN",
   MEMBER_INVALID: "MEMBER_INVALID",
@@ -693,6 +696,36 @@ export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
 
 /**
  * @public
+ * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+ */
+export interface FilterConfiguration {
+  /**
+   * @public
+   * <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+   */
+  ManifestFilter?: string;
+
+  /**
+   * @public
+   * <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+   */
+  Start?: Date;
+
+  /**
+   * @public
+   * <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+   */
+  End?: Date;
+
+  /**
+   * @public
+   * <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+   */
+  TimeDelaySeconds?: number;
+}
+
+/**
+ * @public
  * <p>The SCTE configuration.</p>
  */
 export interface ScteHls {
@@ -747,6 +780,12 @@ export interface CreateHlsManifestConfiguration {
    *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    */
   ProgramDateTimeIntervalSeconds?: number;
+
+  /**
+   * @public
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   */
+  FilterConfiguration?: FilterConfiguration;
 }
 
 /**
@@ -787,6 +826,12 @@ export interface CreateLowLatencyHlsManifestConfiguration {
    *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    */
   ProgramDateTimeIntervalSeconds?: number;
+
+  /**
+   * @public
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   */
+  FilterConfiguration?: FilterConfiguration;
 }
 
 /**
@@ -1260,6 +1305,12 @@ export interface GetHlsManifestConfiguration {
    * <p>The SCTE configuration.</p>
    */
   ScteHls?: ScteHls;
+
+  /**
+   * @public
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   */
+  FilterConfiguration?: FilterConfiguration;
 }
 
 /**
@@ -1306,6 +1357,12 @@ export interface GetLowLatencyHlsManifestConfiguration {
    * <p>The SCTE configuration.</p>
    */
   ScteHls?: ScteHls;
+
+  /**
+   * @public
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   */
+  FilterConfiguration?: FilterConfiguration;
 }
 
 /**
