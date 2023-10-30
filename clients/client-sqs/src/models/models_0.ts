@@ -26,9 +26,12 @@ export interface AddPermissionRequest {
 
   /**
    * @public
-   * <p>The Amazon Web Services account numbers of the <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principals</a> who are to receive
-   *             permission. For information about locating the Amazon Web Services account identification, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication">Your Amazon Web Services Identifiers</a> in the <i>Amazon SQS Developer
-   *             Guide</i>.</p>
+   * <p>The Amazon Web
+   *                 Services account numbers of the <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principals</a> who are to receive
+   *             permission. For information about locating the Amazon Web Services
+   *                 account identification, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication">Your Amazon Web
+   *                     Services Identifiers</a> in the <i>Amazon SQS Developer
+   *                 Guide</i>.</p>
    */
   AWSAccountIds: string[] | undefined;
 
@@ -45,6 +48,46 @@ export interface AddPermissionRequest {
    *                 <code>ChangeMessageVisibilityBatch</code>.</p>
    */
   Actions: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>The <code>accountId</code> is invalid.</p>
+ */
+export class InvalidAddress extends __BaseException {
+  readonly name: "InvalidAddress" = "InvalidAddress";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAddress, __BaseException>) {
+    super({
+      name: "InvalidAddress",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAddress.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>When the request to a queue is not HTTPS and SigV4.</p>
+ */
+export class InvalidSecurity extends __BaseException {
+  readonly name: "InvalidSecurity" = "InvalidSecurity";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSecurity, __BaseException>) {
+    super({
+      name: "InvalidSecurity",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSecurity.prototype);
+  }
 }
 
 /**
@@ -67,6 +110,82 @@ export class OverLimit extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, OverLimit.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The specified queue doesn't exist.</p>
+ */
+export class QueueDoesNotExist extends __BaseException {
+  readonly name: "QueueDoesNotExist" = "QueueDoesNotExist";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QueueDoesNotExist, __BaseException>) {
+    super({
+      name: "QueueDoesNotExist",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QueueDoesNotExist.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request was denied due to request throttling.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
+ *                     account and Region. </p>
+ *             </li>
+ *             <li>
+ *                <p>A burst or sustained high rate of requests to change the state of the same KMS
+ *                     key. This condition is often known as a "hot key."</p>
+ *             </li>
+ *             <li>
+ *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
+ *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
+ *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
+ *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *             </li>
+ *          </ul>
+ */
+export class RequestThrottled extends __BaseException {
+  readonly name: "RequestThrottled" = "RequestThrottled";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestThrottled, __BaseException>) {
+    super({
+      name: "RequestThrottled",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestThrottled.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>Error code 400. Unsupported operation.</p>
+ */
+export class UnsupportedOperation extends __BaseException {
+  readonly name: "UnsupportedOperation" = "UnsupportedOperation";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperation, __BaseException>) {
+    super({
+      name: "UnsupportedOperation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperation.prototype);
   }
 }
 
@@ -109,26 +228,6 @@ export class ResourceNotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * @public
- * <p>Error code 400. Unsupported operation.</p>
- */
-export class UnsupportedOperation extends __BaseException {
-  readonly name: "UnsupportedOperation" = "UnsupportedOperation";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedOperation, __BaseException>) {
-    super({
-      name: "UnsupportedOperation",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedOperation.prototype);
   }
 }
 
@@ -234,7 +333,8 @@ export interface ChangeMessageVisibilityBatchRequestEntry {
    *             result.</p>
    *          <note>
    *             <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
-   *             <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
+   *             <p>This identifier can have up to 80 characters. The following characters are
+   *                 accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
    *          </note>
    */
   Id: string | undefined;
@@ -467,38 +567,6 @@ export interface CreateQueueRequest {
 
   /**
    * @public
-   * <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
-   * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-   *          <p>When you use queue tags, keep the following guidelines in mind:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Adding more than 50 tags to a queue isn't recommended.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tags are case-sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For a full list of tag restrictions, see
-   * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Quotas related to queues</a>
-   * in the <i>Amazon SQS Developer Guide</i>.</p>
-   *          <note>
-   *             <p>To be able to tag a queue on creation, you must have the
-   *                     <code>sqs:CreateQueue</code> and <code>sqs:TagQueue</code> permissions.</p>
-   *             <p>Cross-account permissions don't apply to this action. For more information,
-   * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
-   * cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-   *          </note>
-   */
-  tags?: Record<string, string>;
-
-  /**
-   * @public
    * <p>A map of attributes with their corresponding values.</p>
    *          <p>The following lists the names, descriptions, and values of the special request
    *             parameters that the <code>CreateQueue</code> action uses:</p>
@@ -511,36 +579,35 @@ export interface CreateQueueRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MaximumMessageSize</code> – The limit of how many bytes a message
-   *                     can contain before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes
+   *                   <code>MaximumMessageSize</code> – The limit of how many bytes a message can
+   *                     contain before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes
    *                     (1 KiB) to 262,144 bytes (256 KiB). Default: 262,144 (256 KiB). </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MessageRetentionPeriod</code> – The length of time, in seconds, for
-   *                     which Amazon SQS retains a message. Valid values: An integer from 60 seconds (1
+   *                   <code>MessageRetentionPeriod</code> – The length of time, in seconds, for which
+   *                     Amazon SQS retains a message. Valid values: An integer from 60 seconds (1
    *                     minute) to 1,209,600 seconds (14 days). Default: 345,600 (4 days). When you
    *                     change a queue's attributes, the change can take up to 60 seconds for most of
-   *                     the attributes to propagate throughout the Amazon SQS system. Changes made to the
-   *                         <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and
+   *                     the attributes to propagate throughout the Amazon SQS system. Changes made to
+   *                     the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and
    *                     will impact existing messages in the queue potentially causing them to be
    *                     expired and deleted if the <code>MessageRetentionPeriod</code> is reduced below
    *                     the age of existing messages.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Policy</code> – The queue's policy. A valid Amazon Web Services policy. For more
-   *                     information about policy structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview of Amazon Web Services IAM
-   *                         Policies</a> in the <i>IAM User Guide</i>. </p>
+   *                   <code>Policy</code> – The queue's policy. A valid Amazon Web Services
+   *                     policy. For more information about policy structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview of Amazon Web Services IAM Policies</a> in the <i>IAM
+   *                         User Guide</i>. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ReceiveMessageWaitTimeSeconds</code> – The length of time, in
-   *                     seconds, for which a <code>
+   *                   <code>ReceiveMessageWaitTimeSeconds</code> – The length of time, in seconds, for
+   *                     which a <code>
    *                      <a>ReceiveMessage</a>
-   *                   </code> action waits
-   *                     for a message to arrive. Valid values: An integer from 0 to 20 (seconds).
-   *                     Default: 0. </p>
+   *                   </code> action waits for a message
+   *                     to arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -555,102 +622,115 @@ export interface CreateQueueRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter queue functionality
-   *             of the source queue as a JSON object. The parameters are as follows:</p>
+   *                   <code>RedrivePolicy</code> – The string that includes the parameters for the
+   *                     dead-letter queue functionality of the source queue as a JSON object. The
+   *                     parameters are as follows:</p>
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter queue to
-   *                   which Amazon SQS moves messages after the value of <code>maxReceiveCount</code> is exceeded.</p>
+   *                         <code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of
+   *                             the dead-letter queue to which Amazon SQS moves messages after the value
+   *                             of <code>maxReceiveCount</code> is exceeded.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>maxReceiveCount</code> – The number of times a message is delivered to the source queue before being
-   *                  moved to the dead-letter queue. Default: 10. When the <code>ReceiveCount</code> for a message exceeds the <code>maxReceiveCount</code>
-   *                  for a queue, Amazon SQS moves the message to the dead-letter-queue.</p>
+   *                         <code>maxReceiveCount</code> – The number of times a message is
+   *                             delivered to the source queue before being moved to the dead-letter
+   *                             queue. Default: 10. When the <code>ReceiveCount</code> for a message
+   *                             exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves
+   *                             the message to the dead-letter-queue.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RedriveAllowPolicy</code> – The string that includes the parameters for the permissions for the dead-letter
-   *             queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:</p>
+   *                   <code>RedriveAllowPolicy</code> – The string that includes the parameters for
+   *                     the permissions for the dead-letter queue redrive permission and which source
+   *                     queues can specify dead-letter queues as a JSON object. The parameters are as
+   *                     follows:</p>
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>redrivePermission</code> – The permission type that defines which source queues can
-   *                     specify the current queue as the dead-letter queue. Valid values are:</p>
+   *                         <code>redrivePermission</code> – The permission type that defines
+   *                             which source queues can specify the current queue as the dead-letter
+   *                             queue. Valid values are:</p>
    *                      <ul>
    *                         <li>
    *                            <p>
-   *                               <code>allowAll</code> – (Default) Any source queues in this Amazon Web Services account in the same Region can
-   *                           specify this queue as the dead-letter queue.</p>
+   *                               <code>allowAll</code> – (Default) Any source queues in this
+   *                                         Amazon Web Services account in the same
+   *                                     Region can specify this queue as the dead-letter queue.</p>
    *                         </li>
    *                         <li>
    *                            <p>
-   *                               <code>denyAll</code> – No source queues can specify this queue as the dead-letter
-   *                           queue.</p>
+   *                               <code>denyAll</code> – No source queues can specify this queue
+   *                                     as the dead-letter queue.</p>
    *                         </li>
    *                         <li>
    *                            <p>
-   *                               <code>byQueue</code> – Only queues specified by the <code>sourceQueueArns</code> parameter can specify
-   *                          this queue as the dead-letter queue.</p>
+   *                               <code>byQueue</code> – Only queues specified by the
+   *                                         <code>sourceQueueArns</code> parameter can specify this
+   *                                     queue as the dead-letter queue.</p>
    *                         </li>
    *                      </ul>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues that can specify
-   *                     this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the
-   *                     <code>redrivePermission</code> parameter is set to <code>byQueue</code>. You can specify up to 10 source queue ARNs.
-   *                     To allow more than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code> parameter
-   *                     to <code>allowAll</code>.</p>
+   *                         <code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the
+   *                             source queues that can specify this queue as the dead-letter queue and
+   *                             redrive messages. You can specify this parameter only when the
+   *                                 <code>redrivePermission</code> parameter is set to
+   *                                 <code>byQueue</code>. You can specify up to 10 source queue ARNs. To
+   *                             allow more than 10 source queues to specify dead-letter queues, set the
+   *                                 <code>redrivePermission</code> parameter to
+   *                             <code>allowAll</code>.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>The dead-letter queue of a
-   *               FIFO queue must also be a FIFO queue. Similarly, the dead-letter
-   *               queue of a standard queue must also be a standard queue.</p>
+   *             <p>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the
+   *                 dead-letter queue of a standard queue must also be a standard queue.</p>
    *          </note>
    *          <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master
-   *                     key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key Terms</a>. While the alias of the Amazon Web Services managed CMK for Amazon SQS is
-   *                     always <code>alias/aws/sqs</code>, the alias of a custom CMK can, for example,
-   *                     be <code>alias/<i>MyAlias</i>
-   *                   </code>. For more examples, see
-   *                         <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API
+   *                   <code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer
+   *                     master key (CMK) for Amazon SQS or a custom CMK. For more information, see
+   *                         <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key Terms</a>. While the alias of the Amazon Web Services
+   *                     managed CMK for Amazon SQS is always <code>alias/aws/sqs</code>, the alias of a
+   *                     custom CMK can, for example, be <code>alias/<i>MyAlias</i>
+   *                   </code>.
+   *                     For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API
    *                         Reference</i>. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>KmsDataKeyReusePeriodSeconds</code> – The length of time, in
-   *                     seconds, for which Amazon SQS can reuse a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data key</a> to
-   *                     encrypt or decrypt messages before calling KMS again. An integer
-   *                     representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24
-   *                     hours). Default: 300 (5 minutes). A shorter time period provides better security
-   *                     but results in more calls to KMS which might incur charges after Free Tier. For
-   *                     more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How Does the Data Key Reuse Period Work?</a>
+   *                   <code>KmsDataKeyReusePeriodSeconds</code> – The length of time, in seconds, for
+   *                     which Amazon SQS can reuse a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data key</a> to
+   *                     encrypt or decrypt messages before calling KMS again. An integer representing
+   *                     seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default:
+   *                     300 (5 minutes). A shorter time period provides better security but results in
+   *                     more calls to KMS which might incur charges after Free Tier. For more
+   *                     information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How Does the Data Key Reuse Period Work?</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SqsManagedSseEnabled</code> – Enables server-side queue encryption
-   *                     using SQS owned encryption keys. Only one server-side encryption option is
-   *                     supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p>
+   *                   <code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using
+   *                     SQS owned encryption keys. Only one server-side encryption option is supported
+   *                     per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p>
    *             </li>
    *          </ul>
-   *          <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO (first-in-first-out)
-   *                 queues</a>:</p>
+   *          <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO
+   *                 (first-in-first-out) queues</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>FifoQueue</code> – Designates a queue as FIFO. Valid values are
-   *                         <code>true</code> and <code>false</code>. If you don't specify the <code>FifoQueue</code> attribute, Amazon SQS creates a standard queue. You
+   *                         <code>true</code> and <code>false</code>. If you don't specify the
+   *                         <code>FifoQueue</code> attribute, Amazon SQS creates a standard queue. You
    *                     can provide this attribute only during queue creation. You can't change it for
    *                     an existing queue. When you set this attribute, you must also provide the
    *                         <code>MessageGroupId</code> for your messages explicitly.</p>
@@ -659,9 +739,9 @@ export interface CreateQueueRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ContentBasedDeduplication</code> – Enables content-based
-   *                     deduplication. Valid values are <code>true</code> and <code>false</code>. For
-   *                     more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer
+   *                   <code>ContentBasedDeduplication</code> – Enables content-based deduplication.
+   *                     Valid values are <code>true</code> and <code>false</code>. For more information,
+   *                     see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer
    *                         Guide</i>. Note the following: </p>
    *                <ul>
    *                   <li>
@@ -675,8 +755,8 @@ export interface CreateQueueRequest {
    *                         <li>
    *                            <p>If you aren't able to provide a
    *                                         <code>MessageDeduplicationId</code> and you enable
-   *                                         <code>ContentBasedDeduplication</code> for your queue, Amazon SQS
-   *                                     uses a SHA-256 hash to generate the
+   *                                         <code>ContentBasedDeduplication</code> for your queue,
+   *                                     Amazon SQS uses a SHA-256 hash to generate the
    *                                         <code>MessageDeduplicationId</code> using the body of the
    *                                     message (but not the attributes of the message). </p>
    *                         </li>
@@ -709,20 +789,22 @@ export interface CreateQueueRequest {
    *                </ul>
    *             </li>
    *          </ul>
-   *          <p>The following attributes apply only to
-   * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput
-   * for FIFO queues</a>:</p>
+   *          <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high
+   *                 throughput for FIFO queues</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DeduplicationScope</code> – Specifies whether message deduplication occurs at the
-   *       message group or queue level. Valid values are <code>messageGroup</code> and <code>queue</code>.</p>
+   *                   <code>DeduplicationScope</code> – Specifies whether message deduplication
+   *                     occurs at the message group or queue level. Valid values are
+   *                         <code>messageGroup</code> and <code>queue</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput
-   *       quota applies to the entire queue or per message group. Valid values are <code>perQueue</code> and <code>perMessageGroupId</code>.
-   *       The <code>perMessageGroupId</code> value is allowed only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</p>
+   *                     quota applies to the entire queue or per message group. Valid values are
+   *                         <code>perQueue</code> and <code>perMessageGroupId</code>. The
+   *                         <code>perMessageGroupId</code> value is allowed only when the value for
+   *                         <code>DeduplicationScope</code> is <code>messageGroup</code>.</p>
    *             </li>
    *          </ul>
    *          <p>To enable high throughput for FIFO queues, do the following:</p>
@@ -735,12 +817,47 @@ export interface CreateQueueRequest {
    *             </li>
    *          </ul>
    *          <p>If you set these attributes to anything other than the values shown for enabling high
-   *   throughput, normal throughput is in effect and deduplication occurs as specified.</p>
-   *          <p>For information on throughput quotas,
-   *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
-   *   in the <i>Amazon SQS Developer Guide</i>.</p>
+   *             throughput, normal throughput is in effect and deduplication occurs as specified.</p>
+   *          <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas
+   *                 related to messages</a> in the <i>Amazon SQS Developer
+   *             Guide</i>.</p>
    */
   Attributes?: Partial<Record<QueueAttributeName, string>>;
+
+  /**
+   * @public
+   * <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see
+   *                 <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
+   *                 Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer
+   *                 Guide</i>.</p>
+   *          <p>When you use queue tags, keep the following guidelines in mind:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Adding more than 50 tags to a queue isn't recommended.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tags don't have any semantic meaning. Amazon SQS interprets tags as character
+   *                     strings.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tags are case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>A new tag with a key identical to that of an existing tag overwrites the
+   *                     existing tag.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For a full list of tag restrictions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Quotas related to queues</a> in the <i>Amazon SQS Developer
+   *                 Guide</i>.</p>
+   *          <note>
+   *             <p>To be able to tag a queue on creation, you must have the
+   *                     <code>sqs:CreateQueue</code> and <code>sqs:TagQueue</code> permissions.</p>
+   *             <p>Cross-account permissions don't apply to this action. For more information, see
+   *                     <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a username</a> in the
+   *                     <i>Amazon SQS Developer Guide</i>.</p>
+   *          </note>
+   */
+  tags?: Record<string, string>;
 }
 
 /**
@@ -753,6 +870,46 @@ export interface CreateQueueResult {
    * <p>The URL of the created Amazon SQS queue.</p>
    */
   QueueUrl?: string;
+}
+
+/**
+ * @public
+ * <p>The specified attribute doesn't exist.</p>
+ */
+export class InvalidAttributeName extends __BaseException {
+  readonly name: "InvalidAttributeName" = "InvalidAttributeName";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAttributeName, __BaseException>) {
+    super({
+      name: "InvalidAttributeName",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAttributeName.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>A queue attribute value is invalid.</p>
+ */
+export class InvalidAttributeValue extends __BaseException {
+  readonly name: "InvalidAttributeValue" = "InvalidAttributeValue";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAttributeValue, __BaseException>) {
+    super({
+      name: "InvalidAttributeValue",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAttributeValue.prototype);
+  }
 }
 
 /**
@@ -778,8 +935,8 @@ export class QueueDeletedRecently extends __BaseException {
 
 /**
  * @public
- * <p>A queue with this name already exists. Amazon SQS returns this error only if the request
- *             includes attributes whose values differ from those of the existing queue.</p>
+ * <p>A queue with this name already exists. Amazon SQS returns this error only if the
+ *             request includes attributes whose values differ from those of the existing queue.</p>
  */
 export class QueueNameExists extends __BaseException {
   readonly name: "QueueNameExists" = "QueueNameExists";
@@ -818,6 +975,8 @@ export interface DeleteMessageRequest {
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>The specified receipt handle isn't valid for the current version.</p>
  */
 export class InvalidIdFormat extends __BaseException {
@@ -847,7 +1006,8 @@ export interface DeleteMessageBatchRequestEntry {
    *             result.</p>
    *          <note>
    *             <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
-   *             <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
+   *             <p>This identifier can have up to 80 characters. The following characters are
+   *                 accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
    *          </note>
    */
   Id: string | undefined;
@@ -951,7 +1111,9 @@ export interface GetQueueAttributesRequest {
    *          <p>The <code>AttributeNames</code> parameter is optional, but if you don't specify values
    *             for this parameter, the request returns empty results.</p>
    *          <note>
-   *             <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
+   *             <p>In the future, new attributes might be added. If you write code that calls this
+   *                 action, we recommend that you structure your code so that it can handle new
+   *                 attributes gracefully.</p>
    *          </note>
    *          <p>The following attributes are supported:</p>
    *          <important>
@@ -968,29 +1130,29 @@ export interface GetQueueAttributesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ApproximateNumberOfMessages</code> – Returns the approximate
-   *                     number of messages available for retrieval from the queue.</p>
+   *                   <code>ApproximateNumberOfMessages</code> – Returns the approximate number of
+   *                     messages available for retrieval from the queue.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ApproximateNumberOfMessagesDelayed</code> – Returns the
-   *                     approximate number of messages in the queue that are delayed and not available
-   *                     for reading immediately. This can happen when the queue is configured as a delay
-   *                     queue or when a message has been sent with a delay parameter.</p>
+   *                   <code>ApproximateNumberOfMessagesDelayed</code> – Returns the approximate
+   *                     number of messages in the queue that are delayed and not available for reading
+   *                     immediately. This can happen when the queue is configured as a delay queue or
+   *                     when a message has been sent with a delay parameter.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ApproximateNumberOfMessagesNotVisible</code> – Returns the
-   *                     approximate number of messages that are in flight. Messages are considered to be
+   *                   <code>ApproximateNumberOfMessagesNotVisible</code> – Returns the approximate
+   *                     number of messages that are in flight. Messages are considered to be
    *                         <i>in flight</i> if they have been sent to a client but have
    *                     not yet been deleted or have not yet reached the end of their visibility window.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CreatedTimestamp</code> – Returns the time when the queue was
-   *                     created in seconds (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch
-   *                         time</a>).</p>
+   *                   <code>CreatedTimestamp</code> – Returns the time when the queue was created in
+   *                     seconds (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch
+   *                     time</a>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -999,8 +1161,9 @@ export interface GetQueueAttributesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>LastModifiedTimestamp</code> – Returns the time when the queue
-   *                     was last changed in seconds (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a>).</p>
+   *                   <code>LastModifiedTimestamp</code> – Returns the time when the queue was last
+   *                     changed in seconds (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch
+   *                         time</a>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1009,10 +1172,10 @@ export interface GetQueueAttributesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MessageRetentionPeriod</code> – Returns the length of time, in
-   *                     seconds, for which Amazon SQS retains a message. When you change a queue's
-   *                     attributes, the change can take up to 60 seconds for most of the attributes to
-   *                     propagate throughout the Amazon SQS system. Changes made to the
+   *                   <code>MessageRetentionPeriod</code> – Returns the length of time, in seconds,
+   *                     for which Amazon SQS retains a message. When you change a queue's attributes,
+   *                     the change can take up to 60 seconds for most of the attributes to propagate
+   *                     throughout the Amazon SQS system. Changes made to the
    *                         <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and
    *                     will impact existing messages in the queue potentially causing them to be
    *                     expired and deleted if the <code>MessageRetentionPeriod</code> is reduced below
@@ -1029,14 +1192,14 @@ export interface GetQueueAttributesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ReceiveMessageWaitTimeSeconds</code> – Returns the length of
-   *                     time, in seconds, for which the <code>ReceiveMessage</code> action waits for a
-   *                     message to arrive. </p>
+   *                   <code>ReceiveMessageWaitTimeSeconds</code> – Returns the length of time, in
+   *                     seconds, for which the <code>ReceiveMessage</code> action waits for a message to
+   *                     arrive. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VisibilityTimeout</code> – Returns the visibility timeout for the
-   *                     queue. For more information about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer
+   *                   <code>VisibilityTimeout</code> – Returns the visibility timeout for the queue.
+   *                     For more information about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer
    *                         Guide</i>. </p>
    *             </li>
    *          </ul>
@@ -1045,96 +1208,108 @@ export interface GetQueueAttributesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter queue functionality
-   *             of the source queue as a JSON object. The parameters are as follows:</p>
+   *                   <code>RedrivePolicy</code> – The string that includes the parameters for the
+   *                     dead-letter queue functionality of the source queue as a JSON object. The
+   *                     parameters are as follows:</p>
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter queue to
-   *                   which Amazon SQS moves messages after the value of <code>maxReceiveCount</code> is exceeded.</p>
+   *                         <code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of
+   *                             the dead-letter queue to which Amazon SQS moves messages after the value
+   *                             of <code>maxReceiveCount</code> is exceeded.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>maxReceiveCount</code> – The number of times a message is delivered to the source queue before being
-   *                  moved to the dead-letter queue. Default: 10. When the <code>ReceiveCount</code> for a message exceeds the <code>maxReceiveCount</code>
-   *                  for a queue, Amazon SQS moves the message to the dead-letter-queue.</p>
+   *                         <code>maxReceiveCount</code> – The number of times a message is
+   *                             delivered to the source queue before being moved to the dead-letter
+   *                             queue. Default: 10. When the <code>ReceiveCount</code> for a message
+   *                             exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves
+   *                             the message to the dead-letter-queue.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RedriveAllowPolicy</code> – The string that includes the parameters for the permissions for the dead-letter
-   *             queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:</p>
+   *                   <code>RedriveAllowPolicy</code> – The string that includes the parameters for
+   *                     the permissions for the dead-letter queue redrive permission and which source
+   *                     queues can specify dead-letter queues as a JSON object. The parameters are as
+   *                     follows:</p>
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>redrivePermission</code> – The permission type that defines which source queues can
-   *                     specify the current queue as the dead-letter queue. Valid values are:</p>
+   *                         <code>redrivePermission</code> – The permission type that defines
+   *                             which source queues can specify the current queue as the dead-letter
+   *                             queue. Valid values are:</p>
    *                      <ul>
    *                         <li>
    *                            <p>
-   *                               <code>allowAll</code> – (Default) Any source queues in this Amazon Web Services account in the same Region can
-   *                           specify this queue as the dead-letter queue.</p>
+   *                               <code>allowAll</code> – (Default) Any source queues in this
+   *                                         Amazon Web Services account in the same
+   *                                     Region can specify this queue as the dead-letter queue.</p>
    *                         </li>
    *                         <li>
    *                            <p>
-   *                               <code>denyAll</code> – No source queues can specify this queue as the dead-letter
-   *                           queue.</p>
+   *                               <code>denyAll</code> – No source queues can specify this queue
+   *                                     as the dead-letter queue.</p>
    *                         </li>
    *                         <li>
    *                            <p>
-   *                               <code>byQueue</code> – Only queues specified by the <code>sourceQueueArns</code> parameter can specify
-   *                          this queue as the dead-letter queue.</p>
+   *                               <code>byQueue</code> – Only queues specified by the
+   *                                         <code>sourceQueueArns</code> parameter can specify this
+   *                                     queue as the dead-letter queue.</p>
    *                         </li>
    *                      </ul>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues that can specify
-   *                     this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the
-   *                     <code>redrivePermission</code> parameter is set to <code>byQueue</code>. You can specify up to 10 source queue ARNs.
-   *                     To allow more than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code> parameter
-   *                     to <code>allowAll</code>.</p>
+   *                         <code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the
+   *                             source queues that can specify this queue as the dead-letter queue and
+   *                             redrive messages. You can specify this parameter only when the
+   *                                 <code>redrivePermission</code> parameter is set to
+   *                                 <code>byQueue</code>. You can specify up to 10 source queue ARNs. To
+   *                             allow more than 10 source queues to specify dead-letter queues, set the
+   *                                 <code>redrivePermission</code> parameter to
+   *                             <code>allowAll</code>.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>The dead-letter queue of a
-   *               FIFO queue must also be a FIFO queue. Similarly, the dead-letter
-   *               queue of a standard queue must also be a standard queue.</p>
+   *             <p>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the
+   *                 dead-letter queue of a standard queue must also be a standard queue.</p>
    *          </note>
    *          <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>KmsMasterKeyId</code> – Returns the ID of an Amazon Web Services managed customer
-   *                     master key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key Terms</a>. </p>
+   *                   <code>KmsMasterKeyId</code> – Returns the ID of an Amazon Web Services
+   *                     managed customer master key (CMK) for Amazon SQS or a custom CMK. For more
+   *                     information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key Terms</a>. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>KmsDataKeyReusePeriodSeconds</code> – Returns the length of time,
-   *                     in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt
-   *                     messages before calling KMS again. For more information, see
-   *                         <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How Does the Data Key Reuse Period Work?</a>. </p>
+   *                   <code>KmsDataKeyReusePeriodSeconds</code> – Returns the length of time, in
+   *                     seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt
+   *                     messages before calling KMS again. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How Does the Data Key Reuse Period Work?</a>. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SqsManagedSseEnabled</code> – Returns information about whether the
-   *                     queue is using SSE-SQS encryption using SQS owned encryption keys. Only one
+   *                   <code>SqsManagedSseEnabled</code> – Returns information about whether the queue
+   *                     is using SSE-SQS encryption using SQS owned encryption keys. Only one
    *                     server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p>
    *             </li>
    *          </ul>
-   *          <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO (first-in-first-out)
-   *                 queues</a>:</p>
+   *          <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO
+   *                 (first-in-first-out) queues</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>FifoQueue</code> – Returns information about whether the queue is
-   *                     FIFO. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">FIFO queue logic</a> in the <i>Amazon SQS Developer
+   *                   <code>FifoQueue</code> – Returns information about whether the queue is FIFO.
+   *                     For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">FIFO queue logic</a> in the <i>Amazon SQS Developer
    *                         Guide</i>.</p>
    *                <note>
-   *                   <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
+   *                   <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with
+   *                         the <code>.fifo</code> suffix.</p>
    *                </note>
    *             </li>
    *             <li>
@@ -1144,20 +1319,22 @@ export interface GetQueueAttributesRequest {
    *                         Guide</i>. </p>
    *             </li>
    *          </ul>
-   *          <p>The following attributes apply only to
-   * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput
-   * for FIFO queues</a>:</p>
+   *          <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high
+   *                 throughput for FIFO queues</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DeduplicationScope</code> – Specifies whether message deduplication occurs at the
-   *       message group or queue level. Valid values are <code>messageGroup</code> and <code>queue</code>.</p>
+   *                   <code>DeduplicationScope</code> – Specifies whether message deduplication
+   *                     occurs at the message group or queue level. Valid values are
+   *                         <code>messageGroup</code> and <code>queue</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput
-   *       quota applies to the entire queue or per message group. Valid values are <code>perQueue</code> and <code>perMessageGroupId</code>.
-   *       The <code>perMessageGroupId</code> value is allowed only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</p>
+   *                     quota applies to the entire queue or per message group. Valid values are
+   *                         <code>perQueue</code> and <code>perMessageGroupId</code>. The
+   *                         <code>perMessageGroupId</code> value is allowed only when the value for
+   *                         <code>DeduplicationScope</code> is <code>messageGroup</code>.</p>
    *             </li>
    *          </ul>
    *          <p>To enable high throughput for FIFO queues, do the following:</p>
@@ -1170,10 +1347,10 @@ export interface GetQueueAttributesRequest {
    *             </li>
    *          </ul>
    *          <p>If you set these attributes to anything other than the values shown for enabling high
-   *   throughput, normal throughput is in effect and deduplication occurs as specified.</p>
-   *          <p>For information on throughput quotas,
-   *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
-   *   in the <i>Amazon SQS Developer Guide</i>.</p>
+   *             throughput, normal throughput is in effect and deduplication occurs as specified.</p>
+   *          <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas
+   *                 related to messages</a> in the <i>Amazon SQS Developer
+   *             Guide</i>.</p>
    */
   AttributeNames?: QueueAttributeName[];
 }
@@ -1192,26 +1369,6 @@ export interface GetQueueAttributesResult {
 
 /**
  * @public
- * <p>The specified attribute doesn't exist.</p>
- */
-export class InvalidAttributeName extends __BaseException {
-  readonly name: "InvalidAttributeName" = "InvalidAttributeName";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAttributeName, __BaseException>) {
-    super({
-      name: "InvalidAttributeName",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAttributeName.prototype);
-  }
-}
-
-/**
- * @public
  * <p></p>
  */
 export interface GetQueueUrlRequest {
@@ -1226,7 +1383,8 @@ export interface GetQueueUrlRequest {
 
   /**
    * @public
-   * <p>The Amazon Web Services account ID of the account that created the queue.</p>
+   * <p>The Amazon Web
+   *                 Services account ID of the account that created the queue.</p>
    */
   QueueOwnerAWSAccountId?: string;
 }
@@ -1234,7 +1392,7 @@ export interface GetQueueUrlRequest {
 /**
  * @public
  * <p>For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-responses.html">Interpreting Responses</a> in the <i>Amazon SQS Developer
- *             Guide</i>.</p>
+ *                 Guide</i>.</p>
  */
 export interface GetQueueUrlResult {
   /**
@@ -1242,26 +1400,6 @@ export interface GetQueueUrlResult {
    * <p>The URL of the queue.</p>
    */
   QueueUrl?: string;
-}
-
-/**
- * @public
- * <p>The specified queue doesn't exist.</p>
- */
-export class QueueDoesNotExist extends __BaseException {
-  readonly name: "QueueDoesNotExist" = "QueueDoesNotExist";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<QueueDoesNotExist, __BaseException>) {
-    super({
-      name: "QueueDoesNotExist",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, QueueDoesNotExist.prototype);
-  }
 }
 
 /**
@@ -1332,6 +1470,23 @@ export interface ListMessageMoveTasksRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const TaskStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
+
+/**
+ * @public
  * <p>Contains the details of a message movement task. </p>
  */
 export interface ListMessageMoveTasksResultEntry {
@@ -1348,7 +1503,7 @@ export interface ListMessageMoveTasksResultEntry {
    * <p>The status of the message movement task. Possible values are: RUNNING, COMPLETED,
    *             CANCELLING, CANCELLED, and FAILED.</p>
    */
-  Status?: string;
+  Status?: TaskStatus;
 
   /**
    * @public
@@ -1446,18 +1601,18 @@ export interface ListQueuesRequest {
 export interface ListQueuesResult {
   /**
    * @public
+   * <p>A list of queue URLs, up to 1,000 entries, or the value of <code>MaxResults</code>
+   *             that you sent in the request.</p>
+   */
+  QueueUrls?: string[];
+
+  /**
+   * @public
    * <p>Pagination token to include in the next request. Token value is <code>null</code> if
    *             there are no additional results to request, or if you did not set
    *                 <code>MaxResults</code> in the request.</p>
    */
   NextToken?: string;
-
-  /**
-   * @public
-   * <p>A list of queue URLs, up to 1,000 entries, or the value of <code>MaxResults</code>
-   *             that you sent in the request.</p>
-   */
-  QueueUrls?: string[];
 }
 
 /**
@@ -1520,6 +1675,159 @@ export interface PurgeQueueRequest {
 
 /**
  * @public
+ * <p>The caller doesn't have the required KMS access.</p>
+ */
+export class KmsAccessDenied extends __BaseException {
+  readonly name: "KmsAccessDenied" = "KmsAccessDenied";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsAccessDenied, __BaseException>) {
+    super({
+      name: "KmsAccessDenied",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsAccessDenied.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class KmsDisabled extends __BaseException {
+  readonly name: "KmsDisabled" = "KmsDisabled";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsDisabled, __BaseException>) {
+    super({
+      name: "KmsDisabled",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsDisabled.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request was rejected for one of the following reasons:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The KeyUsage value of the KMS key is incompatible with the API
+ *                     operation.</p>
+ *             </li>
+ *             <li>
+ *                <p>The encryption algorithm or signing algorithm specified for the operation is
+ *                     incompatible with the type of key material in the KMS key (KeySpec).</p>
+ *             </li>
+ *          </ul>
+ */
+export class KmsInvalidKeyUsage extends __BaseException {
+  readonly name: "KmsInvalidKeyUsage" = "KmsInvalidKeyUsage";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsInvalidKeyUsage, __BaseException>) {
+    super({
+      name: "KmsInvalidKeyUsage",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsInvalidKeyUsage.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request was rejected because the state of the specified resource is not valid for
+ *             this request.</p>
+ */
+export class KmsInvalidState extends __BaseException {
+  readonly name: "KmsInvalidState" = "KmsInvalidState";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsInvalidState, __BaseException>) {
+    super({
+      name: "KmsInvalidState",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsInvalidState.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request was rejected because the specified entity or resource could not be found.
+ *         </p>
+ */
+export class KmsNotFound extends __BaseException {
+  readonly name: "KmsNotFound" = "KmsNotFound";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsNotFound, __BaseException>) {
+    super({
+      name: "KmsNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsNotFound.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request was rejected because the specified key policy isn't syntactically or
+ *             semantically correct.</p>
+ */
+export class KmsOptInRequired extends __BaseException {
+  readonly name: "KmsOptInRequired" = "KmsOptInRequired";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsOptInRequired, __BaseException>) {
+    super({
+      name: "KmsOptInRequired",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsOptInRequired.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>Amazon Web Services KMS throttles requests for the following conditions.</p>
+ */
+export class KmsThrottled extends __BaseException {
+  readonly name: "KmsThrottled" = "KmsThrottled";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsThrottled, __BaseException>) {
+    super({
+      name: "KmsThrottled",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsThrottled.prototype);
+  }
+}
+
+/**
+ * @public
  * <p></p>
  */
 export interface ReceiveMessageRequest {
@@ -1541,19 +1849,19 @@ export interface ReceiveMessageRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ApproximateFirstReceiveTimestamp</code> – Returns the time the
-   *                     message was first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in
+   *                   <code>ApproximateFirstReceiveTimestamp</code> – Returns the time the message was
+   *                     first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in
    *                     milliseconds).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ApproximateReceiveCount</code> – Returns the number of times a
-   *                     message has been received across all queues but not deleted.</p>
+   *                   <code>ApproximateReceiveCount</code> – Returns the number of times a message has
+   *                     been received across all queues but not deleted.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>AWSTraceHeader</code> – Returns the X-Ray trace
-   *                     header string. </p>
+   *                   <code>AWSTraceHeader</code> – Returns the X-Ray trace header
+   *                     string. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -1572,15 +1880,15 @@ export interface ReceiveMessageRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SentTimestamp</code> – Returns the time the message was sent to the
-   *                     queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in
+   *                   <code>SentTimestamp</code> – Returns the time the message was sent to the queue
+   *                         (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in
    *                     milliseconds).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SqsManagedSseEnabled</code> – Enables server-side queue encryption
-   *                     using SQS owned encryption keys. Only one server-side encryption option is
-   *                     supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p>
+   *                   <code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using
+   *                     SQS owned encryption keys. Only one server-side encryption option is supported
+   *                     per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1592,17 +1900,15 @@ export interface ReceiveMessageRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MessageGroupId</code> – Returns the value provided by the
-   *                     producer that calls the <code>
+   *                   <code>MessageGroupId</code> – Returns the value provided by the producer that
+   *                     calls the <code>
    *                      <a>SendMessage</a>
-   *                   </code> action.
-   *                     Messages with the same <code>MessageGroupId</code> are returned in
-   *                     sequence.</p>
+   *                   </code> action. Messages with the
+   *                     same <code>MessageGroupId</code> are returned in sequence.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SequenceNumber</code> – Returns the value provided by
-   *                     Amazon SQS.</p>
+   *                   <code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p>
    *             </li>
    *          </ul>
    */
@@ -1642,8 +1948,8 @@ export interface ReceiveMessageRequest {
 
   /**
    * @public
-   * <p>The maximum number of messages to return. Amazon SQS never returns more messages than this
-   *             value (however, fewer messages might be returned). Valid values: 1 to 10. Default:
+   * <p>The maximum number of messages to return. Amazon SQS never returns more messages than
+   *             this value (however, fewer messages might be returned). Valid values: 1 to 10. Default:
    *             1.</p>
    */
   MaxNumberOfMessages?: number;
@@ -1733,8 +2039,8 @@ export interface ReceiveMessageRequest {
    *                 <code>ReceiveRequestAttemptId</code> can contain alphanumeric characters
    *                 (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation
    *                 (<code>!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~</code>).</p>
-   *          <p>For best practices of using <code>ReceiveRequestAttemptId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html">Using the ReceiveRequestAttemptId Request Parameter</a> in the <i>Amazon SQS
-   *                 Developer Guide</i>.</p>
+   *          <p>For best practices of using <code>ReceiveRequestAttemptId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html">Using the ReceiveRequestAttemptId Request Parameter</a> in the <i>Amazon
+   *                 SQS Developer Guide</i>.</p>
    */
   ReceiveRequestAttemptId?: string;
 }
@@ -1806,7 +2112,7 @@ export interface MessageAttributeValue {
    *                 <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type,
    *             you must use <code>StringValue</code>.</p>
    *          <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon SQS Developer
-   *             Guide</i>.</p>
+   *                 Guide</i>.</p>
    */
   DataType: string | undefined;
 }
@@ -1895,16 +2201,18 @@ export interface Message {
 
   /**
    * @public
-   * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
+   * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this
+   *             attribute to verify that Amazon SQS received the message correctly. Amazon SQS
+   *             URL-decodes the message before creating the MD5 digest. For information about MD5, see
+   *                 <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageAttributes?: string;
 
   /**
    * @public
-   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>,
-   * and <code>Value</code>. For more information, see
-   * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS
-   * message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and
+   *                 <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer
+   *                 Guide</i>.</p>
    */
   MessageAttributes?: Record<string, MessageAttributeValue>;
 }
@@ -2021,7 +2329,7 @@ export interface MessageSystemAttributeValue {
    *                 <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type,
    *             you must use <code>StringValue</code>.</p>
    *          <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon SQS Developer
-   *             Guide</i>.</p>
+   *                 Guide</i>.</p>
    */
   DataType: string | undefined;
 }
@@ -2043,11 +2351,16 @@ export interface SendMessageRequest {
    * <p>The message to send. The minimum size is one character. The maximum size is 256
    *             KiB.</p>
    *          <important>
-   *             <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p>
+   *             <p>A message can include only XML, JSON, and unformatted text. The following Unicode
+   *                 characters are allowed:</p>
    *             <p>
-   *                <code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code>
+   *                <code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to
+   *                     <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> |
+   *                     <code>#x10000</code> to <code>#x10FFFF</code>
    *             </p>
-   *             <p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
+   *             <p>Any characters not included in this list will be rejected. For more information,
+   *                 see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for
+   *                     characters</a>.</p>
    *          </important>
    */
   MessageBody: string | undefined;
@@ -2059,32 +2372,35 @@ export interface SendMessageRequest {
    *             become available for processing after the delay period is finished. If you don't specify
    *             a value, the default value for the queue applies. </p>
    *          <note>
-   *             <p>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per message. You can set this parameter only on a queue level.</p>
+   *             <p>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per
+   *                 message. You can set this parameter only on a queue level.</p>
    *          </note>
    */
   DelaySeconds?: number;
 
   /**
    * @public
-   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>,
-   * and <code>Value</code>. For more information, see
-   * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS
-   * message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and
+   *                 <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer
+   *                 Guide</i>.</p>
    */
   MessageAttributes?: Record<string, MessageAttributeValue>;
 
   /**
    * @public
-   * <p>The message system attribute to send. Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
+   * <p>The message system attribute to send. Each message system attribute consists of a
+   *                 <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
    *          <important>
    *             <ul>
    *                <li>
-   *                   <p>Currently, the only supported message system attribute is <code>AWSTraceHeader</code>.
-   *                     Its type must be <code>String</code> and its value must be a correctly formatted
-   *                     X-Ray trace header string.</p>
+   *                   <p>Currently, the only supported message system attribute is
+   *                             <code>AWSTraceHeader</code>. Its type must be <code>String</code> and
+   *                         its value must be a correctly formatted X-Ray trace
+   *                         header string.</p>
    *                </li>
    *                <li>
-   *                   <p>The size of a message system attribute doesn't count towards the total size of a message.</p>
+   *                   <p>The size of a message system attribute doesn't count towards the total
+   *                         size of a message.</p>
    *                </li>
    *             </ul>
    *          </important>
@@ -2098,7 +2414,7 @@ export interface SendMessageRequest {
    *                 <code>MessageDeduplicationId</code> is sent successfully, any messages sent with the
    *             same <code>MessageDeduplicationId</code> are accepted successfully but aren't delivered
    *             during the 5-minute deduplication interval. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html"> Exactly-once processing</a> in the <i>Amazon SQS Developer
-   *             Guide</i>.</p>
+   *                 Guide</i>.</p>
    *          <ul>
    *             <li>
    *                <p>Every message must have a unique <code>MessageDeduplicationId</code>,</p>
@@ -2145,14 +2461,15 @@ export interface SendMessageRequest {
    *             <p>If a message is sent successfully but the acknowledgement is lost and the message
    *                 is resent with the same <code>MessageDeduplicationId</code> after the deduplication
    *                 interval, Amazon SQS can't detect duplicate messages.</p>
-   *             <p>Amazon SQS continues to keep track of the message deduplication ID even after the message is received and deleted.</p>
+   *             <p>Amazon SQS continues to keep track of the message deduplication ID even after the
+   *                 message is received and deleted.</p>
    *          </note>
    *          <p>The maximum length of <code>MessageDeduplicationId</code> is 128 characters.
    *                 <code>MessageDeduplicationId</code> can contain alphanumeric characters
    *                 (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation
    *                 (<code>!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~</code>).</p>
-   *          <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS Developer
-   *                 Guide</i>.</p>
+   *          <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS
+   *                 Developer Guide</i>.</p>
    */
   MessageDeduplicationId?: string;
 
@@ -2160,10 +2477,10 @@ export interface SendMessageRequest {
    * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
    *          <p>The tag that specifies that a message belongs to a specific message group. Messages
-   *             that belong to the same message group are processed in a FIFO manner (however,
-   *             messages in different message groups might be processed out of order). To interleave
-   *             multiple ordered streams within a single queue, use <code>MessageGroupId</code> values
-   *             (for example, session data for multiple users). In this scenario, multiple consumers can
+   *             that belong to the same message group are processed in a FIFO manner (however, messages
+   *             in different message groups might be processed out of order). To interleave multiple
+   *             ordered streams within a single queue, use <code>MessageGroupId</code> values (for
+   *             example, session data for multiple users). In this scenario, multiple consumers can
    *             process the queue, but the session data of each user is processed in a FIFO
    *             fashion.</p>
    *          <ul>
@@ -2200,20 +2517,26 @@ export interface SendMessageRequest {
 export interface SendMessageResult {
   /**
    * @public
-   * <p>An MD5 digest of the non-URL-encoded message body string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
+   * <p>An MD5 digest of the non-URL-encoded message body string. You can use this attribute
+   *             to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the
+   *             message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageBody?: string;
 
   /**
    * @public
-   * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
+   * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this
+   *             attribute to verify that Amazon SQS received the message correctly. Amazon SQS
+   *             URL-decodes the message before creating the MD5 digest. For information about MD5, see
+   *                 <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageAttributes?: string;
 
   /**
    * @public
    * <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this
-   * attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest.</p>
+   *             attribute to verify that Amazon SQS received the message correctly. Amazon SQS
+   *             URL-decodes the message before creating the MD5 digest.</p>
    */
   MD5OfMessageSystemAttributes?: string;
 
@@ -2257,7 +2580,8 @@ export class BatchRequestTooLong extends __BaseException {
 
 /**
  * @public
- * <p>Contains the details of a single Amazon SQS message along with an <code>Id</code>.</p>
+ * <p>Contains the details of a single Amazon SQS message along with an
+ *             <code>Id</code>.</p>
  */
 export interface SendMessageBatchRequestEntry {
   /**
@@ -2265,7 +2589,8 @@ export interface SendMessageBatchRequestEntry {
    * <p>An identifier for a message in this batch used to communicate the result.</p>
    *          <note>
    *             <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
-   *             <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
+   *             <p>This identifier can have up to 80 characters. The following characters are
+   *                 accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
    *          </note>
    */
   Id: string | undefined;
@@ -2283,32 +2608,35 @@ export interface SendMessageBatchRequestEntry {
    *             become available for processing after the delay period is finished. If you don't specify
    *             a value, the default value for the queue is applied. </p>
    *          <note>
-   *             <p>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per message. You can set this parameter only on a queue level.</p>
+   *             <p>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per
+   *                 message. You can set this parameter only on a queue level.</p>
    *          </note>
    */
   DelaySeconds?: number;
 
   /**
    * @public
-   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>,
-   * and <code>Value</code>. For more information, see
-   * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS
-   * message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and
+   *                 <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer
+   *                 Guide</i>.</p>
    */
   MessageAttributes?: Record<string, MessageAttributeValue>;
 
   /**
    * @public
-   * <p>The message system attribute to send Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
+   * <p>The message system attribute to send Each message system attribute consists of a
+   *                 <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
    *          <important>
    *             <ul>
    *                <li>
-   *                   <p>Currently, the only supported message system attribute is <code>AWSTraceHeader</code>.
-   *                     Its type must be <code>String</code> and its value must be a correctly formatted
-   *                     X-Ray trace header string.</p>
+   *                   <p>Currently, the only supported message system attribute is
+   *                             <code>AWSTraceHeader</code>. Its type must be <code>String</code> and
+   *                         its value must be a correctly formatted X-Ray trace
+   *                         header string.</p>
    *                </li>
    *                <li>
-   *                   <p>The size of a message system attribute doesn't count towards the total size of a message.</p>
+   *                   <p>The size of a message system attribute doesn't count towards the total
+   *                         size of a message.</p>
    *                </li>
    *             </ul>
    *          </important>
@@ -2322,7 +2650,7 @@ export interface SendMessageBatchRequestEntry {
    *             interval. If a message with a particular <code>MessageDeduplicationId</code> is sent
    *             successfully, subsequent messages with the same <code>MessageDeduplicationId</code> are
    *             accepted successfully but aren't delivered. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html"> Exactly-once processing</a> in the <i>Amazon SQS Developer
-   *             Guide</i>.</p>
+   *                 Guide</i>.</p>
    *          <ul>
    *             <li>
    *                <p>Every message must have a unique <code>MessageDeduplicationId</code>,</p>
@@ -2369,14 +2697,15 @@ export interface SendMessageBatchRequestEntry {
    *             <p>If a message is sent successfully but the acknowledgement is lost and the message
    *                 is resent with the same <code>MessageDeduplicationId</code> after the deduplication
    *                 interval, Amazon SQS can't detect duplicate messages.</p>
-   *             <p>Amazon SQS continues to keep track of the message deduplication ID even after the message is received and deleted.</p>
+   *             <p>Amazon SQS continues to keep track of the message deduplication ID even after the
+   *                 message is received and deleted.</p>
    *          </note>
    *          <p>The length of <code>MessageDeduplicationId</code> is 128 characters.
    *                 <code>MessageDeduplicationId</code> can contain alphanumeric characters
    *                 (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation
    *                 (<code>!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~</code>).</p>
-   *          <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS Developer
-   *                 Guide</i>.</p>
+   *          <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS
+   *                 Developer Guide</i>.</p>
    */
   MessageDeduplicationId?: string;
 
@@ -2384,10 +2713,10 @@ export interface SendMessageBatchRequestEntry {
    * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
    *          <p>The tag that specifies that a message belongs to a specific message group. Messages
-   *             that belong to the same message group are processed in a FIFO manner (however,
-   *             messages in different message groups might be processed out of order). To interleave
-   *             multiple ordered streams within a single queue, use <code>MessageGroupId</code> values
-   *             (for example, session data for multiple users). In this scenario, multiple consumers can
+   *             that belong to the same message group are processed in a FIFO manner (however, messages
+   *             in different message groups might be processed out of order). To interleave multiple
+   *             ordered streams within a single queue, use <code>MessageGroupId</code> values (for
+   *             example, session data for multiple users). In this scenario, multiple consumers can
    *             process the queue, but the session data of each user is processed in a FIFO
    *             fashion.</p>
    *          <ul>
@@ -2459,20 +2788,27 @@ export interface SendMessageBatchResultEntry {
 
   /**
    * @public
-   * <p>An MD5 digest of the non-URL-encoded message body string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
+   * <p>An MD5 digest of the non-URL-encoded message body string. You can use this attribute
+   *             to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the
+   *             message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageBody: string | undefined;
 
   /**
    * @public
-   * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
+   * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this
+   *             attribute to verify that Amazon SQS received the message correctly. Amazon SQS
+   *             URL-decodes the message before creating the MD5 digest. For information about MD5, see
+   *                 <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageAttributes?: string;
 
   /**
    * @public
    * <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this
-   * attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
+   *             attribute to verify that Amazon SQS received the message correctly. Amazon SQS
+   *             URL-decodes the message before creating the MD5 digest. For information about MD5, see
+   *                 <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageSystemAttributes?: string;
 
@@ -2541,37 +2877,36 @@ export interface SetQueueAttributesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MaximumMessageSize</code> – The limit of how many bytes a message
-   *                     can contain before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes
+   *                   <code>MaximumMessageSize</code> – The limit of how many bytes a message can
+   *                     contain before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes
    *                     (1 KiB) up to 262,144 bytes (256 KiB). Default: 262,144 (256 KiB). </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MessageRetentionPeriod</code> – The length of time, in seconds, for
-   *                     which Amazon SQS retains a message. Valid values: An integer representing seconds,
+   *                   <code>MessageRetentionPeriod</code> – The length of time, in seconds, for which
+   *                     Amazon SQS retains a message. Valid values: An integer representing seconds,
    *                     from 60 (1 minute) to 1,209,600 (14 days). Default: 345,600 (4 days). When you
    *                     change a queue's attributes, the change can take up to 60 seconds for most of
-   *                     the attributes to propagate throughout the Amazon SQS system. Changes made to the
-   *                         <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and
+   *                     the attributes to propagate throughout the Amazon SQS system. Changes made to
+   *                     the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and
    *                     will impact existing messages in the queue potentially causing them to be
    *                     expired and deleted if the <code>MessageRetentionPeriod</code> is reduced below
    *                     the age of existing messages.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Policy</code> – The queue's policy. A valid Amazon Web Services policy. For more
-   *                     information about policy structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview of Amazon Web Services IAM
-   *                         Policies</a> in the <i>Identity and Access Management User
-   *                         Guide</i>. </p>
+   *                   <code>Policy</code> – The queue's policy. A valid Amazon Web Services
+   *                     policy. For more information about policy structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview of Amazon Web Services IAM Policies</a> in the
+   *                             <i>Identity and Access Management User Guide</i>.
+   *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ReceiveMessageWaitTimeSeconds</code> – The length of time, in
-   *                     seconds, for which a <code>
+   *                   <code>ReceiveMessageWaitTimeSeconds</code> – The length of time, in seconds, for
+   *                     which a <code>
    *                      <a>ReceiveMessage</a>
-   *                   </code> action waits
-   *                     for a message to arrive. Valid values: An integer from 0 to 20 (seconds).
-   *                     Default: 0. </p>
+   *                   </code> action waits for a message
+   *                     to arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -2586,71 +2921,83 @@ export interface SetQueueAttributesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter queue functionality
-   *             of the source queue as a JSON object. The parameters are as follows:</p>
+   *                   <code>RedrivePolicy</code> – The string that includes the parameters for the
+   *                     dead-letter queue functionality of the source queue as a JSON object. The
+   *                     parameters are as follows:</p>
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter queue to
-   *                   which Amazon SQS moves messages after the value of <code>maxReceiveCount</code> is exceeded.</p>
+   *                         <code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of
+   *                             the dead-letter queue to which Amazon SQS moves messages after the value
+   *                             of <code>maxReceiveCount</code> is exceeded.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>maxReceiveCount</code> – The number of times a message is delivered to the source queue before being
-   *                  moved to the dead-letter queue. Default: 10. When the <code>ReceiveCount</code> for a message exceeds the <code>maxReceiveCount</code>
-   *                  for a queue, Amazon SQS moves the message to the dead-letter-queue.</p>
+   *                         <code>maxReceiveCount</code> – The number of times a message is
+   *                             delivered to the source queue before being moved to the dead-letter
+   *                             queue. Default: 10. When the <code>ReceiveCount</code> for a message
+   *                             exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves
+   *                             the message to the dead-letter-queue.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RedriveAllowPolicy</code> – The string that includes the parameters for the permissions for the dead-letter
-   *             queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:</p>
+   *                   <code>RedriveAllowPolicy</code> – The string that includes the parameters for
+   *                     the permissions for the dead-letter queue redrive permission and which source
+   *                     queues can specify dead-letter queues as a JSON object. The parameters are as
+   *                     follows:</p>
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>redrivePermission</code> – The permission type that defines which source queues can
-   *                     specify the current queue as the dead-letter queue. Valid values are:</p>
+   *                         <code>redrivePermission</code> – The permission type that defines
+   *                             which source queues can specify the current queue as the dead-letter
+   *                             queue. Valid values are:</p>
    *                      <ul>
    *                         <li>
    *                            <p>
-   *                               <code>allowAll</code> – (Default) Any source queues in this Amazon Web Services account in the same Region can
-   *                           specify this queue as the dead-letter queue.</p>
+   *                               <code>allowAll</code> – (Default) Any source queues in this
+   *                                         Amazon Web Services account in the same
+   *                                     Region can specify this queue as the dead-letter queue.</p>
    *                         </li>
    *                         <li>
    *                            <p>
-   *                               <code>denyAll</code> – No source queues can specify this queue as the dead-letter
-   *                           queue.</p>
+   *                               <code>denyAll</code> – No source queues can specify this queue
+   *                                     as the dead-letter queue.</p>
    *                         </li>
    *                         <li>
    *                            <p>
-   *                               <code>byQueue</code> – Only queues specified by the <code>sourceQueueArns</code> parameter can specify
-   *                          this queue as the dead-letter queue.</p>
+   *                               <code>byQueue</code> – Only queues specified by the
+   *                                         <code>sourceQueueArns</code> parameter can specify this
+   *                                     queue as the dead-letter queue.</p>
    *                         </li>
    *                      </ul>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues that can specify
-   *                     this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the
-   *                     <code>redrivePermission</code> parameter is set to <code>byQueue</code>. You can specify up to 10 source queue ARNs.
-   *                     To allow more than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code> parameter
-   *                     to <code>allowAll</code>.</p>
+   *                         <code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the
+   *                             source queues that can specify this queue as the dead-letter queue and
+   *                             redrive messages. You can specify this parameter only when the
+   *                                 <code>redrivePermission</code> parameter is set to
+   *                                 <code>byQueue</code>. You can specify up to 10 source queue ARNs. To
+   *                             allow more than 10 source queues to specify dead-letter queues, set the
+   *                                 <code>redrivePermission</code> parameter to
+   *                             <code>allowAll</code>.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>The dead-letter queue of a
-   *               FIFO queue must also be a FIFO queue. Similarly, the dead-letter
-   *               queue of a standard queue must also be a standard queue.</p>
+   *             <p>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the
+   *                 dead-letter queue of a standard queue must also be a standard queue.</p>
    *          </note>
    *          <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master
-   *                     key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key Terms</a>. While the alias of the AWS-managed CMK for Amazon SQS is
+   *                   <code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer
+   *                     master key (CMK) for Amazon SQS or a custom CMK. For more information, see
+   *                         <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key Terms</a>. While the alias of the AWS-managed CMK for Amazon SQS is
    *                     always <code>alias/aws/sqs</code>, the alias of a custom CMK can, for example,
    *                     be <code>alias/<i>MyAlias</i>
    *                   </code>. For more examples, see
@@ -2659,28 +3006,28 @@ export interface SetQueueAttributesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>KmsDataKeyReusePeriodSeconds</code> – The length of time, in
-   *                     seconds, for which Amazon SQS can reuse a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data key</a> to
-   *                     encrypt or decrypt messages before calling KMS again. An integer
-   *                     representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24
-   *                     hours). Default: 300 (5 minutes). A shorter time period provides better security
-   *                     but results in more calls to KMS which might incur charges after Free Tier. For
-   *                     more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How Does the Data Key Reuse Period Work?</a>. </p>
+   *                   <code>KmsDataKeyReusePeriodSeconds</code> – The length of time, in seconds, for
+   *                     which Amazon SQS can reuse a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data key</a> to
+   *                     encrypt or decrypt messages before calling KMS again. An integer representing
+   *                     seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default:
+   *                     300 (5 minutes). A shorter time period provides better security but results in
+   *                     more calls to KMS which might incur charges after Free Tier. For more
+   *                     information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How Does the Data Key Reuse Period Work?</a>. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SqsManagedSseEnabled</code> – Enables server-side queue encryption
-   *                     using SQS owned encryption keys. Only one server-side encryption option is
-   *                     supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p>
+   *                   <code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using
+   *                     SQS owned encryption keys. Only one server-side encryption option is supported
+   *                     per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p>
    *             </li>
    *          </ul>
-   *          <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO (first-in-first-out)
-   *                 queues</a>:</p>
+   *          <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO
+   *                 (first-in-first-out) queues</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ContentBasedDeduplication</code> – Enables content-based
-   *                     deduplication. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer
+   *                   <code>ContentBasedDeduplication</code> – Enables content-based deduplication.
+   *                     For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer
    *                         Guide</i>. Note the following: </p>
    *                <ul>
    *                   <li>
@@ -2694,8 +3041,8 @@ export interface SetQueueAttributesRequest {
    *                         <li>
    *                            <p>If you aren't able to provide a
    *                                         <code>MessageDeduplicationId</code> and you enable
-   *                                         <code>ContentBasedDeduplication</code> for your queue, Amazon SQS
-   *                                     uses a SHA-256 hash to generate the
+   *                                         <code>ContentBasedDeduplication</code> for your queue,
+   *                                     Amazon SQS uses a SHA-256 hash to generate the
    *                                         <code>MessageDeduplicationId</code> using the body of the
    *                                     message (but not the attributes of the message). </p>
    *                         </li>
@@ -2728,20 +3075,22 @@ export interface SetQueueAttributesRequest {
    *                </ul>
    *             </li>
    *          </ul>
-   *          <p>The following attributes apply only to
-   * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput
-   * for FIFO queues</a>:</p>
+   *          <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high
+   *                 throughput for FIFO queues</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DeduplicationScope</code> – Specifies whether message deduplication occurs at the
-   *       message group or queue level. Valid values are <code>messageGroup</code> and <code>queue</code>.</p>
+   *                   <code>DeduplicationScope</code> – Specifies whether message deduplication
+   *                     occurs at the message group or queue level. Valid values are
+   *                         <code>messageGroup</code> and <code>queue</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput
-   *       quota applies to the entire queue or per message group. Valid values are <code>perQueue</code> and <code>perMessageGroupId</code>.
-   *       The <code>perMessageGroupId</code> value is allowed only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</p>
+   *                     quota applies to the entire queue or per message group. Valid values are
+   *                         <code>perQueue</code> and <code>perMessageGroupId</code>. The
+   *                         <code>perMessageGroupId</code> value is allowed only when the value for
+   *                         <code>DeduplicationScope</code> is <code>messageGroup</code>.</p>
    *             </li>
    *          </ul>
    *          <p>To enable high throughput for FIFO queues, do the following:</p>
@@ -2754,10 +3103,10 @@ export interface SetQueueAttributesRequest {
    *             </li>
    *          </ul>
    *          <p>If you set these attributes to anything other than the values shown for enabling high
-   *   throughput, normal throughput is in effect and deduplication occurs as specified.</p>
-   *          <p>For information on throughput quotas,
-   *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
-   *   in the <i>Amazon SQS Developer Guide</i>.</p>
+   *             throughput, normal throughput is in effect and deduplication occurs as specified.</p>
+   *          <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas
+   *                 related to messages</a> in the <i>Amazon SQS Developer
+   *             Guide</i>.</p>
    */
   Attributes: Partial<Record<QueueAttributeName, string>> | undefined;
 }

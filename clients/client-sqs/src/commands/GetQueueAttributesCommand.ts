@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { GetQueueAttributesRequest, GetQueueAttributesResult } from "../models/models_0";
-import { de_GetQueueAttributesCommand, se_GetQueueAttributesCommand } from "../protocols/Aws_query";
+import { de_GetQueueAttributesCommand, se_GetQueueAttributesCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -39,7 +39,8 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  * @public
  * <p>Gets attributes for the specified queue.</p>
  *          <note>
- *             <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
+ *             <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the
+ *                     <code>.fifo</code> suffix.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,8 +70,39 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  * @see {@link GetQueueAttributesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link InvalidAddress} (client fault)
+ *  <p>The <code>accountId</code> is invalid.</p>
+ *
  * @throws {@link InvalidAttributeName} (client fault)
  *  <p>The specified attribute doesn't exist.</p>
+ *
+ * @throws {@link InvalidSecurity} (client fault)
+ *  <p>When the request to a queue is not HTTPS and SigV4.</p>
+ *
+ * @throws {@link QueueDoesNotExist} (client fault)
+ *  <p>The specified queue doesn't exist.</p>
+ *
+ * @throws {@link RequestThrottled} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
+ *                     account and Region. </p>
+ *             </li>
+ *             <li>
+ *                <p>A burst or sustained high rate of requests to change the state of the same KMS
+ *                     key. This condition is often known as a "hot key."</p>
+ *             </li>
+ *             <li>
+ *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
+ *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
+ *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
+ *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>Error code 400. Unsupported operation.</p>
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
