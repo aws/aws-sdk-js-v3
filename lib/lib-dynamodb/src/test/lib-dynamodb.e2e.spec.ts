@@ -81,6 +81,9 @@ describe(DynamoDBDocument.name, () => {
     null: null,
     string: "myString",
     number: 1,
+    bigInt: DynamoDBNumber.from(
+      "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    ),
     bigNumber: DynamoDBNumber.from("3210000000000000000.0000000000000123"),
     boolean: true,
     sSet: new Set(["my", "string", "set"]),
@@ -127,7 +130,7 @@ describe(DynamoDBDocument.name, () => {
           return new Set([...input].map(updateTransform)) as T;
         }
         if (input instanceof DynamoDBNumber) {
-          return DynamoDBNumber.from(input.toString() + "4") as T;
+          return DynamoDBNumber.from(input.toString()) as T;
         }
         return Object.entries(input).reduce((acc, [k, v]) => {
           acc[updateTransform(k)] = updateTransform(v);
@@ -450,7 +453,10 @@ describe(DynamoDBDocument.name, () => {
         "null-x": null,
         "string-x": "myString-x",
         "number-x": 2,
-        "bigNumber-x": DynamoDBNumber.from("3210000000000000000.00000000000001234"),
+        "bigInt-x": DynamoDBNumber.from(
+          "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ),
+        "bigNumber-x": DynamoDBNumber.from("3210000000000000000.0000000000000123"),
         "boolean-x": false,
         "sSet-x": new Set(["my-x", "string-x", "set-x"]),
         "nSet-x": new Set([3, 4, 5]),
@@ -462,9 +468,9 @@ describe(DynamoDBDocument.name, () => {
           new Set(["my-x", "string-x", "set-x"]),
           new Set([3, 4, 5]),
           new Set([
-            DynamoDBNumber.from("3210000000000000000.00000000000001234"),
-            DynamoDBNumber.from("3210000000000000001.00000000000001234"),
-            DynamoDBNumber.from("3210000000000000002.00000000000001234"),
+            DynamoDBNumber.from("3210000000000000000.0000000000000123"),
+            DynamoDBNumber.from("3210000000000000001.0000000000000123"),
+            DynamoDBNumber.from("3210000000000000002.0000000000000123"),
           ]),
           ["listInList-x", 2, null],
           { "mapInList-x": "mapInList-x" },
