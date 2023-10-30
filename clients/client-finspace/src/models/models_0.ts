@@ -651,12 +651,19 @@ export type KxAzMode = (typeof KxAzMode)[keyof typeof KxAzMode];
 export interface KxCacheStorageConfiguration {
   /**
    * @public
-   * <p>The type of cache storage . The valid values are: </p>
+   * <p>The type of cache storage. The valid values are: </p>
    *          <ul>
    *             <li>
    *                <p>CACHE_1000 – This type provides at least 1000 MB/s disk access throughput. </p>
    *             </li>
+   *             <li>
+   *                <p>CACHE_250 – This type provides at least 250 MB/s disk access throughput. </p>
+   *             </li>
+   *             <li>
+   *                <p>CACHE_12 – This type provides at least 12 MB/s disk access throughput. </p>
+   *             </li>
    *          </ul>
+   *          <p>For cache type <code>CACHE_1000</code> and <code>CACHE_250</code> you can select cache size as 1200 GB or increments of 2400 GB. For cache type <code>CACHE_12</code> you can select the cache size in increments of 6000 GB.</p>
    */
   type: string | undefined;
 
@@ -3363,6 +3370,105 @@ export interface UpdateEnvironmentResponse {
  * @public
  * @enum
  */
+export const KxClusterCodeDeploymentStrategy = {
+  FORCE: "FORCE",
+  ROLLING: "ROLLING",
+} as const;
+
+/**
+ * @public
+ */
+export type KxClusterCodeDeploymentStrategy =
+  (typeof KxClusterCodeDeploymentStrategy)[keyof typeof KxClusterCodeDeploymentStrategy];
+
+/**
+ * @public
+ * <p>
+ *          The configuration that allows you to choose how you want to update code on a cluster. Depending on the option you choose, you can reduce the time it takes to update the cluster.
+ *       </p>
+ */
+export interface KxClusterCodeDeploymentConfiguration {
+  /**
+   * @public
+   * <p>
+   *         The type of deployment that you want on a cluster.
+   *
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>ROLLING – This options updates the cluster by stopping the exiting q process and starting a new q process with updated configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>FORCE – This option updates the cluster by immediately stopping all the running processes before starting up new ones with the updated configuration. </p>
+   *             </li>
+   *          </ul>
+   */
+  deploymentStrategy: KxClusterCodeDeploymentStrategy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateKxClusterCodeConfigurationRequest {
+  /**
+   * @public
+   * <p>
+   *          A unique identifier of the kdb environment.
+   *       </p>
+   */
+  environmentId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the cluster.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * @public
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * @public
+   * <p>The structure of the customer code available within the running cluster.</p>
+   */
+  code: CodeConfiguration | undefined;
+
+  /**
+   * @public
+   * <p>Specifies a Q program that will be run at launch of a cluster. It is a relative path within
+   *          <i>.zip</i> file that contains the custom code, which will be loaded on
+   *          the cluster. It must include the file name itself. For example,
+   *          <code>somedir/init.q</code>.</p>
+   */
+  initializationScript?: string;
+
+  /**
+   * @public
+   * <p>Specifies the key-value pairs to make them available inside the cluster.</p>
+   */
+  commandLineArguments?: KxCommandLineArgument[];
+
+  /**
+   * @public
+   * <p>
+   *          The configuration that allows you to choose how you want to update the code on a cluster.
+   *       </p>
+   */
+  deploymentConfiguration?: KxClusterCodeDeploymentConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface UpdateKxClusterCodeConfigurationResponse {}
+
+/**
+ * @public
+ * @enum
+ */
 export const KxDeploymentStrategy = {
   NO_RESTART: "NO_RESTART",
   ROLLING: "ROLLING",
@@ -3376,22 +3482,23 @@ export type KxDeploymentStrategy = (typeof KxDeploymentStrategy)[keyof typeof Kx
 /**
  * @public
  * <p>
- *          The configuration that allows you to choose how you want to update the databases on a cluster. Depending on the option you choose, you can reduce the time it takes to update the database changesets on to a cluster.
+ *          The configuration that allows you to choose how you want to update the databases on a cluster. Depending on the option you choose, you can reduce the time it takes to update the cluster.
  *       </p>
  */
 export interface KxDeploymentConfiguration {
   /**
    * @public
    * <p>
-   *         The type of deployment that you want on a cluster.
+   *          The type of deployment that you want on a cluster.
    *
    *       </p>
    *          <ul>
    *             <li>
-   *                <p>ROLLING – This options loads the updated database by stopping the exiting q process and starting a new q process with updated configuration.</p>
+   *                <p>ROLLING – This options updates the cluster by stopping the exiting q process and starting a new q process with updated configuration.</p>
    *             </li>
    *             <li>
-   *                <p>NO_RESTART – This option loads the updated database on the running q process without stopping it. This option is quicker as it reduces the turn around time to update a kdb database changeset configuration on a cluster.</p>
+   *                <p>NO_RESTART – This option updates the cluster without stopping the running q process. It is only available for <code>HDB</code> type cluster. This option is quicker as it reduces the turn around time to update configuration on a cluster. </p>
+   *                <p>With this deployment mode, you cannot update the <code>initializationScript</code> and <code>commandLineArguments</code> parameters.</p>
    *             </li>
    *          </ul>
    */

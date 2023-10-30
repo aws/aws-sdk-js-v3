@@ -437,6 +437,14 @@ UpdateEnvironment
 </details>
 <details>
 <summary>
+UpdateKxClusterCodeConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-finspace/classes/updatekxclustercodeconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-finspace/interfaces/updatekxclustercodeconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-finspace/interfaces/updatekxclustercodeconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 UpdateKxClusterDatabases
 </summary>
 

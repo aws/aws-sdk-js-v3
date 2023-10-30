@@ -68,6 +68,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "../commands/UpdateEnvironmentCommand";
 import {
+  UpdateKxClusterCodeConfigurationCommandInput,
+  UpdateKxClusterCodeConfigurationCommandOutput,
+} from "../commands/UpdateKxClusterCodeConfigurationCommand";
+import {
   UpdateKxClusterDatabasesCommandInput,
   UpdateKxClusterDatabasesCommandOutput,
 } from "../commands/UpdateKxClusterDatabasesCommand";
@@ -97,6 +101,7 @@ import {
   KxCacheStorageConfiguration,
   KxChangesetListEntry,
   KxCluster,
+  KxClusterCodeDeploymentConfiguration,
   KxCommandLineArgument,
   KxDatabaseCacheConfiguration,
   KxDatabaseConfiguration,
@@ -1154,6 +1159,50 @@ export const se_UpdateEnvironmentCommand = async (
       federationMode: [],
       federationParameters: (_) => _json(_),
       name: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateKxClusterCodeConfigurationCommand
+ */
+export const se_UpdateKxClusterCodeConfigurationCommand = async (
+  input: UpdateKxClusterCodeConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/kx/environments/{environmentId}/clusters/{clusterName}/configuration/code";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "environmentId",
+    () => input.environmentId!,
+    "{environmentId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      code: (_) => _json(_),
+      commandLineArguments: (_) => _json(_),
+      deploymentConfiguration: (_) => _json(_),
+      initializationScript: [],
     })
   );
   return new __HttpRequest({
@@ -3188,6 +3237,67 @@ const de_UpdateEnvironmentCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateKxClusterCodeConfigurationCommand
+ */
+export const de_UpdateKxClusterCodeConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKxClusterCodeConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateKxClusterCodeConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateKxClusterCodeConfigurationCommandError
+ */
+const de_UpdateKxClusterCodeConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKxClusterCodeConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.finspace#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateKxClusterDatabasesCommand
  */
 export const de_UpdateKxClusterDatabasesCommand = async (
@@ -3767,6 +3877,8 @@ const se_AutoScalingConfiguration = (input: AutoScalingConfiguration, context: _
 // se_KxCacheStorageConfiguration omitted.
 
 // se_KxCacheStorageConfigurations omitted.
+
+// se_KxClusterCodeDeploymentConfiguration omitted.
 
 // se_KxCommandLineArgument omitted.
 

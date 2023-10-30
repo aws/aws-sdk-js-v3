@@ -92,6 +92,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
 import {
+  UpdateKxClusterCodeConfigurationCommandInput,
+  UpdateKxClusterCodeConfigurationCommandOutput,
+} from "./commands/UpdateKxClusterCodeConfigurationCommand";
+import {
   UpdateKxClusterDatabasesCommandInput,
   UpdateKxClusterDatabasesCommandOutput,
 } from "./commands/UpdateKxClusterDatabasesCommand";
@@ -149,6 +153,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateEnvironmentCommandInput
+  | UpdateKxClusterCodeConfigurationCommandInput
   | UpdateKxClusterDatabasesCommandInput
   | UpdateKxDatabaseCommandInput
   | UpdateKxEnvironmentCommandInput
@@ -188,6 +193,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateEnvironmentCommandOutput
+  | UpdateKxClusterCodeConfigurationCommandOutput
   | UpdateKxClusterDatabasesCommandOutput
   | UpdateKxDatabaseCommandOutput
   | UpdateKxEnvironmentCommandOutput

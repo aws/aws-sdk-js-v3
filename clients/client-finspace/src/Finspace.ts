@@ -136,6 +136,11 @@ import {
   UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
 import {
+  UpdateKxClusterCodeConfigurationCommand,
+  UpdateKxClusterCodeConfigurationCommandInput,
+  UpdateKxClusterCodeConfigurationCommandOutput,
+} from "./commands/UpdateKxClusterCodeConfigurationCommand";
+import {
   UpdateKxClusterDatabasesCommand,
   UpdateKxClusterDatabasesCommandInput,
   UpdateKxClusterDatabasesCommandOutput,
@@ -192,6 +197,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateEnvironmentCommand,
+  UpdateKxClusterCodeConfigurationCommand,
   UpdateKxClusterDatabasesCommand,
   UpdateKxDatabaseCommand,
   UpdateKxEnvironmentCommand,
@@ -625,6 +631,23 @@ export interface Finspace {
     args: UpdateEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateKxClusterCodeConfigurationCommand}
+   */
+  updateKxClusterCodeConfiguration(
+    args: UpdateKxClusterCodeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKxClusterCodeConfigurationCommandOutput>;
+  updateKxClusterCodeConfiguration(
+    args: UpdateKxClusterCodeConfigurationCommandInput,
+    cb: (err: any, data?: UpdateKxClusterCodeConfigurationCommandOutput) => void
+  ): void;
+  updateKxClusterCodeConfiguration(
+    args: UpdateKxClusterCodeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKxClusterCodeConfigurationCommandOutput) => void
   ): void;
 
   /**
