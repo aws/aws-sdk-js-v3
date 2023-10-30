@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.439.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.438.0...v3.439.0) (2023-10-30)
+
+
+### Features
+
+* **client-connect:** This release adds InstanceId field for phone number APIs. ([d05a332](https://github.com/aws/aws-sdk-js-v3/commit/d05a332a6c6a0821615edac2ef0b714859a87ca2))
+
+
+
+
+
 # [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

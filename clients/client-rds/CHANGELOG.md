@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.439.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.438.0...v3.439.0) (2023-10-30)
+
+
+### Features
+
+* **client-rds:** This release launches the CreateIntegration, DeleteIntegration, and DescribeIntegrations APIs to manage zero-ETL Integrations. ([8bc90cc](https://github.com/aws/aws-sdk-js-v3/commit/8bc90cc7b707f1050cf803a659f5a53c76ff1ee4))
+
+
+
+
+
 # [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

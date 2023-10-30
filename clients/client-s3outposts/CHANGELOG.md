@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.439.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.438.0...v3.439.0) (2023-10-30)
+
+
+### Features
+
+* **client-s3outposts:** Updated ListOutpostsWithS3 API response to include S3OutpostArn for use with AWS RAM. ([6869512](https://github.com/aws/aws-sdk-js-v3/commit/686951267a0b3a81aee1078f5e1a449637c8bcc7))
+
+
+
+
+
 # [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-s3outposts

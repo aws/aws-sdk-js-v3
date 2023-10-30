@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.439.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.438.0...v3.439.0) (2023-10-30)
+
+
+### Features
+
+* **client-dataexchange:** We added a new API action: SendDataSetNotification. ([12d4db1](https://github.com/aws/aws-sdk-js-v3/commit/12d4db1f2f718f42373510d2d6d28c55aa8ded67))
+
+
+
+
+
 # [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-dataexchange

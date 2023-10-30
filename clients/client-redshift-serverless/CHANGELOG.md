@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.439.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.438.0...v3.439.0) (2023-10-30)
+
+
+### Features
+
+* **client-redshift-serverless:** Added support for custom domain names for Amazon Redshift Serverless workgroups. This feature enables customers to create a custom domain name and use ACM to generate fully secure connections to it. ([998eb07](https://github.com/aws/aws-sdk-js-v3/commit/998eb07ac14aee55d01c8ed14be3cc20b92dfbbd))
+
+
+
+
+
 # [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift-serverless

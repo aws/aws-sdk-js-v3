@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.439.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.438.0...v3.439.0) (2023-10-30)
+
+
+### Features
+
+* **client-connect:** This release adds InstanceId field for phone number APIs. ([d05a332](https://github.com/aws/aws-sdk-js-v3/commit/d05a332a6c6a0821615edac2ef0b714859a87ca2))
+* **client-dataexchange:** We added a new API action: SendDataSetNotification. ([12d4db1](https://github.com/aws/aws-sdk-js-v3/commit/12d4db1f2f718f42373510d2d6d28c55aa8ded67))
+* **client-datasync:** Platform version changes to support AL1 deprecation initiative. ([e0558d2](https://github.com/aws/aws-sdk-js-v3/commit/e0558d20d765932d57c50c071a234667615d60fe))
+* **client-finspace:** Introducing new API UpdateKxClusterCodeConfiguration, introducing new cache types for clusters and introducing new deployment modes for updating clusters. ([313e52f](https://github.com/aws/aws-sdk-js-v3/commit/313e52f4d411196909d090375ffc85b6abfbfd56))
+* **client-mediapackagev2:** This feature allows customers to create a combination of manifest filtering, startover and time delay configuration that applies to all egress requests by default. ([5e3dade](https://github.com/aws/aws-sdk-js-v3/commit/5e3dade7642ea324b0faac04f5a8a72f781d1c83))
+* **client-rds:** This release launches the CreateIntegration, DeleteIntegration, and DescribeIntegrations APIs to manage zero-ETL Integrations. ([8bc90cc](https://github.com/aws/aws-sdk-js-v3/commit/8bc90cc7b707f1050cf803a659f5a53c76ff1ee4))
+* **client-redshift-serverless:** Added support for custom domain names for Amazon Redshift Serverless workgroups. This feature enables customers to create a custom domain name and use ACM to generate fully secure connections to it. ([998eb07](https://github.com/aws/aws-sdk-js-v3/commit/998eb07ac14aee55d01c8ed14be3cc20b92dfbbd))
+* **client-resiliencehub:** Introduced the ability to filter applications by their last assessment date and time and have included metrics for the application's estimated workload Recovery Time Objective (RTO) and estimated workload Recovery Point Objective (RPO). ([4b0a2d0](https://github.com/aws/aws-sdk-js-v3/commit/4b0a2d04cd9c5631aa9a4bbea8f6c56e732a0f08))
+* **client-s3outposts:** Updated ListOutpostsWithS3 API response to include S3OutpostArn for use with AWS RAM. ([6869512](https://github.com/aws/aws-sdk-js-v3/commit/686951267a0b3a81aee1078f5e1a449637c8bcc7))
+
+
+
+
+
 # [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
 
 
