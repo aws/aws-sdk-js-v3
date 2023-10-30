@@ -56,6 +56,7 @@ export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Resul
  * //   Outposts: [ // Outposts
  * //     { // Outpost
  * //       OutpostArn: "STRING_VALUE",
+ * //       S3OutpostArn: "STRING_VALUE",
  * //       OutpostId: "STRING_VALUE",
  * //       OwnerId: "STRING_VALUE",
  * //       CapacityInBytes: Number("long"),

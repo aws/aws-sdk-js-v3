@@ -441,6 +441,12 @@ export interface Outpost {
 
   /**
    * @public
+   * <p>Specifies the unique S3 on Outposts ARN for use with Resource Access Manager (RAM).</p>
+   */
+  S3OutpostArn?: string;
+
+  /**
+   * @public
    * <p>Specifies the unique identifier for the outpost.</p>
    */
   OutpostId?: string;
