@@ -110,6 +110,7 @@ import {
   CreateGlobalClusterCommandInput,
   CreateGlobalClusterCommandOutput,
 } from "../commands/CreateGlobalClusterCommand";
+import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "../commands/CreateIntegrationCommand";
 import { CreateOptionGroupCommandInput, CreateOptionGroupCommandOutput } from "../commands/CreateOptionGroupCommand";
 import {
   DeleteBlueGreenDeploymentCommandInput,
@@ -167,6 +168,7 @@ import {
   DeleteGlobalClusterCommandInput,
   DeleteGlobalClusterCommandOutput,
 } from "../commands/DeleteGlobalClusterCommand";
+import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "../commands/DeleteIntegrationCommand";
 import { DeleteOptionGroupCommandInput, DeleteOptionGroupCommandOutput } from "../commands/DeleteOptionGroupCommand";
 import {
   DeregisterDBProxyTargetsCommandInput,
@@ -288,6 +290,10 @@ import {
   DescribeGlobalClustersCommandInput,
   DescribeGlobalClustersCommandOutput,
 } from "../commands/DescribeGlobalClustersCommand";
+import {
+  DescribeIntegrationsCommandInput,
+  DescribeIntegrationsCommandOutput,
+} from "../commands/DescribeIntegrationsCommand";
 import {
   DescribeOptionGroupOptionsCommandInput,
   DescribeOptionGroupOptionsCommandOutput,
@@ -562,6 +568,7 @@ import {
   CreateEventSubscriptionResult,
   CreateGlobalClusterMessage,
   CreateGlobalClusterResult,
+  CreateIntegrationMessage,
   CreateOptionGroupMessage,
   CreateOptionGroupResult,
   CustomAvailabilityZoneNotFoundFault,
@@ -584,7 +591,6 @@ import {
   DBClusterEndpointNotFoundFault,
   DBClusterEndpointQuotaExceededFault,
   DBClusterMember,
-  DBClusterMessage,
   DBClusterNotFoundFault,
   DBClusterOptionGroupStatus,
   DBClusterParameterGroup,
@@ -597,12 +603,8 @@ import {
   DBClusterRoleQuotaExceededFault,
   DBClusterSnapshot,
   DBClusterSnapshotAlreadyExistsFault,
-  DBClusterSnapshotAttribute,
-  DBClusterSnapshotAttributesResult,
-  DBClusterSnapshotMessage,
   DBClusterSnapshotNotFoundFault,
   DBEngineVersion,
-  DBEngineVersionMessage,
   DBInstance,
   DBInstanceAlreadyExistsFault,
   DBInstanceAutomatedBackup,
@@ -673,6 +675,7 @@ import {
   DeleteEventSubscriptionResult,
   DeleteGlobalClusterMessage,
   DeleteGlobalClusterResult,
+  DeleteIntegrationMessage,
   DeleteOptionGroupMessage,
   DeregisterDBProxyTargetsRequest,
   DeregisterDBProxyTargetsResponse,
@@ -684,11 +687,6 @@ import {
   DescribeDBClusterBacktracksMessage,
   DescribeDBClusterEndpointsMessage,
   DescribeDBClusterParameterGroupsMessage,
-  DescribeDBClusterParametersMessage,
-  DescribeDBClustersMessage,
-  DescribeDBClusterSnapshotAttributesMessage,
-  DescribeDBClusterSnapshotAttributesResult,
-  DescribeDBClusterSnapshotsMessage,
   DomainMembership,
   DomainNotFoundFault,
   Ec2ImagePropertiesNotSupportedFault,
@@ -708,6 +706,12 @@ import {
   InstanceQuotaExceededFault,
   InsufficientDBInstanceCapacityFault,
   InsufficientStorageClusterCapacityFault,
+  Integration,
+  IntegrationAlreadyExistsFault,
+  IntegrationConflictOperationFault,
+  IntegrationError,
+  IntegrationNotFoundFault,
+  IntegrationQuotaExceededFault,
   InvalidBlueGreenDeploymentStateFault,
   InvalidCustomDBEngineVersionStateFault,
   InvalidDBClusterAutomatedBackupStateFault,
@@ -727,6 +731,7 @@ import {
   InvalidEventSubscriptionStateFault,
   InvalidExportTaskStateFault,
   InvalidGlobalClusterStateFault,
+  InvalidIntegrationStateFault,
   InvalidOptionGroupStateFault,
   InvalidSubnet,
   InvalidVPCNetworkStateFault,
@@ -782,8 +787,13 @@ import {
   ConnectionPoolConfiguration,
   ConnectionPoolConfigurationInfo,
   DBClusterCapacityInfo,
+  DBClusterMessage,
   DBClusterParameterGroupNameMessage,
   DBClusterRoleNotFoundFault,
+  DBClusterSnapshotAttribute,
+  DBClusterSnapshotAttributesResult,
+  DBClusterSnapshotMessage,
+  DBEngineVersionMessage,
   DBInstanceAutomatedBackupMessage,
   DBInstanceMessage,
   DBInstanceRoleNotFoundFault,
@@ -800,6 +810,11 @@ import {
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBClusterParametersMessage,
+  DescribeDBClustersMessage,
+  DescribeDBClusterSnapshotAttributesMessage,
+  DescribeDBClusterSnapshotAttributesResult,
+  DescribeDBClusterSnapshotsMessage,
   DescribeDBEngineVersionsMessage,
   DescribeDBInstanceAutomatedBackupsMessage,
   DescribeDBInstancesMessage,
@@ -830,6 +845,8 @@ import {
   DescribeEventSubscriptionsMessage,
   DescribeExportTasksMessage,
   DescribeGlobalClustersMessage,
+  DescribeIntegrationsMessage,
+  DescribeIntegrationsResponse,
   DescribeOptionGroupOptionsMessage,
   DescribeOptionGroupsMessage,
   DescribeOrderableDBInstanceOptionsMessage,
@@ -1483,6 +1500,23 @@ export const se_CreateGlobalClusterCommand = async (
 };
 
 /**
+ * serializeAws_queryCreateIntegrationCommand
+ */
+export const se_CreateIntegrationCommand = async (
+  input: CreateIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateIntegrationMessage(input, context),
+    Action: "CreateIntegration",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryCreateOptionGroupCommand
  */
 export const se_CreateOptionGroupCommand = async (
@@ -1783,6 +1817,23 @@ export const se_DeleteGlobalClusterCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteGlobalClusterMessage(input, context),
     Action: "DeleteGlobalCluster",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDeleteIntegrationCommand
+ */
+export const se_DeleteIntegrationCommand = async (
+  input: DeleteIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteIntegrationMessage(input, context),
+    Action: "DeleteIntegration",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2361,6 +2412,23 @@ export const se_DescribeGlobalClustersCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeGlobalClustersMessage(input, context),
     Action: "DescribeGlobalClusters",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeIntegrationsCommand
+ */
+export const se_DescribeIntegrationsCommand = async (
+  input: DescribeIntegrationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeIntegrationsMessage(input, context),
+    Action: "DescribeIntegrations",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3638,6 +3706,9 @@ const de_AddTagsToResourceCommandError = async (
     case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
+    case "IntegrationNotFoundFault":
+    case "com.amazonaws.rds#IntegrationNotFoundFault":
+      throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5189,6 +5260,67 @@ const de_CreateGlobalClusterCommandError = async (
 };
 
 /**
+ * deserializeAws_queryCreateIntegrationCommand
+ */
+export const de_CreateIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIntegrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateIntegrationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_Integration(data.CreateIntegrationResult, context);
+  const response: CreateIntegrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateIntegrationCommandError
+ */
+const de_CreateIntegrationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIntegrationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.rds#DBClusterNotFoundFault":
+      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
+    case "DBInstanceNotFound":
+    case "com.amazonaws.rds#DBInstanceNotFoundFault":
+      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
+    case "IntegrationAlreadyExistsFault":
+    case "com.amazonaws.rds#IntegrationAlreadyExistsFault":
+      throw await de_IntegrationAlreadyExistsFaultRes(parsedOutput, context);
+    case "IntegrationConflictOperationFault":
+    case "com.amazonaws.rds#IntegrationConflictOperationFault":
+      throw await de_IntegrationConflictOperationFaultRes(parsedOutput, context);
+    case "IntegrationQuotaExceededFault":
+    case "com.amazonaws.rds#IntegrationQuotaExceededFault":
+      throw await de_IntegrationQuotaExceededFaultRes(parsedOutput, context);
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
+      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryCreateOptionGroupCommand
  */
 export const de_CreateOptionGroupCommand = async (
@@ -6078,6 +6210,58 @@ const de_DeleteGlobalClusterCommandError = async (
     case "InvalidGlobalClusterStateFault":
     case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
       throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDeleteIntegrationCommand
+ */
+export const de_DeleteIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIntegrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteIntegrationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_Integration(data.DeleteIntegrationResult, context);
+  const response: DeleteIntegrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteIntegrationCommandError
+ */
+const de_DeleteIntegrationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIntegrationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IntegrationConflictOperationFault":
+    case "com.amazonaws.rds#IntegrationConflictOperationFault":
+      throw await de_IntegrationConflictOperationFaultRes(parsedOutput, context);
+    case "IntegrationNotFoundFault":
+    case "com.amazonaws.rds#IntegrationNotFoundFault":
+      throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
+    case "InvalidIntegrationStateFault":
+    case "com.amazonaws.rds#InvalidIntegrationStateFault":
+      throw await de_InvalidIntegrationStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -7650,6 +7834,52 @@ const de_DescribeGlobalClustersCommandError = async (
 };
 
 /**
+ * deserializeAws_queryDescribeIntegrationsCommand
+ */
+export const de_DescribeIntegrationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIntegrationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeIntegrationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeIntegrationsResponse(data.DescribeIntegrationsResult, context);
+  const response: DescribeIntegrationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeIntegrationsCommandError
+ */
+const de_DescribeIntegrationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIntegrationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IntegrationNotFoundFault":
+    case "com.amazonaws.rds#IntegrationNotFoundFault":
+      throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryDescribeOptionGroupOptionsCommand
  */
 export const de_DescribeOptionGroupOptionsCommand = async (
@@ -8209,6 +8439,9 @@ const de_ListTagsForResourceCommandError = async (
     case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
+    case "IntegrationNotFoundFault":
+    case "com.amazonaws.rds#IntegrationNotFoundFault":
+      throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -9865,6 +10098,9 @@ const de_RemoveTagsFromResourceCommandError = async (
     case "DBSnapshotNotFound":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
+    case "IntegrationNotFoundFault":
+    case "com.amazonaws.rds#IntegrationNotFoundFault":
+      throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -12525,6 +12761,70 @@ const de_InsufficientStorageClusterCapacityFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryIntegrationAlreadyExistsFaultRes
+ */
+const de_IntegrationAlreadyExistsFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IntegrationAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_IntegrationAlreadyExistsFault(body.Error, context);
+  const exception = new IntegrationAlreadyExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryIntegrationConflictOperationFaultRes
+ */
+const de_IntegrationConflictOperationFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IntegrationConflictOperationFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_IntegrationConflictOperationFault(body.Error, context);
+  const exception = new IntegrationConflictOperationFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryIntegrationNotFoundFaultRes
+ */
+const de_IntegrationNotFoundFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IntegrationNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_IntegrationNotFoundFault(body.Error, context);
+  const exception = new IntegrationNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryIntegrationQuotaExceededFaultRes
+ */
+const de_IntegrationQuotaExceededFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IntegrationQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_IntegrationQuotaExceededFault(body.Error, context);
+  const exception = new IntegrationQuotaExceededFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryInvalidBlueGreenDeploymentStateFaultRes
  */
 const de_InvalidBlueGreenDeploymentStateFaultRes = async (
@@ -12870,6 +13170,22 @@ const de_InvalidGlobalClusterStateFaultRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_InvalidGlobalClusterStateFault(body.Error, context);
   const exception = new InvalidGlobalClusterStateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryInvalidIntegrationStateFaultRes
+ */
+const de_InvalidIntegrationStateFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidIntegrationStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InvalidIntegrationStateFault(body.Error, context);
+  const exception = new InvalidIntegrationStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -14875,6 +15191,43 @@ const se_CreateGlobalClusterMessage = (input: CreateGlobalClusterMessage, contex
 };
 
 /**
+ * serializeAws_queryCreateIntegrationMessage
+ */
+const se_CreateIntegrationMessage = (input: CreateIntegrationMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.SourceArn != null) {
+    entries["SourceArn"] = input.SourceArn;
+  }
+  if (input.TargetArn != null) {
+    entries["TargetArn"] = input.TargetArn;
+  }
+  if (input.IntegrationName != null) {
+    entries["IntegrationName"] = input.IntegrationName;
+  }
+  if (input.KMSKeyId != null) {
+    entries["KMSKeyId"] = input.KMSKeyId;
+  }
+  if (input.AdditionalEncryptionContext != null) {
+    const memberEntries = se_EncryptionContextMap(input.AdditionalEncryptionContext, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AdditionalEncryptionContext.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryCreateOptionGroupMessage
  */
 const se_CreateOptionGroupMessage = (input: CreateOptionGroupMessage, context: __SerdeContext): any => {
@@ -15142,6 +15495,17 @@ const se_DeleteGlobalClusterMessage = (input: DeleteGlobalClusterMessage, contex
   const entries: any = {};
   if (input.GlobalClusterIdentifier != null) {
     entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDeleteIntegrationMessage
+ */
+const se_DeleteIntegrationMessage = (input: DeleteIntegrationMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.IntegrationIdentifier != null) {
+    entries["IntegrationIdentifier"] = input.IntegrationIdentifier;
   }
   return entries;
 };
@@ -16159,6 +16523,33 @@ const se_DescribeGlobalClustersMessage = (input: DescribeGlobalClustersMessage, 
 };
 
 /**
+ * serializeAws_queryDescribeIntegrationsMessage
+ */
+const se_DescribeIntegrationsMessage = (input: DescribeIntegrationsMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.IntegrationIdentifier != null) {
+    entries["IntegrationIdentifier"] = input.IntegrationIdentifier;
+  }
+  if (input.Filters != null) {
+    const memberEntries = se_FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxRecords != null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker != null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeOptionGroupOptionsMessage
  */
 const se_DescribeOptionGroupOptionsMessage = (
@@ -16453,6 +16844,22 @@ const se_DownloadDBLogFilePortionMessage = (input: DownloadDBLogFilePortionMessa
   if (input.NumberOfLines != null) {
     entries["NumberOfLines"] = input.NumberOfLines;
   }
+  return entries;
+};
+
+/**
+ * serializeAws_queryEncryptionContextMap
+ */
+const se_EncryptionContextMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  Object.keys(input)
+    .filter((key) => input[key as keyof typeof input] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.key`] = key;
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input]!;
+      counter++;
+    });
   return entries;
 };
 
@@ -21409,6 +21816,9 @@ const de_DBEngineVersion = (output: any, context: __SerdeContext): DBEngineVersi
   if (output["SupportsLocalWriteForwarding"] !== undefined) {
     contents.SupportsLocalWriteForwarding = __parseBoolean(output["SupportsLocalWriteForwarding"]);
   }
+  if (output["SupportsIntegrations"] !== undefined) {
+    contents.SupportsIntegrations = __parseBoolean(output["SupportsIntegrations"]);
+  }
   return contents;
 };
 
@@ -23466,6 +23876,22 @@ const de_DescribeEngineDefaultParametersResult = (
 };
 
 /**
+ * deserializeAws_queryDescribeIntegrationsResponse
+ */
+const de_DescribeIntegrationsResponse = (output: any, context: __SerdeContext): DescribeIntegrationsResponse => {
+  const contents: any = {};
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
+  if (output.Integrations === "") {
+    contents.Integrations = [];
+  } else if (output["Integrations"] !== undefined && output["Integrations"]["Integration"] !== undefined) {
+    contents.Integrations = de_IntegrationList(__getArrayIfSingleItem(output["Integrations"]["Integration"]), context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDescribeValidDBInstanceModificationsResult
  */
 const de_DescribeValidDBInstanceModificationsResult = (
@@ -23620,6 +24046,19 @@ const de_EC2SecurityGroupList = (output: any, context: __SerdeContext): EC2Secur
     .map((entry: any) => {
       return de_EC2SecurityGroup(entry, context);
     });
+};
+
+/**
+ * deserializeAws_queryEncryptionContextMap
+ */
+const de_EncryptionContextMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
+  }, {});
 };
 
 /**
@@ -24280,6 +24719,139 @@ const de_InsufficientStorageClusterCapacityFault = (
 };
 
 /**
+ * deserializeAws_queryIntegration
+ */
+const de_Integration = (output: any, context: __SerdeContext): Integration => {
+  const contents: any = {};
+  if (output["SourceArn"] !== undefined) {
+    contents.SourceArn = __expectString(output["SourceArn"]);
+  }
+  if (output["TargetArn"] !== undefined) {
+    contents.TargetArn = __expectString(output["TargetArn"]);
+  }
+  if (output["IntegrationName"] !== undefined) {
+    contents.IntegrationName = __expectString(output["IntegrationName"]);
+  }
+  if (output["IntegrationArn"] !== undefined) {
+    contents.IntegrationArn = __expectString(output["IntegrationArn"]);
+  }
+  if (output["KMSKeyId"] !== undefined) {
+    contents.KMSKeyId = __expectString(output["KMSKeyId"]);
+  }
+  if (output.AdditionalEncryptionContext === "") {
+    contents.AdditionalEncryptionContext = {};
+  } else if (
+    output["AdditionalEncryptionContext"] !== undefined &&
+    output["AdditionalEncryptionContext"]["entry"] !== undefined
+  ) {
+    contents.AdditionalEncryptionContext = de_EncryptionContextMap(
+      __getArrayIfSingleItem(output["AdditionalEncryptionContext"]["entry"]),
+      context
+    );
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output.Tags === "") {
+    contents.Tags = [];
+  } else if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
+    contents.Tags = de_TagList(__getArrayIfSingleItem(output["Tags"]["Tag"]), context);
+  }
+  if (output["CreateTime"] !== undefined) {
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateTime"]));
+  }
+  if (output.Errors === "") {
+    contents.Errors = [];
+  } else if (output["Errors"] !== undefined && output["Errors"]["IntegrationError"] !== undefined) {
+    contents.Errors = de_IntegrationErrorList(__getArrayIfSingleItem(output["Errors"]["IntegrationError"]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationAlreadyExistsFault
+ */
+const de_IntegrationAlreadyExistsFault = (output: any, context: __SerdeContext): IntegrationAlreadyExistsFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationConflictOperationFault
+ */
+const de_IntegrationConflictOperationFault = (
+  output: any,
+  context: __SerdeContext
+): IntegrationConflictOperationFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationError
+ */
+const de_IntegrationError = (output: any, context: __SerdeContext): IntegrationError => {
+  const contents: any = {};
+  if (output["ErrorCode"] !== undefined) {
+    contents.ErrorCode = __expectString(output["ErrorCode"]);
+  }
+  if (output["ErrorMessage"] !== undefined) {
+    contents.ErrorMessage = __expectString(output["ErrorMessage"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationErrorList
+ */
+const de_IntegrationErrorList = (output: any, context: __SerdeContext): IntegrationError[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IntegrationError(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryIntegrationList
+ */
+const de_IntegrationList = (output: any, context: __SerdeContext): Integration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Integration(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryIntegrationNotFoundFault
+ */
+const de_IntegrationNotFoundFault = (output: any, context: __SerdeContext): IntegrationNotFoundFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationQuotaExceededFault
+ */
+const de_IntegrationQuotaExceededFault = (output: any, context: __SerdeContext): IntegrationQuotaExceededFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryInvalidBlueGreenDeploymentStateFault
  */
 const de_InvalidBlueGreenDeploymentStateFault = (
@@ -24544,6 +25116,17 @@ const de_InvalidExportTaskStateFault = (output: any, context: __SerdeContext): I
  * deserializeAws_queryInvalidGlobalClusterStateFault
  */
 const de_InvalidGlobalClusterStateFault = (output: any, context: __SerdeContext): InvalidGlobalClusterStateFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryInvalidIntegrationStateFault
+ */
+const de_InvalidIntegrationStateFault = (output: any, context: __SerdeContext): InvalidIntegrationStateFault => {
   const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
@@ -27050,6 +27633,9 @@ const de_UpgradeTarget = (output: any, context: __SerdeContext): UpgradeTarget =
   }
   if (output["SupportsLocalWriteForwarding"] !== undefined) {
     contents.SupportsLocalWriteForwarding = __parseBoolean(output["SupportsLocalWriteForwarding"]);
+  }
+  if (output["SupportsIntegrations"] !== undefined) {
+    contents.SupportsIntegrations = __parseBoolean(output["SupportsIntegrations"]);
   }
   return contents;
 };

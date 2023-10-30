@@ -17,7 +17,7 @@ import {
 import {
   DescribeDBClusterSnapshotAttributesMessage,
   DescribeDBClusterSnapshotAttributesResult,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_DescribeDBClusterSnapshotAttributesCommand,
   se_DescribeDBClusterSnapshotAttributesCommand,

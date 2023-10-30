@@ -148,6 +148,11 @@ import {
   CreateGlobalClusterCommandOutput,
 } from "./commands/CreateGlobalClusterCommand";
 import {
+  CreateIntegrationCommand,
+  CreateIntegrationCommandInput,
+  CreateIntegrationCommandOutput,
+} from "./commands/CreateIntegrationCommand";
+import {
   CreateOptionGroupCommand,
   CreateOptionGroupCommandInput,
   CreateOptionGroupCommandOutput,
@@ -237,6 +242,11 @@ import {
   DeleteGlobalClusterCommandInput,
   DeleteGlobalClusterCommandOutput,
 } from "./commands/DeleteGlobalClusterCommand";
+import {
+  DeleteIntegrationCommand,
+  DeleteIntegrationCommandInput,
+  DeleteIntegrationCommandOutput,
+} from "./commands/DeleteIntegrationCommand";
 import {
   DeleteOptionGroupCommand,
   DeleteOptionGroupCommandInput,
@@ -407,6 +417,11 @@ import {
   DescribeGlobalClustersCommandInput,
   DescribeGlobalClustersCommandOutput,
 } from "./commands/DescribeGlobalClustersCommand";
+import {
+  DescribeIntegrationsCommand,
+  DescribeIntegrationsCommandInput,
+  DescribeIntegrationsCommandOutput,
+} from "./commands/DescribeIntegrationsCommand";
 import {
   DescribeOptionGroupOptionsCommand,
   DescribeOptionGroupOptionsCommandInput,
@@ -754,6 +769,7 @@ const commands = {
   CreateDBSubnetGroupCommand,
   CreateEventSubscriptionCommand,
   CreateGlobalClusterCommand,
+  CreateIntegrationCommand,
   CreateOptionGroupCommand,
   DeleteBlueGreenDeploymentCommand,
   DeleteCustomDBEngineVersionCommand,
@@ -772,6 +788,7 @@ const commands = {
   DeleteDBSubnetGroupCommand,
   DeleteEventSubscriptionCommand,
   DeleteGlobalClusterCommand,
+  DeleteIntegrationCommand,
   DeleteOptionGroupCommand,
   DeregisterDBProxyTargetsCommand,
   DescribeAccountAttributesCommand,
@@ -806,6 +823,7 @@ const commands = {
   DescribeEventSubscriptionsCommand,
   DescribeExportTasksCommand,
   DescribeGlobalClustersCommand,
+  DescribeIntegrationsCommand,
   DescribeOptionGroupOptionsCommand,
   DescribeOptionGroupsCommand,
   DescribeOrderableDBInstanceOptionsCommand,
@@ -1351,6 +1369,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link CreateIntegrationCommand}
+   */
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIntegrationCommandOutput>;
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    cb: (err: any, data?: CreateIntegrationCommandOutput) => void
+  ): void;
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateOptionGroupCommand}
    */
   createOptionGroup(
@@ -1645,6 +1680,23 @@ export interface RDS {
     args: DeleteGlobalClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteGlobalClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIntegrationCommand}
+   */
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIntegrationCommandOutput>;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
+  ): void;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
   ): void;
 
   /**
@@ -2220,6 +2272,23 @@ export interface RDS {
     args: DescribeGlobalClustersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeGlobalClustersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeIntegrationsCommand}
+   */
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIntegrationsCommandOutput>;
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    cb: (err: any, data?: DescribeIntegrationsCommandOutput) => void
+  ): void;
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIntegrationsCommandOutput) => void
   ): void;
 
   /**

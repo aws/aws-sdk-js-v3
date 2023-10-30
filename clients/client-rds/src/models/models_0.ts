@@ -695,6 +695,26 @@ export class DBSnapshotNotFoundFault extends __BaseException {
 
 /**
  * @public
+ * <p>The specified integration could not be found.</p>
+ */
+export class IntegrationNotFoundFault extends __BaseException {
+  readonly name: "IntegrationNotFoundFault" = "IntegrationNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationNotFoundFault, __BaseException>) {
+    super({
+      name: "IntegrationNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationNotFoundFault.prototype);
+  }
+}
+
+/**
+ * @public
  * <p></p>
  */
 export interface ApplyPendingMaintenanceActionMessage {
@@ -3836,6 +3856,13 @@ export interface UpgradeTarget {
    *          <p>Valid for: Aurora DB clusters only</p>
    */
   SupportsLocalWriteForwarding?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether the DB engine version supports Aurora zero-ETL integrations with
+   *             Amazon Redshift.</p>
+   */
+  SupportsIntegrations?: boolean;
 }
 
 /**
@@ -4065,6 +4092,13 @@ export interface DBEngineVersion {
    *          <p>Valid for: Aurora DB clusters only</p>
    */
   SupportsLocalWriteForwarding?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether the DB engine version supports Aurora zero-ETL integrations with
+   *             Amazon Redshift.</p>
+   */
+  SupportsIntegrations?: boolean;
 }
 
 /**
@@ -11568,6 +11602,229 @@ export class GlobalClusterQuotaExceededFault extends __BaseException {
 
 /**
  * @public
+ */
+export interface CreateIntegrationMessage {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for
+   *             replication.</p>
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the Redshift data warehouse to use as the target for replication.</p>
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the integration.</p>
+   */
+  IntegrationName: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Key Management System (Amazon Web Services KMS) key identifier for the key to use to
+   *             encrypt the integration. If you don't specify an encryption key, Aurora uses a default
+   *             Amazon Web Services owned key. </p>
+   */
+  KMSKeyId?: string;
+
+  /**
+   * @public
+   * <p>An optional set of non-secret key–value pairs that contains additional contextual
+   *             information about the data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+   *                 context</a> in the <i>Amazon Web Services Key Management Service Developer
+   *                 Guide</i>.</p>
+   *          <p>You can only include this parameter if you specify the <code>KMSKeyId</code> parameter.</p>
+   */
+  AdditionalEncryptionContext?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * <p>An error associated with a zero-ETL integration with Amazon Redshift.</p>
+ */
+export interface IntegrationError {
+  /**
+   * @public
+   * <p>The error code associated with the integration.</p>
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * @public
+   * <p>A message explaining the error.</p>
+   */
+  ErrorMessage?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IntegrationStatus = {
+  ACTIVE: "active",
+  CREATING: "creating",
+  DELETING: "deleting",
+  FAILED: "failed",
+  MODIFYING: "modifying",
+  NEEDS_ATTENTION: "needs_attention",
+  SYNCING: "syncing",
+} as const;
+
+/**
+ * @public
+ */
+export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus];
+
+/**
+ * @public
+ * <p>An Aurora zero-ETL integration with Amazon Redshift. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.html">Working
+ *             with Amazon Aurora zero-ETL integrations with Amazon Redshift</a> in the
+ *             <i>Amazon Aurora User Guide</i>.</p>
+ */
+export interface Integration {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Aurora DB cluster used as the source for
+   *             replication.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the Redshift data warehouse used as the target for replication.</p>
+   */
+  TargetArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the integration.</p>
+   */
+  IntegrationName?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the integration.</p>
+   */
+  IntegrationArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Key Management System (Amazon Web Services KMS) key identifier for the key used to to
+   *             encrypt the integration. </p>
+   */
+  KMSKeyId?: string;
+
+  /**
+   * @public
+   * <p>The encryption context for the integration. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer
+   *                 Guide</i>.</p>
+   */
+  AdditionalEncryptionContext?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The current status of the integration.</p>
+   */
+  Status?: IntegrationStatus;
+
+  /**
+   * @public
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The time when the integration was created, in Universal Coordinated Time
+   *             (UTC).</p>
+   */
+  CreateTime?: Date;
+
+  /**
+   * @public
+   * <p>Any errors associated with the integration.</p>
+   */
+  Errors?: IntegrationError[];
+}
+
+/**
+ * @public
+ * <p>The integration you are trying to create already exists.</p>
+ */
+export class IntegrationAlreadyExistsFault extends __BaseException {
+  readonly name: "IntegrationAlreadyExistsFault" = "IntegrationAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "IntegrationAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationAlreadyExistsFault.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>A conflicting conditional operation is currently in progress against this resource.
+ *             Typically occurs when there are multiple requests being made to the same resource at the same time,
+ *             and these requests conflict with each other.</p>
+ */
+export class IntegrationConflictOperationFault extends __BaseException {
+  readonly name: "IntegrationConflictOperationFault" = "IntegrationConflictOperationFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationConflictOperationFault, __BaseException>) {
+    super({
+      name: "IntegrationConflictOperationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationConflictOperationFault.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>You can't crate any more zero-ETL integrations because the quota has been reached.</p>
+ */
+export class IntegrationQuotaExceededFault extends __BaseException {
+  readonly name: "IntegrationQuotaExceededFault" = "IntegrationQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationQuotaExceededFault, __BaseException>) {
+    super({
+      name: "IntegrationQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationQuotaExceededFault.prototype);
+  }
+}
+
+/**
+ * @public
  * <p></p>
  */
 export interface CreateOptionGroupMessage {
@@ -12950,6 +13207,37 @@ export interface DeleteGlobalClusterResult {
 
 /**
  * @public
+ */
+export interface DeleteIntegrationMessage {
+  /**
+   * @public
+   * <p>The unique identifier of the integration.</p>
+   */
+  IntegrationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The integration is in an invalid state and can't perform the requested operation.</p>
+ */
+export class InvalidIntegrationStateFault extends __BaseException {
+  readonly name: "InvalidIntegrationStateFault" = "InvalidIntegrationStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidIntegrationStateFault, __BaseException>) {
+    super({
+      name: "InvalidIntegrationStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidIntegrationStateFault.prototype);
+  }
+}
+
+/**
+ * @public
  * <p></p>
  */
 export interface DeleteOptionGroupMessage {
@@ -13804,438 +14092,4 @@ export interface DBClusterParameterGroupDetails {
    *             up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DescribeDBClusterParametersMessage {
-  /**
-   * @public
-   * <p>The name of a specific DB cluster parameter group to return parameter details for.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterParameterGroupName: string | undefined;
-
-  /**
-   * @public
-   * <p>A specific source to return parameters for.</p>
-   *          <p>Valid Values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>customer</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>engine</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>service</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Source?: string;
-
-  /**
-   * @public
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response.
-   *       If more records exist than the specified <code>MaxRecords</code> value,
-   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *       <code>DescribeDBClusterParameters</code> request.
-   *       If this parameter is specified, the response includes
-   *       only records beyond the marker,
-   *       up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- * <p>Contains the result of a successful invocation of the <code>DescribeDBClusters</code> action.</p>
- */
-export interface DBClusterMessage {
-  /**
-   * @public
-   * <p>A pagination token that can be used in a later <code>DescribeDBClusters</code> request.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>Contains a list of DB clusters for the user.</p>
-   */
-  DBClusters?: DBCluster[];
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DescribeDBClustersMessage {
-  /**
-   * @public
-   * <p>The user-supplied DB cluster identifier or the Amazon Resource Name (ARN) of the DB cluster. If this parameter is specified,
-   *             information for only the specific DB cluster is returned. This parameter isn't case-sensitive.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match an existing DB cluster identifier.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
-   * @public
-   * <p>A filter that specifies one or more DB clusters to describe.</p>
-   *          <p>Supported Filters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>clone-group-id</code> - Accepts clone group identifiers.
-   *               The results list only includes information about
-   *               the DB clusters associated with these clone groups.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
-   *               cluster Amazon Resource Names (ARNs). The results list only includes information about
-   *               the DB clusters identified by these ARNs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>db-cluster-resource-id</code> - Accepts DB cluster resource identifiers.
-   *                     The results list will only include information about the DB clusters identified
-   *                     by these DB cluster resource identifiers.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>domain</code> - Accepts Active Directory directory IDs.
-   *               The results list only includes information about
-   *               the DB clusters associated with these domains.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>engine</code> - Accepts engine names.
-   *               The results list only includes information about
-   *               the DB clusters for these engines.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response.
-   *             If more records exist than the specified <code>MaxRecords</code> value,
-   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeDBClusters</code> request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>Specifies whether the output includes information about clusters
-   *           shared from other Amazon Web Services accounts.</p>
-   */
-  IncludeShared?: boolean;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DescribeDBClusterSnapshotAttributesMessage {
-  /**
-   * @public
-   * <p>The identifier for the DB cluster snapshot to describe the attributes for.</p>
-   */
-  DBClusterSnapshotIdentifier: string | undefined;
-}
-
-/**
- * @public
- * <p>Contains the name and values of a manual DB cluster snapshot attribute.</p>
- *          <p>Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts
- *             to restore a manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code>
- *             API action.</p>
- */
-export interface DBClusterSnapshotAttribute {
-  /**
-   * @public
-   * <p>The name of the manual DB cluster snapshot attribute.</p>
-   *          <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that
-   *             have permission to copy or restore the manual DB cluster snapshot. For more information,
-   *             see the <code>ModifyDBClusterSnapshotAttribute</code>
-   *             API action.</p>
-   */
-  AttributeName?: string;
-
-  /**
-   * @public
-   * <p>The value(s) for the manual DB cluster snapshot attribute.</p>
-   *          <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element
-   *             returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual
-   *             DB cluster snapshot. If a value of <code>all</code> is in the list, then the manual DB cluster snapshot
-   *             is public and available for any Amazon Web Services account to copy or restore.</p>
-   */
-  AttributeValues?: string[];
-}
-
-/**
- * @public
- * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
- *             API action.</p>
- *          <p>Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts
- *             to copy or restore a manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code>
- *             API action.</p>
- */
-export interface DBClusterSnapshotAttributesResult {
-  /**
-   * @public
-   * <p>The identifier of the manual DB cluster snapshot that the attributes apply to.</p>
-   */
-  DBClusterSnapshotIdentifier?: string;
-
-  /**
-   * @public
-   * <p>The list of attributes and values for the manual DB cluster snapshot.</p>
-   */
-  DBClusterSnapshotAttributes?: DBClusterSnapshotAttribute[];
-}
-
-/**
- * @public
- */
-export interface DescribeDBClusterSnapshotAttributesResult {
-  /**
-   * @public
-   * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
-   *             API action.</p>
-   *          <p>Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts
-   *             to copy or restore a manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code>
-   *             API action.</p>
-   */
-  DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult;
-}
-
-/**
- * @public
- * <p>Provides a list of DB cluster snapshots for the user as the result of a call to the <code>DescribeDBClusterSnapshots</code> action.</p>
- */
-export interface DBClusterSnapshotMessage {
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *           <code>DescribeDBClusterSnapshots</code> request.
-   *       If this parameter is specified, the response includes
-   *       only records beyond the marker,
-   *       up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>Provides a list of DB cluster snapshots for the user.</p>
-   */
-  DBClusterSnapshots?: DBClusterSnapshot[];
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DescribeDBClusterSnapshotsMessage {
-  /**
-   * @public
-   * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for.
-   *             This parameter can't be used in conjunction with the
-   *             <code>DBClusterSnapshotIdentifier</code> parameter.
-   *             This parameter isn't case-sensitive.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the identifier of an existing DBCluster.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
-   * @public
-   * <p>A specific DB cluster snapshot identifier to describe.
-   *             This parameter can't be used in conjunction with the
-   *             <code>DBClusterIdentifier</code> parameter.
-   *             This value is stored as a lowercase string.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the identifier of an existing DBClusterSnapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter must also be specified.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterSnapshotIdentifier?: string;
-
-  /**
-   * @public
-   * <p>The type of DB cluster snapshots to be returned. You can specify one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>automated</code> - Return all DB cluster snapshots that have been automatically taken by
-   *               Amazon RDS for my Amazon Web Services account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>manual</code> - Return all DB cluster snapshots that have been taken by my Amazon Web Services account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>shared</code> - Return all manual DB cluster snapshots that have been shared to my Amazon Web Services account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>public</code> - Return all DB cluster snapshots that have been marked as public.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual DB cluster snapshots are
-   *           returned. You can include shared DB cluster snapshots with these results by enabling the <code>IncludeShared</code>
-   *           parameter. You can include public DB cluster snapshots with these results by enabling the
-   *           <code>IncludePublic</code> parameter.</p>
-   *          <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply for <code>SnapshotType</code> values
-   *           of <code>manual</code> or <code>automated</code>. The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is
-   *           set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when <code>SnapshotType</code> is set to
-   *           <code>public</code>.</p>
-   */
-  SnapshotType?: string;
-
-  /**
-   * @public
-   * <p>A filter that specifies one or more DB cluster snapshots to describe.</p>
-   *          <p>Supported filters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
-   *               cluster Amazon Resource Names (ARNs).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>db-cluster-snapshot-id</code> - Accepts DB cluster snapshot identifiers.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>snapshot-type</code> - Accepts types of DB cluster snapshots.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>engine</code> - Accepts names of database engines.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response.
-   *             If more records exist than the specified <code>MaxRecords</code> value,
-   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeDBClusterSnapshots</code> request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>Specifies whether to include shared manual DB cluster snapshots
-   *             from other Amazon Web Services accounts that this Amazon Web Services account has been given
-   *             permission to copy or restore. By default, these snapshots are not included.</p>
-   *          <p>You can give an Amazon Web Services account permission to restore a manual DB cluster snapshot from
-   *             another Amazon Web Services account by the <code>ModifyDBClusterSnapshotAttribute</code> API action.</p>
-   */
-  IncludeShared?: boolean;
-
-  /**
-   * @public
-   * <p>Specifies whether to include manual DB cluster snapshots that are public and can be copied
-   *             or restored by any Amazon Web Services account. By default, the public snapshots are not included.</p>
-   *          <p>You can share a manual DB cluster snapshot  as public by using the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
-   */
-  IncludePublic?: boolean;
-
-  /**
-   * @public
-   * <p>A specific DB cluster resource ID to describe.</p>
-   */
-  DbClusterResourceId?: string;
-}
-
-/**
- * @public
- * <p>Contains the result of a successful invocation of the <code>DescribeDBEngineVersions</code> action.</p>
- */
-export interface DBEngineVersionMessage {
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>DBEngineVersion</code> elements.</p>
-   */
-  DBEngineVersions?: DBEngineVersion[];
 }

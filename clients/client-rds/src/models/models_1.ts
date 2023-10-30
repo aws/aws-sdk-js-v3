@@ -10,7 +10,8 @@ import {
   BlueGreenDeployment,
   Certificate,
   DBCluster,
-  DBClusterSnapshotAttributesResult,
+  DBClusterSnapshot,
+  DBEngineVersion,
   DBInstance,
   DBInstanceAutomatedBackup,
   DBParameterGroup,
@@ -24,6 +25,7 @@ import {
   ExportTask,
   Filter,
   GlobalCluster,
+  Integration,
   OptionGroup,
   OptionSetting,
   Parameter,
@@ -36,6 +38,440 @@ import {
   UserAuthConfig,
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeDBClusterParametersMessage {
+  /**
+   * @public
+   * <p>The name of a specific DB cluster parameter group to return parameter details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterParameterGroupName: string | undefined;
+
+  /**
+   * @public
+   * <p>A specific source to return parameters for.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>customer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Source?: string;
+
+  /**
+   * @public
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response.
+   *       If more records exist than the specified <code>MaxRecords</code> value,
+   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous
+   *       <code>DescribeDBClusterParameters</code> request.
+   *       If this parameter is specified, the response includes
+   *       only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBClusters</code> action.</p>
+ */
+export interface DBClusterMessage {
+  /**
+   * @public
+   * <p>A pagination token that can be used in a later <code>DescribeDBClusters</code> request.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>Contains a list of DB clusters for the user.</p>
+   */
+  DBClusters?: DBCluster[];
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeDBClustersMessage {
+  /**
+   * @public
+   * <p>The user-supplied DB cluster identifier or the Amazon Resource Name (ARN) of the DB cluster. If this parameter is specified,
+   *             information for only the specific DB cluster is returned. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match an existing DB cluster identifier.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>A filter that specifies one or more DB clusters to describe.</p>
+   *          <p>Supported Filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>clone-group-id</code> - Accepts clone group identifiers.
+   *               The results list only includes information about
+   *               the DB clusters associated with these clone groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
+   *               cluster Amazon Resource Names (ARNs). The results list only includes information about
+   *               the DB clusters identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-resource-id</code> - Accepts DB cluster resource identifiers.
+   *                     The results list will only include information about the DB clusters identified
+   *                     by these DB cluster resource identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>domain</code> - Accepts Active Directory directory IDs.
+   *               The results list only includes information about
+   *               the DB clusters associated with these domains.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine</code> - Accepts engine names.
+   *               The results list only includes information about
+   *               the DB clusters for these engines.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeDBClusters</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether the output includes information about clusters
+   *           shared from other Amazon Web Services accounts.</p>
+   */
+  IncludeShared?: boolean;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeDBClusterSnapshotAttributesMessage {
+  /**
+   * @public
+   * <p>The identifier for the DB cluster snapshot to describe the attributes for.</p>
+   */
+  DBClusterSnapshotIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the name and values of a manual DB cluster snapshot attribute.</p>
+ *          <p>Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts
+ *             to restore a manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code>
+ *             API action.</p>
+ */
+export interface DBClusterSnapshotAttribute {
+  /**
+   * @public
+   * <p>The name of the manual DB cluster snapshot attribute.</p>
+   *          <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that
+   *             have permission to copy or restore the manual DB cluster snapshot. For more information,
+   *             see the <code>ModifyDBClusterSnapshotAttribute</code>
+   *             API action.</p>
+   */
+  AttributeName?: string;
+
+  /**
+   * @public
+   * <p>The value(s) for the manual DB cluster snapshot attribute.</p>
+   *          <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element
+   *             returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual
+   *             DB cluster snapshot. If a value of <code>all</code> is in the list, then the manual DB cluster snapshot
+   *             is public and available for any Amazon Web Services account to copy or restore.</p>
+   */
+  AttributeValues?: string[];
+}
+
+/**
+ * @public
+ * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
+ *             API action.</p>
+ *          <p>Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts
+ *             to copy or restore a manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code>
+ *             API action.</p>
+ */
+export interface DBClusterSnapshotAttributesResult {
+  /**
+   * @public
+   * <p>The identifier of the manual DB cluster snapshot that the attributes apply to.</p>
+   */
+  DBClusterSnapshotIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The list of attributes and values for the manual DB cluster snapshot.</p>
+   */
+  DBClusterSnapshotAttributes?: DBClusterSnapshotAttribute[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBClusterSnapshotAttributesResult {
+  /**
+   * @public
+   * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
+   *             API action.</p>
+   *          <p>Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts
+   *             to copy or restore a manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code>
+   *             API action.</p>
+   */
+  DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult;
+}
+
+/**
+ * @public
+ * <p>Provides a list of DB cluster snapshots for the user as the result of a call to the <code>DescribeDBClusterSnapshots</code> action.</p>
+ */
+export interface DBClusterSnapshotMessage {
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous
+   *           <code>DescribeDBClusterSnapshots</code> request.
+   *       If this parameter is specified, the response includes
+   *       only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>Provides a list of DB cluster snapshots for the user.</p>
+   */
+  DBClusterSnapshots?: DBClusterSnapshot[];
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeDBClusterSnapshotsMessage {
+  /**
+   * @public
+   * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for.
+   *             This parameter can't be used in conjunction with the
+   *             <code>DBClusterSnapshotIdentifier</code> parameter.
+   *             This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DBCluster.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>A specific DB cluster snapshot identifier to describe.
+   *             This parameter can't be used in conjunction with the
+   *             <code>DBClusterIdentifier</code> parameter.
+   *             This value is stored as a lowercase string.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DBClusterSnapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter must also be specified.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterSnapshotIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The type of DB cluster snapshots to be returned. You can specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>automated</code> - Return all DB cluster snapshots that have been automatically taken by
+   *               Amazon RDS for my Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>manual</code> - Return all DB cluster snapshots that have been taken by my Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>shared</code> - Return all manual DB cluster snapshots that have been shared to my Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public</code> - Return all DB cluster snapshots that have been marked as public.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual DB cluster snapshots are
+   *           returned. You can include shared DB cluster snapshots with these results by enabling the <code>IncludeShared</code>
+   *           parameter. You can include public DB cluster snapshots with these results by enabling the
+   *           <code>IncludePublic</code> parameter.</p>
+   *          <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply for <code>SnapshotType</code> values
+   *           of <code>manual</code> or <code>automated</code>. The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is
+   *           set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when <code>SnapshotType</code> is set to
+   *           <code>public</code>.</p>
+   */
+  SnapshotType?: string;
+
+  /**
+   * @public
+   * <p>A filter that specifies one or more DB cluster snapshots to describe.</p>
+   *          <p>Supported filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
+   *               cluster Amazon Resource Names (ARNs).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-snapshot-id</code> - Accepts DB cluster snapshot identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-type</code> - Accepts types of DB cluster snapshots.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine</code> - Accepts names of database engines.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeDBClusterSnapshots</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether to include shared manual DB cluster snapshots
+   *             from other Amazon Web Services accounts that this Amazon Web Services account has been given
+   *             permission to copy or restore. By default, these snapshots are not included.</p>
+   *          <p>You can give an Amazon Web Services account permission to restore a manual DB cluster snapshot from
+   *             another Amazon Web Services account by the <code>ModifyDBClusterSnapshotAttribute</code> API action.</p>
+   */
+  IncludeShared?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether to include manual DB cluster snapshots that are public and can be copied
+   *             or restored by any Amazon Web Services account. By default, the public snapshots are not included.</p>
+   *          <p>You can share a manual DB cluster snapshot  as public by using the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
+   */
+  IncludePublic?: boolean;
+
+  /**
+   * @public
+   * <p>A specific DB cluster resource ID to describe.</p>
+   */
+  DbClusterResourceId?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBEngineVersions</code> action.</p>
+ */
+export interface DBEngineVersionMessage {
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>DBEngineVersion</code> elements.</p>
+   */
+  DBEngineVersions?: DBEngineVersion[];
+}
 
 /**
  * @public
@@ -2421,6 +2857,59 @@ export interface GlobalClustersMessage {
    * <p>The list of global clusters returned by this request.</p>
    */
   GlobalClusters?: GlobalCluster[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeIntegrationsMessage {
+  /**
+   * @public
+   * <p>The unique identifier of the integration.</p>
+   */
+  IntegrationIdentifier?: string;
+
+  /**
+   * @public
+   * <p>A filter that specifies one or more resources to return.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response. If more records exist than
+   *             the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *             included in the response so that you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous <code>DescribeIntegrations</code>
+   *             request. If this parameter is specified, the response includes only records beyond the
+   *             marker, up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIntegrationsResponse {
+  /**
+   * @public
+   * <p>A pagination token that can be used in a later <code>DescribeIntegrations</code>
+   *             request.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>A list of integrations.</p>
+   */
+  Integrations?: Integration[];
 }
 
 /**

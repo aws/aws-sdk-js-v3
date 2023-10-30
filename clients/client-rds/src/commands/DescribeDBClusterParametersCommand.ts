@@ -14,7 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DBClusterParameterGroupDetails, DescribeDBClusterParametersMessage } from "../models/models_0";
+import { DBClusterParameterGroupDetails } from "../models/models_0";
+import { DescribeDBClusterParametersMessage } from "../models/models_1";
 import { de_DescribeDBClusterParametersCommand, se_DescribeDBClusterParametersCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 

@@ -14,8 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DBEngineVersionMessage } from "../models/models_0";
-import { DescribeDBEngineVersionsMessage } from "../models/models_1";
+import { DBEngineVersionMessage, DescribeDBEngineVersionsMessage } from "../models/models_1";
 import { de_DescribeDBEngineVersionsCommand, se_DescribeDBEngineVersionsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -110,6 +109,7 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * //           SupportsGlobalDatabases: true || false,
  * //           SupportsBabelfish: true || false,
  * //           SupportsLocalWriteForwarding: true || false,
+ * //           SupportsIntegrations: true || false,
  * //         },
  * //       ],
  * //       SupportedTimezones: [ // SupportedTimezonesList
@@ -150,6 +150,7 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * //         "STRING_VALUE",
  * //       ],
  * //       SupportsLocalWriteForwarding: true || false,
+ * //       SupportsIntegrations: true || false,
  * //     },
  * //   ],
  * // };

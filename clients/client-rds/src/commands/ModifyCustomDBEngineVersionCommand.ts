@@ -104,6 +104,7 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //       SupportsGlobalDatabases: true || false,
  * //       SupportsBabelfish: true || false,
  * //       SupportsLocalWriteForwarding: true || false,
+ * //       SupportsIntegrations: true || false,
  * //     },
  * //   ],
  * //   SupportedTimezones: [ // SupportedTimezonesList
@@ -144,6 +145,7 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     "STRING_VALUE",
  * //   ],
  * //   SupportsLocalWriteForwarding: true || false,
+ * //   SupportsIntegrations: true || false,
  * // };
  *
  * ```

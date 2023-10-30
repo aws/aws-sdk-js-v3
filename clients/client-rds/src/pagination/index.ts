@@ -36,6 +36,7 @@ export * from "./DescribeEventSubscriptionsPaginator";
 export * from "./DescribeEventsPaginator";
 export * from "./DescribeExportTasksPaginator";
 export * from "./DescribeGlobalClustersPaginator";
+export * from "./DescribeIntegrationsPaginator";
 export * from "./DescribeOptionGroupOptionsPaginator";
 export * from "./DescribeOptionGroupsPaginator";
 export * from "./DescribeOrderableDBInstanceOptionsPaginator";

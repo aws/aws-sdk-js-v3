@@ -136,6 +136,7 @@ import {
   CreateGlobalClusterCommandInput,
   CreateGlobalClusterCommandOutput,
 } from "./commands/CreateGlobalClusterCommand";
+import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "./commands/CreateIntegrationCommand";
 import { CreateOptionGroupCommandInput, CreateOptionGroupCommandOutput } from "./commands/CreateOptionGroupCommand";
 import {
   DeleteBlueGreenDeploymentCommandInput,
@@ -193,6 +194,7 @@ import {
   DeleteGlobalClusterCommandInput,
   DeleteGlobalClusterCommandOutput,
 } from "./commands/DeleteGlobalClusterCommand";
+import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
 import { DeleteOptionGroupCommandInput, DeleteOptionGroupCommandOutput } from "./commands/DeleteOptionGroupCommand";
 import {
   DeregisterDBProxyTargetsCommandInput,
@@ -314,6 +316,10 @@ import {
   DescribeGlobalClustersCommandInput,
   DescribeGlobalClustersCommandOutput,
 } from "./commands/DescribeGlobalClustersCommand";
+import {
+  DescribeIntegrationsCommandInput,
+  DescribeIntegrationsCommandOutput,
+} from "./commands/DescribeIntegrationsCommand";
 import {
   DescribeOptionGroupOptionsCommandInput,
   DescribeOptionGroupOptionsCommandOutput,
@@ -562,6 +568,7 @@ export type ServiceInputTypes =
   | CreateDBSubnetGroupCommandInput
   | CreateEventSubscriptionCommandInput
   | CreateGlobalClusterCommandInput
+  | CreateIntegrationCommandInput
   | CreateOptionGroupCommandInput
   | DeleteBlueGreenDeploymentCommandInput
   | DeleteCustomDBEngineVersionCommandInput
@@ -580,6 +587,7 @@ export type ServiceInputTypes =
   | DeleteDBSubnetGroupCommandInput
   | DeleteEventSubscriptionCommandInput
   | DeleteGlobalClusterCommandInput
+  | DeleteIntegrationCommandInput
   | DeleteOptionGroupCommandInput
   | DeregisterDBProxyTargetsCommandInput
   | DescribeAccountAttributesCommandInput
@@ -614,6 +622,7 @@ export type ServiceInputTypes =
   | DescribeEventsCommandInput
   | DescribeExportTasksCommandInput
   | DescribeGlobalClustersCommandInput
+  | DescribeIntegrationsCommandInput
   | DescribeOptionGroupOptionsCommandInput
   | DescribeOptionGroupsCommandInput
   | DescribeOrderableDBInstanceOptionsCommandInput
@@ -711,6 +720,7 @@ export type ServiceOutputTypes =
   | CreateDBSubnetGroupCommandOutput
   | CreateEventSubscriptionCommandOutput
   | CreateGlobalClusterCommandOutput
+  | CreateIntegrationCommandOutput
   | CreateOptionGroupCommandOutput
   | DeleteBlueGreenDeploymentCommandOutput
   | DeleteCustomDBEngineVersionCommandOutput
@@ -729,6 +739,7 @@ export type ServiceOutputTypes =
   | DeleteDBSubnetGroupCommandOutput
   | DeleteEventSubscriptionCommandOutput
   | DeleteGlobalClusterCommandOutput
+  | DeleteIntegrationCommandOutput
   | DeleteOptionGroupCommandOutput
   | DeregisterDBProxyTargetsCommandOutput
   | DescribeAccountAttributesCommandOutput
@@ -763,6 +774,7 @@ export type ServiceOutputTypes =
   | DescribeEventsCommandOutput
   | DescribeExportTasksCommandOutput
   | DescribeGlobalClustersCommandOutput
+  | DescribeIntegrationsCommandOutput
   | DescribeOptionGroupOptionsCommandOutput
   | DescribeOptionGroupsCommandOutput
   | DescribeOrderableDBInstanceOptionsCommandOutput

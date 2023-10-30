@@ -111,6 +111,7 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //       SupportsGlobalDatabases: true || false,
  * //       SupportsBabelfish: true || false,
  * //       SupportsLocalWriteForwarding: true || false,
+ * //       SupportsIntegrations: true || false,
  * //     },
  * //   ],
  * //   SupportedTimezones: [ // SupportedTimezonesList
@@ -151,6 +152,7 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     "STRING_VALUE",
  * //   ],
  * //   SupportsLocalWriteForwarding: true || false,
+ * //   SupportsIntegrations: true || false,
  * // };
  *
  * ```
