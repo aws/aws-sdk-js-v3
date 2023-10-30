@@ -28,6 +28,10 @@ import {
   ConvertRecoveryPointToSnapshotCommandOutput,
 } from "../commands/ConvertRecoveryPointToSnapshotCommand";
 import {
+  CreateCustomDomainAssociationCommandInput,
+  CreateCustomDomainAssociationCommandOutput,
+} from "../commands/CreateCustomDomainAssociationCommand";
+import {
   CreateEndpointAccessCommandInput,
   CreateEndpointAccessCommandOutput,
 } from "../commands/CreateEndpointAccessCommand";
@@ -35,6 +39,10 @@ import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "../co
 import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "../commands/CreateSnapshotCommand";
 import { CreateUsageLimitCommandInput, CreateUsageLimitCommandOutput } from "../commands/CreateUsageLimitCommand";
 import { CreateWorkgroupCommandInput, CreateWorkgroupCommandOutput } from "../commands/CreateWorkgroupCommand";
+import {
+  DeleteCustomDomainAssociationCommandInput,
+  DeleteCustomDomainAssociationCommandOutput,
+} from "../commands/DeleteCustomDomainAssociationCommand";
 import {
   DeleteEndpointAccessCommandInput,
   DeleteEndpointAccessCommandOutput,
@@ -48,6 +56,10 @@ import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "../comm
 import { DeleteUsageLimitCommandInput, DeleteUsageLimitCommandOutput } from "../commands/DeleteUsageLimitCommand";
 import { DeleteWorkgroupCommandInput, DeleteWorkgroupCommandOutput } from "../commands/DeleteWorkgroupCommand";
 import { GetCredentialsCommandInput, GetCredentialsCommandOutput } from "../commands/GetCredentialsCommand";
+import {
+  GetCustomDomainAssociationCommandInput,
+  GetCustomDomainAssociationCommandOutput,
+} from "../commands/GetCustomDomainAssociationCommand";
 import { GetEndpointAccessCommandInput, GetEndpointAccessCommandOutput } from "../commands/GetEndpointAccessCommand";
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "../commands/GetNamespaceCommand";
 import { GetRecoveryPointCommandInput, GetRecoveryPointCommandOutput } from "../commands/GetRecoveryPointCommand";
@@ -59,6 +71,10 @@ import {
 } from "../commands/GetTableRestoreStatusCommand";
 import { GetUsageLimitCommandInput, GetUsageLimitCommandOutput } from "../commands/GetUsageLimitCommand";
 import { GetWorkgroupCommandInput, GetWorkgroupCommandOutput } from "../commands/GetWorkgroupCommand";
+import {
+  ListCustomDomainAssociationsCommandInput,
+  ListCustomDomainAssociationsCommandOutput,
+} from "../commands/ListCustomDomainAssociationsCommand";
 import { ListEndpointAccessCommandInput, ListEndpointAccessCommandOutput } from "../commands/ListEndpointAccessCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "../commands/ListNamespacesCommand";
 import { ListRecoveryPointsCommandInput, ListRecoveryPointsCommandOutput } from "../commands/ListRecoveryPointsCommand";
@@ -89,6 +105,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateCustomDomainAssociationCommandInput,
+  UpdateCustomDomainAssociationCommandOutput,
+} from "../commands/UpdateCustomDomainAssociationCommand";
+import {
   UpdateEndpointAccessCommandInput,
   UpdateEndpointAccessCommandOutput,
 } from "../commands/UpdateEndpointAccessCommand";
@@ -98,10 +118,13 @@ import { UpdateUsageLimitCommandInput, UpdateUsageLimitCommandOutput } from "../
 import { UpdateWorkgroupCommandInput, UpdateWorkgroupCommandOutput } from "../commands/UpdateWorkgroupCommand";
 import {
   AccessDeniedException,
+  Association,
   ConfigParameter,
   ConflictException,
   ConvertRecoveryPointToSnapshotRequest,
   ConvertRecoveryPointToSnapshotResponse,
+  CreateCustomDomainAssociationRequest,
+  CreateCustomDomainAssociationResponse,
   CreateEndpointAccessRequest,
   CreateEndpointAccessResponse,
   CreateNamespaceRequest,
@@ -111,6 +134,7 @@ import {
   CreateUsageLimitRequest,
   CreateWorkgroupRequest,
   CreateWorkgroupResponse,
+  DeleteCustomDomainAssociationRequest,
   DeleteEndpointAccessRequest,
   DeleteEndpointAccessResponse,
   DeleteNamespaceRequest,
@@ -124,6 +148,8 @@ import {
   EndpointAccess,
   GetCredentialsRequest,
   GetCredentialsResponse,
+  GetCustomDomainAssociationRequest,
+  GetCustomDomainAssociationResponse,
   GetEndpointAccessRequest,
   GetEndpointAccessResponse,
   GetNamespaceRequest,
@@ -141,6 +167,8 @@ import {
   InsufficientCapacityException,
   InternalServerException,
   InvalidPaginationException,
+  ListCustomDomainAssociationsRequest,
+  ListCustomDomainAssociationsResponse,
   ListEndpointAccessRequest,
   ListEndpointAccessResponse,
   ListNamespacesRequest,
@@ -174,6 +202,8 @@ import {
   ThrottlingException,
   TooManyTagsException,
   UntagResourceRequest,
+  UpdateCustomDomainAssociationRequest,
+  UpdateCustomDomainAssociationResponse,
   UpdateEndpointAccessRequest,
   UpdateEndpointAccessResponse,
   UpdateNamespaceRequest,
@@ -196,6 +226,19 @@ export const se_ConvertRecoveryPointToSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ConvertRecoveryPointToSnapshot");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateCustomDomainAssociationCommand
+ */
+export const se_CreateCustomDomainAssociationCommand = async (
+  input: CreateCustomDomainAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateCustomDomainAssociation");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -261,6 +304,19 @@ export const se_CreateWorkgroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateWorkgroup");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteCustomDomainAssociationCommand
+ */
+export const se_DeleteCustomDomainAssociationCommand = async (
+  input: DeleteCustomDomainAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteCustomDomainAssociation");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -352,6 +408,19 @@ export const se_GetCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCredentials");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetCustomDomainAssociationCommand
+ */
+export const se_GetCustomDomainAssociationCommand = async (
+  input: GetCustomDomainAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetCustomDomainAssociation");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -456,6 +525,19 @@ export const se_GetWorkgroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetWorkgroup");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListCustomDomainAssociationsCommand
+ */
+export const se_ListCustomDomainAssociationsCommand = async (
+  input: ListCustomDomainAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListCustomDomainAssociations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -644,6 +726,19 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateCustomDomainAssociationCommand
+ */
+export const se_UpdateCustomDomainAssociationCommand = async (
+  input: UpdateCustomDomainAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateCustomDomainAssociation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UpdateEndpointAccessCommand
  */
 export const se_UpdateEndpointAccessCommand = async (
@@ -756,6 +851,67 @@ const de_ConvertRecoveryPointToSnapshotCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.redshiftserverless#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateCustomDomainAssociationCommand
+ */
+export const de_CreateCustomDomainAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomDomainAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateCustomDomainAssociationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateCustomDomainAssociationResponse(data, context);
+  const response: CreateCustomDomainAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateCustomDomainAssociationCommandError
+ */
+const de_CreateCustomDomainAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomDomainAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.redshiftserverless#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.redshiftserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.redshiftserverless#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1052,6 +1208,67 @@ const de_CreateWorkgroupCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.redshiftserverless#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteCustomDomainAssociationCommand
+ */
+export const de_DeleteCustomDomainAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomDomainAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteCustomDomainAssociationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteCustomDomainAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteCustomDomainAssociationCommandError
+ */
+const de_DeleteCustomDomainAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomDomainAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.redshiftserverless#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.redshiftserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.redshiftserverless#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1431,6 +1648,67 @@ const de_GetCredentialsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetCustomDomainAssociationCommand
+ */
+export const de_GetCustomDomainAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCustomDomainAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetCustomDomainAssociationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetCustomDomainAssociationResponse(data, context);
+  const response: GetCustomDomainAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetCustomDomainAssociationCommandError
+ */
+const de_GetCustomDomainAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCustomDomainAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.redshiftserverless#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.redshiftserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.redshiftserverless#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1853,6 +2131,64 @@ const de_GetWorkgroupCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListCustomDomainAssociationsCommand
+ */
+export const de_ListCustomDomainAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomDomainAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListCustomDomainAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListCustomDomainAssociationsResponse(data, context);
+  const response: ListCustomDomainAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCustomDomainAssociationsCommandError
+ */
+const de_ListCustomDomainAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomDomainAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.redshiftserverless#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidPaginationException":
+    case "com.amazonaws.redshiftserverless#InvalidPaginationException":
+      throw await de_InvalidPaginationExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.redshiftserverless#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -2625,6 +2961,67 @@ const de_UntagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateCustomDomainAssociationCommand
+ */
+export const de_UpdateCustomDomainAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomDomainAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateCustomDomainAssociationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateCustomDomainAssociationResponse(data, context);
+  const response: UpdateCustomDomainAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateCustomDomainAssociationCommandError
+ */
+const de_UpdateCustomDomainAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomDomainAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.redshiftserverless#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.redshiftserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.redshiftserverless#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.redshiftserverless#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.redshiftserverless#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateEndpointAccessCommand
  */
 export const de_UpdateEndpointAccessCommand = async (
@@ -3062,6 +3459,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ConvertRecoveryPointToSnapshotRequest omitted.
 
+// se_CreateCustomDomainAssociationRequest omitted.
+
 // se_CreateEndpointAccessRequest omitted.
 
 // se_CreateNamespaceRequest omitted.
@@ -3071,6 +3470,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_CreateUsageLimitRequest omitted.
 
 // se_CreateWorkgroupRequest omitted.
+
+// se_DeleteCustomDomainAssociationRequest omitted.
 
 // se_DeleteEndpointAccessRequest omitted.
 
@@ -3085,6 +3486,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_DeleteWorkgroupRequest omitted.
 
 // se_GetCredentialsRequest omitted.
+
+// se_GetCustomDomainAssociationRequest omitted.
 
 // se_GetEndpointAccessRequest omitted.
 
@@ -3103,6 +3506,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_GetWorkgroupRequest omitted.
 
 // se_IamRoleArnList omitted.
+
+// se_ListCustomDomainAssociationsRequest omitted.
 
 // se_ListEndpointAccessRequest omitted.
 
@@ -3169,6 +3574,8 @@ const se_ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeCo
 
 // se_UntagResourceRequest omitted.
 
+// se_UpdateCustomDomainAssociationRequest omitted.
+
 // se_UpdateEndpointAccessRequest omitted.
 
 // se_UpdateNamespaceRequest omitted.
@@ -3185,6 +3592,30 @@ const se_ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeCo
 
 // de_AccountIdList omitted.
 
+/**
+ * deserializeAws_json1_1Association
+ */
+const de_Association = (output: any, context: __SerdeContext): Association => {
+  return take(output, {
+    customDomainCertificateArn: __expectString,
+    customDomainCertificateExpiryTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customDomainName: __expectString,
+    workgroupName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1AssociationList
+ */
+const de_AssociationList = (output: any, context: __SerdeContext): Association[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Association(entry, context);
+    });
+  return retVal;
+};
+
 // de_ConfigParameter omitted.
 
 // de_ConfigParameterList omitted.
@@ -3200,6 +3631,21 @@ const de_ConvertRecoveryPointToSnapshotResponse = (
 ): ConvertRecoveryPointToSnapshotResponse => {
   return take(output, {
     snapshot: (_: any) => de_Snapshot(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CreateCustomDomainAssociationResponse
+ */
+const de_CreateCustomDomainAssociationResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateCustomDomainAssociationResponse => {
+  return take(output, {
+    customDomainCertificateArn: __expectString,
+    customDomainCertificateExpiryTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customDomainName: __expectString,
+    workgroupName: __expectString,
   }) as any;
 };
 
@@ -3240,6 +3686,8 @@ const de_CreateWorkgroupResponse = (output: any, context: __SerdeContext): Creat
     workgroup: (_: any) => de_Workgroup(_, context),
   }) as any;
 };
+
+// de_DeleteCustomDomainAssociationResponse omitted.
 
 /**
  * deserializeAws_json1_1DeleteEndpointAccessResponse
@@ -3326,6 +3774,21 @@ const de_GetCredentialsResponse = (output: any, context: __SerdeContext): GetCre
 };
 
 /**
+ * deserializeAws_json1_1GetCustomDomainAssociationResponse
+ */
+const de_GetCustomDomainAssociationResponse = (
+  output: any,
+  context: __SerdeContext
+): GetCustomDomainAssociationResponse => {
+  return take(output, {
+    customDomainCertificateArn: __expectString,
+    customDomainCertificateExpiryTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customDomainName: __expectString,
+    workgroupName: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1GetEndpointAccessResponse
  */
 const de_GetEndpointAccessResponse = (output: any, context: __SerdeContext): GetEndpointAccessResponse => {
@@ -3390,6 +3853,19 @@ const de_GetWorkgroupResponse = (output: any, context: __SerdeContext): GetWorkg
 // de_InternalServerException omitted.
 
 // de_InvalidPaginationException omitted.
+
+/**
+ * deserializeAws_json1_1ListCustomDomainAssociationsResponse
+ */
+const de_ListCustomDomainAssociationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListCustomDomainAssociationsResponse => {
+  return take(output, {
+    associations: (_: any) => de_AssociationList(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1ListEndpointAccessResponse
@@ -3658,6 +4134,21 @@ const de_TableRestoreStatusList = (output: any, context: __SerdeContext): TableR
 // de_UntagResourceResponse omitted.
 
 /**
+ * deserializeAws_json1_1UpdateCustomDomainAssociationResponse
+ */
+const de_UpdateCustomDomainAssociationResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateCustomDomainAssociationResponse => {
+  return take(output, {
+    customDomainCertificateArn: __expectString,
+    customDomainCertificateExpiryTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customDomainName: __expectString,
+    workgroupName: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1UpdateEndpointAccessResponse
  */
 const de_UpdateEndpointAccessResponse = (output: any, context: __SerdeContext): UpdateEndpointAccessResponse => {
@@ -3717,6 +4208,9 @@ const de_Workgroup = (output: any, context: __SerdeContext): Workgroup => {
     baseCapacity: __expectInt32,
     configParameters: _json,
     creationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customDomainCertificateArn: __expectString,
+    customDomainCertificateExpiryTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customDomainName: __expectString,
     endpoint: _json,
     enhancedVpcRouting: __expectBoolean,
     namespaceName: __expectString,

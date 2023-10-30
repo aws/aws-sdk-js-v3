@@ -55,6 +55,10 @@ import {
   ConvertRecoveryPointToSnapshotCommandOutput,
 } from "./commands/ConvertRecoveryPointToSnapshotCommand";
 import {
+  CreateCustomDomainAssociationCommandInput,
+  CreateCustomDomainAssociationCommandOutput,
+} from "./commands/CreateCustomDomainAssociationCommand";
+import {
   CreateEndpointAccessCommandInput,
   CreateEndpointAccessCommandOutput,
 } from "./commands/CreateEndpointAccessCommand";
@@ -62,6 +66,10 @@ import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./com
 import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
 import { CreateUsageLimitCommandInput, CreateUsageLimitCommandOutput } from "./commands/CreateUsageLimitCommand";
 import { CreateWorkgroupCommandInput, CreateWorkgroupCommandOutput } from "./commands/CreateWorkgroupCommand";
+import {
+  DeleteCustomDomainAssociationCommandInput,
+  DeleteCustomDomainAssociationCommandOutput,
+} from "./commands/DeleteCustomDomainAssociationCommand";
 import {
   DeleteEndpointAccessCommandInput,
   DeleteEndpointAccessCommandOutput,
@@ -75,6 +83,10 @@ import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./comma
 import { DeleteUsageLimitCommandInput, DeleteUsageLimitCommandOutput } from "./commands/DeleteUsageLimitCommand";
 import { DeleteWorkgroupCommandInput, DeleteWorkgroupCommandOutput } from "./commands/DeleteWorkgroupCommand";
 import { GetCredentialsCommandInput, GetCredentialsCommandOutput } from "./commands/GetCredentialsCommand";
+import {
+  GetCustomDomainAssociationCommandInput,
+  GetCustomDomainAssociationCommandOutput,
+} from "./commands/GetCustomDomainAssociationCommand";
 import { GetEndpointAccessCommandInput, GetEndpointAccessCommandOutput } from "./commands/GetEndpointAccessCommand";
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
 import { GetRecoveryPointCommandInput, GetRecoveryPointCommandOutput } from "./commands/GetRecoveryPointCommand";
@@ -86,6 +98,10 @@ import {
 } from "./commands/GetTableRestoreStatusCommand";
 import { GetUsageLimitCommandInput, GetUsageLimitCommandOutput } from "./commands/GetUsageLimitCommand";
 import { GetWorkgroupCommandInput, GetWorkgroupCommandOutput } from "./commands/GetWorkgroupCommand";
+import {
+  ListCustomDomainAssociationsCommandInput,
+  ListCustomDomainAssociationsCommandOutput,
+} from "./commands/ListCustomDomainAssociationsCommand";
 import { ListEndpointAccessCommandInput, ListEndpointAccessCommandOutput } from "./commands/ListEndpointAccessCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import { ListRecoveryPointsCommandInput, ListRecoveryPointsCommandOutput } from "./commands/ListRecoveryPointsCommand";
@@ -116,6 +132,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
+  UpdateCustomDomainAssociationCommandInput,
+  UpdateCustomDomainAssociationCommandOutput,
+} from "./commands/UpdateCustomDomainAssociationCommand";
+import {
   UpdateEndpointAccessCommandInput,
   UpdateEndpointAccessCommandOutput,
 } from "./commands/UpdateEndpointAccessCommand";
@@ -139,11 +159,13 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | ConvertRecoveryPointToSnapshotCommandInput
+  | CreateCustomDomainAssociationCommandInput
   | CreateEndpointAccessCommandInput
   | CreateNamespaceCommandInput
   | CreateSnapshotCommandInput
   | CreateUsageLimitCommandInput
   | CreateWorkgroupCommandInput
+  | DeleteCustomDomainAssociationCommandInput
   | DeleteEndpointAccessCommandInput
   | DeleteNamespaceCommandInput
   | DeleteResourcePolicyCommandInput
@@ -151,6 +173,7 @@ export type ServiceInputTypes =
   | DeleteUsageLimitCommandInput
   | DeleteWorkgroupCommandInput
   | GetCredentialsCommandInput
+  | GetCustomDomainAssociationCommandInput
   | GetEndpointAccessCommandInput
   | GetNamespaceCommandInput
   | GetRecoveryPointCommandInput
@@ -159,6 +182,7 @@ export type ServiceInputTypes =
   | GetTableRestoreStatusCommandInput
   | GetUsageLimitCommandInput
   | GetWorkgroupCommandInput
+  | ListCustomDomainAssociationsCommandInput
   | ListEndpointAccessCommandInput
   | ListNamespacesCommandInput
   | ListRecoveryPointsCommandInput
@@ -173,6 +197,7 @@ export type ServiceInputTypes =
   | RestoreTableFromSnapshotCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateCustomDomainAssociationCommandInput
   | UpdateEndpointAccessCommandInput
   | UpdateNamespaceCommandInput
   | UpdateSnapshotCommandInput
@@ -184,11 +209,13 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | ConvertRecoveryPointToSnapshotCommandOutput
+  | CreateCustomDomainAssociationCommandOutput
   | CreateEndpointAccessCommandOutput
   | CreateNamespaceCommandOutput
   | CreateSnapshotCommandOutput
   | CreateUsageLimitCommandOutput
   | CreateWorkgroupCommandOutput
+  | DeleteCustomDomainAssociationCommandOutput
   | DeleteEndpointAccessCommandOutput
   | DeleteNamespaceCommandOutput
   | DeleteResourcePolicyCommandOutput
@@ -196,6 +223,7 @@ export type ServiceOutputTypes =
   | DeleteUsageLimitCommandOutput
   | DeleteWorkgroupCommandOutput
   | GetCredentialsCommandOutput
+  | GetCustomDomainAssociationCommandOutput
   | GetEndpointAccessCommandOutput
   | GetNamespaceCommandOutput
   | GetRecoveryPointCommandOutput
@@ -204,6 +232,7 @@ export type ServiceOutputTypes =
   | GetTableRestoreStatusCommandOutput
   | GetUsageLimitCommandOutput
   | GetWorkgroupCommandOutput
+  | ListCustomDomainAssociationsCommandOutput
   | ListEndpointAccessCommandOutput
   | ListNamespacesCommandOutput
   | ListRecoveryPointsCommandOutput
@@ -218,6 +247,7 @@ export type ServiceOutputTypes =
   | RestoreTableFromSnapshotCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateCustomDomainAssociationCommandOutput
   | UpdateEndpointAccessCommandOutput
   | UpdateNamespaceCommandOutput
   | UpdateSnapshotCommandOutput

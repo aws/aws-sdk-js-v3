@@ -14,8 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DeleteWorkgroupRequest, DeleteWorkgroupResponse } from "../models/models_0";
-import { de_DeleteWorkgroupCommand, se_DeleteWorkgroupCommand } from "../protocols/Aws_json1_1";
+import { UpdateCustomDomainAssociationRequest, UpdateCustomDomainAssociationResponse } from "../models/models_0";
+import {
+  de_UpdateCustomDomainAssociationCommand,
+  se_UpdateCustomDomainAssociationCommand,
+} from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -29,87 +32,51 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteWorkgroupCommand}.
+ * The input for {@link UpdateCustomDomainAssociationCommand}.
  */
-export interface DeleteWorkgroupCommandInput extends DeleteWorkgroupRequest {}
+export interface UpdateCustomDomainAssociationCommandInput extends UpdateCustomDomainAssociationRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteWorkgroupCommand}.
+ * The output of {@link UpdateCustomDomainAssociationCommand}.
  */
-export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, __MetadataBearer {}
+export interface UpdateCustomDomainAssociationCommandOutput
+  extends UpdateCustomDomainAssociationResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes a workgroup.</p>
+ * <p>Updates an Amazon Redshift Serverless certificate associated with a custom domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, DeleteWorkgroupCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, DeleteWorkgroupCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, UpdateCustomDomainAssociationCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
+ * // const { RedshiftServerlessClient, UpdateCustomDomainAssociationCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = { // DeleteWorkgroupRequest
+ * const input = { // UpdateCustomDomainAssociationRequest
  *   workgroupName: "STRING_VALUE", // required
+ *   customDomainName: "STRING_VALUE", // required
+ *   customDomainCertificateArn: "STRING_VALUE", // required
  * };
- * const command = new DeleteWorkgroupCommand(input);
+ * const command = new UpdateCustomDomainAssociationCommand(input);
  * const response = await client.send(command);
- * // { // DeleteWorkgroupResponse
- * //   workgroup: { // Workgroup
- * //     workgroupId: "STRING_VALUE",
- * //     workgroupArn: "STRING_VALUE",
- * //     workgroupName: "STRING_VALUE",
- * //     namespaceName: "STRING_VALUE",
- * //     baseCapacity: Number("int"),
- * //     enhancedVpcRouting: true || false,
- * //     configParameters: [ // ConfigParameterList
- * //       { // ConfigParameter
- * //         parameterKey: "STRING_VALUE",
- * //         parameterValue: "STRING_VALUE",
- * //       },
- * //     ],
- * //     securityGroupIds: [ // SecurityGroupIdList
- * //       "STRING_VALUE",
- * //     ],
- * //     subnetIds: [ // SubnetIdList
- * //       "STRING_VALUE",
- * //     ],
- * //     status: "STRING_VALUE",
- * //     endpoint: { // Endpoint
- * //       address: "STRING_VALUE",
- * //       port: Number("int"),
- * //       vpcEndpoints: [ // VpcEndpointList
- * //         { // VpcEndpoint
- * //           vpcEndpointId: "STRING_VALUE",
- * //           vpcId: "STRING_VALUE",
- * //           networkInterfaces: [ // NetworkInterfaceList
- * //             { // NetworkInterface
- * //               networkInterfaceId: "STRING_VALUE",
- * //               subnetId: "STRING_VALUE",
- * //               privateIpAddress: "STRING_VALUE",
- * //               availabilityZone: "STRING_VALUE",
- * //             },
- * //           ],
- * //         },
- * //       ],
- * //     },
- * //     publiclyAccessible: true || false,
- * //     creationDate: new Date("TIMESTAMP"),
- * //     port: Number("int"),
- * //     customDomainName: "STRING_VALUE",
- * //     customDomainCertificateArn: "STRING_VALUE",
- * //     customDomainCertificateExpiryTime: new Date("TIMESTAMP"),
- * //     workgroupVersion: "STRING_VALUE",
- * //     patchVersion: "STRING_VALUE",
- * //   },
+ * // { // UpdateCustomDomainAssociationResponse
+ * //   customDomainName: "STRING_VALUE",
+ * //   workgroupName: "STRING_VALUE",
+ * //   customDomainCertificateArn: "STRING_VALUE",
+ * //   customDomainCertificateExpiryTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
  *
- * @param DeleteWorkgroupCommandInput - {@link DeleteWorkgroupCommandInput}
- * @returns {@link DeleteWorkgroupCommandOutput}
- * @see {@link DeleteWorkgroupCommandInput} for command's `input` shape.
- * @see {@link DeleteWorkgroupCommandOutput} for command's `response` shape.
+ * @param UpdateCustomDomainAssociationCommandInput - {@link UpdateCustomDomainAssociationCommandInput}
+ * @returns {@link UpdateCustomDomainAssociationCommandOutput}
+ * @see {@link UpdateCustomDomainAssociationCommandInput} for command's `input` shape.
+ * @see {@link UpdateCustomDomainAssociationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The submitted action has conflicts.</p>
@@ -120,6 +87,9 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
@@ -127,9 +97,9 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
-export class DeleteWorkgroupCommand extends $Command<
-  DeleteWorkgroupCommandInput,
-  DeleteWorkgroupCommandOutput,
+export class UpdateCustomDomainAssociationCommand extends $Command<
+  UpdateCustomDomainAssociationCommandInput,
+  UpdateCustomDomainAssociationCommandOutput,
   RedshiftServerlessClientResolvedConfig
 > {
   // Start section: command_properties
@@ -147,7 +117,7 @@ export class DeleteWorkgroupCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteWorkgroupCommandInput) {
+  constructor(readonly input: UpdateCustomDomainAssociationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -160,17 +130,17 @@ export class DeleteWorkgroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftServerlessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteWorkgroupCommandInput, DeleteWorkgroupCommandOutput> {
+  ): Handler<UpdateCustomDomainAssociationCommandInput, UpdateCustomDomainAssociationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteWorkgroupCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateCustomDomainAssociationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RedshiftServerlessClient";
-    const commandName = "DeleteWorkgroupCommand";
+    const commandName = "UpdateCustomDomainAssociationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -179,7 +149,7 @@ export class DeleteWorkgroupCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServerless",
-        operation: "DeleteWorkgroup",
+        operation: "UpdateCustomDomainAssociation",
       },
     };
     const { requestHandler } = configuration;
@@ -193,15 +163,18 @@ export class DeleteWorkgroupCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteWorkgroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteWorkgroupCommand(input, context);
+  private serialize(input: UpdateCustomDomainAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateCustomDomainAssociationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkgroupCommandOutput> {
-    return de_DeleteWorkgroupCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateCustomDomainAssociationCommandOutput> {
+    return de_UpdateCustomDomainAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

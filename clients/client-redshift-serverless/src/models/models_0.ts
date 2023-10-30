@@ -27,6 +27,36 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * <p>An object that represents the custom domain name association.</p>
+ */
+export interface Association {
+  /**
+   * @public
+   * <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
+   */
+  customDomainCertificateArn?: string;
+
+  /**
+   * @public
+   * <p>The expiration time for the certificate.</p>
+   */
+  customDomainCertificateExpiryTime?: Date;
+
+  /**
+   * @public
+   * <p>The custom domain name associated with the workgroup.</p>
+   */
+  customDomainName?: string;
+
+  /**
+   * @public
+   * <p>The name of the workgroup associated with the database.</p>
+   */
+  workgroupName?: string;
+}
+
+/**
+ * @public
  * <p>An array of key-value pairs to set for advanced control over Amazon Redshift Serverless.</p>
  */
 export interface ConfigParameter {
@@ -395,6 +425,81 @@ export class ValidationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateCustomDomainAssociationRequest {
+  /**
+   * @public
+   * <p>The name of the workgroup associated with the database.</p>
+   */
+  workgroupName: string | undefined;
+
+  /**
+   * @public
+   * <p>The custom domain name to associate with the workgroup.</p>
+   */
+  customDomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
+   */
+  customDomainCertificateArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCustomDomainAssociationResponse {
+  /**
+   * @public
+   * <p>The custom domain name to associate with the workgroup.</p>
+   */
+  customDomainName?: string;
+
+  /**
+   * @public
+   * <p>The name of the workgroup associated with the database.</p>
+   */
+  workgroupName?: string;
+
+  /**
+   * @public
+   * <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
+   */
+  customDomainCertificateArn?: string;
+
+  /**
+   * @public
+   * <p>The expiration time for the certificate.</p>
+   */
+  customDomainCertificateExpiryTime?: Date;
+}
+
+/**
+ * @public
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
+  code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.code = opts.code;
   }
 }
 
@@ -1174,6 +1279,24 @@ export interface Workgroup {
 
   /**
    * @public
+   * <p>The custom domain name associated with the workgroup.</p>
+   */
+  customDomainName?: string;
+
+  /**
+   * @public
+   * <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
+   */
+  customDomainCertificateArn?: string;
+
+  /**
+   * @public
+   * <p>The expiration time for the certificate.</p>
+   */
+  customDomainCertificateExpiryTime?: Date;
+
+  /**
+   * @public
    * <p>The Amazon Redshift Serverless version of your workgroup. For more information about Amazon Redshift Serverless versions, see<a href="https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html">Cluster versions for Amazon Redshift</a>.</p>
    */
   workgroupVersion?: string;
@@ -1344,6 +1467,28 @@ export interface UpdateEndpointAccessResponse {
 /**
  * @public
  */
+export interface DeleteCustomDomainAssociationRequest {
+  /**
+   * @public
+   * <p>The name of the workgroup associated with the database.</p>
+   */
+  workgroupName: string | undefined;
+
+  /**
+   * @public
+   * <p>The custom domain name associated with the workgroup.</p>
+   */
+  customDomainName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCustomDomainAssociationResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteNamespaceRequest {
   /**
    * @public
@@ -1463,12 +1608,6 @@ export interface DeleteWorkgroupResponse {
 export interface GetCredentialsRequest {
   /**
    * @public
-   * <p>The name of the workgroup associated with the database.</p>
-   */
-  workgroupName: string | undefined;
-
-  /**
-   * @public
    * <p>The name of the database to get temporary authorization to log on to.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -1499,6 +1638,18 @@ export interface GetCredentialsRequest {
    *          The minimum is 900 seconds, and the maximum is 3600 seconds.</p>
    */
   durationSeconds?: number;
+
+  /**
+   * @public
+   * <p>The name of the workgroup associated with the database.</p>
+   */
+  workgroupName?: string;
+
+  /**
+   * @public
+   * <p>The custom domain name associated with the workgroup. The custom domain name or the workgroup name must be included in the request.</p>
+   */
+  customDomainName?: string;
 }
 
 /**
@@ -1533,6 +1684,52 @@ export interface GetCredentialsResponse {
    *          authorization refreshes.</p>
    */
   nextRefreshTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetCustomDomainAssociationRequest {
+  /**
+   * @public
+   * <p>The custom domain name associated with the workgroup.</p>
+   */
+  customDomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the workgroup associated with the database.</p>
+   */
+  workgroupName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCustomDomainAssociationResponse {
+  /**
+   * @public
+   * <p>The custom domain name associated with the workgroup.</p>
+   */
+  customDomainName?: string;
+
+  /**
+   * @public
+   * <p>The name of the workgroup associated with the database.</p>
+   */
+  workgroupName?: string;
+
+  /**
+   * @public
+   * <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
+   */
+  customDomainCertificateArn?: string;
+
+  /**
+   * @public
+   * <p>The expiration time for the certificate.</p>
+   */
+  customDomainCertificateExpiryTime?: Date;
 }
 
 /**
@@ -1885,6 +2082,57 @@ export class InvalidPaginationException extends __BaseException {
 /**
  * @public
  */
+export interface ListCustomDomainAssociationsRequest {
+  /**
+   * @public
+   * <p>When <code>nextToken</code> is returned, there are more results available.
+   *          The value of <code>nextToken</code> is a unique pagination token for each page.
+   *          Make the call again using the returned token to retrieve the next page.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the maximum number of results to return.
+   *          You can use <code>nextToken</code> to display the next page of results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The custom domain name associated with the workgroup.</p>
+   */
+  customDomainName?: string;
+
+  /**
+   * @public
+   * <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
+   */
+  customDomainCertificateArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomDomainAssociationsResponse {
+  /**
+   * @public
+   * <p>When <code>nextToken</code> is returned, there are more results available.
+   *          The value of <code>nextToken</code> is a unique pagination token for each page.
+   *          Make the call again using the returned token to retrieve the next page.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>A list of Association objects.</p>
+   */
+  associations?: Association[];
+}
+
+/**
+ * @public
+ */
 export interface ListNamespacesRequest {
   /**
    * @public
@@ -2128,29 +2376,6 @@ export interface ListTagsForResourceResponse {
 
 /**
  * @public
- * <p>The request was denied due to request throttling.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  code?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
- * @public
  */
 export interface ListUsageLimitsRequest {
   /**
@@ -2255,7 +2480,7 @@ export interface UpdateNamespaceRequest {
    * @public
    * <p>The password of the administrator for the first database created in the namespace. This parameter must be updated together
    *       with <code>adminUsername</code>.</p>
-   *          <p>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true.</p>
+   *          <p>You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. </p>
    */
   adminUserPassword?: string;
 
@@ -2618,6 +2843,58 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateCustomDomainAssociationRequest {
+  /**
+   * @public
+   * <p>The name of the workgroup associated with the database.</p>
+   */
+  workgroupName: string | undefined;
+
+  /**
+   * @public
+   * <p>The custom domain name associated with the workgroup.</p>
+   */
+  customDomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The custom domain name’s certificate Amazon resource name (ARN). This is optional.</p>
+   */
+  customDomainCertificateArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCustomDomainAssociationResponse {
+  /**
+   * @public
+   * <p>The custom domain name associated with the workgroup.</p>
+   */
+  customDomainName?: string;
+
+  /**
+   * @public
+   * <p>The name of the workgroup associated with the database.</p>
+   */
+  workgroupName?: string;
+
+  /**
+   * @public
+   * <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
+   */
+  customDomainCertificateArn?: string;
+
+  /**
+   * @public
+   * <p>The expiration time for the certificate.</p>
+   */
+  customDomainCertificateExpiryTime?: Date;
+}
 
 /**
  * @public

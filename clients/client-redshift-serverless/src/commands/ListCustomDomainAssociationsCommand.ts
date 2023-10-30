@@ -14,8 +14,11 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListWorkgroupsRequest, ListWorkgroupsResponse } from "../models/models_0";
-import { de_ListWorkgroupsCommand, se_ListWorkgroupsCommand } from "../protocols/Aws_json1_1";
+import { ListCustomDomainAssociationsRequest, ListCustomDomainAssociationsResponse } from "../models/models_0";
+import {
+  de_ListCustomDomainAssociationsCommand,
+  se_ListCustomDomainAssociationsCommand,
+} from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -29,94 +32,66 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListWorkgroupsCommand}.
+ * The input for {@link ListCustomDomainAssociationsCommand}.
  */
-export interface ListWorkgroupsCommandInput extends ListWorkgroupsRequest {}
+export interface ListCustomDomainAssociationsCommandInput extends ListCustomDomainAssociationsRequest {}
 /**
  * @public
  *
- * The output of {@link ListWorkgroupsCommand}.
+ * The output of {@link ListCustomDomainAssociationsCommand}.
  */
-export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __MetadataBearer {}
+export interface ListCustomDomainAssociationsCommandOutput
+  extends ListCustomDomainAssociationsResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information about a list of specified workgroups.</p>
+ * <p> Lists custom domain associations for Amazon Redshift Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, ListWorkgroupsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, ListWorkgroupsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, ListCustomDomainAssociationsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
+ * // const { RedshiftServerlessClient, ListCustomDomainAssociationsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = { // ListWorkgroupsRequest
+ * const input = { // ListCustomDomainAssociationsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   customDomainName: "STRING_VALUE",
+ *   customDomainCertificateArn: "STRING_VALUE",
  * };
- * const command = new ListWorkgroupsCommand(input);
+ * const command = new ListCustomDomainAssociationsCommand(input);
  * const response = await client.send(command);
- * // { // ListWorkgroupsResponse
+ * // { // ListCustomDomainAssociationsResponse
  * //   nextToken: "STRING_VALUE",
- * //   workgroups: [ // WorkgroupList // required
- * //     { // Workgroup
- * //       workgroupId: "STRING_VALUE",
- * //       workgroupArn: "STRING_VALUE",
- * //       workgroupName: "STRING_VALUE",
- * //       namespaceName: "STRING_VALUE",
- * //       baseCapacity: Number("int"),
- * //       enhancedVpcRouting: true || false,
- * //       configParameters: [ // ConfigParameterList
- * //         { // ConfigParameter
- * //           parameterKey: "STRING_VALUE",
- * //           parameterValue: "STRING_VALUE",
- * //         },
- * //       ],
- * //       securityGroupIds: [ // SecurityGroupIdList
- * //         "STRING_VALUE",
- * //       ],
- * //       subnetIds: [ // SubnetIdList
- * //         "STRING_VALUE",
- * //       ],
- * //       status: "STRING_VALUE",
- * //       endpoint: { // Endpoint
- * //         address: "STRING_VALUE",
- * //         port: Number("int"),
- * //         vpcEndpoints: [ // VpcEndpointList
- * //           { // VpcEndpoint
- * //             vpcEndpointId: "STRING_VALUE",
- * //             vpcId: "STRING_VALUE",
- * //             networkInterfaces: [ // NetworkInterfaceList
- * //               { // NetworkInterface
- * //                 networkInterfaceId: "STRING_VALUE",
- * //                 subnetId: "STRING_VALUE",
- * //                 privateIpAddress: "STRING_VALUE",
- * //                 availabilityZone: "STRING_VALUE",
- * //               },
- * //             ],
- * //           },
- * //         ],
- * //       },
- * //       publiclyAccessible: true || false,
- * //       creationDate: new Date("TIMESTAMP"),
- * //       port: Number("int"),
- * //       customDomainName: "STRING_VALUE",
+ * //   associations: [ // AssociationList
+ * //     { // Association
  * //       customDomainCertificateArn: "STRING_VALUE",
  * //       customDomainCertificateExpiryTime: new Date("TIMESTAMP"),
- * //       workgroupVersion: "STRING_VALUE",
- * //       patchVersion: "STRING_VALUE",
+ * //       customDomainName: "STRING_VALUE",
+ * //       workgroupName: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param ListWorkgroupsCommandInput - {@link ListWorkgroupsCommandInput}
- * @returns {@link ListWorkgroupsCommandOutput}
- * @see {@link ListWorkgroupsCommandInput} for command's `input` shape.
- * @see {@link ListWorkgroupsCommandOutput} for command's `response` shape.
+ * @param ListCustomDomainAssociationsCommandInput - {@link ListCustomDomainAssociationsCommandInput}
+ * @returns {@link ListCustomDomainAssociationsCommandOutput}
+ * @see {@link ListCustomDomainAssociationsCommandInput} for command's `input` shape.
+ * @see {@link ListCustomDomainAssociationsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link InvalidPaginationException} (client fault)
+ *  <p>The provided pagination token is invalid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
@@ -125,9 +100,9 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
-export class ListWorkgroupsCommand extends $Command<
-  ListWorkgroupsCommandInput,
-  ListWorkgroupsCommandOutput,
+export class ListCustomDomainAssociationsCommand extends $Command<
+  ListCustomDomainAssociationsCommandInput,
+  ListCustomDomainAssociationsCommandOutput,
   RedshiftServerlessClientResolvedConfig
 > {
   // Start section: command_properties
@@ -145,7 +120,7 @@ export class ListWorkgroupsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListWorkgroupsCommandInput) {
+  constructor(readonly input: ListCustomDomainAssociationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -158,17 +133,17 @@ export class ListWorkgroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftServerlessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListWorkgroupsCommandInput, ListWorkgroupsCommandOutput> {
+  ): Handler<ListCustomDomainAssociationsCommandInput, ListCustomDomainAssociationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListWorkgroupsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListCustomDomainAssociationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RedshiftServerlessClient";
-    const commandName = "ListWorkgroupsCommand";
+    const commandName = "ListCustomDomainAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -177,7 +152,7 @@ export class ListWorkgroupsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServerless",
-        operation: "ListWorkgroups",
+        operation: "ListCustomDomainAssociations",
       },
     };
     const { requestHandler } = configuration;
@@ -191,15 +166,18 @@ export class ListWorkgroupsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListWorkgroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListWorkgroupsCommand(input, context);
+  private serialize(input: ListCustomDomainAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListCustomDomainAssociationsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkgroupsCommandOutput> {
-    return de_ListWorkgroupsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListCustomDomainAssociationsCommandOutput> {
+    return de_ListCustomDomainAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

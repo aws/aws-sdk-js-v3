@@ -8,6 +8,11 @@ import {
   ConvertRecoveryPointToSnapshotCommandOutput,
 } from "./commands/ConvertRecoveryPointToSnapshotCommand";
 import {
+  CreateCustomDomainAssociationCommand,
+  CreateCustomDomainAssociationCommandInput,
+  CreateCustomDomainAssociationCommandOutput,
+} from "./commands/CreateCustomDomainAssociationCommand";
+import {
   CreateEndpointAccessCommand,
   CreateEndpointAccessCommandInput,
   CreateEndpointAccessCommandOutput,
@@ -32,6 +37,11 @@ import {
   CreateWorkgroupCommandInput,
   CreateWorkgroupCommandOutput,
 } from "./commands/CreateWorkgroupCommand";
+import {
+  DeleteCustomDomainAssociationCommand,
+  DeleteCustomDomainAssociationCommandInput,
+  DeleteCustomDomainAssociationCommandOutput,
+} from "./commands/DeleteCustomDomainAssociationCommand";
 import {
   DeleteEndpointAccessCommand,
   DeleteEndpointAccessCommandInput,
@@ -68,6 +78,11 @@ import {
   GetCredentialsCommandOutput,
 } from "./commands/GetCredentialsCommand";
 import {
+  GetCustomDomainAssociationCommand,
+  GetCustomDomainAssociationCommandInput,
+  GetCustomDomainAssociationCommandOutput,
+} from "./commands/GetCustomDomainAssociationCommand";
+import {
   GetEndpointAccessCommand,
   GetEndpointAccessCommandInput,
   GetEndpointAccessCommandOutput,
@@ -103,6 +118,11 @@ import {
   GetWorkgroupCommandInput,
   GetWorkgroupCommandOutput,
 } from "./commands/GetWorkgroupCommand";
+import {
+  ListCustomDomainAssociationsCommand,
+  ListCustomDomainAssociationsCommandInput,
+  ListCustomDomainAssociationsCommandOutput,
+} from "./commands/ListCustomDomainAssociationsCommand";
 import {
   ListEndpointAccessCommand,
   ListEndpointAccessCommandInput,
@@ -170,6 +190,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateCustomDomainAssociationCommand,
+  UpdateCustomDomainAssociationCommandInput,
+  UpdateCustomDomainAssociationCommandOutput,
+} from "./commands/UpdateCustomDomainAssociationCommand";
+import {
   UpdateEndpointAccessCommand,
   UpdateEndpointAccessCommandInput,
   UpdateEndpointAccessCommandOutput,
@@ -198,11 +223,13 @@ import { RedshiftServerlessClient, RedshiftServerlessClientConfig } from "./Reds
 
 const commands = {
   ConvertRecoveryPointToSnapshotCommand,
+  CreateCustomDomainAssociationCommand,
   CreateEndpointAccessCommand,
   CreateNamespaceCommand,
   CreateSnapshotCommand,
   CreateUsageLimitCommand,
   CreateWorkgroupCommand,
+  DeleteCustomDomainAssociationCommand,
   DeleteEndpointAccessCommand,
   DeleteNamespaceCommand,
   DeleteResourcePolicyCommand,
@@ -210,6 +237,7 @@ const commands = {
   DeleteUsageLimitCommand,
   DeleteWorkgroupCommand,
   GetCredentialsCommand,
+  GetCustomDomainAssociationCommand,
   GetEndpointAccessCommand,
   GetNamespaceCommand,
   GetRecoveryPointCommand,
@@ -218,6 +246,7 @@ const commands = {
   GetTableRestoreStatusCommand,
   GetUsageLimitCommand,
   GetWorkgroupCommand,
+  ListCustomDomainAssociationsCommand,
   ListEndpointAccessCommand,
   ListNamespacesCommand,
   ListRecoveryPointsCommand,
@@ -232,6 +261,7 @@ const commands = {
   RestoreTableFromSnapshotCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateCustomDomainAssociationCommand,
   UpdateEndpointAccessCommand,
   UpdateNamespaceCommand,
   UpdateSnapshotCommand,
@@ -255,6 +285,23 @@ export interface RedshiftServerless {
     args: ConvertRecoveryPointToSnapshotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ConvertRecoveryPointToSnapshotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCustomDomainAssociationCommand}
+   */
+  createCustomDomainAssociation(
+    args: CreateCustomDomainAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomDomainAssociationCommandOutput>;
+  createCustomDomainAssociation(
+    args: CreateCustomDomainAssociationCommandInput,
+    cb: (err: any, data?: CreateCustomDomainAssociationCommandOutput) => void
+  ): void;
+  createCustomDomainAssociation(
+    args: CreateCustomDomainAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomDomainAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -331,6 +378,23 @@ export interface RedshiftServerless {
     args: CreateWorkgroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateWorkgroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCustomDomainAssociationCommand}
+   */
+  deleteCustomDomainAssociation(
+    args: DeleteCustomDomainAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomDomainAssociationCommandOutput>;
+  deleteCustomDomainAssociation(
+    args: DeleteCustomDomainAssociationCommandInput,
+    cb: (err: any, data?: DeleteCustomDomainAssociationCommandOutput) => void
+  ): void;
+  deleteCustomDomainAssociation(
+    args: DeleteCustomDomainAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomDomainAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -438,6 +502,23 @@ export interface RedshiftServerless {
     args: GetCredentialsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCredentialsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCustomDomainAssociationCommand}
+   */
+  getCustomDomainAssociation(
+    args: GetCustomDomainAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCustomDomainAssociationCommandOutput>;
+  getCustomDomainAssociation(
+    args: GetCustomDomainAssociationCommandInput,
+    cb: (err: any, data?: GetCustomDomainAssociationCommandOutput) => void
+  ): void;
+  getCustomDomainAssociation(
+    args: GetCustomDomainAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCustomDomainAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -550,6 +631,23 @@ export interface RedshiftServerless {
     args: GetWorkgroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetWorkgroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCustomDomainAssociationsCommand}
+   */
+  listCustomDomainAssociations(
+    args: ListCustomDomainAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomDomainAssociationsCommandOutput>;
+  listCustomDomainAssociations(
+    args: ListCustomDomainAssociationsCommandInput,
+    cb: (err: any, data?: ListCustomDomainAssociationsCommandOutput) => void
+  ): void;
+  listCustomDomainAssociations(
+    args: ListCustomDomainAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomDomainAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -761,6 +859,23 @@ export interface RedshiftServerless {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCustomDomainAssociationCommand}
+   */
+  updateCustomDomainAssociation(
+    args: UpdateCustomDomainAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCustomDomainAssociationCommandOutput>;
+  updateCustomDomainAssociation(
+    args: UpdateCustomDomainAssociationCommandInput,
+    cb: (err: any, data?: UpdateCustomDomainAssociationCommandOutput) => void
+  ): void;
+  updateCustomDomainAssociation(
+    args: UpdateCustomDomainAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCustomDomainAssociationCommandOutput) => void
   ): void;
 
   /**

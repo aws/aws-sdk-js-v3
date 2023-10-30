@@ -63,9 +63,10 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  * // const { RedshiftServerlessClient, GetCredentialsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // GetCredentialsRequest
- *   workgroupName: "STRING_VALUE", // required
  *   dbName: "STRING_VALUE",
  *   durationSeconds: Number("int"),
+ *   workgroupName: "STRING_VALUE",
+ *   customDomainName: "STRING_VALUE",
  * };
  * const command = new GetCredentialsCommand(input);
  * const response = await client.send(command);
