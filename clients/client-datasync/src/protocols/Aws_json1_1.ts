@@ -4499,6 +4499,7 @@ const de_DescribeAgentResponse = (output: any, context: __SerdeContext): Describ
     EndpointType: __expectString,
     LastConnectionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    Platform: _json,
     PrivateLinkConfig: _json,
     Status: __expectString,
   }) as any;
@@ -5021,6 +5022,8 @@ const de_P95Metrics = (output: any, context: __SerdeContext): P95Metrics => {
     Throughput: (_: any) => de_Throughput(_, context),
   }) as any;
 };
+
+// de_Platform omitted.
 
 // de_PLSecurityGroupArnList omitted.
 

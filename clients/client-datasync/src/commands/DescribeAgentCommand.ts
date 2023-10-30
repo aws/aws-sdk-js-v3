@@ -37,7 +37,7 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
 
 /**
  * @public
- * <p>Returns metadata about an DataSync agent, such as its name, endpoint
+ * <p>Returns information about an DataSync agent, such as its name, service endpoint
  *       type, and status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +66,9 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  * //     SecurityGroupArns: [ // PLSecurityGroupArnList
  * //       "STRING_VALUE",
  * //     ],
+ * //   },
+ * //   Platform: { // Platform
+ * //     Version: "STRING_VALUE",
  * //   },
  * // };
  *

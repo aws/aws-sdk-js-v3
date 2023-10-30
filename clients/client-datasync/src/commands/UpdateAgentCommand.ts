@@ -37,7 +37,7 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
 
 /**
  * @public
- * <p>Updates the name of an agent.</p>
+ * <p>Updates the name of an DataSync agent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

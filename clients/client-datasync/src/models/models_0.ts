@@ -205,6 +205,22 @@ export class InvalidRequestException extends __BaseException {
 
 /**
  * @public
+ * <p>The platform-related details about the DataSync agent, such as the version
+ *       number.</p>
+ */
+export interface Platform {
+  /**
+   * @public
+   * <p>The version of the DataSync agent.</p>
+   *          <important>
+   *             <p>Beginning December 7, 2023, we will discontinue version 1 DataSync agents. Check the DataSync console to see if you have affected agents. If you do, <a href="https://docs.aws.amazon.com/datasync/latest/userguide/replacing-agent.html">replace</a> those agents before then to avoid data transfer or storage discovery disruptions. If you need more help, contact <a href="https://aws.amazon.com/contact-us/">Amazon Web Services Support</a>.</p>
+   *          </important>
+   */
+  Version?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const AgentStatus = {
@@ -237,10 +253,27 @@ export interface AgentListEntry {
 
   /**
    * @public
-   * <p>The status of an agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/understand-agent-statuses.html">DataSync agent
-   *         statuses</a>.</p>
+   * <p>The status of an agent.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the status is <code>ONLINE</code>, the agent is configured properly and ready to
+   *           use.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the status is <code>OFFLINE</code>, the agent has been out of contact with
+   *           DataSync for five minutes or longer. This can happen for a few reasons. For
+   *           more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/troubleshooting-datasync-agents.html#troubleshoot-agent-offline">What do I do if my agent is offline?</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Status?: AgentStatus;
+
+  /**
+   * @public
+   * <p>The platform-related details about the agent, such as the version number.</p>
+   */
+  Platform?: Platform;
 }
 
 /**
@@ -1056,7 +1089,7 @@ export interface CreateLocationFsxWindowsRequest {
    * @public
    * <p>Specifies the user who has the permissions to access files, folders, and metadata in your
    *       file system.</p>
-   *          <p>For information about choosing a user with sufficient permissions, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">Required permissions</a>.</p>
+   *          <p>For information about choosing a user with the right level of access for your transfer, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">required permissions</a> for FSx for Windows File Server locations.</p>
    */
   User: string | undefined;
 
@@ -1064,6 +1097,8 @@ export interface CreateLocationFsxWindowsRequest {
    * @public
    * <p>Specifies the name of the Windows domain that the FSx for Windows File Server belongs
    *       to.</p>
+   *          <p>If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right file server.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">required permissions</a> for FSx for Windows File Server locations.</p>
    */
   Domain?: string;
 
@@ -1071,6 +1106,7 @@ export interface CreateLocationFsxWindowsRequest {
    * @public
    * <p>Specifies the password of the user who has the permissions to access files and folders in
    *       the file system.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">required permissions</a> for FSx for Windows File Server locations.</p>
    */
   Password: string | undefined;
 }
@@ -1641,6 +1677,7 @@ export interface CreateLocationSmbRequest {
   /**
    * @public
    * <p>Specifies the Windows domain name that your SMB file server belongs to. </p>
+   *          <p>If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right file server.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   Domain?: string;
@@ -2211,7 +2248,7 @@ export interface TaskSchedule {
 
 /**
  * @public
- * <p>Specifies the Amazon S3 bucket where DataSync uploads your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">task report</a>.</p>
+ * <p>Specifies the Amazon S3 bucket where DataSync uploads your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">task report</a>.</p>
  */
 export interface ReportDestinationS3 {
   /**
@@ -2228,14 +2265,14 @@ export interface ReportDestinationS3 {
 
   /**
    * @public
-   * <p>Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">Allowing DataSync to upload a task report to an Amazon S3 bucket</a>.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Allowing DataSync to upload a task report to an Amazon S3 bucket</a>.</p>
    */
   BucketAccessRoleArn: string | undefined;
 }
 
 /**
  * @public
- * <p>Specifies where DataSync uploads your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">task report</a>.</p>
+ * <p>Specifies where DataSync uploads your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">task report</a>.</p>
  */
 export interface ReportDestination {
   /**
@@ -2290,7 +2327,7 @@ export type ReportLevel = (typeof ReportLevel)[keyof typeof ReportLevel];
 /**
  * @public
  * <p>Specifies the level of detail for a particular aspect of your DataSync
- *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">task
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">task
  *         report</a>.</p>
  */
 export interface ReportOverride {
@@ -2305,7 +2342,7 @@ export interface ReportOverride {
 /**
  * @public
  * <p>The level of detail included in each aspect of your DataSync
- *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">task
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">task
  *         report</a>.</p>
  */
 export interface ReportOverrides {
@@ -2337,14 +2374,14 @@ export interface ReportOverrides {
 /**
  * @public
  * <p>Specifies how you want to configure a task report, which provides detailed information about for your DataSync transfer.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">Task
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Task
  *         reports</a>.</p>
  */
 export interface TaskReportConfig {
   /**
    * @public
    * <p>Specifies the Amazon S3 bucket where DataSync uploads your task report. For more
-   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html#task-report-access">Task reports</a>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html#task-report-access">Task reports</a>.</p>
    */
   Destination?: ReportDestination;
 
@@ -2552,8 +2589,8 @@ export interface DeleteTaskResponse {}
 export interface DescribeAgentRequest {
   /**
    * @public
-   * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent to
-   *       describe.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that you want
+   *       information about.</p>
    */
   AgentArn: string | undefined;
 }
@@ -2576,8 +2613,7 @@ export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 /**
  * @public
  * <p>Specifies how your DataSync agent connects to Amazon Web Services using a
- *       virtual private cloud (VPC) service endpoint. An agent that uses a VPC endpoint isn't
- *       accessible over the public internet.</p>
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#choose-service-endpoint-vpc">virtual private cloud (VPC) service endpoint</a>. An agent that uses a VPC endpoint isn't accessible over the public internet.</p>
  */
 export interface PrivateLinkConfig {
   /**
@@ -2626,38 +2662,53 @@ export interface DescribeAgentResponse {
 
   /**
    * @public
-   * <p>The status of the agent. If the status is ONLINE, then the agent is configured properly
-   *       and is available to use. The Running status is the normal running status for an agent. If the
-   *       status is OFFLINE, the agent's VM is turned off or the agent is in an unhealthy state. When
-   *       the issue that caused the unhealthy state is resolved, the agent returns to ONLINE
-   *       status.</p>
+   * <p>The status of the agent.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the status is <code>ONLINE</code>, the agent is configured properly and ready to
+   *           use.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the status is <code>OFFLINE</code>, the agent has been out of contact with
+   *             DataSync for five minutes or longer. This can happen for a few reasons. For
+   *           more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/troubleshooting-datasync-agents.html#troubleshoot-agent-offline">What do I do if my agent is offline?</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Status?: AgentStatus;
 
   /**
    * @public
-   * <p>The time that the agent last connected to DataSync.</p>
+   * <p>The last time that the agent was communicating with the DataSync
+   *       service.</p>
    */
   LastConnectionTime?: Date;
 
   /**
    * @public
-   * <p>The time that the agent was activated (that is, created in your account).</p>
+   * <p>The time that the agent was <a href="https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html">activated</a>.</p>
    */
   CreationTime?: Date;
 
   /**
    * @public
-   * <p>The type of endpoint that your agent is connected to. If the endpoint is a VPC endpoint,
-   *       the agent is not accessible over the public internet. </p>
+   * <p>The type of <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html">service endpoint</a> that your agent is connected to.</p>
    */
   EndpointType?: EndpointType;
 
   /**
    * @public
-   * <p>The subnet and the security group that DataSync used to access a VPC endpoint.</p>
+   * <p>The network configuration that the agent uses when connecting to a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#choose-service-endpoint-vpc">VPC
+   *         service endpoint</a>.</p>
    */
   PrivateLinkConfig?: PrivateLinkConfig;
+
+  /**
+   * @public
+   * <p>The platform-related details about the agent, such as the version number.</p>
+   */
+  Platform?: Platform;
 }
 
 /**
@@ -4416,7 +4467,7 @@ export interface DescribeTaskResponse {
 
   /**
    * @public
-   * <p>The configuration of your task report. For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">Creating a task report</a>.</p>
+   * <p>The configuration of your task report. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Creating a task report</a>.</p>
    */
   TaskReportConfig?: TaskReportConfig;
 }
@@ -4451,7 +4502,7 @@ export type PhaseStatus = (typeof PhaseStatus)[keyof typeof PhaseStatus];
 
 /**
  * @public
- * <p>Indicates whether DataSync created a complete <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">task report</a> for your
+ * <p>Indicates whether DataSync created a complete <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">task report</a> for your
  *       transfer.</p>
  */
 export interface ReportResult {
@@ -4698,12 +4749,17 @@ export interface DescribeTaskExecutionResponse {
    * @public
    * <p>The number of files, objects, and directories that DataSync verified during your
    *       transfer.</p>
+   *          <note>
+   *             <p>When you configure your task to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-data-verification-options.html">verify only the
+   *           data that's transferred</a>, DataSync doesn't verify directories in some
+   *         situations or files that fail to transfer.</p>
+   *          </note>
    */
   FilesVerified?: number;
 
   /**
    * @public
-   * <p>Indicates whether DataSync generated a complete <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html">task report</a> for your
+   * <p>Indicates whether DataSync generated a complete <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">task report</a> for your
    *       transfer.</p>
    */
   ReportResult?: ReportResult;
@@ -5803,63 +5859,49 @@ export interface UpdateLocationObjectStorageResponse {}
 export interface UpdateLocationSmbRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the SMB location to update.</p>
+   * <p>Specifies the ARN of the SMB location that you want to update.</p>
    */
   LocationArn: string | undefined;
 
   /**
    * @public
-   * <p>The subdirectory in the SMB file system that is used to read data from the SMB source
-   *       location or write data to the SMB destination. The SMB path should be a path that's
-   *       exported by the SMB server, or a subdirectory of that path. The path should be such that it
-   *       can be mounted by other SMB clients in your network.</p>
-   *          <note>
-   *             <p>
-   *                <code>Subdirectory</code> must be specified with forward slashes. For example,
-   *           <code>/path/to/folder</code>.</p>
-   *          </note>
-   *          <p>To transfer all the data in the folder that you specified, DataSync must have
-   *       permissions to mount the SMB share and to access all the data in that share. To ensure this,
-   *       do either of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Ensure that the user/password specified belongs to the user who can mount the share
-   *           and who has the appropriate permissions for all of the files and directories that you want
-   *             DataSync to access.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use credentials of a member of the Backup Operators group to mount the share. </p>
-   *             </li>
-   *          </ul>
-   *          <p>Doing either of these options enables the agent to access the data. For the agent to
-   *       access directories, you must also enable all execute access.</p>
+   * <p>Specifies the name of the share exported by your SMB file server where DataSync
+   *       will read or write data. You can include a subdirectory in the share path (for example,
+   *       <code>/path/to/subdirectory</code>). Make sure that other SMB clients in your network can
+   *       also mount this path.</p>
+   *          <p>To copy all data in the specified subdirectory, DataSync must be able to mount
+   *       the SMB share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   Subdirectory?: string;
 
   /**
    * @public
-   * <p>The user who can mount the share has the permissions to access files and folders in the
-   *       SMB share.</p>
+   * <p>Specifies the user name that can mount your SMB file server and has permission to access
+   *       the files and folders involved in your transfer.</p>
+   *          <p>For information about choosing a user with the right level of access for your transfer,
+   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   User?: string;
 
   /**
    * @public
-   * <p>The name of the Windows domain that the SMB server belongs to.</p>
+   * <p>Specifies the Windows domain name that your SMB file server belongs to. </p>
+   *          <p>If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right file server.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   Domain?: string;
 
   /**
    * @public
-   * <p>The password of the user who can mount the share has the permissions to access files and
-   *       folders in the SMB share.</p>
+   * <p>Specifies the password of the user who can mount your SMB file server and has permission
+   *       to access the files and folders involved in your transfer.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   Password?: string;
 
   /**
    * @public
-   * <p>The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB)
-   *       location.</p>
+   * <p>Specifies the DataSync agent (or agents) which you want to connect to your SMB file server. You specify an agent by using its Amazon Resource Name (ARN).</p>
    */
   AgentArns?: string[];
 

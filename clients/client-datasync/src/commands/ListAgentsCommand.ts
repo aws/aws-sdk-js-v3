@@ -66,6 +66,9 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  * //       AgentArn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Status: "ONLINE" || "OFFLINE",
+ * //       Platform: { // Platform
+ * //         Version: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

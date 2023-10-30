@@ -41,7 +41,8 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
 
 /**
  * @public
- * <p>Creates an endpoint for an Amazon FSx for Windows File Server file system.</p>
+ * <p>Creates an endpoint for an Amazon FSx for Windows File Server file system that DataSync can use for a data transfer.</p>
+ *          <p>Before you begin, make sure that you understand how DataSync <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-location-access">accesses an FSx for Windows File Server</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

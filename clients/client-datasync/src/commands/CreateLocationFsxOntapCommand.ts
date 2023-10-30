@@ -41,7 +41,9 @@ export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOn
 
 /**
  * @public
- * <p>Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html">Creating a location for FSx for ONTAP</a>.</p>
+ * <p>Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync can use for a data transfer.</p>
+ *          <p>Before you begin, make sure that you understand how DataSync
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access">accesses an FSx for ONTAP file system</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
