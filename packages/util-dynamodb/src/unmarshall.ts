@@ -33,6 +33,7 @@ export interface unmarshallOptions {
    * types of `number | DynamoDBNumber`.
    *
    * "allNumbers": all numbers will be wrapped with the DynamoDBNumber class.
+   * For example, if dealing with small decimals needing higher precision.
    */
   useDynamoDBNumberWrapper?: "never" | "bigNumbersOnly" | "allNumbers";
 }

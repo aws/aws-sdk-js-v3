@@ -92,6 +92,11 @@ describe(DynamoDBDocument.name, () => {
       true,
       new Set(["my", "string", "set"]),
       new Set([2, 3, 4]),
+      new Set([
+        DynamoDBNumber.from("3210000000000000000.0000000000000123"),
+        DynamoDBNumber.from("3210000000000000001.0000000000000123"),
+        DynamoDBNumber.from("3210000000000000002.0000000000000123"),
+      ]),
       ["listInList", 1, null],
       {
         mapInList: "mapInList",
@@ -456,6 +461,11 @@ describe(DynamoDBDocument.name, () => {
           false,
           new Set(["my-x", "string-x", "set-x"]),
           new Set([3, 4, 5]),
+          new Set([
+            DynamoDBNumber.from("3210000000000000000.00000000000001234"),
+            DynamoDBNumber.from("3210000000000000001.00000000000001234"),
+            DynamoDBNumber.from("3210000000000000002.00000000000001234"),
+          ]),
           ["listInList-x", 2, null],
           { "mapInList-x": "mapInList-x" },
         ],

@@ -98,20 +98,63 @@ const ddbDocClient = DynamoDBDocument.from(client); // client is DynamoDB client
 The configuration for marshalling and unmarshalling can be sent as an optional
 second parameter during creation of document client as follows:
 
-```js
-const marshallOptions = {
-  // Whether to automatically convert empty strings, blobs, and sets to `null`.
-  convertEmptyValues: false, // false, by default.
-  // Whether to remove undefined values while marshalling.
-  removeUndefinedValues: false, // false, by default.
-  // Whether to convert typeof object to map attribute.
-  convertClassInstanceToMap: false, // false, by default.
-};
+```ts
+export interface marshallOptions {
+  /**
+   * Whether to automatically convert empty strings, blobs, and sets to `null`
+   */
+  convertEmptyValues?: boolean;
+  /**
+   * Whether to remove undefined values while marshalling.
+   */
+  removeUndefinedValues?: boolean;
+  /**
+   * Whether to convert typeof object to map attribute.
+   */
+  convertClassInstanceToMap?: boolean;
+  /**
+   * Whether to convert the top level container
+   * if it is a map or list.
+   *
+   * Default is true when using the DynamoDBDocumentClient,
+   * but false if directly using the marshall function (backwards compatibility).
+   */
+  convertTopLevelContainer?: boolean;
+}
 
-const unmarshallOptions = {
-  // Whether to return numbers as a string instead of converting them to native JavaScript numbers.
-  wrapNumbers: false, // false, by default.
-};
+export interface unmarshallOptions {
+  /**
+   * Whether to return numbers as a string instead of converting them to native JavaScript numbers.
+   * This allows for the safe round-trip transport of numbers of arbitrary size.
+   *
+   * @deprecated set useDynamoDBNumberWrapper option instead.
+   * If useDynamoDBNumberWrapper option is set, the value of wrapNumbers will be ignored.
+   */
+  wrapNumbers?: boolean;
+
+  /**
+   * When true, skip wrapping the data in `{ M: data }` before converting.
+   *
+   * Default is true when using the DynamoDBDocumentClient,
+   * but false if directly using the unmarshall function (backwards compatibility).
+   */
+  convertWithoutMapWrapper?: boolean;
+
+  /**
+   * When to use the DynamoDBNumber wrapper class for numbers.
+   * Default="never". An error will be thrown for large numbers.
+   *
+   * "bigNumbersOnly": only numbers exceeding MAX_SAFE_INTEGER in absolute terms
+   * will be wrapped. Your application code must handle the divergent result
+   * types of `number | DynamoDBNumber`.
+   *
+   * "allNumbers": all numbers will be wrapped with the DynamoDBNumber class.
+   */
+  useDynamoDBNumberWrapper?: "never" | "bigNumbersOnly" | "allNumbers";
+}
+
+const marshallOptions: marshallOptions = {};
+const unmarshallOptions: unmarshallOptions = {};
 
 const translateConfig = { marshallOptions, unmarshallOptions };
 
@@ -159,6 +202,70 @@ await ddbDocClient.put({
   },
 });
 ```
+
+### Large Numbers and `DynamoDBNumber`.
+
+On the input or marshalling side, the class `DynamoDBNumber` can be used
+anywhere to represent a DynamoDB number value, even small numbers.
+
+```ts
+import { DynamoDB } from "@aws-sdk/client-dynamodb";
+import { DynamoDBNumber, DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
+
+// Note, the client will not validate the acceptability of the number
+// in terms of size or format.
+// It is only here to preserve your precise representation.
+const client = DynamoDBDocument.from(new DynamoDB({}));
+
+await client.put({
+  Item: {
+    id: 1,
+    smallNumber: DynamoDBNumber.from("123"),
+    bigNumber: DynamoDBNumber.from("1000000000000000000000.000000000001"),
+    nSet: new Set([
+      DynamoDBNumber.from("123"),
+      DynamoDBNumber.from("456")
+    ])
+  }
+});
+```
+
+On the output or unmarshalling side, the class `DynamoDBNumber` is used
+depending on your setting for the `unmarshallOptions` flag `useDynamoDBNumberWrapper`,
+shown above.
+
+```ts
+import { DynamoDB } from "@aws-sdk/client-dynamodb";
+import { DynamoDBNumber, DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
+
+const client = DynamoDBDocument.from(new DynamoDB({}));
+
+const response = await client.get({
+  Key: {
+    id: 1
+  }
+});
+
+/**
+ * Numbers in the response may be a number, a BigInt, or a DynamoDBNumber depending
+ * on how you set `useDynamoDBNumberWrapper`.
+ *
+ * In the example above, if setting useDynamoDBNumberWrapper=never,
+ * the operation will throw an error because the decimal
+ * stored in the database cannot be converted to the fallback BigInt.
+ *
+ * `bigNumbersOnly` converts only numbers exceeding [MAX|MIN]_SAFE_INTEGER.
+ *
+ * `allNumbers` converts all numbers. For dealing with small decimals that
+ * need precision but do not exceed the default integer limits.
+ */
+const value = response.Item.bigNumber;
+```
+
+`DynamoDBNumber` does not provide a way to do mathematical operations on itself.
+To do mathematical operations, take the string value of `DynamoDBNumber` by calling
+`.toString()` and supply it to your chosen big number implementation.
+
 
 ### Client and Command middleware stacks
 
