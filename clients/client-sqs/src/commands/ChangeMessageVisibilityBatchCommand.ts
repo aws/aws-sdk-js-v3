@@ -15,7 +15,10 @@ import {
 } from "@smithy/types";
 
 import { ChangeMessageVisibilityBatchRequest, ChangeMessageVisibilityBatchResult } from "../models/models_0";
-import { de_ChangeMessageVisibilityBatchCommand, se_ChangeMessageVisibilityBatchCommand } from "../protocols/Aws_query";
+import {
+  de_ChangeMessageVisibilityBatchCommand,
+  se_ChangeMessageVisibilityBatchCommand,
+} from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -48,7 +51,9 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  *             </code> requests with each
  *                 <code>ChangeMessageVisibilityBatch</code> action.</p>
  *          <important>
- *             <p>Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
+ *             <p>Because the batch request can result in a combination of successful and
+ *                 unsuccessful actions, you should check for batch errors even when the call returns
+ *                 an HTTP status code of <code>200</code>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,12 +103,43 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  * @throws {@link EmptyBatchRequest} (client fault)
  *  <p>The batch request doesn't contain any entries.</p>
  *
+ * @throws {@link InvalidAddress} (client fault)
+ *  <p>The <code>accountId</code> is invalid.</p>
+ *
  * @throws {@link InvalidBatchEntryId} (client fault)
  *  <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the
  *             specification.</p>
  *
+ * @throws {@link InvalidSecurity} (client fault)
+ *  <p>When the request to a queue is not HTTPS and SigV4.</p>
+ *
+ * @throws {@link QueueDoesNotExist} (client fault)
+ *  <p>The specified queue doesn't exist.</p>
+ *
+ * @throws {@link RequestThrottled} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
+ *                     account and Region. </p>
+ *             </li>
+ *             <li>
+ *                <p>A burst or sustained high rate of requests to change the state of the same KMS
+ *                     key. This condition is often known as a "hot key."</p>
+ *             </li>
+ *             <li>
+ *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
+ *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
+ *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
+ *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *             </li>
+ *          </ul>
+ *
  * @throws {@link TooManyEntriesInBatchRequest} (client fault)
  *  <p>The batch request contains more entries than permissible.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>Error code 400. Unsupported operation.</p>
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>

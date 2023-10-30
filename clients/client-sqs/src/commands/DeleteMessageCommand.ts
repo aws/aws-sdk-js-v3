@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { DeleteMessageRequest } from "../models/models_0";
-import { de_DeleteMessageCommand, se_DeleteMessageCommand } from "../protocols/Aws_query";
+import { de_DeleteMessageCommand, se_DeleteMessageCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -50,12 +50,12 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  *                 When you use the <code>DeleteMessage</code> action, you must provide the most
  *                 recently received <code>ReceiptHandle</code> for the message (otherwise, the request
  *                 succeeds, but the message will not be deleted).</p>
- *             <p>For standard queues, it is possible to receive a message even after you
- *                 delete it. This might happen on rare occasions if one of the servers which stores a
- *                 copy of the message is unavailable when you send the request to delete the message.
- *                 The copy remains on the server and might be returned to you during a subsequent
- *                 receive request. You should ensure that your application is idempotent, so that
- *                 receiving a message more than once does not cause issues.</p>
+ *             <p>For standard queues, it is possible to receive a message even after you delete it.
+ *                 This might happen on rare occasions if one of the servers which stores a copy of the
+ *                 message is unavailable when you send the request to delete the message. The copy
+ *                 remains on the server and might be returned to you during a subsequent receive
+ *                 request. You should ensure that your application is idempotent, so that receiving a
+ *                 message more than once does not cause issues.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,11 +79,42 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteMessageCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link InvalidAddress} (client fault)
+ *  <p>The <code>accountId</code> is invalid.</p>
+ *
  * @throws {@link InvalidIdFormat} (client fault)
  *  <p>The specified receipt handle isn't valid for the current version.</p>
  *
+ * @throws {@link InvalidSecurity} (client fault)
+ *  <p>When the request to a queue is not HTTPS and SigV4.</p>
+ *
+ * @throws {@link QueueDoesNotExist} (client fault)
+ *  <p>The specified queue doesn't exist.</p>
+ *
  * @throws {@link ReceiptHandleIsInvalid} (client fault)
  *  <p>The specified receipt handle isn't valid.</p>
+ *
+ * @throws {@link RequestThrottled} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
+ *                     account and Region. </p>
+ *             </li>
+ *             <li>
+ *                <p>A burst or sustained high rate of requests to change the state of the same KMS
+ *                     key. This condition is often known as a "hot key."</p>
+ *             </li>
+ *             <li>
+ *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
+ *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
+ *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
+ *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>Error code 400. Unsupported operation.</p>
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
