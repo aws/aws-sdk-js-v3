@@ -1642,10 +1642,10 @@ export interface IntervalDetails {
    * @public
    * <p>
    *             <code>IntervalPeriod</code>: An aggregated grouping applied to request metrics. Valid
-   *     <code>IntervalPeriod</code> values are: <code>FIFTEEN_MIN</code> | <code>THIRTY_MIN</code> |
-   *     <code>HOUR</code> | <code>DAY</code> | <code>WEEK</code> | <code>TOTAL</code>. </p>
+   *    <code>IntervalPeriod</code> values are: <code>FIFTEEN_MIN</code> | <code>THIRTY_MIN</code> |
+   *    <code>HOUR</code> | <code>DAY</code> | <code>WEEK</code> | <code>TOTAL</code>. </p>
    *          <p>For example, if <code>IntervalPeriod</code> is selected <code>THIRTY_MIN</code>,
-   *     <code>StartTime</code> and <code>EndTime</code> differs by 1 day, then Amazon Connect
+   *    <code>StartTime</code> and <code>EndTime</code> differs by 1 day, then Amazon Connect
    *    returns 48 results in the response. Each result is aggregated by the THIRTY_MIN period. By
    *    default Amazon Connect aggregates results based on the <code>TOTAL</code> interval period. </p>
    *          <p>The following list describes restrictions on <code>StartTime</code> and <code>EndTime</code>
@@ -1654,12 +1654,12 @@ export interface IntervalDetails {
    *             <li>
    *                <p>
    *                   <code>FIFTEEN_MIN</code>: The difference between <code>StartTime</code> and
-   *       <code>EndTime</code> must be less than 3 days.</p>
+   *      <code>EndTime</code> must be less than 3 days.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>THIRTY_MIN</code>: The difference between <code>StartTime</code> and
-   *       <code>EndTime</code> must be less than 3 days.</p>
+   *      <code>EndTime</code> must be less than 3 days.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2278,7 +2278,7 @@ export interface MetricInterval {
    * @public
    * <p>The timestamp, in UNIX Epoch time format. End time is based on the interval period selected.
    *    For example, If <code>IntervalPeriod</code> is selected <code>THIRTY_MIN</code>,
-   *     <code>StartTime</code> and <code>EndTime</code> in the API request differs by 1 day, then 48
+   *    <code>StartTime</code> and <code>EndTime</code> in the API request differs by 1 day, then 48
    *    results are returned in the response. Each result is aggregated by the 30 minutes period, with
    *    each <code>StartTime</code> and <code>EndTime</code> differing by 30 minutes. </p>
    */
@@ -4165,10 +4165,21 @@ export interface ListPhoneNumbersResponse {
 export interface ListPhoneNumbersV2Request {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to. If <code>TargetArn</code> input is not provided, this API lists numbers claimed
-   *    to all the Amazon Connect instances belonging to your account in the same Amazon Web Services Region as the request.</p>
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. If both <code>TargetArn</code> and <code>InstanceId</code> input are not
+   *    provided, this API lists numbers claimed to all the Amazon Connect instances belonging to
+   *    your account in the same Amazon Web Services Region as the request.</p>
    */
   TargetArn?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
+   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. If both <code>TargetArn</code> and <code>InstanceId</code> are not provided, this API lists numbers
+   *    claimed to all the Amazon Connect instances belonging to your account in the same AWS Region as
+   *    the request.</p>
+   */
+  InstanceId?: string;
 
   /**
    * @public
@@ -4240,9 +4251,17 @@ export interface ListPhoneNumbersSummary {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through.</p>
    */
   TargetArn?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
+   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId?: string;
 }
 
 /**
@@ -4881,20 +4900,20 @@ export interface ListSecurityKeysResponse {
 export interface ListSecurityProfileApplicationsRequest {
   /**
    * @public
-   * <p>The security profile identifier.</p>
+   * <p>The identifier for the security profle.</p>
    */
   SecurityProfileId: string | undefined;
 
   /**
    * @public
-   * <p>The instance identifier.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
    * @public
-   * <p>The token for the next set of results. The next set of results can be retrieved by using the
-   *    token value returned in the previous response when making the next request.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
@@ -4912,14 +4931,13 @@ export interface ListSecurityProfileApplicationsResponse {
   /**
    * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>A list of the third party application's metadata.</p>
+   *          <p>A list of the third-party application's metadata.</p>
    */
   Applications?: Application[];
 
   /**
    * @public
-   * <p>The token for the next set of results. The next set of results can be retrieved by using the
-   *    token value returned in the previous response when making the next request.</p>
+   * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
 }
@@ -5911,9 +5929,17 @@ export interface ResumeContactRecordingResponse {}
 export interface SearchAvailablePhoneNumbersRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
    */
-  TargetArn: string | undefined;
+  TargetArn?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
+   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
+   */
+  InstanceId?: string;
 
   /**
    * @public

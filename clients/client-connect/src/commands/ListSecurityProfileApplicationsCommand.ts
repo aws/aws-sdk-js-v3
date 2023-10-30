@@ -42,7 +42,7 @@ export interface ListSecurityProfileApplicationsCommandOutput
 
 /**
  * @public
- * <p>Returns a list of third party applications in a specific security profile.</p>
+ * <p>Returns a list of third-party applications in a specific security profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

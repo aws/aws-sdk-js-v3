@@ -1212,9 +1212,17 @@ export interface AssociateTrafficDistributionGroupUserResponse {}
 export interface ClaimPhoneNumberRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
    */
-  TargetArn: string | undefined;
+  TargetArn?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
+   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
+   */
+  InstanceId?: string;
 
   /**
    * @public
@@ -3277,7 +3285,7 @@ export interface CreateRuleResponse {
 /**
  * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>A third party application's metadata.</p>
+ *          <p>A third-party application's metadata.</p>
  */
 export interface Application {
   /**
@@ -3346,7 +3354,7 @@ export interface CreateSecurityProfileRequest {
   /**
    * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>A list of third party applications that the security profile will give access to.</p>
+   *          <p>A list of third-party applications that the security profile will give access to.</p>
    */
   Applications?: Application[];
 }
@@ -6356,9 +6364,17 @@ export interface ClaimedPhoneNumberSummary {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through.</p>
    */
   TargetArn?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
+   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId?: string;
 
   /**
    * @public

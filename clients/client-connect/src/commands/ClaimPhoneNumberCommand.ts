@@ -68,7 +68,8 @@ export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse,
  * // const { ConnectClient, ClaimPhoneNumberCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // ClaimPhoneNumberRequest
- *   TargetArn: "STRING_VALUE", // required
+ *   TargetArn: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
  *   PhoneNumber: "STRING_VALUE", // required
  *   PhoneNumberDescription: "STRING_VALUE",
  *   Tags: { // TagMap

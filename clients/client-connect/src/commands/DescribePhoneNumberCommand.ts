@@ -69,6 +69,7 @@ export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberRes
  * //     PhoneNumberType: "TOLL_FREE" || "DID" || "UIFN" || "SHARED" || "THIRD_PARTY_TF" || "THIRD_PARTY_DID",
  * //     PhoneNumberDescription: "STRING_VALUE",
  * //     TargetArn: "STRING_VALUE",
+ * //     InstanceId: "STRING_VALUE",
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },

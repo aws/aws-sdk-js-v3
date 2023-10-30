@@ -56,7 +56,8 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * const client = new ConnectClient(config);
  * const input = { // UpdatePhoneNumberRequest
  *   PhoneNumberId: "STRING_VALUE", // required
- *   TargetArn: "STRING_VALUE", // required
+ *   TargetArn: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  * };
  * const command = new UpdatePhoneNumberCommand(input);
