@@ -1,11 +1,14 @@
 /**
  *
  * Class for storing DynamoDB numbers that exceed the scale of
- * JavaScript's MAX_SAFE_INTEGER and MIN_SAFE_INTEGER.
+ * JavaScript's MAX_SAFE_INTEGER and MIN_SAFE_INTEGER, or the
+ * decimal precision limit.
  *
  * This class does not support mathematical operations in JavaScript.
  * Convert the contained string value to your application-specific
  * large number implementation to perform mathematical operations.
+ *
+ * @public
  *
  */
 export class DynamoDBNumber {
