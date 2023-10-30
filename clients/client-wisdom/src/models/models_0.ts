@@ -52,9 +52,22 @@ export interface AppIntegrationsConfiguration {
    *         </p>
    *             </li>
    *             <li>
-   *                <p> For <a href="https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index"> SharePoint</a>, your AppIntegrations DataIntegration must have a FileConfiguration,
+   *                <p> For <a href="https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index">SharePoint</a>, your AppIntegrations DataIntegration must have a FileConfiguration,
    *           including only file extensions that are among <code>docx</code>, <code>pdf</code>,
    *             <code>html</code>, <code>htm</code>, and <code>txt</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p> For <a href="https://aws.amazon.com/s3/">Amazon S3</a>, the
+   *             ObjectConfiguration and FileConfiguration of your AppIntegrations
+   *           DataIntegration must be null. The <code>SourceURI</code> of your
+   *             DataIntegration must use the following format:
+   *             <code>s3://your_s3_bucket_name</code>.</p>
+   *                <important>
+   *                   <p>The bucket policy of the corresponding S3 bucket must allow the Amazon Web Services
+   *             principal <code>app-integrations.amazonaws.com</code> to perform
+   *               <code>s3:ListBucket</code>, <code>s3:GetObject</code>, and <code>s3:GetBucketLocation</code>
+   *             against the bucket.</p>
+   *                </important>
    *             </li>
    *          </ul>
    */
@@ -528,13 +541,14 @@ export interface ListAssistantAssociationsResponse {
 
 /**
  * @public
- * <p>The KMS key used for encryption.</p>
+ * <p>The configuration information for the customer managed key used for encryption.</p>
  */
 export interface ServerSideEncryptionConfiguration {
   /**
    * @public
-   * <p>The KMS key. For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers
-   *         (KeyId)</a>.</p>
+   * <p>The customer managed key used for encryption. For more information about setting up a
+   *         customer managed key for Wisdom, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html">Enable Amazon Connect Wisdom for your
+   *         instance</a>. For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers (KeyId)</a>.</p>
    */
   kmsKeyId?: string;
 }
@@ -591,7 +605,15 @@ export interface CreateAssistantRequest {
 
   /**
    * @public
-   * <p>The KMS key used for encryption.</p>
+   * <p>The configuration information for the customer managed key used for encryption. </p>
+   *          <p>The customer managed key must have a policy that allows <code>kms:CreateGrant</code>
+   *       and <code> kms:DescribeKey</code> permissions to the IAM identity using the key
+   *       to invoke Wisdom. To use Wisdom with chat, the key policy must also allow
+   *         <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and
+   *         <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service
+   *       principal. </p>
+   *          <p>For more information about setting up a customer managed key for Wisdom, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html">Enable Amazon Connect Wisdom
+   *         for your instance</a>.</p>
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 }
@@ -675,7 +697,15 @@ export interface AssistantData {
 
   /**
    * @public
-   * <p>The KMS key used for encryption.</p>
+   * <p>The configuration information for the customer managed key used for encryption. </p>
+   *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>
+   *       and <code>kms:DescribeKey</code> permissions to the IAM identity using the key
+   *       to invoke Wisdom. To use Wisdom with chat, the key policy must also allow
+   *         <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and
+   *         <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service
+   *       principal. </p>
+   *          <p>For more information about setting up a customer managed key for Wisdom, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html">Enable Amazon Connect Wisdom
+   *         for your instance</a>.</p>
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
@@ -1134,7 +1164,15 @@ export interface AssistantSummary {
 
   /**
    * @public
-   * <p>The KMS key used for encryption.</p>
+   * <p>The configuration information for the customer managed key used for encryption. </p>
+   *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>
+   *       and <code>kms:DescribeKey</code> permissions to the IAM identity using the key
+   *       to invoke Wisdom. To use Wisdom with chat, the key policy must also allow
+   *         <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and
+   *         <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service
+   *       principal. </p>
+   *          <p>For more information about setting up a customer managed key for Wisdom, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html">Enable Amazon Connect Wisdom
+   *         for your instance</a>.</p>
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
@@ -2154,7 +2192,12 @@ export interface CreateKnowledgeBaseRequest {
 
   /**
    * @public
-   * <p>The KMS key used for encryption.</p>
+   * <p>The configuration information for the customer managed key used for encryption. </p>
+   *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>
+   *       and <code>kms:DescribeKey</code> permissions to the IAM identity using the key
+   *       to invoke Wisdom.</p>
+   *          <p>For more information about setting up a customer managed key for Wisdom, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html">Enable Amazon Connect Wisdom
+   *         for your instance</a>.</p>
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
@@ -2245,7 +2288,12 @@ export interface KnowledgeBaseData {
 
   /**
    * @public
-   * <p>The KMS key used for encryption.</p>
+   * <p>The configuration information for the customer managed key used for encryption. </p>
+   *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>
+   *       and <code>kms:DescribeKey</code> permissions to the IAM identity using the key
+   *       to invoke Wisdom. </p>
+   *          <p>For more information about setting up a customer managed key for Wisdom, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html">Enable Amazon Connect Wisdom
+   *         for your instance</a>.</p>
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
@@ -2378,7 +2426,12 @@ export interface KnowledgeBaseSummary {
 
   /**
    * @public
-   * <p>The KMS key used for encryption.</p>
+   * <p>The configuration information for the customer managed key used for encryption. </p>
+   *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>
+   *       and <code>kms:DescribeKey</code> permissions to the IAM identity using the key
+   *       to invoke Wisdom. </p>
+   *          <p>For more information about setting up a customer managed key for Wisdom, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html">Enable Amazon Connect Wisdom
+   *         for your instance</a>.</p>
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
