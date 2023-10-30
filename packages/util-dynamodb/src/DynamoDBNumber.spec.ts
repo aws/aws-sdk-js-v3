@@ -22,11 +22,6 @@ describe(DynamoDBNumber.name, () => {
     expect(DynamoDBNumber.from(BigInt(BIG_INT)).toString()).toEqual(BIG_INT);
   });
 
-  it("can convert to number", () => {
-    expect(DynamoDBNumber.from(BIG_DECIMAL).toNumber(true)).toEqual(Number(BIG_DECIMAL));
-    expect(() => DynamoDBNumber.from(BIG_DECIMAL).toNumber(false)).toThrow();
-  });
-
   it("can convert to AttributeValue", () => {
     expect(DynamoDBNumber.from(BIG_DECIMAL).toAttributeValue()).toEqual({
       N: BIG_DECIMAL,

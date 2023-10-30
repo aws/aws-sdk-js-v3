@@ -59,19 +59,6 @@ export class DynamoDBNumber {
   }
 
   /**
-   * @param allowImprecision - if true, will throw if the number cannot be precisely conveyed as a JavaScript number.
-   * @returns the number representation.
-   */
-  public toNumber(allowImprecision = false) {
-    const stringValue = this.toString();
-    const numberValue = Number(stringValue);
-    if (!allowImprecision && String(numberValue) !== stringValue) {
-      throw new Error(`Cannot convert ${stringValue} with precision to number.`);
-    }
-    return numberValue;
-  }
-
-  /**
    * @returns BigInt representation.
    *
    * @throws SyntaxError if the string representation is not convertable to a BigInt.
