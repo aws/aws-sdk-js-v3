@@ -45,8 +45,7 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
 
 /**
  * @public
- * <p>Adds the resource mapping for the draft application version. You can also update an
- *       existing resource mapping to a new physical resource.</p>
+ * <p>Adds the source of resource-maps to the draft version of an application. During assessment, Resilience Hub will use these resource-maps to resolve the latest physical ID for each resource in the application template. For more information about different types of resources suported by Resilience Hub and how to add them in your application, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html">Step 2: How is your application managed?</a> in the Resilience Hub User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

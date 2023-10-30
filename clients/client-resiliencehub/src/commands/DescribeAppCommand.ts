@@ -81,6 +81,8 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * //     ],
  * //     driftStatus: "STRING_VALUE",
  * //     lastDriftEvaluationTime: new Date("TIMESTAMP"),
+ * //     rtoInSecs: Number("int"),
+ * //     rpoInSecs: Number("int"),
  * //   },
  * // };
  *

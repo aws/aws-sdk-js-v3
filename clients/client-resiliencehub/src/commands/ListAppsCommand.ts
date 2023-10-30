@@ -58,6 +58,9 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  *   maxResults: Number("int"),
  *   name: "STRING_VALUE",
  *   appArn: "STRING_VALUE",
+ *   fromLastAssessmentTime: new Date("TIMESTAMP"),
+ *   toLastAssessmentTime: new Date("TIMESTAMP"),
+ *   reverseOrder: true || false,
  * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
@@ -73,6 +76,9 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * //       assessmentSchedule: "STRING_VALUE",
  * //       status: "STRING_VALUE",
  * //       driftStatus: "STRING_VALUE",
+ * //       lastAppComplianceEvaluationTime: new Date("TIMESTAMP"),
+ * //       rtoInSecs: Number("int"),
+ * //       rpoInSecs: Number("int"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

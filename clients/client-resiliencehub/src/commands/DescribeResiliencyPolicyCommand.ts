@@ -41,9 +41,9 @@ export interface DescribeResiliencyPolicyCommandOutput extends DescribeResilienc
 
 /**
  * @public
- * <p>Describes a specified resiliency policy for an Resilience Hub application. The returned
- *       policy object includes creation time, data location constraints, the Amazon Resource Name
- *       (ARN) for the policy, tags, tier, and more.</p>
+ * <p>Describes a specified resiliency policy for an Resilience Hub application. The
+ *       returned policy object includes creation time, data location constraints, the Amazon Resource
+ *       Name (ARN) for the policy, tags, tier, and more.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

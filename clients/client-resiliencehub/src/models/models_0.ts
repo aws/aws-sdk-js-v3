@@ -321,7 +321,7 @@ export interface AddDraftAppVersionResourceMappingsRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -346,7 +346,7 @@ export interface AddDraftAppVersionResourceMappingsResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -732,12 +732,11 @@ export interface EventSubscription {
 
   /**
    * @public
-   * <p>Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic. The format for this ARN is:
-   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+   * <p>Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic. The format for this ARN is: <code>arn:partition:sns:region:account:topic-name</code>.
    *       For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   snsTopicArn?: string;
 }
@@ -830,7 +829,7 @@ export interface App {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -855,14 +854,14 @@ export interface App {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   policyArn?: string;
 
   /**
    * @public
-   * <p>Timestamp
-   *       for when the app was created.</p>
+   * <p>Date
+   *       and time when the app was created.</p>
    */
   creationTime: Date | undefined;
 
@@ -881,8 +880,8 @@ export interface App {
 
   /**
    * @public
-   * <p>Timestamp
-   *       for the most recent compliance evaluation.</p>
+   * <p>Date
+   *       and time the most recent compliance evaluation.</p>
    */
   lastAppComplianceEvaluationTime?: Date;
 
@@ -895,8 +894,8 @@ export interface App {
 
   /**
    * @public
-   * <p>Timestamp
-   *       for the most recent resiliency score evaluation.</p>
+   * <p>Date
+   *       and time the most recent resiliency score evaluation.</p>
    */
   lastResiliencyScoreEvaluationTime?: Date;
 
@@ -944,6 +943,18 @@ export interface App {
    *       a drift was evaluated.</p>
    */
   lastDriftEvaluationTime?: Date;
+
+  /**
+   * @public
+   * <p>Recovery Time Objective (RTO) in seconds.</p>
+   */
+  rtoInSecs?: number;
+
+  /**
+   * @public
+   * <p>Recovery Point Objective (RPO) in seconds.</p>
+   */
+  rpoInSecs?: number;
 }
 
 /**
@@ -1170,13 +1181,13 @@ export type EstimatedCostTier = (typeof EstimatedCostTier)[keyof typeof Estimate
 export interface FailurePolicy {
   /**
    * @public
-   * <p>The Recovery Time Objective (RTO), in seconds.</p>
+   * <p>Recovery Time Objective (RTO) in seconds.</p>
    */
   rtoInSecs: number | undefined;
 
   /**
    * @public
-   * <p>The Recovery Point Objective (RPO), in seconds.</p>
+   * <p>Recovery Point Objective (RPO) in seconds.</p>
    */
   rpoInSecs: number | undefined;
 }
@@ -1202,6 +1213,12 @@ export type ResiliencyPolicyTier = (typeof ResiliencyPolicyTier)[keyof typeof Re
 /**
  * @public
  * <p>Defines a resiliency policy.</p>
+ *          <note>
+ *             <p>Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and <code>rpoInSecs</code> of your resiliency policy. But, while assessing
+ *         your application, the lowest possible assessment result is near zero. Hence,
+ *         if you provide value zero for <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO and estimated
+ *         workload RPO result will be near zero and the <b>Compliance status</b> for your application will be set to <b>Policy breached</b>.</p>
+ *          </note>
  */
 export interface ResiliencyPolicy {
   /**
@@ -1210,7 +1227,7 @@ export interface ResiliencyPolicy {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   policyArn?: string;
 
@@ -1254,7 +1271,8 @@ export interface ResiliencyPolicy {
 
   /**
    * @public
-   * <p>The timestamp for when the resiliency policy was created.</p>
+   * <p>Date
+   *       and time when the resiliency policy was created.</p>
    */
   creationTime?: Date;
 
@@ -1341,7 +1359,7 @@ export interface AppAssessment {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn?: string;
 
@@ -1418,7 +1436,7 @@ export interface AppAssessment {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 
@@ -1467,7 +1485,7 @@ export interface AppAssessmentSummary {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn?: string;
 
@@ -1519,7 +1537,7 @@ export interface AppAssessmentSummary {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 
@@ -1647,7 +1665,7 @@ export interface EksSourceClusterNamespace {
    * arn:<code>aws</code>:eks:<code>region</code>:<code>account-id</code>:cluster/<code>cluster-name</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   eksClusterArn: string | undefined;
 
@@ -1692,7 +1710,7 @@ export interface AppInputSource {
    * <p>The Amazon Resource Name (ARN) of the input source. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   sourceArn?: string;
 
@@ -1726,7 +1744,7 @@ export interface AppSummary {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -1744,7 +1762,8 @@ export interface AppSummary {
 
   /**
    * @public
-   * <p>The timestamp for when the app was created.</p>
+   * <p>Date
+   *       and time when the app was created.</p>
    */
   creationTime: Date | undefined;
 
@@ -1778,6 +1797,25 @@ export interface AppSummary {
    *       your application.</p>
    */
   driftStatus?: AppDriftStatusType;
+
+  /**
+   * @public
+   * <p>Date
+   *       and time of the most recent compliance evaluation.</p>
+   */
+  lastAppComplianceEvaluationTime?: Date;
+
+  /**
+   * @public
+   * <p>Recovery Time Objective (RTO) in seconds.</p>
+   */
+  rtoInSecs?: number;
+
+  /**
+   * @public
+   * <p>Recovery Point Objective (RPO) in seconds.</p>
+   */
+  rpoInSecs?: number;
 }
 
 /**
@@ -1884,7 +1922,7 @@ export interface BatchUpdateRecommendationStatusRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -1969,7 +2007,7 @@ export interface BatchUpdateRecommendationStatusResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -2008,7 +2046,7 @@ export interface CreateAppRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   policyArn?: string;
 
@@ -2091,7 +2129,7 @@ export interface CreateAppVersionAppComponentRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -2137,7 +2175,7 @@ export interface CreateAppVersionAppComponentResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -2204,7 +2242,7 @@ export interface CreateAppVersionResourceRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -2307,7 +2345,7 @@ export interface PhysicalResource {
 
   /**
    * @public
-   * <p>The type of resource.</p>
+   * <p>Type of resource.</p>
    */
   resourceType: string | undefined;
 
@@ -2359,7 +2397,7 @@ export interface CreateAppVersionResourceResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -2457,7 +2495,7 @@ export interface CreateRecommendationTemplateRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 
@@ -2540,7 +2578,7 @@ export interface RecommendationTemplate {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 
@@ -2550,7 +2588,7 @@ export interface RecommendationTemplate {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn?: string;
 
@@ -2732,7 +2770,7 @@ export interface DeleteAppRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -2760,7 +2798,7 @@ export interface DeleteAppResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 }
@@ -2775,7 +2813,7 @@ export interface DeleteAppAssessmentRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 
@@ -2797,7 +2835,7 @@ export interface DeleteAppAssessmentResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 
@@ -2818,7 +2856,7 @@ export interface DeleteAppInputSourceRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -2828,7 +2866,7 @@ export interface DeleteAppInputSourceRequest {
    *       Resilience Hub application. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   sourceArn?: string;
 
@@ -2862,7 +2900,7 @@ export interface DeleteAppInputSourceResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn?: string;
 
@@ -2883,7 +2921,7 @@ export interface DeleteAppVersionAppComponentRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -2911,7 +2949,7 @@ export interface DeleteAppVersionAppComponentResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -2938,7 +2976,7 @@ export interface DeleteAppVersionResourceRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -2990,7 +3028,7 @@ export interface DeleteAppVersionResourceResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3052,7 +3090,7 @@ export interface DeleteResiliencyPolicyRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   policyArn: string | undefined;
 
@@ -3074,7 +3112,7 @@ export interface DeleteResiliencyPolicyResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   policyArn: string | undefined;
 }
@@ -3089,7 +3127,7 @@ export interface DescribeAppRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 }
@@ -3116,7 +3154,7 @@ export interface DescribeAppAssessmentRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 }
@@ -3144,7 +3182,7 @@ export interface DescribeAppVersionRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3165,7 +3203,7 @@ export interface DescribeAppVersionResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3195,7 +3233,7 @@ export interface DescribeAppVersionAppComponentRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3222,7 +3260,7 @@ export interface DescribeAppVersionAppComponentResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3249,7 +3287,7 @@ export interface DescribeAppVersionResourceRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3300,7 +3338,7 @@ export interface DescribeAppVersionResourceResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3327,7 +3365,7 @@ export interface DescribeAppVersionResourcesResolutionStatusRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3371,7 +3409,7 @@ export interface DescribeAppVersionResourcesResolutionStatusResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3410,7 +3448,7 @@ export interface DescribeAppVersionTemplateRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3431,7 +3469,7 @@ export interface DescribeAppVersionTemplateResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3717,7 +3755,7 @@ export interface DescribeDraftAppVersionResourcesImportStatusRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 }
@@ -3748,7 +3786,7 @@ export interface DescribeDraftAppVersionResourcesImportStatusResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3766,7 +3804,7 @@ export interface DescribeDraftAppVersionResourcesImportStatusResponse {
 
   /**
    * @public
-   * <p>The timestamp for when the status last changed.</p>
+   * <p>The time when the status last changed.</p>
    */
   statusChangeTime: Date | undefined;
 
@@ -3787,7 +3825,7 @@ export interface DescribeResiliencyPolicyRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   policyArn: string | undefined;
 }
@@ -3816,7 +3854,7 @@ export interface EksSource {
    * arn:<code>aws</code>:eks:<code>region</code>:<code>account-id</code>:cluster/<code>cluster-name</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   eksClusterArn: string | undefined;
 
@@ -3851,7 +3889,7 @@ export interface ImportResourcesToDraftAppVersionRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3891,7 +3929,7 @@ export interface ImportResourcesToDraftAppVersionResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -3938,7 +3976,7 @@ export interface ListAlarmRecommendationsRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 
@@ -3985,7 +4023,7 @@ export interface ListAppAssessmentComplianceDriftsRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 
@@ -4138,7 +4176,7 @@ export interface ListAppAssessmentsRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn?: string;
 
@@ -4230,7 +4268,7 @@ export interface ListAppComponentCompliancesRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 }
@@ -4264,7 +4302,7 @@ export interface ListAppComponentRecommendationsRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 
@@ -4496,7 +4534,7 @@ export interface ListAppInputSourcesRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -4565,9 +4603,27 @@ export interface ListAppsRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn?: string;
+
+  /**
+   * @public
+   * <p>Indicates the lower limit of the range that is used to filter applications based on their last assessment times.</p>
+   */
+  fromLastAssessmentTime?: Date;
+
+  /**
+   * @public
+   * <p>Indicates the upper limit of the range that is used to filter the applications based on their last assessment times.</p>
+   */
+  toLastAssessmentTime?: Date;
+
+  /**
+   * @public
+   * <p>The application list is sorted based on the values of <code>lastAppComplianceEvaluationTime</code> field. By default, application list is sorted in ascending order. To sort the appliation list in descending order, set this field to <code>True</code>.</p>
+   */
+  reverseOrder?: boolean;
 }
 
 /**
@@ -4597,7 +4653,7 @@ export interface ListAppVersionAppComponentsRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -4630,7 +4686,7 @@ export interface ListAppVersionAppComponentsResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -4663,7 +4719,7 @@ export interface ListAppVersionResourceMappingsRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -4718,7 +4774,7 @@ export interface ListAppVersionResourcesRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -4781,7 +4837,7 @@ export interface ListAppVersionsRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -4838,7 +4894,7 @@ export interface ListRecommendationTemplatesRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 
@@ -4962,7 +5018,7 @@ export interface ListSopRecommendationsRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 }
@@ -5135,7 +5191,7 @@ export interface ListTestRecommendationsRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   assessmentArn: string | undefined;
 }
@@ -5272,7 +5328,7 @@ export interface ListUnsupportedAppVersionResourcesRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -5368,7 +5424,7 @@ export interface PublishAppVersionRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -5389,7 +5445,7 @@ export interface PublishAppVersionResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -5422,7 +5478,7 @@ export interface PutDraftAppVersionTemplateRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -5702,7 +5758,7 @@ export interface PutDraftAppVersionTemplateResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn?: string;
 
@@ -5723,7 +5779,7 @@ export interface RemoveDraftAppVersionResourceMappingsRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -5777,7 +5833,7 @@ export interface RemoveDraftAppVersionResourceMappingsResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn?: string;
 
@@ -5798,7 +5854,7 @@ export interface ResolveAppVersionResourcesRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -5819,7 +5875,7 @@ export interface ResolveAppVersionResourcesResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -5852,7 +5908,7 @@ export interface StartAppAssessmentRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -5948,7 +6004,7 @@ export interface UpdateAppRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -5964,7 +6020,7 @@ export interface UpdateAppRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   policyArn?: string;
 
@@ -6022,7 +6078,7 @@ export interface UpdateAppVersionRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -6050,7 +6106,7 @@ export interface UpdateAppVersionResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -6080,7 +6136,7 @@ export interface UpdateAppVersionAppComponentRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -6119,7 +6175,7 @@ export interface UpdateAppVersionAppComponentResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -6146,7 +6202,7 @@ export interface UpdateAppVersionResourceRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -6218,7 +6274,7 @@ export interface UpdateAppVersionResourceResponse {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   appArn: string | undefined;
 
@@ -6245,7 +6301,7 @@ export interface UpdateResiliencyPolicyRequest {
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>AWS General Reference</i> guide.</p>
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
    */
   policyArn: string | undefined;
 

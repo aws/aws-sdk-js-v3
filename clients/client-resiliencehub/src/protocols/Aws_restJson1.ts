@@ -1237,6 +1237,15 @@ export const se_ListAppsCommand = async (
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     name: [, input.name!],
     appArn: [, input.appArn!],
+    fromLastAssessmentTime: [
+      () => input.fromLastAssessmentTime !== void 0,
+      () => (input.fromLastAssessmentTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    toLastAssessmentTime: [
+      () => input.toLastAssessmentTime !== void 0,
+      () => (input.toLastAssessmentTime!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    reverseOrder: [() => input.reverseOrder !== void 0, () => input.reverseOrder!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -5557,6 +5566,8 @@ const de_App = (output: any, context: __SerdeContext): App => {
     permissionModel: _json,
     policyArn: __expectString,
     resiliencyScore: __limitedParseDouble,
+    rpoInSecs: __expectInt32,
+    rtoInSecs: __expectInt32,
     status: __expectString,
     tags: _json,
   }) as any;
@@ -5657,8 +5668,11 @@ const de_AppSummary = (output: any, context: __SerdeContext): AppSummary => {
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     driftStatus: __expectString,
+    lastAppComplianceEvaluationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
     resiliencyScore: __limitedParseDouble,
+    rpoInSecs: __expectInt32,
+    rtoInSecs: __expectInt32,
     status: __expectString,
   }) as any;
 };

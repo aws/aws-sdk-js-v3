@@ -99,6 +99,8 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  * //     ],
  * //     driftStatus: "STRING_VALUE",
  * //     lastDriftEvaluationTime: new Date("TIMESTAMP"),
+ * //     rtoInSecs: Number("int"),
+ * //     rpoInSecs: Number("int"),
  * //   },
  * // };
  *
