@@ -26,6 +26,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import { CancelJobCommandInput, CancelJobCommandOutput } from "../commands/CancelJobCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "../commands/CreateDataSetCommand";
@@ -55,6 +56,10 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { RevokeRevisionCommandInput, RevokeRevisionCommandOutput } from "../commands/RevokeRevisionCommand";
 import { SendApiAssetCommandInput, SendApiAssetCommandOutput } from "../commands/SendApiAssetCommand";
+import {
+  SendDataSetNotificationCommandInput,
+  SendDataSetNotificationCommandOutput,
+} from "../commands/SendDataSetNotificationCommand";
 import { StartJobCommandInput, StartJobCommandOutput } from "../commands/StartJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -78,6 +83,8 @@ import {
   DatabaseLFTagPolicyAndPermissions,
   DatabaseLFTagPolicyPermission,
   DataSetEntry,
+  DataUpdateRequestDetails,
+  DeprecationRequestDetails,
   Event,
   EventActionEntry,
   ExportAssetsToS3RequestDetails,
@@ -96,8 +103,11 @@ import {
   JobEntry,
   JobError,
   KmsKeyToGrant,
+  LakeFormationTagPolicyDetails,
   LFTag,
+  NotificationDetails,
   RedshiftDataShareAssetSourceEntry,
+  RedshiftDataShareDetails,
   RequestDetails,
   ResourceNotFoundException,
   ResponseDetails,
@@ -105,7 +115,11 @@ import {
   RevisionEntry,
   RevisionPublished,
   S3DataAccessAssetSourceEntry,
+  S3DataAccessDetails,
   S3SnapshotAsset,
+  SchemaChangeDetails,
+  SchemaChangeRequestDetails,
+  ScopeDetails,
   ServiceLimitExceededException,
   TableLFTagPolicyAndPermissions,
   TableTagPolicyLFPermission,
@@ -741,6 +755,41 @@ export const se_SendApiAssetCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1SendDataSetNotificationCommand
+ */
+export const se_SendDataSetNotificationCommand = async (
+  input: SendDataSetNotificationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/data-sets/{DataSetId}/notification";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      Comment: [],
+      Details: (_) => se_NotificationDetails(_, context),
+      Scope: (_) => _json(_),
+      Type: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -2302,6 +2351,64 @@ const de_SendApiAssetCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1SendDataSetNotificationCommand
+ */
+export const de_SendDataSetNotificationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendDataSetNotificationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_SendDataSetNotificationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SendDataSetNotificationCommandError
+ */
+const de_SendDataSetNotificationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendDataSetNotificationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.dataexchange#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.dataexchange#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.dataexchange#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dataexchange#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.dataexchange#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.dataexchange#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StartJobCommand
  */
 export const de_StartJobCommand = async (
@@ -2861,6 +2968,24 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DatabaseLFTagPolicyAndPermissions omitted.
 
+/**
+ * serializeAws_restJson1DataUpdateRequestDetails
+ */
+const se_DataUpdateRequestDetails = (input: DataUpdateRequestDetails, context: __SerdeContext): any => {
+  return take(input, {
+    DataUpdatedAt: (_) => _.toISOString().split(".")[0] + "Z",
+  });
+};
+
+/**
+ * serializeAws_restJson1DeprecationRequestDetails
+ */
+const se_DeprecationRequestDetails = (input: DeprecationRequestDetails, context: __SerdeContext): any => {
+  return take(input, {
+    DeprecationAt: (_) => _.toISOString().split(".")[0] + "Z",
+  });
+};
+
 // se_Event omitted.
 
 // se_ExportAssetsToS3RequestDetails omitted.
@@ -2883,6 +3008,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_KmsKeyToGrant omitted.
 
+// se_LakeFormationTagPolicyDetails omitted.
+
 // se_LFTag omitted.
 
 // se_ListOf__string omitted.
@@ -2895,19 +3022,40 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ListOfKmsKeysToGrant omitted.
 
+// se_ListOfLakeFormationTagPolicies omitted.
+
 // se_ListOfLFTags omitted.
 
 // se_ListOfLFTagValues omitted.
 
 // se_ListOfRedshiftDataShareAssetSourceEntry omitted.
 
+// se_ListOfRedshiftDataShares omitted.
+
 // se_ListOfRevisionDestinationEntry omitted.
+
+// se_ListOfS3DataAccesses omitted.
+
+// se_ListOfSchemaChangeDetails omitted.
 
 // se_ListOfTableTagPolicyLFPermissions omitted.
 
 // se_MapOf__string omitted.
 
+/**
+ * serializeAws_restJson1NotificationDetails
+ */
+const se_NotificationDetails = (input: NotificationDetails, context: __SerdeContext): any => {
+  return take(input, {
+    DataUpdate: (_) => se_DataUpdateRequestDetails(_, context),
+    Deprecation: (_) => se_DeprecationRequestDetails(_, context),
+    SchemaChange: (_) => se_SchemaChangeRequestDetails(_, context),
+  });
+};
+
 // se_RedshiftDataShareAssetSourceEntry omitted.
+
+// se_RedshiftDataShareDetails omitted.
 
 // se_RequestDetails omitted.
 
@@ -2916,6 +3064,22 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_RevisionPublished omitted.
 
 // se_S3DataAccessAssetSourceEntry omitted.
+
+// se_S3DataAccessDetails omitted.
+
+// se_SchemaChangeDetails omitted.
+
+/**
+ * serializeAws_restJson1SchemaChangeRequestDetails
+ */
+const se_SchemaChangeRequestDetails = (input: SchemaChangeRequestDetails, context: __SerdeContext): any => {
+  return take(input, {
+    Changes: _json,
+    SchemaChangeAt: (_) => _.toISOString().split(".")[0] + "Z",
+  });
+};
+
+// se_ScopeDetails omitted.
 
 // se_TableLFTagPolicyAndPermissions omitted.
 

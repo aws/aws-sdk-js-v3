@@ -3391,6 +3391,324 @@ export interface SendApiAssetResponse {
 
 /**
  * @public
+ * <p>Extra details specific to a data update type notification.</p>
+ */
+export interface DataUpdateRequestDetails {
+  /**
+   * @public
+   * <p>A
+   *          datetime in the past when the data was updated. This typically means that the underlying
+   *          resource supporting the data set was updated.</p>
+   */
+  DataUpdatedAt?: Date;
+}
+
+/**
+ * @public
+ * <p>Extra details specific to a deprecation type notification.</p>
+ */
+export interface DeprecationRequestDetails {
+  /**
+   * @public
+   * <p>A
+   *          datetime in the future when the data set will be deprecated.</p>
+   */
+  DeprecationAt: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SchemaChangeType = {
+  ADD: "ADD",
+  MODIFY: "MODIFY",
+  REMOVE: "REMOVE",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaChangeType = (typeof SchemaChangeType)[keyof typeof SchemaChangeType];
+
+/**
+ * @public
+ * <p>Object encompassing information about a schema change to a single, particular field,
+ *          a notification can have up to 100 of these.</p>
+ */
+export interface SchemaChangeDetails {
+  /**
+   * @public
+   * <p>Name
+   *          of the changing
+   *          field. This value
+   *          can be up to 255 characters long.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>Is
+   *          the field being added, removed, or modified?</p>
+   */
+  Type: SchemaChangeType | undefined;
+
+  /**
+   * @public
+   * <p>Description
+   *          of what's changing about this
+   *          field. This value
+   *          can be up to 512 characters long.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ * <p>Extra details specific to this schema change type notification.</p>
+ */
+export interface SchemaChangeRequestDetails {
+  /**
+   * @public
+   * <p>List
+   *          of schema changes happening in the scope of this
+   *          notification. This
+   *          can have up to 100 entries.</p>
+   */
+  Changes?: SchemaChangeDetails[];
+
+  /**
+   * @public
+   * <p>A
+   *          date in the future when the schema change is taking effect.</p>
+   */
+  SchemaChangeAt: Date | undefined;
+}
+
+/**
+ * @public
+ * <p>Extra details specific to this notification.</p>
+ */
+export interface NotificationDetails {
+  /**
+   * @public
+   * <p>Extra
+   *          details specific to a data update type notification.</p>
+   */
+  DataUpdate?: DataUpdateRequestDetails;
+
+  /**
+   * @public
+   * <p>Extra
+   *          details specific to a deprecation type notification.</p>
+   */
+  Deprecation?: DeprecationRequestDetails;
+
+  /**
+   * @public
+   * <p>Extra
+   *          details specific to a schema change type notification.</p>
+   */
+  SchemaChange?: SchemaChangeRequestDetails;
+}
+
+/**
+ * @public
+ * <p>Extra details specific to the affected scope in
+ *          this LF data set.</p>
+ */
+export interface LakeFormationTagPolicyDetails {
+  /**
+   * @public
+   * <p>The
+   *          underlying Glue database that the notification is referring to.</p>
+   */
+  Database?: string;
+
+  /**
+   * @public
+   * <p>The
+   *          underlying Glue table that the notification is referring to.</p>
+   */
+  Table?: string;
+}
+
+/**
+ * @public
+ * <p>Extra details specific to the affected scope
+ *          in this Redshift data set.</p>
+ */
+export interface RedshiftDataShareDetails {
+  /**
+   * @public
+   * <p>The
+   *          ARN of the underlying Redshift data share that is being affected by this
+   *          notification.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The
+   *          database name in the Redshift data share that is being affected by this
+   *          notification.</p>
+   */
+  Database: string | undefined;
+
+  /**
+   * @public
+   * <p>A
+   *          function name in the Redshift database that is being affected by this notification.</p>
+   */
+  Function?: string;
+
+  /**
+   * @public
+   * <p>A
+   *          table name in the Redshift database that is being affected by this notification.</p>
+   */
+  Table?: string;
+
+  /**
+   * @public
+   * <p>A
+   *          schema name in the Redshift database that is being affected by this notification.</p>
+   */
+  Schema?: string;
+
+  /**
+   * @public
+   * <p>A
+   *          view name in the Redshift database that is being affected by this notification.</p>
+   */
+  View?: string;
+}
+
+/**
+ * @public
+ * <p>Extra details specific to the affected scope in this S3 Data
+ *          Access data set.</p>
+ */
+export interface S3DataAccessDetails {
+  /**
+   * @public
+   * <p>A
+   *          list of the key prefixes affected by this
+   *          notification. This
+   *          can have up to 50 entries.</p>
+   */
+  KeyPrefixes?: string[];
+
+  /**
+   * @public
+   * <p>A
+   *          list of the keys affected by this
+   *          notification. This
+   *          can have up to 50 entries.</p>
+   */
+  Keys?: string[];
+}
+
+/**
+ * @public
+ * <p>Details about the scope of the notifications such as the affected resources.</p>
+ */
+export interface ScopeDetails {
+  /**
+   * @public
+   * <p>Underlying
+   *          LF resources that will be affected by this notification.</p>
+   */
+  LakeFormationTagPolicies?: LakeFormationTagPolicyDetails[];
+
+  /**
+   * @public
+   * <p>Underlying
+   *          Redshift resources that will be affected by this notification.</p>
+   */
+  RedshiftDataShares?: RedshiftDataShareDetails[];
+
+  /**
+   * @public
+   * <p>Underlying
+   *          S3 resources that will be affected by this notification.</p>
+   */
+  S3DataAccesses?: S3DataAccessDetails[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NotificationType = {
+  DATA_DELAY: "DATA_DELAY",
+  DATA_UPDATE: "DATA_UPDATE",
+  DEPRECATION: "DEPRECATION",
+  SCHEMA_CHANGE: "SCHEMA_CHANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];
+
+/**
+ * @public
+ */
+export interface SendDataSetNotificationRequest {
+  /**
+   * @public
+   * <p>Affected
+   *          scope of this notification such as the underlying resources affected by the notification
+   *          event.</p>
+   */
+  Scope?: ScopeDetails;
+
+  /**
+   * @public
+   * <p>Idempotency
+   *          key for the notification, this key allows us to deduplicate notifications that are sent in
+   *          quick succession erroneously.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * @public
+   * <p>Free-form
+   *          text field for providers to add information about their notifications.</p>
+   */
+  Comment?: string;
+
+  /**
+   * @public
+   * <p>Affected
+   *          data set of the notification.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * @public
+   * <p>Extra
+   *          details specific to this notification type.</p>
+   */
+  Details?: NotificationDetails;
+
+  /**
+   * @public
+   * <p>The
+   *          type of the notification. Describing the kind of event the notification is alerting you
+   *          to.</p>
+   */
+  Type: NotificationType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendDataSetNotificationResponse {}
+
+/**
+ * @public
  */
 export interface StartJobRequest {
   /**

@@ -396,6 +396,14 @@ SendApiAsset
 </details>
 <details>
 <summary>
+SendDataSetNotification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dataexchange/classes/senddatasetnotificationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dataexchange/interfaces/senddatasetnotificationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dataexchange/interfaces/senddatasetnotificationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartJob
 </summary>
 

@@ -80,6 +80,11 @@ import {
   SendApiAssetCommandInput,
   SendApiAssetCommandOutput,
 } from "./commands/SendApiAssetCommand";
+import {
+  SendDataSetNotificationCommand,
+  SendDataSetNotificationCommandInput,
+  SendDataSetNotificationCommandOutput,
+} from "./commands/SendDataSetNotificationCommand";
 import { StartJobCommand, StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
@@ -128,6 +133,7 @@ const commands = {
   ListTagsForResourceCommand,
   RevokeRevisionCommand,
   SendApiAssetCommand,
+  SendDataSetNotificationCommand,
   StartJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -426,6 +432,23 @@ export interface DataExchange {
     args: SendApiAssetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendApiAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendDataSetNotificationCommand}
+   */
+  sendDataSetNotification(
+    args: SendDataSetNotificationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendDataSetNotificationCommandOutput>;
+  sendDataSetNotification(
+    args: SendDataSetNotificationCommandInput,
+    cb: (err: any, data?: SendDataSetNotificationCommandOutput) => void
+  ): void;
+  sendDataSetNotification(
+    args: SendDataSetNotificationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendDataSetNotificationCommandOutput) => void
   ): void;
 
   /**

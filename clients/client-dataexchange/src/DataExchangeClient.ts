@@ -78,6 +78,10 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { RevokeRevisionCommandInput, RevokeRevisionCommandOutput } from "./commands/RevokeRevisionCommand";
 import { SendApiAssetCommandInput, SendApiAssetCommandOutput } from "./commands/SendApiAssetCommand";
+import {
+  SendDataSetNotificationCommandInput,
+  SendDataSetNotificationCommandOutput,
+} from "./commands/SendDataSetNotificationCommand";
 import { StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -122,6 +126,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | RevokeRevisionCommandInput
   | SendApiAssetCommandInput
+  | SendDataSetNotificationCommandInput
   | StartJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -156,6 +161,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | RevokeRevisionCommandOutput
   | SendApiAssetCommandOutput
+  | SendDataSetNotificationCommandOutput
   | StartJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
