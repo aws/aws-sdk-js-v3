@@ -1,3 +1,5 @@
+import { NumberValue as INumberValue } from "./models";
+
 /**
  *
  * Class for storing DynamoDB numbers that exceed the scale of
@@ -11,8 +13,8 @@
  * @public
  *
  */
-export class DynamoDBNumber {
-  private value: string;
+export class NumberValue implements INumberValue {
+  public value: string;
 
   /**
    * This class does not validate that your string input is a valid number.
@@ -35,7 +37,7 @@ export class DynamoDBNumber {
 
     if (imprecise) {
       throw new Error(
-        `DynamoDBNumber should not be initialized with an imprecise number=${valueOf}. Use a string instead.`
+        `NumberValue should not be initialized with an imprecise number=${valueOf}. Use a string instead.`
       );
     }
   }
@@ -46,7 +48,7 @@ export class DynamoDBNumber {
    * @param value - a precise number, or any BigInt or string, or AttributeValue.
    */
   public static from(value: number | Number | BigInt | string | { N: string }) {
-    return new DynamoDBNumber(value);
+    return new NumberValue(value);
   }
 
   /**

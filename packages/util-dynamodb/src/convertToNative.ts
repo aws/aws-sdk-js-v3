@@ -1,7 +1,7 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
-import { DynamoDBNumber } from "./DynamoDBNumber";
-import { NativeAttributeValue, NumberValue } from "./models";
+import type { NativeAttributeValue, NumberValue as INumberValue } from "./models";
+import { NumberValue } from "./NumberValue";
 import { unmarshallOptions } from "./unmarshall";
 
 /**
@@ -42,16 +42,9 @@ export const convertToNative = (data: AttributeValue, options?: unmarshallOption
   throw new Error(`No value defined: ${JSON.stringify(data)}`);
 };
 
-const convertNumber = (
-  numString: string,
-  options?: unmarshallOptions
-): number | bigint | NumberValue | DynamoDBNumber => {
-  if (options?.wrapNumbers && !options?.useDynamoDBNumberWrapper) {
-    return { value: numString };
-  }
-
-  if (options?.useDynamoDBNumberWrapper === "allNumbers") {
-    return DynamoDBNumber.from(numString);
+const convertNumber = (numString: string, options?: unmarshallOptions): number | bigint | NumberValue => {
+  if (options?.wrapNumbers) {
+    return NumberValue.from(numString);
   }
 
   const num = Number(numString);
@@ -59,23 +52,15 @@ const convertNumber = (
   const isLargeFiniteNumber =
     (num > Number.MAX_SAFE_INTEGER || num < Number.MIN_SAFE_INTEGER) && !infinityValues.includes(num);
 
-  if (options?.useDynamoDBNumberWrapper === "bigNumbersOnly" && isLargeFiniteNumber) {
-    return DynamoDBNumber.from(numString);
-  }
-
   if (isLargeFiniteNumber) {
     if (typeof BigInt === "function") {
       try {
         return BigInt(numString);
       } catch (error) {
-        throw new Error(
-          `${numString} can't be converted to BigInt. Set options.useDynamoDBNumberWrapper to get string value.`
-        );
+        throw new Error(`${numString} can't be converted to BigInt. Set options.wrapNumbers to get string value.`);
       }
     } else {
-      throw new Error(
-        `${numString} is outside SAFE_INTEGER bounds. Set options.useDynamoDBNumberWrapper to get string value.`
-      );
+      throw new Error(`${numString} is outside SAFE_INTEGER bounds. Set options.wrapNumbers to get string value.`);
     }
   }
   return num;

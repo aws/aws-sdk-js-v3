@@ -1,7 +1,6 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { convertToNative } from "./convertToNative";
-import { DynamoDBNumber } from "./DynamoDBNumber";
 import { NativeAttributeValue } from "./models";
 
 describe("convertToNative", () => {
@@ -64,9 +63,7 @@ describe("convertToNative", () => {
           (BigInt as any) = undefined;
           expect(() => {
             convertToNative({ N: numString });
-          }).toThrowError(
-            `${numString} is outside SAFE_INTEGER bounds. Set options.useDynamoDBNumberWrapper to get string value.`
-          );
+          }).toThrowError(`${numString} is outside SAFE_INTEGER bounds. Set options.wrapNumbers to get string value.`);
           BigInt = BigIntConstructor;
         });
 
@@ -91,32 +88,7 @@ describe("convertToNative", () => {
       it(`throws if number cannot be converted into BigInt: ${numString}`, () => {
         expect(() => {
           convertToNative({ N: numString });
-        }).toThrowError(
-          `${numString} can't be converted to BigInt. Set options.useDynamoDBNumberWrapper to get string value.`
-        );
-      });
-    });
-
-    describe("options.useDynamoDBNumberWrapper enum", () => {
-      it("options.useDynamoDBNumberWrapper=never", () => {
-        expect(convertToNative({ N: "1" }, { useDynamoDBNumberWrapper: "never" })).toEqual(1);
-        expect(convertToNative({ N: "9007199254740992" }, { useDynamoDBNumberWrapper: "never" })).toEqual(
-          BigInt("9007199254740992")
-        );
-      });
-      it("options.useDynamoDBNumberWrapper=bigNumbersOnly", () => {
-        expect(convertToNative({ N: "1" }, { useDynamoDBNumberWrapper: "bigNumbersOnly" })).toEqual(1);
-        expect(convertToNative({ N: "9007199254740992" }, { useDynamoDBNumberWrapper: "bigNumbersOnly" })).toEqual(
-          DynamoDBNumber.from("9007199254740992")
-        );
-      });
-      it("options.useDynamoDBNumberWrapper=allNumbers", () => {
-        expect(convertToNative({ N: "1" }, { useDynamoDBNumberWrapper: "allNumbers" })).toEqual(
-          DynamoDBNumber.from("1")
-        );
-        expect(convertToNative({ N: "9007199254740992" }, { useDynamoDBNumberWrapper: "allNumbers" })).toEqual(
-          DynamoDBNumber.from("9007199254740992")
-        );
+        }).toThrowError(`${numString} can't be converted to BigInt. Set options.wrapNumbers to get string value.`);
       });
     });
   });

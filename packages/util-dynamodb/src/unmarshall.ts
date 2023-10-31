@@ -10,9 +10,6 @@ export interface unmarshallOptions {
   /**
    * Whether to return numbers as a string instead of converting them to native JavaScript numbers.
    * This allows for the safe round-trip transport of numbers of arbitrary size.
-   *
-   * @deprecated set useDynamoDBNumberWrapper option instead.
-   * If useDynamoDBNumberWrapper option is set, the value of wrapNumbers will be ignored.
    */
   wrapNumbers?: boolean;
 
@@ -23,19 +20,6 @@ export interface unmarshallOptions {
    * but false if directly using the unmarshall function (backwards compatibility).
    */
   convertWithoutMapWrapper?: boolean;
-
-  /**
-   * When to use the DynamoDBNumber wrapper class for numbers.
-   * Default="never". An error will be thrown for large numbers.
-   *
-   * "bigNumbersOnly": only numbers exceeding MAX_SAFE_INTEGER in absolute terms
-   * will be wrapped. Your application code must handle the divergent result
-   * types of `number | DynamoDBNumber`.
-   *
-   * "allNumbers": all numbers will be wrapped with the DynamoDBNumber class.
-   * For example, if dealing with small decimals needing higher precision.
-   */
-  useDynamoDBNumberWrapper?: "never" | "bigNumbersOnly" | "allNumbers";
 }
 
 /**

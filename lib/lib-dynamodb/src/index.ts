@@ -5,4 +5,4 @@ export * from "./DynamoDBDocumentClient";
 export * from "./commands";
 export * from "./pagination";
 
-export { DynamoDBNumber } from "@aws-sdk/util-dynamodb";
+export { NumberValueImpl as NumberValue } from "@aws-sdk/util-dynamodb";
