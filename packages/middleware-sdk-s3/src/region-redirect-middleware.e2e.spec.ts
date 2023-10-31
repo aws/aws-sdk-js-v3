@@ -27,6 +27,7 @@ describe("S3 Global Client Test", () => {
     bucketNames = regionConfigs.map((config) => `${callerID.Account}-${randId}-redirect-${config.region}`);
     await Promise.all(bucketNames.map((bucketName, index) => deleteBucket(s3Clients[index], bucketName)));
     await Promise.all(bucketNames.map((bucketName, index) => s3Clients[index].createBucket({ Bucket: bucketName })));
+    await Promise.all(bucketNames.map((bucketName, index) => s3Clients[index].headBucket({ Bucket: bucketName })));
   });
 
   afterAll(async () => {
@@ -48,6 +49,7 @@ describe("S3 Global Client Test", () => {
     for (const bucketName of bucketNames) {
       for (const s3Client of s3Clients) {
         const objKey = `object-from-${await s3Client.config.region()}-client`;
+        await s3Client.headObject({ Bucket: bucketName, Key: objKey });
         const { Body } = await s3Client.getObject({ Bucket: bucketName, Key: objKey });
         const data = await Body?.transformToString();
         expect(data).toEqual(testValue);

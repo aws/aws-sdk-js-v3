@@ -35,10 +35,9 @@ export function regionRedirectMiddleware(clientConfig: PreviouslyResolved): Init
       try {
         return await next(args);
       } catch (err) {
-        // console.log("Region Redirect", clientConfig.followRegionRedirects, err.name, err.$metadata.httpStatusCode);
         if (
           clientConfig.followRegionRedirects &&
-          err.name === "PermanentRedirect" &&
+          // err.name === "PermanentRedirect" && --> removing the error name check, as that allows for HEAD operations (which have the 301 status code, but not the same error name) to be covered for region redirection as well
           err.$metadata.httpStatusCode === 301
         ) {
           try {
