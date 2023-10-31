@@ -2,6 +2,7 @@ import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { marshallOptions } from "./marshall";
 import { NativeAttributeBinary, NativeAttributeValue, NativeScalarAttributeValue } from "./models";
+import { NumberValue } from "./NumberValue";
 
 /**
  * Convert a JavaScript value to its equivalent DynamoDB AttributeValue type.
@@ -37,6 +38,8 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
     return { BOOL: data.valueOf() };
   } else if (typeof data === "number" || data?.constructor?.name === "Number") {
     return convertToNumberAttr(data);
+  } else if (data instanceof NumberValue) {
+    return data.toAttributeValue();
   } else if (typeof data === "bigint") {
     return convertToBigIntAttr(data);
   } else if (typeof data === "string" || data?.constructor?.name === "String") {
@@ -76,7 +79,12 @@ const convertToSetAttr = (
   }
 
   const item = setToOperate.values().next().value;
-  if (typeof item === "number") {
+
+  if (item instanceof NumberValue) {
+    return {
+      NS: Array.from(setToOperate).map((_) => _.toString()),
+    };
+  } else if (typeof item === "number") {
     return {
       NS: Array.from(setToOperate)
         .map(convertToNumberAttr)

@@ -20,18 +20,18 @@ Responses from DynamoDB are unmarshalled into plain JavaScript objects
 by the `DocumentClient`. The `DocumentClient` does not accept
 `AttributeValue`s in favor of native JavaScript types.
 
-|          JavaScript Type          | DynamoDB AttributeValue |
-| :-------------------------------: | ----------------------- |
-|              String               | S                       |
-|          Number / BigInt          | N                       |
-|              Boolean              | BOOL                    |
-|               null                | NULL                    |
-|               Array               | L                       |
-|              Object               | M                       |
-|   Set\<Uint8Array, Blob, ...\>    | BS                      |
-|       Set\<Number, BigInt\>       | NS                      |
-|           Set\<String\>           | SS                      |
-| Uint8Array, Buffer, File, Blob... | B                       |
+|          JavaScript Type           | DynamoDB AttributeValue |
+| :--------------------------------: | ----------------------- |
+|               String               | S                       |
+|   Number / BigInt / NumberValue    | N                       |
+|              Boolean               | BOOL                    |
+|                null                | NULL                    |
+|               Array                | L                       |
+|               Object               | M                       |
+|    Set\<Uint8Array, Blob, ...\>    | BS                      |
+| Set\<Number, BigInt, NumberValue\> | NS                      |
+|           Set\<String\>            | SS                      |
+| Uint8Array, Buffer, File, Blob...  | B                       |
 
 ### Example
 
@@ -98,20 +98,48 @@ const ddbDocClient = DynamoDBDocument.from(client); // client is DynamoDB client
 The configuration for marshalling and unmarshalling can be sent as an optional
 second parameter during creation of document client as follows:
 
-```js
-const marshallOptions = {
-  // Whether to automatically convert empty strings, blobs, and sets to `null`.
-  convertEmptyValues: false, // false, by default.
-  // Whether to remove undefined values while marshalling.
-  removeUndefinedValues: false, // false, by default.
-  // Whether to convert typeof object to map attribute.
-  convertClassInstanceToMap: false, // false, by default.
-};
+```ts
+export interface marshallOptions {
+  /**
+   * Whether to automatically convert empty strings, blobs, and sets to `null`
+   */
+  convertEmptyValues?: boolean;
+  /**
+   * Whether to remove undefined values while marshalling.
+   */
+  removeUndefinedValues?: boolean;
+  /**
+   * Whether to convert typeof object to map attribute.
+   */
+  convertClassInstanceToMap?: boolean;
+  /**
+   * Whether to convert the top level container
+   * if it is a map or list.
+   *
+   * Default is true when using the DynamoDBDocumentClient,
+   * but false if directly using the marshall function (backwards compatibility).
+   */
+  convertTopLevelContainer?: boolean;
+}
 
-const unmarshallOptions = {
-  // Whether to return numbers as a string instead of converting them to native JavaScript numbers.
-  wrapNumbers: false, // false, by default.
-};
+export interface unmarshallOptions {
+  /**
+   * Whether to return numbers as a string instead of converting them to native JavaScript numbers.
+   * This allows for the safe round-trip transport of numbers of arbitrary size.
+   */
+  wrapNumbers?: boolean;
+
+  /**
+   * When true, skip wrapping the data in `{ M: data }` before converting.
+   *
+   * Default is true when using the DynamoDBDocumentClient,
+   * but false if directly using the unmarshall function (backwards compatibility).
+   */
+  convertWithoutMapWrapper?: boolean;
+}
+
+const marshallOptions: marshallOptions = {};
+const unmarshallOptions: unmarshallOptions = {};
 
 const translateConfig = { marshallOptions, unmarshallOptions };
 
@@ -159,6 +187,57 @@ await ddbDocClient.put({
   },
 });
 ```
+
+### Large Numbers and `NumberValue`.
+
+On the input or marshalling side, the class `NumberValue` can be used
+anywhere to represent a DynamoDB number value, even small numbers.
+
+```ts
+import { DynamoDB } from "@aws-sdk/client-dynamodb";
+import { NumberValue, DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
+
+// Note, the client will not validate the acceptability of the number
+// in terms of size or format.
+// It is only here to preserve your precise representation.
+const client = DynamoDBDocument.from(new DynamoDB({}));
+
+await client.put({
+  Item: {
+    id: 1,
+    smallNumber: NumberValue.from("123"),
+    bigNumber: NumberValue.from("1000000000000000000000.000000000001"),
+    nSet: new Set([123, NumberValue.from("456"), 789]),
+  },
+});
+```
+
+On the output or unmarshalling side, the class `NumberValue` is used
+depending on your setting for the `unmarshallOptions` flag `wrapnumbers`,
+shown above.
+
+```ts
+import { DynamoDB } from "@aws-sdk/client-dynamodb";
+import { NumberValue, DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
+
+const client = DynamoDBDocument.from(new DynamoDB({}));
+
+const response = await client.get({
+  Key: {
+    id: 1,
+  },
+});
+
+/**
+ * Numbers in the response may be a number, a BigInt, or a NumberValue depending
+ * on how you set `wrapNumbers`.
+ */
+const value = response.Item.bigNumber;
+```
+
+`NumberValue` does not provide a way to do mathematical operations on itself.
+To do mathematical operations, take the string value of `NumberValue` by calling
+`.toString()` and supply it to your chosen big number implementation.
 
 ### Client and Command middleware stacks
 

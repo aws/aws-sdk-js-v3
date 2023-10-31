@@ -12,6 +12,7 @@ export interface unmarshallOptions {
    * This allows for the safe round-trip transport of numbers of arbitrary size.
    */
   wrapNumbers?: boolean;
+
   /**
    * When true, skip wrapping the data in `{ M: data }` before converting.
    *

@@ -15,6 +15,7 @@ import {
   ExecuteStatementCommandOutput,
   ExecuteTransactionCommandOutput,
   GetCommandOutput,
+  NumberValue,
   PutCommandOutput,
   QueryCommandOutput,
   ScanCommandOutput,
@@ -31,6 +32,9 @@ describe(DynamoDBDocument.name, () => {
   const doc = DynamoDBDocument.from(dynamodb, {
     marshallOptions: {
       convertTopLevelContainer: true,
+    },
+    unmarshallOptions: {
+      wrapNumbers: true,
     },
   });
 
@@ -76,18 +80,27 @@ describe(DynamoDBDocument.name, () => {
   const data = {
     null: null,
     string: "myString",
-    number: 1,
+    number: NumberValue.from(1),
+    bigInt: NumberValue.from(
+      "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    ),
+    bigNumber: NumberValue.from("3210000000000000000.0000000000000123"),
     boolean: true,
     sSet: new Set(["my", "string", "set"]),
-    nSet: new Set([2, 3, 4]),
+    nSet: new Set([2, 3, 4].map(NumberValue.from)),
     list: [
       null,
       "myString",
-      1,
+      NumberValue.from(1),
       true,
       new Set(["my", "string", "set"]),
-      new Set([2, 3, 4]),
-      ["listInList", 1, null],
+      new Set([NumberValue.from(2), NumberValue.from(3), NumberValue.from(4)]),
+      new Set([
+        NumberValue.from("3210000000000000000.0000000000000123"),
+        NumberValue.from("3210000000000000001.0000000000000123"),
+        NumberValue.from("3210000000000000002.0000000000000123"),
+      ]),
+      ["listInList", NumberValue.from(1), null],
       {
         mapInList: "mapInList",
       },
@@ -95,11 +108,11 @@ describe(DynamoDBDocument.name, () => {
     map: {
       null: null,
       string: "myString",
-      number: 1,
+      number: NumberValue.from(1),
       boolean: true,
       sSet: new Set(["my", "string", "set"]),
-      nSet: new Set([2, 3, 4]),
-      listInMap: ["listInMap", 1, null],
+      nSet: new Set([2, 3, 4].map(NumberValue.from)),
+      listInMap: ["listInMap", NumberValue.from(1), null],
       mapInMap: { mapInMap: "mapInMap" },
     },
   };
@@ -115,6 +128,9 @@ describe(DynamoDBDocument.name, () => {
         }
         if (input instanceof Set) {
           return new Set([...input].map(updateTransform)) as T;
+        }
+        if (input instanceof NumberValue) {
+          return NumberValue.from(input.toString()) as T;
         }
         return Object.entries(input).reduce((acc, [k, v]) => {
           acc[updateTransform(k)] = updateTransform(v);
@@ -436,28 +452,37 @@ describe(DynamoDBDocument.name, () => {
       expect(updateTransform(data)).toEqual({
         "null-x": null,
         "string-x": "myString-x",
-        "number-x": 2,
+        "number-x": NumberValue.from(1),
+        "bigInt-x": NumberValue.from(
+          "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ),
+        "bigNumber-x": NumberValue.from("3210000000000000000.0000000000000123"),
         "boolean-x": false,
         "sSet-x": new Set(["my-x", "string-x", "set-x"]),
-        "nSet-x": new Set([3, 4, 5]),
+        "nSet-x": new Set([2, 3, 4].map(NumberValue.from)),
         "list-x": [
           null,
           "myString-x",
-          2,
+          NumberValue.from(1),
           false,
           new Set(["my-x", "string-x", "set-x"]),
-          new Set([3, 4, 5]),
-          ["listInList-x", 2, null],
+          new Set([2, 3, 4].map(NumberValue.from)),
+          new Set([
+            NumberValue.from("3210000000000000000.0000000000000123"),
+            NumberValue.from("3210000000000000001.0000000000000123"),
+            NumberValue.from("3210000000000000002.0000000000000123"),
+          ]),
+          ["listInList-x", NumberValue.from(1), null],
           { "mapInList-x": "mapInList-x" },
         ],
         "map-x": {
           "null-x": null,
           "string-x": "myString-x",
-          "number-x": 2,
+          "number-x": NumberValue.from(1),
           "boolean-x": false,
           "sSet-x": new Set(["my-x", "string-x", "set-x"]),
-          "nSet-x": new Set([3, 4, 5]),
-          "listInMap-x": ["listInMap-x", 2, null],
+          "nSet-x": new Set([2, 3, 4].map(NumberValue.from)),
+          "listInMap-x": ["listInMap-x", NumberValue.from(1), null],
           "mapInMap-x": { "mapInMap-x": "mapInMap-x" },
         },
       });
