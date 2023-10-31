@@ -37,7 +37,7 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
 
 /**
  * @public
- * <p> Returns the website access logs for a specific time range using a presigned URL.
+ * <p>Returns the website access logs for a specific time range using a presigned URL.
  *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,16 +66,16 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p> A request contains unexpected data. </p>
+ *  <p>A request contains unexpected data. </p>
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *  <p>The service failed to perform an operation due to an internal issue. </p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p> An entity was not found during an operation. </p>
+ *  <p>An entity was not found during an operation. </p>
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p> An operation failed due to a lack of access. </p>
+ *  <p>An operation failed due to a lack of access. </p>
  *
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>

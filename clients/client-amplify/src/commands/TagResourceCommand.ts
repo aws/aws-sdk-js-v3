@@ -37,7 +37,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 
 /**
  * @public
- * <p> Tags the resource with a tag key and value. </p>
+ * <p>Tags the resource with a tag key and value.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,13 +63,13 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p> A request contains unexpected data. </p>
+ *  <p>A request contains unexpected data. </p>
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *  <p>The service failed to perform an operation due to an internal issue. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> An operation failed due to a non-existent resource. </p>
+ *  <p>An operation failed due to a non-existent resource. </p>
  *
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>

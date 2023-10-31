@@ -69,6 +69,9 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  *   enablePullRequestPreview: true || false,
  *   pullRequestEnvironmentName: "STRING_VALUE",
  *   backendEnvironmentArn: "STRING_VALUE",
+ *   backend: { // Backend
+ *     stackArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateBranchCommand(input);
  * const response = await client.send(command);
@@ -109,6 +112,9 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  * //     destinationBranch: "STRING_VALUE",
  * //     sourceBranch: "STRING_VALUE",
  * //     backendEnvironmentArn: "STRING_VALUE",
+ * //     backend: { // Backend
+ * //       stackArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -121,19 +127,19 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p> A request contains unexpected data. </p>
+ *  <p>A request contains unexpected data. </p>
  *
  * @throws {@link DependentServiceFailureException} (server fault)
- *  <p> An operation failed because a dependent service threw an exception. </p>
+ *  <p>An operation failed because a dependent service threw an exception. </p>
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *  <p>The service failed to perform an operation due to an internal issue. </p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p> An entity was not found during an operation. </p>
+ *  <p>An entity was not found during an operation. </p>
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p> An operation failed due to a lack of access. </p>
+ *  <p>An operation failed due to a lack of access. </p>
  *
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>

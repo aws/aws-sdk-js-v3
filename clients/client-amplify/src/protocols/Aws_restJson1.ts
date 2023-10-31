@@ -93,6 +93,7 @@ import { AmplifyServiceException as __BaseException } from "../models/AmplifySer
 import {
   App,
   AutoBranchCreationConfig,
+  Backend,
   BackendEnvironment,
   BadRequestException,
   Branch,
@@ -207,6 +208,7 @@ export const se_CreateBranchCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      backend: (_) => _json(_),
       backendEnvironmentArn: [],
       basicAuthCredentials: [],
       branchName: [],
@@ -1145,6 +1147,7 @@ export const se_UpdateBranchCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      backend: (_) => _json(_),
       backendEnvironmentArn: [],
       basicAuthCredentials: [],
       buildSpec: [],
@@ -3497,6 +3500,8 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_AutoSubDomainCreationPatterns omitted.
 
+// se_Backend omitted.
+
 // se_CustomRule omitted.
 
 // se_CustomRules omitted.
@@ -3567,6 +3572,8 @@ const de_Apps = (output: any, context: __SerdeContext): App[] => {
 
 // de_AutoSubDomainCreationPatterns omitted.
 
+// de_Backend omitted.
+
 /**
  * deserializeAws_restJson1BackendEnvironment
  */
@@ -3600,6 +3607,7 @@ const de_Branch = (output: any, context: __SerdeContext): Branch => {
   return take(output, {
     activeJobId: __expectString,
     associatedResources: _json,
+    backend: _json,
     backendEnvironmentArn: __expectString,
     basicAuthCredentials: __expectString,
     branchArn: __expectString,

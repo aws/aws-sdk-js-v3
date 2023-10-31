@@ -37,7 +37,7 @@ export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer 
 
 /**
  * @public
- * <p> Returns a list of the existing Amplify apps. </p>
+ * <p>Returns a list of the existing Amplify apps. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,13 +122,13 @@ export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer 
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p> A request contains unexpected data. </p>
+ *  <p>A request contains unexpected data. </p>
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *  <p>The service failed to perform an operation due to an internal issue. </p>
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p> An operation failed due to a lack of access. </p>
+ *  <p>An operation failed due to a lack of access. </p>
  *
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
