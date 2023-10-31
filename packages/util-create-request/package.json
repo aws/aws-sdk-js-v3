@@ -25,7 +25,6 @@
     "@smithy/middleware-stack": "^2.0.6",
     "@smithy/smithy-client": "^2.1.12",
     "@smithy/types": "^2.4.0",
-    "@smithy/protocol-http": "^3.0.8",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

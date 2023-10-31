@@ -1,6 +1,5 @@
 import { Client, Command } from "@smithy/smithy-client";
 import { BuildMiddleware, HttpRequest, MetadataBearer } from "@smithy/types";
-export * from "./requestInterceptHandler";
 
 export async function createRequest<
   InputTypesUnion extends object,
