@@ -55,6 +55,7 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  *   Settings: { // TranslationSettings
  *     Formality: "FORMAL" || "INFORMAL",
  *     Profanity: "MASK",
+ *     Brevity: "ON",
  *   },
  * };
  * const command = new TranslateTextCommand(input);
@@ -77,6 +78,7 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  * //   AppliedSettings: { // TranslationSettings
  * //     Formality: "FORMAL" || "INFORMAL",
  * //     Profanity: "MASK",
+ * //     Brevity: "ON",
  * //   },
  * // };
  *

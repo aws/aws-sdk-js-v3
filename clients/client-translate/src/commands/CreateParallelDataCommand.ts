@@ -51,8 +51,8 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   ParallelDataConfig: { // ParallelDataConfig
- *     S3Uri: "STRING_VALUE", // required
- *     Format: "TSV" || "CSV" || "TMX", // required
+ *     S3Uri: "STRING_VALUE",
+ *     Format: "TSV" || "CSV" || "TMX",
  *   },
  *   EncryptionKey: { // EncryptionKey
  *     Type: "KMS", // required

@@ -80,6 +80,7 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  *   Settings: { // TranslationSettings
  *     Formality: "FORMAL" || "INFORMAL",
  *     Profanity: "MASK",
+ *     Brevity: "ON",
  *   },
  * };
  * const command = new StartTextTranslationJobCommand(input);

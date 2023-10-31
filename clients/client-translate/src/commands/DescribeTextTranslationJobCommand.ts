@@ -88,6 +88,7 @@ export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTra
  * //     Settings: { // TranslationSettings
  * //       Formality: "FORMAL" || "INFORMAL",
  * //       Profanity: "MASK",
+ * //       Brevity: "ON",
  * //     },
  * //   },
  * // };

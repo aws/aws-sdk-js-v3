@@ -146,13 +146,13 @@ export interface ParallelDataConfig {
    * <p>The URI of the Amazon S3 folder that contains the parallel data input file. The folder
    *       must be in the same Region as the API endpoint you are calling.</p>
    */
-  S3Uri: string | undefined;
+  S3Uri?: string;
 
   /**
    * @public
    * <p>The format of the parallel data input file.</p>
    */
-  Format: ParallelDataFormat | undefined;
+  Format?: ParallelDataFormat;
 }
 
 /**
@@ -594,6 +594,19 @@ export interface OutputDataConfig {
  * @public
  * @enum
  */
+export const Brevity = {
+  ON: "ON",
+} as const;
+
+/**
+ * @public
+ */
+export type Brevity = (typeof Brevity)[keyof typeof Brevity];
+
+/**
+ * @public
+ * @enum
+ */
 export const Formality = {
   FORMAL: "FORMAL",
   INFORMAL: "INFORMAL",
@@ -619,13 +632,24 @@ export type Profanity = (typeof Profanity)[keyof typeof Profanity];
 
 /**
  * @public
- * <p>Settings to configure your translation output, including the option to set the formality
- *       level of the output text and the option to mask profane words and phrases.</p>
+ * <p>Settings to configure your translation output. You can configure the following options:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Brevity: reduces the length of the translation output for most translations. Available for
+ *             <code>TranslateText</code> only.</p>
+ *             </li>
+ *             <li>
+ *                <p>Formality: sets the formality level of the translation output.</p>
+ *             </li>
+ *             <li>
+ *                <p>Profanity: masks profane words and phrases in the translation output.</p>
+ *             </li>
+ *          </ul>
  */
 export interface TranslationSettings {
   /**
    * @public
-   * <p>You can optionally specify the desired level of formality for translations
+   * <p>You can specify the desired level of formality for translations
    *         to supported target languages. The formality
    *       setting controls the level of formal language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>) in the
    *       translation output.  You can set the value to informal or formal. If you don't specify a value for
@@ -640,7 +664,7 @@ export interface TranslationSettings {
 
   /**
    * @public
-   * <p>Enable the profanity setting if you want Amazon Translate to mask profane words and
+   * <p>You can enable the profanity setting if you want to mask profane words and
    *       phrases in your translation output.</p>
    *          <p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string
    *       “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the
@@ -654,6 +678,18 @@ export interface TranslationSettings {
    *       language.</p>
    */
   Profanity?: Profanity;
+
+  /**
+   * @public
+   * <p>When you turn on brevity, Amazon Translate reduces the length of the translation output for most translations (when
+   *       compared with the same translation with brevity turned off). By default, brevity is turned
+   *       off.</p>
+   *          <p>If you turn on brevity for a translation request with an unsupported language pair, the
+   *       translation proceeds with the brevity setting turned off.</p>
+   *          <p>For the language pairs that brevity supports, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-brevity">Using brevity</a> in the
+   *       Amazon Translate Developer Guide.</p>
+   */
+  Brevity?: Brevity;
 }
 
 /**
@@ -1727,8 +1763,18 @@ export interface StartTextTranslationJobRequest {
 
   /**
    * @public
-   * <p>Settings to configure your translation output, including the option to set the formality
-   *       level of the output text and the option to mask profane words and phrases.</p>
+   * <p>Settings to configure your translation output. You can configure the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Brevity: not supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>Formality: sets the formality level of the output text.</p>
+   *             </li>
+   *             <li>
+   *                <p>Profanity: masks profane words and phrases in your translation output.</p>
+   *             </li>
+   *          </ul>
    */
   Settings?: TranslationSettings;
 }
@@ -1960,10 +2006,16 @@ export interface TranslateDocumentRequest {
 
   /**
    * @public
-   * <p>The language code for the language of the source text. Do not use <code>auto</code>, because
-   *       <code>TranslateDocument</code> does not support language auto-detection.
-   *       For a list of supported language codes, see
+   * <p>The language code for the language of the source text. For a list of supported language codes, see
    *       <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
+   *          <p>To have Amazon Translate determine the source language of your text, you can specify
+   *       <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify
+   *       <code>auto</code>, Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
+   *         Comprehend</a> to determine the source language.</p>
+   *          <note>
+   *             <p>If you specify <code>auto</code>, you must send the <code>TranslateDocument</code> request in a region that supports
+   *       Amazon Comprehend. Otherwise, the request returns an error indicating that autodetect is not supported. </p>
+   *          </note>
    */
   SourceLanguageCode: string | undefined;
 
@@ -1977,8 +2029,18 @@ export interface TranslateDocumentRequest {
 
   /**
    * @public
-   * <p>Settings to configure your translation output, including the option to set the formality
-   *       level of the output text and the option to mask profane words and phrases.</p>
+   * <p>Settings to configure your translation output. You can configure the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Brevity: not supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>Formality: sets the formality level of the output text.</p>
+   *             </li>
+   *             <li>
+   *                <p>Profanity: masks profane words and phrases in your translation output.</p>
+   *             </li>
+   *          </ul>
    */
   Settings?: TranslationSettings;
 }
@@ -2026,8 +2088,19 @@ export interface TranslateDocumentResponse {
 
   /**
    * @public
-   * <p>Settings to configure your translation output, including the option to set the formality
-   *       level of the output text and the option to mask profane words and phrases.</p>
+   * <p>Settings to configure your translation output. You can configure the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Brevity: reduces the length of the translation output for most translations. Available for
+   *             <code>TranslateText</code> only.</p>
+   *             </li>
+   *             <li>
+   *                <p>Formality: sets the formality level of the translation output.</p>
+   *             </li>
+   *             <li>
+   *                <p>Profanity: masks profane words and phrases in the translation output.</p>
+   *             </li>
+   *          </ul>
    */
   AppliedSettings?: TranslationSettings;
 }
@@ -2132,8 +2205,18 @@ export interface TranslateTextRequest {
 
   /**
    * @public
-   * <p>Settings to configure your translation output, including the option to set the formality
-   *       level of the output text and the option to mask profane words and phrases.</p>
+   * <p>Settings to configure your translation output. You can configure the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Brevity: reduces the length of the translated output for most translations.</p>
+   *             </li>
+   *             <li>
+   *                <p>Formality: sets the formality level of the output text.</p>
+   *             </li>
+   *             <li>
+   *                <p>Profanity: masks profane words and phrases in your translation output.</p>
+   *             </li>
+   *          </ul>
    */
   Settings?: TranslationSettings;
 }

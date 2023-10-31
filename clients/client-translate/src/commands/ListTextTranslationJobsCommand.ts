@@ -95,6 +95,7 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
  * //       Settings: { // TranslationSettings
  * //         Formality: "FORMAL" || "INFORMAL",
  * //         Profanity: "MASK",
+ * //         Brevity: "ON",
  * //       },
  * //     },
  * //   ],

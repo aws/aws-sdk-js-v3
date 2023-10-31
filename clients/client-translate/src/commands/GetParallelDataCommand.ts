@@ -60,8 +60,8 @@ export interface GetParallelDataCommandOutput extends GetParallelDataResponse, _
  * //       "STRING_VALUE",
  * //     ],
  * //     ParallelDataConfig: { // ParallelDataConfig
- * //       S3Uri: "STRING_VALUE", // required
- * //       Format: "TSV" || "CSV" || "TMX", // required
+ * //       S3Uri: "STRING_VALUE",
+ * //       Format: "TSV" || "CSV" || "TMX",
  * //     },
  * //     Message: "STRING_VALUE",
  * //     ImportedDataSize: Number("long"),

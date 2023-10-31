@@ -49,8 +49,8 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   ParallelDataConfig: { // ParallelDataConfig
- *     S3Uri: "STRING_VALUE", // required
- *     Format: "TSV" || "CSV" || "TMX", // required
+ *     S3Uri: "STRING_VALUE",
+ *     Format: "TSV" || "CSV" || "TMX",
  *   },
  *   ClientToken: "STRING_VALUE", // required
  * };
