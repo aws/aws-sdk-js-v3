@@ -134,17 +134,6 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
     }
 
     @Override
-    public List<RuntimeClientPlugin> getClientPlugins() {
-        return List.of(
-            RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.AWS_SDK_CORE.dependency, "AwsQueryCompatible",
-                    HAS_MIDDLEWARE)
-                .servicePredicate((m, s) -> s.getTrait)
-                .build()
-        );
-    }
-
-    @Override
     public List<ExtensionConfigurationInterface> getExtensionConfigurationInterfaces() {
         return List.of(new AwsRegionExtensionConfiguration());
     }

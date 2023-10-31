@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { _toBool, _toNum, _toStr } from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -129,7 +130,7 @@ export const se_AddPermissionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AddPermission");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_AddPermissionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -142,7 +143,7 @@ export const se_CancelMessageMoveTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CancelMessageMoveTask");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CancelMessageMoveTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -155,7 +156,7 @@ export const se_ChangeMessageVisibilityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ChangeMessageVisibility");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_ChangeMessageVisibilityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -168,7 +169,7 @@ export const se_ChangeMessageVisibilityBatchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ChangeMessageVisibilityBatch");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_ChangeMessageVisibilityBatchRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -181,7 +182,7 @@ export const se_CreateQueueCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateQueue");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CreateQueueRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -194,7 +195,7 @@ export const se_DeleteMessageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteMessage");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_DeleteMessageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -207,7 +208,7 @@ export const se_DeleteMessageBatchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteMessageBatch");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_DeleteMessageBatchRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -220,7 +221,7 @@ export const se_DeleteQueueCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteQueue");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_DeleteQueueRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -233,7 +234,7 @@ export const se_GetQueueAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetQueueAttributes");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_GetQueueAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -246,7 +247,7 @@ export const se_GetQueueUrlCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetQueueUrl");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_GetQueueUrlRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -259,7 +260,7 @@ export const se_ListDeadLetterSourceQueuesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDeadLetterSourceQueues");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_ListDeadLetterSourceQueuesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -272,7 +273,7 @@ export const se_ListMessageMoveTasksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListMessageMoveTasks");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_ListMessageMoveTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -285,7 +286,7 @@ export const se_ListQueuesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListQueues");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_ListQueuesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -298,7 +299,7 @@ export const se_ListQueueTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListQueueTags");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_ListQueueTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -311,7 +312,7 @@ export const se_PurgeQueueCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PurgeQueue");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_PurgeQueueRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -324,7 +325,7 @@ export const se_ReceiveMessageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ReceiveMessage");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_ReceiveMessageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -337,7 +338,7 @@ export const se_RemovePermissionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RemovePermission");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_RemovePermissionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -376,7 +377,7 @@ export const se_SetQueueAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetQueueAttributes");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_SetQueueAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -389,7 +390,7 @@ export const se_StartMessageMoveTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartMessageMoveTask");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_StartMessageMoveTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -402,7 +403,7 @@ export const se_TagQueueCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagQueue");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_TagQueueRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -415,7 +416,7 @@ export const se_UntagQueueCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagQueue");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_UntagQueueRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2287,13 +2288,50 @@ const de_UnsupportedOperationRes = async (
   return __decorateServiceException(exception, body);
 };
 
-// se_ActionNameList omitted.
+/**
+ * serializeAws_json1_0ActionNameList
+ */
+const se_ActionNameList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return _toStr(entry);
+    });
+};
 
-// se_AddPermissionRequest omitted.
+/**
+ * serializeAws_json1_0AddPermissionRequest
+ */
+const se_AddPermissionRequest = (input: AddPermissionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AWSAccountIds: (_) => se_AWSAccountIdList(_, context),
+    Actions: (_) => se_ActionNameList(_, context),
+    Label: _toStr,
+    QueueUrl: _toStr,
+  });
+};
 
-// se_AttributeNameList omitted.
+/**
+ * serializeAws_json1_0AttributeNameList
+ */
+const se_AttributeNameList = (input: QueueAttributeName[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return _toStr(entry);
+    });
+};
 
-// se_AWSAccountIdList omitted.
+/**
+ * serializeAws_json1_0AWSAccountIdList
+ */
+const se_AWSAccountIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return _toStr(entry);
+    });
+};
 
 /**
  * serializeAws_json1_0BinaryList
@@ -2306,41 +2344,205 @@ const se_BinaryList = (input: Uint8Array[], context: __SerdeContext): any => {
     });
 };
 
-// se_CancelMessageMoveTaskRequest omitted.
+/**
+ * serializeAws_json1_0CancelMessageMoveTaskRequest
+ */
+const se_CancelMessageMoveTaskRequest = (input: CancelMessageMoveTaskRequest, context: __SerdeContext): any => {
+  return take(input, {
+    TaskHandle: _toStr,
+  });
+};
 
-// se_ChangeMessageVisibilityBatchRequest omitted.
+/**
+ * serializeAws_json1_0ChangeMessageVisibilityBatchRequest
+ */
+const se_ChangeMessageVisibilityBatchRequest = (
+  input: ChangeMessageVisibilityBatchRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Entries: (_) => se_ChangeMessageVisibilityBatchRequestEntryList(_, context),
+    QueueUrl: _toStr,
+  });
+};
 
-// se_ChangeMessageVisibilityBatchRequestEntry omitted.
+/**
+ * serializeAws_json1_0ChangeMessageVisibilityBatchRequestEntry
+ */
+const se_ChangeMessageVisibilityBatchRequestEntry = (
+  input: ChangeMessageVisibilityBatchRequestEntry,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Id: _toStr,
+    ReceiptHandle: _toStr,
+    VisibilityTimeout: _toNum,
+  });
+};
 
-// se_ChangeMessageVisibilityBatchRequestEntryList omitted.
+/**
+ * serializeAws_json1_0ChangeMessageVisibilityBatchRequestEntryList
+ */
+const se_ChangeMessageVisibilityBatchRequestEntryList = (
+  input: ChangeMessageVisibilityBatchRequestEntry[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ChangeMessageVisibilityBatchRequestEntry(entry, context);
+    });
+};
 
-// se_ChangeMessageVisibilityRequest omitted.
+/**
+ * serializeAws_json1_0ChangeMessageVisibilityRequest
+ */
+const se_ChangeMessageVisibilityRequest = (input: ChangeMessageVisibilityRequest, context: __SerdeContext): any => {
+  return take(input, {
+    QueueUrl: _toStr,
+    ReceiptHandle: _toStr,
+    VisibilityTimeout: _toNum,
+  });
+};
 
-// se_CreateQueueRequest omitted.
+/**
+ * serializeAws_json1_0CreateQueueRequest
+ */
+const se_CreateQueueRequest = (input: CreateQueueRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Attributes: (_) => se_QueueAttributeMap(_, context),
+    QueueName: _toStr,
+    tags: (_) => se_TagMap(_, context),
+  });
+};
 
-// se_DeleteMessageBatchRequest omitted.
+/**
+ * serializeAws_json1_0DeleteMessageBatchRequest
+ */
+const se_DeleteMessageBatchRequest = (input: DeleteMessageBatchRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Entries: (_) => se_DeleteMessageBatchRequestEntryList(_, context),
+    QueueUrl: _toStr,
+  });
+};
 
-// se_DeleteMessageBatchRequestEntry omitted.
+/**
+ * serializeAws_json1_0DeleteMessageBatchRequestEntry
+ */
+const se_DeleteMessageBatchRequestEntry = (input: DeleteMessageBatchRequestEntry, context: __SerdeContext): any => {
+  return take(input, {
+    Id: _toStr,
+    ReceiptHandle: _toStr,
+  });
+};
 
-// se_DeleteMessageBatchRequestEntryList omitted.
+/**
+ * serializeAws_json1_0DeleteMessageBatchRequestEntryList
+ */
+const se_DeleteMessageBatchRequestEntryList = (
+  input: DeleteMessageBatchRequestEntry[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_DeleteMessageBatchRequestEntry(entry, context);
+    });
+};
 
-// se_DeleteMessageRequest omitted.
+/**
+ * serializeAws_json1_0DeleteMessageRequest
+ */
+const se_DeleteMessageRequest = (input: DeleteMessageRequest, context: __SerdeContext): any => {
+  return take(input, {
+    QueueUrl: _toStr,
+    ReceiptHandle: _toStr,
+  });
+};
 
-// se_DeleteQueueRequest omitted.
+/**
+ * serializeAws_json1_0DeleteQueueRequest
+ */
+const se_DeleteQueueRequest = (input: DeleteQueueRequest, context: __SerdeContext): any => {
+  return take(input, {
+    QueueUrl: _toStr,
+  });
+};
 
-// se_GetQueueAttributesRequest omitted.
+/**
+ * serializeAws_json1_0GetQueueAttributesRequest
+ */
+const se_GetQueueAttributesRequest = (input: GetQueueAttributesRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeNames: (_) => se_AttributeNameList(_, context),
+    QueueUrl: _toStr,
+  });
+};
 
-// se_GetQueueUrlRequest omitted.
+/**
+ * serializeAws_json1_0GetQueueUrlRequest
+ */
+const se_GetQueueUrlRequest = (input: GetQueueUrlRequest, context: __SerdeContext): any => {
+  return take(input, {
+    QueueName: _toStr,
+    QueueOwnerAWSAccountId: _toStr,
+  });
+};
 
-// se_ListDeadLetterSourceQueuesRequest omitted.
+/**
+ * serializeAws_json1_0ListDeadLetterSourceQueuesRequest
+ */
+const se_ListDeadLetterSourceQueuesRequest = (
+  input: ListDeadLetterSourceQueuesRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    MaxResults: _toNum,
+    NextToken: _toStr,
+    QueueUrl: _toStr,
+  });
+};
 
-// se_ListMessageMoveTasksRequest omitted.
+/**
+ * serializeAws_json1_0ListMessageMoveTasksRequest
+ */
+const se_ListMessageMoveTasksRequest = (input: ListMessageMoveTasksRequest, context: __SerdeContext): any => {
+  return take(input, {
+    MaxResults: _toNum,
+    SourceArn: _toStr,
+  });
+};
 
-// se_ListQueuesRequest omitted.
+/**
+ * serializeAws_json1_0ListQueuesRequest
+ */
+const se_ListQueuesRequest = (input: ListQueuesRequest, context: __SerdeContext): any => {
+  return take(input, {
+    MaxResults: _toNum,
+    NextToken: _toStr,
+    QueueNamePrefix: _toStr,
+  });
+};
 
-// se_ListQueueTagsRequest omitted.
+/**
+ * serializeAws_json1_0ListQueueTagsRequest
+ */
+const se_ListQueueTagsRequest = (input: ListQueueTagsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    QueueUrl: _toStr,
+  });
+};
 
-// se_MessageAttributeNameList omitted.
+/**
+ * serializeAws_json1_0MessageAttributeNameList
+ */
+const se_MessageAttributeNameList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return _toStr(entry);
+    });
+};
 
 /**
  * serializeAws_json1_0MessageAttributeValue
@@ -2349,9 +2551,9 @@ const se_MessageAttributeValue = (input: MessageAttributeValue, context: __Serde
   return take(input, {
     BinaryListValues: (_) => se_BinaryList(_, context),
     BinaryValue: context.base64Encoder,
-    DataType: [],
-    StringListValues: _json,
-    StringValue: [],
+    DataType: _toStr,
+    StringListValues: (_) => se_StringList(_, context),
+    StringValue: _toStr,
   });
 };
 
@@ -2394,19 +2596,58 @@ const se_MessageSystemAttributeValue = (input: MessageSystemAttributeValue, cont
   return take(input, {
     BinaryListValues: (_) => se_BinaryList(_, context),
     BinaryValue: context.base64Encoder,
-    DataType: [],
-    StringListValues: _json,
-    StringValue: [],
+    DataType: _toStr,
+    StringListValues: (_) => se_StringList(_, context),
+    StringValue: _toStr,
   });
 };
 
-// se_PurgeQueueRequest omitted.
+/**
+ * serializeAws_json1_0PurgeQueueRequest
+ */
+const se_PurgeQueueRequest = (input: PurgeQueueRequest, context: __SerdeContext): any => {
+  return take(input, {
+    QueueUrl: _toStr,
+  });
+};
 
-// se_QueueAttributeMap omitted.
+/**
+ * serializeAws_json1_0QueueAttributeMap
+ */
+const se_QueueAttributeMap = (input: Partial<Record<QueueAttributeName, string>>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [QueueAttributeName | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = _toStr(value);
+    return acc;
+  }, {});
+};
 
-// se_ReceiveMessageRequest omitted.
+/**
+ * serializeAws_json1_0ReceiveMessageRequest
+ */
+const se_ReceiveMessageRequest = (input: ReceiveMessageRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeNames: (_) => se_AttributeNameList(_, context),
+    MaxNumberOfMessages: _toNum,
+    MessageAttributeNames: (_) => se_MessageAttributeNameList(_, context),
+    QueueUrl: _toStr,
+    ReceiveRequestAttemptId: _toStr,
+    VisibilityTimeout: _toNum,
+    WaitTimeSeconds: _toNum,
+  });
+};
 
-// se_RemovePermissionRequest omitted.
+/**
+ * serializeAws_json1_0RemovePermissionRequest
+ */
+const se_RemovePermissionRequest = (input: RemovePermissionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Label: _toStr,
+    QueueUrl: _toStr,
+  });
+};
 
 /**
  * serializeAws_json1_0SendMessageBatchRequest
@@ -2414,7 +2655,7 @@ const se_MessageSystemAttributeValue = (input: MessageSystemAttributeValue, cont
 const se_SendMessageBatchRequest = (input: SendMessageBatchRequest, context: __SerdeContext): any => {
   return take(input, {
     Entries: (_) => se_SendMessageBatchRequestEntryList(_, context),
-    QueueUrl: [],
+    QueueUrl: _toStr,
   });
 };
 
@@ -2423,12 +2664,12 @@ const se_SendMessageBatchRequest = (input: SendMessageBatchRequest, context: __S
  */
 const se_SendMessageBatchRequestEntry = (input: SendMessageBatchRequestEntry, context: __SerdeContext): any => {
   return take(input, {
-    DelaySeconds: [],
-    Id: [],
+    DelaySeconds: _toNum,
+    Id: _toStr,
     MessageAttributes: (_) => se_MessageBodyAttributeMap(_, context),
-    MessageBody: [],
-    MessageDeduplicationId: [],
-    MessageGroupId: [],
+    MessageBody: _toStr,
+    MessageDeduplicationId: _toStr,
+    MessageGroupId: _toStr,
     MessageSystemAttributes: (_) => se_MessageBodySystemAttributeMap(_, context),
   });
 };
@@ -2449,29 +2690,91 @@ const se_SendMessageBatchRequestEntryList = (input: SendMessageBatchRequestEntry
  */
 const se_SendMessageRequest = (input: SendMessageRequest, context: __SerdeContext): any => {
   return take(input, {
-    DelaySeconds: [],
+    DelaySeconds: _toNum,
     MessageAttributes: (_) => se_MessageBodyAttributeMap(_, context),
-    MessageBody: [],
-    MessageDeduplicationId: [],
-    MessageGroupId: [],
+    MessageBody: _toStr,
+    MessageDeduplicationId: _toStr,
+    MessageGroupId: _toStr,
     MessageSystemAttributes: (_) => se_MessageBodySystemAttributeMap(_, context),
-    QueueUrl: [],
+    QueueUrl: _toStr,
   });
 };
 
-// se_SetQueueAttributesRequest omitted.
+/**
+ * serializeAws_json1_0SetQueueAttributesRequest
+ */
+const se_SetQueueAttributesRequest = (input: SetQueueAttributesRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Attributes: (_) => se_QueueAttributeMap(_, context),
+    QueueUrl: _toStr,
+  });
+};
 
-// se_StartMessageMoveTaskRequest omitted.
+/**
+ * serializeAws_json1_0StartMessageMoveTaskRequest
+ */
+const se_StartMessageMoveTaskRequest = (input: StartMessageMoveTaskRequest, context: __SerdeContext): any => {
+  return take(input, {
+    DestinationArn: _toStr,
+    MaxNumberOfMessagesPerSecond: _toNum,
+    SourceArn: _toStr,
+  });
+};
 
-// se_StringList omitted.
+/**
+ * serializeAws_json1_0StringList
+ */
+const se_StringList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return _toStr(entry);
+    });
+};
 
-// se_TagKeyList omitted.
+/**
+ * serializeAws_json1_0TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return _toStr(entry);
+    });
+};
 
-// se_TagMap omitted.
+/**
+ * serializeAws_json1_0TagMap
+ */
+const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = _toStr(value);
+    return acc;
+  }, {});
+};
 
-// se_TagQueueRequest omitted.
+/**
+ * serializeAws_json1_0TagQueueRequest
+ */
+const se_TagQueueRequest = (input: TagQueueRequest, context: __SerdeContext): any => {
+  return take(input, {
+    QueueUrl: _toStr,
+    Tags: (_) => se_TagMap(_, context),
+  });
+};
 
-// se_UntagQueueRequest omitted.
+/**
+ * serializeAws_json1_0UntagQueueRequest
+ */
+const se_UntagQueueRequest = (input: UntagQueueRequest, context: __SerdeContext): any => {
+  return take(input, {
+    QueueUrl: _toStr,
+    TagKeys: (_) => se_TagKeyList(_, context),
+  });
+};
 
 // de_BatchEntryIdsNotDistinct omitted.
 
