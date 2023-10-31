@@ -17,6 +17,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.List;
 import java.util.Set;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
 import software.amazon.smithy.aws.typescript.codegen.validation.UnaryFunctionCall;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.knowledge.HttpBinding;
@@ -69,8 +70,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set<Shape> shapes) {
+        boolean isAwsQueryCompat = context.getService().hasTrait(AwsQueryCompatibleTrait.class);
         AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeSerVisitor(context,
-            (!context.getSettings().generateServerSdk() && enableSerdeElision())));
+            (!context.getSettings().generateServerSdk() && !isAwsQueryCompat && enableSerdeElision())));
     }
 
     @Override
