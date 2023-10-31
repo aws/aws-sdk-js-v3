@@ -60,7 +60,7 @@ export interface GetCapacityReservationUsageCommandOutput extends GetCapacityRes
  * //   InstanceType: "STRING_VALUE",
  * //   TotalInstanceCount: Number("int"),
  * //   AvailableInstanceCount: Number("int"),
- * //   State: "active" || "expired" || "cancelled" || "pending" || "failed",
+ * //   State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed",
  * //   InstanceUsages: [ // InstanceUsageSet
  * //     { // InstanceUsage
  * //       AccountId: "STRING_VALUE",

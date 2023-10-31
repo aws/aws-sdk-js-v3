@@ -18,7 +18,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetTransitGatewayPrefixListReferencesRequest,
   GetTransitGatewayPrefixListReferencesResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   de_GetTransitGatewayPrefixListReferencesCommand,
   se_GetTransitGatewayPrefixListReferencesCommand,

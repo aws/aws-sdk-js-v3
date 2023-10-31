@@ -70,7 +70,7 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //       CurrentGeneration: true || false,
  * //       FreeTierEligible: true || false,
  * //       SupportedUsageClasses: [ // UsageClassTypeList
- * //         "spot" || "on-demand",
+ * //         "spot" || "on-demand" || "capacity-block",
  * //       ],
  * //       SupportedRootDeviceTypes: [ // RootDeviceTypeList
  * //         "ebs" || "instance-store",

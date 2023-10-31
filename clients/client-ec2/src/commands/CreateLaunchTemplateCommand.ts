@@ -179,7 +179,7 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  *       "STRING_VALUE",
  *     ],
  *     InstanceMarketOptions: { // LaunchTemplateInstanceMarketOptionsRequest
- *       MarketType: "spot",
+ *       MarketType: "spot" || "capacity-block",
  *       SpotOptions: { // LaunchTemplateSpotMarketOptionsRequest
  *         MaxPrice: "STRING_VALUE",
  *         SpotInstanceType: "one-time" || "persistent",

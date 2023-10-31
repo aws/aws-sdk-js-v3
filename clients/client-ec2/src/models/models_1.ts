@@ -17,7 +17,6 @@ import {
   AddressFamily,
   AttachmentStatus,
   DirectoryServiceAuthenticationRequest,
-  FederatedAuthenticationRequest,
   InstanceEventWindow,
   Ipv4PrefixSpecification,
   NatGatewayAddress,
@@ -32,6 +31,24 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The IAM SAML identity provider used for federated authentication.</p>
+ */
+export interface FederatedAuthenticationRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
+   */
+  SAMLProviderArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>
+   */
+  SelfServiceSAMLProviderArn?: string;
+}
 
 /**
  * @public
@@ -2585,6 +2602,7 @@ export interface SpotOptionsRequest {
  * @enum
  */
 export const DefaultTargetCapacityType = {
+  CAPACITY_BLOCK: "capacity-block",
   ON_DEMAND: "on-demand",
   SPOT: "spot",
 } as const;
@@ -3021,8 +3039,9 @@ export interface VCpuCountRange {
  *                wizard</a> or with the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances API</a>, you
  *             can't specify <code>InstanceRequirements</code>.</p>
  *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
- *                placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.html">Create a mixed instances group using attribute-based instance type selection</a> in
+ *          the <i>Amazon EC2 Auto Scaling User Guide</i>, and also <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
+ *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface InstanceRequirements {
   /**
@@ -6230,6 +6249,7 @@ export type ShutdownBehavior = (typeof ShutdownBehavior)[keyof typeof ShutdownBe
  * @enum
  */
 export const MarketType = {
+  capacity_block: "capacity-block",
   spot: "spot",
 } as const;
 
@@ -10992,62 +11012,6 @@ export const PlacementGroupState = {
  * @public
  */
 export type PlacementGroupState = (typeof PlacementGroupState)[keyof typeof PlacementGroupState];
-
-/**
- * @public
- * <p>Describes a placement group.</p>
- */
-export interface PlacementGroup {
-  /**
-   * @public
-   * <p>The name of the placement group.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * @public
-   * <p>The state of the placement group.</p>
-   */
-  State?: PlacementGroupState;
-
-  /**
-   * @public
-   * <p>The placement strategy.</p>
-   */
-  Strategy?: PlacementStrategy;
-
-  /**
-   * @public
-   * <p>The number of partitions. Valid only if <b>strategy</b> is
-   *             set to <code>partition</code>.</p>
-   */
-  PartitionCount?: number;
-
-  /**
-   * @public
-   * <p>The ID of the placement group.</p>
-   */
-  GroupId?: string;
-
-  /**
-   * @public
-   * <p>Any tags applied to the placement group.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the placement group.</p>
-   */
-  GroupArn?: string;
-
-  /**
-   * @public
-   * <p>The spread level for the placement group. <i>Only</i> Outpost placement
-   *             groups can be spread across hosts.</p>
-   */
-  SpreadLevel?: SpreadLevel;
-}
 
 /**
  * @internal

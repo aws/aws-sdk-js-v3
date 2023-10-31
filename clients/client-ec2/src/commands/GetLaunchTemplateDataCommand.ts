@@ -180,7 +180,7 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * //       "STRING_VALUE",
  * //     ],
  * //     InstanceMarketOptions: { // LaunchTemplateInstanceMarketOptions
- * //       MarketType: "spot",
+ * //       MarketType: "spot" || "capacity-block",
  * //       SpotOptions: { // LaunchTemplateSpotMarketOptions
  * //         MaxPrice: "STRING_VALUE",
  * //         SpotInstanceType: "one-time" || "persistent",

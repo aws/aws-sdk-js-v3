@@ -46,12 +46,70 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  PlacementGroup,
+  PlacementGroupState,
+  PlacementStrategy,
+  SpreadLevel,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>Describes a placement group.</p>
+ */
+export interface PlacementGroup {
+  /**
+   * @public
+   * <p>The name of the placement group.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * @public
+   * <p>The state of the placement group.</p>
+   */
+  State?: PlacementGroupState;
+
+  /**
+   * @public
+   * <p>The placement strategy.</p>
+   */
+  Strategy?: PlacementStrategy;
+
+  /**
+   * @public
+   * <p>The number of partitions. Valid only if <b>strategy</b> is
+   *             set to <code>partition</code>.</p>
+   */
+  PartitionCount?: number;
+
+  /**
+   * @public
+   * <p>The ID of the placement group.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * @public
+   * <p>Any tags applied to the placement group.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the placement group.</p>
+   */
+  GroupArn?: string;
+
+  /**
+   * @public
+   * <p>The spread level for the placement group. <i>Only</i> Outpost placement
+   *             groups can be spread across hosts.</p>
+   */
+  SpreadLevel?: SpreadLevel;
+}
 
 /**
  * @public
@@ -8715,25 +8773,6 @@ export interface DeletePlacementGroupRequest {
    * <p>The name of the placement group.</p>
    */
   GroupName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePublicIpv4PoolRequest {
-  /**
-   * @public
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the public IPv4 pool you want to delete.</p>
-   */
-  PoolId: string | undefined;
 }
 
 /**

@@ -1089,6 +1089,11 @@ import {
   DescribeByoipCidrsCommandOutput,
 } from "./commands/DescribeByoipCidrsCommand";
 import {
+  DescribeCapacityBlockOfferingsCommand,
+  DescribeCapacityBlockOfferingsCommandInput,
+  DescribeCapacityBlockOfferingsCommandOutput,
+} from "./commands/DescribeCapacityBlockOfferingsCommand";
+import {
   DescribeCapacityReservationFleetsCommand,
   DescribeCapacityReservationFleetsCommandInput,
   DescribeCapacityReservationFleetsCommandOutput,
@@ -2630,6 +2635,11 @@ import {
   ProvisionPublicIpv4PoolCidrCommandOutput,
 } from "./commands/ProvisionPublicIpv4PoolCidrCommand";
 import {
+  PurchaseCapacityBlockCommand,
+  PurchaseCapacityBlockCommandInput,
+  PurchaseCapacityBlockCommandOutput,
+} from "./commands/PurchaseCapacityBlockCommand";
+import {
   PurchaseHostReservationCommand,
   PurchaseHostReservationCommandInput,
   PurchaseHostReservationCommandOutput,
@@ -3163,6 +3173,7 @@ const commands = {
   DescribeAwsNetworkPerformanceMetricSubscriptionsCommand,
   DescribeBundleTasksCommand,
   DescribeByoipCidrsCommand,
+  DescribeCapacityBlockOfferingsCommand,
   DescribeCapacityReservationFleetsCommand,
   DescribeCapacityReservationsCommand,
   DescribeCarrierGatewaysCommand,
@@ -3476,6 +3487,7 @@ const commands = {
   ProvisionByoipCidrCommand,
   ProvisionIpamPoolCidrCommand,
   ProvisionPublicIpv4PoolCidrCommand,
+  PurchaseCapacityBlockCommand,
   PurchaseHostReservationCommand,
   PurchaseReservedInstancesOfferingCommand,
   PurchaseScheduledInstancesCommand,
@@ -7194,6 +7206,23 @@ export interface EC2 {
     args: DescribeByoipCidrsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeByoipCidrsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCapacityBlockOfferingsCommand}
+   */
+  describeCapacityBlockOfferings(
+    args: DescribeCapacityBlockOfferingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapacityBlockOfferingsCommandOutput>;
+  describeCapacityBlockOfferings(
+    args: DescribeCapacityBlockOfferingsCommandInput,
+    cb: (err: any, data?: DescribeCapacityBlockOfferingsCommandOutput) => void
+  ): void;
+  describeCapacityBlockOfferings(
+    args: DescribeCapacityBlockOfferingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapacityBlockOfferingsCommandOutput) => void
   ): void;
 
   /**
@@ -12389,6 +12418,23 @@ export interface EC2 {
     args: ProvisionPublicIpv4PoolCidrCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ProvisionPublicIpv4PoolCidrCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PurchaseCapacityBlockCommand}
+   */
+  purchaseCapacityBlock(
+    args: PurchaseCapacityBlockCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PurchaseCapacityBlockCommandOutput>;
+  purchaseCapacityBlock(
+    args: PurchaseCapacityBlockCommandInput,
+    cb: (err: any, data?: PurchaseCapacityBlockCommandOutput) => void
+  ): void;
+  purchaseCapacityBlock(
+    args: PurchaseCapacityBlockCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PurchaseCapacityBlockCommandOutput) => void
   ): void;
 
   /**

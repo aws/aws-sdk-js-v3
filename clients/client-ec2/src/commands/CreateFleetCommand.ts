@@ -180,7 +180,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *     TotalTargetCapacity: Number("int"), // required
  *     OnDemandTargetCapacity: Number("int"),
  *     SpotTargetCapacity: Number("int"),
- *     DefaultTargetCapacityType: "spot" || "on-demand",
+ *     DefaultTargetCapacityType: "spot" || "on-demand" || "capacity-block",
  *     TargetCapacityUnitType: "vcpu" || "memory-mib" || "units",
  *   },
  *   TerminateInstancesWithExpiration: true || false,

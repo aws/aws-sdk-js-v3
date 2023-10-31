@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeletePublicIpv4PoolRequest } from "../models/models_2";
-import { DeletePublicIpv4PoolResult } from "../models/models_3";
+import { DeletePublicIpv4PoolRequest, DeletePublicIpv4PoolResult } from "../models/models_3";
 import { de_DeletePublicIpv4PoolCommand, se_DeletePublicIpv4PoolCommand } from "../protocols/Aws_ec2";
 
 /**

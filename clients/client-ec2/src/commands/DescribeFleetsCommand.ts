@@ -170,7 +170,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //         TotalTargetCapacity: Number("int"),
  * //         OnDemandTargetCapacity: Number("int"),
  * //         SpotTargetCapacity: Number("int"),
- * //         DefaultTargetCapacityType: "spot" || "on-demand",
+ * //         DefaultTargetCapacityType: "spot" || "on-demand" || "capacity-block",
  * //         TargetCapacityUnitType: "vcpu" || "memory-mib" || "units",
  * //       },
  * //       TerminateInstancesWithExpiration: true || false,

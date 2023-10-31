@@ -4,6 +4,7 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   _InstanceType,
   ByoipCidr,
+  ClientVpnAuthorizationRuleStatus,
   IamInstanceProfileSpecification,
   IpPermission,
   NatGatewayAddress,
@@ -39,6 +40,254 @@ import {
   RunInstancesMonitoringEnabled,
 } from "./models_4";
 import { CapacityReservationSpecification, InstanceMonitoring } from "./models_6";
+
+/**
+ * @public
+ */
+export interface RestoreSnapshotTierResult {
+  /**
+   * @public
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * @public
+   * <p>The date and time when the snapshot restore process started.</p>
+   */
+  RestoreStartTime?: Date;
+
+  /**
+   * @public
+   * <p>For temporary restores only. The number of days for which the archived snapshot
+   *       is temporarily restored.</p>
+   */
+  RestoreDuration?: number;
+
+  /**
+   * @public
+   * <p>Indicates whether the snapshot is permanently restored. <code>true</code> indicates a permanent
+   *       restore. <code>false</code> indicates a temporary restore.</p>
+   */
+  IsPermanentRestore?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface RevokeClientVpnIngressRequest {
+  /**
+   * @public
+   * <p>The ID of the Client VPN endpoint with which the authorization rule is associated.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * @public
+   * <p>The IPv4 address range, in CIDR notation, of the network for which access is being removed.</p>
+   */
+  TargetNetworkCidr: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the Active Directory group for which to revoke access. </p>
+   */
+  AccessGroupId?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether access should be revoked for all clients.</p>
+   */
+  RevokeAllGroups?: boolean;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface RevokeClientVpnIngressResult {
+  /**
+   * @public
+   * <p>The current state of the authorization rule.</p>
+   */
+  Status?: ClientVpnAuthorizationRuleStatus;
+}
+
+/**
+ * @public
+ */
+export interface RevokeSecurityGroupEgressRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the security group.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * @public
+   * <p>The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.</p>
+   */
+  IpPermissions?: IpPermission[];
+
+  /**
+   * @public
+   * <p>The IDs of the security group rules.</p>
+   */
+  SecurityGroupRuleIds?: string[];
+
+  /**
+   * @public
+   * <p>Not supported. Use a set of IP permissions to specify the CIDR.</p>
+   */
+  CidrIp?: string;
+
+  /**
+   * @public
+   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * @public
+   * <p>Not supported. Use a set of IP permissions to specify the protocol name or
+   *             number.</p>
+   */
+  IpProtocol?: string;
+
+  /**
+   * @public
+   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
+   */
+  ToPort?: number;
+
+  /**
+   * @public
+   * <p>Not supported. Use a set of IP permissions to specify a
+   *            destination security group.</p>
+   */
+  SourceSecurityGroupName?: string;
+
+  /**
+   * @public
+   * <p>Not supported. Use a set of IP permissions to specify a destination security
+   *             group.</p>
+   */
+  SourceSecurityGroupOwnerId?: string;
+}
+
+/**
+ * @public
+ */
+export interface RevokeSecurityGroupEgressResult {
+  /**
+   * @public
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   */
+  Return?: boolean;
+
+  /**
+   * @public
+   * <p>The outbound rules that were unknown to the service. In some cases,
+   *                 <code>unknownIpPermissionSet</code> might be in a different format from the request
+   *             parameter. </p>
+   */
+  UnknownIpPermissions?: IpPermission[];
+}
+
+/**
+ * @public
+ */
+export interface RevokeSecurityGroupIngressRequest {
+  /**
+   * @public
+   * <p>The CIDR IP address range. You can't specify this parameter when specifying a source security group.</p>
+   */
+  CidrIp?: string;
+
+  /**
+   * @public
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *            If the protocol is ICMP, this is the type number. A value of -1 indicates all ICMP types.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * @public
+   * <p>The ID of the security group.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * @public
+   * <p>[Default VPC] The name of the security group. You must specify either the
+   *             security group ID or the security group name in the request. For security groups in a
+   *             nondefault VPC, you must specify the security group ID.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * @public
+   * <p>The sets of IP permissions. You can't specify a source security group and a CIDR IP address range in the same set of permissions.</p>
+   */
+  IpPermissions?: IpPermission[];
+
+  /**
+   * @public
+   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number
+   *         (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>).
+   *         Use <code>-1</code> to specify all.</p>
+   */
+  IpProtocol?: string;
+
+  /**
+   * @public
+   * <p>[Default VPC] The name of the source security group. You can't specify this parameter
+   *          in combination with the following parameters: the CIDR IP address range, the start of the port range,
+   *          the IP protocol, and the end of the port range. The source security group must be in the same VPC.
+   *          To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
+   */
+  SourceSecurityGroupName?: string;
+
+  /**
+   * @public
+   * <p>Not supported.</p>
+   */
+  SourceSecurityGroupOwnerId?: string;
+
+  /**
+   * @public
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *          If the protocol is ICMP, this is the code. A value of -1 indicates all ICMP codes.</p>
+   */
+  ToPort?: number;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The IDs of the security group rules.</p>
+   */
+  SecurityGroupRuleIds?: string[];
+}
 
 /**
  * @public

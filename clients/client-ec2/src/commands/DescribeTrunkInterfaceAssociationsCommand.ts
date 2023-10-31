@@ -18,7 +18,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeTrunkInterfaceAssociationsRequest,
   DescribeTrunkInterfaceAssociationsResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_DescribeTrunkInterfaceAssociationsCommand,
   se_DescribeTrunkInterfaceAssociationsCommand,

@@ -6,6 +6,8 @@ export * from "./DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator";
 
 export * from "./DescribeByoipCidrsPaginator";
 
+export * from "./DescribeCapacityBlockOfferingsPaginator";
+
 export * from "./DescribeCapacityReservationFleetsPaginator";
 
 export * from "./DescribeCapacityReservationsPaginator";
@@ -15,10 +17,9 @@ export * from "./DescribeCarrierGatewaysPaginator";
 export * from "./DescribeClassicLinkInstancesPaginator";
 
 export * from "./DescribeClientVpnAuthorizationRulesPaginator";
-
-export * from "./DescribeClientVpnConnectionsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeClientVpnConnectionsPaginator";
 export * from "./DescribeClientVpnEndpointsPaginator";
 export * from "./DescribeClientVpnRoutesPaginator";
 export * from "./DescribeClientVpnTargetNetworksPaginator";

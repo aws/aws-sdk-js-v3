@@ -746,6 +746,10 @@ import {
 } from "../commands/DescribeBundleTasksCommand";
 import { DescribeByoipCidrsCommandInput, DescribeByoipCidrsCommandOutput } from "../commands/DescribeByoipCidrsCommand";
 import {
+  DescribeCapacityBlockOfferingsCommandInput,
+  DescribeCapacityBlockOfferingsCommandOutput,
+} from "../commands/DescribeCapacityBlockOfferingsCommand";
+import {
   DescribeCapacityReservationFleetsCommandInput,
   DescribeCapacityReservationFleetsCommandOutput,
 } from "../commands/DescribeCapacityReservationFleetsCommand";
@@ -1848,6 +1852,10 @@ import {
   ProvisionPublicIpv4PoolCidrCommandOutput,
 } from "../commands/ProvisionPublicIpv4PoolCidrCommand";
 import {
+  PurchaseCapacityBlockCommandInput,
+  PurchaseCapacityBlockCommandOutput,
+} from "../commands/PurchaseCapacityBlockCommand";
+import {
   PurchaseHostReservationCommandInput,
   PurchaseHostReservationCommandOutput,
 } from "../commands/PurchaseHostReservationCommand";
@@ -2216,7 +2224,6 @@ import {
   EnaSrdUdpSpecification,
   Explanation,
   FailedCapacityReservationFleetCancellationResult,
-  FederatedAuthenticationRequest,
   FirewallStatefulRule,
   FirewallStatelessRule,
   FleetCapacityReservation,
@@ -2402,6 +2409,7 @@ import {
   ExportTask,
   ExportToS3Task,
   ExportToS3TaskSpecification,
+  FederatedAuthenticationRequest,
   FilterPortRange,
   FleetLaunchTemplateConfigRequest,
   FleetLaunchTemplateOverrides,
@@ -2505,7 +2513,6 @@ import {
   PathFilter,
   PathRequestFilter,
   Placement,
-  PlacementGroup,
   PlacementResponse,
   PrivateDnsNameOptionsOnLaunch,
   PrivateIpAddressSpecification,
@@ -2690,7 +2697,6 @@ import {
   DeleteNetworkInterfacePermissionResult,
   DeleteNetworkInterfaceRequest,
   DeletePlacementGroupRequest,
-  DeletePublicIpv4PoolRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2711,6 +2717,7 @@ import {
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
+  PlacementGroup,
   PriceScheduleSpecification,
   PrivateDnsNameConfiguration,
   PropagatingVgw,
@@ -2781,9 +2788,9 @@ import {
   AvailabilityZone,
   AvailabilityZoneMessage,
   AvailableCapacity,
+  CapacityBlockOffering,
   CapacityReservationFleet,
   CapacityReservationOptions,
-  CapacityReservationSpecificationResponse,
   CertificateAuthentication,
   ClassicLinkInstance,
   ClientConnectResponseOptions,
@@ -2796,7 +2803,7 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
-  CpuOptions,
+  DeletePublicIpv4PoolRequest,
   DeletePublicIpv4PoolResult,
   DeleteQueuedReservedInstancesError,
   DeleteQueuedReservedInstancesRequest,
@@ -2893,6 +2900,8 @@ import {
   DescribeBundleTasksResult,
   DescribeByoipCidrsRequest,
   DescribeByoipCidrsResult,
+  DescribeCapacityBlockOfferingsRequest,
+  DescribeCapacityBlockOfferingsResult,
   DescribeCapacityReservationFleetsRequest,
   DescribeCapacityReservationFleetsResult,
   DescribeCapacityReservationsRequest,
@@ -2975,7 +2984,6 @@ import {
   DescribeInstanceEventNotificationAttributesResult,
   DescribeInstanceEventWindowsRequest,
   DescribeInstanceEventWindowsResult,
-  DescribeInstancesRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3042,9 +3050,12 @@ import {
 import {
   ArchitectureType,
   BootModeType,
+  CapacityReservationSpecificationResponse,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
+  CpuOptions,
   CreateVolumePermission,
+  DescribeInstancesRequest,
   DescribeInstancesResult,
   DescribeInstanceStatusRequest,
   DescribeInstanceStatusResult,
@@ -3190,10 +3201,6 @@ import {
   DescribeTransitGatewaysResult,
   DescribeTransitGatewayVpcAttachmentsRequest,
   DescribeTransitGatewayVpcAttachmentsResult,
-  DescribeTrunkInterfaceAssociationsRequest,
-  DescribeTrunkInterfaceAssociationsResult,
-  DescribeVerifiedAccessEndpointsRequest,
-  DescribeVerifiedAccessEndpointsResult,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -3309,6 +3316,10 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeTrunkInterfaceAssociationsRequest,
+  DescribeTrunkInterfaceAssociationsResult,
+  DescribeVerifiedAccessEndpointsRequest,
+  DescribeVerifiedAccessEndpointsResult,
   DescribeVerifiedAccessGroupsRequest,
   DescribeVerifiedAccessGroupsResult,
   DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
@@ -3534,10 +3545,6 @@ import {
   GetTransitGatewayPolicyTableAssociationsRequest,
   GetTransitGatewayPolicyTableAssociationsResult,
   GetTransitGatewayPolicyTableEntriesRequest,
-  GetTransitGatewayPolicyTableEntriesResult,
-  GetTransitGatewayPrefixListReferencesRequest,
-  GetTransitGatewayPrefixListReferencesResult,
-  GetTransitGatewayRouteTableAssociationsRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3594,6 +3601,10 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetTransitGatewayPolicyTableEntriesResult,
+  GetTransitGatewayPrefixListReferencesRequest,
+  GetTransitGatewayPrefixListReferencesResult,
+  GetTransitGatewayRouteTableAssociationsRequest,
   GetTransitGatewayRouteTableAssociationsResult,
   GetTransitGatewayRouteTablePropagationsRequest,
   GetTransitGatewayRouteTablePropagationsResult,
@@ -3775,6 +3786,8 @@ import {
   ProvisionIpamPoolCidrResult,
   ProvisionPublicIpv4PoolCidrRequest,
   ProvisionPublicIpv4PoolCidrResult,
+  PurchaseCapacityBlockRequest,
+  PurchaseCapacityBlockResult,
   PurchaseHostReservationRequest,
   PurchaseHostReservationResult,
   PurchaseRequest,
@@ -3848,12 +3861,6 @@ import {
   RestoreSnapshotFromRecycleBinRequest,
   RestoreSnapshotFromRecycleBinResult,
   RestoreSnapshotTierRequest,
-  RestoreSnapshotTierResult,
-  RevokeClientVpnIngressRequest,
-  RevokeClientVpnIngressResult,
-  RevokeSecurityGroupEgressRequest,
-  RevokeSecurityGroupEgressResult,
-  RevokeSecurityGroupIngressRequest,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -3888,6 +3895,12 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RestoreSnapshotTierResult,
+  RevokeClientVpnIngressRequest,
+  RevokeClientVpnIngressResult,
+  RevokeSecurityGroupEgressRequest,
+  RevokeSecurityGroupEgressResult,
+  RevokeSecurityGroupIngressRequest,
   RevokeSecurityGroupIngressResult,
   RunInstancesRequest,
   RunScheduledInstancesRequest,
@@ -7778,6 +7791,23 @@ export const se_DescribeByoipCidrsCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeByoipCidrsRequest(input, context),
     Action: "DescribeByoipCidrs",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeCapacityBlockOfferingsCommand
+ */
+export const se_DescribeCapacityBlockOfferingsCommand = async (
+  input: DescribeCapacityBlockOfferingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeCapacityBlockOfferingsRequest(input, context),
+    Action: "DescribeCapacityBlockOfferings",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13099,6 +13129,23 @@ export const se_ProvisionPublicIpv4PoolCidrCommand = async (
   body = buildFormUrlencodedString({
     ...se_ProvisionPublicIpv4PoolCidrRequest(input, context),
     Action: "ProvisionPublicIpv4PoolCidr",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2PurchaseCapacityBlockCommand
+ */
+export const se_PurchaseCapacityBlockCommand = async (
+  input: PurchaseCapacityBlockCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_PurchaseCapacityBlockRequest(input, context),
+    Action: "PurchaseCapacityBlock",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -23087,6 +23134,46 @@ const de_DescribeByoipCidrsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeByoipCidrsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_ec2DescribeCapacityBlockOfferingsCommand
+ */
+export const de_DescribeCapacityBlockOfferingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCapacityBlockOfferingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeCapacityBlockOfferingsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCapacityBlockOfferingsResult(data, context);
+  const response: DescribeCapacityBlockOfferingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeCapacityBlockOfferingsCommandError
+ */
+const de_DescribeCapacityBlockOfferingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCapacityBlockOfferingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -35570,6 +35657,46 @@ const de_ProvisionPublicIpv4PoolCidrCommandError = async (
 };
 
 /**
+ * deserializeAws_ec2PurchaseCapacityBlockCommand
+ */
+export const de_PurchaseCapacityBlockCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PurchaseCapacityBlockCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PurchaseCapacityBlockCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PurchaseCapacityBlockResult(data, context);
+  const response: PurchaseCapacityBlockCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2PurchaseCapacityBlockCommandError
+ */
+const de_PurchaseCapacityBlockCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PurchaseCapacityBlockCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_ec2PurchaseHostReservationCommand
  */
 export const de_PurchaseHostReservationCommand = async (
@@ -45769,6 +45896,41 @@ const se_DescribeByoipCidrsRequest = (input: DescribeByoipCidrsRequest, context:
   }
   if (input.NextToken != null) {
     entries["NextToken"] = input.NextToken;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeCapacityBlockOfferingsRequest
+ */
+const se_DescribeCapacityBlockOfferingsRequest = (
+  input: DescribeCapacityBlockOfferingsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.InstanceType != null) {
+    entries["InstanceType"] = input.InstanceType;
+  }
+  if (input.InstanceCount != null) {
+    entries["InstanceCount"] = input.InstanceCount;
+  }
+  if (input.StartDateRange != null) {
+    entries["StartDateRange"] = input.StartDateRange.toISOString().split(".")[0] + "Z";
+  }
+  if (input.EndDateRange != null) {
+    entries["EndDateRange"] = input.EndDateRange.toISOString().split(".")[0] + "Z";
+  }
+  if (input.CapacityDurationHours != null) {
+    entries["CapacityDurationHours"] = input.CapacityDurationHours;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
   }
   return entries;
 };
@@ -60647,6 +60809,33 @@ const se_PublicIpv4PoolIdStringList = (input: string[], context: __SerdeContext)
 };
 
 /**
+ * serializeAws_ec2PurchaseCapacityBlockRequest
+ */
+const se_PurchaseCapacityBlockRequest = (input: PurchaseCapacityBlockRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.TagSpecifications != null) {
+    const memberEntries = se_TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.CapacityBlockOfferingId != null) {
+    entries["CapacityBlockOfferingId"] = input.CapacityBlockOfferingId;
+  }
+  if (input.InstancePlatform != null) {
+    entries["InstancePlatform"] = input.InstancePlatform;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2PurchaseHostReservationRequest
  */
 const se_PurchaseHostReservationRequest = (input: PurchaseHostReservationRequest, context: __SerdeContext): any => {
@@ -68103,6 +68292,55 @@ const de_CapacityAllocations = (output: any, context: __SerdeContext): CapacityA
 };
 
 /**
+ * deserializeAws_ec2CapacityBlockOffering
+ */
+const de_CapacityBlockOffering = (output: any, context: __SerdeContext): CapacityBlockOffering => {
+  const contents: any = {};
+  if (output["capacityBlockOfferingId"] !== undefined) {
+    contents.CapacityBlockOfferingId = __expectString(output["capacityBlockOfferingId"]);
+  }
+  if (output["instanceType"] !== undefined) {
+    contents.InstanceType = __expectString(output["instanceType"]);
+  }
+  if (output["availabilityZone"] !== undefined) {
+    contents.AvailabilityZone = __expectString(output["availabilityZone"]);
+  }
+  if (output["instanceCount"] !== undefined) {
+    contents.InstanceCount = __strictParseInt32(output["instanceCount"]) as number;
+  }
+  if (output["startDate"] !== undefined) {
+    contents.StartDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["startDate"]));
+  }
+  if (output["endDate"] !== undefined) {
+    contents.EndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["endDate"]));
+  }
+  if (output["capacityBlockDurationHours"] !== undefined) {
+    contents.CapacityBlockDurationHours = __strictParseInt32(output["capacityBlockDurationHours"]) as number;
+  }
+  if (output["upfrontFee"] !== undefined) {
+    contents.UpfrontFee = __expectString(output["upfrontFee"]);
+  }
+  if (output["currencyCode"] !== undefined) {
+    contents.CurrencyCode = __expectString(output["currencyCode"]);
+  }
+  if (output["tenancy"] !== undefined) {
+    contents.Tenancy = __expectString(output["tenancy"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2CapacityBlockOfferingSet
+ */
+const de_CapacityBlockOfferingSet = (output: any, context: __SerdeContext): CapacityBlockOffering[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CapacityBlockOffering(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2CapacityReservation
  */
 const de_CapacityReservation = (output: any, context: __SerdeContext): CapacityReservation => {
@@ -68182,6 +68420,9 @@ const de_CapacityReservation = (output: any, context: __SerdeContext): CapacityR
       __getArrayIfSingleItem(output["capacityAllocationSet"]["item"]),
       context
     );
+  }
+  if (output["reservationType"] !== undefined) {
+    contents.ReservationType = __expectString(output["reservationType"]);
   }
   return contents;
 };
@@ -71682,6 +71923,31 @@ const de_DescribeByoipCidrsResult = (output: any, context: __SerdeContext): Desc
     contents.ByoipCidrs = [];
   } else if (output["byoipCidrSet"] !== undefined && output["byoipCidrSet"]["item"] !== undefined) {
     contents.ByoipCidrs = de_ByoipCidrSet(__getArrayIfSingleItem(output["byoipCidrSet"]["item"]), context);
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeCapacityBlockOfferingsResult
+ */
+const de_DescribeCapacityBlockOfferingsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeCapacityBlockOfferingsResult => {
+  const contents: any = {};
+  if (output.capacityBlockOfferingSet === "") {
+    contents.CapacityBlockOfferings = [];
+  } else if (
+    output["capacityBlockOfferingSet"] !== undefined &&
+    output["capacityBlockOfferingSet"]["item"] !== undefined
+  ) {
+    contents.CapacityBlockOfferings = de_CapacityBlockOfferingSet(
+      __getArrayIfSingleItem(output["capacityBlockOfferingSet"]["item"]),
+      context
+    );
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
@@ -86658,6 +86924,17 @@ const de_Purchase = (output: any, context: __SerdeContext): Purchase => {
   }
   if (output["upfrontPrice"] !== undefined) {
     contents.UpfrontPrice = __expectString(output["upfrontPrice"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2PurchaseCapacityBlockResult
+ */
+const de_PurchaseCapacityBlockResult = (output: any, context: __SerdeContext): PurchaseCapacityBlockResult => {
+  const contents: any = {};
+  if (output["capacityReservation"] !== undefined) {
+    contents.CapacityReservation = de_CapacityReservation(output["capacityReservation"], context);
   }
   return contents;
 };

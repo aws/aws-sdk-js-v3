@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeInstancesRequest } from "../models/models_3";
-import { DescribeInstancesResult } from "../models/models_4";
+import { DescribeInstancesRequest, DescribeInstancesResult } from "../models/models_4";
 import { de_DescribeInstancesCommand, se_DescribeInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -149,7 +148,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * //             Arn: "STRING_VALUE",
  * //             Id: "STRING_VALUE",
  * //           },
- * //           InstanceLifecycle: "spot" || "scheduled",
+ * //           InstanceLifecycle: "spot" || "scheduled" || "capacity-block",
  * //           ElasticGpuAssociations: [ // ElasticGpuAssociationList
  * //             { // ElasticGpuAssociation
  * //               ElasticGpuId: "STRING_VALUE",

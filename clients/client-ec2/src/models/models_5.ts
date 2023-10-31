@@ -22,6 +22,7 @@ import {
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPolicyTableAssociation,
+  TrunkInterfaceAssociation,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
@@ -53,7 +54,7 @@ import {
   SSEType,
   State,
   SubnetCidrReservation,
-  TransitGatewayPrefixListReference,
+  VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   Volume,
   VpcEndpoint,
@@ -79,6 +80,138 @@ import {
   VirtualizationType,
 } from "./models_3";
 import { AnalysisStatus, ArchitectureType } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeTrunkInterfaceAssociationsRequest {
+  /**
+   * @public
+   * <p>The IDs of the associations.</p>
+   */
+  AssociationIds?: string[];
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>gre-key</code> - The ID of a trunk interface association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>interface-protocol</code> - The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   *             To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrunkInterfaceAssociationsResult {
+  /**
+   * @public
+   * <p>Information about the trunk associations.</p>
+   */
+  InterfaceAssociations?: TrunkInterfaceAssociation[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessEndpointsRequest {
+  /**
+   * @public
+   * <p>The ID of the Verified Access endpoint.</p>
+   */
+  VerifiedAccessEndpointIds?: string[];
+
+  /**
+   * @public
+   * <p>The ID of the Verified Access instance.</p>
+   */
+  VerifiedAccessInstanceId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the Verified Access group.</p>
+   */
+  VerifiedAccessGroupId?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessEndpointsResult {
+  /**
+   * @public
+   * <p>The ID of the Verified Access endpoint.</p>
+   */
+  VerifiedAccessEndpoints?: VerifiedAccessEndpoint[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -8329,158 +8462,6 @@ export interface TransitGatewayPolicyTableEntry {
    * <p>The ID of the target route table.</p>
    */
   TargetRouteTableId?: string;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayPolicyTableEntriesResult {
-  /**
-   * @public
-   * <p>The entries for the transit gateway policy table.</p>
-   */
-  TransitGatewayPolicyTableEntries?: TransitGatewayPolicyTableEntry[];
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayPrefixListReferencesRequest {
-  /**
-   * @public
-   * <p>The ID of the transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.resource-id</code> - The ID of the resource for the attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.resource-type</code> - The type of resource for the
-   *                     attachment. Valid values are <code>vpc</code> | <code>vpn</code> |
-   *                         <code>direct-connect-gateway</code> | <code>peering</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.transit-gateway-attachment-id</code> - The ID of the attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>is-blackhole</code> - Whether traffic matching the route is blocked (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>prefix-list-owner-id</code> - The ID of the owner of the prefix list.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the prefix list reference (<code>pending</code> | <code>available</code> | <code>modifying</code> | <code>deleting</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayPrefixListReferencesResult {
-  /**
-   * @public
-   * <p>Information about the prefix list references.</p>
-   */
-  TransitGatewayPrefixListReferences?: TransitGatewayPrefixListReference[];
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetTransitGatewayRouteTableAssociationsRequest {
-  /**
-   * @public
-   * <p>The ID of the transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * @public
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>resource-id</code> - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
-   *                     | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>
-   *                     | <code>connect</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 }
 
 /**

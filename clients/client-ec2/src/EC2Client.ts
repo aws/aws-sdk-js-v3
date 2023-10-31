@@ -772,6 +772,10 @@ import {
 } from "./commands/DescribeBundleTasksCommand";
 import { DescribeByoipCidrsCommandInput, DescribeByoipCidrsCommandOutput } from "./commands/DescribeByoipCidrsCommand";
 import {
+  DescribeCapacityBlockOfferingsCommandInput,
+  DescribeCapacityBlockOfferingsCommandOutput,
+} from "./commands/DescribeCapacityBlockOfferingsCommand";
+import {
   DescribeCapacityReservationFleetsCommandInput,
   DescribeCapacityReservationFleetsCommandOutput,
 } from "./commands/DescribeCapacityReservationFleetsCommand";
@@ -1874,6 +1878,10 @@ import {
   ProvisionPublicIpv4PoolCidrCommandOutput,
 } from "./commands/ProvisionPublicIpv4PoolCidrCommand";
 import {
+  PurchaseCapacityBlockCommandInput,
+  PurchaseCapacityBlockCommandOutput,
+} from "./commands/PurchaseCapacityBlockCommand";
+import {
   PurchaseHostReservationCommandInput,
   PurchaseHostReservationCommandOutput,
 } from "./commands/PurchaseHostReservationCommand";
@@ -2319,6 +2327,7 @@ export type ServiceInputTypes =
   | DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput
   | DescribeBundleTasksCommandInput
   | DescribeByoipCidrsCommandInput
+  | DescribeCapacityBlockOfferingsCommandInput
   | DescribeCapacityReservationFleetsCommandInput
   | DescribeCapacityReservationsCommandInput
   | DescribeCarrierGatewaysCommandInput
@@ -2632,6 +2641,7 @@ export type ServiceInputTypes =
   | ProvisionByoipCidrCommandInput
   | ProvisionIpamPoolCidrCommandInput
   | ProvisionPublicIpv4PoolCidrCommandInput
+  | PurchaseCapacityBlockCommandInput
   | PurchaseHostReservationCommandInput
   | PurchaseReservedInstancesOfferingCommandInput
   | PurchaseScheduledInstancesCommandInput
@@ -2924,6 +2934,7 @@ export type ServiceOutputTypes =
   | DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
   | DescribeBundleTasksCommandOutput
   | DescribeByoipCidrsCommandOutput
+  | DescribeCapacityBlockOfferingsCommandOutput
   | DescribeCapacityReservationFleetsCommandOutput
   | DescribeCapacityReservationsCommandOutput
   | DescribeCarrierGatewaysCommandOutput
@@ -3237,6 +3248,7 @@ export type ServiceOutputTypes =
   | ProvisionByoipCidrCommandOutput
   | ProvisionIpamPoolCidrCommandOutput
   | ProvisionPublicIpv4PoolCidrCommandOutput
+  | PurchaseCapacityBlockCommandOutput
   | PurchaseHostReservationCommandOutput
   | PurchaseReservedInstancesOfferingCommandOutput
   | PurchaseScheduledInstancesCommandOutput

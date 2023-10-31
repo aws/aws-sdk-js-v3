@@ -81,7 +81,7 @@ export interface DescribeCapacityReservationsCommandOutput
  * //       AvailableInstanceCount: Number("int"),
  * //       EbsOptimized: true || false,
  * //       EphemeralStorage: true || false,
- * //       State: "active" || "expired" || "cancelled" || "pending" || "failed",
+ * //       State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed",
  * //       StartDate: new Date("TIMESTAMP"),
  * //       EndDate: new Date("TIMESTAMP"),
  * //       EndDateType: "unlimited" || "limited",
@@ -102,6 +102,7 @@ export interface DescribeCapacityReservationsCommandOutput
  * //           Count: Number("int"),
  * //         },
  * //       ],
+ * //       ReservationType: "default" || "capacity-block",
  * //     },
  * //   ],
  * // };

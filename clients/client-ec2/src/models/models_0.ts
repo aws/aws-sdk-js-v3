@@ -8146,12 +8146,29 @@ export interface CapacityAllocation {
  * @public
  * @enum
  */
+export const CapacityReservationType = {
+  CAPACITY_BLOCK: "capacity-block",
+  DEFAULT: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationType = (typeof CapacityReservationType)[keyof typeof CapacityReservationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityReservationState = {
   active: "active",
   cancelled: "cancelled",
   expired: "expired",
   failed: "failed",
+  payment_failed: "payment-failed",
+  payment_pending: "payment-pending",
   pending: "pending",
+  scheduled: "scheduled",
 } as const;
 
 /**
@@ -8377,6 +8394,12 @@ export interface CapacityReservation {
    * <p>Information about instance capacity usage.</p>
    */
   CapacityAllocations?: CapacityAllocation[];
+
+  /**
+   * @public
+   * <p>The type of Capacity Reservation.</p>
+   */
+  ReservationType?: CapacityReservationType;
 }
 
 /**
@@ -9612,24 +9635,6 @@ export interface DirectoryServiceAuthenticationRequest {
    * <p>The ID of the Active Directory to be used for authentication.</p>
    */
   DirectoryId?: string;
-}
-
-/**
- * @public
- * <p>The IAM SAML identity provider used for federated authentication.</p>
- */
-export interface FederatedAuthenticationRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
-   */
-  SAMLProviderArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>
-   */
-  SelfServiceSAMLProviderArn?: string;
 }
 
 /**

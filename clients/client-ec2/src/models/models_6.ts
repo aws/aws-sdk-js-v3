@@ -12,7 +12,8 @@ import {
   ApplianceModeSupportValue,
   AutoPlacement,
   ByoipCidr,
-  ClientVpnAuthorizationRuleStatus,
+  CapacityReservation,
+  CapacityReservationInstancePlatform,
   CurrencyCodeValues,
   DnsSupportValue,
   EnaSrdSpecification,
@@ -22,7 +23,6 @@ import {
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   InstanceEventWindow,
-  IpPermission,
   Ipv6SupportValue,
   PortRange,
   RouteTableAssociationState,
@@ -157,11 +157,164 @@ import {
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
+  TransitGatewayPolicyTableEntry,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPolicyTableEntriesResult {
+  /**
+   * @public
+   * <p>The entries for the transit gateway policy table.</p>
+   */
+  TransitGatewayPolicyTableEntries?: TransitGatewayPolicyTableEntry[];
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPrefixListReferencesRequest {
+  /**
+   * @public
+   * <p>The ID of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * @public
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.resource-id</code> - The ID of the resource for the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.resource-type</code> - The type of resource for the
+   *                     attachment. Valid values are <code>vpc</code> | <code>vpn</code> |
+   *                         <code>direct-connect-gateway</code> | <code>peering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>is-blackhole</code> - Whether traffic matching the route is blocked (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-owner-id</code> - The ID of the owner of the prefix list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the prefix list reference (<code>pending</code> | <code>available</code> | <code>modifying</code> | <code>deleting</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayPrefixListReferencesResult {
+  /**
+   * @public
+   * <p>Information about the prefix list references.</p>
+   */
+  TransitGatewayPrefixListReferences?: TransitGatewayPrefixListReference[];
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayRouteTableAssociationsRequest {
+  /**
+   * @public
+   * <p>The ID of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * @public
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
+   *                     | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>
+   *                     | <code>connect</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * @public
@@ -6895,6 +7048,46 @@ export interface ProvisionPublicIpv4PoolCidrResult {
 /**
  * @public
  */
+export interface PurchaseCapacityBlockRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The tags to apply to the Capacity Block during launch.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * @public
+   * <p>The ID of the Capacity Block offering.</p>
+   */
+  CapacityBlockOfferingId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of operating system for which to reserve capacity.</p>
+   */
+  InstancePlatform: CapacityReservationInstancePlatform | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseCapacityBlockResult {
+  /**
+   * @public
+   * <p>The Capacity Reservation.</p>
+   */
+  CapacityReservation?: CapacityReservation;
+}
+
+/**
+ * @public
+ */
 export interface PurchaseHostReservationRequest {
   /**
    * @public
@@ -9002,254 +9195,6 @@ export interface RestoreSnapshotTierRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface RestoreSnapshotTierResult {
-  /**
-   * @public
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * @public
-   * <p>The date and time when the snapshot restore process started.</p>
-   */
-  RestoreStartTime?: Date;
-
-  /**
-   * @public
-   * <p>For temporary restores only. The number of days for which the archived snapshot
-   *       is temporarily restored.</p>
-   */
-  RestoreDuration?: number;
-
-  /**
-   * @public
-   * <p>Indicates whether the snapshot is permanently restored. <code>true</code> indicates a permanent
-   *       restore. <code>false</code> indicates a temporary restore.</p>
-   */
-  IsPermanentRestore?: boolean;
-}
-
-/**
- * @public
- */
-export interface RevokeClientVpnIngressRequest {
-  /**
-   * @public
-   * <p>The ID of the Client VPN endpoint with which the authorization rule is associated.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * @public
-   * <p>The IPv4 address range, in CIDR notation, of the network for which access is being removed.</p>
-   */
-  TargetNetworkCidr: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the Active Directory group for which to revoke access. </p>
-   */
-  AccessGroupId?: string;
-
-  /**
-   * @public
-   * <p>Indicates whether access should be revoked for all clients.</p>
-   */
-  RevokeAllGroups?: boolean;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface RevokeClientVpnIngressResult {
-  /**
-   * @public
-   * <p>The current state of the authorization rule.</p>
-   */
-  Status?: ClientVpnAuthorizationRuleStatus;
-}
-
-/**
- * @public
- */
-export interface RevokeSecurityGroupEgressRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the security group.</p>
-   */
-  GroupId: string | undefined;
-
-  /**
-   * @public
-   * <p>The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.</p>
-   */
-  IpPermissions?: IpPermission[];
-
-  /**
-   * @public
-   * <p>The IDs of the security group rules.</p>
-   */
-  SecurityGroupRuleIds?: string[];
-
-  /**
-   * @public
-   * <p>Not supported. Use a set of IP permissions to specify the CIDR.</p>
-   */
-  CidrIp?: string;
-
-  /**
-   * @public
-   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
-   */
-  FromPort?: number;
-
-  /**
-   * @public
-   * <p>Not supported. Use a set of IP permissions to specify the protocol name or
-   *             number.</p>
-   */
-  IpProtocol?: string;
-
-  /**
-   * @public
-   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
-   */
-  ToPort?: number;
-
-  /**
-   * @public
-   * <p>Not supported. Use a set of IP permissions to specify a
-   *            destination security group.</p>
-   */
-  SourceSecurityGroupName?: string;
-
-  /**
-   * @public
-   * <p>Not supported. Use a set of IP permissions to specify a destination security
-   *             group.</p>
-   */
-  SourceSecurityGroupOwnerId?: string;
-}
-
-/**
- * @public
- */
-export interface RevokeSecurityGroupEgressResult {
-  /**
-   * @public
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
-   */
-  Return?: boolean;
-
-  /**
-   * @public
-   * <p>The outbound rules that were unknown to the service. In some cases,
-   *                 <code>unknownIpPermissionSet</code> might be in a different format from the request
-   *             parameter. </p>
-   */
-  UnknownIpPermissions?: IpPermission[];
-}
-
-/**
- * @public
- */
-export interface RevokeSecurityGroupIngressRequest {
-  /**
-   * @public
-   * <p>The CIDR IP address range. You can't specify this parameter when specifying a source security group.</p>
-   */
-  CidrIp?: string;
-
-  /**
-   * @public
-   * <p>If the protocol is TCP or UDP, this is the start of the port range.
-   *            If the protocol is ICMP, this is the type number. A value of -1 indicates all ICMP types.</p>
-   */
-  FromPort?: number;
-
-  /**
-   * @public
-   * <p>The ID of the security group.</p>
-   */
-  GroupId?: string;
-
-  /**
-   * @public
-   * <p>[Default VPC] The name of the security group. You must specify either the
-   *             security group ID or the security group name in the request. For security groups in a
-   *             nondefault VPC, you must specify the security group ID.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * @public
-   * <p>The sets of IP permissions. You can't specify a source security group and a CIDR IP address range in the same set of permissions.</p>
-   */
-  IpPermissions?: IpPermission[];
-
-  /**
-   * @public
-   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number
-   *         (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>).
-   *         Use <code>-1</code> to specify all.</p>
-   */
-  IpProtocol?: string;
-
-  /**
-   * @public
-   * <p>[Default VPC] The name of the source security group. You can't specify this parameter
-   *          in combination with the following parameters: the CIDR IP address range, the start of the port range,
-   *          the IP protocol, and the end of the port range. The source security group must be in the same VPC.
-   *          To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
-   */
-  SourceSecurityGroupName?: string;
-
-  /**
-   * @public
-   * <p>Not supported.</p>
-   */
-  SourceSecurityGroupOwnerId?: string;
-
-  /**
-   * @public
-   * <p>If the protocol is TCP or UDP, this is the end of the port range.
-   *          If the protocol is ICMP, this is the code. A value of -1 indicates all ICMP codes.</p>
-   */
-  ToPort?: number;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The IDs of the security group rules.</p>
-   */
-  SecurityGroupRuleIds?: string[];
 }
 
 /**

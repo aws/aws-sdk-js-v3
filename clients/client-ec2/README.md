@@ -2039,6 +2039,14 @@ DescribeByoipCidrs
 </details>
 <details>
 <summary>
+DescribeCapacityBlockOfferings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/describecapacityblockofferingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/describecapacityblockofferingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/describecapacityblockofferingscommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeCapacityReservationFleets
 </summary>
 
@@ -4539,6 +4547,14 @@ ProvisionPublicIpv4PoolCidr
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/provisionpublicipv4poolcidrcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/provisionpublicipv4poolcidrcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/provisionpublicipv4poolcidrcommandoutput.html)
+
+</details>
+<details>
+<summary>
+PurchaseCapacityBlock
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/classes/purchasecapacityblockcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/purchasecapacityblockcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2/interfaces/purchasecapacityblockcommandoutput.html)
 
 </details>
 <details>
