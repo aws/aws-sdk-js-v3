@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.440.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.439.0...v3.440.0) (2023-10-31)
+
+
+### Features
+
+* **client-translate:** Added support for Brevity translation settings feature. ([98b7567](https://github.com/aws/aws-sdk-js-v3/commit/98b75672d9f5a7953824814e1cb430d9f12949a5))
+
+
+
+
+
 # [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-translate

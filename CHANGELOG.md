@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.440.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.439.0...v3.440.0) (2023-10-31)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** remove error name check to allow for region redirect for HEAD operations ([#5425](https://github.com/aws/aws-sdk-js-v3/issues/5425)) ([eed5dcc](https://github.com/aws/aws-sdk-js-v3/commit/eed5dcc61b070c335f7597cb8dd5d52105e2ef36))
+
+
+### Features
+
+* **client-amplify:** Add backend field to CreateBranch and UpdateBranch requests. Add pagination support for ListApps, ListDomainAssociations, ListBranches, and ListJobs ([df2f16b](https://github.com/aws/aws-sdk-js-v3/commit/df2f16b239507830a7bbaaae846ae1d41b14dd25))
+* **client-application-insights:** Automate attaching managed policies ([2320c7c](https://github.com/aws/aws-sdk-js-v3/commit/2320c7c7ae51c41d8d056d6da34b9e619af2b7e9))
+* **client-ec2:** Capacity Blocks for ML are a new EC2 purchasing option for reserving GPU instances on a future date to support short duration machine learning (ML) workloads. Capacity Blocks automatically place instances close together inside Amazon EC2 UltraClusters for low-latency, high-throughput networking. ([5f73bcd](https://github.com/aws/aws-sdk-js-v3/commit/5f73bcda5288d895451b0a3b2e9fdf7ff00e46fe))
+* **client-m2:** Added name filter ability for ListDataSets API, added ForceUpdate for Updating environment and BatchJob submission using S3BatchJobIdentifier ([d6cf665](https://github.com/aws/aws-sdk-js-v3/commit/d6cf66538dc41e36b9c52326cf59b249b39a8179))
+* **client-neptunedata:** Minor change to not retry CancelledByUserException ([1c2b78d](https://github.com/aws/aws-sdk-js-v3/commit/1c2b78d29a3d5c35bd4739294a1dadd6a2ec9c0f))
+* **client-translate:** Added support for Brevity translation settings feature. ([98b7567](https://github.com/aws/aws-sdk-js-v3/commit/98b75672d9f5a7953824814e1cb430d9f12949a5))
+
+
+
+
+
 # [3.439.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.438.0...v3.439.0) (2023-10-30)
 
 
