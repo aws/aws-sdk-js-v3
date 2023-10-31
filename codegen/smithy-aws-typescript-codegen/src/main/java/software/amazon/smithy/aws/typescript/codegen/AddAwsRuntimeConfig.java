@@ -17,6 +17,8 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSigV4Service;
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -25,7 +27,10 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
+import software.amazon.smithy.aws.typescript.codegen.awsquerycompatible.GetNumericFields;
 import software.amazon.smithy.aws.typescript.codegen.extensions.AwsRegionExtensionConfiguration;
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
@@ -34,6 +39,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.extensions.ExtensionConfigurationInterface;
+import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -137,9 +143,35 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
     public List<RuntimeClientPlugin> getClientPlugins() {
         return List.of(
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.AWS_SDK_CORE.dependency, "AwsQueryCompatible",
-                    HAS_MIDDLEWARE)
-                .servicePredicate((m, s) -> s.getTrait)
+                .withConventions(
+                    AwsDependency.AWS_SDK_CORE.dependency, "AwsQueryCompatible",
+                    HAS_MIDDLEWARE
+                )
+                .build(),
+            RuntimeClientPlugin.builder()
+                .inputConfig(Symbol.builder()
+                    .addDependency(AwsDependency.AWS_SDK_CORE.dependency)
+                    .namespace(AwsDependency.AWS_SDK_CORE.dependency.getPackageName(), "/")
+                    .name("AwsQueryCompatibleInputConfig").build())
+                .resolvedConfig(Symbol.builder()
+                    .addDependency(AwsDependency.AWS_SDK_CORE.dependency)
+                    .namespace(AwsDependency.AWS_SDK_CORE.dependency.getPackageName(), "/")
+                    .name("AwsQueryCompatibleResolvedConfig").build())
+                .resolveFunction(
+                    Symbol.builder()
+                        .name("resolveAwsQueryCompatibleConfig")
+                        .addDependency(
+                            AwsDependency.AWS_SDK_CORE.dependency
+                        )
+                        .namespace(AwsDependency.AWS_SDK_CORE.dependency.getPackageName(), "/")
+                        .build(),
+                    (m, s, o) -> MapUtils.of(
+                        "awsQueryCompatibleNumericFields", Symbol.builder().name(
+                            GetNumericFields.getFor(m)
+                        ).build()
+                    )
+                )
+                .servicePredicate((m, s) -> s.hasTrait(AwsQueryCompatibleTrait.class))
                 .build()
         );
     }
