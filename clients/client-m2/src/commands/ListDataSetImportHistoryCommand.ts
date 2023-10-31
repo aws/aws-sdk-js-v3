@@ -63,6 +63,7 @@ export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImport
  * //         pending: Number("int"), // required
  * //         inProgress: Number("int"), // required
  * //       },
+ * //       statusReason: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

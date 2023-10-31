@@ -7,6 +7,7 @@ import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -113,12 +114,14 @@ import {
   DeploymentSummary,
   EfsStorageConfiguration,
   EnvironmentSummary,
+  ExecutionTimeoutException,
   ExternalLocation,
   FileBatchJobIdentifier,
   FsxStorageConfiguration,
   GdgAttributes,
   HighAvailabilityConfig,
   InternalServerException,
+  JobIdentifier,
   MaintenanceSchedule,
   PendingMaintenance,
   PoAttributes,
@@ -126,8 +129,10 @@ import {
   PsAttributes,
   RecordLength,
   ResourceNotFoundException,
+  S3BatchJobIdentifier,
   ScriptBatchJobIdentifier,
   ServiceQuotaExceededException,
+  ServiceUnavailableException,
   StorageConfiguration,
   ThrottlingException,
   ValidationException,
@@ -907,6 +912,7 @@ export const se_ListDataSetsCommand = async (
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     prefix: [, input.prefix!],
+    nameFilter: [, input.nameFilter!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1272,6 +1278,7 @@ export const se_UpdateEnvironmentCommand = async (
       applyDuringMaintenanceWindow: [],
       desiredCapacity: [],
       engineVersion: [],
+      forceUpdate: [],
       instanceType: [],
       preferredMaintenanceWindow: [],
     })
@@ -2001,6 +2008,7 @@ export const de_GetDataSetDetailsCommand = async (
     creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     dataSetName: __expectString,
     dataSetOrg: (_) => _json(__expectUnion(_)),
+    fileSize: __expectLong,
     lastReferencedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     location: __expectString,
@@ -2026,12 +2034,21 @@ const de_GetDataSetDetailsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.m2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ExecutionTimeoutException":
+    case "com.amazonaws.m2#ExecutionTimeoutException":
+      throw await de_ExecutionTimeoutExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.m2#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2642,12 +2659,21 @@ const de_ListDataSetsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.m2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ExecutionTimeoutException":
+    case "com.amazonaws.m2#ExecutionTimeoutException":
+      throw await de_ExecutionTimeoutExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.m2#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -3356,6 +3382,26 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 };
 
 /**
+ * deserializeAws_restJson1ExecutionTimeoutExceptionRes
+ */
+const de_ExecutionTimeoutExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ExecutionTimeoutException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ExecutionTimeoutException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1InternalServerExceptionRes
  */
 const de_InternalServerExceptionRes = async (
@@ -3420,6 +3466,26 @@ const de_ServiceQuotaExceededExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceUnavailableException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -3517,6 +3583,8 @@ const se_FsxStorageConfiguration = (input: FsxStorageConfiguration, context: __S
 
 // se_HighAvailabilityConfig omitted.
 
+// se_JobIdentifier omitted.
+
 // se_PoAttributes omitted.
 
 // se_PrimaryKey omitted.
@@ -3524,6 +3592,8 @@ const se_FsxStorageConfiguration = (input: FsxStorageConfiguration, context: __S
 // se_PsAttributes omitted.
 
 // se_RecordLength omitted.
+
+// se_S3BatchJobIdentifier omitted.
 
 // se_ScriptBatchJobIdentifier omitted.
 
@@ -3779,6 +3849,8 @@ const de_FsxStorageConfiguration = (output: any, context: __SerdeContext): FsxSt
 
 // de_HighAvailabilityConfig omitted.
 
+// de_JobIdentifier omitted.
+
 // de_LogGroupSummaries omitted.
 
 // de_LogGroupSummary omitted.
@@ -3810,6 +3882,8 @@ const de_PendingMaintenance = (output: any, context: __SerdeContext): PendingMai
 // de_PrimaryKey omitted.
 
 // de_PsDetailAttributes omitted.
+
+// de_S3BatchJobIdentifier omitted.
 
 // de_ScriptBatchJobDefinition omitted.
 

@@ -55,6 +55,14 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  *     scriptBatchJobIdentifier: { // ScriptBatchJobIdentifier
  *       scriptName: "STRING_VALUE", // required
  *     },
+ *     s3BatchJobIdentifier: { // S3BatchJobIdentifier
+ *       bucket: "STRING_VALUE", // required
+ *       keyPrefix: "STRING_VALUE",
+ *       identifier: { // JobIdentifier Union: only one key present
+ *         fileName: "STRING_VALUE",
+ *         scriptName: "STRING_VALUE",
+ *       },
+ *     },
  *   },
  *   jobParams: { // BatchJobParametersMap
  *     "<keys>": "STRING_VALUE",

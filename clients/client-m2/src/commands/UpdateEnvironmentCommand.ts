@@ -51,6 +51,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  *   engineVersion: "STRING_VALUE",
  *   preferredMaintenanceWindow: "STRING_VALUE",
  *   applyDuringMaintenanceWindow: true || false,
+ *   forceUpdate: true || false,
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);

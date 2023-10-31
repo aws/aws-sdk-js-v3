@@ -51,6 +51,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   prefix: "STRING_VALUE",
+ *   nameFilter: "STRING_VALUE",
  * };
  * const command = new ListDataSetsCommand(input);
  * const response = await client.send(command);
@@ -79,11 +80,20 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The account or role doesn't have the right permissions to make the request.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The parameters provided in the request conflict with existing resources.</p>
+ *
+ * @throws {@link ExecutionTimeoutException} (server fault)
+ *  <p> Failed to connect to server, or didn’t receive response within expected time period.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred during the processing of the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Server cannot process the request at the moment.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The number of requests made exceeds the limit.</p>

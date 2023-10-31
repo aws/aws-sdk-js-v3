@@ -70,6 +70,14 @@ export interface GetBatchJobExecutionCommandOutput extends GetBatchJobExecutionR
  * //     scriptBatchJobIdentifier: { // ScriptBatchJobIdentifier
  * //       scriptName: "STRING_VALUE", // required
  * //     },
+ * //     s3BatchJobIdentifier: { // S3BatchJobIdentifier
+ * //       bucket: "STRING_VALUE", // required
+ * //       keyPrefix: "STRING_VALUE",
+ * //       identifier: { // JobIdentifier Union: only one key present
+ * //         fileName: "STRING_VALUE",
+ * //         scriptName: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *
