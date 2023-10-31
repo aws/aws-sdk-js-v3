@@ -1,5 +1,4 @@
 // smithy-typescript generated code
-import { getAwsQueryCompatiblePlugin } from "@aws-sdk/core";
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -434,7 +433,6 @@ export class SQSClient extends __Client<
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
     super(_config_8);
     this.config = _config_8;
-    this.middlewareStack.use(getAwsQueryCompatiblePlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

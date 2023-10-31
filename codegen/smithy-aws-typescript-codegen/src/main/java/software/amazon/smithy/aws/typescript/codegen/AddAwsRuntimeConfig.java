@@ -147,6 +147,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     AwsDependency.AWS_SDK_CORE.dependency, "AwsQueryCompatible",
                     HAS_MIDDLEWARE
                 )
+                .servicePredicate((m, s) -> s.hasTrait(AwsQueryCompatibleTrait.class))
                 .build(),
             RuntimeClientPlugin.builder()
                 .inputConfig(Symbol.builder()
