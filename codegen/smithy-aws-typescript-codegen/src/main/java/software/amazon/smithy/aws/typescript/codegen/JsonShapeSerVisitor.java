@@ -15,12 +15,9 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
-import java.lang.reflect.Member;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.function.BiFunction;
-
-import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
 import software.amazon.smithy.aws.typescript.codegen.validation.UnaryFunctionCall;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -169,11 +166,6 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                             TIMESTAMP_FORMAT, "_")
                     : target.accept(getMemberVisitor("_")));
                 String valueProvider = "_ => " + valueExpression;
-
-                if (context.getService().hasTrait(AwsQueryCompatibleTrait.class)) {
-
-                }
-
                 boolean isUnaryCall = UnaryFunctionCall.check(valueExpression);
 
                 if (hasJsonName) {
@@ -226,24 +218,5 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                 });
             writer.write("_: (name, value) => ({ name: value } as any)");
         });
-    }
-
-    private boolean isNumeric(Shape target) {
-        return target.isIntegerShape() ||
-            target.isFloatShape() ||
-            target.isBigIntegerShape() ||
-            target.isBigDecimalShape() ||
-            target.isIntEnumShape() ||
-            target.isDoubleShape() ||
-            target.isShortShape() ||
-            target.isLongShape();
-    }
-
-    private boolean isString(Shape target) {
-        return target.isStringShape();
-    }
-
-    private boolean isBoolean(Shape target) {
-        return target.isBooleanShape();
     }
 }

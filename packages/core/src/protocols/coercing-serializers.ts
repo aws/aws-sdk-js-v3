@@ -8,6 +8,9 @@ export const _toStr = (val: unknown): string | undefined => {
     return val as undefined;
   }
   if (typeof val === "number" || typeof val === "bigint") {
+    const warning = new Error(`Received number ${val} where a string was expected.`);
+    warning.name = "Warning";
+    console.warn(warning);
     return String(val);
   }
   if (typeof val === "boolean") {

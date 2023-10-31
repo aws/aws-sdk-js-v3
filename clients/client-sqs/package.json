@@ -59,6 +59,7 @@
     "@smithy/util-endpoints": "^1.0.2",
     "@smithy/util-retry": "^2.0.5",
     "@smithy/util-utf8": "^2.0.0",
+    "fast-xml-parser": "4.2.5",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
