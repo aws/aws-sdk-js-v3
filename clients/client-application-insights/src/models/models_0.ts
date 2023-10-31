@@ -360,6 +360,12 @@ export interface ApplicationInfo {
    * <p> The method used by Application Insights to onboard your resources. </p>
    */
   DiscoveryType?: DiscoveryType;
+
+  /**
+   * @public
+   * <p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>
+   */
+  AttachMissingPermission?: boolean;
 }
 
 /**
@@ -607,6 +613,12 @@ export interface CreateApplicationRequest {
    *          parameter to <code>ACCOUNT_BASED</code>. </p>
    */
   GroupingType?: GroupingType;
+
+  /**
+   * @public
+   * <p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>
+   */
+  AttachMissingPermission?: boolean;
 }
 
 /**
@@ -999,6 +1011,12 @@ export interface DescribeComponentConfigurationRecommendationRequest {
    * <p>The tier of the application component.</p>
    */
   Tier: Tier | undefined;
+
+  /**
+   * @public
+   * <p>The name of the workload.</p>
+   */
+  WorkloadName?: string;
 
   /**
    * @public
@@ -2358,6 +2376,12 @@ export interface UpdateApplicationRequest {
    * <p> Turns auto-configuration on or off. </p>
    */
   AutoConfigEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>
+   */
+  AttachMissingPermission?: boolean;
 }
 
 /**

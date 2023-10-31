@@ -62,6 +62,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *   AutoConfigEnabled: true || false,
  *   AutoCreate: true || false,
  *   GroupingType: "ACCOUNT_BASED",
+ *   AttachMissingPermission: true || false,
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
@@ -76,6 +77,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * //     Remarks: "STRING_VALUE",
  * //     AutoConfigEnabled: true || false,
  * //     DiscoveryType: "RESOURCE_GROUP_BASED" || "ACCOUNT_BASED",
+ * //     AttachMissingPermission: true || false,
  * //   },
  * // };
  *

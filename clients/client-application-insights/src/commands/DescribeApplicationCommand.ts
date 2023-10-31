@@ -65,6 +65,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //     Remarks: "STRING_VALUE",
  * //     AutoConfigEnabled: true || false,
  * //     DiscoveryType: "RESOURCE_GROUP_BASED" || "ACCOUNT_BASED",
+ * //     AttachMissingPermission: true || false,
  * //   },
  * // };
  *

@@ -55,6 +55,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *   OpsItemSNSTopicArn: "STRING_VALUE",
  *   RemoveSNSTopic: true || false,
  *   AutoConfigEnabled: true || false,
+ *   AttachMissingPermission: true || false,
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
@@ -69,6 +70,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //     Remarks: "STRING_VALUE",
  * //     AutoConfigEnabled: true || false,
  * //     DiscoveryType: "RESOURCE_GROUP_BASED" || "ACCOUNT_BASED",
+ * //     AttachMissingPermission: true || false,
  * //   },
  * // };
  *

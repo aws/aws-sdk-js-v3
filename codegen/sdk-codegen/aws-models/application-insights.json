@@ -256,6 +256,12 @@
           "traits": {
             "smithy.api#documentation": "<p> The method used by Application Insights to onboard your resources. </p>"
           }
+        },
+        "AttachMissingPermission": {
+          "target": "com.amazonaws.applicationinsights#AttachMissingPermission",
+          "traits": {
+            "smithy.api#documentation": "<p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>"
+          }
         }
       },
       "traits": {
@@ -267,6 +273,9 @@
       "member": {
         "target": "com.amazonaws.applicationinsights#ApplicationInfo"
       }
+    },
+    "com.amazonaws.applicationinsights#AttachMissingPermission": {
+      "type": "boolean"
     },
     "com.amazonaws.applicationinsights#AutoConfigEnabled": {
       "type": "boolean"
@@ -571,6 +580,12 @@
           "target": "com.amazonaws.applicationinsights#GroupingType",
           "traits": {
             "smithy.api#documentation": "<p>Application Insights can create applications based on a resource group or on an account.\n         To create an account-based application using all of the resources in the account, set this\n         parameter to <code>ACCOUNT_BASED</code>. </p>"
+          }
+        },
+        "AttachMissingPermission": {
+          "target": "com.amazonaws.applicationinsights#AttachMissingPermission",
+          "traits": {
+            "smithy.api#documentation": "<p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>"
           }
         }
       },
@@ -1065,6 +1080,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The tier of the application component.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "WorkloadName": {
+          "target": "com.amazonaws.applicationinsights#WorkloadName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the workload.</p>"
           }
         },
         "RecommendationType": {
@@ -4694,6 +4715,12 @@
           "traits": {
             "smithy.api#documentation": "<p> Turns auto-configuration on or off. </p>"
           }
+        },
+        "AttachMissingPermission": {
+          "target": "com.amazonaws.applicationinsights#AttachMissingPermission",
+          "traits": {
+            "smithy.api#documentation": "<p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>"
+          }
         }
       },
       "traits": {
@@ -4751,6 +4778,9 @@
       "errors": [
         {
           "target": "com.amazonaws.applicationinsights#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.applicationinsights#ResourceInUseException"
         },
         {
           "target": "com.amazonaws.applicationinsights#ResourceNotFoundException"

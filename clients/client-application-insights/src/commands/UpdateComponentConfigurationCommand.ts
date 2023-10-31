@@ -78,6 +78,9 @@ export interface UpdateComponentConfigurationCommandOutput
  * @throws {@link InternalServerException} (server fault)
  *  <p>The server encountered an internal error and is unable to complete the request.</p>
  *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is already created or in use.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource does not exist in the customer account.</p>
  *

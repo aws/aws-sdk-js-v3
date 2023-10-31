@@ -2125,6 +2125,9 @@ const de_UpdateComponentConfigurationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.applicationinsights#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationinsights#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
