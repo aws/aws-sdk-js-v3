@@ -1462,7 +1462,6 @@ export class ServerShutdownException extends __BaseException {
 export class CancelledByUserException extends __BaseException {
   readonly name: "CancelledByUserException" = "CancelledByUserException";
   readonly $fault: "server" = "server";
-  $retryable = {};
   /**
    * @public
    * <p>A detailed message describing the problem.</p>
@@ -4017,7 +4016,7 @@ export interface StartLoaderJobInput {
   /**
    * @public
    * <p>The format of the data. For more information about data formats for the Neptune
-   *           <code>Loader</code> command, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format.html">Load Data Formats</a>.</p>
+   *       <code>Loader</code> command, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format.html">Load Data Formats</a>.</p>
    *          <p class="title">
    *             <b>Allowed values</b>
    *          </p>
@@ -4097,14 +4096,14 @@ export interface StartLoaderJobInput {
    *             <li>
    *                <p>
    *                   <code>RESUME</code>   –   In RESUME mode,
-   *           the loader looks for a previous load from this source, and if it finds
-   *           one, resumes that load job. If no previous load job is  found, the loader stops.</p>
+   *       the loader looks for a previous load from this source, and if it finds
+   *       one, resumes that load job. If no previous load job is  found, the loader stops.</p>
    *                <p>The loader avoids reloading files that were successfully loaded in
-   *           a previous job. It only tries to process failed files. If you dropped
-   *           previously loaded data from your Neptune cluster, that data is not
-   *           reloaded in this mode. If a previous load job loaded all files from the
-   *           same source successfully, nothing is reloaded, and the loader returns
-   *           success.</p>
+   *       a previous job. It only tries to process failed files. If you dropped
+   *       previously loaded data from your Neptune cluster, that data is not
+   *       reloaded in this mode. If a previous load job loaded all files from the
+   *       same source successfully, nothing is reloaded, and the loader returns
+   *       success.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4117,11 +4116,11 @@ export interface StartLoaderJobInput {
    *             <li>
    *                <p>
    *                   <code>AUTO</code>   –   In AUTO mode,
-   *           the loader looks for a previous load job from the same source, and if it
-   *           finds one, resumes that job, just as in <code>RESUME</code> mode.</p>
+   *       the loader looks for a previous load job from the same source, and if it
+   *       finds one, resumes that job, just as in <code>RESUME</code> mode.</p>
    *                <p>If the loader doesn't find a previous load job from the same
-   *           source, it loads all data from the source, just as in <code>NEW</code>
-   *           mode.</p>
+   *       source, it loads all data from the source, just as in <code>NEW</code>
+   *       mode.</p>
    *             </li>
    *          </ul>
    */
@@ -4170,11 +4169,11 @@ export interface StartLoaderJobInput {
    *             <li>
    *                <p>
    *                   <code>OVERSUBSCRIBE</code> –   The number of threads used is the
-   *           number of available vCPUs multiplied by 2. If this value is used, the bulk loader takes up all
-   *           available resources.</p>
+   *       number of available vCPUs multiplied by 2. If this value is used, the bulk loader takes up all
+   *       available resources.</p>
    *                <p>This does not mean, however, that the <code>OVERSUBSCRIBE</code> setting
-   *           results in 100% CPU utilization. Because the load operation is I/O bound, the
-   *           highest CPU utilization to expect is in the 60% to 70% range.</p>
+   *       results in 100% CPU utilization. Because the load operation is I/O bound, the
+   *       highest CPU utilization to expect is in the 60% to 70% range.</p>
    *             </li>
    *          </ul>
    *          <p>
@@ -4204,8 +4203,8 @@ export interface StartLoaderJobInput {
    *                   <b>
    *                      <code>namedGraphUri</code>
    *                   </b>   –
-   *           The default graph for all RDF formats when no graph is specified (for non-quads
-   *           formats and NQUAD entries with no graph).</p>
+   *       The default graph for all RDF formats when no graph is specified (for non-quads
+   *       formats and NQUAD entries with no graph).</p>
    *                <p>The default is <code>https://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph</code>.</p>
    *             </li>
    *             <li>
@@ -4213,7 +4212,7 @@ export interface StartLoaderJobInput {
    *                   <b>
    *                      <code>baseUri</code>
    *                   </b>   –
-   *           The base URI for RDF/XML and Turtle formats.</p>
+   *       The base URI for RDF/XML and Turtle formats.</p>
    *                <p>The default is <code>https://aws.amazon.com/neptune/default</code>.</p>
    *             </li>
    *             <li>
@@ -4221,13 +4220,13 @@ export interface StartLoaderJobInput {
    *                   <b>
    *                      <code>allowEmptyStrings</code>
    *                   </b>   –
-   *           Gremlin users need to be able to pass empty string values("") as node
-   *           and edge properties when loading CSV data. If <code>allowEmptyStrings</code>
-   *           is set to <code>false</code> (the default), such empty strings are treated
-   *           as nulls and are not loaded.</p>
+   *       Gremlin users need to be able to pass empty string values("") as node
+   *       and edge properties when loading CSV data. If <code>allowEmptyStrings</code>
+   *       is set to <code>false</code> (the default), such empty strings are treated
+   *       as nulls and are not loaded.</p>
    *                <p>If <code>allowEmptyStrings</code> is set to <code>true</code>,
-   *           the loader treats empty strings as valid property values and loads
-   *           them accordingly.</p>
+   *       the loader treats empty strings as valid property values and loads
+   *       them accordingly.</p>
    *             </li>
    *          </ul>
    */
@@ -4237,34 +4236,35 @@ export interface StartLoaderJobInput {
    * @public
    * <p>
    *             <code>updateSingleCardinalityProperties</code>
-   *           is an optional parameter that controls how the bulk loader treats a new
-   *           value for single-cardinality vertex or edge properties. This is not supported for
-   *           loading openCypher data.</p>
+   *       is an optional parameter that controls how the bulk loader treats a new
+   *       value for single-cardinality vertex or edge properties. This is not supported for
+   *       loading openCypher data.</p>
    *          <p>
    *             <i>Allowed values</i>: <code>"TRUE"</code>, <code>"FALSE"</code>.</p>
    *          <p>
    *             <i>Default value</i>: <code>"FALSE"</code>.</p>
    *          <p>By default, or when <code>updateSingleCardinalityProperties</code> is explicitly
-   *           set to <code>"FALSE"</code>, the loader treats a new value as an error, because it
-   *           violates single cardinality.</p>
+   *       set to <code>"FALSE"</code>, the loader treats a new value as an error, because it
+   *       violates single cardinality.</p>
    *          <p>When <code>updateSingleCardinalityProperties</code> is set to <code>"TRUE"</code>,
-   *           on the other hand, the bulk loader replaces the existing value with the new one.
-   *           If multiple edge or single-cardinality vertex property values are provided in the
-   *           source file(s) being loaded, the final value at the end of the bulk load could be
-   *           any one of those new values. The loader only guarantees that the existing value
-   *           has been replaced by one of the new ones.</p>
+   *       on the other hand, the bulk loader replaces the existing value with the new one.
+   *       If multiple edge or single-cardinality vertex property values are provided in the
+   *       source file(s) being loaded, the final value at the end of the bulk load could be
+   *       any one of those new values. The loader only guarantees that the existing value
+   *       has been replaced by one of the new ones.</p>
    */
   updateSingleCardinalityProperties?: boolean;
 
   /**
    * @public
    * <p>This is an optional flag parameter
-   *           that indicates whether the load request can be queued up or not. </p>
+   *       that indicates whether the load request can be queued up or not. </p>
    *          <p>You don't have to wait for one load job to complete before issuing the next one,
-   *           because Neptune can queue up as many as 64 jobs at a time, provided that their
-   *           <code>queueRequest</code> parameters are all set to <code>"TRUE"</code>.</p>
+   *       because Neptune can queue up as many as 64 jobs at a time, provided that their
+   *       <code>queueRequest</code> parameters are all set to <code>"TRUE"</code>.
+   *       The queue order of the jobs will be first-in-first-out (FIFO).</p>
    *          <p>If the <code>queueRequest</code> parameter is omitted or set to <code>"FALSE"</code>,
-   *           the load request will fail if another load job is already running.</p>
+   *       the load request will fail if another load job is already running.</p>
    *          <p>
    *             <i>Allowed values</i>: <code>"TRUE"</code>, <code>"FALSE"</code>.</p>
    *          <p>
@@ -4307,19 +4307,19 @@ export interface StartLoaderJobInput {
   /**
    * @public
    * <p>This parameter is required only when loading openCypher data that contains relationship
-   *           IDs. It must be included and set to <code>True</code> when openCypher relationship IDs
-   *           are explicitly provided in the load data (recommended).</p>
+   *       IDs. It must be included and set to <code>True</code> when openCypher relationship IDs
+   *       are explicitly provided in the load data (recommended).</p>
    *          <p>When <code>userProvidedEdgeIds</code> is absent or set to <code>True</code>,
-   *           an <code>:ID</code> column must be present in every relationship file in the load.</p>
+   *       an <code>:ID</code> column must be present in every relationship file in the load.</p>
    *          <p>When <code>userProvidedEdgeIds</code> is present and set to <code>False</code>,
-   *           relationship files in the load <b>must not</b> contain an
-   *           <code>:ID</code> column. Instead, the Neptune loader automatically generates an
-   *           ID for each relationship.</p>
+   *       relationship files in the load <b>must not</b> contain an
+   *       <code>:ID</code> column. Instead, the Neptune loader automatically generates an
+   *       ID for each relationship.</p>
    *          <p>It's useful to provide relationship IDs explicitly so that the loader can resume
-   *           loading after error in the CSV data have been fixed, without having to reload any
-   *           relationships that have already been loaded. If relationship IDs have not been
-   *           explicitly assigned, the loader cannot resume a failed load if any relationship file
-   *           has had to be corrected, and must instead reload all the relationships.</p>
+   *       loading after error in the CSV data have been fixed, without having to reload any
+   *       relationships that have already been loaded. If relationship IDs have not been
+   *       explicitly assigned, the loader cannot resume a failed load if any relationship file
+   *       has had to be corrected, and must instead reload all the relationships.</p>
    */
   userProvidedEdgeIds?: boolean;
 }

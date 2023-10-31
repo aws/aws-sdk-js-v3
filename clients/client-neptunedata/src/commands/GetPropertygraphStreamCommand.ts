@@ -65,7 +65,7 @@ export interface GetPropertygraphStreamCommandOutput extends GetPropertygraphStr
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Opencypher</a>
+ *                   <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:OpenCypher</a>
  *                </p>
  *             </li>
  *          </ul>
