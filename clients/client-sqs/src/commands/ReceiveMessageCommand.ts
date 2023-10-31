@@ -16,7 +16,7 @@ import {
 } from "@smithy/types";
 
 import { ReceiveMessageRequest, ReceiveMessageResult } from "../models/models_0";
-import { de_ReceiveMessageCommand, se_ReceiveMessageCommand } from "../protocols/Aws_json1_0";
+import { de_ReceiveMessageCommand, se_ReceiveMessageCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -40,8 +40,8 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  * @public
  * <p>Retrieves one or more messages (up to 10), from the specified queue. Using the
  *                 <code>WaitTimeSeconds</code> parameter enables long-poll support. For more
- *             information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon
- *                 SQS Long Polling</a> in the <i>Amazon SQS Developer Guide</i>. </p>
+ *             information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon SQS
+ *                 Long Polling</a> in the <i>Amazon SQS Developer Guide</i>. </p>
  *          <p>Short poll is the default behavior where a weighted random set of machines is sampled
  *             on a <code>ReceiveMessage</code> call. Thus, only the messages on the sampled machines
  *             are returned. If the number of messages in the queue is small (fewer than 1,000), you
@@ -75,17 +75,15 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  *             more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html">Queue and Message Identifiers</a> in the <i>Amazon SQS Developer
  *                 Guide</i>.</p>
  *          <p>You can provide the <code>VisibilityTimeout</code> parameter in your request. The
- *             parameter is applied to the messages that Amazon SQS returns in the response. If you
- *             don't include the parameter, the overall visibility timeout for the queue is used for
- *             the returned messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer
+ *             parameter is applied to the messages that Amazon SQS returns in the response. If you don't
+ *             include the parameter, the overall visibility timeout for the queue is used for the
+ *             returned messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer
  *             Guide</i>.</p>
  *          <p>A message that isn't deleted or a message whose visibility isn't extended before the
  *             visibility timeout expires counts as a failed receive. Depending on the configuration of
  *             the queue, the message might be sent to the dead-letter queue.</p>
  *          <note>
- *             <p>In the future, new attributes might be added. If you write code that calls this
- *                 action, we recommend that you structure your code so that it can handle new
- *                 attributes gracefully.</p>
+ *             <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -144,76 +142,11 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  * @see {@link ReceiveMessageCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
- * @throws {@link InvalidAddress} (client fault)
- *  <p>The <code>accountId</code> is invalid.</p>
- *
- * @throws {@link InvalidSecurity} (client fault)
- *  <p>When the request to a queue is not HTTPS and SigV4.</p>
- *
- * @throws {@link KmsAccessDenied} (client fault)
- *  <p>The caller doesn't have the required KMS access.</p>
- *
- * @throws {@link KmsDisabled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *
- * @throws {@link KmsInvalidKeyUsage} (client fault)
- *  <p>The request was rejected for one of the following reasons:</p>
- *          <ul>
- *             <li>
- *                <p>The KeyUsage value of the KMS key is incompatible with the API
- *                     operation.</p>
- *             </li>
- *             <li>
- *                <p>The encryption algorithm or signing algorithm specified for the operation is
- *                     incompatible with the type of key material in the KMS key (KeySpec).</p>
- *             </li>
- *          </ul>
- *
- * @throws {@link KmsInvalidState} (client fault)
- *  <p>The request was rejected because the state of the specified resource is not valid for
- *             this request.</p>
- *
- * @throws {@link KmsNotFound} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be found.
- *         </p>
- *
- * @throws {@link KmsOptInRequired} (client fault)
- *  <p>The request was rejected because the specified key policy isn't syntactically or
- *             semantically correct.</p>
- *
- * @throws {@link KmsThrottled} (client fault)
- *  <p>Amazon Web Services KMS throttles requests for the following conditions.</p>
- *
  * @throws {@link OverLimit} (client fault)
  *  <p>The specified action violates a limit. For example, <code>ReceiveMessage</code>
  *             returns this error if the maximum number of in flight messages is reached and
  *                 <code>AddPermission</code> returns this error if the maximum number of permissions
  *             for the queue is reached.</p>
- *
- * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>The specified queue doesn't exist.</p>
- *
- * @throws {@link RequestThrottled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *          <ul>
- *             <li>
- *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
- *                     account and Region. </p>
- *             </li>
- *             <li>
- *                <p>A burst or sustained high rate of requests to change the state of the same KMS
- *                     key. This condition is often known as a "hot key."</p>
- *             </li>
- *             <li>
- *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
- *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
- *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
- *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
- *             </li>
- *          </ul>
- *
- * @throws {@link UnsupportedOperation} (client fault)
- *  <p>Error code 400. Unsupported operation.</p>
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>

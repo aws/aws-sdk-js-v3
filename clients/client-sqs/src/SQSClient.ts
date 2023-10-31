@@ -1,10 +1,5 @@
 // smithy-typescript generated code
-import {
-  AwsQueryCompatibleInputConfig,
-  AwsQueryCompatibleResolvedConfig,
-  getAwsQueryCompatiblePlugin,
-  resolveAwsQueryCompatibleConfig,
-} from "@aws-sdk/core";
+import { getAwsQueryCompatiblePlugin } from "@aws-sdk/core";
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -307,7 +302,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
  */
 export type SQSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  AwsQueryCompatibleInputConfig &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
@@ -328,7 +322,6 @@ export interface SQSClientConfig extends SQSClientConfigType {}
 export type SQSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  AwsQueryCompatibleResolvedConfig &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
@@ -346,15 +339,15 @@ export interface SQSClientResolvedConfig extends SQSClientResolvedConfigType {}
 /**
  * @public
  * <p>Welcome to the <i>Amazon SQS API Reference</i>.</p>
- *          <p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they
- *             travel between applications or microservices. Amazon SQS moves data between distributed
- *             application components and helps you decouple these components.</p>
+ *          <p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they travel
+ *             between applications or microservices. Amazon SQS moves data between distributed application
+ *             components and helps you decouple these components.</p>
  *          <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html">Identity and access management</a> in the <i>Amazon SQS Developer
  *                 Guide.</i>
  *          </p>
- *          <p>You can use <a href="http://aws.amazon.com/tools/#sdk">Amazon Web Services
- *                 SDKs</a> to access Amazon SQS using your favorite programming language. The SDKs
- *             perform tasks such as the following automatically:</p>
+ *          <p>You can use <a href="http://aws.amazon.com/tools/#sdk">Amazon Web Services SDKs</a> to access
+ *             Amazon SQS using your favorite programming language. The SDKs perform tasks such as the
+ *             following automatically:</p>
  *          <ul>
  *             <li>
  *                <p>Cryptographically sign your service requests</p>
@@ -399,8 +392,7 @@ export interface SQSClientResolvedConfig extends SQSClientResolvedConfigType {}
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html">Amazon SQS in the <i>Command Line
- *                             Interface</i>
+ *                   <a href="http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html">Amazon SQS in the <i>Command Line Interface</i>
  *                   </a>
  *                </p>
  *             </li>
@@ -433,25 +425,15 @@ export class SQSClient extends __Client<
   constructor(...[configuration]: __CheckOptionalClientConfig<SQSClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveAwsQueryCompatibleConfig(_config_1, {
-      awsQueryCompatibleNumericFields: [
-        "MaxNumberOfMessages",
-        "DelaySeconds",
-        "MaxResults",
-        "VisibilityTimeout",
-        "WaitTimeSeconds",
-        "MaxNumberOfMessagesPerSecond",
-      ],
-    });
-    const _config_3 = resolveRegionConfig(_config_2);
-    const _config_4 = resolveEndpointConfig(_config_3);
-    const _config_5 = resolveRetryConfig(_config_4);
-    const _config_6 = resolveHostHeaderConfig(_config_5);
-    const _config_7 = resolveAwsAuthConfig(_config_6);
-    const _config_8 = resolveUserAgentConfig(_config_7);
-    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
-    super(_config_9);
-    this.config = _config_9;
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getAwsQueryCompatiblePlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
