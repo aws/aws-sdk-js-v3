@@ -73,6 +73,7 @@ export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __Metad
  *       EndpointId: "STRING_VALUE",
  *       Weight: Number("int"),
  *       ClientIPPreservationEnabled: true || false,
+ *       AttachmentArn: "STRING_VALUE",
  *     },
  *   ],
  *   EndpointGroupArn: "STRING_VALUE", // required

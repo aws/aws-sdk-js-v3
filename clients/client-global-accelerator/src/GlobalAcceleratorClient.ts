@@ -62,6 +62,10 @@ import {
 } from "./commands/AllowCustomRoutingTrafficCommand";
 import { CreateAcceleratorCommandInput, CreateAcceleratorCommandOutput } from "./commands/CreateAcceleratorCommand";
 import {
+  CreateCrossAccountAttachmentCommandInput,
+  CreateCrossAccountAttachmentCommandOutput,
+} from "./commands/CreateCrossAccountAttachmentCommand";
+import {
   CreateCustomRoutingAcceleratorCommandInput,
   CreateCustomRoutingAcceleratorCommandOutput,
 } from "./commands/CreateCustomRoutingAcceleratorCommand";
@@ -79,6 +83,10 @@ import {
 } from "./commands/CreateEndpointGroupCommand";
 import { CreateListenerCommandInput, CreateListenerCommandOutput } from "./commands/CreateListenerCommand";
 import { DeleteAcceleratorCommandInput, DeleteAcceleratorCommandOutput } from "./commands/DeleteAcceleratorCommand";
+import {
+  DeleteCrossAccountAttachmentCommandInput,
+  DeleteCrossAccountAttachmentCommandOutput,
+} from "./commands/DeleteCrossAccountAttachmentCommand";
 import {
   DeleteCustomRoutingAcceleratorCommandInput,
   DeleteCustomRoutingAcceleratorCommandOutput,
@@ -113,6 +121,10 @@ import {
   DescribeAcceleratorCommandOutput,
 } from "./commands/DescribeAcceleratorCommand";
 import {
+  DescribeCrossAccountAttachmentCommandInput,
+  DescribeCrossAccountAttachmentCommandOutput,
+} from "./commands/DescribeCrossAccountAttachmentCommand";
+import {
   DescribeCustomRoutingAcceleratorAttributesCommandInput,
   DescribeCustomRoutingAcceleratorAttributesCommandOutput,
 } from "./commands/DescribeCustomRoutingAcceleratorAttributesCommand";
@@ -135,6 +147,18 @@ import {
 import { DescribeListenerCommandInput, DescribeListenerCommandOutput } from "./commands/DescribeListenerCommand";
 import { ListAcceleratorsCommandInput, ListAcceleratorsCommandOutput } from "./commands/ListAcceleratorsCommand";
 import { ListByoipCidrsCommandInput, ListByoipCidrsCommandOutput } from "./commands/ListByoipCidrsCommand";
+import {
+  ListCrossAccountAttachmentsCommandInput,
+  ListCrossAccountAttachmentsCommandOutput,
+} from "./commands/ListCrossAccountAttachmentsCommand";
+import {
+  ListCrossAccountResourceAccountsCommandInput,
+  ListCrossAccountResourceAccountsCommandOutput,
+} from "./commands/ListCrossAccountResourceAccountsCommand";
+import {
+  ListCrossAccountResourcesCommandInput,
+  ListCrossAccountResourcesCommandOutput,
+} from "./commands/ListCrossAccountResourcesCommand";
 import {
   ListCustomRoutingAcceleratorsCommandInput,
   ListCustomRoutingAcceleratorsCommandOutput,
@@ -175,6 +199,10 @@ import {
 } from "./commands/UpdateAcceleratorAttributesCommand";
 import { UpdateAcceleratorCommandInput, UpdateAcceleratorCommandOutput } from "./commands/UpdateAcceleratorCommand";
 import {
+  UpdateCrossAccountAttachmentCommandInput,
+  UpdateCrossAccountAttachmentCommandOutput,
+} from "./commands/UpdateCrossAccountAttachmentCommand";
+import {
   UpdateCustomRoutingAcceleratorAttributesCommandInput,
   UpdateCustomRoutingAcceleratorAttributesCommandOutput,
 } from "./commands/UpdateCustomRoutingAcceleratorAttributesCommand";
@@ -212,12 +240,14 @@ export type ServiceInputTypes =
   | AdvertiseByoipCidrCommandInput
   | AllowCustomRoutingTrafficCommandInput
   | CreateAcceleratorCommandInput
+  | CreateCrossAccountAttachmentCommandInput
   | CreateCustomRoutingAcceleratorCommandInput
   | CreateCustomRoutingEndpointGroupCommandInput
   | CreateCustomRoutingListenerCommandInput
   | CreateEndpointGroupCommandInput
   | CreateListenerCommandInput
   | DeleteAcceleratorCommandInput
+  | DeleteCrossAccountAttachmentCommandInput
   | DeleteCustomRoutingAcceleratorCommandInput
   | DeleteCustomRoutingEndpointGroupCommandInput
   | DeleteCustomRoutingListenerCommandInput
@@ -227,6 +257,7 @@ export type ServiceInputTypes =
   | DeprovisionByoipCidrCommandInput
   | DescribeAcceleratorAttributesCommandInput
   | DescribeAcceleratorCommandInput
+  | DescribeCrossAccountAttachmentCommandInput
   | DescribeCustomRoutingAcceleratorAttributesCommandInput
   | DescribeCustomRoutingAcceleratorCommandInput
   | DescribeCustomRoutingEndpointGroupCommandInput
@@ -235,6 +266,9 @@ export type ServiceInputTypes =
   | DescribeListenerCommandInput
   | ListAcceleratorsCommandInput
   | ListByoipCidrsCommandInput
+  | ListCrossAccountAttachmentsCommandInput
+  | ListCrossAccountResourceAccountsCommandInput
+  | ListCrossAccountResourcesCommandInput
   | ListCustomRoutingAcceleratorsCommandInput
   | ListCustomRoutingEndpointGroupsCommandInput
   | ListCustomRoutingListenersCommandInput
@@ -250,6 +284,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAcceleratorAttributesCommandInput
   | UpdateAcceleratorCommandInput
+  | UpdateCrossAccountAttachmentCommandInput
   | UpdateCustomRoutingAcceleratorAttributesCommandInput
   | UpdateCustomRoutingAcceleratorCommandInput
   | UpdateCustomRoutingListenerCommandInput
@@ -266,12 +301,14 @@ export type ServiceOutputTypes =
   | AdvertiseByoipCidrCommandOutput
   | AllowCustomRoutingTrafficCommandOutput
   | CreateAcceleratorCommandOutput
+  | CreateCrossAccountAttachmentCommandOutput
   | CreateCustomRoutingAcceleratorCommandOutput
   | CreateCustomRoutingEndpointGroupCommandOutput
   | CreateCustomRoutingListenerCommandOutput
   | CreateEndpointGroupCommandOutput
   | CreateListenerCommandOutput
   | DeleteAcceleratorCommandOutput
+  | DeleteCrossAccountAttachmentCommandOutput
   | DeleteCustomRoutingAcceleratorCommandOutput
   | DeleteCustomRoutingEndpointGroupCommandOutput
   | DeleteCustomRoutingListenerCommandOutput
@@ -281,6 +318,7 @@ export type ServiceOutputTypes =
   | DeprovisionByoipCidrCommandOutput
   | DescribeAcceleratorAttributesCommandOutput
   | DescribeAcceleratorCommandOutput
+  | DescribeCrossAccountAttachmentCommandOutput
   | DescribeCustomRoutingAcceleratorAttributesCommandOutput
   | DescribeCustomRoutingAcceleratorCommandOutput
   | DescribeCustomRoutingEndpointGroupCommandOutput
@@ -289,6 +327,9 @@ export type ServiceOutputTypes =
   | DescribeListenerCommandOutput
   | ListAcceleratorsCommandOutput
   | ListByoipCidrsCommandOutput
+  | ListCrossAccountAttachmentsCommandOutput
+  | ListCrossAccountResourceAccountsCommandOutput
+  | ListCrossAccountResourcesCommandOutput
   | ListCustomRoutingAcceleratorsCommandOutput
   | ListCustomRoutingEndpointGroupsCommandOutput
   | ListCustomRoutingListenersCommandOutput
@@ -304,6 +345,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAcceleratorAttributesCommandOutput
   | UpdateAcceleratorCommandOutput
+  | UpdateCrossAccountAttachmentCommandOutput
   | UpdateCustomRoutingAcceleratorAttributesCommandOutput
   | UpdateCustomRoutingAcceleratorCommandOutput
   | UpdateCustomRoutingListenerCommandOutput
@@ -510,7 +552,7 @@ export interface GlobalAcceleratorClientResolvedConfig extends GlobalAccelerator
  * 			are anycast from the Amazon Web Services edge network. For IPv4, Global Accelerator provides two static IPv4 addresses. For dual-stack,
  * 			Global Accelerator provides a total of four addresses: two static IPv4 addresses and two static IPv6 addresses.
  * 			With a standard accelerator for IPv4, instead of using the addresses that Global Accelerator provides, you can configure
- * 			these entry points to be IPv4 addresses from your own IP address ranges that you bring toGlobal Accelerator (BYOIP). </p>
+ * 			these entry points to be IPv4 addresses from your own IP address ranges that you bring to Global Accelerator (BYOIP). </p>
  *          <p>For a standard accelerator,
  * 	        they distribute incoming application traffic across multiple endpoint resources in multiple Amazon Web Services Regions , which increases
  * 			the availability of your applications. Endpoints for standard accelerators can be Network Load Balancers, Application Load Balancers,

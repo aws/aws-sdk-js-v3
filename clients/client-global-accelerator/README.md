@@ -34,7 +34,7 @@ on Amazon Web Services CLI commands.</p>
 are anycast from the Amazon Web Services edge network. For IPv4, Global Accelerator provides two static IPv4 addresses. For dual-stack,
 Global Accelerator provides a total of four addresses: two static IPv4 addresses and two static IPv6 addresses.
 With a standard accelerator for IPv4, instead of using the addresses that Global Accelerator provides, you can configure
-these entry points to be IPv4 addresses from your own IP address ranges that you bring toGlobal Accelerator (BYOIP). </p>
+these entry points to be IPv4 addresses from your own IP address ranges that you bring to Global Accelerator (BYOIP). </p>
 <p>For a standard accelerator,
 they distribute incoming application traffic across multiple endpoint resources in multiple Amazon Web Services Regions , which increases
 the availability of your applications. Endpoints for standard accelerators can be Network Load Balancers, Application Load Balancers,
@@ -293,6 +293,14 @@ CreateAccelerator
 </details>
 <details>
 <summary>
+CreateCrossAccountAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/classes/createcrossaccountattachmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/createcrossaccountattachmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/createcrossaccountattachmentcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateCustomRoutingAccelerator
 </summary>
 
@@ -337,6 +345,14 @@ DeleteAccelerator
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/classes/deleteacceleratorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/deleteacceleratorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/deleteacceleratorcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteCrossAccountAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/classes/deletecrossaccountattachmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/deletecrossaccountattachmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/deletecrossaccountattachmentcommandoutput.html)
 
 </details>
 <details>
@@ -413,6 +429,14 @@ DescribeAcceleratorAttributes
 </details>
 <details>
 <summary>
+DescribeCrossAccountAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/classes/describecrossaccountattachmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/describecrossaccountattachmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/describecrossaccountattachmentcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeCustomRoutingAccelerator
 </summary>
 
@@ -473,6 +497,30 @@ ListByoipCidrs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/classes/listbyoipcidrscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/listbyoipcidrscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/listbyoipcidrscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCrossAccountAttachments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/classes/listcrossaccountattachmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/listcrossaccountattachmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/listcrossaccountattachmentscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCrossAccountResourceAccounts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/classes/listcrossaccountresourceaccountscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/listcrossaccountresourceaccountscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/listcrossaccountresourceaccountscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCrossAccountResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/classes/listcrossaccountresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/listcrossaccountresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/listcrossaccountresourcescommandoutput.html)
 
 </details>
 <details>
@@ -593,6 +641,14 @@ UpdateAcceleratorAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/classes/updateacceleratorattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/updateacceleratorattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/updateacceleratorattributescommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateCrossAccountAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/classes/updatecrossaccountattachmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/updatecrossaccountattachmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-global-accelerator/interfaces/updatecrossaccountattachmentcommandoutput.html)
 
 </details>
 <details>

@@ -62,6 +62,7 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  *   EndpointConfigurations: [ // CustomRoutingEndpointConfigurations // required
  *     { // CustomRoutingEndpointConfiguration
  *       EndpointId: "STRING_VALUE",
+ *       AttachmentArn: "STRING_VALUE",
  *     },
  *   ],
  *   EndpointGroupArn: "STRING_VALUE", // required

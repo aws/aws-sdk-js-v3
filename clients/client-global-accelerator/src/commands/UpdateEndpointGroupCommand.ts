@@ -55,6 +55,7 @@ export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupRes
  *       EndpointId: "STRING_VALUE",
  *       Weight: Number("int"),
  *       ClientIPPreservationEnabled: true || false,
+ *       AttachmentArn: "STRING_VALUE",
  *     },
  *   ],
  *   TrafficDialPercentage: Number("float"),

@@ -28,6 +28,11 @@ import {
   CreateAcceleratorCommandOutput,
 } from "./commands/CreateAcceleratorCommand";
 import {
+  CreateCrossAccountAttachmentCommand,
+  CreateCrossAccountAttachmentCommandInput,
+  CreateCrossAccountAttachmentCommandOutput,
+} from "./commands/CreateCrossAccountAttachmentCommand";
+import {
   CreateCustomRoutingAcceleratorCommand,
   CreateCustomRoutingAcceleratorCommandInput,
   CreateCustomRoutingAcceleratorCommandOutput,
@@ -57,6 +62,11 @@ import {
   DeleteAcceleratorCommandInput,
   DeleteAcceleratorCommandOutput,
 } from "./commands/DeleteAcceleratorCommand";
+import {
+  DeleteCrossAccountAttachmentCommand,
+  DeleteCrossAccountAttachmentCommandInput,
+  DeleteCrossAccountAttachmentCommandOutput,
+} from "./commands/DeleteCrossAccountAttachmentCommand";
 import {
   DeleteCustomRoutingAcceleratorCommand,
   DeleteCustomRoutingAcceleratorCommandInput,
@@ -103,6 +113,11 @@ import {
   DescribeAcceleratorCommandOutput,
 } from "./commands/DescribeAcceleratorCommand";
 import {
+  DescribeCrossAccountAttachmentCommand,
+  DescribeCrossAccountAttachmentCommandInput,
+  DescribeCrossAccountAttachmentCommandOutput,
+} from "./commands/DescribeCrossAccountAttachmentCommand";
+import {
   DescribeCustomRoutingAcceleratorAttributesCommand,
   DescribeCustomRoutingAcceleratorAttributesCommandInput,
   DescribeCustomRoutingAcceleratorAttributesCommandOutput,
@@ -142,6 +157,21 @@ import {
   ListByoipCidrsCommandInput,
   ListByoipCidrsCommandOutput,
 } from "./commands/ListByoipCidrsCommand";
+import {
+  ListCrossAccountAttachmentsCommand,
+  ListCrossAccountAttachmentsCommandInput,
+  ListCrossAccountAttachmentsCommandOutput,
+} from "./commands/ListCrossAccountAttachmentsCommand";
+import {
+  ListCrossAccountResourceAccountsCommand,
+  ListCrossAccountResourceAccountsCommandInput,
+  ListCrossAccountResourceAccountsCommandOutput,
+} from "./commands/ListCrossAccountResourceAccountsCommand";
+import {
+  ListCrossAccountResourcesCommand,
+  ListCrossAccountResourcesCommandInput,
+  ListCrossAccountResourcesCommandOutput,
+} from "./commands/ListCrossAccountResourcesCommand";
 import {
   ListCustomRoutingAcceleratorsCommand,
   ListCustomRoutingAcceleratorsCommandInput,
@@ -214,6 +244,11 @@ import {
   UpdateAcceleratorCommandOutput,
 } from "./commands/UpdateAcceleratorCommand";
 import {
+  UpdateCrossAccountAttachmentCommand,
+  UpdateCrossAccountAttachmentCommandInput,
+  UpdateCrossAccountAttachmentCommandOutput,
+} from "./commands/UpdateCrossAccountAttachmentCommand";
+import {
   UpdateCustomRoutingAcceleratorAttributesCommand,
   UpdateCustomRoutingAcceleratorAttributesCommandInput,
   UpdateCustomRoutingAcceleratorAttributesCommandOutput,
@@ -251,12 +286,14 @@ const commands = {
   AdvertiseByoipCidrCommand,
   AllowCustomRoutingTrafficCommand,
   CreateAcceleratorCommand,
+  CreateCrossAccountAttachmentCommand,
   CreateCustomRoutingAcceleratorCommand,
   CreateCustomRoutingEndpointGroupCommand,
   CreateCustomRoutingListenerCommand,
   CreateEndpointGroupCommand,
   CreateListenerCommand,
   DeleteAcceleratorCommand,
+  DeleteCrossAccountAttachmentCommand,
   DeleteCustomRoutingAcceleratorCommand,
   DeleteCustomRoutingEndpointGroupCommand,
   DeleteCustomRoutingListenerCommand,
@@ -266,6 +303,7 @@ const commands = {
   DeprovisionByoipCidrCommand,
   DescribeAcceleratorCommand,
   DescribeAcceleratorAttributesCommand,
+  DescribeCrossAccountAttachmentCommand,
   DescribeCustomRoutingAcceleratorCommand,
   DescribeCustomRoutingAcceleratorAttributesCommand,
   DescribeCustomRoutingEndpointGroupCommand,
@@ -274,6 +312,9 @@ const commands = {
   DescribeListenerCommand,
   ListAcceleratorsCommand,
   ListByoipCidrsCommand,
+  ListCrossAccountAttachmentsCommand,
+  ListCrossAccountResourceAccountsCommand,
+  ListCrossAccountResourcesCommand,
   ListCustomRoutingAcceleratorsCommand,
   ListCustomRoutingEndpointGroupsCommand,
   ListCustomRoutingListenersCommand,
@@ -289,6 +330,7 @@ const commands = {
   UntagResourceCommand,
   UpdateAcceleratorCommand,
   UpdateAcceleratorAttributesCommand,
+  UpdateCrossAccountAttachmentCommand,
   UpdateCustomRoutingAcceleratorCommand,
   UpdateCustomRoutingAcceleratorAttributesCommand,
   UpdateCustomRoutingListenerCommand,
@@ -375,6 +417,23 @@ export interface GlobalAccelerator {
     args: CreateAcceleratorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAcceleratorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCrossAccountAttachmentCommand}
+   */
+  createCrossAccountAttachment(
+    args: CreateCrossAccountAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCrossAccountAttachmentCommandOutput>;
+  createCrossAccountAttachment(
+    args: CreateCrossAccountAttachmentCommandInput,
+    cb: (err: any, data?: CreateCrossAccountAttachmentCommandOutput) => void
+  ): void;
+  createCrossAccountAttachment(
+    args: CreateCrossAccountAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCrossAccountAttachmentCommandOutput) => void
   ): void;
 
   /**
@@ -474,6 +533,23 @@ export interface GlobalAccelerator {
     args: DeleteAcceleratorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAcceleratorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCrossAccountAttachmentCommand}
+   */
+  deleteCrossAccountAttachment(
+    args: DeleteCrossAccountAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCrossAccountAttachmentCommandOutput>;
+  deleteCrossAccountAttachment(
+    args: DeleteCrossAccountAttachmentCommandInput,
+    cb: (err: any, data?: DeleteCrossAccountAttachmentCommandOutput) => void
+  ): void;
+  deleteCrossAccountAttachment(
+    args: DeleteCrossAccountAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCrossAccountAttachmentCommandOutput) => void
   ): void;
 
   /**
@@ -627,6 +703,23 @@ export interface GlobalAccelerator {
   ): void;
 
   /**
+   * @see {@link DescribeCrossAccountAttachmentCommand}
+   */
+  describeCrossAccountAttachment(
+    args: DescribeCrossAccountAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCrossAccountAttachmentCommandOutput>;
+  describeCrossAccountAttachment(
+    args: DescribeCrossAccountAttachmentCommandInput,
+    cb: (err: any, data?: DescribeCrossAccountAttachmentCommandOutput) => void
+  ): void;
+  describeCrossAccountAttachment(
+    args: DescribeCrossAccountAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCrossAccountAttachmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeCustomRoutingAcceleratorCommand}
    */
   describeCustomRoutingAccelerator(
@@ -757,6 +850,57 @@ export interface GlobalAccelerator {
     args: ListByoipCidrsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListByoipCidrsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCrossAccountAttachmentsCommand}
+   */
+  listCrossAccountAttachments(
+    args: ListCrossAccountAttachmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCrossAccountAttachmentsCommandOutput>;
+  listCrossAccountAttachments(
+    args: ListCrossAccountAttachmentsCommandInput,
+    cb: (err: any, data?: ListCrossAccountAttachmentsCommandOutput) => void
+  ): void;
+  listCrossAccountAttachments(
+    args: ListCrossAccountAttachmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCrossAccountAttachmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCrossAccountResourceAccountsCommand}
+   */
+  listCrossAccountResourceAccounts(
+    args: ListCrossAccountResourceAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCrossAccountResourceAccountsCommandOutput>;
+  listCrossAccountResourceAccounts(
+    args: ListCrossAccountResourceAccountsCommandInput,
+    cb: (err: any, data?: ListCrossAccountResourceAccountsCommandOutput) => void
+  ): void;
+  listCrossAccountResourceAccounts(
+    args: ListCrossAccountResourceAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCrossAccountResourceAccountsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCrossAccountResourcesCommand}
+   */
+  listCrossAccountResources(
+    args: ListCrossAccountResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCrossAccountResourcesCommandOutput>;
+  listCrossAccountResources(
+    args: ListCrossAccountResourcesCommandInput,
+    cb: (err: any, data?: ListCrossAccountResourcesCommandOutput) => void
+  ): void;
+  listCrossAccountResources(
+    args: ListCrossAccountResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCrossAccountResourcesCommandOutput) => void
   ): void;
 
   /**
@@ -994,6 +1138,23 @@ export interface GlobalAccelerator {
   ): void;
 
   /**
+   * @see {@link UpdateCrossAccountAttachmentCommand}
+   */
+  updateCrossAccountAttachment(
+    args: UpdateCrossAccountAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCrossAccountAttachmentCommandOutput>;
+  updateCrossAccountAttachment(
+    args: UpdateCrossAccountAttachmentCommandInput,
+    cb: (err: any, data?: UpdateCrossAccountAttachmentCommandOutput) => void
+  ): void;
+  updateCrossAccountAttachment(
+    args: UpdateCrossAccountAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCrossAccountAttachmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateCustomRoutingAcceleratorCommand}
    */
   updateCustomRoutingAccelerator(
@@ -1122,7 +1283,7 @@ export interface GlobalAccelerator {
  * 			are anycast from the Amazon Web Services edge network. For IPv4, Global Accelerator provides two static IPv4 addresses. For dual-stack,
  * 			Global Accelerator provides a total of four addresses: two static IPv4 addresses and two static IPv6 addresses.
  * 			With a standard accelerator for IPv4, instead of using the addresses that Global Accelerator provides, you can configure
- * 			these entry points to be IPv4 addresses from your own IP address ranges that you bring toGlobal Accelerator (BYOIP). </p>
+ * 			these entry points to be IPv4 addresses from your own IP address ranges that you bring to Global Accelerator (BYOIP). </p>
  *          <p>For a standard accelerator,
  * 	        they distribute incoming application traffic across multiple endpoint resources in multiple Amazon Web Services Regions , which increases
  * 			the availability of your applications. Endpoints for standard accelerators can be Network Load Balancers, Application Load Balancers,
