@@ -4123,6 +4123,24 @@ export class Ec2ImagePropertiesNotSupportedFault extends __BaseException {
 
 /**
  * @public
+ * <p>Reserved for future use.</p>
+ */
+export interface RdsCustomClusterConfiguration {
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  InterconnectSubnetId?: string;
+
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+}
+
+/**
+ * @public
  * <p>Contains the scaling configuration of an Aurora Serverless v1 DB cluster.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using Amazon Aurora Serverless v1</a> in the
  *             <i>Amazon Aurora User Guide</i>.</p>
@@ -4678,6 +4696,12 @@ export interface CreateDBClusterMessage {
    *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
    */
   ScalingConfiguration?: ScalingConfiguration;
+
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  RdsCustomClusterConfiguration?: RdsCustomClusterConfiguration;
 
   /**
    * @public
@@ -5306,6 +5330,12 @@ export interface ClusterPendingModifiedValues {
 
   /**
    * @public
+   * <p>Reserved for future use.</p>
+   */
+  RdsCustomClusterConfiguration?: RdsCustomClusterConfiguration;
+
+  /**
+   * @public
    * <p>The Provisioned IOPS (I/O operations per second) value. This setting is only for non-Aurora Multi-AZ DB clusters.</p>
    */
   Iops?: number;
@@ -5710,6 +5740,12 @@ export interface DBCluster {
    *             <i>Amazon Aurora User Guide</i>.</p>
    */
   ScalingConfigurationInfo?: ScalingConfigurationInfo;
+
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  RdsCustomClusterConfiguration?: RdsCustomClusterConfiguration;
 
   /**
    * @public
@@ -14070,26 +14106,4 @@ export interface Parameter {
    * <p>The valid DB engine modes.</p>
    */
   SupportedEngineModes?: string[];
-}
-
-/**
- * @public
- * <p>Provides details about a DB cluster parameter group including the parameters in the DB cluster parameter group.</p>
- */
-export interface DBClusterParameterGroupDetails {
-  /**
-   * @public
-   * <p>Provides a list of parameters for the DB cluster parameter group.</p>
-   */
-  Parameters?: Parameter[];
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeDBClusterParameters</code> request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
 }

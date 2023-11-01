@@ -30,6 +30,7 @@ import {
   OptionSetting,
   Parameter,
   ProcessorFeature,
+  RdsCustomClusterConfiguration,
   ReplicaMode,
   ResourcePendingMaintenanceActions,
   ScalingConfiguration,
@@ -38,6 +39,28 @@ import {
   UserAuthConfig,
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
+
+/**
+ * @public
+ * <p>Provides details about a DB cluster parameter group including the parameters in the DB cluster parameter group.</p>
+ */
+export interface DBClusterParameterGroupDetails {
+  /**
+   * @public
+   * <p>Provides a list of parameters for the DB cluster parameter group.</p>
+   */
+  Parameters?: Parameter[];
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeDBClusterParameters</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
 
 /**
  * @public
@@ -9323,6 +9346,12 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          <p>Valid for: Aurora DB clusters only</p>
    */
   NetworkType?: string;
+
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  RdsCustomClusterConfiguration?: RdsCustomClusterConfiguration;
 }
 
 /**
@@ -9746,6 +9775,12 @@ export interface RestoreDBClusterToPointInTimeMessage {
    * <p>The resource ID of the source DB cluster from which to restore.</p>
    */
   SourceDbClusterResourceId?: string;
+
+  /**
+   * @public
+   * <p>Reserved for future use.</p>
+   */
+  RdsCustomClusterConfiguration?: RdsCustomClusterConfiguration;
 }
 
 /**

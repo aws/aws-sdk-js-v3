@@ -116,6 +116,10 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *   },
  *   NetworkType: "STRING_VALUE",
  *   SourceDbClusterResourceId: "STRING_VALUE",
+ *   RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ *     InterconnectSubnetId: "STRING_VALUE",
+ *     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ *   },
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -203,6 +207,10 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //       TimeoutAction: "STRING_VALUE",
  * //       SecondsBeforeTimeout: Number("int"),
  * //     },
+ * //     RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ * //       InterconnectSubnetId: "STRING_VALUE",
+ * //       TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //     },
  * //     DeletionProtection: true || false,
  * //     HttpEndpointEnabled: true || false,
  * //     ActivityStreamMode: "sync" || "async",
@@ -247,6 +255,10 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //       EngineVersion: "STRING_VALUE",
  * //       BackupRetentionPeriod: Number("int"),
  * //       AllocatedStorage: Number("int"),
+ * //       RdsCustomClusterConfiguration: {
+ * //         InterconnectSubnetId: "STRING_VALUE",
+ * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //       },
  * //       Iops: Number("int"),
  * //       StorageType: "STRING_VALUE",
  * //     },

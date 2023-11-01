@@ -594,7 +594,6 @@ import {
   DBClusterNotFoundFault,
   DBClusterOptionGroupStatus,
   DBClusterParameterGroup,
-  DBClusterParameterGroupDetails,
   DBClusterParameterGroupNotFoundFault,
   DBClusterParameterGroupsMessage,
   DBClusterQuotaExceededFault,
@@ -753,6 +752,7 @@ import {
   PendingModifiedValues,
   ProcessorFeature,
   ProvisionedIopsNotAvailableInAZFault,
+  RdsCustomClusterConfiguration,
   ResourceNotFoundFault,
   ResourcePendingMaintenanceActions,
   RestoreWindow,
@@ -788,6 +788,7 @@ import {
   ConnectionPoolConfigurationInfo,
   DBClusterCapacityInfo,
   DBClusterMessage,
+  DBClusterParameterGroupDetails,
   DBClusterParameterGroupNameMessage,
   DBClusterRoleNotFoundFault,
   DBClusterSnapshotAttribute,
@@ -14345,6 +14346,13 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
       entries[loc] = value;
     });
   }
+  if (input.RdsCustomClusterConfiguration != null) {
+    const memberEntries = se_RdsCustomClusterConfiguration(input.RdsCustomClusterConfiguration, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RdsCustomClusterConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input.DeletionProtection != null) {
     entries["DeletionProtection"] = input.DeletionProtection;
   }
@@ -18155,6 +18163,20 @@ const se_PurchaseReservedDBInstancesOfferingMessage = (
 };
 
 /**
+ * serializeAws_queryRdsCustomClusterConfiguration
+ */
+const se_RdsCustomClusterConfiguration = (input: RdsCustomClusterConfiguration, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.InterconnectSubnetId != null) {
+    entries["InterconnectSubnetId"] = input.InterconnectSubnetId;
+  }
+  if (input.TransitGatewayMulticastDomainId != null) {
+    entries["TransitGatewayMulticastDomainId"] = input.TransitGatewayMulticastDomainId;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryRebootDBClusterMessage
  */
 const se_RebootDBClusterMessage = (input: RebootDBClusterMessage, context: __SerdeContext): any => {
@@ -18626,6 +18648,13 @@ const se_RestoreDBClusterFromSnapshotMessage = (
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.RdsCustomClusterConfiguration != null) {
+    const memberEntries = se_RdsCustomClusterConfiguration(input.RdsCustomClusterConfiguration, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RdsCustomClusterConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -18749,6 +18778,13 @@ const se_RestoreDBClusterToPointInTimeMessage = (
   }
   if (input.SourceDbClusterResourceId != null) {
     entries["SourceDbClusterResourceId"] = input.SourceDbClusterResourceId;
+  }
+  if (input.RdsCustomClusterConfiguration != null) {
+    const memberEntries = se_RdsCustomClusterConfiguration(input.RdsCustomClusterConfiguration, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RdsCustomClusterConfiguration.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -20167,6 +20203,12 @@ const de_ClusterPendingModifiedValues = (output: any, context: __SerdeContext): 
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
   }
+  if (output["RdsCustomClusterConfiguration"] !== undefined) {
+    contents.RdsCustomClusterConfiguration = de_RdsCustomClusterConfiguration(
+      output["RdsCustomClusterConfiguration"],
+      context
+    );
+  }
   if (output["Iops"] !== undefined) {
     contents.Iops = __strictParseInt32(output["Iops"]) as number;
   }
@@ -20710,6 +20752,12 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   }
   if (output["ScalingConfigurationInfo"] !== undefined) {
     contents.ScalingConfigurationInfo = de_ScalingConfigurationInfo(output["ScalingConfigurationInfo"], context);
+  }
+  if (output["RdsCustomClusterConfiguration"] !== undefined) {
+    contents.RdsCustomClusterConfiguration = de_RdsCustomClusterConfiguration(
+      output["RdsCustomClusterConfiguration"],
+      context
+    );
   }
   if (output["DeletionProtection"] !== undefined) {
     contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
@@ -26487,6 +26535,20 @@ const de_RangeList = (output: any, context: __SerdeContext): Range[] => {
     .map((entry: any) => {
       return de_Range(entry, context);
     });
+};
+
+/**
+ * deserializeAws_queryRdsCustomClusterConfiguration
+ */
+const de_RdsCustomClusterConfiguration = (output: any, context: __SerdeContext): RdsCustomClusterConfiguration => {
+  const contents: any = {};
+  if (output["InterconnectSubnetId"] !== undefined) {
+    contents.InterconnectSubnetId = __expectString(output["InterconnectSubnetId"]);
+  }
+  if (output["TransitGatewayMulticastDomainId"] !== undefined) {
+    contents.TransitGatewayMulticastDomainId = __expectString(output["TransitGatewayMulticastDomainId"]);
+  }
+  return contents;
 };
 
 /**

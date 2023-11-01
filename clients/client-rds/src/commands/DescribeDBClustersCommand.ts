@@ -153,6 +153,10 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //         TimeoutAction: "STRING_VALUE",
  * //         SecondsBeforeTimeout: Number("int"),
  * //       },
+ * //       RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ * //         InterconnectSubnetId: "STRING_VALUE",
+ * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //       },
  * //       DeletionProtection: true || false,
  * //       HttpEndpointEnabled: true || false,
  * //       ActivityStreamMode: "sync" || "async",
@@ -197,6 +201,10 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //         EngineVersion: "STRING_VALUE",
  * //         BackupRetentionPeriod: Number("int"),
  * //         AllocatedStorage: Number("int"),
+ * //         RdsCustomClusterConfiguration: {
+ * //           InterconnectSubnetId: "STRING_VALUE",
+ * //           TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //         },
  * //         Iops: Number("int"),
  * //         StorageType: "STRING_VALUE",
  * //       },
