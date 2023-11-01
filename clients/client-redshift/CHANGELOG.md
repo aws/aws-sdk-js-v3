@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.441.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.440.0...v3.441.0) (2023-11-01)
+
+
+### Features
+
+* **client-redshift:** Added support for Multi-AZ deployments for Provisioned RA3 clusters that provide 99.99% SLA availability. ([1ef476e](https://github.com/aws/aws-sdk-js-v3/commit/1ef476e42cb5e930737fedabd86c36fce1995f69))
+
+
+
+
+
 # [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/core",
-  "version": "3.436.0",
+  "version": "3.441.0",
   "description": "Core functions & classes shared by multiple AWS SDK clients",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",

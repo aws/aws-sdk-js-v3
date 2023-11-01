@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.441.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.440.0...v3.441.0) (2023-11-01)
+
+
+### Features
+
+* **client-connect:** Adds the BatchGetFlowAssociation API which returns flow associations (flow-resource) corresponding to the list of resourceArns supplied in the request. This release also adds IsDefault, LastModifiedRegion and LastModifiedTime fields to the responses of several Describe and List APIs. ([6e0eda3](https://github.com/aws/aws-sdk-js-v3/commit/6e0eda33c19255f6f77800df6301010f9e931f8b))
+* **client-global-accelerator:** Global Accelerator now support accelerators with cross account endpoints. ([e4aa35f](https://github.com/aws/aws-sdk-js-v3/commit/e4aa35f23986517ed1c00ab65ff972f4073114c7))
+* **client-rds:** This release adds support for customized networking resources to Amazon RDS Custom. ([0c0921a](https://github.com/aws/aws-sdk-js-v3/commit/0c0921a96c3cfb676f79f10c8a17061ea33ccbf2))
+* **client-redshift:** Added support for Multi-AZ deployments for Provisioned RA3 clusters that provide 99.99% SLA availability. ([1ef476e](https://github.com/aws/aws-sdk-js-v3/commit/1ef476e42cb5e930737fedabd86c36fce1995f69))
+* **client-sagemaker:** Support for batch transform input in Model dashboard ([1725b9c](https://github.com/aws/aws-sdk-js-v3/commit/1725b9ce02eb2e8c4ff3cefe471d58ebbb16b07a))
+* **lib-dynamodb:** large number handling ([#5427](https://github.com/aws/aws-sdk-js-v3/issues/5427)) ([4c7fe9c](https://github.com/aws/aws-sdk-js-v3/commit/4c7fe9cf598f7a919ec76114c5b548ceb814fa14))
+
+
+
+
+
 # [3.440.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.439.0...v3.440.0) (2023-10-31)
 
 
