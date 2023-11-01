@@ -70,6 +70,10 @@ import {
   AssociateTrafficDistributionGroupUserCommandInput,
   AssociateTrafficDistributionGroupUserCommandOutput,
 } from "../commands/AssociateTrafficDistributionGroupUserCommand";
+import {
+  BatchGetFlowAssociationCommandInput,
+  BatchGetFlowAssociationCommandOutput,
+} from "../commands/BatchGetFlowAssociationCommand";
 import { ClaimPhoneNumberCommandInput, ClaimPhoneNumberCommandOutput } from "../commands/ClaimPhoneNumberCommand";
 import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "../commands/CreateAgentStatusCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "../commands/CreateContactFlowCommand";
@@ -614,7 +618,9 @@ import {
   AgentConfig,
   AgentContactReference,
   AgentInfo,
+  AgentStatus,
   AgentStatusReference,
+  AgentStatusSummary,
   Application,
   AssignContactCategoryActionDefinition,
   Channel,
@@ -642,6 +648,11 @@ import {
   EvaluationNote,
   EvaluationScore,
   EventBridgeActionDefinition,
+  HierarchyGroup,
+  HierarchyGroupSummary,
+  HierarchyLevel,
+  HierarchyPath,
+  HoursOfOperation,
   HoursOfOperationConfig,
   HoursOfOperationTimeSlice,
   IdempotencyException,
@@ -668,9 +679,12 @@ import {
   PhoneNumberCountryCode,
   PhoneNumberQuickConnectConfig,
   PhoneNumberType,
+  Prompt,
   PropertyValidationException,
+  Queue,
   QueueInfo,
   QueueQuickConnectConfig,
+  QuickConnect,
   QuickConnectConfig,
   ReadOnlyFieldInfo,
   Reference,
@@ -679,12 +693,14 @@ import {
   ResourceInUseException,
   ResourceNotFoundException,
   ResourceNotReadyException,
+  RoutingProfile,
   RoutingProfileQueueConfig,
   RoutingProfileQueueReference,
   Rule,
   RuleAction,
   RuleTriggerEventSource,
   S3Config,
+  SecurityProfile,
   SendNotificationActionDefinition,
   ServiceQuotaExceededException,
   SingleSelectQuestionRuleCategoryAutomation,
@@ -696,6 +712,7 @@ import {
   TaskTemplateFieldIdentifier,
   ThrottlingException,
   TooManyRequestsException,
+  User,
   UserIdentityInfo,
   UserPhoneConfig,
   UserQuickConnectConfig,
@@ -705,7 +722,6 @@ import {
 import {
   AnswerMachineDetectionConfig,
   ChatMessage,
-  ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
   ContactFilter,
   ContactNotFoundException,
@@ -724,10 +740,12 @@ import {
   FilterV2,
   Grouping,
   HierarchyGroupCondition,
+  HierarchyStructure,
   HistoricalMetric,
   HistoricalMetricData,
   HistoricalMetricResult,
   HoursOfOperationSearchFilter,
+  HoursOfOperationSummary,
   InstanceSummary,
   IntervalDetails,
   MaximumResultReturnedException,
@@ -738,17 +756,20 @@ import {
   MetricV2,
   OutboundContactNotPermittedException,
   ParticipantDetails,
-  ParticipantTimerConfiguration,
-  ParticipantTimerValue,
   PersistentChat,
   PromptSearchFilter,
+  PromptSummary,
   QueueSearchFilter,
+  QueueSummary,
   QuickConnectSearchFilter,
+  QuickConnectSummary,
   ResourceTagsSearchCriteria,
   RoutingProfileSearchFilter,
+  RoutingProfileSummary,
   RuleSummary,
   SecurityKey,
   SecurityProfilesSearchFilter,
+  SecurityProfileSummary,
   SignInConfig,
   SignInDistribution,
   StringCondition,
@@ -762,11 +783,13 @@ import {
   UserDataFilters,
   UserNotFoundException,
   UserSearchFilter,
+  UserSummary,
   Vocabulary,
   VocabularySummary,
   VoiceRecordingConfiguration,
 } from "../models/models_1";
 import {
+  ChatParticipantRoleConfig,
   EvaluationForm,
   EvaluationFormContent,
   EvaluationFormItem,
@@ -774,6 +797,8 @@ import {
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
   HoursOfOperationSearchCriteria,
+  ParticipantTimerConfiguration,
+  ParticipantTimerValue,
   PromptSearchCriteria,
   QueueSearchCriteria,
   QuickConnectSearchCriteria,
@@ -1198,6 +1223,38 @@ export const se_AssociateTrafficDistributionGroupUserCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1BatchGetFlowAssociationCommand
+ */
+export const se_BatchGetFlowAssociationCommand = async (
+  input: BatchGetFlowAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/flow-associations-batch/{InstanceId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ResourceIds: (_) => _json(_),
+      ResourceType: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -8578,6 +8635,68 @@ const de_AssociateTrafficDistributionGroupUserCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1BatchGetFlowAssociationCommand
+ */
+export const de_BatchGetFlowAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetFlowAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchGetFlowAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FlowAssociationSummaryList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchGetFlowAssociationCommandError
+ */
+const de_BatchGetFlowAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetFlowAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ClaimPhoneNumberCommand
  */
 export const de_ClaimPhoneNumberCommand = async (
@@ -11343,7 +11462,7 @@ export const de_DescribeAgentStatusCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    AgentStatus: _json,
+    AgentStatus: (_) => de_AgentStatus(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -11698,7 +11817,7 @@ export const de_DescribeHoursOfOperationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    HoursOfOperation: _json,
+    HoursOfOperation: (_) => de_HoursOfOperation(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -11987,7 +12106,7 @@ export const de_DescribePromptCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    Prompt: _json,
+    Prompt: (_) => de_Prompt(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -12046,7 +12165,7 @@ export const de_DescribeQueueCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    Queue: _json,
+    Queue: (_) => de_Queue(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -12105,7 +12224,7 @@ export const de_DescribeQuickConnectCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    QuickConnect: _json,
+    QuickConnect: (_) => de_QuickConnect(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -12164,7 +12283,7 @@ export const de_DescribeRoutingProfileCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    RoutingProfile: _json,
+    RoutingProfile: (_) => de_RoutingProfile(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -12282,7 +12401,7 @@ export const de_DescribeSecurityProfileCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    SecurityProfile: _json,
+    SecurityProfile: (_) => de_SecurityProfile(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -12400,7 +12519,7 @@ export const de_DescribeUserCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    User: _json,
+    User: (_) => de_User(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -12459,7 +12578,7 @@ export const de_DescribeUserHierarchyGroupCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    HierarchyGroup: _json,
+    HierarchyGroup: (_) => de_HierarchyGroup(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -12518,7 +12637,7 @@ export const de_DescribeUserHierarchyStructureCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    HierarchyStructure: _json,
+    HierarchyStructure: (_) => de_HierarchyStructure(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -13667,6 +13786,8 @@ export const de_GetPromptFileCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     PromptPresignedUrl: __expectString,
   });
   Object.assign(contents, doc);
@@ -13860,7 +13981,7 @@ export const de_ListAgentStatusesCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    AgentStatusSummaryList: _json,
+    AgentStatusSummaryList: (_) => de_AgentStatusSummaryList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -14448,7 +14569,7 @@ export const de_ListHoursOfOperationsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    HoursOfOperationSummaryList: _json,
+    HoursOfOperationSummaryList: (_) => de_HoursOfOperationSummaryList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -14977,7 +15098,7 @@ export const de_ListPromptsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    PromptSummaryList: _json,
+    PromptSummaryList: (_) => de_PromptSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -15036,8 +15157,10 @@ export const de_ListQueueQuickConnectsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     NextToken: __expectString,
-    QuickConnectSummaryList: _json,
+    QuickConnectSummaryList: (_) => de_QuickConnectSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -15097,7 +15220,7 @@ export const de_ListQueuesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    QueueSummaryList: _json,
+    QueueSummaryList: (_) => de_QueueSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -15157,7 +15280,7 @@ export const de_ListQuickConnectsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    QuickConnectSummaryList: _json,
+    QuickConnectSummaryList: (_) => de_QuickConnectSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -15216,6 +15339,8 @@ export const de_ListRoutingProfileQueuesCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     NextToken: __expectString,
     RoutingProfileQueueConfigSummaryList: _json,
   });
@@ -15277,7 +15402,7 @@ export const de_ListRoutingProfilesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    RoutingProfileSummaryList: _json,
+    RoutingProfileSummaryList: (_) => de_RoutingProfileSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -15457,6 +15582,8 @@ export const de_ListSecurityProfileApplicationsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Applications: _json,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -15516,6 +15643,8 @@ export const de_ListSecurityProfilePermissionsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     NextToken: __expectString,
     Permissions: _json,
   });
@@ -15577,7 +15706,7 @@ export const de_ListSecurityProfilesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    SecurityProfileSummaryList: _json,
+    SecurityProfileSummaryList: (_) => de_SecurityProfileSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -15930,7 +16059,7 @@ export const de_ListUserHierarchyGroupsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    UserHierarchyGroupSummaryList: _json,
+    UserHierarchyGroupSummaryList: (_) => de_HierarchyGroupSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -15990,7 +16119,7 @@ export const de_ListUsersCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    UserSummaryList: _json,
+    UserSummaryList: (_) => de_UserSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -16536,7 +16665,7 @@ export const de_SearchHoursOfOperationsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ApproximateTotalCount: __expectLong,
-    HoursOfOperations: _json,
+    HoursOfOperations: (_) => de_HoursOfOperationList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -16598,7 +16727,7 @@ export const de_SearchPromptsCommand = async (
   const doc = take(data, {
     ApproximateTotalCount: __expectLong,
     NextToken: __expectString,
-    Prompts: _json,
+    Prompts: (_) => de_PromptList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -16659,7 +16788,7 @@ export const de_SearchQueuesCommand = async (
   const doc = take(data, {
     ApproximateTotalCount: __expectLong,
     NextToken: __expectString,
-    Queues: _json,
+    Queues: (_) => de_QueueSearchSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -16720,7 +16849,7 @@ export const de_SearchQuickConnectsCommand = async (
   const doc = take(data, {
     ApproximateTotalCount: __expectLong,
     NextToken: __expectString,
-    QuickConnects: _json,
+    QuickConnects: (_) => de_QuickConnectSearchSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -16844,7 +16973,7 @@ export const de_SearchRoutingProfilesCommand = async (
   const doc = take(data, {
     ApproximateTotalCount: __expectLong,
     NextToken: __expectString,
-    RoutingProfiles: _json,
+    RoutingProfiles: (_) => de_RoutingProfileList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -21228,6 +21357,8 @@ const se_QuickConnectSearchCriteria = (input: QuickConnectSearchCriteria, contex
 
 // se_RequiredTaskTemplateFields omitted.
 
+// se_resourceArnListMaxLimit100 omitted.
+
 // se_ResourceTagsSearchCriteria omitted.
 
 // se_ResourceTypeList omitted.
@@ -21470,7 +21601,23 @@ const de_AgentInfo = (output: any, context: __SerdeContext): AgentInfo => {
   }) as any;
 };
 
-// de_AgentStatus omitted.
+/**
+ * deserializeAws_restJson1AgentStatus
+ */
+const de_AgentStatus = (output: any, context: __SerdeContext): AgentStatus => {
+  return take(output, {
+    AgentStatusARN: __expectString,
+    AgentStatusId: __expectString,
+    Description: __expectString,
+    DisplayOrder: __expectInt32,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    State: __expectString,
+    Tags: _json,
+    Type: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1AgentStatusReference
@@ -21483,9 +21630,31 @@ const de_AgentStatusReference = (output: any, context: __SerdeContext): AgentSta
   }) as any;
 };
 
-// de_AgentStatusSummary omitted.
+/**
+ * deserializeAws_restJson1AgentStatusSummary
+ */
+const de_AgentStatusSummary = (output: any, context: __SerdeContext): AgentStatusSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Type: __expectString,
+  }) as any;
+};
 
-// de_AgentStatusSummaryList omitted.
+/**
+ * deserializeAws_restJson1AgentStatusSummaryList
+ */
+const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentStatusSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AgentStatusSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_AllowedAccessControlTags omitted.
 
@@ -21938,23 +22107,95 @@ const de_EvaluationSummaryList = (output: any, context: __SerdeContext): Evaluat
 
 // de_EventBridgeActionDefinition omitted.
 
+// de_FlowAssociationSummary omitted.
+
+// de_FlowAssociationSummaryList omitted.
+
 // de_FunctionArnsList omitted.
 
-// de_HierarchyGroup omitted.
+/**
+ * deserializeAws_restJson1HierarchyGroup
+ */
+const de_HierarchyGroup = (output: any, context: __SerdeContext): HierarchyGroup => {
+  return take(output, {
+    Arn: __expectString,
+    HierarchyPath: (_: any) => de_HierarchyPath(_, context),
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LevelId: __expectString,
+    Name: __expectString,
+    Tags: _json,
+  }) as any;
+};
 
-// de_HierarchyGroupSummary omitted.
+/**
+ * deserializeAws_restJson1HierarchyGroupSummary
+ */
+const de_HierarchyGroupSummary = (output: any, context: __SerdeContext): HierarchyGroupSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
 
-// de_HierarchyGroupSummaryList omitted.
+/**
+ * deserializeAws_restJson1HierarchyGroupSummaryList
+ */
+const de_HierarchyGroupSummaryList = (output: any, context: __SerdeContext): HierarchyGroupSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_HierarchyGroupSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_HierarchyGroupSummaryReference omitted.
 
-// de_HierarchyLevel omitted.
+/**
+ * deserializeAws_restJson1HierarchyLevel
+ */
+const de_HierarchyLevel = (output: any, context: __SerdeContext): HierarchyLevel => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
 
-// de_HierarchyPath omitted.
+/**
+ * deserializeAws_restJson1HierarchyPath
+ */
+const de_HierarchyPath = (output: any, context: __SerdeContext): HierarchyPath => {
+  return take(output, {
+    LevelFive: (_: any) => de_HierarchyGroupSummary(_, context),
+    LevelFour: (_: any) => de_HierarchyGroupSummary(_, context),
+    LevelOne: (_: any) => de_HierarchyGroupSummary(_, context),
+    LevelThree: (_: any) => de_HierarchyGroupSummary(_, context),
+    LevelTwo: (_: any) => de_HierarchyGroupSummary(_, context),
+  }) as any;
+};
 
 // de_HierarchyPathReference omitted.
 
-// de_HierarchyStructure omitted.
+/**
+ * deserializeAws_restJson1HierarchyStructure
+ */
+const de_HierarchyStructure = (output: any, context: __SerdeContext): HierarchyStructure => {
+  return take(output, {
+    LevelFive: (_: any) => de_HierarchyLevel(_, context),
+    LevelFour: (_: any) => de_HierarchyLevel(_, context),
+    LevelOne: (_: any) => de_HierarchyLevel(_, context),
+    LevelThree: (_: any) => de_HierarchyLevel(_, context),
+    LevelTwo: (_: any) => de_HierarchyLevel(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1HistoricalMetric
@@ -22012,17 +22253,63 @@ const de_HistoricalMetricResults = (output: any, context: __SerdeContext): Histo
   return retVal;
 };
 
-// de_HoursOfOperation omitted.
+/**
+ * deserializeAws_restJson1HoursOfOperation
+ */
+const de_HoursOfOperation = (output: any, context: __SerdeContext): HoursOfOperation => {
+  return take(output, {
+    Config: _json,
+    Description: __expectString,
+    HoursOfOperationArn: __expectString,
+    HoursOfOperationId: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Tags: _json,
+    TimeZone: __expectString,
+  }) as any;
+};
 
 // de_HoursOfOperationConfig omitted.
 
 // de_HoursOfOperationConfigList omitted.
 
-// de_HoursOfOperationList omitted.
+/**
+ * deserializeAws_restJson1HoursOfOperationList
+ */
+const de_HoursOfOperationList = (output: any, context: __SerdeContext): HoursOfOperation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_HoursOfOperation(entry, context);
+    });
+  return retVal;
+};
 
-// de_HoursOfOperationSummary omitted.
+/**
+ * deserializeAws_restJson1HoursOfOperationSummary
+ */
+const de_HoursOfOperationSummary = (output: any, context: __SerdeContext): HoursOfOperationSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
 
-// de_HoursOfOperationSummaryList omitted.
+/**
+ * deserializeAws_restJson1HoursOfOperationSummaryList
+ */
+const de_HoursOfOperationSummaryList = (output: any, context: __SerdeContext): HoursOfOperationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_HoursOfOperationSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_HoursOfOperationTimeSlice omitted.
 
@@ -22212,19 +22499,80 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 
 // de_Problems omitted.
 
-// de_Prompt omitted.
+/**
+ * deserializeAws_restJson1Prompt
+ */
+const de_Prompt = (output: any, context: __SerdeContext): Prompt => {
+  return take(output, {
+    Description: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    PromptARN: __expectString,
+    PromptId: __expectString,
+    Tags: _json,
+  }) as any;
+};
 
-// de_PromptList omitted.
+/**
+ * deserializeAws_restJson1PromptList
+ */
+const de_PromptList = (output: any, context: __SerdeContext): Prompt[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Prompt(entry, context);
+    });
+  return retVal;
+};
 
-// de_PromptSummary omitted.
+/**
+ * deserializeAws_restJson1PromptSummary
+ */
+const de_PromptSummary = (output: any, context: __SerdeContext): PromptSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
 
-// de_PromptSummaryList omitted.
+/**
+ * deserializeAws_restJson1PromptSummaryList
+ */
+const de_PromptSummaryList = (output: any, context: __SerdeContext): PromptSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PromptSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_PropertyValidationExceptionProperty omitted.
 
 // de_PropertyValidationExceptionPropertyList omitted.
 
-// de_Queue omitted.
+/**
+ * deserializeAws_restJson1Queue
+ */
+const de_Queue = (output: any, context: __SerdeContext): Queue => {
+  return take(output, {
+    Description: __expectString,
+    HoursOfOperationId: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MaxContacts: __expectInt32,
+    Name: __expectString,
+    OutboundCallerConfig: _json,
+    QueueArn: __expectString,
+    QueueId: __expectString,
+    Status: __expectString,
+    Tags: _json,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1QueueInfo
@@ -22240,21 +22588,99 @@ const de_QueueInfo = (output: any, context: __SerdeContext): QueueInfo => {
 
 // de_QueueReference omitted.
 
-// de_QueueSearchSummaryList omitted.
+/**
+ * deserializeAws_restJson1QueueSearchSummaryList
+ */
+const de_QueueSearchSummaryList = (output: any, context: __SerdeContext): Queue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Queue(entry, context);
+    });
+  return retVal;
+};
 
-// de_QueueSummary omitted.
+/**
+ * deserializeAws_restJson1QueueSummary
+ */
+const de_QueueSummary = (output: any, context: __SerdeContext): QueueSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    QueueType: __expectString,
+  }) as any;
+};
 
-// de_QueueSummaryList omitted.
+/**
+ * deserializeAws_restJson1QueueSummaryList
+ */
+const de_QueueSummaryList = (output: any, context: __SerdeContext): QueueSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_QueueSummary(entry, context);
+    });
+  return retVal;
+};
 
-// de_QuickConnect omitted.
+/**
+ * deserializeAws_restJson1QuickConnect
+ */
+const de_QuickConnect = (output: any, context: __SerdeContext): QuickConnect => {
+  return take(output, {
+    Description: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    QuickConnectARN: __expectString,
+    QuickConnectConfig: _json,
+    QuickConnectId: __expectString,
+    Tags: _json,
+  }) as any;
+};
 
 // de_QuickConnectConfig omitted.
 
-// de_QuickConnectSearchSummaryList omitted.
+/**
+ * deserializeAws_restJson1QuickConnectSearchSummaryList
+ */
+const de_QuickConnectSearchSummaryList = (output: any, context: __SerdeContext): QuickConnect[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_QuickConnect(entry, context);
+    });
+  return retVal;
+};
 
-// de_QuickConnectSummary omitted.
+/**
+ * deserializeAws_restJson1QuickConnectSummary
+ */
+const de_QuickConnectSummary = (output: any, context: __SerdeContext): QuickConnectSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    QuickConnectType: __expectString,
+  }) as any;
+};
 
-// de_QuickConnectSummaryList omitted.
+/**
+ * deserializeAws_restJson1QuickConnectSummaryList
+ */
+const de_QuickConnectSummaryList = (output: any, context: __SerdeContext): QuickConnectSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_QuickConnectSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_ReadOnlyFieldInfo omitted.
 
@@ -22270,9 +22696,39 @@ const de_QueueInfo = (output: any, context: __SerdeContext): QueueInfo => {
 
 // de_RequiredTaskTemplateFields omitted.
 
-// de_RoutingProfile omitted.
+/**
+ * deserializeAws_restJson1RoutingProfile
+ */
+const de_RoutingProfile = (output: any, context: __SerdeContext): RoutingProfile => {
+  return take(output, {
+    AgentAvailabilityTimer: __expectString,
+    DefaultOutboundQueueId: __expectString,
+    Description: __expectString,
+    InstanceId: __expectString,
+    IsDefault: __expectBoolean,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MediaConcurrencies: _json,
+    Name: __expectString,
+    NumberOfAssociatedQueues: __expectLong,
+    NumberOfAssociatedUsers: __expectLong,
+    RoutingProfileArn: __expectString,
+    RoutingProfileId: __expectString,
+    Tags: _json,
+  }) as any;
+};
 
-// de_RoutingProfileList omitted.
+/**
+ * deserializeAws_restJson1RoutingProfileList
+ */
+const de_RoutingProfileList = (output: any, context: __SerdeContext): RoutingProfile[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RoutingProfile(entry, context);
+    });
+  return retVal;
+};
 
 // de_RoutingProfileQueueConfigSummary omitted.
 
@@ -22280,9 +22736,30 @@ const de_QueueInfo = (output: any, context: __SerdeContext): QueueInfo => {
 
 // de_RoutingProfileReference omitted.
 
-// de_RoutingProfileSummary omitted.
+/**
+ * deserializeAws_restJson1RoutingProfileSummary
+ */
+const de_RoutingProfileSummary = (output: any, context: __SerdeContext): RoutingProfileSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
 
-// de_RoutingProfileSummaryList omitted.
+/**
+ * deserializeAws_restJson1RoutingProfileSummaryList
+ */
+const de_RoutingProfileSummaryList = (output: any, context: __SerdeContext): RoutingProfileSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RoutingProfileSummary(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1Rule
@@ -22362,7 +22839,23 @@ const de_SecurityKeysList = (output: any, context: __SerdeContext): SecurityKey[
   return retVal;
 };
 
-// de_SecurityProfile omitted.
+/**
+ * deserializeAws_restJson1SecurityProfile
+ */
+const de_SecurityProfile = (output: any, context: __SerdeContext): SecurityProfile => {
+  return take(output, {
+    AllowedAccessControlTags: _json,
+    Arn: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrganizationResourceId: __expectString,
+    SecurityProfileName: __expectString,
+    TagRestrictedResources: _json,
+    Tags: _json,
+  }) as any;
+};
 
 // de_SecurityProfileIds omitted.
 
@@ -22370,9 +22863,30 @@ const de_SecurityKeysList = (output: any, context: __SerdeContext): SecurityKey[
 
 // de_SecurityProfilesSearchSummaryList omitted.
 
-// de_SecurityProfileSummary omitted.
+/**
+ * deserializeAws_restJson1SecurityProfileSummary
+ */
+const de_SecurityProfileSummary = (output: any, context: __SerdeContext): SecurityProfileSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
 
-// de_SecurityProfileSummaryList omitted.
+/**
+ * deserializeAws_restJson1SecurityProfileSummaryList
+ */
+const de_SecurityProfileSummaryList = (output: any, context: __SerdeContext): SecurityProfileSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SecurityProfileSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_SendNotificationActionDefinition omitted.
 
@@ -22489,7 +23003,25 @@ const de_ThresholdV2 = (output: any, context: __SerdeContext): ThresholdV2 => {
 
 // de_UseCaseSummaryList omitted.
 
-// de_User omitted.
+/**
+ * deserializeAws_restJson1User
+ */
+const de_User = (output: any, context: __SerdeContext): User => {
+  return take(output, {
+    Arn: __expectString,
+    DirectoryUserId: __expectString,
+    HierarchyGroupId: __expectString,
+    Id: __expectString,
+    IdentityInfo: _json,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PhoneConfig: _json,
+    RoutingProfileId: __expectString,
+    SecurityProfileIds: _json,
+    Tags: _json,
+    Username: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1UserData
@@ -22536,9 +23068,30 @@ const de_UserDataList = (output: any, context: __SerdeContext): UserData[] => {
 
 // de_UserSearchSummaryList omitted.
 
-// de_UserSummary omitted.
+/**
+ * deserializeAws_restJson1UserSummary
+ */
+const de_UserSummary = (output: any, context: __SerdeContext): UserSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Username: __expectString,
+  }) as any;
+};
 
-// de_UserSummaryList omitted.
+/**
+ * deserializeAws_restJson1UserSummaryList
+ */
+const de_UserSummaryList = (output: any, context: __SerdeContext): UserSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_UserSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_UserTagMap omitted.
 

@@ -78,6 +78,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedRegion: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -15,7 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeUserHierarchyStructureRequest, DescribeUserHierarchyStructureResponse } from "../models/models_0";
+import { DescribeUserHierarchyStructureRequest } from "../models/models_0";
+import { DescribeUserHierarchyStructureResponse } from "../models/models_1";
 import {
   de_DescribeUserHierarchyStructureCommand,
   se_DescribeUserHierarchyStructureCommand,
@@ -60,26 +61,36 @@ export interface DescribeUserHierarchyStructureCommandOutput
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //     LevelTwo: {
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //     LevelThree: {
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //     LevelFour: {
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //     LevelFive: {
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   },
  * // };

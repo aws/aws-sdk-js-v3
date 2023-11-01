@@ -66,6 +66,8 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * //     TagRestrictedResources: [ // TagRestrictedResourceList
  * //       "STRING_VALUE",
  * //     ],
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedRegion: "STRING_VALUE",
  * //   },
  * // };
  *

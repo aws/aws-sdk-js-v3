@@ -26,6 +26,7 @@ import {
   EvaluationStatus,
   EventSourceName,
   HierarchyGroupSummary,
+  HierarchyLevel,
   HoursOfOperation,
   HoursOfOperationConfig,
   InstanceAttributeType,
@@ -56,11 +57,88 @@ import {
   TrafficDistributionGroupStatus,
   UseCaseType,
   UserPhoneConfig,
+  View,
+  ViewFilterSensitiveLog,
   ViewStatus,
   ViewType,
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Contains information about a hierarchy structure.</p>
+ */
+export interface HierarchyStructure {
+  /**
+   * @public
+   * <p>Information about level one.</p>
+   */
+  LevelOne?: HierarchyLevel;
+
+  /**
+   * @public
+   * <p>Information about level two.</p>
+   */
+  LevelTwo?: HierarchyLevel;
+
+  /**
+   * @public
+   * <p>Information about level three.</p>
+   */
+  LevelThree?: HierarchyLevel;
+
+  /**
+   * @public
+   * <p>Information about level four.</p>
+   */
+  LevelFour?: HierarchyLevel;
+
+  /**
+   * @public
+   * <p>Information about level five.</p>
+   */
+  LevelFive?: HierarchyLevel;
+}
+
+/**
+ * @public
+ */
+export interface DescribeUserHierarchyStructureResponse {
+  /**
+   * @public
+   * <p>Information about the hierarchy structure.</p>
+   */
+  HierarchyStructure?: HierarchyStructure;
+}
+
+/**
+ * @public
+ */
+export interface DescribeViewRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ViewId of the view. This must be an ARN for Amazon Web Services managed views.</p>
+   */
+  ViewId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeViewResponse {
+  /**
+   * @public
+   * <p>All view data is contained within the View object.</p>
+   */
+  View?: View;
+}
 
 /**
  * @public
@@ -2354,6 +2432,18 @@ export interface GetPromptFileResponse {
    *    the prompt in S3.</p>
    */
   PromptPresignedUrl?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
 }
 
 /**
@@ -3671,6 +3761,18 @@ export interface HoursOfOperationSummary {
    * <p>The name of the hours of operation.</p>
    */
   Name?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
 }
 
 /**
@@ -4328,6 +4430,18 @@ export interface PromptSummary {
    * <p>The name of the prompt.</p>
    */
   Name?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
 }
 
 /**
@@ -4406,6 +4520,18 @@ export interface QuickConnectSummary {
    *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
    */
   QuickConnectType?: QuickConnectType;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
 }
 
 /**
@@ -4423,6 +4549,18 @@ export interface ListQueueQuickConnectsResponse {
    * <p>Information about the quick connects.</p>
    */
   QuickConnectSummaryList?: QuickConnectSummary[];
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
 }
 
 /**
@@ -4497,6 +4635,18 @@ export interface QueueSummary {
    * <p>The type of queue.</p>
    */
   QueueType?: QueueType;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
 }
 
 /**
@@ -4655,6 +4805,18 @@ export interface ListRoutingProfileQueuesResponse {
    * <p>Information about the routing profiles.</p>
    */
   RoutingProfileQueueConfigSummaryList?: RoutingProfileQueueConfigSummary[];
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
 }
 
 /**
@@ -4703,6 +4865,18 @@ export interface RoutingProfileSummary {
    * <p>The name of the routing profile.</p>
    */
   Name?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
 }
 
 /**
@@ -4940,6 +5114,18 @@ export interface ListSecurityProfileApplicationsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
 }
 
 /**
@@ -4989,6 +5175,18 @@ export interface ListSecurityProfilePermissionsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
 }
 
 /**
@@ -5037,6 +5235,18 @@ export interface SecurityProfileSummary {
    * <p>The name of the security profile.</p>
    */
   Name?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
 }
 
 /**
@@ -5529,6 +5739,18 @@ export interface UserSummary {
    * <p>The Amazon Connect user name of the user account.</p>
    */
   Username?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
 }
 
 /**
@@ -5554,8 +5776,7 @@ export interface ListUsersResponse {
 export interface ListViewsRequest {
   /**
    * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
-   *    the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5567,8 +5788,8 @@ export interface ListViewsRequest {
 
   /**
    * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in
-   *    the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
    */
   NextToken?: string;
 
@@ -5611,7 +5832,7 @@ export interface ViewSummary {
   /**
    * @public
    * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
-   *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
+   *    <code>PUBLISHED</code> status will initiate validation on the content.</p>
    */
   Status?: ViewStatus;
 
@@ -5634,8 +5855,8 @@ export interface ListViewsResponse {
 
   /**
    * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in
-   *    the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
    */
   NextToken?: string;
 }
@@ -5646,22 +5867,20 @@ export interface ListViewsResponse {
 export interface ListViewVersionsRequest {
   /**
    * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
-   *    the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
    * @public
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
-   *    used.</p>
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
    */
   ViewId: string | undefined;
 
   /**
    * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in
-   *    the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
    */
   NextToken?: string;
 
@@ -5732,8 +5951,8 @@ export interface ListViewVersionsResponse {
 
   /**
    * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in
-   *    the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
    */
   NextToken?: string;
 }
@@ -8348,121 +8567,12 @@ export const ParticipantTimerType = {
 export type ParticipantTimerType = (typeof ParticipantTimerType)[keyof typeof ParticipantTimerType];
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const ParticipantTimerAction = {
-  Unset: "Unset",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantTimerAction = (typeof ParticipantTimerAction)[keyof typeof ParticipantTimerAction];
-
-/**
- * @public
- * <p>The value of the timer. Either the timer action (<code>Unset</code> to delete the timer), or
- *    the duration of the timer in minutes. Only one value can be set.</p>
- *          <p>For more information about how chat timeouts work, see
- *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
- */
-export type ParticipantTimerValue =
-  | ParticipantTimerValue.ParticipantTimerActionMember
-  | ParticipantTimerValue.ParticipantTimerDurationInMinutesMember
-  | ParticipantTimerValue.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ParticipantTimerValue {
-  /**
-   * @public
-   * <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a
-   *    timer.</p>
-   */
-  export interface ParticipantTimerActionMember {
-    ParticipantTimerAction: ParticipantTimerAction;
-    ParticipantTimerDurationInMinutes?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   * <p>The duration of a timer, in minutes. </p>
-   */
-  export interface ParticipantTimerDurationInMinutesMember {
-    ParticipantTimerAction?: never;
-    ParticipantTimerDurationInMinutes: number;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    ParticipantTimerAction?: never;
-    ParticipantTimerDurationInMinutes?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    ParticipantTimerAction: (value: ParticipantTimerAction) => T;
-    ParticipantTimerDurationInMinutes: (value: number) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ParticipantTimerValue, visitor: Visitor<T>): T => {
-    if (value.ParticipantTimerAction !== undefined) return visitor.ParticipantTimerAction(value.ParticipantTimerAction);
-    if (value.ParticipantTimerDurationInMinutes !== undefined)
-      return visitor.ParticipantTimerDurationInMinutes(value.ParticipantTimerDurationInMinutes);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- * <p>Configuration information for the timer. After the timer configuration is set, it persists
- *    for the duration of the chat. It persists across new contacts in the chain, for example, transfer
- *    contacts.</p>
- *          <p>For more information about how chat timeouts work, see
- *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
- */
-export interface ParticipantTimerConfiguration {
-  /**
-   * @public
-   * <p>The role of the participant in the chat conversation.</p>
-   */
-  ParticipantRole: TimerEligibleParticipantRoles | undefined;
-
-  /**
-   * @public
-   * <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human
-   *    chat participant as idle. <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to
-   *    automatically disconnecting a chat participant due to idleness.</p>
-   */
-  TimerType: ParticipantTimerType | undefined;
-
-  /**
-   * @public
-   * <p>The value of the timer. Either the timer action (Unset to delete the timer), or the duration
-   *    of the timer in minutes. Only one value can be set.</p>
-   */
-  TimerValue: ParticipantTimerValue | undefined;
-}
-
-/**
- * @public
- * <p>Configuration information for the chat participant role.</p>
- */
-export interface ChatParticipantRoleConfig {
-  /**
-   * @public
-   * <p>A list of participant timers. You can specify any unique combination of role and timer type.
-   *    Duplicate entries error out the request with a 400.</p>
-   */
-  ParticipantTimerConfigList: ParticipantTimerConfiguration[] | undefined;
-}
+export const DescribeViewResponseFilterSensitiveLog = (obj: DescribeViewResponse): any => ({
+  ...obj,
+  ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
+});
 
 /**
  * @internal

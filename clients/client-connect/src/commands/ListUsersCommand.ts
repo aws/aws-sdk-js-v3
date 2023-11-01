@@ -58,6 +58,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       Username: "STRING_VALUE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

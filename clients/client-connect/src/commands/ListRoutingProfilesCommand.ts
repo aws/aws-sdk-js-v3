@@ -60,6 +60,8 @@ export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesRes
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -61,31 +61,43 @@ export interface DescribeUserHierarchyGroupCommandOutput extends DescribeUserHie
  * //         Id: "STRING_VALUE",
  * //         Arn: "STRING_VALUE",
  * //         Name: "STRING_VALUE",
+ * //         LastModifiedTime: new Date("TIMESTAMP"),
+ * //         LastModifiedRegion: "STRING_VALUE",
  * //       },
  * //       LevelTwo: {
  * //         Id: "STRING_VALUE",
  * //         Arn: "STRING_VALUE",
  * //         Name: "STRING_VALUE",
+ * //         LastModifiedTime: new Date("TIMESTAMP"),
+ * //         LastModifiedRegion: "STRING_VALUE",
  * //       },
  * //       LevelThree: {
  * //         Id: "STRING_VALUE",
  * //         Arn: "STRING_VALUE",
  * //         Name: "STRING_VALUE",
+ * //         LastModifiedTime: new Date("TIMESTAMP"),
+ * //         LastModifiedRegion: "STRING_VALUE",
  * //       },
  * //       LevelFour: {
  * //         Id: "STRING_VALUE",
  * //         Arn: "STRING_VALUE",
  * //         Name: "STRING_VALUE",
+ * //         LastModifiedTime: new Date("TIMESTAMP"),
+ * //         LastModifiedRegion: "STRING_VALUE",
  * //       },
  * //       LevelFive: {
  * //         Id: "STRING_VALUE",
  * //         Arn: "STRING_VALUE",
  * //         Name: "STRING_VALUE",
+ * //         LastModifiedTime: new Date("TIMESTAMP"),
+ * //         LastModifiedRegion: "STRING_VALUE",
  * //       },
  * //     },
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedRegion: "STRING_VALUE",
  * //   },
  * // };
  *

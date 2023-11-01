@@ -74,6 +74,8 @@ export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOp
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedRegion: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -61,8 +61,12 @@ export interface ListQueueQuickConnectsCommandOutput extends ListQueueQuickConne
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastModifiedRegion: "STRING_VALUE",
  * // };
  *
  * ```

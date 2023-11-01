@@ -64,6 +64,8 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  * //       Channel: "VOICE" || "CHAT" || "TASK", // required
  * //     },
  * //   ],
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastModifiedRegion: "STRING_VALUE",
  * // };
  *
  * ```

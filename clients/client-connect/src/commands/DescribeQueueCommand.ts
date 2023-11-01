@@ -68,6 +68,8 @@ export interface DescribeQueueCommandOutput extends DescribeQueueResponse, __Met
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedRegion: "STRING_VALUE",
  * //   },
  * // };
  *

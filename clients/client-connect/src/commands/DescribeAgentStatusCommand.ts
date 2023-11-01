@@ -63,6 +63,8 @@ export interface DescribeAgentStatusCommandOutput extends DescribeAgentStatusRes
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedRegion: "STRING_VALUE",
  * //   },
  * // };
  *

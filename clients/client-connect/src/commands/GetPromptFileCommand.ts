@@ -52,6 +52,8 @@ export interface GetPromptFileCommandOutput extends GetPromptFileResponse, __Met
  * const response = await client.send(command);
  * // { // GetPromptFileResponse
  * //   PromptPresignedUrl: "STRING_VALUE",
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastModifiedRegion: "STRING_VALUE",
  * // };
  *
  * ```

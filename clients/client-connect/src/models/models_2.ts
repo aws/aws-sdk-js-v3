@@ -29,9 +29,9 @@ import {
   ViewStatus,
 } from "./models_0";
 import {
-  ChatParticipantRoleConfig,
   HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
+  ParticipantTimerType,
   PromptSearchFilter,
   QueueSearchFilter,
   QuickConnectSearchFilter,
@@ -41,8 +41,126 @@ import {
   SignInConfig,
   StringCondition,
   TelephonyConfig,
+  TimerEligibleParticipantRoles,
   UserSearchFilter,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantTimerAction = {
+  Unset: "Unset",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantTimerAction = (typeof ParticipantTimerAction)[keyof typeof ParticipantTimerAction];
+
+/**
+ * @public
+ * <p>The value of the timer. Either the timer action (<code>Unset</code> to delete the timer), or
+ *    the duration of the timer in minutes. Only one value can be set.</p>
+ *          <p>For more information about how chat timeouts work, see
+ *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ */
+export type ParticipantTimerValue =
+  | ParticipantTimerValue.ParticipantTimerActionMember
+  | ParticipantTimerValue.ParticipantTimerDurationInMinutesMember
+  | ParticipantTimerValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ParticipantTimerValue {
+  /**
+   * @public
+   * <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a
+   *    timer.</p>
+   */
+  export interface ParticipantTimerActionMember {
+    ParticipantTimerAction: ParticipantTimerAction;
+    ParticipantTimerDurationInMinutes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The duration of a timer, in minutes. </p>
+   */
+  export interface ParticipantTimerDurationInMinutesMember {
+    ParticipantTimerAction?: never;
+    ParticipantTimerDurationInMinutes: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ParticipantTimerAction?: never;
+    ParticipantTimerDurationInMinutes?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ParticipantTimerAction: (value: ParticipantTimerAction) => T;
+    ParticipantTimerDurationInMinutes: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ParticipantTimerValue, visitor: Visitor<T>): T => {
+    if (value.ParticipantTimerAction !== undefined) return visitor.ParticipantTimerAction(value.ParticipantTimerAction);
+    if (value.ParticipantTimerDurationInMinutes !== undefined)
+      return visitor.ParticipantTimerDurationInMinutes(value.ParticipantTimerDurationInMinutes);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>Configuration information for the timer. After the timer configuration is set, it persists
+ *    for the duration of the chat. It persists across new contacts in the chain, for example, transfer
+ *    contacts.</p>
+ *          <p>For more information about how chat timeouts work, see
+ *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ */
+export interface ParticipantTimerConfiguration {
+  /**
+   * @public
+   * <p>The role of the participant in the chat conversation.</p>
+   */
+  ParticipantRole: TimerEligibleParticipantRoles | undefined;
+
+  /**
+   * @public
+   * <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human
+   *    chat participant as idle. <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to
+   *    automatically disconnecting a chat participant due to idleness.</p>
+   */
+  TimerType: ParticipantTimerType | undefined;
+
+  /**
+   * @public
+   * <p>The value of the timer. Either the timer action (Unset to delete the timer), or the duration
+   *    of the timer in minutes. Only one value can be set.</p>
+   */
+  TimerValue: ParticipantTimerValue | undefined;
+}
+
+/**
+ * @public
+ * <p>Configuration information for the chat participant role.</p>
+ */
+export interface ChatParticipantRoleConfig {
+  /**
+   * @public
+   * <p>A list of participant timers. You can specify any unique combination of role and timer type.
+   *    Duplicate entries error out the request with a 400.</p>
+   */
+  ParticipantTimerConfigList: ParticipantTimerConfiguration[] | undefined;
+}
 
 /**
  * @public
@@ -219,7 +337,9 @@ export interface UpdatePromptRequest {
 
   /**
    * @public
-   * <p>The URI for the S3 bucket where the prompt is stored.</p>
+   * <p>The URI for the S3 bucket where the prompt is stored. You can provide S3 pre-signed URLs returned by the
+   * <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetPromptFile.html">GetPromptFile</a>
+   *  API instead of providing S3 URIs.</p>
    */
   S3Uri?: string;
 }
@@ -1020,22 +1140,20 @@ export interface UpdateUserSecurityProfilesRequest {
 export interface UpdateViewContentRequest {
   /**
    * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
-   *    the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
    * @public
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
-   *    used.</p>
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
    */
   ViewId: string | undefined;
 
   /**
    * @public
    * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
-   *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
+   *    <code>PUBLISHED</code> status will initiate validation on the content.</p>
    */
   Status: ViewStatus | undefined;
 
@@ -1065,15 +1183,13 @@ export interface UpdateViewContentResponse {
 export interface UpdateViewMetadataRequest {
   /**
    * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
-   *    the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
    * @public
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
-   *    used.</p>
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
    */
   ViewId: string | undefined;
 

@@ -92,6 +92,10 @@ import {
   AssociateTrafficDistributionGroupUserCommandInput,
   AssociateTrafficDistributionGroupUserCommandOutput,
 } from "./commands/AssociateTrafficDistributionGroupUserCommand";
+import {
+  BatchGetFlowAssociationCommandInput,
+  BatchGetFlowAssociationCommandOutput,
+} from "./commands/BatchGetFlowAssociationCommand";
 import { ClaimPhoneNumberCommandInput, ClaimPhoneNumberCommandOutput } from "./commands/ClaimPhoneNumberCommand";
 import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "./commands/CreateAgentStatusCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "./commands/CreateContactFlowCommand";
@@ -657,6 +661,7 @@ export type ServiceInputTypes =
   | AssociateRoutingProfileQueuesCommandInput
   | AssociateSecurityKeyCommandInput
   | AssociateTrafficDistributionGroupUserCommandInput
+  | BatchGetFlowAssociationCommandInput
   | ClaimPhoneNumberCommandInput
   | CreateAgentStatusCommandInput
   | CreateContactFlowCommandInput
@@ -873,6 +878,7 @@ export type ServiceOutputTypes =
   | AssociateRoutingProfileQueuesCommandOutput
   | AssociateSecurityKeyCommandOutput
   | AssociateTrafficDistributionGroupUserCommandOutput
+  | BatchGetFlowAssociationCommandOutput
   | ClaimPhoneNumberCommandOutput
   | CreateAgentStatusCommandOutput
   | CreateContactFlowCommandOutput

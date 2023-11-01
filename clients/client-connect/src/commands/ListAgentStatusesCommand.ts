@@ -63,6 +63,8 @@ export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse,
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Type: "ROUTABLE" || "CUSTOM" || "OFFLINE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

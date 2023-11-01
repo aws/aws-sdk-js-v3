@@ -73,6 +73,8 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedRegion: "STRING_VALUE",
  * //   },
  * // };
  *

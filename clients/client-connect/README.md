@@ -311,6 +311,14 @@ AssociateTrafficDistributionGroupUser
 </details>
 <details>
 <summary>
+BatchGetFlowAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/batchgetflowassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/batchgetflowassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/batchgetflowassociationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 ClaimPhoneNumber
 </summary>
 

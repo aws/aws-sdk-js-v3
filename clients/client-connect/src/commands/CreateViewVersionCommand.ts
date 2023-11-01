@@ -43,9 +43,9 @@ export interface CreateViewVersionCommandOutput extends CreateViewVersionRespons
  * @public
  * <p>Publishes a new version of the view identifier.</p>
  *          <p>Versions are immutable and monotonically increasing.</p>
- *          <p>It returns the highest version if there is no change in content compared to that version. An
- *    error is displayed if the supplied ViewContentSha256 is different from the ViewContentSha256 of
- *    the <code>$LATEST</code> alias.</p>
+ *          <p>It returns the highest version if there is no change in content compared to that version. An error
+ *    is displayed if the supplied ViewContentSha256 is different from the ViewContentSha256 of the
+ *    <code>$LATEST</code> alias.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

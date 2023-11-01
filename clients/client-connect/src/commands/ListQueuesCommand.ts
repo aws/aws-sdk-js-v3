@@ -67,6 +67,8 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       QueueType: "STANDARD" || "AGENT",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

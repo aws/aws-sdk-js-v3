@@ -67,6 +67,8 @@ export interface ListSecurityProfileApplicationsCommandOutput
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastModifiedRegion: "STRING_VALUE",
  * // };
  *
  * ```
