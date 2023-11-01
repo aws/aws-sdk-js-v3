@@ -112,6 +112,10 @@ export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __M
  * @see {@link ModifyScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
  * @throws {@link InvalidScheduledActionFault} (client fault)
  *  <p>The scheduled action is not valid. </p>
  *
@@ -126,6 +130,9 @@ export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __M
  *
  * @throws {@link UnauthorizedOperation} (client fault)
  *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
  *
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>

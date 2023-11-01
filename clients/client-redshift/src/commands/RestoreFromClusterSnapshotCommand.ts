@@ -102,6 +102,7 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  *   ManageMasterPassword: true || false,
  *   MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  *   IpAddressType: "STRING_VALUE",
+ *   MultiAZ: true || false,
  * };
  * const command = new RestoreFromClusterSnapshotCommand(input);
  * const response = await client.send(command);
@@ -283,6 +284,17 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * //     MasterPasswordSecretArn: "STRING_VALUE",
  * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //     IpAddressType: "STRING_VALUE",
+ * //     MultiAZ: "STRING_VALUE",
+ * //     MultiAZSecondary: { // SecondaryClusterInfo
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       ClusterNodes: [
+ * //         {
+ * //           NodeRole: "STRING_VALUE",
+ * //           PrivateIPAddress: "STRING_VALUE",
+ * //           PublicIPAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

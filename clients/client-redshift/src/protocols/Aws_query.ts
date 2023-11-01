@@ -324,6 +324,10 @@ import {
 import { EnableLoggingCommandInput, EnableLoggingCommandOutput } from "../commands/EnableLoggingCommand";
 import { EnableSnapshotCopyCommandInput, EnableSnapshotCopyCommandOutput } from "../commands/EnableSnapshotCopyCommand";
 import {
+  FailoverPrimaryComputeCommandInput,
+  FailoverPrimaryComputeCommandOutput,
+} from "../commands/FailoverPrimaryComputeCommand";
+import {
   GetClusterCredentialsCommandInput,
   GetClusterCredentialsCommandOutput,
 } from "../commands/GetClusterCredentialsCommand";
@@ -613,7 +617,6 @@ import {
   EndpointAlreadyExistsFault,
   EndpointAuthorization,
   EndpointAuthorizationAlreadyExistsFault,
-  EndpointAuthorizationList,
   EndpointAuthorizationsPerClusterLimitExceededFault,
   EndpointNotFoundFault,
   EndpointsPerAuthorizationLimitExceededFault,
@@ -691,6 +694,7 @@ import {
   ScheduledActionType,
   ScheduledActionTypeUnsupportedFault,
   ScheduleDefinitionTypeUnsupportedFault,
+  SecondaryClusterInfo,
   Snapshot,
   SnapshotCopyGrant,
   SnapshotCopyGrantAlreadyExistsFault,
@@ -759,6 +763,7 @@ import {
   EnableLoggingMessage,
   EnableSnapshotCopyMessage,
   EnableSnapshotCopyResult,
+  EndpointAuthorizationList,
   EndpointAuthorizationNotFoundFault,
   Event,
   EventCategoriesMap,
@@ -766,6 +771,8 @@ import {
   EventInfoMap,
   EventsMessage,
   EventSubscriptionsMessage,
+  FailoverPrimaryComputeInputMessage,
+  FailoverPrimaryComputeResult,
   GetClusterCredentialsMessage,
   GetClusterCredentialsWithIAMMessage,
   GetReservedNodeExchangeConfigurationOptionsInputMessage,
@@ -2402,6 +2409,23 @@ export const se_EnableSnapshotCopyCommand = async (
 };
 
 /**
+ * serializeAws_queryFailoverPrimaryComputeCommand
+ */
+export const se_FailoverPrimaryComputeCommand = async (
+  input: FailoverPrimaryComputeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_FailoverPrimaryComputeInputMessage(input, context),
+    Action: "FailoverPrimaryCompute",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryGetClusterCredentialsCommand
  */
 export const se_GetClusterCredentialsCommand = async (
@@ -3136,6 +3160,9 @@ const de_AddPartnerCommandError = async (
     case "UnauthorizedPartnerIntegration":
     case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
       throw await de_UnauthorizedPartnerIntegrationFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3604,6 +3631,9 @@ const de_CopyClusterSnapshotCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ClusterNotFound":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "ClusterSnapshotAlreadyExists":
     case "com.amazonaws.redshift#ClusterSnapshotAlreadyExistsFault":
       throw await de_ClusterSnapshotAlreadyExistsFaultRes(parsedOutput, context);
@@ -3783,6 +3813,9 @@ const de_CreateClusterCommandError = async (
     case "UnauthorizedOperation":
     case "com.amazonaws.redshift#UnauthorizedOperation":
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4378,6 +4411,9 @@ const de_CreateScheduledActionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ClusterNotFound":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidSchedule":
     case "com.amazonaws.redshift#InvalidScheduleFault":
       throw await de_InvalidScheduleFaultRes(parsedOutput, context);
@@ -4396,6 +4432,9 @@ const de_CreateScheduledActionCommandError = async (
     case "UnauthorizedOperation":
     case "com.amazonaws.redshift#UnauthorizedOperation":
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5274,6 +5313,9 @@ const de_DeletePartnerCommandError = async (
     case "UnauthorizedPartnerIntegration":
     case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
       throw await de_UnauthorizedPartnerIntegrationFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -6727,6 +6769,9 @@ const de_DescribeLoggingStatusCommandError = async (
     case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -6874,6 +6919,9 @@ const de_DescribePartnersCommandError = async (
     case "UnauthorizedPartnerIntegration":
     case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
       throw await de_UnauthorizedPartnerIntegrationFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -7076,6 +7124,9 @@ const de_DescribeResizeCommandError = async (
     case "ResizeNotFound":
     case "com.amazonaws.redshift#ResizeNotFoundFault":
       throw await de_ResizeNotFoundFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -7450,6 +7501,9 @@ const de_DisableLoggingCommandError = async (
     case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -7505,6 +7559,9 @@ const de_DisableSnapshotCopyCommandError = async (
     case "UnauthorizedOperation":
     case "com.amazonaws.redshift#UnauthorizedOperation":
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -7615,6 +7672,9 @@ const de_EnableLoggingCommandError = async (
     case "InvalidS3KeyPrefixFault":
     case "com.amazonaws.redshift#InvalidS3KeyPrefixFault":
       throw await de_InvalidS3KeyPrefixFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -7691,6 +7751,61 @@ const de_EnableSnapshotCopyCommandError = async (
     case "UnknownSnapshotCopyRegionFault":
     case "com.amazonaws.redshift#UnknownSnapshotCopyRegionFault":
       throw await de_UnknownSnapshotCopyRegionFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryFailoverPrimaryComputeCommand
+ */
+export const de_FailoverPrimaryComputeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverPrimaryComputeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_FailoverPrimaryComputeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_FailoverPrimaryComputeResult(data.FailoverPrimaryComputeResult, context);
+  const response: FailoverPrimaryComputeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryFailoverPrimaryComputeCommandError
+ */
+const de_FailoverPrimaryComputeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverPrimaryComputeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFound":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
+    case "InvalidClusterState":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
+      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
+    case "UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
+      throw await de_UnauthorizedOperationRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -8237,6 +8352,9 @@ const de_ModifyClusterDbRevisionCommandError = async (
     case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -8772,6 +8890,9 @@ const de_ModifyScheduledActionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ClusterNotFound":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidSchedule":
     case "com.amazonaws.redshift#InvalidScheduleFault":
       throw await de_InvalidScheduleFaultRes(parsedOutput, context);
@@ -8787,6 +8908,9 @@ const de_ModifyScheduledActionCommandError = async (
     case "UnauthorizedOperation":
     case "com.amazonaws.redshift#UnauthorizedOperation":
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -8998,6 +9122,9 @@ const de_PauseClusterCommandError = async (
     case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -9598,6 +9725,9 @@ const de_ResumeClusterCommandError = async (
     case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -9821,6 +9951,9 @@ const de_RotateEncryptionKeyCommandError = async (
     case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -9873,6 +10006,9 @@ const de_UpdatePartnerStatusCommandError = async (
     case "UnauthorizedPartnerIntegration":
     case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
       throw await de_UnauthorizedPartnerIntegrationFaultRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -12361,6 +12497,9 @@ const se_CreateClusterMessage = (input: CreateClusterMessage, context: __SerdeCo
   if (input.IpAddressType != null) {
     entries["IpAddressType"] = input.IpAddressType;
   }
+  if (input.MultiAZ != null) {
+    entries["MultiAZ"] = input.MultiAZ;
+  }
   return entries;
 };
 
@@ -14254,6 +14393,20 @@ const se_EventCategoriesList = (input: string[], context: __SerdeContext): any =
 };
 
 /**
+ * serializeAws_queryFailoverPrimaryComputeInputMessage
+ */
+const se_FailoverPrimaryComputeInputMessage = (
+  input: FailoverPrimaryComputeInputMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ClusterIdentifier != null) {
+    entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryGetClusterCredentialsMessage
  */
 const se_GetClusterCredentialsMessage = (input: GetClusterCredentialsMessage, context: __SerdeContext): any => {
@@ -14608,6 +14761,9 @@ const se_ModifyClusterMessage = (input: ModifyClusterMessage, context: __SerdeCo
   }
   if (input.IpAddressType != null) {
     entries["IpAddressType"] = input.IpAddressType;
+  }
+  if (input.MultiAZ != null) {
+    entries["MultiAZ"] = input.MultiAZ;
   }
   return entries;
 };
@@ -15251,6 +15407,9 @@ const se_RestoreFromClusterSnapshotMessage = (
   }
   if (input.IpAddressType != null) {
     entries["IpAddressType"] = input.IpAddressType;
+  }
+  if (input.MultiAZ != null) {
+    entries["MultiAZ"] = input.MultiAZ;
   }
   return entries;
 };
@@ -16409,6 +16568,12 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
   }
   if (output["IpAddressType"] !== undefined) {
     contents.IpAddressType = __expectString(output["IpAddressType"]);
+  }
+  if (output["MultiAZ"] !== undefined) {
+    contents.MultiAZ = __expectString(output["MultiAZ"]);
+  }
+  if (output["MultiAZSecondary"] !== undefined) {
+    contents.MultiAZSecondary = de_SecondaryClusterInfo(output["MultiAZSecondary"], context);
   }
   return contents;
 };
@@ -18404,6 +18569,17 @@ const de_EventSubscriptionsMessage = (output: any, context: __SerdeContext): Eve
       __getArrayIfSingleItem(output["EventSubscriptionsList"]["EventSubscription"]),
       context
     );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryFailoverPrimaryComputeResult
+ */
+const de_FailoverPrimaryComputeResult = (output: any, context: __SerdeContext): FailoverPrimaryComputeResult => {
+  const contents: any = {};
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = de_Cluster(output["Cluster"], context);
   }
   return contents;
 };
@@ -20743,6 +20919,22 @@ const de_ScheduledSnapshotTimeList = (output: any, context: __SerdeContext): Dat
     .map((entry: any) => {
       return __expectNonNull(__parseRfc3339DateTimeWithOffset(entry));
     });
+};
+
+/**
+ * deserializeAws_querySecondaryClusterInfo
+ */
+const de_SecondaryClusterInfo = (output: any, context: __SerdeContext): SecondaryClusterInfo => {
+  const contents: any = {};
+  if (output["AvailabilityZone"] !== undefined) {
+    contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
+  }
+  if (output.ClusterNodes === "") {
+    contents.ClusterNodes = [];
+  } else if (output["ClusterNodes"] !== undefined && output["ClusterNodes"]["member"] !== undefined) {
+    contents.ClusterNodes = de_ClusterNodesList(__getArrayIfSingleItem(output["ClusterNodes"]["member"]), context);
+  }
+  return contents;
 };
 
 /**

@@ -78,6 +78,9 @@ export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBe
  * @throws {@link InvalidClusterStateFault} (client fault)
  *  <p>The specified cluster is not in the <code>available</code> state. </p>
  *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *

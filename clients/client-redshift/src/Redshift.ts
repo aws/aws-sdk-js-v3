@@ -441,6 +441,11 @@ import {
   EnableSnapshotCopyCommandOutput,
 } from "./commands/EnableSnapshotCopyCommand";
 import {
+  FailoverPrimaryComputeCommand,
+  FailoverPrimaryComputeCommandInput,
+  FailoverPrimaryComputeCommandOutput,
+} from "./commands/FailoverPrimaryComputeCommand";
+import {
   GetClusterCredentialsCommand,
   GetClusterCredentialsCommandInput,
   GetClusterCredentialsCommandOutput,
@@ -718,6 +723,7 @@ const commands = {
   DisassociateDataShareConsumerCommand,
   EnableLoggingCommand,
   EnableSnapshotCopyCommand,
+  FailoverPrimaryComputeCommand,
   GetClusterCredentialsCommand,
   GetClusterCredentialsWithIAMCommand,
   GetReservedNodeExchangeConfigurationOptionsCommand,
@@ -2220,6 +2226,23 @@ export interface Redshift {
     args: EnableSnapshotCopyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableSnapshotCopyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link FailoverPrimaryComputeCommand}
+   */
+  failoverPrimaryCompute(
+    args: FailoverPrimaryComputeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FailoverPrimaryComputeCommandOutput>;
+  failoverPrimaryCompute(
+    args: FailoverPrimaryComputeCommandInput,
+    cb: (err: any, data?: FailoverPrimaryComputeCommandOutput) => void
+  ): void;
+  failoverPrimaryCompute(
+    args: FailoverPrimaryComputeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: FailoverPrimaryComputeCommandOutput) => void
   ): void;
 
   /**

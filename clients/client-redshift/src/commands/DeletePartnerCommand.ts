@@ -75,6 +75,9 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
  * @throws {@link UnauthorizedPartnerIntegrationFault} (client fault)
  *  <p>The partner integration is not authorized.</p>
  *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *

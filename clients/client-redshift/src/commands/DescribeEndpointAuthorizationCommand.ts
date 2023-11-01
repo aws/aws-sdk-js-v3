@@ -14,7 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DescribeEndpointAuthorizationMessage, EndpointAuthorizationList } from "../models/models_0";
+import { DescribeEndpointAuthorizationMessage } from "../models/models_0";
+import { EndpointAuthorizationList } from "../models/models_1";
 import {
   de_DescribeEndpointAuthorizationCommand,
   se_DescribeEndpointAuthorizationCommand,

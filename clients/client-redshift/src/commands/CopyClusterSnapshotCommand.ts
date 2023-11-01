@@ -124,6 +124,10 @@ export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotRes
  * @see {@link CopyClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
  * @throws {@link ClusterSnapshotAlreadyExistsFault} (client fault)
  *  <p>The value specified as a snapshot identifier is already used by an existing
  *             snapshot.</p>

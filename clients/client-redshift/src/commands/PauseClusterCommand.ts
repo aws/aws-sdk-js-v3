@@ -228,6 +228,17 @@ export interface PauseClusterCommandOutput extends PauseClusterResult, __Metadat
  * //     MasterPasswordSecretArn: "STRING_VALUE",
  * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //     IpAddressType: "STRING_VALUE",
+ * //     MultiAZ: "STRING_VALUE",
+ * //     MultiAZSecondary: { // SecondaryClusterInfo
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       ClusterNodes: [
+ * //         {
+ * //           NodeRole: "STRING_VALUE",
+ * //           PrivateIPAddress: "STRING_VALUE",
+ * //           PublicIPAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -245,6 +256,9 @@ export interface PauseClusterCommandOutput extends PauseClusterResult, __Metadat
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
  *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
  *
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>

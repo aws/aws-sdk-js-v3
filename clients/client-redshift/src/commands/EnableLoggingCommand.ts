@@ -101,6 +101,9 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
  *  <p>The string specified for the logging S3 key prefix does not comply with the
  *             documented constraints.</p>
  *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *

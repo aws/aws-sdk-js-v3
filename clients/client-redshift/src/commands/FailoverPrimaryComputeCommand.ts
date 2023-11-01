@@ -15,14 +15,11 @@ import {
 } from "@smithy/types";
 
 import {
-  ModifySnapshotCopyRetentionPeriodMessage,
-  ModifySnapshotCopyRetentionPeriodResult,
-  ModifySnapshotCopyRetentionPeriodResultFilterSensitiveLog,
+  FailoverPrimaryComputeInputMessage,
+  FailoverPrimaryComputeResult,
+  FailoverPrimaryComputeResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  de_ModifySnapshotCopyRetentionPeriodCommand,
-  se_ModifySnapshotCopyRetentionPeriodCommand,
-} from "../protocols/Aws_query";
+import { de_FailoverPrimaryComputeCommand, se_FailoverPrimaryComputeCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -32,41 +29,31 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ModifySnapshotCopyRetentionPeriodCommand}.
+ * The input for {@link FailoverPrimaryComputeCommand}.
  */
-export interface ModifySnapshotCopyRetentionPeriodCommandInput extends ModifySnapshotCopyRetentionPeriodMessage {}
+export interface FailoverPrimaryComputeCommandInput extends FailoverPrimaryComputeInputMessage {}
 /**
  * @public
  *
- * The output of {@link ModifySnapshotCopyRetentionPeriodCommand}.
+ * The output of {@link FailoverPrimaryComputeCommand}.
  */
-export interface ModifySnapshotCopyRetentionPeriodCommandOutput
-  extends ModifySnapshotCopyRetentionPeriodResult,
-    __MetadataBearer {}
+export interface FailoverPrimaryComputeCommandOutput extends FailoverPrimaryComputeResult, __MetadataBearer {}
 
 /**
  * @public
- * <p>Modifies the number of days to retain snapshots in the destination Amazon Web Services Region after
- *             they are copied from the source Amazon Web Services Region. By default, this operation only changes the
- *             retention period of copied automated snapshots. The retention periods for both new and
- *             existing copied automated snapshots are updated with the new retention period. You can
- *             set the manual option to change only the retention periods of copied manual snapshots.
- *             If you set this option, only newly copied manual snapshots have the new retention
- *             period. </p>
+ * <p>Fails over the primary compute unit of the specified Multi-AZ cluster to another Availability Zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, ModifySnapshotCopyRetentionPeriodCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, ModifySnapshotCopyRetentionPeriodCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, FailoverPrimaryComputeCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, FailoverPrimaryComputeCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = { // ModifySnapshotCopyRetentionPeriodMessage
+ * const input = { // FailoverPrimaryComputeInputMessage
  *   ClusterIdentifier: "STRING_VALUE", // required
- *   RetentionPeriod: Number("int"), // required
- *   Manual: true || false,
  * };
- * const command = new ModifySnapshotCopyRetentionPeriodCommand(input);
+ * const command = new FailoverPrimaryComputeCommand(input);
  * const response = await client.send(command);
- * // { // ModifySnapshotCopyRetentionPeriodResult
+ * // { // FailoverPrimaryComputeResult
  * //   Cluster: { // Cluster
  * //     ClusterIdentifier: "STRING_VALUE",
  * //     NodeType: "STRING_VALUE",
@@ -260,10 +247,10 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput
  *
  * ```
  *
- * @param ModifySnapshotCopyRetentionPeriodCommandInput - {@link ModifySnapshotCopyRetentionPeriodCommandInput}
- * @returns {@link ModifySnapshotCopyRetentionPeriodCommandOutput}
- * @see {@link ModifySnapshotCopyRetentionPeriodCommandInput} for command's `input` shape.
- * @see {@link ModifySnapshotCopyRetentionPeriodCommandOutput} for command's `response` shape.
+ * @param FailoverPrimaryComputeCommandInput - {@link FailoverPrimaryComputeCommandInput}
+ * @returns {@link FailoverPrimaryComputeCommandOutput}
+ * @see {@link FailoverPrimaryComputeCommandInput} for command's `input` shape.
+ * @see {@link FailoverPrimaryComputeCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
@@ -273,24 +260,19 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput
  * @throws {@link InvalidClusterStateFault} (client fault)
  *  <p>The specified cluster is not in the <code>available</code> state. </p>
  *
- * @throws {@link InvalidRetentionPeriodFault} (client fault)
- *  <p>The retention period specified is either in the past or is not a valid value.</p>
- *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
- *
- * @throws {@link SnapshotCopyDisabledFault} (client fault)
- *  <p>Cross-region snapshot copy was temporarily disabled. Try your request
- *             again.</p>
- *
  * @throws {@link UnauthorizedOperation} (client fault)
  *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
  *
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
-export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
-  ModifySnapshotCopyRetentionPeriodCommandInput,
-  ModifySnapshotCopyRetentionPeriodCommandOutput,
+export class FailoverPrimaryComputeCommand extends $Command<
+  FailoverPrimaryComputeCommandInput,
+  FailoverPrimaryComputeCommandOutput,
   RedshiftClientResolvedConfig
 > {
   // Start section: command_properties
@@ -308,7 +290,7 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ModifySnapshotCopyRetentionPeriodCommandInput) {
+  constructor(readonly input: FailoverPrimaryComputeCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -321,26 +303,26 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ModifySnapshotCopyRetentionPeriodCommandInput, ModifySnapshotCopyRetentionPeriodCommandOutput> {
+  ): Handler<FailoverPrimaryComputeCommandInput, FailoverPrimaryComputeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ModifySnapshotCopyRetentionPeriodCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, FailoverPrimaryComputeCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RedshiftClient";
-    const commandName = "ModifySnapshotCopyRetentionPeriodCommand";
+    const commandName = "FailoverPrimaryComputeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: ModifySnapshotCopyRetentionPeriodResultFilterSensitiveLog,
+      outputFilterSensitiveLog: FailoverPrimaryComputeResultFilterSensitiveLog,
       [SMITHY_CONTEXT_KEY]: {
         service: "RedshiftServiceVersion20121201",
-        operation: "ModifySnapshotCopyRetentionPeriod",
+        operation: "FailoverPrimaryCompute",
       },
     };
     const { requestHandler } = configuration;
@@ -354,21 +336,15 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: ModifySnapshotCopyRetentionPeriodCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_ModifySnapshotCopyRetentionPeriodCommand(input, context);
+  private serialize(input: FailoverPrimaryComputeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_FailoverPrimaryComputeCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput> {
-    return de_ModifySnapshotCopyRetentionPeriodCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FailoverPrimaryComputeCommandOutput> {
+    return de_FailoverPrimaryComputeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -351,6 +351,10 @@ import {
 import { EnableLoggingCommandInput, EnableLoggingCommandOutput } from "./commands/EnableLoggingCommand";
 import { EnableSnapshotCopyCommandInput, EnableSnapshotCopyCommandOutput } from "./commands/EnableSnapshotCopyCommand";
 import {
+  FailoverPrimaryComputeCommandInput,
+  FailoverPrimaryComputeCommandOutput,
+} from "./commands/FailoverPrimaryComputeCommand";
+import {
   GetClusterCredentialsCommandInput,
   GetClusterCredentialsCommandOutput,
 } from "./commands/GetClusterCredentialsCommand";
@@ -576,6 +580,7 @@ export type ServiceInputTypes =
   | DisassociateDataShareConsumerCommandInput
   | EnableLoggingCommandInput
   | EnableSnapshotCopyCommandInput
+  | FailoverPrimaryComputeCommandInput
   | GetClusterCredentialsCommandInput
   | GetClusterCredentialsWithIAMCommandInput
   | GetReservedNodeExchangeConfigurationOptionsCommandInput
@@ -708,6 +713,7 @@ export type ServiceOutputTypes =
   | DisassociateDataShareConsumerCommandOutput
   | EnableLoggingCommandOutput
   | EnableSnapshotCopyCommandOutput
+  | FailoverPrimaryComputeCommandOutput
   | GetClusterCredentialsCommandOutput
   | GetClusterCredentialsWithIAMCommandOutput
   | GetReservedNodeExchangeConfigurationOptionsCommandOutput

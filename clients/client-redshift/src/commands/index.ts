@@ -89,6 +89,7 @@ export * from "./DisableSnapshotCopyCommand";
 export * from "./DisassociateDataShareConsumerCommand";
 export * from "./EnableLoggingCommand";
 export * from "./EnableSnapshotCopyCommand";
+export * from "./FailoverPrimaryComputeCommand";
 export * from "./GetClusterCredentialsCommand";
 export * from "./GetClusterCredentialsWithIAMCommand";
 export * from "./GetReservedNodeExchangeConfigurationOptionsCommand";

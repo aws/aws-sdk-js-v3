@@ -90,6 +90,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  *   ManageMasterPassword: true || false,
  *   MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  *   IpAddressType: "STRING_VALUE",
+ *   MultiAZ: true || false,
  * };
  * const command = new ModifyClusterCommand(input);
  * const response = await client.send(command);
@@ -271,6 +272,17 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * //     MasterPasswordSecretArn: "STRING_VALUE",
  * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  * //     IpAddressType: "STRING_VALUE",
+ * //     MultiAZ: "STRING_VALUE",
+ * //     MultiAZSecondary: { // SecondaryClusterInfo
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       ClusterNodes: [
+ * //         {
+ * //           NodeRole: "STRING_VALUE",
+ * //           PrivateIPAddress: "STRING_VALUE",
+ * //           PublicIPAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

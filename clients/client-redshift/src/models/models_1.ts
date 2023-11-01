@@ -10,6 +10,7 @@ import {
   ClusterFilterSensitiveLog,
   ClusterSecurityGroup,
   ClusterSubnetGroup,
+  EndpointAuthorization,
   EventSubscription,
   HsmClientCertificate,
   HsmConfiguration,
@@ -29,6 +30,26 @@ import {
   UsageLimitFeatureType,
 } from "./models_0";
 import { RedshiftServiceException as __BaseException } from "./RedshiftServiceException";
+
+/**
+ * @public
+ */
+export interface EndpointAuthorizationList {
+  /**
+   * @public
+   * <p>The authorizations to an endpoint.</p>
+   */
+  EndpointAuthorizationList?: EndpointAuthorization[];
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeEndpointAuthorization</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by the
+   *             <code>MaxRecords</code> parameter.</p>
+   */
+  Marker?: string;
+}
 
 /**
  * @public
@@ -2579,6 +2600,28 @@ export class EndpointAuthorizationNotFoundFault extends __BaseException {
 
 /**
  * @public
+ */
+export interface FailoverPrimaryComputeInputMessage {
+  /**
+   * @public
+   * <p>The unique identifier of the cluster for which the primary compute unit will be failed over to another Availability Zone.</p>
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface FailoverPrimaryComputeResult {
+  /**
+   * @public
+   * <p>Describes a cluster.</p>
+   */
+  Cluster?: Cluster;
+}
+
+/**
+ * @public
  * <p>The request parameters to get cluster credentials.</p>
  */
 export interface GetClusterCredentialsMessage {
@@ -3401,6 +3444,12 @@ export interface ModifyClusterMessage {
    * <p>The IP address types that the cluster supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
    */
   IpAddressType?: string;
+
+  /**
+   * @public
+   * <p>If true and the cluster is currently only deployed in a single Availability Zone, the cluster will be modified to be deployed in two Availability Zones.</p>
+   */
+  MultiAZ?: boolean;
 }
 
 /**
@@ -4563,6 +4612,12 @@ export interface RestoreFromClusterSnapshotMessage {
    * <p>The IP address type for the cluster. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
    */
   IpAddressType?: string;
+
+  /**
+   * @public
+   * <p>If true, the snapshot will be restored to a cluster deployed in two Availability Zones.</p>
+   */
+  MultiAZ?: boolean;
 }
 
 /**
@@ -4870,6 +4925,14 @@ export const DisableSnapshotCopyResultFilterSensitiveLog = (obj: DisableSnapshot
  * @internal
  */
 export const EnableSnapshotCopyResultFilterSensitiveLog = (obj: EnableSnapshotCopyResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const FailoverPrimaryComputeResultFilterSensitiveLog = (obj: FailoverPrimaryComputeResult): any => ({
   ...obj,
   ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
 });

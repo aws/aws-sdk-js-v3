@@ -946,6 +946,14 @@ EnableSnapshotCopy
 </details>
 <details>
 <summary>
+FailoverPrimaryCompute
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/classes/failoverprimarycomputecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/interfaces/failoverprimarycomputecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift/interfaces/failoverprimarycomputecommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetClusterCredentials
 </summary>
 

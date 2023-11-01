@@ -2558,6 +2558,24 @@ export interface ClusterIamRole {
 
 /**
  * @public
+ * <p>The AvailabilityZone and ClusterNodes information of the secondary compute unit.</p>
+ */
+export interface SecondaryClusterInfo {
+  /**
+   * @public
+   * <p>The name of the Availability Zone in which the secondary compute unit of the cluster is located.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * @public
+   * <p>The nodes in the secondary compute unit.</p>
+   */
+  ClusterNodes?: ClusterNode[];
+}
+
+/**
+ * @public
  * <p>Describes cluster attributes that are in a pending state. A change to one or more
  *             the attributes was requested and is in progress or will be applied.</p>
  */
@@ -3330,6 +3348,18 @@ export interface Cluster {
    * <p>The IP address type for the cluster. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
    */
   IpAddressType?: string;
+
+  /**
+   * @public
+   * <p>A boolean value that, if true, indicates that the cluster is deployed in two Availability Zones.</p>
+   */
+  MultiAZ?: string;
+
+  /**
+   * @public
+   * <p>The secondary compute unit of a cluster, if Multi-AZ deployment is turned on.</p>
+   */
+  MultiAZSecondary?: SecondaryClusterInfo;
 }
 
 /**
@@ -4750,6 +4780,12 @@ export interface CreateClusterMessage {
    * <p>The IP address types that the cluster supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
    */
   IpAddressType?: string;
+
+  /**
+   * @public
+   * <p>If true, Amazon Redshift will deploy the cluster in two Availability Zones (AZ).</p>
+   */
+  MultiAZ?: boolean;
 }
 
 /**
@@ -8846,26 +8882,6 @@ export interface DescribeEndpointAuthorizationMessage {
    *             included in the response so that the remaining results can be retrieved.</p>
    */
   MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeEndpointAuthorization</code> request. If this parameter is specified, the
-   *             response includes only records beyond the marker, up to the value specified by the
-   *             <code>MaxRecords</code> parameter.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- */
-export interface EndpointAuthorizationList {
-  /**
-   * @public
-   * <p>The authorizations to an endpoint.</p>
-   */
-  EndpointAuthorizationList?: EndpointAuthorization[];
 
   /**
    * @public

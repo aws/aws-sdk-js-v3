@@ -95,6 +95,9 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  * @throws {@link ResizeNotFoundFault} (client fault)
  *  <p>A resize operation for the specified cluster is not found.</p>
  *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
